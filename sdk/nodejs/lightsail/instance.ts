@@ -40,93 +40,93 @@ export class Instance extends pulumi.CustomResource {
     /**
      * An array of objects representing the add-ons to enable for the new instance.
      */
-    public readonly addOns!: pulumi.Output<outputs.lightsail.InstanceAddOn[] | undefined>;
+    declare public readonly addOns: pulumi.Output<outputs.lightsail.InstanceAddOn[] | undefined>;
     /**
      * The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
      */
-    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZone: pulumi.Output<string | undefined>;
     /**
      * The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints ).
      */
-    public readonly blueprintId!: pulumi.Output<string>;
+    declare public readonly blueprintId: pulumi.Output<string>;
     /**
      * The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).
      */
-    public readonly bundleId!: pulumi.Output<string>;
+    declare public readonly bundleId: pulumi.Output<string>;
     /**
      * The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
      *
      * > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
      */
-    public readonly hardware!: pulumi.Output<outputs.lightsail.InstanceHardware | undefined>;
+    declare public readonly hardware: pulumi.Output<outputs.lightsail.InstanceHardware | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
      */
-    public /*out*/ readonly instanceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly instanceArn: pulumi.Output<string>;
     /**
      * The names to use for your new Lightsail instance.
      */
-    public readonly instanceName!: pulumi.Output<string>;
+    declare public readonly instanceName: pulumi.Output<string>;
     /**
      * IPv6 addresses of the instance
      */
-    public /*out*/ readonly ipv6Addresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly ipv6Addresses: pulumi.Output<string[]>;
     /**
      * Is the IP Address of the Instance is the static IP
      */
-    public /*out*/ readonly isStaticIp!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isStaticIp: pulumi.Output<boolean>;
     /**
      * The name of your key pair.
      */
-    public readonly keyPairName!: pulumi.Output<string | undefined>;
+    declare public readonly keyPairName: pulumi.Output<string | undefined>;
     /**
      * The location for the instance, such as the AWS Region and Availability Zone.
      *
      * > The `Location` property is read-only and should not be specified in a create instance or update instance request.
      */
-    public readonly location!: pulumi.Output<outputs.lightsail.InstanceLocation | undefined>;
+    declare public readonly location: pulumi.Output<outputs.lightsail.InstanceLocation | undefined>;
     /**
      * The public ports and the monthly amount of data transfer allocated for the instance.
      */
-    public readonly networking!: pulumi.Output<outputs.lightsail.InstanceNetworking | undefined>;
+    declare public readonly networking: pulumi.Output<outputs.lightsail.InstanceNetworking | undefined>;
     /**
      * Private IP Address of the Instance
      */
-    public /*out*/ readonly privateIpAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly privateIpAddress: pulumi.Output<string>;
     /**
      * Public IP Address of the Instance
      */
-    public /*out*/ readonly publicIpAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicIpAddress: pulumi.Output<string>;
     /**
      * Resource type of Lightsail instance.
      */
-    public /*out*/ readonly resourceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceType: pulumi.Output<string>;
     /**
      * SSH Key Name of the  Lightsail instance.
      */
-    public /*out*/ readonly sshKeyName!: pulumi.Output<string>;
+    declare public /*out*/ readonly sshKeyName: pulumi.Output<string>;
     /**
      * The status code and the state (for example, `running` ) of the instance.
      *
      * > The `State` property is read-only and should not be specified in a create instance or update instance request.
      */
-    public readonly state!: pulumi.Output<outputs.lightsail.InstanceState | undefined>;
+    declare public readonly state: pulumi.Output<outputs.lightsail.InstanceState | undefined>;
     /**
      * Support code to help identify any issues
      */
-    public /*out*/ readonly supportCode!: pulumi.Output<string>;
+    declare public /*out*/ readonly supportCode: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
      */
-    public readonly userData!: pulumi.Output<string | undefined>;
+    declare public readonly userData: pulumi.Output<string | undefined>;
     /**
      * Username of the  Lightsail instance.
      */
-    public /*out*/ readonly userName!: pulumi.Output<string>;
+    declare public /*out*/ readonly userName: pulumi.Output<string>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.
@@ -139,24 +139,24 @@ export class Instance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.blueprintId === undefined) && !opts.urn) {
+            if (args?.blueprintId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blueprintId'");
             }
-            if ((!args || args.bundleId === undefined) && !opts.urn) {
+            if (args?.bundleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            resourceInputs["addOns"] = args ? args.addOns : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["blueprintId"] = args ? args.blueprintId : undefined;
-            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
-            resourceInputs["hardware"] = args ? args.hardware : undefined;
-            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
-            resourceInputs["keyPairName"] = args ? args.keyPairName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networking"] = args ? args.networking : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userData"] = args ? args.userData : undefined;
+            resourceInputs["addOns"] = args?.addOns;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["blueprintId"] = args?.blueprintId;
+            resourceInputs["bundleId"] = args?.bundleId;
+            resourceInputs["hardware"] = args?.hardware;
+            resourceInputs["instanceName"] = args?.instanceName;
+            resourceInputs["keyPairName"] = args?.keyPairName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networking"] = args?.networking;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userData"] = args?.userData;
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["ipv6Addresses"] = undefined /*out*/;
             resourceInputs["isStaticIp"] = undefined /*out*/;

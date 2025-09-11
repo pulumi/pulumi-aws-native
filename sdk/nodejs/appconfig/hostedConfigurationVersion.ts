@@ -37,35 +37,35 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
     /**
      * The application ID.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * The configuration profile ID.
      */
-    public readonly configurationProfileId!: pulumi.Output<string>;
+    declare public readonly configurationProfileId: pulumi.Output<string>;
     /**
      * The content of the configuration or the configuration data.
      */
-    public readonly content!: pulumi.Output<string>;
+    declare public readonly content: pulumi.Output<string>;
     /**
      * A standard MIME type describing the format of the configuration content.
      */
-    public readonly contentType!: pulumi.Output<string>;
+    declare public readonly contentType: pulumi.Output<string>;
     /**
      * A description of the hosted configuration version.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
      */
-    public readonly latestVersionNumber!: pulumi.Output<number | undefined>;
+    declare public readonly latestVersionNumber: pulumi.Output<number | undefined>;
     /**
      * A user-defined label for an AWS AppConfig hosted configuration version.
      */
-    public readonly versionLabel!: pulumi.Output<string | undefined>;
+    declare public readonly versionLabel: pulumi.Output<string | undefined>;
     /**
      * Current version number of hosted configuration version.
      */
-    public /*out*/ readonly versionNumber!: pulumi.Output<string>;
+    declare public /*out*/ readonly versionNumber: pulumi.Output<string>;
 
     /**
      * Create a HostedConfigurationVersion resource with the given unique name, arguments, and options.
@@ -78,25 +78,25 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.configurationProfileId === undefined) && !opts.urn) {
+            if (args?.configurationProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationProfileId'");
             }
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.contentType === undefined) && !opts.urn) {
+            if (args?.contentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentType'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["configurationProfileId"] = args ? args.configurationProfileId : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["latestVersionNumber"] = args ? args.latestVersionNumber : undefined;
-            resourceInputs["versionLabel"] = args ? args.versionLabel : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["configurationProfileId"] = args?.configurationProfileId;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["latestVersionNumber"] = args?.latestVersionNumber;
+            resourceInputs["versionLabel"] = args?.versionLabel;
             resourceInputs["versionNumber"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;

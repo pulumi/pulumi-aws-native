@@ -40,25 +40,25 @@ export class ResourceSet extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the resource set.
      */
-    public /*out*/ readonly resourceSetArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceSetArn: pulumi.Output<string>;
     /**
      * The name of the resource set to create.
      */
-    public readonly resourceSetName!: pulumi.Output<string | undefined>;
+    declare public readonly resourceSetName: pulumi.Output<string | undefined>;
     /**
      * The resource type of the resources in the resource set. Enter one of the following values for resource type: 
      *
      * AWS: :AutoScaling: :AutoScalingGroup, AWS: :CloudWatch: :Alarm, AWS: :EC2: :CustomerGateway, AWS: :DynamoDB: :Table, AWS: :EC2: :Volume, AWS: :ElasticLoadBalancing: :LoadBalancer, AWS: :ElasticLoadBalancingV2: :LoadBalancer, AWS: :MSK: :Cluster, AWS: :RDS: :DBCluster, AWS: :Route53: :HealthCheck, AWS: :SQS: :Queue, AWS: :SNS: :Topic, AWS: :SNS: :Subscription, AWS: :EC2: :VPC, AWS: :EC2: :VPNConnection, AWS: :EC2: :VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
      */
-    public readonly resourceSetType!: pulumi.Output<string>;
+    declare public readonly resourceSetType: pulumi.Output<string>;
     /**
      * A list of resource objects in the resource set.
      */
-    public readonly resources!: pulumi.Output<outputs.route53recoveryreadiness.ResourceSetResource[]>;
+    declare public readonly resources: pulumi.Output<outputs.route53recoveryreadiness.ResourceSetResource[]>;
     /**
      * A tag to associate with the parameters for a resource set.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ResourceSet resource with the given unique name, arguments, and options.
@@ -71,16 +71,16 @@ export class ResourceSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceSetType === undefined) && !opts.urn) {
+            if (args?.resourceSetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceSetType'");
             }
-            if ((!args || args.resources === undefined) && !opts.urn) {
+            if (args?.resources === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resources'");
             }
-            resourceInputs["resourceSetName"] = args ? args.resourceSetName : undefined;
-            resourceInputs["resourceSetType"] = args ? args.resourceSetType : undefined;
-            resourceInputs["resources"] = args ? args.resources : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["resourceSetName"] = args?.resourceSetName;
+            resourceInputs["resourceSetType"] = args?.resourceSetType;
+            resourceInputs["resources"] = args?.resources;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["resourceSetArn"] = undefined /*out*/;
         } else {
             resourceInputs["resourceSetArn"] = undefined /*out*/;

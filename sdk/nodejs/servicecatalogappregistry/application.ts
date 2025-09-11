@@ -37,35 +37,35 @@ export class Application extends pulumi.CustomResource {
     /**
      * The name of the application. 
      */
-    public /*out*/ readonly applicationName!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationName: pulumi.Output<string>;
     /**
      * The key of the AWS application tag, which is awsApplication. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
      */
-    public /*out*/ readonly applicationTagKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationTagKey: pulumi.Output<string>;
     /**
      * The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value. 
      */
-    public /*out*/ readonly applicationTagValue!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationTagValue: pulumi.Output<string>;
     /**
      * The Amazon resource name (ARN) that specifies the application across services.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The identifier of the application.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The description of the application. 
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the application. 
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Key-value pairs you can use to associate with the application.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -78,9 +78,9 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationName"] = undefined /*out*/;
             resourceInputs["applicationTagKey"] = undefined /*out*/;
             resourceInputs["applicationTagValue"] = undefined /*out*/;

@@ -43,15 +43,15 @@ export class DelegatedAdmin extends pulumi.CustomResource {
     /**
      * The AWS-account identifier of the account to designate as the Security Hub administrator account.
      */
-    public readonly adminAccountId!: pulumi.Output<string>;
+    declare public readonly adminAccountId: pulumi.Output<string>;
     /**
      * The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
      */
-    public /*out*/ readonly delegatedAdminIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly delegatedAdminIdentifier: pulumi.Output<string>;
     /**
      * Whether the delegated Security Hub administrator is set for the organization.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.securityhub.DelegatedAdminStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.securityhub.DelegatedAdminStatus>;
 
     /**
      * Create a DelegatedAdmin resource with the given unique name, arguments, and options.
@@ -64,10 +64,10 @@ export class DelegatedAdmin extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.adminAccountId === undefined) && !opts.urn) {
+            if (args?.adminAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminAccountId'");
             }
-            resourceInputs["adminAccountId"] = args ? args.adminAccountId : undefined;
+            resourceInputs["adminAccountId"] = args?.adminAccountId;
             resourceInputs["delegatedAdminIdentifier"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

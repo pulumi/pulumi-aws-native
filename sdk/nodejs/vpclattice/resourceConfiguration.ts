@@ -40,31 +40,31 @@ export class ResourceConfiguration extends pulumi.CustomResource {
     /**
      * Specifies whether the resource configuration can be associated with a sharable service network.
      */
-    public readonly allowAssociationToSharableServiceNetwork!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowAssociationToSharableServiceNetwork: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the resource configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the resource configuration.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The name of the resource configuration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
      */
-    public readonly portRanges!: pulumi.Output<string[] | undefined>;
+    declare public readonly portRanges: pulumi.Output<string[] | undefined>;
     /**
      * (SINGLE, GROUP) The protocol accepted by the resource configuration.
      */
-    public readonly protocolType!: pulumi.Output<enums.vpclattice.ResourceConfigurationProtocolType | undefined>;
+    declare public readonly protocolType: pulumi.Output<enums.vpclattice.ResourceConfigurationProtocolType | undefined>;
     /**
      * The auth type for the resource configuration.
      */
-    public readonly resourceConfigurationAuthType!: pulumi.Output<enums.vpclattice.ResourceConfigurationAuthType | undefined>;
+    declare public readonly resourceConfigurationAuthType: pulumi.Output<enums.vpclattice.ResourceConfigurationAuthType | undefined>;
     /**
      * Identifies the resource configuration in one of the following ways:
      *
@@ -72,11 +72,11 @@ export class ResourceConfiguration extends pulumi.CustomResource {
      * - *Domain name* - Any domain name that is publicly resolvable.
      * - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
      */
-    public readonly resourceConfigurationDefinition!: pulumi.Output<outputs.vpclattice.ResourceConfigurationDefinition0Properties | outputs.vpclattice.ResourceConfigurationDefinition1Properties | outputs.vpclattice.ResourceConfigurationDefinition2Properties | undefined>;
+    declare public readonly resourceConfigurationDefinition: pulumi.Output<outputs.vpclattice.ResourceConfigurationDefinition0Properties | outputs.vpclattice.ResourceConfigurationDefinition1Properties | outputs.vpclattice.ResourceConfigurationDefinition2Properties | undefined>;
     /**
      * The ID of the group resource configuration.
      */
-    public readonly resourceConfigurationGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly resourceConfigurationGroupId: pulumi.Output<string | undefined>;
     /**
      * The type of resource configuration. A resource configuration can be one of the following types:
      *
@@ -85,15 +85,15 @@ export class ResourceConfiguration extends pulumi.CustomResource {
      * - *CHILD* - A single resource that is part of a group resource configuration.
      * - *ARN* - An AWS resource.
      */
-    public readonly resourceConfigurationType!: pulumi.Output<enums.vpclattice.ResourceConfigurationType>;
+    declare public readonly resourceConfigurationType: pulumi.Output<enums.vpclattice.ResourceConfigurationType>;
     /**
      * The ID of the resource gateway.
      */
-    public readonly resourceGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly resourceGatewayId: pulumi.Output<string | undefined>;
     /**
      * The tags for the resource configuration.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ResourceConfiguration resource with the given unique name, arguments, and options.
@@ -106,19 +106,19 @@ export class ResourceConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceConfigurationType === undefined) && !opts.urn) {
+            if (args?.resourceConfigurationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceConfigurationType'");
             }
-            resourceInputs["allowAssociationToSharableServiceNetwork"] = args ? args.allowAssociationToSharableServiceNetwork : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["portRanges"] = args ? args.portRanges : undefined;
-            resourceInputs["protocolType"] = args ? args.protocolType : undefined;
-            resourceInputs["resourceConfigurationAuthType"] = args ? args.resourceConfigurationAuthType : undefined;
-            resourceInputs["resourceConfigurationDefinition"] = args ? args.resourceConfigurationDefinition : undefined;
-            resourceInputs["resourceConfigurationGroupId"] = args ? args.resourceConfigurationGroupId : undefined;
-            resourceInputs["resourceConfigurationType"] = args ? args.resourceConfigurationType : undefined;
-            resourceInputs["resourceGatewayId"] = args ? args.resourceGatewayId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowAssociationToSharableServiceNetwork"] = args?.allowAssociationToSharableServiceNetwork;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["portRanges"] = args?.portRanges;
+            resourceInputs["protocolType"] = args?.protocolType;
+            resourceInputs["resourceConfigurationAuthType"] = args?.resourceConfigurationAuthType;
+            resourceInputs["resourceConfigurationDefinition"] = args?.resourceConfigurationDefinition;
+            resourceInputs["resourceConfigurationGroupId"] = args?.resourceConfigurationGroupId;
+            resourceInputs["resourceConfigurationType"] = args?.resourceConfigurationType;
+            resourceInputs["resourceGatewayId"] = args?.resourceGatewayId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

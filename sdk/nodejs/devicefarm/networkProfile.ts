@@ -40,57 +40,57 @@ export class NetworkProfile extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The description of the network profile.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The data throughput rate in bits per second, as an integer from 0 to 104857600.
      */
-    public readonly downlinkBandwidthBits!: pulumi.Output<number | undefined>;
+    declare public readonly downlinkBandwidthBits: pulumi.Output<number | undefined>;
     /**
      * Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
      */
-    public readonly downlinkDelayMs!: pulumi.Output<number | undefined>;
+    declare public readonly downlinkDelayMs: pulumi.Output<number | undefined>;
     /**
      * Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
      */
-    public readonly downlinkJitterMs!: pulumi.Output<number | undefined>;
+    declare public readonly downlinkJitterMs: pulumi.Output<number | undefined>;
     /**
      * Proportion of received packets that fail to arrive from 0 to 100 percent.
      */
-    public readonly downlinkLossPercent!: pulumi.Output<number | undefined>;
+    declare public readonly downlinkLossPercent: pulumi.Output<number | undefined>;
     /**
      * The name of the network profile.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the specified project.
      */
-    public readonly projectArn!: pulumi.Output<string>;
+    declare public readonly projectArn: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The data throughput rate in bits per second, as an integer from 0 to 104857600.
      */
-    public readonly uplinkBandwidthBits!: pulumi.Output<number | undefined>;
+    declare public readonly uplinkBandwidthBits: pulumi.Output<number | undefined>;
     /**
      * Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
      */
-    public readonly uplinkDelayMs!: pulumi.Output<number | undefined>;
+    declare public readonly uplinkDelayMs: pulumi.Output<number | undefined>;
     /**
      * Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
      */
-    public readonly uplinkJitterMs!: pulumi.Output<number | undefined>;
+    declare public readonly uplinkJitterMs: pulumi.Output<number | undefined>;
     /**
      * Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
      */
-    public readonly uplinkLossPercent!: pulumi.Output<number | undefined>;
+    declare public readonly uplinkLossPercent: pulumi.Output<number | undefined>;
 
     /**
      * Create a NetworkProfile resource with the given unique name, arguments, and options.
@@ -103,21 +103,21 @@ export class NetworkProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.projectArn === undefined) && !opts.urn) {
+            if (args?.projectArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["downlinkBandwidthBits"] = args ? args.downlinkBandwidthBits : undefined;
-            resourceInputs["downlinkDelayMs"] = args ? args.downlinkDelayMs : undefined;
-            resourceInputs["downlinkJitterMs"] = args ? args.downlinkJitterMs : undefined;
-            resourceInputs["downlinkLossPercent"] = args ? args.downlinkLossPercent : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectArn"] = args ? args.projectArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uplinkBandwidthBits"] = args ? args.uplinkBandwidthBits : undefined;
-            resourceInputs["uplinkDelayMs"] = args ? args.uplinkDelayMs : undefined;
-            resourceInputs["uplinkJitterMs"] = args ? args.uplinkJitterMs : undefined;
-            resourceInputs["uplinkLossPercent"] = args ? args.uplinkLossPercent : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["downlinkBandwidthBits"] = args?.downlinkBandwidthBits;
+            resourceInputs["downlinkDelayMs"] = args?.downlinkDelayMs;
+            resourceInputs["downlinkJitterMs"] = args?.downlinkJitterMs;
+            resourceInputs["downlinkLossPercent"] = args?.downlinkLossPercent;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectArn"] = args?.projectArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["uplinkBandwidthBits"] = args?.uplinkBandwidthBits;
+            resourceInputs["uplinkDelayMs"] = args?.uplinkDelayMs;
+            resourceInputs["uplinkJitterMs"] = args?.uplinkJitterMs;
+            resourceInputs["uplinkLossPercent"] = args?.uplinkLossPercent;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -65,11 +65,11 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
     /**
      * The account ID of the destination registry.
      */
-    public /*out*/ readonly registryId!: pulumi.Output<string>;
+    declare public /*out*/ readonly registryId: pulumi.Output<string>;
     /**
      * The replication configuration for a registry.
      */
-    public readonly replicationConfiguration!: pulumi.Output<outputs.ecr.ReplicationConfiguration>;
+    declare public readonly replicationConfiguration: pulumi.Output<outputs.ecr.ReplicationConfiguration>;
 
     /**
      * Create a ReplicationConfiguration resource with the given unique name, arguments, and options.
@@ -82,10 +82,10 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.replicationConfiguration === undefined) && !opts.urn) {
+            if (args?.replicationConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicationConfiguration'");
             }
-            resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
+            resourceInputs["replicationConfiguration"] = args?.replicationConfiguration;
             resourceInputs["registryId"] = undefined /*out*/;
         } else {
             resourceInputs["registryId"] = undefined /*out*/;

@@ -40,43 +40,43 @@ export class EventTrigger extends pulumi.CustomResource {
     /**
      * The timestamp of when the event trigger was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the event trigger.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The unique name of the domain.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * A list of conditions that determine when an event should trigger the destination.
      */
-    public readonly eventTriggerConditions!: pulumi.Output<outputs.customerprofiles.EventTriggerCondition[]>;
+    declare public readonly eventTriggerConditions: pulumi.Output<outputs.customerprofiles.EventTriggerCondition[]>;
     /**
      * Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
      */
-    public readonly eventTriggerLimits!: pulumi.Output<outputs.customerprofiles.EventTriggerLimits | undefined>;
+    declare public readonly eventTriggerLimits: pulumi.Output<outputs.customerprofiles.EventTriggerLimits | undefined>;
     /**
      * The unique name of the event trigger.
      */
-    public readonly eventTriggerName!: pulumi.Output<string>;
+    declare public readonly eventTriggerName: pulumi.Output<string>;
     /**
      * The timestamp of when the event trigger was most recently updated.
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * The unique name of the object type.
      */
-    public readonly objectTypeName!: pulumi.Output<string>;
+    declare public readonly objectTypeName: pulumi.Output<string>;
     /**
      * The destination is triggered only for profiles that meet the criteria of a segment definition.
      */
-    public readonly segmentFilter!: pulumi.Output<string | undefined>;
+    declare public readonly segmentFilter: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EventTrigger resource with the given unique name, arguments, and options.
@@ -89,23 +89,23 @@ export class EventTrigger extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.eventTriggerConditions === undefined) && !opts.urn) {
+            if (args?.eventTriggerConditions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventTriggerConditions'");
             }
-            if ((!args || args.objectTypeName === undefined) && !opts.urn) {
+            if (args?.objectTypeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectTypeName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["eventTriggerConditions"] = args ? args.eventTriggerConditions : undefined;
-            resourceInputs["eventTriggerLimits"] = args ? args.eventTriggerLimits : undefined;
-            resourceInputs["eventTriggerName"] = args ? args.eventTriggerName : undefined;
-            resourceInputs["objectTypeName"] = args ? args.objectTypeName : undefined;
-            resourceInputs["segmentFilter"] = args ? args.segmentFilter : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["eventTriggerConditions"] = args?.eventTriggerConditions;
+            resourceInputs["eventTriggerLimits"] = args?.eventTriggerLimits;
+            resourceInputs["eventTriggerName"] = args?.eventTriggerName;
+            resourceInputs["objectTypeName"] = args?.objectTypeName;
+            resourceInputs["segmentFilter"] = args?.segmentFilter;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
         } else {

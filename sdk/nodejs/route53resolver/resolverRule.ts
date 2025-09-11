@@ -40,35 +40,35 @@ export class ResolverRule extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the resolver rule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
      */
-    public readonly domainName!: pulumi.Output<string | undefined>;
+    declare public readonly domainName: pulumi.Output<string | undefined>;
     /**
      * The name for the Resolver rule
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The ID of the endpoint that the rule is associated with.
      */
-    public readonly resolverEndpointId!: pulumi.Output<string | undefined>;
+    declare public readonly resolverEndpointId: pulumi.Output<string | undefined>;
     /**
      * The ID of the endpoint that the rule is associated with.
      */
-    public /*out*/ readonly resolverRuleId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resolverRuleId: pulumi.Output<string>;
     /**
      * When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
      */
-    public readonly ruleType!: pulumi.Output<enums.route53resolver.ResolverRuleRuleType>;
+    declare public readonly ruleType: pulumi.Output<enums.route53resolver.ResolverRuleRuleType>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
      */
-    public readonly targetIps!: pulumi.Output<outputs.route53resolver.ResolverRuleTargetAddress[] | undefined>;
+    declare public readonly targetIps: pulumi.Output<outputs.route53resolver.ResolverRuleTargetAddress[] | undefined>;
 
     /**
      * Create a ResolverRule resource with the given unique name, arguments, and options.
@@ -81,15 +81,15 @@ export class ResolverRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ruleType === undefined) && !opts.urn) {
+            if (args?.ruleType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleType'");
             }
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resolverEndpointId"] = args ? args.resolverEndpointId : undefined;
-            resourceInputs["ruleType"] = args ? args.ruleType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetIps"] = args ? args.targetIps : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resolverEndpointId"] = args?.resolverEndpointId;
+            resourceInputs["ruleType"] = args?.ruleType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetIps"] = args?.targetIps;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["resolverRuleId"] = undefined /*out*/;
         } else {

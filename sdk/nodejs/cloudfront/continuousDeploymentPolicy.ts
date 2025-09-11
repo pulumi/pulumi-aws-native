@@ -42,15 +42,15 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
     /**
      * The identifier of the cotinuous deployment policy.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Contains the configuration for a continuous deployment policy.
      */
-    public readonly continuousDeploymentPolicyConfig!: pulumi.Output<outputs.cloudfront.ContinuousDeploymentPolicyConfig>;
+    declare public readonly continuousDeploymentPolicyConfig: pulumi.Output<outputs.cloudfront.ContinuousDeploymentPolicyConfig>;
     /**
      * The date and time when the continuous deployment policy was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
 
     /**
      * Create a ContinuousDeploymentPolicy resource with the given unique name, arguments, and options.
@@ -63,10 +63,10 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.continuousDeploymentPolicyConfig === undefined) && !opts.urn) {
+            if (args?.continuousDeploymentPolicyConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'continuousDeploymentPolicyConfig'");
             }
-            resourceInputs["continuousDeploymentPolicyConfig"] = args ? args.continuousDeploymentPolicyConfig : undefined;
+            resourceInputs["continuousDeploymentPolicyConfig"] = args?.continuousDeploymentPolicyConfig;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {

@@ -40,47 +40,47 @@ export class SyncConfiguration extends pulumi.CustomResource {
     /**
      * The name of the branch of the repository from which resources are to be synchronized,
      */
-    public readonly branch!: pulumi.Output<string>;
+    declare public readonly branch: pulumi.Output<string>;
     /**
      * The source provider repository path of the sync configuration file of the respective SyncType.
      */
-    public readonly configFile!: pulumi.Output<string>;
+    declare public readonly configFile: pulumi.Output<string>;
     /**
      * the ID of the entity that owns the repository.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * The name of the external provider where your third-party code repository is configured.
      */
-    public /*out*/ readonly providerType!: pulumi.Output<enums.codestarconnections.SyncConfigurationProviderType>;
+    declare public /*out*/ readonly providerType: pulumi.Output<enums.codestarconnections.SyncConfigurationProviderType>;
     /**
      * Whether to enable or disable publishing of deployment status to source providers.
      */
-    public readonly publishDeploymentStatus!: pulumi.Output<enums.codestarconnections.SyncConfigurationPublishDeploymentStatus | undefined>;
+    declare public readonly publishDeploymentStatus: pulumi.Output<enums.codestarconnections.SyncConfigurationPublishDeploymentStatus | undefined>;
     /**
      * A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
      */
-    public readonly repositoryLinkId!: pulumi.Output<string>;
+    declare public readonly repositoryLinkId: pulumi.Output<string>;
     /**
      * The name of the repository that is being synced to.
      */
-    public /*out*/ readonly repositoryName!: pulumi.Output<string>;
+    declare public /*out*/ readonly repositoryName: pulumi.Output<string>;
     /**
      * The name of the resource that is being synchronized to the repository.
      */
-    public readonly resourceName!: pulumi.Output<string>;
+    declare public readonly resourceName: pulumi.Output<string>;
     /**
      * The IAM Role that allows AWS to update CloudFormation stacks based on content in the specified repository.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC.
      */
-    public readonly syncType!: pulumi.Output<string>;
+    declare public readonly syncType: pulumi.Output<string>;
     /**
      * When to trigger Git sync to begin the stack update.
      */
-    public readonly triggerResourceUpdateOn!: pulumi.Output<enums.codestarconnections.SyncConfigurationTriggerResourceUpdateOn | undefined>;
+    declare public readonly triggerResourceUpdateOn: pulumi.Output<enums.codestarconnections.SyncConfigurationTriggerResourceUpdateOn | undefined>;
 
     /**
      * Create a SyncConfiguration resource with the given unique name, arguments, and options.
@@ -93,32 +93,32 @@ export class SyncConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.branch === undefined) && !opts.urn) {
+            if (args?.branch === undefined && !opts.urn) {
                 throw new Error("Missing required property 'branch'");
             }
-            if ((!args || args.configFile === undefined) && !opts.urn) {
+            if (args?.configFile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configFile'");
             }
-            if ((!args || args.repositoryLinkId === undefined) && !opts.urn) {
+            if (args?.repositoryLinkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repositoryLinkId'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.syncType === undefined) && !opts.urn) {
+            if (args?.syncType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'syncType'");
             }
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["configFile"] = args ? args.configFile : undefined;
-            resourceInputs["publishDeploymentStatus"] = args ? args.publishDeploymentStatus : undefined;
-            resourceInputs["repositoryLinkId"] = args ? args.repositoryLinkId : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["syncType"] = args ? args.syncType : undefined;
-            resourceInputs["triggerResourceUpdateOn"] = args ? args.triggerResourceUpdateOn : undefined;
+            resourceInputs["branch"] = args?.branch;
+            resourceInputs["configFile"] = args?.configFile;
+            resourceInputs["publishDeploymentStatus"] = args?.publishDeploymentStatus;
+            resourceInputs["repositoryLinkId"] = args?.repositoryLinkId;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["syncType"] = args?.syncType;
+            resourceInputs["triggerResourceUpdateOn"] = args?.triggerResourceUpdateOn;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["providerType"] = undefined /*out*/;
             resourceInputs["repositoryName"] = undefined /*out*/;

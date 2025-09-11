@@ -74,33 +74,33 @@ export class LocationS3 extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Amazon S3 bucket location.
      */
-    public /*out*/ readonly locationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationArn: pulumi.Output<string>;
     /**
      * The URL of the S3 location that was described.
      */
-    public /*out*/ readonly locationUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationUri: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon S3 bucket.
      */
-    public readonly s3BucketArn!: pulumi.Output<string | undefined>;
+    declare public readonly s3BucketArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
      *
      * For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
      */
-    public readonly s3Config!: pulumi.Output<outputs.datasync.LocationS3s3Config>;
+    declare public readonly s3Config: pulumi.Output<outputs.datasync.LocationS3s3Config>;
     /**
      * The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
      */
-    public readonly s3StorageClass!: pulumi.Output<enums.datasync.LocationS3S3StorageClass | undefined>;
+    declare public readonly s3StorageClass: pulumi.Output<enums.datasync.LocationS3S3StorageClass | undefined>;
     /**
      * A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
      */
-    public readonly subdirectory!: pulumi.Output<string | undefined>;
+    declare public readonly subdirectory: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LocationS3 resource with the given unique name, arguments, and options.
@@ -113,14 +113,14 @@ export class LocationS3 extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.s3Config === undefined) && !opts.urn) {
+            if (args?.s3Config === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3Config'");
             }
-            resourceInputs["s3BucketArn"] = args ? args.s3BucketArn : undefined;
-            resourceInputs["s3Config"] = args ? args.s3Config : undefined;
-            resourceInputs["s3StorageClass"] = args ? args.s3StorageClass : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["s3BucketArn"] = args?.s3BucketArn;
+            resourceInputs["s3Config"] = args?.s3Config;
+            resourceInputs["s3StorageClass"] = args?.s3StorageClass;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
         } else {

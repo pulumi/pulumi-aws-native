@@ -40,27 +40,27 @@ export class Crl extends pulumi.CustomResource {
     /**
      * The x509 v3 specified certificate revocation list (CRL).
      */
-    public readonly crlData!: pulumi.Output<string>;
+    declare public readonly crlData: pulumi.Output<string>;
     /**
      * The unique primary identifier of the Crl
      */
-    public /*out*/ readonly crlId!: pulumi.Output<string>;
+    declare public /*out*/ readonly crlId: pulumi.Output<string>;
     /**
      * Specifies whether the certificate revocation list (CRL) is enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the certificate revocation list (CRL).
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of tags to attach to the certificate revocation list (CRL).
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
      */
-    public readonly trustAnchorArn!: pulumi.Output<string | undefined>;
+    declare public readonly trustAnchorArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a Crl resource with the given unique name, arguments, and options.
@@ -73,14 +73,14 @@ export class Crl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.crlData === undefined) && !opts.urn) {
+            if (args?.crlData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'crlData'");
             }
-            resourceInputs["crlData"] = args ? args.crlData : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustAnchorArn"] = args ? args.trustAnchorArn : undefined;
+            resourceInputs["crlData"] = args?.crlData;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trustAnchorArn"] = args?.trustAnchorArn;
             resourceInputs["crlId"] = undefined /*out*/;
         } else {
             resourceInputs["crlData"] = undefined /*out*/;

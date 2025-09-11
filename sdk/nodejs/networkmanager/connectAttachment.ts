@@ -40,75 +40,75 @@ export class ConnectAttachment extends pulumi.CustomResource {
     /**
      * The ID of the attachment.
      */
-    public /*out*/ readonly attachmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentId: pulumi.Output<string>;
     /**
      * The policy rule number associated with the attachment.
      */
-    public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly attachmentPolicyRuleNumber: pulumi.Output<number>;
     /**
      * The type of attachment.
      */
-    public /*out*/ readonly attachmentType!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentType: pulumi.Output<string>;
     /**
      * The ARN of a core network.
      */
-    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly coreNetworkArn: pulumi.Output<string>;
     /**
      * ID of the CoreNetwork that the attachment will be attached to.
      */
-    public readonly coreNetworkId!: pulumi.Output<string>;
+    declare public readonly coreNetworkId: pulumi.Output<string>;
     /**
      * Creation time of the attachment.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Edge location of the attachment.
      */
-    public readonly edgeLocation!: pulumi.Output<string>;
+    declare public readonly edgeLocation: pulumi.Output<string>;
     /**
      * The name of the network function group attachment.
      */
-    public readonly networkFunctionGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly networkFunctionGroupName: pulumi.Output<string | undefined>;
     /**
      * Protocol options for connect attachment
      */
-    public readonly options!: pulumi.Output<outputs.networkmanager.ConnectAttachmentOptions>;
+    declare public readonly options: pulumi.Output<outputs.networkmanager.ConnectAttachmentOptions>;
     /**
      * The ID of the attachment account owner.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
      * The attachment to move from one network function group to another.
      */
-    public readonly proposedNetworkFunctionGroupChange!: pulumi.Output<outputs.networkmanager.ConnectAttachmentProposedNetworkFunctionGroupChange | undefined>;
+    declare public readonly proposedNetworkFunctionGroupChange: pulumi.Output<outputs.networkmanager.ConnectAttachmentProposedNetworkFunctionGroupChange | undefined>;
     /**
      * The attachment to move from one segment to another.
      */
-    public readonly proposedSegmentChange!: pulumi.Output<outputs.networkmanager.ConnectAttachmentProposedSegmentChange | undefined>;
+    declare public readonly proposedSegmentChange: pulumi.Output<outputs.networkmanager.ConnectAttachmentProposedSegmentChange | undefined>;
     /**
      * The attachment resource ARN.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
      * The name of the segment attachment.
      */
-    public /*out*/ readonly segmentName!: pulumi.Output<string>;
+    declare public /*out*/ readonly segmentName: pulumi.Output<string>;
     /**
      * State of the attachment.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Tags for the attachment.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Id of transport attachment
      */
-    public readonly transportAttachmentId!: pulumi.Output<string>;
+    declare public readonly transportAttachmentId: pulumi.Output<string>;
     /**
      * Last update time of the attachment.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a ConnectAttachment resource with the given unique name, arguments, and options.
@@ -121,26 +121,26 @@ export class ConnectAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
+            if (args?.coreNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'coreNetworkId'");
             }
-            if ((!args || args.edgeLocation === undefined) && !opts.urn) {
+            if (args?.edgeLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'edgeLocation'");
             }
-            if ((!args || args.options === undefined) && !opts.urn) {
+            if (args?.options === undefined && !opts.urn) {
                 throw new Error("Missing required property 'options'");
             }
-            if ((!args || args.transportAttachmentId === undefined) && !opts.urn) {
+            if (args?.transportAttachmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transportAttachmentId'");
             }
-            resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
-            resourceInputs["edgeLocation"] = args ? args.edgeLocation : undefined;
-            resourceInputs["networkFunctionGroupName"] = args ? args.networkFunctionGroupName : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["proposedNetworkFunctionGroupChange"] = args ? args.proposedNetworkFunctionGroupChange : undefined;
-            resourceInputs["proposedSegmentChange"] = args ? args.proposedSegmentChange : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transportAttachmentId"] = args ? args.transportAttachmentId : undefined;
+            resourceInputs["coreNetworkId"] = args?.coreNetworkId;
+            resourceInputs["edgeLocation"] = args?.edgeLocation;
+            resourceInputs["networkFunctionGroupName"] = args?.networkFunctionGroupName;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
+            resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transportAttachmentId"] = args?.transportAttachmentId;
             resourceInputs["attachmentId"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;
             resourceInputs["attachmentType"] = undefined /*out*/;

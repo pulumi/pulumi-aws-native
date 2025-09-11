@@ -40,31 +40,31 @@ export class Agent extends pulumi.CustomResource {
     /**
      * List of ActionGroups
      */
-    public readonly actionGroups!: pulumi.Output<outputs.bedrock.AgentActionGroup[] | undefined>;
+    declare public readonly actionGroups: pulumi.Output<outputs.bedrock.AgentActionGroup[] | undefined>;
     /**
      * Arn representation of the Agent.
      */
-    public /*out*/ readonly agentArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentArn: pulumi.Output<string>;
     /**
      * The agent's collaboration settings.
      */
-    public readonly agentCollaboration!: pulumi.Output<enums.bedrock.AgentCollaboration | undefined>;
+    declare public readonly agentCollaboration: pulumi.Output<enums.bedrock.AgentCollaboration | undefined>;
     /**
      * List of Agent Collaborators
      */
-    public readonly agentCollaborators!: pulumi.Output<outputs.bedrock.AgentCollaborator[] | undefined>;
+    declare public readonly agentCollaborators: pulumi.Output<outputs.bedrock.AgentCollaborator[] | undefined>;
     /**
      * Identifier for a resource.
      */
-    public /*out*/ readonly agentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentId: pulumi.Output<string>;
     /**
      * Name for a resource.
      */
-    public readonly agentName!: pulumi.Output<string>;
+    declare public readonly agentName: pulumi.Output<string>;
     /**
      * ARN of a IAM role.
      */
-    public readonly agentResourceRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly agentResourceRoleArn: pulumi.Output<string | undefined>;
     /**
      * The status of the agent and whether it is ready for use. The following statuses are possible:
      *
@@ -76,97 +76,97 @@ export class Agent extends pulumi.CustomResource {
      * - UPDATING – The agent is being updated.
      * - DELETING – The agent is being deleted.
      */
-    public /*out*/ readonly agentStatus!: pulumi.Output<enums.bedrock.AgentStatus>;
+    declare public /*out*/ readonly agentStatus: pulumi.Output<enums.bedrock.AgentStatus>;
     /**
      * Draft Agent Version.
      */
-    public /*out*/ readonly agentVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentVersion: pulumi.Output<string>;
     /**
      * Specifies whether to automatically prepare after creating or updating the agent.
      */
-    public readonly autoPrepare!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoPrepare: pulumi.Output<boolean | undefined>;
     /**
      * Time Stamp.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Contains custom orchestration configurations for the agent.
      */
-    public readonly customOrchestration!: pulumi.Output<outputs.bedrock.AgentCustomOrchestration | undefined>;
+    declare public readonly customOrchestration: pulumi.Output<outputs.bedrock.AgentCustomOrchestration | undefined>;
     /**
      * A KMS key ARN
      */
-    public readonly customerEncryptionKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly customerEncryptionKeyArn: pulumi.Output<string | undefined>;
     /**
      * Description of the Resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Failure Reasons for Error.
      */
-    public /*out*/ readonly failureReasons!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly failureReasons: pulumi.Output<string[]>;
     /**
      * The foundation model used for orchestration by the agent.
      */
-    public readonly foundationModel!: pulumi.Output<string | undefined>;
+    declare public readonly foundationModel: pulumi.Output<string | undefined>;
     /**
      * Details about the guardrail associated with the agent.
      */
-    public readonly guardrailConfiguration!: pulumi.Output<outputs.bedrock.AgentGuardrailConfiguration | undefined>;
+    declare public readonly guardrailConfiguration: pulumi.Output<outputs.bedrock.AgentGuardrailConfiguration | undefined>;
     /**
      * Max Session Time.
      */
-    public readonly idleSessionTtlInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly idleSessionTtlInSeconds: pulumi.Output<number | undefined>;
     /**
      * Instruction for the agent.
      */
-    public readonly instruction!: pulumi.Output<string | undefined>;
+    declare public readonly instruction: pulumi.Output<string | undefined>;
     /**
      * List of Agent Knowledge Bases
      */
-    public readonly knowledgeBases!: pulumi.Output<outputs.bedrock.AgentKnowledgeBase[] | undefined>;
+    declare public readonly knowledgeBases: pulumi.Output<outputs.bedrock.AgentKnowledgeBase[] | undefined>;
     /**
      * Contains memory configuration for the agent.
      */
-    public readonly memoryConfiguration!: pulumi.Output<outputs.bedrock.AgentMemoryConfiguration | undefined>;
+    declare public readonly memoryConfiguration: pulumi.Output<outputs.bedrock.AgentMemoryConfiguration | undefined>;
     /**
      * Specifies the orchestration strategy for the agent.
      */
-    public readonly orchestrationType!: pulumi.Output<enums.bedrock.AgentOrchestrationType | undefined>;
+    declare public readonly orchestrationType: pulumi.Output<enums.bedrock.AgentOrchestrationType | undefined>;
     /**
      * Time Stamp.
      */
-    public /*out*/ readonly preparedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly preparedAt: pulumi.Output<string>;
     /**
      * Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
      */
-    public readonly promptOverrideConfiguration!: pulumi.Output<outputs.bedrock.AgentPromptOverrideConfiguration | undefined>;
+    declare public readonly promptOverrideConfiguration: pulumi.Output<outputs.bedrock.AgentPromptOverrideConfiguration | undefined>;
     /**
      * The recommended actions users can take to resolve an error in failureReasons.
      */
-    public /*out*/ readonly recommendedActions!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly recommendedActions: pulumi.Output<string[]>;
     /**
      * Specifies whether to allow deleting agent while it is in use.
      */
-    public readonly skipResourceInUseCheckOnDelete!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipResourceInUseCheckOnDelete: pulumi.Output<boolean | undefined>;
     /**
      * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
      *
      * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
      * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
      *
      * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
      * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
      */
-    public readonly testAliasTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly testAliasTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Time Stamp.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a Agent resource with the given unique name, arguments, and options.
@@ -179,26 +179,26 @@ export class Agent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["actionGroups"] = args ? args.actionGroups : undefined;
-            resourceInputs["agentCollaboration"] = args ? args.agentCollaboration : undefined;
-            resourceInputs["agentCollaborators"] = args ? args.agentCollaborators : undefined;
-            resourceInputs["agentName"] = args ? args.agentName : undefined;
-            resourceInputs["agentResourceRoleArn"] = args ? args.agentResourceRoleArn : undefined;
-            resourceInputs["autoPrepare"] = args ? args.autoPrepare : undefined;
-            resourceInputs["customOrchestration"] = args ? args.customOrchestration : undefined;
-            resourceInputs["customerEncryptionKeyArn"] = args ? args.customerEncryptionKeyArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["foundationModel"] = args ? args.foundationModel : undefined;
-            resourceInputs["guardrailConfiguration"] = args ? args.guardrailConfiguration : undefined;
-            resourceInputs["idleSessionTtlInSeconds"] = args ? args.idleSessionTtlInSeconds : undefined;
-            resourceInputs["instruction"] = args ? args.instruction : undefined;
-            resourceInputs["knowledgeBases"] = args ? args.knowledgeBases : undefined;
-            resourceInputs["memoryConfiguration"] = args ? args.memoryConfiguration : undefined;
-            resourceInputs["orchestrationType"] = args ? args.orchestrationType : undefined;
-            resourceInputs["promptOverrideConfiguration"] = args ? args.promptOverrideConfiguration : undefined;
-            resourceInputs["skipResourceInUseCheckOnDelete"] = args ? args.skipResourceInUseCheckOnDelete : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["testAliasTags"] = args ? args.testAliasTags : undefined;
+            resourceInputs["actionGroups"] = args?.actionGroups;
+            resourceInputs["agentCollaboration"] = args?.agentCollaboration;
+            resourceInputs["agentCollaborators"] = args?.agentCollaborators;
+            resourceInputs["agentName"] = args?.agentName;
+            resourceInputs["agentResourceRoleArn"] = args?.agentResourceRoleArn;
+            resourceInputs["autoPrepare"] = args?.autoPrepare;
+            resourceInputs["customOrchestration"] = args?.customOrchestration;
+            resourceInputs["customerEncryptionKeyArn"] = args?.customerEncryptionKeyArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["foundationModel"] = args?.foundationModel;
+            resourceInputs["guardrailConfiguration"] = args?.guardrailConfiguration;
+            resourceInputs["idleSessionTtlInSeconds"] = args?.idleSessionTtlInSeconds;
+            resourceInputs["instruction"] = args?.instruction;
+            resourceInputs["knowledgeBases"] = args?.knowledgeBases;
+            resourceInputs["memoryConfiguration"] = args?.memoryConfiguration;
+            resourceInputs["orchestrationType"] = args?.orchestrationType;
+            resourceInputs["promptOverrideConfiguration"] = args?.promptOverrideConfiguration;
+            resourceInputs["skipResourceInUseCheckOnDelete"] = args?.skipResourceInUseCheckOnDelete;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["testAliasTags"] = args?.testAliasTags;
             resourceInputs["agentArn"] = undefined /*out*/;
             resourceInputs["agentId"] = undefined /*out*/;
             resourceInputs["agentStatus"] = undefined /*out*/;

@@ -40,19 +40,19 @@ export class ReadinessCheck extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the readiness check.
      */
-    public /*out*/ readonly readinessCheckArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly readinessCheckArn: pulumi.Output<string>;
     /**
      * Name of the ReadinessCheck to create.
      */
-    public readonly readinessCheckName!: pulumi.Output<string | undefined>;
+    declare public readonly readinessCheckName: pulumi.Output<string | undefined>;
     /**
      * The name of the resource set to check.
      */
-    public readonly resourceSetName!: pulumi.Output<string | undefined>;
+    declare public readonly resourceSetName: pulumi.Output<string | undefined>;
     /**
      * A collection of tags associated with a resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ReadinessCheck resource with the given unique name, arguments, and options.
@@ -65,9 +65,9 @@ export class ReadinessCheck extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["readinessCheckName"] = args ? args.readinessCheckName : undefined;
-            resourceInputs["resourceSetName"] = args ? args.resourceSetName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["readinessCheckName"] = args?.readinessCheckName;
+            resourceInputs["resourceSetName"] = args?.resourceSetName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["readinessCheckArn"] = undefined /*out*/;
         } else {
             resourceInputs["readinessCheckArn"] = undefined /*out*/;

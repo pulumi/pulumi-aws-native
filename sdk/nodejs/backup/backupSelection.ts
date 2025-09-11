@@ -40,21 +40,21 @@ export class BackupSelection extends pulumi.CustomResource {
     /**
      * Uniquely identifies the backup selection.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Uniquely identifies a backup plan.
      */
-    public readonly backupPlanId!: pulumi.Output<string>;
+    declare public readonly backupPlanId: pulumi.Output<string>;
     /**
      * Specifies the body of a request to assign a set of resources to a backup plan.
      *
      * It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
      */
-    public readonly backupSelection!: pulumi.Output<outputs.backup.BackupSelectionResourceType>;
+    declare public readonly backupSelection: pulumi.Output<outputs.backup.BackupSelectionResourceType>;
     /**
      * Uniquely identifies a request to assign a set of resources to a backup plan.
      */
-    public /*out*/ readonly selectionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly selectionId: pulumi.Output<string>;
 
     /**
      * Create a BackupSelection resource with the given unique name, arguments, and options.
@@ -67,14 +67,14 @@ export class BackupSelection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.backupPlanId === undefined) && !opts.urn) {
+            if (args?.backupPlanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupPlanId'");
             }
-            if ((!args || args.backupSelection === undefined) && !opts.urn) {
+            if (args?.backupSelection === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupSelection'");
             }
-            resourceInputs["backupPlanId"] = args ? args.backupPlanId : undefined;
-            resourceInputs["backupSelection"] = args ? args.backupSelection : undefined;
+            resourceInputs["backupPlanId"] = args?.backupPlanId;
+            resourceInputs["backupSelection"] = args?.backupSelection;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["selectionId"] = undefined /*out*/;
         } else {

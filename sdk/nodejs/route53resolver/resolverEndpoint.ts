@@ -40,57 +40,57 @@ export class ResolverEndpoint extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the resolver endpoint, such as arn:aws:route53resolver:us-east-1:123456789012:resolver-endpoint/resolver-endpoint-a1bzhi.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
      * - INBOUND: allows DNS queries to your VPC from your network 
      * - OUTBOUND: allows DNS queries from your VPC to your network
      */
-    public readonly direction!: pulumi.Output<string>;
+    declare public readonly direction: pulumi.Output<string>;
     /**
      * The ID of the VPC that you want to create the resolver endpoint in.
      */
-    public /*out*/ readonly hostVpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostVpcId: pulumi.Output<string>;
     /**
      * The number of IP addresses that the resolver endpoint can use for DNS queries.
      */
-    public /*out*/ readonly ipAddressCount!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipAddressCount: pulumi.Output<string>;
     /**
      * The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
      */
-    public readonly ipAddresses!: pulumi.Output<outputs.route53resolver.ResolverEndpointIpAddressRequest[]>;
+    declare public readonly ipAddresses: pulumi.Output<outputs.route53resolver.ResolverEndpointIpAddressRequest[]>;
     /**
      * A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The ARN (Amazon Resource Name) for the Outpost.
      */
-    public readonly outpostArn!: pulumi.Output<string | undefined>;
+    declare public readonly outpostArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon EC2 instance type.
      */
-    public readonly preferredInstanceType!: pulumi.Output<string | undefined>;
+    declare public readonly preferredInstanceType: pulumi.Output<string | undefined>;
     /**
      * Protocols used for the endpoint. DoH-FIPS is applicable for inbound endpoints only.
      */
-    public readonly protocols!: pulumi.Output<string[] | undefined>;
+    declare public readonly protocols: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the resolver endpoint.
      */
-    public /*out*/ readonly resolverEndpointId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resolverEndpointId: pulumi.Output<string>;
     /**
      * The Resolver endpoint IP address type.
      */
-    public readonly resolverEndpointType!: pulumi.Output<enums.route53resolver.ResolverEndpointType | undefined>;
+    declare public readonly resolverEndpointType: pulumi.Output<enums.route53resolver.ResolverEndpointType | undefined>;
     /**
      * The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[]>;
+    declare public readonly securityGroupIds: pulumi.Output<string[]>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ResolverEndpoint resource with the given unique name, arguments, and options.
@@ -103,24 +103,24 @@ export class ResolverEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.direction === undefined) && !opts.urn) {
+            if (args?.direction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'direction'");
             }
-            if ((!args || args.ipAddresses === undefined) && !opts.urn) {
+            if (args?.ipAddresses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipAddresses'");
             }
-            if ((!args || args.securityGroupIds === undefined) && !opts.urn) {
+            if (args?.securityGroupIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupIds'");
             }
-            resourceInputs["direction"] = args ? args.direction : undefined;
-            resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
-            resourceInputs["preferredInstanceType"] = args ? args.preferredInstanceType : undefined;
-            resourceInputs["protocols"] = args ? args.protocols : undefined;
-            resourceInputs["resolverEndpointType"] = args ? args.resolverEndpointType : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["direction"] = args?.direction;
+            resourceInputs["ipAddresses"] = args?.ipAddresses;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outpostArn"] = args?.outpostArn;
+            resourceInputs["preferredInstanceType"] = args?.preferredInstanceType;
+            resourceInputs["protocols"] = args?.protocols;
+            resourceInputs["resolverEndpointType"] = args?.resolverEndpointType;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["hostVpcId"] = undefined /*out*/;
             resourceInputs["ipAddressCount"] = undefined /*out*/;

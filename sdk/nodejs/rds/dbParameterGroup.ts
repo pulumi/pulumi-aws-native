@@ -51,11 +51,11 @@ export class DbParameterGroup extends pulumi.CustomResource {
      *  If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
      *   This value is stored as a lowercase string.
      */
-    public readonly dbParameterGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly dbParameterGroupName: pulumi.Output<string | undefined>;
     /**
      * Provides the customer-specified description for this DB parameter group.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
      *  To list all of the available parameter group families for a DB engine, use the following command:
@@ -79,7 +79,7 @@ export class DbParameterGroup extends pulumi.CustomResource {
      *   +   ``sqlserver-ex`` 
      *   +   ``sqlserver-web``
      */
-    public readonly family!: pulumi.Output<string>;
+    declare public readonly family: pulumi.Output<string>;
     /**
      * A mapping of parameter names and values for the parameter update. You must specify at least one parameter name and value.
      *  For more information about parameter groups, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*, or [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
@@ -87,11 +87,11 @@ export class DbParameterGroup extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
      */
-    public readonly parameters!: pulumi.Output<any | undefined>;
+    declare public readonly parameters: pulumi.Output<any | undefined>;
     /**
      * Tags to assign to the DB parameter group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DbParameterGroup resource with the given unique name, arguments, and options.
@@ -104,17 +104,17 @@ export class DbParameterGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.family === undefined) && !opts.urn) {
+            if (args?.family === undefined && !opts.urn) {
                 throw new Error("Missing required property 'family'");
             }
-            resourceInputs["dbParameterGroupName"] = args ? args.dbParameterGroupName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["family"] = args ? args.family : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dbParameterGroupName"] = args?.dbParameterGroupName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["family"] = args?.family;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["dbParameterGroupName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

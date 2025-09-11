@@ -40,23 +40,23 @@ export class ConnectionAlias extends pulumi.CustomResource {
     /**
      * The identifier of the connection alias, returned as a string.
      */
-    public /*out*/ readonly aliasId!: pulumi.Output<string>;
+    declare public /*out*/ readonly aliasId: pulumi.Output<string>;
     /**
      * The association status of the connection alias.
      */
-    public /*out*/ readonly associations!: pulumi.Output<outputs.workspaces.ConnectionAliasAssociation[]>;
+    declare public /*out*/ readonly associations: pulumi.Output<outputs.workspaces.ConnectionAliasAssociation[]>;
     /**
      * The current state of the connection alias, returned as a string.
      */
-    public /*out*/ readonly connectionAliasState!: pulumi.Output<enums.workspaces.ConnectionAliasState>;
+    declare public /*out*/ readonly connectionAliasState: pulumi.Output<enums.workspaces.ConnectionAliasState>;
     /**
      * The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
      */
-    public readonly connectionString!: pulumi.Output<string>;
+    declare public readonly connectionString: pulumi.Output<string>;
     /**
      * The tags to associate with the connection alias.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a ConnectionAlias resource with the given unique name, arguments, and options.
@@ -69,11 +69,11 @@ export class ConnectionAlias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectionString === undefined) && !opts.urn) {
+            if (args?.connectionString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionString'");
             }
-            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectionString"] = args?.connectionString;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["aliasId"] = undefined /*out*/;
             resourceInputs["associations"] = undefined /*out*/;
             resourceInputs["connectionAliasState"] = undefined /*out*/;

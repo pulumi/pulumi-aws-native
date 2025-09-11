@@ -40,15 +40,15 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The name of the application that is associated with this environment.
      */
-    public readonly applicationName!: pulumi.Output<string>;
+    declare public readonly applicationName: pulumi.Output<string>;
     /**
      * If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
      */
-    public readonly cnamePrefix!: pulumi.Output<string | undefined>;
+    declare public readonly cnamePrefix: pulumi.Output<string | undefined>;
     /**
      * Your description for this environment.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * For load-balanced, autoscaling environments, the URL to the load balancer. For single-instance environments, the IP address of the instance.
      *
@@ -58,43 +58,43 @@ export class Environment extends pulumi.CustomResource {
      *
      * `192.0.2.0`
      */
-    public /*out*/ readonly endpointUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpointUrl: pulumi.Output<string>;
     /**
      * A unique name for the environment.
      */
-    public readonly environmentName!: pulumi.Output<string | undefined>;
+    declare public readonly environmentName: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
      */
-    public readonly operationsRole!: pulumi.Output<string | undefined>;
+    declare public readonly operationsRole: pulumi.Output<string | undefined>;
     /**
      * Key-value pairs defining configuration options for this environment, such as the instance type.
      */
-    public readonly optionSettings!: pulumi.Output<outputs.elasticbeanstalk.EnvironmentOptionSetting[] | undefined>;
+    declare public readonly optionSettings: pulumi.Output<outputs.elasticbeanstalk.EnvironmentOptionSetting[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the custom platform to use with the environment.
      */
-    public readonly platformArn!: pulumi.Output<string | undefined>;
+    declare public readonly platformArn: pulumi.Output<string | undefined>;
     /**
      * The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
      */
-    public readonly solutionStackName!: pulumi.Output<string | undefined>;
+    declare public readonly solutionStackName: pulumi.Output<string | undefined>;
     /**
      * Specifies the tags applied to resources in the environment.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The name of the Elastic Beanstalk configuration template to use with the environment.
      */
-    public readonly templateName!: pulumi.Output<string | undefined>;
+    declare public readonly templateName: pulumi.Output<string | undefined>;
     /**
      * Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
      */
-    public readonly tier!: pulumi.Output<outputs.elasticbeanstalk.EnvironmentTier | undefined>;
+    declare public readonly tier: pulumi.Output<outputs.elasticbeanstalk.EnvironmentTier | undefined>;
     /**
      * The name of the application version to deploy.
      */
-    public readonly versionLabel!: pulumi.Output<string | undefined>;
+    declare public readonly versionLabel: pulumi.Output<string | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -107,21 +107,21 @@ export class Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationName === undefined) && !opts.urn) {
+            if (args?.applicationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["cnamePrefix"] = args ? args.cnamePrefix : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["operationsRole"] = args ? args.operationsRole : undefined;
-            resourceInputs["optionSettings"] = args ? args.optionSettings : undefined;
-            resourceInputs["platformArn"] = args ? args.platformArn : undefined;
-            resourceInputs["solutionStackName"] = args ? args.solutionStackName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateName"] = args ? args.templateName : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
-            resourceInputs["versionLabel"] = args ? args.versionLabel : undefined;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["cnamePrefix"] = args?.cnamePrefix;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["operationsRole"] = args?.operationsRole;
+            resourceInputs["optionSettings"] = args?.optionSettings;
+            resourceInputs["platformArn"] = args?.platformArn;
+            resourceInputs["solutionStackName"] = args?.solutionStackName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateName"] = args?.templateName;
+            resourceInputs["tier"] = args?.tier;
+            resourceInputs["versionLabel"] = args?.versionLabel;
             resourceInputs["endpointUrl"] = undefined /*out*/;
         } else {
             resourceInputs["applicationName"] = undefined /*out*/;

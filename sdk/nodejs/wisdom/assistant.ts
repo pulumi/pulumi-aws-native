@@ -40,31 +40,31 @@ export class Assistant extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the assistant.
      */
-    public /*out*/ readonly assistantArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly assistantArn: pulumi.Output<string>;
     /**
      * The ID of the Wisdom assistant.
      */
-    public /*out*/ readonly assistantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly assistantId: pulumi.Output<string>;
     /**
      * The description of the assistant.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the assistant.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The configuration information for the customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) .
      */
-    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.wisdom.AssistantServerSideEncryptionConfiguration | undefined>;
+    declare public readonly serverSideEncryptionConfiguration: pulumi.Output<outputs.wisdom.AssistantServerSideEncryptionConfiguration | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The type of assistant.
      */
-    public readonly type!: pulumi.Output<enums.wisdom.AssistantType>;
+    declare public readonly type: pulumi.Output<enums.wisdom.AssistantType>;
 
     /**
      * Create a Assistant resource with the given unique name, arguments, and options.
@@ -77,14 +77,14 @@ export class Assistant extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverSideEncryptionConfiguration"] = args?.serverSideEncryptionConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["assistantArn"] = undefined /*out*/;
             resourceInputs["assistantId"] = undefined /*out*/;
         } else {

@@ -37,31 +37,31 @@ export class SubnetCidrBlock extends pulumi.CustomResource {
     /**
      * Information about the IPv6 association.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The IP Source of an IPv6 Subnet CIDR Block.
      */
-    public /*out*/ readonly ipSource!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipSource: pulumi.Output<string>;
     /**
      * The value denoting whether an IPv6 Subnet CIDR Block is public or private.
      */
-    public /*out*/ readonly ipv6AddressAttribute!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipv6AddressAttribute: pulumi.Output<string>;
     /**
      * The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
      */
-    public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
+    declare public readonly ipv6CidrBlock: pulumi.Output<string | undefined>;
     /**
      * The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
      */
-    public readonly ipv6IpamPoolId!: pulumi.Output<string | undefined>;
+    declare public readonly ipv6IpamPoolId: pulumi.Output<string | undefined>;
     /**
      * The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool
      */
-    public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
+    declare public readonly ipv6NetmaskLength: pulumi.Output<number | undefined>;
     /**
      * The ID of the subnet
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
 
     /**
      * Create a SubnetCidrBlock resource with the given unique name, arguments, and options.
@@ -74,13 +74,13 @@ export class SubnetCidrBlock extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
-            resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["ipv6CidrBlock"] = args?.ipv6CidrBlock;
+            resourceInputs["ipv6IpamPoolId"] = args?.ipv6IpamPoolId;
+            resourceInputs["ipv6NetmaskLength"] = args?.ipv6NetmaskLength;
+            resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ipSource"] = undefined /*out*/;
             resourceInputs["ipv6AddressAttribute"] = undefined /*out*/;

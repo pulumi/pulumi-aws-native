@@ -37,13 +37,13 @@ export class SecurityConfiguration extends pulumi.CustomResource {
     /**
      * The name of the security configuration.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The security configuration details in JSON format.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
      */
-    public readonly securityConfiguration!: pulumi.Output<any>;
+    declare public readonly securityConfiguration: pulumi.Output<any>;
 
     /**
      * Create a SecurityConfiguration resource with the given unique name, arguments, and options.
@@ -56,11 +56,11 @@ export class SecurityConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.securityConfiguration === undefined) && !opts.urn) {
+            if (args?.securityConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityConfiguration'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["securityConfiguration"] = args?.securityConfiguration;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["securityConfiguration"] = undefined /*out*/;

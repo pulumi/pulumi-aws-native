@@ -40,55 +40,55 @@ export class SourceApiAssociation extends pulumi.CustomResource {
     /**
      * ARN of the SourceApiAssociation.
      */
-    public /*out*/ readonly associationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly associationArn: pulumi.Output<string>;
     /**
      * Id of the SourceApiAssociation.
      */
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly associationId: pulumi.Output<string>;
     /**
      * Description of the SourceApiAssociation.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Date of last schema successful merge.
      */
-    public /*out*/ readonly lastSuccessfulMergeDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastSuccessfulMergeDate: pulumi.Output<string>;
     /**
      * ARN of the Merged API in the association.
      */
-    public /*out*/ readonly mergedApiArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly mergedApiArn: pulumi.Output<string>;
     /**
      * GraphQLApiId of the Merged API in the association.
      */
-    public /*out*/ readonly mergedApiId!: pulumi.Output<string>;
+    declare public /*out*/ readonly mergedApiId: pulumi.Output<string>;
     /**
      * Identifier of the Merged GraphQLApi to associate. It could be either GraphQLApi ApiId or ARN
      */
-    public readonly mergedApiIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly mergedApiIdentifier: pulumi.Output<string | undefined>;
     /**
      * ARN of the source API in the association.
      */
-    public /*out*/ readonly sourceApiArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly sourceApiArn: pulumi.Output<string>;
     /**
      * Customized configuration for SourceApiAssociation.
      */
-    public readonly sourceApiAssociationConfig!: pulumi.Output<outputs.appsync.SourceApiAssociationConfig | undefined>;
+    declare public readonly sourceApiAssociationConfig: pulumi.Output<outputs.appsync.SourceApiAssociationConfig | undefined>;
     /**
      * Current status of SourceApiAssociation.
      */
-    public /*out*/ readonly sourceApiAssociationStatus!: pulumi.Output<enums.appsync.SourceApiAssociationStatus>;
+    declare public /*out*/ readonly sourceApiAssociationStatus: pulumi.Output<enums.appsync.SourceApiAssociationStatus>;
     /**
      * Current SourceApiAssociation status details.
      */
-    public /*out*/ readonly sourceApiAssociationStatusDetail!: pulumi.Output<string>;
+    declare public /*out*/ readonly sourceApiAssociationStatusDetail: pulumi.Output<string>;
     /**
      * GraphQLApiId of the source API in the association.
      */
-    public /*out*/ readonly sourceApiId!: pulumi.Output<string>;
+    declare public /*out*/ readonly sourceApiId: pulumi.Output<string>;
     /**
      * Identifier of the Source GraphQLApi to associate. It could be either GraphQLApi ApiId or ARN
      */
-    public readonly sourceApiIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly sourceApiIdentifier: pulumi.Output<string | undefined>;
 
     /**
      * Create a SourceApiAssociation resource with the given unique name, arguments, and options.
@@ -101,10 +101,10 @@ export class SourceApiAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["mergedApiIdentifier"] = args ? args.mergedApiIdentifier : undefined;
-            resourceInputs["sourceApiAssociationConfig"] = args ? args.sourceApiAssociationConfig : undefined;
-            resourceInputs["sourceApiIdentifier"] = args ? args.sourceApiIdentifier : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["mergedApiIdentifier"] = args?.mergedApiIdentifier;
+            resourceInputs["sourceApiAssociationConfig"] = args?.sourceApiAssociationConfig;
+            resourceInputs["sourceApiIdentifier"] = args?.sourceApiIdentifier;
             resourceInputs["associationArn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["lastSuccessfulMergeDate"] = undefined /*out*/;

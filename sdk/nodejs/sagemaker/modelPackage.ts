@@ -40,51 +40,51 @@ export class ModelPackage extends pulumi.CustomResource {
     /**
      * An array of additional Inference Specification objects.
      */
-    public readonly additionalInferenceSpecifications!: pulumi.Output<outputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinition[] | undefined>;
+    declare public readonly additionalInferenceSpecifications: pulumi.Output<outputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinition[] | undefined>;
     /**
      * An array of additional Inference Specification objects to be added to the existing array. The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
      */
-    public readonly additionalInferenceSpecificationsToAdd!: pulumi.Output<outputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinition[] | undefined>;
+    declare public readonly additionalInferenceSpecificationsToAdd: pulumi.Output<outputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinition[] | undefined>;
     /**
      * A description provided when the model approval is set.
      */
-    public readonly approvalDescription!: pulumi.Output<string | undefined>;
+    declare public readonly approvalDescription: pulumi.Output<string | undefined>;
     /**
      * Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
      */
-    public readonly certifyForMarketplace!: pulumi.Output<boolean | undefined>;
+    declare public readonly certifyForMarketplace: pulumi.Output<boolean | undefined>;
     /**
      * A unique token that guarantees that the call to this API is idempotent.
      */
-    public readonly clientToken!: pulumi.Output<string | undefined>;
+    declare public readonly clientToken: pulumi.Output<string | undefined>;
     /**
      * The time that the model package was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The metadata properties for the model package.
      */
-    public readonly customerMetadataProperties!: pulumi.Output<outputs.sagemaker.ModelPackageCustomerMetadataProperties | undefined>;
+    declare public readonly customerMetadataProperties: pulumi.Output<outputs.sagemaker.ModelPackageCustomerMetadataProperties | undefined>;
     /**
      * The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.
      */
-    public readonly domain!: pulumi.Output<string | undefined>;
+    declare public readonly domain: pulumi.Output<string | undefined>;
     /**
      * Represents the drift check baselines that can be used when the model monitor is set using the model package.
      */
-    public readonly driftCheckBaselines!: pulumi.Output<outputs.sagemaker.ModelPackageDriftCheckBaselines | undefined>;
+    declare public readonly driftCheckBaselines: pulumi.Output<outputs.sagemaker.ModelPackageDriftCheckBaselines | undefined>;
     /**
      * Defines how to perform inference generation after a training job is run.
      */
-    public readonly inferenceSpecification!: pulumi.Output<outputs.sagemaker.ModelPackageInferenceSpecification | undefined>;
+    declare public readonly inferenceSpecification: pulumi.Output<outputs.sagemaker.ModelPackageInferenceSpecification | undefined>;
     /**
      * The last time the model package was modified.
      */
-    public readonly lastModifiedTime!: pulumi.Output<string | undefined>;
+    declare public readonly lastModifiedTime: pulumi.Output<string | undefined>;
     /**
      * Metadata properties of the tracking entity, trial, or trial component.
      */
-    public readonly metadataProperties!: pulumi.Output<outputs.sagemaker.ModelPackageMetadataProperties | undefined>;
+    declare public readonly metadataProperties: pulumi.Output<outputs.sagemaker.ModelPackageMetadataProperties | undefined>;
     /**
      * The approval status of the model. This can be one of the following values.
      *
@@ -92,34 +92,34 @@ export class ModelPackage extends pulumi.CustomResource {
      * - `REJECTED` - The model is rejected.
      * - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
      */
-    public readonly modelApprovalStatus!: pulumi.Output<enums.sagemaker.ModelPackageModelApprovalStatus | undefined>;
+    declare public readonly modelApprovalStatus: pulumi.Output<enums.sagemaker.ModelPackageModelApprovalStatus | undefined>;
     /**
      * An Amazon SageMaker Model Card.
      */
-    public readonly modelCard!: pulumi.Output<outputs.sagemaker.ModelPackageModelCard | undefined>;
+    declare public readonly modelCard: pulumi.Output<outputs.sagemaker.ModelPackageModelCard | undefined>;
     /**
      * Metrics for the model.
      */
-    public readonly modelMetrics!: pulumi.Output<outputs.sagemaker.ModelPackageModelMetrics | undefined>;
+    declare public readonly modelMetrics: pulumi.Output<outputs.sagemaker.ModelPackageModelMetrics | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the model package.
      */
-    public /*out*/ readonly modelPackageArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly modelPackageArn: pulumi.Output<string>;
     /**
      * The description of the model package.
      */
-    public readonly modelPackageDescription!: pulumi.Output<string | undefined>;
+    declare public readonly modelPackageDescription: pulumi.Output<string | undefined>;
     /**
      * The model group to which the model belongs.
      */
-    public readonly modelPackageGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly modelPackageGroupName: pulumi.Output<string | undefined>;
     /**
      * The name of the model package. The name can be as follows:
      *
      * - For a versioned model, the name is automatically generated by SageMaker Model Registry and follows the format ' `ModelPackageGroupName/ModelPackageVersion` '.
      * - For an unversioned model, you must provide the name.
      */
-    public readonly modelPackageName!: pulumi.Output<string | undefined>;
+    declare public readonly modelPackageName: pulumi.Output<string | undefined>;
     /**
      * The status of the model package. This can be one of the following values.
      *
@@ -129,44 +129,44 @@ export class ModelPackage extends pulumi.CustomResource {
      * - `FAILED` - The model package creation failed.
      * - `DELETING` - The model package is in the process of being deleted.
      */
-    public /*out*/ readonly modelPackageStatus!: pulumi.Output<enums.sagemaker.ModelPackageStatus>;
+    declare public /*out*/ readonly modelPackageStatus: pulumi.Output<enums.sagemaker.ModelPackageStatus>;
     /**
      * Specifies the validation and image scan statuses of the model package.
      */
-    public readonly modelPackageStatusDetails!: pulumi.Output<outputs.sagemaker.ModelPackageStatusDetails | undefined>;
+    declare public readonly modelPackageStatusDetails: pulumi.Output<outputs.sagemaker.ModelPackageStatusDetails | undefined>;
     /**
      * The version number of a versioned model.
      */
-    public readonly modelPackageVersion!: pulumi.Output<number | undefined>;
+    declare public readonly modelPackageVersion: pulumi.Output<number | undefined>;
     /**
      * The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
      */
-    public readonly samplePayloadUrl!: pulumi.Output<string | undefined>;
-    public readonly securityConfig!: pulumi.Output<outputs.sagemaker.ModelPackageSecurityConfig | undefined>;
+    declare public readonly samplePayloadUrl: pulumi.Output<string | undefined>;
+    declare public readonly securityConfig: pulumi.Output<outputs.sagemaker.ModelPackageSecurityConfig | undefined>;
     /**
      * Indicates if you want to skip model validation.
      */
-    public readonly skipModelValidation!: pulumi.Output<enums.sagemaker.ModelPackageSkipModelValidation | undefined>;
+    declare public readonly skipModelValidation: pulumi.Output<enums.sagemaker.ModelPackageSkipModelValidation | undefined>;
     /**
      * A list of algorithms that were used to create a model package.
      */
-    public readonly sourceAlgorithmSpecification!: pulumi.Output<outputs.sagemaker.ModelPackageSourceAlgorithmSpecification | undefined>;
+    declare public readonly sourceAlgorithmSpecification: pulumi.Output<outputs.sagemaker.ModelPackageSourceAlgorithmSpecification | undefined>;
     /**
      * The URI of the source for the model package.
      */
-    public readonly sourceUri!: pulumi.Output<string | undefined>;
+    declare public readonly sourceUri: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
      */
-    public readonly task!: pulumi.Output<string | undefined>;
+    declare public readonly task: pulumi.Output<string | undefined>;
     /**
      * Specifies batch transform jobs that SageMaker runs to validate your model package.
      */
-    public readonly validationSpecification!: pulumi.Output<outputs.sagemaker.ModelPackageValidationSpecification | undefined>;
+    declare public readonly validationSpecification: pulumi.Output<outputs.sagemaker.ModelPackageValidationSpecification | undefined>;
 
     /**
      * Create a ModelPackage resource with the given unique name, arguments, and options.
@@ -179,33 +179,33 @@ export class ModelPackage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["additionalInferenceSpecifications"] = args ? args.additionalInferenceSpecifications : undefined;
-            resourceInputs["additionalInferenceSpecificationsToAdd"] = args ? args.additionalInferenceSpecificationsToAdd : undefined;
-            resourceInputs["approvalDescription"] = args ? args.approvalDescription : undefined;
-            resourceInputs["certifyForMarketplace"] = args ? args.certifyForMarketplace : undefined;
-            resourceInputs["clientToken"] = args ? args.clientToken : undefined;
-            resourceInputs["customerMetadataProperties"] = args ? args.customerMetadataProperties : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["driftCheckBaselines"] = args ? args.driftCheckBaselines : undefined;
-            resourceInputs["inferenceSpecification"] = args ? args.inferenceSpecification : undefined;
-            resourceInputs["lastModifiedTime"] = args ? args.lastModifiedTime : undefined;
-            resourceInputs["metadataProperties"] = args ? args.metadataProperties : undefined;
-            resourceInputs["modelApprovalStatus"] = args ? args.modelApprovalStatus : undefined;
-            resourceInputs["modelCard"] = args ? args.modelCard : undefined;
-            resourceInputs["modelMetrics"] = args ? args.modelMetrics : undefined;
-            resourceInputs["modelPackageDescription"] = args ? args.modelPackageDescription : undefined;
-            resourceInputs["modelPackageGroupName"] = args ? args.modelPackageGroupName : undefined;
-            resourceInputs["modelPackageName"] = args ? args.modelPackageName : undefined;
-            resourceInputs["modelPackageStatusDetails"] = args ? args.modelPackageStatusDetails : undefined;
-            resourceInputs["modelPackageVersion"] = args ? args.modelPackageVersion : undefined;
-            resourceInputs["samplePayloadUrl"] = args ? args.samplePayloadUrl : undefined;
-            resourceInputs["securityConfig"] = args ? args.securityConfig : undefined;
-            resourceInputs["skipModelValidation"] = args ? args.skipModelValidation : undefined;
-            resourceInputs["sourceAlgorithmSpecification"] = args ? args.sourceAlgorithmSpecification : undefined;
-            resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["task"] = args ? args.task : undefined;
-            resourceInputs["validationSpecification"] = args ? args.validationSpecification : undefined;
+            resourceInputs["additionalInferenceSpecifications"] = args?.additionalInferenceSpecifications;
+            resourceInputs["additionalInferenceSpecificationsToAdd"] = args?.additionalInferenceSpecificationsToAdd;
+            resourceInputs["approvalDescription"] = args?.approvalDescription;
+            resourceInputs["certifyForMarketplace"] = args?.certifyForMarketplace;
+            resourceInputs["clientToken"] = args?.clientToken;
+            resourceInputs["customerMetadataProperties"] = args?.customerMetadataProperties;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["driftCheckBaselines"] = args?.driftCheckBaselines;
+            resourceInputs["inferenceSpecification"] = args?.inferenceSpecification;
+            resourceInputs["lastModifiedTime"] = args?.lastModifiedTime;
+            resourceInputs["metadataProperties"] = args?.metadataProperties;
+            resourceInputs["modelApprovalStatus"] = args?.modelApprovalStatus;
+            resourceInputs["modelCard"] = args?.modelCard;
+            resourceInputs["modelMetrics"] = args?.modelMetrics;
+            resourceInputs["modelPackageDescription"] = args?.modelPackageDescription;
+            resourceInputs["modelPackageGroupName"] = args?.modelPackageGroupName;
+            resourceInputs["modelPackageName"] = args?.modelPackageName;
+            resourceInputs["modelPackageStatusDetails"] = args?.modelPackageStatusDetails;
+            resourceInputs["modelPackageVersion"] = args?.modelPackageVersion;
+            resourceInputs["samplePayloadUrl"] = args?.samplePayloadUrl;
+            resourceInputs["securityConfig"] = args?.securityConfig;
+            resourceInputs["skipModelValidation"] = args?.skipModelValidation;
+            resourceInputs["sourceAlgorithmSpecification"] = args?.sourceAlgorithmSpecification;
+            resourceInputs["sourceUri"] = args?.sourceUri;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["task"] = args?.task;
+            resourceInputs["validationSpecification"] = args?.validationSpecification;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["modelPackageArn"] = undefined /*out*/;
             resourceInputs["modelPackageStatus"] = undefined /*out*/;

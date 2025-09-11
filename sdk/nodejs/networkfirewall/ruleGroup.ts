@@ -40,45 +40,45 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * The maximum operating resources that this rule group can use. You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
      */
-    public readonly capacity!: pulumi.Output<number>;
+    declare public readonly capacity: pulumi.Output<number>;
     /**
      * A description of the rule group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An object that defines the rule group rules.
      */
-    public readonly ruleGroup!: pulumi.Output<outputs.networkfirewall.RuleGroup | undefined>;
+    declare public readonly ruleGroup: pulumi.Output<outputs.networkfirewall.RuleGroup | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the rule group.
      */
-    public /*out*/ readonly ruleGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly ruleGroupArn: pulumi.Output<string>;
     /**
      * The unique ID of the rule group resource.
      */
-    public /*out*/ readonly ruleGroupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ruleGroupId: pulumi.Output<string>;
     /**
      * The descriptive name of the rule group. You can't change the name of a rule group after you create it.
      */
-    public readonly ruleGroupName!: pulumi.Output<string>;
+    declare public readonly ruleGroupName: pulumi.Output<string>;
     /**
      * A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
      *
      * - The `RuleOptions` specified in `SummaryConfiguration`
      * - Rule metadata organization preferences
      */
-    public readonly summaryConfiguration!: pulumi.Output<outputs.networkfirewall.SummaryConfigurationProperties | undefined>;
+    declare public readonly summaryConfiguration: pulumi.Output<outputs.networkfirewall.SummaryConfigurationProperties | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
      * stateless rules. If it is stateful, it contains stateful rules.
      */
-    public readonly type!: pulumi.Output<enums.networkfirewall.RuleGroupTypeEnum>;
+    declare public readonly type: pulumi.Output<enums.networkfirewall.RuleGroupTypeEnum>;
 
     /**
      * Create a RuleGroup resource with the given unique name, arguments, and options.
@@ -91,19 +91,19 @@ export class RuleGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.capacity === undefined) && !opts.urn) {
+            if (args?.capacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacity'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ruleGroup"] = args ? args.ruleGroup : undefined;
-            resourceInputs["ruleGroupName"] = args ? args.ruleGroupName : undefined;
-            resourceInputs["summaryConfiguration"] = args ? args.summaryConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["capacity"] = args?.capacity;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ruleGroup"] = args?.ruleGroup;
+            resourceInputs["ruleGroupName"] = args?.ruleGroupName;
+            resourceInputs["summaryConfiguration"] = args?.summaryConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["ruleGroupArn"] = undefined /*out*/;
             resourceInputs["ruleGroupId"] = undefined /*out*/;
         } else {

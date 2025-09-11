@@ -40,23 +40,23 @@ export class Session extends pulumi.CustomResource {
     /**
      * The status of automated sensitive data discovery for the Macie session.
      */
-    public /*out*/ readonly automatedDiscoveryStatus!: pulumi.Output<enums.macie.SessionAutomatedDiscoveryStatus>;
+    declare public /*out*/ readonly automatedDiscoveryStatus: pulumi.Output<enums.macie.SessionAutomatedDiscoveryStatus>;
     /**
      * AWS account ID of customer
      */
-    public /*out*/ readonly awsAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsAccountId: pulumi.Output<string>;
     /**
      * A enumeration value that specifies how frequently finding updates are published.
      */
-    public readonly findingPublishingFrequency!: pulumi.Output<enums.macie.SessionFindingPublishingFrequency | undefined>;
+    declare public readonly findingPublishingFrequency: pulumi.Output<enums.macie.SessionFindingPublishingFrequency | undefined>;
     /**
      * Service role used by Macie
      */
-    public /*out*/ readonly serviceRole!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceRole: pulumi.Output<string>;
     /**
      * A enumeration value that specifies the status of the Macie Session.
      */
-    public readonly status!: pulumi.Output<enums.macie.SessionStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.macie.SessionStatus | undefined>;
 
     /**
      * Create a Session resource with the given unique name, arguments, and options.
@@ -69,8 +69,8 @@ export class Session extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["findingPublishingFrequency"] = args?.findingPublishingFrequency;
+            resourceInputs["status"] = args?.status;
             resourceInputs["automatedDiscoveryStatus"] = undefined /*out*/;
             resourceInputs["awsAccountId"] = undefined /*out*/;
             resourceInputs["serviceRole"] = undefined /*out*/;

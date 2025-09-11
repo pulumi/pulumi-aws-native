@@ -37,39 +37,39 @@ export class CustomActionType extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomActionType.__pulumiType;
     }
 
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The category of the custom action, such as a build action or a test action.
      */
-    public readonly category!: pulumi.Output<string>;
+    declare public readonly category: pulumi.Output<string>;
     /**
      * The configuration properties for the custom action.
      */
-    public readonly configurationProperties!: pulumi.Output<outputs.codepipeline.CustomActionTypeConfigurationProperties[] | undefined>;
+    declare public readonly configurationProperties: pulumi.Output<outputs.codepipeline.CustomActionTypeConfigurationProperties[] | undefined>;
     /**
      * The details of the input artifact for the action, such as its commit ID.
      */
-    public readonly inputArtifactDetails!: pulumi.Output<outputs.codepipeline.CustomActionTypeArtifactDetails>;
+    declare public readonly inputArtifactDetails: pulumi.Output<outputs.codepipeline.CustomActionTypeArtifactDetails>;
     /**
      * The details of the output artifact of the action, such as its commit ID.
      */
-    public readonly outputArtifactDetails!: pulumi.Output<outputs.codepipeline.CustomActionTypeArtifactDetails>;
+    declare public readonly outputArtifactDetails: pulumi.Output<outputs.codepipeline.CustomActionTypeArtifactDetails>;
     /**
      * The provider of the service used in the custom action, such as AWS CodeDeploy.
      */
-    public readonly provider!: pulumi.Output<string>;
+    declare public readonly provider: pulumi.Output<string>;
     /**
      * URLs that provide users information about this custom action.
      */
-    public readonly settings!: pulumi.Output<outputs.codepipeline.CustomActionTypeSettings | undefined>;
+    declare public readonly settings: pulumi.Output<outputs.codepipeline.CustomActionTypeSettings | undefined>;
     /**
      * Any tags assigned to the custom action.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The version identifier of the custom action.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a CustomActionType resource with the given unique name, arguments, and options.
@@ -82,29 +82,29 @@ export class CustomActionType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.category === undefined) && !opts.urn) {
+            if (args?.category === undefined && !opts.urn) {
                 throw new Error("Missing required property 'category'");
             }
-            if ((!args || args.inputArtifactDetails === undefined) && !opts.urn) {
+            if (args?.inputArtifactDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputArtifactDetails'");
             }
-            if ((!args || args.outputArtifactDetails === undefined) && !opts.urn) {
+            if (args?.outputArtifactDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outputArtifactDetails'");
             }
-            if ((!args || args.provider === undefined) && !opts.urn) {
+            if (args?.provider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'provider'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["category"] = args ? args.category : undefined;
-            resourceInputs["configurationProperties"] = args ? args.configurationProperties : undefined;
-            resourceInputs["inputArtifactDetails"] = args ? args.inputArtifactDetails : undefined;
-            resourceInputs["outputArtifactDetails"] = args ? args.outputArtifactDetails : undefined;
-            resourceInputs["provider"] = args ? args.provider : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["category"] = args?.category;
+            resourceInputs["configurationProperties"] = args?.configurationProperties;
+            resourceInputs["inputArtifactDetails"] = args?.inputArtifactDetails;
+            resourceInputs["outputArtifactDetails"] = args?.outputArtifactDetails;
+            resourceInputs["provider"] = args?.provider;
+            resourceInputs["settings"] = args?.settings;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

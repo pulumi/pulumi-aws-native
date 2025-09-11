@@ -40,27 +40,27 @@ export class UserGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the user account.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The target cache engine for the user group.
      */
-    public readonly engine!: pulumi.Output<enums.elasticache.UserGroupEngine>;
+    declare public readonly engine: pulumi.Output<enums.elasticache.UserGroupEngine>;
     /**
      * Indicates user group status. Can be "creating", "active", "modifying", "deleting".
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this user.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the user group.
      */
-    public readonly userGroupId!: pulumi.Output<string>;
+    declare public readonly userGroupId: pulumi.Output<string>;
     /**
      * List of users associated to this user group.
      */
-    public readonly userIds!: pulumi.Output<string[]>;
+    declare public readonly userIds: pulumi.Output<string[]>;
 
     /**
      * Create a UserGroup resource with the given unique name, arguments, and options.
@@ -73,19 +73,19 @@ export class UserGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engine === undefined) && !opts.urn) {
+            if (args?.engine === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
-            if ((!args || args.userGroupId === undefined) && !opts.urn) {
+            if (args?.userGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userGroupId'");
             }
-            if ((!args || args.userIds === undefined) && !opts.urn) {
+            if (args?.userIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userIds'");
             }
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userGroupId"] = args ? args.userGroupId : undefined;
-            resourceInputs["userIds"] = args ? args.userIds : undefined;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userGroupId"] = args?.userGroupId;
+            resourceInputs["userIds"] = args?.userIds;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

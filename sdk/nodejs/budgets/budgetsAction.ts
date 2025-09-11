@@ -40,43 +40,43 @@ export class BudgetsAction extends pulumi.CustomResource {
     /**
      * A system-generated universally unique identifier (UUID) for the action.
      */
-    public /*out*/ readonly actionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly actionId: pulumi.Output<string>;
     /**
      * The trigger threshold of the action.
      */
-    public readonly actionThreshold!: pulumi.Output<outputs.budgets.BudgetsActionActionThreshold>;
+    declare public readonly actionThreshold: pulumi.Output<outputs.budgets.BudgetsActionActionThreshold>;
     /**
      * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
      */
-    public readonly actionType!: pulumi.Output<enums.budgets.BudgetsActionActionType>;
+    declare public readonly actionType: pulumi.Output<enums.budgets.BudgetsActionActionType>;
     /**
      * This specifies if the action needs manual or automatic approval.
      */
-    public readonly approvalModel!: pulumi.Output<enums.budgets.BudgetsActionApprovalModel | undefined>;
+    declare public readonly approvalModel: pulumi.Output<enums.budgets.BudgetsActionApprovalModel | undefined>;
     /**
      * A string that represents the budget name. ":" and "\" characters aren't allowed.
      */
-    public readonly budgetName!: pulumi.Output<string>;
+    declare public readonly budgetName: pulumi.Output<string>;
     /**
      * Specifies all of the type-specific parameters.
      */
-    public readonly definition!: pulumi.Output<outputs.budgets.BudgetsActionDefinition>;
+    declare public readonly definition: pulumi.Output<outputs.budgets.BudgetsActionDefinition>;
     /**
      * The role passed for action execution and reversion. Roles and actions must be in the same account.
      */
-    public readonly executionRoleArn!: pulumi.Output<string>;
+    declare public readonly executionRoleArn: pulumi.Output<string>;
     /**
      * The type of a notification.
      */
-    public readonly notificationType!: pulumi.Output<enums.budgets.BudgetsActionNotificationType>;
+    declare public readonly notificationType: pulumi.Output<enums.budgets.BudgetsActionNotificationType>;
     /**
      * An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
      */
-    public readonly resourceTags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly resourceTags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A list of subscribers.
      */
-    public readonly subscribers!: pulumi.Output<outputs.budgets.BudgetsActionSubscriber[]>;
+    declare public readonly subscribers: pulumi.Output<outputs.budgets.BudgetsActionSubscriber[]>;
 
     /**
      * Create a BudgetsAction resource with the given unique name, arguments, and options.
@@ -89,36 +89,36 @@ export class BudgetsAction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actionThreshold === undefined) && !opts.urn) {
+            if (args?.actionThreshold === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionThreshold'");
             }
-            if ((!args || args.actionType === undefined) && !opts.urn) {
+            if (args?.actionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionType'");
             }
-            if ((!args || args.budgetName === undefined) && !opts.urn) {
+            if (args?.budgetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'budgetName'");
             }
-            if ((!args || args.definition === undefined) && !opts.urn) {
+            if (args?.definition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
+            if (args?.executionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if ((!args || args.notificationType === undefined) && !opts.urn) {
+            if (args?.notificationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notificationType'");
             }
-            if ((!args || args.subscribers === undefined) && !opts.urn) {
+            if (args?.subscribers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscribers'");
             }
-            resourceInputs["actionThreshold"] = args ? args.actionThreshold : undefined;
-            resourceInputs["actionType"] = args ? args.actionType : undefined;
-            resourceInputs["approvalModel"] = args ? args.approvalModel : undefined;
-            resourceInputs["budgetName"] = args ? args.budgetName : undefined;
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["notificationType"] = args ? args.notificationType : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
-            resourceInputs["subscribers"] = args ? args.subscribers : undefined;
+            resourceInputs["actionThreshold"] = args?.actionThreshold;
+            resourceInputs["actionType"] = args?.actionType;
+            resourceInputs["approvalModel"] = args?.approvalModel;
+            resourceInputs["budgetName"] = args?.budgetName;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["notificationType"] = args?.notificationType;
+            resourceInputs["resourceTags"] = args?.resourceTags;
+            resourceInputs["subscribers"] = args?.subscribers;
             resourceInputs["actionId"] = undefined /*out*/;
         } else {
             resourceInputs["actionId"] = undefined /*out*/;

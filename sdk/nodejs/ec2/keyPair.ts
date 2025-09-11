@@ -114,35 +114,35 @@ export class KeyPair extends pulumi.CustomResource {
      * - For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.
      * - For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with [OpenSSH 6.8](https://docs.aws.amazon.com/http://www.openssh.com/txt/release-6.8) .
      */
-    public /*out*/ readonly keyFingerprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyFingerprint: pulumi.Output<string>;
     /**
      * The format of the key pair.
      *  Default: ``pem``
      */
-    public readonly keyFormat!: pulumi.Output<enums.ec2.KeyPairKeyFormat | undefined>;
+    declare public readonly keyFormat: pulumi.Output<enums.ec2.KeyPairKeyFormat | undefined>;
     /**
      * A unique name for the key pair.
      *  Constraints: Up to 255 ASCII characters
      */
-    public readonly keyName!: pulumi.Output<string>;
+    declare public readonly keyName: pulumi.Output<string>;
     /**
      * The ID of the key pair.
      */
-    public /*out*/ readonly keyPairId!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyPairId: pulumi.Output<string>;
     /**
      * The type of key pair. Note that ED25519 keys are not supported for Windows instances.
      *  If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
      *  Default: ``rsa``
      */
-    public readonly keyType!: pulumi.Output<enums.ec2.KeyPairKeyType | undefined>;
+    declare public readonly keyType: pulumi.Output<enums.ec2.KeyPairKeyType | undefined>;
     /**
      * The public key material. The ``PublicKeyMaterial`` property is used to import a key pair. If this property is not specified, then a new key pair will be created.
      */
-    public readonly publicKeyMaterial!: pulumi.Output<string | undefined>;
+    declare public readonly publicKeyMaterial: pulumi.Output<string | undefined>;
     /**
      * The tags to apply to the key pair.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a KeyPair resource with the given unique name, arguments, and options.
@@ -155,14 +155,14 @@ export class KeyPair extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keyName === undefined) && !opts.urn) {
+            if (args?.keyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyName'");
             }
-            resourceInputs["keyFormat"] = args ? args.keyFormat : undefined;
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
-            resourceInputs["keyType"] = args ? args.keyType : undefined;
-            resourceInputs["publicKeyMaterial"] = args ? args.publicKeyMaterial : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["keyFormat"] = args?.keyFormat;
+            resourceInputs["keyName"] = args?.keyName;
+            resourceInputs["keyType"] = args?.keyType;
+            resourceInputs["publicKeyMaterial"] = args?.publicKeyMaterial;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["keyFingerprint"] = undefined /*out*/;
             resourceInputs["keyPairId"] = undefined /*out*/;
         } else {

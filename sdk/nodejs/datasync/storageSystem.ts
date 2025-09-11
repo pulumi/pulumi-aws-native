@@ -40,37 +40,37 @@ export class StorageSystem extends pulumi.CustomResource {
     /**
      * The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
      */
-    public readonly agentArns!: pulumi.Output<string[]>;
+    declare public readonly agentArns: pulumi.Output<string[]>;
     /**
      * The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
      */
-    public readonly cloudWatchLogGroupArn!: pulumi.Output<string | undefined>;
+    declare public readonly cloudWatchLogGroupArn: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the DataSync agent can access the on-premises storage system.
      */
-    public /*out*/ readonly connectivityStatus!: pulumi.Output<enums.datasync.StorageSystemConnectivityStatus>;
+    declare public /*out*/ readonly connectivityStatus: pulumi.Output<enums.datasync.StorageSystemConnectivityStatus>;
     /**
      * A familiar name for the on-premises storage system.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The ARN of a secret stored by AWS Secrets Manager.
      */
-    public /*out*/ readonly secretsManagerArn!: pulumi.Output<string>;
-    public readonly serverConfiguration!: pulumi.Output<outputs.datasync.StorageSystemServerConfiguration>;
-    public readonly serverCredentials!: pulumi.Output<outputs.datasync.StorageSystemServerCredentials | undefined>;
+    declare public /*out*/ readonly secretsManagerArn: pulumi.Output<string>;
+    declare public readonly serverConfiguration: pulumi.Output<outputs.datasync.StorageSystemServerConfiguration>;
+    declare public readonly serverCredentials: pulumi.Output<outputs.datasync.StorageSystemServerCredentials | undefined>;
     /**
      * The ARN of the on-premises storage system added to DataSync Discovery.
      */
-    public /*out*/ readonly storageSystemArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly storageSystemArn: pulumi.Output<string>;
     /**
      * The type of on-premises storage system that DataSync Discovery will analyze.
      */
-    public readonly systemType!: pulumi.Output<enums.datasync.StorageSystemSystemType>;
+    declare public readonly systemType: pulumi.Output<enums.datasync.StorageSystemSystemType>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a StorageSystem resource with the given unique name, arguments, and options.
@@ -83,22 +83,22 @@ export class StorageSystem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agentArns === undefined) && !opts.urn) {
+            if (args?.agentArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentArns'");
             }
-            if ((!args || args.serverConfiguration === undefined) && !opts.urn) {
+            if (args?.serverConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverConfiguration'");
             }
-            if ((!args || args.systemType === undefined) && !opts.urn) {
+            if (args?.systemType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'systemType'");
             }
-            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
-            resourceInputs["cloudWatchLogGroupArn"] = args ? args.cloudWatchLogGroupArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverConfiguration"] = args ? args.serverConfiguration : undefined;
-            resourceInputs["serverCredentials"] = args ? args.serverCredentials : undefined;
-            resourceInputs["systemType"] = args ? args.systemType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentArns"] = args?.agentArns;
+            resourceInputs["cloudWatchLogGroupArn"] = args?.cloudWatchLogGroupArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverConfiguration"] = args?.serverConfiguration;
+            resourceInputs["serverCredentials"] = args?.serverCredentials;
+            resourceInputs["systemType"] = args?.systemType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["connectivityStatus"] = undefined /*out*/;
             resourceInputs["secretsManagerArn"] = undefined /*out*/;
             resourceInputs["storageSystemArn"] = undefined /*out*/;

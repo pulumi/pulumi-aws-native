@@ -37,44 +37,44 @@ export class Pool extends pulumi.CustomResource {
         return obj['__pulumiType'] === Pool.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * When set to true the pool can't be deleted. By default this is set to false.
      */
-    public readonly deletionProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly deletionProtectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
      */
-    public readonly mandatoryKeywords!: pulumi.Output<outputs.smsvoice.MandatoryKeywordsProperties>;
+    declare public readonly mandatoryKeywords: pulumi.Output<outputs.smsvoice.MandatoryKeywordsProperties>;
     /**
      * The name of the OptOutList to associate with the pool. You can use the OptOutListName or OptOutListArn.
      */
-    public readonly optOutListName!: pulumi.Output<string | undefined>;
+    declare public readonly optOutListName: pulumi.Output<string | undefined>;
     /**
      * A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
      */
-    public readonly optionalKeywords!: pulumi.Output<outputs.smsvoice.PoolOptionalKeyword[] | undefined>;
+    declare public readonly optionalKeywords: pulumi.Output<outputs.smsvoice.PoolOptionalKeyword[] | undefined>;
     /**
      * The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn and it's IsoCountryCode.
      */
-    public readonly originationIdentities!: pulumi.Output<string[]>;
-    public /*out*/ readonly poolId!: pulumi.Output<string>;
+    declare public readonly originationIdentities: pulumi.Output<string[]>;
+    declare public /*out*/ readonly poolId: pulumi.Output<string>;
     /**
      * By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.
      */
-    public readonly selfManagedOptOutsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly selfManagedOptOutsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether shared routes are enabled for the pool.
      */
-    public readonly sharedRoutesEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sharedRoutesEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * When you set up two-way SMS, you can receive incoming messages from your customers. When one of your customers sends a message to your phone number, the message body is sent to an Amazon SNS topic or Amazon Connect for processing.
      */
-    public readonly twoWay!: pulumi.Output<outputs.smsvoice.TwoWayProperties | undefined>;
+    declare public readonly twoWay: pulumi.Output<outputs.smsvoice.TwoWayProperties | undefined>;
 
     /**
      * Create a Pool resource with the given unique name, arguments, and options.
@@ -87,21 +87,21 @@ export class Pool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.mandatoryKeywords === undefined) && !opts.urn) {
+            if (args?.mandatoryKeywords === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mandatoryKeywords'");
             }
-            if ((!args || args.originationIdentities === undefined) && !opts.urn) {
+            if (args?.originationIdentities === undefined && !opts.urn) {
                 throw new Error("Missing required property 'originationIdentities'");
             }
-            resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
-            resourceInputs["mandatoryKeywords"] = args ? args.mandatoryKeywords : undefined;
-            resourceInputs["optOutListName"] = args ? args.optOutListName : undefined;
-            resourceInputs["optionalKeywords"] = args ? args.optionalKeywords : undefined;
-            resourceInputs["originationIdentities"] = args ? args.originationIdentities : undefined;
-            resourceInputs["selfManagedOptOutsEnabled"] = args ? args.selfManagedOptOutsEnabled : undefined;
-            resourceInputs["sharedRoutesEnabled"] = args ? args.sharedRoutesEnabled : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["twoWay"] = args ? args.twoWay : undefined;
+            resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
+            resourceInputs["mandatoryKeywords"] = args?.mandatoryKeywords;
+            resourceInputs["optOutListName"] = args?.optOutListName;
+            resourceInputs["optionalKeywords"] = args?.optionalKeywords;
+            resourceInputs["originationIdentities"] = args?.originationIdentities;
+            resourceInputs["selfManagedOptOutsEnabled"] = args?.selfManagedOptOutsEnabled;
+            resourceInputs["sharedRoutesEnabled"] = args?.sharedRoutesEnabled;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["twoWay"] = args?.twoWay;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["poolId"] = undefined /*out*/;
         } else {

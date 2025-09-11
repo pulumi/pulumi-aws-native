@@ -40,20 +40,20 @@ export class Permission extends pulumi.CustomResource {
     /**
      * The list of Amazon Q Business actions that the ISV is allowed to perform.
      */
-    public readonly actions!: pulumi.Output<string[]>;
+    declare public readonly actions: pulumi.Output<string[]>;
     /**
      * The unique identifier of the Amazon Q Business application.
      */
-    public readonly applicationId!: pulumi.Output<string>;
-    public readonly conditions!: pulumi.Output<outputs.qbusiness.PermissionCondition[] | undefined>;
+    declare public readonly applicationId: pulumi.Output<string>;
+    declare public readonly conditions: pulumi.Output<outputs.qbusiness.PermissionCondition[] | undefined>;
     /**
      * Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
      */
-    public readonly principal!: pulumi.Output<string>;
+    declare public readonly principal: pulumi.Output<string>;
     /**
      * A unique identifier for the policy statement.
      */
-    public readonly statementId!: pulumi.Output<string>;
+    declare public readonly statementId: pulumi.Output<string>;
 
     /**
      * Create a Permission resource with the given unique name, arguments, and options.
@@ -66,23 +66,23 @@ export class Permission extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.statementId === undefined) && !opts.urn) {
+            if (args?.statementId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statementId'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["statementId"] = args ? args.statementId : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["conditions"] = args?.conditions;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["statementId"] = args?.statementId;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
             resourceInputs["applicationId"] = undefined /*out*/;

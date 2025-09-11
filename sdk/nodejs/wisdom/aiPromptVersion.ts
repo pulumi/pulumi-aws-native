@@ -37,25 +37,25 @@ export class AiPromptVersion extends pulumi.CustomResource {
     /**
      * The ARN of the AI prompt.
      */
-    public /*out*/ readonly aiPromptArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly aiPromptArn: pulumi.Output<string>;
     /**
      * The identifier of the Amazon Q in Connect AI prompt.
      */
-    public readonly aiPromptId!: pulumi.Output<string>;
-    public /*out*/ readonly aiPromptVersionId!: pulumi.Output<string>;
-    public /*out*/ readonly assistantArn!: pulumi.Output<string>;
+    declare public readonly aiPromptId: pulumi.Output<string>;
+    declare public /*out*/ readonly aiPromptVersionId: pulumi.Output<string>;
+    declare public /*out*/ readonly assistantArn: pulumi.Output<string>;
     /**
      * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
      */
-    public readonly assistantId!: pulumi.Output<string>;
+    declare public readonly assistantId: pulumi.Output<string>;
     /**
      * The time the AI Prompt version was last modified in seconds.
      */
-    public readonly modifiedTimeSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly modifiedTimeSeconds: pulumi.Output<number | undefined>;
     /**
      * The version number for this AI Prompt version.
      */
-    public /*out*/ readonly versionNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly versionNumber: pulumi.Output<number>;
 
     /**
      * Create a AiPromptVersion resource with the given unique name, arguments, and options.
@@ -68,15 +68,15 @@ export class AiPromptVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.aiPromptId === undefined) && !opts.urn) {
+            if (args?.aiPromptId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'aiPromptId'");
             }
-            if ((!args || args.assistantId === undefined) && !opts.urn) {
+            if (args?.assistantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assistantId'");
             }
-            resourceInputs["aiPromptId"] = args ? args.aiPromptId : undefined;
-            resourceInputs["assistantId"] = args ? args.assistantId : undefined;
-            resourceInputs["modifiedTimeSeconds"] = args ? args.modifiedTimeSeconds : undefined;
+            resourceInputs["aiPromptId"] = args?.aiPromptId;
+            resourceInputs["assistantId"] = args?.assistantId;
+            resourceInputs["modifiedTimeSeconds"] = args?.modifiedTimeSeconds;
             resourceInputs["aiPromptArn"] = undefined /*out*/;
             resourceInputs["aiPromptVersionId"] = undefined /*out*/;
             resourceInputs["assistantArn"] = undefined /*out*/;

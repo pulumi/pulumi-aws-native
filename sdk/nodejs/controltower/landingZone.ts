@@ -40,37 +40,37 @@ export class LandingZone extends pulumi.CustomResource {
     /**
      * The ARN of the landing zone.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The drift status of the landing zone.
      */
-    public /*out*/ readonly driftStatus!: pulumi.Output<enums.controltower.LandingZoneDriftStatus>;
+    declare public /*out*/ readonly driftStatus: pulumi.Output<enums.controltower.LandingZoneDriftStatus>;
     /**
      * The unique identifier of the landing zone.
      */
-    public /*out*/ readonly landingZoneIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly landingZoneIdentifier: pulumi.Output<string>;
     /**
      * The latest available version of the landing zone.
      */
-    public /*out*/ readonly latestAvailableVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly latestAvailableVersion: pulumi.Output<string>;
     /**
      * The landing zone manifest JSON text file that specifies the landing zone configurations.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
      */
-    public readonly manifest!: pulumi.Output<any>;
+    declare public readonly manifest: pulumi.Output<any>;
     /**
      * The landing zone deployment status. One of `ACTIVE` , `PROCESSING` , `FAILED` .
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.controltower.LandingZoneStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.controltower.LandingZoneStatus>;
     /**
      * Tags to be applied to the landing zone.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The landing zone's current deployed version.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a LandingZone resource with the given unique name, arguments, and options.
@@ -83,15 +83,15 @@ export class LandingZone extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.manifest === undefined) && !opts.urn) {
+            if (args?.manifest === undefined && !opts.urn) {
                 throw new Error("Missing required property 'manifest'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["manifest"] = args ? args.manifest : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["manifest"] = args?.manifest;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["driftStatus"] = undefined /*out*/;
             resourceInputs["landingZoneIdentifier"] = undefined /*out*/;

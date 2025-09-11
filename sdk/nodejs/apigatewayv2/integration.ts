@@ -40,79 +40,79 @@ export class Integration extends pulumi.CustomResource {
     /**
      * The API identifier.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * The ID of the VPC link for a private integration. Supported only for HTTP APIs.
      */
-    public readonly connectionId!: pulumi.Output<string | undefined>;
+    declare public readonly connectionId: pulumi.Output<string | undefined>;
     /**
      * The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.
      */
-    public readonly connectionType!: pulumi.Output<string | undefined>;
+    declare public readonly connectionType: pulumi.Output<string | undefined>;
     /**
      * Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT.
      */
-    public readonly contentHandlingStrategy!: pulumi.Output<string | undefined>;
+    declare public readonly contentHandlingStrategy: pulumi.Output<string | undefined>;
     /**
      * Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, don't specify this parameter.
      */
-    public readonly credentialsArn!: pulumi.Output<string | undefined>;
+    declare public readonly credentialsArn: pulumi.Output<string | undefined>;
     /**
      * The description of the integration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The integration ID.
      */
-    public /*out*/ readonly integrationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly integrationId: pulumi.Output<string>;
     /**
      * Specifies the integration's HTTP method type.
      */
-    public readonly integrationMethod!: pulumi.Output<string | undefined>;
+    declare public readonly integrationMethod: pulumi.Output<string | undefined>;
     /**
      * Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action to invoke.
      */
-    public readonly integrationSubtype!: pulumi.Output<string | undefined>;
+    declare public readonly integrationSubtype: pulumi.Output<string | undefined>;
     /**
      * The integration type of an integration.
      */
-    public readonly integrationType!: pulumi.Output<string>;
+    declare public readonly integrationType: pulumi.Output<string>;
     /**
      * For a Lambda integration, specify the URI of a Lambda function. For an HTTP integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
      */
-    public readonly integrationUri!: pulumi.Output<string | undefined>;
+    declare public readonly integrationUri: pulumi.Output<string | undefined>;
     /**
      * Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.
      */
-    public readonly passthroughBehavior!: pulumi.Output<string | undefined>;
+    declare public readonly passthroughBehavior: pulumi.Output<string | undefined>;
     /**
      * Specifies the format of the payload sent to an integration. Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are 1.0 and 2.0 For all other integrations, 1.0 is the only supported value.
      */
-    public readonly payloadFormatVersion!: pulumi.Output<string | undefined>;
+    declare public readonly payloadFormatVersion: pulumi.Output<string | undefined>;
     /**
      * A key-value map specifying parameters.
      */
-    public readonly requestParameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly requestParameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      */
-    public readonly requestTemplates!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly requestTemplates: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
      */
-    public readonly responseParameters!: pulumi.Output<{[key: string]: outputs.apigatewayv2.IntegrationResponseParameterMap} | undefined>;
+    declare public readonly responseParameters: pulumi.Output<{[key: string]: outputs.apigatewayv2.IntegrationResponseParameterMap} | undefined>;
     /**
      * The template selection expression for the integration. Supported only for WebSocket APIs.
      */
-    public readonly templateSelectionExpression!: pulumi.Output<string | undefined>;
+    declare public readonly templateSelectionExpression: pulumi.Output<string | undefined>;
     /**
      * Custom timeout between 50 and 29000 milliseconds for WebSocket APIs and between 50 and 30000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
      */
-    public readonly timeoutInMillis!: pulumi.Output<number | undefined>;
+    declare public readonly timeoutInMillis: pulumi.Output<number | undefined>;
     /**
      * The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.
      */
-    public readonly tlsConfig!: pulumi.Output<outputs.apigatewayv2.IntegrationTlsConfig | undefined>;
+    declare public readonly tlsConfig: pulumi.Output<outputs.apigatewayv2.IntegrationTlsConfig | undefined>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -125,30 +125,30 @@ export class Integration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.integrationType === undefined) && !opts.urn) {
+            if (args?.integrationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationType'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
-            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
-            resourceInputs["contentHandlingStrategy"] = args ? args.contentHandlingStrategy : undefined;
-            resourceInputs["credentialsArn"] = args ? args.credentialsArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["integrationMethod"] = args ? args.integrationMethod : undefined;
-            resourceInputs["integrationSubtype"] = args ? args.integrationSubtype : undefined;
-            resourceInputs["integrationType"] = args ? args.integrationType : undefined;
-            resourceInputs["integrationUri"] = args ? args.integrationUri : undefined;
-            resourceInputs["passthroughBehavior"] = args ? args.passthroughBehavior : undefined;
-            resourceInputs["payloadFormatVersion"] = args ? args.payloadFormatVersion : undefined;
-            resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
-            resourceInputs["requestTemplates"] = args ? args.requestTemplates : undefined;
-            resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
-            resourceInputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
-            resourceInputs["timeoutInMillis"] = args ? args.timeoutInMillis : undefined;
-            resourceInputs["tlsConfig"] = args ? args.tlsConfig : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["connectionId"] = args?.connectionId;
+            resourceInputs["connectionType"] = args?.connectionType;
+            resourceInputs["contentHandlingStrategy"] = args?.contentHandlingStrategy;
+            resourceInputs["credentialsArn"] = args?.credentialsArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["integrationMethod"] = args?.integrationMethod;
+            resourceInputs["integrationSubtype"] = args?.integrationSubtype;
+            resourceInputs["integrationType"] = args?.integrationType;
+            resourceInputs["integrationUri"] = args?.integrationUri;
+            resourceInputs["passthroughBehavior"] = args?.passthroughBehavior;
+            resourceInputs["payloadFormatVersion"] = args?.payloadFormatVersion;
+            resourceInputs["requestParameters"] = args?.requestParameters;
+            resourceInputs["requestTemplates"] = args?.requestTemplates;
+            resourceInputs["responseParameters"] = args?.responseParameters;
+            resourceInputs["templateSelectionExpression"] = args?.templateSelectionExpression;
+            resourceInputs["timeoutInMillis"] = args?.timeoutInMillis;
+            resourceInputs["tlsConfig"] = args?.tlsConfig;
             resourceInputs["integrationId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

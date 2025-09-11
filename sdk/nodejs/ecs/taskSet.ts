@@ -40,47 +40,47 @@ export class TaskSet extends pulumi.CustomResource {
     /**
      * The ID of the task set.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The capacity provider strategy that are associated with the task set.
      */
-    public readonly capacityProviderStrategy!: pulumi.Output<outputs.ecs.TaskSetCapacityProviderStrategyItem[] | undefined>;
+    declare public readonly capacityProviderStrategy: pulumi.Output<outputs.ecs.TaskSetCapacityProviderStrategyItem[] | undefined>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
      */
-    public readonly cluster!: pulumi.Output<string>;
+    declare public readonly cluster: pulumi.Output<string>;
     /**
      * An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. 
      */
-    public readonly externalId!: pulumi.Output<string | undefined>;
+    declare public readonly externalId: pulumi.Output<string | undefined>;
     /**
      * The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
      */
-    public readonly launchType!: pulumi.Output<enums.ecs.TaskSetLaunchType | undefined>;
+    declare public readonly launchType: pulumi.Output<enums.ecs.TaskSetLaunchType | undefined>;
     /**
      * A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
      */
-    public readonly loadBalancers!: pulumi.Output<outputs.ecs.TaskSetLoadBalancer[] | undefined>;
+    declare public readonly loadBalancers: pulumi.Output<outputs.ecs.TaskSetLoadBalancer[] | undefined>;
     /**
      * The network configuration for the task set.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.ecs.TaskSetNetworkConfiguration | undefined>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.ecs.TaskSetNetworkConfiguration | undefined>;
     /**
      * The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
      */
-    public readonly platformVersion!: pulumi.Output<string | undefined>;
+    declare public readonly platformVersion: pulumi.Output<string | undefined>;
     /**
      * A floating-point percentage of the desired number of tasks to place and keep running in the task set.
      */
-    public readonly scale!: pulumi.Output<outputs.ecs.TaskSetScale | undefined>;
+    declare public readonly scale: pulumi.Output<outputs.ecs.TaskSetScale | undefined>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
      */
-    public readonly service!: pulumi.Output<string>;
+    declare public readonly service: pulumi.Output<string>;
     /**
      * The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
      */
-    public readonly serviceRegistries!: pulumi.Output<outputs.ecs.TaskSetServiceRegistry[] | undefined>;
+    declare public readonly serviceRegistries: pulumi.Output<outputs.ecs.TaskSetServiceRegistry[] | undefined>;
     /**
      * The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
      *
@@ -94,11 +94,11 @@ export class TaskSet extends pulumi.CustomResource {
      * - Tag keys and values are case-sensitive.
      * - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
      */
-    public readonly taskDefinition!: pulumi.Output<string>;
+    declare public readonly taskDefinition: pulumi.Output<string>;
 
     /**
      * Create a TaskSet resource with the given unique name, arguments, and options.
@@ -111,27 +111,27 @@ export class TaskSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cluster === undefined) && !opts.urn) {
+            if (args?.cluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cluster'");
             }
-            if ((!args || args.service === undefined) && !opts.urn) {
+            if (args?.service === undefined && !opts.urn) {
                 throw new Error("Missing required property 'service'");
             }
-            if ((!args || args.taskDefinition === undefined) && !opts.urn) {
+            if (args?.taskDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'taskDefinition'");
             }
-            resourceInputs["capacityProviderStrategy"] = args ? args.capacityProviderStrategy : undefined;
-            resourceInputs["cluster"] = args ? args.cluster : undefined;
-            resourceInputs["externalId"] = args ? args.externalId : undefined;
-            resourceInputs["launchType"] = args ? args.launchType : undefined;
-            resourceInputs["loadBalancers"] = args ? args.loadBalancers : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["platformVersion"] = args ? args.platformVersion : undefined;
-            resourceInputs["scale"] = args ? args.scale : undefined;
-            resourceInputs["service"] = args ? args.service : undefined;
-            resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taskDefinition"] = args ? args.taskDefinition : undefined;
+            resourceInputs["capacityProviderStrategy"] = args?.capacityProviderStrategy;
+            resourceInputs["cluster"] = args?.cluster;
+            resourceInputs["externalId"] = args?.externalId;
+            resourceInputs["launchType"] = args?.launchType;
+            resourceInputs["loadBalancers"] = args?.loadBalancers;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["platformVersion"] = args?.platformVersion;
+            resourceInputs["scale"] = args?.scale;
+            resourceInputs["service"] = args?.service;
+            resourceInputs["serviceRegistries"] = args?.serviceRegistries;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taskDefinition"] = args?.taskDefinition;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

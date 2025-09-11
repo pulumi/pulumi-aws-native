@@ -40,41 +40,41 @@ export class CapacityReservation extends pulumi.CustomResource {
     /**
      * The Availability Zone in which to create the Capacity Reservation.
      */
-    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZone: pulumi.Output<string | undefined>;
     /**
      * The Availability Zone ID of the Capacity Reservation.
      */
-    public readonly availabilityZoneId!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZoneId: pulumi.Output<string | undefined>;
     /**
      * Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
      */
-    public /*out*/ readonly availableInstanceCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly availableInstanceCount: pulumi.Output<number>;
     /**
      * The ID of the Capacity Reservation.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
-    public /*out*/ readonly capacityAllocationSet!: pulumi.Output<outputs.ec2.CapacityReservationCapacityAllocation[]>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
+    declare public /*out*/ readonly capacityAllocationSet: pulumi.Output<outputs.ec2.CapacityReservationCapacityAllocation[]>;
     /**
      * The Amazon Resource Name (ARN) of the Capacity Reservation.
      */
-    public /*out*/ readonly capacityReservationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly capacityReservationArn: pulumi.Output<string>;
     /**
      * The ID of the Capacity Reservation Fleet to which the Capacity Reservation belongs. Only valid for Capacity Reservations that were created by a Capacity Reservation Fleet.
      */
-    public /*out*/ readonly capacityReservationFleetId!: pulumi.Output<string>;
-    public /*out*/ readonly commitmentInfo!: pulumi.Output<outputs.ec2.CommitmentInfoProperties>;
+    declare public /*out*/ readonly capacityReservationFleetId: pulumi.Output<string>;
+    declare public /*out*/ readonly commitmentInfo: pulumi.Output<outputs.ec2.CommitmentInfoProperties>;
     /**
      * The date and time at which the Capacity Reservation was created.
      */
-    public /*out*/ readonly createDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createDate: pulumi.Output<string>;
     /**
      * The delivery method for a future-dated Capacity Reservation. `incremental` indicates that the requested capacity is delivered in addition to any running instances and reserved capacity that you have in your account at the requested date and time.
      */
-    public /*out*/ readonly deliveryPreference!: pulumi.Output<string>;
+    declare public /*out*/ readonly deliveryPreference: pulumi.Output<string>;
     /**
      * Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
      */
-    public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
+    declare public readonly ebsOptimized: pulumi.Output<boolean | undefined>;
     /**
      * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
      *
@@ -84,18 +84,18 @@ export class CapacityReservation extends pulumi.CustomResource {
      *
      * If you are requesting a future-dated Capacity Reservation, you can't specify an end date and time that is within the commitment duration.
      */
-    public readonly endDate!: pulumi.Output<string | undefined>;
+    declare public readonly endDate: pulumi.Output<string | undefined>;
     /**
      * Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
      *
      * - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
      * - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
      */
-    public readonly endDateType!: pulumi.Output<string | undefined>;
+    declare public readonly endDateType: pulumi.Output<string | undefined>;
     /**
      * *Deprecated.*
      */
-    public readonly ephemeralStorage!: pulumi.Output<boolean | undefined>;
+    declare public readonly ephemeralStorage: pulumi.Output<boolean | undefined>;
     /**
      * The number of instances for which to reserve capacity.
      *
@@ -103,7 +103,7 @@ export class CapacityReservation extends pulumi.CustomResource {
      *
      * Valid range: 1 - 1000
      */
-    public readonly instanceCount!: pulumi.Output<number>;
+    declare public readonly instanceCount: pulumi.Output<number>;
     /**
      * Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
      *
@@ -114,11 +114,11 @@ export class CapacityReservation extends pulumi.CustomResource {
      *
      * Default: `open`
      */
-    public readonly instanceMatchCriteria!: pulumi.Output<string | undefined>;
+    declare public readonly instanceMatchCriteria: pulumi.Output<string | undefined>;
     /**
      * The type of operating system for which to reserve capacity.
      */
-    public readonly instancePlatform!: pulumi.Output<string>;
+    declare public readonly instancePlatform: pulumi.Output<string>;
     /**
      * The instance type for which to reserve capacity.
      *
@@ -126,31 +126,31 @@ export class CapacityReservation extends pulumi.CustomResource {
      *
      * For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
      */
-    public readonly instanceType!: pulumi.Output<string>;
+    declare public readonly instanceType: pulumi.Output<string>;
     /**
      * > Not supported for future-dated Capacity Reservations. 
      *
      * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
      */
-    public readonly outPostArn!: pulumi.Output<string | undefined>;
+    declare public readonly outPostArn: pulumi.Output<string | undefined>;
     /**
      * The ID of the AWS account that owns the Capacity Reservation.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * > Not supported for future-dated Capacity Reservations. 
      *
      * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
      */
-    public readonly placementGroupArn!: pulumi.Output<string | undefined>;
+    declare public readonly placementGroupArn: pulumi.Output<string | undefined>;
     /**
      * The type of Capacity Reservation.
      */
-    public /*out*/ readonly reservationType!: pulumi.Output<string>;
+    declare public /*out*/ readonly reservationType: pulumi.Output<string>;
     /**
      * The date and time at which the Capacity Reservation was started.
      */
-    public /*out*/ readonly startDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly startDate: pulumi.Output<string>;
     /**
      * The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:
      *
@@ -166,28 +166,28 @@ export class CapacityReservation extends pulumi.CustomResource {
      * - `delayed` - ( *Future-dated Capacity Reservations* ) Amazon EC2 encountered a delay in provisioning the requested future-dated Capacity Reservation. Amazon EC2 is unable to deliver the requested capacity by the requested start date and time.
      * - `unsupported` - ( *Future-dated Capacity Reservations* ) Amazon EC2 can't support the future-dated Capacity Reservation request due to capacity constraints. You can view unsupported requests for 30 days. The Capacity Reservation will not be delivered.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The tags to apply to the Capacity Reservation during launch.
      */
-    public readonly tagSpecifications!: pulumi.Output<outputs.ec2.CapacityReservationTagSpecification[] | undefined>;
+    declare public readonly tagSpecifications: pulumi.Output<outputs.ec2.CapacityReservationTagSpecification[] | undefined>;
     /**
      * Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
      *
      * - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
      * - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
      */
-    public readonly tenancy!: pulumi.Output<string | undefined>;
+    declare public readonly tenancy: pulumi.Output<string | undefined>;
     /**
      * Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
      */
-    public /*out*/ readonly totalInstanceCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalInstanceCount: pulumi.Output<number>;
     /**
      * The ID of the AWS account to which to assign billing of the unused capacity of the Capacity Reservation. A request will be sent to the specified account. That account must accept the request for the billing to be assigned to their account. For more information, see [Billing assignment for shared Amazon EC2 Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html) .
      *
      * You can assign billing only for shared Capacity Reservations. To share a Capacity Reservation, you must add it to a resource share. For more information, see [AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html) .
      */
-    public readonly unusedReservationBillingOwnerId!: pulumi.Output<string | undefined>;
+    declare public readonly unusedReservationBillingOwnerId: pulumi.Output<string | undefined>;
 
     /**
      * Create a CapacityReservation resource with the given unique name, arguments, and options.
@@ -200,30 +200,30 @@ export class CapacityReservation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceCount === undefined) && !opts.urn) {
+            if (args?.instanceCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceCount'");
             }
-            if ((!args || args.instancePlatform === undefined) && !opts.urn) {
+            if (args?.instancePlatform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instancePlatform'");
             }
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
+            if (args?.instanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
-            resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            resourceInputs["endDate"] = args ? args.endDate : undefined;
-            resourceInputs["endDateType"] = args ? args.endDateType : undefined;
-            resourceInputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
-            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
-            resourceInputs["instanceMatchCriteria"] = args ? args.instanceMatchCriteria : undefined;
-            resourceInputs["instancePlatform"] = args ? args.instancePlatform : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["outPostArn"] = args ? args.outPostArn : undefined;
-            resourceInputs["placementGroupArn"] = args ? args.placementGroupArn : undefined;
-            resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
-            resourceInputs["tenancy"] = args ? args.tenancy : undefined;
-            resourceInputs["unusedReservationBillingOwnerId"] = args ? args.unusedReservationBillingOwnerId : undefined;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["availabilityZoneId"] = args?.availabilityZoneId;
+            resourceInputs["ebsOptimized"] = args?.ebsOptimized;
+            resourceInputs["endDate"] = args?.endDate;
+            resourceInputs["endDateType"] = args?.endDateType;
+            resourceInputs["ephemeralStorage"] = args?.ephemeralStorage;
+            resourceInputs["instanceCount"] = args?.instanceCount;
+            resourceInputs["instanceMatchCriteria"] = args?.instanceMatchCriteria;
+            resourceInputs["instancePlatform"] = args?.instancePlatform;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["outPostArn"] = args?.outPostArn;
+            resourceInputs["placementGroupArn"] = args?.placementGroupArn;
+            resourceInputs["tagSpecifications"] = args?.tagSpecifications;
+            resourceInputs["tenancy"] = args?.tenancy;
+            resourceInputs["unusedReservationBillingOwnerId"] = args?.unusedReservationBillingOwnerId;
             resourceInputs["availableInstanceCount"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["capacityAllocationSet"] = undefined /*out*/;

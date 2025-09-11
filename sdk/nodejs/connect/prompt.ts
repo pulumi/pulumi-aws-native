@@ -40,27 +40,27 @@ export class Prompt extends pulumi.CustomResource {
     /**
      * The description of the prompt.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The identifier of the Amazon Connect instance.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The name of the prompt.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the prompt.
      */
-    public /*out*/ readonly promptArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly promptArn: pulumi.Output<string>;
     /**
      * S3 URI of the customer's audio file for creating prompts resource..
      */
-    public readonly s3Uri!: pulumi.Output<string | undefined>;
+    declare public readonly s3Uri: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Prompt resource with the given unique name, arguments, and options.
@@ -73,14 +73,14 @@ export class Prompt extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["s3Uri"] = args ? args.s3Uri : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["s3Uri"] = args?.s3Uri;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["promptArn"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

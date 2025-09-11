@@ -40,52 +40,52 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
     /**
      * The time at which the job definition was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
-    public readonly endpointName!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
+    declare public readonly endpointName: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of job definition.
      */
-    public /*out*/ readonly jobDefinitionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly jobDefinitionArn: pulumi.Output<string>;
     /**
      * The name of the monitoring job definition.
      */
-    public readonly jobDefinitionName!: pulumi.Output<string | undefined>;
+    declare public readonly jobDefinitionName: pulumi.Output<string | undefined>;
     /**
      * Identifies the resources to deploy for a monitoring job.
      */
-    public readonly jobResources!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionMonitoringResources>;
+    declare public readonly jobResources: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionMonitoringResources>;
     /**
      * Container image configuration object for the monitoring job.
      */
-    public readonly modelQualityAppSpecification!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionModelQualityAppSpecification>;
+    declare public readonly modelQualityAppSpecification: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionModelQualityAppSpecification>;
     /**
      * Specifies the constraints and baselines for the monitoring job.
      */
-    public readonly modelQualityBaselineConfig!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionModelQualityBaselineConfig | undefined>;
+    declare public readonly modelQualityBaselineConfig: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionModelQualityBaselineConfig | undefined>;
     /**
      * A list of the inputs that are monitored. Currently endpoints are supported.
      */
-    public readonly modelQualityJobInput!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionModelQualityJobInput>;
+    declare public readonly modelQualityJobInput: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionModelQualityJobInput>;
     /**
      * The output configuration for monitoring jobs.
      */
-    public readonly modelQualityJobOutputConfig!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionMonitoringOutputConfig>;
+    declare public readonly modelQualityJobOutputConfig: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionMonitoringOutputConfig>;
     /**
      * Specifies the network configuration for the monitoring job.
      */
-    public readonly networkConfig!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionNetworkConfig | undefined>;
+    declare public readonly networkConfig: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionNetworkConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * A time limit for how long the monitoring job is allowed to run before stopping.
      */
-    public readonly stoppingCondition!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionStoppingCondition | undefined>;
+    declare public readonly stoppingCondition: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionStoppingCondition | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a ModelQualityJobDefinition resource with the given unique name, arguments, and options.
@@ -98,32 +98,32 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.jobResources === undefined) && !opts.urn) {
+            if (args?.jobResources === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobResources'");
             }
-            if ((!args || args.modelQualityAppSpecification === undefined) && !opts.urn) {
+            if (args?.modelQualityAppSpecification === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelQualityAppSpecification'");
             }
-            if ((!args || args.modelQualityJobInput === undefined) && !opts.urn) {
+            if (args?.modelQualityJobInput === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelQualityJobInput'");
             }
-            if ((!args || args.modelQualityJobOutputConfig === undefined) && !opts.urn) {
+            if (args?.modelQualityJobOutputConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelQualityJobOutputConfig'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
-            resourceInputs["jobResources"] = args ? args.jobResources : undefined;
-            resourceInputs["modelQualityAppSpecification"] = args ? args.modelQualityAppSpecification : undefined;
-            resourceInputs["modelQualityBaselineConfig"] = args ? args.modelQualityBaselineConfig : undefined;
-            resourceInputs["modelQualityJobInput"] = args ? args.modelQualityJobInput : undefined;
-            resourceInputs["modelQualityJobOutputConfig"] = args ? args.modelQualityJobOutputConfig : undefined;
-            resourceInputs["networkConfig"] = args ? args.networkConfig : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["stoppingCondition"] = args ? args.stoppingCondition : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["jobDefinitionName"] = args?.jobDefinitionName;
+            resourceInputs["jobResources"] = args?.jobResources;
+            resourceInputs["modelQualityAppSpecification"] = args?.modelQualityAppSpecification;
+            resourceInputs["modelQualityBaselineConfig"] = args?.modelQualityBaselineConfig;
+            resourceInputs["modelQualityJobInput"] = args?.modelQualityJobInput;
+            resourceInputs["modelQualityJobOutputConfig"] = args?.modelQualityJobOutputConfig;
+            resourceInputs["networkConfig"] = args?.networkConfig;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["stoppingCondition"] = args?.stoppingCondition;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["jobDefinitionArn"] = undefined /*out*/;
         } else {

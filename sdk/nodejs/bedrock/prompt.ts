@@ -40,50 +40,50 @@ export class Prompt extends pulumi.CustomResource {
     /**
      * ARN of a prompt resource possibly with a version
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Identifier for a Prompt
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Time Stamp.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * A KMS key ARN
      */
-    public readonly customerEncryptionKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly customerEncryptionKeyArn: pulumi.Output<string | undefined>;
     /**
      * Name for a variant.
      */
-    public readonly defaultVariant!: pulumi.Output<string | undefined>;
+    declare public readonly defaultVariant: pulumi.Output<string | undefined>;
     /**
      * Name for a prompt resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name for a prompt resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
      *
      * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
      * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Time Stamp.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * List of prompt variants
      */
-    public readonly variants!: pulumi.Output<outputs.bedrock.PromptVariant[] | undefined>;
+    declare public readonly variants: pulumi.Output<outputs.bedrock.PromptVariant[] | undefined>;
     /**
      * Draft Version.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a Prompt resource with the given unique name, arguments, and options.
@@ -96,12 +96,12 @@ export class Prompt extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["customerEncryptionKeyArn"] = args ? args.customerEncryptionKeyArn : undefined;
-            resourceInputs["defaultVariant"] = args ? args.defaultVariant : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["variants"] = args ? args.variants : undefined;
+            resourceInputs["customerEncryptionKeyArn"] = args?.customerEncryptionKeyArn;
+            resourceInputs["defaultVariant"] = args?.defaultVariant;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["variants"] = args?.variants;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

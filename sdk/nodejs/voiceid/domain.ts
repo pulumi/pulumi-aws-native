@@ -40,23 +40,23 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The description of the domain.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The identifier of the domain.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * The name for the domain.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
      */
-    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.voiceid.DomainServerSideEncryptionConfiguration>;
+    declare public readonly serverSideEncryptionConfiguration: pulumi.Output<outputs.voiceid.DomainServerSideEncryptionConfiguration>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -69,13 +69,13 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.serverSideEncryptionConfiguration === undefined) && !opts.urn) {
+            if (args?.serverSideEncryptionConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverSideEncryptionConfiguration'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverSideEncryptionConfiguration"] = args?.serverSideEncryptionConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["domainId"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

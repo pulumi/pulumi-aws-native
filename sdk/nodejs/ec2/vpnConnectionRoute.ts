@@ -38,11 +38,11 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
     /**
      * The CIDR block associated with the local subnet of the customer network.
      */
-    public readonly destinationCidrBlock!: pulumi.Output<string>;
+    declare public readonly destinationCidrBlock: pulumi.Output<string>;
     /**
      * The ID of the VPN connection.
      */
-    public readonly vpnConnectionId!: pulumi.Output<string>;
+    declare public readonly vpnConnectionId: pulumi.Output<string>;
 
     /**
      * Create a VpnConnectionRoute resource with the given unique name, arguments, and options.
@@ -55,14 +55,14 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
+            if (args?.destinationCidrBlock === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if ((!args || args.vpnConnectionId === undefined) && !opts.urn) {
+            if (args?.vpnConnectionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpnConnectionId'");
             }
-            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            resourceInputs["vpnConnectionId"] = args ? args.vpnConnectionId : undefined;
+            resourceInputs["destinationCidrBlock"] = args?.destinationCidrBlock;
+            resourceInputs["vpnConnectionId"] = args?.vpnConnectionId;
         } else {
             resourceInputs["destinationCidrBlock"] = undefined /*out*/;
             resourceInputs["vpnConnectionId"] = undefined /*out*/;

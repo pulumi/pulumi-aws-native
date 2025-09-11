@@ -40,41 +40,41 @@ export class EventBus extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the event bus.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Dead Letter Queue for the event bus.
      */
-    public readonly deadLetterConfig!: pulumi.Output<outputs.events.DeadLetterConfigProperties | undefined>;
+    declare public readonly deadLetterConfig: pulumi.Output<outputs.events.DeadLetterConfigProperties | undefined>;
     /**
      * The description of the event bus.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
      */
-    public readonly eventSourceName!: pulumi.Output<string | undefined>;
+    declare public readonly eventSourceName: pulumi.Output<string | undefined>;
     /**
      * Kms Key Identifier used to encrypt events at rest in the event bus.
      */
-    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
      * The logging configuration settings for vended logs.
      */
-    public readonly logConfig!: pulumi.Output<outputs.events.LogConfigProperties | undefined>;
+    declare public readonly logConfig: pulumi.Output<outputs.events.LogConfigProperties | undefined>;
     /**
      * The name of the event bus.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A JSON string that describes the permission policy statement for the event bus.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
      */
-    public readonly policy!: pulumi.Output<any | undefined>;
+    declare public readonly policy: pulumi.Output<any | undefined>;
     /**
      * Any tags assigned to the event bus.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EventBus resource with the given unique name, arguments, and options.
@@ -87,14 +87,14 @@ export class EventBus extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventSourceName"] = args ? args.eventSourceName : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["logConfig"] = args ? args.logConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deadLetterConfig"] = args?.deadLetterConfig;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventSourceName"] = args?.eventSourceName;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["logConfig"] = args?.logConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

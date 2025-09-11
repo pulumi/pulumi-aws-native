@@ -40,51 +40,51 @@ export class VariantStore extends pulumi.CustomResource {
     /**
      * The store's ID.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * When the store was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * A description for the store.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A name for the store.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The genome reference for the store's variants.
      */
-    public readonly reference!: pulumi.Output<outputs.omics.VariantStoreReferenceItem>;
+    declare public readonly reference: pulumi.Output<outputs.omics.VariantStoreReferenceItem>;
     /**
      * Server-side encryption (SSE) settings for the store.
      */
-    public readonly sseConfig!: pulumi.Output<outputs.omics.VariantStoreSseConfig | undefined>;
+    declare public readonly sseConfig: pulumi.Output<outputs.omics.VariantStoreSseConfig | undefined>;
     /**
      * The store's status.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.omics.VariantStoreStoreStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.omics.VariantStoreStoreStatus>;
     /**
      * The store's status message.
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
     /**
      * The store's ARN.
      */
-    public /*out*/ readonly storeArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly storeArn: pulumi.Output<string>;
     /**
      * The store's size in bytes.
      */
-    public /*out*/ readonly storeSizeBytes!: pulumi.Output<number>;
+    declare public /*out*/ readonly storeSizeBytes: pulumi.Output<number>;
     /**
      * Tags for the store.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * When the store was updated.
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly updateTime: pulumi.Output<string>;
 
     /**
      * Create a VariantStore resource with the given unique name, arguments, and options.
@@ -97,14 +97,14 @@ export class VariantStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.reference === undefined) && !opts.urn) {
+            if (args?.reference === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reference'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["reference"] = args ? args.reference : undefined;
-            resourceInputs["sseConfig"] = args ? args.sseConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["reference"] = args?.reference;
+            resourceInputs["sseConfig"] = args?.sseConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

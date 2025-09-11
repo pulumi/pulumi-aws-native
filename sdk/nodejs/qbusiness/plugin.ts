@@ -40,55 +40,55 @@ export class Plugin extends pulumi.CustomResource {
     /**
      * The identifier of the application that will contain the plugin.
      */
-    public readonly applicationId!: pulumi.Output<string | undefined>;
+    declare public readonly applicationId: pulumi.Output<string | undefined>;
     /**
      * Authentication configuration information for an Amazon Q Business plugin.
      */
-    public readonly authConfiguration!: pulumi.Output<outputs.qbusiness.PluginAuthConfiguration0Properties | outputs.qbusiness.PluginAuthConfiguration1Properties | outputs.qbusiness.PluginAuthConfiguration2Properties>;
+    declare public readonly authConfiguration: pulumi.Output<outputs.qbusiness.PluginAuthConfiguration0Properties | outputs.qbusiness.PluginAuthConfiguration1Properties | outputs.qbusiness.PluginAuthConfiguration2Properties>;
     /**
      * The current status of a plugin. A plugin is modified asynchronously.
      */
-    public /*out*/ readonly buildStatus!: pulumi.Output<enums.qbusiness.PluginBuildStatus>;
+    declare public /*out*/ readonly buildStatus: pulumi.Output<enums.qbusiness.PluginBuildStatus>;
     /**
      * The timestamp for when the plugin was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Configuration information required to create a custom plugin.
      */
-    public readonly customPluginConfiguration!: pulumi.Output<outputs.qbusiness.PluginCustomPluginConfiguration | undefined>;
+    declare public readonly customPluginConfiguration: pulumi.Output<outputs.qbusiness.PluginCustomPluginConfiguration | undefined>;
     /**
      * The name of the plugin.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of a plugin.
      */
-    public /*out*/ readonly pluginArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly pluginArn: pulumi.Output<string>;
     /**
      * The identifier of the plugin.
      */
-    public /*out*/ readonly pluginId!: pulumi.Output<string>;
+    declare public /*out*/ readonly pluginId: pulumi.Output<string>;
     /**
      * The plugin server URL used for configuration.
      */
-    public readonly serverUrl!: pulumi.Output<string | undefined>;
+    declare public readonly serverUrl: pulumi.Output<string | undefined>;
     /**
      * The current status of the plugin.
      */
-    public readonly state!: pulumi.Output<enums.qbusiness.PluginState | undefined>;
+    declare public readonly state: pulumi.Output<enums.qbusiness.PluginState | undefined>;
     /**
      * A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the plugin.
      */
-    public readonly type!: pulumi.Output<enums.qbusiness.PluginType>;
+    declare public readonly type: pulumi.Output<enums.qbusiness.PluginType>;
     /**
      * The timestamp for when the plugin was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a Plugin resource with the given unique name, arguments, and options.
@@ -101,23 +101,23 @@ export class Plugin extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authConfiguration === undefined) && !opts.urn) {
+            if (args?.authConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authConfiguration'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["authConfiguration"] = args ? args.authConfiguration : undefined;
-            resourceInputs["customPluginConfiguration"] = args ? args.customPluginConfiguration : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["serverUrl"] = args ? args.serverUrl : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["authConfiguration"] = args?.authConfiguration;
+            resourceInputs["customPluginConfiguration"] = args?.customPluginConfiguration;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["serverUrl"] = args?.serverUrl;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["buildStatus"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["pluginArn"] = undefined /*out*/;

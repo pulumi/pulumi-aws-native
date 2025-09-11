@@ -40,19 +40,19 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * <p>The Amazon Resource Name (ARN) of the resource.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the AWS account where you want to create the dashboard.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * <p>The time that this dashboard was created.</p>
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The ID for the dashboard, also added to the IAM policy.
      */
-    public readonly dashboardId!: pulumi.Output<string>;
+    declare public readonly dashboardId: pulumi.Output<string>;
     /**
      * Options for publishing the dashboard when you create it:
      *
@@ -60,62 +60,62 @@ export class Dashboard extends pulumi.CustomResource {
      * - `AvailabilityStatus` for `ExportToCSVOption` - This status can be either `ENABLED` or `DISABLED` . The visual option to export data to .CSV format isn't enabled when this is set to `DISABLED` . This option is `ENABLED` by default.
      * - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
      */
-    public readonly dashboardPublishOptions!: pulumi.Output<outputs.quicksight.DashboardPublishOptions | undefined>;
-    public readonly definition!: pulumi.Output<outputs.quicksight.DashboardVersionDefinition | undefined>;
-    public readonly folderArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly dashboardPublishOptions: pulumi.Output<outputs.quicksight.DashboardPublishOptions | undefined>;
+    declare public readonly definition: pulumi.Output<outputs.quicksight.DashboardVersionDefinition | undefined>;
+    declare public readonly folderArns: pulumi.Output<string[] | undefined>;
     /**
      * <p>The last time that this dashboard was published.</p>
      */
-    public /*out*/ readonly lastPublishedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastPublishedTime: pulumi.Output<string>;
     /**
      * <p>The last time that this dashboard was updated.</p>
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
      */
-    public readonly linkEntities!: pulumi.Output<string[] | undefined>;
+    declare public readonly linkEntities: pulumi.Output<string[] | undefined>;
     /**
      * A structure that contains the link sharing configurations that you want to apply overrides to.
      */
-    public readonly linkSharingConfiguration!: pulumi.Output<outputs.quicksight.DashboardLinkSharingConfiguration | undefined>;
+    declare public readonly linkSharingConfiguration: pulumi.Output<outputs.quicksight.DashboardLinkSharingConfiguration | undefined>;
     /**
      * The display name of the dashboard.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values.
      */
-    public readonly parameters!: pulumi.Output<outputs.quicksight.DashboardParameters | undefined>;
+    declare public readonly parameters: pulumi.Output<outputs.quicksight.DashboardParameters | undefined>;
     /**
      * A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
      *
      * To specify no permissions, omit the permissions list.
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.DashboardResourcePermission[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.quicksight.DashboardResourcePermission[] | undefined>;
     /**
      * The entity that you are using as a source when you create the dashboard. In `SourceEntity` , you specify the type of object that you want to use. You can only create a dashboard from a template, so you use a `SourceTemplate` entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the `CreateTemplate` API operation. For `SourceTemplate` , specify the Amazon Resource Name (ARN) of the source template. The `SourceTemplate` ARN can contain any AWS account; and any QuickSight-supported AWS Region .
      *
      * Use the `DataSetReferences` entity within `SourceTemplate` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
      */
-    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.DashboardSourceEntity | undefined>;
+    declare public readonly sourceEntity: pulumi.Output<outputs.quicksight.DashboardSourceEntity | undefined>;
     /**
      * Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
      */
-    public readonly themeArn!: pulumi.Output<string | undefined>;
+    declare public readonly themeArn: pulumi.Output<string | undefined>;
     /**
      * The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
      */
-    public readonly validationStrategy!: pulumi.Output<outputs.quicksight.DashboardValidationStrategy | undefined>;
-    public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.DashboardVersion>;
+    declare public readonly validationStrategy: pulumi.Output<outputs.quicksight.DashboardValidationStrategy | undefined>;
+    declare public /*out*/ readonly version: pulumi.Output<outputs.quicksight.DashboardVersion>;
     /**
      * A description for the first version of the dashboard being created.
      */
-    public readonly versionDescription!: pulumi.Output<string | undefined>;
+    declare public readonly versionDescription: pulumi.Output<string | undefined>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -128,27 +128,27 @@ export class Dashboard extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsAccountId === undefined) && !opts.urn) {
+            if (args?.awsAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
             }
-            if ((!args || args.dashboardId === undefined) && !opts.urn) {
+            if (args?.dashboardId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dashboardId'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["dashboardId"] = args ? args.dashboardId : undefined;
-            resourceInputs["dashboardPublishOptions"] = args ? args.dashboardPublishOptions : undefined;
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["folderArns"] = args ? args.folderArns : undefined;
-            resourceInputs["linkEntities"] = args ? args.linkEntities : undefined;
-            resourceInputs["linkSharingConfiguration"] = args ? args.linkSharingConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["themeArn"] = args ? args.themeArn : undefined;
-            resourceInputs["validationStrategy"] = args ? args.validationStrategy : undefined;
-            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["dashboardId"] = args?.dashboardId;
+            resourceInputs["dashboardPublishOptions"] = args?.dashboardPublishOptions;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["folderArns"] = args?.folderArns;
+            resourceInputs["linkEntities"] = args?.linkEntities;
+            resourceInputs["linkSharingConfiguration"] = args?.linkSharingConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["sourceEntity"] = args?.sourceEntity;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["themeArn"] = args?.themeArn;
+            resourceInputs["validationStrategy"] = args?.validationStrategy;
+            resourceInputs["versionDescription"] = args?.versionDescription;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastPublishedTime"] = undefined /*out*/;

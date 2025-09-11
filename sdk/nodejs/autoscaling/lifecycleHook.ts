@@ -37,35 +37,35 @@ export class LifecycleHook extends pulumi.CustomResource {
     /**
      * The name of the Auto Scaling group for the lifecycle hook.
      */
-    public readonly autoScalingGroupName!: pulumi.Output<string>;
+    declare public readonly autoScalingGroupName: pulumi.Output<string>;
     /**
      * The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are CONTINUE and ABANDON (default).
      */
-    public readonly defaultResult!: pulumi.Output<string | undefined>;
+    declare public readonly defaultResult: pulumi.Output<string | undefined>;
     /**
      * The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from 30 to 7200 seconds. The default value is 3600 seconds (1 hour). If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the DefaultResult property.
      */
-    public readonly heartbeatTimeout!: pulumi.Output<number | undefined>;
+    declare public readonly heartbeatTimeout: pulumi.Output<number | undefined>;
     /**
      * The name of the lifecycle hook.
      */
-    public readonly lifecycleHookName!: pulumi.Output<string | undefined>;
+    declare public readonly lifecycleHookName: pulumi.Output<string | undefined>;
     /**
      * The instance state to which you want to attach the lifecycle hook.
      */
-    public readonly lifecycleTransition!: pulumi.Output<string>;
+    declare public readonly lifecycleTransition: pulumi.Output<string>;
     /**
      * Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the notification target.
      */
-    public readonly notificationMetadata!: pulumi.Output<string | undefined>;
+    declare public readonly notificationMetadata: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.
      */
-    public readonly notificationTargetArn!: pulumi.Output<string | undefined>;
+    declare public readonly notificationTargetArn: pulumi.Output<string | undefined>;
     /**
      * The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a LifecycleHook resource with the given unique name, arguments, and options.
@@ -78,20 +78,20 @@ export class LifecycleHook extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoScalingGroupName === undefined) && !opts.urn) {
+            if (args?.autoScalingGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingGroupName'");
             }
-            if ((!args || args.lifecycleTransition === undefined) && !opts.urn) {
+            if (args?.lifecycleTransition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lifecycleTransition'");
             }
-            resourceInputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
-            resourceInputs["defaultResult"] = args ? args.defaultResult : undefined;
-            resourceInputs["heartbeatTimeout"] = args ? args.heartbeatTimeout : undefined;
-            resourceInputs["lifecycleHookName"] = args ? args.lifecycleHookName : undefined;
-            resourceInputs["lifecycleTransition"] = args ? args.lifecycleTransition : undefined;
-            resourceInputs["notificationMetadata"] = args ? args.notificationMetadata : undefined;
-            resourceInputs["notificationTargetArn"] = args ? args.notificationTargetArn : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["autoScalingGroupName"] = args?.autoScalingGroupName;
+            resourceInputs["defaultResult"] = args?.defaultResult;
+            resourceInputs["heartbeatTimeout"] = args?.heartbeatTimeout;
+            resourceInputs["lifecycleHookName"] = args?.lifecycleHookName;
+            resourceInputs["lifecycleTransition"] = args?.lifecycleTransition;
+            resourceInputs["notificationMetadata"] = args?.notificationMetadata;
+            resourceInputs["notificationTargetArn"] = args?.notificationTargetArn;
+            resourceInputs["roleArn"] = args?.roleArn;
         } else {
             resourceInputs["autoScalingGroupName"] = undefined /*out*/;
             resourceInputs["defaultResult"] = undefined /*out*/;

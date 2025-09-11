@@ -37,11 +37,11 @@ export class AccountAlias extends pulumi.CustomResource {
     /**
      * An account alias associated with a customer's account.
      */
-    public readonly accountAlias!: pulumi.Output<string>;
+    declare public readonly accountAlias: pulumi.Output<string>;
     /**
      * Unique identifier representing an alias tied to an account
      */
-    public /*out*/ readonly accountAliasResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountAliasResourceId: pulumi.Output<string>;
 
     /**
      * Create a AccountAlias resource with the given unique name, arguments, and options.
@@ -54,10 +54,10 @@ export class AccountAlias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountAlias === undefined) && !opts.urn) {
+            if (args?.accountAlias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountAlias'");
             }
-            resourceInputs["accountAlias"] = args ? args.accountAlias : undefined;
+            resourceInputs["accountAlias"] = args?.accountAlias;
             resourceInputs["accountAliasResourceId"] = undefined /*out*/;
         } else {
             resourceInputs["accountAlias"] = undefined /*out*/;

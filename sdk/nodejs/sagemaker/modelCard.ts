@@ -40,51 +40,51 @@ export class ModelCard extends pulumi.CustomResource {
     /**
      * The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
      */
-    public readonly content!: pulumi.Output<outputs.sagemaker.ModelCardContent>;
+    declare public readonly content: pulumi.Output<outputs.sagemaker.ModelCardContent>;
     /**
      * Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
      */
-    public readonly createdBy!: pulumi.Output<outputs.sagemaker.ModelCardUserContext | undefined>;
+    declare public readonly createdBy: pulumi.Output<outputs.sagemaker.ModelCardUserContext | undefined>;
     /**
      * The date and time the model card was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
      */
-    public readonly lastModifiedBy!: pulumi.Output<outputs.sagemaker.ModelCardUserContext | undefined>;
+    declare public readonly lastModifiedBy: pulumi.Output<outputs.sagemaker.ModelCardUserContext | undefined>;
     /**
      * The date and time the model card was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the successfully created model card.
      */
-    public /*out*/ readonly modelCardArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly modelCardArn: pulumi.Output<string>;
     /**
      * The unique name of the model card.
      */
-    public readonly modelCardName!: pulumi.Output<string>;
+    declare public readonly modelCardName: pulumi.Output<string>;
     /**
      * The processing status of model card deletion. The ModelCardProcessingStatus updates throughout the different deletion steps.
      */
-    public /*out*/ readonly modelCardProcessingStatus!: pulumi.Output<enums.sagemaker.ModelCardProcessingStatus>;
+    declare public /*out*/ readonly modelCardProcessingStatus: pulumi.Output<enums.sagemaker.ModelCardProcessingStatus>;
     /**
      * The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
      */
-    public readonly modelCardStatus!: pulumi.Output<enums.sagemaker.ModelCardStatus>;
+    declare public readonly modelCardStatus: pulumi.Output<enums.sagemaker.ModelCardStatus>;
     /**
      * A version of the model card.
      */
-    public /*out*/ readonly modelCardVersion!: pulumi.Output<number>;
+    declare public /*out*/ readonly modelCardVersion: pulumi.Output<number>;
     /**
      * The security configuration used to protect model card data.
      */
-    public readonly securityConfig!: pulumi.Output<outputs.sagemaker.ModelCardSecurityConfig | undefined>;
+    declare public readonly securityConfig: pulumi.Output<outputs.sagemaker.ModelCardSecurityConfig | undefined>;
     /**
      * Key-value pairs used to manage metadata for model cards.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ModelCard resource with the given unique name, arguments, and options.
@@ -97,19 +97,19 @@ export class ModelCard extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.modelCardStatus === undefined) && !opts.urn) {
+            if (args?.modelCardStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelCardStatus'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
-            resourceInputs["modelCardName"] = args ? args.modelCardName : undefined;
-            resourceInputs["modelCardStatus"] = args ? args.modelCardStatus : undefined;
-            resourceInputs["securityConfig"] = args ? args.securityConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["createdBy"] = args?.createdBy;
+            resourceInputs["lastModifiedBy"] = args?.lastModifiedBy;
+            resourceInputs["modelCardName"] = args?.modelCardName;
+            resourceInputs["modelCardStatus"] = args?.modelCardStatus;
+            resourceInputs["securityConfig"] = args?.securityConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["modelCardArn"] = undefined /*out*/;

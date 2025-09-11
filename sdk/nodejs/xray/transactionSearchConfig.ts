@@ -34,8 +34,8 @@ export class TransactionSearchConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === TransactionSearchConfig.__pulumiType;
     }
 
-    public /*out*/ readonly accountId!: pulumi.Output<string>;
-    public readonly indexingPercentage!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
+    declare public readonly indexingPercentage: pulumi.Output<number | undefined>;
 
     /**
      * Create a TransactionSearchConfig resource with the given unique name, arguments, and options.
@@ -48,7 +48,7 @@ export class TransactionSearchConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["indexingPercentage"] = args ? args.indexingPercentage : undefined;
+            resourceInputs["indexingPercentage"] = args?.indexingPercentage;
             resourceInputs["accountId"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;

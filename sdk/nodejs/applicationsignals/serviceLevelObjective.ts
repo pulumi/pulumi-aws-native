@@ -40,53 +40,53 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
     /**
      * The ARN of this SLO.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
      */
-    public readonly burnRateConfigurations!: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveBurnRateConfiguration[] | undefined>;
+    declare public readonly burnRateConfigurations: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveBurnRateConfiguration[] | undefined>;
     /**
      * Epoch time in seconds of the time that this SLO was created
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<number>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<number>;
     /**
      * An optional description for this SLO. Default is 'No description'
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Displays whether this is a period-based SLO or a request-based SLO.
      */
-    public /*out*/ readonly evaluationType!: pulumi.Output<enums.applicationsignals.ServiceLevelObjectiveEvaluationType>;
+    declare public /*out*/ readonly evaluationType: pulumi.Output<enums.applicationsignals.ServiceLevelObjectiveEvaluationType>;
     /**
      * The time window to be excluded from the SLO performance metrics.
      */
-    public readonly exclusionWindows!: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveExclusionWindow[] | undefined>;
+    declare public readonly exclusionWindows: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveExclusionWindow[] | undefined>;
     /**
      * This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
      */
-    public readonly goal!: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveGoal | undefined>;
+    declare public readonly goal: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveGoal | undefined>;
     /**
      * Epoch time in seconds of the time that this SLO was most recently updated
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<number>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<number>;
     /**
      * The name of this SLO.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
      */
-    public readonly requestBasedSli!: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveRequestBasedSli | undefined>;
+    declare public readonly requestBasedSli: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveRequestBasedSli | undefined>;
     /**
      * A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
      */
-    public readonly sli!: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveSli | undefined>;
+    declare public readonly sli: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveSli | undefined>;
     /**
      * A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
      *
      * Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ServiceLevelObjective resource with the given unique name, arguments, and options.
@@ -99,14 +99,14 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["burnRateConfigurations"] = args ? args.burnRateConfigurations : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["exclusionWindows"] = args ? args.exclusionWindows : undefined;
-            resourceInputs["goal"] = args ? args.goal : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["requestBasedSli"] = args ? args.requestBasedSli : undefined;
-            resourceInputs["sli"] = args ? args.sli : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["burnRateConfigurations"] = args?.burnRateConfigurations;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["exclusionWindows"] = args?.exclusionWindows;
+            resourceInputs["goal"] = args?.goal;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["requestBasedSli"] = args?.requestBasedSli;
+            resourceInputs["sli"] = args?.sli;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["evaluationType"] = undefined /*out*/;

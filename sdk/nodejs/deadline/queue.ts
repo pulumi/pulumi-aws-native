@@ -40,55 +40,55 @@ export class Queue extends pulumi.CustomResource {
     /**
      * The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
      */
-    public readonly allowedStorageProfileIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedStorageProfileIds: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the queue.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The default action taken on a queue summary if a budget wasn't configured.
      */
-    public readonly defaultBudgetAction!: pulumi.Output<enums.deadline.QueueDefaultQueueBudgetAction | undefined>;
+    declare public readonly defaultBudgetAction: pulumi.Output<enums.deadline.QueueDefaultQueueBudgetAction | undefined>;
     /**
      * A description of the queue that helps identify what the queue is used for.
      *
      * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the queue summary to update.
      *
      * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The farm ID.
      */
-    public readonly farmId!: pulumi.Output<string>;
+    declare public readonly farmId: pulumi.Output<string>;
     /**
      * The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
      */
-    public readonly jobAttachmentSettings!: pulumi.Output<outputs.deadline.QueueJobAttachmentSettings | undefined>;
+    declare public readonly jobAttachmentSettings: pulumi.Output<outputs.deadline.QueueJobAttachmentSettings | undefined>;
     /**
      * Identifies the user for a job.
      */
-    public readonly jobRunAsUser!: pulumi.Output<outputs.deadline.QueueJobRunAsUser | undefined>;
+    declare public readonly jobRunAsUser: pulumi.Output<outputs.deadline.QueueJobRunAsUser | undefined>;
     /**
      * The queue ID.
      */
-    public /*out*/ readonly queueId!: pulumi.Output<string>;
+    declare public /*out*/ readonly queueId: pulumi.Output<string>;
     /**
      * The file system location that the queue uses.
      */
-    public readonly requiredFileSystemLocationNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly requiredFileSystemLocationNames: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Queue resource with the given unique name, arguments, and options.
@@ -101,22 +101,22 @@ export class Queue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.farmId === undefined) && !opts.urn) {
+            if (args?.farmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'farmId'");
             }
-            resourceInputs["allowedStorageProfileIds"] = args ? args.allowedStorageProfileIds : undefined;
-            resourceInputs["defaultBudgetAction"] = args ? args.defaultBudgetAction : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["farmId"] = args ? args.farmId : undefined;
-            resourceInputs["jobAttachmentSettings"] = args ? args.jobAttachmentSettings : undefined;
-            resourceInputs["jobRunAsUser"] = args ? args.jobRunAsUser : undefined;
-            resourceInputs["requiredFileSystemLocationNames"] = args ? args.requiredFileSystemLocationNames : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowedStorageProfileIds"] = args?.allowedStorageProfileIds;
+            resourceInputs["defaultBudgetAction"] = args?.defaultBudgetAction;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["farmId"] = args?.farmId;
+            resourceInputs["jobAttachmentSettings"] = args?.jobAttachmentSettings;
+            resourceInputs["jobRunAsUser"] = args?.jobRunAsUser;
+            resourceInputs["requiredFileSystemLocationNames"] = args?.requiredFileSystemLocationNames;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["queueId"] = undefined /*out*/;
         } else {

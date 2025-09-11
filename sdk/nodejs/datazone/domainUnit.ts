@@ -37,43 +37,43 @@ export class DomainUnit extends pulumi.CustomResource {
     /**
      * The ID of the domain unit.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The timestamp at which the domain unit was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the domain unit.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the domain where the domain unit was created.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * The ID of the domain where you want to create a domain unit.
      */
-    public readonly domainIdentifier!: pulumi.Output<string>;
+    declare public readonly domainIdentifier: pulumi.Output<string>;
     /**
      * The identifier of the domain unit that you want to get.
      */
-    public /*out*/ readonly identifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly identifier: pulumi.Output<string>;
     /**
      * The timestamp at which the domain unit was last updated.
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * The name of the domain unit.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the parent domain unit.
      */
-    public /*out*/ readonly parentDomainUnitId!: pulumi.Output<string>;
+    declare public /*out*/ readonly parentDomainUnitId: pulumi.Output<string>;
     /**
      * The ID of the parent domain unit.
      */
-    public readonly parentDomainUnitIdentifier!: pulumi.Output<string>;
+    declare public readonly parentDomainUnitIdentifier: pulumi.Output<string>;
 
     /**
      * Create a DomainUnit resource with the given unique name, arguments, and options.
@@ -86,16 +86,16 @@ export class DomainUnit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.parentDomainUnitIdentifier === undefined) && !opts.urn) {
+            if (args?.parentDomainUnitIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentDomainUnitIdentifier'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentDomainUnitIdentifier"] = args ? args.parentDomainUnitIdentifier : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentDomainUnitIdentifier"] = args?.parentDomainUnitIdentifier;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;

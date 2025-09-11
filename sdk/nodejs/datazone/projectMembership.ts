@@ -40,19 +40,19 @@ export class ProjectMembership extends pulumi.CustomResource {
     /**
      * The designated role of a project member.
      */
-    public readonly designation!: pulumi.Output<enums.datazone.ProjectMembershipUserDesignation>;
+    declare public readonly designation: pulumi.Output<enums.datazone.ProjectMembershipUserDesignation>;
     /**
      * The ID of the Amazon DataZone domain in which project membership is created.
      */
-    public readonly domainIdentifier!: pulumi.Output<string>;
+    declare public readonly domainIdentifier: pulumi.Output<string>;
     /**
      * The details about a project member.
      */
-    public readonly member!: pulumi.Output<outputs.datazone.ProjectMembershipMember0Properties | outputs.datazone.ProjectMembershipMember1Properties>;
+    declare public readonly member: pulumi.Output<outputs.datazone.ProjectMembershipMember0Properties | outputs.datazone.ProjectMembershipMember1Properties>;
     /**
      * The ID of the project for which this project membership was created.
      */
-    public readonly projectIdentifier!: pulumi.Output<string>;
+    declare public readonly projectIdentifier: pulumi.Output<string>;
 
     /**
      * Create a ProjectMembership resource with the given unique name, arguments, and options.
@@ -65,22 +65,22 @@ export class ProjectMembership extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.designation === undefined) && !opts.urn) {
+            if (args?.designation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'designation'");
             }
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.member === undefined) && !opts.urn) {
+            if (args?.member === undefined && !opts.urn) {
                 throw new Error("Missing required property 'member'");
             }
-            if ((!args || args.projectIdentifier === undefined) && !opts.urn) {
+            if (args?.projectIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectIdentifier'");
             }
-            resourceInputs["designation"] = args ? args.designation : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["member"] = args ? args.member : undefined;
-            resourceInputs["projectIdentifier"] = args ? args.projectIdentifier : undefined;
+            resourceInputs["designation"] = args?.designation;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["member"] = args?.member;
+            resourceInputs["projectIdentifier"] = args?.projectIdentifier;
         } else {
             resourceInputs["designation"] = undefined /*out*/;
             resourceInputs["domainIdentifier"] = undefined /*out*/;

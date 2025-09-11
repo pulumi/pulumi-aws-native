@@ -40,27 +40,27 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * The namespace the snapshot is associated with.
      */
-    public readonly namespaceName!: pulumi.Output<string | undefined>;
+    declare public readonly namespaceName: pulumi.Output<string | undefined>;
     /**
      * The owner account of the snapshot.
      */
-    public /*out*/ readonly ownerAccount!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccount: pulumi.Output<string>;
     /**
      * The retention period of the snapshot.
      */
-    public readonly retentionPeriod!: pulumi.Output<number | undefined>;
+    declare public readonly retentionPeriod: pulumi.Output<number | undefined>;
     /**
      * Definition for snapshot resource
      */
-    public /*out*/ readonly snapshot!: pulumi.Output<outputs.redshiftserverless.Snapshot>;
+    declare public /*out*/ readonly snapshot: pulumi.Output<outputs.redshiftserverless.Snapshot>;
     /**
      * The name of the snapshot.
      */
-    public readonly snapshotName!: pulumi.Output<string>;
+    declare public readonly snapshotName: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a Snapshot resource with the given unique name, arguments, and options.
@@ -73,10 +73,10 @@ export class Snapshot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["retentionPeriod"] = args?.retentionPeriod;
+            resourceInputs["snapshotName"] = args?.snapshotName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ownerAccount"] = undefined /*out*/;
             resourceInputs["snapshot"] = undefined /*out*/;
         } else {

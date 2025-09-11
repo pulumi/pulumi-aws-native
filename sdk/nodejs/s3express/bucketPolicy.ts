@@ -37,13 +37,13 @@ export class BucketPolicy extends pulumi.CustomResource {
     /**
      * The name of the S3 directory bucket to which the policy applies.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::BucketPolicy` for more information about the expected schema for this property.
      */
-    public readonly policyDocument!: pulumi.Output<any>;
+    declare public readonly policyDocument: pulumi.Output<any>;
 
     /**
      * Create a BucketPolicy resource with the given unique name, arguments, and options.
@@ -56,14 +56,14 @@ export class BucketPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bucket === undefined) && !opts.urn) {
+            if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if ((!args || args.policyDocument === undefined) && !opts.urn) {
+            if (args?.policyDocument === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["policyDocument"] = args?.policyDocument;
         } else {
             resourceInputs["bucket"] = undefined /*out*/;
             resourceInputs["policyDocument"] = undefined /*out*/;

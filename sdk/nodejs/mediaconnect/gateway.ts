@@ -40,23 +40,23 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * The range of IP addresses that contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
      */
-    public readonly egressCidrBlocks!: pulumi.Output<string[]>;
+    declare public readonly egressCidrBlocks: pulumi.Output<string[]>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    public /*out*/ readonly gatewayArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly gatewayArn: pulumi.Output<string>;
     /**
      * The current status of the gateway.
      */
-    public /*out*/ readonly gatewayState!: pulumi.Output<enums.mediaconnect.GatewayState>;
+    declare public /*out*/ readonly gatewayState: pulumi.Output<enums.mediaconnect.GatewayState>;
     /**
      * The name of the gateway. This name can not be modified after the gateway is created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The list of networks in the gateway.
      */
-    public readonly networks!: pulumi.Output<outputs.mediaconnect.GatewayNetwork[]>;
+    declare public readonly networks: pulumi.Output<outputs.mediaconnect.GatewayNetwork[]>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -69,15 +69,15 @@ export class Gateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.egressCidrBlocks === undefined) && !opts.urn) {
+            if (args?.egressCidrBlocks === undefined && !opts.urn) {
                 throw new Error("Missing required property 'egressCidrBlocks'");
             }
-            if ((!args || args.networks === undefined) && !opts.urn) {
+            if (args?.networks === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networks'");
             }
-            resourceInputs["egressCidrBlocks"] = args ? args.egressCidrBlocks : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networks"] = args ? args.networks : undefined;
+            resourceInputs["egressCidrBlocks"] = args?.egressCidrBlocks;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networks"] = args?.networks;
             resourceInputs["gatewayArn"] = undefined /*out*/;
             resourceInputs["gatewayState"] = undefined /*out*/;
         } else {

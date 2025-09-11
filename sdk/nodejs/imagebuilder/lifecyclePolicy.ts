@@ -40,39 +40,39 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the lifecycle policy.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The description of the lifecycle policy.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The execution role of the lifecycle policy.
      */
-    public readonly executionRole!: pulumi.Output<string>;
+    declare public readonly executionRole: pulumi.Output<string>;
     /**
      * The name of the lifecycle policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The policy details of the lifecycle policy.
      */
-    public readonly policyDetails!: pulumi.Output<outputs.imagebuilder.LifecyclePolicyPolicyDetail[]>;
+    declare public readonly policyDetails: pulumi.Output<outputs.imagebuilder.LifecyclePolicyPolicyDetail[]>;
     /**
      * The resource selection of the lifecycle policy.
      */
-    public readonly resourceSelection!: pulumi.Output<outputs.imagebuilder.LifecyclePolicyResourceSelection>;
+    declare public readonly resourceSelection: pulumi.Output<outputs.imagebuilder.LifecyclePolicyResourceSelection>;
     /**
      * The resource type of the lifecycle policy.
      */
-    public readonly resourceType!: pulumi.Output<enums.imagebuilder.LifecyclePolicyResourceType>;
+    declare public readonly resourceType: pulumi.Output<enums.imagebuilder.LifecyclePolicyResourceType>;
     /**
      * The status of the lifecycle policy.
      */
-    public readonly status!: pulumi.Output<enums.imagebuilder.LifecyclePolicyStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.imagebuilder.LifecyclePolicyStatus | undefined>;
     /**
      * The tags associated with the lifecycle policy.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a LifecyclePolicy resource with the given unique name, arguments, and options.
@@ -85,26 +85,26 @@ export class LifecyclePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.executionRole === undefined) && !opts.urn) {
+            if (args?.executionRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRole'");
             }
-            if ((!args || args.policyDetails === undefined) && !opts.urn) {
+            if (args?.policyDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDetails'");
             }
-            if ((!args || args.resourceSelection === undefined) && !opts.urn) {
+            if (args?.resourceSelection === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceSelection'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executionRole"] = args ? args.executionRole : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyDetails"] = args ? args.policyDetails : undefined;
-            resourceInputs["resourceSelection"] = args ? args.resourceSelection : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executionRole"] = args?.executionRole;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyDetails"] = args?.policyDetails;
+            resourceInputs["resourceSelection"] = args?.resourceSelection;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

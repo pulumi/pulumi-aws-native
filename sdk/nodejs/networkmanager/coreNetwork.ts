@@ -40,53 +40,53 @@ export class CoreNetwork extends pulumi.CustomResource {
     /**
      * The ARN (Amazon resource name) of core network
      */
-    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly coreNetworkArn: pulumi.Output<string>;
     /**
      * The Id of core network
      */
-    public /*out*/ readonly coreNetworkId!: pulumi.Output<string>;
+    declare public /*out*/ readonly coreNetworkId: pulumi.Output<string>;
     /**
      * The creation time of core network
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of core network
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The edges within a core network.
      */
-    public /*out*/ readonly edges!: pulumi.Output<outputs.networkmanager.CoreNetworkEdge[]>;
+    declare public /*out*/ readonly edges: pulumi.Output<outputs.networkmanager.CoreNetworkEdge[]>;
     /**
      * The ID of the global network that your core network is a part of.
      */
-    public readonly globalNetworkId!: pulumi.Output<string>;
+    declare public readonly globalNetworkId: pulumi.Output<string>;
     /**
      * The network function groups within a core network.
      */
-    public /*out*/ readonly networkFunctionGroups!: pulumi.Output<outputs.networkmanager.CoreNetworkNetworkFunctionGroup[]>;
+    declare public /*out*/ readonly networkFunctionGroups: pulumi.Output<outputs.networkmanager.CoreNetworkNetworkFunctionGroup[]>;
     /**
      * Owner of the core network
      */
-    public /*out*/ readonly ownerAccount!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccount: pulumi.Output<string>;
     /**
      * Live policy document for the core network, you must provide PolicyDocument in Json Format
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::NetworkManager::CoreNetwork` for more information about the expected schema for this property.
      */
-    public readonly policyDocument!: pulumi.Output<any | undefined>;
+    declare public readonly policyDocument: pulumi.Output<any | undefined>;
     /**
      * The segments within a core network.
      */
-    public /*out*/ readonly segments!: pulumi.Output<outputs.networkmanager.CoreNetworkSegment[]>;
+    declare public /*out*/ readonly segments: pulumi.Output<outputs.networkmanager.CoreNetworkSegment[]>;
     /**
      * The state of core network
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The tags for the global network.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CoreNetwork resource with the given unique name, arguments, and options.
@@ -99,13 +99,13 @@ export class CoreNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
+            if (args?.globalNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["globalNetworkId"] = args?.globalNetworkId;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["coreNetworkArn"] = undefined /*out*/;
             resourceInputs["coreNetworkId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

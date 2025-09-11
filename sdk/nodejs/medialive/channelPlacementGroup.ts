@@ -40,32 +40,32 @@ export class ChannelPlacementGroup extends pulumi.CustomResource {
     /**
      * The ARN of the channel placement group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Unique internal identifier.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * List of channel IDs added to the channel placement group.
      */
-    public /*out*/ readonly channels!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly channels: pulumi.Output<string[]>;
     /**
      * The ID of the cluster the node is on.
      */
-    public readonly clusterId!: pulumi.Output<string | undefined>;
+    declare public readonly clusterId: pulumi.Output<string | undefined>;
     /**
      * The name of the channel placement group.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * List of nodes added to the channel placement group
      */
-    public readonly nodes!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly state!: pulumi.Output<enums.medialive.ChannelPlacementGroupState>;
+    declare public readonly nodes: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.medialive.ChannelPlacementGroupState>;
     /**
      * A collection of key-value pairs.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ChannelPlacementGroup resource with the given unique name, arguments, and options.
@@ -78,10 +78,10 @@ export class ChannelPlacementGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nodes"] = args ? args.nodes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nodes"] = args?.nodes;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["channels"] = undefined /*out*/;

@@ -40,39 +40,39 @@ export class MulticastGroup extends pulumi.CustomResource {
     /**
      * Multicast group arn. Returned after successful create.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Wireless device to associate. Only for update request.
      */
-    public readonly associateWirelessDevice!: pulumi.Output<string | undefined>;
+    declare public readonly associateWirelessDevice: pulumi.Output<string | undefined>;
     /**
      * Multicast group id. Returned after successful create.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Multicast group description
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Wireless device to disassociate. Only for update request.
      */
-    public readonly disassociateWirelessDevice!: pulumi.Output<string | undefined>;
+    declare public readonly disassociateWirelessDevice: pulumi.Output<string | undefined>;
     /**
      * Multicast group LoRaWAN
      */
-    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.MulticastGroupLoRaWan>;
+    declare public readonly loRaWan: pulumi.Output<outputs.iotwireless.MulticastGroupLoRaWan>;
     /**
      * Name of Multicast group
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Multicast group status. Returned after successful read.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * A list of key-value pairs that contain metadata for the Multicast group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MulticastGroup resource with the given unique name, arguments, and options.
@@ -85,15 +85,15 @@ export class MulticastGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.loRaWan === undefined) && !opts.urn) {
+            if (args?.loRaWan === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loRaWan'");
             }
-            resourceInputs["associateWirelessDevice"] = args ? args.associateWirelessDevice : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disassociateWirelessDevice"] = args ? args.disassociateWirelessDevice : undefined;
-            resourceInputs["loRaWan"] = args ? args.loRaWan : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associateWirelessDevice"] = args?.associateWirelessDevice;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disassociateWirelessDevice"] = args?.disassociateWirelessDevice;
+            resourceInputs["loRaWan"] = args?.loRaWan;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

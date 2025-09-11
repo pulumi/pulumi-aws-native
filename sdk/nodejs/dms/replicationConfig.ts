@@ -40,53 +40,53 @@ export class ReplicationConfig extends pulumi.CustomResource {
     /**
      * Configuration parameters for provisioning an AWS DMS Serverless replication.
      */
-    public readonly computeConfig!: pulumi.Output<outputs.dms.ReplicationConfigComputeConfig>;
+    declare public readonly computeConfig: pulumi.Output<outputs.dms.ReplicationConfigComputeConfig>;
     /**
      * The Amazon Resource Name (ARN) of the Replication Config
      */
-    public /*out*/ readonly replicationConfigArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly replicationConfigArn: pulumi.Output<string>;
     /**
      * A unique identifier of replication configuration
      */
-    public readonly replicationConfigIdentifier!: pulumi.Output<string>;
+    declare public readonly replicationConfigIdentifier: pulumi.Output<string>;
     /**
      * JSON settings for Servereless replications that are provisioned using this replication configuration
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
      */
-    public readonly replicationSettings!: pulumi.Output<any | undefined>;
+    declare public readonly replicationSettings: pulumi.Output<any | undefined>;
     /**
      * The type of AWS DMS Serverless replication to provision using this replication configuration
      */
-    public readonly replicationType!: pulumi.Output<enums.dms.ReplicationConfigReplicationType>;
+    declare public readonly replicationType: pulumi.Output<enums.dms.ReplicationConfigReplicationType>;
     /**
      * A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource
      */
-    public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly resourceIdentifier: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration
      */
-    public readonly sourceEndpointArn!: pulumi.Output<string>;
+    declare public readonly sourceEndpointArn: pulumi.Output<string>;
     /**
      * JSON settings for specifying supplemental data
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
      */
-    public readonly supplementalSettings!: pulumi.Output<any | undefined>;
+    declare public readonly supplementalSettings: pulumi.Output<any | undefined>;
     /**
      * JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DMS::ReplicationConfig` for more information about the expected schema for this property.
      */
-    public readonly tableMappings!: pulumi.Output<any>;
+    declare public readonly tableMappings: pulumi.Output<any>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
      */
-    public readonly targetEndpointArn!: pulumi.Output<string>;
+    declare public readonly targetEndpointArn: pulumi.Output<string>;
 
     /**
      * Create a ReplicationConfig resource with the given unique name, arguments, and options.
@@ -99,34 +99,34 @@ export class ReplicationConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.computeConfig === undefined) && !opts.urn) {
+            if (args?.computeConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'computeConfig'");
             }
-            if ((!args || args.replicationConfigIdentifier === undefined) && !opts.urn) {
+            if (args?.replicationConfigIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicationConfigIdentifier'");
             }
-            if ((!args || args.replicationType === undefined) && !opts.urn) {
+            if (args?.replicationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicationType'");
             }
-            if ((!args || args.sourceEndpointArn === undefined) && !opts.urn) {
+            if (args?.sourceEndpointArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceEndpointArn'");
             }
-            if ((!args || args.tableMappings === undefined) && !opts.urn) {
+            if (args?.tableMappings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableMappings'");
             }
-            if ((!args || args.targetEndpointArn === undefined) && !opts.urn) {
+            if (args?.targetEndpointArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetEndpointArn'");
             }
-            resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
-            resourceInputs["replicationConfigIdentifier"] = args ? args.replicationConfigIdentifier : undefined;
-            resourceInputs["replicationSettings"] = args ? args.replicationSettings : undefined;
-            resourceInputs["replicationType"] = args ? args.replicationType : undefined;
-            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
-            resourceInputs["sourceEndpointArn"] = args ? args.sourceEndpointArn : undefined;
-            resourceInputs["supplementalSettings"] = args ? args.supplementalSettings : undefined;
-            resourceInputs["tableMappings"] = args ? args.tableMappings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
+            resourceInputs["computeConfig"] = args?.computeConfig;
+            resourceInputs["replicationConfigIdentifier"] = args?.replicationConfigIdentifier;
+            resourceInputs["replicationSettings"] = args?.replicationSettings;
+            resourceInputs["replicationType"] = args?.replicationType;
+            resourceInputs["resourceIdentifier"] = args?.resourceIdentifier;
+            resourceInputs["sourceEndpointArn"] = args?.sourceEndpointArn;
+            resourceInputs["supplementalSettings"] = args?.supplementalSettings;
+            resourceInputs["tableMappings"] = args?.tableMappings;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetEndpointArn"] = args?.targetEndpointArn;
             resourceInputs["replicationConfigArn"] = undefined /*out*/;
         } else {
             resourceInputs["computeConfig"] = undefined /*out*/;

@@ -82,27 +82,27 @@ export class Project extends pulumi.CustomResource {
     /**
      * Dataset name
      */
-    public readonly datasetName!: pulumi.Output<string>;
+    declare public readonly datasetName: pulumi.Output<string>;
     /**
      * Project name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Recipe name
      */
-    public readonly recipeName!: pulumi.Output<string>;
+    declare public readonly recipeName: pulumi.Output<string>;
     /**
      * Role arn
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Sample
      */
-    public readonly sample!: pulumi.Output<outputs.databrew.ProjectSample | undefined>;
+    declare public readonly sample: pulumi.Output<outputs.databrew.ProjectSample | undefined>;
     /**
      * Metadata tags that have been applied to the project.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -115,21 +115,21 @@ export class Project extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.datasetName === undefined) && !opts.urn) {
+            if (args?.datasetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datasetName'");
             }
-            if ((!args || args.recipeName === undefined) && !opts.urn) {
+            if (args?.recipeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recipeName'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recipeName"] = args ? args.recipeName : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["sample"] = args ? args.sample : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["datasetName"] = args?.datasetName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recipeName"] = args?.recipeName;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["sample"] = args?.sample;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["datasetName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

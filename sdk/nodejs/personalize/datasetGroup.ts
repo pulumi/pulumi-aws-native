@@ -60,23 +60,23 @@ export class DatasetGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the dataset group.
      */
-    public /*out*/ readonly datasetGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly datasetGroupArn: pulumi.Output<string>;
     /**
      * The domain of a Domain dataset group.
      */
-    public readonly domain!: pulumi.Output<enums.personalize.DatasetGroupDomain | undefined>;
+    declare public readonly domain: pulumi.Output<enums.personalize.DatasetGroupDomain | undefined>;
     /**
      * The Amazon Resource Name(ARN) of a AWS Key Management Service (KMS) key used to encrypt the datasets.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * The name for the new dataset group.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key. Supplying an IAM role is only valid when also specifying a KMS key.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a DatasetGroup resource with the given unique name, arguments, and options.
@@ -89,10 +89,10 @@ export class DatasetGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["datasetGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["datasetGroupArn"] = undefined /*out*/;

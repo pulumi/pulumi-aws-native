@@ -37,15 +37,15 @@ export class Tag extends pulumi.CustomResource {
     /**
      * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      */
-    public readonly catalogId!: pulumi.Output<string | undefined>;
+    declare public readonly catalogId: pulumi.Output<string | undefined>;
     /**
      * The key-name for the LF-tag.
      */
-    public readonly tagKey!: pulumi.Output<string>;
+    declare public readonly tagKey: pulumi.Output<string>;
     /**
      * A list of possible values an attribute can take.
      */
-    public readonly tagValues!: pulumi.Output<string[]>;
+    declare public readonly tagValues: pulumi.Output<string[]>;
 
     /**
      * Create a Tag resource with the given unique name, arguments, and options.
@@ -58,15 +58,15 @@ export class Tag extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.tagKey === undefined) && !opts.urn) {
+            if (args?.tagKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tagKey'");
             }
-            if ((!args || args.tagValues === undefined) && !opts.urn) {
+            if (args?.tagValues === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tagValues'");
             }
-            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
-            resourceInputs["tagKey"] = args ? args.tagKey : undefined;
-            resourceInputs["tagValues"] = args ? args.tagValues : undefined;
+            resourceInputs["catalogId"] = args?.catalogId;
+            resourceInputs["tagKey"] = args?.tagKey;
+            resourceInputs["tagValues"] = args?.tagValues;
         } else {
             resourceInputs["catalogId"] = undefined /*out*/;
             resourceInputs["tagKey"] = undefined /*out*/;

@@ -40,55 +40,55 @@ export class Command extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the command.
      */
-    public /*out*/ readonly commandArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly commandArn: pulumi.Output<string>;
     /**
      * The unique identifier for the command.
      */
-    public readonly commandId!: pulumi.Output<string>;
+    declare public readonly commandId: pulumi.Output<string>;
     /**
      * The date and time when the command was created.
      */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
+    declare public readonly createdAt: pulumi.Output<string | undefined>;
     /**
      * A flag indicating whether the command is deprecated.
      */
-    public readonly deprecated!: pulumi.Output<boolean | undefined>;
+    declare public readonly deprecated: pulumi.Output<boolean | undefined>;
     /**
      * The description of the command.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name for the command.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The date and time when the command was last updated.
      */
-    public readonly lastUpdatedAt!: pulumi.Output<string | undefined>;
+    declare public readonly lastUpdatedAt: pulumi.Output<string | undefined>;
     /**
      * The list of mandatory parameters for the command.
      */
-    public readonly mandatoryParameters!: pulumi.Output<outputs.iot.CommandParameter[] | undefined>;
+    declare public readonly mandatoryParameters: pulumi.Output<outputs.iot.CommandParameter[] | undefined>;
     /**
      * The namespace to which the command belongs.
      */
-    public readonly namespace!: pulumi.Output<enums.iot.CommandNamespace | undefined>;
+    declare public readonly namespace: pulumi.Output<enums.iot.CommandNamespace | undefined>;
     /**
      * The payload associated with the command.
      */
-    public readonly payload!: pulumi.Output<outputs.iot.CommandPayload | undefined>;
+    declare public readonly payload: pulumi.Output<outputs.iot.CommandPayload | undefined>;
     /**
      * A flag indicating whether the command is pending deletion.
      */
-    public readonly pendingDeletion!: pulumi.Output<boolean | undefined>;
+    declare public readonly pendingDeletion: pulumi.Output<boolean | undefined>;
     /**
      * The customer role associated with the command.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * The tags to be associated with the command.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Command resource with the given unique name, arguments, and options.
@@ -101,21 +101,21 @@ export class Command extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.commandId === undefined) && !opts.urn) {
+            if (args?.commandId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'commandId'");
             }
-            resourceInputs["commandId"] = args ? args.commandId : undefined;
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["deprecated"] = args ? args.deprecated : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["lastUpdatedAt"] = args ? args.lastUpdatedAt : undefined;
-            resourceInputs["mandatoryParameters"] = args ? args.mandatoryParameters : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["payload"] = args ? args.payload : undefined;
-            resourceInputs["pendingDeletion"] = args ? args.pendingDeletion : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["commandId"] = args?.commandId;
+            resourceInputs["createdAt"] = args?.createdAt;
+            resourceInputs["deprecated"] = args?.deprecated;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["lastUpdatedAt"] = args?.lastUpdatedAt;
+            resourceInputs["mandatoryParameters"] = args?.mandatoryParameters;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["payload"] = args?.payload;
+            resourceInputs["pendingDeletion"] = args?.pendingDeletion;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["commandArn"] = undefined /*out*/;
         } else {
             resourceInputs["commandArn"] = undefined /*out*/;

@@ -40,35 +40,35 @@ export class ConfigurationManager extends pulumi.CustomResource {
     /**
      * The definition of the Quick Setup configuration that the configuration manager deploys.
      */
-    public readonly configurationDefinitions!: pulumi.Output<outputs.ssmquicksetup.ConfigurationManagerConfigurationDefinition[]>;
+    declare public readonly configurationDefinitions: pulumi.Output<outputs.ssmquicksetup.ConfigurationManagerConfigurationDefinition[]>;
     /**
      * The datetime stamp when the configuration manager was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the configuration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The datetime stamp when the configuration manager was last updated.
      */
-    public /*out*/ readonly lastModifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedAt: pulumi.Output<string>;
     /**
      * The ARN of the Quick Setup configuration.
      */
-    public /*out*/ readonly managerArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly managerArn: pulumi.Output<string>;
     /**
      * The name of the configuration
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Summaries of the state of the configuration manager. These summaries include an aggregate of the statuses from the configuration definition associated with the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more.
      */
-    public /*out*/ readonly statusSummaries!: pulumi.Output<outputs.ssmquicksetup.ConfigurationManagerStatusSummary[]>;
+    declare public /*out*/ readonly statusSummaries: pulumi.Output<outputs.ssmquicksetup.ConfigurationManagerStatusSummary[]>;
     /**
      * Key-value pairs of metadata to assign to the configuration manager.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ConfigurationManager resource with the given unique name, arguments, and options.
@@ -81,13 +81,13 @@ export class ConfigurationManager extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationDefinitions === undefined) && !opts.urn) {
+            if (args?.configurationDefinitions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationDefinitions'");
             }
-            resourceInputs["configurationDefinitions"] = args ? args.configurationDefinitions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configurationDefinitions"] = args?.configurationDefinitions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastModifiedAt"] = undefined /*out*/;
             resourceInputs["managerArn"] = undefined /*out*/;

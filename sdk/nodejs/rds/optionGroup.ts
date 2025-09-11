@@ -52,19 +52,19 @@ export class OptionGroup extends pulumi.CustomResource {
      *   +   ``sqlserver-ex`` 
      *   +   ``sqlserver-web``
      */
-    public readonly engineName!: pulumi.Output<string>;
+    declare public readonly engineName: pulumi.Output<string>;
     /**
      * Specifies the major version of the engine that this option group should be associated with.
      */
-    public readonly majorEngineVersion!: pulumi.Output<string>;
+    declare public readonly majorEngineVersion: pulumi.Output<string>;
     /**
      * A list of all available options for an option group.
      */
-    public readonly optionConfigurations!: pulumi.Output<outputs.rds.OptionGroupOptionConfiguration[] | undefined>;
+    declare public readonly optionConfigurations: pulumi.Output<outputs.rds.OptionGroupOptionConfiguration[] | undefined>;
     /**
      * The description of the option group.
      */
-    public readonly optionGroupDescription!: pulumi.Output<string>;
+    declare public readonly optionGroupDescription: pulumi.Output<string>;
     /**
      * The name of the option group to be created.
      *  Constraints:
@@ -76,11 +76,11 @@ export class OptionGroup extends pulumi.CustomResource {
      *  If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
      *   This value is stored as a lowercase string.
      */
-    public readonly optionGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly optionGroupName: pulumi.Output<string | undefined>;
     /**
      * Tags to assign to the option group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a OptionGroup resource with the given unique name, arguments, and options.
@@ -93,21 +93,21 @@ export class OptionGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engineName === undefined) && !opts.urn) {
+            if (args?.engineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engineName'");
             }
-            if ((!args || args.majorEngineVersion === undefined) && !opts.urn) {
+            if (args?.majorEngineVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'majorEngineVersion'");
             }
-            if ((!args || args.optionGroupDescription === undefined) && !opts.urn) {
+            if (args?.optionGroupDescription === undefined && !opts.urn) {
                 throw new Error("Missing required property 'optionGroupDescription'");
             }
-            resourceInputs["engineName"] = args ? args.engineName : undefined;
-            resourceInputs["majorEngineVersion"] = args ? args.majorEngineVersion : undefined;
-            resourceInputs["optionConfigurations"] = args ? args.optionConfigurations : undefined;
-            resourceInputs["optionGroupDescription"] = args ? args.optionGroupDescription : undefined;
-            resourceInputs["optionGroupName"] = args ? args.optionGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["engineName"] = args?.engineName;
+            resourceInputs["majorEngineVersion"] = args?.majorEngineVersion;
+            resourceInputs["optionConfigurations"] = args?.optionConfigurations;
+            resourceInputs["optionGroupDescription"] = args?.optionGroupDescription;
+            resourceInputs["optionGroupName"] = args?.optionGroupName;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["engineName"] = undefined /*out*/;
             resourceInputs["majorEngineVersion"] = undefined /*out*/;

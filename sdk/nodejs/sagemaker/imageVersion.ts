@@ -37,21 +37,21 @@ export class ImageVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === ImageVersion.__pulumiType;
     }
 
-    public readonly alias!: pulumi.Output<string | undefined>;
-    public readonly aliases!: pulumi.Output<string[] | undefined>;
+    declare public readonly alias: pulumi.Output<string | undefined>;
+    declare public readonly aliases: pulumi.Output<string[] | undefined>;
     /**
      * The container image that the SageMaker image version is based on.
      */
-    public readonly baseImage!: pulumi.Output<string>;
+    declare public readonly baseImage: pulumi.Output<string>;
     /**
      * The URI of the container image version referenced by ImageVersion.
      */
-    public /*out*/ readonly containerImage!: pulumi.Output<string>;
-    public readonly horovod!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly containerImage: pulumi.Output<string>;
+    declare public readonly horovod: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the parent Image.
      */
-    public /*out*/ readonly imageArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly imageArn: pulumi.Output<string>;
     /**
      * The name of the parent image.
      *
@@ -59,7 +59,7 @@ export class ImageVersion extends pulumi.CustomResource {
      *
      * *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
      */
-    public readonly imageName!: pulumi.Output<string>;
+    declare public readonly imageName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the image version.
      *
@@ -69,17 +69,17 @@ export class ImageVersion extends pulumi.CustomResource {
      *
      * *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*&#47;[0-9]+$`
      */
-    public /*out*/ readonly imageVersionArn!: pulumi.Output<string>;
-    public readonly jobType!: pulumi.Output<enums.sagemaker.ImageVersionJobType | undefined>;
-    public readonly mlFramework!: pulumi.Output<string | undefined>;
-    public readonly processor!: pulumi.Output<enums.sagemaker.ImageVersionProcessor | undefined>;
-    public readonly programmingLang!: pulumi.Output<string | undefined>;
-    public readonly releaseNotes!: pulumi.Output<string | undefined>;
-    public readonly vendorGuidance!: pulumi.Output<enums.sagemaker.ImageVersionVendorGuidance | undefined>;
+    declare public /*out*/ readonly imageVersionArn: pulumi.Output<string>;
+    declare public readonly jobType: pulumi.Output<enums.sagemaker.ImageVersionJobType | undefined>;
+    declare public readonly mlFramework: pulumi.Output<string | undefined>;
+    declare public readonly processor: pulumi.Output<enums.sagemaker.ImageVersionProcessor | undefined>;
+    declare public readonly programmingLang: pulumi.Output<string | undefined>;
+    declare public readonly releaseNotes: pulumi.Output<string | undefined>;
+    declare public readonly vendorGuidance: pulumi.Output<enums.sagemaker.ImageVersionVendorGuidance | undefined>;
     /**
      * The version of the image.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a ImageVersion resource with the given unique name, arguments, and options.
@@ -92,23 +92,23 @@ export class ImageVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.baseImage === undefined) && !opts.urn) {
+            if (args?.baseImage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'baseImage'");
             }
-            if ((!args || args.imageName === undefined) && !opts.urn) {
+            if (args?.imageName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'imageName'");
             }
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["aliases"] = args ? args.aliases : undefined;
-            resourceInputs["baseImage"] = args ? args.baseImage : undefined;
-            resourceInputs["horovod"] = args ? args.horovod : undefined;
-            resourceInputs["imageName"] = args ? args.imageName : undefined;
-            resourceInputs["jobType"] = args ? args.jobType : undefined;
-            resourceInputs["mlFramework"] = args ? args.mlFramework : undefined;
-            resourceInputs["processor"] = args ? args.processor : undefined;
-            resourceInputs["programmingLang"] = args ? args.programmingLang : undefined;
-            resourceInputs["releaseNotes"] = args ? args.releaseNotes : undefined;
-            resourceInputs["vendorGuidance"] = args ? args.vendorGuidance : undefined;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["aliases"] = args?.aliases;
+            resourceInputs["baseImage"] = args?.baseImage;
+            resourceInputs["horovod"] = args?.horovod;
+            resourceInputs["imageName"] = args?.imageName;
+            resourceInputs["jobType"] = args?.jobType;
+            resourceInputs["mlFramework"] = args?.mlFramework;
+            resourceInputs["processor"] = args?.processor;
+            resourceInputs["programmingLang"] = args?.programmingLang;
+            resourceInputs["releaseNotes"] = args?.releaseNotes;
+            resourceInputs["vendorGuidance"] = args?.vendorGuidance;
             resourceInputs["containerImage"] = undefined /*out*/;
             resourceInputs["imageArn"] = undefined /*out*/;
             resourceInputs["imageVersionArn"] = undefined /*out*/;

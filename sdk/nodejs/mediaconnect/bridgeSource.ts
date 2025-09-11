@@ -40,19 +40,19 @@ export class BridgeSource extends pulumi.CustomResource {
     /**
      * The Amazon Resource Number (ARN) of the bridge.
      */
-    public readonly bridgeArn!: pulumi.Output<string>;
+    declare public readonly bridgeArn: pulumi.Output<string>;
     /**
      * The source of the flow.
      */
-    public readonly flowSource!: pulumi.Output<outputs.mediaconnect.BridgeSourceBridgeFlowSource | undefined>;
+    declare public readonly flowSource: pulumi.Output<outputs.mediaconnect.BridgeSourceBridgeFlowSource | undefined>;
     /**
      * The name of the source.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The source of the network.
      */
-    public readonly networkSource!: pulumi.Output<outputs.mediaconnect.BridgeSourceBridgeNetworkSource | undefined>;
+    declare public readonly networkSource: pulumi.Output<outputs.mediaconnect.BridgeSourceBridgeNetworkSource | undefined>;
 
     /**
      * Create a BridgeSource resource with the given unique name, arguments, and options.
@@ -65,13 +65,13 @@ export class BridgeSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bridgeArn === undefined) && !opts.urn) {
+            if (args?.bridgeArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bridgeArn'");
             }
-            resourceInputs["bridgeArn"] = args ? args.bridgeArn : undefined;
-            resourceInputs["flowSource"] = args ? args.flowSource : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkSource"] = args ? args.networkSource : undefined;
+            resourceInputs["bridgeArn"] = args?.bridgeArn;
+            resourceInputs["flowSource"] = args?.flowSource;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkSource"] = args?.networkSource;
         } else {
             resourceInputs["bridgeArn"] = undefined /*out*/;
             resourceInputs["flowSource"] = undefined /*out*/;

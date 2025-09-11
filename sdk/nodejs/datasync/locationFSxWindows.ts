@@ -40,39 +40,39 @@ export class LocationFSxWindows extends pulumi.CustomResource {
     /**
      * The name of the Windows domain that the FSx for Windows server belongs to.
      */
-    public readonly domain!: pulumi.Output<string | undefined>;
+    declare public readonly domain: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the FSx for Windows file system.
      */
-    public readonly fsxFilesystemArn!: pulumi.Output<string | undefined>;
+    declare public readonly fsxFilesystemArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
      */
-    public /*out*/ readonly locationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationArn: pulumi.Output<string>;
     /**
      * The URL of the FSx for Windows location that was described.
      */
-    public /*out*/ readonly locationUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationUri: pulumi.Output<string>;
     /**
      * The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The ARNs of the security groups that are to use to configure the FSx for Windows file system.
      */
-    public readonly securityGroupArns!: pulumi.Output<string[]>;
+    declare public readonly securityGroupArns: pulumi.Output<string[]>;
     /**
      * A subdirectory in the location's path.
      */
-    public readonly subdirectory!: pulumi.Output<string | undefined>;
+    declare public readonly subdirectory: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The user who has the permissions to access files and folders in the FSx for Windows file system.
      */
-    public readonly user!: pulumi.Output<string>;
+    declare public readonly user: pulumi.Output<string>;
 
     /**
      * Create a LocationFSxWindows resource with the given unique name, arguments, and options.
@@ -85,19 +85,19 @@ export class LocationFSxWindows extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.securityGroupArns === undefined) && !opts.urn) {
+            if (args?.securityGroupArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupArns'");
             }
-            if ((!args || args.user === undefined) && !opts.urn) {
+            if (args?.user === undefined && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["fsxFilesystemArn"] = args ? args.fsxFilesystemArn : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["user"] = args ? args.user : undefined;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["fsxFilesystemArn"] = args?.fsxFilesystemArn;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["securityGroupArns"] = args?.securityGroupArns;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["user"] = args?.user;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
         } else {

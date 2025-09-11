@@ -40,47 +40,47 @@ export class RouteServerPeer extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Route Server Peer.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the Route Server Peer.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The BGP configuration options for this peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings.
      */
-    public readonly bgpOptions!: pulumi.Output<outputs.ec2.RouteServerPeerBgpOptions>;
+    declare public readonly bgpOptions: pulumi.Output<outputs.ec2.RouteServerPeerBgpOptions>;
     /**
      * Elastic Network Interface IP address owned by the Route Server Endpoint
      */
-    public /*out*/ readonly endpointEniAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpointEniAddress: pulumi.Output<string>;
     /**
      * Elastic Network Interface ID owned by the Route Server Endpoint
      */
-    public /*out*/ readonly endpointEniId!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpointEniId: pulumi.Output<string>;
     /**
      * IP address of the Route Server Peer
      */
-    public readonly peerAddress!: pulumi.Output<string>;
+    declare public readonly peerAddress: pulumi.Output<string>;
     /**
      * Route Server Endpoint ID
      */
-    public readonly routeServerEndpointId!: pulumi.Output<string>;
+    declare public readonly routeServerEndpointId: pulumi.Output<string>;
     /**
      * Route Server ID
      */
-    public /*out*/ readonly routeServerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly routeServerId: pulumi.Output<string>;
     /**
      * Subnet ID
      */
-    public /*out*/ readonly subnetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly subnetId: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * VPC ID
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a RouteServerPeer resource with the given unique name, arguments, and options.
@@ -93,19 +93,19 @@ export class RouteServerPeer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bgpOptions === undefined) && !opts.urn) {
+            if (args?.bgpOptions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bgpOptions'");
             }
-            if ((!args || args.peerAddress === undefined) && !opts.urn) {
+            if (args?.peerAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerAddress'");
             }
-            if ((!args || args.routeServerEndpointId === undefined) && !opts.urn) {
+            if (args?.routeServerEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeServerEndpointId'");
             }
-            resourceInputs["bgpOptions"] = args ? args.bgpOptions : undefined;
-            resourceInputs["peerAddress"] = args ? args.peerAddress : undefined;
-            resourceInputs["routeServerEndpointId"] = args ? args.routeServerEndpointId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bgpOptions"] = args?.bgpOptions;
+            resourceInputs["peerAddress"] = args?.peerAddress;
+            resourceInputs["routeServerEndpointId"] = args?.routeServerEndpointId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["endpointEniAddress"] = undefined /*out*/;

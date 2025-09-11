@@ -40,47 +40,47 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
     /**
      * Arn
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Count
      */
-    public /*out*/ readonly associationCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly associationCount: pulumi.Output<number>;
     /**
      * ResourceId
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Rfc3339TimeString
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The id of the creator request.
      */
-    public /*out*/ readonly creatorRequestId!: pulumi.Output<string>;
+    declare public /*out*/ readonly creatorRequestId: pulumi.Output<string>;
     /**
      * destination arn
      */
-    public readonly destinationArn!: pulumi.Output<string | undefined>;
+    declare public readonly destinationArn: pulumi.Output<string | undefined>;
     /**
      * ResolverQueryLogConfigName
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * AccountId
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
      */
-    public /*out*/ readonly shareStatus!: pulumi.Output<enums.route53resolver.ResolverQueryLoggingConfigShareStatus>;
+    declare public /*out*/ readonly shareStatus: pulumi.Output<enums.route53resolver.ResolverQueryLoggingConfigShareStatus>;
     /**
      * ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.route53resolver.ResolverQueryLoggingConfigStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.route53resolver.ResolverQueryLoggingConfigStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a ResolverQueryLoggingConfig resource with the given unique name, arguments, and options.
@@ -93,9 +93,9 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["destinationArn"] = args?.destinationArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationCount"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;

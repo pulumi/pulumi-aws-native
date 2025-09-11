@@ -40,51 +40,51 @@ export class Profile extends pulumi.CustomResource {
     /**
      * Used to determine if a custom role session name will be accepted in a temporary credential request.
      */
-    public readonly acceptRoleSessionName!: pulumi.Output<boolean | undefined>;
+    declare public readonly acceptRoleSessionName: pulumi.Output<boolean | undefined>;
     /**
      * A mapping applied to the authenticating end-entity certificate.
      */
-    public readonly attributeMappings!: pulumi.Output<outputs.rolesanywhere.ProfileAttributeMapping[] | undefined>;
+    declare public readonly attributeMappings: pulumi.Output<outputs.rolesanywhere.ProfileAttributeMapping[] | undefined>;
     /**
      * The number of seconds vended session credentials will be valid for
      */
-    public readonly durationSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly durationSeconds: pulumi.Output<number | undefined>;
     /**
      * The enabled status of the resource.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
      */
-    public readonly managedPolicyArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly managedPolicyArns: pulumi.Output<string[] | undefined>;
     /**
      * The customer specified name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ARN of the profile.
      */
-    public /*out*/ readonly profileArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly profileArn: pulumi.Output<string>;
     /**
      * The unique primary identifier of the Profile
      */
-    public /*out*/ readonly profileId!: pulumi.Output<string>;
+    declare public /*out*/ readonly profileId: pulumi.Output<string>;
     /**
      * Specifies whether instance properties are required in CreateSession requests with this profile.
      */
-    public readonly requireInstanceProperties!: pulumi.Output<boolean | undefined>;
+    declare public readonly requireInstanceProperties: pulumi.Output<boolean | undefined>;
     /**
      * A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
      */
-    public readonly roleArns!: pulumi.Output<string[]>;
+    declare public readonly roleArns: pulumi.Output<string[]>;
     /**
      * A session policy that will applied to the trust boundary of the vended session credentials.
      */
-    public readonly sessionPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly sessionPolicy: pulumi.Output<string | undefined>;
     /**
      * A list of Tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -97,19 +97,19 @@ export class Profile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArns === undefined) && !opts.urn) {
+            if (args?.roleArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArns'");
             }
-            resourceInputs["acceptRoleSessionName"] = args ? args.acceptRoleSessionName : undefined;
-            resourceInputs["attributeMappings"] = args ? args.attributeMappings : undefined;
-            resourceInputs["durationSeconds"] = args ? args.durationSeconds : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["managedPolicyArns"] = args ? args.managedPolicyArns : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["requireInstanceProperties"] = args ? args.requireInstanceProperties : undefined;
-            resourceInputs["roleArns"] = args ? args.roleArns : undefined;
-            resourceInputs["sessionPolicy"] = args ? args.sessionPolicy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["acceptRoleSessionName"] = args?.acceptRoleSessionName;
+            resourceInputs["attributeMappings"] = args?.attributeMappings;
+            resourceInputs["durationSeconds"] = args?.durationSeconds;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["managedPolicyArns"] = args?.managedPolicyArns;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["requireInstanceProperties"] = args?.requireInstanceProperties;
+            resourceInputs["roleArns"] = args?.roleArns;
+            resourceInputs["sessionPolicy"] = args?.sessionPolicy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["profileArn"] = undefined /*out*/;
             resourceInputs["profileId"] = undefined /*out*/;
         } else {

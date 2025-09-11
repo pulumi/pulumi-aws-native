@@ -40,15 +40,15 @@ export class Device extends pulumi.CustomResource {
     /**
      * The Edge Device you want to register against a device fleet
      */
-    public readonly device!: pulumi.Output<outputs.sagemaker.Device | undefined>;
+    declare public readonly device: pulumi.Output<outputs.sagemaker.Device | undefined>;
     /**
      * The name of the edge device fleet
      */
-    public readonly deviceFleetName!: pulumi.Output<string>;
+    declare public readonly deviceFleetName: pulumi.Output<string>;
     /**
      * Associate tags with the resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Device resource with the given unique name, arguments, and options.
@@ -61,12 +61,12 @@ export class Device extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceFleetName === undefined) && !opts.urn) {
+            if (args?.deviceFleetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceFleetName'");
             }
-            resourceInputs["device"] = args ? args.device : undefined;
-            resourceInputs["deviceFleetName"] = args ? args.deviceFleetName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["device"] = args?.device;
+            resourceInputs["deviceFleetName"] = args?.deviceFleetName;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["device"] = undefined /*out*/;
             resourceInputs["deviceFleetName"] = undefined /*out*/;

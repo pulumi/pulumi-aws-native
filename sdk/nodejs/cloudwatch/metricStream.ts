@@ -63,55 +63,55 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * Amazon Resource Name of the metric stream.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The date of creation of the metric stream.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
      */
-    public readonly excludeFilters!: pulumi.Output<outputs.cloudwatch.MetricStreamFilter[] | undefined>;
+    declare public readonly excludeFilters: pulumi.Output<outputs.cloudwatch.MetricStreamFilter[] | undefined>;
     /**
      * The ARN of the Kinesis Firehose where to stream the data.
      */
-    public readonly firehoseArn!: pulumi.Output<string | undefined>;
+    declare public readonly firehoseArn: pulumi.Output<string | undefined>;
     /**
      * Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
      */
-    public readonly includeFilters!: pulumi.Output<outputs.cloudwatch.MetricStreamFilter[] | undefined>;
+    declare public readonly includeFilters: pulumi.Output<outputs.cloudwatch.MetricStreamFilter[] | undefined>;
     /**
      * If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
      */
-    public readonly includeLinkedAccountsMetrics!: pulumi.Output<boolean | undefined>;
+    declare public readonly includeLinkedAccountsMetrics: pulumi.Output<boolean | undefined>;
     /**
      * The date of the last update of the metric stream.
      */
-    public /*out*/ readonly lastUpdateDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdateDate: pulumi.Output<string>;
     /**
      * Name of the metric stream.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The output format of the data streamed to the Kinesis Firehose.
      */
-    public readonly outputFormat!: pulumi.Output<string | undefined>;
+    declare public readonly outputFormat: pulumi.Output<string | undefined>;
     /**
      * The ARN of the role that provides access to the Kinesis Firehose.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * Displays the state of the Metric Stream.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
      */
-    public readonly statisticsConfigurations!: pulumi.Output<outputs.cloudwatch.MetricStreamStatisticsConfiguration[] | undefined>;
+    declare public readonly statisticsConfigurations: pulumi.Output<outputs.cloudwatch.MetricStreamStatisticsConfiguration[] | undefined>;
     /**
      * A set of tags to assign to the delivery stream.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MetricStream resource with the given unique name, arguments, and options.
@@ -124,15 +124,15 @@ export class MetricStream extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["excludeFilters"] = args ? args.excludeFilters : undefined;
-            resourceInputs["firehoseArn"] = args ? args.firehoseArn : undefined;
-            resourceInputs["includeFilters"] = args ? args.includeFilters : undefined;
-            resourceInputs["includeLinkedAccountsMetrics"] = args ? args.includeLinkedAccountsMetrics : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputFormat"] = args ? args.outputFormat : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["statisticsConfigurations"] = args ? args.statisticsConfigurations : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["excludeFilters"] = args?.excludeFilters;
+            resourceInputs["firehoseArn"] = args?.firehoseArn;
+            resourceInputs["includeFilters"] = args?.includeFilters;
+            resourceInputs["includeLinkedAccountsMetrics"] = args?.includeLinkedAccountsMetrics;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputFormat"] = args?.outputFormat;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["statisticsConfigurations"] = args?.statisticsConfigurations;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["lastUpdateDate"] = undefined /*out*/;

@@ -40,7 +40,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default value is True
      */
-    public readonly allowVersionUpgrade!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowVersionUpgrade: pulumi.Output<boolean | undefined>;
     /**
      * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values include the following.
      *
@@ -48,95 +48,95 @@ export class Cluster extends pulumi.CustomResource {
      * disabled - Don't use AQUA.
      * auto - Amazon Redshift determines whether to use AQUA.
      */
-    public readonly aquaConfigurationStatus!: pulumi.Output<string | undefined>;
+    declare public readonly aquaConfigurationStatus: pulumi.Output<string | undefined>;
     /**
      * The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Default value is 1
      */
-    public readonly automatedSnapshotRetentionPeriod!: pulumi.Output<number | undefined>;
+    declare public readonly automatedSnapshotRetentionPeriod: pulumi.Output<number | undefined>;
     /**
      * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. Default: A random, system-chosen Availability Zone in the region that is specified by the endpoint
      */
-    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZone: pulumi.Output<string | undefined>;
     /**
      * The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster modification is complete.
      */
-    public readonly availabilityZoneRelocation!: pulumi.Output<boolean | undefined>;
+    declare public readonly availabilityZoneRelocation: pulumi.Output<boolean | undefined>;
     /**
      * The availability zone relocation status of the cluster
      */
-    public readonly availabilityZoneRelocationStatus!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZoneRelocationStatus: pulumi.Output<string | undefined>;
     /**
      * A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to false , the resize type is elastic.
      */
-    public readonly classic!: pulumi.Output<boolean | undefined>;
+    declare public readonly classic: pulumi.Output<boolean | undefined>;
     /**
      * A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
      */
-    public readonly clusterIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly clusterIdentifier: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the cluster namespace.
      */
-    public /*out*/ readonly clusterNamespaceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterNamespaceArn: pulumi.Output<string>;
     /**
      * The name of the parameter group to be associated with this cluster.
      */
-    public readonly clusterParameterGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly clusterParameterGroupName: pulumi.Output<string | undefined>;
     /**
      * A list of security groups to be associated with this cluster.
      */
-    public readonly clusterSecurityGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly clusterSecurityGroups: pulumi.Output<string[] | undefined>;
     /**
      * The name of a cluster subnet group to be associated with this cluster.
      */
-    public readonly clusterSubnetGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly clusterSubnetGroupName: pulumi.Output<string | undefined>;
     /**
      * The type of the cluster. When cluster type is specified as single-node, the NumberOfNodes parameter is not required and if multi-node, the NumberOfNodes parameter is required
      */
-    public readonly clusterType!: pulumi.Output<string>;
+    declare public readonly clusterType: pulumi.Output<string>;
     /**
      * The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
      */
-    public readonly clusterVersion!: pulumi.Output<string | undefined>;
+    declare public readonly clusterVersion: pulumi.Output<string | undefined>;
     /**
      * The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
      */
-    public readonly dbName!: pulumi.Output<string>;
+    declare public readonly dbName: pulumi.Output<string>;
     /**
      * A boolean indicating whether to enable the deferred maintenance window.
      */
-    public readonly deferMaintenance!: pulumi.Output<boolean | undefined>;
+    declare public readonly deferMaintenance: pulumi.Output<boolean | undefined>;
     /**
      * An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
      */
-    public readonly deferMaintenanceDuration!: pulumi.Output<number | undefined>;
+    declare public readonly deferMaintenanceDuration: pulumi.Output<number | undefined>;
     /**
      * A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
      */
-    public readonly deferMaintenanceEndTime!: pulumi.Output<string | undefined>;
+    declare public readonly deferMaintenanceEndTime: pulumi.Output<string | undefined>;
     /**
      * A unique identifier for the deferred maintenance window.
      */
-    public /*out*/ readonly deferMaintenanceIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly deferMaintenanceIdentifier: pulumi.Output<string>;
     /**
      * A timestamp indicating the start time for the deferred maintenance window.
      */
-    public readonly deferMaintenanceStartTime!: pulumi.Output<string | undefined>;
+    declare public readonly deferMaintenanceStartTime: pulumi.Output<string | undefined>;
     /**
      * The destination AWS Region that you want to copy snapshots to. Constraints: Must be the name of a valid AWS Region. For more information, see Regions and Endpoints in the Amazon Web Services [https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region] General Reference
      */
-    public readonly destinationRegion!: pulumi.Output<string | undefined>;
+    declare public readonly destinationRegion: pulumi.Output<string | undefined>;
     /**
      * The Elastic IP (EIP) address for the cluster.
      */
-    public readonly elasticIp!: pulumi.Output<string | undefined>;
+    declare public readonly elasticIp: pulumi.Output<string | undefined>;
     /**
      * If true, the data in the cluster is encrypted at rest.
      */
-    public readonly encrypted!: pulumi.Output<boolean | undefined>;
+    declare public readonly encrypted: pulumi.Output<boolean | undefined>;
     /**
      * The connection endpoint.
      */
-    public readonly endpoint!: pulumi.Output<outputs.redshift.ClusterEndpoint | undefined>;
+    declare public readonly endpoint: pulumi.Output<outputs.redshift.ClusterEndpoint | undefined>;
     /**
      * An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
      *
@@ -144,115 +144,115 @@ export class Cluster extends pulumi.CustomResource {
      *
      * Default: false
      */
-    public readonly enhancedVpcRouting!: pulumi.Output<boolean | undefined>;
+    declare public readonly enhancedVpcRouting: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM
      */
-    public readonly hsmClientCertificateIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly hsmClientCertificateIdentifier: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
      */
-    public readonly hsmConfigurationIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly hsmConfigurationIdentifier: pulumi.Output<string | undefined>;
     /**
      * A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
      */
-    public readonly iamRoles!: pulumi.Output<string[] | undefined>;
+    declare public readonly iamRoles: pulumi.Output<string[] | undefined>;
     /**
      * The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
      */
-    public readonly loggingProperties!: pulumi.Output<outputs.redshift.ClusterLoggingProperties | undefined>;
+    declare public readonly loggingProperties: pulumi.Output<outputs.redshift.ClusterLoggingProperties | undefined>;
     /**
      * The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
      */
-    public readonly maintenanceTrackName!: pulumi.Output<string | undefined>;
+    declare public readonly maintenanceTrackName: pulumi.Output<string | undefined>;
     /**
      * A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not. You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.
      */
-    public readonly manageMasterPassword!: pulumi.Output<boolean | undefined>;
+    declare public readonly manageMasterPassword: pulumi.Output<boolean | undefined>;
     /**
      * The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
      *
      * The value must be either -1 or an integer between 1 and 3,653.
      */
-    public readonly manualSnapshotRetentionPeriod!: pulumi.Output<number | undefined>;
+    declare public readonly manualSnapshotRetentionPeriod: pulumi.Output<number | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.
      */
-    public /*out*/ readonly masterPasswordSecretArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly masterPasswordSecretArn: pulumi.Output<string>;
     /**
      * The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
      */
-    public readonly masterPasswordSecretKmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly masterPasswordSecretKmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The password associated with the master user account for the cluster that is being created. You can't use MasterUserPassword if ManageMasterPassword is true. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
      */
-    public readonly masterUserPassword!: pulumi.Output<string | undefined>;
+    declare public readonly masterUserPassword: pulumi.Output<string | undefined>;
     /**
      * The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
      */
-    public readonly masterUsername!: pulumi.Output<string>;
+    declare public readonly masterUsername: pulumi.Output<string>;
     /**
      * A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
      */
-    public readonly multiAz!: pulumi.Output<boolean | undefined>;
+    declare public readonly multiAz: pulumi.Output<boolean | undefined>;
     /**
      * The namespace resource policy document that will be attached to a Redshift cluster.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
      */
-    public readonly namespaceResourcePolicy!: pulumi.Output<any | undefined>;
+    declare public readonly namespaceResourcePolicy: pulumi.Output<any | undefined>;
     /**
      * The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge
      */
-    public readonly nodeType!: pulumi.Output<string>;
+    declare public readonly nodeType: pulumi.Output<string>;
     /**
      * The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
      */
-    public readonly numberOfNodes!: pulumi.Output<number | undefined>;
+    declare public readonly numberOfNodes: pulumi.Output<number | undefined>;
     /**
      * The AWS account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
      */
-    public readonly ownerAccount!: pulumi.Output<string | undefined>;
+    declare public readonly ownerAccount: pulumi.Output<string | undefined>;
     /**
      * The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * The weekly time range (in UTC) during which automated cluster maintenance can occur.
      */
-    public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
+    declare public readonly preferredMaintenanceWindow: pulumi.Output<string | undefined>;
     /**
      * If true, the cluster can be accessed from a public network.
      */
-    public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
+    declare public readonly publiclyAccessible: pulumi.Output<boolean | undefined>;
     /**
      * The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
      */
-    public readonly resourceAction!: pulumi.Output<string | undefined>;
+    declare public readonly resourceAction: pulumi.Output<string | undefined>;
     /**
      * The identifier of the database revision. You can retrieve this value from the response to the DescribeClusterDbRevisions request.
      */
-    public readonly revisionTarget!: pulumi.Output<string | undefined>;
+    declare public readonly revisionTarget: pulumi.Output<string | undefined>;
     /**
      * A boolean indicating if we want to rotate Encryption Keys.
      */
-    public readonly rotateEncryptionKey!: pulumi.Output<boolean | undefined>;
+    declare public readonly rotateEncryptionKey: pulumi.Output<boolean | undefined>;
     /**
      * The name of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
      */
-    public readonly snapshotClusterIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotClusterIdentifier: pulumi.Output<string | undefined>;
     /**
      * The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
      */
-    public readonly snapshotCopyGrantName!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotCopyGrantName: pulumi.Output<string | undefined>;
     /**
      * Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.
      */
-    public readonly snapshotCopyManual!: pulumi.Output<boolean | undefined>;
+    declare public readonly snapshotCopyManual: pulumi.Output<boolean | undefined>;
     /**
      * The number of days to retain automated snapshots in the destination region after they are copied from the source region. 
      *
@@ -260,19 +260,19 @@ export class Cluster extends pulumi.CustomResource {
      *
      *  Constraints: Must be at least 1 and no more than 35.
      */
-    public readonly snapshotCopyRetentionPeriod!: pulumi.Output<number | undefined>;
+    declare public readonly snapshotCopyRetentionPeriod: pulumi.Output<number | undefined>;
     /**
      * The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
      */
-    public readonly snapshotIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotIdentifier: pulumi.Output<string | undefined>;
     /**
      * The list of tags for the cluster parameter group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -285,70 +285,70 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterType === undefined) && !opts.urn) {
+            if (args?.clusterType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterType'");
             }
-            if ((!args || args.dbName === undefined) && !opts.urn) {
+            if (args?.dbName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbName'");
             }
-            if ((!args || args.masterUsername === undefined) && !opts.urn) {
+            if (args?.masterUsername === undefined && !opts.urn) {
                 throw new Error("Missing required property 'masterUsername'");
             }
-            if ((!args || args.nodeType === undefined) && !opts.urn) {
+            if (args?.nodeType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nodeType'");
             }
-            resourceInputs["allowVersionUpgrade"] = args ? args.allowVersionUpgrade : undefined;
-            resourceInputs["aquaConfigurationStatus"] = args ? args.aquaConfigurationStatus : undefined;
-            resourceInputs["automatedSnapshotRetentionPeriod"] = args ? args.automatedSnapshotRetentionPeriod : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["availabilityZoneRelocation"] = args ? args.availabilityZoneRelocation : undefined;
-            resourceInputs["availabilityZoneRelocationStatus"] = args ? args.availabilityZoneRelocationStatus : undefined;
-            resourceInputs["classic"] = args ? args.classic : undefined;
-            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            resourceInputs["clusterParameterGroupName"] = args ? args.clusterParameterGroupName : undefined;
-            resourceInputs["clusterSecurityGroups"] = args ? args.clusterSecurityGroups : undefined;
-            resourceInputs["clusterSubnetGroupName"] = args ? args.clusterSubnetGroupName : undefined;
-            resourceInputs["clusterType"] = args ? args.clusterType : undefined;
-            resourceInputs["clusterVersion"] = args ? args.clusterVersion : undefined;
-            resourceInputs["dbName"] = args ? args.dbName : undefined;
-            resourceInputs["deferMaintenance"] = args ? args.deferMaintenance : undefined;
-            resourceInputs["deferMaintenanceDuration"] = args ? args.deferMaintenanceDuration : undefined;
-            resourceInputs["deferMaintenanceEndTime"] = args ? args.deferMaintenanceEndTime : undefined;
-            resourceInputs["deferMaintenanceStartTime"] = args ? args.deferMaintenanceStartTime : undefined;
-            resourceInputs["destinationRegion"] = args ? args.destinationRegion : undefined;
-            resourceInputs["elasticIp"] = args ? args.elasticIp : undefined;
-            resourceInputs["encrypted"] = args ? args.encrypted : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["enhancedVpcRouting"] = args ? args.enhancedVpcRouting : undefined;
-            resourceInputs["hsmClientCertificateIdentifier"] = args ? args.hsmClientCertificateIdentifier : undefined;
-            resourceInputs["hsmConfigurationIdentifier"] = args ? args.hsmConfigurationIdentifier : undefined;
-            resourceInputs["iamRoles"] = args ? args.iamRoles : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["loggingProperties"] = args ? args.loggingProperties : undefined;
-            resourceInputs["maintenanceTrackName"] = args ? args.maintenanceTrackName : undefined;
-            resourceInputs["manageMasterPassword"] = args ? args.manageMasterPassword : undefined;
-            resourceInputs["manualSnapshotRetentionPeriod"] = args ? args.manualSnapshotRetentionPeriod : undefined;
-            resourceInputs["masterPasswordSecretKmsKeyId"] = args ? args.masterPasswordSecretKmsKeyId : undefined;
-            resourceInputs["masterUserPassword"] = args ? args.masterUserPassword : undefined;
-            resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
-            resourceInputs["multiAz"] = args ? args.multiAz : undefined;
-            resourceInputs["namespaceResourcePolicy"] = args ? args.namespaceResourcePolicy : undefined;
-            resourceInputs["nodeType"] = args ? args.nodeType : undefined;
-            resourceInputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
-            resourceInputs["ownerAccount"] = args ? args.ownerAccount : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            resourceInputs["resourceAction"] = args ? args.resourceAction : undefined;
-            resourceInputs["revisionTarget"] = args ? args.revisionTarget : undefined;
-            resourceInputs["rotateEncryptionKey"] = args ? args.rotateEncryptionKey : undefined;
-            resourceInputs["snapshotClusterIdentifier"] = args ? args.snapshotClusterIdentifier : undefined;
-            resourceInputs["snapshotCopyGrantName"] = args ? args.snapshotCopyGrantName : undefined;
-            resourceInputs["snapshotCopyManual"] = args ? args.snapshotCopyManual : undefined;
-            resourceInputs["snapshotCopyRetentionPeriod"] = args ? args.snapshotCopyRetentionPeriod : undefined;
-            resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["allowVersionUpgrade"] = args?.allowVersionUpgrade;
+            resourceInputs["aquaConfigurationStatus"] = args?.aquaConfigurationStatus;
+            resourceInputs["automatedSnapshotRetentionPeriod"] = args?.automatedSnapshotRetentionPeriod;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["availabilityZoneRelocation"] = args?.availabilityZoneRelocation;
+            resourceInputs["availabilityZoneRelocationStatus"] = args?.availabilityZoneRelocationStatus;
+            resourceInputs["classic"] = args?.classic;
+            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
+            resourceInputs["clusterParameterGroupName"] = args?.clusterParameterGroupName;
+            resourceInputs["clusterSecurityGroups"] = args?.clusterSecurityGroups;
+            resourceInputs["clusterSubnetGroupName"] = args?.clusterSubnetGroupName;
+            resourceInputs["clusterType"] = args?.clusterType;
+            resourceInputs["clusterVersion"] = args?.clusterVersion;
+            resourceInputs["dbName"] = args?.dbName;
+            resourceInputs["deferMaintenance"] = args?.deferMaintenance;
+            resourceInputs["deferMaintenanceDuration"] = args?.deferMaintenanceDuration;
+            resourceInputs["deferMaintenanceEndTime"] = args?.deferMaintenanceEndTime;
+            resourceInputs["deferMaintenanceStartTime"] = args?.deferMaintenanceStartTime;
+            resourceInputs["destinationRegion"] = args?.destinationRegion;
+            resourceInputs["elasticIp"] = args?.elasticIp;
+            resourceInputs["encrypted"] = args?.encrypted;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["enhancedVpcRouting"] = args?.enhancedVpcRouting;
+            resourceInputs["hsmClientCertificateIdentifier"] = args?.hsmClientCertificateIdentifier;
+            resourceInputs["hsmConfigurationIdentifier"] = args?.hsmConfigurationIdentifier;
+            resourceInputs["iamRoles"] = args?.iamRoles;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["loggingProperties"] = args?.loggingProperties;
+            resourceInputs["maintenanceTrackName"] = args?.maintenanceTrackName;
+            resourceInputs["manageMasterPassword"] = args?.manageMasterPassword;
+            resourceInputs["manualSnapshotRetentionPeriod"] = args?.manualSnapshotRetentionPeriod;
+            resourceInputs["masterPasswordSecretKmsKeyId"] = args?.masterPasswordSecretKmsKeyId;
+            resourceInputs["masterUserPassword"] = args?.masterUserPassword;
+            resourceInputs["masterUsername"] = args?.masterUsername;
+            resourceInputs["multiAz"] = args?.multiAz;
+            resourceInputs["namespaceResourcePolicy"] = args?.namespaceResourcePolicy;
+            resourceInputs["nodeType"] = args?.nodeType;
+            resourceInputs["numberOfNodes"] = args?.numberOfNodes;
+            resourceInputs["ownerAccount"] = args?.ownerAccount;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
+            resourceInputs["resourceAction"] = args?.resourceAction;
+            resourceInputs["revisionTarget"] = args?.revisionTarget;
+            resourceInputs["rotateEncryptionKey"] = args?.rotateEncryptionKey;
+            resourceInputs["snapshotClusterIdentifier"] = args?.snapshotClusterIdentifier;
+            resourceInputs["snapshotCopyGrantName"] = args?.snapshotCopyGrantName;
+            resourceInputs["snapshotCopyManual"] = args?.snapshotCopyManual;
+            resourceInputs["snapshotCopyRetentionPeriod"] = args?.snapshotCopyRetentionPeriod;
+            resourceInputs["snapshotIdentifier"] = args?.snapshotIdentifier;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
             resourceInputs["clusterNamespaceArn"] = undefined /*out*/;
             resourceInputs["deferMaintenanceIdentifier"] = undefined /*out*/;
             resourceInputs["masterPasswordSecretArn"] = undefined /*out*/;

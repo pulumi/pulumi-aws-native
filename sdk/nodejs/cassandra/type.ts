@@ -40,35 +40,35 @@ export class Type extends pulumi.CustomResource {
     /**
      * List of parent User-Defined Types that directly reference the User-Defined Type in their fields.
      */
-    public /*out*/ readonly directParentTypes!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly directParentTypes: pulumi.Output<string[]>;
     /**
      * List of Tables that directly reference the User-Defined Type in their columns.
      */
-    public /*out*/ readonly directReferringTables!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly directReferringTables: pulumi.Output<string[]>;
     /**
      * Field definitions of the User-Defined Type
      */
-    public readonly fields!: pulumi.Output<outputs.cassandra.TypeField[]>;
+    declare public readonly fields: pulumi.Output<outputs.cassandra.TypeField[]>;
     /**
      * ARN of the Keyspace which contains the User-Defined Type.
      */
-    public /*out*/ readonly keyspaceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyspaceArn: pulumi.Output<string>;
     /**
      * Name of the Keyspace which contains the User-Defined Type.
      */
-    public readonly keyspaceName!: pulumi.Output<string>;
+    declare public readonly keyspaceName: pulumi.Output<string>;
     /**
      * Timestamp of the last time the User-Defined Type's meta data was modified.
      */
-    public /*out*/ readonly lastModifiedTimestamp!: pulumi.Output<number>;
+    declare public /*out*/ readonly lastModifiedTimestamp: pulumi.Output<number>;
     /**
      * Maximum nesting depth of the User-Defined Type across the field types.
      */
-    public /*out*/ readonly maxNestingDepth!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxNestingDepth: pulumi.Output<number>;
     /**
      * Name of the User-Defined Type.
      */
-    public readonly typeName!: pulumi.Output<string>;
+    declare public readonly typeName: pulumi.Output<string>;
 
     /**
      * Create a Type resource with the given unique name, arguments, and options.
@@ -81,15 +81,15 @@ export class Type extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fields === undefined) && !opts.urn) {
+            if (args?.fields === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fields'");
             }
-            if ((!args || args.keyspaceName === undefined) && !opts.urn) {
+            if (args?.keyspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyspaceName'");
             }
-            resourceInputs["fields"] = args ? args.fields : undefined;
-            resourceInputs["keyspaceName"] = args ? args.keyspaceName : undefined;
-            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["fields"] = args?.fields;
+            resourceInputs["keyspaceName"] = args?.keyspaceName;
+            resourceInputs["typeName"] = args?.typeName;
             resourceInputs["directParentTypes"] = undefined /*out*/;
             resourceInputs["directReferringTables"] = undefined /*out*/;
             resourceInputs["keyspaceArn"] = undefined /*out*/;

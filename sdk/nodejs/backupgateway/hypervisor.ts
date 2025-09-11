@@ -40,35 +40,35 @@ export class Hypervisor extends pulumi.CustomResource {
     /**
      * The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
      */
-    public readonly host!: pulumi.Output<string | undefined>;
+    declare public readonly host: pulumi.Output<string | undefined>;
     /**
      * Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
      */
-    public /*out*/ readonly hypervisorArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly hypervisorArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the group of gateways within the requested log.
      */
-    public readonly logGroupArn!: pulumi.Output<string | undefined>;
+    declare public readonly logGroupArn: pulumi.Output<string | undefined>;
     /**
      * The name of the hypervisor.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The password for the hypervisor.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The tags of the hypervisor configuration to import.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The username for the hypervisor.
      */
-    public readonly username!: pulumi.Output<string | undefined>;
+    declare public readonly username: pulumi.Output<string | undefined>;
 
     /**
      * Create a Hypervisor resource with the given unique name, arguments, and options.
@@ -81,13 +81,13 @@ export class Hypervisor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["host"] = args ? args.host : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["logGroupArn"] = args ? args.logGroupArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["host"] = args?.host;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["logGroupArn"] = args?.logGroupArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["username"] = args?.username;
             resourceInputs["hypervisorArn"] = undefined /*out*/;
         } else {
             resourceInputs["host"] = undefined /*out*/;

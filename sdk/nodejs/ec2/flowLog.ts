@@ -40,55 +40,55 @@ export class FlowLog extends pulumi.CustomResource {
     /**
      * The Flow Log ID
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
      */
-    public readonly deliverCrossAccountRole!: pulumi.Output<string | undefined>;
+    declare public readonly deliverCrossAccountRole: pulumi.Output<string | undefined>;
     /**
      * The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
      */
-    public readonly deliverLogsPermissionArn!: pulumi.Output<string | undefined>;
+    declare public readonly deliverLogsPermissionArn: pulumi.Output<string | undefined>;
     /**
      * The destination options.
      */
-    public readonly destinationOptions!: pulumi.Output<outputs.ec2.DestinationOptionsProperties | undefined>;
+    declare public readonly destinationOptions: pulumi.Output<outputs.ec2.DestinationOptionsProperties | undefined>;
     /**
      * Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType.
      */
-    public readonly logDestination!: pulumi.Output<string | undefined>;
+    declare public readonly logDestination: pulumi.Output<string | undefined>;
     /**
      * Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
      */
-    public readonly logDestinationType!: pulumi.Output<enums.ec2.FlowLogLogDestinationType | undefined>;
+    declare public readonly logDestinationType: pulumi.Output<enums.ec2.FlowLogLogDestinationType | undefined>;
     /**
      * The fields to include in the flow log record, in the order in which they should appear.
      */
-    public readonly logFormat!: pulumi.Output<string | undefined>;
+    declare public readonly logFormat: pulumi.Output<string | undefined>;
     /**
      * The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
      */
-    public readonly logGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly logGroupName: pulumi.Output<string | undefined>;
     /**
      * The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).
      */
-    public readonly maxAggregationInterval!: pulumi.Output<number | undefined>;
+    declare public readonly maxAggregationInterval: pulumi.Output<number | undefined>;
     /**
      * The ID of the subnet, network interface, or VPC for which you want to create a flow log.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
      */
-    public readonly resourceType!: pulumi.Output<enums.ec2.FlowLogResourceType>;
+    declare public readonly resourceType: pulumi.Output<enums.ec2.FlowLogResourceType>;
     /**
      * The tags to apply to the flow logs.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
      */
-    public readonly trafficType!: pulumi.Output<enums.ec2.FlowLogTrafficType | undefined>;
+    declare public readonly trafficType: pulumi.Output<enums.ec2.FlowLogTrafficType | undefined>;
 
     /**
      * Create a FlowLog resource with the given unique name, arguments, and options.
@@ -101,24 +101,24 @@ export class FlowLog extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            resourceInputs["deliverCrossAccountRole"] = args ? args.deliverCrossAccountRole : undefined;
-            resourceInputs["deliverLogsPermissionArn"] = args ? args.deliverLogsPermissionArn : undefined;
-            resourceInputs["destinationOptions"] = args ? args.destinationOptions : undefined;
-            resourceInputs["logDestination"] = args ? args.logDestination : undefined;
-            resourceInputs["logDestinationType"] = args ? args.logDestinationType : undefined;
-            resourceInputs["logFormat"] = args ? args.logFormat : undefined;
-            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
-            resourceInputs["maxAggregationInterval"] = args ? args.maxAggregationInterval : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficType"] = args ? args.trafficType : undefined;
+            resourceInputs["deliverCrossAccountRole"] = args?.deliverCrossAccountRole;
+            resourceInputs["deliverLogsPermissionArn"] = args?.deliverLogsPermissionArn;
+            resourceInputs["destinationOptions"] = args?.destinationOptions;
+            resourceInputs["logDestination"] = args?.logDestination;
+            resourceInputs["logDestinationType"] = args?.logDestinationType;
+            resourceInputs["logFormat"] = args?.logFormat;
+            resourceInputs["logGroupName"] = args?.logGroupName;
+            resourceInputs["maxAggregationInterval"] = args?.maxAggregationInterval;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficType"] = args?.trafficType;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

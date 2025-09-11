@@ -40,29 +40,29 @@ export class FirewallPolicy extends pulumi.CustomResource {
     /**
      * A description of the firewall policy.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
      */
-    public readonly firewallPolicy!: pulumi.Output<outputs.networkfirewall.FirewallPolicy>;
+    declare public readonly firewallPolicy: pulumi.Output<outputs.networkfirewall.FirewallPolicy>;
     /**
      * The Amazon Resource Name (ARN) of the firewall policy.
      */
-    public /*out*/ readonly firewallPolicyArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly firewallPolicyArn: pulumi.Output<string>;
     /**
      * The unique ID of the firewall policy resource.
      */
-    public /*out*/ readonly firewallPolicyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly firewallPolicyId: pulumi.Output<string>;
     /**
      * The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
      */
-    public readonly firewallPolicyName!: pulumi.Output<string>;
+    declare public readonly firewallPolicyName: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FirewallPolicy resource with the given unique name, arguments, and options.
@@ -75,13 +75,13 @@ export class FirewallPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.firewallPolicy === undefined) && !opts.urn) {
+            if (args?.firewallPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicy'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["firewallPolicy"] = args ? args.firewallPolicy : undefined;
-            resourceInputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["firewallPolicy"] = args?.firewallPolicy;
+            resourceInputs["firewallPolicyName"] = args?.firewallPolicyName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["firewallPolicyArn"] = undefined /*out*/;
             resourceInputs["firewallPolicyId"] = undefined /*out*/;
         } else {
