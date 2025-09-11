@@ -1,0 +1,6 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: ["github>pulumi/renovate-config//default.json5"],
+  // We only use pulumi-go-provider for resourcex which was removed in v1
+  ignoreDeps: ["github.com/pulumi/pulumi-go-provider"],
+}
