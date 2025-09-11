@@ -40,23 +40,23 @@ export class Acl extends pulumi.CustomResource {
     /**
      * The name of the acl.
      */
-    public readonly aclName!: pulumi.Output<string>;
+    declare public readonly aclName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the acl.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Indicates acl status. Can be "creating", "active", "modifying", "deleting".
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this cluster.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * List of users associated to this acl.
      */
-    public readonly userNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly userNames: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Acl resource with the given unique name, arguments, and options.
@@ -69,9 +69,9 @@ export class Acl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["aclName"] = args ? args.aclName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userNames"] = args ? args.userNames : undefined;
+            resourceInputs["aclName"] = args?.aclName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userNames"] = args?.userNames;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

@@ -37,15 +37,15 @@ export class LinkAssociation extends pulumi.CustomResource {
     /**
      * The ID of the device
      */
-    public readonly deviceId!: pulumi.Output<string>;
+    declare public readonly deviceId: pulumi.Output<string>;
     /**
      * The ID of the global network.
      */
-    public readonly globalNetworkId!: pulumi.Output<string>;
+    declare public readonly globalNetworkId: pulumi.Output<string>;
     /**
      * The ID of the link
      */
-    public readonly linkId!: pulumi.Output<string>;
+    declare public readonly linkId: pulumi.Output<string>;
 
     /**
      * Create a LinkAssociation resource with the given unique name, arguments, and options.
@@ -58,18 +58,18 @@ export class LinkAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceId === undefined) && !opts.urn) {
+            if (args?.deviceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceId'");
             }
-            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
+            if (args?.globalNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            if ((!args || args.linkId === undefined) && !opts.urn) {
+            if (args?.linkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkId'");
             }
-            resourceInputs["deviceId"] = args ? args.deviceId : undefined;
-            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            resourceInputs["linkId"] = args ? args.linkId : undefined;
+            resourceInputs["deviceId"] = args?.deviceId;
+            resourceInputs["globalNetworkId"] = args?.globalNetworkId;
+            resourceInputs["linkId"] = args?.linkId;
         } else {
             resourceInputs["deviceId"] = undefined /*out*/;
             resourceInputs["globalNetworkId"] = undefined /*out*/;

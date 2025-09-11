@@ -40,45 +40,45 @@ export class Repository extends pulumi.CustomResource {
     /**
      * The ARN of the repository.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A text description of the repository.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the domain that contains the repository.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * The 12-digit account ID of the AWS account that owns the domain.
      */
-    public readonly domainOwner!: pulumi.Output<string>;
+    declare public readonly domainOwner: pulumi.Output<string>;
     /**
      * A list of external connections associated with the repository.
      */
-    public readonly externalConnections!: pulumi.Output<string[] | undefined>;
+    declare public readonly externalConnections: pulumi.Output<string[] | undefined>;
     /**
      * The name of the repository. This is used for GetAtt
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The access control resource policy on the provided repository.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CodeArtifact::Repository` for more information about the expected schema for this property.
      */
-    public readonly permissionsPolicyDocument!: pulumi.Output<any | undefined>;
+    declare public readonly permissionsPolicyDocument: pulumi.Output<any | undefined>;
     /**
      * The name of the repository.
      */
-    public readonly repositoryName!: pulumi.Output<string>;
+    declare public readonly repositoryName: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A list of upstream repositories associated with the repository.
      */
-    public readonly upstreams!: pulumi.Output<string[] | undefined>;
+    declare public readonly upstreams: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -91,17 +91,17 @@ export class Repository extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["domainOwner"] = args ? args.domainOwner : undefined;
-            resourceInputs["externalConnections"] = args ? args.externalConnections : undefined;
-            resourceInputs["permissionsPolicyDocument"] = args ? args.permissionsPolicyDocument : undefined;
-            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upstreams"] = args ? args.upstreams : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["domainOwner"] = args?.domainOwner;
+            resourceInputs["externalConnections"] = args?.externalConnections;
+            resourceInputs["permissionsPolicyDocument"] = args?.permissionsPolicyDocument;
+            resourceInputs["repositoryName"] = args?.repositoryName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upstreams"] = args?.upstreams;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {

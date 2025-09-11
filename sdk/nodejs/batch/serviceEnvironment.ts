@@ -40,27 +40,27 @@ export class ServiceEnvironment extends pulumi.CustomResource {
     /**
      * The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
      */
-    public readonly capacityLimits!: pulumi.Output<outputs.batch.ServiceEnvironmentCapacityLimit[]>;
+    declare public readonly capacityLimits: pulumi.Output<outputs.batch.ServiceEnvironmentCapacityLimit[]>;
     /**
      * The Amazon Resource Name (ARN) of the service environment.
      */
-    public /*out*/ readonly serviceEnvironmentArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceEnvironmentArn: pulumi.Output<string>;
     /**
      * The name of the service environment.
      */
-    public readonly serviceEnvironmentName!: pulumi.Output<string | undefined>;
+    declare public readonly serviceEnvironmentName: pulumi.Output<string | undefined>;
     /**
      * The type of service environment. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING` .
      */
-    public readonly serviceEnvironmentType!: pulumi.Output<string>;
+    declare public readonly serviceEnvironmentType: pulumi.Output<string>;
     /**
      * The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ServiceEnvironment resource with the given unique name, arguments, and options.
@@ -73,17 +73,17 @@ export class ServiceEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.capacityLimits === undefined) && !opts.urn) {
+            if (args?.capacityLimits === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacityLimits'");
             }
-            if ((!args || args.serviceEnvironmentType === undefined) && !opts.urn) {
+            if (args?.serviceEnvironmentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEnvironmentType'");
             }
-            resourceInputs["capacityLimits"] = args ? args.capacityLimits : undefined;
-            resourceInputs["serviceEnvironmentName"] = args ? args.serviceEnvironmentName : undefined;
-            resourceInputs["serviceEnvironmentType"] = args ? args.serviceEnvironmentType : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["capacityLimits"] = args?.capacityLimits;
+            resourceInputs["serviceEnvironmentName"] = args?.serviceEnvironmentName;
+            resourceInputs["serviceEnvironmentType"] = args?.serviceEnvironmentType;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["serviceEnvironmentArn"] = undefined /*out*/;
         } else {
             resourceInputs["capacityLimits"] = undefined /*out*/;

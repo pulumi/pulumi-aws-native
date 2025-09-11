@@ -40,39 +40,39 @@ export class PolicyGrant extends pulumi.CustomResource {
     /**
      * Specifies the timestamp at which policy grant member was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Specifies the user who created the policy grant member.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * The details of the policy grant member.
      */
-    public readonly detail!: pulumi.Output<outputs.datazone.PolicyGrantDetail0Properties | outputs.datazone.PolicyGrantDetail1Properties | outputs.datazone.PolicyGrantDetail2Properties | outputs.datazone.PolicyGrantDetail3Properties | outputs.datazone.PolicyGrantDetail4Properties | outputs.datazone.PolicyGrantDetail5Properties | outputs.datazone.PolicyGrantDetail6Properties | outputs.datazone.PolicyGrantDetail7Properties | outputs.datazone.PolicyGrantDetail8Properties | outputs.datazone.PolicyGrantDetail9Properties | outputs.datazone.PolicyGrantDetail10Properties | outputs.datazone.PolicyGrantDetail11Properties | outputs.datazone.PolicyGrantDetail12Properties | undefined>;
+    declare public readonly detail: pulumi.Output<outputs.datazone.PolicyGrantDetail0Properties | outputs.datazone.PolicyGrantDetail1Properties | outputs.datazone.PolicyGrantDetail2Properties | outputs.datazone.PolicyGrantDetail3Properties | outputs.datazone.PolicyGrantDetail4Properties | outputs.datazone.PolicyGrantDetail5Properties | outputs.datazone.PolicyGrantDetail6Properties | outputs.datazone.PolicyGrantDetail7Properties | outputs.datazone.PolicyGrantDetail8Properties | outputs.datazone.PolicyGrantDetail9Properties | outputs.datazone.PolicyGrantDetail10Properties | outputs.datazone.PolicyGrantDetail11Properties | outputs.datazone.PolicyGrantDetail12Properties | undefined>;
     /**
      * The ID of the domain where you want to add a policy grant.
      */
-    public readonly domainIdentifier!: pulumi.Output<string>;
+    declare public readonly domainIdentifier: pulumi.Output<string>;
     /**
      * The ID of the entity (resource) to which you want to add a policy grant.
      */
-    public readonly entityIdentifier!: pulumi.Output<string>;
+    declare public readonly entityIdentifier: pulumi.Output<string>;
     /**
      * The type of entity (resource) to which the grant is added.
      */
-    public readonly entityType!: pulumi.Output<enums.datazone.PolicyGrantTargetEntityType>;
+    declare public readonly entityType: pulumi.Output<enums.datazone.PolicyGrantTargetEntityType>;
     /**
      * The unique identifier of the policy grant returned by the AddPolicyGrant API
      */
-    public /*out*/ readonly grantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly grantId: pulumi.Output<string>;
     /**
      * The type of policy that you want to grant.
      */
-    public readonly policyType!: pulumi.Output<string>;
+    declare public readonly policyType: pulumi.Output<string>;
     /**
      * The principal of the policy grant member.
      */
-    public readonly principal!: pulumi.Output<outputs.datazone.PolicyGrantPrincipal0Properties | outputs.datazone.PolicyGrantPrincipal1Properties | outputs.datazone.PolicyGrantPrincipal2Properties | outputs.datazone.PolicyGrantPrincipal3Properties | undefined>;
+    declare public readonly principal: pulumi.Output<outputs.datazone.PolicyGrantPrincipal0Properties | outputs.datazone.PolicyGrantPrincipal1Properties | outputs.datazone.PolicyGrantPrincipal2Properties | outputs.datazone.PolicyGrantPrincipal3Properties | undefined>;
 
     /**
      * Create a PolicyGrant resource with the given unique name, arguments, and options.
@@ -85,24 +85,24 @@ export class PolicyGrant extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.entityIdentifier === undefined) && !opts.urn) {
+            if (args?.entityIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityIdentifier'");
             }
-            if ((!args || args.entityType === undefined) && !opts.urn) {
+            if (args?.entityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityType'");
             }
-            if ((!args || args.policyType === undefined) && !opts.urn) {
+            if (args?.policyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
             }
-            resourceInputs["detail"] = args ? args.detail : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["entityIdentifier"] = args ? args.entityIdentifier : undefined;
-            resourceInputs["entityType"] = args ? args.entityType : undefined;
-            resourceInputs["policyType"] = args ? args.policyType : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["detail"] = args?.detail;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["entityIdentifier"] = args?.entityIdentifier;
+            resourceInputs["entityType"] = args?.entityType;
+            resourceInputs["policyType"] = args?.policyType;
+            resourceInputs["principal"] = args?.principal;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["grantId"] = undefined /*out*/;

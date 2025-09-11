@@ -40,47 +40,47 @@ export class BotAlias extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the bot alias.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The unique identifier of the bot alias.
      */
-    public /*out*/ readonly botAliasId!: pulumi.Output<string>;
+    declare public /*out*/ readonly botAliasId: pulumi.Output<string>;
     /**
      * Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
      */
-    public readonly botAliasLocaleSettings!: pulumi.Output<outputs.lex.BotAliasLocaleSettingsItem[] | undefined>;
+    declare public readonly botAliasLocaleSettings: pulumi.Output<outputs.lex.BotAliasLocaleSettingsItem[] | undefined>;
     /**
      * The name of the bot alias.
      */
-    public readonly botAliasName!: pulumi.Output<string>;
+    declare public readonly botAliasName: pulumi.Output<string>;
     /**
      * The current status of the bot alias. When the status is Available the alias is ready for use with your bot.
      */
-    public /*out*/ readonly botAliasStatus!: pulumi.Output<enums.lex.BotAliasStatus>;
+    declare public /*out*/ readonly botAliasStatus: pulumi.Output<enums.lex.BotAliasStatus>;
     /**
      * A list of tags to add to the bot alias.
      */
-    public readonly botAliasTags!: pulumi.Output<outputs.lex.BotAliasTag[] | undefined>;
+    declare public readonly botAliasTags: pulumi.Output<outputs.lex.BotAliasTag[] | undefined>;
     /**
      * The unique identifier of the bot.
      */
-    public readonly botId!: pulumi.Output<string>;
+    declare public readonly botId: pulumi.Output<string>;
     /**
      * The version of the bot that the bot alias references.
      */
-    public readonly botVersion!: pulumi.Output<string | undefined>;
+    declare public readonly botVersion: pulumi.Output<string | undefined>;
     /**
      * Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
      */
-    public readonly conversationLogSettings!: pulumi.Output<outputs.lex.BotAliasConversationLogSettings | undefined>;
+    declare public readonly conversationLogSettings: pulumi.Output<outputs.lex.BotAliasConversationLogSettings | undefined>;
     /**
      * The description of the bot alias.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
      */
-    public readonly sentimentAnalysisSettings!: pulumi.Output<outputs.lex.SentimentAnalysisSettingsProperties | undefined>;
+    declare public readonly sentimentAnalysisSettings: pulumi.Output<outputs.lex.SentimentAnalysisSettingsProperties | undefined>;
 
     /**
      * Create a BotAlias resource with the given unique name, arguments, and options.
@@ -93,17 +93,17 @@ export class BotAlias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.botId === undefined) && !opts.urn) {
+            if (args?.botId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botId'");
             }
-            resourceInputs["botAliasLocaleSettings"] = args ? args.botAliasLocaleSettings : undefined;
-            resourceInputs["botAliasName"] = args ? args.botAliasName : undefined;
-            resourceInputs["botAliasTags"] = args ? args.botAliasTags : undefined;
-            resourceInputs["botId"] = args ? args.botId : undefined;
-            resourceInputs["botVersion"] = args ? args.botVersion : undefined;
-            resourceInputs["conversationLogSettings"] = args ? args.conversationLogSettings : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["sentimentAnalysisSettings"] = args ? args.sentimentAnalysisSettings : undefined;
+            resourceInputs["botAliasLocaleSettings"] = args?.botAliasLocaleSettings;
+            resourceInputs["botAliasName"] = args?.botAliasName;
+            resourceInputs["botAliasTags"] = args?.botAliasTags;
+            resourceInputs["botId"] = args?.botId;
+            resourceInputs["botVersion"] = args?.botVersion;
+            resourceInputs["conversationLogSettings"] = args?.conversationLogSettings;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["sentimentAnalysisSettings"] = args?.sentimentAnalysisSettings;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["botAliasId"] = undefined /*out*/;
             resourceInputs["botAliasStatus"] = undefined /*out*/;

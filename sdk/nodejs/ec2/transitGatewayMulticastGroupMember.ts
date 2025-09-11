@@ -37,43 +37,43 @@ export class TransitGatewayMulticastGroupMember extends pulumi.CustomResource {
     /**
      * The IP address assigned to the transit gateway multicast group.
      */
-    public readonly groupIpAddress!: pulumi.Output<string>;
+    declare public readonly groupIpAddress: pulumi.Output<string>;
     /**
      * Indicates that the resource is a transit gateway multicast group member.
      */
-    public /*out*/ readonly groupMember!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly groupMember: pulumi.Output<boolean>;
     /**
      * Indicates that the resource is a transit gateway multicast group member.
      */
-    public /*out*/ readonly groupSource!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly groupSource: pulumi.Output<boolean>;
     /**
      * The member type (for example, static).
      */
-    public /*out*/ readonly memberType!: pulumi.Output<string>;
+    declare public /*out*/ readonly memberType: pulumi.Output<string>;
     /**
      * The ID of the transit gateway attachment.
      */
-    public readonly networkInterfaceId!: pulumi.Output<string>;
+    declare public readonly networkInterfaceId: pulumi.Output<string>;
     /**
      * The ID of the resource.
      */
-    public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceId: pulumi.Output<string>;
     /**
      * The type of resource, for example a VPC attachment.
      */
-    public /*out*/ readonly resourceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceType: pulumi.Output<string>;
     /**
      * The ID of the subnet.
      */
-    public /*out*/ readonly subnetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly subnetId: pulumi.Output<string>;
     /**
      * The ID of the transit gateway attachment.
      */
-    public /*out*/ readonly transitGatewayAttachmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly transitGatewayAttachmentId: pulumi.Output<string>;
     /**
      * The ID of the transit gateway multicast domain.
      */
-    public readonly transitGatewayMulticastDomainId!: pulumi.Output<string>;
+    declare public readonly transitGatewayMulticastDomainId: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayMulticastGroupMember resource with the given unique name, arguments, and options.
@@ -86,18 +86,18 @@ export class TransitGatewayMulticastGroupMember extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupIpAddress === undefined) && !opts.urn) {
+            if (args?.groupIpAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupIpAddress'");
             }
-            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
+            if (args?.networkInterfaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if ((!args || args.transitGatewayMulticastDomainId === undefined) && !opts.urn) {
+            if (args?.transitGatewayMulticastDomainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayMulticastDomainId'");
             }
-            resourceInputs["groupIpAddress"] = args ? args.groupIpAddress : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            resourceInputs["transitGatewayMulticastDomainId"] = args ? args.transitGatewayMulticastDomainId : undefined;
+            resourceInputs["groupIpAddress"] = args?.groupIpAddress;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
+            resourceInputs["transitGatewayMulticastDomainId"] = args?.transitGatewayMulticastDomainId;
             resourceInputs["groupMember"] = undefined /*out*/;
             resourceInputs["groupSource"] = undefined /*out*/;
             resourceInputs["memberType"] = undefined /*out*/;

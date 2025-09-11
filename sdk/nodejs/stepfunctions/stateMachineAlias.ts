@@ -40,7 +40,7 @@ export class StateMachineAlias extends pulumi.CustomResource {
     /**
      * The ARN of the alias.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The settings that enable gradual state machine deployments. These settings include [Alarms](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-alarms) , [Interval](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-interval) , [Percentage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-percentage) , [StateMachineVersionArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-statemachineversionarn) , and [Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-type) .
      *
@@ -58,15 +58,15 @@ export class StateMachineAlias extends pulumi.CustomResource {
      *
      * In the first increment, a small percentage of traffic, for example, 10 percent is shifted to the new version. In the second increment, before a specified time interval in seconds gets over, the remaining traffic is shifted to the new version. The shift to the new version for the remaining traffic takes place only if no CloudWatch alarms are triggered during the specified time interval.
      */
-    public readonly deploymentPreference!: pulumi.Output<outputs.stepfunctions.StateMachineAliasDeploymentPreference | undefined>;
+    declare public readonly deploymentPreference: pulumi.Output<outputs.stepfunctions.StateMachineAliasDeploymentPreference | undefined>;
     /**
      * An optional description of the alias.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The alias name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
      *
@@ -74,7 +74,7 @@ export class StateMachineAlias extends pulumi.CustomResource {
      *
      * > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
      */
-    public readonly routingConfiguration!: pulumi.Output<outputs.stepfunctions.StateMachineAliasRoutingConfigurationVersion[] | undefined>;
+    declare public readonly routingConfiguration: pulumi.Output<outputs.stepfunctions.StateMachineAliasRoutingConfigurationVersion[] | undefined>;
 
     /**
      * Create a StateMachineAlias resource with the given unique name, arguments, and options.
@@ -87,10 +87,10 @@ export class StateMachineAlias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["deploymentPreference"] = args ? args.deploymentPreference : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
+            resourceInputs["deploymentPreference"] = args?.deploymentPreference;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["routingConfiguration"] = args?.routingConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

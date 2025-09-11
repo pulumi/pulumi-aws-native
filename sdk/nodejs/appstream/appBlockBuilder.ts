@@ -40,59 +40,59 @@ export class AppBlockBuilder extends pulumi.CustomResource {
     /**
      * The access endpoints of the app block builder.
      */
-    public readonly accessEndpoints!: pulumi.Output<outputs.appstream.AppBlockBuilderAccessEndpoint[] | undefined>;
+    declare public readonly accessEndpoints: pulumi.Output<outputs.appstream.AppBlockBuilderAccessEndpoint[] | undefined>;
     /**
      * The ARN of the app block.
      *
      * *Maximum* : `1`
      */
-    public readonly appBlockArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly appBlockArns: pulumi.Output<string[] | undefined>;
     /**
      * The ARN of the app block builder.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The time when the app block builder was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The description of the app block builder.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the app block builder.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Indicates whether default internet access is enabled for the app block builder.
      */
-    public readonly enableDefaultInternetAccess!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableDefaultInternetAccess: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the IAM role that is applied to the app block builder.
      */
-    public readonly iamRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly iamRoleArn: pulumi.Output<string | undefined>;
     /**
      * The instance type of the app block builder.
      */
-    public readonly instanceType!: pulumi.Output<string>;
+    declare public readonly instanceType: pulumi.Output<string>;
     /**
      * The name of the app block builder.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The platform of the app block builder.
      *
      * *Allowed values* : `WINDOWS_SERVER_2019`
      */
-    public readonly platform!: pulumi.Output<string>;
+    declare public readonly platform: pulumi.Output<string>;
     /**
      * The tags of the app block builder.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The VPC configuration for the app block builder.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.appstream.AppBlockBuilderVpcConfig>;
+    declare public readonly vpcConfig: pulumi.Output<outputs.appstream.AppBlockBuilderVpcConfig>;
 
     /**
      * Create a AppBlockBuilder resource with the given unique name, arguments, and options.
@@ -105,26 +105,26 @@ export class AppBlockBuilder extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
+            if (args?.instanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            if ((!args || args.platform === undefined) && !opts.urn) {
+            if (args?.platform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'platform'");
             }
-            if ((!args || args.vpcConfig === undefined) && !opts.urn) {
+            if (args?.vpcConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfig'");
             }
-            resourceInputs["accessEndpoints"] = args ? args.accessEndpoints : undefined;
-            resourceInputs["appBlockArns"] = args ? args.appBlockArns : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enableDefaultInternetAccess"] = args ? args.enableDefaultInternetAccess : undefined;
-            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["platform"] = args ? args.platform : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["accessEndpoints"] = args?.accessEndpoints;
+            resourceInputs["appBlockArns"] = args?.appBlockArns;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enableDefaultInternetAccess"] = args?.enableDefaultInternetAccess;
+            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["platform"] = args?.platform;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
         } else {

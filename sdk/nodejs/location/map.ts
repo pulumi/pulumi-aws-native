@@ -42,25 +42,25 @@ export class Map extends pulumi.CustomResource {
      *
      * - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
      */
-    public readonly configuration!: pulumi.Output<outputs.location.MapConfiguration>;
+    declare public readonly configuration: pulumi.Output<outputs.location.MapConfiguration>;
     /**
      * The timestamp for when the map resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
      * An optional description for the map resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Synonym for `Arn` . The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
      *
      * - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
      */
-    public /*out*/ readonly mapArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly mapArn: pulumi.Output<string>;
     /**
      * The name for the map resource.
      *
@@ -70,21 +70,21 @@ export class Map extends pulumi.CustomResource {
      * - Must be a unique map resource name.
      * - No spaces allowed. For example, `ExampleMap` .
      */
-    public readonly mapName!: pulumi.Output<string>;
+    declare public readonly mapName: pulumi.Output<string>;
     /**
      * No longer used. If included, the only allowed value is `RequestBasedUsage` .
      *
      * *Allowed Values* : `RequestBasedUsage`
      */
-    public readonly pricingPlan!: pulumi.Output<enums.location.MapPricingPlan | undefined>;
+    declare public readonly pricingPlan: pulumi.Output<enums.location.MapPricingPlan | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The timestamp for when the map resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly updateTime: pulumi.Output<string>;
 
     /**
      * Create a Map resource with the given unique name, arguments, and options.
@@ -97,14 +97,14 @@ export class Map extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["mapName"] = args ? args.mapName : undefined;
-            resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["mapName"] = args?.mapName;
+            resourceInputs["pricingPlan"] = args?.pricingPlan;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["mapArn"] = undefined /*out*/;

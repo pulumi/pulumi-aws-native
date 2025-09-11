@@ -37,29 +37,29 @@ export class Model extends pulumi.CustomResource {
     /**
      * The API identifier.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * The content-type for the model, for example, "application/json".
      */
-    public readonly contentType!: pulumi.Output<string | undefined>;
+    declare public readonly contentType: pulumi.Output<string | undefined>;
     /**
      * The description of the model.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The model ID.
      */
-    public /*out*/ readonly modelId!: pulumi.Output<string>;
+    declare public /*out*/ readonly modelId: pulumi.Output<string>;
     /**
      * The name of the model.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The schema for the model. For application/json models, this should be JSON schema draft 4 model.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Model` for more information about the expected schema for this property.
      */
-    public readonly schema!: pulumi.Output<any>;
+    declare public readonly schema: pulumi.Output<any>;
 
     /**
      * Create a Model resource with the given unique name, arguments, and options.
@@ -72,17 +72,17 @@ export class Model extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schema"] = args?.schema;
             resourceInputs["modelId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

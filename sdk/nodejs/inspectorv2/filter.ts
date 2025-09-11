@@ -40,27 +40,27 @@ export class Filter extends pulumi.CustomResource {
     /**
      * Findings filter ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Findings filter description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Findings filter action.
      */
-    public readonly filterAction!: pulumi.Output<enums.inspectorv2.FilterAction>;
+    declare public readonly filterAction: pulumi.Output<enums.inspectorv2.FilterAction>;
     /**
      * Findings filter criteria.
      */
-    public readonly filterCriteria!: pulumi.Output<outputs.inspectorv2.FilterCriteria>;
+    declare public readonly filterCriteria: pulumi.Output<outputs.inspectorv2.FilterCriteria>;
     /**
      * Findings filter name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The tags attached to the filter.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Filter resource with the given unique name, arguments, and options.
@@ -73,17 +73,17 @@ export class Filter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.filterAction === undefined) && !opts.urn) {
+            if (args?.filterAction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filterAction'");
             }
-            if ((!args || args.filterCriteria === undefined) && !opts.urn) {
+            if (args?.filterCriteria === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filterCriteria'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["filterAction"] = args ? args.filterAction : undefined;
-            resourceInputs["filterCriteria"] = args ? args.filterCriteria : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["filterAction"] = args?.filterAction;
+            resourceInputs["filterCriteria"] = args?.filterCriteria;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

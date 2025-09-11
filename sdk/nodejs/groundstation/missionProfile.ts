@@ -92,51 +92,51 @@ export class MissionProfile extends pulumi.CustomResource {
     /**
      * The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Post-pass time needed after the contact.
      */
-    public readonly contactPostPassDurationSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly contactPostPassDurationSeconds: pulumi.Output<number | undefined>;
     /**
      * Pre-pass time needed before the contact.
      */
-    public readonly contactPrePassDurationSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly contactPrePassDurationSeconds: pulumi.Output<number | undefined>;
     /**
      * A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
      */
-    public readonly dataflowEdges!: pulumi.Output<outputs.groundstation.MissionProfileDataflowEdge[]>;
+    declare public readonly dataflowEdges: pulumi.Output<outputs.groundstation.MissionProfileDataflowEdge[]>;
     /**
      * Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
      */
-    public readonly minimumViableContactDurationSeconds!: pulumi.Output<number>;
+    declare public readonly minimumViableContactDurationSeconds: pulumi.Output<number>;
     /**
      * A name used to identify a mission profile.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The region of the mission profile.
      */
-    public /*out*/ readonly region!: pulumi.Output<string>;
+    declare public /*out*/ readonly region: pulumi.Output<string>;
     /**
      * The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
      */
-    public readonly streamsKmsKey!: pulumi.Output<outputs.groundstation.MissionProfileStreamsKmsKey | undefined>;
+    declare public readonly streamsKmsKey: pulumi.Output<outputs.groundstation.MissionProfileStreamsKmsKey | undefined>;
     /**
      * The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
      */
-    public readonly streamsKmsRole!: pulumi.Output<string | undefined>;
+    declare public readonly streamsKmsRole: pulumi.Output<string | undefined>;
     /**
      * Tags assigned to the mission profile.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
      */
-    public readonly trackingConfigArn!: pulumi.Output<string>;
+    declare public readonly trackingConfigArn: pulumi.Output<string>;
 
     /**
      * Create a MissionProfile resource with the given unique name, arguments, and options.
@@ -149,24 +149,24 @@ export class MissionProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataflowEdges === undefined) && !opts.urn) {
+            if (args?.dataflowEdges === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataflowEdges'");
             }
-            if ((!args || args.minimumViableContactDurationSeconds === undefined) && !opts.urn) {
+            if (args?.minimumViableContactDurationSeconds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minimumViableContactDurationSeconds'");
             }
-            if ((!args || args.trackingConfigArn === undefined) && !opts.urn) {
+            if (args?.trackingConfigArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trackingConfigArn'");
             }
-            resourceInputs["contactPostPassDurationSeconds"] = args ? args.contactPostPassDurationSeconds : undefined;
-            resourceInputs["contactPrePassDurationSeconds"] = args ? args.contactPrePassDurationSeconds : undefined;
-            resourceInputs["dataflowEdges"] = args ? args.dataflowEdges : undefined;
-            resourceInputs["minimumViableContactDurationSeconds"] = args ? args.minimumViableContactDurationSeconds : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["streamsKmsKey"] = args ? args.streamsKmsKey : undefined;
-            resourceInputs["streamsKmsRole"] = args ? args.streamsKmsRole : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trackingConfigArn"] = args ? args.trackingConfigArn : undefined;
+            resourceInputs["contactPostPassDurationSeconds"] = args?.contactPostPassDurationSeconds;
+            resourceInputs["contactPrePassDurationSeconds"] = args?.contactPrePassDurationSeconds;
+            resourceInputs["dataflowEdges"] = args?.dataflowEdges;
+            resourceInputs["minimumViableContactDurationSeconds"] = args?.minimumViableContactDurationSeconds;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["streamsKmsKey"] = args?.streamsKmsKey;
+            resourceInputs["streamsKmsRole"] = args?.streamsKmsRole;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trackingConfigArn"] = args?.trackingConfigArn;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["region"] = undefined /*out*/;

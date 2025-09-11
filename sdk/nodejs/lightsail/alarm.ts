@@ -37,55 +37,55 @@ export class Alarm extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the alarm.
      */
-    public /*out*/ readonly alarmArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly alarmArn: pulumi.Output<string>;
     /**
      * The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
      */
-    public readonly alarmName!: pulumi.Output<string>;
+    declare public readonly alarmName: pulumi.Output<string>;
     /**
      * The arithmetic operation to use when comparing the specified statistic to the threshold. The specified statistic value is used as the first operand.
      */
-    public readonly comparisonOperator!: pulumi.Output<string>;
+    declare public readonly comparisonOperator: pulumi.Output<string>;
     /**
      * The contact protocols to use for the alarm, such as Email, SMS (text messaging), or both.
      */
-    public readonly contactProtocols!: pulumi.Output<string[] | undefined>;
+    declare public readonly contactProtocols: pulumi.Output<string[] | undefined>;
     /**
      * The number of data points that must be not within the specified threshold to trigger the alarm. If you are setting an "M out of N" alarm, this value (datapointsToAlarm) is the M.
      */
-    public readonly datapointsToAlarm!: pulumi.Output<number | undefined>;
+    declare public readonly datapointsToAlarm: pulumi.Output<number | undefined>;
     /**
      * The number of most recent periods over which data is compared to the specified threshold. If you are setting an "M out of N" alarm, this value (evaluationPeriods) is the N.
      */
-    public readonly evaluationPeriods!: pulumi.Output<number>;
+    declare public readonly evaluationPeriods: pulumi.Output<number>;
     /**
      * The name of the metric to associate with the alarm.
      */
-    public readonly metricName!: pulumi.Output<string>;
+    declare public readonly metricName: pulumi.Output<string>;
     /**
      * The name of the Lightsail resource that the alarm monitors.
      */
-    public readonly monitoredResourceName!: pulumi.Output<string>;
+    declare public readonly monitoredResourceName: pulumi.Output<string>;
     /**
      * Indicates whether the alarm is enabled. Notifications are enabled by default if you don't specify this parameter.
      */
-    public readonly notificationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly notificationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The alarm states that trigger a notification.
      */
-    public readonly notificationTriggers!: pulumi.Output<string[] | undefined>;
+    declare public readonly notificationTriggers: pulumi.Output<string[] | undefined>;
     /**
      * The current state of the alarm.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The value against which the specified statistic is compared.
      */
-    public readonly threshold!: pulumi.Output<number>;
+    declare public readonly threshold: pulumi.Output<number>;
     /**
      * Sets how this alarm will handle missing data points.
      */
-    public readonly treatMissingData!: pulumi.Output<string | undefined>;
+    declare public readonly treatMissingData: pulumi.Output<string | undefined>;
 
     /**
      * Create a Alarm resource with the given unique name, arguments, and options.
@@ -98,32 +98,32 @@ export class Alarm extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.comparisonOperator === undefined) && !opts.urn) {
+            if (args?.comparisonOperator === undefined && !opts.urn) {
                 throw new Error("Missing required property 'comparisonOperator'");
             }
-            if ((!args || args.evaluationPeriods === undefined) && !opts.urn) {
+            if (args?.evaluationPeriods === undefined && !opts.urn) {
                 throw new Error("Missing required property 'evaluationPeriods'");
             }
-            if ((!args || args.metricName === undefined) && !opts.urn) {
+            if (args?.metricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            if ((!args || args.monitoredResourceName === undefined) && !opts.urn) {
+            if (args?.monitoredResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitoredResourceName'");
             }
-            if ((!args || args.threshold === undefined) && !opts.urn) {
+            if (args?.threshold === undefined && !opts.urn) {
                 throw new Error("Missing required property 'threshold'");
             }
-            resourceInputs["alarmName"] = args ? args.alarmName : undefined;
-            resourceInputs["comparisonOperator"] = args ? args.comparisonOperator : undefined;
-            resourceInputs["contactProtocols"] = args ? args.contactProtocols : undefined;
-            resourceInputs["datapointsToAlarm"] = args ? args.datapointsToAlarm : undefined;
-            resourceInputs["evaluationPeriods"] = args ? args.evaluationPeriods : undefined;
-            resourceInputs["metricName"] = args ? args.metricName : undefined;
-            resourceInputs["monitoredResourceName"] = args ? args.monitoredResourceName : undefined;
-            resourceInputs["notificationEnabled"] = args ? args.notificationEnabled : undefined;
-            resourceInputs["notificationTriggers"] = args ? args.notificationTriggers : undefined;
-            resourceInputs["threshold"] = args ? args.threshold : undefined;
-            resourceInputs["treatMissingData"] = args ? args.treatMissingData : undefined;
+            resourceInputs["alarmName"] = args?.alarmName;
+            resourceInputs["comparisonOperator"] = args?.comparisonOperator;
+            resourceInputs["contactProtocols"] = args?.contactProtocols;
+            resourceInputs["datapointsToAlarm"] = args?.datapointsToAlarm;
+            resourceInputs["evaluationPeriods"] = args?.evaluationPeriods;
+            resourceInputs["metricName"] = args?.metricName;
+            resourceInputs["monitoredResourceName"] = args?.monitoredResourceName;
+            resourceInputs["notificationEnabled"] = args?.notificationEnabled;
+            resourceInputs["notificationTriggers"] = args?.notificationTriggers;
+            resourceInputs["threshold"] = args?.threshold;
+            resourceInputs["treatMissingData"] = args?.treatMissingData;
             resourceInputs["alarmArn"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {

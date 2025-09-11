@@ -40,15 +40,15 @@ export class OptOutList extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the OptOutList.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the new OptOutList.
      */
-    public readonly optOutListName!: pulumi.Output<string | undefined>;
+    declare public readonly optOutListName: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a OptOutList resource with the given unique name, arguments, and options.
@@ -61,8 +61,8 @@ export class OptOutList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["optOutListName"] = args ? args.optOutListName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["optOutListName"] = args?.optOutListName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

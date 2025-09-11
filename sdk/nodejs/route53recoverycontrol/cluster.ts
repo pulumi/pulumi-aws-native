@@ -40,27 +40,27 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      */
-    public /*out*/ readonly clusterArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterArn: pulumi.Output<string>;
     /**
      * Endpoints for the cluster.
      */
-    public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.route53recoverycontrol.ClusterEndpoint[]>;
+    declare public /*out*/ readonly clusterEndpoints: pulumi.Output<outputs.route53recoverycontrol.ClusterEndpoint[]>;
     /**
      * Name of a Cluster. You can use any non-white space character in the name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
      */
-    public readonly networkType!: pulumi.Output<enums.route53recoverycontrol.ClusterNetworkType | undefined>;
+    declare public readonly networkType: pulumi.Output<enums.route53recoverycontrol.ClusterNetworkType | undefined>;
     /**
      * Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.route53recoverycontrol.ClusterStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.route53recoverycontrol.ClusterStatus>;
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -73,9 +73,9 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkType"] = args ? args.networkType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkType"] = args?.networkType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["clusterArn"] = undefined /*out*/;
             resourceInputs["clusterEndpoints"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

@@ -40,27 +40,27 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
     /**
      * A description of the TLS inspection configuration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The key:value pairs to associate with the resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The object that defines a TLS inspection configuration. AWS Network Firewall uses TLS inspection configurations to decrypt your firewall's inbound and outbound SSL/TLS traffic. After decryption, AWS Network Firewall inspects the traffic according to your firewall policy's stateful rules, and then re-encrypts it before sending it to its destination. You can enable inspection of your firewall's inbound traffic, outbound traffic, or both. To use TLS inspection with your firewall, you must first import or provision certificates using AWS Certificate Manager , create a TLS inspection configuration, add that configuration to a new firewall policy, and then associate that policy with your firewall. For more information about using TLS inspection configurations, see [Inspecting SSL/TLS traffic with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html) in the *AWS Network Firewall Developer Guide* .
      */
-    public readonly tlsInspectionConfiguration!: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration>;
+    declare public readonly tlsInspectionConfiguration: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration>;
     /**
      * The Amazon Resource Name (ARN) of the TLS inspection configuration.
      */
-    public /*out*/ readonly tlsInspectionConfigurationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly tlsInspectionConfigurationArn: pulumi.Output<string>;
     /**
      * A unique identifier for the TLS inspection configuration. This ID is returned in the responses to create and list commands. You provide it to operations such as update and delete.
      */
-    public /*out*/ readonly tlsInspectionConfigurationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tlsInspectionConfigurationId: pulumi.Output<string>;
     /**
      * The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.
      */
-    public readonly tlsInspectionConfigurationName!: pulumi.Output<string>;
+    declare public readonly tlsInspectionConfigurationName: pulumi.Output<string>;
 
     /**
      * Create a TlsInspectionConfiguration resource with the given unique name, arguments, and options.
@@ -73,13 +73,13 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.tlsInspectionConfiguration === undefined) && !opts.urn) {
+            if (args?.tlsInspectionConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tlsInspectionConfiguration'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tlsInspectionConfiguration"] = args ? args.tlsInspectionConfiguration : undefined;
-            resourceInputs["tlsInspectionConfigurationName"] = args ? args.tlsInspectionConfigurationName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tlsInspectionConfiguration"] = args?.tlsInspectionConfiguration;
+            resourceInputs["tlsInspectionConfigurationName"] = args?.tlsInspectionConfigurationName;
             resourceInputs["tlsInspectionConfigurationArn"] = undefined /*out*/;
             resourceInputs["tlsInspectionConfigurationId"] = undefined /*out*/;
         } else {

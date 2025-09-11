@@ -40,31 +40,31 @@ export class RouteServer extends pulumi.CustomResource {
     /**
      * The Amazon-side ASN of the Route Server.
      */
-    public readonly amazonSideAsn!: pulumi.Output<number>;
+    declare public readonly amazonSideAsn: pulumi.Output<number>;
     /**
      * The Amazon Resource Name (ARN) of the Route Server.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the Route Server.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Whether to enable persistent routes
      */
-    public readonly persistRoutes!: pulumi.Output<enums.ec2.RouteServerPersistRoutes | undefined>;
+    declare public readonly persistRoutes: pulumi.Output<enums.ec2.RouteServerPersistRoutes | undefined>;
     /**
      * The duration of persistent routes in minutes
      */
-    public readonly persistRoutesDuration!: pulumi.Output<number | undefined>;
+    declare public readonly persistRoutesDuration: pulumi.Output<number | undefined>;
     /**
      * Whether to enable SNS notifications
      */
-    public readonly snsNotificationsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly snsNotificationsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a RouteServer resource with the given unique name, arguments, and options.
@@ -77,14 +77,14 @@ export class RouteServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.amazonSideAsn === undefined) && !opts.urn) {
+            if (args?.amazonSideAsn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amazonSideAsn'");
             }
-            resourceInputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
-            resourceInputs["persistRoutes"] = args ? args.persistRoutes : undefined;
-            resourceInputs["persistRoutesDuration"] = args ? args.persistRoutesDuration : undefined;
-            resourceInputs["snsNotificationsEnabled"] = args ? args.snsNotificationsEnabled : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["amazonSideAsn"] = args?.amazonSideAsn;
+            resourceInputs["persistRoutes"] = args?.persistRoutes;
+            resourceInputs["persistRoutesDuration"] = args?.persistRoutesDuration;
+            resourceInputs["snsNotificationsEnabled"] = args?.snsNotificationsEnabled;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

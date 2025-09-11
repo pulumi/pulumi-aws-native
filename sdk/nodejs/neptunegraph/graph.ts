@@ -42,19 +42,19 @@ export class Graph extends pulumi.CustomResource {
      *
      * _Default_: If not specified, the default value is true.
      */
-    public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly deletionProtection: pulumi.Output<boolean | undefined>;
     /**
      * The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * Graph resource ARN
      */
-    public /*out*/ readonly graphArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly graphArn: pulumi.Output<string>;
     /**
      * The auto-generated id assigned by the service.
      */
-    public /*out*/ readonly graphId!: pulumi.Output<string>;
+    declare public /*out*/ readonly graphId: pulumi.Output<string>;
     /**
      * Contains a user-supplied name for the Graph. 
      *
@@ -62,11 +62,11 @@ export class Graph extends pulumi.CustomResource {
      *
      * _Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
-    public readonly graphName!: pulumi.Output<string | undefined>;
+    declare public readonly graphName: pulumi.Output<string | undefined>;
     /**
      * Memory for the Graph.
      */
-    public readonly provisionedMemory!: pulumi.Output<number>;
+    declare public readonly provisionedMemory: pulumi.Output<number>;
     /**
      * Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.
      *
@@ -76,7 +76,7 @@ export class Graph extends pulumi.CustomResource {
      *
      * _Default_: If not specified, the default value is false.
      */
-    public readonly publicConnectivity!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicConnectivity: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.
      *
@@ -84,15 +84,15 @@ export class Graph extends pulumi.CustomResource {
      *
      * _Default_: If not specified, the default value is 1.
      */
-    public readonly replicaCount!: pulumi.Output<number | undefined>;
+    declare public readonly replicaCount: pulumi.Output<number | undefined>;
     /**
      * The tags associated with this graph.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Vector Search Configuration
      */
-    public readonly vectorSearchConfiguration!: pulumi.Output<outputs.neptunegraph.GraphVectorSearchConfiguration | undefined>;
+    declare public readonly vectorSearchConfiguration: pulumi.Output<outputs.neptunegraph.GraphVectorSearchConfiguration | undefined>;
 
     /**
      * Create a Graph resource with the given unique name, arguments, and options.
@@ -105,16 +105,16 @@ export class Graph extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.provisionedMemory === undefined) && !opts.urn) {
+            if (args?.provisionedMemory === undefined && !opts.urn) {
                 throw new Error("Missing required property 'provisionedMemory'");
             }
-            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            resourceInputs["graphName"] = args ? args.graphName : undefined;
-            resourceInputs["provisionedMemory"] = args ? args.provisionedMemory : undefined;
-            resourceInputs["publicConnectivity"] = args ? args.publicConnectivity : undefined;
-            resourceInputs["replicaCount"] = args ? args.replicaCount : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vectorSearchConfiguration"] = args ? args.vectorSearchConfiguration : undefined;
+            resourceInputs["deletionProtection"] = args?.deletionProtection;
+            resourceInputs["graphName"] = args?.graphName;
+            resourceInputs["provisionedMemory"] = args?.provisionedMemory;
+            resourceInputs["publicConnectivity"] = args?.publicConnectivity;
+            resourceInputs["replicaCount"] = args?.replicaCount;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vectorSearchConfiguration"] = args?.vectorSearchConfiguration;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["graphArn"] = undefined /*out*/;
             resourceInputs["graphId"] = undefined /*out*/;

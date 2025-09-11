@@ -40,51 +40,51 @@ export class MailManagerIngressPoint extends pulumi.CustomResource {
     /**
      * The DNS A Record that identifies your ingress endpoint. Configure your DNS Mail Exchange (MX) record with this value to route emails to Mail Manager.
      */
-    public /*out*/ readonly aRecord!: pulumi.Output<string>;
+    declare public /*out*/ readonly aRecord: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the ingress endpoint resource.
      */
-    public /*out*/ readonly ingressPointArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly ingressPointArn: pulumi.Output<string>;
     /**
      * The configuration of the ingress endpoint resource.
      */
-    public readonly ingressPointConfiguration!: pulumi.Output<outputs.ses.MailManagerIngressPointIngressPointConfiguration0Properties | outputs.ses.MailManagerIngressPointIngressPointConfiguration1Properties | undefined>;
+    declare public readonly ingressPointConfiguration: pulumi.Output<outputs.ses.MailManagerIngressPointIngressPointConfiguration0Properties | outputs.ses.MailManagerIngressPointIngressPointConfiguration1Properties | undefined>;
     /**
      * The identifier of the ingress endpoint resource.
      */
-    public /*out*/ readonly ingressPointId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ingressPointId: pulumi.Output<string>;
     /**
      * A user friendly name for an ingress endpoint resource.
      */
-    public readonly ingressPointName!: pulumi.Output<string | undefined>;
+    declare public readonly ingressPointName: pulumi.Output<string | undefined>;
     /**
      * The network type (IPv4-only, Dual-Stack, PrivateLink) of the ingress endpoint resource.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.ses.MailManagerIngressPointNetworkConfiguration0Properties | outputs.ses.MailManagerIngressPointNetworkConfiguration1Properties | undefined>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.ses.MailManagerIngressPointNetworkConfiguration0Properties | outputs.ses.MailManagerIngressPointNetworkConfiguration1Properties | undefined>;
     /**
      * The identifier of an existing rule set that you attach to an ingress endpoint resource.
      */
-    public readonly ruleSetId!: pulumi.Output<string>;
+    declare public readonly ruleSetId: pulumi.Output<string>;
     /**
      * The status of the ingress endpoint resource.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.ses.MailManagerIngressPointIngressPointStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.ses.MailManagerIngressPointIngressPointStatus>;
     /**
      * The update status of an ingress endpoint.
      */
-    public readonly statusToUpdate!: pulumi.Output<enums.ses.MailManagerIngressPointIngressPointStatusToUpdate | undefined>;
+    declare public readonly statusToUpdate: pulumi.Output<enums.ses.MailManagerIngressPointIngressPointStatusToUpdate | undefined>;
     /**
      * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The identifier of an existing traffic policy that you attach to an ingress endpoint resource.
      */
-    public readonly trafficPolicyId!: pulumi.Output<string>;
+    declare public readonly trafficPolicyId: pulumi.Output<string>;
     /**
      * The type of the ingress endpoint to create.
      */
-    public readonly type!: pulumi.Output<enums.ses.MailManagerIngressPointIngressPointType>;
+    declare public readonly type: pulumi.Output<enums.ses.MailManagerIngressPointIngressPointType>;
 
     /**
      * Create a MailManagerIngressPoint resource with the given unique name, arguments, and options.
@@ -97,23 +97,23 @@ export class MailManagerIngressPoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ruleSetId === undefined) && !opts.urn) {
+            if (args?.ruleSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetId'");
             }
-            if ((!args || args.trafficPolicyId === undefined) && !opts.urn) {
+            if (args?.trafficPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trafficPolicyId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["ingressPointConfiguration"] = args ? args.ingressPointConfiguration : undefined;
-            resourceInputs["ingressPointName"] = args ? args.ingressPointName : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["ruleSetId"] = args ? args.ruleSetId : undefined;
-            resourceInputs["statusToUpdate"] = args ? args.statusToUpdate : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficPolicyId"] = args ? args.trafficPolicyId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["ingressPointConfiguration"] = args?.ingressPointConfiguration;
+            resourceInputs["ingressPointName"] = args?.ingressPointName;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["ruleSetId"] = args?.ruleSetId;
+            resourceInputs["statusToUpdate"] = args?.statusToUpdate;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficPolicyId"] = args?.trafficPolicyId;
+            resourceInputs["type"] = args?.type;
             resourceInputs["aRecord"] = undefined /*out*/;
             resourceInputs["ingressPointArn"] = undefined /*out*/;
             resourceInputs["ingressPointId"] = undefined /*out*/;

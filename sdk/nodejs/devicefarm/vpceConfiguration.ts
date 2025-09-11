@@ -40,31 +40,31 @@ export class VpceConfiguration extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The DNS name that Device Farm will use to map to the private service you want to access.
      */
-    public readonly serviceDnsName!: pulumi.Output<string>;
+    declare public readonly serviceDnsName: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * An optional description that provides details about your VPC endpoint configuration.
      */
-    public readonly vpceConfigurationDescription!: pulumi.Output<string | undefined>;
+    declare public readonly vpceConfigurationDescription: pulumi.Output<string | undefined>;
     /**
      * The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
      */
-    public readonly vpceConfigurationName!: pulumi.Output<string>;
+    declare public readonly vpceConfigurationName: pulumi.Output<string>;
     /**
      * The name of the VPC endpoint service that you want to access from Device Farm.
      *
      * The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
      */
-    public readonly vpceServiceName!: pulumi.Output<string>;
+    declare public readonly vpceServiceName: pulumi.Output<string>;
 
     /**
      * Create a VpceConfiguration resource with the given unique name, arguments, and options.
@@ -77,17 +77,17 @@ export class VpceConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.serviceDnsName === undefined) && !opts.urn) {
+            if (args?.serviceDnsName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceDnsName'");
             }
-            if ((!args || args.vpceServiceName === undefined) && !opts.urn) {
+            if (args?.vpceServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpceServiceName'");
             }
-            resourceInputs["serviceDnsName"] = args ? args.serviceDnsName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpceConfigurationDescription"] = args ? args.vpceConfigurationDescription : undefined;
-            resourceInputs["vpceConfigurationName"] = args ? args.vpceConfigurationName : undefined;
-            resourceInputs["vpceServiceName"] = args ? args.vpceServiceName : undefined;
+            resourceInputs["serviceDnsName"] = args?.serviceDnsName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpceConfigurationDescription"] = args?.vpceConfigurationDescription;
+            resourceInputs["vpceConfigurationName"] = args?.vpceConfigurationName;
+            resourceInputs["vpceServiceName"] = args?.vpceServiceName;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -40,35 +40,35 @@ export class InvoiceUnit extends pulumi.CustomResource {
     /**
      * The assigned description for an invoice unit. This information can't be modified or deleted.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The account that receives invoices related to the invoice unit.
      */
-    public readonly invoiceReceiver!: pulumi.Output<string>;
+    declare public readonly invoiceReceiver: pulumi.Output<string>;
     /**
      * The ARN to identify an invoice unit. This information can't be modified or deleted.
      */
-    public /*out*/ readonly invoiceUnitArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly invoiceUnitArn: pulumi.Output<string>;
     /**
      * The last time the invoice unit was updated. This is important to determine the version of invoice unit configuration used to create the invoices. Any invoice created after this modified time will use this invoice unit configuration.
      */
-    public /*out*/ readonly lastModified!: pulumi.Output<number>;
+    declare public /*out*/ readonly lastModified: pulumi.Output<number>;
     /**
      * A unique name that is distinctive within your AWS .
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The tag structure that contains a tag key and value.
      */
-    public readonly resourceTags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly resourceTags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * An `InvoiceUnitRule` object used the categorize invoice units.
      */
-    public readonly rule!: pulumi.Output<outputs.invoicing.InvoiceUnitRule>;
+    declare public readonly rule: pulumi.Output<outputs.invoicing.InvoiceUnitRule>;
     /**
      * Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
      */
-    public readonly taxInheritanceDisabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly taxInheritanceDisabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a InvoiceUnit resource with the given unique name, arguments, and options.
@@ -81,18 +81,18 @@ export class InvoiceUnit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.invoiceReceiver === undefined) && !opts.urn) {
+            if (args?.invoiceReceiver === undefined && !opts.urn) {
                 throw new Error("Missing required property 'invoiceReceiver'");
             }
-            if ((!args || args.rule === undefined) && !opts.urn) {
+            if (args?.rule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rule'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["invoiceReceiver"] = args ? args.invoiceReceiver : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
-            resourceInputs["rule"] = args ? args.rule : undefined;
-            resourceInputs["taxInheritanceDisabled"] = args ? args.taxInheritanceDisabled : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["invoiceReceiver"] = args?.invoiceReceiver;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceTags"] = args?.resourceTags;
+            resourceInputs["rule"] = args?.rule;
+            resourceInputs["taxInheritanceDisabled"] = args?.taxInheritanceDisabled;
             resourceInputs["invoiceUnitArn"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
         } else {

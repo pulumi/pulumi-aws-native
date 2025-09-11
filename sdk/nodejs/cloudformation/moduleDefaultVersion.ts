@@ -37,15 +37,15 @@ export class ModuleDefaultVersion extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the module version to set as the default version.
      */
-    public readonly arn!: pulumi.Output<string | undefined>;
+    declare public readonly arn: pulumi.Output<string | undefined>;
     /**
      * The name of a module existing in the registry.
      */
-    public readonly moduleName!: pulumi.Output<string | undefined>;
+    declare public readonly moduleName: pulumi.Output<string | undefined>;
     /**
      * The ID of an existing version of the named module to set as the default.
      */
-    public readonly versionId!: pulumi.Output<string | undefined>;
+    declare public readonly versionId: pulumi.Output<string | undefined>;
 
     /**
      * Create a ModuleDefaultVersion resource with the given unique name, arguments, and options.
@@ -58,9 +58,9 @@ export class ModuleDefaultVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["arn"] = args ? args.arn : undefined;
-            resourceInputs["moduleName"] = args ? args.moduleName : undefined;
-            resourceInputs["versionId"] = args ? args.versionId : undefined;
+            resourceInputs["arn"] = args?.arn;
+            resourceInputs["moduleName"] = args?.moduleName;
+            resourceInputs["versionId"] = args?.versionId;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["moduleName"] = undefined /*out*/;

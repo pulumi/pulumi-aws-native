@@ -40,51 +40,51 @@ export class User extends pulumi.CustomResource {
     /**
      * The identifier of the user account in the directory used for identity management.
      */
-    public readonly directoryUserId!: pulumi.Output<string | undefined>;
+    declare public readonly directoryUserId: pulumi.Output<string | undefined>;
     /**
      * The identifier of the hierarchy group for the user.
      */
-    public readonly hierarchyGroupArn!: pulumi.Output<string | undefined>;
+    declare public readonly hierarchyGroupArn: pulumi.Output<string | undefined>;
     /**
      * The information about the identity of the user.
      */
-    public readonly identityInfo!: pulumi.Output<outputs.connect.UserIdentityInfo | undefined>;
+    declare public readonly identityInfo: pulumi.Output<outputs.connect.UserIdentityInfo | undefined>;
     /**
      * The identifier of the Amazon Connect instance.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The phone settings for the user.
      */
-    public readonly phoneConfig!: pulumi.Output<outputs.connect.UserPhoneConfig>;
+    declare public readonly phoneConfig: pulumi.Output<outputs.connect.UserPhoneConfig>;
     /**
      * The identifier of the routing profile for the user.
      */
-    public readonly routingProfileArn!: pulumi.Output<string>;
+    declare public readonly routingProfileArn: pulumi.Output<string>;
     /**
      * One or more security profile arns for the user
      */
-    public readonly securityProfileArns!: pulumi.Output<string[]>;
+    declare public readonly securityProfileArns: pulumi.Output<string[]>;
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the user.
      */
-    public /*out*/ readonly userArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly userArn: pulumi.Output<string>;
     /**
      * One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
      */
-    public readonly userProficiencies!: pulumi.Output<outputs.connect.UserProficiency[] | undefined>;
+    declare public readonly userProficiencies: pulumi.Output<outputs.connect.UserProficiency[] | undefined>;
     /**
      * The user name for the account.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -97,29 +97,29 @@ export class User extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.phoneConfig === undefined) && !opts.urn) {
+            if (args?.phoneConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'phoneConfig'");
             }
-            if ((!args || args.routingProfileArn === undefined) && !opts.urn) {
+            if (args?.routingProfileArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routingProfileArn'");
             }
-            if ((!args || args.securityProfileArns === undefined) && !opts.urn) {
+            if (args?.securityProfileArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityProfileArns'");
             }
-            resourceInputs["directoryUserId"] = args ? args.directoryUserId : undefined;
-            resourceInputs["hierarchyGroupArn"] = args ? args.hierarchyGroupArn : undefined;
-            resourceInputs["identityInfo"] = args ? args.identityInfo : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["phoneConfig"] = args ? args.phoneConfig : undefined;
-            resourceInputs["routingProfileArn"] = args ? args.routingProfileArn : undefined;
-            resourceInputs["securityProfileArns"] = args ? args.securityProfileArns : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userProficiencies"] = args ? args.userProficiencies : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["directoryUserId"] = args?.directoryUserId;
+            resourceInputs["hierarchyGroupArn"] = args?.hierarchyGroupArn;
+            resourceInputs["identityInfo"] = args?.identityInfo;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["phoneConfig"] = args?.phoneConfig;
+            resourceInputs["routingProfileArn"] = args?.routingProfileArn;
+            resourceInputs["securityProfileArns"] = args?.securityProfileArns;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userProficiencies"] = args?.userProficiencies;
+            resourceInputs["username"] = args?.username;
             resourceInputs["userArn"] = undefined /*out*/;
         } else {
             resourceInputs["directoryUserId"] = undefined /*out*/;

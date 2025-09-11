@@ -40,25 +40,25 @@ export class OidcProvider extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the OIDC provider
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
      */
-    public readonly clientIdList!: pulumi.Output<string[] | undefined>;
+    declare public readonly clientIdList: pulumi.Output<string[] | undefined>;
     /**
      * A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
      *
      * This property is optional. If it is not included, IAM will retrieve and use the top intermediate certificate authority (CA) thumbprint of the OpenID Connect identity provider server certificate.
      */
-    public readonly thumbprintList!: pulumi.Output<string[] | undefined>;
+    declare public readonly thumbprintList: pulumi.Output<string[] | undefined>;
     /**
      * The URL that the IAM OIDC provider resource object is associated with. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
      */
-    public readonly url!: pulumi.Output<string | undefined>;
+    declare public readonly url: pulumi.Output<string | undefined>;
 
     /**
      * Create a OidcProvider resource with the given unique name, arguments, and options.
@@ -71,10 +71,10 @@ export class OidcProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["clientIdList"] = args ? args.clientIdList : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["thumbprintList"] = args ? args.thumbprintList : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["clientIdList"] = args?.clientIdList;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["thumbprintList"] = args?.thumbprintList;
+            resourceInputs["url"] = args?.url;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -40,35 +40,35 @@ export class Space extends pulumi.CustomResource {
     /**
      * The ID of the associated Domain.
      */
-    public readonly domainId!: pulumi.Output<string>;
+    declare public readonly domainId: pulumi.Output<string>;
     /**
      * The collection of ownership settings for a space.
      */
-    public readonly ownershipSettings!: pulumi.Output<outputs.sagemaker.SpaceOwnershipSettings | undefined>;
+    declare public readonly ownershipSettings: pulumi.Output<outputs.sagemaker.SpaceOwnershipSettings | undefined>;
     /**
      * The space Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly spaceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly spaceArn: pulumi.Output<string>;
     /**
      * The name of the space that appears in the Studio UI.
      */
-    public readonly spaceDisplayName!: pulumi.Output<string | undefined>;
+    declare public readonly spaceDisplayName: pulumi.Output<string | undefined>;
     /**
      * A name for the Space.
      */
-    public readonly spaceName!: pulumi.Output<string>;
+    declare public readonly spaceName: pulumi.Output<string>;
     /**
      * A collection of settings.
      */
-    public readonly spaceSettings!: pulumi.Output<outputs.sagemaker.SpaceSettings | undefined>;
+    declare public readonly spaceSettings: pulumi.Output<outputs.sagemaker.SpaceSettings | undefined>;
     /**
      * A collection of space sharing settings.
      */
-    public readonly spaceSharingSettings!: pulumi.Output<outputs.sagemaker.SpaceSharingSettings | undefined>;
+    declare public readonly spaceSharingSettings: pulumi.Output<outputs.sagemaker.SpaceSharingSettings | undefined>;
     /**
      * A list of tags to apply to the space.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Returns the URL of the space. If the space is created with AWS IAM Identity Center (Successor to AWS Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through AWS IAM Identity Center.
      *
@@ -78,7 +78,7 @@ export class Space extends pulumi.CustomResource {
      * - JupyterLab: `&redirect=JupyterLab`
      * - Code Editor, based on Code-OSS, Visual Studio Code - Open Source: `&redirect=CodeEditor`
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a Space resource with the given unique name, arguments, and options.
@@ -91,16 +91,16 @@ export class Space extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainId === undefined) && !opts.urn) {
+            if (args?.domainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainId'");
             }
-            resourceInputs["domainId"] = args ? args.domainId : undefined;
-            resourceInputs["ownershipSettings"] = args ? args.ownershipSettings : undefined;
-            resourceInputs["spaceDisplayName"] = args ? args.spaceDisplayName : undefined;
-            resourceInputs["spaceName"] = args ? args.spaceName : undefined;
-            resourceInputs["spaceSettings"] = args ? args.spaceSettings : undefined;
-            resourceInputs["spaceSharingSettings"] = args ? args.spaceSharingSettings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainId"] = args?.domainId;
+            resourceInputs["ownershipSettings"] = args?.ownershipSettings;
+            resourceInputs["spaceDisplayName"] = args?.spaceDisplayName;
+            resourceInputs["spaceName"] = args?.spaceName;
+            resourceInputs["spaceSettings"] = args?.spaceSettings;
+            resourceInputs["spaceSharingSettings"] = args?.spaceSharingSettings;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["spaceArn"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         } else {

@@ -40,37 +40,37 @@ export class PublicTypeVersion extends pulumi.CustomResource {
     /**
      * The Amazon Resource Number (ARN) of the extension.
      */
-    public readonly arn!: pulumi.Output<string | undefined>;
+    declare public readonly arn: pulumi.Output<string | undefined>;
     /**
      * A url to the S3 bucket where logs for the testType run will be available
      */
-    public readonly logDeliveryBucket!: pulumi.Output<string | undefined>;
+    declare public readonly logDeliveryBucket: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Number (ARN) assigned to the public extension upon publication
      */
-    public /*out*/ readonly publicTypeArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicTypeArn: pulumi.Output<string>;
     /**
      * The version number of a public third-party extension
      */
-    public readonly publicVersionNumber!: pulumi.Output<string | undefined>;
+    declare public readonly publicVersionNumber: pulumi.Output<string | undefined>;
     /**
      * The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
      */
-    public /*out*/ readonly publisherId!: pulumi.Output<string>;
+    declare public /*out*/ readonly publisherId: pulumi.Output<string>;
     /**
      * The kind of extension
      */
-    public readonly type!: pulumi.Output<enums.cloudformation.PublicTypeVersionType | undefined>;
+    declare public readonly type: pulumi.Output<enums.cloudformation.PublicTypeVersionType | undefined>;
     /**
      * The name of the type being registered.
      *
      * We recommend that type names adhere to the following pattern: company_or_organization::service::type.
      */
-    public readonly typeName!: pulumi.Output<string | undefined>;
+    declare public readonly typeName: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Number (ARN) of the extension with the versionId.
      */
-    public /*out*/ readonly typeVersionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly typeVersionArn: pulumi.Output<string>;
 
     /**
      * Create a PublicTypeVersion resource with the given unique name, arguments, and options.
@@ -83,11 +83,11 @@ export class PublicTypeVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["arn"] = args ? args.arn : undefined;
-            resourceInputs["logDeliveryBucket"] = args ? args.logDeliveryBucket : undefined;
-            resourceInputs["publicVersionNumber"] = args ? args.publicVersionNumber : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["arn"] = args?.arn;
+            resourceInputs["logDeliveryBucket"] = args?.logDeliveryBucket;
+            resourceInputs["publicVersionNumber"] = args?.publicVersionNumber;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["typeName"] = args?.typeName;
             resourceInputs["publicTypeArn"] = undefined /*out*/;
             resourceInputs["publisherId"] = undefined /*out*/;
             resourceInputs["typeVersionArn"] = undefined /*out*/;

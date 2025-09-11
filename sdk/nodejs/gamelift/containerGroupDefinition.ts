@@ -40,63 +40,63 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift container group resource and uniquely identifies it across all AWS Regions.
      */
-    public /*out*/ readonly containerGroupDefinitionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly containerGroupDefinitionArn: pulumi.Output<string>;
     /**
      * The scope of the container group
      */
-    public readonly containerGroupType!: pulumi.Output<enums.gamelift.ContainerGroupDefinitionContainerGroupType | undefined>;
+    declare public readonly containerGroupType: pulumi.Output<enums.gamelift.ContainerGroupDefinitionContainerGroupType | undefined>;
     /**
      * A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
      */
-    public readonly gameServerContainerDefinition!: pulumi.Output<outputs.gamelift.ContainerGroupDefinitionGameServerContainerDefinition | undefined>;
+    declare public readonly gameServerContainerDefinition: pulumi.Output<outputs.gamelift.ContainerGroupDefinitionGameServerContainerDefinition | undefined>;
     /**
      * A descriptive label for the container group definition.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The operating system of the container group
      */
-    public readonly operatingSystem!: pulumi.Output<enums.gamelift.ContainerGroupDefinitionOperatingSystem>;
+    declare public readonly operatingSystem: pulumi.Output<enums.gamelift.ContainerGroupDefinitionOperatingSystem>;
     /**
      * A specific ContainerGroupDefinition version to be updated
      */
-    public readonly sourceVersionNumber!: pulumi.Output<number | undefined>;
+    declare public readonly sourceVersionNumber: pulumi.Output<number | undefined>;
     /**
      * A string indicating ContainerGroupDefinition status.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.gamelift.ContainerGroupDefinitionStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.gamelift.ContainerGroupDefinitionStatus>;
     /**
      * A string indicating the reason for ContainerGroupDefinition status.
      */
-    public /*out*/ readonly statusReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusReason: pulumi.Output<string>;
     /**
      * A collection of support container definitions that define the containers in this group.
      */
-    public readonly supportContainerDefinitions!: pulumi.Output<outputs.gamelift.ContainerGroupDefinitionSupportContainerDefinition[] | undefined>;
+    declare public readonly supportContainerDefinitions: pulumi.Output<outputs.gamelift.ContainerGroupDefinitionSupportContainerDefinition[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The total memory limit of container groups following this definition in MiB
      */
-    public readonly totalMemoryLimitMebibytes!: pulumi.Output<number>;
+    declare public readonly totalMemoryLimitMebibytes: pulumi.Output<number>;
     /**
      * The total amount of virtual CPUs on the container group definition
      */
-    public readonly totalVcpuLimit!: pulumi.Output<number>;
+    declare public readonly totalVcpuLimit: pulumi.Output<number>;
     /**
      * The description of this version
      */
-    public readonly versionDescription!: pulumi.Output<string | undefined>;
+    declare public readonly versionDescription: pulumi.Output<string | undefined>;
     /**
      * The version of this ContainerGroupDefinition
      */
-    public /*out*/ readonly versionNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly versionNumber: pulumi.Output<number>;
 
     /**
      * Create a ContainerGroupDefinition resource with the given unique name, arguments, and options.
@@ -109,25 +109,25 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.operatingSystem === undefined) && !opts.urn) {
+            if (args?.operatingSystem === undefined && !opts.urn) {
                 throw new Error("Missing required property 'operatingSystem'");
             }
-            if ((!args || args.totalMemoryLimitMebibytes === undefined) && !opts.urn) {
+            if (args?.totalMemoryLimitMebibytes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'totalMemoryLimitMebibytes'");
             }
-            if ((!args || args.totalVcpuLimit === undefined) && !opts.urn) {
+            if (args?.totalVcpuLimit === undefined && !opts.urn) {
                 throw new Error("Missing required property 'totalVcpuLimit'");
             }
-            resourceInputs["containerGroupType"] = args ? args.containerGroupType : undefined;
-            resourceInputs["gameServerContainerDefinition"] = args ? args.gameServerContainerDefinition : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
-            resourceInputs["sourceVersionNumber"] = args ? args.sourceVersionNumber : undefined;
-            resourceInputs["supportContainerDefinitions"] = args ? args.supportContainerDefinitions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["totalMemoryLimitMebibytes"] = args ? args.totalMemoryLimitMebibytes : undefined;
-            resourceInputs["totalVcpuLimit"] = args ? args.totalVcpuLimit : undefined;
-            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
+            resourceInputs["containerGroupType"] = args?.containerGroupType;
+            resourceInputs["gameServerContainerDefinition"] = args?.gameServerContainerDefinition;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["operatingSystem"] = args?.operatingSystem;
+            resourceInputs["sourceVersionNumber"] = args?.sourceVersionNumber;
+            resourceInputs["supportContainerDefinitions"] = args?.supportContainerDefinitions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["totalMemoryLimitMebibytes"] = args?.totalMemoryLimitMebibytes;
+            resourceInputs["totalVcpuLimit"] = args?.totalVcpuLimit;
+            resourceInputs["versionDescription"] = args?.versionDescription;
             resourceInputs["containerGroupDefinitionArn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

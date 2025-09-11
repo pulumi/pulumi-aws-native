@@ -40,19 +40,19 @@ export class ResourceSpecificLogging extends pulumi.CustomResource {
     /**
      * The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
      */
-    public readonly logLevel!: pulumi.Output<enums.iot.ResourceSpecificLoggingLogLevel>;
+    declare public readonly logLevel: pulumi.Output<enums.iot.ResourceSpecificLoggingLogLevel>;
     /**
      * Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target.
      */
-    public /*out*/ readonly targetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetId: pulumi.Output<string>;
     /**
      * The target name.
      */
-    public readonly targetName!: pulumi.Output<string>;
+    declare public readonly targetName: pulumi.Output<string>;
     /**
      * The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID, or EVENT_TYPE.
      */
-    public readonly targetType!: pulumi.Output<enums.iot.ResourceSpecificLoggingTargetType>;
+    declare public readonly targetType: pulumi.Output<enums.iot.ResourceSpecificLoggingTargetType>;
 
     /**
      * Create a ResourceSpecificLogging resource with the given unique name, arguments, and options.
@@ -65,18 +65,18 @@ export class ResourceSpecificLogging extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.logLevel === undefined) && !opts.urn) {
+            if (args?.logLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logLevel'");
             }
-            if ((!args || args.targetName === undefined) && !opts.urn) {
+            if (args?.targetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetName'");
             }
-            if ((!args || args.targetType === undefined) && !opts.urn) {
+            if (args?.targetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
-            resourceInputs["targetName"] = args ? args.targetName : undefined;
-            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["logLevel"] = args?.logLevel;
+            resourceInputs["targetName"] = args?.targetName;
+            resourceInputs["targetType"] = args?.targetType;
             resourceInputs["targetId"] = undefined /*out*/;
         } else {
             resourceInputs["logLevel"] = undefined /*out*/;

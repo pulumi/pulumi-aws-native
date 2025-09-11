@@ -72,31 +72,31 @@ export class Pipe extends pulumi.CustomResource {
     /**
      * The ARN of the pipe.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The time the pipe was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The state the pipe is in.
      */
-    public /*out*/ readonly currentState!: pulumi.Output<enums.pipes.PipeState>;
+    declare public /*out*/ readonly currentState: pulumi.Output<enums.pipes.PipeState>;
     /**
      * A description of the pipe.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The state the pipe should be in.
      */
-    public readonly desiredState!: pulumi.Output<enums.pipes.PipeRequestedPipeState | undefined>;
+    declare public readonly desiredState: pulumi.Output<enums.pipes.PipeRequestedPipeState | undefined>;
     /**
      * The ARN of the enrichment resource.
      */
-    public readonly enrichment!: pulumi.Output<string | undefined>;
+    declare public readonly enrichment: pulumi.Output<string | undefined>;
     /**
      * The parameters required to set up enrichment on your pipe.
      */
-    public readonly enrichmentParameters!: pulumi.Output<outputs.pipes.PipeEnrichmentParameters | undefined>;
+    declare public readonly enrichmentParameters: pulumi.Output<outputs.pipes.PipeEnrichmentParameters | undefined>;
     /**
      * The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      *
@@ -106,49 +106,49 @@ export class Pipe extends pulumi.CustomResource {
      *
      * For more information, see [Managing keys](https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html) in the *AWS Key Management Service Developer Guide* .
      */
-    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
      * When the pipe was last updated, in [ISO-8601 format](https://docs.aws.amazon.com/https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * The logging configuration settings for the pipe.
      */
-    public readonly logConfiguration!: pulumi.Output<outputs.pipes.PipeLogConfiguration | undefined>;
+    declare public readonly logConfiguration: pulumi.Output<outputs.pipes.PipeLogConfiguration | undefined>;
     /**
      * The name of the pipe.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The ARN of the role that allows the pipe to send data to the target.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The ARN of the source resource.
      */
-    public readonly source!: pulumi.Output<string>;
+    declare public readonly source: pulumi.Output<string>;
     /**
      * The parameters required to set up a source for your pipe.
      */
-    public readonly sourceParameters!: pulumi.Output<outputs.pipes.PipeSourceParameters | undefined>;
+    declare public readonly sourceParameters: pulumi.Output<outputs.pipes.PipeSourceParameters | undefined>;
     /**
      * The reason the pipe is in its current state.
      */
-    public /*out*/ readonly stateReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly stateReason: pulumi.Output<string>;
     /**
      * The list of key-value pairs to associate with the pipe.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ARN of the target resource.
      */
-    public readonly target!: pulumi.Output<string>;
+    declare public readonly target: pulumi.Output<string>;
     /**
      * The parameters required to set up a target for your pipe.
      *
      * For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .
      */
-    public readonly targetParameters!: pulumi.Output<outputs.pipes.PipeTargetParameters | undefined>;
+    declare public readonly targetParameters: pulumi.Output<outputs.pipes.PipeTargetParameters | undefined>;
 
     /**
      * Create a Pipe resource with the given unique name, arguments, and options.
@@ -161,28 +161,28 @@ export class Pipe extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.target === undefined) && !opts.urn) {
+            if (args?.target === undefined && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["desiredState"] = args ? args.desiredState : undefined;
-            resourceInputs["enrichment"] = args ? args.enrichment : undefined;
-            resourceInputs["enrichmentParameters"] = args ? args.enrichmentParameters : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["sourceParameters"] = args ? args.sourceParameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
-            resourceInputs["targetParameters"] = args ? args.targetParameters : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["desiredState"] = args?.desiredState;
+            resourceInputs["enrichment"] = args?.enrichment;
+            resourceInputs["enrichmentParameters"] = args?.enrichmentParameters;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["sourceParameters"] = args?.sourceParameters;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["target"] = args?.target;
+            resourceInputs["targetParameters"] = args?.targetParameters;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["currentState"] = undefined /*out*/;

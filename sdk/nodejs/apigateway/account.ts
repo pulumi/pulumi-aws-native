@@ -38,11 +38,11 @@ export class Account extends pulumi.CustomResource {
     /**
      * The ID for the account. For example: `abc123` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The ARN of an Amazon CloudWatch role for the current Account.
      */
-    public readonly cloudWatchRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly cloudWatchRoleArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -55,7 +55,7 @@ export class Account extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["cloudWatchRoleArn"] = args ? args.cloudWatchRoleArn : undefined;
+            resourceInputs["cloudWatchRoleArn"] = args?.cloudWatchRoleArn;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

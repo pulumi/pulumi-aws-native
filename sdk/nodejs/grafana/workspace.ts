@@ -40,63 +40,63 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization. If this is `ORGANIZATION` , the `OrganizationalUnits` parameter specifies which organizational units the workspace can access.
      */
-    public readonly accountAccessType!: pulumi.Output<enums.grafana.WorkspaceAccountAccessType>;
+    declare public readonly accountAccessType: pulumi.Output<enums.grafana.WorkspaceAccountAccessType>;
     /**
      * List of authentication providers to enable.
      */
-    public readonly authenticationProviders!: pulumi.Output<enums.grafana.WorkspaceAuthenticationProviderTypes[]>;
+    declare public readonly authenticationProviders: pulumi.Output<enums.grafana.WorkspaceAuthenticationProviderTypes[]>;
     /**
      * The id that uniquely identifies a Grafana workspace.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
      */
-    public readonly clientToken!: pulumi.Output<string | undefined>;
+    declare public readonly clientToken: pulumi.Output<string | undefined>;
     /**
      * Timestamp when the workspace was created.
      */
-    public /*out*/ readonly creationTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTimestamp: pulumi.Output<string>;
     /**
      * List of data sources on the service managed IAM role.
      */
-    public readonly dataSources!: pulumi.Output<enums.grafana.WorkspaceDataSourceType[] | undefined>;
+    declare public readonly dataSources: pulumi.Output<enums.grafana.WorkspaceDataSourceType[] | undefined>;
     /**
      * Description of a workspace.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Endpoint for the Grafana workspace.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * The version of Grafana to support in your workspace.
      */
-    public readonly grafanaVersion!: pulumi.Output<string | undefined>;
+    declare public readonly grafanaVersion: pulumi.Output<string | undefined>;
     /**
      * Timestamp when the workspace was last modified
      */
-    public /*out*/ readonly modificationTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly modificationTimestamp: pulumi.Output<string>;
     /**
      * The user friendly name of a workspace.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The configuration settings for network access to your workspace.
      */
-    public readonly networkAccessControl!: pulumi.Output<outputs.grafana.WorkspaceNetworkAccessControl | undefined>;
+    declare public readonly networkAccessControl: pulumi.Output<outputs.grafana.WorkspaceNetworkAccessControl | undefined>;
     /**
      * List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
      */
-    public readonly notificationDestinations!: pulumi.Output<enums.grafana.WorkspaceNotificationDestinationType[] | undefined>;
+    declare public readonly notificationDestinations: pulumi.Output<enums.grafana.WorkspaceNotificationDestinationType[] | undefined>;
     /**
      * The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization.
      */
-    public readonly organizationRoleName!: pulumi.Output<string | undefined>;
+    declare public readonly organizationRoleName: pulumi.Output<string | undefined>;
     /**
      * List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
      */
-    public readonly organizationalUnits!: pulumi.Output<string[] | undefined>;
+    declare public readonly organizationalUnits: pulumi.Output<string[] | undefined>;
     /**
      * If this is `SERVICE_MANAGED` , and the workplace was created through the Amazon Managed Grafana console, then Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
      *
@@ -106,19 +106,19 @@ export class Workspace extends pulumi.CustomResource {
      *
      * For more information about converting between customer and service managed, see [Managing permissions for data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html) . For more information about the roles and permissions that must be managed for customer managed workspaces, see [Amazon Managed Grafana permissions and policies for AWS data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
      */
-    public readonly permissionType!: pulumi.Output<enums.grafana.WorkspacePermissionType>;
+    declare public readonly permissionType: pulumi.Output<enums.grafana.WorkspacePermissionType>;
     /**
      * Allow workspace admins to install plugins
      */
-    public readonly pluginAdminEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly pluginAdminEnabled: pulumi.Output<boolean | undefined>;
     /**
      * IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
      */
-    public readonly samlConfiguration!: pulumi.Output<outputs.grafana.WorkspaceSamlConfiguration | undefined>;
+    declare public readonly samlConfiguration: pulumi.Output<outputs.grafana.WorkspaceSamlConfiguration | undefined>;
     /**
      * Specifies whether the workspace's SAML configuration is complete.
      *
@@ -126,15 +126,15 @@ export class Workspace extends pulumi.CustomResource {
      *
      * Type: String
      */
-    public /*out*/ readonly samlConfigurationStatus!: pulumi.Output<enums.grafana.WorkspaceSamlConfigurationStatus>;
+    declare public /*out*/ readonly samlConfigurationStatus: pulumi.Output<enums.grafana.WorkspaceSamlConfigurationStatus>;
     /**
      * The client ID of the AWS SSO Managed Application.
      */
-    public /*out*/ readonly ssoClientId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ssoClientId: pulumi.Output<string>;
     /**
      * The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
      */
-    public readonly stackSetName!: pulumi.Output<string | undefined>;
+    declare public readonly stackSetName: pulumi.Output<string | undefined>;
     /**
      * The current status of the workspace.
      *
@@ -142,13 +142,13 @@ export class Workspace extends pulumi.CustomResource {
      *
      * Type: String
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.grafana.WorkspaceStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.grafana.WorkspaceStatus>;
     /**
      * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
      *
      * > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
      */
-    public readonly vpcConfiguration!: pulumi.Output<outputs.grafana.WorkspaceVpcConfiguration | undefined>;
+    declare public readonly vpcConfiguration: pulumi.Output<outputs.grafana.WorkspaceVpcConfiguration | undefined>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -161,32 +161,32 @@ export class Workspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountAccessType === undefined) && !opts.urn) {
+            if (args?.accountAccessType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountAccessType'");
             }
-            if ((!args || args.authenticationProviders === undefined) && !opts.urn) {
+            if (args?.authenticationProviders === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationProviders'");
             }
-            if ((!args || args.permissionType === undefined) && !opts.urn) {
+            if (args?.permissionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissionType'");
             }
-            resourceInputs["accountAccessType"] = args ? args.accountAccessType : undefined;
-            resourceInputs["authenticationProviders"] = args ? args.authenticationProviders : undefined;
-            resourceInputs["clientToken"] = args ? args.clientToken : undefined;
-            resourceInputs["dataSources"] = args ? args.dataSources : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["grafanaVersion"] = args ? args.grafanaVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkAccessControl"] = args ? args.networkAccessControl : undefined;
-            resourceInputs["notificationDestinations"] = args ? args.notificationDestinations : undefined;
-            resourceInputs["organizationRoleName"] = args ? args.organizationRoleName : undefined;
-            resourceInputs["organizationalUnits"] = args ? args.organizationalUnits : undefined;
-            resourceInputs["permissionType"] = args ? args.permissionType : undefined;
-            resourceInputs["pluginAdminEnabled"] = args ? args.pluginAdminEnabled : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["samlConfiguration"] = args ? args.samlConfiguration : undefined;
-            resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
-            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
+            resourceInputs["accountAccessType"] = args?.accountAccessType;
+            resourceInputs["authenticationProviders"] = args?.authenticationProviders;
+            resourceInputs["clientToken"] = args?.clientToken;
+            resourceInputs["dataSources"] = args?.dataSources;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["grafanaVersion"] = args?.grafanaVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkAccessControl"] = args?.networkAccessControl;
+            resourceInputs["notificationDestinations"] = args?.notificationDestinations;
+            resourceInputs["organizationRoleName"] = args?.organizationRoleName;
+            resourceInputs["organizationalUnits"] = args?.organizationalUnits;
+            resourceInputs["permissionType"] = args?.permissionType;
+            resourceInputs["pluginAdminEnabled"] = args?.pluginAdminEnabled;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["samlConfiguration"] = args?.samlConfiguration;
+            resourceInputs["stackSetName"] = args?.stackSetName;
+            resourceInputs["vpcConfiguration"] = args?.vpcConfiguration;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTimestamp"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;

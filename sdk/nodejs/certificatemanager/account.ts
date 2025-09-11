@@ -40,11 +40,11 @@ export class Account extends pulumi.CustomResource {
     /**
      * ID of the AWS account that owns the certificate.
      */
-    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
     /**
      * Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
      */
-    public readonly expiryEventsConfiguration!: pulumi.Output<outputs.certificatemanager.AccountExpiryEventsConfiguration>;
+    declare public readonly expiryEventsConfiguration: pulumi.Output<outputs.certificatemanager.AccountExpiryEventsConfiguration>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -57,10 +57,10 @@ export class Account extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.expiryEventsConfiguration === undefined) && !opts.urn) {
+            if (args?.expiryEventsConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expiryEventsConfiguration'");
             }
-            resourceInputs["expiryEventsConfiguration"] = args ? args.expiryEventsConfiguration : undefined;
+            resourceInputs["expiryEventsConfiguration"] = args?.expiryEventsConfiguration;
             resourceInputs["accountId"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;

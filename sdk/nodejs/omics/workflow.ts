@@ -37,85 +37,85 @@ export class Workflow extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workflow.__pulumiType;
     }
 
-    public readonly accelerators!: pulumi.Output<enums.omics.WorkflowAccelerators | undefined>;
+    declare public readonly accelerators: pulumi.Output<enums.omics.WorkflowAccelerators | undefined>;
     /**
      * The ARN for the workflow.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The workflow's ID.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * When the workflow was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * Contains information about a source code repository that hosts the workflow definition files.
      */
-    public readonly definitionRepository!: pulumi.Output<outputs.omics.WorkflowDefinitionRepository | undefined>;
+    declare public readonly definitionRepository: pulumi.Output<outputs.omics.WorkflowDefinitionRepository | undefined>;
     /**
      * The URI of a definition for the workflow.
      */
-    public readonly definitionUri!: pulumi.Output<string | undefined>;
+    declare public readonly definitionUri: pulumi.Output<string | undefined>;
     /**
      * The parameter's description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An engine for the workflow.
      */
-    public readonly engine!: pulumi.Output<enums.omics.WorkflowEngine | undefined>;
+    declare public readonly engine: pulumi.Output<enums.omics.WorkflowEngine | undefined>;
     /**
      * The path of the main definition file for the workflow.
      */
-    public readonly main!: pulumi.Output<string | undefined>;
+    declare public readonly main: pulumi.Output<string | undefined>;
     /**
      * The workflow's name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The workflow's parameter template.
      */
-    public readonly parameterTemplate!: pulumi.Output<{[key: string]: outputs.omics.WorkflowParameter} | undefined>;
+    declare public readonly parameterTemplate: pulumi.Output<{[key: string]: outputs.omics.WorkflowParameter} | undefined>;
     /**
      * Path to the primary workflow parameter template JSON file inside the repository
      */
-    public readonly parameterTemplatePath!: pulumi.Output<string | undefined>;
+    declare public readonly parameterTemplatePath: pulumi.Output<string | undefined>;
     /**
      * The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
      */
-    public readonly readmeMarkdown!: pulumi.Output<string | undefined>;
+    declare public readonly readmeMarkdown: pulumi.Output<string | undefined>;
     /**
      * The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
      */
-    public readonly readmePath!: pulumi.Output<string | undefined>;
+    declare public readonly readmePath: pulumi.Output<string | undefined>;
     /**
      * The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
      */
-    public readonly readmeUri!: pulumi.Output<string | undefined>;
+    declare public readonly readmeUri: pulumi.Output<string | undefined>;
     /**
      * The workflow's status.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.omics.WorkflowStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.omics.WorkflowStatus>;
     /**
      * The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
      */
-    public readonly storageCapacity!: pulumi.Output<number | undefined>;
-    public readonly storageType!: pulumi.Output<enums.omics.WorkflowStorageType | undefined>;
+    declare public readonly storageCapacity: pulumi.Output<number | undefined>;
+    declare public readonly storageType: pulumi.Output<enums.omics.WorkflowStorageType | undefined>;
     /**
      * Tags for the workflow.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The workflow's type.
      */
-    public /*out*/ readonly type!: pulumi.Output<enums.omics.WorkflowType>;
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<enums.omics.WorkflowType>;
+    declare public /*out*/ readonly uuid: pulumi.Output<string>;
     /**
      * Optional workflow bucket owner ID to verify the workflow bucket
      */
-    public readonly workflowBucketOwnerId!: pulumi.Output<string | undefined>;
+    declare public readonly workflowBucketOwnerId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Workflow resource with the given unique name, arguments, and options.
@@ -128,22 +128,22 @@ export class Workflow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["accelerators"] = args ? args.accelerators : undefined;
-            resourceInputs["definitionRepository"] = args ? args.definitionRepository : undefined;
-            resourceInputs["definitionUri"] = args ? args.definitionUri : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["main"] = args ? args.main : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameterTemplate"] = args ? args.parameterTemplate : undefined;
-            resourceInputs["parameterTemplatePath"] = args ? args.parameterTemplatePath : undefined;
-            resourceInputs["readmeMarkdown"] = args ? args.readmeMarkdown : undefined;
-            resourceInputs["readmePath"] = args ? args.readmePath : undefined;
-            resourceInputs["readmeUri"] = args ? args.readmeUri : undefined;
-            resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
-            resourceInputs["storageType"] = args ? args.storageType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workflowBucketOwnerId"] = args ? args.workflowBucketOwnerId : undefined;
+            resourceInputs["accelerators"] = args?.accelerators;
+            resourceInputs["definitionRepository"] = args?.definitionRepository;
+            resourceInputs["definitionUri"] = args?.definitionUri;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["main"] = args?.main;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameterTemplate"] = args?.parameterTemplate;
+            resourceInputs["parameterTemplatePath"] = args?.parameterTemplatePath;
+            resourceInputs["readmeMarkdown"] = args?.readmeMarkdown;
+            resourceInputs["readmePath"] = args?.readmePath;
+            resourceInputs["readmeUri"] = args?.readmeUri;
+            resourceInputs["storageCapacity"] = args?.storageCapacity;
+            resourceInputs["storageType"] = args?.storageType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workflowBucketOwnerId"] = args?.workflowBucketOwnerId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

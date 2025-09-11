@@ -40,17 +40,17 @@ export class InAppTemplate extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the message template.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
      */
-    public readonly content!: pulumi.Output<outputs.pinpoint.InAppTemplateInAppMessageContent[] | undefined>;
+    declare public readonly content: pulumi.Output<outputs.pinpoint.InAppTemplateInAppMessageContent[] | undefined>;
     /**
      * Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
      */
-    public readonly customConfig!: pulumi.Output<any | undefined>;
+    declare public readonly customConfig: pulumi.Output<any | undefined>;
     /**
      * A string that determines the appearance of the in-app message. You can specify one of the following:
      *
@@ -61,7 +61,7 @@ export class InAppTemplate extends pulumi.CustomResource {
      * - `MIDDLE_BANNER` – a message that appears as a banner in the middle of the page.
      * - `CAROUSEL` – a scrollable layout of up to five unique messages.
      */
-    public readonly layout!: pulumi.Output<enums.pinpoint.InAppTemplateLayout | undefined>;
+    declare public readonly layout: pulumi.Output<enums.pinpoint.InAppTemplateLayout | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
@@ -69,15 +69,15 @@ export class InAppTemplate extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    declare public readonly tags: pulumi.Output<any | undefined>;
     /**
      * An optional description of the in-app template.
      */
-    public readonly templateDescription!: pulumi.Output<string | undefined>;
+    declare public readonly templateDescription: pulumi.Output<string | undefined>;
     /**
      * The name of the in-app message template.
      */
-    public readonly templateName!: pulumi.Output<string>;
+    declare public readonly templateName: pulumi.Output<string>;
 
     /**
      * Create a InAppTemplate resource with the given unique name, arguments, and options.
@@ -90,12 +90,12 @@ export class InAppTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["customConfig"] = args ? args.customConfig : undefined;
-            resourceInputs["layout"] = args ? args.layout : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateDescription"] = args ? args.templateDescription : undefined;
-            resourceInputs["templateName"] = args ? args.templateName : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["customConfig"] = args?.customConfig;
+            resourceInputs["layout"] = args?.layout;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateDescription"] = args?.templateDescription;
+            resourceInputs["templateName"] = args?.templateName;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -117,21 +117,21 @@ export class RegistryPolicy extends pulumi.CustomResource {
     /**
      * The ID of the policy.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A resource-based policy.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
      */
-    public readonly policy!: pulumi.Output<any>;
+    declare public readonly policy: pulumi.Output<any>;
     /**
      * The name of the registry.
      */
-    public readonly registryName!: pulumi.Output<string>;
+    declare public readonly registryName: pulumi.Output<string>;
     /**
      * The revision ID of the policy.
      */
-    public readonly revisionId!: pulumi.Output<string | undefined>;
+    declare public readonly revisionId: pulumi.Output<string | undefined>;
 
     /**
      * Create a RegistryPolicy resource with the given unique name, arguments, and options.
@@ -144,15 +144,15 @@ export class RegistryPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["revisionId"] = args ? args.revisionId : undefined;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["revisionId"] = args?.revisionId;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

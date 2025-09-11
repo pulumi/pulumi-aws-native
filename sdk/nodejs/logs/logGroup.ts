@@ -44,27 +44,27 @@ export class LogGroup extends pulumi.CustomResource {
     /**
      * The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
      *  For more information, including a list of types of data that can be audited and masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
      */
-    public readonly dataProtectionPolicy!: pulumi.Output<any | undefined>;
+    declare public readonly dataProtectionPolicy: pulumi.Output<any | undefined>;
     /**
      * Creates or updates a *field index policy* for the specified log group. Only log groups in the Standard log class support field index policies. For more information about log classes, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html).
      *  You can use field index policies to create *field indexes* on fields found in log events in the log group. Creating field indexes lowers the costs for CWL Insights queries that reference those field indexes, because these queries attempt to skip the processing of log events that are known to not match the indexed field. Good fields to index are fields that you often need to query for and fields that have high cardinality of values Common examples of indexes include request ID, session ID, userID, and instance IDs. For more information, see [Create field indexes to improve query performance and reduce costs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html).
      *  Currently, this array supports only one field index policy object.
      */
-    public readonly fieldIndexPolicies!: pulumi.Output<any[] | undefined>;
+    declare public readonly fieldIndexPolicies: pulumi.Output<any[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.
      *  To associate an KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CWL. This enables CWL to decrypt this data whenever it is requested.
      *  If you attempt to associate a KMS key with the log group but the KMS key doesn't exist or is deactivated, you will receive an ``InvalidParameterException`` error.
      *  Log group data is always encrypted in CWL. If you omit this key, the encryption does not use KMS. For more information, see [Encrypt log data in using](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Specifies the log group class for this log group. There are two classes:
      *   +  The ``Standard`` log class supports all CWL features.
@@ -72,27 +72,27 @@ export class LogGroup extends pulumi.CustomResource {
      *   
      *  For details about the features supported by each class, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html)
      */
-    public readonly logGroupClass!: pulumi.Output<enums.logs.LogGroupClass | undefined>;
+    declare public readonly logGroupClass: pulumi.Output<enums.logs.LogGroupClass | undefined>;
     /**
      * The name of the log group. If you don't specify a name, CFNlong generates a unique ID for the log group.
      */
-    public readonly logGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly logGroupName: pulumi.Output<string | undefined>;
     /**
      * Creates or updates a resource policy for the specified log group that allows other services to put log events to this account. A LogGroup can have 1 resource policy.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
      */
-    public readonly resourcePolicyDocument!: pulumi.Output<any | undefined>;
+    declare public readonly resourcePolicyDocument: pulumi.Output<any | undefined>;
     /**
      * The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.
      *  To set a log group so that its log events do not expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html).
      */
-    public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionInDays: pulumi.Output<number | undefined>;
     /**
      * An array of key-value pairs to apply to the log group.
      *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LogGroup resource with the given unique name, arguments, and options.
@@ -105,14 +105,14 @@ export class LogGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["dataProtectionPolicy"] = args ? args.dataProtectionPolicy : undefined;
-            resourceInputs["fieldIndexPolicies"] = args ? args.fieldIndexPolicies : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["logGroupClass"] = args ? args.logGroupClass : undefined;
-            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
-            resourceInputs["resourcePolicyDocument"] = args ? args.resourcePolicyDocument : undefined;
-            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataProtectionPolicy"] = args?.dataProtectionPolicy;
+            resourceInputs["fieldIndexPolicies"] = args?.fieldIndexPolicies;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["logGroupClass"] = args?.logGroupClass;
+            resourceInputs["logGroupName"] = args?.logGroupName;
+            resourceInputs["resourcePolicyDocument"] = args?.resourcePolicyDocument;
+            resourceInputs["retentionInDays"] = args?.retentionInDays;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

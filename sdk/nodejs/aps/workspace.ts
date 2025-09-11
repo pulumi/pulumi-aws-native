@@ -93,43 +93,43 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The AMP Workspace alert manager definition data
      */
-    public readonly alertManagerDefinition!: pulumi.Output<string | undefined>;
+    declare public readonly alertManagerDefinition: pulumi.Output<string | undefined>;
     /**
      * AMP Workspace alias.
      */
-    public readonly alias!: pulumi.Output<string | undefined>;
+    declare public readonly alias: pulumi.Output<string | undefined>;
     /**
      * Workspace arn.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * KMS Key ARN used to encrypt and decrypt AMP workspace data.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * Contains information about the logging configuration for the workspace.
      */
-    public readonly loggingConfiguration!: pulumi.Output<outputs.aps.WorkspaceLoggingConfiguration | undefined>;
+    declare public readonly loggingConfiguration: pulumi.Output<outputs.aps.WorkspaceLoggingConfiguration | undefined>;
     /**
      * AMP Workspace prometheus endpoint
      */
-    public /*out*/ readonly prometheusEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly prometheusEndpoint: pulumi.Output<string>;
     /**
      * The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
      */
-    public readonly queryLoggingConfiguration!: pulumi.Output<outputs.aps.WorkspaceQueryLoggingConfiguration | undefined>;
+    declare public readonly queryLoggingConfiguration: pulumi.Output<outputs.aps.WorkspaceQueryLoggingConfiguration | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
      */
-    public readonly workspaceConfiguration!: pulumi.Output<outputs.aps.WorkspaceConfiguration | undefined>;
+    declare public readonly workspaceConfiguration: pulumi.Output<outputs.aps.WorkspaceConfiguration | undefined>;
     /**
      * Required to identify a specific APS Workspace.
      */
-    public /*out*/ readonly workspaceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -142,13 +142,13 @@ export class Workspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["alertManagerDefinition"] = args ? args.alertManagerDefinition : undefined;
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
-            resourceInputs["queryLoggingConfiguration"] = args ? args.queryLoggingConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceConfiguration"] = args ? args.workspaceConfiguration : undefined;
+            resourceInputs["alertManagerDefinition"] = args?.alertManagerDefinition;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
+            resourceInputs["queryLoggingConfiguration"] = args?.queryLoggingConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceConfiguration"] = args?.workspaceConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["prometheusEndpoint"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;

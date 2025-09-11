@@ -40,61 +40,61 @@ export class JobTemplate extends pulumi.CustomResource {
     /**
      * The criteria that determine when and how a job abort takes place.
      */
-    public readonly abortConfig!: pulumi.Output<outputs.iot.AbortConfigProperties | undefined>;
+    declare public readonly abortConfig: pulumi.Output<outputs.iot.AbortConfigProperties | undefined>;
     /**
      * The ARN of the job to use as the basis for the job template.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A description of the Job Template.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The package version Amazon Resource Names (ARNs) that are installed on the device’s reserved named shadow ( `$package` ) when the job successfully completes.
      *
      * *Note:* Up to 25 package version ARNS are allowed.
      */
-    public readonly destinationPackageVersions!: pulumi.Output<string[] | undefined>;
+    declare public readonly destinationPackageVersions: pulumi.Output<string[] | undefined>;
     /**
      * The job document. Required if you don't specify a value for documentSource.
      */
-    public readonly document!: pulumi.Output<string | undefined>;
+    declare public readonly document: pulumi.Output<string | undefined>;
     /**
      * An S3 link to the job document to use in the template. Required if you don't specify a value for document.
      */
-    public readonly documentSource!: pulumi.Output<string | undefined>;
+    declare public readonly documentSource: pulumi.Output<string | undefined>;
     /**
      * Optional for copying a JobTemplate from a pre-existing Job configuration.
      */
-    public readonly jobArn!: pulumi.Output<string | undefined>;
+    declare public readonly jobArn: pulumi.Output<string | undefined>;
     /**
      * Allows you to create the criteria to retry a job.
      */
-    public readonly jobExecutionsRetryConfig!: pulumi.Output<outputs.iot.JobExecutionsRetryConfigProperties | undefined>;
+    declare public readonly jobExecutionsRetryConfig: pulumi.Output<outputs.iot.JobExecutionsRetryConfigProperties | undefined>;
     /**
      * Allows you to create a staged rollout of a job.
      */
-    public readonly jobExecutionsRolloutConfig!: pulumi.Output<outputs.iot.JobExecutionsRolloutConfigProperties | undefined>;
+    declare public readonly jobExecutionsRolloutConfig: pulumi.Output<outputs.iot.JobExecutionsRolloutConfigProperties | undefined>;
     /**
      * A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
      */
-    public readonly jobTemplateId!: pulumi.Output<string>;
+    declare public readonly jobTemplateId: pulumi.Output<string>;
     /**
      * An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
      */
-    public readonly maintenanceWindows!: pulumi.Output<outputs.iot.JobTemplateMaintenanceWindow[] | undefined>;
+    declare public readonly maintenanceWindows: pulumi.Output<outputs.iot.JobTemplateMaintenanceWindow[] | undefined>;
     /**
      * Configuration for pre-signed S3 URLs.
      */
-    public readonly presignedUrlConfig!: pulumi.Output<outputs.iot.PresignedUrlConfigProperties | undefined>;
+    declare public readonly presignedUrlConfig: pulumi.Output<outputs.iot.PresignedUrlConfigProperties | undefined>;
     /**
      * Metadata that can be used to manage the JobTemplate.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * Specifies the amount of time each device has to finish its execution of the job.
      */
-    public readonly timeoutConfig!: pulumi.Output<outputs.iot.TimeoutConfigProperties | undefined>;
+    declare public readonly timeoutConfig: pulumi.Output<outputs.iot.TimeoutConfigProperties | undefined>;
 
     /**
      * Create a JobTemplate resource with the given unique name, arguments, and options.
@@ -107,25 +107,25 @@ export class JobTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.jobTemplateId === undefined) && !opts.urn) {
+            if (args?.jobTemplateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobTemplateId'");
             }
-            resourceInputs["abortConfig"] = args ? args.abortConfig : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinationPackageVersions"] = args ? args.destinationPackageVersions : undefined;
-            resourceInputs["document"] = args ? args.document : undefined;
-            resourceInputs["documentSource"] = args ? args.documentSource : undefined;
-            resourceInputs["jobArn"] = args ? args.jobArn : undefined;
-            resourceInputs["jobExecutionsRetryConfig"] = args ? args.jobExecutionsRetryConfig : undefined;
-            resourceInputs["jobExecutionsRolloutConfig"] = args ? args.jobExecutionsRolloutConfig : undefined;
-            resourceInputs["jobTemplateId"] = args ? args.jobTemplateId : undefined;
-            resourceInputs["maintenanceWindows"] = args ? args.maintenanceWindows : undefined;
-            resourceInputs["presignedUrlConfig"] = args ? args.presignedUrlConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeoutConfig"] = args ? args.timeoutConfig : undefined;
+            resourceInputs["abortConfig"] = args?.abortConfig;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinationPackageVersions"] = args?.destinationPackageVersions;
+            resourceInputs["document"] = args?.document;
+            resourceInputs["documentSource"] = args?.documentSource;
+            resourceInputs["jobArn"] = args?.jobArn;
+            resourceInputs["jobExecutionsRetryConfig"] = args?.jobExecutionsRetryConfig;
+            resourceInputs["jobExecutionsRolloutConfig"] = args?.jobExecutionsRolloutConfig;
+            resourceInputs["jobTemplateId"] = args?.jobTemplateId;
+            resourceInputs["maintenanceWindows"] = args?.maintenanceWindows;
+            resourceInputs["presignedUrlConfig"] = args?.presignedUrlConfig;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeoutConfig"] = args?.timeoutConfig;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["abortConfig"] = undefined /*out*/;

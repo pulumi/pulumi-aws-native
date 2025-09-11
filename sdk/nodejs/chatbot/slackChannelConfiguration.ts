@@ -40,47 +40,47 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the configuration
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the configuration
      */
-    public readonly configurationName!: pulumi.Output<string>;
+    declare public readonly configurationName: pulumi.Output<string>;
     /**
      * ARNs of Custom Actions to associate with notifications in the provided chat channel.
      */
-    public readonly customizationResourceArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly customizationResourceArns: pulumi.Output<string[] | undefined>;
     /**
      * The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
      */
-    public readonly guardrailPolicies!: pulumi.Output<string[] | undefined>;
+    declare public readonly guardrailPolicies: pulumi.Output<string[] | undefined>;
     /**
      * The ARN of the IAM role that defines the permissions for AWS Chatbot
      */
-    public readonly iamRoleArn!: pulumi.Output<string>;
+    declare public readonly iamRoleArn: pulumi.Output<string>;
     /**
      * Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
      */
-    public readonly loggingLevel!: pulumi.Output<string | undefined>;
+    declare public readonly loggingLevel: pulumi.Output<string | undefined>;
     /**
      * The id of the Slack channel
      */
-    public readonly slackChannelId!: pulumi.Output<string>;
+    declare public readonly slackChannelId: pulumi.Output<string>;
     /**
      * The id of the Slack workspace
      */
-    public readonly slackWorkspaceId!: pulumi.Output<string>;
+    declare public readonly slackWorkspaceId: pulumi.Output<string>;
     /**
      * ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
      */
-    public readonly snsTopicArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly snsTopicArns: pulumi.Output<string[] | undefined>;
     /**
      * The tags to add to the configuration
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Enables use of a user role requirement in your chat configuration
      */
-    public readonly userRoleRequired!: pulumi.Output<boolean | undefined>;
+    declare public readonly userRoleRequired: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SlackChannelConfiguration resource with the given unique name, arguments, and options.
@@ -93,25 +93,25 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
+            if (args?.iamRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if ((!args || args.slackChannelId === undefined) && !opts.urn) {
+            if (args?.slackChannelId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slackChannelId'");
             }
-            if ((!args || args.slackWorkspaceId === undefined) && !opts.urn) {
+            if (args?.slackWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slackWorkspaceId'");
             }
-            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["customizationResourceArns"] = args ? args.customizationResourceArns : undefined;
-            resourceInputs["guardrailPolicies"] = args ? args.guardrailPolicies : undefined;
-            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            resourceInputs["loggingLevel"] = args ? args.loggingLevel : undefined;
-            resourceInputs["slackChannelId"] = args ? args.slackChannelId : undefined;
-            resourceInputs["slackWorkspaceId"] = args ? args.slackWorkspaceId : undefined;
-            resourceInputs["snsTopicArns"] = args ? args.snsTopicArns : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userRoleRequired"] = args ? args.userRoleRequired : undefined;
+            resourceInputs["configurationName"] = args?.configurationName;
+            resourceInputs["customizationResourceArns"] = args?.customizationResourceArns;
+            resourceInputs["guardrailPolicies"] = args?.guardrailPolicies;
+            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
+            resourceInputs["loggingLevel"] = args?.loggingLevel;
+            resourceInputs["slackChannelId"] = args?.slackChannelId;
+            resourceInputs["slackWorkspaceId"] = args?.slackWorkspaceId;
+            resourceInputs["snsTopicArns"] = args?.snsTopicArns;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userRoleRequired"] = args?.userRoleRequired;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

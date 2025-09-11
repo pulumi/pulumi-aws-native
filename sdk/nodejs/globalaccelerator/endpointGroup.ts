@@ -40,47 +40,47 @@ export class EndpointGroup extends pulumi.CustomResource {
     /**
      * The list of endpoint objects.
      */
-    public readonly endpointConfigurations!: pulumi.Output<outputs.globalaccelerator.EndpointGroupEndpointConfiguration[] | undefined>;
+    declare public readonly endpointConfigurations: pulumi.Output<outputs.globalaccelerator.EndpointGroupEndpointConfiguration[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the endpoint group
      */
-    public /*out*/ readonly endpointGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpointGroupArn: pulumi.Output<string>;
     /**
      * The name of the AWS Region where the endpoint group is located
      */
-    public readonly endpointGroupRegion!: pulumi.Output<string>;
+    declare public readonly endpointGroupRegion: pulumi.Output<string>;
     /**
      * The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
      */
-    public readonly healthCheckIntervalSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly healthCheckIntervalSeconds: pulumi.Output<number | undefined>;
     /**
      * If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
      */
-    public readonly healthCheckPath!: pulumi.Output<string | undefined>;
+    declare public readonly healthCheckPath: pulumi.Output<string | undefined>;
     /**
      * The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
      */
-    public readonly healthCheckPort!: pulumi.Output<number | undefined>;
+    declare public readonly healthCheckPort: pulumi.Output<number | undefined>;
     /**
      * The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
      */
-    public readonly healthCheckProtocol!: pulumi.Output<enums.globalaccelerator.EndpointGroupHealthCheckProtocol | undefined>;
+    declare public readonly healthCheckProtocol: pulumi.Output<enums.globalaccelerator.EndpointGroupHealthCheckProtocol | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the listener
      */
-    public readonly listenerArn!: pulumi.Output<string>;
+    declare public readonly listenerArn: pulumi.Output<string>;
     /**
      * Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
      */
-    public readonly portOverrides!: pulumi.Output<outputs.globalaccelerator.EndpointGroupPortOverride[] | undefined>;
+    declare public readonly portOverrides: pulumi.Output<outputs.globalaccelerator.EndpointGroupPortOverride[] | undefined>;
     /**
      * The number of consecutive health checks required to set the state of the endpoint to unhealthy.
      */
-    public readonly thresholdCount!: pulumi.Output<number | undefined>;
+    declare public readonly thresholdCount: pulumi.Output<number | undefined>;
     /**
      * The percentage of traffic to sent to an AWS Region
      */
-    public readonly trafficDialPercentage!: pulumi.Output<number | undefined>;
+    declare public readonly trafficDialPercentage: pulumi.Output<number | undefined>;
 
     /**
      * Create a EndpointGroup resource with the given unique name, arguments, and options.
@@ -93,22 +93,22 @@ export class EndpointGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointGroupRegion === undefined) && !opts.urn) {
+            if (args?.endpointGroupRegion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointGroupRegion'");
             }
-            if ((!args || args.listenerArn === undefined) && !opts.urn) {
+            if (args?.listenerArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'listenerArn'");
             }
-            resourceInputs["endpointConfigurations"] = args ? args.endpointConfigurations : undefined;
-            resourceInputs["endpointGroupRegion"] = args ? args.endpointGroupRegion : undefined;
-            resourceInputs["healthCheckIntervalSeconds"] = args ? args.healthCheckIntervalSeconds : undefined;
-            resourceInputs["healthCheckPath"] = args ? args.healthCheckPath : undefined;
-            resourceInputs["healthCheckPort"] = args ? args.healthCheckPort : undefined;
-            resourceInputs["healthCheckProtocol"] = args ? args.healthCheckProtocol : undefined;
-            resourceInputs["listenerArn"] = args ? args.listenerArn : undefined;
-            resourceInputs["portOverrides"] = args ? args.portOverrides : undefined;
-            resourceInputs["thresholdCount"] = args ? args.thresholdCount : undefined;
-            resourceInputs["trafficDialPercentage"] = args ? args.trafficDialPercentage : undefined;
+            resourceInputs["endpointConfigurations"] = args?.endpointConfigurations;
+            resourceInputs["endpointGroupRegion"] = args?.endpointGroupRegion;
+            resourceInputs["healthCheckIntervalSeconds"] = args?.healthCheckIntervalSeconds;
+            resourceInputs["healthCheckPath"] = args?.healthCheckPath;
+            resourceInputs["healthCheckPort"] = args?.healthCheckPort;
+            resourceInputs["healthCheckProtocol"] = args?.healthCheckProtocol;
+            resourceInputs["listenerArn"] = args?.listenerArn;
+            resourceInputs["portOverrides"] = args?.portOverrides;
+            resourceInputs["thresholdCount"] = args?.thresholdCount;
+            resourceInputs["trafficDialPercentage"] = args?.trafficDialPercentage;
             resourceInputs["endpointGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["endpointConfigurations"] = undefined /*out*/;

@@ -40,54 +40,54 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * The time at which the data source was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The data deletion policy for the data source.
      */
-    public readonly dataDeletionPolicy!: pulumi.Output<enums.bedrock.DataSourceDataDeletionPolicy | undefined>;
+    declare public readonly dataDeletionPolicy: pulumi.Output<enums.bedrock.DataSourceDataDeletionPolicy | undefined>;
     /**
      * The connection configuration for the data source.
      */
-    public readonly dataSourceConfiguration!: pulumi.Output<outputs.bedrock.DataSourceConfiguration>;
+    declare public readonly dataSourceConfiguration: pulumi.Output<outputs.bedrock.DataSourceConfiguration>;
     /**
      * Identifier for a resource.
      */
-    public /*out*/ readonly dataSourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataSourceId: pulumi.Output<string>;
     /**
      * The status of the data source. The following statuses are possible:
      *
      * - Available – The data source has been created and is ready for ingestion into the knowledge base.
      * - Deleting – The data source is being deleted.
      */
-    public /*out*/ readonly dataSourceStatus!: pulumi.Output<enums.bedrock.DataSourceStatus>;
+    declare public /*out*/ readonly dataSourceStatus: pulumi.Output<enums.bedrock.DataSourceStatus>;
     /**
      * Description of the Resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The details of the failure reasons related to the data source.
      */
-    public /*out*/ readonly failureReasons!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly failureReasons: pulumi.Output<string[]>;
     /**
      * The unique identifier of the knowledge base to which to add the data source.
      */
-    public readonly knowledgeBaseId!: pulumi.Output<string>;
+    declare public readonly knowledgeBaseId: pulumi.Output<string>;
     /**
      * The name of the data source.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Contains details about the configuration of the server-side encryption.
      */
-    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.bedrock.DataSourceServerSideEncryptionConfiguration | undefined>;
+    declare public readonly serverSideEncryptionConfiguration: pulumi.Output<outputs.bedrock.DataSourceServerSideEncryptionConfiguration | undefined>;
     /**
      * The time at which the knowledge base was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * Contains details about how to ingest the documents in the data source.
      */
-    public readonly vectorIngestionConfiguration!: pulumi.Output<outputs.bedrock.DataSourceVectorIngestionConfiguration | undefined>;
+    declare public readonly vectorIngestionConfiguration: pulumi.Output<outputs.bedrock.DataSourceVectorIngestionConfiguration | undefined>;
 
     /**
      * Create a DataSource resource with the given unique name, arguments, and options.
@@ -100,19 +100,19 @@ export class DataSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataSourceConfiguration === undefined) && !opts.urn) {
+            if (args?.dataSourceConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSourceConfiguration'");
             }
-            if ((!args || args.knowledgeBaseId === undefined) && !opts.urn) {
+            if (args?.knowledgeBaseId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'knowledgeBaseId'");
             }
-            resourceInputs["dataDeletionPolicy"] = args ? args.dataDeletionPolicy : undefined;
-            resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["knowledgeBaseId"] = args ? args.knowledgeBaseId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
-            resourceInputs["vectorIngestionConfiguration"] = args ? args.vectorIngestionConfiguration : undefined;
+            resourceInputs["dataDeletionPolicy"] = args?.dataDeletionPolicy;
+            resourceInputs["dataSourceConfiguration"] = args?.dataSourceConfiguration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["knowledgeBaseId"] = args?.knowledgeBaseId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverSideEncryptionConfiguration"] = args?.serverSideEncryptionConfiguration;
+            resourceInputs["vectorIngestionConfiguration"] = args?.vectorIngestionConfiguration;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["dataSourceId"] = undefined /*out*/;
             resourceInputs["dataSourceStatus"] = undefined /*out*/;

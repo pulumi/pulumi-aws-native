@@ -40,62 +40,62 @@ export class TransitGateway extends pulumi.CustomResource {
     /**
      * A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
      */
-    public readonly amazonSideAsn!: pulumi.Output<number | undefined>;
+    declare public readonly amazonSideAsn: pulumi.Output<number | undefined>;
     /**
      * The ID of the default association route table.
      */
-    public readonly associationDefaultRouteTableId!: pulumi.Output<string | undefined>;
+    declare public readonly associationDefaultRouteTableId: pulumi.Output<string | undefined>;
     /**
      * Enable or disable automatic acceptance of attachment requests. Disabled by default.
      */
-    public readonly autoAcceptSharedAttachments!: pulumi.Output<string | undefined>;
+    declare public readonly autoAcceptSharedAttachments: pulumi.Output<string | undefined>;
     /**
      * The ID of the transit gateway.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
      */
-    public readonly defaultRouteTableAssociation!: pulumi.Output<string | undefined>;
+    declare public readonly defaultRouteTableAssociation: pulumi.Output<string | undefined>;
     /**
      * Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
      */
-    public readonly defaultRouteTablePropagation!: pulumi.Output<string | undefined>;
+    declare public readonly defaultRouteTablePropagation: pulumi.Output<string | undefined>;
     /**
      * The description of the transit gateway.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Enable or disable DNS support. Enabled by default.
      */
-    public readonly dnsSupport!: pulumi.Output<string | undefined>;
+    declare public readonly dnsSupport: pulumi.Output<string | undefined>;
     /**
      * Indicates whether multicast is enabled on the transit gateway
      */
-    public readonly multicastSupport!: pulumi.Output<string | undefined>;
+    declare public readonly multicastSupport: pulumi.Output<string | undefined>;
     /**
      * The ID of the default propagation route table.
      */
-    public readonly propagationDefaultRouteTableId!: pulumi.Output<string | undefined>;
+    declare public readonly propagationDefaultRouteTableId: pulumi.Output<string | undefined>;
     /**
      * Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
      *
      * For important information about this feature, see [Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw) in the *AWS Transit Gateway Guide* .
      */
-    public readonly securityGroupReferencingSupport!: pulumi.Output<string | undefined>;
+    declare public readonly securityGroupReferencingSupport: pulumi.Output<string | undefined>;
     /**
      * The tags for the transit gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    public /*out*/ readonly transitGatewayArn!: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public /*out*/ readonly transitGatewayArn: pulumi.Output<string>;
     /**
      * The transit gateway CIDR blocks.
      */
-    public readonly transitGatewayCidrBlocks!: pulumi.Output<string[] | undefined>;
+    declare public readonly transitGatewayCidrBlocks: pulumi.Output<string[] | undefined>;
     /**
      * Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
      */
-    public readonly vpnEcmpSupport!: pulumi.Output<string | undefined>;
+    declare public readonly vpnEcmpSupport: pulumi.Output<string | undefined>;
 
     /**
      * Create a TransitGateway resource with the given unique name, arguments, and options.
@@ -108,19 +108,19 @@ export class TransitGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
-            resourceInputs["associationDefaultRouteTableId"] = args ? args.associationDefaultRouteTableId : undefined;
-            resourceInputs["autoAcceptSharedAttachments"] = args ? args.autoAcceptSharedAttachments : undefined;
-            resourceInputs["defaultRouteTableAssociation"] = args ? args.defaultRouteTableAssociation : undefined;
-            resourceInputs["defaultRouteTablePropagation"] = args ? args.defaultRouteTablePropagation : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dnsSupport"] = args ? args.dnsSupport : undefined;
-            resourceInputs["multicastSupport"] = args ? args.multicastSupport : undefined;
-            resourceInputs["propagationDefaultRouteTableId"] = args ? args.propagationDefaultRouteTableId : undefined;
-            resourceInputs["securityGroupReferencingSupport"] = args ? args.securityGroupReferencingSupport : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayCidrBlocks"] = args ? args.transitGatewayCidrBlocks : undefined;
-            resourceInputs["vpnEcmpSupport"] = args ? args.vpnEcmpSupport : undefined;
+            resourceInputs["amazonSideAsn"] = args?.amazonSideAsn;
+            resourceInputs["associationDefaultRouteTableId"] = args?.associationDefaultRouteTableId;
+            resourceInputs["autoAcceptSharedAttachments"] = args?.autoAcceptSharedAttachments;
+            resourceInputs["defaultRouteTableAssociation"] = args?.defaultRouteTableAssociation;
+            resourceInputs["defaultRouteTablePropagation"] = args?.defaultRouteTablePropagation;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dnsSupport"] = args?.dnsSupport;
+            resourceInputs["multicastSupport"] = args?.multicastSupport;
+            resourceInputs["propagationDefaultRouteTableId"] = args?.propagationDefaultRouteTableId;
+            resourceInputs["securityGroupReferencingSupport"] = args?.securityGroupReferencingSupport;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayCidrBlocks"] = args?.transitGatewayCidrBlocks;
+            resourceInputs["vpnEcmpSupport"] = args?.vpnEcmpSupport;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["transitGatewayArn"] = undefined /*out*/;
         } else {

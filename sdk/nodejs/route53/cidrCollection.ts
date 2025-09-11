@@ -40,19 +40,19 @@ export class CidrCollection extends pulumi.CustomResource {
     /**
      * The Amazon resource name (ARN) to uniquely identify the AWS resource.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * UUID of the CIDR collection.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A complex type that contains information about the list of CIDR locations.
      */
-    public readonly locations!: pulumi.Output<outputs.route53.CidrCollectionLocation[] | undefined>;
+    declare public readonly locations: pulumi.Output<outputs.route53.CidrCollectionLocation[] | undefined>;
     /**
      * A unique name for the CIDR collection.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a CidrCollection resource with the given unique name, arguments, and options.
@@ -65,8 +65,8 @@ export class CidrCollection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["locations"] = args?.locations;
+            resourceInputs["name"] = args?.name;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

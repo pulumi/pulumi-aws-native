@@ -40,23 +40,23 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
     /**
      * The App type that the Lifecycle Configuration is attached to.
      */
-    public readonly studioLifecycleConfigAppType!: pulumi.Output<enums.sagemaker.StudioLifecycleConfigAppType>;
+    declare public readonly studioLifecycleConfigAppType: pulumi.Output<enums.sagemaker.StudioLifecycleConfigAppType>;
     /**
      * The Amazon Resource Name (ARN) of the Lifecycle Configuration.
      */
-    public /*out*/ readonly studioLifecycleConfigArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly studioLifecycleConfigArn: pulumi.Output<string>;
     /**
      * The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.
      */
-    public readonly studioLifecycleConfigContent!: pulumi.Output<string>;
+    declare public readonly studioLifecycleConfigContent: pulumi.Output<string>;
     /**
      * The name of the Amazon SageMaker Studio Lifecycle Configuration.
      */
-    public readonly studioLifecycleConfigName!: pulumi.Output<string>;
+    declare public readonly studioLifecycleConfigName: pulumi.Output<string>;
     /**
      * Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a StudioLifecycleConfig resource with the given unique name, arguments, and options.
@@ -69,16 +69,16 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.studioLifecycleConfigAppType === undefined) && !opts.urn) {
+            if (args?.studioLifecycleConfigAppType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'studioLifecycleConfigAppType'");
             }
-            if ((!args || args.studioLifecycleConfigContent === undefined) && !opts.urn) {
+            if (args?.studioLifecycleConfigContent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'studioLifecycleConfigContent'");
             }
-            resourceInputs["studioLifecycleConfigAppType"] = args ? args.studioLifecycleConfigAppType : undefined;
-            resourceInputs["studioLifecycleConfigContent"] = args ? args.studioLifecycleConfigContent : undefined;
-            resourceInputs["studioLifecycleConfigName"] = args ? args.studioLifecycleConfigName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["studioLifecycleConfigAppType"] = args?.studioLifecycleConfigAppType;
+            resourceInputs["studioLifecycleConfigContent"] = args?.studioLifecycleConfigContent;
+            resourceInputs["studioLifecycleConfigName"] = args?.studioLifecycleConfigName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["studioLifecycleConfigArn"] = undefined /*out*/;
         } else {
             resourceInputs["studioLifecycleConfigAppType"] = undefined /*out*/;

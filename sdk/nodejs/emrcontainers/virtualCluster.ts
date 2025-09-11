@@ -92,27 +92,27 @@ export class VirtualCluster extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the project, such as `arn:aws:emr-containers:us-east-1:123456789012:/virtualclusters/ab4rp1abcs8xz47n3x0example` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Id of the virtual cluster.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Container provider of the virtual cluster.
      */
-    public readonly containerProvider!: pulumi.Output<outputs.emrcontainers.VirtualClusterContainerProvider>;
+    declare public readonly containerProvider: pulumi.Output<outputs.emrcontainers.VirtualClusterContainerProvider>;
     /**
      * Name of the virtual cluster.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the security configuration.
      */
-    public readonly securityConfigurationId!: pulumi.Output<string | undefined>;
+    declare public readonly securityConfigurationId: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this virtual cluster.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a VirtualCluster resource with the given unique name, arguments, and options.
@@ -125,13 +125,13 @@ export class VirtualCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.containerProvider === undefined) && !opts.urn) {
+            if (args?.containerProvider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerProvider'");
             }
-            resourceInputs["containerProvider"] = args ? args.containerProvider : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["securityConfigurationId"] = args ? args.securityConfigurationId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["containerProvider"] = args?.containerProvider;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["securityConfigurationId"] = args?.securityConfigurationId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

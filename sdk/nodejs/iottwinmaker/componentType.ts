@@ -40,67 +40,67 @@ export class ComponentType extends pulumi.CustomResource {
     /**
      * The ARN of the component type.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the component type.
      */
-    public readonly componentTypeId!: pulumi.Output<string>;
+    declare public readonly componentTypeId: pulumi.Output<string>;
     /**
      * An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
      */
-    public readonly compositeComponentTypes!: pulumi.Output<{[key: string]: outputs.iottwinmaker.ComponentTypeCompositeComponentType} | undefined>;
+    declare public readonly compositeComponentTypes: pulumi.Output<{[key: string]: outputs.iottwinmaker.ComponentTypeCompositeComponentType} | undefined>;
     /**
      * The date and time when the component type was created.
      */
-    public /*out*/ readonly creationDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDateTime: pulumi.Output<string>;
     /**
      * The description of the component type.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the parent component type to extend.
      */
-    public readonly extendsFrom!: pulumi.Output<string[] | undefined>;
+    declare public readonly extendsFrom: pulumi.Output<string[] | undefined>;
     /**
      * a Map of functions in the component type. Each function's key must be unique to this map.
      */
-    public readonly functions!: pulumi.Output<{[key: string]: outputs.iottwinmaker.ComponentTypeFunction} | undefined>;
+    declare public readonly functions: pulumi.Output<{[key: string]: outputs.iottwinmaker.ComponentTypeFunction} | undefined>;
     /**
      * A Boolean value that specifies whether the component type is abstract.
      */
-    public /*out*/ readonly isAbstract!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isAbstract: pulumi.Output<boolean>;
     /**
      * A Boolean value that specifies whether the component type has a schema initializer and that the schema initializer has run.
      */
-    public /*out*/ readonly isSchemaInitialized!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isSchemaInitialized: pulumi.Output<boolean>;
     /**
      * A Boolean value that specifies whether an entity can have more than one component of this type.
      */
-    public readonly isSingleton!: pulumi.Output<boolean | undefined>;
+    declare public readonly isSingleton: pulumi.Output<boolean | undefined>;
     /**
      * An map of the property definitions in the component type. Each property definition's key must be unique to this map.
      */
-    public readonly propertyDefinitions!: pulumi.Output<{[key: string]: outputs.iottwinmaker.ComponentTypePropertyDefinition} | undefined>;
+    declare public readonly propertyDefinitions: pulumi.Output<{[key: string]: outputs.iottwinmaker.ComponentTypePropertyDefinition} | undefined>;
     /**
      * An map of the property groups in the component type. Each property group's key must be unique to this map.
      */
-    public readonly propertyGroups!: pulumi.Output<{[key: string]: outputs.iottwinmaker.ComponentTypePropertyGroup} | undefined>;
+    declare public readonly propertyGroups: pulumi.Output<{[key: string]: outputs.iottwinmaker.ComponentTypePropertyGroup} | undefined>;
     /**
      * The current status of the component type.
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.iottwinmaker.ComponentTypeStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.iottwinmaker.ComponentTypeStatus>;
     /**
      * A map of key-value pairs to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The last date and time when the component type was updated.
      */
-    public /*out*/ readonly updateDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly updateDateTime: pulumi.Output<string>;
     /**
      * The ID of the workspace that contains the component type.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a ComponentType resource with the given unique name, arguments, and options.
@@ -113,22 +113,22 @@ export class ComponentType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.componentTypeId === undefined) && !opts.urn) {
+            if (args?.componentTypeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'componentTypeId'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["componentTypeId"] = args ? args.componentTypeId : undefined;
-            resourceInputs["compositeComponentTypes"] = args ? args.compositeComponentTypes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["extendsFrom"] = args ? args.extendsFrom : undefined;
-            resourceInputs["functions"] = args ? args.functions : undefined;
-            resourceInputs["isSingleton"] = args ? args.isSingleton : undefined;
-            resourceInputs["propertyDefinitions"] = args ? args.propertyDefinitions : undefined;
-            resourceInputs["propertyGroups"] = args ? args.propertyGroups : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["componentTypeId"] = args?.componentTypeId;
+            resourceInputs["compositeComponentTypes"] = args?.compositeComponentTypes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["extendsFrom"] = args?.extendsFrom;
+            resourceInputs["functions"] = args?.functions;
+            resourceInputs["isSingleton"] = args?.isSingleton;
+            resourceInputs["propertyDefinitions"] = args?.propertyDefinitions;
+            resourceInputs["propertyGroups"] = args?.propertyGroups;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDateTime"] = undefined /*out*/;
             resourceInputs["isAbstract"] = undefined /*out*/;

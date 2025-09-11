@@ -102,11 +102,11 @@ export class NotificationChannel extends pulumi.CustomResource {
     /**
      * The ID of a notification channel.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A `NotificationChannelConfig` object that contains information about configured notification channels.
      */
-    public readonly config!: pulumi.Output<outputs.devopsguru.NotificationChannelConfig>;
+    declare public readonly config: pulumi.Output<outputs.devopsguru.NotificationChannelConfig>;
 
     /**
      * Create a NotificationChannel resource with the given unique name, arguments, and options.
@@ -119,10 +119,10 @@ export class NotificationChannel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.config === undefined) && !opts.urn) {
+            if (args?.config === undefined && !opts.urn) {
                 throw new Error("Missing required property 'config'");
             }
-            resourceInputs["config"] = args ? args.config : undefined;
+            resourceInputs["config"] = args?.config;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

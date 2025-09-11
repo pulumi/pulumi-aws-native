@@ -40,43 +40,43 @@ export class Account extends pulumi.CustomResource {
     /**
      * If the account was created successfully, the unique identifier (ID) of the new account.
      */
-    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
     /**
      * The friendly name of the member account.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    declare public readonly accountName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the account.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The email address of the owner to assign to the new member account.
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * The method by which the account joined the organization.
      */
-    public /*out*/ readonly joinedMethod!: pulumi.Output<enums.organizations.AccountJoinedMethod>;
+    declare public /*out*/ readonly joinedMethod: pulumi.Output<enums.organizations.AccountJoinedMethod>;
     /**
      * The date the account became a part of the organization.
      */
-    public /*out*/ readonly joinedTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly joinedTimestamp: pulumi.Output<string>;
     /**
      * List of parent nodes for the member account. Currently only one parent at a time is supported. Default is root.
      */
-    public readonly parentIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly parentIds: pulumi.Output<string[] | undefined>;
     /**
      * The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified.
      */
-    public readonly roleName!: pulumi.Output<string | undefined>;
+    declare public readonly roleName: pulumi.Output<string | undefined>;
     /**
      * The status of the account in the organization.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.organizations.AccountStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.organizations.AccountStatus>;
     /**
      * A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -89,14 +89,14 @@ export class Account extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["parentIds"] = args ? args.parentIds : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["parentIds"] = args?.parentIds;
+            resourceInputs["roleName"] = args?.roleName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["joinedMethod"] = undefined /*out*/;

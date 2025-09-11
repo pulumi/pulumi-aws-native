@@ -40,23 +40,23 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the specified Access Grants location.
      */
-    public /*out*/ readonly accessGrantsLocationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessGrantsLocationArn: pulumi.Output<string>;
     /**
      * The unique identifier for the specified Access Grants location.
      */
-    public /*out*/ readonly accessGrantsLocationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessGrantsLocationId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
      */
-    public readonly iamRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly iamRoleArn: pulumi.Output<string | undefined>;
     /**
      * Descriptor for where the location actually points
      */
-    public readonly locationScope!: pulumi.Output<string | undefined>;
+    declare public readonly locationScope: pulumi.Output<string | undefined>;
     /**
      * The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a AccessGrantsLocation resource with the given unique name, arguments, and options.
@@ -69,9 +69,9 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            resourceInputs["locationScope"] = args ? args.locationScope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
+            resourceInputs["locationScope"] = args?.locationScope;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accessGrantsLocationArn"] = undefined /*out*/;
             resourceInputs["accessGrantsLocationId"] = undefined /*out*/;
         } else {
