@@ -29,10 +29,10 @@ const rpa1 = new awsClassic.iam.RolePolicyAttachment("lambdaRolePolicyAttachment
 
 const rpa2 = new awsClassic.iam.RolePolicyAttachment("lambdaRolePolicyAttachment2", {
     role: lambdaRole.name,
-    policyArn: awsClassic.iam.ManagedPolicies.AWSLambdaBasicExecutionRole,
+    policyArn: awsClassic.iam.ManagedPolicy.AWSLambdaBasicExecutionRole,
 });
 
-const bucket = new awsClassic.s3.BucketV2('custom-resource-emulator', {
+const bucket = new awsClassic.s3.Bucket('custom-resource-emulator', {
     forceDestroy: true,
 });
 
