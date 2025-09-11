@@ -60,7 +60,7 @@ class BucketArgs:
                  If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
         :param pulumi.Input['BucketCorsConfigurationArgs'] cors_configuration: Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationArgs']]] intelligent_tiering_configurations: Defines how Amazon S3 handles Intelligent-Tiering storage.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketInventoryConfigurationArgs']]] inventory_configurations: Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketInventoryConfigurationArgs']]] inventory_configurations: Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
         :param pulumi.Input['BucketLifecycleConfigurationArgs'] lifecycle_configuration: Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input['BucketLoggingConfigurationArgs'] logging_configuration: Settings that define where logs are stored.
         :param pulumi.Input['BucketMetadataConfigurationArgs'] metadata_configuration: The S3 Metadata configuration for a general purpose bucket.
@@ -72,8 +72,6 @@ class BucketArgs:
                   +  The ``DefaultRetention`` settings require both a mode and a period.
                  +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
                  +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
-                 
-                  You must URL encode any signed header values that contain spaces. For example, if your header value is ``my file.txt``, containing two spaces after ``my``, you must URL encode this value to ``my%20%20file.txt``.
         :param pulumi.Input[builtins.bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
         :param pulumi.Input['BucketOwnershipControlsArgs'] ownership_controls: Configuration that defines how Amazon S3 handles Object Ownership rules.
         :param pulumi.Input['BucketPublicAccessBlockConfigurationArgs'] public_access_block_configuration: Configuration that defines how Amazon S3 handles public access.
@@ -221,7 +219,7 @@ class BucketArgs:
     @pulumi.getter(name="inventoryConfigurations")
     def inventory_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketInventoryConfigurationArgs']]]]:
         """
-        Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+        Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
         """
         return pulumi.get(self, "inventory_configurations")
 
@@ -310,8 +308,6 @@ class BucketArgs:
            +  The ``DefaultRetention`` settings require both a mode and a period.
           +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
           +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
-          
-           You must URL encode any signed header values that contain spaces. For example, if your header value is ``my file.txt``, containing two spaces after ``my``, you must URL encode this value to ``my%20%20file.txt``.
         """
         return pulumi.get(self, "object_lock_configuration")
 
@@ -938,7 +934,7 @@ class Bucket(pulumi.CustomResource):
                  If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
         :param pulumi.Input[Union['BucketCorsConfigurationArgs', 'BucketCorsConfigurationArgsDict']] cors_configuration: Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationArgs', 'BucketIntelligentTieringConfigurationArgsDict']]]] intelligent_tiering_configurations: Defines how Amazon S3 handles Intelligent-Tiering storage.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketInventoryConfigurationArgs', 'BucketInventoryConfigurationArgsDict']]]] inventory_configurations: Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketInventoryConfigurationArgs', 'BucketInventoryConfigurationArgsDict']]]] inventory_configurations: Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
         :param pulumi.Input[Union['BucketLifecycleConfigurationArgs', 'BucketLifecycleConfigurationArgsDict']] lifecycle_configuration: Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input[Union['BucketLoggingConfigurationArgs', 'BucketLoggingConfigurationArgsDict']] logging_configuration: Settings that define where logs are stored.
         :param pulumi.Input[Union['BucketMetadataConfigurationArgs', 'BucketMetadataConfigurationArgsDict']] metadata_configuration: The S3 Metadata configuration for a general purpose bucket.
@@ -950,8 +946,6 @@ class Bucket(pulumi.CustomResource):
                   +  The ``DefaultRetention`` settings require both a mode and a period.
                  +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
                  +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
-                 
-                  You must URL encode any signed header values that contain spaces. For example, if your header value is ``my file.txt``, containing two spaces after ``my``, you must URL encode this value to ``my%20%20file.txt``.
         :param pulumi.Input[builtins.bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
         :param pulumi.Input[Union['BucketOwnershipControlsArgs', 'BucketOwnershipControlsArgsDict']] ownership_controls: Configuration that defines how Amazon S3 handles Object Ownership rules.
         :param pulumi.Input[Union['BucketPublicAccessBlockConfigurationArgs', 'BucketPublicAccessBlockConfigurationArgsDict']] public_access_block_configuration: Configuration that defines how Amazon S3 handles public access.
@@ -1680,7 +1674,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="inventoryConfigurations")
     def inventory_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.BucketInventoryConfiguration']]]:
         """
-        Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+        Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
         """
         return pulumi.get(self, "inventory_configurations")
 
@@ -1741,8 +1735,6 @@ class Bucket(pulumi.CustomResource):
            +  The ``DefaultRetention`` settings require both a mode and a period.
           +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
           +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
-          
-           You must URL encode any signed header values that contain spaces. For example, if your header value is ``my file.txt``, containing two spaces after ``my``, you must URL encode this value to ``my%20%20file.txt``.
         """
         return pulumi.get(self, "object_lock_configuration")
 

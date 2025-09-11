@@ -30,6 +30,12 @@ namespace Pulumi.AwsNative.Omics
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains information about a source code repository that hosts the workflow definition files.
+        /// </summary>
+        [Output("definitionRepository")]
+        public Output<Outputs.WorkflowVersionDefinitionRepository?> DefinitionRepository { get; private set; } = null!;
+
         [Output("definitionUri")]
         public Output<string?> DefinitionUri { get; private set; } = null!;
 
@@ -47,6 +53,30 @@ namespace Pulumi.AwsNative.Omics
 
         [Output("parameterTemplate")]
         public Output<ImmutableDictionary<string, Outputs.WorkflowVersionWorkflowParameter>?> ParameterTemplate { get; private set; } = null!;
+
+        /// <summary>
+        /// Path to the primary workflow parameter template JSON file inside the repository
+        /// </summary>
+        [Output("parameterTemplatePath")]
+        public Output<string?> ParameterTemplatePath { get; private set; } = null!;
+
+        /// <summary>
+        /// The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+        /// </summary>
+        [Output("readmeMarkdown")]
+        public Output<string?> ReadmeMarkdown { get; private set; } = null!;
+
+        /// <summary>
+        /// The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
+        /// </summary>
+        [Output("readmePath")]
+        public Output<string?> ReadmePath { get; private set; } = null!;
+
+        /// <summary>
+        /// The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
+        /// </summary>
+        [Output("readmeUri")]
+        public Output<string?> ReadmeUri { get; private set; } = null!;
 
         /// <summary>
         /// The status of the workflow version.
@@ -113,10 +143,14 @@ namespace Pulumi.AwsNative.Omics
                 ReplaceOnChanges =
                 {
                     "accelerators",
+                    "definitionRepository",
                     "definitionUri",
                     "engine",
                     "main",
                     "parameterTemplate.*",
+                    "parameterTemplatePath",
+                    "readmePath",
+                    "readmeUri",
                     "versionName",
                     "workflowBucketOwnerId",
                     "workflowId",
@@ -146,6 +180,12 @@ namespace Pulumi.AwsNative.Omics
         [Input("accelerators")]
         public Input<Pulumi.AwsNative.Omics.WorkflowVersionAccelerators>? Accelerators { get; set; }
 
+        /// <summary>
+        /// Contains information about a source code repository that hosts the workflow definition files.
+        /// </summary>
+        [Input("definitionRepository")]
+        public Input<Inputs.WorkflowVersionDefinitionRepositoryArgs>? DefinitionRepository { get; set; }
+
         [Input("definitionUri")]
         public Input<string>? DefinitionUri { get; set; }
 
@@ -168,6 +208,30 @@ namespace Pulumi.AwsNative.Omics
             get => _parameterTemplate ?? (_parameterTemplate = new InputMap<Inputs.WorkflowVersionWorkflowParameterArgs>());
             set => _parameterTemplate = value;
         }
+
+        /// <summary>
+        /// Path to the primary workflow parameter template JSON file inside the repository
+        /// </summary>
+        [Input("parameterTemplatePath")]
+        public Input<string>? ParameterTemplatePath { get; set; }
+
+        /// <summary>
+        /// The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+        /// </summary>
+        [Input("readmeMarkdown")]
+        public Input<string>? ReadmeMarkdown { get; set; }
+
+        /// <summary>
+        /// The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
+        /// </summary>
+        [Input("readmePath")]
+        public Input<string>? ReadmePath { get; set; }
+
+        /// <summary>
+        /// The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
+        /// </summary>
+        [Input("readmeUri")]
+        public Input<string>? ReadmeUri { get; set; }
 
         [Input("storageCapacity")]
         public Input<double>? StorageCapacity { get; set; }

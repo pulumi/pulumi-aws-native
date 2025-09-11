@@ -24,10 +24,10 @@ __all__ = [
     'RecordingConfigurationS3DestinationConfiguration',
     'RecordingConfigurationThumbnailConfiguration',
     'StageAutoParticipantRecordingConfiguration',
-    'StageAutoParticipantRecordingConfigurationHlsConfigurationProperties',
-    'StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties',
-    'StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties',
-    'StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties',
+    'StageHlsConfiguration',
+    'StageParticipantRecordingHlsConfiguration',
+    'StageThumbnailConfiguration',
+    'StageThumbnailConfigurationParticipantThumbnailConfigurationProperties',
     'StorageConfigurationS3StorageConfiguration',
     'VideoProperties',
 ]
@@ -316,17 +316,17 @@ class StageAutoParticipantRecordingConfiguration(dict):
 
     def __init__(__self__, *,
                  storage_configuration_arn: builtins.str,
-                 hls_configuration: Optional['outputs.StageAutoParticipantRecordingConfigurationHlsConfigurationProperties'] = None,
+                 hls_configuration: Optional['outputs.StageHlsConfiguration'] = None,
                  media_types: Optional[Sequence['StageAutoParticipantRecordingConfigurationMediaTypesItem']] = None,
                  recording_reconnect_window_seconds: Optional[builtins.int] = None,
-                 thumbnail_configuration: Optional['outputs.StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties'] = None):
+                 thumbnail_configuration: Optional['outputs.StageThumbnailConfiguration'] = None):
         """
         Configuration object for individual participant recording, to attach to the new stage.
         :param builtins.str storage_configuration_arn: ARN of the StorageConfiguration resource to use for individual participant recording.
-        :param 'StageAutoParticipantRecordingConfigurationHlsConfigurationProperties' hls_configuration: HLS configuration object for individual participant recording.
+        :param 'StageHlsConfiguration' hls_configuration: HLS configuration object for individual participant recording.
         :param Sequence['StageAutoParticipantRecordingConfigurationMediaTypesItem'] media_types: Types of media to be recorded. Default: AUDIO_VIDEO.
         :param builtins.int recording_reconnect_window_seconds: If a stage publisher disconnects and then reconnects within the specified interval, the multiple recordings will be considered a single recording and merged together. The default value is 0, which disables merging.
-        :param 'StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties' thumbnail_configuration: A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
+        :param 'StageThumbnailConfiguration' thumbnail_configuration: A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
         """
         pulumi.set(__self__, "storage_configuration_arn", storage_configuration_arn)
         if hls_configuration is not None:
@@ -348,7 +348,7 @@ class StageAutoParticipantRecordingConfiguration(dict):
 
     @property
     @pulumi.getter(name="hlsConfiguration")
-    def hls_configuration(self) -> Optional['outputs.StageAutoParticipantRecordingConfigurationHlsConfigurationProperties']:
+    def hls_configuration(self) -> Optional['outputs.StageHlsConfiguration']:
         """
         HLS configuration object for individual participant recording.
         """
@@ -372,7 +372,7 @@ class StageAutoParticipantRecordingConfiguration(dict):
 
     @property
     @pulumi.getter(name="thumbnailConfiguration")
-    def thumbnail_configuration(self) -> Optional['outputs.StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties']:
+    def thumbnail_configuration(self) -> Optional['outputs.StageThumbnailConfiguration']:
         """
         A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
         """
@@ -380,7 +380,7 @@ class StageAutoParticipantRecordingConfiguration(dict):
 
 
 @pulumi.output_type
-class StageAutoParticipantRecordingConfigurationHlsConfigurationProperties(dict):
+class StageHlsConfiguration(dict):
     """
     HLS configuration object for individual participant recording.
     """
@@ -391,36 +391,36 @@ class StageAutoParticipantRecordingConfigurationHlsConfigurationProperties(dict)
             suggest = "participant_recording_hls_configuration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StageAutoParticipantRecordingConfigurationHlsConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in StageHlsConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        StageAutoParticipantRecordingConfigurationHlsConfigurationProperties.__key_warning(key)
+        StageHlsConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        StageAutoParticipantRecordingConfigurationHlsConfigurationProperties.__key_warning(key)
+        StageHlsConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 participant_recording_hls_configuration: Optional['outputs.StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties'] = None):
+                 participant_recording_hls_configuration: Optional['outputs.StageParticipantRecordingHlsConfiguration'] = None):
         """
         HLS configuration object for individual participant recording.
-        :param 'StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties' participant_recording_hls_configuration: An object representing a configuration of participant HLS recordings for individual participant recording.
+        :param 'StageParticipantRecordingHlsConfiguration' participant_recording_hls_configuration: Object specifying a configuration of participant HLS recordings for individual participant recording.
         """
         if participant_recording_hls_configuration is not None:
             pulumi.set(__self__, "participant_recording_hls_configuration", participant_recording_hls_configuration)
 
     @property
     @pulumi.getter(name="participantRecordingHlsConfiguration")
-    def participant_recording_hls_configuration(self) -> Optional['outputs.StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties']:
+    def participant_recording_hls_configuration(self) -> Optional['outputs.StageParticipantRecordingHlsConfiguration']:
         """
-        An object representing a configuration of participant HLS recordings for individual participant recording.
+        Object specifying a configuration of participant HLS recordings for individual participant recording.
         """
         return pulumi.get(self, "participant_recording_hls_configuration")
 
 
 @pulumi.output_type
-class StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties(dict):
+class StageParticipantRecordingHlsConfiguration(dict):
     """
     An object representing a configuration of participant HLS recordings for individual participant recording.
     """
@@ -431,14 +431,14 @@ class StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPartic
             suggest = "target_segment_duration_seconds"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in StageParticipantRecordingHlsConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties.__key_warning(key)
+        StageParticipantRecordingHlsConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties.__key_warning(key)
+        StageParticipantRecordingHlsConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -460,7 +460,7 @@ class StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPartic
 
 
 @pulumi.output_type
-class StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties(dict):
+class StageThumbnailConfiguration(dict):
     """
     A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
     """
@@ -471,28 +471,28 @@ class StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties
             suggest = "participant_thumbnail_configuration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in StageThumbnailConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties.__key_warning(key)
+        StageThumbnailConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties.__key_warning(key)
+        StageThumbnailConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 participant_thumbnail_configuration: Optional['outputs.StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties'] = None):
+                 participant_thumbnail_configuration: Optional['outputs.StageThumbnailConfigurationParticipantThumbnailConfigurationProperties'] = None):
         """
         A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
-        :param 'StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties' participant_thumbnail_configuration: An object representing a configuration of thumbnails for recorded video from an individual participant.
+        :param 'StageThumbnailConfigurationParticipantThumbnailConfigurationProperties' participant_thumbnail_configuration: An object representing a configuration of thumbnails for recorded video from an individual participant.
         """
         if participant_thumbnail_configuration is not None:
             pulumi.set(__self__, "participant_thumbnail_configuration", participant_thumbnail_configuration)
 
     @property
     @pulumi.getter(name="participantThumbnailConfiguration")
-    def participant_thumbnail_configuration(self) -> Optional['outputs.StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties']:
+    def participant_thumbnail_configuration(self) -> Optional['outputs.StageThumbnailConfigurationParticipantThumbnailConfigurationProperties']:
         """
         An object representing a configuration of thumbnails for recorded video from an individual participant.
         """
@@ -500,7 +500,7 @@ class StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties
 
 
 @pulumi.output_type
-class StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties(dict):
+class StageThumbnailConfigurationParticipantThumbnailConfigurationProperties(dict):
     """
     An object representing a configuration of thumbnails for recorded video from an individual participant.
     """
@@ -513,24 +513,24 @@ class StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties
             suggest = "target_interval_seconds"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in StageThumbnailConfigurationParticipantThumbnailConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties.__key_warning(key)
+        StageThumbnailConfigurationParticipantThumbnailConfigurationProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties.__key_warning(key)
+        StageThumbnailConfigurationParticipantThumbnailConfigurationProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 recording_mode: Optional['StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode'] = None,
-                 storage: Optional[Sequence['StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem']] = None,
+                 recording_mode: Optional['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode'] = None,
+                 storage: Optional[Sequence['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem']] = None,
                  target_interval_seconds: Optional[builtins.int] = None):
         """
         An object representing a configuration of thumbnails for recorded video from an individual participant.
-        :param 'StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode' recording_mode: Thumbnail recording mode. Default: DISABLED.
-        :param Sequence['StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem'] storage: Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
+        :param 'StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode' recording_mode: Thumbnail recording mode. Default: DISABLED.
+        :param Sequence['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem'] storage: Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
         :param builtins.int target_interval_seconds: The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.
         """
         if recording_mode is not None:
@@ -542,7 +542,7 @@ class StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties
 
     @property
     @pulumi.getter(name="recordingMode")
-    def recording_mode(self) -> Optional['StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode']:
+    def recording_mode(self) -> Optional['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode']:
         """
         Thumbnail recording mode. Default: DISABLED.
         """
@@ -550,7 +550,7 @@ class StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties
 
     @property
     @pulumi.getter
-    def storage(self) -> Optional[Sequence['StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem']]:
+    def storage(self) -> Optional[Sequence['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem']]:
         """
         Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
         """

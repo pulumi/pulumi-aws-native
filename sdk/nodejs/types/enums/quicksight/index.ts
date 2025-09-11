@@ -1677,6 +1677,13 @@ export const DashboardPrimaryValueDisplayType = {
 
 export type DashboardPrimaryValueDisplayType = (typeof DashboardPrimaryValueDisplayType)[keyof typeof DashboardPrimaryValueDisplayType];
 
+export const DashboardQBusinessInsightsStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type DashboardQBusinessInsightsStatus = (typeof DashboardQBusinessInsightsStatus)[keyof typeof DashboardQBusinessInsightsStatus];
+
 export const DashboardRadarChartAxesRangeScale = {
     Auto: "AUTO",
     Independent: "INDEPENDENT",

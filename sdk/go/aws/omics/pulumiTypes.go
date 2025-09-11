@@ -1588,6 +1588,356 @@ func (o WorkflowSourceReferencePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkflowVersionDefinitionRepository struct {
+	// The Amazon Resource Name (ARN) of the connection to the source code repository.
+	ConnectionArn *string `pulumi:"connectionArn"`
+	// A list of file patterns to exclude when retrieving the workflow definition from the repository.
+	ExcludeFilePatterns []string `pulumi:"excludeFilePatterns"`
+	// The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
+	FullRepositoryId *string `pulumi:"fullRepositoryId"`
+	// The source reference for the repository, such as a branch name, tag, or commit ID.
+	SourceReference *WorkflowVersionSourceReference `pulumi:"sourceReference"`
+}
+
+// WorkflowVersionDefinitionRepositoryInput is an input type that accepts WorkflowVersionDefinitionRepositoryArgs and WorkflowVersionDefinitionRepositoryOutput values.
+// You can construct a concrete instance of `WorkflowVersionDefinitionRepositoryInput` via:
+//
+//	WorkflowVersionDefinitionRepositoryArgs{...}
+type WorkflowVersionDefinitionRepositoryInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionDefinitionRepositoryOutput() WorkflowVersionDefinitionRepositoryOutput
+	ToWorkflowVersionDefinitionRepositoryOutputWithContext(context.Context) WorkflowVersionDefinitionRepositoryOutput
+}
+
+type WorkflowVersionDefinitionRepositoryArgs struct {
+	// The Amazon Resource Name (ARN) of the connection to the source code repository.
+	ConnectionArn pulumi.StringPtrInput `pulumi:"connectionArn"`
+	// A list of file patterns to exclude when retrieving the workflow definition from the repository.
+	ExcludeFilePatterns pulumi.StringArrayInput `pulumi:"excludeFilePatterns"`
+	// The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
+	FullRepositoryId pulumi.StringPtrInput `pulumi:"fullRepositoryId"`
+	// The source reference for the repository, such as a branch name, tag, or commit ID.
+	SourceReference WorkflowVersionSourceReferencePtrInput `pulumi:"sourceReference"`
+}
+
+func (WorkflowVersionDefinitionRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionDefinitionRepository)(nil)).Elem()
+}
+
+func (i WorkflowVersionDefinitionRepositoryArgs) ToWorkflowVersionDefinitionRepositoryOutput() WorkflowVersionDefinitionRepositoryOutput {
+	return i.ToWorkflowVersionDefinitionRepositoryOutputWithContext(context.Background())
+}
+
+func (i WorkflowVersionDefinitionRepositoryArgs) ToWorkflowVersionDefinitionRepositoryOutputWithContext(ctx context.Context) WorkflowVersionDefinitionRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowVersionDefinitionRepositoryOutput)
+}
+
+func (i WorkflowVersionDefinitionRepositoryArgs) ToWorkflowVersionDefinitionRepositoryPtrOutput() WorkflowVersionDefinitionRepositoryPtrOutput {
+	return i.ToWorkflowVersionDefinitionRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowVersionDefinitionRepositoryArgs) ToWorkflowVersionDefinitionRepositoryPtrOutputWithContext(ctx context.Context) WorkflowVersionDefinitionRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowVersionDefinitionRepositoryOutput).ToWorkflowVersionDefinitionRepositoryPtrOutputWithContext(ctx)
+}
+
+// WorkflowVersionDefinitionRepositoryPtrInput is an input type that accepts WorkflowVersionDefinitionRepositoryArgs, WorkflowVersionDefinitionRepositoryPtr and WorkflowVersionDefinitionRepositoryPtrOutput values.
+// You can construct a concrete instance of `WorkflowVersionDefinitionRepositoryPtrInput` via:
+//
+//	        WorkflowVersionDefinitionRepositoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowVersionDefinitionRepositoryPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionDefinitionRepositoryPtrOutput() WorkflowVersionDefinitionRepositoryPtrOutput
+	ToWorkflowVersionDefinitionRepositoryPtrOutputWithContext(context.Context) WorkflowVersionDefinitionRepositoryPtrOutput
+}
+
+type workflowVersionDefinitionRepositoryPtrType WorkflowVersionDefinitionRepositoryArgs
+
+func WorkflowVersionDefinitionRepositoryPtr(v *WorkflowVersionDefinitionRepositoryArgs) WorkflowVersionDefinitionRepositoryPtrInput {
+	return (*workflowVersionDefinitionRepositoryPtrType)(v)
+}
+
+func (*workflowVersionDefinitionRepositoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowVersionDefinitionRepository)(nil)).Elem()
+}
+
+func (i *workflowVersionDefinitionRepositoryPtrType) ToWorkflowVersionDefinitionRepositoryPtrOutput() WorkflowVersionDefinitionRepositoryPtrOutput {
+	return i.ToWorkflowVersionDefinitionRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowVersionDefinitionRepositoryPtrType) ToWorkflowVersionDefinitionRepositoryPtrOutputWithContext(ctx context.Context) WorkflowVersionDefinitionRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowVersionDefinitionRepositoryPtrOutput)
+}
+
+type WorkflowVersionDefinitionRepositoryOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionDefinitionRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionDefinitionRepository)(nil)).Elem()
+}
+
+func (o WorkflowVersionDefinitionRepositoryOutput) ToWorkflowVersionDefinitionRepositoryOutput() WorkflowVersionDefinitionRepositoryOutput {
+	return o
+}
+
+func (o WorkflowVersionDefinitionRepositoryOutput) ToWorkflowVersionDefinitionRepositoryOutputWithContext(ctx context.Context) WorkflowVersionDefinitionRepositoryOutput {
+	return o
+}
+
+func (o WorkflowVersionDefinitionRepositoryOutput) ToWorkflowVersionDefinitionRepositoryPtrOutput() WorkflowVersionDefinitionRepositoryPtrOutput {
+	return o.ToWorkflowVersionDefinitionRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionDefinitionRepositoryOutput) ToWorkflowVersionDefinitionRepositoryPtrOutputWithContext(ctx context.Context) WorkflowVersionDefinitionRepositoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowVersionDefinitionRepository) *WorkflowVersionDefinitionRepository {
+		return &v
+	}).(WorkflowVersionDefinitionRepositoryPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the connection to the source code repository.
+func (o WorkflowVersionDefinitionRepositoryOutput) ConnectionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowVersionDefinitionRepository) *string { return v.ConnectionArn }).(pulumi.StringPtrOutput)
+}
+
+// A list of file patterns to exclude when retrieving the workflow definition from the repository.
+func (o WorkflowVersionDefinitionRepositoryOutput) ExcludeFilePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkflowVersionDefinitionRepository) []string { return v.ExcludeFilePatterns }).(pulumi.StringArrayOutput)
+}
+
+// The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
+func (o WorkflowVersionDefinitionRepositoryOutput) FullRepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowVersionDefinitionRepository) *string { return v.FullRepositoryId }).(pulumi.StringPtrOutput)
+}
+
+// The source reference for the repository, such as a branch name, tag, or commit ID.
+func (o WorkflowVersionDefinitionRepositoryOutput) SourceReference() WorkflowVersionSourceReferencePtrOutput {
+	return o.ApplyT(func(v WorkflowVersionDefinitionRepository) *WorkflowVersionSourceReference { return v.SourceReference }).(WorkflowVersionSourceReferencePtrOutput)
+}
+
+type WorkflowVersionDefinitionRepositoryPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionDefinitionRepositoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowVersionDefinitionRepository)(nil)).Elem()
+}
+
+func (o WorkflowVersionDefinitionRepositoryPtrOutput) ToWorkflowVersionDefinitionRepositoryPtrOutput() WorkflowVersionDefinitionRepositoryPtrOutput {
+	return o
+}
+
+func (o WorkflowVersionDefinitionRepositoryPtrOutput) ToWorkflowVersionDefinitionRepositoryPtrOutputWithContext(ctx context.Context) WorkflowVersionDefinitionRepositoryPtrOutput {
+	return o
+}
+
+func (o WorkflowVersionDefinitionRepositoryPtrOutput) Elem() WorkflowVersionDefinitionRepositoryOutput {
+	return o.ApplyT(func(v *WorkflowVersionDefinitionRepository) WorkflowVersionDefinitionRepository {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowVersionDefinitionRepository
+		return ret
+	}).(WorkflowVersionDefinitionRepositoryOutput)
+}
+
+// The Amazon Resource Name (ARN) of the connection to the source code repository.
+func (o WorkflowVersionDefinitionRepositoryPtrOutput) ConnectionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowVersionDefinitionRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of file patterns to exclude when retrieving the workflow definition from the repository.
+func (o WorkflowVersionDefinitionRepositoryPtrOutput) ExcludeFilePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkflowVersionDefinitionRepository) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeFilePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
+func (o WorkflowVersionDefinitionRepositoryPtrOutput) FullRepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowVersionDefinitionRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FullRepositoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source reference for the repository, such as a branch name, tag, or commit ID.
+func (o WorkflowVersionDefinitionRepositoryPtrOutput) SourceReference() WorkflowVersionSourceReferencePtrOutput {
+	return o.ApplyT(func(v *WorkflowVersionDefinitionRepository) *WorkflowVersionSourceReference {
+		if v == nil {
+			return nil
+		}
+		return v.SourceReference
+	}).(WorkflowVersionSourceReferencePtrOutput)
+}
+
+type WorkflowVersionSourceReference struct {
+	// The type of source reference, such as branch, tag, or commit.
+	Type *WorkflowVersionSourceReferencetype `pulumi:"type"`
+	// The value of the source reference, such as the branch name, tag name, or commit ID.
+	Value *string `pulumi:"value"`
+}
+
+// WorkflowVersionSourceReferenceInput is an input type that accepts WorkflowVersionSourceReferenceArgs and WorkflowVersionSourceReferenceOutput values.
+// You can construct a concrete instance of `WorkflowVersionSourceReferenceInput` via:
+//
+//	WorkflowVersionSourceReferenceArgs{...}
+type WorkflowVersionSourceReferenceInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionSourceReferenceOutput() WorkflowVersionSourceReferenceOutput
+	ToWorkflowVersionSourceReferenceOutputWithContext(context.Context) WorkflowVersionSourceReferenceOutput
+}
+
+type WorkflowVersionSourceReferenceArgs struct {
+	// The type of source reference, such as branch, tag, or commit.
+	Type WorkflowVersionSourceReferencetypePtrInput `pulumi:"type"`
+	// The value of the source reference, such as the branch name, tag name, or commit ID.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (WorkflowVersionSourceReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionSourceReference)(nil)).Elem()
+}
+
+func (i WorkflowVersionSourceReferenceArgs) ToWorkflowVersionSourceReferenceOutput() WorkflowVersionSourceReferenceOutput {
+	return i.ToWorkflowVersionSourceReferenceOutputWithContext(context.Background())
+}
+
+func (i WorkflowVersionSourceReferenceArgs) ToWorkflowVersionSourceReferenceOutputWithContext(ctx context.Context) WorkflowVersionSourceReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowVersionSourceReferenceOutput)
+}
+
+func (i WorkflowVersionSourceReferenceArgs) ToWorkflowVersionSourceReferencePtrOutput() WorkflowVersionSourceReferencePtrOutput {
+	return i.ToWorkflowVersionSourceReferencePtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowVersionSourceReferenceArgs) ToWorkflowVersionSourceReferencePtrOutputWithContext(ctx context.Context) WorkflowVersionSourceReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowVersionSourceReferenceOutput).ToWorkflowVersionSourceReferencePtrOutputWithContext(ctx)
+}
+
+// WorkflowVersionSourceReferencePtrInput is an input type that accepts WorkflowVersionSourceReferenceArgs, WorkflowVersionSourceReferencePtr and WorkflowVersionSourceReferencePtrOutput values.
+// You can construct a concrete instance of `WorkflowVersionSourceReferencePtrInput` via:
+//
+//	        WorkflowVersionSourceReferenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowVersionSourceReferencePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionSourceReferencePtrOutput() WorkflowVersionSourceReferencePtrOutput
+	ToWorkflowVersionSourceReferencePtrOutputWithContext(context.Context) WorkflowVersionSourceReferencePtrOutput
+}
+
+type workflowVersionSourceReferencePtrType WorkflowVersionSourceReferenceArgs
+
+func WorkflowVersionSourceReferencePtr(v *WorkflowVersionSourceReferenceArgs) WorkflowVersionSourceReferencePtrInput {
+	return (*workflowVersionSourceReferencePtrType)(v)
+}
+
+func (*workflowVersionSourceReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowVersionSourceReference)(nil)).Elem()
+}
+
+func (i *workflowVersionSourceReferencePtrType) ToWorkflowVersionSourceReferencePtrOutput() WorkflowVersionSourceReferencePtrOutput {
+	return i.ToWorkflowVersionSourceReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *workflowVersionSourceReferencePtrType) ToWorkflowVersionSourceReferencePtrOutputWithContext(ctx context.Context) WorkflowVersionSourceReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowVersionSourceReferencePtrOutput)
+}
+
+type WorkflowVersionSourceReferenceOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionSourceReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionSourceReference)(nil)).Elem()
+}
+
+func (o WorkflowVersionSourceReferenceOutput) ToWorkflowVersionSourceReferenceOutput() WorkflowVersionSourceReferenceOutput {
+	return o
+}
+
+func (o WorkflowVersionSourceReferenceOutput) ToWorkflowVersionSourceReferenceOutputWithContext(ctx context.Context) WorkflowVersionSourceReferenceOutput {
+	return o
+}
+
+func (o WorkflowVersionSourceReferenceOutput) ToWorkflowVersionSourceReferencePtrOutput() WorkflowVersionSourceReferencePtrOutput {
+	return o.ToWorkflowVersionSourceReferencePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionSourceReferenceOutput) ToWorkflowVersionSourceReferencePtrOutputWithContext(ctx context.Context) WorkflowVersionSourceReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowVersionSourceReference) *WorkflowVersionSourceReference {
+		return &v
+	}).(WorkflowVersionSourceReferencePtrOutput)
+}
+
+// The type of source reference, such as branch, tag, or commit.
+func (o WorkflowVersionSourceReferenceOutput) Type() WorkflowVersionSourceReferencetypePtrOutput {
+	return o.ApplyT(func(v WorkflowVersionSourceReference) *WorkflowVersionSourceReferencetype { return v.Type }).(WorkflowVersionSourceReferencetypePtrOutput)
+}
+
+// The value of the source reference, such as the branch name, tag name, or commit ID.
+func (o WorkflowVersionSourceReferenceOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowVersionSourceReference) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowVersionSourceReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionSourceReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowVersionSourceReference)(nil)).Elem()
+}
+
+func (o WorkflowVersionSourceReferencePtrOutput) ToWorkflowVersionSourceReferencePtrOutput() WorkflowVersionSourceReferencePtrOutput {
+	return o
+}
+
+func (o WorkflowVersionSourceReferencePtrOutput) ToWorkflowVersionSourceReferencePtrOutputWithContext(ctx context.Context) WorkflowVersionSourceReferencePtrOutput {
+	return o
+}
+
+func (o WorkflowVersionSourceReferencePtrOutput) Elem() WorkflowVersionSourceReferenceOutput {
+	return o.ApplyT(func(v *WorkflowVersionSourceReference) WorkflowVersionSourceReference {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowVersionSourceReference
+		return ret
+	}).(WorkflowVersionSourceReferenceOutput)
+}
+
+// The type of source reference, such as branch, tag, or commit.
+func (o WorkflowVersionSourceReferencePtrOutput) Type() WorkflowVersionSourceReferencetypePtrOutput {
+	return o.ApplyT(func(v *WorkflowVersionSourceReference) *WorkflowVersionSourceReferencetype {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(WorkflowVersionSourceReferencetypePtrOutput)
+}
+
+// The value of the source reference, such as the branch name, tag name, or commit ID.
+func (o WorkflowVersionSourceReferencePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowVersionSourceReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkflowVersionWorkflowParameter struct {
 	// The parameter's description.
 	Description *string `pulumi:"description"`
@@ -1761,6 +2111,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowParameterMapInput)(nil)).Elem(), WorkflowParameterMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowSourceReferenceInput)(nil)).Elem(), WorkflowSourceReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowSourceReferencePtrInput)(nil)).Elem(), WorkflowSourceReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionDefinitionRepositoryInput)(nil)).Elem(), WorkflowVersionDefinitionRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionDefinitionRepositoryPtrInput)(nil)).Elem(), WorkflowVersionDefinitionRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionSourceReferenceInput)(nil)).Elem(), WorkflowVersionSourceReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionSourceReferencePtrInput)(nil)).Elem(), WorkflowVersionSourceReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionWorkflowParameterInput)(nil)).Elem(), WorkflowVersionWorkflowParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionWorkflowParameterMapInput)(nil)).Elem(), WorkflowVersionWorkflowParameterMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreSchemaValueTypeMapArrayInput)(nil)).Elem(), AnnotationStoreSchemaValueTypeMapArray{})
@@ -1785,6 +2139,10 @@ func init() {
 	pulumi.RegisterOutputType(WorkflowParameterMapOutput{})
 	pulumi.RegisterOutputType(WorkflowSourceReferenceOutput{})
 	pulumi.RegisterOutputType(WorkflowSourceReferencePtrOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionDefinitionRepositoryOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionDefinitionRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionSourceReferenceOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionSourceReferencePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowVersionWorkflowParameterOutput{})
 	pulumi.RegisterOutputType(WorkflowVersionWorkflowParameterMapOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreSchemaValueTypeMapArrayOutput{})

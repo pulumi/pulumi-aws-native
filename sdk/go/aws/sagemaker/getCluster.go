@@ -29,8 +29,11 @@ type LookupClusterArgs struct {
 }
 
 type LookupClusterResult struct {
+	AutoScaling *ClusterAutoScalingConfig `pulumi:"autoScaling"`
 	// The Amazon Resource Name (ARN) of the HyperPod Cluster.
 	ClusterArn *string `pulumi:"clusterArn"`
+	// The cluster role for the autoscaler to assume.
+	ClusterRole *string `pulumi:"clusterRole"`
 	// The status of the HyperPod Cluster.
 	ClusterStatus *ClusterStatus `pulumi:"clusterStatus"`
 	// The time at which the HyperPod cluster was created.
@@ -80,9 +83,18 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
+func (o LookupClusterResultOutput) AutoScaling() ClusterAutoScalingConfigPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterAutoScalingConfig { return v.AutoScaling }).(ClusterAutoScalingConfigPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the HyperPod Cluster.
 func (o LookupClusterResultOutput) ClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterArn }).(pulumi.StringPtrOutput)
+}
+
+// The cluster role for the autoscaler to assume.
+func (o LookupClusterResultOutput) ClusterRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterRole }).(pulumi.StringPtrOutput)
 }
 
 // The status of the HyperPod Cluster.

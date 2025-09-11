@@ -13,6 +13,195 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DashboardSectionBasedLayoutPaperCanvasSizeOptions struct {
+	// Defines the spacing between the canvas content and the top, bottom, left, and right edges.
+	PaperMargin *DashboardSpacing `pulumi:"paperMargin"`
+	// The paper orientation that is used to define canvas dimensions. Choose one of the following options:
+	//
+	// - PORTRAIT
+	// - LANDSCAPE
+	PaperOrientation *DashboardPaperOrientation `pulumi:"paperOrientation"`
+	// The paper size that is used to define canvas dimensions.
+	PaperSize *DashboardPaperSize `pulumi:"paperSize"`
+}
+
+// DashboardSectionBasedLayoutPaperCanvasSizeOptionsInput is an input type that accepts DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs and DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput values.
+// You can construct a concrete instance of `DashboardSectionBasedLayoutPaperCanvasSizeOptionsInput` via:
+//
+//	DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs{...}
+type DashboardSectionBasedLayoutPaperCanvasSizeOptionsInput interface {
+	pulumi.Input
+
+	ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput() DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput
+	ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsOutputWithContext(context.Context) DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput
+}
+
+type DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs struct {
+	// Defines the spacing between the canvas content and the top, bottom, left, and right edges.
+	PaperMargin DashboardSpacingPtrInput `pulumi:"paperMargin"`
+	// The paper orientation that is used to define canvas dimensions. Choose one of the following options:
+	//
+	// - PORTRAIT
+	// - LANDSCAPE
+	PaperOrientation DashboardPaperOrientationPtrInput `pulumi:"paperOrientation"`
+	// The paper size that is used to define canvas dimensions.
+	PaperSize DashboardPaperSizePtrInput `pulumi:"paperSize"`
+}
+
+func (DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSectionBasedLayoutPaperCanvasSizeOptions)(nil)).Elem()
+}
+
+func (i DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs) ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput() DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput {
+	return i.ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsOutputWithContext(context.Background())
+}
+
+func (i DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs) ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsOutputWithContext(ctx context.Context) DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput)
+}
+
+func (i DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs) ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput() DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput {
+	return i.ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs) ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutputWithContext(ctx context.Context) DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput).ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutputWithContext(ctx)
+}
+
+// DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrInput is an input type that accepts DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs, DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtr and DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput values.
+// You can construct a concrete instance of `DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrInput` via:
+//
+//	        DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput() DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput
+	ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutputWithContext(context.Context) DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput
+}
+
+type dashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrType DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs
+
+func DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtr(v *DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs) DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrInput {
+	return (*dashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrType)(v)
+}
+
+func (*dashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSectionBasedLayoutPaperCanvasSizeOptions)(nil)).Elem()
+}
+
+func (i *dashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrType) ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput() DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput {
+	return i.ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrType) ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutputWithContext(ctx context.Context) DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput)
+}
+
+type DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput struct{ *pulumi.OutputState }
+
+func (DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSectionBasedLayoutPaperCanvasSizeOptions)(nil)).Elem()
+}
+
+func (o DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput) ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput() DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput {
+	return o
+}
+
+func (o DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput) ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsOutputWithContext(ctx context.Context) DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput {
+	return o
+}
+
+func (o DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput) ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput() DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput {
+	return o.ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput) ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutputWithContext(ctx context.Context) DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardSectionBasedLayoutPaperCanvasSizeOptions) *DashboardSectionBasedLayoutPaperCanvasSizeOptions {
+		return &v
+	}).(DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput)
+}
+
+// Defines the spacing between the canvas content and the top, bottom, left, and right edges.
+func (o DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput) PaperMargin() DashboardSpacingPtrOutput {
+	return o.ApplyT(func(v DashboardSectionBasedLayoutPaperCanvasSizeOptions) *DashboardSpacing { return v.PaperMargin }).(DashboardSpacingPtrOutput)
+}
+
+// The paper orientation that is used to define canvas dimensions. Choose one of the following options:
+//
+// - PORTRAIT
+// - LANDSCAPE
+func (o DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput) PaperOrientation() DashboardPaperOrientationPtrOutput {
+	return o.ApplyT(func(v DashboardSectionBasedLayoutPaperCanvasSizeOptions) *DashboardPaperOrientation {
+		return v.PaperOrientation
+	}).(DashboardPaperOrientationPtrOutput)
+}
+
+// The paper size that is used to define canvas dimensions.
+func (o DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput) PaperSize() DashboardPaperSizePtrOutput {
+	return o.ApplyT(func(v DashboardSectionBasedLayoutPaperCanvasSizeOptions) *DashboardPaperSize { return v.PaperSize }).(DashboardPaperSizePtrOutput)
+}
+
+type DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSectionBasedLayoutPaperCanvasSizeOptions)(nil)).Elem()
+}
+
+func (o DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput) ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput() DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput {
+	return o
+}
+
+func (o DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput) ToDashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutputWithContext(ctx context.Context) DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput {
+	return o
+}
+
+func (o DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput) Elem() DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput {
+	return o.ApplyT(func(v *DashboardSectionBasedLayoutPaperCanvasSizeOptions) DashboardSectionBasedLayoutPaperCanvasSizeOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardSectionBasedLayoutPaperCanvasSizeOptions
+		return ret
+	}).(DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput)
+}
+
+// Defines the spacing between the canvas content and the top, bottom, left, and right edges.
+func (o DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput) PaperMargin() DashboardSpacingPtrOutput {
+	return o.ApplyT(func(v *DashboardSectionBasedLayoutPaperCanvasSizeOptions) *DashboardSpacing {
+		if v == nil {
+			return nil
+		}
+		return v.PaperMargin
+	}).(DashboardSpacingPtrOutput)
+}
+
+// The paper orientation that is used to define canvas dimensions. Choose one of the following options:
+//
+// - PORTRAIT
+// - LANDSCAPE
+func (o DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput) PaperOrientation() DashboardPaperOrientationPtrOutput {
+	return o.ApplyT(func(v *DashboardSectionBasedLayoutPaperCanvasSizeOptions) *DashboardPaperOrientation {
+		if v == nil {
+			return nil
+		}
+		return v.PaperOrientation
+	}).(DashboardPaperOrientationPtrOutput)
+}
+
+// The paper size that is used to define canvas dimensions.
+func (o DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput) PaperSize() DashboardPaperSizePtrOutput {
+	return o.ApplyT(func(v *DashboardSectionBasedLayoutPaperCanvasSizeOptions) *DashboardPaperSize {
+		if v == nil {
+			return nil
+		}
+		return v.PaperSize
+	}).(DashboardPaperSizePtrOutput)
+}
+
 type DashboardSectionLayoutConfiguration struct {
 	// The free-form layout configuration of a section.
 	FreeFormLayout DashboardFreeFormSectionLayoutConfiguration `pulumi:"freeFormLayout"`
@@ -85108,144 +85297,9 @@ func (o TemplateListControlDisplayOptionsPtrOutput) TitleOptions() TemplateLabel
 	}).(TemplateLabelOptionsPtrOutput)
 }
 
-type TemplateListControlSearchOptions struct {
-	// The visibility configuration of the search options in a list control.
-	Visibility interface{} `pulumi:"visibility"`
-}
-
-// TemplateListControlSearchOptionsInput is an input type that accepts TemplateListControlSearchOptionsArgs and TemplateListControlSearchOptionsOutput values.
-// You can construct a concrete instance of `TemplateListControlSearchOptionsInput` via:
-//
-//	TemplateListControlSearchOptionsArgs{...}
-type TemplateListControlSearchOptionsInput interface {
-	pulumi.Input
-
-	ToTemplateListControlSearchOptionsOutput() TemplateListControlSearchOptionsOutput
-	ToTemplateListControlSearchOptionsOutputWithContext(context.Context) TemplateListControlSearchOptionsOutput
-}
-
-type TemplateListControlSearchOptionsArgs struct {
-	// The visibility configuration of the search options in a list control.
-	Visibility pulumi.Input `pulumi:"visibility"`
-}
-
-func (TemplateListControlSearchOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateListControlSearchOptions)(nil)).Elem()
-}
-
-func (i TemplateListControlSearchOptionsArgs) ToTemplateListControlSearchOptionsOutput() TemplateListControlSearchOptionsOutput {
-	return i.ToTemplateListControlSearchOptionsOutputWithContext(context.Background())
-}
-
-func (i TemplateListControlSearchOptionsArgs) ToTemplateListControlSearchOptionsOutputWithContext(ctx context.Context) TemplateListControlSearchOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSearchOptionsOutput)
-}
-
-func (i TemplateListControlSearchOptionsArgs) ToTemplateListControlSearchOptionsPtrOutput() TemplateListControlSearchOptionsPtrOutput {
-	return i.ToTemplateListControlSearchOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateListControlSearchOptionsArgs) ToTemplateListControlSearchOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSearchOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSearchOptionsOutput).ToTemplateListControlSearchOptionsPtrOutputWithContext(ctx)
-}
-
-// TemplateListControlSearchOptionsPtrInput is an input type that accepts TemplateListControlSearchOptionsArgs, TemplateListControlSearchOptionsPtr and TemplateListControlSearchOptionsPtrOutput values.
-// You can construct a concrete instance of `TemplateListControlSearchOptionsPtrInput` via:
-//
-//	        TemplateListControlSearchOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateListControlSearchOptionsPtrInput interface {
-	pulumi.Input
-
-	ToTemplateListControlSearchOptionsPtrOutput() TemplateListControlSearchOptionsPtrOutput
-	ToTemplateListControlSearchOptionsPtrOutputWithContext(context.Context) TemplateListControlSearchOptionsPtrOutput
-}
-
-type templateListControlSearchOptionsPtrType TemplateListControlSearchOptionsArgs
-
-func TemplateListControlSearchOptionsPtr(v *TemplateListControlSearchOptionsArgs) TemplateListControlSearchOptionsPtrInput {
-	return (*templateListControlSearchOptionsPtrType)(v)
-}
-
-func (*templateListControlSearchOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateListControlSearchOptions)(nil)).Elem()
-}
-
-func (i *templateListControlSearchOptionsPtrType) ToTemplateListControlSearchOptionsPtrOutput() TemplateListControlSearchOptionsPtrOutput {
-	return i.ToTemplateListControlSearchOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *templateListControlSearchOptionsPtrType) ToTemplateListControlSearchOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSearchOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSearchOptionsPtrOutput)
-}
-
-type TemplateListControlSearchOptionsOutput struct{ *pulumi.OutputState }
-
-func (TemplateListControlSearchOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateListControlSearchOptions)(nil)).Elem()
-}
-
-func (o TemplateListControlSearchOptionsOutput) ToTemplateListControlSearchOptionsOutput() TemplateListControlSearchOptionsOutput {
-	return o
-}
-
-func (o TemplateListControlSearchOptionsOutput) ToTemplateListControlSearchOptionsOutputWithContext(ctx context.Context) TemplateListControlSearchOptionsOutput {
-	return o
-}
-
-func (o TemplateListControlSearchOptionsOutput) ToTemplateListControlSearchOptionsPtrOutput() TemplateListControlSearchOptionsPtrOutput {
-	return o.ToTemplateListControlSearchOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateListControlSearchOptionsOutput) ToTemplateListControlSearchOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSearchOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateListControlSearchOptions) *TemplateListControlSearchOptions {
-		return &v
-	}).(TemplateListControlSearchOptionsPtrOutput)
-}
-
-// The visibility configuration of the search options in a list control.
-func (o TemplateListControlSearchOptionsOutput) Visibility() pulumi.AnyOutput {
-	return o.ApplyT(func(v TemplateListControlSearchOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
-}
-
-type TemplateListControlSearchOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateListControlSearchOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateListControlSearchOptions)(nil)).Elem()
-}
-
-func (o TemplateListControlSearchOptionsPtrOutput) ToTemplateListControlSearchOptionsPtrOutput() TemplateListControlSearchOptionsPtrOutput {
-	return o
-}
-
-func (o TemplateListControlSearchOptionsPtrOutput) ToTemplateListControlSearchOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSearchOptionsPtrOutput {
-	return o
-}
-
-func (o TemplateListControlSearchOptionsPtrOutput) Elem() TemplateListControlSearchOptionsOutput {
-	return o.ApplyT(func(v *TemplateListControlSearchOptions) TemplateListControlSearchOptions {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateListControlSearchOptions
-		return ret
-	}).(TemplateListControlSearchOptionsOutput)
-}
-
-// The visibility configuration of the search options in a list control.
-func (o TemplateListControlSearchOptionsPtrOutput) Visibility() pulumi.AnyOutput {
-	return o.ApplyT(func(v *TemplateListControlSearchOptions) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Visibility
-	}).(pulumi.AnyOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionBasedLayoutPaperCanvasSizeOptionsInput)(nil)).Elem(), DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrInput)(nil)).Elem(), DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionLayoutConfigurationInput)(nil)).Elem(), DashboardSectionLayoutConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionLayoutConfigurationPtrInput)(nil)).Elem(), DashboardSectionLayoutConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionPageBreakConfigurationInput)(nil)).Elem(), DashboardSectionPageBreakConfigurationArgs{})
@@ -86223,8 +86277,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineSeriesAxisDisplayOptionsPtrInput)(nil)).Elem(), TemplateLineSeriesAxisDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlDisplayOptionsInput)(nil)).Elem(), TemplateListControlDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlDisplayOptionsPtrInput)(nil)).Elem(), TemplateListControlDisplayOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSearchOptionsInput)(nil)).Elem(), TemplateListControlSearchOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSearchOptionsPtrInput)(nil)).Elem(), TemplateListControlSearchOptionsArgs{})
+	pulumi.RegisterOutputType(DashboardSectionBasedLayoutPaperCanvasSizeOptionsOutput{})
+	pulumi.RegisterOutputType(DashboardSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSectionLayoutConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardSectionLayoutConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSectionPageBreakConfigurationOutput{})
@@ -87212,6 +87266,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateLineSeriesAxisDisplayOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateListControlDisplayOptionsOutput{})
 	pulumi.RegisterOutputType(TemplateListControlDisplayOptionsPtrOutput{})
-	pulumi.RegisterOutputType(TemplateListControlSearchOptionsOutput{})
-	pulumi.RegisterOutputType(TemplateListControlSearchOptionsPtrOutput{})
 }

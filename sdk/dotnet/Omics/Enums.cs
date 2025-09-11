@@ -532,6 +532,38 @@ namespace Pulumi.AwsNative.Omics
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of source reference, such as branch, tag, or commit.
+    /// </summary>
+    [EnumType]
+    public readonly struct WorkflowVersionSourceReferencetype : IEquatable<WorkflowVersionSourceReferencetype>
+    {
+        private readonly string _value;
+
+        private WorkflowVersionSourceReferencetype(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkflowVersionSourceReferencetype Branch { get; } = new WorkflowVersionSourceReferencetype("BRANCH");
+        public static WorkflowVersionSourceReferencetype Tag { get; } = new WorkflowVersionSourceReferencetype("TAG");
+        public static WorkflowVersionSourceReferencetype Commit { get; } = new WorkflowVersionSourceReferencetype("COMMIT");
+
+        public static bool operator ==(WorkflowVersionSourceReferencetype left, WorkflowVersionSourceReferencetype right) => left.Equals(right);
+        public static bool operator !=(WorkflowVersionSourceReferencetype left, WorkflowVersionSourceReferencetype right) => !left.Equals(right);
+
+        public static explicit operator string(WorkflowVersionSourceReferencetype value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkflowVersionSourceReferencetype other && Equals(other);
+        public bool Equals(WorkflowVersionSourceReferencetype other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct WorkflowVersionStorageType : IEquatable<WorkflowVersionStorageType>
     {

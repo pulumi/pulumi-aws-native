@@ -37,15 +37,45 @@ export class AutomatedReasoningPolicyVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === AutomatedReasoningPolicyVersion.__pulumiType;
     }
 
+    /**
+     * The timestamp when the policy version was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * A hash of the policy definition used to identify the version.
+     */
     public /*out*/ readonly definitionHash!: pulumi.Output<string>;
+    /**
+     * The description of the policy version.
+     */
     public /*out*/ readonly description!: pulumi.Output<string>;
+    /**
+     * The hash of the policy definition that was last updated.
+     */
     public readonly lastUpdatedDefinitionHash!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the policy version.
+     */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the policy.
+     */
     public readonly policyArn!: pulumi.Output<string>;
+    /**
+     * The unique identifier of the policy.
+     */
     public /*out*/ readonly policyId!: pulumi.Output<string>;
+    /**
+     * The tags associated with the Automated Reasoning policy version.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    /**
+     * The timestamp when the policy version was last updated.
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    /**
+     * The version number of the policy version.
+     */
     public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
@@ -95,7 +125,16 @@ export class AutomatedReasoningPolicyVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a AutomatedReasoningPolicyVersion resource.
  */
 export interface AutomatedReasoningPolicyVersionArgs {
+    /**
+     * The hash of the policy definition that was last updated.
+     */
     lastUpdatedDefinitionHash?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the policy.
+     */
     policyArn: pulumi.Input<string>;
+    /**
+     * The tags associated with the Automated Reasoning policy version.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

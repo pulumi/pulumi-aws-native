@@ -506,6 +506,17 @@
         },
         "WeekStart" : {
           "$ref" : "#/definitions/DayOfTheWeek"
+        },
+        "QBusinessInsightsStatus" : {
+          "$ref" : "#/definitions/QBusinessInsightsStatus"
+        },
+        "ExcludedDataSetArns" : {
+          "minItems" : 0,
+          "maxItems" : 100,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
         }
       }
     },
@@ -2316,6 +2327,9 @@
         },
         "DataPointTooltipOption" : {
           "$ref" : "#/definitions/DataPointTooltipOption"
+        },
+        "DataQAEnabledOption" : {
+          "$ref" : "#/definitions/DataQAEnabledOption"
         },
         "SheetLayoutElementMaximizationOption" : {
           "$ref" : "#/definitions/SheetLayoutElementMaximizationOption"
@@ -5495,6 +5509,10 @@
         }
       }
     },
+    "QBusinessInsightsStatus" : {
+      "type" : "string",
+      "enum" : [ "ENABLED", "DISABLED" ]
+    },
     "FunnelChartMeasureDataLabelStyle" : {
       "type" : "string",
       "enum" : [ "VALUE_ONLY", "PERCENTAGE_BY_FIRST_STAGE", "PERCENTAGE_BY_PREVIOUS_STAGE", "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE", "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE" ]
@@ -6710,6 +6728,15 @@
         }
       },
       "required" : [ "DefaultNewSheetConfiguration" ]
+    },
+    "DataQAEnabledOption" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "AvailabilityStatus" : {
+          "$ref" : "#/definitions/DashboardBehavior"
+        }
+      }
     },
     "NumericalDimensionField" : {
       "additionalProperties" : false,

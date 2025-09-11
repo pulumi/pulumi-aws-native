@@ -75,6 +75,7 @@ namespace Pulumi.AwsNative.Lex
         /// The description of the version.
         /// </summary>
         public readonly string? Description;
+        public readonly Outputs.ErrorLogSettingsProperties? ErrorLogSettings;
         /// <summary>
         /// The unique identifier of the bot.
         /// </summary>
@@ -108,6 +109,8 @@ namespace Pulumi.AwsNative.Lex
 
             string? description,
 
+            Outputs.ErrorLogSettingsProperties? errorLogSettings,
+
             string? id,
 
             int? idleSessionTtlInSeconds,
@@ -121,6 +124,7 @@ namespace Pulumi.AwsNative.Lex
             Arn = arn;
             DataPrivacy = dataPrivacy;
             Description = description;
+            ErrorLogSettings = errorLogSettings;
             Id = id;
             IdleSessionTtlInSeconds = idleSessionTtlInSeconds;
             Name = name;

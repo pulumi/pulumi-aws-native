@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
 
+        [Output("enableCapacityReservationProvisionStabilize")]
+        public Output<bool?> EnableCapacityReservationProvisionStabilize { get; private set; } = null!;
+
         /// <summary>
         /// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
         /// </summary>
@@ -191,6 +194,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class LoadBalancerArgs : global::Pulumi.ResourceArgs
     {
+        [Input("enableCapacityReservationProvisionStabilize")]
+        public Input<bool>? EnableCapacityReservationProvisionStabilize { get; set; }
+
         /// <summary>
         /// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
         /// </summary>

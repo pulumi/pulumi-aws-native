@@ -81,6 +81,7 @@ from .get_traffic_mirror_target import *
 from .get_transit_gateway import *
 from .get_transit_gateway_attachment import *
 from .get_transit_gateway_connect import *
+from .get_transit_gateway_connect_peer import *
 from .get_transit_gateway_multicast_domain import *
 from .get_transit_gateway_multicast_domain_association import *
 from .get_transit_gateway_multicast_group_member import *
@@ -158,6 +159,7 @@ from .traffic_mirror_target import *
 from .transit_gateway import *
 from .transit_gateway_attachment import *
 from .transit_gateway_connect import *
+from .transit_gateway_connect_peer import *
 from .transit_gateway_multicast_domain import *
 from .transit_gateway_multicast_domain_association import *
 from .transit_gateway_multicast_group_member import *

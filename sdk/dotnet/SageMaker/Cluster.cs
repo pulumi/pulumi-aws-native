@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker
     [AwsNativeResourceType("aws-native:sagemaker:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
+        [Output("autoScaling")]
+        public Output<Outputs.ClusterAutoScalingConfig?> AutoScaling { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the HyperPod Cluster.
         /// </summary>
@@ -26,6 +29,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Output("clusterName")]
         public Output<string?> ClusterName { get; private set; } = null!;
+
+        /// <summary>
+        /// The cluster role for the autoscaler to assume.
+        /// </summary>
+        [Output("clusterRole")]
+        public Output<string?> ClusterRole { get; private set; } = null!;
 
         /// <summary>
         /// The status of the HyperPod Cluster.
@@ -145,11 +154,20 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
+        [Input("autoScaling")]
+        public Input<Inputs.ClusterAutoScalingConfigArgs>? AutoScaling { get; set; }
+
         /// <summary>
         /// The name of the HyperPod Cluster.
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
+
+        /// <summary>
+        /// The cluster role for the autoscaler to assume.
+        /// </summary>
+        [Input("clusterRole")]
+        public Input<string>? ClusterRole { get; set; }
 
         [Input("instanceGroups")]
         private InputList<Inputs.ClusterInstanceGroupArgs>? _instanceGroups;

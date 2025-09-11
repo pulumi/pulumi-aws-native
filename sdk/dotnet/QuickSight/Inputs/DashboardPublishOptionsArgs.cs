@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("dataPointTooltipOption")]
         public Input<Inputs.DashboardDataPointTooltipOptionArgs>? DataPointTooltipOption { get; set; }
 
+        [Input("dataQaEnabledOption")]
+        public Input<Inputs.DashboardDataQaEnabledOptionArgs>? DataQaEnabledOption { get; set; }
+
         /// <summary>
         /// Export to .csv option.
         /// </summary>

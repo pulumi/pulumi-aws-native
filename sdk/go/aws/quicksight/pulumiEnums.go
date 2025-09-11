@@ -33920,6 +33920,171 @@ func (in *dashboardPrimaryValueDisplayTypePtr) ToDashboardPrimaryValueDisplayTyp
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardPrimaryValueDisplayTypePtrOutput)
 }
 
+type DashboardQBusinessInsightsStatus string
+
+const (
+	DashboardQBusinessInsightsStatusEnabled  = DashboardQBusinessInsightsStatus("ENABLED")
+	DashboardQBusinessInsightsStatusDisabled = DashboardQBusinessInsightsStatus("DISABLED")
+)
+
+func (DashboardQBusinessInsightsStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardQBusinessInsightsStatus)(nil)).Elem()
+}
+
+func (e DashboardQBusinessInsightsStatus) ToDashboardQBusinessInsightsStatusOutput() DashboardQBusinessInsightsStatusOutput {
+	return pulumi.ToOutput(e).(DashboardQBusinessInsightsStatusOutput)
+}
+
+func (e DashboardQBusinessInsightsStatus) ToDashboardQBusinessInsightsStatusOutputWithContext(ctx context.Context) DashboardQBusinessInsightsStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardQBusinessInsightsStatusOutput)
+}
+
+func (e DashboardQBusinessInsightsStatus) ToDashboardQBusinessInsightsStatusPtrOutput() DashboardQBusinessInsightsStatusPtrOutput {
+	return e.ToDashboardQBusinessInsightsStatusPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardQBusinessInsightsStatus) ToDashboardQBusinessInsightsStatusPtrOutputWithContext(ctx context.Context) DashboardQBusinessInsightsStatusPtrOutput {
+	return DashboardQBusinessInsightsStatus(e).ToDashboardQBusinessInsightsStatusOutputWithContext(ctx).ToDashboardQBusinessInsightsStatusPtrOutputWithContext(ctx)
+}
+
+func (e DashboardQBusinessInsightsStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardQBusinessInsightsStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardQBusinessInsightsStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardQBusinessInsightsStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardQBusinessInsightsStatusOutput struct{ *pulumi.OutputState }
+
+func (DashboardQBusinessInsightsStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardQBusinessInsightsStatus)(nil)).Elem()
+}
+
+func (o DashboardQBusinessInsightsStatusOutput) ToDashboardQBusinessInsightsStatusOutput() DashboardQBusinessInsightsStatusOutput {
+	return o
+}
+
+func (o DashboardQBusinessInsightsStatusOutput) ToDashboardQBusinessInsightsStatusOutputWithContext(ctx context.Context) DashboardQBusinessInsightsStatusOutput {
+	return o
+}
+
+func (o DashboardQBusinessInsightsStatusOutput) ToDashboardQBusinessInsightsStatusPtrOutput() DashboardQBusinessInsightsStatusPtrOutput {
+	return o.ToDashboardQBusinessInsightsStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardQBusinessInsightsStatusOutput) ToDashboardQBusinessInsightsStatusPtrOutputWithContext(ctx context.Context) DashboardQBusinessInsightsStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardQBusinessInsightsStatus) *DashboardQBusinessInsightsStatus {
+		return &v
+	}).(DashboardQBusinessInsightsStatusPtrOutput)
+}
+
+func (o DashboardQBusinessInsightsStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardQBusinessInsightsStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardQBusinessInsightsStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardQBusinessInsightsStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardQBusinessInsightsStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardQBusinessInsightsStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardQBusinessInsightsStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardQBusinessInsightsStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardQBusinessInsightsStatus)(nil)).Elem()
+}
+
+func (o DashboardQBusinessInsightsStatusPtrOutput) ToDashboardQBusinessInsightsStatusPtrOutput() DashboardQBusinessInsightsStatusPtrOutput {
+	return o
+}
+
+func (o DashboardQBusinessInsightsStatusPtrOutput) ToDashboardQBusinessInsightsStatusPtrOutputWithContext(ctx context.Context) DashboardQBusinessInsightsStatusPtrOutput {
+	return o
+}
+
+func (o DashboardQBusinessInsightsStatusPtrOutput) Elem() DashboardQBusinessInsightsStatusOutput {
+	return o.ApplyT(func(v *DashboardQBusinessInsightsStatus) DashboardQBusinessInsightsStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardQBusinessInsightsStatus
+		return ret
+	}).(DashboardQBusinessInsightsStatusOutput)
+}
+
+func (o DashboardQBusinessInsightsStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardQBusinessInsightsStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardQBusinessInsightsStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardQBusinessInsightsStatusInput is an input type that accepts values of the DashboardQBusinessInsightsStatus enum
+// A concrete instance of `DashboardQBusinessInsightsStatusInput` can be one of the following:
+//
+//	DashboardQBusinessInsightsStatusEnabled
+//	DashboardQBusinessInsightsStatusDisabled
+type DashboardQBusinessInsightsStatusInput interface {
+	pulumi.Input
+
+	ToDashboardQBusinessInsightsStatusOutput() DashboardQBusinessInsightsStatusOutput
+	ToDashboardQBusinessInsightsStatusOutputWithContext(context.Context) DashboardQBusinessInsightsStatusOutput
+}
+
+var dashboardQBusinessInsightsStatusPtrType = reflect.TypeOf((**DashboardQBusinessInsightsStatus)(nil)).Elem()
+
+type DashboardQBusinessInsightsStatusPtrInput interface {
+	pulumi.Input
+
+	ToDashboardQBusinessInsightsStatusPtrOutput() DashboardQBusinessInsightsStatusPtrOutput
+	ToDashboardQBusinessInsightsStatusPtrOutputWithContext(context.Context) DashboardQBusinessInsightsStatusPtrOutput
+}
+
+type dashboardQBusinessInsightsStatusPtr string
+
+func DashboardQBusinessInsightsStatusPtr(v string) DashboardQBusinessInsightsStatusPtrInput {
+	return (*dashboardQBusinessInsightsStatusPtr)(&v)
+}
+
+func (*dashboardQBusinessInsightsStatusPtr) ElementType() reflect.Type {
+	return dashboardQBusinessInsightsStatusPtrType
+}
+
+func (in *dashboardQBusinessInsightsStatusPtr) ToDashboardQBusinessInsightsStatusPtrOutput() DashboardQBusinessInsightsStatusPtrOutput {
+	return pulumi.ToOutput(in).(DashboardQBusinessInsightsStatusPtrOutput)
+}
+
+func (in *dashboardQBusinessInsightsStatusPtr) ToDashboardQBusinessInsightsStatusPtrOutputWithContext(ctx context.Context) DashboardQBusinessInsightsStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardQBusinessInsightsStatusPtrOutput)
+}
+
 type DashboardRadarChartAxesRangeScale string
 
 const (
@@ -73049,6 +73214,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualAxisNamePtrInput)(nil)).Elem(), DashboardPluginVisualAxisName("GROUP_BY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPrimaryValueDisplayTypeInput)(nil)).Elem(), DashboardPrimaryValueDisplayType("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPrimaryValueDisplayTypePtrInput)(nil)).Elem(), DashboardPrimaryValueDisplayType("HIDDEN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardQBusinessInsightsStatusInput)(nil)).Elem(), DashboardQBusinessInsightsStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardQBusinessInsightsStatusPtrInput)(nil)).Elem(), DashboardQBusinessInsightsStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartAxesRangeScaleInput)(nil)).Elem(), DashboardRadarChartAxesRangeScale("AUTO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartAxesRangeScalePtrInput)(nil)).Elem(), DashboardRadarChartAxesRangeScale("AUTO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartShapeInput)(nil)).Elem(), DashboardRadarChartShape("CIRCLE"))
@@ -73907,6 +74074,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardPluginVisualAxisNamePtrOutput{})
 	pulumi.RegisterOutputType(DashboardPrimaryValueDisplayTypeOutput{})
 	pulumi.RegisterOutputType(DashboardPrimaryValueDisplayTypePtrOutput{})
+	pulumi.RegisterOutputType(DashboardQBusinessInsightsStatusOutput{})
+	pulumi.RegisterOutputType(DashboardQBusinessInsightsStatusPtrOutput{})
 	pulumi.RegisterOutputType(DashboardRadarChartAxesRangeScaleOutput{})
 	pulumi.RegisterOutputType(DashboardRadarChartAxesRangeScalePtrOutput{})
 	pulumi.RegisterOutputType(DashboardRadarChartShapeOutput{})

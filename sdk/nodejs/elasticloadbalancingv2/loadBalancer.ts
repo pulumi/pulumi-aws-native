@@ -45,6 +45,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      * The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public readonly enableCapacityReservationProvisionStabilize!: pulumi.Output<boolean | undefined>;
     /**
      * [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
      */
@@ -138,6 +139,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["enableCapacityReservationProvisionStabilize"] = args ? args.enableCapacityReservationProvisionStabilize : undefined;
             resourceInputs["enablePrefixForIpv6SourceNat"] = args ? args.enablePrefixForIpv6SourceNat : undefined;
             resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = args ? args.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic : undefined;
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
@@ -159,6 +161,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         } else {
             resourceInputs["canonicalHostedZoneId"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["enableCapacityReservationProvisionStabilize"] = undefined /*out*/;
             resourceInputs["enablePrefixForIpv6SourceNat"] = undefined /*out*/;
             resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = undefined /*out*/;
             resourceInputs["ipAddressType"] = undefined /*out*/;
@@ -187,6 +190,7 @@ export class LoadBalancer extends pulumi.CustomResource {
  * The set of arguments for constructing a LoadBalancer resource.
  */
 export interface LoadBalancerArgs {
+    enableCapacityReservationProvisionStabilize?: pulumi.Input<boolean>;
     /**
      * [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
      */

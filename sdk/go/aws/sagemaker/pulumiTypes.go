@@ -1336,6 +1336,165 @@ func (o ClusterAlarmDetailsArrayOutput) Index(i pulumi.IntInput) ClusterAlarmDet
 	}).(ClusterAlarmDetailsOutput)
 }
 
+// Configuration for cluster auto-scaling
+type ClusterAutoScalingConfig struct {
+	// The type of auto-scaler to use
+	AutoScalerType *ClusterAutoScalingConfigAutoScalerType `pulumi:"autoScalerType"`
+	// The auto-scaling mode for the cluster
+	Mode ClusterAutoScalingConfigMode `pulumi:"mode"`
+}
+
+// ClusterAutoScalingConfigInput is an input type that accepts ClusterAutoScalingConfigArgs and ClusterAutoScalingConfigOutput values.
+// You can construct a concrete instance of `ClusterAutoScalingConfigInput` via:
+//
+//	ClusterAutoScalingConfigArgs{...}
+type ClusterAutoScalingConfigInput interface {
+	pulumi.Input
+
+	ToClusterAutoScalingConfigOutput() ClusterAutoScalingConfigOutput
+	ToClusterAutoScalingConfigOutputWithContext(context.Context) ClusterAutoScalingConfigOutput
+}
+
+// Configuration for cluster auto-scaling
+type ClusterAutoScalingConfigArgs struct {
+	// The type of auto-scaler to use
+	AutoScalerType ClusterAutoScalingConfigAutoScalerTypePtrInput `pulumi:"autoScalerType"`
+	// The auto-scaling mode for the cluster
+	Mode ClusterAutoScalingConfigModeInput `pulumi:"mode"`
+}
+
+func (ClusterAutoScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAutoScalingConfig)(nil)).Elem()
+}
+
+func (i ClusterAutoScalingConfigArgs) ToClusterAutoScalingConfigOutput() ClusterAutoScalingConfigOutput {
+	return i.ToClusterAutoScalingConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterAutoScalingConfigArgs) ToClusterAutoScalingConfigOutputWithContext(ctx context.Context) ClusterAutoScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoScalingConfigOutput)
+}
+
+func (i ClusterAutoScalingConfigArgs) ToClusterAutoScalingConfigPtrOutput() ClusterAutoScalingConfigPtrOutput {
+	return i.ToClusterAutoScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterAutoScalingConfigArgs) ToClusterAutoScalingConfigPtrOutputWithContext(ctx context.Context) ClusterAutoScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoScalingConfigOutput).ToClusterAutoScalingConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterAutoScalingConfigPtrInput is an input type that accepts ClusterAutoScalingConfigArgs, ClusterAutoScalingConfigPtr and ClusterAutoScalingConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterAutoScalingConfigPtrInput` via:
+//
+//	        ClusterAutoScalingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterAutoScalingConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterAutoScalingConfigPtrOutput() ClusterAutoScalingConfigPtrOutput
+	ToClusterAutoScalingConfigPtrOutputWithContext(context.Context) ClusterAutoScalingConfigPtrOutput
+}
+
+type clusterAutoScalingConfigPtrType ClusterAutoScalingConfigArgs
+
+func ClusterAutoScalingConfigPtr(v *ClusterAutoScalingConfigArgs) ClusterAutoScalingConfigPtrInput {
+	return (*clusterAutoScalingConfigPtrType)(v)
+}
+
+func (*clusterAutoScalingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAutoScalingConfig)(nil)).Elem()
+}
+
+func (i *clusterAutoScalingConfigPtrType) ToClusterAutoScalingConfigPtrOutput() ClusterAutoScalingConfigPtrOutput {
+	return i.ToClusterAutoScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterAutoScalingConfigPtrType) ToClusterAutoScalingConfigPtrOutputWithContext(ctx context.Context) ClusterAutoScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoScalingConfigPtrOutput)
+}
+
+// Configuration for cluster auto-scaling
+type ClusterAutoScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterAutoScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAutoScalingConfig)(nil)).Elem()
+}
+
+func (o ClusterAutoScalingConfigOutput) ToClusterAutoScalingConfigOutput() ClusterAutoScalingConfigOutput {
+	return o
+}
+
+func (o ClusterAutoScalingConfigOutput) ToClusterAutoScalingConfigOutputWithContext(ctx context.Context) ClusterAutoScalingConfigOutput {
+	return o
+}
+
+func (o ClusterAutoScalingConfigOutput) ToClusterAutoScalingConfigPtrOutput() ClusterAutoScalingConfigPtrOutput {
+	return o.ToClusterAutoScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAutoScalingConfigOutput) ToClusterAutoScalingConfigPtrOutputWithContext(ctx context.Context) ClusterAutoScalingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAutoScalingConfig) *ClusterAutoScalingConfig {
+		return &v
+	}).(ClusterAutoScalingConfigPtrOutput)
+}
+
+// The type of auto-scaler to use
+func (o ClusterAutoScalingConfigOutput) AutoScalerType() ClusterAutoScalingConfigAutoScalerTypePtrOutput {
+	return o.ApplyT(func(v ClusterAutoScalingConfig) *ClusterAutoScalingConfigAutoScalerType { return v.AutoScalerType }).(ClusterAutoScalingConfigAutoScalerTypePtrOutput)
+}
+
+// The auto-scaling mode for the cluster
+func (o ClusterAutoScalingConfigOutput) Mode() ClusterAutoScalingConfigModeOutput {
+	return o.ApplyT(func(v ClusterAutoScalingConfig) ClusterAutoScalingConfigMode { return v.Mode }).(ClusterAutoScalingConfigModeOutput)
+}
+
+type ClusterAutoScalingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterAutoScalingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAutoScalingConfig)(nil)).Elem()
+}
+
+func (o ClusterAutoScalingConfigPtrOutput) ToClusterAutoScalingConfigPtrOutput() ClusterAutoScalingConfigPtrOutput {
+	return o
+}
+
+func (o ClusterAutoScalingConfigPtrOutput) ToClusterAutoScalingConfigPtrOutputWithContext(ctx context.Context) ClusterAutoScalingConfigPtrOutput {
+	return o
+}
+
+func (o ClusterAutoScalingConfigPtrOutput) Elem() ClusterAutoScalingConfigOutput {
+	return o.ApplyT(func(v *ClusterAutoScalingConfig) ClusterAutoScalingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAutoScalingConfig
+		return ret
+	}).(ClusterAutoScalingConfigOutput)
+}
+
+// The type of auto-scaler to use
+func (o ClusterAutoScalingConfigPtrOutput) AutoScalerType() ClusterAutoScalingConfigAutoScalerTypePtrOutput {
+	return o.ApplyT(func(v *ClusterAutoScalingConfig) *ClusterAutoScalingConfigAutoScalerType {
+		if v == nil {
+			return nil
+		}
+		return v.AutoScalerType
+	}).(ClusterAutoScalingConfigAutoScalerTypePtrOutput)
+}
+
+// The auto-scaling mode for the cluster
+func (o ClusterAutoScalingConfigPtrOutput) Mode() ClusterAutoScalingConfigModePtrOutput {
+	return o.ApplyT(func(v *ClusterAutoScalingConfig) *ClusterAutoScalingConfigMode {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(ClusterAutoScalingConfigModePtrOutput)
+}
+
 // The configuration of the size measurements of the AMI update. Using this configuration, you can specify whether SageMaker should update your instance group by an amount or percentage of instances.
 type ClusterCapacitySizeConfig struct {
 	// Specifies whether SageMaker should process the update by amount or percentage of instances.
@@ -47621,6 +47780,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecPtrInput)(nil)).Elem(), AppResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAlarmDetailsInput)(nil)).Elem(), ClusterAlarmDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAlarmDetailsArrayInput)(nil)).Elem(), ClusterAlarmDetailsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoScalingConfigInput)(nil)).Elem(), ClusterAutoScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoScalingConfigPtrInput)(nil)).Elem(), ClusterAutoScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacitySizeConfigInput)(nil)).Elem(), ClusterCapacitySizeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacitySizeConfigPtrInput)(nil)).Elem(), ClusterCapacitySizeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDeploymentConfigInput)(nil)).Elem(), ClusterDeploymentConfigArgs{})
@@ -48187,6 +48348,8 @@ func init() {
 	pulumi.RegisterOutputType(AppResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(ClusterAlarmDetailsOutput{})
 	pulumi.RegisterOutputType(ClusterAlarmDetailsArrayOutput{})
+	pulumi.RegisterOutputType(ClusterAutoScalingConfigOutput{})
+	pulumi.RegisterOutputType(ClusterAutoScalingConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCapacitySizeConfigOutput{})
 	pulumi.RegisterOutputType(ClusterCapacitySizeConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterDeploymentConfigOutput{})

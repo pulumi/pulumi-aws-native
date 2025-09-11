@@ -439,6 +439,8 @@ if typing.TYPE_CHECKING:
     signer = __signer
     import pulumi_aws_native.simspaceweaver as __simspaceweaver
     simspaceweaver = __simspaceweaver
+    import pulumi_aws_native.smsvoice as __smsvoice
+    smsvoice = __smsvoice
     import pulumi_aws_native.sns as __sns
     sns = __sns
     import pulumi_aws_native.sqs as __sqs
@@ -696,6 +698,7 @@ else:
     shield = _utilities.lazy_import('pulumi_aws_native.shield')
     signer = _utilities.lazy_import('pulumi_aws_native.signer')
     simspaceweaver = _utilities.lazy_import('pulumi_aws_native.simspaceweaver')
+    smsvoice = _utilities.lazy_import('pulumi_aws_native.smsvoice')
     sns = _utilities.lazy_import('pulumi_aws_native.sns')
     sqs = _utilities.lazy_import('pulumi_aws_native.sqs')
     ssm = _utilities.lazy_import('pulumi_aws_native.ssm')
@@ -1636,6 +1639,7 @@ _utilities.register(
    "aws-native:ec2:TransitGateway": "TransitGateway",
    "aws-native:ec2:TransitGatewayAttachment": "TransitGatewayAttachment",
    "aws-native:ec2:TransitGatewayConnect": "TransitGatewayConnect",
+   "aws-native:ec2:TransitGatewayConnectPeer": "TransitGatewayConnectPeer",
    "aws-native:ec2:TransitGatewayMulticastDomain": "TransitGatewayMulticastDomain",
    "aws-native:ec2:TransitGatewayMulticastDomainAssociation": "TransitGatewayMulticastDomainAssociation",
    "aws-native:ec2:TransitGatewayMulticastGroupMember": "TransitGatewayMulticastGroupMember",
@@ -3280,6 +3284,20 @@ _utilities.register(
   "fqn": "pulumi_aws_native.simspaceweaver",
   "classes": {
    "aws-native:simspaceweaver:Simulation": "Simulation"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "smsvoice",
+  "fqn": "pulumi_aws_native.smsvoice",
+  "classes": {
+   "aws-native:smsvoice:ConfigurationSet": "ConfigurationSet",
+   "aws-native:smsvoice:OptOutList": "OptOutList",
+   "aws-native:smsvoice:PhoneNumber": "PhoneNumber",
+   "aws-native:smsvoice:Pool": "Pool",
+   "aws-native:smsvoice:ProtectConfiguration": "ProtectConfiguration",
+   "aws-native:smsvoice:ResourcePolicy": "ResourcePolicy",
+   "aws-native:smsvoice:SenderId": "SenderId"
   }
  },
  {

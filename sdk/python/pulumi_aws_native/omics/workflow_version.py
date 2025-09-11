@@ -25,11 +25,16 @@ class WorkflowVersionArgs:
     def __init__(__self__, *,
                  workflow_id: pulumi.Input[builtins.str],
                  accelerators: Optional[pulumi.Input['WorkflowVersionAccelerators']] = None,
+                 definition_repository: Optional[pulumi.Input['WorkflowVersionDefinitionRepositoryArgs']] = None,
                  definition_uri: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  engine: Optional[pulumi.Input['WorkflowVersionWorkflowEngine']] = None,
                  main: Optional[pulumi.Input[builtins.str]] = None,
                  parameter_template: Optional[pulumi.Input[Mapping[str, pulumi.Input['WorkflowVersionWorkflowParameterArgs']]]] = None,
+                 parameter_template_path: Optional[pulumi.Input[builtins.str]] = None,
+                 readme_markdown: Optional[pulumi.Input[builtins.str]] = None,
+                 readme_path: Optional[pulumi.Input[builtins.str]] = None,
+                 readme_uri: Optional[pulumi.Input[builtins.str]] = None,
                  storage_capacity: Optional[pulumi.Input[builtins.float]] = None,
                  storage_type: Optional[pulumi.Input['WorkflowVersionStorageType']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -38,12 +43,19 @@ class WorkflowVersionArgs:
         """
         The set of arguments for constructing a WorkflowVersion resource.
         :param pulumi.Input[builtins.str] workflow_id: The workflow's ID.
+        :param pulumi.Input['WorkflowVersionDefinitionRepositoryArgs'] definition_repository: Contains information about a source code repository that hosts the workflow definition files.
         :param pulumi.Input[builtins.str] description: The description of the workflow version.
+        :param pulumi.Input[builtins.str] parameter_template_path: Path to the primary workflow parameter template JSON file inside the repository
+        :param pulumi.Input[builtins.str] readme_markdown: The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+        :param pulumi.Input[builtins.str] readme_path: The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
+        :param pulumi.Input[builtins.str] readme_uri: The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
         :param pulumi.Input[builtins.str] version_name: The name of the workflow version.
         """
         pulumi.set(__self__, "workflow_id", workflow_id)
         if accelerators is not None:
             pulumi.set(__self__, "accelerators", accelerators)
+        if definition_repository is not None:
+            pulumi.set(__self__, "definition_repository", definition_repository)
         if definition_uri is not None:
             pulumi.set(__self__, "definition_uri", definition_uri)
         if description is not None:
@@ -54,6 +66,14 @@ class WorkflowVersionArgs:
             pulumi.set(__self__, "main", main)
         if parameter_template is not None:
             pulumi.set(__self__, "parameter_template", parameter_template)
+        if parameter_template_path is not None:
+            pulumi.set(__self__, "parameter_template_path", parameter_template_path)
+        if readme_markdown is not None:
+            pulumi.set(__self__, "readme_markdown", readme_markdown)
+        if readme_path is not None:
+            pulumi.set(__self__, "readme_path", readme_path)
+        if readme_uri is not None:
+            pulumi.set(__self__, "readme_uri", readme_uri)
         if storage_capacity is not None:
             pulumi.set(__self__, "storage_capacity", storage_capacity)
         if storage_type is not None:
@@ -85,6 +105,18 @@ class WorkflowVersionArgs:
     @accelerators.setter
     def accelerators(self, value: Optional[pulumi.Input['WorkflowVersionAccelerators']]):
         pulumi.set(self, "accelerators", value)
+
+    @property
+    @pulumi.getter(name="definitionRepository")
+    def definition_repository(self) -> Optional[pulumi.Input['WorkflowVersionDefinitionRepositoryArgs']]:
+        """
+        Contains information about a source code repository that hosts the workflow definition files.
+        """
+        return pulumi.get(self, "definition_repository")
+
+    @definition_repository.setter
+    def definition_repository(self, value: Optional[pulumi.Input['WorkflowVersionDefinitionRepositoryArgs']]):
+        pulumi.set(self, "definition_repository", value)
 
     @property
     @pulumi.getter(name="definitionUri")
@@ -133,6 +165,54 @@ class WorkflowVersionArgs:
     @parameter_template.setter
     def parameter_template(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['WorkflowVersionWorkflowParameterArgs']]]]):
         pulumi.set(self, "parameter_template", value)
+
+    @property
+    @pulumi.getter(name="parameterTemplatePath")
+    def parameter_template_path(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Path to the primary workflow parameter template JSON file inside the repository
+        """
+        return pulumi.get(self, "parameter_template_path")
+
+    @parameter_template_path.setter
+    def parameter_template_path(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "parameter_template_path", value)
+
+    @property
+    @pulumi.getter(name="readmeMarkdown")
+    def readme_markdown(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+        """
+        return pulumi.get(self, "readme_markdown")
+
+    @readme_markdown.setter
+    def readme_markdown(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "readme_markdown", value)
+
+    @property
+    @pulumi.getter(name="readmePath")
+    def readme_path(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
+        """
+        return pulumi.get(self, "readme_path")
+
+    @readme_path.setter
+    def readme_path(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "readme_path", value)
+
+    @property
+    @pulumi.getter(name="readmeUri")
+    def readme_uri(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
+        """
+        return pulumi.get(self, "readme_uri")
+
+    @readme_uri.setter
+    def readme_uri(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "readme_uri", value)
 
     @property
     @pulumi.getter(name="storageCapacity")
@@ -190,11 +270,16 @@ class WorkflowVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerators: Optional[pulumi.Input['WorkflowVersionAccelerators']] = None,
+                 definition_repository: Optional[pulumi.Input[Union['WorkflowVersionDefinitionRepositoryArgs', 'WorkflowVersionDefinitionRepositoryArgsDict']]] = None,
                  definition_uri: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  engine: Optional[pulumi.Input['WorkflowVersionWorkflowEngine']] = None,
                  main: Optional[pulumi.Input[builtins.str]] = None,
                  parameter_template: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowVersionWorkflowParameterArgs', 'WorkflowVersionWorkflowParameterArgsDict']]]]] = None,
+                 parameter_template_path: Optional[pulumi.Input[builtins.str]] = None,
+                 readme_markdown: Optional[pulumi.Input[builtins.str]] = None,
+                 readme_path: Optional[pulumi.Input[builtins.str]] = None,
+                 readme_uri: Optional[pulumi.Input[builtins.str]] = None,
                  storage_capacity: Optional[pulumi.Input[builtins.float]] = None,
                  storage_type: Optional[pulumi.Input['WorkflowVersionStorageType']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -207,7 +292,12 @@ class WorkflowVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['WorkflowVersionDefinitionRepositoryArgs', 'WorkflowVersionDefinitionRepositoryArgsDict']] definition_repository: Contains information about a source code repository that hosts the workflow definition files.
         :param pulumi.Input[builtins.str] description: The description of the workflow version.
+        :param pulumi.Input[builtins.str] parameter_template_path: Path to the primary workflow parameter template JSON file inside the repository
+        :param pulumi.Input[builtins.str] readme_markdown: The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+        :param pulumi.Input[builtins.str] readme_path: The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
+        :param pulumi.Input[builtins.str] readme_uri: The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
         :param pulumi.Input[builtins.str] version_name: The name of the workflow version.
         :param pulumi.Input[builtins.str] workflow_id: The workflow's ID.
         """
@@ -236,11 +326,16 @@ class WorkflowVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerators: Optional[pulumi.Input['WorkflowVersionAccelerators']] = None,
+                 definition_repository: Optional[pulumi.Input[Union['WorkflowVersionDefinitionRepositoryArgs', 'WorkflowVersionDefinitionRepositoryArgsDict']]] = None,
                  definition_uri: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  engine: Optional[pulumi.Input['WorkflowVersionWorkflowEngine']] = None,
                  main: Optional[pulumi.Input[builtins.str]] = None,
                  parameter_template: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowVersionWorkflowParameterArgs', 'WorkflowVersionWorkflowParameterArgsDict']]]]] = None,
+                 parameter_template_path: Optional[pulumi.Input[builtins.str]] = None,
+                 readme_markdown: Optional[pulumi.Input[builtins.str]] = None,
+                 readme_path: Optional[pulumi.Input[builtins.str]] = None,
+                 readme_uri: Optional[pulumi.Input[builtins.str]] = None,
                  storage_capacity: Optional[pulumi.Input[builtins.float]] = None,
                  storage_type: Optional[pulumi.Input['WorkflowVersionStorageType']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -257,11 +352,16 @@ class WorkflowVersion(pulumi.CustomResource):
             __props__ = WorkflowVersionArgs.__new__(WorkflowVersionArgs)
 
             __props__.__dict__["accelerators"] = accelerators
+            __props__.__dict__["definition_repository"] = definition_repository
             __props__.__dict__["definition_uri"] = definition_uri
             __props__.__dict__["description"] = description
             __props__.__dict__["engine"] = engine
             __props__.__dict__["main"] = main
             __props__.__dict__["parameter_template"] = parameter_template
+            __props__.__dict__["parameter_template_path"] = parameter_template_path
+            __props__.__dict__["readme_markdown"] = readme_markdown
+            __props__.__dict__["readme_path"] = readme_path
+            __props__.__dict__["readme_uri"] = readme_uri
             __props__.__dict__["storage_capacity"] = storage_capacity
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["tags"] = tags
@@ -275,7 +375,7 @@ class WorkflowVersion(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accelerators", "definitionUri", "engine", "main", "parameterTemplate.*", "versionName", "workflowBucketOwnerId", "workflowId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accelerators", "definitionRepository", "definitionUri", "engine", "main", "parameterTemplate.*", "parameterTemplatePath", "readmePath", "readmeUri", "versionName", "workflowBucketOwnerId", "workflowId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(WorkflowVersion, __self__).__init__(
             'aws-native:omics:WorkflowVersion',
@@ -302,11 +402,16 @@ class WorkflowVersion(pulumi.CustomResource):
         __props__.__dict__["accelerators"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["creation_time"] = None
+        __props__.__dict__["definition_repository"] = None
         __props__.__dict__["definition_uri"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["engine"] = None
         __props__.__dict__["main"] = None
         __props__.__dict__["parameter_template"] = None
+        __props__.__dict__["parameter_template_path"] = None
+        __props__.__dict__["readme_markdown"] = None
+        __props__.__dict__["readme_path"] = None
+        __props__.__dict__["readme_uri"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["storage_capacity"] = None
         __props__.__dict__["storage_type"] = None
@@ -340,6 +445,14 @@ class WorkflowVersion(pulumi.CustomResource):
         return pulumi.get(self, "creation_time")
 
     @property
+    @pulumi.getter(name="definitionRepository")
+    def definition_repository(self) -> pulumi.Output[Optional['outputs.WorkflowVersionDefinitionRepository']]:
+        """
+        Contains information about a source code repository that hosts the workflow definition files.
+        """
+        return pulumi.get(self, "definition_repository")
+
+    @property
     @pulumi.getter(name="definitionUri")
     def definition_uri(self) -> pulumi.Output[Optional[builtins.str]]:
         return pulumi.get(self, "definition_uri")
@@ -366,6 +479,38 @@ class WorkflowVersion(pulumi.CustomResource):
     @pulumi.getter(name="parameterTemplate")
     def parameter_template(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.WorkflowVersionWorkflowParameter']]]:
         return pulumi.get(self, "parameter_template")
+
+    @property
+    @pulumi.getter(name="parameterTemplatePath")
+    def parameter_template_path(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Path to the primary workflow parameter template JSON file inside the repository
+        """
+        return pulumi.get(self, "parameter_template_path")
+
+    @property
+    @pulumi.getter(name="readmeMarkdown")
+    def readme_markdown(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+        """
+        return pulumi.get(self, "readme_markdown")
+
+    @property
+    @pulumi.getter(name="readmePath")
+    def readme_path(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
+        """
+        return pulumi.get(self, "readme_path")
+
+    @property
+    @pulumi.getter(name="readmeUri")
+    def readme_uri(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
+        """
+        return pulumi.get(self, "readme_uri")
 
     @property
     @pulumi.getter

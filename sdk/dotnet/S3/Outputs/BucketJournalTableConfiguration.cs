@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
-    /// <summary>
-    /// The journal table configuration for an S3 Metadata configuration.
-    /// </summary>
     [OutputType]
     public sealed class BucketJournalTableConfiguration
     {
@@ -25,7 +22,7 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// </summary>
         public readonly Outputs.BucketRecordExpiration RecordExpiration;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the journal table.
+        /// The ARN of the journal table.
         /// </summary>
         public readonly string? TableArn;
         /// <summary>

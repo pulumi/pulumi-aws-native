@@ -15,33 +15,63 @@ namespace Pulumi.AwsNative.Bedrock
     [AwsNativeResourceType("aws-native:bedrock:AutomatedReasoningPolicyVersion")]
     public partial class AutomatedReasoningPolicyVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The timestamp when the policy version was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// A hash of the policy definition used to identify the version.
+        /// </summary>
         [Output("definitionHash")]
         public Output<string> DefinitionHash { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the policy version.
+        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The hash of the policy definition that was last updated.
+        /// </summary>
         [Output("lastUpdatedDefinitionHash")]
         public Output<string?> LastUpdatedDefinitionHash { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the policy version.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the policy.
+        /// </summary>
         [Output("policyArn")]
         public Output<string> PolicyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the policy.
+        /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags associated with the Automated Reasoning policy version.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp when the policy version was last updated.
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The version number of the policy version.
+        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
@@ -96,14 +126,24 @@ namespace Pulumi.AwsNative.Bedrock
 
     public sealed class AutomatedReasoningPolicyVersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The hash of the policy definition that was last updated.
+        /// </summary>
         [Input("lastUpdatedDefinitionHash")]
         public Input<string>? LastUpdatedDefinitionHash { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the policy.
+        /// </summary>
         [Input("policyArn", required: true)]
         public Input<string> PolicyArn { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+
+        /// <summary>
+        /// The tags associated with the Automated Reasoning policy version.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());

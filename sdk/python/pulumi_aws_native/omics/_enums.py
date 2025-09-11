@@ -25,6 +25,7 @@ __all__ = [
     'WorkflowStorageType',
     'WorkflowType',
     'WorkflowVersionAccelerators',
+    'WorkflowVersionSourceReferencetype',
     'WorkflowVersionStorageType',
     'WorkflowVersionWorkflowEngine',
     'WorkflowVersionWorkflowStatus',
@@ -159,6 +160,16 @@ class WorkflowType(builtins.str, Enum):
 @pulumi.type_token("aws-native:omics:WorkflowVersionAccelerators")
 class WorkflowVersionAccelerators(builtins.str, Enum):
     GPU = "GPU"
+
+
+@pulumi.type_token("aws-native:omics:WorkflowVersionSourceReferencetype")
+class WorkflowVersionSourceReferencetype(builtins.str, Enum):
+    """
+    The type of source reference, such as branch, tag, or commit.
+    """
+    BRANCH = "BRANCH"
+    TAG = "TAG"
+    COMMIT = "COMMIT"
 
 
 @pulumi.type_token("aws-native:omics:WorkflowVersionStorageType")

@@ -35,6 +35,8 @@ __all__ = [
     'AppResourceSpecArgsDict',
     'ClusterAlarmDetailsArgs',
     'ClusterAlarmDetailsArgsDict',
+    'ClusterAutoScalingConfigArgs',
+    'ClusterAutoScalingConfigArgsDict',
     'ClusterCapacitySizeConfigArgs',
     'ClusterCapacitySizeConfigArgsDict',
     'ClusterDeploymentConfigArgs',
@@ -1144,6 +1146,61 @@ class ClusterAlarmDetailsArgs:
     @alarm_name.setter
     def alarm_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "alarm_name", value)
+
+
+if not MYPY:
+    class ClusterAutoScalingConfigArgsDict(TypedDict):
+        """
+        Configuration for cluster auto-scaling
+        """
+        mode: pulumi.Input['ClusterAutoScalingConfigMode']
+        """
+        The auto-scaling mode for the cluster
+        """
+        auto_scaler_type: NotRequired[pulumi.Input['ClusterAutoScalingConfigAutoScalerType']]
+        """
+        The type of auto-scaler to use
+        """
+elif False:
+    ClusterAutoScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterAutoScalingConfigArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input['ClusterAutoScalingConfigMode'],
+                 auto_scaler_type: Optional[pulumi.Input['ClusterAutoScalingConfigAutoScalerType']] = None):
+        """
+        Configuration for cluster auto-scaling
+        :param pulumi.Input['ClusterAutoScalingConfigMode'] mode: The auto-scaling mode for the cluster
+        :param pulumi.Input['ClusterAutoScalingConfigAutoScalerType'] auto_scaler_type: The type of auto-scaler to use
+        """
+        pulumi.set(__self__, "mode", mode)
+        if auto_scaler_type is not None:
+            pulumi.set(__self__, "auto_scaler_type", auto_scaler_type)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input['ClusterAutoScalingConfigMode']:
+        """
+        The auto-scaling mode for the cluster
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input['ClusterAutoScalingConfigMode']):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="autoScalerType")
+    def auto_scaler_type(self) -> Optional[pulumi.Input['ClusterAutoScalingConfigAutoScalerType']]:
+        """
+        The type of auto-scaler to use
+        """
+        return pulumi.get(self, "auto_scaler_type")
+
+    @auto_scaler_type.setter
+    def auto_scaler_type(self, value: Optional[pulumi.Input['ClusterAutoScalingConfigAutoScalerType']]):
+        pulumi.set(self, "auto_scaler_type", value)
 
 
 if not MYPY:

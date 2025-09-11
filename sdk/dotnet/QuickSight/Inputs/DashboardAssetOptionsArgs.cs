@@ -12,6 +12,17 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardAssetOptionsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("excludedDataSetArns")]
+        private InputList<string>? _excludedDataSetArns;
+        public InputList<string> ExcludedDataSetArns
+        {
+            get => _excludedDataSetArns ?? (_excludedDataSetArns = new InputList<string>());
+            set => _excludedDataSetArns = value;
+        }
+
+        [Input("qBusinessInsightsStatus")]
+        public Input<Pulumi.AwsNative.QuickSight.DashboardQBusinessInsightsStatus>? QBusinessInsightsStatus { get; set; }
+
         /// <summary>
         /// Determines the timezone for the analysis.
         /// </summary>

@@ -134,6 +134,67 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The type of auto-scaler to use
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterAutoScalingConfigAutoScalerType : IEquatable<ClusterAutoScalingConfigAutoScalerType>
+    {
+        private readonly string _value;
+
+        private ClusterAutoScalingConfigAutoScalerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterAutoScalingConfigAutoScalerType Karpenter { get; } = new ClusterAutoScalingConfigAutoScalerType("Karpenter");
+
+        public static bool operator ==(ClusterAutoScalingConfigAutoScalerType left, ClusterAutoScalingConfigAutoScalerType right) => left.Equals(right);
+        public static bool operator !=(ClusterAutoScalingConfigAutoScalerType left, ClusterAutoScalingConfigAutoScalerType right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterAutoScalingConfigAutoScalerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterAutoScalingConfigAutoScalerType other && Equals(other);
+        public bool Equals(ClusterAutoScalingConfigAutoScalerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The auto-scaling mode for the cluster
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterAutoScalingConfigMode : IEquatable<ClusterAutoScalingConfigMode>
+    {
+        private readonly string _value;
+
+        private ClusterAutoScalingConfigMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterAutoScalingConfigMode Enable { get; } = new ClusterAutoScalingConfigMode("Enable");
+        public static ClusterAutoScalingConfigMode Disable { get; } = new ClusterAutoScalingConfigMode("Disable");
+
+        public static bool operator ==(ClusterAutoScalingConfigMode left, ClusterAutoScalingConfigMode right) => left.Equals(right);
+        public static bool operator !=(ClusterAutoScalingConfigMode left, ClusterAutoScalingConfigMode right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterAutoScalingConfigMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterAutoScalingConfigMode other && Equals(other);
+        public bool Equals(ClusterAutoScalingConfigMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of deep health check(s) to be performed on the instances in the SageMaker HyperPod cluster instance group.
     /// </summary>
     [EnumType]

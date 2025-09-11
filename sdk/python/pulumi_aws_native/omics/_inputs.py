@@ -39,6 +39,10 @@ __all__ = [
     'WorkflowParameterArgsDict',
     'WorkflowSourceReferenceArgs',
     'WorkflowSourceReferenceArgsDict',
+    'WorkflowVersionDefinitionRepositoryArgs',
+    'WorkflowVersionDefinitionRepositoryArgsDict',
+    'WorkflowVersionSourceReferenceArgs',
+    'WorkflowVersionSourceReferenceArgsDict',
     'WorkflowVersionWorkflowParameterArgs',
     'WorkflowVersionWorkflowParameterArgsDict',
 ]
@@ -571,6 +575,150 @@ class WorkflowSourceReferenceArgs:
 
     @type.setter
     def type(self, value: Optional[pulumi.Input['WorkflowSourceReferencetype']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The value of the source reference, such as the branch name, tag name, or commit ID.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class WorkflowVersionDefinitionRepositoryArgsDict(TypedDict):
+        connection_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Amazon Resource Name (ARN) of the connection to the source code repository.
+        """
+        exclude_file_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        A list of file patterns to exclude when retrieving the workflow definition from the repository.
+        """
+        full_repository_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
+        """
+        source_reference: NotRequired[pulumi.Input['WorkflowVersionSourceReferenceArgsDict']]
+        """
+        The source reference for the repository, such as a branch name, tag, or commit ID.
+        """
+elif False:
+    WorkflowVersionDefinitionRepositoryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkflowVersionDefinitionRepositoryArgs:
+    def __init__(__self__, *,
+                 connection_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 exclude_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 full_repository_id: Optional[pulumi.Input[builtins.str]] = None,
+                 source_reference: Optional[pulumi.Input['WorkflowVersionSourceReferenceArgs']] = None):
+        """
+        :param pulumi.Input[builtins.str] connection_arn: The Amazon Resource Name (ARN) of the connection to the source code repository.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] exclude_file_patterns: A list of file patterns to exclude when retrieving the workflow definition from the repository.
+        :param pulumi.Input[builtins.str] full_repository_id: The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
+        :param pulumi.Input['WorkflowVersionSourceReferenceArgs'] source_reference: The source reference for the repository, such as a branch name, tag, or commit ID.
+        """
+        if connection_arn is not None:
+            pulumi.set(__self__, "connection_arn", connection_arn)
+        if exclude_file_patterns is not None:
+            pulumi.set(__self__, "exclude_file_patterns", exclude_file_patterns)
+        if full_repository_id is not None:
+            pulumi.set(__self__, "full_repository_id", full_repository_id)
+        if source_reference is not None:
+            pulumi.set(__self__, "source_reference", source_reference)
+
+    @property
+    @pulumi.getter(name="connectionArn")
+    def connection_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the connection to the source code repository.
+        """
+        return pulumi.get(self, "connection_arn")
+
+    @connection_arn.setter
+    def connection_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "connection_arn", value)
+
+    @property
+    @pulumi.getter(name="excludeFilePatterns")
+    def exclude_file_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        A list of file patterns to exclude when retrieving the workflow definition from the repository.
+        """
+        return pulumi.get(self, "exclude_file_patterns")
+
+    @exclude_file_patterns.setter
+    def exclude_file_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "exclude_file_patterns", value)
+
+    @property
+    @pulumi.getter(name="fullRepositoryId")
+    def full_repository_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The full repository identifier, including the repository owner and name. For example, 'repository-owner/repository-name'.
+        """
+        return pulumi.get(self, "full_repository_id")
+
+    @full_repository_id.setter
+    def full_repository_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "full_repository_id", value)
+
+    @property
+    @pulumi.getter(name="sourceReference")
+    def source_reference(self) -> Optional[pulumi.Input['WorkflowVersionSourceReferenceArgs']]:
+        """
+        The source reference for the repository, such as a branch name, tag, or commit ID.
+        """
+        return pulumi.get(self, "source_reference")
+
+    @source_reference.setter
+    def source_reference(self, value: Optional[pulumi.Input['WorkflowVersionSourceReferenceArgs']]):
+        pulumi.set(self, "source_reference", value)
+
+
+if not MYPY:
+    class WorkflowVersionSourceReferenceArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input['WorkflowVersionSourceReferencetype']]
+        """
+        The type of source reference, such as branch, tag, or commit.
+        """
+        value: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The value of the source reference, such as the branch name, tag name, or commit ID.
+        """
+elif False:
+    WorkflowVersionSourceReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkflowVersionSourceReferenceArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['WorkflowVersionSourceReferencetype']] = None,
+                 value: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input['WorkflowVersionSourceReferencetype'] type: The type of source reference, such as branch, tag, or commit.
+        :param pulumi.Input[builtins.str] value: The value of the source reference, such as the branch name, tag name, or commit ID.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['WorkflowVersionSourceReferencetype']]:
+        """
+        The type of source reference, such as branch, tag, or commit.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['WorkflowVersionSourceReferencetype']]):
         pulumi.set(self, "type", value)
 
     @property

@@ -129,6 +129,9 @@ class CanaryBaseScreenshotArgs:
 if not MYPY:
     class CanaryBrowserConfigArgsDict(TypedDict):
         browser_type: pulumi.Input['CanaryBrowserType']
+        """
+        The browser type associated with this browser configuration.
+        """
 elif False:
     CanaryBrowserConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -136,11 +139,17 @@ elif False:
 class CanaryBrowserConfigArgs:
     def __init__(__self__, *,
                  browser_type: pulumi.Input['CanaryBrowserType']):
+        """
+        :param pulumi.Input['CanaryBrowserType'] browser_type: The browser type associated with this browser configuration.
+        """
         pulumi.set(__self__, "browser_type", browser_type)
 
     @property
     @pulumi.getter(name="browserType")
     def browser_type(self) -> pulumi.Input['CanaryBrowserType']:
+        """
+        The browser type associated with this browser configuration.
+        """
         return pulumi.get(self, "browser_type")
 
     @browser_type.setter

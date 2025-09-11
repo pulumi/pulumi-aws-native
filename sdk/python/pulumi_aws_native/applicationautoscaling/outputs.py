@@ -139,7 +139,7 @@ class ScalableTargetScheduledAction(dict):
          For more information, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html) in the *Application Auto Scaling User Guide*.
         :param builtins.str schedule: The schedule for this action. The following formats are supported:
                  +  At expressions - "``at(yyyy-mm-ddThh:mm:ss)``"
-                 +  Rate expressions - "``rate(value unit)``"
+                 +  Rate expressions - "``rate(valueunit)``"
                  +  Cron expressions - "``cron(fields)``"
                  
                 At expressions are useful for one-time schedules. Cron expressions are useful for scheduled actions that run periodically at a specified date and time, and rate expressions are useful for scheduled actions that run at a regular interval.
@@ -169,7 +169,7 @@ class ScalableTargetScheduledAction(dict):
         """
         The schedule for this action. The following formats are supported:
           +  At expressions - "``at(yyyy-mm-ddThh:mm:ss)``"
-          +  Rate expressions - "``rate(value unit)``"
+          +  Rate expressions - "``rate(valueunit)``"
           +  Cron expressions - "``cron(fields)``"
           
          At expressions are useful for one-time schedules. Cron expressions are useful for scheduled actions that run periodically at a specified date and time, and rate expressions are useful for scheduled actions that run at a regular interval.

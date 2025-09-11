@@ -151,6 +151,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TransitGatewayAttachment{}
 	case "aws-native:ec2:TransitGatewayConnect":
 		r = &TransitGatewayConnect{}
+	case "aws-native:ec2:TransitGatewayConnectPeer":
+		r = &TransitGatewayConnectPeer{}
 	case "aws-native:ec2:TransitGatewayMulticastDomain":
 		r = &TransitGatewayMulticastDomain{}
 	case "aws-native:ec2:TransitGatewayMulticastDomainAssociation":

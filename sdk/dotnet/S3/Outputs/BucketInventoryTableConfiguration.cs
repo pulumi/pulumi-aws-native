@@ -10,14 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
-    /// <summary>
-    /// The inventory table configuration for an S3 Metadata configuration.
-    /// </summary>
     [OutputType]
     public sealed class BucketInventoryTableConfiguration
     {
         /// <summary>
-        /// The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.
+        /// Specifies whether inventory table configuration is enabled or disabled.
         /// </summary>
         public readonly Pulumi.AwsNative.S3.BucketInventoryTableConfigurationConfigurationState ConfigurationState;
         /// <summary>
@@ -25,7 +22,7 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// </summary>
         public readonly Outputs.BucketMetadataTableEncryptionConfiguration? EncryptionConfiguration;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the inventory table.
+        /// The ARN of the inventory table.
         /// </summary>
         public readonly string? TableArn;
         /// <summary>

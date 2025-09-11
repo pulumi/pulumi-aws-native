@@ -9,6 +9,8 @@ from enum import Enum
 __all__ = [
     'AppResourceSpecInstanceType',
     'AppType',
+    'ClusterAutoScalingConfigAutoScalerType',
+    'ClusterAutoScalingConfigMode',
     'ClusterDeepHealthCheckType',
     'ClusterNodeProvisioningMode',
     'ClusterNodeRecovery',
@@ -215,6 +217,23 @@ class AppType(builtins.str, Enum):
     R_STUDIO_SERVER_PRO = "RStudioServerPro"
     R_SESSION_GATEWAY = "RSessionGateway"
     CANVAS = "Canvas"
+
+
+@pulumi.type_token("aws-native:sagemaker:ClusterAutoScalingConfigAutoScalerType")
+class ClusterAutoScalingConfigAutoScalerType(builtins.str, Enum):
+    """
+    The type of auto-scaler to use
+    """
+    KARPENTER = "Karpenter"
+
+
+@pulumi.type_token("aws-native:sagemaker:ClusterAutoScalingConfigMode")
+class ClusterAutoScalingConfigMode(builtins.str, Enum):
+    """
+    The auto-scaling mode for the cluster
+    """
+    ENABLE = "Enable"
+    DISABLE = "Disable"
 
 
 @pulumi.type_token("aws-native:sagemaker:ClusterDeepHealthCheckType")

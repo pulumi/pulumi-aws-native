@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("httpsPort")]
         public Input<int>? HttpsPort { get; set; }
 
+        /// <summary>
+        /// Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose `dualstack` to help optimize reliability.
+        /// </summary>
         [Input("ipAddressType")]
         public Input<Pulumi.AwsNative.CloudFront.DistributionCustomOriginConfigIpAddressType>? IpAddressType { get; set; }
 
@@ -48,7 +51,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
         /// <summary>
         /// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-        ///  For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+        ///  For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         [Input("originReadTimeout")]
         public Input<int>? OriginReadTimeout { get; set; }

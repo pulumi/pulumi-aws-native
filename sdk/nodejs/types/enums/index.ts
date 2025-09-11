@@ -164,6 +164,7 @@ import * as servicecatalogappregistry from "./servicecatalogappregistry";
 import * as ses from "./ses";
 import * as shield from "./shield";
 import * as signer from "./signer";
+import * as smsvoice from "./smsvoice";
 import * as sns from "./sns";
 import * as ssm from "./ssm";
 import * as ssmcontacts from "./ssmcontacts";
@@ -348,6 +349,7 @@ export {
     ses,
     shield,
     signer,
+    smsvoice,
     sns,
     ssm,
     ssmcontacts,

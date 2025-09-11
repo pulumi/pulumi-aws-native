@@ -255,6 +255,8 @@ __all__ = [
     'BotWaitAndContinueSpecificationArgsDict',
     'DataPrivacyPropertiesArgs',
     'DataPrivacyPropertiesArgsDict',
+    'ErrorLogSettingsPropertiesArgs',
+    'ErrorLogSettingsPropertiesArgsDict',
     'ResourcePolicyPolicyArgs',
     'ResourcePolicyPolicyArgsDict',
     'SentimentAnalysisSettingsPropertiesArgs',
@@ -7277,6 +7279,28 @@ class DataPrivacyPropertiesArgs:
     @child_directed.setter
     def child_directed(self, value: pulumi.Input[builtins.bool]):
         pulumi.set(self, "child_directed", value)
+
+
+if not MYPY:
+    class ErrorLogSettingsPropertiesArgsDict(TypedDict):
+        enabled: pulumi.Input[builtins.bool]
+elif False:
+    ErrorLogSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ErrorLogSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[builtins.bool]):
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:

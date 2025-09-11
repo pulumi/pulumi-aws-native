@@ -3796,9 +3796,7 @@ func (o DatasetSourceDetailPtrOutput) Kendra() DatasetKendraSourceDetailPtrOutpu
 }
 
 type DatasetTag struct {
-	// The key or name that identifies the tag.
-	Key string `pulumi:"key"`
-	// The value of the tag.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 

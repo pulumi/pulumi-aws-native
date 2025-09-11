@@ -273,6 +273,7 @@ import * as ses from "./ses";
 import * as shield from "./shield";
 import * as signer from "./signer";
 import * as simspaceweaver from "./simspaceweaver";
+import * as smsvoice from "./smsvoice";
 import * as sns from "./sns";
 import * as sqs from "./sqs";
 import * as ssm from "./ssm";
@@ -508,6 +509,7 @@ export {
     shield,
     signer,
     simspaceweaver,
+    smsvoice,
     sns,
     sqs,
     ssm,

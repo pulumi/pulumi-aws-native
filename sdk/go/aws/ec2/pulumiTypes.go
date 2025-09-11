@@ -31646,6 +31646,242 @@ func (o TransitGatewayConnectOptionsOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransitGatewayConnectOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
+type TransitGatewayConnectPeerConfiguration struct {
+	// The BGP configuration details.
+	BgpConfigurations []TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration `pulumi:"bgpConfigurations"`
+	// The range of interior BGP peer IP addresses.
+	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
+	// The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.
+	PeerAddress string `pulumi:"peerAddress"`
+	// The tunnel protocol.
+	Protocol *string `pulumi:"protocol"`
+	// The Connect peer IP address on the transit gateway side of the tunnel.
+	TransitGatewayAddress *string `pulumi:"transitGatewayAddress"`
+}
+
+// TransitGatewayConnectPeerConfigurationInput is an input type that accepts TransitGatewayConnectPeerConfigurationArgs and TransitGatewayConnectPeerConfigurationOutput values.
+// You can construct a concrete instance of `TransitGatewayConnectPeerConfigurationInput` via:
+//
+//	TransitGatewayConnectPeerConfigurationArgs{...}
+type TransitGatewayConnectPeerConfigurationInput interface {
+	pulumi.Input
+
+	ToTransitGatewayConnectPeerConfigurationOutput() TransitGatewayConnectPeerConfigurationOutput
+	ToTransitGatewayConnectPeerConfigurationOutputWithContext(context.Context) TransitGatewayConnectPeerConfigurationOutput
+}
+
+type TransitGatewayConnectPeerConfigurationArgs struct {
+	// The BGP configuration details.
+	BgpConfigurations TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayInput `pulumi:"bgpConfigurations"`
+	// The range of interior BGP peer IP addresses.
+	InsideCidrBlocks pulumi.StringArrayInput `pulumi:"insideCidrBlocks"`
+	// The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.
+	PeerAddress pulumi.StringInput `pulumi:"peerAddress"`
+	// The tunnel protocol.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// The Connect peer IP address on the transit gateway side of the tunnel.
+	TransitGatewayAddress pulumi.StringPtrInput `pulumi:"transitGatewayAddress"`
+}
+
+func (TransitGatewayConnectPeerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayConnectPeerConfiguration)(nil)).Elem()
+}
+
+func (i TransitGatewayConnectPeerConfigurationArgs) ToTransitGatewayConnectPeerConfigurationOutput() TransitGatewayConnectPeerConfigurationOutput {
+	return i.ToTransitGatewayConnectPeerConfigurationOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayConnectPeerConfigurationArgs) ToTransitGatewayConnectPeerConfigurationOutputWithContext(ctx context.Context) TransitGatewayConnectPeerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectPeerConfigurationOutput)
+}
+
+type TransitGatewayConnectPeerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayConnectPeerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayConnectPeerConfiguration)(nil)).Elem()
+}
+
+func (o TransitGatewayConnectPeerConfigurationOutput) ToTransitGatewayConnectPeerConfigurationOutput() TransitGatewayConnectPeerConfigurationOutput {
+	return o
+}
+
+func (o TransitGatewayConnectPeerConfigurationOutput) ToTransitGatewayConnectPeerConfigurationOutputWithContext(ctx context.Context) TransitGatewayConnectPeerConfigurationOutput {
+	return o
+}
+
+// The BGP configuration details.
+func (o TransitGatewayConnectPeerConfigurationOutput) BgpConfigurations() TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput {
+	return o.ApplyT(func(v TransitGatewayConnectPeerConfiguration) []TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration {
+		return v.BgpConfigurations
+	}).(TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput)
+}
+
+// The range of interior BGP peer IP addresses.
+func (o TransitGatewayConnectPeerConfigurationOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TransitGatewayConnectPeerConfiguration) []string { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+// The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.
+func (o TransitGatewayConnectPeerConfigurationOutput) PeerAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayConnectPeerConfiguration) string { return v.PeerAddress }).(pulumi.StringOutput)
+}
+
+// The tunnel protocol.
+func (o TransitGatewayConnectPeerConfigurationOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitGatewayConnectPeerConfiguration) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// The Connect peer IP address on the transit gateway side of the tunnel.
+func (o TransitGatewayConnectPeerConfigurationOutput) TransitGatewayAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitGatewayConnectPeerConfiguration) *string { return v.TransitGatewayAddress }).(pulumi.StringPtrOutput)
+}
+
+type TransitGatewayConnectPeerTag struct {
+	// The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws: .
+	Key *string `pulumi:"key"`
+	// The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
+	Value *string `pulumi:"value"`
+}
+
+type TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration struct {
+	// The BGP status.
+	BgpStatus *string `pulumi:"bgpStatus"`
+	// The interior BGP peer IP address for the appliance.
+	PeerAddress *string `pulumi:"peerAddress"`
+	// The peer Autonomous System Number (ASN).
+	PeerAsn *float64 `pulumi:"peerAsn"`
+	// The interior BGP peer IP address for the transit gateway.
+	TransitGatewayAddress *string `pulumi:"transitGatewayAddress"`
+	// The transit gateway Autonomous System Number (ASN).
+	TransitGatewayAsn *float64 `pulumi:"transitGatewayAsn"`
+}
+
+// TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationInput is an input type that accepts TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs and TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput values.
+// You can construct a concrete instance of `TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationInput` via:
+//
+//	TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs{...}
+type TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationInput interface {
+	pulumi.Input
+
+	ToTransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput() TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput
+	ToTransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutputWithContext(context.Context) TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput
+}
+
+type TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs struct {
+	// The BGP status.
+	BgpStatus pulumi.StringPtrInput `pulumi:"bgpStatus"`
+	// The interior BGP peer IP address for the appliance.
+	PeerAddress pulumi.StringPtrInput `pulumi:"peerAddress"`
+	// The peer Autonomous System Number (ASN).
+	PeerAsn pulumi.Float64PtrInput `pulumi:"peerAsn"`
+	// The interior BGP peer IP address for the transit gateway.
+	TransitGatewayAddress pulumi.StringPtrInput `pulumi:"transitGatewayAddress"`
+	// The transit gateway Autonomous System Number (ASN).
+	TransitGatewayAsn pulumi.Float64PtrInput `pulumi:"transitGatewayAsn"`
+}
+
+func (TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration)(nil)).Elem()
+}
+
+func (i TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs) ToTransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput() TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput {
+	return i.ToTransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs) ToTransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutputWithContext(ctx context.Context) TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput)
+}
+
+// TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayInput is an input type that accepts TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArray and TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput values.
+// You can construct a concrete instance of `TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayInput` via:
+//
+//	TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArray{ TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs{...} }
+type TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToTransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput() TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput
+	ToTransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutputWithContext(context.Context) TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput
+}
+
+type TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArray []TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationInput
+
+func (TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration)(nil)).Elem()
+}
+
+func (i TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArray) ToTransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput() TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput {
+	return i.ToTransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArray) ToTransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutputWithContext(ctx context.Context) TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput)
+}
+
+type TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration)(nil)).Elem()
+}
+
+func (o TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput) ToTransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput() TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput {
+	return o
+}
+
+func (o TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput) ToTransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutputWithContext(ctx context.Context) TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput {
+	return o
+}
+
+// The BGP status.
+func (o TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput) BgpStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration) *string { return v.BgpStatus }).(pulumi.StringPtrOutput)
+}
+
+// The interior BGP peer IP address for the appliance.
+func (o TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput) PeerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration) *string {
+		return v.PeerAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The peer Autonomous System Number (ASN).
+func (o TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput) PeerAsn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration) *float64 { return v.PeerAsn }).(pulumi.Float64PtrOutput)
+}
+
+// The interior BGP peer IP address for the transit gateway.
+func (o TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput) TransitGatewayAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration) *string {
+		return v.TransitGatewayAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The transit gateway Autonomous System Number (ASN).
+func (o TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput) TransitGatewayAsn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration) *float64 {
+		return v.TransitGatewayAsn
+	}).(pulumi.Float64PtrOutput)
+}
+
+type TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration)(nil)).Elem()
+}
+
+func (o TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput) ToTransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput() TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput {
+	return o
+}
+
+func (o TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput) ToTransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutputWithContext(ctx context.Context) TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput {
+	return o
+}
+
+func (o TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput) Index(i pulumi.IntInput) TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration {
+		return vs[0].([]TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration)[vs[1].(int)]
+	}).(TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput)
+}
+
 type TransitGatewayConnectTag struct {
 	// The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
 	Key *string `pulumi:"key"`
@@ -36661,6 +36897,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterRuleTrafficMirrorPortRangeInput)(nil)).Elem(), TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterRuleTrafficMirrorPortRangePtrInput)(nil)).Elem(), TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectOptionsInput)(nil)).Elem(), TransitGatewayConnectOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectPeerConfigurationInput)(nil)).Elem(), TransitGatewayConnectPeerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationInput)(nil)).Elem(), TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayInput)(nil)).Elem(), TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointCidrOptionsInput)(nil)).Elem(), VerifiedAccessEndpointCidrOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointCidrOptionsPtrInput)(nil)).Elem(), VerifiedAccessEndpointCidrOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointLoadBalancerOptionsInput)(nil)).Elem(), VerifiedAccessEndpointLoadBalancerOptionsArgs{})
@@ -37070,6 +37309,9 @@ func init() {
 	pulumi.RegisterOutputType(TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayConnectOptionsOutput{})
+	pulumi.RegisterOutputType(TransitGatewayConnectPeerConfigurationOutput{})
+	pulumi.RegisterOutputType(TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationOutput{})
+	pulumi.RegisterOutputType(TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointCidrOptionsOutput{})

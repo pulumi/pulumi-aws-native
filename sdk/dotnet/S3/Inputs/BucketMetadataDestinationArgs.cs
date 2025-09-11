@@ -10,25 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    /// <summary>
-    /// The destination information for the S3 Metadata configuration.
-    /// </summary>
     public sealed class BucketMetadataDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the table bucket where the metadata configuration is stored.
+        /// The ARN of the table bucket.
         /// </summary>
         [Input("tableBucketArn")]
         public Input<string>? TableBucketArn { get; set; }
 
         /// <summary>
-        /// The type of the table bucket where the metadata configuration is stored. The ``aws`` value indicates an AWS managed table bucket, and the ``customer`` value indicates a customer-managed table bucket. V2 metadata configurations are stored in AWS managed table buckets, and V1 metadata configurations are stored in customer-managed table buckets.
+        /// The type of the table bucket.
         /// </summary>
         [Input("tableBucketType", required: true)]
         public Input<Pulumi.AwsNative.S3.BucketMetadataDestinationTableBucketType> TableBucketType { get; set; } = null!;
 
         /// <summary>
-        /// The namespace in the table bucket where the metadata tables for a metadata configuration are stored.
+        /// The namespace of the table.
         /// </summary>
         [Input("tableNamespace")]
         public Input<string>? TableNamespace { get; set; }

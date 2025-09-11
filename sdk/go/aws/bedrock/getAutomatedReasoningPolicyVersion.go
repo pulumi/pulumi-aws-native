@@ -23,18 +23,27 @@ func LookupAutomatedReasoningPolicyVersion(ctx *pulumi.Context, args *LookupAuto
 }
 
 type LookupAutomatedReasoningPolicyVersionArgs struct {
+	// The Amazon Resource Name (ARN) of the policy.
 	PolicyArn string `pulumi:"policyArn"`
-	Version   string `pulumi:"version"`
+	// The version number of the policy version.
+	Version string `pulumi:"version"`
 }
 
 type LookupAutomatedReasoningPolicyVersionResult struct {
-	CreatedAt      *string `pulumi:"createdAt"`
+	// The timestamp when the policy version was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// A hash of the policy definition used to identify the version.
 	DefinitionHash *string `pulumi:"definitionHash"`
-	Description    *string `pulumi:"description"`
-	Name           *string `pulumi:"name"`
-	PolicyId       *string `pulumi:"policyId"`
-	UpdatedAt      *string `pulumi:"updatedAt"`
-	Version        *string `pulumi:"version"`
+	// The description of the policy version.
+	Description *string `pulumi:"description"`
+	// The name of the policy version.
+	Name *string `pulumi:"name"`
+	// The unique identifier of the policy.
+	PolicyId *string `pulumi:"policyId"`
+	// The timestamp when the policy version was last updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
+	// The version number of the policy version.
+	Version *string `pulumi:"version"`
 }
 
 func LookupAutomatedReasoningPolicyVersionOutput(ctx *pulumi.Context, args LookupAutomatedReasoningPolicyVersionOutputArgs, opts ...pulumi.InvokeOption) LookupAutomatedReasoningPolicyVersionResultOutput {
@@ -47,8 +56,10 @@ func LookupAutomatedReasoningPolicyVersionOutput(ctx *pulumi.Context, args Looku
 }
 
 type LookupAutomatedReasoningPolicyVersionOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the policy.
 	PolicyArn pulumi.StringInput `pulumi:"policyArn"`
-	Version   pulumi.StringInput `pulumi:"version"`
+	// The version number of the policy version.
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 func (LookupAutomatedReasoningPolicyVersionOutputArgs) ElementType() reflect.Type {
@@ -69,30 +80,37 @@ func (o LookupAutomatedReasoningPolicyVersionResultOutput) ToLookupAutomatedReas
 	return o
 }
 
+// The timestamp when the policy version was created.
 func (o LookupAutomatedReasoningPolicyVersionResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomatedReasoningPolicyVersionResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// A hash of the policy definition used to identify the version.
 func (o LookupAutomatedReasoningPolicyVersionResultOutput) DefinitionHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomatedReasoningPolicyVersionResult) *string { return v.DefinitionHash }).(pulumi.StringPtrOutput)
 }
 
+// The description of the policy version.
 func (o LookupAutomatedReasoningPolicyVersionResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomatedReasoningPolicyVersionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the policy version.
 func (o LookupAutomatedReasoningPolicyVersionResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomatedReasoningPolicyVersionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the policy.
 func (o LookupAutomatedReasoningPolicyVersionResultOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomatedReasoningPolicyVersionResult) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
+// The timestamp when the policy version was last updated.
 func (o LookupAutomatedReasoningPolicyVersionResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomatedReasoningPolicyVersionResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The version number of the policy version.
 func (o LookupAutomatedReasoningPolicyVersionResultOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomatedReasoningPolicyVersionResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }

@@ -32,6 +32,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The data point tool tip options of a dashboard.
         /// </summary>
         public readonly Outputs.DashboardDataPointTooltipOption? DataPointTooltipOption;
+        public readonly Outputs.DashboardDataQaEnabledOption? DataQaEnabledOption;
         /// <summary>
         /// Export to .csv option.
         /// </summary>
@@ -71,6 +72,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardDataPointTooltipOption? dataPointTooltipOption,
 
+            Outputs.DashboardDataQaEnabledOption? dataQaEnabledOption,
+
             Outputs.DashboardExportToCsvOption? exportToCsvOption,
 
             Outputs.DashboardExportWithHiddenFieldsOption? exportWithHiddenFieldsOption,
@@ -89,6 +92,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             DataPointDrillUpDownOption = dataPointDrillUpDownOption;
             DataPointMenuLabelOption = dataPointMenuLabelOption;
             DataPointTooltipOption = dataPointTooltipOption;
+            DataQaEnabledOption = dataQaEnabledOption;
             ExportToCsvOption = exportToCsvOption;
             ExportWithHiddenFieldsOption = exportWithHiddenFieldsOption;
             SheetControlsOption = sheetControlsOption;

@@ -25,7 +25,9 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
+                 auto_scaling: Optional[pulumi.Input['ClusterAutoScalingConfigArgs']] = None,
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
+                 cluster_role: Optional[pulumi.Input[builtins.str]] = None,
                  instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]]] = None,
                  node_provisioning_mode: Optional[pulumi.Input['ClusterNodeProvisioningMode']] = None,
                  node_recovery: Optional[pulumi.Input['ClusterNodeRecovery']] = None,
@@ -36,6 +38,7 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[builtins.str] cluster_name: The name of the HyperPod Cluster.
+        :param pulumi.Input[builtins.str] cluster_role: The cluster role for the autoscaler to assume.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]] instance_groups: The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
         :param pulumi.Input['ClusterNodeProvisioningMode'] node_provisioning_mode: Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
         :param pulumi.Input['ClusterNodeRecovery'] node_recovery: If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
@@ -43,8 +46,12 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
         :param pulumi.Input['ClusterVpcConfigArgs'] vpc_config: Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
         """
+        if auto_scaling is not None:
+            pulumi.set(__self__, "auto_scaling", auto_scaling)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
+        if cluster_role is not None:
+            pulumi.set(__self__, "cluster_role", cluster_role)
         if instance_groups is not None:
             pulumi.set(__self__, "instance_groups", instance_groups)
         if node_provisioning_mode is not None:
@@ -61,6 +68,15 @@ class ClusterArgs:
             pulumi.set(__self__, "vpc_config", vpc_config)
 
     @property
+    @pulumi.getter(name="autoScaling")
+    def auto_scaling(self) -> Optional[pulumi.Input['ClusterAutoScalingConfigArgs']]:
+        return pulumi.get(self, "auto_scaling")
+
+    @auto_scaling.setter
+    def auto_scaling(self, value: Optional[pulumi.Input['ClusterAutoScalingConfigArgs']]):
+        pulumi.set(self, "auto_scaling", value)
+
+    @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -71,6 +87,18 @@ class ClusterArgs:
     @cluster_name.setter
     def cluster_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="clusterRole")
+    def cluster_role(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The cluster role for the autoscaler to assume.
+        """
+        return pulumi.get(self, "cluster_role")
+
+    @cluster_role.setter
+    def cluster_role(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "cluster_role", value)
 
     @property
     @pulumi.getter(name="instanceGroups")
@@ -160,7 +188,9 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_scaling: Optional[pulumi.Input[Union['ClusterAutoScalingConfigArgs', 'ClusterAutoScalingConfigArgsDict']]] = None,
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
+                 cluster_role: Optional[pulumi.Input[builtins.str]] = None,
                  instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]]] = None,
                  node_provisioning_mode: Optional[pulumi.Input['ClusterNodeProvisioningMode']] = None,
                  node_recovery: Optional[pulumi.Input['ClusterNodeRecovery']] = None,
@@ -175,6 +205,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cluster_name: The name of the HyperPod Cluster.
+        :param pulumi.Input[builtins.str] cluster_role: The cluster role for the autoscaler to assume.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]] instance_groups: The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
         :param pulumi.Input['ClusterNodeProvisioningMode'] node_provisioning_mode: Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
         :param pulumi.Input['ClusterNodeRecovery'] node_recovery: If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
@@ -206,7 +237,9 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_scaling: Optional[pulumi.Input[Union['ClusterAutoScalingConfigArgs', 'ClusterAutoScalingConfigArgsDict']]] = None,
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
+                 cluster_role: Optional[pulumi.Input[builtins.str]] = None,
                  instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]]] = None,
                  node_provisioning_mode: Optional[pulumi.Input['ClusterNodeProvisioningMode']] = None,
                  node_recovery: Optional[pulumi.Input['ClusterNodeRecovery']] = None,
@@ -223,7 +256,9 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
+            __props__.__dict__["auto_scaling"] = auto_scaling
             __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["cluster_role"] = cluster_role
             __props__.__dict__["instance_groups"] = instance_groups
             __props__.__dict__["node_provisioning_mode"] = node_provisioning_mode
             __props__.__dict__["node_recovery"] = node_recovery
@@ -259,8 +294,10 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = ClusterArgs.__new__(ClusterArgs)
 
+        __props__.__dict__["auto_scaling"] = None
         __props__.__dict__["cluster_arn"] = None
         __props__.__dict__["cluster_name"] = None
+        __props__.__dict__["cluster_role"] = None
         __props__.__dict__["cluster_status"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["failure_message"] = None
@@ -272,6 +309,11 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_config"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="autoScaling")
+    def auto_scaling(self) -> pulumi.Output[Optional['outputs.ClusterAutoScalingConfig']]:
+        return pulumi.get(self, "auto_scaling")
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -288,6 +330,14 @@ class Cluster(pulumi.CustomResource):
         The name of the HyperPod Cluster.
         """
         return pulumi.get(self, "cluster_name")
+
+    @property
+    @pulumi.getter(name="clusterRole")
+    def cluster_role(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The cluster role for the autoscaler to assume.
+        """
+        return pulumi.get(self, "cluster_role")
 
     @property
     @pulumi.getter(name="clusterStatus")

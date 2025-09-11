@@ -63,10 +63,15 @@ namespace Pulumi.AwsNative.SageMaker
     [OutputType]
     public sealed class GetClusterResult
     {
+        public readonly Outputs.ClusterAutoScalingConfig? AutoScaling;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the HyperPod Cluster.
         /// </summary>
         public readonly string? ClusterArn;
+        /// <summary>
+        /// The cluster role for the autoscaler to assume.
+        /// </summary>
+        public readonly string? ClusterRole;
         /// <summary>
         /// The status of the HyperPod Cluster.
         /// </summary>
@@ -99,7 +104,11 @@ namespace Pulumi.AwsNative.SageMaker
 
         [OutputConstructor]
         private GetClusterResult(
+            Outputs.ClusterAutoScalingConfig? autoScaling,
+
             string? clusterArn,
+
+            string? clusterRole,
 
             Pulumi.AwsNative.SageMaker.ClusterStatus? clusterStatus,
 
@@ -117,7 +126,9 @@ namespace Pulumi.AwsNative.SageMaker
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            AutoScaling = autoScaling;
             ClusterArn = clusterArn;
+            ClusterRole = clusterRole;
             ClusterStatus = clusterStatus;
             CreationTime = creationTime;
             FailureMessage = failureMessage;

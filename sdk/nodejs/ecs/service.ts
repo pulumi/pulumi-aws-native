@@ -101,7 +101,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly enableExecuteCommand!: pulumi.Output<boolean | undefined>;
     /**
-     * Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
+     * Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
      */
     public readonly forceNewDeployment!: pulumi.Output<outputs.ecs.ServiceForceNewDeployment | undefined>;
     /**
@@ -328,7 +328,7 @@ export interface ServiceArgs {
      */
     enableExecuteCommand?: pulumi.Input<boolean>;
     /**
-     * Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
+     * Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
      */
     forceNewDeployment?: pulumi.Input<inputs.ecs.ServiceForceNewDeploymentArgs>;
     /**

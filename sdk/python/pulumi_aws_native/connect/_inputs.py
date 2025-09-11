@@ -1693,7 +1693,7 @@ if not MYPY:
         """
         effective_till: pulumi.Input[builtins.str]
         """
-        The date till which the hours of operation override would be effective.
+        The date until the hours of operation override is effective.
         """
         override_config: pulumi.Input[Sequence[pulumi.Input['HoursOfOperationOverrideConfigArgsDict']]]
         override_name: pulumi.Input[builtins.str]
@@ -1717,7 +1717,7 @@ class HoursOfOperationOverrideArgs:
         """
         Overrides attached to the hours of operation.
         :param pulumi.Input[builtins.str] effective_from: The date from which the hours of operation override would be effective.
-        :param pulumi.Input[builtins.str] effective_till: The date till which the hours of operation override would be effective.
+        :param pulumi.Input[builtins.str] effective_till: The date until the hours of operation override is effective.
         :param pulumi.Input[builtins.str] hours_of_operation_override_id: The identifier for the hours of operation override.
         """
         pulumi.set(__self__, "effective_from", effective_from)
@@ -1745,7 +1745,7 @@ class HoursOfOperationOverrideArgs:
     @pulumi.getter(name="effectiveTill")
     def effective_till(self) -> pulumi.Input[builtins.str]:
         """
-        The date till which the hours of operation override would be effective.
+        The date until the hours of operation override is effective.
         """
         return pulumi.get(self, "effective_till")
 

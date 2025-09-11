@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Ivs.Outputs
         /// <summary>
         /// HLS configuration object for individual participant recording.
         /// </summary>
-        public readonly Outputs.StageAutoParticipantRecordingConfigurationHlsConfigurationProperties? HlsConfiguration;
+        public readonly Outputs.StageHlsConfiguration? HlsConfiguration;
         /// <summary>
         /// Types of media to be recorded. Default: AUDIO_VIDEO.
         /// </summary>
@@ -35,11 +35,11 @@ namespace Pulumi.AwsNative.Ivs.Outputs
         /// <summary>
         /// A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
         /// </summary>
-        public readonly Outputs.StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties? ThumbnailConfiguration;
+        public readonly Outputs.StageThumbnailConfiguration? ThumbnailConfiguration;
 
         [OutputConstructor]
         private StageAutoParticipantRecordingConfiguration(
-            Outputs.StageAutoParticipantRecordingConfigurationHlsConfigurationProperties? hlsConfiguration,
+            Outputs.StageHlsConfiguration? hlsConfiguration,
 
             ImmutableArray<Pulumi.AwsNative.Ivs.StageAutoParticipantRecordingConfigurationMediaTypesItem> mediaTypes,
 
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.Ivs.Outputs
 
             string storageConfigurationArn,
 
-            Outputs.StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties? thumbnailConfiguration)
+            Outputs.StageThumbnailConfiguration? thumbnailConfiguration)
         {
             HlsConfiguration = hlsConfiguration;
             MediaTypes = mediaTypes;

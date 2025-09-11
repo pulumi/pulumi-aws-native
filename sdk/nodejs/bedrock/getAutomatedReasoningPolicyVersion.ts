@@ -16,17 +16,44 @@ export function getAutomatedReasoningPolicyVersion(args: GetAutomatedReasoningPo
 }
 
 export interface GetAutomatedReasoningPolicyVersionArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the policy.
+     */
     policyArn: string;
+    /**
+     * The version number of the policy version.
+     */
     version: string;
 }
 
 export interface GetAutomatedReasoningPolicyVersionResult {
+    /**
+     * The timestamp when the policy version was created.
+     */
     readonly createdAt?: string;
+    /**
+     * A hash of the policy definition used to identify the version.
+     */
     readonly definitionHash?: string;
+    /**
+     * The description of the policy version.
+     */
     readonly description?: string;
+    /**
+     * The name of the policy version.
+     */
     readonly name?: string;
+    /**
+     * The unique identifier of the policy.
+     */
     readonly policyId?: string;
+    /**
+     * The timestamp when the policy version was last updated.
+     */
     readonly updatedAt?: string;
+    /**
+     * The version number of the policy version.
+     */
     readonly version?: string;
 }
 /**
@@ -41,6 +68,12 @@ export function getAutomatedReasoningPolicyVersionOutput(args: GetAutomatedReaso
 }
 
 export interface GetAutomatedReasoningPolicyVersionOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the policy.
+     */
     policyArn: pulumi.Input<string>;
+    /**
+     * The version number of the policy version.
+     */
     version: pulumi.Input<string>;
 }

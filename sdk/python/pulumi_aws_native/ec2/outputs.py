@@ -197,6 +197,8 @@ __all__ = [
     'TagSpecification',
     'TrafficMirrorFilterRuleTrafficMirrorPortRange',
     'TransitGatewayConnectOptions',
+    'TransitGatewayConnectPeerConfiguration',
+    'TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration',
     'TransitGatewayPeeringAttachmentPeeringAttachmentStatus',
     'VerifiedAccessEndpointCidrOptions',
     'VerifiedAccessEndpointLoadBalancerOptions',
@@ -14502,6 +14504,186 @@ class TransitGatewayConnectOptions(dict):
         The tunnel protocol.
         """
         return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class TransitGatewayConnectPeerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "insideCidrBlocks":
+            suggest = "inside_cidr_blocks"
+        elif key == "peerAddress":
+            suggest = "peer_address"
+        elif key == "bgpConfigurations":
+            suggest = "bgp_configurations"
+        elif key == "transitGatewayAddress":
+            suggest = "transit_gateway_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransitGatewayConnectPeerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransitGatewayConnectPeerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransitGatewayConnectPeerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inside_cidr_blocks: Sequence[builtins.str],
+                 peer_address: builtins.str,
+                 bgp_configurations: Optional[Sequence['outputs.TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration']] = None,
+                 protocol: Optional[builtins.str] = None,
+                 transit_gateway_address: Optional[builtins.str] = None):
+        """
+        :param Sequence[builtins.str] inside_cidr_blocks: The range of interior BGP peer IP addresses.
+        :param builtins.str peer_address: The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.
+        :param Sequence['TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration'] bgp_configurations: The BGP configuration details.
+        :param builtins.str protocol: The tunnel protocol.
+        :param builtins.str transit_gateway_address: The Connect peer IP address on the transit gateway side of the tunnel.
+        """
+        pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
+        pulumi.set(__self__, "peer_address", peer_address)
+        if bgp_configurations is not None:
+            pulumi.set(__self__, "bgp_configurations", bgp_configurations)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if transit_gateway_address is not None:
+            pulumi.set(__self__, "transit_gateway_address", transit_gateway_address)
+
+    @property
+    @pulumi.getter(name="insideCidrBlocks")
+    def inside_cidr_blocks(self) -> Sequence[builtins.str]:
+        """
+        The range of interior BGP peer IP addresses.
+        """
+        return pulumi.get(self, "inside_cidr_blocks")
+
+    @property
+    @pulumi.getter(name="peerAddress")
+    def peer_address(self) -> builtins.str:
+        """
+        The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.
+        """
+        return pulumi.get(self, "peer_address")
+
+    @property
+    @pulumi.getter(name="bgpConfigurations")
+    def bgp_configurations(self) -> Optional[Sequence['outputs.TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration']]:
+        """
+        The BGP configuration details.
+        """
+        return pulumi.get(self, "bgp_configurations")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[builtins.str]:
+        """
+        The tunnel protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="transitGatewayAddress")
+    def transit_gateway_address(self) -> Optional[builtins.str]:
+        """
+        The Connect peer IP address on the transit gateway side of the tunnel.
+        """
+        return pulumi.get(self, "transit_gateway_address")
+
+
+@pulumi.output_type
+class TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bgpStatus":
+            suggest = "bgp_status"
+        elif key == "peerAddress":
+            suggest = "peer_address"
+        elif key == "peerAsn":
+            suggest = "peer_asn"
+        elif key == "transitGatewayAddress":
+            suggest = "transit_gateway_address"
+        elif key == "transitGatewayAsn":
+            suggest = "transit_gateway_asn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bgp_status: Optional[builtins.str] = None,
+                 peer_address: Optional[builtins.str] = None,
+                 peer_asn: Optional[builtins.float] = None,
+                 transit_gateway_address: Optional[builtins.str] = None,
+                 transit_gateway_asn: Optional[builtins.float] = None):
+        """
+        :param builtins.str bgp_status: The BGP status.
+        :param builtins.str peer_address: The interior BGP peer IP address for the appliance.
+        :param builtins.float peer_asn: The peer Autonomous System Number (ASN).
+        :param builtins.str transit_gateway_address: The interior BGP peer IP address for the transit gateway.
+        :param builtins.float transit_gateway_asn: The transit gateway Autonomous System Number (ASN).
+        """
+        if bgp_status is not None:
+            pulumi.set(__self__, "bgp_status", bgp_status)
+        if peer_address is not None:
+            pulumi.set(__self__, "peer_address", peer_address)
+        if peer_asn is not None:
+            pulumi.set(__self__, "peer_asn", peer_asn)
+        if transit_gateway_address is not None:
+            pulumi.set(__self__, "transit_gateway_address", transit_gateway_address)
+        if transit_gateway_asn is not None:
+            pulumi.set(__self__, "transit_gateway_asn", transit_gateway_asn)
+
+    @property
+    @pulumi.getter(name="bgpStatus")
+    def bgp_status(self) -> Optional[builtins.str]:
+        """
+        The BGP status.
+        """
+        return pulumi.get(self, "bgp_status")
+
+    @property
+    @pulumi.getter(name="peerAddress")
+    def peer_address(self) -> Optional[builtins.str]:
+        """
+        The interior BGP peer IP address for the appliance.
+        """
+        return pulumi.get(self, "peer_address")
+
+    @property
+    @pulumi.getter(name="peerAsn")
+    def peer_asn(self) -> Optional[builtins.float]:
+        """
+        The peer Autonomous System Number (ASN).
+        """
+        return pulumi.get(self, "peer_asn")
+
+    @property
+    @pulumi.getter(name="transitGatewayAddress")
+    def transit_gateway_address(self) -> Optional[builtins.str]:
+        """
+        The interior BGP peer IP address for the transit gateway.
+        """
+        return pulumi.get(self, "transit_gateway_address")
+
+    @property
+    @pulumi.getter(name="transitGatewayAsn")
+    def transit_gateway_asn(self) -> Optional[builtins.float]:
+        """
+        The transit gateway Autonomous System Number (ASN).
+        """
+        return pulumi.get(self, "transit_gateway_asn")
 
 
 @pulumi.output_type

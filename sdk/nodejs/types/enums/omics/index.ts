@@ -149,6 +149,17 @@ export const WorkflowVersionAccelerators = {
 
 export type WorkflowVersionAccelerators = (typeof WorkflowVersionAccelerators)[keyof typeof WorkflowVersionAccelerators];
 
+export const WorkflowVersionSourceReferencetype = {
+    Branch: "BRANCH",
+    Tag: "TAG",
+    Commit: "COMMIT",
+} as const;
+
+/**
+ * The type of source reference, such as branch, tag, or commit.
+ */
+export type WorkflowVersionSourceReferencetype = (typeof WorkflowVersionSourceReferencetype)[keyof typeof WorkflowVersionSourceReferencetype];
+
 export const WorkflowVersionStorageType = {
     Static: "STATIC",
     Dynamic: "DYNAMIC",

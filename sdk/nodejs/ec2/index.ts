@@ -375,6 +375,11 @@ export const getTransitGatewayConnect: typeof import("./getTransitGatewayConnect
 export const getTransitGatewayConnectOutput: typeof import("./getTransitGatewayConnect").getTransitGatewayConnectOutput = null as any;
 utilities.lazyLoad(exports, ["getTransitGatewayConnect","getTransitGatewayConnectOutput"], () => require("./getTransitGatewayConnect"));
 
+export { GetTransitGatewayConnectPeerArgs, GetTransitGatewayConnectPeerResult, GetTransitGatewayConnectPeerOutputArgs } from "./getTransitGatewayConnectPeer";
+export const getTransitGatewayConnectPeer: typeof import("./getTransitGatewayConnectPeer").getTransitGatewayConnectPeer = null as any;
+export const getTransitGatewayConnectPeerOutput: typeof import("./getTransitGatewayConnectPeer").getTransitGatewayConnectPeerOutput = null as any;
+utilities.lazyLoad(exports, ["getTransitGatewayConnectPeer","getTransitGatewayConnectPeerOutput"], () => require("./getTransitGatewayConnectPeer"));
+
 export { GetTransitGatewayMulticastDomainArgs, GetTransitGatewayMulticastDomainResult, GetTransitGatewayMulticastDomainOutputArgs } from "./getTransitGatewayMulticastDomain";
 export const getTransitGatewayMulticastDomain: typeof import("./getTransitGatewayMulticastDomain").getTransitGatewayMulticastDomain = null as any;
 export const getTransitGatewayMulticastDomainOutput: typeof import("./getTransitGatewayMulticastDomain").getTransitGatewayMulticastDomainOutput = null as any;
@@ -760,6 +765,11 @@ export type TransitGatewayConnect = import("./transitGatewayConnect").TransitGat
 export const TransitGatewayConnect: typeof import("./transitGatewayConnect").TransitGatewayConnect = null as any;
 utilities.lazyLoad(exports, ["TransitGatewayConnect"], () => require("./transitGatewayConnect"));
 
+export { TransitGatewayConnectPeerArgs } from "./transitGatewayConnectPeer";
+export type TransitGatewayConnectPeer = import("./transitGatewayConnectPeer").TransitGatewayConnectPeer;
+export const TransitGatewayConnectPeer: typeof import("./transitGatewayConnectPeer").TransitGatewayConnectPeer = null as any;
+utilities.lazyLoad(exports, ["TransitGatewayConnectPeer"], () => require("./transitGatewayConnectPeer"));
+
 export { TransitGatewayMulticastDomainArgs } from "./transitGatewayMulticastDomain";
 export type TransitGatewayMulticastDomain = import("./transitGatewayMulticastDomain").TransitGatewayMulticastDomain;
 export const TransitGatewayMulticastDomain: typeof import("./transitGatewayMulticastDomain").TransitGatewayMulticastDomain = null as any;
@@ -1048,6 +1058,8 @@ const _module = {
                 return new TransitGatewayAttachment(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayConnect":
                 return new TransitGatewayConnect(name, <any>undefined, { urn })
+            case "aws-native:ec2:TransitGatewayConnectPeer":
+                return new TransitGatewayConnectPeer(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayMulticastDomain":
                 return new TransitGatewayMulticastDomain(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayMulticastDomainAssociation":

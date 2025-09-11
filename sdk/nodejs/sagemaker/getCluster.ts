@@ -25,10 +25,15 @@ export interface GetClusterArgs {
 }
 
 export interface GetClusterResult {
+    readonly autoScaling?: outputs.sagemaker.ClusterAutoScalingConfig;
     /**
      * The Amazon Resource Name (ARN) of the HyperPod Cluster.
      */
     readonly clusterArn?: string;
+    /**
+     * The cluster role for the autoscaler to assume.
+     */
+    readonly clusterRole?: string;
     /**
      * The status of the HyperPod Cluster.
      */

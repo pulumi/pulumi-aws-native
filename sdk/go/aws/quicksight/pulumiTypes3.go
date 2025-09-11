@@ -13,6 +13,143 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateListControlSearchOptions struct {
+	// The visibility configuration of the search options in a list control.
+	Visibility interface{} `pulumi:"visibility"`
+}
+
+// TemplateListControlSearchOptionsInput is an input type that accepts TemplateListControlSearchOptionsArgs and TemplateListControlSearchOptionsOutput values.
+// You can construct a concrete instance of `TemplateListControlSearchOptionsInput` via:
+//
+//	TemplateListControlSearchOptionsArgs{...}
+type TemplateListControlSearchOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateListControlSearchOptionsOutput() TemplateListControlSearchOptionsOutput
+	ToTemplateListControlSearchOptionsOutputWithContext(context.Context) TemplateListControlSearchOptionsOutput
+}
+
+type TemplateListControlSearchOptionsArgs struct {
+	// The visibility configuration of the search options in a list control.
+	Visibility pulumi.Input `pulumi:"visibility"`
+}
+
+func (TemplateListControlSearchOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateListControlSearchOptions)(nil)).Elem()
+}
+
+func (i TemplateListControlSearchOptionsArgs) ToTemplateListControlSearchOptionsOutput() TemplateListControlSearchOptionsOutput {
+	return i.ToTemplateListControlSearchOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateListControlSearchOptionsArgs) ToTemplateListControlSearchOptionsOutputWithContext(ctx context.Context) TemplateListControlSearchOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSearchOptionsOutput)
+}
+
+func (i TemplateListControlSearchOptionsArgs) ToTemplateListControlSearchOptionsPtrOutput() TemplateListControlSearchOptionsPtrOutput {
+	return i.ToTemplateListControlSearchOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateListControlSearchOptionsArgs) ToTemplateListControlSearchOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSearchOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSearchOptionsOutput).ToTemplateListControlSearchOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateListControlSearchOptionsPtrInput is an input type that accepts TemplateListControlSearchOptionsArgs, TemplateListControlSearchOptionsPtr and TemplateListControlSearchOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateListControlSearchOptionsPtrInput` via:
+//
+//	        TemplateListControlSearchOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateListControlSearchOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateListControlSearchOptionsPtrOutput() TemplateListControlSearchOptionsPtrOutput
+	ToTemplateListControlSearchOptionsPtrOutputWithContext(context.Context) TemplateListControlSearchOptionsPtrOutput
+}
+
+type templateListControlSearchOptionsPtrType TemplateListControlSearchOptionsArgs
+
+func TemplateListControlSearchOptionsPtr(v *TemplateListControlSearchOptionsArgs) TemplateListControlSearchOptionsPtrInput {
+	return (*templateListControlSearchOptionsPtrType)(v)
+}
+
+func (*templateListControlSearchOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateListControlSearchOptions)(nil)).Elem()
+}
+
+func (i *templateListControlSearchOptionsPtrType) ToTemplateListControlSearchOptionsPtrOutput() TemplateListControlSearchOptionsPtrOutput {
+	return i.ToTemplateListControlSearchOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateListControlSearchOptionsPtrType) ToTemplateListControlSearchOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSearchOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSearchOptionsPtrOutput)
+}
+
+type TemplateListControlSearchOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateListControlSearchOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateListControlSearchOptions)(nil)).Elem()
+}
+
+func (o TemplateListControlSearchOptionsOutput) ToTemplateListControlSearchOptionsOutput() TemplateListControlSearchOptionsOutput {
+	return o
+}
+
+func (o TemplateListControlSearchOptionsOutput) ToTemplateListControlSearchOptionsOutputWithContext(ctx context.Context) TemplateListControlSearchOptionsOutput {
+	return o
+}
+
+func (o TemplateListControlSearchOptionsOutput) ToTemplateListControlSearchOptionsPtrOutput() TemplateListControlSearchOptionsPtrOutput {
+	return o.ToTemplateListControlSearchOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateListControlSearchOptionsOutput) ToTemplateListControlSearchOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSearchOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateListControlSearchOptions) *TemplateListControlSearchOptions {
+		return &v
+	}).(TemplateListControlSearchOptionsPtrOutput)
+}
+
+// The visibility configuration of the search options in a list control.
+func (o TemplateListControlSearchOptionsOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateListControlSearchOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
+}
+
+type TemplateListControlSearchOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateListControlSearchOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateListControlSearchOptions)(nil)).Elem()
+}
+
+func (o TemplateListControlSearchOptionsPtrOutput) ToTemplateListControlSearchOptionsPtrOutput() TemplateListControlSearchOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateListControlSearchOptionsPtrOutput) ToTemplateListControlSearchOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSearchOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateListControlSearchOptionsPtrOutput) Elem() TemplateListControlSearchOptionsOutput {
+	return o.ApplyT(func(v *TemplateListControlSearchOptions) TemplateListControlSearchOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateListControlSearchOptions
+		return ret
+	}).(TemplateListControlSearchOptionsOutput)
+}
+
+// The visibility configuration of the search options in a list control.
+func (o TemplateListControlSearchOptionsPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateListControlSearchOptions) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Visibility
+	}).(pulumi.AnyOutput)
+}
+
 type TemplateListControlSelectAllOptions struct {
 	// The visibility configuration of the `Select all` options in a list control.
 	Visibility interface{} `pulumi:"visibility"`
@@ -49372,6 +49509,8 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSearchOptionsInput)(nil)).Elem(), TemplateListControlSearchOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSearchOptionsPtrInput)(nil)).Elem(), TemplateListControlSearchOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSelectAllOptionsInput)(nil)).Elem(), TemplateListControlSelectAllOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSelectAllOptionsPtrInput)(nil)).Elem(), TemplateListControlSelectAllOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLoadingAnimationInput)(nil)).Elem(), TemplateLoadingAnimationArgs{})
@@ -49922,6 +50061,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateListControlSearchOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateListControlSearchOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateListControlSelectAllOptionsOutput{})
 	pulumi.RegisterOutputType(TemplateListControlSelectAllOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLoadingAnimationOutput{})

@@ -27,10 +27,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, cluster_arn=None, cluster_status=None, creation_time=None, failure_message=None, instance_groups=None, node_provisioning_mode=None, node_recovery=None, restricted_instance_groups=None, tags=None):
+    def __init__(__self__, auto_scaling=None, cluster_arn=None, cluster_role=None, cluster_status=None, creation_time=None, failure_message=None, instance_groups=None, node_provisioning_mode=None, node_recovery=None, restricted_instance_groups=None, tags=None):
+        if auto_scaling and not isinstance(auto_scaling, dict):
+            raise TypeError("Expected argument 'auto_scaling' to be a dict")
+        pulumi.set(__self__, "auto_scaling", auto_scaling)
         if cluster_arn and not isinstance(cluster_arn, str):
             raise TypeError("Expected argument 'cluster_arn' to be a str")
         pulumi.set(__self__, "cluster_arn", cluster_arn)
+        if cluster_role and not isinstance(cluster_role, str):
+            raise TypeError("Expected argument 'cluster_role' to be a str")
+        pulumi.set(__self__, "cluster_role", cluster_role)
         if cluster_status and not isinstance(cluster_status, str):
             raise TypeError("Expected argument 'cluster_status' to be a str")
         pulumi.set(__self__, "cluster_status", cluster_status)
@@ -57,12 +63,25 @@ class GetClusterResult:
         pulumi.set(__self__, "tags", tags)
 
     @property
+    @pulumi.getter(name="autoScaling")
+    def auto_scaling(self) -> Optional['outputs.ClusterAutoScalingConfig']:
+        return pulumi.get(self, "auto_scaling")
+
+    @property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> Optional[builtins.str]:
         """
         The Amazon Resource Name (ARN) of the HyperPod Cluster.
         """
         return pulumi.get(self, "cluster_arn")
+
+    @property
+    @pulumi.getter(name="clusterRole")
+    def cluster_role(self) -> Optional[builtins.str]:
+        """
+        The cluster role for the autoscaler to assume.
+        """
+        return pulumi.get(self, "cluster_role")
 
     @property
     @pulumi.getter(name="clusterStatus")
@@ -132,7 +151,9 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
+            auto_scaling=self.auto_scaling,
             cluster_arn=self.cluster_arn,
+            cluster_role=self.cluster_role,
             cluster_status=self.cluster_status,
             creation_time=self.creation_time,
             failure_message=self.failure_message,
@@ -157,7 +178,9 @@ def get_cluster(cluster_arn: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
+        auto_scaling=pulumi.get(__ret__, 'auto_scaling'),
         cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
+        cluster_role=pulumi.get(__ret__, 'cluster_role'),
         cluster_status=pulumi.get(__ret__, 'cluster_status'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         failure_message=pulumi.get(__ret__, 'failure_message'),
@@ -179,7 +202,9 @@ def get_cluster_output(cluster_arn: Optional[pulumi.Input[builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getCluster', __args__, opts=opts, typ=GetClusterResult)
     return __ret__.apply(lambda __response__: GetClusterResult(
+        auto_scaling=pulumi.get(__response__, 'auto_scaling'),
         cluster_arn=pulumi.get(__response__, 'cluster_arn'),
+        cluster_role=pulumi.get(__response__, 'cluster_role'),
         cluster_status=pulumi.get(__response__, 'cluster_status'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         failure_message=pulumi.get(__response__, 'failure_message'),

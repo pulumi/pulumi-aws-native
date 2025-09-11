@@ -86,6 +86,25 @@ export const AppType = {
  */
 export type AppType = (typeof AppType)[keyof typeof AppType];
 
+export const ClusterAutoScalingConfigAutoScalerType = {
+    Karpenter: "Karpenter",
+} as const;
+
+/**
+ * The type of auto-scaler to use
+ */
+export type ClusterAutoScalingConfigAutoScalerType = (typeof ClusterAutoScalingConfigAutoScalerType)[keyof typeof ClusterAutoScalingConfigAutoScalerType];
+
+export const ClusterAutoScalingConfigMode = {
+    Enable: "Enable",
+    Disable: "Disable",
+} as const;
+
+/**
+ * The auto-scaling mode for the cluster
+ */
+export type ClusterAutoScalingConfigMode = (typeof ClusterAutoScalingConfigMode)[keyof typeof ClusterAutoScalingConfigMode];
+
 export const ClusterDeepHealthCheckType = {
     InstanceStress: "InstanceStress",
     InstanceConnectivity: "InstanceConnectivity",

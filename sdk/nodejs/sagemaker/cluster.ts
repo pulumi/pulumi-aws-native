@@ -37,6 +37,7 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    public readonly autoScaling!: pulumi.Output<outputs.sagemaker.ClusterAutoScalingConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the HyperPod Cluster.
      */
@@ -45,6 +46,10 @@ export class Cluster extends pulumi.CustomResource {
      * The name of the HyperPod Cluster.
      */
     public readonly clusterName!: pulumi.Output<string | undefined>;
+    /**
+     * The cluster role for the autoscaler to assume.
+     */
+    public readonly clusterRole!: pulumi.Output<string | undefined>;
     /**
      * The status of the HyperPod Cluster.
      */
@@ -94,7 +99,9 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["autoScaling"] = args ? args.autoScaling : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["clusterRole"] = args ? args.clusterRole : undefined;
             resourceInputs["instanceGroups"] = args ? args.instanceGroups : undefined;
             resourceInputs["nodeProvisioningMode"] = args ? args.nodeProvisioningMode : undefined;
             resourceInputs["nodeRecovery"] = args ? args.nodeRecovery : undefined;
@@ -107,8 +114,10 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["failureMessage"] = undefined /*out*/;
         } else {
+            resourceInputs["autoScaling"] = undefined /*out*/;
             resourceInputs["clusterArn"] = undefined /*out*/;
             resourceInputs["clusterName"] = undefined /*out*/;
+            resourceInputs["clusterRole"] = undefined /*out*/;
             resourceInputs["clusterStatus"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["failureMessage"] = undefined /*out*/;
@@ -131,10 +140,15 @@ export class Cluster extends pulumi.CustomResource {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    autoScaling?: pulumi.Input<inputs.sagemaker.ClusterAutoScalingConfigArgs>;
     /**
      * The name of the HyperPod Cluster.
      */
     clusterName?: pulumi.Input<string>;
+    /**
+     * The cluster role for the autoscaler to assume.
+     */
+    clusterRole?: pulumi.Input<string>;
     /**
      * The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
      */

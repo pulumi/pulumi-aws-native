@@ -27,6 +27,7 @@ __all__ = [
     'AppImageConfigKernelSpec',
     'AppResourceSpec',
     'ClusterAlarmDetails',
+    'ClusterAutoScalingConfig',
     'ClusterCapacitySizeConfig',
     'ClusterDeploymentConfig',
     'ClusterEnvironmentConfig',
@@ -790,6 +791,57 @@ class ClusterAlarmDetails(dict):
         The name of the alarm.
         """
         return pulumi.get(self, "alarm_name")
+
+
+@pulumi.output_type
+class ClusterAutoScalingConfig(dict):
+    """
+    Configuration for cluster auto-scaling
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoScalerType":
+            suggest = "auto_scaler_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterAutoScalingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterAutoScalingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterAutoScalingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: 'ClusterAutoScalingConfigMode',
+                 auto_scaler_type: Optional['ClusterAutoScalingConfigAutoScalerType'] = None):
+        """
+        Configuration for cluster auto-scaling
+        :param 'ClusterAutoScalingConfigMode' mode: The auto-scaling mode for the cluster
+        :param 'ClusterAutoScalingConfigAutoScalerType' auto_scaler_type: The type of auto-scaler to use
+        """
+        pulumi.set(__self__, "mode", mode)
+        if auto_scaler_type is not None:
+            pulumi.set(__self__, "auto_scaler_type", auto_scaler_type)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> 'ClusterAutoScalingConfigMode':
+        """
+        The auto-scaling mode for the cluster
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="autoScalerType")
+    def auto_scaler_type(self) -> Optional['ClusterAutoScalingConfigAutoScalerType']:
+        """
+        The type of auto-scaler to use
+        """
+        return pulumi.get(self, "auto_scaler_type")
 
 
 @pulumi.output_type

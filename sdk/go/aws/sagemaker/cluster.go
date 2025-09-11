@@ -16,10 +16,13 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
+	AutoScaling ClusterAutoScalingConfigPtrOutput `pulumi:"autoScaling"`
 	// The Amazon Resource Name (ARN) of the HyperPod Cluster.
 	ClusterArn pulumi.StringOutput `pulumi:"clusterArn"`
 	// The name of the HyperPod Cluster.
 	ClusterName pulumi.StringPtrOutput `pulumi:"clusterName"`
+	// The cluster role for the autoscaler to assume.
+	ClusterRole pulumi.StringPtrOutput `pulumi:"clusterRole"`
 	// The status of the HyperPod Cluster.
 	ClusterStatus ClusterStatusOutput `pulumi:"clusterStatus"`
 	// The time at which the HyperPod cluster was created.
@@ -97,8 +100,11 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
+	AutoScaling *ClusterAutoScalingConfig `pulumi:"autoScaling"`
 	// The name of the HyperPod Cluster.
 	ClusterName *string `pulumi:"clusterName"`
+	// The cluster role for the autoscaler to assume.
+	ClusterRole *string `pulumi:"clusterRole"`
 	// The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
 	InstanceGroups []ClusterInstanceGroup `pulumi:"instanceGroups"`
 	// Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
@@ -116,8 +122,11 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	AutoScaling ClusterAutoScalingConfigPtrInput
 	// The name of the HyperPod Cluster.
 	ClusterName pulumi.StringPtrInput
+	// The cluster role for the autoscaler to assume.
+	ClusterRole pulumi.StringPtrInput
 	// The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
 	InstanceGroups ClusterInstanceGroupArrayInput
 	// Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
@@ -170,6 +179,10 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+func (o ClusterOutput) AutoScaling() ClusterAutoScalingConfigPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterAutoScalingConfigPtrOutput { return v.AutoScaling }).(ClusterAutoScalingConfigPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the HyperPod Cluster.
 func (o ClusterOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterArn }).(pulumi.StringOutput)
@@ -178,6 +191,11 @@ func (o ClusterOutput) ClusterArn() pulumi.StringOutput {
 // The name of the HyperPod Cluster.
 func (o ClusterOutput) ClusterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterName }).(pulumi.StringPtrOutput)
+}
+
+// The cluster role for the autoscaler to assume.
+func (o ClusterOutput) ClusterRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterRole }).(pulumi.StringPtrOutput)
 }
 
 // The status of the HyperPod Cluster.

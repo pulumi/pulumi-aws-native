@@ -5946,6 +5946,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DashboardQBusinessInsightsStatus : IEquatable<DashboardQBusinessInsightsStatus>
+    {
+        private readonly string _value;
+
+        private DashboardQBusinessInsightsStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardQBusinessInsightsStatus Enabled { get; } = new DashboardQBusinessInsightsStatus("ENABLED");
+        public static DashboardQBusinessInsightsStatus Disabled { get; } = new DashboardQBusinessInsightsStatus("DISABLED");
+
+        public static bool operator ==(DashboardQBusinessInsightsStatus left, DashboardQBusinessInsightsStatus right) => left.Equals(right);
+        public static bool operator !=(DashboardQBusinessInsightsStatus left, DashboardQBusinessInsightsStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardQBusinessInsightsStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardQBusinessInsightsStatus other && Equals(other);
+        public bool Equals(DashboardQBusinessInsightsStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DashboardRadarChartAxesRangeScale : IEquatable<DashboardRadarChartAxesRangeScale>
     {
         private readonly string _value;

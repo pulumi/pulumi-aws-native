@@ -112,7 +112,8 @@ class CachePolicyConfig(dict):
      This configuration determines the following:
       +  The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
       +  The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
-      
+      If your minimum TTL is greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the ``Cache-Control: no-cache``, ``no-store``, or ``private`` directives are present in the origin headers.
+       
      The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use ``OriginRequestPolicy``.
     """
     @staticmethod
@@ -150,7 +151,8 @@ class CachePolicyConfig(dict):
          This configuration determines the following:
           +  The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
           +  The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
-          
+          If your minimum TTL is greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the ``Cache-Control: no-cache``, ``no-store``, or ``private`` directives are present in the origin headers.
+           
          The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use ``OriginRequestPolicy``.
         :param builtins.float default_ttl: The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value as the object's time to live (TTL) only when the origin does *not* send ``Cache-Control`` or ``Expires`` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
                 The default value for this field is 86400 seconds (one day). If the value of ``MinTTL`` is more than 86400 seconds, then the default value for this field is the same as the value of ``MinTTL``.
@@ -925,7 +927,8 @@ class DistributionCacheBehavior(dict):
      If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't specify an empty individual ``CacheBehavior`` element, because this is invalid. For more information, see [CacheBehaviors](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CacheBehaviors.html). 
      To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
      To add, change, or remove one or more cache behaviors, update the distribution configuration and specify all of the cache behaviors that you want to include in the updated distribution.
-     For more information about cache behaviors, see [Cache Behavior Settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior) in the *Amazon CloudFront Developer Guide*.
+      If your minimum TTL is greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the ``Cache-Control: no-cache``, ``no-store``, or ``private`` directives are present in the origin headers.
+      For more information about cache behaviors, see [Cache Behavior Settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior) in the *Amazon CloudFront Developer Guide*.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1011,7 +1014,8 @@ class DistributionCacheBehavior(dict):
          If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't specify an empty individual ``CacheBehavior`` element, because this is invalid. For more information, see [CacheBehaviors](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CacheBehaviors.html). 
          To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
          To add, change, or remove one or more cache behaviors, update the distribution configuration and specify all of the cache behaviors that you want to include in the updated distribution.
-         For more information about cache behaviors, see [Cache Behavior Settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior) in the *Amazon CloudFront Developer Guide*.
+          If your minimum TTL is greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the ``Cache-Control: no-cache``, ``no-store``, or ``private`` directives are present in the origin headers.
+          For more information about cache behaviors, see [Cache Behavior Settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior) in the *Amazon CloudFront Developer Guide*.
         :param builtins.str path_pattern: The pattern (for example, ``images/*.jpg``) that specifies which requests to apply the behavior to. When CloudFront receives a viewer request, the requested path is compared with path patterns in the order in which cache behaviors are listed in the distribution.
                  You can optionally include a slash (``/``) at the beginning of the path pattern. For example, ``/images/*.jpg``. CloudFront behavior is the same with or without the leading ``/``.
                  The path pattern for the default cache behavior is ``*`` and cannot be changed. If the request for an object does not match the path pattern for any cache behaviors, CloudFront applies the behavior in the default cache behavior.
@@ -1402,7 +1406,7 @@ class DistributionConfig(dict):
         :param Sequence[builtins.str] cnames: An alias for the CF distribution's domain name.
                  This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
         :param builtins.str comment: A comment to describe the distribution. The comment cannot be longer than 128 characters.
-        :param 'DistributionConnectionMode' connection_mode: This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants(tenant-only).
+        :param 'DistributionConnectionMode' connection_mode: This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).
         :param builtins.str continuous_deployment_policy_id: This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
                  The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
         :param Sequence['DistributionCustomErrorResponse'] custom_error_responses: A complex type that controls the following:
@@ -1562,7 +1566,7 @@ class DistributionConfig(dict):
     @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> Optional['DistributionConnectionMode']:
         """
-        This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants(tenant-only).
+        This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).
         """
         return pulumi.get(self, "connection_mode")
 
@@ -2001,10 +2005,11 @@ class DistributionCustomOriginConfig(dict):
                  +  ``https-only`` – CloudFront always uses HTTPS to connect to the origin.
         :param builtins.int http_port: The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
         :param builtins.int https_port: The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
+        :param 'DistributionCustomOriginConfigIpAddressType' ip_address_type: Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose `dualstack` to help optimize reliability.
         :param builtins.int origin_keepalive_timeout: Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
                 For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         :param builtins.int origin_read_timeout: Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-                For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+                For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         :param Sequence[builtins.str] origin_ssl_protocols: Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include ``SSLv3``, ``TLSv1``, ``TLSv1.1``, and ``TLSv1.2``.
                 For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
         """
@@ -2052,6 +2057,9 @@ class DistributionCustomOriginConfig(dict):
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional['DistributionCustomOriginConfigIpAddressType']:
+        """
+        Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose `dualstack` to help optimize reliability.
+        """
         return pulumi.get(self, "ip_address_type")
 
     @property
@@ -2068,7 +2076,7 @@ class DistributionCustomOriginConfig(dict):
     def origin_read_timeout(self) -> Optional[builtins.int]:
         """
         Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-         For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+         For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "origin_read_timeout")
 
@@ -2086,6 +2094,7 @@ class DistributionCustomOriginConfig(dict):
 class DistributionDefaultCacheBehavior(dict):
     """
     A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if request URLs don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+      If your minimum TTL is greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the ``Cache-Control: no-cache``, ``no-store``, or ``private`` directives are present in the origin headers.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2163,6 +2172,7 @@ class DistributionDefaultCacheBehavior(dict):
                  trusted_signers: Optional[Sequence[builtins.str]] = None):
         """
         A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if request URLs don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+          If your minimum TTL is greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the ``Cache-Control: no-cache``, ``no-store``, or ``private`` directives are present in the origin headers.
         :param builtins.str target_origin_id: The value of ``ID`` for the origin that you want CloudFront to route requests to when they use the default cache behavior.
         :param builtins.str viewer_protocol_policy: The protocol that viewers can use to access the files in the origin specified by ``TargetOriginId`` when a request matches the path pattern in ``PathPattern``. You can specify the following options:
                  +  ``allow-all``: Viewers can use HTTP or HTTPS.
@@ -3106,10 +3116,8 @@ class DistributionOrigin(dict):
         :param 'DistributionOriginShield' origin_shield: CloudFront Origin Shield. Using Origin Shield can help reduce the load on your origin.
                 For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
         :param builtins.int response_completion_timeout: The time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. If the complete response isn't received from the origin by this time, CloudFront ends the connection.
-               
-               The value for `ResponseCompletionTimeout` must be equal to or greater than the value for `OriginReadTimeout` . If you don't set a value for `ResponseCompletionTimeout` , CloudFront doesn't enforce a maximum value.
-               
-               For more information, see [Response completion timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#response-completion-timeout) in the *Amazon CloudFront Developer Guide* .
+                The value for ``ResponseCompletionTimeout`` must be equal to or greater than the value for ``OriginReadTimeout``. If you don't set a value for ``ResponseCompletionTimeout``, CloudFront doesn't enforce a maximum value.
+                For more information, see [Response completion timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#response-completion-timeout) in the *Amazon CloudFront Developer Guide*.
         :param 'DistributionS3OriginConfig' s3_origin_config: Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
         :param 'DistributionVpcOriginConfig' vpc_origin_config: The VPC origin configuration.
         """
@@ -3222,10 +3230,8 @@ class DistributionOrigin(dict):
     def response_completion_timeout(self) -> Optional[builtins.int]:
         """
         The time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. If the complete response isn't received from the origin by this time, CloudFront ends the connection.
-
-        The value for `ResponseCompletionTimeout` must be equal to or greater than the value for `OriginReadTimeout` . If you don't set a value for `ResponseCompletionTimeout` , CloudFront doesn't enforce a maximum value.
-
-        For more information, see [Response completion timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#response-completion-timeout) in the *Amazon CloudFront Developer Guide* .
+         The value for ``ResponseCompletionTimeout`` must be equal to or greater than the value for ``OriginReadTimeout``. If you don't set a value for ``ResponseCompletionTimeout``, CloudFront doesn't enforce a maximum value.
+         For more information, see [Response completion timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#response-completion-timeout) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "response_completion_timeout")
 
@@ -3770,9 +3776,8 @@ class DistributionS3OriginConfig(dict):
                 To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty ``OriginAccessIdentity`` element.
                 To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
                 For more information about the origin access identity, see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
-        :param builtins.int origin_read_timeout: Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-               
-               For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
+        :param builtins.int origin_read_timeout: Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+                For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         """
         if origin_access_identity is not None:
             pulumi.set(__self__, "origin_access_identity", origin_access_identity)
@@ -3798,9 +3803,8 @@ class DistributionS3OriginConfig(dict):
     @pulumi.getter(name="originReadTimeout")
     def origin_read_timeout(self) -> Optional[builtins.int]:
         """
-        Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-
-        For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
+        Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+         For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "origin_read_timeout")
 
@@ -4366,7 +4370,7 @@ class DistributionVpcOriginConfig(dict):
         :param builtins.int origin_keepalive_timeout: Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
                 For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         :param builtins.int origin_read_timeout: Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-                For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+                For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         """
         pulumi.set(__self__, "vpc_origin_id", vpc_origin_id)
         if origin_keepalive_timeout is not None:
@@ -4396,7 +4400,7 @@ class DistributionVpcOriginConfig(dict):
     def origin_read_timeout(self) -> Optional[builtins.int]:
         """
         Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-         For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+         For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "origin_read_timeout")
 

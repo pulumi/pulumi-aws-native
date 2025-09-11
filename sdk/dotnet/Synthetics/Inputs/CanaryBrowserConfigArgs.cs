@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
 
     public sealed class CanaryBrowserConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The browser type associated with this browser configuration.
+        /// </summary>
         [Input("browserType", required: true)]
         public Input<Pulumi.AwsNative.Synthetics.CanaryBrowserType> BrowserType { get; set; } = null!;
 

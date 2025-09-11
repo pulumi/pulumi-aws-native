@@ -210,6 +210,7 @@ __all__ = [
     'DashboardPivotTableSubtotalLevel',
     'DashboardPluginVisualAxisName',
     'DashboardPrimaryValueDisplayType',
+    'DashboardQBusinessInsightsStatus',
     'DashboardRadarChartAxesRangeScale',
     'DashboardRadarChartShape',
     'DashboardReferenceLineLabelHorizontalPosition',
@@ -1917,6 +1918,12 @@ class DashboardPrimaryValueDisplayType(builtins.str, Enum):
     HIDDEN = "HIDDEN"
     COMPARISON = "COMPARISON"
     ACTUAL = "ACTUAL"
+
+
+@pulumi.type_token("aws-native:quicksight:DashboardQBusinessInsightsStatus")
+class DashboardQBusinessInsightsStatus(builtins.str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:quicksight:DashboardRadarChartAxesRangeScale")

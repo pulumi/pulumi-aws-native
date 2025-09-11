@@ -3074,7 +3074,7 @@ func (o HoursOfOperationConfigArrayOutput) Index(i pulumi.IntInput) HoursOfOpera
 type HoursOfOperationOverride struct {
 	// The date from which the hours of operation override would be effective.
 	EffectiveFrom string `pulumi:"effectiveFrom"`
-	// The date till which the hours of operation override would be effective.
+	// The date until the hours of operation override is effective.
 	EffectiveTill string `pulumi:"effectiveTill"`
 	// The identifier for the hours of operation override.
 	HoursOfOperationOverrideId *string                          `pulumi:"hoursOfOperationOverrideId"`
@@ -3098,7 +3098,7 @@ type HoursOfOperationOverrideInput interface {
 type HoursOfOperationOverrideArgs struct {
 	// The date from which the hours of operation override would be effective.
 	EffectiveFrom pulumi.StringInput `pulumi:"effectiveFrom"`
-	// The date till which the hours of operation override would be effective.
+	// The date until the hours of operation override is effective.
 	EffectiveTill pulumi.StringInput `pulumi:"effectiveTill"`
 	// The identifier for the hours of operation override.
 	HoursOfOperationOverrideId pulumi.StringPtrInput                    `pulumi:"hoursOfOperationOverrideId"`
@@ -3164,7 +3164,7 @@ func (o HoursOfOperationOverrideOutput) EffectiveFrom() pulumi.StringOutput {
 	return o.ApplyT(func(v HoursOfOperationOverride) string { return v.EffectiveFrom }).(pulumi.StringOutput)
 }
 
-// The date till which the hours of operation override would be effective.
+// The date until the hours of operation override is effective.
 func (o HoursOfOperationOverrideOutput) EffectiveTill() pulumi.StringOutput {
 	return o.ApplyT(func(v HoursOfOperationOverride) string { return v.EffectiveTill }).(pulumi.StringOutput)
 }

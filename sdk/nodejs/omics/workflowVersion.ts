@@ -46,6 +46,10 @@ export class WorkflowVersion extends pulumi.CustomResource {
      * The creation time of the workflow version.
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * Contains information about a source code repository that hosts the workflow definition files.
+     */
+    public readonly definitionRepository!: pulumi.Output<outputs.omics.WorkflowVersionDefinitionRepository | undefined>;
     public readonly definitionUri!: pulumi.Output<string | undefined>;
     /**
      * The description of the workflow version.
@@ -54,6 +58,22 @@ export class WorkflowVersion extends pulumi.CustomResource {
     public readonly engine!: pulumi.Output<enums.omics.WorkflowVersionWorkflowEngine | undefined>;
     public readonly main!: pulumi.Output<string | undefined>;
     public readonly parameterTemplate!: pulumi.Output<{[key: string]: outputs.omics.WorkflowVersionWorkflowParameter} | undefined>;
+    /**
+     * Path to the primary workflow parameter template JSON file inside the repository
+     */
+    public readonly parameterTemplatePath!: pulumi.Output<string | undefined>;
+    /**
+     * The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+     */
+    public readonly readmeMarkdown!: pulumi.Output<string | undefined>;
+    /**
+     * The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
+     */
+    public readonly readmePath!: pulumi.Output<string | undefined>;
+    /**
+     * The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
+     */
+    public readonly readmeUri!: pulumi.Output<string | undefined>;
     /**
      * The status of the workflow version.
      */
@@ -91,11 +111,16 @@ export class WorkflowVersion extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workflowId'");
             }
             resourceInputs["accelerators"] = args ? args.accelerators : undefined;
+            resourceInputs["definitionRepository"] = args ? args.definitionRepository : undefined;
             resourceInputs["definitionUri"] = args ? args.definitionUri : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["main"] = args ? args.main : undefined;
             resourceInputs["parameterTemplate"] = args ? args.parameterTemplate : undefined;
+            resourceInputs["parameterTemplatePath"] = args ? args.parameterTemplatePath : undefined;
+            resourceInputs["readmeMarkdown"] = args ? args.readmeMarkdown : undefined;
+            resourceInputs["readmePath"] = args ? args.readmePath : undefined;
+            resourceInputs["readmeUri"] = args ? args.readmeUri : undefined;
             resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
             resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -111,11 +136,16 @@ export class WorkflowVersion extends pulumi.CustomResource {
             resourceInputs["accelerators"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["definitionRepository"] = undefined /*out*/;
             resourceInputs["definitionUri"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;
             resourceInputs["main"] = undefined /*out*/;
             resourceInputs["parameterTemplate"] = undefined /*out*/;
+            resourceInputs["parameterTemplatePath"] = undefined /*out*/;
+            resourceInputs["readmeMarkdown"] = undefined /*out*/;
+            resourceInputs["readmePath"] = undefined /*out*/;
+            resourceInputs["readmeUri"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["storageCapacity"] = undefined /*out*/;
             resourceInputs["storageType"] = undefined /*out*/;
@@ -127,7 +157,7 @@ export class WorkflowVersion extends pulumi.CustomResource {
             resourceInputs["workflowId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["accelerators", "definitionUri", "engine", "main", "parameterTemplate.*", "versionName", "workflowBucketOwnerId", "workflowId"] };
+        const replaceOnChanges = { replaceOnChanges: ["accelerators", "definitionRepository", "definitionUri", "engine", "main", "parameterTemplate.*", "parameterTemplatePath", "readmePath", "readmeUri", "versionName", "workflowBucketOwnerId", "workflowId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(WorkflowVersion.__pulumiType, name, resourceInputs, opts);
     }
@@ -138,6 +168,10 @@ export class WorkflowVersion extends pulumi.CustomResource {
  */
 export interface WorkflowVersionArgs {
     accelerators?: pulumi.Input<enums.omics.WorkflowVersionAccelerators>;
+    /**
+     * Contains information about a source code repository that hosts the workflow definition files.
+     */
+    definitionRepository?: pulumi.Input<inputs.omics.WorkflowVersionDefinitionRepositoryArgs>;
     definitionUri?: pulumi.Input<string>;
     /**
      * The description of the workflow version.
@@ -146,6 +180,22 @@ export interface WorkflowVersionArgs {
     engine?: pulumi.Input<enums.omics.WorkflowVersionWorkflowEngine>;
     main?: pulumi.Input<string>;
     parameterTemplate?: pulumi.Input<{[key: string]: pulumi.Input<inputs.omics.WorkflowVersionWorkflowParameterArgs>}>;
+    /**
+     * Path to the primary workflow parameter template JSON file inside the repository
+     */
+    parameterTemplatePath?: pulumi.Input<string>;
+    /**
+     * The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+     */
+    readmeMarkdown?: pulumi.Input<string>;
+    /**
+     * The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
+     */
+    readmePath?: pulumi.Input<string>;
+    /**
+     * The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
+     */
+    readmeUri?: pulumi.Input<string>;
     storageCapacity?: pulumi.Input<number>;
     storageType?: pulumi.Input<enums.omics.WorkflowVersionStorageType>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

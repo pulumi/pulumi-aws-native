@@ -69,6 +69,7 @@ export class Bot extends pulumi.CustomResource {
      * The description of the version.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    public readonly errorLogSettings!: pulumi.Output<outputs.lex.ErrorLogSettingsProperties | undefined>;
     /**
      * The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
      *
@@ -121,6 +122,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["botTags"] = args ? args.botTags : undefined;
             resourceInputs["dataPrivacy"] = args ? args.dataPrivacy : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["errorLogSettings"] = args ? args.errorLogSettings : undefined;
             resourceInputs["idleSessionTtlInSeconds"] = args ? args.idleSessionTtlInSeconds : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["replication"] = args ? args.replication : undefined;
@@ -138,6 +140,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["botTags"] = undefined /*out*/;
             resourceInputs["dataPrivacy"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["errorLogSettings"] = undefined /*out*/;
             resourceInputs["idleSessionTtlInSeconds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["replication"] = undefined /*out*/;
@@ -178,6 +181,7 @@ export interface BotArgs {
      * The description of the version.
      */
     description?: pulumi.Input<string>;
+    errorLogSettings?: pulumi.Input<inputs.lex.ErrorLogSettingsPropertiesArgs>;
     /**
      * The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
      *

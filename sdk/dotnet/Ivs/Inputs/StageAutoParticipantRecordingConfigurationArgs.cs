@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Ivs.Inputs
         /// HLS configuration object for individual participant recording.
         /// </summary>
         [Input("hlsConfiguration")]
-        public Input<Inputs.StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesArgs>? HlsConfiguration { get; set; }
+        public Input<Inputs.StageHlsConfigurationArgs>? HlsConfiguration { get; set; }
 
         [Input("mediaTypes")]
         private InputList<Pulumi.AwsNative.Ivs.StageAutoParticipantRecordingConfigurationMediaTypesItem>? _mediaTypes;
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Ivs.Inputs
         /// A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
         /// </summary>
         [Input("thumbnailConfiguration")]
-        public Input<Inputs.StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesArgs>? ThumbnailConfiguration { get; set; }
+        public Input<Inputs.StageThumbnailConfigurationArgs>? ThumbnailConfiguration { get; set; }
 
         public StageAutoParticipantRecordingConfigurationArgs()
         {

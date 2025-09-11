@@ -341,6 +341,10 @@ __all__ = [
     'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict',
     'TransitGatewayConnectOptionsArgs',
     'TransitGatewayConnectOptionsArgsDict',
+    'TransitGatewayConnectPeerConfigurationArgs',
+    'TransitGatewayConnectPeerConfigurationArgsDict',
+    'TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs',
+    'TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgsDict',
     'VerifiedAccessEndpointCidrOptionsArgs',
     'VerifiedAccessEndpointCidrOptionsArgsDict',
     'VerifiedAccessEndpointLoadBalancerOptionsArgs',
@@ -16277,6 +16281,228 @@ class TransitGatewayConnectOptionsArgs:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "protocol", value)
+
+
+if not MYPY:
+    class TransitGatewayConnectPeerConfigurationArgsDict(TypedDict):
+        inside_cidr_blocks: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        """
+        The range of interior BGP peer IP addresses.
+        """
+        peer_address: pulumi.Input[builtins.str]
+        """
+        The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.
+        """
+        bgp_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgsDict']]]]
+        """
+        The BGP configuration details.
+        """
+        protocol: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The tunnel protocol.
+        """
+        transit_gateway_address: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Connect peer IP address on the transit gateway side of the tunnel.
+        """
+elif False:
+    TransitGatewayConnectPeerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TransitGatewayConnectPeerConfigurationArgs:
+    def __init__(__self__, *,
+                 inside_cidr_blocks: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 peer_address: pulumi.Input[builtins.str],
+                 bgp_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs']]]] = None,
+                 protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 transit_gateway_address: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] inside_cidr_blocks: The range of interior BGP peer IP addresses.
+        :param pulumi.Input[builtins.str] peer_address: The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.
+        :param pulumi.Input[Sequence[pulumi.Input['TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs']]] bgp_configurations: The BGP configuration details.
+        :param pulumi.Input[builtins.str] protocol: The tunnel protocol.
+        :param pulumi.Input[builtins.str] transit_gateway_address: The Connect peer IP address on the transit gateway side of the tunnel.
+        """
+        pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
+        pulumi.set(__self__, "peer_address", peer_address)
+        if bgp_configurations is not None:
+            pulumi.set(__self__, "bgp_configurations", bgp_configurations)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if transit_gateway_address is not None:
+            pulumi.set(__self__, "transit_gateway_address", transit_gateway_address)
+
+    @property
+    @pulumi.getter(name="insideCidrBlocks")
+    def inside_cidr_blocks(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        """
+        The range of interior BGP peer IP addresses.
+        """
+        return pulumi.get(self, "inside_cidr_blocks")
+
+    @inside_cidr_blocks.setter
+    def inside_cidr_blocks(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "inside_cidr_blocks", value)
+
+    @property
+    @pulumi.getter(name="peerAddress")
+    def peer_address(self) -> pulumi.Input[builtins.str]:
+        """
+        The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.
+        """
+        return pulumi.get(self, "peer_address")
+
+    @peer_address.setter
+    def peer_address(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "peer_address", value)
+
+    @property
+    @pulumi.getter(name="bgpConfigurations")
+    def bgp_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs']]]]:
+        """
+        The BGP configuration details.
+        """
+        return pulumi.get(self, "bgp_configurations")
+
+    @bgp_configurations.setter
+    def bgp_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs']]]]):
+        pulumi.set(self, "bgp_configurations", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The tunnel protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="transitGatewayAddress")
+    def transit_gateway_address(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Connect peer IP address on the transit gateway side of the tunnel.
+        """
+        return pulumi.get(self, "transit_gateway_address")
+
+    @transit_gateway_address.setter
+    def transit_gateway_address(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "transit_gateway_address", value)
+
+
+if not MYPY:
+    class TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgsDict(TypedDict):
+        bgp_status: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The BGP status.
+        """
+        peer_address: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The interior BGP peer IP address for the appliance.
+        """
+        peer_asn: NotRequired[pulumi.Input[builtins.float]]
+        """
+        The peer Autonomous System Number (ASN).
+        """
+        transit_gateway_address: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The interior BGP peer IP address for the transit gateway.
+        """
+        transit_gateway_asn: NotRequired[pulumi.Input[builtins.float]]
+        """
+        The transit gateway Autonomous System Number (ASN).
+        """
+elif False:
+    TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs:
+    def __init__(__self__, *,
+                 bgp_status: Optional[pulumi.Input[builtins.str]] = None,
+                 peer_address: Optional[pulumi.Input[builtins.str]] = None,
+                 peer_asn: Optional[pulumi.Input[builtins.float]] = None,
+                 transit_gateway_address: Optional[pulumi.Input[builtins.str]] = None,
+                 transit_gateway_asn: Optional[pulumi.Input[builtins.float]] = None):
+        """
+        :param pulumi.Input[builtins.str] bgp_status: The BGP status.
+        :param pulumi.Input[builtins.str] peer_address: The interior BGP peer IP address for the appliance.
+        :param pulumi.Input[builtins.float] peer_asn: The peer Autonomous System Number (ASN).
+        :param pulumi.Input[builtins.str] transit_gateway_address: The interior BGP peer IP address for the transit gateway.
+        :param pulumi.Input[builtins.float] transit_gateway_asn: The transit gateway Autonomous System Number (ASN).
+        """
+        if bgp_status is not None:
+            pulumi.set(__self__, "bgp_status", bgp_status)
+        if peer_address is not None:
+            pulumi.set(__self__, "peer_address", peer_address)
+        if peer_asn is not None:
+            pulumi.set(__self__, "peer_asn", peer_asn)
+        if transit_gateway_address is not None:
+            pulumi.set(__self__, "transit_gateway_address", transit_gateway_address)
+        if transit_gateway_asn is not None:
+            pulumi.set(__self__, "transit_gateway_asn", transit_gateway_asn)
+
+    @property
+    @pulumi.getter(name="bgpStatus")
+    def bgp_status(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The BGP status.
+        """
+        return pulumi.get(self, "bgp_status")
+
+    @bgp_status.setter
+    def bgp_status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "bgp_status", value)
+
+    @property
+    @pulumi.getter(name="peerAddress")
+    def peer_address(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The interior BGP peer IP address for the appliance.
+        """
+        return pulumi.get(self, "peer_address")
+
+    @peer_address.setter
+    def peer_address(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "peer_address", value)
+
+    @property
+    @pulumi.getter(name="peerAsn")
+    def peer_asn(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        The peer Autonomous System Number (ASN).
+        """
+        return pulumi.get(self, "peer_asn")
+
+    @peer_asn.setter
+    def peer_asn(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "peer_asn", value)
+
+    @property
+    @pulumi.getter(name="transitGatewayAddress")
+    def transit_gateway_address(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The interior BGP peer IP address for the transit gateway.
+        """
+        return pulumi.get(self, "transit_gateway_address")
+
+    @transit_gateway_address.setter
+    def transit_gateway_address(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "transit_gateway_address", value)
+
+    @property
+    @pulumi.getter(name="transitGatewayAsn")
+    def transit_gateway_asn(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        The transit gateway Autonomous System Number (ASN).
+        """
+        return pulumi.get(self, "transit_gateway_asn")
+
+    @transit_gateway_asn.setter
+    def transit_gateway_asn(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "transit_gateway_asn", value)
 
 
 if not MYPY:
