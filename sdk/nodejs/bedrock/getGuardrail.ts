@@ -25,6 +25,7 @@ export interface GetGuardrailArgs {
 }
 
 export interface GetGuardrailResult {
+    readonly automatedReasoningPolicyConfig?: outputs.bedrock.GuardrailAutomatedReasoningPolicyConfig;
     /**
      * Messaging for when violations are detected in text
      */

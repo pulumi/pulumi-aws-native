@@ -29,6 +29,7 @@ type LookupGuardrailArgs struct {
 }
 
 type LookupGuardrailResult struct {
+	AutomatedReasoningPolicyConfig *GuardrailAutomatedReasoningPolicyConfig `pulumi:"automatedReasoningPolicyConfig"`
 	// Messaging for when violations are detected in text
 	BlockedInputMessaging *string `pulumi:"blockedInputMessaging"`
 	// Messaging for when violations are detected in text
@@ -102,6 +103,12 @@ func (o LookupGuardrailResultOutput) ToLookupGuardrailResultOutput() LookupGuard
 
 func (o LookupGuardrailResultOutput) ToLookupGuardrailResultOutputWithContext(ctx context.Context) LookupGuardrailResultOutput {
 	return o
+}
+
+func (o LookupGuardrailResultOutput) AutomatedReasoningPolicyConfig() GuardrailAutomatedReasoningPolicyConfigPtrOutput {
+	return o.ApplyT(func(v LookupGuardrailResult) *GuardrailAutomatedReasoningPolicyConfig {
+		return v.AutomatedReasoningPolicyConfig
+	}).(GuardrailAutomatedReasoningPolicyConfigPtrOutput)
 }
 
 // Messaging for when violations are detected in text
