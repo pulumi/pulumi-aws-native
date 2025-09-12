@@ -1,3 +1,0 @@
-name: simple-py
-runtime: python
-description: Test updating a VPC which has properties which are both create-only and write-only
