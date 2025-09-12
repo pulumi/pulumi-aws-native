@@ -11,3 +11,5 @@ enableChangelog: true
 envOverride:
   AWS_REGION: us-west-2
   PULUMI_API: "https://api.pulumi-staging.io"
+esc:
+  enabled: true
