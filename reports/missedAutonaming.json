@@ -257,7 +257,7 @@
     "properties": {
       "certificateArn": {
         "type": "string",
-        "description": "The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source."
+        "description": "The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source."
       },
       "domainName": {
         "type": "string",
@@ -282,7 +282,7 @@
       },
       "regionalCertificateArn": {
         "type": "string",
-        "description": "The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source."
+        "description": "The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source."
       },
       "routingMode": {
         "$ref": "#/types/aws-native:apigateway:DomainNameRoutingMode",
@@ -1113,7 +1113,7 @@
     "properties": {
       "certificateArn": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate."
+        "description": "The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate."
       },
       "description": {
         "type": "string",
@@ -1275,6 +1275,9 @@
       "scrapeConfiguration": {
         "$ref": "#/types/aws-native:aps:ScraperScrapeConfiguration",
         "description": "The configuration in use by the scraper."
+      },
+      "scraperLoggingConfiguration": {
+        "$ref": "#/types/aws-native:aps:ScraperLoggingConfiguration"
       },
       "source": {
         "$ref": "#/types/aws-native:aps:ScraperSource",
@@ -14906,7 +14909,7 @@
     "properties": {
       "certificate": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS` .\n\nTo request a new public certificate, see [Request a public certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html) in the *AWS Certificate Manager User Guide* .\n\nTo import an existing certificate into ACM, see [Importing certificates into ACM](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .\n\nTo request a private certificate to use FTPS through private IP addresses, see [Request a private certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html) in the *AWS Certificate Manager User Guide* .\n\nCertificates with the following cryptographic algorithms and key sizes are supported:\n\n- 2048-bit RSA (RSA_2048)\n- 4096-bit RSA (RSA_4096)\n- Elliptic Prime Curve 256 bit (EC_prime256v1)\n- Elliptic Prime Curve 384 bit (EC_secp384r1)\n- Elliptic Prime Curve 521 bit (EC_secp521r1)\n\n\u003e The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP address specified and information about the issuer."
+        "description": "The Amazon Resource Name (ARN) of the Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS` .\n\nTo request a new public certificate, see [Request a public certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html) in the *Certificate Manager User Guide* .\n\nTo import an existing certificate into ACM, see [Importing certificates into ACM](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *Certificate Manager User Guide* .\n\nTo request a private certificate to use FTPS through private IP addresses, see [Request a private certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html) in the *Certificate Manager User Guide* .\n\nCertificates with the following cryptographic algorithms and key sizes are supported:\n\n- 2048-bit RSA (RSA_2048)\n- 4096-bit RSA (RSA_4096)\n- Elliptic Prime Curve 256 bit (EC_prime256v1)\n- Elliptic Prime Curve 384 bit (EC_secp384r1)\n- Elliptic Prime Curve 521 bit (EC_secp521r1)\n\n\u003e The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP address specified and information about the issuer."
       },
       "domain": {
         "$ref": "#/types/aws-native:transfer:ServerDomain",
@@ -14953,7 +14956,7 @@
         "items": {
           "$ref": "#/types/aws-native:transfer:ServerProtocol"
         },
-        "description": "Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. The available protocols are:\n\n- `SFTP` (Secure Shell (SSH) File Transfer Protocol): File transfer over SSH\n- `FTPS` (File Transfer Protocol Secure): File transfer with TLS encryption\n- `FTP` (File Transfer Protocol): Unencrypted file transfer\n- `AS2` (Applicability Statement 2): used for transporting structured business-to-business data\n\n\u003e - If you select `FTPS` , you must choose a certificate stored in AWS Certificate Manager (ACM) which is used to identify your server when clients connect to it over FTPS.\n\u003e - If `Protocol` includes either `FTP` or `FTPS` , then the `EndpointType` must be `VPC` and the `IdentityProviderType` must be either `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .\n\u003e - If `Protocol` includes `FTP` , then `AddressAllocationIds` cannot be associated.\n\u003e - If `Protocol` is set only to `SFTP` , the `EndpointType` can be set to `PUBLIC` and the `IdentityProviderType` can be set any of the supported identity types: `SERVICE_MANAGED` , `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .\n\u003e - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3. \n\nThe `Protocols` parameter is an array of strings.\n\n*Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`"
+        "description": "Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. The available protocols are:\n\n- `SFTP` (Secure Shell (SSH) File Transfer Protocol): File transfer over SSH\n- `FTPS` (File Transfer Protocol Secure): File transfer with TLS encryption\n- `FTP` (File Transfer Protocol): Unencrypted file transfer\n- `AS2` (Applicability Statement 2): used for transporting structured business-to-business data\n\n\u003e - If you select `FTPS` , you must choose a certificate stored in Certificate Manager (ACM) which is used to identify your server when clients connect to it over FTPS.\n\u003e - If `Protocol` includes either `FTP` or `FTPS` , then the `EndpointType` must be `VPC` and the `IdentityProviderType` must be either `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .\n\u003e - If `Protocol` includes `FTP` , then `AddressAllocationIds` cannot be associated.\n\u003e - If `Protocol` is set only to `SFTP` , the `EndpointType` can be set to `PUBLIC` and the `IdentityProviderType` can be set any of the supported identity types: `SERVICE_MANAGED` , `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .\n\u003e - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3. \n\nThe `Protocols` parameter is an array of strings.\n\n*Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`"
       },
       "s3StorageOptions": {
         "$ref": "#/types/aws-native:transfer:ServerS3StorageOptions",
