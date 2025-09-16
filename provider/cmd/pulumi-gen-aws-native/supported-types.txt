@@ -1120,6 +1120,8 @@ AWS::SecurityLake::DataLake
 AWS::SecurityLake::Subscriber
 AWS::SecurityLake::SubscriberNotification
 AWS::ServiceCatalog::CloudFormationProvisionedProduct
+AWS::ServiceCatalog::LaunchTemplateConstraint
+AWS::ServiceCatalog::PortfolioProductAssociation
 AWS::ServiceCatalog::ServiceAction
 AWS::ServiceCatalog::ServiceActionAssociation
 AWS::ServiceCatalog::TagOption
