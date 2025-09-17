@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Inputs
             set => _blockDeviceMappings = value;
         }
 
+        [Input("capacityReservationSpecification")]
+        public Input<Inputs.WorkspaceInstanceCapacityReservationSpecificationArgs>? CapacityReservationSpecification { get; set; }
+
         [Input("cpuOptions")]
         public Input<Inputs.WorkspaceInstanceCpuOptionsRequestArgs>? CpuOptions { get; set; }
 
@@ -31,6 +34,9 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Inputs
 
         [Input("ebsOptimized")]
         public Input<bool>? EbsOptimized { get; set; }
+
+        [Input("enablePrimaryIpv6")]
+        public Input<bool>? EnablePrimaryIpv6 { get; set; }
 
         [Input("enclaveOptions")]
         public Input<Inputs.WorkspaceInstanceEnclaveOptionsRequestArgs>? EnclaveOptions { get; set; }
@@ -44,11 +50,25 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Inputs
         [Input("imageId", required: true)]
         public Input<string> ImageId { get; set; } = null!;
 
+        [Input("instanceMarketOptions")]
+        public Input<Inputs.WorkspaceInstanceInstanceMarketOptionsRequestArgs>? InstanceMarketOptions { get; set; }
+
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
+        [Input("ipv6AddressCount")]
+        public Input<int>? Ipv6AddressCount { get; set; }
+
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
+
+        [Input("licenseSpecifications")]
+        private InputList<Inputs.WorkspaceInstanceLicenseConfigurationRequestArgs>? _licenseSpecifications;
+        public InputList<Inputs.WorkspaceInstanceLicenseConfigurationRequestArgs> LicenseSpecifications
+        {
+            get => _licenseSpecifications ?? (_licenseSpecifications = new InputList<Inputs.WorkspaceInstanceLicenseConfigurationRequestArgs>());
+            set => _licenseSpecifications = value;
+        }
 
         [Input("maintenanceOptions")]
         public Input<Inputs.WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs>? MaintenanceOptions { get; set; }
@@ -75,6 +95,9 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Inputs
 
         [Input("privateDnsNameOptions")]
         public Input<Inputs.WorkspaceInstancePrivateDnsNameOptionsRequestArgs>? PrivateDnsNameOptions { get; set; }
+
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
 
         [Input("tagSpecifications")]
         private InputList<Inputs.WorkspaceInstanceTagSpecificationArgs>? _tagSpecifications;

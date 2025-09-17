@@ -353,7 +353,7 @@ namespace Pulumi.AwsNative.DynamoDb
         public Output<string?> BillingMode { get; private set; } = null!;
 
         /// <summary>
-        /// The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+        /// The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
         /// </summary>
         [Output("contributorInsightsSpecification")]
         public Output<Outputs.TableContributorInsightsSpecification?> ContributorInsightsSpecification { get; private set; } = null!;
@@ -374,6 +374,9 @@ namespace Pulumi.AwsNative.DynamoDb
         /// </summary>
         [Output("globalSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.TableGlobalSecondaryIndex>> GlobalSecondaryIndexes { get; private set; } = null!;
+
+        [Output("globalTableSettingsReplicationMode")]
+        public Output<Pulumi.AwsNative.DynamoDb.TableGlobalTableSettingsReplicationMode?> GlobalTableSettingsReplicationMode { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the properties of data being imported from the S3 bucket source to the" table.
@@ -443,7 +446,7 @@ namespace Pulumi.AwsNative.DynamoDb
         public Output<string> StreamArn { get; private set; } = null!;
 
         /// <summary>
-        /// The settings for the DDB table stream, which capture changes to items stored in the table.
+        /// The settings for the DDB table stream, which captures changes to items stored in the table. Including this property in your CFNlong template automatically enables streaming.
         /// </summary>
         [Output("streamSpecification")]
         public Output<Outputs.TableStreamSpecification?> StreamSpecification { get; private set; } = null!;
@@ -557,7 +560,7 @@ namespace Pulumi.AwsNative.DynamoDb
         public Input<string>? BillingMode { get; set; }
 
         /// <summary>
-        /// The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+        /// The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
         /// </summary>
         [Input("contributorInsightsSpecification")]
         public Input<Inputs.TableContributorInsightsSpecificationArgs>? ContributorInsightsSpecification { get; set; }
@@ -584,6 +587,9 @@ namespace Pulumi.AwsNative.DynamoDb
             get => _globalSecondaryIndexes ?? (_globalSecondaryIndexes = new InputList<Inputs.TableGlobalSecondaryIndexArgs>());
             set => _globalSecondaryIndexes = value;
         }
+
+        [Input("globalTableSettingsReplicationMode")]
+        public Input<Pulumi.AwsNative.DynamoDb.TableGlobalTableSettingsReplicationMode>? GlobalTableSettingsReplicationMode { get; set; }
 
         /// <summary>
         /// Specifies the properties of data being imported from the S3 bucket source to the" table.
@@ -651,7 +657,7 @@ namespace Pulumi.AwsNative.DynamoDb
         public Input<Inputs.TableSseSpecificationArgs>? SseSpecification { get; set; }
 
         /// <summary>
-        /// The settings for the DDB table stream, which capture changes to items stored in the table.
+        /// The settings for the DDB table stream, which captures changes to items stored in the table. Including this property in your CFNlong template automatically enables streaming.
         /// </summary>
         [Input("streamSpecification")]
         public Input<Inputs.TableStreamSpecificationArgs>? StreamSpecification { get; set; }

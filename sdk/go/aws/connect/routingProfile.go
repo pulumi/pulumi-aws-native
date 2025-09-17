@@ -25,6 +25,8 @@ type RoutingProfile struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
+	// The manual assignment queues to associate with this routing profile.
+	ManualAssignmentQueueConfigs RoutingProfileManualAssignmentQueueConfigArrayOutput `pulumi:"manualAssignmentQueueConfigs"`
 	// The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
 	MediaConcurrencies RoutingProfileMediaConcurrencyArrayOutput `pulumi:"mediaConcurrencies"`
 	// The name of the routing profile.
@@ -97,6 +99,8 @@ type routingProfileArgs struct {
 	Description string `pulumi:"description"`
 	// The identifier of the Amazon Connect instance.
 	InstanceArn string `pulumi:"instanceArn"`
+	// The manual assignment queues to associate with this routing profile.
+	ManualAssignmentQueueConfigs []RoutingProfileManualAssignmentQueueConfig `pulumi:"manualAssignmentQueueConfigs"`
 	// The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
 	MediaConcurrencies []RoutingProfileMediaConcurrency `pulumi:"mediaConcurrencies"`
 	// The name of the routing profile.
@@ -117,6 +121,8 @@ type RoutingProfileArgs struct {
 	Description pulumi.StringInput
 	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringInput
+	// The manual assignment queues to associate with this routing profile.
+	ManualAssignmentQueueConfigs RoutingProfileManualAssignmentQueueConfigArrayInput
 	// The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
 	MediaConcurrencies RoutingProfileMediaConcurrencyArrayInput
 	// The name of the routing profile.
@@ -182,6 +188,13 @@ func (o RoutingProfileOutput) Description() pulumi.StringOutput {
 // The identifier of the Amazon Connect instance.
 func (o RoutingProfileOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+// The manual assignment queues to associate with this routing profile.
+func (o RoutingProfileOutput) ManualAssignmentQueueConfigs() RoutingProfileManualAssignmentQueueConfigArrayOutput {
+	return o.ApplyT(func(v *RoutingProfile) RoutingProfileManualAssignmentQueueConfigArrayOutput {
+		return v.ManualAssignmentQueueConfigs
+	}).(RoutingProfileManualAssignmentQueueConfigArrayOutput)
 }
 
 // The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.

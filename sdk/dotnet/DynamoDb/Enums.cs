@@ -107,8 +107,36 @@ namespace Pulumi.AwsNative.DynamoDb
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct GlobalTableSettingsReplicationMode : IEquatable<GlobalTableSettingsReplicationMode>
+    {
+        private readonly string _value;
+
+        private GlobalTableSettingsReplicationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GlobalTableSettingsReplicationMode Enabled { get; } = new GlobalTableSettingsReplicationMode("ENABLED");
+        public static GlobalTableSettingsReplicationMode Disabled { get; } = new GlobalTableSettingsReplicationMode("DISABLED");
+
+        public static bool operator ==(GlobalTableSettingsReplicationMode left, GlobalTableSettingsReplicationMode right) => left.Equals(right);
+        public static bool operator !=(GlobalTableSettingsReplicationMode left, GlobalTableSettingsReplicationMode right) => !left.Equals(right);
+
+        public static explicit operator string(GlobalTableSettingsReplicationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GlobalTableSettingsReplicationMode other && Equals(other);
+        public bool Equals(GlobalTableSettingsReplicationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
-    /// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+    /// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are ``ACCESSED_AND_THROTTLED_KEYS`` (tracks all access and throttled events) or ``THROTTLED_KEYS`` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
     /// </summary>
     [EnumType]
     public readonly struct TableContributorInsightsSpecificationMode : IEquatable<TableContributorInsightsSpecificationMode>
@@ -131,6 +159,34 @@ namespace Pulumi.AwsNative.DynamoDb
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TableContributorInsightsSpecificationMode other && Equals(other);
         public bool Equals(TableContributorInsightsSpecificationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TableGlobalTableSettingsReplicationMode : IEquatable<TableGlobalTableSettingsReplicationMode>
+    {
+        private readonly string _value;
+
+        private TableGlobalTableSettingsReplicationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableGlobalTableSettingsReplicationMode Enabled { get; } = new TableGlobalTableSettingsReplicationMode("ENABLED");
+        public static TableGlobalTableSettingsReplicationMode Disabled { get; } = new TableGlobalTableSettingsReplicationMode("DISABLED");
+
+        public static bool operator ==(TableGlobalTableSettingsReplicationMode left, TableGlobalTableSettingsReplicationMode right) => left.Equals(right);
+        public static bool operator !=(TableGlobalTableSettingsReplicationMode left, TableGlobalTableSettingsReplicationMode right) => !left.Equals(right);
+
+        public static explicit operator string(TableGlobalTableSettingsReplicationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableGlobalTableSettingsReplicationMode other && Equals(other);
+        public bool Equals(TableGlobalTableSettingsReplicationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

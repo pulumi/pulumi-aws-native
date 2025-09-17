@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.Bedrock
     [OutputType]
     public sealed class GetGuardrailResult
     {
+        public readonly Outputs.GuardrailAutomatedReasoningPolicyConfig? AutomatedReasoningPolicyConfig;
         /// <summary>
         /// Messaging for when violations are detected in text
         /// </summary>
@@ -145,6 +146,8 @@ namespace Pulumi.AwsNative.Bedrock
 
         [OutputConstructor]
         private GetGuardrailResult(
+            Outputs.GuardrailAutomatedReasoningPolicyConfig? automatedReasoningPolicyConfig,
+
             string? blockedInputMessaging,
 
             string? blockedOutputsMessaging,
@@ -185,6 +188,7 @@ namespace Pulumi.AwsNative.Bedrock
 
             Outputs.GuardrailWordPolicyConfig? wordPolicyConfig)
         {
+            AutomatedReasoningPolicyConfig = automatedReasoningPolicyConfig;
             BlockedInputMessaging = blockedInputMessaging;
             BlockedOutputsMessaging = blockedOutputsMessaging;
             ContentPolicyConfig = contentPolicyConfig;

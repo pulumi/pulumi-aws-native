@@ -17,6 +17,7 @@ import (
 type Guardrail struct {
 	pulumi.CustomResourceState
 
+	AutomatedReasoningPolicyConfig GuardrailAutomatedReasoningPolicyConfigPtrOutput `pulumi:"automatedReasoningPolicyConfig"`
 	// Messaging for when violations are detected in text
 	BlockedInputMessaging pulumi.StringOutput `pulumi:"blockedInputMessaging"`
 	// Messaging for when violations are detected in text
@@ -106,6 +107,7 @@ func (GuardrailState) ElementType() reflect.Type {
 }
 
 type guardrailArgs struct {
+	AutomatedReasoningPolicyConfig *GuardrailAutomatedReasoningPolicyConfig `pulumi:"automatedReasoningPolicyConfig"`
 	// Messaging for when violations are detected in text
 	BlockedInputMessaging string `pulumi:"blockedInputMessaging"`
 	// Messaging for when violations are detected in text
@@ -135,6 +137,7 @@ type guardrailArgs struct {
 
 // The set of arguments for constructing a Guardrail resource.
 type GuardrailArgs struct {
+	AutomatedReasoningPolicyConfig GuardrailAutomatedReasoningPolicyConfigPtrInput
 	// Messaging for when violations are detected in text
 	BlockedInputMessaging pulumi.StringInput
 	// Messaging for when violations are detected in text
@@ -197,6 +200,12 @@ func (o GuardrailOutput) ToGuardrailOutput() GuardrailOutput {
 
 func (o GuardrailOutput) ToGuardrailOutputWithContext(ctx context.Context) GuardrailOutput {
 	return o
+}
+
+func (o GuardrailOutput) AutomatedReasoningPolicyConfig() GuardrailAutomatedReasoningPolicyConfigPtrOutput {
+	return o.ApplyT(func(v *Guardrail) GuardrailAutomatedReasoningPolicyConfigPtrOutput {
+		return v.AutomatedReasoningPolicyConfig
+	}).(GuardrailAutomatedReasoningPolicyConfigPtrOutput)
 }
 
 // Messaging for when violations are detected in text

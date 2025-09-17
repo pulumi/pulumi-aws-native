@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:servicecatalog:CloudFormationProvisionedProduct":
 		r = &CloudFormationProvisionedProduct{}
+	case "aws-native:servicecatalog:LaunchTemplateConstraint":
+		r = &LaunchTemplateConstraint{}
 	case "aws-native:servicecatalog:ServiceAction":
 		r = &ServiceAction{}
 	case "aws-native:servicecatalog:ServiceActionAssociation":

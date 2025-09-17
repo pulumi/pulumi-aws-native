@@ -29,6 +29,8 @@ __all__ = [
     'IndexSettingsArgsDict',
     'MappingsPropertiesArgs',
     'MappingsPropertiesArgsDict',
+    'SecurityConfigIamFederationConfigOptionsArgs',
+    'SecurityConfigIamFederationConfigOptionsArgsDict',
     'SecurityConfigIamIdentityCenterConfigOptionsArgs',
     'SecurityConfigIamIdentityCenterConfigOptionsArgsDict',
     'SecurityConfigSamlConfigOptionsArgs',
@@ -98,13 +100,13 @@ if not MYPY:
         """
         Configuration for k-NN search method
         """
-        engine: pulumi.Input['IndexPropertyMappingMethodPropertiesEngine']
-        """
-        The k-NN search engine to use
-        """
         name: pulumi.Input['IndexPropertyMappingMethodPropertiesName']
         """
         The algorithm name for k-NN search
+        """
+        engine: NotRequired[pulumi.Input['IndexPropertyMappingMethodPropertiesEngine']]
+        """
+        The k-NN search engine to use
         """
         parameters: NotRequired[pulumi.Input['IndexPropertyMappingMethodPropertiesParametersPropertiesArgsDict']]
         """
@@ -120,35 +122,24 @@ elif False:
 @pulumi.input_type
 class IndexPropertyMappingMethodPropertiesArgs:
     def __init__(__self__, *,
-                 engine: pulumi.Input['IndexPropertyMappingMethodPropertiesEngine'],
                  name: pulumi.Input['IndexPropertyMappingMethodPropertiesName'],
+                 engine: Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesEngine']] = None,
                  parameters: Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesParametersPropertiesArgs']] = None,
                  space_type: Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesSpaceType']] = None):
         """
         Configuration for k-NN search method
-        :param pulumi.Input['IndexPropertyMappingMethodPropertiesEngine'] engine: The k-NN search engine to use
         :param pulumi.Input['IndexPropertyMappingMethodPropertiesName'] name: The algorithm name for k-NN search
+        :param pulumi.Input['IndexPropertyMappingMethodPropertiesEngine'] engine: The k-NN search engine to use
         :param pulumi.Input['IndexPropertyMappingMethodPropertiesParametersPropertiesArgs'] parameters: Additional parameters for the k-NN algorithm
         :param pulumi.Input['IndexPropertyMappingMethodPropertiesSpaceType'] space_type: The distance function used for k-NN search
         """
-        pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "name", name)
+        if engine is not None:
+            pulumi.set(__self__, "engine", engine)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if space_type is not None:
             pulumi.set(__self__, "space_type", space_type)
-
-    @property
-    @pulumi.getter
-    def engine(self) -> pulumi.Input['IndexPropertyMappingMethodPropertiesEngine']:
-        """
-        The k-NN search engine to use
-        """
-        return pulumi.get(self, "engine")
-
-    @engine.setter
-    def engine(self, value: pulumi.Input['IndexPropertyMappingMethodPropertiesEngine']):
-        pulumi.set(self, "engine", value)
 
     @property
     @pulumi.getter
@@ -161,6 +152,18 @@ class IndexPropertyMappingMethodPropertiesArgs:
     @name.setter
     def name(self, value: pulumi.Input['IndexPropertyMappingMethodPropertiesName']):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def engine(self) -> Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesEngine']]:
+        """
+        The k-NN search engine to use
+        """
+        return pulumi.get(self, "engine")
+
+    @engine.setter
+    def engine(self, value: Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesEngine']]):
+        pulumi.set(self, "engine", value)
 
     @property
     @pulumi.getter
@@ -460,6 +463,62 @@ class MappingsPropertiesArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['IndexPropertyMappingArgs']]]]):
         pulumi.set(self, "properties", value)
+
+
+if not MYPY:
+    class SecurityConfigIamFederationConfigOptionsArgsDict(TypedDict):
+        """
+        Describe IAM federation options in form of key value map
+        """
+        group_attribute: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Group attribute for this IAM federation integration
+        """
+        user_attribute: NotRequired[pulumi.Input[builtins.str]]
+        """
+        User attribute for this IAM federation integration
+        """
+elif False:
+    SecurityConfigIamFederationConfigOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SecurityConfigIamFederationConfigOptionsArgs:
+    def __init__(__self__, *,
+                 group_attribute: Optional[pulumi.Input[builtins.str]] = None,
+                 user_attribute: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Describe IAM federation options in form of key value map
+        :param pulumi.Input[builtins.str] group_attribute: Group attribute for this IAM federation integration
+        :param pulumi.Input[builtins.str] user_attribute: User attribute for this IAM federation integration
+        """
+        if group_attribute is not None:
+            pulumi.set(__self__, "group_attribute", group_attribute)
+        if user_attribute is not None:
+            pulumi.set(__self__, "user_attribute", user_attribute)
+
+    @property
+    @pulumi.getter(name="groupAttribute")
+    def group_attribute(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Group attribute for this IAM federation integration
+        """
+        return pulumi.get(self, "group_attribute")
+
+    @group_attribute.setter
+    def group_attribute(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "group_attribute", value)
+
+    @property
+    @pulumi.getter(name="userAttribute")
+    def user_attribute(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        User attribute for this IAM federation integration
+        """
+        return pulumi.get(self, "user_attribute")
+
+    @user_attribute.setter
+    def user_attribute(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "user_attribute", value)
 
 
 if not MYPY:

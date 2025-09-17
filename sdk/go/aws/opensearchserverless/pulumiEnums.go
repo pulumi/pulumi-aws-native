@@ -1352,6 +1352,7 @@ type SecurityConfigType string
 const (
 	SecurityConfigTypeSaml              = SecurityConfigType("saml")
 	SecurityConfigTypeIamidentitycenter = SecurityConfigType("iamidentitycenter")
+	SecurityConfigTypeIamfederation     = SecurityConfigType("iamfederation")
 )
 
 func (SecurityConfigType) ElementType() reflect.Type {
@@ -1478,6 +1479,7 @@ func (o SecurityConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //
 //	SecurityConfigTypeSaml
 //	SecurityConfigTypeIamidentitycenter
+//	SecurityConfigTypeIamfederation
 type SecurityConfigTypeInput interface {
 	pulumi.Input
 

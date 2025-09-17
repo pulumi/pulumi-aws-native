@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalTableResult:
-    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, global_secondary_indexes=None, global_table_witnesses=None, multi_region_consistency=None, replicas=None, sse_specification=None, stream_arn=None, stream_specification=None, table_id=None, time_to_live_specification=None, warm_throughput=None, write_on_demand_throughput_settings=None, write_provisioned_throughput_settings=None):
+    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, global_secondary_indexes=None, global_table_settings_replication_mode=None, global_table_witnesses=None, multi_region_consistency=None, replicas=None, sse_specification=None, stream_arn=None, stream_specification=None, table_id=None, time_to_live_specification=None, warm_throughput=None, write_on_demand_throughput_settings=None, write_provisioned_throughput_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +39,9 @@ class GetGlobalTableResult:
         if global_secondary_indexes and not isinstance(global_secondary_indexes, list):
             raise TypeError("Expected argument 'global_secondary_indexes' to be a list")
         pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+        if global_table_settings_replication_mode and not isinstance(global_table_settings_replication_mode, str):
+            raise TypeError("Expected argument 'global_table_settings_replication_mode' to be a str")
+        pulumi.set(__self__, "global_table_settings_replication_mode", global_table_settings_replication_mode)
         if global_table_witnesses and not isinstance(global_table_witnesses, list):
             raise TypeError("Expected argument 'global_table_witnesses' to be a list")
         pulumi.set(__self__, "global_table_witnesses", global_table_witnesses)
@@ -111,6 +114,11 @@ class GetGlobalTableResult:
         Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
         """
         return pulumi.get(self, "global_secondary_indexes")
+
+    @property
+    @pulumi.getter(name="globalTableSettingsReplicationMode")
+    def global_table_settings_replication_mode(self) -> Optional['GlobalTableSettingsReplicationMode']:
+        return pulumi.get(self, "global_table_settings_replication_mode")
 
     @property
     @pulumi.getter(name="globalTableWitnesses")
@@ -226,6 +234,7 @@ class AwaitableGetGlobalTableResult(GetGlobalTableResult):
             attribute_definitions=self.attribute_definitions,
             billing_mode=self.billing_mode,
             global_secondary_indexes=self.global_secondary_indexes,
+            global_table_settings_replication_mode=self.global_table_settings_replication_mode,
             global_table_witnesses=self.global_table_witnesses,
             multi_region_consistency=self.multi_region_consistency,
             replicas=self.replicas,
@@ -259,6 +268,7 @@ def get_global_table(table_name: Optional[builtins.str] = None,
         attribute_definitions=pulumi.get(__ret__, 'attribute_definitions'),
         billing_mode=pulumi.get(__ret__, 'billing_mode'),
         global_secondary_indexes=pulumi.get(__ret__, 'global_secondary_indexes'),
+        global_table_settings_replication_mode=pulumi.get(__ret__, 'global_table_settings_replication_mode'),
         global_table_witnesses=pulumi.get(__ret__, 'global_table_witnesses'),
         multi_region_consistency=pulumi.get(__ret__, 'multi_region_consistency'),
         replicas=pulumi.get(__ret__, 'replicas'),
@@ -289,6 +299,7 @@ def get_global_table_output(table_name: Optional[pulumi.Input[builtins.str]] = N
         attribute_definitions=pulumi.get(__response__, 'attribute_definitions'),
         billing_mode=pulumi.get(__response__, 'billing_mode'),
         global_secondary_indexes=pulumi.get(__response__, 'global_secondary_indexes'),
+        global_table_settings_replication_mode=pulumi.get(__response__, 'global_table_settings_replication_mode'),
         global_table_witnesses=pulumi.get(__response__, 'global_table_witnesses'),
         multi_region_consistency=pulumi.get(__response__, 'multi_region_consistency'),
         replicas=pulumi.get(__response__, 'replicas'),

@@ -953,7 +953,7 @@ if not MYPY:
         """
         custom_endpoint_certificate_arn: NotRequired[pulumi.Input[builtins.str]]
         """
-        The AWS Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
+        The Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
         """
         custom_endpoint_enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
@@ -984,7 +984,7 @@ class DomainEndpointOptionsArgs:
                  tls_security_policy: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] custom_endpoint: The fully qualified URL for your custom endpoint. Required if you enabled a custom endpoint for the domain.
-        :param pulumi.Input[builtins.str] custom_endpoint_certificate_arn: The AWS Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
+        :param pulumi.Input[builtins.str] custom_endpoint_certificate_arn: The Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
         :param pulumi.Input[builtins.bool] custom_endpoint_enabled: True to enable a custom endpoint for the domain. If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
         :param pulumi.Input[builtins.bool] enforce_https: True to require that all traffic to the domain arrive over HTTPS. Required if you enable fine-grained access control in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
         :param pulumi.Input[builtins.str] tls_security_policy: The minimum TLS version required for traffic to the domain. The policy can be one of the following values:
@@ -1020,7 +1020,7 @@ class DomainEndpointOptionsArgs:
     @pulumi.getter(name="customEndpointCertificateArn")
     def custom_endpoint_certificate_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
+        The Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
         """
         return pulumi.get(self, "custom_endpoint_certificate_arn")
 

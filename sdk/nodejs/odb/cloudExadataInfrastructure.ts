@@ -106,6 +106,10 @@ export class CloudExadataInfrastructure extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
+     * The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+     */
+    public readonly maintenanceWindow!: pulumi.Output<outputs.odb.CloudExadataInfrastructureMaintenanceWindow | undefined>;
+    /**
      * The total number of CPU cores available on the Exadata infrastructure.
      */
     public /*out*/ readonly maxCpuCount!: pulumi.Output<number>;
@@ -179,6 +183,7 @@ export class CloudExadataInfrastructure extends pulumi.CustomResource {
             resourceInputs["customerContactsToSendToOci"] = args ? args.customerContactsToSendToOci : undefined;
             resourceInputs["databaseServerType"] = args ? args.databaseServerType : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             resourceInputs["shape"] = args ? args.shape : undefined;
             resourceInputs["storageCount"] = args ? args.storageCount : undefined;
             resourceInputs["storageServerType"] = args ? args.storageServerType : undefined;
@@ -222,6 +227,7 @@ export class CloudExadataInfrastructure extends pulumi.CustomResource {
             resourceInputs["dbServerIds"] = undefined /*out*/;
             resourceInputs["dbServerVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["maintenanceWindow"] = undefined /*out*/;
             resourceInputs["maxCpuCount"] = undefined /*out*/;
             resourceInputs["maxDataStorageInTbs"] = undefined /*out*/;
             resourceInputs["maxDbNodeStorageSizeInGbs"] = undefined /*out*/;
@@ -272,6 +278,10 @@ export interface CloudExadataInfrastructureArgs {
      * The user-friendly name for the Exadata infrastructure.
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+     */
+    maintenanceWindow?: pulumi.Input<inputs.odb.CloudExadataInfrastructureMaintenanceWindowArgs>;
     /**
      * The model name of the Exadata infrastructure.
      */

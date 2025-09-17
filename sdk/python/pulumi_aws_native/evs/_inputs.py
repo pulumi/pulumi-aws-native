@@ -255,6 +255,8 @@ if not MYPY:
         """
         The host VMkernel management VLAN subnet. This VLAN subnet carries traffic for managing ESXi hosts and communicating with VMware vCenter Server.
         """
+        hcx_network_acl_id: NotRequired[pulumi.Input[builtins.str]]
+        is_hcx_public: NotRequired[pulumi.Input[builtins.bool]]
 elif False:
     InitialVlansPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -270,7 +272,9 @@ class InitialVlansPropertiesArgs:
                  v_san: pulumi.Input['EnvironmentInitialVlanInfoArgs'],
                  v_tep: pulumi.Input['EnvironmentInitialVlanInfoArgs'],
                  vm_management: pulumi.Input['EnvironmentInitialVlanInfoArgs'],
-                 vmk_management: pulumi.Input['EnvironmentInitialVlanInfoArgs']):
+                 vmk_management: pulumi.Input['EnvironmentInitialVlanInfoArgs'],
+                 hcx_network_acl_id: Optional[pulumi.Input[builtins.str]] = None,
+                 is_hcx_public: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The initial Vlan configuration only required upon creation. Modification after creation will have no effect
         :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] edge_v_tep: The edge VTEP VLAN subnet. This VLAN subnet manages traffic flowing between the internal network and external networks, including internet access and other site connections.
@@ -294,6 +298,10 @@ class InitialVlansPropertiesArgs:
         pulumi.set(__self__, "v_tep", v_tep)
         pulumi.set(__self__, "vm_management", vm_management)
         pulumi.set(__self__, "vmk_management", vmk_management)
+        if hcx_network_acl_id is not None:
+            pulumi.set(__self__, "hcx_network_acl_id", hcx_network_acl_id)
+        if is_hcx_public is not None:
+            pulumi.set(__self__, "is_hcx_public", is_hcx_public)
 
     @property
     @pulumi.getter(name="edgeVTep")
@@ -414,6 +422,24 @@ class InitialVlansPropertiesArgs:
     @vmk_management.setter
     def vmk_management(self, value: pulumi.Input['EnvironmentInitialVlanInfoArgs']):
         pulumi.set(self, "vmk_management", value)
+
+    @property
+    @pulumi.getter(name="hcxNetworkAclId")
+    def hcx_network_acl_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "hcx_network_acl_id")
+
+    @hcx_network_acl_id.setter
+    def hcx_network_acl_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "hcx_network_acl_id", value)
+
+    @property
+    @pulumi.getter(name="isHcxPublic")
+    def is_hcx_public(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_hcx_public")
+
+    @is_hcx_public.setter
+    def is_hcx_public(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_hcx_public", value)
 
 
 if not MYPY:

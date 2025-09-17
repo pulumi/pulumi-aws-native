@@ -471,7 +471,9 @@ type InitialVlansProperties struct {
 	// An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
 	ExpansionVlan2 EnvironmentInitialVlanInfo `pulumi:"expansionVlan2"`
 	// The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
-	Hcx EnvironmentInitialVlanInfo `pulumi:"hcx"`
+	Hcx             EnvironmentInitialVlanInfo `pulumi:"hcx"`
+	HcxNetworkAclId *string                    `pulumi:"hcxNetworkAclId"`
+	IsHcxPublic     *bool                      `pulumi:"isHcxPublic"`
 	// The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
 	NsxUpLink EnvironmentInitialVlanInfo `pulumi:"nsxUpLink"`
 	// The vMotion VLAN subnet. This VLAN subnet carries traffic for vSphere vMotion.
@@ -506,7 +508,9 @@ type InitialVlansPropertiesArgs struct {
 	// An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
 	ExpansionVlan2 EnvironmentInitialVlanInfoInput `pulumi:"expansionVlan2"`
 	// The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
-	Hcx EnvironmentInitialVlanInfoInput `pulumi:"hcx"`
+	Hcx             EnvironmentInitialVlanInfoInput `pulumi:"hcx"`
+	HcxNetworkAclId pulumi.StringPtrInput           `pulumi:"hcxNetworkAclId"`
+	IsHcxPublic     pulumi.BoolPtrInput             `pulumi:"isHcxPublic"`
 	// The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
 	NsxUpLink EnvironmentInitialVlanInfoInput `pulumi:"nsxUpLink"`
 	// The vMotion VLAN subnet. This VLAN subnet carries traffic for vSphere vMotion.
@@ -619,6 +623,14 @@ func (o InitialVlansPropertiesOutput) Hcx() EnvironmentInitialVlanInfoOutput {
 	return o.ApplyT(func(v InitialVlansProperties) EnvironmentInitialVlanInfo { return v.Hcx }).(EnvironmentInitialVlanInfoOutput)
 }
 
+func (o InitialVlansPropertiesOutput) HcxNetworkAclId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InitialVlansProperties) *string { return v.HcxNetworkAclId }).(pulumi.StringPtrOutput)
+}
+
+func (o InitialVlansPropertiesOutput) IsHcxPublic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InitialVlansProperties) *bool { return v.IsHcxPublic }).(pulumi.BoolPtrOutput)
+}
+
 // The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
 func (o InitialVlansPropertiesOutput) NsxUpLink() EnvironmentInitialVlanInfoOutput {
 	return o.ApplyT(func(v InitialVlansProperties) EnvironmentInitialVlanInfo { return v.NsxUpLink }).(EnvironmentInitialVlanInfoOutput)
@@ -711,6 +723,24 @@ func (o InitialVlansPropertiesPtrOutput) Hcx() EnvironmentInitialVlanInfoPtrOutp
 		}
 		return &v.Hcx
 	}).(EnvironmentInitialVlanInfoPtrOutput)
+}
+
+func (o InitialVlansPropertiesPtrOutput) HcxNetworkAclId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InitialVlansProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HcxNetworkAclId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InitialVlansPropertiesPtrOutput) IsHcxPublic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InitialVlansProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsHcxPublic
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.

@@ -64,6 +64,11 @@ namespace Pulumi.AwsNative.Odb
     public sealed class GetOdbNetworkResult
     {
         /// <summary>
+        /// The user-friendly name of the ODB network.
+        /// </summary>
+        public readonly string? DisplayName;
+        public readonly Outputs.OdbNetworkManagedServices? ManagedServices;
+        /// <summary>
         /// The unique identifier of the OCI network anchor for the ODB network.
         /// </summary>
         public readonly string? OciNetworkAnchorId;
@@ -90,6 +95,10 @@ namespace Pulumi.AwsNative.Odb
 
         [OutputConstructor]
         private GetOdbNetworkResult(
+            string? displayName,
+
+            Outputs.OdbNetworkManagedServices? managedServices,
+
             string? ociNetworkAnchorId,
 
             string? ociResourceAnchorName,
@@ -102,6 +111,8 @@ namespace Pulumi.AwsNative.Odb
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            DisplayName = displayName;
+            ManagedServices = managedServices;
             OciNetworkAnchorId = ociNetworkAnchorId;
             OciResourceAnchorName = ociResourceAnchorName;
             OciVcnUrl = ociVcnUrl;

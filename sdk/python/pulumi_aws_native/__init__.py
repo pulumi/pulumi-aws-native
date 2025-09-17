@@ -2667,7 +2667,8 @@ _utilities.register(
    "aws-native:odb:CloudAutonomousVmCluster": "CloudAutonomousVmCluster",
    "aws-native:odb:CloudExadataInfrastructure": "CloudExadataInfrastructure",
    "aws-native:odb:CloudVmCluster": "CloudVmCluster",
-   "aws-native:odb:OdbNetwork": "OdbNetwork"
+   "aws-native:odb:OdbNetwork": "OdbNetwork",
+   "aws-native:odb:OdbPeeringConnection": "OdbPeeringConnection"
   }
  },
  {
@@ -3220,6 +3221,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.servicecatalog",
   "classes": {
    "aws-native:servicecatalog:CloudFormationProvisionedProduct": "CloudFormationProvisionedProduct",
+   "aws-native:servicecatalog:LaunchTemplateConstraint": "LaunchTemplateConstraint",
    "aws-native:servicecatalog:ServiceAction": "ServiceAction",
    "aws-native:servicecatalog:ServiceActionAssociation": "ServiceActionAssociation",
    "aws-native:servicecatalog:TagOption": "TagOption"

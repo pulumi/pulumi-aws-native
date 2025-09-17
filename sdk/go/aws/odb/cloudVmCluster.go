@@ -34,6 +34,8 @@ type CloudVmCluster struct {
 	DataStorageSizeInTbs pulumi.Float64PtrOutput `pulumi:"dataStorageSizeInTbs"`
 	// The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
 	DbNodeStorageSizeInGbs pulumi.IntPtrOutput `pulumi:"dbNodeStorageSizeInGbs"`
+	// The DB nodes that are implicitly created and managed as part of this VM Cluster.
+	DbNodes CloudVmClusterDbNodeArrayOutput `pulumi:"dbNodes"`
 	// The list of database servers for the VM cluster.
 	DbServers pulumi.StringArrayOutput `pulumi:"dbServers"`
 	// The type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.
@@ -102,6 +104,7 @@ func NewCloudVmCluster(ctx *pulumi.Context,
 		"dataCollectionOptions",
 		"dataStorageSizeInTbs",
 		"dbNodeStorageSizeInGbs",
+		"dbNodes[*].dbServerId",
 		"dbServers[*]",
 		"displayName",
 		"giVersion",
@@ -162,6 +165,8 @@ type cloudVmClusterArgs struct {
 	DataStorageSizeInTbs *float64 `pulumi:"dataStorageSizeInTbs"`
 	// The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
 	DbNodeStorageSizeInGbs *int `pulumi:"dbNodeStorageSizeInGbs"`
+	// The DB nodes that are implicitly created and managed as part of this VM Cluster.
+	DbNodes []CloudVmClusterDbNode `pulumi:"dbNodes"`
 	// The list of database servers for the VM cluster.
 	DbServers []string `pulumi:"dbServers"`
 	// The user-friendly name for the VM cluster.
@@ -206,6 +211,8 @@ type CloudVmClusterArgs struct {
 	DataStorageSizeInTbs pulumi.Float64PtrInput
 	// The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
 	DbNodeStorageSizeInGbs pulumi.IntPtrInput
+	// The DB nodes that are implicitly created and managed as part of this VM Cluster.
+	DbNodes CloudVmClusterDbNodeArrayInput
 	// The list of database servers for the VM cluster.
 	DbServers pulumi.StringArrayInput
 	// The user-friendly name for the VM cluster.
@@ -316,6 +323,11 @@ func (o CloudVmClusterOutput) DataStorageSizeInTbs() pulumi.Float64PtrOutput {
 // The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
 func (o CloudVmClusterOutput) DbNodeStorageSizeInGbs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.IntPtrOutput { return v.DbNodeStorageSizeInGbs }).(pulumi.IntPtrOutput)
+}
+
+// The DB nodes that are implicitly created and managed as part of this VM Cluster.
+func (o CloudVmClusterOutput) DbNodes() CloudVmClusterDbNodeArrayOutput {
+	return o.ApplyT(func(v *CloudVmCluster) CloudVmClusterDbNodeArrayOutput { return v.DbNodes }).(CloudVmClusterDbNodeArrayOutput)
 }
 
 // The list of database servers for the VM cluster.

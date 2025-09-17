@@ -37,6 +37,8 @@ type LookupRoutingProfileResult struct {
 	Description *string `pulumi:"description"`
 	// The identifier of the Amazon Connect instance.
 	InstanceArn *string `pulumi:"instanceArn"`
+	// The manual assignment queues to associate with this routing profile.
+	ManualAssignmentQueueConfigs []RoutingProfileManualAssignmentQueueConfig `pulumi:"manualAssignmentQueueConfigs"`
 	// The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
 	MediaConcurrencies []RoutingProfileMediaConcurrency `pulumi:"mediaConcurrencies"`
 	// The name of the routing profile.
@@ -101,6 +103,13 @@ func (o LookupRoutingProfileResultOutput) Description() pulumi.StringPtrOutput {
 // The identifier of the Amazon Connect instance.
 func (o LookupRoutingProfileResultOutput) InstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRoutingProfileResult) *string { return v.InstanceArn }).(pulumi.StringPtrOutput)
+}
+
+// The manual assignment queues to associate with this routing profile.
+func (o LookupRoutingProfileResultOutput) ManualAssignmentQueueConfigs() RoutingProfileManualAssignmentQueueConfigArrayOutput {
+	return o.ApplyT(func(v LookupRoutingProfileResult) []RoutingProfileManualAssignmentQueueConfig {
+		return v.ManualAssignmentQueueConfigs
+	}).(RoutingProfileManualAssignmentQueueConfigArrayOutput)
 }
 
 // The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.

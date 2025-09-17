@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardAssetOptions
     {
+        /// <summary>
+        /// A list of dataset ARNS to exclude from Dashboard Q&amp;A.
+        /// </summary>
         public readonly ImmutableArray<string> ExcludedDataSetArns;
+        /// <summary>
+        /// Determines whether insight summaries from Amazon Q Business are allowed in Dashboard Q&amp;A.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardQBusinessInsightsStatus? QBusinessInsightsStatus;
         /// <summary>
         /// Determines the timezone for the analysis.

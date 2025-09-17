@@ -309,6 +309,10 @@ class InitialVlansProperties(dict):
             suggest = "vm_management"
         elif key == "vmkManagement":
             suggest = "vmk_management"
+        elif key == "hcxNetworkAclId":
+            suggest = "hcx_network_acl_id"
+        elif key == "isHcxPublic":
+            suggest = "is_hcx_public"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InitialVlansProperties. Access the value via the '{suggest}' property getter instead.")
@@ -331,7 +335,9 @@ class InitialVlansProperties(dict):
                  v_san: 'outputs.EnvironmentInitialVlanInfo',
                  v_tep: 'outputs.EnvironmentInitialVlanInfo',
                  vm_management: 'outputs.EnvironmentInitialVlanInfo',
-                 vmk_management: 'outputs.EnvironmentInitialVlanInfo'):
+                 vmk_management: 'outputs.EnvironmentInitialVlanInfo',
+                 hcx_network_acl_id: Optional[builtins.str] = None,
+                 is_hcx_public: Optional[builtins.bool] = None):
         """
         The initial Vlan configuration only required upon creation. Modification after creation will have no effect
         :param 'EnvironmentInitialVlanInfo' edge_v_tep: The edge VTEP VLAN subnet. This VLAN subnet manages traffic flowing between the internal network and external networks, including internet access and other site connections.
@@ -355,6 +361,10 @@ class InitialVlansProperties(dict):
         pulumi.set(__self__, "v_tep", v_tep)
         pulumi.set(__self__, "vm_management", vm_management)
         pulumi.set(__self__, "vmk_management", vmk_management)
+        if hcx_network_acl_id is not None:
+            pulumi.set(__self__, "hcx_network_acl_id", hcx_network_acl_id)
+        if is_hcx_public is not None:
+            pulumi.set(__self__, "is_hcx_public", is_hcx_public)
 
     @property
     @pulumi.getter(name="edgeVTep")
@@ -435,6 +445,16 @@ class InitialVlansProperties(dict):
         The host VMkernel management VLAN subnet. This VLAN subnet carries traffic for managing ESXi hosts and communicating with VMware vCenter Server.
         """
         return pulumi.get(self, "vmk_management")
+
+    @property
+    @pulumi.getter(name="hcxNetworkAclId")
+    def hcx_network_acl_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "hcx_network_acl_id")
+
+    @property
+    @pulumi.getter(name="isHcxPublic")
+    def is_hcx_public(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "is_hcx_public")
 
 
 @pulumi.output_type

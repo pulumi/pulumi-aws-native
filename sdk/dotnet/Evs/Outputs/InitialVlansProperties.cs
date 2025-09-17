@@ -32,6 +32,8 @@ namespace Pulumi.AwsNative.Evs.Outputs
         /// The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
         /// </summary>
         public readonly Outputs.EnvironmentInitialVlanInfo Hcx;
+        public readonly string? HcxNetworkAclId;
+        public readonly bool? IsHcxPublic;
         /// <summary>
         /// The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
         /// </summary>
@@ -67,6 +69,10 @@ namespace Pulumi.AwsNative.Evs.Outputs
 
             Outputs.EnvironmentInitialVlanInfo hcx,
 
+            string? hcxNetworkAclId,
+
+            bool? isHcxPublic,
+
             Outputs.EnvironmentInitialVlanInfo nsxUpLink,
 
             Outputs.EnvironmentInitialVlanInfo vMotion,
@@ -83,6 +89,8 @@ namespace Pulumi.AwsNative.Evs.Outputs
             ExpansionVlan1 = expansionVlan1;
             ExpansionVlan2 = expansionVlan2;
             Hcx = hcx;
+            HcxNetworkAclId = hcxNetworkAclId;
+            IsHcxPublic = isHcxPublic;
             NsxUpLink = nsxUpLink;
             VMotion = vMotion;
             VSan = vSan;

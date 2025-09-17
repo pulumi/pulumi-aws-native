@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRoutingProfileResult:
-    def __init__(__self__, agent_availability_timer=None, default_outbound_queue_arn=None, description=None, instance_arn=None, media_concurrencies=None, name=None, queue_configs=None, routing_profile_arn=None, tags=None):
+    def __init__(__self__, agent_availability_timer=None, default_outbound_queue_arn=None, description=None, instance_arn=None, manual_assignment_queue_configs=None, media_concurrencies=None, name=None, queue_configs=None, routing_profile_arn=None, tags=None):
         if agent_availability_timer and not isinstance(agent_availability_timer, str):
             raise TypeError("Expected argument 'agent_availability_timer' to be a str")
         pulumi.set(__self__, "agent_availability_timer", agent_availability_timer)
@@ -40,6 +40,9 @@ class GetRoutingProfileResult:
         if instance_arn and not isinstance(instance_arn, str):
             raise TypeError("Expected argument 'instance_arn' to be a str")
         pulumi.set(__self__, "instance_arn", instance_arn)
+        if manual_assignment_queue_configs and not isinstance(manual_assignment_queue_configs, list):
+            raise TypeError("Expected argument 'manual_assignment_queue_configs' to be a list")
+        pulumi.set(__self__, "manual_assignment_queue_configs", manual_assignment_queue_configs)
         if media_concurrencies and not isinstance(media_concurrencies, list):
             raise TypeError("Expected argument 'media_concurrencies' to be a list")
         pulumi.set(__self__, "media_concurrencies", media_concurrencies)
@@ -87,6 +90,14 @@ class GetRoutingProfileResult:
         The identifier of the Amazon Connect instance.
         """
         return pulumi.get(self, "instance_arn")
+
+    @property
+    @pulumi.getter(name="manualAssignmentQueueConfigs")
+    def manual_assignment_queue_configs(self) -> Optional[Sequence['outputs.RoutingProfileManualAssignmentQueueConfig']]:
+        """
+        The manual assignment queues to associate with this routing profile.
+        """
+        return pulumi.get(self, "manual_assignment_queue_configs")
 
     @property
     @pulumi.getter(name="mediaConcurrencies")
@@ -139,6 +150,7 @@ class AwaitableGetRoutingProfileResult(GetRoutingProfileResult):
             default_outbound_queue_arn=self.default_outbound_queue_arn,
             description=self.description,
             instance_arn=self.instance_arn,
+            manual_assignment_queue_configs=self.manual_assignment_queue_configs,
             media_concurrencies=self.media_concurrencies,
             name=self.name,
             queue_configs=self.queue_configs,
@@ -164,6 +176,7 @@ def get_routing_profile(routing_profile_arn: Optional[builtins.str] = None,
         default_outbound_queue_arn=pulumi.get(__ret__, 'default_outbound_queue_arn'),
         description=pulumi.get(__ret__, 'description'),
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
+        manual_assignment_queue_configs=pulumi.get(__ret__, 'manual_assignment_queue_configs'),
         media_concurrencies=pulumi.get(__ret__, 'media_concurrencies'),
         name=pulumi.get(__ret__, 'name'),
         queue_configs=pulumi.get(__ret__, 'queue_configs'),
@@ -186,6 +199,7 @@ def get_routing_profile_output(routing_profile_arn: Optional[pulumi.Input[builti
         default_outbound_queue_arn=pulumi.get(__response__, 'default_outbound_queue_arn'),
         description=pulumi.get(__response__, 'description'),
         instance_arn=pulumi.get(__response__, 'instance_arn'),
+        manual_assignment_queue_configs=pulumi.get(__response__, 'manual_assignment_queue_configs'),
         media_concurrencies=pulumi.get(__response__, 'media_concurrencies'),
         name=pulumi.get(__response__, 'name'),
         queue_configs=pulumi.get(__response__, 'queue_configs'),

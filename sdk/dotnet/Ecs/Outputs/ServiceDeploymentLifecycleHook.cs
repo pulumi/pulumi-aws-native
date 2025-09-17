@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class ServiceDeploymentLifecycleHook
     {
+        public readonly object? HookDetails;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
         ///  You must provide this parameter when configuring a deployment lifecycle hook.
@@ -57,12 +58,15 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
         [OutputConstructor]
         private ServiceDeploymentLifecycleHook(
+            object? hookDetails,
+
             string hookTargetArn,
 
             ImmutableArray<Pulumi.AwsNative.Ecs.ServiceDeploymentLifecycleHookLifecycleStagesItem> lifecycleStages,
 
             string roleArn)
         {
+            HookDetails = hookDetails;
             HookTargetArn = hookTargetArn;
             LifecycleStages = lifecycleStages;
             RoleArn = roleArn;

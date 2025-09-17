@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock
     [AwsNativeResourceType("aws-native:bedrock:Guardrail")]
     public partial class Guardrail : global::Pulumi.CustomResource
     {
+        [Output("automatedReasoningPolicyConfig")]
+        public Output<Outputs.GuardrailAutomatedReasoningPolicyConfig?> AutomatedReasoningPolicyConfig { get; private set; } = null!;
+
         /// <summary>
         /// Messaging for when violations are detected in text
         /// </summary>
@@ -179,6 +182,9 @@ namespace Pulumi.AwsNative.Bedrock
 
     public sealed class GuardrailArgs : global::Pulumi.ResourceArgs
     {
+        [Input("automatedReasoningPolicyConfig")]
+        public Input<Inputs.GuardrailAutomatedReasoningPolicyConfigArgs>? AutomatedReasoningPolicyConfig { get; set; }
+
         /// <summary>
         /// Messaging for when violations are detected in text
         /// </summary>

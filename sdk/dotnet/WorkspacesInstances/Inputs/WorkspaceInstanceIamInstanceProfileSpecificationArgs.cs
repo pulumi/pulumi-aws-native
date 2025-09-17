@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Inputs
 
     public sealed class WorkspaceInstanceIamInstanceProfileSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 

@@ -31,6 +31,7 @@ class TableArgs:
                  contributor_insights_specification: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]] = None,
+                 global_table_settings_replication_mode: Optional[pulumi.Input['TableGlobalTableSettingsReplicationMode']] = None,
                  import_source_specification: Optional[pulumi.Input['TableImportSourceSpecificationArgs']] = None,
                  kinesis_stream_specification: Optional[pulumi.Input['TableKinesisStreamSpecificationArgs']] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
@@ -57,7 +58,7 @@ class TableArgs:
                  +  ``PROVISIONED`` - We recommend using ``PROVISIONED`` for steady workloads with predictable growth where capacity requirements can be reliably forecasted. ``PROVISIONED`` sets the billing mode to [Provisioned capacity mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html).
                  
                 If not specified, the default is ``PROVISIONED``.
-        :param pulumi.Input['TableContributorInsightsSpecificationArgs'] contributor_insights_specification: The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+        :param pulumi.Input['TableContributorInsightsSpecificationArgs'] contributor_insights_specification: The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
         :param pulumi.Input[builtins.bool] deletion_protection_enabled: Determines if a table is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.
                  If you update a table to include a new global secondary index, CFNlong initiates the index creation and then proceeds with the stack update. CFNlong doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table. You can't use the index or update the table until the index's status is ``ACTIVE``. You can track its status by using the DynamoDB [DescribeTable](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) command.
@@ -78,7 +79,7 @@ class TableArgs:
                 The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that apply for resource-based policies, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
                  You need to specify the ``CreateTable`` and ``PutResourcePolicy`` IAM actions for authorizing a user to create a table with a resource-based policy.
         :param pulumi.Input['TableSseSpecificationArgs'] sse_specification: Specifies the settings to enable server-side encryption.
-        :param pulumi.Input['TableStreamSpecificationArgs'] stream_specification: The settings for the DDB table stream, which capture changes to items stored in the table.
+        :param pulumi.Input['TableStreamSpecificationArgs'] stream_specification: The settings for the DDB table stream, which captures changes to items stored in the table. Including this property in your CFNlong template automatically enables streaming.
         :param pulumi.Input[builtins.str] table_class: The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.
         :param pulumi.Input[builtins.str] table_name: A name for the table. If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the table name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
                  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
@@ -99,6 +100,8 @@ class TableArgs:
             pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+        if global_table_settings_replication_mode is not None:
+            pulumi.set(__self__, "global_table_settings_replication_mode", global_table_settings_replication_mode)
         if import_source_specification is not None:
             pulumi.set(__self__, "import_source_specification", import_source_specification)
         if kinesis_stream_specification is not None:
@@ -175,7 +178,7 @@ class TableArgs:
     @pulumi.getter(name="contributorInsightsSpecification")
     def contributor_insights_specification(self) -> Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']]:
         """
-        The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+        The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
         """
         return pulumi.get(self, "contributor_insights_specification")
 
@@ -211,6 +214,15 @@ class TableArgs:
     @global_secondary_indexes.setter
     def global_secondary_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]]):
         pulumi.set(self, "global_secondary_indexes", value)
+
+    @property
+    @pulumi.getter(name="globalTableSettingsReplicationMode")
+    def global_table_settings_replication_mode(self) -> Optional[pulumi.Input['TableGlobalTableSettingsReplicationMode']]:
+        return pulumi.get(self, "global_table_settings_replication_mode")
+
+    @global_table_settings_replication_mode.setter
+    def global_table_settings_replication_mode(self, value: Optional[pulumi.Input['TableGlobalTableSettingsReplicationMode']]):
+        pulumi.set(self, "global_table_settings_replication_mode", value)
 
     @property
     @pulumi.getter(name="importSourceSpecification")
@@ -317,7 +329,7 @@ class TableArgs:
     @pulumi.getter(name="streamSpecification")
     def stream_specification(self) -> Optional[pulumi.Input['TableStreamSpecificationArgs']]:
         """
-        The settings for the DDB table stream, which capture changes to items stored in the table.
+        The settings for the DDB table stream, which captures changes to items stored in the table. Including this property in your CFNlong template automatically enables streaming.
         """
         return pulumi.get(self, "stream_specification")
 
@@ -400,6 +412,7 @@ class Table(pulumi.CustomResource):
                  contributor_insights_specification: Optional[pulumi.Input[Union['TableContributorInsightsSpecificationArgs', 'TableContributorInsightsSpecificationArgsDict']]] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]]] = None,
+                 global_table_settings_replication_mode: Optional[pulumi.Input['TableGlobalTableSettingsReplicationMode']] = None,
                  import_source_specification: Optional[pulumi.Input[Union['TableImportSourceSpecificationArgs', 'TableImportSourceSpecificationArgsDict']]] = None,
                  key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input[Union['TableKeySchemaArgs', 'TableKeySchemaArgsDict']]], Any]]] = None,
                  kinesis_stream_specification: Optional[pulumi.Input[Union['TableKinesisStreamSpecificationArgs', 'TableKinesisStreamSpecificationArgsDict']]] = None,
@@ -660,7 +673,7 @@ class Table(pulumi.CustomResource):
                  +  ``PROVISIONED`` - We recommend using ``PROVISIONED`` for steady workloads with predictable growth where capacity requirements can be reliably forecasted. ``PROVISIONED`` sets the billing mode to [Provisioned capacity mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html).
                  
                 If not specified, the default is ``PROVISIONED``.
-        :param pulumi.Input[Union['TableContributorInsightsSpecificationArgs', 'TableContributorInsightsSpecificationArgsDict']] contributor_insights_specification: The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+        :param pulumi.Input[Union['TableContributorInsightsSpecificationArgs', 'TableContributorInsightsSpecificationArgsDict']] contributor_insights_specification: The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
         :param pulumi.Input[builtins.bool] deletion_protection_enabled: Determines if a table is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]] global_secondary_indexes: Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.
                  If you update a table to include a new global secondary index, CFNlong initiates the index creation and then proceeds with the stack update. CFNlong doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table. You can't use the index or update the table until the index's status is ``ACTIVE``. You can track its status by using the DynamoDB [DescribeTable](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) command.
@@ -682,7 +695,7 @@ class Table(pulumi.CustomResource):
                 The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that apply for resource-based policies, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
                  You need to specify the ``CreateTable`` and ``PutResourcePolicy`` IAM actions for authorizing a user to create a table with a resource-based policy.
         :param pulumi.Input[Union['TableSseSpecificationArgs', 'TableSseSpecificationArgsDict']] sse_specification: Specifies the settings to enable server-side encryption.
-        :param pulumi.Input[Union['TableStreamSpecificationArgs', 'TableStreamSpecificationArgsDict']] stream_specification: The settings for the DDB table stream, which capture changes to items stored in the table.
+        :param pulumi.Input[Union['TableStreamSpecificationArgs', 'TableStreamSpecificationArgsDict']] stream_specification: The settings for the DDB table stream, which captures changes to items stored in the table. Including this property in your CFNlong template automatically enables streaming.
         :param pulumi.Input[builtins.str] table_class: The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.
         :param pulumi.Input[builtins.str] table_name: A name for the table. If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the table name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
                  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
@@ -951,6 +964,7 @@ class Table(pulumi.CustomResource):
                  contributor_insights_specification: Optional[pulumi.Input[Union['TableContributorInsightsSpecificationArgs', 'TableContributorInsightsSpecificationArgsDict']]] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]]] = None,
+                 global_table_settings_replication_mode: Optional[pulumi.Input['TableGlobalTableSettingsReplicationMode']] = None,
                  import_source_specification: Optional[pulumi.Input[Union['TableImportSourceSpecificationArgs', 'TableImportSourceSpecificationArgsDict']]] = None,
                  key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input[Union['TableKeySchemaArgs', 'TableKeySchemaArgsDict']]], Any]]] = None,
                  kinesis_stream_specification: Optional[pulumi.Input[Union['TableKinesisStreamSpecificationArgs', 'TableKinesisStreamSpecificationArgsDict']]] = None,
@@ -980,6 +994,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["contributor_insights_specification"] = contributor_insights_specification
             __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
             __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
+            __props__.__dict__["global_table_settings_replication_mode"] = global_table_settings_replication_mode
             __props__.__dict__["import_source_specification"] = import_source_specification
             if key_schema is None and not opts.urn:
                 raise TypeError("Missing required property 'key_schema'")
@@ -1029,6 +1044,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["contributor_insights_specification"] = None
         __props__.__dict__["deletion_protection_enabled"] = None
         __props__.__dict__["global_secondary_indexes"] = None
+        __props__.__dict__["global_table_settings_replication_mode"] = None
         __props__.__dict__["import_source_specification"] = None
         __props__.__dict__["key_schema"] = None
         __props__.__dict__["kinesis_stream_specification"] = None
@@ -1082,7 +1098,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="contributorInsightsSpecification")
     def contributor_insights_specification(self) -> pulumi.Output[Optional['outputs.TableContributorInsightsSpecification']]:
         """
-        The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+        The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
         """
         return pulumi.get(self, "contributor_insights_specification")
 
@@ -1106,6 +1122,11 @@ class Table(pulumi.CustomResource):
           +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
         """
         return pulumi.get(self, "global_secondary_indexes")
+
+    @property
+    @pulumi.getter(name="globalTableSettingsReplicationMode")
+    def global_table_settings_replication_mode(self) -> pulumi.Output[Optional['TableGlobalTableSettingsReplicationMode']]:
+        return pulumi.get(self, "global_table_settings_replication_mode")
 
     @property
     @pulumi.getter(name="importSourceSpecification")
@@ -1198,7 +1219,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="streamSpecification")
     def stream_specification(self) -> pulumi.Output[Optional['outputs.TableStreamSpecification']]:
         """
-        The settings for the DDB table stream, which capture changes to items stored in the table.
+        The settings for the DDB table stream, which captures changes to items stored in the table. Including this property in your CFNlong template automatically enables streaming.
         """
         return pulumi.get(self, "stream_specification")
 

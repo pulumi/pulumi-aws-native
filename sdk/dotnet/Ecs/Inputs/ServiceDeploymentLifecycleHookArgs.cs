@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     /// </summary>
     public sealed class ServiceDeploymentLifecycleHookArgs : global::Pulumi.ResourceArgs
     {
+        [Input("hookDetails")]
+        public Input<object>? HookDetails { get; set; }
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
         ///  You must provide this parameter when configuring a deployment lifecycle hook.

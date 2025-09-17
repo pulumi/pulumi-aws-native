@@ -70,6 +70,10 @@ export interface GetCloudExadataInfrastructureResult {
      */
     readonly dbServerVersion?: string;
     /**
+     * The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+     */
+    readonly maintenanceWindow?: outputs.odb.CloudExadataInfrastructureMaintenanceWindow;
+    /**
      * The total number of CPU cores available on the Exadata infrastructure.
      */
     readonly maxCpuCount?: number;
