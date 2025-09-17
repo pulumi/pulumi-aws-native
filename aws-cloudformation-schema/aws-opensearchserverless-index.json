@@ -81,7 +81,7 @@
               }
             }
           },
-          "required" : [ "Name", "Engine" ]
+          "required" : [ "Name" ]
         },
         "Properties" : {
           "type" : "object",
