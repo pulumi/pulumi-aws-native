@@ -40,43 +40,43 @@ export class Host extends pulumi.CustomResource {
     /**
      * The ID of the Outpost hardware asset.
      */
-    public readonly assetId!: pulumi.Output<string | undefined>;
+    declare public readonly assetId: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
      */
-    public readonly autoPlacement!: pulumi.Output<string | undefined>;
+    declare public readonly autoPlacement: pulumi.Output<string | undefined>;
     /**
      * The Availability Zone in which to allocate the Dedicated Host.
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    declare public readonly availabilityZone: pulumi.Output<string>;
     /**
      * ID of the host created.
      */
-    public /*out*/ readonly hostId!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostId: pulumi.Output<string>;
     /**
      * Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
      */
-    public readonly hostMaintenance!: pulumi.Output<string | undefined>;
+    declare public readonly hostMaintenance: pulumi.Output<string | undefined>;
     /**
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
      */
-    public readonly hostRecovery!: pulumi.Output<string | undefined>;
+    declare public readonly hostRecovery: pulumi.Output<string | undefined>;
     /**
      * Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
      */
-    public readonly instanceFamily!: pulumi.Output<string | undefined>;
+    declare public readonly instanceFamily: pulumi.Output<string | undefined>;
     /**
      * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
      */
-    public readonly instanceType!: pulumi.Output<string | undefined>;
+    declare public readonly instanceType: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
      */
-    public readonly outpostArn!: pulumi.Output<string | undefined>;
+    declare public readonly outpostArn: pulumi.Output<string | undefined>;
     /**
      * Any tags assigned to the Host.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Host resource with the given unique name, arguments, and options.
@@ -89,18 +89,18 @@ export class Host extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
+            if (args?.availabilityZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            resourceInputs["assetId"] = args ? args.assetId : undefined;
-            resourceInputs["autoPlacement"] = args ? args.autoPlacement : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["hostMaintenance"] = args ? args.hostMaintenance : undefined;
-            resourceInputs["hostRecovery"] = args ? args.hostRecovery : undefined;
-            resourceInputs["instanceFamily"] = args ? args.instanceFamily : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assetId"] = args?.assetId;
+            resourceInputs["autoPlacement"] = args?.autoPlacement;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["hostMaintenance"] = args?.hostMaintenance;
+            resourceInputs["hostRecovery"] = args?.hostRecovery;
+            resourceInputs["instanceFamily"] = args?.instanceFamily;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["outpostArn"] = args?.outpostArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["hostId"] = undefined /*out*/;
         } else {
             resourceInputs["assetId"] = undefined /*out*/;

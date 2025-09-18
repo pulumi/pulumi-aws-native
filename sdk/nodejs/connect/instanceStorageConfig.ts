@@ -40,35 +40,35 @@ export class InstanceStorageConfig extends pulumi.CustomResource {
     /**
      * The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
      */
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly associationId: pulumi.Output<string>;
     /**
      * Connect Instance ID with which the storage config will be associated
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The configuration of the Kinesis Firehose delivery stream.
      */
-    public readonly kinesisFirehoseConfig!: pulumi.Output<outputs.connect.InstanceStorageConfigKinesisFirehoseConfig | undefined>;
+    declare public readonly kinesisFirehoseConfig: pulumi.Output<outputs.connect.InstanceStorageConfigKinesisFirehoseConfig | undefined>;
     /**
      * The configuration of the Kinesis data stream.
      */
-    public readonly kinesisStreamConfig!: pulumi.Output<outputs.connect.InstanceStorageConfigKinesisStreamConfig | undefined>;
+    declare public readonly kinesisStreamConfig: pulumi.Output<outputs.connect.InstanceStorageConfigKinesisStreamConfig | undefined>;
     /**
      * The configuration of the Kinesis video stream.
      */
-    public readonly kinesisVideoStreamConfig!: pulumi.Output<outputs.connect.InstanceStorageConfigKinesisVideoStreamConfig | undefined>;
+    declare public readonly kinesisVideoStreamConfig: pulumi.Output<outputs.connect.InstanceStorageConfigKinesisVideoStreamConfig | undefined>;
     /**
      * A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
      */
-    public readonly resourceType!: pulumi.Output<enums.connect.InstanceStorageConfigInstanceStorageResourceType>;
+    declare public readonly resourceType: pulumi.Output<enums.connect.InstanceStorageConfigInstanceStorageResourceType>;
     /**
      * The S3 bucket configuration.
      */
-    public readonly s3Config!: pulumi.Output<outputs.connect.InstanceStorageConfigS3Config | undefined>;
+    declare public readonly s3Config: pulumi.Output<outputs.connect.InstanceStorageConfigS3Config | undefined>;
     /**
      * A valid storage type.
      */
-    public readonly storageType!: pulumi.Output<enums.connect.InstanceStorageConfigStorageType>;
+    declare public readonly storageType: pulumi.Output<enums.connect.InstanceStorageConfigStorageType>;
 
     /**
      * Create a InstanceStorageConfig resource with the given unique name, arguments, and options.
@@ -81,22 +81,22 @@ export class InstanceStorageConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if ((!args || args.storageType === undefined) && !opts.urn) {
+            if (args?.storageType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageType'");
             }
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["kinesisFirehoseConfig"] = args ? args.kinesisFirehoseConfig : undefined;
-            resourceInputs["kinesisStreamConfig"] = args ? args.kinesisStreamConfig : undefined;
-            resourceInputs["kinesisVideoStreamConfig"] = args ? args.kinesisVideoStreamConfig : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["s3Config"] = args ? args.s3Config : undefined;
-            resourceInputs["storageType"] = args ? args.storageType : undefined;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["kinesisFirehoseConfig"] = args?.kinesisFirehoseConfig;
+            resourceInputs["kinesisStreamConfig"] = args?.kinesisStreamConfig;
+            resourceInputs["kinesisVideoStreamConfig"] = args?.kinesisVideoStreamConfig;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["s3Config"] = args?.s3Config;
+            resourceInputs["storageType"] = args?.storageType;
             resourceInputs["associationId"] = undefined /*out*/;
         } else {
             resourceInputs["associationId"] = undefined /*out*/;

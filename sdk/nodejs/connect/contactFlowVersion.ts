@@ -37,23 +37,23 @@ export class ContactFlowVersion extends pulumi.CustomResource {
     /**
      * The ARN of the contact flow this version is tied to.
      */
-    public readonly contactFlowId!: pulumi.Output<string>;
+    declare public readonly contactFlowId: pulumi.Output<string>;
     /**
      * The identifier of the contact flow version (ARN).
      */
-    public /*out*/ readonly contactFlowVersionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly contactFlowVersionArn: pulumi.Output<string>;
     /**
      * The description of the version.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Indicates the checksum value of the latest published flow content
      */
-    public /*out*/ readonly flowContentSha256!: pulumi.Output<string>;
+    declare public /*out*/ readonly flowContentSha256: pulumi.Output<string>;
     /**
      * The version number of this revision
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a ContactFlowVersion resource with the given unique name, arguments, and options.
@@ -66,11 +66,11 @@ export class ContactFlowVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contactFlowId === undefined) && !opts.urn) {
+            if (args?.contactFlowId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactFlowId'");
             }
-            resourceInputs["contactFlowId"] = args ? args.contactFlowId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["contactFlowId"] = args?.contactFlowId;
+            resourceInputs["description"] = args?.description;
             resourceInputs["contactFlowVersionArn"] = undefined /*out*/;
             resourceInputs["flowContentSha256"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;

@@ -40,32 +40,32 @@ export class Network extends pulumi.CustomResource {
     /**
      * The ARN of the Network.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly associatedClusterIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public /*out*/ readonly associatedClusterIds: pulumi.Output<string[]>;
     /**
      * The unique ID of the Network.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The list of IP address cidr pools for the network
      */
-    public readonly ipPools!: pulumi.Output<outputs.medialive.NetworkIpPool[]>;
+    declare public readonly ipPools: pulumi.Output<outputs.medialive.NetworkIpPool[]>;
     /**
      * The user-specified name of the Network to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The routes for the network
      */
-    public readonly routes!: pulumi.Output<outputs.medialive.NetworkRoute[] | undefined>;
+    declare public readonly routes: pulumi.Output<outputs.medialive.NetworkRoute[] | undefined>;
     /**
      * The current state of the Network.
      */
-    public /*out*/ readonly state!: pulumi.Output<enums.medialive.NetworkState>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.medialive.NetworkState>;
     /**
      * A collection of key-value pairs.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Network resource with the given unique name, arguments, and options.
@@ -78,13 +78,13 @@ export class Network extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ipPools === undefined) && !opts.urn) {
+            if (args?.ipPools === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipPools'");
             }
-            resourceInputs["ipPools"] = args ? args.ipPools : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["routes"] = args ? args.routes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ipPools"] = args?.ipPools;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["routes"] = args?.routes;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associatedClusterIds"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;

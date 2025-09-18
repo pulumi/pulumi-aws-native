@@ -40,23 +40,23 @@ export class VpcLink extends pulumi.CustomResource {
     /**
      * The description of the VPC link.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name used to label and identify the VPC link.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An array of arbitrary tags (key-value pairs) to associate with the VPC link.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
      */
-    public readonly targetArns!: pulumi.Output<string[]>;
+    declare public readonly targetArns: pulumi.Output<string[]>;
     /**
      * The ID for the VPC link. For example: `abc123` .
      */
-    public /*out*/ readonly vpcLinkId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcLinkId: pulumi.Output<string>;
 
     /**
      * Create a VpcLink resource with the given unique name, arguments, and options.
@@ -69,13 +69,13 @@ export class VpcLink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.targetArns === undefined) && !opts.urn) {
+            if (args?.targetArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetArns'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetArns"] = args ? args.targetArns : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetArns"] = args?.targetArns;
             resourceInputs["vpcLinkId"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

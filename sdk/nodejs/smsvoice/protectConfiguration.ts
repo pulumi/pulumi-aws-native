@@ -40,23 +40,23 @@ export class ProtectConfiguration extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the protect configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An array of CountryRule containing the rules for the NumberCapability.
      */
-    public readonly countryRuleSet!: pulumi.Output<outputs.smsvoice.ProtectConfigurationCountryRuleSet | undefined>;
+    declare public readonly countryRuleSet: pulumi.Output<outputs.smsvoice.ProtectConfigurationCountryRuleSet | undefined>;
     /**
      * When set to true deletion protection is enabled and protect configuration cannot be deleted. By default this is set to false.
      */
-    public readonly deletionProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly deletionProtectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The unique identifier for the protect configuration.
      */
-    public /*out*/ readonly protectConfigurationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly protectConfigurationId: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ProtectConfiguration resource with the given unique name, arguments, and options.
@@ -69,9 +69,9 @@ export class ProtectConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["countryRuleSet"] = args ? args.countryRuleSet : undefined;
-            resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["countryRuleSet"] = args?.countryRuleSet;
+            resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["protectConfigurationId"] = undefined /*out*/;
         } else {

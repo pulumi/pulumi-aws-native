@@ -600,55 +600,55 @@ export class AutomationRule extends pulumi.CustomResource {
     /**
      * One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
      */
-    public readonly actions!: pulumi.Output<outputs.securityhub.AutomationRulesAction[]>;
+    declare public readonly actions: pulumi.Output<outputs.securityhub.AutomationRulesAction[]>;
     /**
      * A timestamp that indicates when the rule was created.
      *
      * Uses the `date-time` format specified in [RFC 3339 section 5.6, Internet Date/Time Format](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3339#section-5.6) . The value cannot contain spaces. For example, `2020-03-22T13:22:13.933Z` .
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The principal that created the rule. For example, `arn:aws:sts::123456789012:assumed-role/Developer-Role/JaneDoe` .
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
      */
-    public readonly criteria!: pulumi.Output<outputs.securityhub.AutomationRulesFindingFilters>;
+    declare public readonly criteria: pulumi.Output<outputs.securityhub.AutomationRulesFindingFilters>;
     /**
      * A description of the rule.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
      */
-    public readonly isTerminal!: pulumi.Output<boolean | undefined>;
+    declare public readonly isTerminal: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the automation rule that you create. For example, `arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` .
      */
-    public /*out*/ readonly ruleArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly ruleArn: pulumi.Output<string>;
     /**
      * The name of the rule.
      */
-    public readonly ruleName!: pulumi.Output<string>;
+    declare public readonly ruleName: pulumi.Output<string>;
     /**
      * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
      */
-    public readonly ruleOrder!: pulumi.Output<number>;
+    declare public readonly ruleOrder: pulumi.Output<number>;
     /**
      * Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
      */
-    public readonly ruleStatus!: pulumi.Output<enums.securityhub.AutomationRuleRuleStatus | undefined>;
+    declare public readonly ruleStatus: pulumi.Output<enums.securityhub.AutomationRuleRuleStatus | undefined>;
     /**
      * User-defined tags associated with an automation rule.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A timestamp that indicates when the rule was most recently updated.
      *
      * Uses the `date-time` format specified in [RFC 3339 section 5.6, Internet Date/Time Format](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3339#section-5.6) . The value cannot contain spaces. For example, `2020-03-22T13:22:13.933Z` .
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a AutomationRule resource with the given unique name, arguments, and options.
@@ -661,26 +661,26 @@ export class AutomationRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.criteria === undefined) && !opts.urn) {
+            if (args?.criteria === undefined && !opts.urn) {
                 throw new Error("Missing required property 'criteria'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.ruleOrder === undefined) && !opts.urn) {
+            if (args?.ruleOrder === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleOrder'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["criteria"] = args ? args.criteria : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["isTerminal"] = args ? args.isTerminal : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["ruleOrder"] = args ? args.ruleOrder : undefined;
-            resourceInputs["ruleStatus"] = args ? args.ruleStatus : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["criteria"] = args?.criteria;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["isTerminal"] = args?.isTerminal;
+            resourceInputs["ruleName"] = args?.ruleName;
+            resourceInputs["ruleOrder"] = args?.ruleOrder;
+            resourceInputs["ruleStatus"] = args?.ruleStatus;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["ruleArn"] = undefined /*out*/;

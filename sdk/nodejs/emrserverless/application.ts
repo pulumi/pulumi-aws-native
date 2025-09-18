@@ -40,79 +40,79 @@ export class Application extends pulumi.CustomResource {
     /**
      * The ID of the EMR Serverless Application.
      */
-    public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationId: pulumi.Output<string>;
     /**
      * The CPU architecture of an application.
      */
-    public readonly architecture!: pulumi.Output<enums.emrserverless.ApplicationArchitecture | undefined>;
+    declare public readonly architecture: pulumi.Output<enums.emrserverless.ApplicationArchitecture | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the EMR Serverless Application.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Configuration for Auto Start of Application.
      */
-    public readonly autoStartConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStartConfiguration | undefined>;
+    declare public readonly autoStartConfiguration: pulumi.Output<outputs.emrserverless.ApplicationAutoStartConfiguration | undefined>;
     /**
      * Configuration for Auto Stop of Application.
      */
-    public readonly autoStopConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStopConfiguration | undefined>;
+    declare public readonly autoStopConfiguration: pulumi.Output<outputs.emrserverless.ApplicationAutoStopConfiguration | undefined>;
     /**
      * The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
      */
-    public readonly identityCenterConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationIdentityCenterConfiguration | undefined>;
+    declare public readonly identityCenterConfiguration: pulumi.Output<outputs.emrserverless.ApplicationIdentityCenterConfiguration | undefined>;
     /**
      * The image configuration applied to all worker types.
      */
-    public readonly imageConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationImageConfigurationInput | undefined>;
+    declare public readonly imageConfiguration: pulumi.Output<outputs.emrserverless.ApplicationImageConfigurationInput | undefined>;
     /**
      * Initial capacity initialized when an Application is started.
      */
-    public readonly initialCapacity!: pulumi.Output<outputs.emrserverless.ApplicationInitialCapacityConfigKeyValuePair[] | undefined>;
+    declare public readonly initialCapacity: pulumi.Output<outputs.emrserverless.ApplicationInitialCapacityConfigKeyValuePair[] | undefined>;
     /**
      * The interactive configuration object that enables the interactive use cases for an application.
      */
-    public readonly interactiveConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationInteractiveConfiguration | undefined>;
+    declare public readonly interactiveConfiguration: pulumi.Output<outputs.emrserverless.ApplicationInteractiveConfiguration | undefined>;
     /**
      * Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
      */
-    public readonly maximumCapacity!: pulumi.Output<outputs.emrserverless.ApplicationMaximumAllowedResources | undefined>;
+    declare public readonly maximumCapacity: pulumi.Output<outputs.emrserverless.ApplicationMaximumAllowedResources | undefined>;
     /**
      * A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
      */
-    public readonly monitoringConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationMonitoringConfiguration | undefined>;
+    declare public readonly monitoringConfiguration: pulumi.Output<outputs.emrserverless.ApplicationMonitoringConfiguration | undefined>;
     /**
      * User friendly Application name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Network Configuration for customer VPC connectivity.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationNetworkConfiguration | undefined>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.emrserverless.ApplicationNetworkConfiguration | undefined>;
     /**
      * EMR release label.
      */
-    public readonly releaseLabel!: pulumi.Output<string>;
+    declare public readonly releaseLabel: pulumi.Output<string>;
     /**
      * The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
      */
-    public readonly runtimeConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationConfigurationObject[] | undefined>;
+    declare public readonly runtimeConfiguration: pulumi.Output<outputs.emrserverless.ApplicationConfigurationObject[] | undefined>;
     /**
      * The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
      */
-    public readonly schedulerConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationSchedulerConfiguration | undefined>;
+    declare public readonly schedulerConfiguration: pulumi.Output<outputs.emrserverless.ApplicationSchedulerConfiguration | undefined>;
     /**
      * Tag map with key and value
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the application
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
      */
-    public readonly workerTypeSpecifications!: pulumi.Output<{[key: string]: outputs.emrserverless.ApplicationWorkerTypeSpecificationInput} | undefined>;
+    declare public readonly workerTypeSpecifications: pulumi.Output<{[key: string]: outputs.emrserverless.ApplicationWorkerTypeSpecificationInput} | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -125,29 +125,29 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.releaseLabel === undefined) && !opts.urn) {
+            if (args?.releaseLabel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'releaseLabel'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["architecture"] = args ? args.architecture : undefined;
-            resourceInputs["autoStartConfiguration"] = args ? args.autoStartConfiguration : undefined;
-            resourceInputs["autoStopConfiguration"] = args ? args.autoStopConfiguration : undefined;
-            resourceInputs["identityCenterConfiguration"] = args ? args.identityCenterConfiguration : undefined;
-            resourceInputs["imageConfiguration"] = args ? args.imageConfiguration : undefined;
-            resourceInputs["initialCapacity"] = args ? args.initialCapacity : undefined;
-            resourceInputs["interactiveConfiguration"] = args ? args.interactiveConfiguration : undefined;
-            resourceInputs["maximumCapacity"] = args ? args.maximumCapacity : undefined;
-            resourceInputs["monitoringConfiguration"] = args ? args.monitoringConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
-            resourceInputs["runtimeConfiguration"] = args ? args.runtimeConfiguration : undefined;
-            resourceInputs["schedulerConfiguration"] = args ? args.schedulerConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["workerTypeSpecifications"] = args ? args.workerTypeSpecifications : undefined;
+            resourceInputs["architecture"] = args?.architecture;
+            resourceInputs["autoStartConfiguration"] = args?.autoStartConfiguration;
+            resourceInputs["autoStopConfiguration"] = args?.autoStopConfiguration;
+            resourceInputs["identityCenterConfiguration"] = args?.identityCenterConfiguration;
+            resourceInputs["imageConfiguration"] = args?.imageConfiguration;
+            resourceInputs["initialCapacity"] = args?.initialCapacity;
+            resourceInputs["interactiveConfiguration"] = args?.interactiveConfiguration;
+            resourceInputs["maximumCapacity"] = args?.maximumCapacity;
+            resourceInputs["monitoringConfiguration"] = args?.monitoringConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["releaseLabel"] = args?.releaseLabel;
+            resourceInputs["runtimeConfiguration"] = args?.runtimeConfiguration;
+            resourceInputs["schedulerConfiguration"] = args?.schedulerConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["workerTypeSpecifications"] = args?.workerTypeSpecifications;
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         } else {

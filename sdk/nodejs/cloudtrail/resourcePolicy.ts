@@ -37,13 +37,13 @@ export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * The ARN of the AWS CloudTrail resource to which the policy applies.
      */
-    public readonly resourceArn!: pulumi.Output<string>;
+    declare public readonly resourceArn: pulumi.Output<string>;
     /**
      * A policy document containing permissions to add to the specified resource. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudTrail::ResourcePolicy` for more information about the expected schema for this property.
      */
-    public readonly resourcePolicy!: pulumi.Output<any>;
+    declare public readonly resourcePolicy: pulumi.Output<any>;
 
     /**
      * Create a ResourcePolicy resource with the given unique name, arguments, and options.
@@ -56,14 +56,14 @@ export class ResourcePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if ((!args || args.resourcePolicy === undefined) && !opts.urn) {
+            if (args?.resourcePolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourcePolicy'");
             }
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
-            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
+            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["resourcePolicy"] = args?.resourcePolicy;
         } else {
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["resourcePolicy"] = undefined /*out*/;

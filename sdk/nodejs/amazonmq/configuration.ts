@@ -72,43 +72,43 @@ export class Configuration extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Amazon MQ configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The authentication strategy associated with the configuration. The default is SIMPLE.
      */
-    public readonly authenticationStrategy!: pulumi.Output<string | undefined>;
+    declare public readonly authenticationStrategy: pulumi.Output<string | undefined>;
     /**
      * The ID of the Amazon MQ configuration.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The base64-encoded XML configuration.
      */
-    public readonly data!: pulumi.Output<string | undefined>;
+    declare public readonly data: pulumi.Output<string | undefined>;
     /**
      * The description of the configuration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The type of broker engine. Note: Currently, Amazon MQ only supports ACTIVEMQ for creating and editing broker configurations.
      */
-    public readonly engineType!: pulumi.Output<string>;
+    declare public readonly engineType: pulumi.Output<string>;
     /**
      * The version of the broker engine.
      */
-    public readonly engineVersion!: pulumi.Output<string | undefined>;
+    declare public readonly engineVersion: pulumi.Output<string | undefined>;
     /**
      * The name of the configuration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The revision number of the configuration.
      */
-    public /*out*/ readonly revision!: pulumi.Output<string>;
+    declare public /*out*/ readonly revision: pulumi.Output<string>;
     /**
      * Create tags when creating the configuration.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Configuration resource with the given unique name, arguments, and options.
@@ -121,16 +121,16 @@ export class Configuration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engineType === undefined) && !opts.urn) {
+            if (args?.engineType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engineType'");
             }
-            resourceInputs["authenticationStrategy"] = args ? args.authenticationStrategy : undefined;
-            resourceInputs["data"] = args ? args.data : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["engineType"] = args ? args.engineType : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authenticationStrategy"] = args?.authenticationStrategy;
+            resourceInputs["data"] = args?.data;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["engineType"] = args?.engineType;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["revision"] = undefined /*out*/;

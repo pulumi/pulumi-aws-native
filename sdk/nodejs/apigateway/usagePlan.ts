@@ -41,31 +41,31 @@ export class UsagePlan extends pulumi.CustomResource {
     /**
      * The associated API stages of a usage plan.
      */
-    public readonly apiStages!: pulumi.Output<outputs.apigateway.UsagePlanApiStage[] | undefined>;
+    declare public readonly apiStages: pulumi.Output<outputs.apigateway.UsagePlanApiStage[] | undefined>;
     /**
      * The ID for the usage plan. For example: `abc123` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The description of a usage plan.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The target maximum number of permitted requests per a given unit time interval.
      */
-    public readonly quota!: pulumi.Output<outputs.apigateway.UsagePlanQuotaSettings | undefined>;
+    declare public readonly quota: pulumi.Output<outputs.apigateway.UsagePlanQuotaSettings | undefined>;
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A map containing method level throttling information for API stage in a usage plan.
      */
-    public readonly throttle!: pulumi.Output<outputs.apigateway.UsagePlanThrottleSettings | undefined>;
+    declare public readonly throttle: pulumi.Output<outputs.apigateway.UsagePlanThrottleSettings | undefined>;
     /**
      * The name of a usage plan.
      */
-    public readonly usagePlanName!: pulumi.Output<string | undefined>;
+    declare public readonly usagePlanName: pulumi.Output<string | undefined>;
 
     /**
      * Create a UsagePlan resource with the given unique name, arguments, and options.
@@ -78,12 +78,12 @@ export class UsagePlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["apiStages"] = args ? args.apiStages : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["quota"] = args ? args.quota : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throttle"] = args ? args.throttle : undefined;
-            resourceInputs["usagePlanName"] = args ? args.usagePlanName : undefined;
+            resourceInputs["apiStages"] = args?.apiStages;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["quota"] = args?.quota;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["throttle"] = args?.throttle;
+            resourceInputs["usagePlanName"] = args?.usagePlanName;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["apiStages"] = undefined /*out*/;

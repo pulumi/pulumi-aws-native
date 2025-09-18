@@ -40,27 +40,27 @@ export class MitigationAction extends pulumi.CustomResource {
     /**
      * A unique identifier for the mitigation action.
      */
-    public readonly actionName!: pulumi.Output<string | undefined>;
+    declare public readonly actionName: pulumi.Output<string | undefined>;
     /**
      * The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
      */
-    public readonly actionParams!: pulumi.Output<outputs.iot.MitigationActionActionParams>;
+    declare public readonly actionParams: pulumi.Output<outputs.iot.MitigationActionActionParams>;
     /**
      * The Amazon Resource Name (ARN) of the mitigation action.
      */
-    public /*out*/ readonly mitigationActionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly mitigationActionArn: pulumi.Output<string>;
     /**
      * The ID of the mitigation action.
      */
-    public /*out*/ readonly mitigationActionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly mitigationActionId: pulumi.Output<string>;
     /**
      * The IAM role ARN used to apply this mitigation action.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MitigationAction resource with the given unique name, arguments, and options.
@@ -73,16 +73,16 @@ export class MitigationAction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actionParams === undefined) && !opts.urn) {
+            if (args?.actionParams === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionParams'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["actionName"] = args ? args.actionName : undefined;
-            resourceInputs["actionParams"] = args ? args.actionParams : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actionName"] = args?.actionName;
+            resourceInputs["actionParams"] = args?.actionParams;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["mitigationActionArn"] = undefined /*out*/;
             resourceInputs["mitigationActionId"] = undefined /*out*/;
         } else {

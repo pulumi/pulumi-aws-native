@@ -43,15 +43,15 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
     /**
      * The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The date and time when the response headers policy was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * A response headers policy configuration.
      */
-    public readonly responseHeadersPolicyConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyConfig>;
+    declare public readonly responseHeadersPolicyConfig: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyConfig>;
 
     /**
      * Create a ResponseHeadersPolicy resource with the given unique name, arguments, and options.
@@ -64,10 +64,10 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.responseHeadersPolicyConfig === undefined) && !opts.urn) {
+            if (args?.responseHeadersPolicyConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'responseHeadersPolicyConfig'");
             }
-            resourceInputs["responseHeadersPolicyConfig"] = args ? args.responseHeadersPolicyConfig : undefined;
+            resourceInputs["responseHeadersPolicyConfig"] = args?.responseHeadersPolicyConfig;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {

@@ -40,23 +40,23 @@ export class LiveSource extends pulumi.CustomResource {
     /**
      * <p>The ARN of the live source.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * <p>A list of HTTP package configuration parameters for this live source.</p>
      */
-    public readonly httpPackageConfigurations!: pulumi.Output<outputs.mediatailor.LiveSourceHttpPackageConfiguration[]>;
+    declare public readonly httpPackageConfigurations: pulumi.Output<outputs.mediatailor.LiveSourceHttpPackageConfiguration[]>;
     /**
      * The name that's used to refer to a live source.
      */
-    public readonly liveSourceName!: pulumi.Output<string>;
+    declare public readonly liveSourceName: pulumi.Output<string>;
     /**
      * The name of the source location.
      */
-    public readonly sourceLocationName!: pulumi.Output<string>;
+    declare public readonly sourceLocationName: pulumi.Output<string>;
     /**
      * The tags to assign to the live source.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LiveSource resource with the given unique name, arguments, and options.
@@ -69,16 +69,16 @@ export class LiveSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.httpPackageConfigurations === undefined) && !opts.urn) {
+            if (args?.httpPackageConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'httpPackageConfigurations'");
             }
-            if ((!args || args.sourceLocationName === undefined) && !opts.urn) {
+            if (args?.sourceLocationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceLocationName'");
             }
-            resourceInputs["httpPackageConfigurations"] = args ? args.httpPackageConfigurations : undefined;
-            resourceInputs["liveSourceName"] = args ? args.liveSourceName : undefined;
-            resourceInputs["sourceLocationName"] = args ? args.sourceLocationName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["httpPackageConfigurations"] = args?.httpPackageConfigurations;
+            resourceInputs["liveSourceName"] = args?.liveSourceName;
+            resourceInputs["sourceLocationName"] = args?.sourceLocationName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -40,31 +40,31 @@ export class QueueEnvironment extends pulumi.CustomResource {
     /**
      * The identifier assigned to the farm that contains the queue.
      */
-    public readonly farmId!: pulumi.Output<string>;
+    declare public readonly farmId: pulumi.Output<string>;
     /**
      * The name of the queue environment.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The queue environment's priority.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * The queue environment ID.
      */
-    public /*out*/ readonly queueEnvironmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly queueEnvironmentId: pulumi.Output<string>;
     /**
      * The unique identifier of the queue that contains the environment.
      */
-    public readonly queueId!: pulumi.Output<string>;
+    declare public readonly queueId: pulumi.Output<string>;
     /**
      * A JSON or YAML template that describes the processing environment for the queue.
      */
-    public readonly template!: pulumi.Output<string>;
+    declare public readonly template: pulumi.Output<string>;
     /**
      * Specifies whether the template for the queue environment is JSON or YAML.
      */
-    public readonly templateType!: pulumi.Output<enums.deadline.QueueEnvironmentEnvironmentTemplateType>;
+    declare public readonly templateType: pulumi.Output<enums.deadline.QueueEnvironmentEnvironmentTemplateType>;
 
     /**
      * Create a QueueEnvironment resource with the given unique name, arguments, and options.
@@ -77,26 +77,26 @@ export class QueueEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.farmId === undefined) && !opts.urn) {
+            if (args?.farmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'farmId'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.queueId === undefined) && !opts.urn) {
+            if (args?.queueId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queueId'");
             }
-            if ((!args || args.template === undefined) && !opts.urn) {
+            if (args?.template === undefined && !opts.urn) {
                 throw new Error("Missing required property 'template'");
             }
-            if ((!args || args.templateType === undefined) && !opts.urn) {
+            if (args?.templateType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateType'");
             }
-            resourceInputs["farmId"] = args ? args.farmId : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["queueId"] = args ? args.queueId : undefined;
-            resourceInputs["template"] = args ? args.template : undefined;
-            resourceInputs["templateType"] = args ? args.templateType : undefined;
+            resourceInputs["farmId"] = args?.farmId;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["queueId"] = args?.queueId;
+            resourceInputs["template"] = args?.template;
+            resourceInputs["templateType"] = args?.templateType;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["queueEnvironmentId"] = undefined /*out*/;
         } else {

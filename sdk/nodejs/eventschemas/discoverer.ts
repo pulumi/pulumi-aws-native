@@ -54,31 +54,31 @@ export class Discoverer extends pulumi.CustomResource {
     /**
      * Defines whether event schemas from other accounts are discovered. Default is True.
      */
-    public readonly crossAccount!: pulumi.Output<boolean | undefined>;
+    declare public readonly crossAccount: pulumi.Output<boolean | undefined>;
     /**
      * A description for the discoverer.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ARN of the discoverer.
      */
-    public /*out*/ readonly discovererArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly discovererArn: pulumi.Output<string>;
     /**
      * The Id of the discoverer.
      */
-    public /*out*/ readonly discovererId!: pulumi.Output<string>;
+    declare public /*out*/ readonly discovererId: pulumi.Output<string>;
     /**
      * The ARN of the event bus.
      */
-    public readonly sourceArn!: pulumi.Output<string>;
+    declare public readonly sourceArn: pulumi.Output<string>;
     /**
      * Defines the current state of the discoverer.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Tags associated with the resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Discoverer resource with the given unique name, arguments, and options.
@@ -91,13 +91,13 @@ export class Discoverer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sourceArn === undefined) && !opts.urn) {
+            if (args?.sourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
-            resourceInputs["crossAccount"] = args ? args.crossAccount : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["crossAccount"] = args?.crossAccount;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["sourceArn"] = args?.sourceArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["discovererArn"] = undefined /*out*/;
             resourceInputs["discovererId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

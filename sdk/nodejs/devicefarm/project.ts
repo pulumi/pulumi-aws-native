@@ -40,23 +40,23 @@ export class Project extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
      */
-    public readonly defaultJobTimeoutMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly defaultJobTimeoutMinutes: pulumi.Output<number | undefined>;
     /**
      * The project's name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The VPC security groups and subnets that are attached to a project.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.devicefarm.ProjectVpcConfig | undefined>;
+    declare public readonly vpcConfig: pulumi.Output<outputs.devicefarm.ProjectVpcConfig | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -69,10 +69,10 @@ export class Project extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["defaultJobTimeoutMinutes"] = args ? args.defaultJobTimeoutMinutes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["defaultJobTimeoutMinutes"] = args?.defaultJobTimeoutMinutes;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

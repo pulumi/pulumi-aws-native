@@ -40,55 +40,55 @@ export class Form extends pulumi.CustomResource {
     /**
      * The unique ID of the Amplify app associated with the form.
      */
-    public readonly appId!: pulumi.Output<string | undefined>;
+    declare public readonly appId: pulumi.Output<string | undefined>;
     /**
      * The ID for the form.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The `FormCTA` object that stores the call to action configuration for the form.
      */
-    public readonly cta!: pulumi.Output<outputs.amplifyuibuilder.FormCta | undefined>;
+    declare public readonly cta: pulumi.Output<outputs.amplifyuibuilder.FormCta | undefined>;
     /**
      * The type of data source to use to create the form.
      */
-    public readonly dataType!: pulumi.Output<outputs.amplifyuibuilder.FormDataTypeConfig | undefined>;
+    declare public readonly dataType: pulumi.Output<outputs.amplifyuibuilder.FormDataTypeConfig | undefined>;
     /**
      * The name of the backend environment that is a part of the Amplify app.
      */
-    public readonly environmentName!: pulumi.Output<string | undefined>;
+    declare public readonly environmentName: pulumi.Output<string | undefined>;
     /**
      * The configuration information for the form's fields.
      */
-    public readonly fields!: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.FormFieldConfig} | undefined>;
+    declare public readonly fields: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.FormFieldConfig} | undefined>;
     /**
      * Specifies whether to perform a create or update action on the form.
      */
-    public readonly formActionType!: pulumi.Output<enums.amplifyuibuilder.FormActionType | undefined>;
+    declare public readonly formActionType: pulumi.Output<enums.amplifyuibuilder.FormActionType | undefined>;
     /**
      * Specifies an icon or decoration to display on the form.
      */
-    public readonly labelDecorator!: pulumi.Output<enums.amplifyuibuilder.FormLabelDecorator | undefined>;
+    declare public readonly labelDecorator: pulumi.Output<enums.amplifyuibuilder.FormLabelDecorator | undefined>;
     /**
      * The name of the form.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The schema version of the form.
      */
-    public readonly schemaVersion!: pulumi.Output<string | undefined>;
+    declare public readonly schemaVersion: pulumi.Output<string | undefined>;
     /**
      * The configuration information for the visual helper elements for the form. These elements are not associated with any data.
      */
-    public readonly sectionalElements!: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.FormSectionalElement} | undefined>;
+    declare public readonly sectionalElements: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.FormSectionalElement} | undefined>;
     /**
      * The configuration for the form's style.
      */
-    public readonly style!: pulumi.Output<outputs.amplifyuibuilder.FormStyle | undefined>;
+    declare public readonly style: pulumi.Output<outputs.amplifyuibuilder.FormStyle | undefined>;
     /**
      * One or more key-value pairs to use when tagging the form data.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Form resource with the given unique name, arguments, and options.
@@ -101,18 +101,18 @@ export class Form extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["cta"] = args ? args.cta : undefined;
-            resourceInputs["dataType"] = args ? args.dataType : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["fields"] = args ? args.fields : undefined;
-            resourceInputs["formActionType"] = args ? args.formActionType : undefined;
-            resourceInputs["labelDecorator"] = args ? args.labelDecorator : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schemaVersion"] = args ? args.schemaVersion : undefined;
-            resourceInputs["sectionalElements"] = args ? args.sectionalElements : undefined;
-            resourceInputs["style"] = args ? args.style : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["cta"] = args?.cta;
+            resourceInputs["dataType"] = args?.dataType;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["fields"] = args?.fields;
+            resourceInputs["formActionType"] = args?.formActionType;
+            resourceInputs["labelDecorator"] = args?.labelDecorator;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schemaVersion"] = args?.schemaVersion;
+            resourceInputs["sectionalElements"] = args?.sectionalElements;
+            resourceInputs["style"] = args?.style;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["appId"] = undefined /*out*/;

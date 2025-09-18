@@ -40,51 +40,51 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
      */
-    public readonly accessType!: pulumi.Output<enums.s3outposts.EndpointAccessType | undefined>;
+    declare public readonly accessType: pulumi.Output<enums.s3outposts.EndpointAccessType | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the endpoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the endpoint.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The VPC CIDR committed by this endpoint.
      */
-    public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
+    declare public /*out*/ readonly cidrBlock: pulumi.Output<string>;
     /**
      * The time the endpoint was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
      */
-    public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
+    declare public readonly customerOwnedIpv4Pool: pulumi.Output<string | undefined>;
     /**
      * The failure reason, if any, for a create or delete endpoint operation.
      */
-    public readonly failedReason!: pulumi.Output<outputs.s3outposts.EndpointFailedReason | undefined>;
+    declare public readonly failedReason: pulumi.Output<outputs.s3outposts.EndpointFailedReason | undefined>;
     /**
      * The network interfaces of the endpoint.
      */
-    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.s3outposts.EndpointNetworkInterface[]>;
+    declare public /*out*/ readonly networkInterfaces: pulumi.Output<outputs.s3outposts.EndpointNetworkInterface[]>;
     /**
      * The id of the customer outpost on which the bucket resides.
      */
-    public readonly outpostId!: pulumi.Output<string>;
+    declare public readonly outpostId: pulumi.Output<string>;
     /**
      * The ID of the security group to use with the endpoint.
      */
-    public readonly securityGroupId!: pulumi.Output<string>;
+    declare public readonly securityGroupId: pulumi.Output<string>;
     /**
      * The status of the endpoint.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.s3outposts.EndpointStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.s3outposts.EndpointStatus>;
     /**
      * The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -97,21 +97,21 @@ export class Endpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.outpostId === undefined) && !opts.urn) {
+            if (args?.outpostId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outpostId'");
             }
-            if ((!args || args.securityGroupId === undefined) && !opts.urn) {
+            if (args?.securityGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupId'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["accessType"] = args ? args.accessType : undefined;
-            resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
-            resourceInputs["failedReason"] = args ? args.failedReason : undefined;
-            resourceInputs["outpostId"] = args ? args.outpostId : undefined;
-            resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["accessType"] = args?.accessType;
+            resourceInputs["customerOwnedIpv4Pool"] = args?.customerOwnedIpv4Pool;
+            resourceInputs["failedReason"] = args?.failedReason;
+            resourceInputs["outpostId"] = args?.outpostId;
+            resourceInputs["securityGroupId"] = args?.securityGroupId;
+            resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;

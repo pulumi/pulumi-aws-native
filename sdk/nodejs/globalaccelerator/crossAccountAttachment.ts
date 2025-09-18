@@ -40,25 +40,25 @@ export class CrossAccountAttachment extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the attachment.
      */
-    public /*out*/ readonly attachmentArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentArn: pulumi.Output<string>;
     /**
      * The Friendly identifier of the attachment.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Principals to share the resources with.
      */
-    public readonly principals!: pulumi.Output<string[] | undefined>;
+    declare public readonly principals: pulumi.Output<string[] | undefined>;
     /**
      * Resources shared using the attachment.
      */
-    public readonly resources!: pulumi.Output<outputs.globalaccelerator.CrossAccountAttachmentResource[] | undefined>;
+    declare public readonly resources: pulumi.Output<outputs.globalaccelerator.CrossAccountAttachmentResource[] | undefined>;
     /**
      * Add tags for a cross-account attachment.
      *
      * For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CrossAccountAttachment resource with the given unique name, arguments, and options.
@@ -71,10 +71,10 @@ export class CrossAccountAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["principals"] = args ? args.principals : undefined;
-            resourceInputs["resources"] = args ? args.resources : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["principals"] = args?.principals;
+            resourceInputs["resources"] = args?.resources;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["attachmentArn"] = undefined /*out*/;
         } else {
             resourceInputs["attachmentArn"] = undefined /*out*/;

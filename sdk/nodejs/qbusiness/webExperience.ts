@@ -40,75 +40,75 @@ export class WebExperience extends pulumi.CustomResource {
     /**
      * The identifier of the Amazon Q Business web experience.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * The container for browser extension configuration for an Amazon Q Business web experience.
      */
-    public readonly browserExtensionConfiguration!: pulumi.Output<outputs.qbusiness.WebExperienceBrowserExtensionConfiguration | undefined>;
+    declare public readonly browserExtensionConfiguration: pulumi.Output<outputs.qbusiness.WebExperienceBrowserExtensionConfiguration | undefined>;
     /**
      * The Unix timestamp when the Amazon Q Business application was last updated.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
      */
-    public readonly customizationConfiguration!: pulumi.Output<outputs.qbusiness.WebExperienceCustomizationConfiguration | undefined>;
+    declare public readonly customizationConfiguration: pulumi.Output<outputs.qbusiness.WebExperienceCustomizationConfiguration | undefined>;
     /**
      * The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
      */
-    public /*out*/ readonly defaultEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultEndpoint: pulumi.Output<string>;
     /**
      * Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
      */
-    public readonly identityProviderConfiguration!: pulumi.Output<outputs.qbusiness.WebExperienceIdentityProviderConfiguration0Properties | outputs.qbusiness.WebExperienceIdentityProviderConfiguration1Properties | undefined>;
+    declare public readonly identityProviderConfiguration: pulumi.Output<outputs.qbusiness.WebExperienceIdentityProviderConfiguration0Properties | outputs.qbusiness.WebExperienceIdentityProviderConfiguration1Properties | undefined>;
     /**
      * Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
      *
      * > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
      */
-    public readonly origins!: pulumi.Output<string[] | undefined>;
+    declare public readonly origins: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the service role attached to your web experience.
      *
      * > The `roleArn` parameter is required when your Amazon Q Business application is created with IAM Identity Center. It is not required for SAML-based applications.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * Determines whether sample prompts are enabled in the web experience for an end user.
      */
-    public readonly samplePromptsControlMode!: pulumi.Output<enums.qbusiness.WebExperienceSamplePromptsControlMode | undefined>;
+    declare public readonly samplePromptsControlMode: pulumi.Output<enums.qbusiness.WebExperienceSamplePromptsControlMode | undefined>;
     /**
      * The status of your Amazon Q Business web experience.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.qbusiness.WebExperienceStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.qbusiness.WebExperienceStatus>;
     /**
      * A subtitle to personalize your Amazon Q Business web experience.
      */
-    public readonly subtitle!: pulumi.Output<string | undefined>;
+    declare public readonly subtitle: pulumi.Output<string | undefined>;
     /**
      * A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The title for your Amazon Q Business web experience.
      */
-    public readonly title!: pulumi.Output<string | undefined>;
+    declare public readonly title: pulumi.Output<string | undefined>;
     /**
      * The Unix timestamp when your Amazon Q Business web experience was updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of an Amazon Q Business web experience.
      */
-    public /*out*/ readonly webExperienceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly webExperienceArn: pulumi.Output<string>;
     /**
      * The identifier of your Amazon Q Business web experience.
      */
-    public /*out*/ readonly webExperienceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly webExperienceId: pulumi.Output<string>;
     /**
      * A message in an Amazon Q Business web experience.
      */
-    public readonly welcomeMessage!: pulumi.Output<string | undefined>;
+    declare public readonly welcomeMessage: pulumi.Output<string | undefined>;
 
     /**
      * Create a WebExperience resource with the given unique name, arguments, and options.
@@ -121,20 +121,20 @@ export class WebExperience extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["browserExtensionConfiguration"] = args ? args.browserExtensionConfiguration : undefined;
-            resourceInputs["customizationConfiguration"] = args ? args.customizationConfiguration : undefined;
-            resourceInputs["identityProviderConfiguration"] = args ? args.identityProviderConfiguration : undefined;
-            resourceInputs["origins"] = args ? args.origins : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["samplePromptsControlMode"] = args ? args.samplePromptsControlMode : undefined;
-            resourceInputs["subtitle"] = args ? args.subtitle : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["welcomeMessage"] = args ? args.welcomeMessage : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["browserExtensionConfiguration"] = args?.browserExtensionConfiguration;
+            resourceInputs["customizationConfiguration"] = args?.customizationConfiguration;
+            resourceInputs["identityProviderConfiguration"] = args?.identityProviderConfiguration;
+            resourceInputs["origins"] = args?.origins;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["samplePromptsControlMode"] = args?.samplePromptsControlMode;
+            resourceInputs["subtitle"] = args?.subtitle;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["welcomeMessage"] = args?.welcomeMessage;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["defaultEndpoint"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

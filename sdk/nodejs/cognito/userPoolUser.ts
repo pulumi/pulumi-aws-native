@@ -50,11 +50,11 @@ export class UserPoolUser extends pulumi.CustomResource {
      * > - Validate the `ClientMetadata` value.
      * > - Encrypt the `ClientMetadata` value. Don't send sensitive information in this parameter.
      */
-    public readonly clientMetadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly clientMetadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specify `EMAIL` if email will be used to send the welcome message. Specify `SMS` if the phone number will be used. The default value is `SMS` . You can specify more than one value.
      */
-    public readonly desiredDeliveryMediums!: pulumi.Output<string[] | undefined>;
+    declare public readonly desiredDeliveryMediums: pulumi.Output<string[] | undefined>;
     /**
      * This parameter is used only if the `phone_number_verified` or `email_verified` attribute is set to `True` . Otherwise, it is ignored.
      *
@@ -62,11 +62,11 @@ export class UserPoolUser extends pulumi.CustomResource {
      *
      * If this parameter is set to `False` , the API throws an `AliasExistsException` error if the alias already exists. The default value is `False` .
      */
-    public readonly forceAliasCreation!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceAliasCreation: pulumi.Output<boolean | undefined>;
     /**
      * Set to `RESEND` to resend the invitation message to a user that already exists, and to reset the temporary-password duration with a new temporary password. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
      */
-    public readonly messageAction!: pulumi.Output<string | undefined>;
+    declare public readonly messageAction: pulumi.Output<string | undefined>;
     /**
      * An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than `Username` . However, any attributes that you specify as required (when creating a user pool or in the *Attributes* tab of the console) either you should supply (in your call to `AdminCreateUser` ) or the user should supply (when they sign up in response to your welcome message).
      *
@@ -81,11 +81,11 @@ export class UserPoolUser extends pulumi.CustomResource {
      * - *email* : The email address of the user to whom the message that contains the code and username will be sent. Required if the `email_verified` attribute is set to `True` , or if `"EMAIL"` is specified in the `DesiredDeliveryMediums` parameter.
      * - *phone_number* : The phone number of the user to whom the message that contains the code and username will be sent. Required if the `phone_number_verified` attribute is set to `True` , or if `"SMS"` is specified in the `DesiredDeliveryMediums` parameter.
      */
-    public readonly userAttributes!: pulumi.Output<outputs.cognito.UserPoolUserAttributeType[] | undefined>;
+    declare public readonly userAttributes: pulumi.Output<outputs.cognito.UserPoolUserAttributeType[] | undefined>;
     /**
      * The ID of the user pool where you want to create a user.
      */
-    public readonly userPoolId!: pulumi.Output<string>;
+    declare public readonly userPoolId: pulumi.Output<string>;
     /**
      * The value that you want to set as the username sign-in attribute. The following conditions apply to the username parameter.
      *
@@ -93,7 +93,7 @@ export class UserPoolUser extends pulumi.CustomResource {
      * - You can't change the value of a username after you create it.
      * - You can only provide a value if usernames are a valid sign-in attribute for your user pool. If your user pool only supports phone numbers or email addresses as sign-in attributes, Amazon Cognito automatically generates a username value. For more information, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
      */
-    public readonly username!: pulumi.Output<string | undefined>;
+    declare public readonly username: pulumi.Output<string | undefined>;
     /**
      * Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
      *
@@ -101,7 +101,7 @@ export class UserPoolUser extends pulumi.CustomResource {
      *
      * For more information about the pre sign-up Lambda trigger, see [Pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) .
      */
-    public readonly validationData!: pulumi.Output<outputs.cognito.UserPoolUserAttributeType[] | undefined>;
+    declare public readonly validationData: pulumi.Output<outputs.cognito.UserPoolUserAttributeType[] | undefined>;
 
     /**
      * Create a UserPoolUser resource with the given unique name, arguments, and options.
@@ -114,17 +114,17 @@ export class UserPoolUser extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["clientMetadata"] = args ? args.clientMetadata : undefined;
-            resourceInputs["desiredDeliveryMediums"] = args ? args.desiredDeliveryMediums : undefined;
-            resourceInputs["forceAliasCreation"] = args ? args.forceAliasCreation : undefined;
-            resourceInputs["messageAction"] = args ? args.messageAction : undefined;
-            resourceInputs["userAttributes"] = args ? args.userAttributes : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
-            resourceInputs["validationData"] = args ? args.validationData : undefined;
+            resourceInputs["clientMetadata"] = args?.clientMetadata;
+            resourceInputs["desiredDeliveryMediums"] = args?.desiredDeliveryMediums;
+            resourceInputs["forceAliasCreation"] = args?.forceAliasCreation;
+            resourceInputs["messageAction"] = args?.messageAction;
+            resourceInputs["userAttributes"] = args?.userAttributes;
+            resourceInputs["userPoolId"] = args?.userPoolId;
+            resourceInputs["username"] = args?.username;
+            resourceInputs["validationData"] = args?.validationData;
         } else {
             resourceInputs["clientMetadata"] = undefined /*out*/;
             resourceInputs["desiredDeliveryMediums"] = undefined /*out*/;

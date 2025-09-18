@@ -42,39 +42,39 @@ export class AppMonitor extends pulumi.CustomResource {
      *
      * If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
      */
-    public readonly appMonitorConfiguration!: pulumi.Output<outputs.rum.AppMonitorConfiguration | undefined>;
+    declare public readonly appMonitorConfiguration: pulumi.Output<outputs.rum.AppMonitorConfiguration | undefined>;
     /**
      * The unique ID of the new app monitor.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
      */
-    public readonly customEvents!: pulumi.Output<outputs.rum.AppMonitorCustomEvents | undefined>;
+    declare public readonly customEvents: pulumi.Output<outputs.rum.AppMonitorCustomEvents | undefined>;
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
      */
-    public readonly cwLogEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly cwLogEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
      */
-    public readonly deobfuscationConfiguration!: pulumi.Output<outputs.rum.AppMonitorDeobfuscationConfiguration | undefined>;
+    declare public readonly deobfuscationConfiguration: pulumi.Output<outputs.rum.AppMonitorDeobfuscationConfiguration | undefined>;
     /**
      * The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
      */
-    public readonly domain!: pulumi.Output<string | undefined>;
+    declare public readonly domain: pulumi.Output<string | undefined>;
     /**
      * The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
      */
-    public readonly domainList!: pulumi.Output<string[] | undefined>;
+    declare public readonly domainList: pulumi.Output<string[] | undefined>;
     /**
      * A name for the app monitor
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
      */
-    public readonly resourcePolicy!: pulumi.Output<outputs.rum.AppMonitorResourcePolicy | undefined>;
+    declare public readonly resourcePolicy: pulumi.Output<outputs.rum.AppMonitorResourcePolicy | undefined>;
     /**
      * Assigns one or more tags (key-value pairs) to the app monitor.
      *
@@ -86,7 +86,7 @@ export class AppMonitor extends pulumi.CustomResource {
      *
      * For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a AppMonitor resource with the given unique name, arguments, and options.
@@ -99,15 +99,15 @@ export class AppMonitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["appMonitorConfiguration"] = args ? args.appMonitorConfiguration : undefined;
-            resourceInputs["customEvents"] = args ? args.customEvents : undefined;
-            resourceInputs["cwLogEnabled"] = args ? args.cwLogEnabled : undefined;
-            resourceInputs["deobfuscationConfiguration"] = args ? args.deobfuscationConfiguration : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["domainList"] = args ? args.domainList : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appMonitorConfiguration"] = args?.appMonitorConfiguration;
+            resourceInputs["customEvents"] = args?.customEvents;
+            resourceInputs["cwLogEnabled"] = args?.cwLogEnabled;
+            resourceInputs["deobfuscationConfiguration"] = args?.deobfuscationConfiguration;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["domainList"] = args?.domainList;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourcePolicy"] = args?.resourcePolicy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["appMonitorConfiguration"] = undefined /*out*/;

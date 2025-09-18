@@ -37,15 +37,15 @@ export class ServiceActionAssociation extends pulumi.CustomResource {
     /**
      * The product identifier. For example, `prod-abcdzk7xy33qa` .
      */
-    public readonly productId!: pulumi.Output<string>;
+    declare public readonly productId: pulumi.Output<string>;
     /**
      * The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne` .
      */
-    public readonly provisioningArtifactId!: pulumi.Output<string>;
+    declare public readonly provisioningArtifactId: pulumi.Output<string>;
     /**
      * The self-service action identifier. For example, `act-fs7abcd89wxyz` .
      */
-    public readonly serviceActionId!: pulumi.Output<string>;
+    declare public readonly serviceActionId: pulumi.Output<string>;
 
     /**
      * Create a ServiceActionAssociation resource with the given unique name, arguments, and options.
@@ -58,18 +58,18 @@ export class ServiceActionAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.productId === undefined) && !opts.urn) {
+            if (args?.productId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            if ((!args || args.provisioningArtifactId === undefined) && !opts.urn) {
+            if (args?.provisioningArtifactId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'provisioningArtifactId'");
             }
-            if ((!args || args.serviceActionId === undefined) && !opts.urn) {
+            if (args?.serviceActionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceActionId'");
             }
-            resourceInputs["productId"] = args ? args.productId : undefined;
-            resourceInputs["provisioningArtifactId"] = args ? args.provisioningArtifactId : undefined;
-            resourceInputs["serviceActionId"] = args ? args.serviceActionId : undefined;
+            resourceInputs["productId"] = args?.productId;
+            resourceInputs["provisioningArtifactId"] = args?.provisioningArtifactId;
+            resourceInputs["serviceActionId"] = args?.serviceActionId;
         } else {
             resourceInputs["productId"] = undefined /*out*/;
             resourceInputs["provisioningArtifactId"] = undefined /*out*/;

@@ -40,15 +40,15 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the rule group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Collection of Available Labels.
      */
-    public readonly availableLabels!: pulumi.Output<outputs.wafv2.RuleGroupLabelSummary[] | undefined>;
+    declare public readonly availableLabels: pulumi.Output<outputs.wafv2.RuleGroupLabelSummary[] | undefined>;
     /**
      * The ID of the rule group.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The web ACL capacity units (WCUs) required for this rule group.
      *
@@ -56,11 +56,11 @@ export class RuleGroup extends pulumi.CustomResource {
      *
      * AWS WAF uses WCUs to calculate and control the operating resources that are used to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently for each rule type, to reflect the relative cost of each rule. Simple rules that cost little to run use fewer WCUs than more complex rules that use more processing power. Rule group capacity is fixed at creation, which helps users plan their web ACL WCU usage when they use a rule group. The WCU limit for web ACLs is 1,500.
      */
-    public readonly capacity!: pulumi.Output<number>;
+    declare public readonly capacity: pulumi.Output<number>;
     /**
      * Collection of Consumed Labels.
      */
-    public readonly consumedLabels!: pulumi.Output<outputs.wafv2.RuleGroupLabelSummary[] | undefined>;
+    declare public readonly consumedLabels: pulumi.Output<outputs.wafv2.RuleGroupLabelSummary[] | undefined>;
     /**
      * A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group.
      *
@@ -68,11 +68,11 @@ export class RuleGroup extends pulumi.CustomResource {
      *
      * For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
      */
-    public readonly customResponseBodies!: pulumi.Output<{[key: string]: outputs.wafv2.RuleGroupCustomResponseBody} | undefined>;
+    declare public readonly customResponseBodies: pulumi.Output<{[key: string]: outputs.wafv2.RuleGroupCustomResponseBody} | undefined>;
     /**
      * A description of the rule group that helps with identification.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The label namespace prefix for this rule group. All labels added by rules in this rule group have this prefix.
      *
@@ -80,31 +80,31 @@ export class RuleGroup extends pulumi.CustomResource {
      *
      * When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
      */
-    public /*out*/ readonly labelNamespace!: pulumi.Output<string>;
+    declare public /*out*/ readonly labelNamespace: pulumi.Output<string>;
     /**
      * The name of the rule group. You cannot change the name of a rule group after you create it.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Collection of Rules.
      */
-    public readonly rules!: pulumi.Output<outputs.wafv2.RuleGroupRule[] | undefined>;
+    declare public readonly rules: pulumi.Output<outputs.wafv2.RuleGroupRule[] | undefined>;
     /**
      * Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
      *
      * > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
      */
-    public readonly scope!: pulumi.Output<enums.wafv2.RuleGroupScope>;
+    declare public readonly scope: pulumi.Output<enums.wafv2.RuleGroupScope>;
     /**
      * Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
      *
      * > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection.
      */
-    public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.RuleGroupVisibilityConfig>;
+    declare public readonly visibilityConfig: pulumi.Output<outputs.wafv2.RuleGroupVisibilityConfig>;
 
     /**
      * Create a RuleGroup resource with the given unique name, arguments, and options.
@@ -117,25 +117,25 @@ export class RuleGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.capacity === undefined) && !opts.urn) {
+            if (args?.capacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacity'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
+            if (args?.visibilityConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
-            resourceInputs["availableLabels"] = args ? args.availableLabels : undefined;
-            resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["consumedLabels"] = args ? args.consumedLabels : undefined;
-            resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
+            resourceInputs["availableLabels"] = args?.availableLabels;
+            resourceInputs["capacity"] = args?.capacity;
+            resourceInputs["consumedLabels"] = args?.consumedLabels;
+            resourceInputs["customResponseBodies"] = args?.customResponseBodies;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["visibilityConfig"] = args?.visibilityConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["labelNamespace"] = undefined /*out*/;

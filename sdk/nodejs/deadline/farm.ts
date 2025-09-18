@@ -40,31 +40,31 @@ export class Farm extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned to the farm.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A description of the farm that helps identify what the farm is used for.
      *
      * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the farm.
      *
      * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The farm ID.
      */
-    public /*out*/ readonly farmId!: pulumi.Output<string>;
+    declare public /*out*/ readonly farmId: pulumi.Output<string>;
     /**
      * The ARN for the KMS key.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Farm resource with the given unique name, arguments, and options.
@@ -77,13 +77,13 @@ export class Farm extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["farmId"] = undefined /*out*/;
         } else {

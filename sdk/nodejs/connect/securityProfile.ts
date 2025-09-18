@@ -40,55 +40,55 @@ export class SecurityProfile extends pulumi.CustomResource {
     /**
      * The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
      */
-    public readonly allowedAccessControlHierarchyGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly allowedAccessControlHierarchyGroupId: pulumi.Output<string | undefined>;
     /**
      * The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
      */
-    public readonly allowedAccessControlTags!: pulumi.Output<outputs.connect.SecurityProfileTag[] | undefined>;
+    declare public readonly allowedAccessControlTags: pulumi.Output<outputs.connect.SecurityProfileTag[] | undefined>;
     /**
      * A list of third-party applications that the security profile will give access to.
      */
-    public readonly applications!: pulumi.Output<outputs.connect.SecurityProfileApplication[] | undefined>;
+    declare public readonly applications: pulumi.Output<outputs.connect.SecurityProfileApplication[] | undefined>;
     /**
      * The description of the security profile.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
      */
-    public readonly hierarchyRestrictedResources!: pulumi.Output<string[] | undefined>;
+    declare public readonly hierarchyRestrictedResources: pulumi.Output<string[] | undefined>;
     /**
      * The identifier of the Amazon Connect instance.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The AWS Region where this resource was last modified.
      */
-    public /*out*/ readonly lastModifiedRegion!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedRegion: pulumi.Output<string>;
     /**
      * The timestamp when this resource was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<number>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<number>;
     /**
      * Permissions assigned to the security profile.
      */
-    public readonly permissions!: pulumi.Output<string[] | undefined>;
+    declare public readonly permissions: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the security profile.
      */
-    public /*out*/ readonly securityProfileArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly securityProfileArn: pulumi.Output<string>;
     /**
      * The name of the security profile.
      */
-    public readonly securityProfileName!: pulumi.Output<string>;
+    declare public readonly securityProfileName: pulumi.Output<string>;
     /**
      * The list of resources that a security profile applies tag restrictions to in Amazon Connect.
      */
-    public readonly tagRestrictedResources!: pulumi.Output<string[] | undefined>;
+    declare public readonly tagRestrictedResources: pulumi.Output<string[] | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SecurityProfile resource with the given unique name, arguments, and options.
@@ -101,19 +101,19 @@ export class SecurityProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["allowedAccessControlHierarchyGroupId"] = args ? args.allowedAccessControlHierarchyGroupId : undefined;
-            resourceInputs["allowedAccessControlTags"] = args ? args.allowedAccessControlTags : undefined;
-            resourceInputs["applications"] = args ? args.applications : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["hierarchyRestrictedResources"] = args ? args.hierarchyRestrictedResources : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["securityProfileName"] = args ? args.securityProfileName : undefined;
-            resourceInputs["tagRestrictedResources"] = args ? args.tagRestrictedResources : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowedAccessControlHierarchyGroupId"] = args?.allowedAccessControlHierarchyGroupId;
+            resourceInputs["allowedAccessControlTags"] = args?.allowedAccessControlTags;
+            resourceInputs["applications"] = args?.applications;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["hierarchyRestrictedResources"] = args?.hierarchyRestrictedResources;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["securityProfileName"] = args?.securityProfileName;
+            resourceInputs["tagRestrictedResources"] = args?.tagRestrictedResources;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["lastModifiedRegion"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["securityProfileArn"] = undefined /*out*/;

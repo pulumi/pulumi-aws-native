@@ -37,27 +37,27 @@ export class FlowVpcInterface extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
      */
-    public readonly flowArn!: pulumi.Output<string>;
+    declare public readonly flowArn: pulumi.Output<string>;
     /**
      * Immutable and has to be a unique against other VpcInterfaces in this Flow.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * IDs of the network interfaces created in customer's account by MediaConnect.
      */
-    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly networkInterfaceIds: pulumi.Output<string[]>;
     /**
      * Role Arn MediaConnect can assume to create ENIs in customer's account.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Security Group IDs to be used on ENI.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[]>;
+    declare public readonly securityGroupIds: pulumi.Output<string[]>;
     /**
      * Subnet must be in the AZ of the Flow
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
 
     /**
      * Create a FlowVpcInterface resource with the given unique name, arguments, and options.
@@ -70,23 +70,23 @@ export class FlowVpcInterface extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.flowArn === undefined) && !opts.urn) {
+            if (args?.flowArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'flowArn'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.securityGroupIds === undefined) && !opts.urn) {
+            if (args?.securityGroupIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupIds'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["flowArn"] = args ? args.flowArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["flowArn"] = args?.flowArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["networkInterfaceIds"] = undefined /*out*/;
         } else {
             resourceInputs["flowArn"] = undefined /*out*/;

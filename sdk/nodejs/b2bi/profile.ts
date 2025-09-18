@@ -40,41 +40,41 @@ export class Profile extends pulumi.CustomResource {
     /**
      * Returns the name for the business associated with this profile.
      */
-    public readonly businessName!: pulumi.Output<string>;
+    declare public readonly businessName: pulumi.Output<string>;
     /**
      * Returns the timestamp for creation date and time of the profile.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    public readonly email!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string | undefined>;
     /**
      * Returns the name of the logging group.
      */
-    public /*out*/ readonly logGroupName!: pulumi.Output<string>;
+    declare public /*out*/ readonly logGroupName: pulumi.Output<string>;
     /**
      * Specifies whether or not logging is enabled for this profile.
      */
-    public readonly logging!: pulumi.Output<enums.b2bi.ProfileLogging>;
+    declare public readonly logging: pulumi.Output<enums.b2bi.ProfileLogging>;
     /**
      * Returns the timestamp that identifies the most recent date and time that the profile was modified.
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     /**
      * Returns the display name for profile.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the phone number associated with the profile.
      */
-    public readonly phone!: pulumi.Output<string>;
+    declare public readonly phone: pulumi.Output<string>;
     /**
      * Returns an Amazon Resource Name (ARN) for the profile.
      */
-    public /*out*/ readonly profileArn!: pulumi.Output<string>;
-    public /*out*/ readonly profileId!: pulumi.Output<string>;
+    declare public /*out*/ readonly profileArn: pulumi.Output<string>;
+    declare public /*out*/ readonly profileId: pulumi.Output<string>;
     /**
      * A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -87,21 +87,21 @@ export class Profile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.businessName === undefined) && !opts.urn) {
+            if (args?.businessName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'businessName'");
             }
-            if ((!args || args.logging === undefined) && !opts.urn) {
+            if (args?.logging === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logging'");
             }
-            if ((!args || args.phone === undefined) && !opts.urn) {
+            if (args?.phone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'phone'");
             }
-            resourceInputs["businessName"] = args ? args.businessName : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["logging"] = args ? args.logging : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["phone"] = args ? args.phone : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["businessName"] = args?.businessName;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["logging"] = args?.logging;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["phone"] = args?.phone;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["logGroupName"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;

@@ -40,51 +40,51 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the association between the service network and the VPC.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the specified association between the service network and the VPC.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The date and time that the association was created, specified in ISO-8601 format.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
      */
-    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the service network.
      */
-    public /*out*/ readonly serviceNetworkArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceNetworkArn: pulumi.Output<string>;
     /**
      * The ID of the service network.
      */
-    public /*out*/ readonly serviceNetworkId!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceNetworkId: pulumi.Output<string>;
     /**
      * The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
      */
-    public readonly serviceNetworkIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly serviceNetworkIdentifier: pulumi.Output<string | undefined>;
     /**
      * The name of the service network.
      */
-    public /*out*/ readonly serviceNetworkName!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceNetworkName: pulumi.Output<string>;
     /**
      * The status of the association.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.ServiceNetworkVpcAssociationStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.vpclattice.ServiceNetworkVpcAssociationStatus>;
     /**
      * The tags for the association.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the VPC.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
     /**
      * The ID of the VPC.
      */
-    public readonly vpcIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly vpcIdentifier: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServiceNetworkVpcAssociation resource with the given unique name, arguments, and options.
@@ -97,10 +97,10 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["serviceNetworkIdentifier"] = args ? args.serviceNetworkIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcIdentifier"] = args ? args.vpcIdentifier : undefined;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["serviceNetworkIdentifier"] = args?.serviceNetworkIdentifier;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcIdentifier"] = args?.vpcIdentifier;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

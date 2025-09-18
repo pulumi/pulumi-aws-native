@@ -40,32 +40,32 @@ export class CustomPlugin extends pulumi.CustomResource {
     /**
      * The type of the plugin file.
      */
-    public readonly contentType!: pulumi.Output<enums.kafkaconnect.CustomPluginContentType>;
+    declare public readonly contentType: pulumi.Output<enums.kafkaconnect.CustomPluginContentType>;
     /**
      * The Amazon Resource Name (ARN) of the custom plugin to use.
      */
-    public /*out*/ readonly customPluginArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly customPluginArn: pulumi.Output<string>;
     /**
      * A summary description of the custom plugin.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly fileDescription!: pulumi.Output<outputs.kafkaconnect.CustomPluginFileDescription>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly fileDescription: pulumi.Output<outputs.kafkaconnect.CustomPluginFileDescription>;
     /**
      * Information about the location of the custom plugin.
      */
-    public readonly location!: pulumi.Output<outputs.kafkaconnect.CustomPluginLocation>;
+    declare public readonly location: pulumi.Output<outputs.kafkaconnect.CustomPluginLocation>;
     /**
      * The name of the custom plugin.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The revision of the custom plugin.
      */
-    public /*out*/ readonly revision!: pulumi.Output<number>;
+    declare public /*out*/ readonly revision: pulumi.Output<number>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CustomPlugin resource with the given unique name, arguments, and options.
@@ -78,17 +78,17 @@ export class CustomPlugin extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contentType === undefined) && !opts.urn) {
+            if (args?.contentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentType'");
             }
-            if ((!args || args.location === undefined) && !opts.urn) {
+            if (args?.location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["customPluginArn"] = undefined /*out*/;
             resourceInputs["fileDescription"] = undefined /*out*/;
             resourceInputs["revision"] = undefined /*out*/;

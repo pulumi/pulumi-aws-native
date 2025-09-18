@@ -40,33 +40,33 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
     /**
      * The specified criteria to assign a set of resources, such as recovery point types or backup vaults.
      */
-    public readonly recoveryPointSelection!: pulumi.Output<outputs.backup.RestoreTestingPlanRestoreTestingRecoveryPointSelection>;
+    declare public readonly recoveryPointSelection: pulumi.Output<outputs.backup.RestoreTestingPlanRestoreTestingRecoveryPointSelection>;
     /**
      * An Amazon Resource Name (ARN) that uniquely identifies a restore testing plan.
      */
-    public /*out*/ readonly restoreTestingPlanArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly restoreTestingPlanArn: pulumi.Output<string>;
     /**
      * The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
      */
-    public readonly restoreTestingPlanName!: pulumi.Output<string>;
+    declare public readonly restoreTestingPlanName: pulumi.Output<string>;
     /**
      * A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
      */
-    public readonly scheduleExpression!: pulumi.Output<string>;
+    declare public readonly scheduleExpression: pulumi.Output<string>;
     /**
      * Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
      */
-    public readonly scheduleExpressionTimezone!: pulumi.Output<string | undefined>;
+    declare public readonly scheduleExpressionTimezone: pulumi.Output<string | undefined>;
     /**
      * Defaults to 24 hours.
      *
      * A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
      */
-    public readonly startWindowHours!: pulumi.Output<number | undefined>;
+    declare public readonly startWindowHours: pulumi.Output<number | undefined>;
     /**
      * Optional tags to include. A tag is a key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters,numbers, spaces, and the following characters: `+ - = . _ : /.`
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a RestoreTestingPlan resource with the given unique name, arguments, and options.
@@ -79,18 +79,18 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.recoveryPointSelection === undefined) && !opts.urn) {
+            if (args?.recoveryPointSelection === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryPointSelection'");
             }
-            if ((!args || args.scheduleExpression === undefined) && !opts.urn) {
+            if (args?.scheduleExpression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleExpression'");
             }
-            resourceInputs["recoveryPointSelection"] = args ? args.recoveryPointSelection : undefined;
-            resourceInputs["restoreTestingPlanName"] = args ? args.restoreTestingPlanName : undefined;
-            resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
-            resourceInputs["scheduleExpressionTimezone"] = args ? args.scheduleExpressionTimezone : undefined;
-            resourceInputs["startWindowHours"] = args ? args.startWindowHours : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["recoveryPointSelection"] = args?.recoveryPointSelection;
+            resourceInputs["restoreTestingPlanName"] = args?.restoreTestingPlanName;
+            resourceInputs["scheduleExpression"] = args?.scheduleExpression;
+            resourceInputs["scheduleExpressionTimezone"] = args?.scheduleExpressionTimezone;
+            resourceInputs["startWindowHours"] = args?.startWindowHours;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["restoreTestingPlanArn"] = undefined /*out*/;
         } else {
             resourceInputs["recoveryPointSelection"] = undefined /*out*/;

@@ -40,31 +40,31 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
     /**
      * Data Location Constraint of the Policy.
      */
-    public readonly dataLocationConstraint!: pulumi.Output<enums.resiliencehub.ResiliencyPolicyDataLocationConstraint | undefined>;
+    declare public readonly dataLocationConstraint: pulumi.Output<enums.resiliencehub.ResiliencyPolicyDataLocationConstraint | undefined>;
     /**
      * The resiliency policy.
      */
-    public readonly policy!: pulumi.Output<outputs.resiliencehub.ResiliencyPolicyPolicyMap>;
+    declare public readonly policy: pulumi.Output<outputs.resiliencehub.ResiliencyPolicyPolicyMap>;
     /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
      */
-    public /*out*/ readonly policyArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly policyArn: pulumi.Output<string>;
     /**
      * Description of Resiliency Policy.
      */
-    public readonly policyDescription!: pulumi.Output<string | undefined>;
+    declare public readonly policyDescription: pulumi.Output<string | undefined>;
     /**
      * Name of Resiliency Policy.
      */
-    public readonly policyName!: pulumi.Output<string>;
+    declare public readonly policyName: pulumi.Output<string>;
     /**
      * Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resiliency Policy Tier.
      */
-    public readonly tier!: pulumi.Output<enums.resiliencehub.ResiliencyPolicyTier>;
+    declare public readonly tier: pulumi.Output<enums.resiliencehub.ResiliencyPolicyTier>;
 
     /**
      * Create a ResiliencyPolicy resource with the given unique name, arguments, and options.
@@ -77,18 +77,18 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.tier === undefined) && !opts.urn) {
+            if (args?.tier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
             }
-            resourceInputs["dataLocationConstraint"] = args ? args.dataLocationConstraint : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["policyDescription"] = args ? args.policyDescription : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["dataLocationConstraint"] = args?.dataLocationConstraint;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["policyDescription"] = args?.policyDescription;
+            resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tier"] = args?.tier;
             resourceInputs["policyArn"] = undefined /*out*/;
         } else {
             resourceInputs["dataLocationConstraint"] = undefined /*out*/;

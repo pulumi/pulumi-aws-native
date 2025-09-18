@@ -40,15 +40,15 @@ export class DbParameterGroup extends pulumi.CustomResource {
     /**
      * Provides the customer-specified description for this DB parameter group.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Must be `neptune1` for engine versions prior to 1.2.0.0, or `neptune1.2` for engine version `1.2.0.0` and higher.
      */
-    public readonly family!: pulumi.Output<string>;
+    declare public readonly family: pulumi.Output<string>;
     /**
      * Provides the name of the DB parameter group.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The parameters to set for this DB parameter group.
      *
@@ -58,11 +58,11 @@ export class DbParameterGroup extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Neptune::DBParameterGroup` for more information about the expected schema for this property.
      */
-    public readonly parameters!: pulumi.Output<any>;
+    declare public readonly parameters: pulumi.Output<any>;
     /**
      * An optional array of key-value pairs to apply to this DB parameter group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DbParameterGroup resource with the given unique name, arguments, and options.
@@ -75,20 +75,20 @@ export class DbParameterGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.family === undefined) && !opts.urn) {
+            if (args?.family === undefined && !opts.urn) {
                 throw new Error("Missing required property 'family'");
             }
-            if ((!args || args.parameters === undefined) && !opts.urn) {
+            if (args?.parameters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["family"] = args ? args.family : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["family"] = args?.family;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["family"] = undefined /*out*/;

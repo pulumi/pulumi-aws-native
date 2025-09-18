@@ -46,77 +46,77 @@ export class App extends pulumi.CustomResource {
      *
      * Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
      */
-    public readonly accessToken!: pulumi.Output<string | undefined>;
+    declare public readonly accessToken: pulumi.Output<string | undefined>;
     /**
      * Unique Id for the Amplify App.
      */
-    public /*out*/ readonly appId!: pulumi.Output<string>;
+    declare public /*out*/ readonly appId: pulumi.Output<string>;
     /**
      * Name for the Amplify App.
      */
-    public /*out*/ readonly appName!: pulumi.Output<string>;
+    declare public /*out*/ readonly appName: pulumi.Output<string>;
     /**
      * ARN for the Amplify App.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Sets the configuration for your automatic branch creation.
      */
-    public readonly autoBranchCreationConfig!: pulumi.Output<outputs.amplify.AppAutoBranchCreationConfig | undefined>;
+    declare public readonly autoBranchCreationConfig: pulumi.Output<outputs.amplify.AppAutoBranchCreationConfig | undefined>;
     /**
      * The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
      */
-    public readonly basicAuthConfig!: pulumi.Output<outputs.amplify.AppBasicAuthConfig | undefined>;
+    declare public readonly basicAuthConfig: pulumi.Output<outputs.amplify.AppBasicAuthConfig | undefined>;
     /**
      * The build specification (build spec) for an Amplify app.
      */
-    public readonly buildSpec!: pulumi.Output<string | undefined>;
+    declare public readonly buildSpec: pulumi.Output<string | undefined>;
     /**
      * The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
      */
-    public readonly cacheConfig!: pulumi.Output<outputs.amplify.AppCacheConfig | undefined>;
+    declare public readonly cacheConfig: pulumi.Output<outputs.amplify.AppCacheConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
      */
-    public readonly computeRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly computeRoleArn: pulumi.Output<string | undefined>;
     /**
      * The custom HTTP headers for an Amplify app.
      */
-    public readonly customHeaders!: pulumi.Output<string | undefined>;
+    declare public readonly customHeaders: pulumi.Output<string | undefined>;
     /**
      * The custom rewrite and redirect rules for an Amplify app.
      */
-    public readonly customRules!: pulumi.Output<outputs.amplify.AppCustomRule[] | undefined>;
+    declare public readonly customRules: pulumi.Output<outputs.amplify.AppCustomRule[] | undefined>;
     /**
      * Default domain for the Amplify App.
      */
-    public /*out*/ readonly defaultDomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultDomain: pulumi.Output<string>;
     /**
      * The description of the Amplify app.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
      */
-    public readonly enableBranchAutoDeletion!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableBranchAutoDeletion: pulumi.Output<boolean | undefined>;
     /**
      * The environment variables for the Amplify app.
      *
      * For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
      */
-    public readonly environmentVariables!: pulumi.Output<outputs.amplify.AppEnvironmentVariable[] | undefined>;
+    declare public readonly environmentVariables: pulumi.Output<outputs.amplify.AppEnvironmentVariable[] | undefined>;
     /**
      * AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
      */
-    public readonly iamServiceRole!: pulumi.Output<string | undefined>;
+    declare public readonly iamServiceRole: pulumi.Output<string | undefined>;
     /**
      * The configuration details that apply to the jobs for an Amplify app.
      */
-    public readonly jobConfig!: pulumi.Output<outputs.amplify.AppJobConfig | undefined>;
+    declare public readonly jobConfig: pulumi.Output<outputs.amplify.AppJobConfig | undefined>;
     /**
      * The name of the Amplify app.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key using SSH cloning. The OAuth token is not stored.
      *
@@ -126,21 +126,21 @@ export class App extends pulumi.CustomResource {
      *
      * Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
      */
-    public readonly oauthToken!: pulumi.Output<string | undefined>;
+    declare public readonly oauthToken: pulumi.Output<string | undefined>;
     /**
      * The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
      *
      * If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
      */
-    public readonly platform!: pulumi.Output<enums.amplify.AppPlatform | undefined>;
+    declare public readonly platform: pulumi.Output<enums.amplify.AppPlatform | undefined>;
     /**
      * The Git repository for the Amplify app.
      */
-    public readonly repository!: pulumi.Output<string | undefined>;
+    declare public readonly repository: pulumi.Output<string | undefined>;
     /**
      * The tag for an Amplify app.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a App resource with the given unique name, arguments, and options.
@@ -153,24 +153,24 @@ export class App extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["accessToken"] = args ? args.accessToken : undefined;
-            resourceInputs["autoBranchCreationConfig"] = args ? args.autoBranchCreationConfig : undefined;
-            resourceInputs["basicAuthConfig"] = args ? args.basicAuthConfig : undefined;
-            resourceInputs["buildSpec"] = args ? args.buildSpec : undefined;
-            resourceInputs["cacheConfig"] = args ? args.cacheConfig : undefined;
-            resourceInputs["computeRoleArn"] = args ? args.computeRoleArn : undefined;
-            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
-            resourceInputs["customRules"] = args ? args.customRules : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enableBranchAutoDeletion"] = args ? args.enableBranchAutoDeletion : undefined;
-            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            resourceInputs["iamServiceRole"] = args ? args.iamServiceRole : undefined;
-            resourceInputs["jobConfig"] = args ? args.jobConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["oauthToken"] = args ? args.oauthToken : undefined;
-            resourceInputs["platform"] = args ? args.platform : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessToken"] = args?.accessToken;
+            resourceInputs["autoBranchCreationConfig"] = args?.autoBranchCreationConfig;
+            resourceInputs["basicAuthConfig"] = args?.basicAuthConfig;
+            resourceInputs["buildSpec"] = args?.buildSpec;
+            resourceInputs["cacheConfig"] = args?.cacheConfig;
+            resourceInputs["computeRoleArn"] = args?.computeRoleArn;
+            resourceInputs["customHeaders"] = args?.customHeaders;
+            resourceInputs["customRules"] = args?.customRules;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enableBranchAutoDeletion"] = args?.enableBranchAutoDeletion;
+            resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["iamServiceRole"] = args?.iamServiceRole;
+            resourceInputs["jobConfig"] = args?.jobConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["oauthToken"] = args?.oauthToken;
+            resourceInputs["platform"] = args?.platform;
+            resourceInputs["repository"] = args?.repository;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["appId"] = undefined /*out*/;
             resourceInputs["appName"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;

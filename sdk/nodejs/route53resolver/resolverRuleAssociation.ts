@@ -37,19 +37,19 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
     /**
      * The name of an association between a Resolver rule and a VPC.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
      */
-    public /*out*/ readonly resolverRuleAssociationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resolverRuleAssociationId: pulumi.Output<string>;
     /**
      * The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.
      */
-    public readonly resolverRuleId!: pulumi.Output<string>;
+    declare public readonly resolverRuleId: pulumi.Output<string>;
     /**
      * The ID of the VPC that you associated the Resolver rule with.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a ResolverRuleAssociation resource with the given unique name, arguments, and options.
@@ -62,15 +62,15 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resolverRuleId === undefined) && !opts.urn) {
+            if (args?.resolverRuleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resolverRuleId'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resolverRuleId"] = args ? args.resolverRuleId : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resolverRuleId"] = args?.resolverRuleId;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["resolverRuleAssociationId"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;

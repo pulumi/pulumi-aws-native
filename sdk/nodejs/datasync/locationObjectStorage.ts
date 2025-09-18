@@ -57,15 +57,15 @@ export class LocationObjectStorage extends pulumi.CustomResource {
     /**
      * Optional. The access key is used if credentials are required to access the self-managed object storage server.
      */
-    public readonly accessKey!: pulumi.Output<string | undefined>;
+    declare public readonly accessKey: pulumi.Output<string | undefined>;
     /**
      * Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
      */
-    public readonly agentArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly agentArns: pulumi.Output<string[] | undefined>;
     /**
      * The name of the bucket on the self-managed object storage server.
      */
-    public readonly bucketName!: pulumi.Output<string | undefined>;
+    declare public readonly bucketName: pulumi.Output<string | undefined>;
     /**
      * Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .
      *
@@ -75,50 +75,50 @@ export class LocationObjectStorage extends pulumi.CustomResource {
      *
      * > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
      */
-    public readonly cmkSecretConfig!: pulumi.Output<outputs.datasync.LocationObjectStorageCmkSecretConfig | undefined>;
+    declare public readonly cmkSecretConfig: pulumi.Output<outputs.datasync.LocationObjectStorageCmkSecretConfig | undefined>;
     /**
      * Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
      *
      * > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
      */
-    public readonly customSecretConfig!: pulumi.Output<outputs.datasync.LocationObjectStorageCustomSecretConfig | undefined>;
+    declare public readonly customSecretConfig: pulumi.Output<outputs.datasync.LocationObjectStorageCustomSecretConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the location that is created.
      */
-    public /*out*/ readonly locationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationArn: pulumi.Output<string>;
     /**
      * The URL of the object storage location that was described.
      */
-    public /*out*/ readonly locationUri!: pulumi.Output<string>;
-    public /*out*/ readonly managedSecretConfig!: pulumi.Output<outputs.datasync.LocationObjectStorageManagedSecretConfig>;
+    declare public /*out*/ readonly locationUri: pulumi.Output<string>;
+    declare public /*out*/ readonly managedSecretConfig: pulumi.Output<outputs.datasync.LocationObjectStorageManagedSecretConfig>;
     /**
      * Optional. The secret key is used if credentials are required to access the self-managed object storage server.
      */
-    public readonly secretKey!: pulumi.Output<string | undefined>;
+    declare public readonly secretKey: pulumi.Output<string | undefined>;
     /**
      * X.509 PEM content containing a certificate authority or chain to trust.
      */
-    public readonly serverCertificate!: pulumi.Output<string | undefined>;
+    declare public readonly serverCertificate: pulumi.Output<string | undefined>;
     /**
      * The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
      */
-    public readonly serverHostname!: pulumi.Output<string | undefined>;
+    declare public readonly serverHostname: pulumi.Output<string | undefined>;
     /**
      * The port that your self-managed server accepts inbound network traffic on.
      */
-    public readonly serverPort!: pulumi.Output<number | undefined>;
+    declare public readonly serverPort: pulumi.Output<number | undefined>;
     /**
      * The protocol that the object storage server uses to communicate.
      */
-    public readonly serverProtocol!: pulumi.Output<enums.datasync.LocationObjectStorageServerProtocol | undefined>;
+    declare public readonly serverProtocol: pulumi.Output<enums.datasync.LocationObjectStorageServerProtocol | undefined>;
     /**
      * The subdirectory in the self-managed object storage server that is used to read data from.
      */
-    public readonly subdirectory!: pulumi.Output<string | undefined>;
+    declare public readonly subdirectory: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LocationObjectStorage resource with the given unique name, arguments, and options.
@@ -131,18 +131,18 @@ export class LocationObjectStorage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["accessKey"] = args ? args.accessKey : undefined;
-            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
-            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
-            resourceInputs["cmkSecretConfig"] = args ? args.cmkSecretConfig : undefined;
-            resourceInputs["customSecretConfig"] = args ? args.customSecretConfig : undefined;
-            resourceInputs["secretKey"] = args ? args.secretKey : undefined;
-            resourceInputs["serverCertificate"] = args ? args.serverCertificate : undefined;
-            resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
-            resourceInputs["serverPort"] = args ? args.serverPort : undefined;
-            resourceInputs["serverProtocol"] = args ? args.serverProtocol : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessKey"] = args?.accessKey;
+            resourceInputs["agentArns"] = args?.agentArns;
+            resourceInputs["bucketName"] = args?.bucketName;
+            resourceInputs["cmkSecretConfig"] = args?.cmkSecretConfig;
+            resourceInputs["customSecretConfig"] = args?.customSecretConfig;
+            resourceInputs["secretKey"] = args?.secretKey;
+            resourceInputs["serverCertificate"] = args?.serverCertificate;
+            resourceInputs["serverHostname"] = args?.serverHostname;
+            resourceInputs["serverPort"] = args?.serverPort;
+            resourceInputs["serverProtocol"] = args?.serverProtocol;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
             resourceInputs["managedSecretConfig"] = undefined /*out*/;

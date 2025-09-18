@@ -37,23 +37,23 @@ export class GuardrailVersion extends pulumi.CustomResource {
     /**
      * Description of the Guardrail version
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Arn representation for the guardrail
      */
-    public /*out*/ readonly guardrailArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly guardrailArn: pulumi.Output<string>;
     /**
      * Unique id for the guardrail
      */
-    public /*out*/ readonly guardrailId!: pulumi.Output<string>;
+    declare public /*out*/ readonly guardrailId: pulumi.Output<string>;
     /**
      * Identifier (GuardrailId or GuardrailArn) for the guardrail
      */
-    public readonly guardrailIdentifier!: pulumi.Output<string>;
+    declare public readonly guardrailIdentifier: pulumi.Output<string>;
     /**
      * Guardrail version
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a GuardrailVersion resource with the given unique name, arguments, and options.
@@ -66,11 +66,11 @@ export class GuardrailVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.guardrailIdentifier === undefined) && !opts.urn) {
+            if (args?.guardrailIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'guardrailIdentifier'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["guardrailIdentifier"] = args ? args.guardrailIdentifier : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["guardrailIdentifier"] = args?.guardrailIdentifier;
             resourceInputs["guardrailArn"] = undefined /*out*/;
             resourceInputs["guardrailId"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;

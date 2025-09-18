@@ -40,23 +40,23 @@ export class VpcBlockPublicAccessExclusion extends pulumi.CustomResource {
     /**
      * The ID of the exclusion
      */
-    public /*out*/ readonly exclusionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly exclusionId: pulumi.Output<string>;
     /**
      * The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
      */
-    public readonly internetGatewayExclusionMode!: pulumi.Output<enums.ec2.VpcBlockPublicAccessExclusionInternetGatewayExclusionMode>;
+    declare public readonly internetGatewayExclusionMode: pulumi.Output<enums.ec2.VpcBlockPublicAccessExclusionInternetGatewayExclusionMode>;
     /**
      * The ID of the subnet. Required only if you don't specify VpcId
      */
-    public readonly subnetId!: pulumi.Output<string | undefined>;
+    declare public readonly subnetId: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the vpc. Required only if you don't specify SubnetId.
      */
-    public readonly vpcId!: pulumi.Output<string | undefined>;
+    declare public readonly vpcId: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpcBlockPublicAccessExclusion resource with the given unique name, arguments, and options.
@@ -69,13 +69,13 @@ export class VpcBlockPublicAccessExclusion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.internetGatewayExclusionMode === undefined) && !opts.urn) {
+            if (args?.internetGatewayExclusionMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'internetGatewayExclusionMode'");
             }
-            resourceInputs["internetGatewayExclusionMode"] = args ? args.internetGatewayExclusionMode : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["internetGatewayExclusionMode"] = args?.internetGatewayExclusionMode;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["exclusionId"] = undefined /*out*/;
         } else {
             resourceInputs["exclusionId"] = undefined /*out*/;

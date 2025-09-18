@@ -40,55 +40,55 @@ export class DataAutomationProject extends pulumi.CustomResource {
     /**
      * Time Stamp
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * Blueprints to apply to objects processed by the project.
      */
-    public readonly customOutputConfiguration!: pulumi.Output<outputs.bedrock.DataAutomationProjectCustomOutputConfiguration | undefined>;
+    declare public readonly customOutputConfiguration: pulumi.Output<outputs.bedrock.DataAutomationProjectCustomOutputConfiguration | undefined>;
     /**
      * KMS encryption context
      */
-    public readonly kmsEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly kmsEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * KMS key identifier
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Time Stamp
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * Additional settings for the project.
      */
-    public readonly overrideConfiguration!: pulumi.Output<outputs.bedrock.DataAutomationProjectOverrideConfiguration | undefined>;
+    declare public readonly overrideConfiguration: pulumi.Output<outputs.bedrock.DataAutomationProjectOverrideConfiguration | undefined>;
     /**
      * ARN of a DataAutomationProject
      */
-    public /*out*/ readonly projectArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly projectArn: pulumi.Output<string>;
     /**
      * Description of the DataAutomationProject
      */
-    public readonly projectDescription!: pulumi.Output<string | undefined>;
+    declare public readonly projectDescription: pulumi.Output<string | undefined>;
     /**
      * Name of the DataAutomationProject
      */
-    public readonly projectName!: pulumi.Output<string>;
+    declare public readonly projectName: pulumi.Output<string>;
     /**
      * The project's stage.
      */
-    public /*out*/ readonly projectStage!: pulumi.Output<enums.bedrock.DataAutomationProjectStage>;
+    declare public /*out*/ readonly projectStage: pulumi.Output<enums.bedrock.DataAutomationProjectStage>;
     /**
      * The project's standard output configuration.
      */
-    public readonly standardOutputConfiguration!: pulumi.Output<outputs.bedrock.DataAutomationProjectStandardOutputConfiguration | undefined>;
+    declare public readonly standardOutputConfiguration: pulumi.Output<outputs.bedrock.DataAutomationProjectStandardOutputConfiguration | undefined>;
     /**
      * The project's status.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.bedrock.DataAutomationProjectStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.bedrock.DataAutomationProjectStatus>;
     /**
      * List of Tags
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DataAutomationProject resource with the given unique name, arguments, and options.
@@ -101,14 +101,14 @@ export class DataAutomationProject extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["customOutputConfiguration"] = args ? args.customOutputConfiguration : undefined;
-            resourceInputs["kmsEncryptionContext"] = args ? args.kmsEncryptionContext : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["overrideConfiguration"] = args ? args.overrideConfiguration : undefined;
-            resourceInputs["projectDescription"] = args ? args.projectDescription : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["standardOutputConfiguration"] = args ? args.standardOutputConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customOutputConfiguration"] = args?.customOutputConfiguration;
+            resourceInputs["kmsEncryptionContext"] = args?.kmsEncryptionContext;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["overrideConfiguration"] = args?.overrideConfiguration;
+            resourceInputs["projectDescription"] = args?.projectDescription;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["standardOutputConfiguration"] = args?.standardOutputConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["projectArn"] = undefined /*out*/;

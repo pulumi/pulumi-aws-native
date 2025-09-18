@@ -46,15 +46,15 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
     /**
      * The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The date and time when the origin request policy was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * The origin request policy configuration.
      */
-    public readonly originRequestPolicyConfig!: pulumi.Output<outputs.cloudfront.OriginRequestPolicyConfig>;
+    declare public readonly originRequestPolicyConfig: pulumi.Output<outputs.cloudfront.OriginRequestPolicyConfig>;
 
     /**
      * Create a OriginRequestPolicy resource with the given unique name, arguments, and options.
@@ -67,10 +67,10 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.originRequestPolicyConfig === undefined) && !opts.urn) {
+            if (args?.originRequestPolicyConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'originRequestPolicyConfig'");
             }
-            resourceInputs["originRequestPolicyConfig"] = args ? args.originRequestPolicyConfig : undefined;
+            resourceInputs["originRequestPolicyConfig"] = args?.originRequestPolicyConfig;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {

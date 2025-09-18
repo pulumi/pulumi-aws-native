@@ -40,31 +40,31 @@ export class AssistantAssociation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Wisdom assistant.
      */
-    public /*out*/ readonly assistantArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly assistantArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the assistant association.
      */
-    public /*out*/ readonly assistantAssociationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly assistantAssociationArn: pulumi.Output<string>;
     /**
      * The ID of the association.
      */
-    public /*out*/ readonly assistantAssociationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly assistantAssociationId: pulumi.Output<string>;
     /**
      * The identifier of the Wisdom assistant.
      */
-    public readonly assistantId!: pulumi.Output<string>;
+    declare public readonly assistantId: pulumi.Output<string>;
     /**
      * The identifier of the associated resource.
      */
-    public readonly association!: pulumi.Output<outputs.wisdom.AssistantAssociationAssociationData>;
+    declare public readonly association: pulumi.Output<outputs.wisdom.AssistantAssociationAssociationData>;
     /**
      * The type of association.
      */
-    public readonly associationType!: pulumi.Output<enums.wisdom.AssistantAssociationAssociationType>;
+    declare public readonly associationType: pulumi.Output<enums.wisdom.AssistantAssociationAssociationType>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a AssistantAssociation resource with the given unique name, arguments, and options.
@@ -77,19 +77,19 @@ export class AssistantAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.assistantId === undefined) && !opts.urn) {
+            if (args?.assistantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assistantId'");
             }
-            if ((!args || args.association === undefined) && !opts.urn) {
+            if (args?.association === undefined && !opts.urn) {
                 throw new Error("Missing required property 'association'");
             }
-            if ((!args || args.associationType === undefined) && !opts.urn) {
+            if (args?.associationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'associationType'");
             }
-            resourceInputs["assistantId"] = args ? args.assistantId : undefined;
-            resourceInputs["association"] = args ? args.association : undefined;
-            resourceInputs["associationType"] = args ? args.associationType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assistantId"] = args?.assistantId;
+            resourceInputs["association"] = args?.association;
+            resourceInputs["associationType"] = args?.associationType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["assistantArn"] = undefined /*out*/;
             resourceInputs["assistantAssociationArn"] = undefined /*out*/;
             resourceInputs["assistantAssociationId"] = undefined /*out*/;

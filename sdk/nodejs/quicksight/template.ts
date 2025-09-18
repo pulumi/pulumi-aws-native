@@ -40,28 +40,28 @@ export class Template extends pulumi.CustomResource {
     /**
      * <p>The Amazon Resource Name (ARN) of the template.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * <p>Time when this was created.</p>
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    public readonly definition!: pulumi.Output<outputs.quicksight.TemplateVersionDefinition | undefined>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
+    declare public readonly definition: pulumi.Output<outputs.quicksight.TemplateVersionDefinition | undefined>;
     /**
      * <p>Time when this was last updated.</p>
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * A display name for the template.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * A list of resource permissions to be set on the template.
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.TemplateResourcePermission[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.quicksight.TemplateResourcePermission[] | undefined>;
     /**
      * The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
      *
@@ -69,24 +69,24 @@ export class Template extends pulumi.CustomResource {
      *
      * Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
      */
-    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.TemplateSourceEntity | undefined>;
+    declare public readonly sourceEntity: pulumi.Output<outputs.quicksight.TemplateSourceEntity | undefined>;
     /**
      * Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
      */
-    public readonly templateId!: pulumi.Output<string>;
+    declare public readonly templateId: pulumi.Output<string>;
     /**
      * The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
      */
-    public readonly validationStrategy!: pulumi.Output<outputs.quicksight.TemplateValidationStrategy | undefined>;
-    public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.TemplateVersion>;
+    declare public readonly validationStrategy: pulumi.Output<outputs.quicksight.TemplateValidationStrategy | undefined>;
+    declare public /*out*/ readonly version: pulumi.Output<outputs.quicksight.TemplateVersion>;
     /**
      * A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
      */
-    public readonly versionDescription!: pulumi.Output<string | undefined>;
+    declare public readonly versionDescription: pulumi.Output<string | undefined>;
 
     /**
      * Create a Template resource with the given unique name, arguments, and options.
@@ -99,21 +99,21 @@ export class Template extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsAccountId === undefined) && !opts.urn) {
+            if (args?.awsAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
             }
-            if ((!args || args.templateId === undefined) && !opts.urn) {
+            if (args?.templateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateId'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateId"] = args ? args.templateId : undefined;
-            resourceInputs["validationStrategy"] = args ? args.validationStrategy : undefined;
-            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["sourceEntity"] = args?.sourceEntity;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateId"] = args?.templateId;
+            resourceInputs["validationStrategy"] = args?.validationStrategy;
+            resourceInputs["versionDescription"] = args?.versionDescription;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

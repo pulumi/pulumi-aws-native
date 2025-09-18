@@ -40,19 +40,19 @@ export class SoftwarePackage extends pulumi.CustomResource {
     /**
      * A summary of the package being created. This can be used to outline the package's contents or purpose.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the package.
      */
-    public /*out*/ readonly packageArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly packageArn: pulumi.Output<string>;
     /**
      * The name of the new software package.
      */
-    public readonly packageName!: pulumi.Output<string | undefined>;
+    declare public readonly packageName: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SoftwarePackage resource with the given unique name, arguments, and options.
@@ -65,9 +65,9 @@ export class SoftwarePackage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["packageName"] = args ? args.packageName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["packageName"] = args?.packageName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["packageArn"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

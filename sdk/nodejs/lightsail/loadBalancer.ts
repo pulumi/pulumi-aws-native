@@ -40,43 +40,43 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * The names of the instances attached to the load balancer.
      */
-    public readonly attachedInstances!: pulumi.Output<string[] | undefined>;
+    declare public readonly attachedInstances: pulumi.Output<string[] | undefined>;
     /**
      * The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., "/").
      */
-    public readonly healthCheckPath!: pulumi.Output<string | undefined>;
+    declare public readonly healthCheckPath: pulumi.Output<string | undefined>;
     /**
      * The instance port where you're creating your load balancer.
      */
-    public readonly instancePort!: pulumi.Output<number>;
+    declare public readonly instancePort: pulumi.Output<number>;
     /**
      * The IP address type for the load balancer. The possible values are ipv4 for IPv4 only, and dualstack for IPv4 and IPv6. The default value is dualstack.
      */
-    public readonly ipAddressType!: pulumi.Output<string | undefined>;
+    declare public readonly ipAddressType: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the load balancer.
      */
-    public /*out*/ readonly loadBalancerArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly loadBalancerArn: pulumi.Output<string>;
     /**
      * The name of your load balancer.
      */
-    public readonly loadBalancerName!: pulumi.Output<string>;
+    declare public readonly loadBalancerName: pulumi.Output<string>;
     /**
      * Configuration option to enable session stickiness.
      */
-    public readonly sessionStickinessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sessionStickinessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Configuration option to adjust session stickiness cookie duration parameter.
      */
-    public readonly sessionStickinessLbCookieDurationSeconds!: pulumi.Output<string | undefined>;
+    declare public readonly sessionStickinessLbCookieDurationSeconds: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The name of the TLS policy to apply to the load balancer.
      */
-    public readonly tlsPolicyName!: pulumi.Output<string | undefined>;
+    declare public readonly tlsPolicyName: pulumi.Output<string | undefined>;
 
     /**
      * Create a LoadBalancer resource with the given unique name, arguments, and options.
@@ -89,18 +89,18 @@ export class LoadBalancer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instancePort === undefined) && !opts.urn) {
+            if (args?.instancePort === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instancePort'");
             }
-            resourceInputs["attachedInstances"] = args ? args.attachedInstances : undefined;
-            resourceInputs["healthCheckPath"] = args ? args.healthCheckPath : undefined;
-            resourceInputs["instancePort"] = args ? args.instancePort : undefined;
-            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            resourceInputs["sessionStickinessEnabled"] = args ? args.sessionStickinessEnabled : undefined;
-            resourceInputs["sessionStickinessLbCookieDurationSeconds"] = args ? args.sessionStickinessLbCookieDurationSeconds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tlsPolicyName"] = args ? args.tlsPolicyName : undefined;
+            resourceInputs["attachedInstances"] = args?.attachedInstances;
+            resourceInputs["healthCheckPath"] = args?.healthCheckPath;
+            resourceInputs["instancePort"] = args?.instancePort;
+            resourceInputs["ipAddressType"] = args?.ipAddressType;
+            resourceInputs["loadBalancerName"] = args?.loadBalancerName;
+            resourceInputs["sessionStickinessEnabled"] = args?.sessionStickinessEnabled;
+            resourceInputs["sessionStickinessLbCookieDurationSeconds"] = args?.sessionStickinessLbCookieDurationSeconds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tlsPolicyName"] = args?.tlsPolicyName;
             resourceInputs["loadBalancerArn"] = undefined /*out*/;
         } else {
             resourceInputs["attachedInstances"] = undefined /*out*/;

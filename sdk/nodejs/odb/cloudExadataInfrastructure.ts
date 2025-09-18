@@ -40,127 +40,127 @@ export class CloudExadataInfrastructure extends pulumi.CustomResource {
     /**
      * The number of storage servers requested for the Exadata infrastructure.
      */
-    public /*out*/ readonly activatedStorageCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly activatedStorageCount: pulumi.Output<number>;
     /**
      * The number of storage servers requested for the Exadata infrastructure.
      */
-    public /*out*/ readonly additionalStorageCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly additionalStorageCount: pulumi.Output<number>;
     /**
      * The name of the Availability Zone (AZ) where the Exadata infrastructure is located.
      */
-    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZone: pulumi.Output<string | undefined>;
     /**
      * The AZ ID of the AZ where the Exadata infrastructure is located.
      */
-    public readonly availabilityZoneId!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZoneId: pulumi.Output<string | undefined>;
     /**
      * The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
      */
-    public /*out*/ readonly availableStorageSizeInGbs!: pulumi.Output<number>;
+    declare public /*out*/ readonly availableStorageSizeInGbs: pulumi.Output<number>;
     /**
      * The Amazon Resource Name (ARN) for the Exadata infrastructure.
      */
-    public /*out*/ readonly cloudExadataInfrastructureArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly cloudExadataInfrastructureArn: pulumi.Output<string>;
     /**
      * The unique identifier for the Exadata infrastructure.
      */
-    public /*out*/ readonly cloudExadataInfrastructureId!: pulumi.Output<string>;
+    declare public /*out*/ readonly cloudExadataInfrastructureId: pulumi.Output<string>;
     /**
      * The number of database servers for the Exadata infrastructure.
      */
-    public readonly computeCount!: pulumi.Output<number | undefined>;
+    declare public readonly computeCount: pulumi.Output<number | undefined>;
     /**
      * The OCI model compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
      */
-    public /*out*/ readonly computeModel!: pulumi.Output<string>;
+    declare public /*out*/ readonly computeModel: pulumi.Output<string>;
     /**
      * The total number of CPU cores that are allocated to the Exadata infrastructure.
      */
-    public /*out*/ readonly cpuCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly cpuCount: pulumi.Output<number>;
     /**
      * The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure.
      */
-    public readonly customerContactsToSendToOci!: pulumi.Output<outputs.odb.CloudExadataInfrastructureCustomerContact[] | undefined>;
+    declare public readonly customerContactsToSendToOci: pulumi.Output<outputs.odb.CloudExadataInfrastructureCustomerContact[] | undefined>;
     /**
      * The size of the Exadata infrastructure's data disk group, in terabytes (TB).
      */
-    public /*out*/ readonly dataStorageSizeInTbs!: pulumi.Output<number>;
+    declare public /*out*/ readonly dataStorageSizeInTbs: pulumi.Output<number>;
     /**
      * The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
      */
-    public readonly databaseServerType!: pulumi.Output<string | undefined>;
+    declare public readonly databaseServerType: pulumi.Output<string | undefined>;
     /**
      * The size of the Exadata infrastructure's local node storage, in gigabytes (GB).
      */
-    public /*out*/ readonly dbNodeStorageSizeInGbs!: pulumi.Output<number>;
+    declare public /*out*/ readonly dbNodeStorageSizeInGbs: pulumi.Output<number>;
     /**
      * The list of database server identifiers for the Exadata infrastructure.
      */
-    public /*out*/ readonly dbServerIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly dbServerIds: pulumi.Output<string[]>;
     /**
      * The software version of the database servers (dom0) in the Exadata infrastructure.
      */
-    public /*out*/ readonly dbServerVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly dbServerVersion: pulumi.Output<string>;
     /**
      * The user-friendly name for the Exadata infrastructure.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The total number of CPU cores available on the Exadata infrastructure.
      */
-    public /*out*/ readonly maxCpuCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxCpuCount: pulumi.Output<number>;
     /**
      * The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
      */
-    public /*out*/ readonly maxDataStorageInTbs!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxDataStorageInTbs: pulumi.Output<number>;
     /**
      * The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
      */
-    public /*out*/ readonly maxDbNodeStorageSizeInGbs!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxDbNodeStorageSizeInGbs: pulumi.Output<number>;
     /**
      * The total amount of memory, in gigabytes (GB), that's available on the Exadata infrastructure.
      */
-    public /*out*/ readonly maxMemoryInGbs!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxMemoryInGbs: pulumi.Output<number>;
     /**
      * The amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure.
      */
-    public /*out*/ readonly memorySizeInGbs!: pulumi.Output<number>;
+    declare public /*out*/ readonly memorySizeInGbs: pulumi.Output<number>;
     /**
      * The name of the OCI resource anchor for the Exadata infrastructure.
      */
-    public /*out*/ readonly ociResourceAnchorName!: pulumi.Output<string>;
+    declare public /*out*/ readonly ociResourceAnchorName: pulumi.Output<string>;
     /**
      * The HTTPS link to the Exadata infrastructure in OCI.
      */
-    public /*out*/ readonly ociUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly ociUrl: pulumi.Output<string>;
     /**
      * The OCID of the Exadata infrastructure.
      */
-    public /*out*/ readonly ocid!: pulumi.Output<string>;
+    declare public /*out*/ readonly ocid: pulumi.Output<string>;
     /**
      * The model name of the Exadata infrastructure.
      */
-    public readonly shape!: pulumi.Output<string | undefined>;
+    declare public readonly shape: pulumi.Output<string | undefined>;
     /**
      * The number of storage servers that are activated for the Exadata infrastructure.
      */
-    public readonly storageCount!: pulumi.Output<number | undefined>;
+    declare public readonly storageCount: pulumi.Output<number | undefined>;
     /**
      * The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
      */
-    public readonly storageServerType!: pulumi.Output<string | undefined>;
+    declare public readonly storageServerType: pulumi.Output<string | undefined>;
     /**
      * The software version of the storage servers on the Exadata infrastructure.
      */
-    public /*out*/ readonly storageServerVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly storageServerVersion: pulumi.Output<string>;
     /**
      * Tags to assign to the Exadata Infrastructure.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The total amount of storage, in gigabytes (GB), on the the Exadata infrastructure.
      */
-    public /*out*/ readonly totalStorageSizeInGbs!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalStorageSizeInGbs: pulumi.Output<number>;
 
     /**
      * Create a CloudExadataInfrastructure resource with the given unique name, arguments, and options.
@@ -173,16 +173,16 @@ export class CloudExadataInfrastructure extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
-            resourceInputs["computeCount"] = args ? args.computeCount : undefined;
-            resourceInputs["customerContactsToSendToOci"] = args ? args.customerContactsToSendToOci : undefined;
-            resourceInputs["databaseServerType"] = args ? args.databaseServerType : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["shape"] = args ? args.shape : undefined;
-            resourceInputs["storageCount"] = args ? args.storageCount : undefined;
-            resourceInputs["storageServerType"] = args ? args.storageServerType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["availabilityZoneId"] = args?.availabilityZoneId;
+            resourceInputs["computeCount"] = args?.computeCount;
+            resourceInputs["customerContactsToSendToOci"] = args?.customerContactsToSendToOci;
+            resourceInputs["databaseServerType"] = args?.databaseServerType;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["shape"] = args?.shape;
+            resourceInputs["storageCount"] = args?.storageCount;
+            resourceInputs["storageServerType"] = args?.storageServerType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["activatedStorageCount"] = undefined /*out*/;
             resourceInputs["additionalStorageCount"] = undefined /*out*/;
             resourceInputs["availableStorageSizeInGbs"] = undefined /*out*/;

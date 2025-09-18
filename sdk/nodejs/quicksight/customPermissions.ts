@@ -40,23 +40,23 @@ export class CustomPermissions extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the custom permissions profile.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the AWS account that contains the custom permission configuration that you want to update.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * A set of actions in the custom permissions profile.
      */
-    public readonly capabilities!: pulumi.Output<outputs.quicksight.CustomPermissionsCapabilities | undefined>;
+    declare public readonly capabilities: pulumi.Output<outputs.quicksight.CustomPermissionsCapabilities | undefined>;
     /**
      * The name of the custom permissions profile.
      */
-    public readonly customPermissionsName!: pulumi.Output<string>;
+    declare public readonly customPermissionsName: pulumi.Output<string>;
     /**
      * The tags to associate with the custom permissions profile.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CustomPermissions resource with the given unique name, arguments, and options.
@@ -69,13 +69,13 @@ export class CustomPermissions extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsAccountId === undefined) && !opts.urn) {
+            if (args?.awsAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
-            resourceInputs["customPermissionsName"] = args ? args.customPermissionsName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["capabilities"] = args?.capabilities;
+            resourceInputs["customPermissionsName"] = args?.customPermissionsName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

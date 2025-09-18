@@ -40,52 +40,52 @@ export class ModelExplainabilityJobDefinition extends pulumi.CustomResource {
     /**
      * The time at which the job definition was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
-    public readonly endpointName!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
+    declare public readonly endpointName: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of job definition.
      */
-    public /*out*/ readonly jobDefinitionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly jobDefinitionArn: pulumi.Output<string>;
     /**
      * The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.
      */
-    public readonly jobDefinitionName!: pulumi.Output<string | undefined>;
+    declare public readonly jobDefinitionName: pulumi.Output<string | undefined>;
     /**
      * Identifies the resources to deploy for a monitoring job.
      */
-    public readonly jobResources!: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionMonitoringResources>;
+    declare public readonly jobResources: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionMonitoringResources>;
     /**
      * Configures the model explainability job to run a specified Docker container image.
      */
-    public readonly modelExplainabilityAppSpecification!: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification>;
+    declare public readonly modelExplainabilityAppSpecification: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification>;
     /**
      * The baseline configuration for a model explainability job.
      */
-    public readonly modelExplainabilityBaselineConfig!: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig | undefined>;
+    declare public readonly modelExplainabilityBaselineConfig: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig | undefined>;
     /**
      * Inputs for the model explainability job.
      */
-    public readonly modelExplainabilityJobInput!: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionModelExplainabilityJobInput>;
+    declare public readonly modelExplainabilityJobInput: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionModelExplainabilityJobInput>;
     /**
      * The output configuration for monitoring jobs.
      */
-    public readonly modelExplainabilityJobOutputConfig!: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionMonitoringOutputConfig>;
+    declare public readonly modelExplainabilityJobOutputConfig: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionMonitoringOutputConfig>;
     /**
      * Networking options for a model explainability job.
      */
-    public readonly networkConfig!: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionNetworkConfig | undefined>;
+    declare public readonly networkConfig: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionNetworkConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * A time limit for how long the monitoring job is allowed to run before stopping.
      */
-    public readonly stoppingCondition!: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionStoppingCondition | undefined>;
+    declare public readonly stoppingCondition: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionStoppingCondition | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a ModelExplainabilityJobDefinition resource with the given unique name, arguments, and options.
@@ -98,32 +98,32 @@ export class ModelExplainabilityJobDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.jobResources === undefined) && !opts.urn) {
+            if (args?.jobResources === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobResources'");
             }
-            if ((!args || args.modelExplainabilityAppSpecification === undefined) && !opts.urn) {
+            if (args?.modelExplainabilityAppSpecification === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelExplainabilityAppSpecification'");
             }
-            if ((!args || args.modelExplainabilityJobInput === undefined) && !opts.urn) {
+            if (args?.modelExplainabilityJobInput === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelExplainabilityJobInput'");
             }
-            if ((!args || args.modelExplainabilityJobOutputConfig === undefined) && !opts.urn) {
+            if (args?.modelExplainabilityJobOutputConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelExplainabilityJobOutputConfig'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
-            resourceInputs["jobResources"] = args ? args.jobResources : undefined;
-            resourceInputs["modelExplainabilityAppSpecification"] = args ? args.modelExplainabilityAppSpecification : undefined;
-            resourceInputs["modelExplainabilityBaselineConfig"] = args ? args.modelExplainabilityBaselineConfig : undefined;
-            resourceInputs["modelExplainabilityJobInput"] = args ? args.modelExplainabilityJobInput : undefined;
-            resourceInputs["modelExplainabilityJobOutputConfig"] = args ? args.modelExplainabilityJobOutputConfig : undefined;
-            resourceInputs["networkConfig"] = args ? args.networkConfig : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["stoppingCondition"] = args ? args.stoppingCondition : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["jobDefinitionName"] = args?.jobDefinitionName;
+            resourceInputs["jobResources"] = args?.jobResources;
+            resourceInputs["modelExplainabilityAppSpecification"] = args?.modelExplainabilityAppSpecification;
+            resourceInputs["modelExplainabilityBaselineConfig"] = args?.modelExplainabilityBaselineConfig;
+            resourceInputs["modelExplainabilityJobInput"] = args?.modelExplainabilityJobInput;
+            resourceInputs["modelExplainabilityJobOutputConfig"] = args?.modelExplainabilityJobOutputConfig;
+            resourceInputs["networkConfig"] = args?.networkConfig;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["stoppingCondition"] = args?.stoppingCondition;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["jobDefinitionArn"] = undefined /*out*/;
         } else {

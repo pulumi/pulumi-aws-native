@@ -40,59 +40,59 @@ export class GameServerGroup extends pulumi.CustomResource {
     /**
      * A generated unique ID for the EC2 Auto Scaling group that is associated with this game server group.
      */
-    public /*out*/ readonly autoScalingGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly autoScalingGroupArn: pulumi.Output<string>;
     /**
      * Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
      */
-    public readonly autoScalingPolicy!: pulumi.Output<outputs.gamelift.GameServerGroupAutoScalingPolicy | undefined>;
+    declare public readonly autoScalingPolicy: pulumi.Output<outputs.gamelift.GameServerGroupAutoScalingPolicy | undefined>;
     /**
      * The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
      */
-    public readonly balancingStrategy!: pulumi.Output<enums.gamelift.GameServerGroupBalancingStrategy | undefined>;
+    declare public readonly balancingStrategy: pulumi.Output<enums.gamelift.GameServerGroupBalancingStrategy | undefined>;
     /**
      * The type of delete to perform.
      */
-    public readonly deleteOption!: pulumi.Output<enums.gamelift.GameServerGroupDeleteOption | undefined>;
+    declare public readonly deleteOption: pulumi.Output<enums.gamelift.GameServerGroupDeleteOption | undefined>;
     /**
      * A generated unique ID for the game server group.
      */
-    public /*out*/ readonly gameServerGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly gameServerGroupArn: pulumi.Output<string>;
     /**
      * An identifier for the new game server group.
      */
-    public readonly gameServerGroupName!: pulumi.Output<string>;
+    declare public readonly gameServerGroupName: pulumi.Output<string>;
     /**
      * A flag that indicates whether instances in the game server group are protected from early termination.
      */
-    public readonly gameServerProtectionPolicy!: pulumi.Output<enums.gamelift.GameServerGroupGameServerProtectionPolicy | undefined>;
+    declare public readonly gameServerProtectionPolicy: pulumi.Output<enums.gamelift.GameServerGroupGameServerProtectionPolicy | undefined>;
     /**
      * A set of EC2 instance types to use when creating instances in the group.
      */
-    public readonly instanceDefinitions!: pulumi.Output<outputs.gamelift.GameServerGroupInstanceDefinition[]>;
+    declare public readonly instanceDefinitions: pulumi.Output<outputs.gamelift.GameServerGroupInstanceDefinition[]>;
     /**
      * The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
      */
-    public readonly launchTemplate!: pulumi.Output<outputs.gamelift.GameServerGroupLaunchTemplate | undefined>;
+    declare public readonly launchTemplate: pulumi.Output<outputs.gamelift.GameServerGroupLaunchTemplate | undefined>;
     /**
      * The maximum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
      */
-    public readonly maxSize!: pulumi.Output<number | undefined>;
+    declare public readonly maxSize: pulumi.Output<number | undefined>;
     /**
      * The minimum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
      */
-    public readonly minSize!: pulumi.Output<number | undefined>;
+    declare public readonly minSize: pulumi.Output<number | undefined>;
     /**
      * The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * A list of labels to assign to the new game server group resource. Updating game server group tags with CloudFormation will not take effect. Please update this property using AWS GameLift APIs instead.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A list of virtual private cloud (VPC) subnets to use with instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
      */
-    public readonly vpcSubnets!: pulumi.Output<string[] | undefined>;
+    declare public readonly vpcSubnets: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a GameServerGroup resource with the given unique name, arguments, and options.
@@ -105,24 +105,24 @@ export class GameServerGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceDefinitions === undefined) && !opts.urn) {
+            if (args?.instanceDefinitions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceDefinitions'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["autoScalingPolicy"] = args ? args.autoScalingPolicy : undefined;
-            resourceInputs["balancingStrategy"] = args ? args.balancingStrategy : undefined;
-            resourceInputs["deleteOption"] = args ? args.deleteOption : undefined;
-            resourceInputs["gameServerGroupName"] = args ? args.gameServerGroupName : undefined;
-            resourceInputs["gameServerProtectionPolicy"] = args ? args.gameServerProtectionPolicy : undefined;
-            resourceInputs["instanceDefinitions"] = args ? args.instanceDefinitions : undefined;
-            resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
-            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
-            resourceInputs["minSize"] = args ? args.minSize : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcSubnets"] = args ? args.vpcSubnets : undefined;
+            resourceInputs["autoScalingPolicy"] = args?.autoScalingPolicy;
+            resourceInputs["balancingStrategy"] = args?.balancingStrategy;
+            resourceInputs["deleteOption"] = args?.deleteOption;
+            resourceInputs["gameServerGroupName"] = args?.gameServerGroupName;
+            resourceInputs["gameServerProtectionPolicy"] = args?.gameServerProtectionPolicy;
+            resourceInputs["instanceDefinitions"] = args?.instanceDefinitions;
+            resourceInputs["launchTemplate"] = args?.launchTemplate;
+            resourceInputs["maxSize"] = args?.maxSize;
+            resourceInputs["minSize"] = args?.minSize;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcSubnets"] = args?.vpcSubnets;
             resourceInputs["autoScalingGroupArn"] = undefined /*out*/;
             resourceInputs["gameServerGroupArn"] = undefined /*out*/;
         } else {

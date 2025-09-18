@@ -37,19 +37,19 @@ export class Permission extends pulumi.CustomResource {
     /**
      * The actions that the specified AWS service principal can use. Actions IssueCertificate, GetCertificate and ListPermissions must be provided.
      */
-    public readonly actions!: pulumi.Output<string[]>;
+    declare public readonly actions: pulumi.Output<string[]>;
     /**
      * The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission.
      */
-    public readonly certificateAuthorityArn!: pulumi.Output<string>;
+    declare public readonly certificateAuthorityArn: pulumi.Output<string>;
     /**
      * The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com.
      */
-    public readonly principal!: pulumi.Output<string>;
+    declare public readonly principal: pulumi.Output<string>;
     /**
      * The ID of the calling account.
      */
-    public readonly sourceAccount!: pulumi.Output<string | undefined>;
+    declare public readonly sourceAccount: pulumi.Output<string | undefined>;
 
     /**
      * Create a Permission resource with the given unique name, arguments, and options.
@@ -62,19 +62,19 @@ export class Permission extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.certificateAuthorityArn === undefined) && !opts.urn) {
+            if (args?.certificateAuthorityArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthorityArn'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["certificateAuthorityArn"] = args?.certificateAuthorityArn;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["sourceAccount"] = args?.sourceAccount;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
             resourceInputs["certificateAuthorityArn"] = undefined /*out*/;

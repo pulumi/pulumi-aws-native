@@ -54,11 +54,11 @@ export class InternetGateway extends pulumi.CustomResource {
     /**
      * The ID of the internet gateway.
      */
-    public /*out*/ readonly internetGatewayId!: pulumi.Output<string>;
+    declare public /*out*/ readonly internetGatewayId: pulumi.Output<string>;
     /**
      * Any tags to assign to the internet gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a InternetGateway resource with the given unique name, arguments, and options.
@@ -71,7 +71,7 @@ export class InternetGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["internetGatewayId"] = undefined /*out*/;
         } else {
             resourceInputs["internetGatewayId"] = undefined /*out*/;

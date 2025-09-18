@@ -40,47 +40,47 @@ export class Listener extends pulumi.CustomResource {
     /**
      * [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
      */
-    public readonly alpnPolicy!: pulumi.Output<string[] | undefined>;
+    declare public readonly alpnPolicy: pulumi.Output<string[] | undefined>;
     /**
      * The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
      *  For an HTTPS listener, update requires some interruptions. For a TLS listener, update requires no interruption.
      *  To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
      */
-    public readonly certificates!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerCertificate[] | undefined>;
+    declare public readonly certificates: pulumi.Output<outputs.elasticloadbalancingv2.ListenerCertificate[] | undefined>;
     /**
      * The actions for the default rule. You cannot define a condition for a default rule.
      *  To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
      */
-    public readonly defaultActions!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerAction[]>;
+    declare public readonly defaultActions: pulumi.Output<outputs.elasticloadbalancingv2.ListenerAction[]>;
     /**
      * The Amazon Resource Name (ARN) of the listener.
      */
-    public /*out*/ readonly listenerArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly listenerArn: pulumi.Output<string>;
     /**
      * The listener attributes. Attributes that you do not modify retain their current values.
      */
-    public readonly listenerAttributes!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerAttribute[] | undefined>;
+    declare public readonly listenerAttributes: pulumi.Output<outputs.elasticloadbalancingv2.ListenerAttribute[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the load balancer.
      */
-    public readonly loadBalancerArn!: pulumi.Output<string>;
+    declare public readonly loadBalancerArn: pulumi.Output<string>;
     /**
      * The mutual authentication configuration information.
      */
-    public readonly mutualAuthentication!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerMutualAuthentication | undefined>;
+    declare public readonly mutualAuthentication: pulumi.Output<outputs.elasticloadbalancingv2.ListenerMutualAuthentication | undefined>;
     /**
      * The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
      */
-    public readonly protocol!: pulumi.Output<string | undefined>;
+    declare public readonly protocol: pulumi.Output<string | undefined>;
     /**
      * [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.
      *  [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
      */
-    public readonly sslPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly sslPolicy: pulumi.Output<string | undefined>;
 
     /**
      * Create a Listener resource with the given unique name, arguments, and options.
@@ -93,21 +93,21 @@ export class Listener extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultActions === undefined) && !opts.urn) {
+            if (args?.defaultActions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultActions'");
             }
-            if ((!args || args.loadBalancerArn === undefined) && !opts.urn) {
+            if (args?.loadBalancerArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerArn'");
             }
-            resourceInputs["alpnPolicy"] = args ? args.alpnPolicy : undefined;
-            resourceInputs["certificates"] = args ? args.certificates : undefined;
-            resourceInputs["defaultActions"] = args ? args.defaultActions : undefined;
-            resourceInputs["listenerAttributes"] = args ? args.listenerAttributes : undefined;
-            resourceInputs["loadBalancerArn"] = args ? args.loadBalancerArn : undefined;
-            resourceInputs["mutualAuthentication"] = args ? args.mutualAuthentication : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["sslPolicy"] = args ? args.sslPolicy : undefined;
+            resourceInputs["alpnPolicy"] = args?.alpnPolicy;
+            resourceInputs["certificates"] = args?.certificates;
+            resourceInputs["defaultActions"] = args?.defaultActions;
+            resourceInputs["listenerAttributes"] = args?.listenerAttributes;
+            resourceInputs["loadBalancerArn"] = args?.loadBalancerArn;
+            resourceInputs["mutualAuthentication"] = args?.mutualAuthentication;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["sslPolicy"] = args?.sslPolicy;
             resourceInputs["listenerArn"] = undefined /*out*/;
         } else {
             resourceInputs["alpnPolicy"] = undefined /*out*/;

@@ -40,39 +40,39 @@ export class SecurityProfile extends pulumi.CustomResource {
     /**
      * A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
      */
-    public readonly additionalMetricsToRetainV2!: pulumi.Output<outputs.iot.SecurityProfileMetricToRetain[] | undefined>;
+    declare public readonly additionalMetricsToRetainV2: pulumi.Output<outputs.iot.SecurityProfileMetricToRetain[] | undefined>;
     /**
      * Specifies the destinations to which alerts are sent.
      */
-    public readonly alertTargets!: pulumi.Output<{[key: string]: outputs.iot.SecurityProfileAlertTarget} | undefined>;
+    declare public readonly alertTargets: pulumi.Output<{[key: string]: outputs.iot.SecurityProfileAlertTarget} | undefined>;
     /**
      * Specifies the behaviors that, when violated by a device (thing), cause an alert.
      */
-    public readonly behaviors!: pulumi.Output<outputs.iot.SecurityProfileBehavior[] | undefined>;
+    declare public readonly behaviors: pulumi.Output<outputs.iot.SecurityProfileBehavior[] | undefined>;
     /**
      * A structure containing the mqtt topic for metrics export.
      */
-    public readonly metricsExportConfig!: pulumi.Output<outputs.iot.MetricsExportConfigProperties | undefined>;
+    declare public readonly metricsExportConfig: pulumi.Output<outputs.iot.MetricsExportConfigProperties | undefined>;
     /**
      * The ARN (Amazon resource name) of the created security profile.
      */
-    public /*out*/ readonly securityProfileArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly securityProfileArn: pulumi.Output<string>;
     /**
      * A description of the security profile.
      */
-    public readonly securityProfileDescription!: pulumi.Output<string | undefined>;
+    declare public readonly securityProfileDescription: pulumi.Output<string | undefined>;
     /**
      * A unique identifier for the security profile.
      */
-    public readonly securityProfileName!: pulumi.Output<string | undefined>;
+    declare public readonly securityProfileName: pulumi.Output<string | undefined>;
     /**
      * Metadata that can be used to manage the security profile.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A set of target ARNs that the security profile is attached to.
      */
-    public readonly targetArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly targetArns: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a SecurityProfile resource with the given unique name, arguments, and options.
@@ -85,14 +85,14 @@ export class SecurityProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["additionalMetricsToRetainV2"] = args ? args.additionalMetricsToRetainV2 : undefined;
-            resourceInputs["alertTargets"] = args ? args.alertTargets : undefined;
-            resourceInputs["behaviors"] = args ? args.behaviors : undefined;
-            resourceInputs["metricsExportConfig"] = args ? args.metricsExportConfig : undefined;
-            resourceInputs["securityProfileDescription"] = args ? args.securityProfileDescription : undefined;
-            resourceInputs["securityProfileName"] = args ? args.securityProfileName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetArns"] = args ? args.targetArns : undefined;
+            resourceInputs["additionalMetricsToRetainV2"] = args?.additionalMetricsToRetainV2;
+            resourceInputs["alertTargets"] = args?.alertTargets;
+            resourceInputs["behaviors"] = args?.behaviors;
+            resourceInputs["metricsExportConfig"] = args?.metricsExportConfig;
+            resourceInputs["securityProfileDescription"] = args?.securityProfileDescription;
+            resourceInputs["securityProfileName"] = args?.securityProfileName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetArns"] = args?.targetArns;
             resourceInputs["securityProfileArn"] = undefined /*out*/;
         } else {
             resourceInputs["additionalMetricsToRetainV2"] = undefined /*out*/;

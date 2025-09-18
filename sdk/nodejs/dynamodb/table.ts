@@ -272,13 +272,13 @@ export class Table extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A list of attributes that describe the key schema for the table and indexes.
      *  This property is required to create a DDB table.
      *  Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
      */
-    public readonly attributeDefinitions!: pulumi.Output<outputs.dynamodb.TableAttributeDefinition[] | undefined>;
+    declare public readonly attributeDefinitions: pulumi.Output<outputs.dynamodb.TableAttributeDefinition[] | undefined>;
     /**
      * Specify how you are charged for read and write throughput and how you manage capacity.
      *  Valid values include:
@@ -287,15 +287,15 @@ export class Table extends pulumi.CustomResource {
      *   
      *  If not specified, the default is ``PROVISIONED``.
      */
-    public readonly billingMode!: pulumi.Output<string | undefined>;
+    declare public readonly billingMode: pulumi.Output<string | undefined>;
     /**
      * The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
      */
-    public readonly contributorInsightsSpecification!: pulumi.Output<outputs.dynamodb.TableContributorInsightsSpecification | undefined>;
+    declare public readonly contributorInsightsSpecification: pulumi.Output<outputs.dynamodb.TableContributorInsightsSpecification | undefined>;
     /**
      * Determines if a table is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Developer Guide*.
      */
-    public readonly deletionProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly deletionProtectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.
      *   If you update a table to include a new global secondary index, CFNlong initiates the index creation and then proceeds with the stack update. CFNlong doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table. You can't use the index or update the table until the index's status is ``ACTIVE``. You can track its status by using the DynamoDB [DescribeTable](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) command.
@@ -304,81 +304,81 @@ export class Table extends pulumi.CustomResource {
      *   +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
      *   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
      */
-    public readonly globalSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableGlobalSecondaryIndex[] | undefined>;
+    declare public readonly globalSecondaryIndexes: pulumi.Output<outputs.dynamodb.TableGlobalSecondaryIndex[] | undefined>;
     /**
      * Specifies the properties of data being imported from the S3 bucket source to the" table.
      *   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
      */
-    public readonly importSourceSpecification!: pulumi.Output<outputs.dynamodb.TableImportSourceSpecification | undefined>;
+    declare public readonly importSourceSpecification: pulumi.Output<outputs.dynamodb.TableImportSourceSpecification | undefined>;
     /**
      * Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
      */
-    public readonly keySchema!: pulumi.Output<outputs.dynamodb.TableKeySchema[] | any>;
+    declare public readonly keySchema: pulumi.Output<outputs.dynamodb.TableKeySchema[] | any>;
     /**
      * The Kinesis Data Streams configuration for the specified table.
      */
-    public readonly kinesisStreamSpecification!: pulumi.Output<outputs.dynamodb.TableKinesisStreamSpecification | undefined>;
+    declare public readonly kinesisStreamSpecification: pulumi.Output<outputs.dynamodb.TableKinesisStreamSpecification | undefined>;
     /**
      * Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
      */
-    public readonly localSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableLocalSecondaryIndex[] | undefined>;
+    declare public readonly localSecondaryIndexes: pulumi.Output<outputs.dynamodb.TableLocalSecondaryIndex[] | undefined>;
     /**
      * Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
      */
-    public readonly onDemandThroughput!: pulumi.Output<outputs.dynamodb.TableOnDemandThroughput | undefined>;
+    declare public readonly onDemandThroughput: pulumi.Output<outputs.dynamodb.TableOnDemandThroughput | undefined>;
     /**
      * The settings used to enable point in time recovery.
      */
-    public readonly pointInTimeRecoverySpecification!: pulumi.Output<outputs.dynamodb.TablePointInTimeRecoverySpecification | undefined>;
+    declare public readonly pointInTimeRecoverySpecification: pulumi.Output<outputs.dynamodb.TablePointInTimeRecoverySpecification | undefined>;
     /**
      * Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html). 
      *  If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
      */
-    public readonly provisionedThroughput!: pulumi.Output<outputs.dynamodb.TableProvisionedThroughput | undefined>;
+    declare public readonly provisionedThroughput: pulumi.Output<outputs.dynamodb.TableProvisionedThroughput | undefined>;
     /**
      * An AWS resource-based policy document in JSON format that will be attached to the table.
      *  When you attach a resource-based policy while creating a table, the policy application is *strongly consistent*.
      *  The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that apply for resource-based policies, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
      *   You need to specify the ``CreateTable`` and ``PutResourcePolicy`` IAM actions for authorizing a user to create a table with a resource-based policy.
      */
-    public readonly resourcePolicy!: pulumi.Output<outputs.dynamodb.TableResourcePolicy | undefined>;
+    declare public readonly resourcePolicy: pulumi.Output<outputs.dynamodb.TableResourcePolicy | undefined>;
     /**
      * Specifies the settings to enable server-side encryption.
      */
-    public readonly sseSpecification!: pulumi.Output<outputs.dynamodb.TableSseSpecification | undefined>;
+    declare public readonly sseSpecification: pulumi.Output<outputs.dynamodb.TableSseSpecification | undefined>;
     /**
      * The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` .
      *
      * > You must specify the `StreamSpecification` property to use this attribute.
      */
-    public /*out*/ readonly streamArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly streamArn: pulumi.Output<string>;
     /**
      * The settings for the DDB table stream, which capture changes to items stored in the table.
      */
-    public readonly streamSpecification!: pulumi.Output<outputs.dynamodb.TableStreamSpecification | undefined>;
+    declare public readonly streamSpecification: pulumi.Output<outputs.dynamodb.TableStreamSpecification | undefined>;
     /**
      * The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.
      */
-    public readonly tableClass!: pulumi.Output<string | undefined>;
+    declare public readonly tableClass: pulumi.Output<string | undefined>;
     /**
      * A name for the table. If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the table name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
      *   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
-    public readonly tableName!: pulumi.Output<string | undefined>;
+    declare public readonly tableName: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Specifies the Time to Live (TTL) settings for the table.
      *   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
      */
-    public readonly timeToLiveSpecification!: pulumi.Output<outputs.dynamodb.TableTimeToLiveSpecification | undefined>;
+    declare public readonly timeToLiveSpecification: pulumi.Output<outputs.dynamodb.TableTimeToLiveSpecification | undefined>;
     /**
      * Represents the warm throughput (in read units per second and write units per second) for creating a table.
      */
-    public readonly warmThroughput!: pulumi.Output<outputs.dynamodb.TableWarmThroughput | undefined>;
+    declare public readonly warmThroughput: pulumi.Output<outputs.dynamodb.TableWarmThroughput | undefined>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -391,29 +391,29 @@ export class Table extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keySchema === undefined) && !opts.urn) {
+            if (args?.keySchema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keySchema'");
             }
-            resourceInputs["attributeDefinitions"] = args ? args.attributeDefinitions : undefined;
-            resourceInputs["billingMode"] = args ? args.billingMode : undefined;
-            resourceInputs["contributorInsightsSpecification"] = args ? args.contributorInsightsSpecification : undefined;
-            resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
-            resourceInputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
-            resourceInputs["importSourceSpecification"] = args ? args.importSourceSpecification : undefined;
-            resourceInputs["keySchema"] = args ? args.keySchema : undefined;
-            resourceInputs["kinesisStreamSpecification"] = args ? args.kinesisStreamSpecification : undefined;
-            resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
-            resourceInputs["onDemandThroughput"] = args ? args.onDemandThroughput : undefined;
-            resourceInputs["pointInTimeRecoverySpecification"] = args ? args.pointInTimeRecoverySpecification : undefined;
-            resourceInputs["provisionedThroughput"] = args ? args.provisionedThroughput : undefined;
-            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
-            resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
-            resourceInputs["streamSpecification"] = args ? args.streamSpecification : undefined;
-            resourceInputs["tableClass"] = args ? args.tableClass : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeToLiveSpecification"] = args ? args.timeToLiveSpecification : undefined;
-            resourceInputs["warmThroughput"] = args ? args.warmThroughput : undefined;
+            resourceInputs["attributeDefinitions"] = args?.attributeDefinitions;
+            resourceInputs["billingMode"] = args?.billingMode;
+            resourceInputs["contributorInsightsSpecification"] = args?.contributorInsightsSpecification;
+            resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
+            resourceInputs["globalSecondaryIndexes"] = args?.globalSecondaryIndexes;
+            resourceInputs["importSourceSpecification"] = args?.importSourceSpecification;
+            resourceInputs["keySchema"] = args?.keySchema;
+            resourceInputs["kinesisStreamSpecification"] = args?.kinesisStreamSpecification;
+            resourceInputs["localSecondaryIndexes"] = args?.localSecondaryIndexes;
+            resourceInputs["onDemandThroughput"] = args?.onDemandThroughput;
+            resourceInputs["pointInTimeRecoverySpecification"] = args?.pointInTimeRecoverySpecification;
+            resourceInputs["provisionedThroughput"] = args?.provisionedThroughput;
+            resourceInputs["resourcePolicy"] = args?.resourcePolicy;
+            resourceInputs["sseSpecification"] = args?.sseSpecification;
+            resourceInputs["streamSpecification"] = args?.streamSpecification;
+            resourceInputs["tableClass"] = args?.tableClass;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeToLiveSpecification"] = args?.timeToLiveSpecification;
+            resourceInputs["warmThroughput"] = args?.warmThroughput;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["streamArn"] = undefined /*out*/;
         } else {
