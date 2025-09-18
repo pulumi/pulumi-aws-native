@@ -81,7 +81,7 @@
   "primaryIdentifier" : [ "/properties/InstanceArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "sso:CreateInstance", "sso:DescribeInstance", "sso:TagResource", "iam:CreateServiceLinkedRole", "sso:TagInstance", "sso:ListTagsForResource" ]
+      "permissions" : [ "sso:CreateInstance", "sso:DescribeInstance", "sso:TagResource", "iam:CreateServiceLinkedRole", "sso:TagInstance", "sso:ListTagsForResource", "identitystore:CreateIdentityStore" ]
     },
     "read" : {
       "permissions" : [ "sso:DescribeInstance", "sso:ListTagsForResource" ]
@@ -90,7 +90,7 @@
       "permissions" : [ "sso:UpdateInstance", "sso:TagResource", "sso:UntagResource", "sso:ListTagsForResource", "sso:TagInstance", "sso:DescribeInstance" ]
     },
     "delete" : {
-      "permissions" : [ "sso:DeleteInstance" ]
+      "permissions" : [ "sso:DeleteInstance", "identitystore:DeleteIdentityStore" ]
     },
     "list" : {
       "permissions" : [ "sso:ListInstances" ]
