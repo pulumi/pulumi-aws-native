@@ -40,47 +40,47 @@ export class VerifiedAccessGroup extends pulumi.CustomResource {
     /**
      * Time this Verified Access Group was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * A description for the AWS Verified Access group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Time this Verified Access Group was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * The AWS account number that owns the group.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    declare public /*out*/ readonly owner: pulumi.Output<string>;
     /**
      * The AWS Verified Access policy document.
      */
-    public readonly policyDocument!: pulumi.Output<string | undefined>;
+    declare public readonly policyDocument: pulumi.Output<string | undefined>;
     /**
      * The status of the Verified Access policy.
      */
-    public readonly policyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly policyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The configuration options for customer provided KMS encryption.
      */
-    public readonly sseSpecification!: pulumi.Output<outputs.ec2.VerifiedAccessGroupSseSpecification | undefined>;
+    declare public readonly sseSpecification: pulumi.Output<outputs.ec2.VerifiedAccessGroupSseSpecification | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the Verified Access group.
      */
-    public /*out*/ readonly verifiedAccessGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly verifiedAccessGroupArn: pulumi.Output<string>;
     /**
      * The ID of the AWS Verified Access group.
      */
-    public /*out*/ readonly verifiedAccessGroupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly verifiedAccessGroupId: pulumi.Output<string>;
     /**
      * The ID of the AWS Verified Access instance.
      */
-    public readonly verifiedAccessInstanceId!: pulumi.Output<string>;
+    declare public readonly verifiedAccessInstanceId: pulumi.Output<string>;
 
     /**
      * Create a VerifiedAccessGroup resource with the given unique name, arguments, and options.
@@ -93,15 +93,15 @@ export class VerifiedAccessGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.verifiedAccessInstanceId === undefined) && !opts.urn) {
+            if (args?.verifiedAccessInstanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'verifiedAccessInstanceId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["policyEnabled"] = args ? args.policyEnabled : undefined;
-            resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["verifiedAccessInstanceId"] = args ? args.verifiedAccessInstanceId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["policyEnabled"] = args?.policyEnabled;
+            resourceInputs["sseSpecification"] = args?.sseSpecification;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["verifiedAccessInstanceId"] = args?.verifiedAccessInstanceId;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;

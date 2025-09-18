@@ -37,15 +37,15 @@ export class DirectoryRegistration extends pulumi.CustomResource {
     /**
      * The identifier of the Active Directory.
      */
-    public readonly directoryId!: pulumi.Output<string>;
+    declare public readonly directoryId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
      */
-    public /*out*/ readonly directoryRegistrationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly directoryRegistrationArn: pulumi.Output<string>;
     /**
      * Metadata assigned to a directory registration consisting of a key-value pair.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DirectoryRegistration resource with the given unique name, arguments, and options.
@@ -58,11 +58,11 @@ export class DirectoryRegistration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.directoryId === undefined) && !opts.urn) {
+            if (args?.directoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["directoryId"] = args?.directoryId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["directoryRegistrationArn"] = undefined /*out*/;
         } else {
             resourceInputs["directoryId"] = undefined /*out*/;

@@ -37,21 +37,21 @@ export class Archive extends pulumi.CustomResource {
     /**
      * The name for the archive to create.
      */
-    public readonly archiveName!: pulumi.Output<string | undefined>;
+    declare public readonly archiveName: pulumi.Output<string | undefined>;
     /**
      * The ARN of the archive created.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A description for the archive.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An event pattern to use to filter events sent to the archive.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
      */
-    public readonly eventPattern!: pulumi.Output<any | undefined>;
+    declare public readonly eventPattern: pulumi.Output<any | undefined>;
     /**
      * The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      *
@@ -63,15 +63,15 @@ export class Archive extends pulumi.CustomResource {
      * > 
      * > For more information, see [Encrypting archives](https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html) in the *Amazon EventBridge User Guide* .
      */
-    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
      * The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
      */
-    public readonly retentionDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionDays: pulumi.Output<number | undefined>;
     /**
      * The ARN of the event bus that sends events to the archive.
      */
-    public readonly sourceArn!: pulumi.Output<string>;
+    declare public readonly sourceArn: pulumi.Output<string>;
 
     /**
      * Create a Archive resource with the given unique name, arguments, and options.
@@ -84,15 +84,15 @@ export class Archive extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sourceArn === undefined) && !opts.urn) {
+            if (args?.sourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
-            resourceInputs["archiveName"] = args ? args.archiveName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventPattern"] = args ? args.eventPattern : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
-            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
+            resourceInputs["archiveName"] = args?.archiveName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventPattern"] = args?.eventPattern;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["retentionDays"] = args?.retentionDays;
+            resourceInputs["sourceArn"] = args?.sourceArn;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["archiveName"] = undefined /*out*/;

@@ -40,23 +40,23 @@ export class BillingGroup extends pulumi.CustomResource {
     /**
      * The ARN of the billing group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the billing group.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The name of the billing group.
      */
-    public readonly billingGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly billingGroupName: pulumi.Output<string | undefined>;
     /**
      * The properties of the billing group.
      */
-    public readonly billingGroupProperties!: pulumi.Output<outputs.iot.BillingGroupPropertiesProperties | undefined>;
+    declare public readonly billingGroupProperties: pulumi.Output<outputs.iot.BillingGroupPropertiesProperties | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a BillingGroup resource with the given unique name, arguments, and options.
@@ -69,9 +69,9 @@ export class BillingGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["billingGroupName"] = args ? args.billingGroupName : undefined;
-            resourceInputs["billingGroupProperties"] = args ? args.billingGroupProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["billingGroupName"] = args?.billingGroupName;
+            resourceInputs["billingGroupProperties"] = args?.billingGroupProperties;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

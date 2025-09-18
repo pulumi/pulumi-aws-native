@@ -37,13 +37,13 @@ export class ChannelPolicy extends pulumi.CustomResource {
     /**
      * The name of the channel associated with this Channel Policy.
      */
-    public readonly channelName!: pulumi.Output<string>;
+    declare public readonly channelName: pulumi.Output<string>;
     /**
      * <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
      */
-    public readonly policy!: pulumi.Output<any>;
+    declare public readonly policy: pulumi.Output<any>;
 
     /**
      * Create a ChannelPolicy resource with the given unique name, arguments, and options.
@@ -56,14 +56,14 @@ export class ChannelPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelName === undefined) && !opts.urn) {
+            if (args?.channelName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelName'");
             }
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["policy"] = args?.policy;
         } else {
             resourceInputs["channelName"] = undefined /*out*/;
             resourceInputs["policy"] = undefined /*out*/;

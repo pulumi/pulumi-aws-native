@@ -40,25 +40,25 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the specified AccessPoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * A name for the AccessPoint.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The access point policy associated with this access point.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
      */
-    public readonly policy!: pulumi.Output<any | undefined>;
+    declare public readonly policy: pulumi.Output<any | undefined>;
     /**
      * Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
      */
-    public readonly vpcConfiguration!: pulumi.Output<outputs.s3outposts.AccessPointVpcConfiguration>;
+    declare public readonly vpcConfiguration: pulumi.Output<outputs.s3outposts.AccessPointVpcConfiguration>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -71,16 +71,16 @@ export class AccessPoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bucket === undefined) && !opts.urn) {
+            if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if ((!args || args.vpcConfiguration === undefined) && !opts.urn) {
+            if (args?.vpcConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfiguration'");
             }
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["vpcConfiguration"] = args?.vpcConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

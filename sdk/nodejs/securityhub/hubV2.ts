@@ -37,15 +37,15 @@ export class HubV2 extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of the Security Hub V2 resource.
      */
-    public /*out*/ readonly hubV2Arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly hubV2Arn: pulumi.Output<string>;
     /**
      * The date and time when the service was enabled in the account.
      */
-    public /*out*/ readonly subscribedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly subscribedAt: pulumi.Output<string>;
     /**
      * The tags to add to the hub V2 resource when you enable Security Hub.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a HubV2 resource with the given unique name, arguments, and options.
@@ -58,7 +58,7 @@ export class HubV2 extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["hubV2Arn"] = undefined /*out*/;
             resourceInputs["subscribedAt"] = undefined /*out*/;
         } else {

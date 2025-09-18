@@ -40,59 +40,59 @@ export class Stage extends pulumi.CustomResource {
     /**
      * Access log settings, including the access log format and access log destination ARN.
      */
-    public readonly accessLogSetting!: pulumi.Output<outputs.apigateway.StageAccessLogSetting | undefined>;
+    declare public readonly accessLogSetting: pulumi.Output<outputs.apigateway.StageAccessLogSetting | undefined>;
     /**
      * Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
      */
-    public readonly cacheClusterEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly cacheClusterEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
      */
-    public readonly cacheClusterSize!: pulumi.Output<string | undefined>;
+    declare public readonly cacheClusterSize: pulumi.Output<string | undefined>;
     /**
      * Settings for the canary deployment in this stage.
      */
-    public readonly canarySetting!: pulumi.Output<outputs.apigateway.StageCanarySetting | undefined>;
+    declare public readonly canarySetting: pulumi.Output<outputs.apigateway.StageCanarySetting | undefined>;
     /**
      * The identifier of a client certificate for an API stage.
      */
-    public readonly clientCertificateId!: pulumi.Output<string | undefined>;
+    declare public readonly clientCertificateId: pulumi.Output<string | undefined>;
     /**
      * The identifier of the Deployment that the stage points to.
      */
-    public readonly deploymentId!: pulumi.Output<string | undefined>;
+    declare public readonly deploymentId: pulumi.Output<string | undefined>;
     /**
      * The stage's description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The version of the associated API documentation.
      */
-    public readonly documentationVersion!: pulumi.Output<string | undefined>;
+    declare public readonly documentationVersion: pulumi.Output<string | undefined>;
     /**
      * A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\*&#47;\*` for overriding all methods in the stage.
      */
-    public readonly methodSettings!: pulumi.Output<outputs.apigateway.StageMethodSetting[] | undefined>;
+    declare public readonly methodSettings: pulumi.Output<outputs.apigateway.StageMethodSetting[] | undefined>;
     /**
      * The string identifier of the associated RestApi.
      */
-    public readonly restApiId!: pulumi.Output<string>;
+    declare public readonly restApiId: pulumi.Output<string>;
     /**
      * The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
      */
-    public readonly stageName!: pulumi.Output<string | undefined>;
+    declare public readonly stageName: pulumi.Output<string | undefined>;
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Specifies whether active tracing with X-ray is enabled for the Stage.
      */
-    public readonly tracingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly tracingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
      */
-    public readonly variables!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly variables: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Stage resource with the given unique name, arguments, and options.
@@ -105,23 +105,23 @@ export class Stage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["accessLogSetting"] = args ? args.accessLogSetting : undefined;
-            resourceInputs["cacheClusterEnabled"] = args ? args.cacheClusterEnabled : undefined;
-            resourceInputs["cacheClusterSize"] = args ? args.cacheClusterSize : undefined;
-            resourceInputs["canarySetting"] = args ? args.canarySetting : undefined;
-            resourceInputs["clientCertificateId"] = args ? args.clientCertificateId : undefined;
-            resourceInputs["deploymentId"] = args ? args.deploymentId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["documentationVersion"] = args ? args.documentationVersion : undefined;
-            resourceInputs["methodSettings"] = args ? args.methodSettings : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
-            resourceInputs["stageName"] = args ? args.stageName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tracingEnabled"] = args ? args.tracingEnabled : undefined;
-            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["accessLogSetting"] = args?.accessLogSetting;
+            resourceInputs["cacheClusterEnabled"] = args?.cacheClusterEnabled;
+            resourceInputs["cacheClusterSize"] = args?.cacheClusterSize;
+            resourceInputs["canarySetting"] = args?.canarySetting;
+            resourceInputs["clientCertificateId"] = args?.clientCertificateId;
+            resourceInputs["deploymentId"] = args?.deploymentId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["documentationVersion"] = args?.documentationVersion;
+            resourceInputs["methodSettings"] = args?.methodSettings;
+            resourceInputs["restApiId"] = args?.restApiId;
+            resourceInputs["stageName"] = args?.stageName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tracingEnabled"] = args?.tracingEnabled;
+            resourceInputs["variables"] = args?.variables;
         } else {
             resourceInputs["accessLogSetting"] = undefined /*out*/;
             resourceInputs["cacheClusterEnabled"] = undefined /*out*/;

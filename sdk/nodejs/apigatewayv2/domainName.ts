@@ -41,35 +41,35 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * Represents an Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly domainNameArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainNameArn: pulumi.Output<string>;
     /**
      * The domain name configurations.
      */
-    public readonly domainNameConfigurations!: pulumi.Output<outputs.apigatewayv2.DomainNameConfiguration[] | undefined>;
+    declare public readonly domainNameConfigurations: pulumi.Output<outputs.apigatewayv2.DomainNameConfiguration[] | undefined>;
     /**
      * The mutual TLS authentication configuration for a custom domain name.
      */
-    public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigatewayv2.DomainNameMutualTlsAuthentication | undefined>;
+    declare public readonly mutualTlsAuthentication: pulumi.Output<outputs.apigatewayv2.DomainNameMutualTlsAuthentication | undefined>;
     /**
      * The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
      */
-    public /*out*/ readonly regionalDomainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly regionalDomainName: pulumi.Output<string>;
     /**
      * The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
      */
-    public /*out*/ readonly regionalHostedZoneId!: pulumi.Output<string>;
+    declare public /*out*/ readonly regionalHostedZoneId: pulumi.Output<string>;
     /**
      * The routing mode API Gateway uses to route traffic to your APIs.
      */
-    public readonly routingMode!: pulumi.Output<enums.apigatewayv2.DomainNameRoutingMode | undefined>;
+    declare public readonly routingMode: pulumi.Output<enums.apigatewayv2.DomainNameRoutingMode | undefined>;
     /**
      * The collection of tags associated with a domain name.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -82,14 +82,14 @@ export class DomainName extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["domainNameConfigurations"] = args ? args.domainNameConfigurations : undefined;
-            resourceInputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
-            resourceInputs["routingMode"] = args ? args.routingMode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["domainNameConfigurations"] = args?.domainNameConfigurations;
+            resourceInputs["mutualTlsAuthentication"] = args?.mutualTlsAuthentication;
+            resourceInputs["routingMode"] = args?.routingMode;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["regionalDomainName"] = undefined /*out*/;
             resourceInputs["regionalHostedZoneId"] = undefined /*out*/;

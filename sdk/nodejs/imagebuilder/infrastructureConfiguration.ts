@@ -40,63 +40,63 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the infrastructure configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The description of the infrastructure configuration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The instance metadata option settings for the infrastructure configuration.
      */
-    public readonly instanceMetadataOptions!: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptions | undefined>;
+    declare public readonly instanceMetadataOptions: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptions | undefined>;
     /**
      * The instance profile of the infrastructure configuration.
      */
-    public readonly instanceProfileName!: pulumi.Output<string>;
+    declare public readonly instanceProfileName: pulumi.Output<string>;
     /**
      * The instance types of the infrastructure configuration.
      */
-    public readonly instanceTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly instanceTypes: pulumi.Output<string[] | undefined>;
     /**
      * The EC2 key pair of the infrastructure configuration..
      */
-    public readonly keyPair!: pulumi.Output<string | undefined>;
+    declare public readonly keyPair: pulumi.Output<string | undefined>;
     /**
      * The logging configuration of the infrastructure configuration.
      */
-    public readonly logging!: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationLogging | undefined>;
+    declare public readonly logging: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationLogging | undefined>;
     /**
      * The name of the infrastructure configuration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The placement option settings for the infrastructure configuration.
      */
-    public readonly placement!: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationPlacement | undefined>;
+    declare public readonly placement: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationPlacement | undefined>;
     /**
      * The tags attached to the resource created by Image Builder.
      */
-    public readonly resourceTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly resourceTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The security group IDs of the infrastructure configuration.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
      */
-    public readonly snsTopicArn!: pulumi.Output<string | undefined>;
+    declare public readonly snsTopicArn: pulumi.Output<string | undefined>;
     /**
      * The subnet ID of the infrastructure configuration.
      */
-    public readonly subnetId!: pulumi.Output<string | undefined>;
+    declare public readonly subnetId: pulumi.Output<string | undefined>;
     /**
      * The tags associated with the component.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The terminate instance on failure configuration of the infrastructure configuration.
      */
-    public readonly terminateInstanceOnFailure!: pulumi.Output<boolean | undefined>;
+    declare public readonly terminateInstanceOnFailure: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a InfrastructureConfiguration resource with the given unique name, arguments, and options.
@@ -109,23 +109,23 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceProfileName === undefined) && !opts.urn) {
+            if (args?.instanceProfileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceProfileName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceMetadataOptions"] = args ? args.instanceMetadataOptions : undefined;
-            resourceInputs["instanceProfileName"] = args ? args.instanceProfileName : undefined;
-            resourceInputs["instanceTypes"] = args ? args.instanceTypes : undefined;
-            resourceInputs["keyPair"] = args ? args.keyPair : undefined;
-            resourceInputs["logging"] = args ? args.logging : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["placement"] = args ? args.placement : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["terminateInstanceOnFailure"] = args ? args.terminateInstanceOnFailure : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceMetadataOptions"] = args?.instanceMetadataOptions;
+            resourceInputs["instanceProfileName"] = args?.instanceProfileName;
+            resourceInputs["instanceTypes"] = args?.instanceTypes;
+            resourceInputs["keyPair"] = args?.keyPair;
+            resourceInputs["logging"] = args?.logging;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["placement"] = args?.placement;
+            resourceInputs["resourceTags"] = args?.resourceTags;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["snsTopicArn"] = args?.snsTopicArn;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["terminateInstanceOnFailure"] = args?.terminateInstanceOnFailure;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

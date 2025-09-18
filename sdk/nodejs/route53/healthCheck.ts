@@ -40,15 +40,15 @@ export class HealthCheck extends pulumi.CustomResource {
     /**
      * A complex type that contains information about the health check.
      */
-    public readonly healthCheckConfig!: pulumi.Output<outputs.route53.HealthCheckConfigProperties>;
+    declare public readonly healthCheckConfig: pulumi.Output<outputs.route53.HealthCheckConfigProperties>;
     /**
      * The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
      */
-    public /*out*/ readonly healthCheckId!: pulumi.Output<string>;
+    declare public /*out*/ readonly healthCheckId: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly healthCheckTags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly healthCheckTags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a HealthCheck resource with the given unique name, arguments, and options.
@@ -61,11 +61,11 @@ export class HealthCheck extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.healthCheckConfig === undefined) && !opts.urn) {
+            if (args?.healthCheckConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'healthCheckConfig'");
             }
-            resourceInputs["healthCheckConfig"] = args ? args.healthCheckConfig : undefined;
-            resourceInputs["healthCheckTags"] = args ? args.healthCheckTags : undefined;
+            resourceInputs["healthCheckConfig"] = args?.healthCheckConfig;
+            resourceInputs["healthCheckTags"] = args?.healthCheckTags;
             resourceInputs["healthCheckId"] = undefined /*out*/;
         } else {
             resourceInputs["healthCheckConfig"] = undefined /*out*/;

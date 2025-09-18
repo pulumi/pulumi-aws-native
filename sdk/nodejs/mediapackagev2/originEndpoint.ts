@@ -40,75 +40,75 @@ export class OriginEndpoint extends pulumi.CustomResource {
     /**
      * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the channel group associated with the origin endpoint configuration.
      */
-    public readonly channelGroupName!: pulumi.Output<string>;
+    declare public readonly channelGroupName: pulumi.Output<string>;
     /**
      * The channel name associated with the origin endpoint.
      */
-    public readonly channelName!: pulumi.Output<string>;
+    declare public readonly channelName: pulumi.Output<string>;
     /**
      * The container type associated with the origin endpoint configuration.
      */
-    public readonly containerType!: pulumi.Output<enums.mediapackagev2.OriginEndpointContainerType>;
+    declare public readonly containerType: pulumi.Output<enums.mediapackagev2.OriginEndpointContainerType>;
     /**
      * <p>The date and time the origin endpoint was created.</p>
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The egress domain URL for stream delivery from MediaPackage.
      */
-    public /*out*/ readonly dashManifestUrls!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly dashManifestUrls: pulumi.Output<string[]>;
     /**
      * <p>A DASH manifest configuration.</p>
      */
-    public readonly dashManifests!: pulumi.Output<outputs.mediapackagev2.OriginEndpointDashManifestConfiguration[] | undefined>;
+    declare public readonly dashManifests: pulumi.Output<outputs.mediapackagev2.OriginEndpointDashManifestConfiguration[] | undefined>;
     /**
      * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The failover settings for the endpoint.
      */
-    public readonly forceEndpointErrorConfiguration!: pulumi.Output<outputs.mediapackagev2.OriginEndpointForceEndpointErrorConfiguration | undefined>;
+    declare public readonly forceEndpointErrorConfiguration: pulumi.Output<outputs.mediapackagev2.OriginEndpointForceEndpointErrorConfiguration | undefined>;
     /**
      * The egress domain URL for stream delivery from MediaPackage.
      */
-    public /*out*/ readonly hlsManifestUrls!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly hlsManifestUrls: pulumi.Output<string[]>;
     /**
      * <p>An HTTP live streaming (HLS) manifest configuration.</p>
      */
-    public readonly hlsManifests!: pulumi.Output<outputs.mediapackagev2.OriginEndpointHlsManifestConfiguration[] | undefined>;
+    declare public readonly hlsManifests: pulumi.Output<outputs.mediapackagev2.OriginEndpointHlsManifestConfiguration[] | undefined>;
     /**
      * The egress domain URL for stream delivery from MediaPackage.
      */
-    public /*out*/ readonly lowLatencyHlsManifestUrls!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly lowLatencyHlsManifestUrls: pulumi.Output<string[]>;
     /**
      * <p>A low-latency HLS manifest configuration.</p>
      */
-    public readonly lowLatencyHlsManifests!: pulumi.Output<outputs.mediapackagev2.OriginEndpointLowLatencyHlsManifestConfiguration[] | undefined>;
+    declare public readonly lowLatencyHlsManifests: pulumi.Output<outputs.mediapackagev2.OriginEndpointLowLatencyHlsManifestConfiguration[] | undefined>;
     /**
      * <p>The date and time the origin endpoint was modified.</p>
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     /**
      * The name of the origin endpoint associated with the origin endpoint configuration.
      */
-    public readonly originEndpointName!: pulumi.Output<string>;
+    declare public readonly originEndpointName: pulumi.Output<string>;
     /**
      * The segment associated with the origin endpoint.
      */
-    public readonly segment!: pulumi.Output<outputs.mediapackagev2.OriginEndpointSegment | undefined>;
+    declare public readonly segment: pulumi.Output<outputs.mediapackagev2.OriginEndpointSegment | undefined>;
     /**
      * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
      */
-    public readonly startoverWindowSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly startoverWindowSeconds: pulumi.Output<number | undefined>;
     /**
      * The tags associated with the origin endpoint.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a OriginEndpoint resource with the given unique name, arguments, and options.
@@ -121,27 +121,27 @@ export class OriginEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelGroupName === undefined) && !opts.urn) {
+            if (args?.channelGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelGroupName'");
             }
-            if ((!args || args.channelName === undefined) && !opts.urn) {
+            if (args?.channelName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelName'");
             }
-            if ((!args || args.containerType === undefined) && !opts.urn) {
+            if (args?.containerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerType'");
             }
-            resourceInputs["channelGroupName"] = args ? args.channelGroupName : undefined;
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["containerType"] = args ? args.containerType : undefined;
-            resourceInputs["dashManifests"] = args ? args.dashManifests : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["forceEndpointErrorConfiguration"] = args ? args.forceEndpointErrorConfiguration : undefined;
-            resourceInputs["hlsManifests"] = args ? args.hlsManifests : undefined;
-            resourceInputs["lowLatencyHlsManifests"] = args ? args.lowLatencyHlsManifests : undefined;
-            resourceInputs["originEndpointName"] = args ? args.originEndpointName : undefined;
-            resourceInputs["segment"] = args ? args.segment : undefined;
-            resourceInputs["startoverWindowSeconds"] = args ? args.startoverWindowSeconds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channelGroupName"] = args?.channelGroupName;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["containerType"] = args?.containerType;
+            resourceInputs["dashManifests"] = args?.dashManifests;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["forceEndpointErrorConfiguration"] = args?.forceEndpointErrorConfiguration;
+            resourceInputs["hlsManifests"] = args?.hlsManifests;
+            resourceInputs["lowLatencyHlsManifests"] = args?.lowLatencyHlsManifests;
+            resourceInputs["originEndpointName"] = args?.originEndpointName;
+            resourceInputs["segment"] = args?.segment;
+            resourceInputs["startoverWindowSeconds"] = args?.startoverWindowSeconds;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["dashManifestUrls"] = undefined /*out*/;

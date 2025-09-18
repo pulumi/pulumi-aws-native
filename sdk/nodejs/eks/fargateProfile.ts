@@ -40,31 +40,31 @@ export class FargateProfile extends pulumi.CustomResource {
     /**
      * The ARN of the cluster, such as `arn:aws:eks:us-west-2:666666666666:fargateprofile/myCluster/myFargateProfile/1cb1a11a-1dc1-1d11-cf11-1111f11fa111` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Name of the Cluster
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * Name of FargateProfile
      */
-    public readonly fargateProfileName!: pulumi.Output<string | undefined>;
+    declare public readonly fargateProfileName: pulumi.Output<string | undefined>;
     /**
      * The IAM policy arn for pods
      */
-    public readonly podExecutionRoleArn!: pulumi.Output<string>;
+    declare public readonly podExecutionRoleArn: pulumi.Output<string>;
     /**
      * The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
      */
-    public readonly selectors!: pulumi.Output<outputs.eks.FargateProfileSelector[]>;
+    declare public readonly selectors: pulumi.Output<outputs.eks.FargateProfileSelector[]>;
     /**
      * The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
      */
-    public readonly subnets!: pulumi.Output<string[] | undefined>;
+    declare public readonly subnets: pulumi.Output<string[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FargateProfile resource with the given unique name, arguments, and options.
@@ -77,21 +77,21 @@ export class FargateProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.podExecutionRoleArn === undefined) && !opts.urn) {
+            if (args?.podExecutionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'podExecutionRoleArn'");
             }
-            if ((!args || args.selectors === undefined) && !opts.urn) {
+            if (args?.selectors === undefined && !opts.urn) {
                 throw new Error("Missing required property 'selectors'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["fargateProfileName"] = args ? args.fargateProfileName : undefined;
-            resourceInputs["podExecutionRoleArn"] = args ? args.podExecutionRoleArn : undefined;
-            resourceInputs["selectors"] = args ? args.selectors : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["fargateProfileName"] = args?.fargateProfileName;
+            resourceInputs["podExecutionRoleArn"] = args?.podExecutionRoleArn;
+            resourceInputs["selectors"] = args?.selectors;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

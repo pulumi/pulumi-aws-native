@@ -40,31 +40,31 @@ export class Channel extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned to the Channel.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the Channel.
      */
-    public readonly awsId!: pulumi.Output<string>;
+    declare public readonly awsId: pulumi.Output<string>;
     /**
      * A short text description of the Channel.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The configuration parameters for egress access logging.
      */
-    public readonly egressAccessLogs!: pulumi.Output<outputs.mediapackage.ChannelLogConfiguration | undefined>;
+    declare public readonly egressAccessLogs: pulumi.Output<outputs.mediapackage.ChannelLogConfiguration | undefined>;
     /**
      * An HTTP Live Streaming (HLS) ingest resource configuration.
      */
-    public readonly hlsIngest!: pulumi.Output<outputs.mediapackage.ChannelHlsIngest | undefined>;
+    declare public readonly hlsIngest: pulumi.Output<outputs.mediapackage.ChannelHlsIngest | undefined>;
     /**
      * The configuration parameters for egress access logging.
      */
-    public readonly ingressAccessLogs!: pulumi.Output<outputs.mediapackage.ChannelLogConfiguration | undefined>;
+    declare public readonly ingressAccessLogs: pulumi.Output<outputs.mediapackage.ChannelLogConfiguration | undefined>;
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -77,15 +77,15 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsId === undefined) && !opts.urn) {
+            if (args?.awsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsId'");
             }
-            resourceInputs["awsId"] = args ? args.awsId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["egressAccessLogs"] = args ? args.egressAccessLogs : undefined;
-            resourceInputs["hlsIngest"] = args ? args.hlsIngest : undefined;
-            resourceInputs["ingressAccessLogs"] = args ? args.ingressAccessLogs : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = args?.awsId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["egressAccessLogs"] = args?.egressAccessLogs;
+            resourceInputs["hlsIngest"] = args?.hlsIngest;
+            resourceInputs["ingressAccessLogs"] = args?.ingressAccessLogs;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

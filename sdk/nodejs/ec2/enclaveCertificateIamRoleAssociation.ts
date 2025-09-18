@@ -63,23 +63,23 @@ export class EnclaveCertificateIamRoleAssociation extends pulumi.CustomResource 
     /**
      * The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
      */
-    public readonly certificateArn!: pulumi.Output<string>;
+    declare public readonly certificateArn: pulumi.Output<string>;
     /**
      * The name of the Amazon S3 bucket to which the certificate was uploaded.
      */
-    public /*out*/ readonly certificateS3BucketName!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateS3BucketName: pulumi.Output<string>;
     /**
      * The Amazon S3 object key where the certificate, certificate chain, and encrypted private key bundle are stored.
      */
-    public /*out*/ readonly certificateS3ObjectKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateS3ObjectKey: pulumi.Output<string>;
     /**
      * The ID of the AWS KMS CMK used to encrypt the private key of the certificate.
      */
-    public /*out*/ readonly encryptionKmsKeyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly encryptionKmsKeyId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
 
     /**
      * Create a EnclaveCertificateIamRoleAssociation resource with the given unique name, arguments, and options.
@@ -92,14 +92,14 @@ export class EnclaveCertificateIamRoleAssociation extends pulumi.CustomResource 
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificateArn === undefined) && !opts.urn) {
+            if (args?.certificateArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateArn'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["certificateArn"] = args?.certificateArn;
+            resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["certificateS3BucketName"] = undefined /*out*/;
             resourceInputs["certificateS3ObjectKey"] = undefined /*out*/;
             resourceInputs["encryptionKmsKeyId"] = undefined /*out*/;

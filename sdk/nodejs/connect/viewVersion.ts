@@ -37,23 +37,23 @@ export class ViewVersion extends pulumi.CustomResource {
     /**
      * The version of the view.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
     /**
      * The description for the view version.
      */
-    public readonly versionDescription!: pulumi.Output<string | undefined>;
+    declare public readonly versionDescription: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the view for which a version is being created.
      */
-    public readonly viewArn!: pulumi.Output<string>;
+    declare public readonly viewArn: pulumi.Output<string>;
     /**
      * The view content hash to be checked.
      */
-    public readonly viewContentSha256!: pulumi.Output<string | undefined>;
+    declare public readonly viewContentSha256: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the created view version.
      */
-    public /*out*/ readonly viewVersionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly viewVersionArn: pulumi.Output<string>;
 
     /**
      * Create a ViewVersion resource with the given unique name, arguments, and options.
@@ -66,12 +66,12 @@ export class ViewVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.viewArn === undefined) && !opts.urn) {
+            if (args?.viewArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'viewArn'");
             }
-            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
-            resourceInputs["viewArn"] = args ? args.viewArn : undefined;
-            resourceInputs["viewContentSha256"] = args ? args.viewContentSha256 : undefined;
+            resourceInputs["versionDescription"] = args?.versionDescription;
+            resourceInputs["viewArn"] = args?.viewArn;
+            resourceInputs["viewContentSha256"] = args?.viewContentSha256;
             resourceInputs["version"] = undefined /*out*/;
             resourceInputs["viewVersionArn"] = undefined /*out*/;
         } else {

@@ -40,59 +40,59 @@ export class Experiment extends pulumi.CustomResource {
     /**
      * The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An optional description of the experiment.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
      */
-    public readonly metricGoals!: pulumi.Output<outputs.evidently.ExperimentMetricGoalObject[]>;
+    declare public readonly metricGoals: pulumi.Output<outputs.evidently.ExperimentMetricGoalObject[]>;
     /**
      * A name for the new experiment.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
      */
-    public readonly onlineAbConfig!: pulumi.Output<outputs.evidently.ExperimentOnlineAbConfigObject>;
+    declare public readonly onlineAbConfig: pulumi.Output<outputs.evidently.ExperimentOnlineAbConfigObject>;
     /**
      * The name or the ARN of the project where this experiment is to be created.
      */
-    public readonly project!: pulumi.Output<string>;
+    declare public readonly project: pulumi.Output<string>;
     /**
      * When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
      */
-    public readonly randomizationSalt!: pulumi.Output<string | undefined>;
+    declare public readonly randomizationSalt: pulumi.Output<string | undefined>;
     /**
      * Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
      */
-    public readonly removeSegment!: pulumi.Output<boolean | undefined>;
+    declare public readonly removeSegment: pulumi.Output<boolean | undefined>;
     /**
      * Start Experiment. Default is False
      */
-    public readonly runningStatus!: pulumi.Output<outputs.evidently.ExperimentRunningStatusObject | undefined>;
+    declare public readonly runningStatus: pulumi.Output<outputs.evidently.ExperimentRunningStatusObject | undefined>;
     /**
      * The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
      *
      * This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
      */
-    public readonly samplingRate!: pulumi.Output<number | undefined>;
+    declare public readonly samplingRate: pulumi.Output<number | undefined>;
     /**
      * Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
      *
      * For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
      */
-    public readonly segment!: pulumi.Output<string | undefined>;
+    declare public readonly segment: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * An array of structures that describe the configuration of each feature variation used in the experiment.
      */
-    public readonly treatments!: pulumi.Output<outputs.evidently.ExperimentTreatmentObject[]>;
+    declare public readonly treatments: pulumi.Output<outputs.evidently.ExperimentTreatmentObject[]>;
 
     /**
      * Create a Experiment resource with the given unique name, arguments, and options.
@@ -105,30 +105,30 @@ export class Experiment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.metricGoals === undefined) && !opts.urn) {
+            if (args?.metricGoals === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricGoals'");
             }
-            if ((!args || args.onlineAbConfig === undefined) && !opts.urn) {
+            if (args?.onlineAbConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'onlineAbConfig'");
             }
-            if ((!args || args.project === undefined) && !opts.urn) {
+            if (args?.project === undefined && !opts.urn) {
                 throw new Error("Missing required property 'project'");
             }
-            if ((!args || args.treatments === undefined) && !opts.urn) {
+            if (args?.treatments === undefined && !opts.urn) {
                 throw new Error("Missing required property 'treatments'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["metricGoals"] = args ? args.metricGoals : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["onlineAbConfig"] = args ? args.onlineAbConfig : undefined;
-            resourceInputs["project"] = args ? args.project : undefined;
-            resourceInputs["randomizationSalt"] = args ? args.randomizationSalt : undefined;
-            resourceInputs["removeSegment"] = args ? args.removeSegment : undefined;
-            resourceInputs["runningStatus"] = args ? args.runningStatus : undefined;
-            resourceInputs["samplingRate"] = args ? args.samplingRate : undefined;
-            resourceInputs["segment"] = args ? args.segment : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["treatments"] = args ? args.treatments : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["metricGoals"] = args?.metricGoals;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["onlineAbConfig"] = args?.onlineAbConfig;
+            resourceInputs["project"] = args?.project;
+            resourceInputs["randomizationSalt"] = args?.randomizationSalt;
+            resourceInputs["removeSegment"] = args?.removeSegment;
+            resourceInputs["runningStatus"] = args?.runningStatus;
+            resourceInputs["samplingRate"] = args?.samplingRate;
+            resourceInputs["segment"] = args?.segment;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["treatments"] = args?.treatments;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

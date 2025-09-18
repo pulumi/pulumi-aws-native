@@ -46,11 +46,11 @@ export class Image extends pulumi.CustomResource {
      *
      * *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image/[a-z0-9]([-.]?[a-z0-9])*$`
      */
-    public /*out*/ readonly imageArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly imageArn: pulumi.Output<string>;
     /**
      * The description of the image.
      */
-    public readonly imageDescription!: pulumi.Output<string | undefined>;
+    declare public readonly imageDescription: pulumi.Output<string | undefined>;
     /**
      * The display name of the image.
      *
@@ -58,7 +58,7 @@ export class Image extends pulumi.CustomResource {
      *
      * *Pattern* : `^\S(.*\S)?$`
      */
-    public readonly imageDisplayName!: pulumi.Output<string | undefined>;
+    declare public readonly imageDisplayName: pulumi.Output<string | undefined>;
     /**
      * The name of the Image. Must be unique by region in your account.
      *
@@ -66,7 +66,7 @@ export class Image extends pulumi.CustomResource {
      *
      * *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
      */
-    public readonly imageName!: pulumi.Output<string>;
+    declare public readonly imageName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
      *
@@ -74,11 +74,11 @@ export class Image extends pulumi.CustomResource {
      *
      * *Pattern* : `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
      */
-    public readonly imageRoleArn!: pulumi.Output<string>;
+    declare public readonly imageRoleArn: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Image resource with the given unique name, arguments, and options.
@@ -91,14 +91,14 @@ export class Image extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.imageRoleArn === undefined) && !opts.urn) {
+            if (args?.imageRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'imageRoleArn'");
             }
-            resourceInputs["imageDescription"] = args ? args.imageDescription : undefined;
-            resourceInputs["imageDisplayName"] = args ? args.imageDisplayName : undefined;
-            resourceInputs["imageName"] = args ? args.imageName : undefined;
-            resourceInputs["imageRoleArn"] = args ? args.imageRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["imageDescription"] = args?.imageDescription;
+            resourceInputs["imageDisplayName"] = args?.imageDisplayName;
+            resourceInputs["imageName"] = args?.imageName;
+            resourceInputs["imageRoleArn"] = args?.imageRoleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["imageArn"] = undefined /*out*/;
         } else {
             resourceInputs["imageArn"] = undefined /*out*/;

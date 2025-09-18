@@ -40,47 +40,47 @@ export class NotificationRule extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the notification rule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name or email alias of the person who created the notification rule.
      */
-    public readonly createdBy!: pulumi.Output<string | undefined>;
+    declare public readonly createdBy: pulumi.Output<string | undefined>;
     /**
      * The level of detail to include in the notifications for this resource. `BASIC` will include only the contents of the event as it would appear in Amazon CloudWatch. `FULL` will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
      */
-    public readonly detailType!: pulumi.Output<enums.codestarnotifications.NotificationRuleDetailType>;
+    declare public readonly detailType: pulumi.Output<enums.codestarnotifications.NotificationRuleDetailType>;
     /**
      * The event type associated with this notification rule. For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
      */
-    public readonly eventTypeId!: pulumi.Output<string | undefined>;
+    declare public readonly eventTypeId: pulumi.Output<string | undefined>;
     /**
      * A list of event types associated with this notification rule. For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
      */
-    public readonly eventTypeIds!: pulumi.Output<string[]>;
+    declare public readonly eventTypeIds: pulumi.Output<string[]>;
     /**
      * The name for the notification rule. Notification rule names must be unique in your AWS account .
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the resource to associate with the notification rule. Supported resources include pipelines in AWS CodePipeline , repositories in AWS CodeCommit , and build projects in AWS CodeBuild .
      */
-    public readonly resource!: pulumi.Output<string>;
+    declare public readonly resource: pulumi.Output<string>;
     /**
      * The status of the notification rule. The default value is `ENABLED` . If the status is set to `DISABLED` , notifications aren't sent for the notification rule.
      */
-    public readonly status!: pulumi.Output<enums.codestarnotifications.NotificationRuleStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.codestarnotifications.NotificationRuleStatus | undefined>;
     /**
      * A list of tags to apply to this notification rule. Key names cannot start with " `aws` ".
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon SNS topic or  client.
      */
-    public readonly targetAddress!: pulumi.Output<string | undefined>;
+    declare public readonly targetAddress: pulumi.Output<string | undefined>;
     /**
      * A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
      */
-    public readonly targets!: pulumi.Output<outputs.codestarnotifications.NotificationRuleTarget[]>;
+    declare public readonly targets: pulumi.Output<outputs.codestarnotifications.NotificationRuleTarget[]>;
 
     /**
      * Create a NotificationRule resource with the given unique name, arguments, and options.
@@ -93,28 +93,28 @@ export class NotificationRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.detailType === undefined) && !opts.urn) {
+            if (args?.detailType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detailType'");
             }
-            if ((!args || args.eventTypeIds === undefined) && !opts.urn) {
+            if (args?.eventTypeIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventTypeIds'");
             }
-            if ((!args || args.resource === undefined) && !opts.urn) {
+            if (args?.resource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.targets === undefined) && !opts.urn) {
+            if (args?.targets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targets'");
             }
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["detailType"] = args ? args.detailType : undefined;
-            resourceInputs["eventTypeId"] = args ? args.eventTypeId : undefined;
-            resourceInputs["eventTypeIds"] = args ? args.eventTypeIds : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetAddress"] = args ? args.targetAddress : undefined;
-            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["createdBy"] = args?.createdBy;
+            resourceInputs["detailType"] = args?.detailType;
+            resourceInputs["eventTypeId"] = args?.eventTypeId;
+            resourceInputs["eventTypeIds"] = args?.eventTypeIds;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resource"] = args?.resource;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetAddress"] = args?.targetAddress;
+            resourceInputs["targets"] = args?.targets;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -40,75 +40,75 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
     /**
      * A flag that indicates whether a match that was created with this configuration must be accepted by the matched players
      */
-    public readonly acceptanceRequired!: pulumi.Output<boolean>;
+    declare public readonly acceptanceRequired: pulumi.Output<boolean>;
     /**
      * The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
      */
-    public readonly acceptanceTimeoutSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly acceptanceTimeoutSeconds: pulumi.Output<number | undefined>;
     /**
      * The number of player slots in a match to keep open for future players.
      */
-    public readonly additionalPlayerCount!: pulumi.Output<number | undefined>;
+    declare public readonly additionalPlayerCount: pulumi.Output<number | undefined>;
     /**
      * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking configuration resource and uniquely identifies it.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The method used to backfill game sessions created with this matchmaking configuration.
      */
-    public readonly backfillMode!: pulumi.Output<enums.gamelift.MatchmakingConfigurationBackfillMode | undefined>;
+    declare public readonly backfillMode: pulumi.Output<enums.gamelift.MatchmakingConfigurationBackfillMode | undefined>;
     /**
      * A time stamp indicating when this data object was created.
      */
-    public readonly creationTime!: pulumi.Output<string | undefined>;
+    declare public readonly creationTime: pulumi.Output<string | undefined>;
     /**
      * Information to attach to all events related to the matchmaking configuration.
      */
-    public readonly customEventData!: pulumi.Output<string | undefined>;
+    declare public readonly customEventData: pulumi.Output<string | undefined>;
     /**
      * A descriptive label that is associated with matchmaking configuration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
      */
-    public readonly flexMatchMode!: pulumi.Output<enums.gamelift.MatchmakingConfigurationFlexMatchMode | undefined>;
+    declare public readonly flexMatchMode: pulumi.Output<enums.gamelift.MatchmakingConfigurationFlexMatchMode | undefined>;
     /**
      * A set of custom properties for a game session, formatted as key:value pairs.
      */
-    public readonly gameProperties!: pulumi.Output<outputs.gamelift.MatchmakingConfigurationGameProperty[] | undefined>;
+    declare public readonly gameProperties: pulumi.Output<outputs.gamelift.MatchmakingConfigurationGameProperty[] | undefined>;
     /**
      * A set of custom game session properties, formatted as a single string value.
      */
-    public readonly gameSessionData!: pulumi.Output<string | undefined>;
+    declare public readonly gameSessionData: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
      */
-    public readonly gameSessionQueueArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly gameSessionQueueArns: pulumi.Output<string[] | undefined>;
     /**
      * A unique identifier for the matchmaking configuration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An SNS topic ARN that is set up to receive matchmaking notifications.
      */
-    public readonly notificationTarget!: pulumi.Output<string | undefined>;
+    declare public readonly notificationTarget: pulumi.Output<string | undefined>;
     /**
      * The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
      */
-    public readonly requestTimeoutSeconds!: pulumi.Output<number>;
+    declare public readonly requestTimeoutSeconds: pulumi.Output<number>;
     /**
      * The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
      */
-    public readonly ruleSetArn!: pulumi.Output<string | undefined>;
+    declare public readonly ruleSetArn: pulumi.Output<string | undefined>;
     /**
      * A unique identifier for the matchmaking rule set to use with this configuration.
      */
-    public readonly ruleSetName!: pulumi.Output<string>;
+    declare public readonly ruleSetName: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MatchmakingConfiguration resource with the given unique name, arguments, and options.
@@ -121,32 +121,32 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.acceptanceRequired === undefined) && !opts.urn) {
+            if (args?.acceptanceRequired === undefined && !opts.urn) {
                 throw new Error("Missing required property 'acceptanceRequired'");
             }
-            if ((!args || args.requestTimeoutSeconds === undefined) && !opts.urn) {
+            if (args?.requestTimeoutSeconds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'requestTimeoutSeconds'");
             }
-            if ((!args || args.ruleSetName === undefined) && !opts.urn) {
+            if (args?.ruleSetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetName'");
             }
-            resourceInputs["acceptanceRequired"] = args ? args.acceptanceRequired : undefined;
-            resourceInputs["acceptanceTimeoutSeconds"] = args ? args.acceptanceTimeoutSeconds : undefined;
-            resourceInputs["additionalPlayerCount"] = args ? args.additionalPlayerCount : undefined;
-            resourceInputs["backfillMode"] = args ? args.backfillMode : undefined;
-            resourceInputs["creationTime"] = args ? args.creationTime : undefined;
-            resourceInputs["customEventData"] = args ? args.customEventData : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["flexMatchMode"] = args ? args.flexMatchMode : undefined;
-            resourceInputs["gameProperties"] = args ? args.gameProperties : undefined;
-            resourceInputs["gameSessionData"] = args ? args.gameSessionData : undefined;
-            resourceInputs["gameSessionQueueArns"] = args ? args.gameSessionQueueArns : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationTarget"] = args ? args.notificationTarget : undefined;
-            resourceInputs["requestTimeoutSeconds"] = args ? args.requestTimeoutSeconds : undefined;
-            resourceInputs["ruleSetArn"] = args ? args.ruleSetArn : undefined;
-            resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["acceptanceRequired"] = args?.acceptanceRequired;
+            resourceInputs["acceptanceTimeoutSeconds"] = args?.acceptanceTimeoutSeconds;
+            resourceInputs["additionalPlayerCount"] = args?.additionalPlayerCount;
+            resourceInputs["backfillMode"] = args?.backfillMode;
+            resourceInputs["creationTime"] = args?.creationTime;
+            resourceInputs["customEventData"] = args?.customEventData;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["flexMatchMode"] = args?.flexMatchMode;
+            resourceInputs["gameProperties"] = args?.gameProperties;
+            resourceInputs["gameSessionData"] = args?.gameSessionData;
+            resourceInputs["gameSessionQueueArns"] = args?.gameSessionQueueArns;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationTarget"] = args?.notificationTarget;
+            resourceInputs["requestTimeoutSeconds"] = args?.requestTimeoutSeconds;
+            resourceInputs["ruleSetArn"] = args?.ruleSetArn;
+            resourceInputs["ruleSetName"] = args?.ruleSetName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["acceptanceRequired"] = undefined /*out*/;

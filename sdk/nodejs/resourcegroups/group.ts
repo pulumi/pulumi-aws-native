@@ -40,39 +40,39 @@ export class Group extends pulumi.CustomResource {
     /**
      * The Resource Group ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
      *
      * > You can include either a `Configuration` or a `ResourceQuery` , but not both.
      */
-    public readonly configuration!: pulumi.Output<outputs.resourcegroups.GroupConfigurationItem[] | undefined>;
+    declare public readonly configuration: pulumi.Output<outputs.resourcegroups.GroupConfigurationItem[] | undefined>;
     /**
      * The description of the resource group
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
      *
      * > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
      * > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
      */
-    public readonly resourceQuery!: pulumi.Output<outputs.resourcegroups.GroupResourceQuery | undefined>;
+    declare public readonly resourceQuery: pulumi.Output<outputs.resourcegroups.GroupResourceQuery | undefined>;
     /**
      * A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
      *
      * > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
      * > - You can include a `Resources` property only if you also specify a `Configuration` property.
      */
-    public readonly resources!: pulumi.Output<string[] | undefined>;
+    declare public readonly resources: pulumi.Output<string[] | undefined>;
     /**
      * The tag key and value pairs that are attached to the resource group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -85,12 +85,12 @@ export class Group extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceQuery"] = args ? args.resourceQuery : undefined;
-            resourceInputs["resources"] = args ? args.resources : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceQuery"] = args?.resourceQuery;
+            resourceInputs["resources"] = args?.resources;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

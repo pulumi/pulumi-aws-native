@@ -40,27 +40,27 @@ export class ProfilingGroup extends pulumi.CustomResource {
     /**
      * The agent permissions attached to this profiling group.
      */
-    public readonly agentPermissions!: pulumi.Output<outputs.codeguruprofiler.AgentPermissionsProperties | undefined>;
+    declare public readonly agentPermissions: pulumi.Output<outputs.codeguruprofiler.AgentPermissionsProperties | undefined>;
     /**
      * Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
      */
-    public readonly anomalyDetectionNotificationConfiguration!: pulumi.Output<outputs.codeguruprofiler.ProfilingGroupChannel[] | undefined>;
+    declare public readonly anomalyDetectionNotificationConfiguration: pulumi.Output<outputs.codeguruprofiler.ProfilingGroupChannel[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the specified profiling group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The compute platform of the profiling group.
      */
-    public readonly computePlatform!: pulumi.Output<enums.codeguruprofiler.ProfilingGroupComputePlatform | undefined>;
+    declare public readonly computePlatform: pulumi.Output<enums.codeguruprofiler.ProfilingGroupComputePlatform | undefined>;
     /**
      * The name of the profiling group.
      */
-    public readonly profilingGroupName!: pulumi.Output<string>;
+    declare public readonly profilingGroupName: pulumi.Output<string>;
     /**
      * The tags associated with a profiling group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ProfilingGroup resource with the given unique name, arguments, and options.
@@ -73,11 +73,11 @@ export class ProfilingGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["agentPermissions"] = args ? args.agentPermissions : undefined;
-            resourceInputs["anomalyDetectionNotificationConfiguration"] = args ? args.anomalyDetectionNotificationConfiguration : undefined;
-            resourceInputs["computePlatform"] = args ? args.computePlatform : undefined;
-            resourceInputs["profilingGroupName"] = args ? args.profilingGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentPermissions"] = args?.agentPermissions;
+            resourceInputs["anomalyDetectionNotificationConfiguration"] = args?.anomalyDetectionNotificationConfiguration;
+            resourceInputs["computePlatform"] = args?.computePlatform;
+            resourceInputs["profilingGroupName"] = args?.profilingGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["agentPermissions"] = undefined /*out*/;

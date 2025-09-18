@@ -40,35 +40,35 @@ export class Site extends pulumi.CustomResource {
     /**
      * The date and time that the device was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the site.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the global network.
      */
-    public readonly globalNetworkId!: pulumi.Output<string>;
+    declare public readonly globalNetworkId: pulumi.Output<string>;
     /**
      * The location of the site.
      */
-    public readonly location!: pulumi.Output<outputs.networkmanager.SiteLocation | undefined>;
+    declare public readonly location: pulumi.Output<outputs.networkmanager.SiteLocation | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the site.
      */
-    public /*out*/ readonly siteArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly siteArn: pulumi.Output<string>;
     /**
      * The ID of the site.
      */
-    public /*out*/ readonly siteId!: pulumi.Output<string>;
+    declare public /*out*/ readonly siteId: pulumi.Output<string>;
     /**
      * The state of the site.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The tags for the site.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Site resource with the given unique name, arguments, and options.
@@ -81,13 +81,13 @@ export class Site extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
+            if (args?.globalNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["globalNetworkId"] = args?.globalNetworkId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["siteArn"] = undefined /*out*/;
             resourceInputs["siteId"] = undefined /*out*/;

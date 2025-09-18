@@ -40,55 +40,55 @@ export class Application extends pulumi.CustomResource {
     /**
      * The ARN of the ApplicationInsights application.
      */
-    public /*out*/ readonly applicationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationArn: pulumi.Output<string>;
     /**
      * If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
      */
-    public readonly attachMissingPermission!: pulumi.Output<boolean | undefined>;
+    declare public readonly attachMissingPermission: pulumi.Output<boolean | undefined>;
     /**
      * If set to true, application will be configured with recommended monitoring configuration.
      */
-    public readonly autoConfigurationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoConfigurationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The monitoring settings of the components.
      */
-    public readonly componentMonitoringSettings!: pulumi.Output<outputs.applicationinsights.ApplicationComponentMonitoringSetting[] | undefined>;
+    declare public readonly componentMonitoringSettings: pulumi.Output<outputs.applicationinsights.ApplicationComponentMonitoringSetting[] | undefined>;
     /**
      * The custom grouped components.
      */
-    public readonly customComponents!: pulumi.Output<outputs.applicationinsights.ApplicationCustomComponent[] | undefined>;
+    declare public readonly customComponents: pulumi.Output<outputs.applicationinsights.ApplicationCustomComponent[] | undefined>;
     /**
      * Indicates whether Application Insights can listen to CloudWatch events for the application resources.
      */
-    public readonly cweMonitorEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly cweMonitorEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The grouping type of the application
      */
-    public readonly groupingType!: pulumi.Output<enums.applicationinsights.ApplicationGroupingType | undefined>;
+    declare public readonly groupingType: pulumi.Output<enums.applicationinsights.ApplicationGroupingType | undefined>;
     /**
      * The log pattern sets.
      */
-    public readonly logPatternSets!: pulumi.Output<outputs.applicationinsights.ApplicationLogPatternSet[] | undefined>;
+    declare public readonly logPatternSets: pulumi.Output<outputs.applicationinsights.ApplicationLogPatternSet[] | undefined>;
     /**
      * When set to true, creates opsItems for any problems detected on an application.
      */
-    public readonly opsCenterEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly opsCenterEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The SNS topic provided to Application Insights that is associated to the created opsItem.
      */
-    public readonly opsItemSnsTopicArn!: pulumi.Output<string | undefined>;
+    declare public readonly opsItemSnsTopicArn: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.
      */
-    public readonly snsNotificationArn!: pulumi.Output<string | undefined>;
+    declare public readonly snsNotificationArn: pulumi.Output<string | undefined>;
     /**
      * The tags of Application Insights application.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -101,21 +101,21 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["attachMissingPermission"] = args ? args.attachMissingPermission : undefined;
-            resourceInputs["autoConfigurationEnabled"] = args ? args.autoConfigurationEnabled : undefined;
-            resourceInputs["componentMonitoringSettings"] = args ? args.componentMonitoringSettings : undefined;
-            resourceInputs["customComponents"] = args ? args.customComponents : undefined;
-            resourceInputs["cweMonitorEnabled"] = args ? args.cweMonitorEnabled : undefined;
-            resourceInputs["groupingType"] = args ? args.groupingType : undefined;
-            resourceInputs["logPatternSets"] = args ? args.logPatternSets : undefined;
-            resourceInputs["opsCenterEnabled"] = args ? args.opsCenterEnabled : undefined;
-            resourceInputs["opsItemSnsTopicArn"] = args ? args.opsItemSnsTopicArn : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["snsNotificationArn"] = args ? args.snsNotificationArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["attachMissingPermission"] = args?.attachMissingPermission;
+            resourceInputs["autoConfigurationEnabled"] = args?.autoConfigurationEnabled;
+            resourceInputs["componentMonitoringSettings"] = args?.componentMonitoringSettings;
+            resourceInputs["customComponents"] = args?.customComponents;
+            resourceInputs["cweMonitorEnabled"] = args?.cweMonitorEnabled;
+            resourceInputs["groupingType"] = args?.groupingType;
+            resourceInputs["logPatternSets"] = args?.logPatternSets;
+            resourceInputs["opsCenterEnabled"] = args?.opsCenterEnabled;
+            resourceInputs["opsItemSnsTopicArn"] = args?.opsItemSnsTopicArn;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["snsNotificationArn"] = args?.snsNotificationArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationArn"] = undefined /*out*/;
         } else {
             resourceInputs["applicationArn"] = undefined /*out*/;

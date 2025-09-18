@@ -40,17 +40,17 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
     /**
      * The name of the Multi Region Access Point to apply policy
      */
-    public readonly mrapName!: pulumi.Output<string>;
+    declare public readonly mrapName: pulumi.Output<string>;
     /**
      * Policy document to apply to a Multi Region Access Point
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::MultiRegionAccessPointPolicy` for more information about the expected schema for this property.
      */
-    public readonly policy!: pulumi.Output<any>;
+    declare public readonly policy: pulumi.Output<any>;
     /**
      * The Policy Status associated with this Multi Region Access Point
      */
-    public /*out*/ readonly policyStatus!: pulumi.Output<outputs.s3.PolicyStatusProperties>;
+    declare public /*out*/ readonly policyStatus: pulumi.Output<outputs.s3.PolicyStatusProperties>;
 
     /**
      * Create a MultiRegionAccessPointPolicy resource with the given unique name, arguments, and options.
@@ -63,14 +63,14 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.mrapName === undefined) && !opts.urn) {
+            if (args?.mrapName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mrapName'");
             }
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["mrapName"] = args ? args.mrapName : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["mrapName"] = args?.mrapName;
+            resourceInputs["policy"] = args?.policy;
             resourceInputs["policyStatus"] = undefined /*out*/;
         } else {
             resourceInputs["mrapName"] = undefined /*out*/;

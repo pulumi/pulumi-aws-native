@@ -40,27 +40,27 @@ export class VpcConnector extends pulumi.CustomResource {
     /**
      * A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
      */
-    public readonly securityGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroups: pulumi.Output<string[] | undefined>;
     /**
      * A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
      */
-    public readonly subnets!: pulumi.Output<string[]>;
+    declare public readonly subnets: pulumi.Output<string[]>;
     /**
      * A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of this VPC connector.
      */
-    public /*out*/ readonly vpcConnectorArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcConnectorArn: pulumi.Output<string>;
     /**
      * A name for the VPC connector. If you don't specify a name, AWS CloudFormation generates a name for your VPC connector.
      */
-    public readonly vpcConnectorName!: pulumi.Output<string | undefined>;
+    declare public readonly vpcConnectorName: pulumi.Output<string | undefined>;
     /**
      * The revision of this VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
      */
-    public /*out*/ readonly vpcConnectorRevision!: pulumi.Output<number>;
+    declare public /*out*/ readonly vpcConnectorRevision: pulumi.Output<number>;
 
     /**
      * Create a VpcConnector resource with the given unique name, arguments, and options.
@@ -73,13 +73,13 @@ export class VpcConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.subnets === undefined) && !opts.urn) {
+            if (args?.subnets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnets'");
             }
-            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConnectorName"] = args ? args.vpcConnectorName : undefined;
+            resourceInputs["securityGroups"] = args?.securityGroups;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConnectorName"] = args?.vpcConnectorName;
             resourceInputs["vpcConnectorArn"] = undefined /*out*/;
             resourceInputs["vpcConnectorRevision"] = undefined /*out*/;
         } else {

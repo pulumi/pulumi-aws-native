@@ -101,11 +101,11 @@ export class Keyspace extends pulumi.CustomResource {
     /**
      * Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
      */
-    public readonly clientSideTimestampsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly clientSideTimestampsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Name for Cassandra keyspace
      */
-    public readonly keyspaceName!: pulumi.Output<string | undefined>;
+    declare public readonly keyspaceName: pulumi.Output<string | undefined>;
     /**
      * Specifies the `ReplicationStrategy` of a keyspace. The options are:
      *
@@ -114,13 +114,13 @@ export class Keyspace extends pulumi.CustomResource {
      *
      * If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
      */
-    public readonly replicationSpecification!: pulumi.Output<outputs.cassandra.KeyspaceReplicationSpecification | undefined>;
+    declare public readonly replicationSpecification: pulumi.Output<outputs.cassandra.KeyspaceReplicationSpecification | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Keyspace resource with the given unique name, arguments, and options.
@@ -133,10 +133,10 @@ export class Keyspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["clientSideTimestampsEnabled"] = args ? args.clientSideTimestampsEnabled : undefined;
-            resourceInputs["keyspaceName"] = args ? args.keyspaceName : undefined;
-            resourceInputs["replicationSpecification"] = args ? args.replicationSpecification : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clientSideTimestampsEnabled"] = args?.clientSideTimestampsEnabled;
+            resourceInputs["keyspaceName"] = args?.keyspaceName;
+            resourceInputs["replicationSpecification"] = args?.replicationSpecification;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["clientSideTimestampsEnabled"] = undefined /*out*/;
             resourceInputs["keyspaceName"] = undefined /*out*/;

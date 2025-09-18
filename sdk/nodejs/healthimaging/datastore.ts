@@ -40,35 +40,35 @@ export class Datastore extends pulumi.CustomResource {
     /**
      * The timestamp when the data store was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the data store.
      */
-    public /*out*/ readonly datastoreArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly datastoreArn: pulumi.Output<string>;
     /**
      * The data store identifier.
      */
-    public /*out*/ readonly datastoreId!: pulumi.Output<string>;
+    declare public /*out*/ readonly datastoreId: pulumi.Output<string>;
     /**
      * The data store name.
      */
-    public readonly datastoreName!: pulumi.Output<string | undefined>;
+    declare public readonly datastoreName: pulumi.Output<string | undefined>;
     /**
      * The data store status.
      */
-    public /*out*/ readonly datastoreStatus!: pulumi.Output<enums.healthimaging.DatastoreStatus>;
+    declare public /*out*/ readonly datastoreStatus: pulumi.Output<enums.healthimaging.DatastoreStatus>;
     /**
      * The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * The tags provided when creating a data store.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The timestamp when the data store was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a Datastore resource with the given unique name, arguments, and options.
@@ -81,9 +81,9 @@ export class Datastore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["datastoreName"] = args ? args.datastoreName : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["datastoreName"] = args?.datastoreName;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["datastoreArn"] = undefined /*out*/;
             resourceInputs["datastoreId"] = undefined /*out*/;

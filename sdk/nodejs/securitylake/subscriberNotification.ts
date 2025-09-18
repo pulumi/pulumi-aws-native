@@ -40,15 +40,15 @@ export class SubscriberNotification extends pulumi.CustomResource {
     /**
      * Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
      */
-    public readonly notificationConfiguration!: pulumi.Output<outputs.securitylake.SubscriberNotificationNotificationConfiguration>;
+    declare public readonly notificationConfiguration: pulumi.Output<outputs.securitylake.SubscriberNotificationNotificationConfiguration>;
     /**
      * The ARN for the subscriber
      */
-    public readonly subscriberArn!: pulumi.Output<string>;
+    declare public readonly subscriberArn: pulumi.Output<string>;
     /**
      * The endpoint the subscriber should listen to for notifications
      */
-    public /*out*/ readonly subscriberEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly subscriberEndpoint: pulumi.Output<string>;
 
     /**
      * Create a SubscriberNotification resource with the given unique name, arguments, and options.
@@ -61,14 +61,14 @@ export class SubscriberNotification extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.notificationConfiguration === undefined) && !opts.urn) {
+            if (args?.notificationConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notificationConfiguration'");
             }
-            if ((!args || args.subscriberArn === undefined) && !opts.urn) {
+            if (args?.subscriberArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriberArn'");
             }
-            resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
-            resourceInputs["subscriberArn"] = args ? args.subscriberArn : undefined;
+            resourceInputs["notificationConfiguration"] = args?.notificationConfiguration;
+            resourceInputs["subscriberArn"] = args?.subscriberArn;
             resourceInputs["subscriberEndpoint"] = undefined /*out*/;
         } else {
             resourceInputs["notificationConfiguration"] = undefined /*out*/;

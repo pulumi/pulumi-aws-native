@@ -74,43 +74,43 @@ export class Project extends pulumi.CustomResource {
     /**
      * The time at which the project was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the project.
      */
-    public /*out*/ readonly projectArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly projectArn: pulumi.Output<string>;
     /**
      * The description of the project.
      */
-    public readonly projectDescription!: pulumi.Output<string | undefined>;
+    declare public readonly projectDescription: pulumi.Output<string | undefined>;
     /**
      * The ID of the project. This ID is prepended to all entities associated with this project.
      */
-    public /*out*/ readonly projectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly projectId: pulumi.Output<string>;
     /**
      * The name of the project.
      */
-    public readonly projectName!: pulumi.Output<string>;
+    declare public readonly projectName: pulumi.Output<string>;
     /**
      * The status of a project.
      */
-    public /*out*/ readonly projectStatus!: pulumi.Output<enums.sagemaker.ProjectStatus>;
+    declare public /*out*/ readonly projectStatus: pulumi.Output<enums.sagemaker.ProjectStatus>;
     /**
      * Provisioned ServiceCatalog  Details
      */
-    public readonly serviceCatalogProvisionedProductDetails!: pulumi.Output<outputs.sagemaker.ServiceCatalogProvisionedProductDetailsProperties | undefined>;
+    declare public readonly serviceCatalogProvisionedProductDetails: pulumi.Output<outputs.sagemaker.ServiceCatalogProvisionedProductDetailsProperties | undefined>;
     /**
      * Input ServiceCatalog Provisioning Details
      */
-    public readonly serviceCatalogProvisioningDetails!: pulumi.Output<outputs.sagemaker.ServiceCatalogProvisioningDetailsProperties | undefined>;
+    declare public readonly serviceCatalogProvisioningDetails: pulumi.Output<outputs.sagemaker.ServiceCatalogProvisioningDetailsProperties | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * An array of template providers associated with the project.
      */
-    public readonly templateProviderDetails!: pulumi.Output<outputs.sagemaker.ProjectTemplateProviderDetail[] | undefined>;
+    declare public readonly templateProviderDetails: pulumi.Output<outputs.sagemaker.ProjectTemplateProviderDetail[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -123,12 +123,12 @@ export class Project extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["projectDescription"] = args ? args.projectDescription : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["serviceCatalogProvisionedProductDetails"] = args ? args.serviceCatalogProvisionedProductDetails : undefined;
-            resourceInputs["serviceCatalogProvisioningDetails"] = args ? args.serviceCatalogProvisioningDetails : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateProviderDetails"] = args ? args.templateProviderDetails : undefined;
+            resourceInputs["projectDescription"] = args?.projectDescription;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["serviceCatalogProvisionedProductDetails"] = args?.serviceCatalogProvisionedProductDetails;
+            resourceInputs["serviceCatalogProvisioningDetails"] = args?.serviceCatalogProvisioningDetails;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateProviderDetails"] = args?.templateProviderDetails;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["projectArn"] = undefined /*out*/;
             resourceInputs["projectId"] = undefined /*out*/;

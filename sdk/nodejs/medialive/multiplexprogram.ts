@@ -40,31 +40,31 @@ export class Multiplexprogram extends pulumi.CustomResource {
     /**
      * The MediaLive channel associated with the program.
      */
-    public /*out*/ readonly channelId!: pulumi.Output<string>;
+    declare public /*out*/ readonly channelId: pulumi.Output<string>;
     /**
      * The ID of the multiplex that the program belongs to.
      */
-    public readonly multiplexId!: pulumi.Output<string | undefined>;
+    declare public readonly multiplexId: pulumi.Output<string | undefined>;
     /**
      * The settings for this multiplex program.
      */
-    public readonly multiplexProgramSettings!: pulumi.Output<outputs.medialive.MultiplexprogramMultiplexProgramSettings | undefined>;
+    declare public readonly multiplexProgramSettings: pulumi.Output<outputs.medialive.MultiplexprogramMultiplexProgramSettings | undefined>;
     /**
      * The packet identifier map for this multiplex program.
      */
-    public readonly packetIdentifiersMap!: pulumi.Output<outputs.medialive.MultiplexprogramMultiplexProgramPacketIdentifiersMap | undefined>;
+    declare public readonly packetIdentifiersMap: pulumi.Output<outputs.medialive.MultiplexprogramMultiplexProgramPacketIdentifiersMap | undefined>;
     /**
      * Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
      */
-    public readonly pipelineDetails!: pulumi.Output<outputs.medialive.MultiplexprogramMultiplexProgramPipelineDetail[] | undefined>;
+    declare public readonly pipelineDetails: pulumi.Output<outputs.medialive.MultiplexprogramMultiplexProgramPipelineDetail[] | undefined>;
     /**
      * The settings for this multiplex program.
      */
-    public readonly preferredChannelPipeline!: pulumi.Output<enums.medialive.MultiplexprogramPreferredChannelPipeline | undefined>;
+    declare public readonly preferredChannelPipeline: pulumi.Output<enums.medialive.MultiplexprogramPreferredChannelPipeline | undefined>;
     /**
      * The name of the multiplex program.
      */
-    public readonly programName!: pulumi.Output<string | undefined>;
+    declare public readonly programName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Multiplexprogram resource with the given unique name, arguments, and options.
@@ -77,12 +77,12 @@ export class Multiplexprogram extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["multiplexId"] = args ? args.multiplexId : undefined;
-            resourceInputs["multiplexProgramSettings"] = args ? args.multiplexProgramSettings : undefined;
-            resourceInputs["packetIdentifiersMap"] = args ? args.packetIdentifiersMap : undefined;
-            resourceInputs["pipelineDetails"] = args ? args.pipelineDetails : undefined;
-            resourceInputs["preferredChannelPipeline"] = args ? args.preferredChannelPipeline : undefined;
-            resourceInputs["programName"] = args ? args.programName : undefined;
+            resourceInputs["multiplexId"] = args?.multiplexId;
+            resourceInputs["multiplexProgramSettings"] = args?.multiplexProgramSettings;
+            resourceInputs["packetIdentifiersMap"] = args?.packetIdentifiersMap;
+            resourceInputs["pipelineDetails"] = args?.pipelineDetails;
+            resourceInputs["preferredChannelPipeline"] = args?.preferredChannelPipeline;
+            resourceInputs["programName"] = args?.programName;
             resourceInputs["channelId"] = undefined /*out*/;
         } else {
             resourceInputs["channelId"] = undefined /*out*/;

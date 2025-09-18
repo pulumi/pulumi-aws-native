@@ -37,27 +37,27 @@ export class Member extends pulumi.CustomResource {
     /**
      * The ID of the detector associated with the GuardDuty service to add the member to.
      */
-    public readonly detectorId!: pulumi.Output<string | undefined>;
+    declare public readonly detectorId: pulumi.Output<string | undefined>;
     /**
      * Specifies whether or not to disable email notification for the member account that you invite.
      */
-    public readonly disableEmailNotification!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableEmailNotification: pulumi.Output<boolean | undefined>;
     /**
      * The email address associated with the member account.
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * The AWS account ID of the account to designate as a member.
      */
-    public readonly memberId!: pulumi.Output<string | undefined>;
+    declare public readonly memberId: pulumi.Output<string | undefined>;
     /**
      * The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
      */
-    public readonly message!: pulumi.Output<string | undefined>;
+    declare public readonly message: pulumi.Output<string | undefined>;
     /**
      * You can use the `Status` property to update the status of the relationship between the member account and its administrator account. Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
 
     /**
      * Create a Member resource with the given unique name, arguments, and options.
@@ -70,15 +70,15 @@ export class Member extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["memberId"] = args ? args.memberId : undefined;
-            resourceInputs["message"] = args ? args.message : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["disableEmailNotification"] = args?.disableEmailNotification;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["memberId"] = args?.memberId;
+            resourceInputs["message"] = args?.message;
+            resourceInputs["status"] = args?.status;
         } else {
             resourceInputs["detectorId"] = undefined /*out*/;
             resourceInputs["disableEmailNotification"] = undefined /*out*/;

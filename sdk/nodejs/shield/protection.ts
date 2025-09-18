@@ -42,31 +42,31 @@ export class Protection extends pulumi.CustomResource {
      *
      * If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the additional guidance about web ACL management in the `AWS::WAFv2::WebACL` resource description.
      */
-    public readonly applicationLayerAutomaticResponseConfiguration!: pulumi.Output<outputs.shield.ProtectionApplicationLayerAutomaticResponseConfiguration | undefined>;
+    declare public readonly applicationLayerAutomaticResponseConfiguration: pulumi.Output<outputs.shield.ProtectionApplicationLayerAutomaticResponseConfiguration | undefined>;
     /**
      * The Amazon Resource Names (ARNs) of the health check to associate with the protection.
      */
-    public readonly healthCheckArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly healthCheckArns: pulumi.Output<string[] | undefined>;
     /**
      * Friendly name for the Protection.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ARN (Amazon Resource Name) of the protection.
      */
-    public /*out*/ readonly protectionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly protectionArn: pulumi.Output<string>;
     /**
      * The unique identifier (ID) of the protection.
      */
-    public /*out*/ readonly protectionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly protectionId: pulumi.Output<string>;
     /**
      * The ARN (Amazon Resource Name) of the resource to be protected.
      */
-    public readonly resourceArn!: pulumi.Output<string>;
+    declare public readonly resourceArn: pulumi.Output<string>;
     /**
      * One or more tag key-value pairs for the Protection object.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Protection resource with the given unique name, arguments, and options.
@@ -79,14 +79,14 @@ export class Protection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["applicationLayerAutomaticResponseConfiguration"] = args ? args.applicationLayerAutomaticResponseConfiguration : undefined;
-            resourceInputs["healthCheckArns"] = args ? args.healthCheckArns : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationLayerAutomaticResponseConfiguration"] = args?.applicationLayerAutomaticResponseConfiguration;
+            resourceInputs["healthCheckArns"] = args?.healthCheckArns;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["protectionArn"] = undefined /*out*/;
             resourceInputs["protectionId"] = undefined /*out*/;
         } else {

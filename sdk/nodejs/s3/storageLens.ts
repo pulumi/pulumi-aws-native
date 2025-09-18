@@ -40,11 +40,11 @@ export class StorageLens extends pulumi.CustomResource {
     /**
      * This resource contains the details Amazon S3 Storage Lens configuration.
      */
-    public readonly storageLensConfiguration!: pulumi.Output<outputs.s3.StorageLensConfiguration>;
+    declare public readonly storageLensConfiguration: pulumi.Output<outputs.s3.StorageLensConfiguration>;
     /**
      * A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a StorageLens resource with the given unique name, arguments, and options.
@@ -57,11 +57,11 @@ export class StorageLens extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.storageLensConfiguration === undefined) && !opts.urn) {
+            if (args?.storageLensConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageLensConfiguration'");
             }
-            resourceInputs["storageLensConfiguration"] = args ? args.storageLensConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["storageLensConfiguration"] = args?.storageLensConfiguration;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["storageLensConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

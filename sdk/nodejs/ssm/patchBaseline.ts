@@ -196,67 +196,67 @@ export class PatchBaseline extends pulumi.CustomResource {
     /**
      * A set of rules used to include patches in the baseline.
      */
-    public readonly approvalRules!: pulumi.Output<outputs.ssm.PatchBaselineRuleGroup | undefined>;
+    declare public readonly approvalRules: pulumi.Output<outputs.ssm.PatchBaselineRuleGroup | undefined>;
     /**
      * A list of explicitly approved patches for the baseline.
      */
-    public readonly approvedPatches!: pulumi.Output<string[] | undefined>;
+    declare public readonly approvedPatches: pulumi.Output<string[] | undefined>;
     /**
      * Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
      */
-    public readonly approvedPatchesComplianceLevel!: pulumi.Output<enums.ssm.PatchBaselineApprovedPatchesComplianceLevel | undefined>;
+    declare public readonly approvedPatchesComplianceLevel: pulumi.Output<enums.ssm.PatchBaselineApprovedPatchesComplianceLevel | undefined>;
     /**
      * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
      */
-    public readonly approvedPatchesEnableNonSecurity!: pulumi.Output<boolean | undefined>;
+    declare public readonly approvedPatchesEnableNonSecurity: pulumi.Output<boolean | undefined>;
     /**
      * The compliance status for vendor recommended security updates that are not approved by this patch baseline.
      */
-    public readonly availableSecurityUpdatesComplianceStatus!: pulumi.Output<enums.ssm.PatchBaselineAvailableSecurityUpdatesComplianceStatus | undefined>;
+    declare public readonly availableSecurityUpdatesComplianceStatus: pulumi.Output<enums.ssm.PatchBaselineAvailableSecurityUpdatesComplianceStatus | undefined>;
     /**
      * The ID of the patch baseline.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Set the baseline as default baseline. Only registering to default patch baseline is allowed.
      */
-    public readonly defaultBaseline!: pulumi.Output<boolean | undefined>;
+    declare public readonly defaultBaseline: pulumi.Output<boolean | undefined>;
     /**
      * The description of the patch baseline.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A set of global filters used to include patches in the baseline.
      */
-    public readonly globalFilters!: pulumi.Output<outputs.ssm.PatchBaselinePatchFilterGroup | undefined>;
+    declare public readonly globalFilters: pulumi.Output<outputs.ssm.PatchBaselinePatchFilterGroup | undefined>;
     /**
      * The name of the patch baseline.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
      */
-    public readonly operatingSystem!: pulumi.Output<enums.ssm.PatchBaselineOperatingSystem | undefined>;
+    declare public readonly operatingSystem: pulumi.Output<enums.ssm.PatchBaselineOperatingSystem | undefined>;
     /**
      * PatchGroups is used to associate instances with a specific patch baseline
      */
-    public readonly patchGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly patchGroups: pulumi.Output<string[] | undefined>;
     /**
      * A list of explicitly rejected patches for the baseline.
      */
-    public readonly rejectedPatches!: pulumi.Output<string[] | undefined>;
+    declare public readonly rejectedPatches: pulumi.Output<string[] | undefined>;
     /**
      * The action for Patch Manager to take on patches included in the RejectedPackages list.
      */
-    public readonly rejectedPatchesAction!: pulumi.Output<enums.ssm.PatchBaselineRejectedPatchesAction | undefined>;
+    declare public readonly rejectedPatchesAction: pulumi.Output<enums.ssm.PatchBaselineRejectedPatchesAction | undefined>;
     /**
      * Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
      */
-    public readonly sources!: pulumi.Output<outputs.ssm.PatchBaselinePatchSource[] | undefined>;
+    declare public readonly sources: pulumi.Output<outputs.ssm.PatchBaselinePatchSource[] | undefined>;
     /**
      * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PatchBaseline resource with the given unique name, arguments, and options.
@@ -269,21 +269,21 @@ export class PatchBaseline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["approvalRules"] = args ? args.approvalRules : undefined;
-            resourceInputs["approvedPatches"] = args ? args.approvedPatches : undefined;
-            resourceInputs["approvedPatchesComplianceLevel"] = args ? args.approvedPatchesComplianceLevel : undefined;
-            resourceInputs["approvedPatchesEnableNonSecurity"] = args ? args.approvedPatchesEnableNonSecurity : undefined;
-            resourceInputs["availableSecurityUpdatesComplianceStatus"] = args ? args.availableSecurityUpdatesComplianceStatus : undefined;
-            resourceInputs["defaultBaseline"] = args ? args.defaultBaseline : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["globalFilters"] = args ? args.globalFilters : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
-            resourceInputs["patchGroups"] = args ? args.patchGroups : undefined;
-            resourceInputs["rejectedPatches"] = args ? args.rejectedPatches : undefined;
-            resourceInputs["rejectedPatchesAction"] = args ? args.rejectedPatchesAction : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["approvalRules"] = args?.approvalRules;
+            resourceInputs["approvedPatches"] = args?.approvedPatches;
+            resourceInputs["approvedPatchesComplianceLevel"] = args?.approvedPatchesComplianceLevel;
+            resourceInputs["approvedPatchesEnableNonSecurity"] = args?.approvedPatchesEnableNonSecurity;
+            resourceInputs["availableSecurityUpdatesComplianceStatus"] = args?.availableSecurityUpdatesComplianceStatus;
+            resourceInputs["defaultBaseline"] = args?.defaultBaseline;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["globalFilters"] = args?.globalFilters;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["operatingSystem"] = args?.operatingSystem;
+            resourceInputs["patchGroups"] = args?.patchGroups;
+            resourceInputs["rejectedPatches"] = args?.rejectedPatches;
+            resourceInputs["rejectedPatchesAction"] = args?.rejectedPatchesAction;
+            resourceInputs["sources"] = args?.sources;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["approvalRules"] = undefined /*out*/;

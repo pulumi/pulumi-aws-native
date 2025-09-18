@@ -40,11 +40,11 @@ export class Configuration extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The description of the configuration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
      *
@@ -54,19 +54,19 @@ export class Configuration extends pulumi.CustomResource {
      *
      * For more information, see [Can’t update KafkaVersionsList in MSK configuration](https://docs.aws.amazon.com/msk/latest/developerguide/troubleshooting.html#troubleshoot-kafkaversionslist-cfn-update-failure) in the *Amazon MSK Developer Guide* .
      */
-    public readonly kafkaVersionsList!: pulumi.Output<string[] | undefined>;
+    declare public readonly kafkaVersionsList: pulumi.Output<string[] | undefined>;
     /**
      * Latest revision of the MSK configuration.
      */
-    public readonly latestRevision!: pulumi.Output<outputs.msk.ConfigurationLatestRevision | undefined>;
+    declare public readonly latestRevision: pulumi.Output<outputs.msk.ConfigurationLatestRevision | undefined>;
     /**
      * The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Contents of the `server.properties` file. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
      */
-    public readonly serverProperties!: pulumi.Output<string>;
+    declare public readonly serverProperties: pulumi.Output<string>;
 
     /**
      * Create a Configuration resource with the given unique name, arguments, and options.
@@ -79,14 +79,14 @@ export class Configuration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.serverProperties === undefined) && !opts.urn) {
+            if (args?.serverProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverProperties'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kafkaVersionsList"] = args ? args.kafkaVersionsList : undefined;
-            resourceInputs["latestRevision"] = args ? args.latestRevision : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverProperties"] = args ? args.serverProperties : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kafkaVersionsList"] = args?.kafkaVersionsList;
+            resourceInputs["latestRevision"] = args?.latestRevision;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverProperties"] = args?.serverProperties;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

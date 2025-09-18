@@ -40,27 +40,27 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
      */
-    public readonly components!: pulumi.Output<{[key: string]: outputs.greengrassv2.DeploymentComponentDeploymentSpecification} | undefined>;
+    declare public readonly components: pulumi.Output<{[key: string]: outputs.greengrassv2.DeploymentComponentDeploymentSpecification} | undefined>;
     /**
      * The ID of the deployment.
      */
-    public /*out*/ readonly deploymentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentId: pulumi.Output<string>;
     /**
      * The name of the deployment.
      */
-    public readonly deploymentName!: pulumi.Output<string | undefined>;
+    declare public readonly deploymentName: pulumi.Output<string | undefined>;
     /**
      * The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
      */
-    public readonly deploymentPolicies!: pulumi.Output<outputs.greengrassv2.DeploymentPolicies | undefined>;
+    declare public readonly deploymentPolicies: pulumi.Output<outputs.greengrassv2.DeploymentPolicies | undefined>;
     /**
      * The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
      */
-    public readonly iotJobConfiguration!: pulumi.Output<outputs.greengrassv2.DeploymentIoTJobConfiguration | undefined>;
+    declare public readonly iotJobConfiguration: pulumi.Output<outputs.greengrassv2.DeploymentIoTJobConfiguration | undefined>;
     /**
      * The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
      */
-    public readonly parentTargetArn!: pulumi.Output<string | undefined>;
+    declare public readonly parentTargetArn: pulumi.Output<string | undefined>;
     /**
      * Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
      *
@@ -71,11 +71,11 @@ export class Deployment extends pulumi.CustomResource {
      * }
      * ```
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ARN of the target AWS IoT thing or thing group.
      */
-    public readonly targetArn!: pulumi.Output<string>;
+    declare public readonly targetArn: pulumi.Output<string>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -88,16 +88,16 @@ export class Deployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.targetArn === undefined) && !opts.urn) {
+            if (args?.targetArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            resourceInputs["components"] = args ? args.components : undefined;
-            resourceInputs["deploymentName"] = args ? args.deploymentName : undefined;
-            resourceInputs["deploymentPolicies"] = args ? args.deploymentPolicies : undefined;
-            resourceInputs["iotJobConfiguration"] = args ? args.iotJobConfiguration : undefined;
-            resourceInputs["parentTargetArn"] = args ? args.parentTargetArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetArn"] = args ? args.targetArn : undefined;
+            resourceInputs["components"] = args?.components;
+            resourceInputs["deploymentName"] = args?.deploymentName;
+            resourceInputs["deploymentPolicies"] = args?.deploymentPolicies;
+            resourceInputs["iotJobConfiguration"] = args?.iotJobConfiguration;
+            resourceInputs["parentTargetArn"] = args?.parentTargetArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetArn"] = args?.targetArn;
             resourceInputs["deploymentId"] = undefined /*out*/;
         } else {
             resourceInputs["components"] = undefined /*out*/;

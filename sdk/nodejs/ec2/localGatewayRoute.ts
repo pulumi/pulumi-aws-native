@@ -37,27 +37,27 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
     /**
      * The CIDR block used for destination matches.
      */
-    public readonly destinationCidrBlock!: pulumi.Output<string | undefined>;
+    declare public readonly destinationCidrBlock: pulumi.Output<string | undefined>;
     /**
      * The ID of the local gateway route table.
      */
-    public readonly localGatewayRouteTableId!: pulumi.Output<string | undefined>;
+    declare public readonly localGatewayRouteTableId: pulumi.Output<string | undefined>;
     /**
      * The ID of the virtual interface group.
      */
-    public readonly localGatewayVirtualInterfaceGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly localGatewayVirtualInterfaceGroupId: pulumi.Output<string | undefined>;
     /**
      * The ID of the network interface.
      */
-    public readonly networkInterfaceId!: pulumi.Output<string | undefined>;
+    declare public readonly networkInterfaceId: pulumi.Output<string | undefined>;
     /**
      * The state of the route.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The route type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a LocalGatewayRoute resource with the given unique name, arguments, and options.
@@ -70,10 +70,10 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            resourceInputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
-            resourceInputs["localGatewayVirtualInterfaceGroupId"] = args ? args.localGatewayVirtualInterfaceGroupId : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["destinationCidrBlock"] = args?.destinationCidrBlock;
+            resourceInputs["localGatewayRouteTableId"] = args?.localGatewayRouteTableId;
+            resourceInputs["localGatewayVirtualInterfaceGroupId"] = args?.localGatewayVirtualInterfaceGroupId;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

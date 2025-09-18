@@ -40,19 +40,19 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the specified Access Grants instance.
      */
-    public /*out*/ readonly accessGrantsInstanceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessGrantsInstanceArn: pulumi.Output<string>;
     /**
      * A unique identifier for the specified access grants instance.
      */
-    public /*out*/ readonly accessGrantsInstanceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessGrantsInstanceId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the specified AWS Identity Center.
      */
-    public readonly identityCenterArn!: pulumi.Output<string | undefined>;
+    declare public readonly identityCenterArn: pulumi.Output<string | undefined>;
     /**
      * The AWS resource tags that you are adding to the S3 Access Grants instance. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a AccessGrantsInstance resource with the given unique name, arguments, and options.
@@ -65,8 +65,8 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["identityCenterArn"] = args ? args.identityCenterArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identityCenterArn"] = args?.identityCenterArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accessGrantsInstanceArn"] = undefined /*out*/;
             resourceInputs["accessGrantsInstanceId"] = undefined /*out*/;
         } else {

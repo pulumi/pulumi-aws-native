@@ -40,15 +40,15 @@ export class SchemaVersion extends pulumi.CustomResource {
     /**
      * The schema that includes the schema version.
      */
-    public readonly schema!: pulumi.Output<outputs.glue.SchemaVersionSchema>;
+    declare public readonly schema: pulumi.Output<outputs.glue.SchemaVersionSchema>;
     /**
      * Complete definition of the schema in plain-text.
      */
-    public readonly schemaDefinition!: pulumi.Output<string>;
+    declare public readonly schemaDefinition: pulumi.Output<string>;
     /**
      * Represents the version ID associated with the schema version.
      */
-    public /*out*/ readonly versionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly versionId: pulumi.Output<string>;
 
     /**
      * Create a SchemaVersion resource with the given unique name, arguments, and options.
@@ -61,14 +61,14 @@ export class SchemaVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            if ((!args || args.schemaDefinition === undefined) && !opts.urn) {
+            if (args?.schemaDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaDefinition'");
             }
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["schemaDefinition"] = args ? args.schemaDefinition : undefined;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["schemaDefinition"] = args?.schemaDefinition;
             resourceInputs["versionId"] = undefined /*out*/;
         } else {
             resourceInputs["schema"] = undefined /*out*/;

@@ -40,35 +40,35 @@ export class PolicyAssociation extends pulumi.CustomResource {
     /**
      * A unique identifier to indicates if the target has an association
      */
-    public /*out*/ readonly associationIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly associationIdentifier: pulumi.Output<string>;
     /**
      * The current status of the association between the specified target and the configuration
      */
-    public /*out*/ readonly associationStatus!: pulumi.Output<enums.securityhub.PolicyAssociationAssociationStatus>;
+    declare public /*out*/ readonly associationStatus: pulumi.Output<enums.securityhub.PolicyAssociationAssociationStatus>;
     /**
      * An explanation for a FAILED value for AssociationStatus
      */
-    public /*out*/ readonly associationStatusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly associationStatusMessage: pulumi.Output<string>;
     /**
      * Indicates whether the association between the specified target and the configuration was directly applied by the Security Hub delegated administrator or inherited from a parent
      */
-    public /*out*/ readonly associationType!: pulumi.Output<enums.securityhub.PolicyAssociationAssociationType>;
+    declare public /*out*/ readonly associationType: pulumi.Output<enums.securityhub.PolicyAssociationAssociationType>;
     /**
      * The universally unique identifier (UUID) of the configuration policy or a value of SELF_MANAGED_SECURITY_HUB for a self-managed configuration
      */
-    public readonly configurationPolicyId!: pulumi.Output<string>;
+    declare public readonly configurationPolicyId: pulumi.Output<string>;
     /**
      * The identifier of the target account, organizational unit, or the root
      */
-    public readonly targetId!: pulumi.Output<string>;
+    declare public readonly targetId: pulumi.Output<string>;
     /**
      * Indicates whether the target is an AWS account, organizational unit, or the organization root
      */
-    public readonly targetType!: pulumi.Output<enums.securityhub.PolicyAssociationTargetType>;
+    declare public readonly targetType: pulumi.Output<enums.securityhub.PolicyAssociationTargetType>;
     /**
      * The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a PolicyAssociation resource with the given unique name, arguments, and options.
@@ -81,18 +81,18 @@ export class PolicyAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationPolicyId === undefined) && !opts.urn) {
+            if (args?.configurationPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationPolicyId'");
             }
-            if ((!args || args.targetId === undefined) && !opts.urn) {
+            if (args?.targetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
-            if ((!args || args.targetType === undefined) && !opts.urn) {
+            if (args?.targetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            resourceInputs["configurationPolicyId"] = args ? args.configurationPolicyId : undefined;
-            resourceInputs["targetId"] = args ? args.targetId : undefined;
-            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["configurationPolicyId"] = args?.configurationPolicyId;
+            resourceInputs["targetId"] = args?.targetId;
+            resourceInputs["targetType"] = args?.targetType;
             resourceInputs["associationIdentifier"] = undefined /*out*/;
             resourceInputs["associationStatus"] = undefined /*out*/;
             resourceInputs["associationStatusMessage"] = undefined /*out*/;

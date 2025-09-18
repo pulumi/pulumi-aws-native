@@ -40,41 +40,41 @@ export class Rule extends pulumi.CustomResource {
     /**
      * Describes the action for a rule.
      */
-    public readonly action!: pulumi.Output<outputs.vpclattice.RuleAction>;
+    declare public readonly action: pulumi.Output<outputs.vpclattice.RuleAction>;
     /**
      * The Amazon Resource Name (ARN) of the rule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the listener.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The ID or ARN of the listener.
      */
-    public readonly listenerIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly listenerIdentifier: pulumi.Output<string | undefined>;
     /**
      * The rule match.
      */
-    public readonly match!: pulumi.Output<outputs.vpclattice.RuleMatch>;
+    declare public readonly match: pulumi.Output<outputs.vpclattice.RuleMatch>;
     /**
      * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      *
      * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * The ID or ARN of the service.
      */
-    public readonly serviceIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly serviceIdentifier: pulumi.Output<string | undefined>;
     /**
      * The tags for the rule.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -87,22 +87,22 @@ export class Rule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.match === undefined) && !opts.urn) {
+            if (args?.match === undefined && !opts.urn) {
                 throw new Error("Missing required property 'match'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["listenerIdentifier"] = args ? args.listenerIdentifier : undefined;
-            resourceInputs["match"] = args ? args.match : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["serviceIdentifier"] = args ? args.serviceIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["listenerIdentifier"] = args?.listenerIdentifier;
+            resourceInputs["match"] = args?.match;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["serviceIdentifier"] = args?.serviceIdentifier;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

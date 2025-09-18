@@ -40,40 +40,40 @@ export class ServiceNetwork extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the service network.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The type of IAM policy.
      *
      * - `NONE` : The resource does not use an IAM policy. This is the default.
      * - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
      */
-    public readonly authType!: pulumi.Output<enums.vpclattice.ServiceNetworkAuthType | undefined>;
+    declare public readonly authType: pulumi.Output<enums.vpclattice.ServiceNetworkAuthType | undefined>;
     /**
      * The ID of the service network.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The date and time that the service network was created, specified in ISO-8601 format.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The date and time of the last update, specified in ISO-8601 format.
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      *
      * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Specify if the service network should be enabled for sharing.
      */
-    public readonly sharingConfig!: pulumi.Output<outputs.vpclattice.ServiceNetworkSharingConfig | undefined>;
+    declare public readonly sharingConfig: pulumi.Output<outputs.vpclattice.ServiceNetworkSharingConfig | undefined>;
     /**
      * The tags for the service network.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ServiceNetwork resource with the given unique name, arguments, and options.
@@ -86,10 +86,10 @@ export class ServiceNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["authType"] = args ? args.authType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sharingConfig"] = args ? args.sharingConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authType"] = args?.authType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sharingConfig"] = args?.sharingConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

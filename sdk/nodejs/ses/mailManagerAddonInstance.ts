@@ -40,23 +40,23 @@ export class MailManagerAddonInstance extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Add On instance.
      */
-    public /*out*/ readonly addonInstanceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly addonInstanceArn: pulumi.Output<string>;
     /**
      * The unique ID of the Add On instance.
      */
-    public /*out*/ readonly addonInstanceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly addonInstanceId: pulumi.Output<string>;
     /**
      * The name of the Add On for the instance.
      */
-    public /*out*/ readonly addonName!: pulumi.Output<string>;
+    declare public /*out*/ readonly addonName: pulumi.Output<string>;
     /**
      * The subscription ID for the instance.
      */
-    public readonly addonSubscriptionId!: pulumi.Output<string>;
+    declare public readonly addonSubscriptionId: pulumi.Output<string>;
     /**
      * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MailManagerAddonInstance resource with the given unique name, arguments, and options.
@@ -69,11 +69,11 @@ export class MailManagerAddonInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addonSubscriptionId === undefined) && !opts.urn) {
+            if (args?.addonSubscriptionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addonSubscriptionId'");
             }
-            resourceInputs["addonSubscriptionId"] = args ? args.addonSubscriptionId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addonSubscriptionId"] = args?.addonSubscriptionId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["addonInstanceArn"] = undefined /*out*/;
             resourceInputs["addonInstanceId"] = undefined /*out*/;
             resourceInputs["addonName"] = undefined /*out*/;

@@ -40,35 +40,35 @@ export class SegmentDefinition extends pulumi.CustomResource {
     /**
      * The time of this segment definition got created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the segment definition.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the segment definition.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The unique name of the domain.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the segment definition.
      */
-    public /*out*/ readonly segmentDefinitionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly segmentDefinitionArn: pulumi.Output<string>;
     /**
      * The unique name of the segment definition.
      */
-    public readonly segmentDefinitionName!: pulumi.Output<string>;
+    declare public readonly segmentDefinitionName: pulumi.Output<string>;
     /**
      * An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
      */
-    public readonly segmentGroups!: pulumi.Output<outputs.customerprofiles.SegmentDefinitionSegmentGroup>;
+    declare public readonly segmentGroups: pulumi.Output<outputs.customerprofiles.SegmentDefinitionSegmentGroup>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SegmentDefinition resource with the given unique name, arguments, and options.
@@ -81,21 +81,21 @@ export class SegmentDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.segmentGroups === undefined) && !opts.urn) {
+            if (args?.segmentGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'segmentGroups'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["segmentDefinitionName"] = args ? args.segmentDefinitionName : undefined;
-            resourceInputs["segmentGroups"] = args ? args.segmentGroups : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["segmentDefinitionName"] = args?.segmentDefinitionName;
+            resourceInputs["segmentGroups"] = args?.segmentGroups;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["segmentDefinitionArn"] = undefined /*out*/;
         } else {

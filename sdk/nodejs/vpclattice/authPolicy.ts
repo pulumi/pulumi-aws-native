@@ -42,15 +42,15 @@ export class AuthPolicy extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
      */
-    public readonly policy!: pulumi.Output<any>;
+    declare public readonly policy: pulumi.Output<any>;
     /**
      * The ID or ARN of the service network or service for which the policy is created.
      */
-    public readonly resourceIdentifier!: pulumi.Output<string>;
+    declare public readonly resourceIdentifier: pulumi.Output<string>;
     /**
      * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
      */
-    public /*out*/ readonly state!: pulumi.Output<enums.vpclattice.AuthPolicyState>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.vpclattice.AuthPolicyState>;
 
     /**
      * Create a AuthPolicy resource with the given unique name, arguments, and options.
@@ -63,14 +63,14 @@ export class AuthPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.resourceIdentifier === undefined) && !opts.urn) {
+            if (args?.resourceIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceIdentifier'");
             }
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["resourceIdentifier"] = args?.resourceIdentifier;
             resourceInputs["state"] = undefined /*out*/;
         } else {
             resourceInputs["policy"] = undefined /*out*/;

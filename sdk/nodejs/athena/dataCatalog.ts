@@ -94,35 +94,35 @@ export class DataCatalog extends pulumi.CustomResource {
     /**
      * The type of connection for a FEDERATED data catalog
      */
-    public readonly connectionType!: pulumi.Output<string | undefined>;
+    declare public readonly connectionType: pulumi.Output<string | undefined>;
     /**
      * A description of the data catalog to be created. 
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Text of the error that occurred during data catalog creation or deletion.
      */
-    public readonly error!: pulumi.Output<string | undefined>;
+    declare public readonly error: pulumi.Output<string | undefined>;
     /**
      * The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
      */
-    public readonly status!: pulumi.Output<enums.athena.DataCatalogStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.athena.DataCatalogStatus | undefined>;
     /**
      * A list of comma separated tags to add to the data catalog that is created. 
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
      */
-    public readonly type!: pulumi.Output<enums.athena.DataCatalogType>;
+    declare public readonly type: pulumi.Output<enums.athena.DataCatalogType>;
 
     /**
      * Create a DataCatalog resource with the given unique name, arguments, and options.
@@ -135,17 +135,17 @@ export class DataCatalog extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["error"] = args ? args.error : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["connectionType"] = args?.connectionType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["error"] = args?.error;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
         } else {
             resourceInputs["connectionType"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

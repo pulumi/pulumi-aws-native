@@ -40,35 +40,35 @@ export class InstanceProfile extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The description of the instance profile.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
      *
      * The list of packages is considered only if you set `packageCleanup` to `true` .
      */
-    public readonly excludeAppPackagesFromCleanup!: pulumi.Output<string[] | undefined>;
+    declare public readonly excludeAppPackagesFromCleanup: pulumi.Output<string[] | undefined>;
     /**
      * The name of the instance profile.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
      */
-    public readonly packageCleanup!: pulumi.Output<boolean | undefined>;
+    declare public readonly packageCleanup: pulumi.Output<boolean | undefined>;
     /**
      * When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
      */
-    public readonly rebootAfterUse!: pulumi.Output<boolean | undefined>;
+    declare public readonly rebootAfterUse: pulumi.Output<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a InstanceProfile resource with the given unique name, arguments, and options.
@@ -81,12 +81,12 @@ export class InstanceProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["excludeAppPackagesFromCleanup"] = args ? args.excludeAppPackagesFromCleanup : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["packageCleanup"] = args ? args.packageCleanup : undefined;
-            resourceInputs["rebootAfterUse"] = args ? args.rebootAfterUse : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["excludeAppPackagesFromCleanup"] = args?.excludeAppPackagesFromCleanup;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["packageCleanup"] = args?.packageCleanup;
+            resourceInputs["rebootAfterUse"] = args?.rebootAfterUse;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

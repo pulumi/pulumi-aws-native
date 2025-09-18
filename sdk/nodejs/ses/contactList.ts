@@ -40,19 +40,19 @@ export class ContactList extends pulumi.CustomResource {
     /**
      * The name of the contact list.
      */
-    public readonly contactListName!: pulumi.Output<string | undefined>;
+    declare public readonly contactListName: pulumi.Output<string | undefined>;
     /**
      * The description of the contact list.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The tags (keys and values) associated with the contact list.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The topics associated with the contact list.
      */
-    public readonly topics!: pulumi.Output<outputs.ses.ContactListTopic[] | undefined>;
+    declare public readonly topics: pulumi.Output<outputs.ses.ContactListTopic[] | undefined>;
 
     /**
      * Create a ContactList resource with the given unique name, arguments, and options.
@@ -65,10 +65,10 @@ export class ContactList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["contactListName"] = args ? args.contactListName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topics"] = args ? args.topics : undefined;
+            resourceInputs["contactListName"] = args?.contactListName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topics"] = args?.topics;
         } else {
             resourceInputs["contactListName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

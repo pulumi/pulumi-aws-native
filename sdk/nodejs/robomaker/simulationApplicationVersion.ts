@@ -37,19 +37,19 @@ export class SimulationApplicationVersion extends pulumi.CustomResource {
     /**
      * The application information for the simulation application.
      */
-    public readonly application!: pulumi.Output<string>;
+    declare public readonly application: pulumi.Output<string>;
     /**
      * The simulation application version.
      */
-    public /*out*/ readonly applicationVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationVersion: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the simulation application version.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The revision ID of robot application.
      */
-    public readonly currentRevisionId!: pulumi.Output<string | undefined>;
+    declare public readonly currentRevisionId: pulumi.Output<string | undefined>;
 
     /**
      * Create a SimulationApplicationVersion resource with the given unique name, arguments, and options.
@@ -62,11 +62,11 @@ export class SimulationApplicationVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.application === undefined) && !opts.urn) {
+            if (args?.application === undefined && !opts.urn) {
                 throw new Error("Missing required property 'application'");
             }
-            resourceInputs["application"] = args ? args.application : undefined;
-            resourceInputs["currentRevisionId"] = args ? args.currentRevisionId : undefined;
+            resourceInputs["application"] = args?.application;
+            resourceInputs["currentRevisionId"] = args?.currentRevisionId;
             resourceInputs["applicationVersion"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         } else {

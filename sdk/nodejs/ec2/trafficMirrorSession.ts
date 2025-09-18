@@ -40,43 +40,43 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
     /**
      * The ID of a Traffic Mirror session.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The description of the Traffic Mirror session.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the source network interface.
      */
-    public readonly networkInterfaceId!: pulumi.Output<string>;
+    declare public readonly networkInterfaceId: pulumi.Output<string>;
     /**
      * The ID of the account that owns the Traffic Mirror session.
      */
-    public readonly ownerId!: pulumi.Output<string | undefined>;
+    declare public readonly ownerId: pulumi.Output<string | undefined>;
     /**
      * The number of bytes in each packet to mirror.
      */
-    public readonly packetLength!: pulumi.Output<number | undefined>;
+    declare public readonly packetLength: pulumi.Output<number | undefined>;
     /**
      * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
-    public readonly sessionNumber!: pulumi.Output<number>;
+    declare public readonly sessionNumber: pulumi.Output<number>;
     /**
      * The tags assigned to the Traffic Mirror session.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of a Traffic Mirror filter.
      */
-    public readonly trafficMirrorFilterId!: pulumi.Output<string>;
+    declare public readonly trafficMirrorFilterId: pulumi.Output<string>;
     /**
      * The ID of a Traffic Mirror target.
      */
-    public readonly trafficMirrorTargetId!: pulumi.Output<string>;
+    declare public readonly trafficMirrorTargetId: pulumi.Output<string>;
     /**
      * The VXLAN ID for the Traffic Mirror session.
      */
-    public readonly virtualNetworkId!: pulumi.Output<number | undefined>;
+    declare public readonly virtualNetworkId: pulumi.Output<number | undefined>;
 
     /**
      * Create a TrafficMirrorSession resource with the given unique name, arguments, and options.
@@ -89,27 +89,27 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
+            if (args?.networkInterfaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if ((!args || args.sessionNumber === undefined) && !opts.urn) {
+            if (args?.sessionNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sessionNumber'");
             }
-            if ((!args || args.trafficMirrorFilterId === undefined) && !opts.urn) {
+            if (args?.trafficMirrorFilterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trafficMirrorFilterId'");
             }
-            if ((!args || args.trafficMirrorTargetId === undefined) && !opts.urn) {
+            if (args?.trafficMirrorTargetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trafficMirrorTargetId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            resourceInputs["ownerId"] = args ? args.ownerId : undefined;
-            resourceInputs["packetLength"] = args ? args.packetLength : undefined;
-            resourceInputs["sessionNumber"] = args ? args.sessionNumber : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficMirrorFilterId"] = args ? args.trafficMirrorFilterId : undefined;
-            resourceInputs["trafficMirrorTargetId"] = args ? args.trafficMirrorTargetId : undefined;
-            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
+            resourceInputs["ownerId"] = args?.ownerId;
+            resourceInputs["packetLength"] = args?.packetLength;
+            resourceInputs["sessionNumber"] = args?.sessionNumber;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficMirrorFilterId"] = args?.trafficMirrorFilterId;
+            resourceInputs["trafficMirrorTargetId"] = args?.trafficMirrorTargetId;
+            resourceInputs["virtualNetworkId"] = args?.virtualNetworkId;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

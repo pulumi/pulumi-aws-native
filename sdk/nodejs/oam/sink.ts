@@ -37,21 +37,21 @@ export class Sink extends pulumi.CustomResource {
     /**
      * The Amazon resource name (ARN) of the ObservabilityAccessManager Sink
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the ObservabilityAccessManager Sink.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The policy of this ObservabilityAccessManager Sink.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
      */
-    public readonly policy!: pulumi.Output<any | undefined>;
+    declare public readonly policy: pulumi.Output<any | undefined>;
     /**
      * Tags to apply to the sink
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Sink resource with the given unique name, arguments, and options.
@@ -64,9 +64,9 @@ export class Sink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

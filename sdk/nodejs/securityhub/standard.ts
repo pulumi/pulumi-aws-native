@@ -43,15 +43,15 @@ export class Standard extends pulumi.CustomResource {
      * Specifies which controls are to be disabled in a standard. 
      *  *Maximum*: ``100``
      */
-    public readonly disabledStandardsControls!: pulumi.Output<outputs.securityhub.StandardsControl[] | undefined>;
+    declare public readonly disabledStandardsControls: pulumi.Output<outputs.securityhub.StandardsControl[] | undefined>;
     /**
      * The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
      */
-    public readonly standardsArn!: pulumi.Output<string>;
+    declare public readonly standardsArn: pulumi.Output<string>;
     /**
      * The ARN of a resource that represents your subscription to a supported standard.
      */
-    public /*out*/ readonly standardsSubscriptionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly standardsSubscriptionArn: pulumi.Output<string>;
 
     /**
      * Create a Standard resource with the given unique name, arguments, and options.
@@ -64,11 +64,11 @@ export class Standard extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.standardsArn === undefined) && !opts.urn) {
+            if (args?.standardsArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'standardsArn'");
             }
-            resourceInputs["disabledStandardsControls"] = args ? args.disabledStandardsControls : undefined;
-            resourceInputs["standardsArn"] = args ? args.standardsArn : undefined;
+            resourceInputs["disabledStandardsControls"] = args?.disabledStandardsControls;
+            resourceInputs["standardsArn"] = args?.standardsArn;
             resourceInputs["standardsSubscriptionArn"] = undefined /*out*/;
         } else {
             resourceInputs["disabledStandardsControls"] = undefined /*out*/;

@@ -40,15 +40,15 @@ export class VolumeAttachment extends pulumi.CustomResource {
     /**
      * The device name (for example, ``/dev/sdh`` or ``xvdh``).
      */
-    public readonly device!: pulumi.Output<string | undefined>;
+    declare public readonly device: pulumi.Output<string | undefined>;
     /**
      * The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    declare public readonly instanceId: pulumi.Output<string>;
     /**
      * The ID of the Amazon EBS volume. The volume and instance must be within the same Availability Zone. This value can be a reference to an [AWS::EC2::Volume](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html) resource, or it can be the volume ID of an existing Amazon EBS volume.
      */
-    public readonly volumeId!: pulumi.Output<string>;
+    declare public readonly volumeId: pulumi.Output<string>;
 
     /**
      * Create a VolumeAttachment resource with the given unique name, arguments, and options.
@@ -61,15 +61,15 @@ export class VolumeAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.volumeId === undefined) && !opts.urn) {
+            if (args?.volumeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeId'");
             }
-            resourceInputs["device"] = args ? args.device : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["volumeId"] = args ? args.volumeId : undefined;
+            resourceInputs["device"] = args?.device;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["volumeId"] = args?.volumeId;
         } else {
             resourceInputs["device"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;

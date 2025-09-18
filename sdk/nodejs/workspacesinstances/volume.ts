@@ -40,43 +40,43 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The Availability Zone in which to create the volume
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    declare public readonly availabilityZone: pulumi.Output<string>;
     /**
      * Indicates whether the volume should be encrypted
      */
-    public readonly encrypted!: pulumi.Output<boolean | undefined>;
+    declare public readonly encrypted: pulumi.Output<boolean | undefined>;
     /**
      * The number of I/O operations per second (IOPS)
      */
-    public readonly iops!: pulumi.Output<number | undefined>;
+    declare public readonly iops: pulumi.Output<number | undefined>;
     /**
      * The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The size of the volume, in GiBs
      */
-    public readonly sizeInGb!: pulumi.Output<number | undefined>;
+    declare public readonly sizeInGb: pulumi.Output<number | undefined>;
     /**
      * The snapshot from which to create the volume
      */
-    public readonly snapshotId!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotId: pulumi.Output<string | undefined>;
     /**
      * The tags passed to EBS volume
      */
-    public readonly tagSpecifications!: pulumi.Output<outputs.workspacesinstances.VolumeTagSpecification[] | undefined>;
+    declare public readonly tagSpecifications: pulumi.Output<outputs.workspacesinstances.VolumeTagSpecification[] | undefined>;
     /**
      * The throughput to provision for a volume, with a maximum of 1,000 MiB/s
      */
-    public readonly throughput!: pulumi.Output<number | undefined>;
+    declare public readonly throughput: pulumi.Output<number | undefined>;
     /**
      * Unique identifier for the volume
      */
-    public /*out*/ readonly volumeId!: pulumi.Output<string>;
+    declare public /*out*/ readonly volumeId: pulumi.Output<string>;
     /**
      * The volume type
      */
-    public readonly volumeType!: pulumi.Output<enums.workspacesinstances.VolumeType | undefined>;
+    declare public readonly volumeType: pulumi.Output<enums.workspacesinstances.VolumeType | undefined>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -89,18 +89,18 @@ export class Volume extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
+            if (args?.availabilityZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["encrypted"] = args ? args.encrypted : undefined;
-            resourceInputs["iops"] = args ? args.iops : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["sizeInGb"] = args ? args.sizeInGb : undefined;
-            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
-            resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
-            resourceInputs["throughput"] = args ? args.throughput : undefined;
-            resourceInputs["volumeType"] = args ? args.volumeType : undefined;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["encrypted"] = args?.encrypted;
+            resourceInputs["iops"] = args?.iops;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["sizeInGb"] = args?.sizeInGb;
+            resourceInputs["snapshotId"] = args?.snapshotId;
+            resourceInputs["tagSpecifications"] = args?.tagSpecifications;
+            resourceInputs["throughput"] = args?.throughput;
+            resourceInputs["volumeType"] = args?.volumeType;
             resourceInputs["volumeId"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityZone"] = undefined /*out*/;

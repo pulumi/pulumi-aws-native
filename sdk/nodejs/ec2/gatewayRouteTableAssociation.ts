@@ -37,15 +37,15 @@ export class GatewayRouteTableAssociation extends pulumi.CustomResource {
     /**
      * The route table association ID.
      */
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly associationId: pulumi.Output<string>;
     /**
      * The ID of the gateway.
      */
-    public readonly gatewayId!: pulumi.Output<string>;
+    declare public readonly gatewayId: pulumi.Output<string>;
     /**
      * The ID of the route table.
      */
-    public readonly routeTableId!: pulumi.Output<string>;
+    declare public readonly routeTableId: pulumi.Output<string>;
 
     /**
      * Create a GatewayRouteTableAssociation resource with the given unique name, arguments, and options.
@@ -58,14 +58,14 @@ export class GatewayRouteTableAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.gatewayId === undefined) && !opts.urn) {
+            if (args?.gatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayId'");
             }
-            if ((!args || args.routeTableId === undefined) && !opts.urn) {
+            if (args?.routeTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
-            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
+            resourceInputs["gatewayId"] = args?.gatewayId;
+            resourceInputs["routeTableId"] = args?.routeTableId;
             resourceInputs["associationId"] = undefined /*out*/;
         } else {
             resourceInputs["associationId"] = undefined /*out*/;

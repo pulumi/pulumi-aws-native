@@ -40,27 +40,27 @@ export class Dataset extends pulumi.CustomResource {
     /**
      * The ARN of the dataset.
      */
-    public /*out*/ readonly datasetArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly datasetArn: pulumi.Output<string>;
     /**
      * A description about the dataset, and its functionality.
      */
-    public readonly datasetDescription!: pulumi.Output<string | undefined>;
+    declare public readonly datasetDescription: pulumi.Output<string | undefined>;
     /**
      * The ID of the dataset.
      */
-    public /*out*/ readonly datasetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly datasetId: pulumi.Output<string>;
     /**
      * The name of the dataset.
      */
-    public readonly datasetName!: pulumi.Output<string>;
+    declare public readonly datasetName: pulumi.Output<string>;
     /**
      * The data source for the dataset.
      */
-    public readonly datasetSource!: pulumi.Output<outputs.iotsitewise.DatasetSource>;
+    declare public readonly datasetSource: pulumi.Output<outputs.iotsitewise.DatasetSource>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Dataset resource with the given unique name, arguments, and options.
@@ -73,13 +73,13 @@ export class Dataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.datasetSource === undefined) && !opts.urn) {
+            if (args?.datasetSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datasetSource'");
             }
-            resourceInputs["datasetDescription"] = args ? args.datasetDescription : undefined;
-            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
-            resourceInputs["datasetSource"] = args ? args.datasetSource : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["datasetDescription"] = args?.datasetDescription;
+            resourceInputs["datasetName"] = args?.datasetName;
+            resourceInputs["datasetSource"] = args?.datasetSource;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["datasetArn"] = undefined /*out*/;
             resourceInputs["datasetId"] = undefined /*out*/;
         } else {

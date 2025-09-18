@@ -40,53 +40,53 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `TRUE` , you must first disable this protection before adding or removing Availability Zones.
      */
-    public readonly availabilityZoneChangeProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly availabilityZoneChangeProtection: pulumi.Output<boolean | undefined>;
     /**
      * The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall. Each mapping specifies an Availability Zone where the firewall processes traffic.
      */
-    public readonly availabilityZoneMappings!: pulumi.Output<outputs.networkfirewall.FirewallAvailabilityZoneMapping[] | undefined>;
+    declare public readonly availabilityZoneMappings: pulumi.Output<outputs.networkfirewall.FirewallAvailabilityZoneMapping[] | undefined>;
     /**
      * A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
      */
-    public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteProtection: pulumi.Output<boolean | undefined>;
     /**
      * A description of the firewall.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
      */
-    public readonly enabledAnalysisTypes!: pulumi.Output<enums.networkfirewall.FirewallEnabledAnalysisType[] | undefined>;
+    declare public readonly enabledAnalysisTypes: pulumi.Output<enums.networkfirewall.FirewallEnabledAnalysisType[] | undefined>;
     /**
      * The unique IDs of the firewall endpoints for all of the subnets that you attached to the firewall. The subnets are not listed in any particular order. For example: `["us-west-2c:vpce-111122223333", "us-west-2a:vpce-987654321098", "us-west-2b:vpce-012345678901"]` .
      */
-    public /*out*/ readonly endpointIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly endpointIds: pulumi.Output<string[]>;
     /**
      * The Amazon Resource Name (ARN) of the firewall.
      */
-    public /*out*/ readonly firewallArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly firewallArn: pulumi.Output<string>;
     /**
      * The name of the firewallresource.
      */
-    public /*out*/ readonly firewallId!: pulumi.Output<string>;
+    declare public /*out*/ readonly firewallId: pulumi.Output<string>;
     /**
      * The descriptive name of the firewall. You can't change the name of a firewall after you create it.
      */
-    public readonly firewallName!: pulumi.Output<string>;
+    declare public readonly firewallName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the firewall policy.
      *
      * The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
      */
-    public readonly firewallPolicyArn!: pulumi.Output<string>;
+    declare public readonly firewallPolicyArn: pulumi.Output<string>;
     /**
      * A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
      */
-    public readonly firewallPolicyChangeProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly firewallPolicyChangeProtection: pulumi.Output<boolean | undefined>;
     /**
      * A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
      */
-    public readonly subnetChangeProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly subnetChangeProtection: pulumi.Output<boolean | undefined>;
     /**
      * The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
      *
@@ -94,21 +94,21 @@ export class Firewall extends pulumi.CustomResource {
      *
      * In addition to these subnets, you can define other endpoints for the firewall in `VpcEndpointAssociation` resources. You can define these additional endpoints for any VPC, and for any of the Availability Zones where the firewall resource already has a subnet mapping. VPC endpoint associations give you the ability to protect multiple VPCs using a single firewall, and to define multiple firewall endpoints for a VPC in a single Availability Zone.
      */
-    public readonly subnetMappings!: pulumi.Output<outputs.networkfirewall.FirewallSubnetMapping[] | undefined>;
+    declare public readonly subnetMappings: pulumi.Output<outputs.networkfirewall.FirewallSubnetMapping[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
      */
-    public readonly transitGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly transitGatewayId: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
      */
-    public readonly vpcId!: pulumi.Output<string | undefined>;
+    declare public readonly vpcId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Firewall resource with the given unique name, arguments, and options.
@@ -121,22 +121,22 @@ export class Firewall extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.firewallPolicyArn === undefined) && !opts.urn) {
+            if (args?.firewallPolicyArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicyArn'");
             }
-            resourceInputs["availabilityZoneChangeProtection"] = args ? args.availabilityZoneChangeProtection : undefined;
-            resourceInputs["availabilityZoneMappings"] = args ? args.availabilityZoneMappings : undefined;
-            resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabledAnalysisTypes"] = args ? args.enabledAnalysisTypes : undefined;
-            resourceInputs["firewallName"] = args ? args.firewallName : undefined;
-            resourceInputs["firewallPolicyArn"] = args ? args.firewallPolicyArn : undefined;
-            resourceInputs["firewallPolicyChangeProtection"] = args ? args.firewallPolicyChangeProtection : undefined;
-            resourceInputs["subnetChangeProtection"] = args ? args.subnetChangeProtection : undefined;
-            resourceInputs["subnetMappings"] = args ? args.subnetMappings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["availabilityZoneChangeProtection"] = args?.availabilityZoneChangeProtection;
+            resourceInputs["availabilityZoneMappings"] = args?.availabilityZoneMappings;
+            resourceInputs["deleteProtection"] = args?.deleteProtection;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabledAnalysisTypes"] = args?.enabledAnalysisTypes;
+            resourceInputs["firewallName"] = args?.firewallName;
+            resourceInputs["firewallPolicyArn"] = args?.firewallPolicyArn;
+            resourceInputs["firewallPolicyChangeProtection"] = args?.firewallPolicyChangeProtection;
+            resourceInputs["subnetChangeProtection"] = args?.subnetChangeProtection;
+            resourceInputs["subnetMappings"] = args?.subnetMappings;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["endpointIds"] = undefined /*out*/;
             resourceInputs["firewallArn"] = undefined /*out*/;
             resourceInputs["firewallId"] = undefined /*out*/;

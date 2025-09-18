@@ -40,43 +40,43 @@ export class MonitoringSchedule extends pulumi.CustomResource {
     /**
      * The time at which the schedule was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The name of the endpoint using the monitoring schedule.
      */
-    public readonly endpointName!: pulumi.Output<string | undefined>;
+    declare public readonly endpointName: pulumi.Output<string | undefined>;
     /**
      * Contains the reason a monitoring job failed, if it failed.
      */
-    public readonly failureReason!: pulumi.Output<string | undefined>;
+    declare public readonly failureReason: pulumi.Output<string | undefined>;
     /**
      * A timestamp that indicates the last time the monitoring job was modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * Describes metadata on the last execution to run, if there was one.
      */
-    public readonly lastMonitoringExecutionSummary!: pulumi.Output<outputs.sagemaker.MonitoringScheduleMonitoringExecutionSummary | undefined>;
+    declare public readonly lastMonitoringExecutionSummary: pulumi.Output<outputs.sagemaker.MonitoringScheduleMonitoringExecutionSummary | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the monitoring schedule.
      */
-    public /*out*/ readonly monitoringScheduleArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly monitoringScheduleArn: pulumi.Output<string>;
     /**
      * The configuration object that specifies the monitoring schedule and defines the monitoring job.
      */
-    public readonly monitoringScheduleConfig!: pulumi.Output<outputs.sagemaker.MonitoringScheduleConfig>;
+    declare public readonly monitoringScheduleConfig: pulumi.Output<outputs.sagemaker.MonitoringScheduleConfig>;
     /**
      * The name of the monitoring schedule.
      */
-    public readonly monitoringScheduleName!: pulumi.Output<string>;
+    declare public readonly monitoringScheduleName: pulumi.Output<string>;
     /**
      * The status of a schedule job.
      */
-    public readonly monitoringScheduleStatus!: pulumi.Output<enums.sagemaker.MonitoringScheduleStatus | undefined>;
+    declare public readonly monitoringScheduleStatus: pulumi.Output<enums.sagemaker.MonitoringScheduleStatus | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MonitoringSchedule resource with the given unique name, arguments, and options.
@@ -89,16 +89,16 @@ export class MonitoringSchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.monitoringScheduleConfig === undefined) && !opts.urn) {
+            if (args?.monitoringScheduleConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitoringScheduleConfig'");
             }
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["failureReason"] = args ? args.failureReason : undefined;
-            resourceInputs["lastMonitoringExecutionSummary"] = args ? args.lastMonitoringExecutionSummary : undefined;
-            resourceInputs["monitoringScheduleConfig"] = args ? args.monitoringScheduleConfig : undefined;
-            resourceInputs["monitoringScheduleName"] = args ? args.monitoringScheduleName : undefined;
-            resourceInputs["monitoringScheduleStatus"] = args ? args.monitoringScheduleStatus : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["failureReason"] = args?.failureReason;
+            resourceInputs["lastMonitoringExecutionSummary"] = args?.lastMonitoringExecutionSummary;
+            resourceInputs["monitoringScheduleConfig"] = args?.monitoringScheduleConfig;
+            resourceInputs["monitoringScheduleName"] = args?.monitoringScheduleName;
+            resourceInputs["monitoringScheduleStatus"] = args?.monitoringScheduleStatus;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["monitoringScheduleArn"] = undefined /*out*/;

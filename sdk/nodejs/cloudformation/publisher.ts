@@ -40,27 +40,27 @@ export class Publisher extends pulumi.CustomResource {
     /**
      * Whether you accept the terms and conditions for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to publish public extensions to the CloudFormation registry. The terms and conditions can be found at https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf
      */
-    public readonly acceptTermsAndConditions!: pulumi.Output<boolean>;
+    declare public readonly acceptTermsAndConditions: pulumi.Output<boolean>;
     /**
      * If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.
      */
-    public readonly connectionArn!: pulumi.Output<string | undefined>;
+    declare public readonly connectionArn: pulumi.Output<string | undefined>;
     /**
      * The type of account used as the identity provider when registering this publisher with CloudFormation.
      */
-    public /*out*/ readonly identityProvider!: pulumi.Output<enums.cloudformation.PublisherIdentityProvider>;
+    declare public /*out*/ readonly identityProvider: pulumi.Output<enums.cloudformation.PublisherIdentityProvider>;
     /**
      * The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
      */
-    public /*out*/ readonly publisherId!: pulumi.Output<string>;
+    declare public /*out*/ readonly publisherId: pulumi.Output<string>;
     /**
      * The URL to the publisher's profile with the identity provider.
      */
-    public /*out*/ readonly publisherProfile!: pulumi.Output<string>;
+    declare public /*out*/ readonly publisherProfile: pulumi.Output<string>;
     /**
      * Whether the publisher is verified.
      */
-    public /*out*/ readonly publisherStatus!: pulumi.Output<enums.cloudformation.PublisherStatus>;
+    declare public /*out*/ readonly publisherStatus: pulumi.Output<enums.cloudformation.PublisherStatus>;
 
     /**
      * Create a Publisher resource with the given unique name, arguments, and options.
@@ -73,11 +73,11 @@ export class Publisher extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.acceptTermsAndConditions === undefined) && !opts.urn) {
+            if (args?.acceptTermsAndConditions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'acceptTermsAndConditions'");
             }
-            resourceInputs["acceptTermsAndConditions"] = args ? args.acceptTermsAndConditions : undefined;
-            resourceInputs["connectionArn"] = args ? args.connectionArn : undefined;
+            resourceInputs["acceptTermsAndConditions"] = args?.acceptTermsAndConditions;
+            resourceInputs["connectionArn"] = args?.connectionArn;
             resourceInputs["identityProvider"] = undefined /*out*/;
             resourceInputs["publisherId"] = undefined /*out*/;
             resourceInputs["publisherProfile"] = undefined /*out*/;

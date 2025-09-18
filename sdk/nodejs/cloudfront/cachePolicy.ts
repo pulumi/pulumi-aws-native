@@ -45,15 +45,15 @@ export class CachePolicy extends pulumi.CustomResource {
     /**
      * The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The cache policy configuration.
      */
-    public readonly cachePolicyConfig!: pulumi.Output<outputs.cloudfront.CachePolicyConfig>;
+    declare public readonly cachePolicyConfig: pulumi.Output<outputs.cloudfront.CachePolicyConfig>;
     /**
      * The date and time when the cache policy was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
 
     /**
      * Create a CachePolicy resource with the given unique name, arguments, and options.
@@ -66,10 +66,10 @@ export class CachePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cachePolicyConfig === undefined) && !opts.urn) {
+            if (args?.cachePolicyConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cachePolicyConfig'");
             }
-            resourceInputs["cachePolicyConfig"] = args ? args.cachePolicyConfig : undefined;
+            resourceInputs["cachePolicyConfig"] = args?.cachePolicyConfig;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {

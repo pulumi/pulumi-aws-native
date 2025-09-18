@@ -40,27 +40,27 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
     /**
      * The ID of the local gateway.
      */
-    public /*out*/ readonly localGatewayId!: pulumi.Output<string>;
+    declare public /*out*/ readonly localGatewayId: pulumi.Output<string>;
     /**
      * The ID of the local gateway route table.
      */
-    public readonly localGatewayRouteTableId!: pulumi.Output<string>;
+    declare public readonly localGatewayRouteTableId: pulumi.Output<string>;
     /**
      * The ID of the association.
      */
-    public /*out*/ readonly localGatewayRouteTableVpcAssociationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly localGatewayRouteTableVpcAssociationId: pulumi.Output<string>;
     /**
      * The state of the association.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The tags for the association.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the VPC.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a LocalGatewayRouteTableVpcAssociation resource with the given unique name, arguments, and options.
@@ -73,15 +73,15 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.localGatewayRouteTableId === undefined) && !opts.urn) {
+            if (args?.localGatewayRouteTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayRouteTableId'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["localGatewayRouteTableId"] = args?.localGatewayRouteTableId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["localGatewayId"] = undefined /*out*/;
             resourceInputs["localGatewayRouteTableVpcAssociationId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

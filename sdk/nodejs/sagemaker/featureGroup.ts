@@ -40,53 +40,53 @@ export class FeatureGroup extends pulumi.CustomResource {
     /**
      * A timestamp of FeatureGroup creation time.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * Description about the FeatureGroup.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Event Time Feature Name.
      */
-    public readonly eventTimeFeatureName!: pulumi.Output<string>;
+    declare public readonly eventTimeFeatureName: pulumi.Output<string>;
     /**
      * An Array of Feature Definition
      */
-    public readonly featureDefinitions!: pulumi.Output<outputs.sagemaker.FeatureGroupFeatureDefinition[]>;
+    declare public readonly featureDefinitions: pulumi.Output<outputs.sagemaker.FeatureGroupFeatureDefinition[]>;
     /**
      * The Name of the FeatureGroup.
      */
-    public readonly featureGroupName!: pulumi.Output<string>;
+    declare public readonly featureGroupName: pulumi.Output<string>;
     /**
      * The status of the feature group.
      */
-    public /*out*/ readonly featureGroupStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly featureGroupStatus: pulumi.Output<string>;
     /**
      * The configuration of an `OfflineStore` .
      */
-    public readonly offlineStoreConfig!: pulumi.Output<outputs.sagemaker.OfflineStoreConfigProperties | undefined>;
+    declare public readonly offlineStoreConfig: pulumi.Output<outputs.sagemaker.OfflineStoreConfigProperties | undefined>;
     /**
      * The configuration of an `OnlineStore` .
      */
-    public readonly onlineStoreConfig!: pulumi.Output<outputs.sagemaker.OnlineStoreConfigProperties | undefined>;
+    declare public readonly onlineStoreConfig: pulumi.Output<outputs.sagemaker.OnlineStoreConfigProperties | undefined>;
     /**
      * The Record Identifier Feature Name.
      */
-    public readonly recordIdentifierFeatureName!: pulumi.Output<string>;
+    declare public readonly recordIdentifierFeatureName: pulumi.Output<string>;
     /**
      * Role Arn
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pair to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * Used to set feature group throughput configuration. There are two modes: `ON_DEMAND` and `PROVISIONED` . With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled.
      *
      * Note: `PROVISIONED` throughput mode is supported only for feature groups that are offline-only, or use the [`Standard`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType) tier online store.
      */
-    public readonly throughputConfig!: pulumi.Output<outputs.sagemaker.FeatureGroupThroughputConfig | undefined>;
+    declare public readonly throughputConfig: pulumi.Output<outputs.sagemaker.FeatureGroupThroughputConfig | undefined>;
 
     /**
      * Create a FeatureGroup resource with the given unique name, arguments, and options.
@@ -99,25 +99,25 @@ export class FeatureGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.eventTimeFeatureName === undefined) && !opts.urn) {
+            if (args?.eventTimeFeatureName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventTimeFeatureName'");
             }
-            if ((!args || args.featureDefinitions === undefined) && !opts.urn) {
+            if (args?.featureDefinitions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'featureDefinitions'");
             }
-            if ((!args || args.recordIdentifierFeatureName === undefined) && !opts.urn) {
+            if (args?.recordIdentifierFeatureName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recordIdentifierFeatureName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventTimeFeatureName"] = args ? args.eventTimeFeatureName : undefined;
-            resourceInputs["featureDefinitions"] = args ? args.featureDefinitions : undefined;
-            resourceInputs["featureGroupName"] = args ? args.featureGroupName : undefined;
-            resourceInputs["offlineStoreConfig"] = args ? args.offlineStoreConfig : undefined;
-            resourceInputs["onlineStoreConfig"] = args ? args.onlineStoreConfig : undefined;
-            resourceInputs["recordIdentifierFeatureName"] = args ? args.recordIdentifierFeatureName : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throughputConfig"] = args ? args.throughputConfig : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventTimeFeatureName"] = args?.eventTimeFeatureName;
+            resourceInputs["featureDefinitions"] = args?.featureDefinitions;
+            resourceInputs["featureGroupName"] = args?.featureGroupName;
+            resourceInputs["offlineStoreConfig"] = args?.offlineStoreConfig;
+            resourceInputs["onlineStoreConfig"] = args?.onlineStoreConfig;
+            resourceInputs["recordIdentifierFeatureName"] = args?.recordIdentifierFeatureName;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["throughputConfig"] = args?.throughputConfig;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["featureGroupStatus"] = undefined /*out*/;
         } else {

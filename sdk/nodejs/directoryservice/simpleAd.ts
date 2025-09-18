@@ -40,47 +40,47 @@ export class SimpleAd extends pulumi.CustomResource {
     /**
      * The alias for a directory.
      */
-    public /*out*/ readonly alias!: pulumi.Output<string>;
+    declare public /*out*/ readonly alias: pulumi.Output<string>;
     /**
      * The name of the configuration set.
      */
-    public readonly createAlias!: pulumi.Output<boolean | undefined>;
+    declare public readonly createAlias: pulumi.Output<boolean | undefined>;
     /**
      * Description for the directory.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The unique identifier for a directory.
      */
-    public /*out*/ readonly directoryId!: pulumi.Output<string>;
+    declare public /*out*/ readonly directoryId: pulumi.Output<string>;
     /**
      * The IP addresses of the DNS servers for the directory, such as [ "172.31.3.154", "172.31.63.203" ].
      */
-    public /*out*/ readonly dnsIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly dnsIpAddresses: pulumi.Output<string[]>;
     /**
      * Whether to enable single sign-on for a Simple Active Directory in AWS.
      */
-    public readonly enableSso!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableSso: pulumi.Output<boolean | undefined>;
     /**
      * The fully qualified domain name for the AWS Managed Simple AD directory.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The password for the default administrative user named Admin.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The NetBIOS name for your domain.
      */
-    public readonly shortName!: pulumi.Output<string | undefined>;
+    declare public readonly shortName: pulumi.Output<string | undefined>;
     /**
      * The size of the directory.
      */
-    public readonly size!: pulumi.Output<string>;
+    declare public readonly size: pulumi.Output<string>;
     /**
      * VPC settings of the Simple AD directory server in AWS.
      */
-    public readonly vpcSettings!: pulumi.Output<outputs.directoryservice.SimpleAdVpcSettings>;
+    declare public readonly vpcSettings: pulumi.Output<outputs.directoryservice.SimpleAdVpcSettings>;
 
     /**
      * Create a SimpleAd resource with the given unique name, arguments, and options.
@@ -93,20 +93,20 @@ export class SimpleAd extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.size === undefined) && !opts.urn) {
+            if (args?.size === undefined && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
-            if ((!args || args.vpcSettings === undefined) && !opts.urn) {
+            if (args?.vpcSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcSettings'");
             }
-            resourceInputs["createAlias"] = args ? args.createAlias : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enableSso"] = args ? args.enableSso : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["shortName"] = args ? args.shortName : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["vpcSettings"] = args ? args.vpcSettings : undefined;
+            resourceInputs["createAlias"] = args?.createAlias;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enableSso"] = args?.enableSso;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["shortName"] = args?.shortName;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["vpcSettings"] = args?.vpcSettings;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["directoryId"] = undefined /*out*/;
             resourceInputs["dnsIpAddresses"] = undefined /*out*/;

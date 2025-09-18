@@ -40,43 +40,43 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * Indicates whether the bundle that is currently applied to a bucket can be changed to another bundle. You can update a bucket's bundle only one time within a monthly AWS billing cycle.
      */
-    public /*out*/ readonly ableToUpdateBundle!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly ableToUpdateBundle: pulumi.Output<boolean>;
     /**
      * An object that describes the access rules for the bucket.
      */
-    public readonly accessRules!: pulumi.Output<outputs.lightsail.BucketAccessRules | undefined>;
+    declare public readonly accessRules: pulumi.Output<outputs.lightsail.BucketAccessRules | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the bucket.
      */
-    public /*out*/ readonly bucketArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly bucketArn: pulumi.Output<string>;
     /**
      * The name for the bucket.
      */
-    public readonly bucketName!: pulumi.Output<string>;
+    declare public readonly bucketName: pulumi.Output<string>;
     /**
      * The ID of the bundle to use for the bucket.
      */
-    public readonly bundleId!: pulumi.Output<string>;
+    declare public readonly bundleId: pulumi.Output<string>;
     /**
      * Specifies whether to enable or disable versioning of objects in the bucket.
      */
-    public readonly objectVersioning!: pulumi.Output<boolean | undefined>;
+    declare public readonly objectVersioning: pulumi.Output<boolean | undefined>;
     /**
      * An array of strings to specify the AWS account IDs that can access the bucket.
      */
-    public readonly readOnlyAccessAccounts!: pulumi.Output<string[] | undefined>;
+    declare public readonly readOnlyAccessAccounts: pulumi.Output<string[] | undefined>;
     /**
      * The names of the Lightsail resources for which to set bucket access.
      */
-    public readonly resourcesReceivingAccess!: pulumi.Output<string[] | undefined>;
+    declare public readonly resourcesReceivingAccess: pulumi.Output<string[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The URL of the bucket.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a Bucket resource with the given unique name, arguments, and options.
@@ -89,16 +89,16 @@ export class Bucket extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bundleId === undefined) && !opts.urn) {
+            if (args?.bundleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            resourceInputs["accessRules"] = args ? args.accessRules : undefined;
-            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
-            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
-            resourceInputs["objectVersioning"] = args ? args.objectVersioning : undefined;
-            resourceInputs["readOnlyAccessAccounts"] = args ? args.readOnlyAccessAccounts : undefined;
-            resourceInputs["resourcesReceivingAccess"] = args ? args.resourcesReceivingAccess : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessRules"] = args?.accessRules;
+            resourceInputs["bucketName"] = args?.bucketName;
+            resourceInputs["bundleId"] = args?.bundleId;
+            resourceInputs["objectVersioning"] = args?.objectVersioning;
+            resourceInputs["readOnlyAccessAccounts"] = args?.readOnlyAccessAccounts;
+            resourceInputs["resourcesReceivingAccess"] = args?.resourcesReceivingAccess;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ableToUpdateBundle"] = undefined /*out*/;
             resourceInputs["bucketArn"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;

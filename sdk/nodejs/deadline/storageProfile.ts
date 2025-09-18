@@ -42,23 +42,23 @@ export class StorageProfile extends pulumi.CustomResource {
      *
      * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The unique identifier of the farm that contains the storage profile.
      */
-    public readonly farmId!: pulumi.Output<string>;
+    declare public readonly farmId: pulumi.Output<string>;
     /**
      * Operating system specific file system path to the storage location.
      */
-    public readonly fileSystemLocations!: pulumi.Output<outputs.deadline.StorageProfileFileSystemLocation[] | undefined>;
+    declare public readonly fileSystemLocations: pulumi.Output<outputs.deadline.StorageProfileFileSystemLocation[] | undefined>;
     /**
      * The operating system (OS) family.
      */
-    public readonly osFamily!: pulumi.Output<enums.deadline.StorageProfileOperatingSystemFamily>;
+    declare public readonly osFamily: pulumi.Output<enums.deadline.StorageProfileOperatingSystemFamily>;
     /**
      * The storage profile ID.
      */
-    public /*out*/ readonly storageProfileId!: pulumi.Output<string>;
+    declare public /*out*/ readonly storageProfileId: pulumi.Output<string>;
 
     /**
      * Create a StorageProfile resource with the given unique name, arguments, and options.
@@ -71,19 +71,19 @@ export class StorageProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.farmId === undefined) && !opts.urn) {
+            if (args?.farmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'farmId'");
             }
-            if ((!args || args.osFamily === undefined) && !opts.urn) {
+            if (args?.osFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osFamily'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["farmId"] = args ? args.farmId : undefined;
-            resourceInputs["fileSystemLocations"] = args ? args.fileSystemLocations : undefined;
-            resourceInputs["osFamily"] = args ? args.osFamily : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["farmId"] = args?.farmId;
+            resourceInputs["fileSystemLocations"] = args?.fileSystemLocations;
+            resourceInputs["osFamily"] = args?.osFamily;
             resourceInputs["storageProfileId"] = undefined /*out*/;
         } else {
             resourceInputs["displayName"] = undefined /*out*/;

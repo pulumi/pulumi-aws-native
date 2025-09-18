@@ -180,11 +180,11 @@ export class CapacityProvider extends pulumi.CustomResource {
     /**
      * The Auto Scaling group settings for the capacity provider.
      */
-    public readonly autoScalingGroupProvider!: pulumi.Output<outputs.ecs.CapacityProviderAutoScalingGroupProvider | undefined>;
+    declare public readonly autoScalingGroupProvider: pulumi.Output<outputs.ecs.CapacityProviderAutoScalingGroupProvider | undefined>;
     /**
      * The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
      *
@@ -198,7 +198,7 @@ export class CapacityProvider extends pulumi.CustomResource {
      * - Tag keys and values are case-sensitive.
      * - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CapacityProvider resource with the given unique name, arguments, and options.
@@ -211,9 +211,9 @@ export class CapacityProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["autoScalingGroupProvider"] = args ? args.autoScalingGroupProvider : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoScalingGroupProvider"] = args?.autoScalingGroupProvider;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["autoScalingGroupProvider"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

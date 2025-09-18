@@ -40,27 +40,27 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
     /**
      * The id of the instance connect endpoint
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The client token of the instance connect endpoint.
      */
-    public readonly clientToken!: pulumi.Output<string | undefined>;
+    declare public readonly clientToken: pulumi.Output<string | undefined>;
     /**
      * If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
      */
-    public readonly preserveClientIp!: pulumi.Output<boolean | undefined>;
+    declare public readonly preserveClientIp: pulumi.Output<boolean | undefined>;
     /**
      * The security group IDs of the instance connect endpoint.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * The subnet id of the instance connect endpoint
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * The tags of the instance connect endpoint.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a InstanceConnectEndpoint resource with the given unique name, arguments, and options.
@@ -73,14 +73,14 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["clientToken"] = args ? args.clientToken : undefined;
-            resourceInputs["preserveClientIp"] = args ? args.preserveClientIp : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clientToken"] = args?.clientToken;
+            resourceInputs["preserveClientIp"] = args?.preserveClientIp;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

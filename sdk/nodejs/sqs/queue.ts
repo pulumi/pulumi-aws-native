@@ -152,34 +152,34 @@ export class Queue extends pulumi.CustomResource {
     /**
      * Returns the Amazon Resource Name (ARN) of the queue. For example: `arn:aws:sqs:us-east-2:123456789012:mystack-myqueue-15PG5C2FC1CW8` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * For first-in-first-out (FIFO) queues, specifies whether to enable content-based deduplication. During the deduplication interval, SQS treats messages that are sent with identical content as duplicates and delivers only one copy of the message. For more information, see the ``ContentBasedDeduplication`` attribute for the ``CreateQueue`` action in the *API Reference*.
      */
-    public readonly contentBasedDeduplication!: pulumi.Output<boolean | undefined>;
+    declare public readonly contentBasedDeduplication: pulumi.Output<boolean | undefined>;
     /**
      * For high throughput for FIFO queues, specifies whether message deduplication occurs at the message group or queue level. Valid values are ``messageGroup`` and ``queue``.
      *  To enable high throughput for a FIFO queue, set this attribute to ``messageGroup`` *and* set the ``FifoThroughputLimit`` attribute to ``perMessageGroupId``. If you set these attributes to anything other than these values, normal throughput is in effect and deduplication occurs as specified. For more information, see [High throughput for FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html) and [Quotas related to messages](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html) in the *Developer Guide*.
      */
-    public readonly deduplicationScope!: pulumi.Output<string | undefined>;
+    declare public readonly deduplicationScope: pulumi.Output<string | undefined>;
     /**
      * The time in seconds for which the delivery of all messages in the queue is delayed. You can specify an integer value of ``0`` to ``900`` (15 minutes). The default value is ``0``.
      */
-    public readonly delaySeconds!: pulumi.Output<number | undefined>;
+    declare public readonly delaySeconds: pulumi.Output<number | undefined>;
     /**
      * If set to true, creates a FIFO queue. If you don't specify this property, SQS creates a standard queue. For more information, see [Amazon SQS FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) in the *Developer Guide*.
      */
-    public readonly fifoQueue!: pulumi.Output<boolean | undefined>;
+    declare public readonly fifoQueue: pulumi.Output<boolean | undefined>;
     /**
      * For high throughput for FIFO queues, specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are ``perQueue`` and ``perMessageGroupId``.
      *  To enable high throughput for a FIFO queue, set this attribute to ``perMessageGroupId`` *and* set the ``DeduplicationScope`` attribute to ``messageGroup``. If you set these attributes to anything other than these values, normal throughput is in effect and deduplication occurs as specified. For more information, see [High throughput for FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html) and [Quotas related to messages](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html) in the *Developer Guide*.
      */
-    public readonly fifoThroughputLimit!: pulumi.Output<string | undefined>;
+    declare public readonly fifoThroughputLimit: pulumi.Output<string | undefined>;
     /**
      * The length of time in seconds for which SQS can reuse a data key to encrypt or decrypt messages before calling KMS again. The value must be an integer between 60 (1 minute) and 86,400 (24 hours). The default is 300 (5 minutes).
      *   A shorter time period provides better security, but results in more calls to KMS, which might incur charges after Free Tier. For more information, see [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work) in the *Developer Guide*.
      */
-    public readonly kmsDataKeyReusePeriodSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly kmsDataKeyReusePeriodSeconds: pulumi.Output<number | undefined>;
     /**
      * The ID of an AWS Key Management Service (KMS) for SQS, or a custom KMS. To use the AWS managed KMS for SQS, specify a (default) alias ARN, alias name (for example ``alias/aws/sqs``), key ARN, or key ID. For more information, see the following:
      *   +   [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html) in the *Developer Guide* 
@@ -187,29 +187,29 @@ export class Queue extends pulumi.CustomResource {
      *   +   [Request Parameters](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the *Key Management Service API Reference* 
      *   +   The Key Management Service (KMS) section of the [Security best practices for Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/best-practices.html) in the *Key Management Service Developer Guide*
      */
-    public readonly kmsMasterKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsMasterKeyId: pulumi.Output<string | undefined>;
     /**
      * The limit of how many bytes that a message can contain before SQS rejects it. You can specify an integer value from ``1,024`` bytes (1 KiB) to ``262,144`` bytes (256 KiB). The default value is ``262,144`` (256 KiB).
      */
-    public readonly maximumMessageSize!: pulumi.Output<number | undefined>;
+    declare public readonly maximumMessageSize: pulumi.Output<number | undefined>;
     /**
      * The number of seconds that SQS retains a message. You can specify an integer value from ``60`` seconds (1 minute) to ``1,209,600`` seconds (14 days). The default value is ``345,600`` seconds (4 days).
      */
-    public readonly messageRetentionPeriod!: pulumi.Output<number | undefined>;
+    declare public readonly messageRetentionPeriod: pulumi.Output<number | undefined>;
     /**
      * A name for the queue. To create a FIFO queue, the name of your FIFO queue must end with the ``.fifo`` suffix. For more information, see [Amazon SQS FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) in the *Developer Guide*.
      *  If you don't specify a name, CFN generates a unique physical ID and uses that ID for the queue name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) in the *User Guide*. 
      *   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
-    public readonly queueName!: pulumi.Output<string | undefined>;
+    declare public readonly queueName: pulumi.Output<string | undefined>;
     /**
      * Returns the URLs of the queues from the policy.
      */
-    public /*out*/ readonly queueUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly queueUrl: pulumi.Output<string>;
     /**
      * Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property. For more information, see [Consuming messages using long polling](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.html#sqs-long-polling) in the *Developer Guide*.
      */
-    public readonly receiveMessageWaitTimeSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly receiveMessageWaitTimeSeconds: pulumi.Output<number | undefined>;
     /**
      * The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object. The parameters are as follows:
      *   +   ``redrivePermission``: The permission type that defines which source queues can specify the current queue as the dead-letter queue. Valid values are:
@@ -221,7 +221,7 @@ export class Queue extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
      */
-    public readonly redriveAllowPolicy!: pulumi.Output<any | undefined>;
+    declare public readonly redriveAllowPolicy: pulumi.Output<any | undefined>;
     /**
      * The string that includes the parameters for the dead-letter queue functionality of the source queue as a JSON object. The parameters are as follows:
      *   +   ``deadLetterTargetArn``: The Amazon Resource Name (ARN) of the dead-letter queue to which SQS moves messages after the value of ``maxReceiveCount`` is exceeded.
@@ -236,21 +236,21 @@ export class Queue extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
      */
-    public readonly redrivePolicy!: pulumi.Output<any | undefined>;
+    declare public readonly redrivePolicy: pulumi.Output<any | undefined>;
     /**
      * Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html) or [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html)). When ``SqsManagedSseEnabled`` is not defined, ``SSE-SQS`` encryption is enabled by default.
      */
-    public readonly sqsManagedSseEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sqsManagedSseEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The tags that you attach to this queue. For more information, see [Resource tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *User Guide*.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue.
      *  Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
      *  For more information about SQS queue visibility timeouts, see [Visibility timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html) in the *Developer Guide*.
      */
-    public readonly visibilityTimeout!: pulumi.Output<number | undefined>;
+    declare public readonly visibilityTimeout: pulumi.Output<number | undefined>;
 
     /**
      * Create a Queue resource with the given unique name, arguments, and options.
@@ -263,22 +263,22 @@ export class Queue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
-            resourceInputs["deduplicationScope"] = args ? args.deduplicationScope : undefined;
-            resourceInputs["delaySeconds"] = args ? args.delaySeconds : undefined;
-            resourceInputs["fifoQueue"] = args ? args.fifoQueue : undefined;
-            resourceInputs["fifoThroughputLimit"] = args ? args.fifoThroughputLimit : undefined;
-            resourceInputs["kmsDataKeyReusePeriodSeconds"] = args ? args.kmsDataKeyReusePeriodSeconds : undefined;
-            resourceInputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
-            resourceInputs["maximumMessageSize"] = args ? args.maximumMessageSize : undefined;
-            resourceInputs["messageRetentionPeriod"] = args ? args.messageRetentionPeriod : undefined;
-            resourceInputs["queueName"] = args ? args.queueName : undefined;
-            resourceInputs["receiveMessageWaitTimeSeconds"] = args ? args.receiveMessageWaitTimeSeconds : undefined;
-            resourceInputs["redriveAllowPolicy"] = args ? args.redriveAllowPolicy : undefined;
-            resourceInputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
-            resourceInputs["sqsManagedSseEnabled"] = args ? args.sqsManagedSseEnabled : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["visibilityTimeout"] = args ? args.visibilityTimeout : undefined;
+            resourceInputs["contentBasedDeduplication"] = args?.contentBasedDeduplication;
+            resourceInputs["deduplicationScope"] = args?.deduplicationScope;
+            resourceInputs["delaySeconds"] = args?.delaySeconds;
+            resourceInputs["fifoQueue"] = args?.fifoQueue;
+            resourceInputs["fifoThroughputLimit"] = args?.fifoThroughputLimit;
+            resourceInputs["kmsDataKeyReusePeriodSeconds"] = args?.kmsDataKeyReusePeriodSeconds;
+            resourceInputs["kmsMasterKeyId"] = args?.kmsMasterKeyId;
+            resourceInputs["maximumMessageSize"] = args?.maximumMessageSize;
+            resourceInputs["messageRetentionPeriod"] = args?.messageRetentionPeriod;
+            resourceInputs["queueName"] = args?.queueName;
+            resourceInputs["receiveMessageWaitTimeSeconds"] = args?.receiveMessageWaitTimeSeconds;
+            resourceInputs["redriveAllowPolicy"] = args?.redriveAllowPolicy;
+            resourceInputs["redrivePolicy"] = args?.redrivePolicy;
+            resourceInputs["sqsManagedSseEnabled"] = args?.sqsManagedSseEnabled;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["visibilityTimeout"] = args?.visibilityTimeout;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["queueUrl"] = undefined /*out*/;
         } else {

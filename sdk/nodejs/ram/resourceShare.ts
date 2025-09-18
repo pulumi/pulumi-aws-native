@@ -88,19 +88,19 @@ export class ResourceShare extends pulumi.CustomResource {
     /**
      * Specifies whether principals outside your organization in AWS Organizations can be associated with a resource share. A value of `true` lets you share with individual AWS accounts that are not in your organization. A value of `false` only has meaning if your account is a member of an AWS Organization. The default value is `true`.
      */
-    public readonly allowExternalPrincipals!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowExternalPrincipals: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies the name of the resource share.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the AWS RAM permission to associate with the resource share. If you do not specify an ARN for the permission, AWS RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      */
-    public readonly permissionArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly permissionArns: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the principals to associate with the resource share. The possible values are:
      *
@@ -114,19 +114,19 @@ export class ResourceShare extends pulumi.CustomResource {
      *
      * - An ARN of an IAM user
      */
-    public readonly principals!: pulumi.Output<string[] | undefined>;
+    declare public readonly principals: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a list of one or more ARNs of the resources to associate with the resource share.
      */
-    public readonly resourceArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly resourceArns: pulumi.Output<string[] | undefined>;
     /**
      * Specifies from which source accounts the service principal has access to the resources in this resource share.
      */
-    public readonly sources!: pulumi.Output<string[] | undefined>;
+    declare public readonly sources: pulumi.Output<string[] | undefined>;
     /**
      * Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ResourceShare resource with the given unique name, arguments, and options.
@@ -139,13 +139,13 @@ export class ResourceShare extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["allowExternalPrincipals"] = args ? args.allowExternalPrincipals : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissionArns"] = args ? args.permissionArns : undefined;
-            resourceInputs["principals"] = args ? args.principals : undefined;
-            resourceInputs["resourceArns"] = args ? args.resourceArns : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowExternalPrincipals"] = args?.allowExternalPrincipals;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissionArns"] = args?.permissionArns;
+            resourceInputs["principals"] = args?.principals;
+            resourceInputs["resourceArns"] = args?.resourceArns;
+            resourceInputs["sources"] = args?.sources;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["allowExternalPrincipals"] = undefined /*out*/;

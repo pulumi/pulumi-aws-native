@@ -96,22 +96,22 @@ export class InstanceProfile extends pulumi.CustomResource {
      *
      * This returns a value such as `arn:aws:iam::1234567890:instance-profile/MyProfile-ASDNSDLKJ` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the instance profile to create.
      *  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
      */
-    public readonly instanceProfileName!: pulumi.Output<string | undefined>;
+    declare public readonly instanceProfileName: pulumi.Output<string | undefined>;
     /**
      * The path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*.
      *  This parameter is optional. If it is not included, it defaults to a slash (/).
      *  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
      */
-    public readonly path!: pulumi.Output<string | undefined>;
+    declare public readonly path: pulumi.Output<string | undefined>;
     /**
      * The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
      */
-    public readonly roles!: pulumi.Output<string[]>;
+    declare public readonly roles: pulumi.Output<string[]>;
 
     /**
      * Create a InstanceProfile resource with the given unique name, arguments, and options.
@@ -124,12 +124,12 @@ export class InstanceProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roles === undefined) && !opts.urn) {
+            if (args?.roles === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roles'");
             }
-            resourceInputs["instanceProfileName"] = args ? args.instanceProfileName : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["instanceProfileName"] = args?.instanceProfileName;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["roles"] = args?.roles;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

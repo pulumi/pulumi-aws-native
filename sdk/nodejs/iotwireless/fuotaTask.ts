@@ -40,55 +40,55 @@ export class FuotaTask extends pulumi.CustomResource {
     /**
      * FUOTA task arn. Returned after successful create.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Multicast group to associate. Only for update request.
      */
-    public readonly associateMulticastGroup!: pulumi.Output<string | undefined>;
+    declare public readonly associateMulticastGroup: pulumi.Output<string | undefined>;
     /**
      * Wireless device to associate. Only for update request.
      */
-    public readonly associateWirelessDevice!: pulumi.Output<string | undefined>;
+    declare public readonly associateWirelessDevice: pulumi.Output<string | undefined>;
     /**
      * FUOTA task id. Returned after successful create.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * FUOTA task description
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Multicast group to disassociate. Only for update request.
      */
-    public readonly disassociateMulticastGroup!: pulumi.Output<string | undefined>;
+    declare public readonly disassociateMulticastGroup: pulumi.Output<string | undefined>;
     /**
      * Wireless device to disassociate. Only for update request.
      */
-    public readonly disassociateWirelessDevice!: pulumi.Output<string | undefined>;
+    declare public readonly disassociateWirelessDevice: pulumi.Output<string | undefined>;
     /**
      * FUOTA task firmware update image binary S3 link
      */
-    public readonly firmwareUpdateImage!: pulumi.Output<string>;
+    declare public readonly firmwareUpdateImage: pulumi.Output<string>;
     /**
      * FUOTA task firmware IAM role for reading S3
      */
-    public readonly firmwareUpdateRole!: pulumi.Output<string>;
+    declare public readonly firmwareUpdateRole: pulumi.Output<string>;
     /**
      * FUOTA task status. Returned after successful read.
      */
-    public /*out*/ readonly fuotaTaskStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly fuotaTaskStatus: pulumi.Output<string>;
     /**
      * FUOTA task LoRaWAN
      */
-    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.FuotaTaskLoRaWan>;
+    declare public readonly loRaWan: pulumi.Output<outputs.iotwireless.FuotaTaskLoRaWan>;
     /**
      * Name of FUOTA task
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the FUOTA task.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FuotaTask resource with the given unique name, arguments, and options.
@@ -101,25 +101,25 @@ export class FuotaTask extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.firmwareUpdateImage === undefined) && !opts.urn) {
+            if (args?.firmwareUpdateImage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firmwareUpdateImage'");
             }
-            if ((!args || args.firmwareUpdateRole === undefined) && !opts.urn) {
+            if (args?.firmwareUpdateRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firmwareUpdateRole'");
             }
-            if ((!args || args.loRaWan === undefined) && !opts.urn) {
+            if (args?.loRaWan === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loRaWan'");
             }
-            resourceInputs["associateMulticastGroup"] = args ? args.associateMulticastGroup : undefined;
-            resourceInputs["associateWirelessDevice"] = args ? args.associateWirelessDevice : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disassociateMulticastGroup"] = args ? args.disassociateMulticastGroup : undefined;
-            resourceInputs["disassociateWirelessDevice"] = args ? args.disassociateWirelessDevice : undefined;
-            resourceInputs["firmwareUpdateImage"] = args ? args.firmwareUpdateImage : undefined;
-            resourceInputs["firmwareUpdateRole"] = args ? args.firmwareUpdateRole : undefined;
-            resourceInputs["loRaWan"] = args ? args.loRaWan : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associateMulticastGroup"] = args?.associateMulticastGroup;
+            resourceInputs["associateWirelessDevice"] = args?.associateWirelessDevice;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disassociateMulticastGroup"] = args?.disassociateMulticastGroup;
+            resourceInputs["disassociateWirelessDevice"] = args?.disassociateWirelessDevice;
+            resourceInputs["firmwareUpdateImage"] = args?.firmwareUpdateImage;
+            resourceInputs["firmwareUpdateRole"] = args?.firmwareUpdateRole;
+            resourceInputs["loRaWan"] = args?.loRaWan;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["fuotaTaskStatus"] = undefined /*out*/;

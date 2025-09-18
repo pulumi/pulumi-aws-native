@@ -40,48 +40,48 @@ export class IdMappingTable extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the ID mapping table.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the collaboration that contains this ID mapping table.
      */
-    public /*out*/ readonly collaborationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly collaborationArn: pulumi.Output<string>;
     /**
      * The unique identifier of the collaboration that contains this ID mapping table.
      */
-    public /*out*/ readonly collaborationIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly collaborationIdentifier: pulumi.Output<string>;
     /**
      * The description of the ID mapping table.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of the ID mapping table identifier that you want to retrieve.
      */
-    public /*out*/ readonly idMappingTableIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly idMappingTableIdentifier: pulumi.Output<string>;
     /**
      * The input reference configuration for the ID mapping table.
      */
-    public readonly inputReferenceConfig!: pulumi.Output<outputs.cleanrooms.IdMappingTableInputReferenceConfig>;
-    public /*out*/ readonly inputReferenceProperties!: pulumi.Output<outputs.cleanrooms.IdMappingTableInputReferenceProperties>;
+    declare public readonly inputReferenceConfig: pulumi.Output<outputs.cleanrooms.IdMappingTableInputReferenceConfig>;
+    declare public /*out*/ readonly inputReferenceProperties: pulumi.Output<outputs.cleanrooms.IdMappingTableInputReferenceProperties>;
     /**
      * The Amazon Resource Name (ARN) of the AWS KMS key.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the membership resource for the ID mapping table.
      */
-    public /*out*/ readonly membershipArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly membershipArn: pulumi.Output<string>;
     /**
      * The unique identifier of the membership resource for the ID mapping table.
      */
-    public readonly membershipIdentifier!: pulumi.Output<string>;
+    declare public readonly membershipIdentifier: pulumi.Output<string>;
     /**
      * The name of the ID mapping table.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a IdMappingTable resource with the given unique name, arguments, and options.
@@ -94,18 +94,18 @@ export class IdMappingTable extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.inputReferenceConfig === undefined) && !opts.urn) {
+            if (args?.inputReferenceConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputReferenceConfig'");
             }
-            if ((!args || args.membershipIdentifier === undefined) && !opts.urn) {
+            if (args?.membershipIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'membershipIdentifier'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["inputReferenceConfig"] = args ? args.inputReferenceConfig : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["membershipIdentifier"] = args ? args.membershipIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["inputReferenceConfig"] = args?.inputReferenceConfig;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["membershipIdentifier"] = args?.membershipIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationArn"] = undefined /*out*/;
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;

@@ -86,20 +86,20 @@ export class Input extends pulumi.CustomResource {
     /**
      * The definition of the input.
      */
-    public readonly inputDefinition!: pulumi.Output<outputs.iotevents.InputDefinition>;
+    declare public readonly inputDefinition: pulumi.Output<outputs.iotevents.InputDefinition>;
     /**
      * A brief description of the input.
      */
-    public readonly inputDescription!: pulumi.Output<string | undefined>;
+    declare public readonly inputDescription: pulumi.Output<string | undefined>;
     /**
      * The name of the input.
      */
-    public readonly inputName!: pulumi.Output<string | undefined>;
+    declare public readonly inputName: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Input resource with the given unique name, arguments, and options.
@@ -112,13 +112,13 @@ export class Input extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.inputDefinition === undefined) && !opts.urn) {
+            if (args?.inputDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputDefinition'");
             }
-            resourceInputs["inputDefinition"] = args ? args.inputDefinition : undefined;
-            resourceInputs["inputDescription"] = args ? args.inputDescription : undefined;
-            resourceInputs["inputName"] = args ? args.inputName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["inputDefinition"] = args?.inputDefinition;
+            resourceInputs["inputDescription"] = args?.inputDescription;
+            resourceInputs["inputName"] = args?.inputName;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["inputDefinition"] = undefined /*out*/;
             resourceInputs["inputDescription"] = undefined /*out*/;

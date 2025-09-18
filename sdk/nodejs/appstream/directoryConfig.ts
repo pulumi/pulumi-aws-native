@@ -40,19 +40,19 @@ export class DirectoryConfig extends pulumi.CustomResource {
     /**
      * The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
      */
-    public readonly certificateBasedAuthProperties!: pulumi.Output<outputs.appstream.DirectoryConfigCertificateBasedAuthProperties | undefined>;
+    declare public readonly certificateBasedAuthProperties: pulumi.Output<outputs.appstream.DirectoryConfigCertificateBasedAuthProperties | undefined>;
     /**
      * The fully qualified name of the directory (for example, corp.example.com).
      */
-    public readonly directoryName!: pulumi.Output<string>;
+    declare public readonly directoryName: pulumi.Output<string>;
     /**
      * The distinguished names of the organizational units for computer accounts.
      */
-    public readonly organizationalUnitDistinguishedNames!: pulumi.Output<string[]>;
+    declare public readonly organizationalUnitDistinguishedNames: pulumi.Output<string[]>;
     /**
      * The credentials for the service account used by the streaming instance to connect to the directory. Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) .
      */
-    public readonly serviceAccountCredentials!: pulumi.Output<outputs.appstream.DirectoryConfigServiceAccountCredentials>;
+    declare public readonly serviceAccountCredentials: pulumi.Output<outputs.appstream.DirectoryConfigServiceAccountCredentials>;
 
     /**
      * Create a DirectoryConfig resource with the given unique name, arguments, and options.
@@ -65,19 +65,19 @@ export class DirectoryConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.directoryName === undefined) && !opts.urn) {
+            if (args?.directoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'directoryName'");
             }
-            if ((!args || args.organizationalUnitDistinguishedNames === undefined) && !opts.urn) {
+            if (args?.organizationalUnitDistinguishedNames === undefined && !opts.urn) {
                 throw new Error("Missing required property 'organizationalUnitDistinguishedNames'");
             }
-            if ((!args || args.serviceAccountCredentials === undefined) && !opts.urn) {
+            if (args?.serviceAccountCredentials === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccountCredentials'");
             }
-            resourceInputs["certificateBasedAuthProperties"] = args ? args.certificateBasedAuthProperties : undefined;
-            resourceInputs["directoryName"] = args ? args.directoryName : undefined;
-            resourceInputs["organizationalUnitDistinguishedNames"] = args ? args.organizationalUnitDistinguishedNames : undefined;
-            resourceInputs["serviceAccountCredentials"] = args ? args.serviceAccountCredentials : undefined;
+            resourceInputs["certificateBasedAuthProperties"] = args?.certificateBasedAuthProperties;
+            resourceInputs["directoryName"] = args?.directoryName;
+            resourceInputs["organizationalUnitDistinguishedNames"] = args?.organizationalUnitDistinguishedNames;
+            resourceInputs["serviceAccountCredentials"] = args?.serviceAccountCredentials;
         } else {
             resourceInputs["certificateBasedAuthProperties"] = undefined /*out*/;
             resourceInputs["directoryName"] = undefined /*out*/;

@@ -57,43 +57,43 @@ export class Schema extends pulumi.CustomResource {
     /**
      * The source of the schema definition.
      */
-    public readonly content!: pulumi.Output<string>;
+    declare public readonly content: pulumi.Output<string>;
     /**
      * A description of the schema.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The last modified time of the schema.
      */
-    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModified: pulumi.Output<string>;
     /**
      * The name of the schema registry.
      */
-    public readonly registryName!: pulumi.Output<string>;
+    declare public readonly registryName: pulumi.Output<string>;
     /**
      * The ARN of the schema.
      */
-    public /*out*/ readonly schemaArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly schemaArn: pulumi.Output<string>;
     /**
      * The name of the schema.
      */
-    public readonly schemaName!: pulumi.Output<string | undefined>;
+    declare public readonly schemaName: pulumi.Output<string | undefined>;
     /**
      * The version number of the schema.
      */
-    public /*out*/ readonly schemaVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly schemaVersion: pulumi.Output<string>;
     /**
      * Tags associated with the resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The date the schema version was created.
      */
-    public /*out*/ readonly versionCreatedDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly versionCreatedDate: pulumi.Output<string>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.
@@ -106,21 +106,21 @@ export class Schema extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["schemaName"] = args?.schemaName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["schemaArn"] = undefined /*out*/;
             resourceInputs["schemaVersion"] = undefined /*out*/;

@@ -40,63 +40,63 @@ export class Crawler extends pulumi.CustomResource {
     /**
      * A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
      */
-    public readonly classifiers!: pulumi.Output<string[] | undefined>;
+    declare public readonly classifiers: pulumi.Output<string[] | undefined>;
     /**
      * Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
      */
-    public readonly configuration!: pulumi.Output<string | undefined>;
+    declare public readonly configuration: pulumi.Output<string | undefined>;
     /**
      * The name of the SecurityConfiguration structure to be used by this crawler.
      */
-    public readonly crawlerSecurityConfiguration!: pulumi.Output<string | undefined>;
+    declare public readonly crawlerSecurityConfiguration: pulumi.Output<string | undefined>;
     /**
      * The name of the database in which the crawler's output is stored.
      */
-    public readonly databaseName!: pulumi.Output<string | undefined>;
+    declare public readonly databaseName: pulumi.Output<string | undefined>;
     /**
      * A description of the crawler.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
      */
-    public readonly lakeFormationConfiguration!: pulumi.Output<outputs.glue.CrawlerLakeFormationConfiguration | undefined>;
+    declare public readonly lakeFormationConfiguration: pulumi.Output<outputs.glue.CrawlerLakeFormationConfiguration | undefined>;
     /**
      * The name of the crawler.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.
      */
-    public readonly recrawlPolicy!: pulumi.Output<outputs.glue.CrawlerRecrawlPolicy | undefined>;
+    declare public readonly recrawlPolicy: pulumi.Output<outputs.glue.CrawlerRecrawlPolicy | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that's used to access customer resources, such as Amazon Simple Storage Service (Amazon S3) data.
      */
-    public readonly role!: pulumi.Output<string>;
+    declare public readonly role: pulumi.Output<string>;
     /**
      * For scheduled crawlers, the schedule when the crawler runs.
      */
-    public readonly schedule!: pulumi.Output<outputs.glue.CrawlerSchedule | undefined>;
+    declare public readonly schedule: pulumi.Output<outputs.glue.CrawlerSchedule | undefined>;
     /**
      * The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The `SchemaChangePolicy` does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the `SchemaChangePolicy` on a crawler.
      *
      * The SchemaChangePolicy consists of two components, `UpdateBehavior` and `DeleteBehavior` .
      */
-    public readonly schemaChangePolicy!: pulumi.Output<outputs.glue.CrawlerSchemaChangePolicy | undefined>;
+    declare public readonly schemaChangePolicy: pulumi.Output<outputs.glue.CrawlerSchemaChangePolicy | undefined>;
     /**
      * The prefix added to the names of tables that are created.
      */
-    public readonly tablePrefix!: pulumi.Output<string | undefined>;
+    declare public readonly tablePrefix: pulumi.Output<string | undefined>;
     /**
      * The tags to use with this crawler.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Crawler` for more information about the expected schema for this property.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    declare public readonly tags: pulumi.Output<any | undefined>;
     /**
      * A collection of targets to crawl.
      */
-    public readonly targets!: pulumi.Output<outputs.glue.CrawlerTargets>;
+    declare public readonly targets: pulumi.Output<outputs.glue.CrawlerTargets>;
 
     /**
      * Create a Crawler resource with the given unique name, arguments, and options.
@@ -109,26 +109,26 @@ export class Crawler extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            if ((!args || args.targets === undefined) && !opts.urn) {
+            if (args?.targets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targets'");
             }
-            resourceInputs["classifiers"] = args ? args.classifiers : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["crawlerSecurityConfiguration"] = args ? args.crawlerSecurityConfiguration : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["lakeFormationConfiguration"] = args ? args.lakeFormationConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recrawlPolicy"] = args ? args.recrawlPolicy : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["schemaChangePolicy"] = args ? args.schemaChangePolicy : undefined;
-            resourceInputs["tablePrefix"] = args ? args.tablePrefix : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["classifiers"] = args?.classifiers;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["crawlerSecurityConfiguration"] = args?.crawlerSecurityConfiguration;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["lakeFormationConfiguration"] = args?.lakeFormationConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recrawlPolicy"] = args?.recrawlPolicy;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["schemaChangePolicy"] = args?.schemaChangePolicy;
+            resourceInputs["tablePrefix"] = args?.tablePrefix;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targets"] = args?.targets;
         } else {
             resourceInputs["classifiers"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;

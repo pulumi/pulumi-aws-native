@@ -40,45 +40,45 @@ export class Faq extends pulumi.CustomResource {
     /**
      * `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/faq/f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The identifier for the FAQ. For example:
      *
      * `f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * FAQ description
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * FAQ file format
      */
-    public readonly fileFormat!: pulumi.Output<enums.kendra.FaqFileFormat | undefined>;
+    declare public readonly fileFormat: pulumi.Output<enums.kendra.FaqFileFormat | undefined>;
     /**
      * Index ID
      */
-    public readonly indexId!: pulumi.Output<string>;
+    declare public readonly indexId: pulumi.Output<string>;
     /**
      * The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
      */
-    public readonly languageCode!: pulumi.Output<string | undefined>;
+    declare public readonly languageCode: pulumi.Output<string | undefined>;
     /**
      * FAQ name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * FAQ role ARN
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * FAQ S3 path
      */
-    public readonly s3Path!: pulumi.Output<outputs.kendra.FaqS3Path>;
+    declare public readonly s3Path: pulumi.Output<outputs.kendra.FaqS3Path>;
     /**
      * Tags for labeling the FAQ
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Faq resource with the given unique name, arguments, and options.
@@ -91,23 +91,23 @@ export class Faq extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.indexId === undefined) && !opts.urn) {
+            if (args?.indexId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'indexId'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.s3Path === undefined) && !opts.urn) {
+            if (args?.s3Path === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3Path'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
-            resourceInputs["indexId"] = args ? args.indexId : undefined;
-            resourceInputs["languageCode"] = args ? args.languageCode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["s3Path"] = args ? args.s3Path : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fileFormat"] = args?.fileFormat;
+            resourceInputs["indexId"] = args?.indexId;
+            resourceInputs["languageCode"] = args?.languageCode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["s3Path"] = args?.s3Path;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

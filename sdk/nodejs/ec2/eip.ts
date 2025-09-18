@@ -42,48 +42,48 @@ export class Eip extends pulumi.CustomResource {
     /**
      * An Elastic IP address or a carrier IP address in a Wavelength Zone.
      */
-    public readonly address!: pulumi.Output<string | undefined>;
+    declare public readonly address: pulumi.Output<string | undefined>;
     /**
      * The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
      */
-    public /*out*/ readonly allocationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly allocationId: pulumi.Output<string>;
     /**
      * The network (``vpc``).
      *  If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
      */
-    public readonly domain!: pulumi.Output<string | undefined>;
+    declare public readonly domain: pulumi.Output<string | undefined>;
     /**
      * The ID of the instance.
      *   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
      */
-    public readonly instanceId!: pulumi.Output<string | undefined>;
+    declare public readonly instanceId: pulumi.Output<string | undefined>;
     /**
      * The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* .
      */
-    public readonly ipamPoolId!: pulumi.Output<string | undefined>;
+    declare public readonly ipamPoolId: pulumi.Output<string | undefined>;
     /**
      * A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
      *  Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.
      */
-    public readonly networkBorderGroup!: pulumi.Output<string | undefined>;
+    declare public readonly networkBorderGroup: pulumi.Output<string | undefined>;
     /**
      * The Elastic IP address.
      */
-    public /*out*/ readonly publicIp!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicIp: pulumi.Output<string>;
     /**
      * The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool.
      *   Updates to the ``PublicIpv4Pool`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
      */
-    public readonly publicIpv4Pool!: pulumi.Output<string | undefined>;
+    declare public readonly publicIpv4Pool: pulumi.Output<string | undefined>;
     /**
      * Any tags assigned to the Elastic IP address.
      *   Updates to the ``Tags`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Elastic IP address you are accepting for transfer. You can only accept one transferred address. For more information on Elastic IP address transfers, see [Transfer Elastic IP addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro) in the *Amazon Virtual Private Cloud User Guide*.
      */
-    public readonly transferAddress!: pulumi.Output<string | undefined>;
+    declare public readonly transferAddress: pulumi.Output<string | undefined>;
 
     /**
      * Create a Eip resource with the given unique name, arguments, and options.
@@ -96,14 +96,14 @@ export class Eip extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["address"] = args ? args.address : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
-            resourceInputs["networkBorderGroup"] = args ? args.networkBorderGroup : undefined;
-            resourceInputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transferAddress"] = args ? args.transferAddress : undefined;
+            resourceInputs["address"] = args?.address;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["ipamPoolId"] = args?.ipamPoolId;
+            resourceInputs["networkBorderGroup"] = args?.networkBorderGroup;
+            resourceInputs["publicIpv4Pool"] = args?.publicIpv4Pool;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transferAddress"] = args?.transferAddress;
             resourceInputs["allocationId"] = undefined /*out*/;
             resourceInputs["publicIp"] = undefined /*out*/;
         } else {

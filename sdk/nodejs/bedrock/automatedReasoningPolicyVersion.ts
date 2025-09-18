@@ -40,43 +40,43 @@ export class AutomatedReasoningPolicyVersion extends pulumi.CustomResource {
     /**
      * The timestamp when the policy version was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * A hash of the policy definition used to identify the version.
      */
-    public /*out*/ readonly definitionHash!: pulumi.Output<string>;
+    declare public /*out*/ readonly definitionHash: pulumi.Output<string>;
     /**
      * The description of the policy version.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    declare public /*out*/ readonly description: pulumi.Output<string>;
     /**
      * The hash of the policy definition that was last updated.
      */
-    public readonly lastUpdatedDefinitionHash!: pulumi.Output<string | undefined>;
+    declare public readonly lastUpdatedDefinitionHash: pulumi.Output<string | undefined>;
     /**
      * The name of the policy version.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the policy.
      */
-    public readonly policyArn!: pulumi.Output<string>;
+    declare public readonly policyArn: pulumi.Output<string>;
     /**
      * The unique identifier of the policy.
      */
-    public /*out*/ readonly policyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly policyId: pulumi.Output<string>;
     /**
      * The tags associated with the Automated Reasoning policy version.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The timestamp when the policy version was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * The version number of the policy version.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a AutomatedReasoningPolicyVersion resource with the given unique name, arguments, and options.
@@ -89,12 +89,12 @@ export class AutomatedReasoningPolicyVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyArn === undefined) && !opts.urn) {
+            if (args?.policyArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyArn'");
             }
-            resourceInputs["lastUpdatedDefinitionHash"] = args ? args.lastUpdatedDefinitionHash : undefined;
-            resourceInputs["policyArn"] = args ? args.policyArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["lastUpdatedDefinitionHash"] = args?.lastUpdatedDefinitionHash;
+            resourceInputs["policyArn"] = args?.policyArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["definitionHash"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

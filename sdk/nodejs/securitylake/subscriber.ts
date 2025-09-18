@@ -42,51 +42,51 @@ export class Subscriber extends pulumi.CustomResource {
      *
      * Subscribers can consume data by directly querying AWS Lake Formation tables in your Amazon S3 bucket through services like Amazon Athena. This subscription type is defined as `LAKEFORMATION` .
      */
-    public readonly accessTypes!: pulumi.Output<enums.securitylake.SubscriberAccessTypesItem[]>;
+    declare public readonly accessTypes: pulumi.Output<enums.securitylake.SubscriberAccessTypesItem[]>;
     /**
      * The ARN for the data lake.
      */
-    public readonly dataLakeArn!: pulumi.Output<string>;
+    declare public readonly dataLakeArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Security Lake subscriber.
      */
-    public /*out*/ readonly resourceShareArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceShareArn: pulumi.Output<string>;
     /**
      * The ARN name of the Amazon Security Lake subscriber.
      */
-    public /*out*/ readonly resourceShareName!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceShareName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the S3 bucket.
      */
-    public /*out*/ readonly s3BucketArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly s3BucketArn: pulumi.Output<string>;
     /**
      * The supported AWS services from which logs and events are collected.
      */
-    public readonly sources!: pulumi.Output<outputs.securitylake.SubscriberSource[]>;
+    declare public readonly sources: pulumi.Output<outputs.securitylake.SubscriberSource[]>;
     /**
      * The Amazon Resource Name (ARN) of the Security Lake subscriber.
      */
-    public /*out*/ readonly subscriberArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly subscriberArn: pulumi.Output<string>;
     /**
      * The description for your subscriber account in Security Lake.
      */
-    public readonly subscriberDescription!: pulumi.Output<string | undefined>;
+    declare public readonly subscriberDescription: pulumi.Output<string | undefined>;
     /**
      * The AWS identity used to access your data.
      */
-    public readonly subscriberIdentity!: pulumi.Output<outputs.securitylake.SubscriberIdentityProperties>;
+    declare public readonly subscriberIdentity: pulumi.Output<outputs.securitylake.SubscriberIdentityProperties>;
     /**
      * The name of your Security Lake subscriber account.
      */
-    public readonly subscriberName!: pulumi.Output<string>;
+    declare public readonly subscriberName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the role used to create the Security Lake subscriber.
      */
-    public /*out*/ readonly subscriberRoleArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly subscriberRoleArn: pulumi.Output<string>;
     /**
      * An array of objects, one for each tag to associate with the subscriber. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Subscriber resource with the given unique name, arguments, and options.
@@ -99,25 +99,25 @@ export class Subscriber extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessTypes === undefined) && !opts.urn) {
+            if (args?.accessTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessTypes'");
             }
-            if ((!args || args.dataLakeArn === undefined) && !opts.urn) {
+            if (args?.dataLakeArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataLakeArn'");
             }
-            if ((!args || args.sources === undefined) && !opts.urn) {
+            if (args?.sources === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sources'");
             }
-            if ((!args || args.subscriberIdentity === undefined) && !opts.urn) {
+            if (args?.subscriberIdentity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriberIdentity'");
             }
-            resourceInputs["accessTypes"] = args ? args.accessTypes : undefined;
-            resourceInputs["dataLakeArn"] = args ? args.dataLakeArn : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
-            resourceInputs["subscriberDescription"] = args ? args.subscriberDescription : undefined;
-            resourceInputs["subscriberIdentity"] = args ? args.subscriberIdentity : undefined;
-            resourceInputs["subscriberName"] = args ? args.subscriberName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessTypes"] = args?.accessTypes;
+            resourceInputs["dataLakeArn"] = args?.dataLakeArn;
+            resourceInputs["sources"] = args?.sources;
+            resourceInputs["subscriberDescription"] = args?.subscriberDescription;
+            resourceInputs["subscriberIdentity"] = args?.subscriberIdentity;
+            resourceInputs["subscriberName"] = args?.subscriberName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["resourceShareArn"] = undefined /*out*/;
             resourceInputs["resourceShareName"] = undefined /*out*/;
             resourceInputs["s3BucketArn"] = undefined /*out*/;

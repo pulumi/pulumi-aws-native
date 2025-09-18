@@ -40,40 +40,40 @@ export class DeliveryStream extends pulumi.CustomResource {
     /**
      * Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
      */
-    public readonly amazonOpenSearchServerlessDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration | undefined>;
+    declare public readonly amazonOpenSearchServerlessDestinationConfiguration: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration | undefined>;
     /**
      * The destination in Amazon OpenSearch Service. You can specify only one destination.
      */
-    public readonly amazonopensearchserviceDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfiguration | undefined>;
+    declare public readonly amazonopensearchserviceDestinationConfiguration: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The top level object for configuring streams with database as a source.
      *
      * Amazon Data Firehose is in preview release and is subject to change.
      */
-    public readonly databaseSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamDatabaseSourceConfiguration | undefined>;
+    declare public readonly databaseSourceConfiguration: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamDatabaseSourceConfiguration | undefined>;
     /**
      * Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
      */
-    public readonly deliveryStreamEncryptionConfigurationInput!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamEncryptionConfigurationInput | undefined>;
+    declare public readonly deliveryStreamEncryptionConfigurationInput: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamEncryptionConfigurationInput | undefined>;
     /**
      * The name of the Firehose stream.
      */
-    public readonly deliveryStreamName!: pulumi.Output<string | undefined>;
+    declare public readonly deliveryStreamName: pulumi.Output<string | undefined>;
     /**
      * The Firehose stream type. This can be one of the following values:
      *
      * - `DirectPut` : Provider applications access the Firehose stream directly.
      * - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
      */
-    public readonly deliveryStreamType!: pulumi.Output<enums.kinesisfirehose.DeliveryStreamType | undefined>;
+    declare public readonly deliveryStreamType: pulumi.Output<enums.kinesisfirehose.DeliveryStreamType | undefined>;
     /**
      * The structure that configures parameters such as `ThroughputHintInMBs` for a stream configured with Direct PUT as a source.
      */
-    public readonly directPutSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamDirectPutSourceConfiguration | undefined>;
+    declare public readonly directPutSourceConfiguration: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamDirectPutSourceConfiguration | undefined>;
     /**
      * An Amazon ES destination for the delivery stream.
      *
@@ -81,7 +81,7 @@ export class DeliveryStream extends pulumi.CustomResource {
      *
      * If you change the delivery stream destination from an Amazon ES destination to an Amazon S3 or Amazon Redshift destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
      */
-    public readonly elasticsearchDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfiguration | undefined>;
+    declare public readonly elasticsearchDestinationConfiguration: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfiguration | undefined>;
     /**
      * An Amazon S3 destination for the delivery stream.
      *
@@ -89,23 +89,23 @@ export class DeliveryStream extends pulumi.CustomResource {
      *
      * If you change the delivery stream destination from an Amazon Extended S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
      */
-    public readonly extendedS3DestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfiguration | undefined>;
+    declare public readonly extendedS3DestinationConfiguration: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfiguration | undefined>;
     /**
      * Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
      */
-    public readonly httpEndpointDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfiguration | undefined>;
+    declare public readonly httpEndpointDestinationConfiguration: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfiguration | undefined>;
     /**
      * Specifies the destination configure settings for Apache Iceberg Table.
      */
-    public readonly icebergDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamIcebergDestinationConfiguration | undefined>;
+    declare public readonly icebergDestinationConfiguration: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamIcebergDestinationConfiguration | undefined>;
     /**
      * When a Kinesis stream is used as the source for the delivery stream, a [KinesisStreamSourceConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html) containing the Kinesis stream ARN and the role ARN for the source stream.
      */
-    public readonly kinesisStreamSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamKinesisStreamSourceConfiguration | undefined>;
+    declare public readonly kinesisStreamSourceConfiguration: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamKinesisStreamSourceConfiguration | undefined>;
     /**
      * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream.
      */
-    public readonly mskSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamMskSourceConfiguration | undefined>;
+    declare public readonly mskSourceConfiguration: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamMskSourceConfiguration | undefined>;
     /**
      * An Amazon Redshift destination for the delivery stream.
      *
@@ -113,7 +113,7 @@ export class DeliveryStream extends pulumi.CustomResource {
      *
      * If you change the delivery stream destination from an Amazon Redshift destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
      */
-    public readonly redshiftDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamRedshiftDestinationConfiguration | undefined>;
+    declare public readonly redshiftDestinationConfiguration: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamRedshiftDestinationConfiguration | undefined>;
     /**
      * The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
      *
@@ -121,15 +121,15 @@ export class DeliveryStream extends pulumi.CustomResource {
      *
      * If you change the delivery stream destination from an Amazon S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
      */
-    public readonly s3DestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration | undefined>;
+    declare public readonly s3DestinationConfiguration: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration | undefined>;
     /**
      * Configure Snowflake destination
      */
-    public readonly snowflakeDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfiguration | undefined>;
+    declare public readonly snowflakeDestinationConfiguration: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfiguration | undefined>;
     /**
      * The configuration of a destination in Splunk for the delivery stream.
      */
-    public readonly splunkDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfiguration | undefined>;
+    declare public readonly splunkDestinationConfiguration: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfiguration | undefined>;
     /**
      * A set of tags to assign to the Firehose stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the Firehose stream. For more information about tags, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing and Cost Management User Guide.
      *
@@ -143,7 +143,7 @@ export class DeliveryStream extends pulumi.CustomResource {
      *
      * For an example IAM policy, see [Tag example.](https://docs.aws.amazon.com/firehose/latest/APIReference/API_CreateDeliveryStream.html#API_CreateDeliveryStream_Examples)
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DeliveryStream resource with the given unique name, arguments, and options.
@@ -156,24 +156,24 @@ export class DeliveryStream extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["amazonOpenSearchServerlessDestinationConfiguration"] = args ? args.amazonOpenSearchServerlessDestinationConfiguration : undefined;
-            resourceInputs["amazonopensearchserviceDestinationConfiguration"] = args ? args.amazonopensearchserviceDestinationConfiguration : undefined;
-            resourceInputs["databaseSourceConfiguration"] = args ? args.databaseSourceConfiguration : undefined;
-            resourceInputs["deliveryStreamEncryptionConfigurationInput"] = args ? args.deliveryStreamEncryptionConfigurationInput : undefined;
-            resourceInputs["deliveryStreamName"] = args ? args.deliveryStreamName : undefined;
-            resourceInputs["deliveryStreamType"] = args ? args.deliveryStreamType : undefined;
-            resourceInputs["directPutSourceConfiguration"] = args ? args.directPutSourceConfiguration : undefined;
-            resourceInputs["elasticsearchDestinationConfiguration"] = args ? args.elasticsearchDestinationConfiguration : undefined;
-            resourceInputs["extendedS3DestinationConfiguration"] = args ? args.extendedS3DestinationConfiguration : undefined;
-            resourceInputs["httpEndpointDestinationConfiguration"] = args ? args.httpEndpointDestinationConfiguration : undefined;
-            resourceInputs["icebergDestinationConfiguration"] = args ? args.icebergDestinationConfiguration : undefined;
-            resourceInputs["kinesisStreamSourceConfiguration"] = args ? args.kinesisStreamSourceConfiguration : undefined;
-            resourceInputs["mskSourceConfiguration"] = args ? args.mskSourceConfiguration : undefined;
-            resourceInputs["redshiftDestinationConfiguration"] = args ? args.redshiftDestinationConfiguration : undefined;
-            resourceInputs["s3DestinationConfiguration"] = args ? args.s3DestinationConfiguration : undefined;
-            resourceInputs["snowflakeDestinationConfiguration"] = args ? args.snowflakeDestinationConfiguration : undefined;
-            resourceInputs["splunkDestinationConfiguration"] = args ? args.splunkDestinationConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["amazonOpenSearchServerlessDestinationConfiguration"] = args?.amazonOpenSearchServerlessDestinationConfiguration;
+            resourceInputs["amazonopensearchserviceDestinationConfiguration"] = args?.amazonopensearchserviceDestinationConfiguration;
+            resourceInputs["databaseSourceConfiguration"] = args?.databaseSourceConfiguration;
+            resourceInputs["deliveryStreamEncryptionConfigurationInput"] = args?.deliveryStreamEncryptionConfigurationInput;
+            resourceInputs["deliveryStreamName"] = args?.deliveryStreamName;
+            resourceInputs["deliveryStreamType"] = args?.deliveryStreamType;
+            resourceInputs["directPutSourceConfiguration"] = args?.directPutSourceConfiguration;
+            resourceInputs["elasticsearchDestinationConfiguration"] = args?.elasticsearchDestinationConfiguration;
+            resourceInputs["extendedS3DestinationConfiguration"] = args?.extendedS3DestinationConfiguration;
+            resourceInputs["httpEndpointDestinationConfiguration"] = args?.httpEndpointDestinationConfiguration;
+            resourceInputs["icebergDestinationConfiguration"] = args?.icebergDestinationConfiguration;
+            resourceInputs["kinesisStreamSourceConfiguration"] = args?.kinesisStreamSourceConfiguration;
+            resourceInputs["mskSourceConfiguration"] = args?.mskSourceConfiguration;
+            resourceInputs["redshiftDestinationConfiguration"] = args?.redshiftDestinationConfiguration;
+            resourceInputs["s3DestinationConfiguration"] = args?.s3DestinationConfiguration;
+            resourceInputs["snowflakeDestinationConfiguration"] = args?.snowflakeDestinationConfiguration;
+            resourceInputs["splunkDestinationConfiguration"] = args?.splunkDestinationConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["amazonOpenSearchServerlessDestinationConfiguration"] = undefined /*out*/;

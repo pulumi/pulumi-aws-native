@@ -37,15 +37,15 @@ export class UserPoolUserToGroupAttachment extends pulumi.CustomResource {
     /**
      * The name of the group that you want to add your user to.
      */
-    public readonly groupName!: pulumi.Output<string>;
+    declare public readonly groupName: pulumi.Output<string>;
     /**
      * The ID of the user pool that contains the group that you want to add the user to.
      */
-    public readonly userPoolId!: pulumi.Output<string>;
+    declare public readonly userPoolId: pulumi.Output<string>;
     /**
      * The user's username.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a UserPoolUserToGroupAttachment resource with the given unique name, arguments, and options.
@@ -58,18 +58,18 @@ export class UserPoolUserToGroupAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["userPoolId"] = args?.userPoolId;
+            resourceInputs["username"] = args?.username;
         } else {
             resourceInputs["groupName"] = undefined /*out*/;
             resourceInputs["userPoolId"] = undefined /*out*/;

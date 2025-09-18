@@ -40,27 +40,27 @@ export class Config extends pulumi.CustomResource {
     /**
      * The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the config, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Object containing the parameters of a config. Only one subtype may be specified per config. See the subtype definitions for a description of each config subtype.
      */
-    public readonly configData!: pulumi.Output<outputs.groundstation.ConfigData>;
+    declare public readonly configData: pulumi.Output<outputs.groundstation.ConfigData>;
     /**
      * The name of the config object.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Tags assigned to a resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the config, such as `tracking` .
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Config resource with the given unique name, arguments, and options.
@@ -73,12 +73,12 @@ export class Config extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configData === undefined) && !opts.urn) {
+            if (args?.configData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configData'");
             }
-            resourceInputs["configData"] = args ? args.configData : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configData"] = args?.configData;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

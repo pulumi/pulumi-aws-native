@@ -40,35 +40,35 @@ export class FlowEntitlement extends pulumi.CustomResource {
     /**
      * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
      */
-    public readonly dataTransferSubscriberFeePercent!: pulumi.Output<number | undefined>;
+    declare public readonly dataTransferSubscriberFeePercent: pulumi.Output<number | undefined>;
     /**
      * A description of the entitlement.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The type of encryption that will be used on the output that is associated with this entitlement.
      */
-    public readonly encryption!: pulumi.Output<outputs.mediaconnect.FlowEntitlementEncryption | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.mediaconnect.FlowEntitlementEncryption | undefined>;
     /**
      * The ARN of the entitlement.
      */
-    public /*out*/ readonly entitlementArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly entitlementArn: pulumi.Output<string>;
     /**
      *  An indication of whether the entitlement is enabled.
      */
-    public readonly entitlementStatus!: pulumi.Output<enums.mediaconnect.FlowEntitlementEntitlementStatus | undefined>;
+    declare public readonly entitlementStatus: pulumi.Output<enums.mediaconnect.FlowEntitlementEntitlementStatus | undefined>;
     /**
      * The ARN of the flow.
      */
-    public readonly flowArn!: pulumi.Output<string>;
+    declare public readonly flowArn: pulumi.Output<string>;
     /**
      * The name of the entitlement.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
      */
-    public readonly subscribers!: pulumi.Output<string[]>;
+    declare public readonly subscribers: pulumi.Output<string[]>;
 
     /**
      * Create a FlowEntitlement resource with the given unique name, arguments, and options.
@@ -81,22 +81,22 @@ export class FlowEntitlement extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.flowArn === undefined) && !opts.urn) {
+            if (args?.flowArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'flowArn'");
             }
-            if ((!args || args.subscribers === undefined) && !opts.urn) {
+            if (args?.subscribers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscribers'");
             }
-            resourceInputs["dataTransferSubscriberFeePercent"] = args ? args.dataTransferSubscriberFeePercent : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["entitlementStatus"] = args ? args.entitlementStatus : undefined;
-            resourceInputs["flowArn"] = args ? args.flowArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["subscribers"] = args ? args.subscribers : undefined;
+            resourceInputs["dataTransferSubscriberFeePercent"] = args?.dataTransferSubscriberFeePercent;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["entitlementStatus"] = args?.entitlementStatus;
+            resourceInputs["flowArn"] = args?.flowArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["subscribers"] = args?.subscribers;
             resourceInputs["entitlementArn"] = undefined /*out*/;
         } else {
             resourceInputs["dataTransferSubscriberFeePercent"] = undefined /*out*/;

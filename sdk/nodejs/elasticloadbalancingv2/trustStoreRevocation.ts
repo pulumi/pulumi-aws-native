@@ -40,19 +40,19 @@ export class TrustStoreRevocation extends pulumi.CustomResource {
     /**
      * The attributes required to create a trust store revocation.
      */
-    public readonly revocationContents!: pulumi.Output<outputs.elasticloadbalancingv2.TrustStoreRevocationRevocationContent[] | undefined>;
+    declare public readonly revocationContents: pulumi.Output<outputs.elasticloadbalancingv2.TrustStoreRevocationRevocationContent[] | undefined>;
     /**
      * The ID associated with the revocation.
      */
-    public /*out*/ readonly revocationId!: pulumi.Output<number>;
+    declare public /*out*/ readonly revocationId: pulumi.Output<number>;
     /**
      * The Amazon Resource Name (ARN) of the trust store.
      */
-    public readonly trustStoreArn!: pulumi.Output<string | undefined>;
+    declare public readonly trustStoreArn: pulumi.Output<string | undefined>;
     /**
      * The data associated with a trust store revocation
      */
-    public /*out*/ readonly trustStoreRevocations!: pulumi.Output<outputs.elasticloadbalancingv2.TrustStoreRevocation[]>;
+    declare public /*out*/ readonly trustStoreRevocations: pulumi.Output<outputs.elasticloadbalancingv2.TrustStoreRevocation[]>;
 
     /**
      * Create a TrustStoreRevocation resource with the given unique name, arguments, and options.
@@ -65,8 +65,8 @@ export class TrustStoreRevocation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["revocationContents"] = args ? args.revocationContents : undefined;
-            resourceInputs["trustStoreArn"] = args ? args.trustStoreArn : undefined;
+            resourceInputs["revocationContents"] = args?.revocationContents;
+            resourceInputs["trustStoreArn"] = args?.trustStoreArn;
             resourceInputs["revocationId"] = undefined /*out*/;
             resourceInputs["trustStoreRevocations"] = undefined /*out*/;
         } else {

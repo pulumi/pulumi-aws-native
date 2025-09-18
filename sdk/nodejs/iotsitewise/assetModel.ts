@@ -40,47 +40,47 @@ export class AssetModel extends pulumi.CustomResource {
     /**
      * The ARN of the asset model, which has the following format.
      */
-    public /*out*/ readonly assetModelArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly assetModelArn: pulumi.Output<string>;
     /**
      * The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
      */
-    public readonly assetModelCompositeModels!: pulumi.Output<outputs.iotsitewise.AssetModelCompositeModel[] | undefined>;
+    declare public readonly assetModelCompositeModels: pulumi.Output<outputs.iotsitewise.AssetModelCompositeModel[] | undefined>;
     /**
      * A description for the asset model.
      */
-    public readonly assetModelDescription!: pulumi.Output<string | undefined>;
+    declare public readonly assetModelDescription: pulumi.Output<string | undefined>;
     /**
      * The external ID of the asset model.
      */
-    public readonly assetModelExternalId!: pulumi.Output<string | undefined>;
+    declare public readonly assetModelExternalId: pulumi.Output<string | undefined>;
     /**
      * The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
      */
-    public readonly assetModelHierarchies!: pulumi.Output<outputs.iotsitewise.AssetModelHierarchy[] | undefined>;
+    declare public readonly assetModelHierarchies: pulumi.Output<outputs.iotsitewise.AssetModelHierarchy[] | undefined>;
     /**
      * The ID of the asset model.
      */
-    public /*out*/ readonly assetModelId!: pulumi.Output<string>;
+    declare public /*out*/ readonly assetModelId: pulumi.Output<string>;
     /**
      * A unique, friendly name for the asset model.
      */
-    public readonly assetModelName!: pulumi.Output<string>;
+    declare public readonly assetModelName: pulumi.Output<string>;
     /**
      * The property definitions of the asset model. You can specify up to 200 properties per asset model.
      */
-    public readonly assetModelProperties!: pulumi.Output<outputs.iotsitewise.AssetModelProperty[] | undefined>;
+    declare public readonly assetModelProperties: pulumi.Output<outputs.iotsitewise.AssetModelProperty[] | undefined>;
     /**
      * The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL or INTERFACE)
      */
-    public readonly assetModelType!: pulumi.Output<string | undefined>;
+    declare public readonly assetModelType: pulumi.Output<string | undefined>;
     /**
      * a list of asset model and interface relationships
      */
-    public readonly enforcedAssetModelInterfaceRelationships!: pulumi.Output<outputs.iotsitewise.AssetModelEnforcedAssetModelInterfaceRelationship[] | undefined>;
+    declare public readonly enforcedAssetModelInterfaceRelationships: pulumi.Output<outputs.iotsitewise.AssetModelEnforcedAssetModelInterfaceRelationship[] | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a AssetModel resource with the given unique name, arguments, and options.
@@ -93,15 +93,15 @@ export class AssetModel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["assetModelCompositeModels"] = args ? args.assetModelCompositeModels : undefined;
-            resourceInputs["assetModelDescription"] = args ? args.assetModelDescription : undefined;
-            resourceInputs["assetModelExternalId"] = args ? args.assetModelExternalId : undefined;
-            resourceInputs["assetModelHierarchies"] = args ? args.assetModelHierarchies : undefined;
-            resourceInputs["assetModelName"] = args ? args.assetModelName : undefined;
-            resourceInputs["assetModelProperties"] = args ? args.assetModelProperties : undefined;
-            resourceInputs["assetModelType"] = args ? args.assetModelType : undefined;
-            resourceInputs["enforcedAssetModelInterfaceRelationships"] = args ? args.enforcedAssetModelInterfaceRelationships : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assetModelCompositeModels"] = args?.assetModelCompositeModels;
+            resourceInputs["assetModelDescription"] = args?.assetModelDescription;
+            resourceInputs["assetModelExternalId"] = args?.assetModelExternalId;
+            resourceInputs["assetModelHierarchies"] = args?.assetModelHierarchies;
+            resourceInputs["assetModelName"] = args?.assetModelName;
+            resourceInputs["assetModelProperties"] = args?.assetModelProperties;
+            resourceInputs["assetModelType"] = args?.assetModelType;
+            resourceInputs["enforcedAssetModelInterfaceRelationships"] = args?.enforcedAssetModelInterfaceRelationships;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["assetModelArn"] = undefined /*out*/;
             resourceInputs["assetModelId"] = undefined /*out*/;
         } else {

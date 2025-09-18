@@ -40,143 +40,143 @@ export class CloudVmCluster extends pulumi.CustomResource {
     /**
      * The unique identifier of the Exadata infrastructure that this VM cluster belongs to.
      */
-    public readonly cloudExadataInfrastructureId!: pulumi.Output<string | undefined>;
+    declare public readonly cloudExadataInfrastructureId: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the VM cluster.
      */
-    public /*out*/ readonly cloudVmClusterArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly cloudVmClusterArn: pulumi.Output<string>;
     /**
      * The unique identifier of the VM cluster.
      */
-    public /*out*/ readonly cloudVmClusterId!: pulumi.Output<string>;
+    declare public /*out*/ readonly cloudVmClusterId: pulumi.Output<string>;
     /**
      * The name of the Grid Infrastructure (GI) cluster.
      */
-    public readonly clusterName!: pulumi.Output<string | undefined>;
+    declare public readonly clusterName: pulumi.Output<string | undefined>;
     /**
      * The OCI model compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
      */
-    public /*out*/ readonly computeModel!: pulumi.Output<string>;
+    declare public /*out*/ readonly computeModel: pulumi.Output<string>;
     /**
      * The number of CPU cores enabled on the VM cluster.
      */
-    public readonly cpuCoreCount!: pulumi.Output<number | undefined>;
+    declare public readonly cpuCoreCount: pulumi.Output<number | undefined>;
     /**
      * The set of diagnostic collection options enabled for the VM cluster.
      */
-    public readonly dataCollectionOptions!: pulumi.Output<outputs.odb.CloudVmClusterDataCollectionOptions | undefined>;
+    declare public readonly dataCollectionOptions: pulumi.Output<outputs.odb.CloudVmClusterDataCollectionOptions | undefined>;
     /**
      * The size of the data disk group, in terabytes (TB), that's allocated for the VM cluster.
      */
-    public readonly dataStorageSizeInTbs!: pulumi.Output<number | undefined>;
+    declare public readonly dataStorageSizeInTbs: pulumi.Output<number | undefined>;
     /**
      * The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
      */
-    public readonly dbNodeStorageSizeInGbs!: pulumi.Output<number | undefined>;
+    declare public readonly dbNodeStorageSizeInGbs: pulumi.Output<number | undefined>;
     /**
      * The list of database servers for the VM cluster.
      */
-    public readonly dbServers!: pulumi.Output<string[] | undefined>;
+    declare public readonly dbServers: pulumi.Output<string[] | undefined>;
     /**
      * The type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.
      */
-    public /*out*/ readonly diskRedundancy!: pulumi.Output<string>;
+    declare public /*out*/ readonly diskRedundancy: pulumi.Output<string>;
     /**
      * The user-friendly name for the VM cluster.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The domain of the VM cluster.
      */
-    public /*out*/ readonly domain!: pulumi.Output<string>;
+    declare public /*out*/ readonly domain: pulumi.Output<string>;
     /**
      * The software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
      */
-    public readonly giVersion!: pulumi.Output<string | undefined>;
+    declare public readonly giVersion: pulumi.Output<string | undefined>;
     /**
      * The host name for the VM cluster.
      */
-    public readonly hostname!: pulumi.Output<string | undefined>;
+    declare public readonly hostname: pulumi.Output<string | undefined>;
     /**
      * Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
      */
-    public readonly isLocalBackupEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isLocalBackupEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether the VM cluster is configured with a sparse disk group.
      */
-    public readonly isSparseDiskgroupEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isSparseDiskgroupEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Oracle license model applied to the VM cluster.
      */
-    public readonly licenseModel!: pulumi.Output<enums.odb.CloudVmClusterLicenseModel | undefined>;
+    declare public readonly licenseModel: pulumi.Output<enums.odb.CloudVmClusterLicenseModel | undefined>;
     /**
      * The port number configured for the listener on the VM cluster.
      */
-    public /*out*/ readonly listenerPort!: pulumi.Output<number>;
+    declare public /*out*/ readonly listenerPort: pulumi.Output<number>;
     /**
      * The amount of memory, in gigabytes (GB), that's allocated for the VM cluster.
      */
-    public readonly memorySizeInGbs!: pulumi.Output<number | undefined>;
+    declare public readonly memorySizeInGbs: pulumi.Output<number | undefined>;
     /**
      * The number of nodes in the VM cluster.
      */
-    public /*out*/ readonly nodeCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly nodeCount: pulumi.Output<number>;
     /**
      * The name of the OCI resource anchor for the VM cluster.
      */
-    public /*out*/ readonly ociResourceAnchorName!: pulumi.Output<string>;
+    declare public /*out*/ readonly ociResourceAnchorName: pulumi.Output<string>;
     /**
      * The HTTPS link to the VM cluster in OCI.
      */
-    public /*out*/ readonly ociUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly ociUrl: pulumi.Output<string>;
     /**
      * The OCID of the VM cluster.
      */
-    public /*out*/ readonly ocid!: pulumi.Output<string>;
+    declare public /*out*/ readonly ocid: pulumi.Output<string>;
     /**
      * The unique identifier of the ODB network for the VM cluster.
      */
-    public readonly odbNetworkId!: pulumi.Output<string | undefined>;
+    declare public readonly odbNetworkId: pulumi.Output<string | undefined>;
     /**
      * The FQDN of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the VM cluster.
      */
-    public /*out*/ readonly scanDnsName!: pulumi.Output<string>;
+    declare public /*out*/ readonly scanDnsName: pulumi.Output<string>;
     /**
      * The OCID of the SCAN IP addresses that are associated with the VM cluster.
      */
-    public /*out*/ readonly scanIpIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly scanIpIds: pulumi.Output<string[]>;
     /**
      * Property description not available.
      */
-    public readonly scanListenerPortTcp!: pulumi.Output<number | undefined>;
+    declare public readonly scanListenerPortTcp: pulumi.Output<number | undefined>;
     /**
      * The hardware model name of the Exadata infrastructure that's running the VM cluster.
      */
-    public /*out*/ readonly shape!: pulumi.Output<string>;
+    declare public /*out*/ readonly shape: pulumi.Output<string>;
     /**
      * The public key portion of one or more key pairs used for SSH access to the VM cluster.
      */
-    public readonly sshPublicKeys!: pulumi.Output<string[] | undefined>;
+    declare public readonly sshPublicKeys: pulumi.Output<string[] | undefined>;
     /**
      * The amount of local node storage, in gigabytes (GB), that's allocated to the VM cluster.
      */
-    public /*out*/ readonly storageSizeInGbs!: pulumi.Output<number>;
+    declare public /*out*/ readonly storageSizeInGbs: pulumi.Output<number>;
     /**
      * The operating system version of the image chosen for the VM cluster.
      */
-    public readonly systemVersion!: pulumi.Output<string | undefined>;
+    declare public readonly systemVersion: pulumi.Output<string | undefined>;
     /**
      * Tags to assign to the Vm Cluster.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The time zone of the VM cluster.
      */
-    public readonly timeZone!: pulumi.Output<string | undefined>;
+    declare public readonly timeZone: pulumi.Output<string | undefined>;
     /**
      * The virtual IP (VIP) addresses that are associated with the VM cluster. Oracle's Cluster Ready Services (CRS) creates and maintains one VIP address for each node in the VM cluster to enable failover. If one node fails, the VIP is reassigned to another active node in the cluster.
      */
-    public /*out*/ readonly vipIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly vipIds: pulumi.Output<string[]>;
 
     /**
      * Create a CloudVmCluster resource with the given unique name, arguments, and options.
@@ -189,26 +189,26 @@ export class CloudVmCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["cloudExadataInfrastructureId"] = args ? args.cloudExadataInfrastructureId : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["cpuCoreCount"] = args ? args.cpuCoreCount : undefined;
-            resourceInputs["dataCollectionOptions"] = args ? args.dataCollectionOptions : undefined;
-            resourceInputs["dataStorageSizeInTbs"] = args ? args.dataStorageSizeInTbs : undefined;
-            resourceInputs["dbNodeStorageSizeInGbs"] = args ? args.dbNodeStorageSizeInGbs : undefined;
-            resourceInputs["dbServers"] = args ? args.dbServers : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["giVersion"] = args ? args.giVersion : undefined;
-            resourceInputs["hostname"] = args ? args.hostname : undefined;
-            resourceInputs["isLocalBackupEnabled"] = args ? args.isLocalBackupEnabled : undefined;
-            resourceInputs["isSparseDiskgroupEnabled"] = args ? args.isSparseDiskgroupEnabled : undefined;
-            resourceInputs["licenseModel"] = args ? args.licenseModel : undefined;
-            resourceInputs["memorySizeInGbs"] = args ? args.memorySizeInGbs : undefined;
-            resourceInputs["odbNetworkId"] = args ? args.odbNetworkId : undefined;
-            resourceInputs["scanListenerPortTcp"] = args ? args.scanListenerPortTcp : undefined;
-            resourceInputs["sshPublicKeys"] = args ? args.sshPublicKeys : undefined;
-            resourceInputs["systemVersion"] = args ? args.systemVersion : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["cloudExadataInfrastructureId"] = args?.cloudExadataInfrastructureId;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["cpuCoreCount"] = args?.cpuCoreCount;
+            resourceInputs["dataCollectionOptions"] = args?.dataCollectionOptions;
+            resourceInputs["dataStorageSizeInTbs"] = args?.dataStorageSizeInTbs;
+            resourceInputs["dbNodeStorageSizeInGbs"] = args?.dbNodeStorageSizeInGbs;
+            resourceInputs["dbServers"] = args?.dbServers;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["giVersion"] = args?.giVersion;
+            resourceInputs["hostname"] = args?.hostname;
+            resourceInputs["isLocalBackupEnabled"] = args?.isLocalBackupEnabled;
+            resourceInputs["isSparseDiskgroupEnabled"] = args?.isSparseDiskgroupEnabled;
+            resourceInputs["licenseModel"] = args?.licenseModel;
+            resourceInputs["memorySizeInGbs"] = args?.memorySizeInGbs;
+            resourceInputs["odbNetworkId"] = args?.odbNetworkId;
+            resourceInputs["scanListenerPortTcp"] = args?.scanListenerPortTcp;
+            resourceInputs["sshPublicKeys"] = args?.sshPublicKeys;
+            resourceInputs["systemVersion"] = args?.systemVersion;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeZone"] = args?.timeZone;
             resourceInputs["cloudVmClusterArn"] = undefined /*out*/;
             resourceInputs["cloudVmClusterId"] = undefined /*out*/;
             resourceInputs["computeModel"] = undefined /*out*/;

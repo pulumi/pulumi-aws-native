@@ -40,40 +40,40 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The time of this integration got created
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The URL of the SQS dead letter queue
      */
-    public readonly deadLetterQueueUrl!: pulumi.Output<string | undefined>;
+    declare public readonly deadLetterQueueUrl: pulumi.Output<string | undefined>;
     /**
      * The default encryption key
      */
-    public readonly defaultEncryptionKey!: pulumi.Output<string | undefined>;
+    declare public readonly defaultEncryptionKey: pulumi.Output<string | undefined>;
     /**
      * The default number of days until the data within the domain expires.
      */
-    public readonly defaultExpirationDays!: pulumi.Output<number>;
+    declare public readonly defaultExpirationDays: pulumi.Output<number>;
     /**
      * The unique name of the domain.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * The time of this integration got last updated at
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * The process of matching duplicate profiles.
      */
-    public readonly matching!: pulumi.Output<outputs.customerprofiles.DomainMatching | undefined>;
+    declare public readonly matching: pulumi.Output<outputs.customerprofiles.DomainMatching | undefined>;
     /**
      * The process of matching duplicate profiles using Rule-Based matching.
      */
-    public readonly ruleBasedMatching!: pulumi.Output<outputs.customerprofiles.DomainRuleBasedMatching | undefined>;
-    public /*out*/ readonly stats!: pulumi.Output<outputs.customerprofiles.DomainStats>;
+    declare public readonly ruleBasedMatching: pulumi.Output<outputs.customerprofiles.DomainRuleBasedMatching | undefined>;
+    declare public /*out*/ readonly stats: pulumi.Output<outputs.customerprofiles.DomainStats>;
     /**
      * The tags (keys and values) associated with the domain
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -86,16 +86,16 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultExpirationDays === undefined) && !opts.urn) {
+            if (args?.defaultExpirationDays === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultExpirationDays'");
             }
-            resourceInputs["deadLetterQueueUrl"] = args ? args.deadLetterQueueUrl : undefined;
-            resourceInputs["defaultEncryptionKey"] = args ? args.defaultEncryptionKey : undefined;
-            resourceInputs["defaultExpirationDays"] = args ? args.defaultExpirationDays : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["matching"] = args ? args.matching : undefined;
-            resourceInputs["ruleBasedMatching"] = args ? args.ruleBasedMatching : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deadLetterQueueUrl"] = args?.deadLetterQueueUrl;
+            resourceInputs["defaultEncryptionKey"] = args?.defaultEncryptionKey;
+            resourceInputs["defaultExpirationDays"] = args?.defaultExpirationDays;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["matching"] = args?.matching;
+            resourceInputs["ruleBasedMatching"] = args?.ruleBasedMatching;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["stats"] = undefined /*out*/;

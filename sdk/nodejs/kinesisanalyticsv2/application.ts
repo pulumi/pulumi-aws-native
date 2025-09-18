@@ -40,39 +40,39 @@ export class Application extends pulumi.CustomResource {
     /**
      * Use this parameter to configure the application.
      */
-    public readonly applicationConfiguration!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationConfiguration | undefined>;
+    declare public readonly applicationConfiguration: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationConfiguration | undefined>;
     /**
      * The description of the application.
      */
-    public readonly applicationDescription!: pulumi.Output<string | undefined>;
+    declare public readonly applicationDescription: pulumi.Output<string | undefined>;
     /**
      * Used to configure start of maintenance window.
      */
-    public readonly applicationMaintenanceConfiguration!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationMaintenanceConfiguration | undefined>;
+    declare public readonly applicationMaintenanceConfiguration: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationMaintenanceConfiguration | undefined>;
     /**
      * To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
      */
-    public readonly applicationMode!: pulumi.Output<enums.kinesisanalyticsv2.ApplicationMode | undefined>;
+    declare public readonly applicationMode: pulumi.Output<enums.kinesisanalyticsv2.ApplicationMode | undefined>;
     /**
      * The name of the application.
      */
-    public readonly applicationName!: pulumi.Output<string | undefined>;
+    declare public readonly applicationName: pulumi.Output<string | undefined>;
     /**
      * Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
      */
-    public readonly runConfiguration!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationRunConfiguration | undefined>;
+    declare public readonly runConfiguration: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationRunConfiguration | undefined>;
     /**
      * The runtime environment for the application.
      */
-    public readonly runtimeEnvironment!: pulumi.Output<string>;
+    declare public readonly runtimeEnvironment: pulumi.Output<string>;
     /**
      * Specifies the IAM role that the application uses to access external resources.
      */
-    public readonly serviceExecutionRole!: pulumi.Output<string>;
+    declare public readonly serviceExecutionRole: pulumi.Output<string>;
     /**
      * A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -85,21 +85,21 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.runtimeEnvironment === undefined) && !opts.urn) {
+            if (args?.runtimeEnvironment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runtimeEnvironment'");
             }
-            if ((!args || args.serviceExecutionRole === undefined) && !opts.urn) {
+            if (args?.serviceExecutionRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceExecutionRole'");
             }
-            resourceInputs["applicationConfiguration"] = args ? args.applicationConfiguration : undefined;
-            resourceInputs["applicationDescription"] = args ? args.applicationDescription : undefined;
-            resourceInputs["applicationMaintenanceConfiguration"] = args ? args.applicationMaintenanceConfiguration : undefined;
-            resourceInputs["applicationMode"] = args ? args.applicationMode : undefined;
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["runConfiguration"] = args ? args.runConfiguration : undefined;
-            resourceInputs["runtimeEnvironment"] = args ? args.runtimeEnvironment : undefined;
-            resourceInputs["serviceExecutionRole"] = args ? args.serviceExecutionRole : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationConfiguration"] = args?.applicationConfiguration;
+            resourceInputs["applicationDescription"] = args?.applicationDescription;
+            resourceInputs["applicationMaintenanceConfiguration"] = args?.applicationMaintenanceConfiguration;
+            resourceInputs["applicationMode"] = args?.applicationMode;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["runConfiguration"] = args?.runConfiguration;
+            resourceInputs["runtimeEnvironment"] = args?.runtimeEnvironment;
+            resourceInputs["serviceExecutionRole"] = args?.serviceExecutionRole;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["applicationConfiguration"] = undefined /*out*/;
             resourceInputs["applicationDescription"] = undefined /*out*/;

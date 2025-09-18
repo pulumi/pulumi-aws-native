@@ -65,15 +65,15 @@ export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * A flag to indicate whether to bypass the resource policy lockout safety check
      */
-    public readonly bypassPolicyLockoutCheck!: pulumi.Output<boolean | undefined>;
+    declare public readonly bypassPolicyLockoutCheck: pulumi.Output<boolean | undefined>;
     /**
      * The resource policy document, which can be up to 5kb in size.
      */
-    public readonly policyDocument!: pulumi.Output<string>;
+    declare public readonly policyDocument: pulumi.Output<string>;
     /**
      * The name of the resource policy. Must be unique within a specific AWS account.
      */
-    public readonly policyName!: pulumi.Output<string>;
+    declare public readonly policyName: pulumi.Output<string>;
 
     /**
      * Create a ResourcePolicy resource with the given unique name, arguments, and options.
@@ -86,12 +86,12 @@ export class ResourcePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyDocument === undefined) && !opts.urn) {
+            if (args?.policyDocument === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            resourceInputs["bypassPolicyLockoutCheck"] = args ? args.bypassPolicyLockoutCheck : undefined;
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["bypassPolicyLockoutCheck"] = args?.bypassPolicyLockoutCheck;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["policyName"] = args?.policyName;
         } else {
             resourceInputs["bypassPolicyLockoutCheck"] = undefined /*out*/;
             resourceInputs["policyDocument"] = undefined /*out*/;
