@@ -35,6 +35,9 @@ class PhoneNumberNumberType(builtins.str, Enum):
 
 @pulumi.type_token("aws-native:smsvoice:PhoneNumberOptionalKeywordAction")
 class PhoneNumberOptionalKeywordAction(builtins.str, Enum):
+    """
+    The action to perform when the keyword is used.
+    """
     AUTOMATIC_RESPONSE = "AUTOMATIC_RESPONSE"
     OPT_OUT = "OPT_OUT"
     OPT_IN = "OPT_IN"
@@ -42,6 +45,9 @@ class PhoneNumberOptionalKeywordAction(builtins.str, Enum):
 
 @pulumi.type_token("aws-native:smsvoice:PoolOptionalKeywordAction")
 class PoolOptionalKeywordAction(builtins.str, Enum):
+    """
+    The action to perform when the keyword is used.
+    """
     AUTOMATIC_RESPONSE = "AUTOMATIC_RESPONSE"
     OPT_OUT = "OPT_OUT"
     OPT_IN = "OPT_IN"

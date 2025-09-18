@@ -6,6 +6,7 @@ import builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .get_resource_policy import *
 from .get_rule_groups_namespace import *
 from .get_scraper import *

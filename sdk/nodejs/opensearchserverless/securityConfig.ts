@@ -86,6 +86,10 @@ export class SecurityConfig extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
+     */
+    public readonly iamFederationOptions!: pulumi.Output<outputs.opensearchserverless.SecurityConfigIamFederationConfigOptions | undefined>;
+    /**
      * Describes IAM Identity Center options in the form of a key-value map.
      */
     public readonly iamIdentityCenterOptions!: pulumi.Output<outputs.opensearchserverless.SecurityConfigIamIdentityCenterConfigOptions | undefined>;
@@ -114,6 +118,7 @@ export class SecurityConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["iamFederationOptions"] = args ? args.iamFederationOptions : undefined;
             resourceInputs["iamIdentityCenterOptions"] = args ? args.iamIdentityCenterOptions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["samlOptions"] = args ? args.samlOptions : undefined;
@@ -122,6 +127,7 @@ export class SecurityConfig extends pulumi.CustomResource {
         } else {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["iamFederationOptions"] = undefined /*out*/;
             resourceInputs["iamIdentityCenterOptions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["samlOptions"] = undefined /*out*/;
@@ -142,6 +148,10 @@ export interface SecurityConfigArgs {
      * Security config description
      */
     description?: pulumi.Input<string>;
+    /**
+     * Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
+     */
+    iamFederationOptions?: pulumi.Input<inputs.opensearchserverless.SecurityConfigIamFederationConfigOptionsArgs>;
     /**
      * Describes IAM Identity Center options in the form of a key-value map.
      */

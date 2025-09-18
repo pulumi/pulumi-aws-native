@@ -14,16 +14,21 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Outputs
     public sealed class ManagedInstanceProperties
     {
         public readonly ImmutableArray<Outputs.WorkspaceInstanceBlockDeviceMapping> BlockDeviceMappings;
+        public readonly Outputs.WorkspaceInstanceCapacityReservationSpecification? CapacityReservationSpecification;
         public readonly Outputs.WorkspaceInstanceCpuOptionsRequest? CpuOptions;
         public readonly Outputs.WorkspaceInstanceCreditSpecificationRequest? CreditSpecification;
         public readonly bool? DisableApiStop;
         public readonly bool? EbsOptimized;
+        public readonly bool? EnablePrimaryIpv6;
         public readonly Outputs.WorkspaceInstanceEnclaveOptionsRequest? EnclaveOptions;
         public readonly Outputs.WorkspaceInstanceHibernationOptionsRequest? HibernationOptions;
         public readonly Outputs.WorkspaceInstanceIamInstanceProfileSpecification? IamInstanceProfile;
         public readonly string ImageId;
+        public readonly Outputs.WorkspaceInstanceInstanceMarketOptionsRequest? InstanceMarketOptions;
         public readonly string InstanceType;
+        public readonly int? Ipv6AddressCount;
         public readonly string? KeyName;
+        public readonly ImmutableArray<Outputs.WorkspaceInstanceLicenseConfigurationRequest> LicenseSpecifications;
         public readonly Outputs.WorkspaceInstanceInstanceMaintenanceOptionsRequest? MaintenanceOptions;
         public readonly Outputs.WorkspaceInstanceInstanceMetadataOptionsRequest? MetadataOptions;
         public readonly Outputs.WorkspaceInstanceRunInstancesMonitoringEnabled? Monitoring;
@@ -31,12 +36,15 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Outputs
         public readonly Outputs.WorkspaceInstanceInstanceNetworkPerformanceOptionsRequest? NetworkPerformanceOptions;
         public readonly Outputs.WorkspaceInstancePlacement? Placement;
         public readonly Outputs.WorkspaceInstancePrivateDnsNameOptionsRequest? PrivateDnsNameOptions;
+        public readonly string? SubnetId;
         public readonly ImmutableArray<Outputs.WorkspaceInstanceTagSpecification> TagSpecifications;
         public readonly string? UserData;
 
         [OutputConstructor]
         private ManagedInstanceProperties(
             ImmutableArray<Outputs.WorkspaceInstanceBlockDeviceMapping> blockDeviceMappings,
+
+            Outputs.WorkspaceInstanceCapacityReservationSpecification? capacityReservationSpecification,
 
             Outputs.WorkspaceInstanceCpuOptionsRequest? cpuOptions,
 
@@ -46,6 +54,8 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Outputs
 
             bool? ebsOptimized,
 
+            bool? enablePrimaryIpv6,
+
             Outputs.WorkspaceInstanceEnclaveOptionsRequest? enclaveOptions,
 
             Outputs.WorkspaceInstanceHibernationOptionsRequest? hibernationOptions,
@@ -54,9 +64,15 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Outputs
 
             string imageId,
 
+            Outputs.WorkspaceInstanceInstanceMarketOptionsRequest? instanceMarketOptions,
+
             string instanceType,
 
+            int? ipv6AddressCount,
+
             string? keyName,
+
+            ImmutableArray<Outputs.WorkspaceInstanceLicenseConfigurationRequest> licenseSpecifications,
 
             Outputs.WorkspaceInstanceInstanceMaintenanceOptionsRequest? maintenanceOptions,
 
@@ -72,21 +88,28 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Outputs
 
             Outputs.WorkspaceInstancePrivateDnsNameOptionsRequest? privateDnsNameOptions,
 
+            string? subnetId,
+
             ImmutableArray<Outputs.WorkspaceInstanceTagSpecification> tagSpecifications,
 
             string? userData)
         {
             BlockDeviceMappings = blockDeviceMappings;
+            CapacityReservationSpecification = capacityReservationSpecification;
             CpuOptions = cpuOptions;
             CreditSpecification = creditSpecification;
             DisableApiStop = disableApiStop;
             EbsOptimized = ebsOptimized;
+            EnablePrimaryIpv6 = enablePrimaryIpv6;
             EnclaveOptions = enclaveOptions;
             HibernationOptions = hibernationOptions;
             IamInstanceProfile = iamInstanceProfile;
             ImageId = imageId;
+            InstanceMarketOptions = instanceMarketOptions;
             InstanceType = instanceType;
+            Ipv6AddressCount = ipv6AddressCount;
             KeyName = keyName;
+            LicenseSpecifications = licenseSpecifications;
             MaintenanceOptions = maintenanceOptions;
             MetadataOptions = metadataOptions;
             Monitoring = monitoring;
@@ -94,6 +117,7 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Outputs
             NetworkPerformanceOptions = networkPerformanceOptions;
             Placement = placement;
             PrivateDnsNameOptions = privateDnsNameOptions;
+            SubnetId = subnetId;
             TagSpecifications = tagSpecifications;
             UserData = userData;
         }

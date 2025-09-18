@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Smsvoice
     [AwsNativeResourceType("aws-native:smsvoice:ConfigurationSet")]
     public partial class ConfigurationSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the ConfigurationSet.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 

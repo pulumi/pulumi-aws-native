@@ -18,10 +18,16 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
 }
 
 export interface GetPoolArgs {
+    /**
+     * The unique identifier for the pool.
+     */
     poolId: string;
 }
 
 export interface GetPoolResult {
+    /**
+     * The Amazon Resource Name of the `Pool` .
+     */
     readonly arn?: string;
     /**
      * When set to true the pool can't be deleted. By default this is set to false.
@@ -43,6 +49,9 @@ export interface GetPoolResult {
      * The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn and it's IsoCountryCode.
      */
     readonly originationIdentities?: string[];
+    /**
+     * The unique identifier for the pool.
+     */
     readonly poolId?: string;
     /**
      * By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.
@@ -72,5 +81,8 @@ export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOutpu
 }
 
 export interface GetPoolOutputArgs {
+    /**
+     * The unique identifier for the pool.
+     */
     poolId: pulumi.Input<string>;
 }

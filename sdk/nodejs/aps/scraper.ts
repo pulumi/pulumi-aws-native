@@ -66,6 +66,10 @@ export class Scraper extends pulumi.CustomResource {
      */
     public /*out*/ readonly scraperId!: pulumi.Output<string>;
     /**
+     * The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+     */
+    public readonly scraperLoggingConfiguration!: pulumi.Output<outputs.aps.ScraperLoggingConfiguration | undefined>;
+    /**
      * The Amazon EKS cluster from which the scraper collects metrics.
      */
     public readonly source!: pulumi.Output<outputs.aps.ScraperSource>;
@@ -98,6 +102,7 @@ export class Scraper extends pulumi.CustomResource {
             resourceInputs["destination"] = args ? args.destination : undefined;
             resourceInputs["roleConfiguration"] = args ? args.roleConfiguration : undefined;
             resourceInputs["scrapeConfiguration"] = args ? args.scrapeConfiguration : undefined;
+            resourceInputs["scraperLoggingConfiguration"] = args ? args.scraperLoggingConfiguration : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -111,6 +116,7 @@ export class Scraper extends pulumi.CustomResource {
             resourceInputs["roleConfiguration"] = undefined /*out*/;
             resourceInputs["scrapeConfiguration"] = undefined /*out*/;
             resourceInputs["scraperId"] = undefined /*out*/;
+            resourceInputs["scraperLoggingConfiguration"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -141,6 +147,10 @@ export interface ScraperArgs {
      * The configuration in use by the scraper.
      */
     scrapeConfiguration: pulumi.Input<inputs.aps.ScraperScrapeConfigurationArgs>;
+    /**
+     * The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+     */
+    scraperLoggingConfiguration?: pulumi.Input<inputs.aps.ScraperLoggingConfigurationArgs>;
     /**
      * The Amazon EKS cluster from which the scraper collects metrics.
      */

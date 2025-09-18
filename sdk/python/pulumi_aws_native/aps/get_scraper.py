@@ -16,6 +16,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetScraperResult',
@@ -26,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetScraperResult:
-    def __init__(__self__, alias=None, arn=None, destination=None, role_arn=None, role_configuration=None, scrape_configuration=None, scraper_id=None, tags=None):
+    def __init__(__self__, alias=None, arn=None, destination=None, role_arn=None, role_configuration=None, scrape_configuration=None, scraper_id=None, scraper_logging_configuration=None, tags=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
@@ -48,6 +49,9 @@ class GetScraperResult:
         if scraper_id and not isinstance(scraper_id, str):
             raise TypeError("Expected argument 'scraper_id' to be a str")
         pulumi.set(__self__, "scraper_id", scraper_id)
+        if scraper_logging_configuration and not isinstance(scraper_logging_configuration, dict):
+            raise TypeError("Expected argument 'scraper_logging_configuration' to be a dict")
+        pulumi.set(__self__, "scraper_logging_configuration", scraper_logging_configuration)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -109,6 +113,14 @@ class GetScraperResult:
         return pulumi.get(self, "scraper_id")
 
     @property
+    @pulumi.getter(name="scraperLoggingConfiguration")
+    def scraper_logging_configuration(self) -> Optional['outputs.ScraperLoggingConfiguration']:
+        """
+        The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+        """
+        return pulumi.get(self, "scraper_logging_configuration")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -130,6 +142,7 @@ class AwaitableGetScraperResult(GetScraperResult):
             role_configuration=self.role_configuration,
             scrape_configuration=self.scrape_configuration,
             scraper_id=self.scraper_id,
+            scraper_logging_configuration=self.scraper_logging_configuration,
             tags=self.tags)
 
 
@@ -154,6 +167,7 @@ def get_scraper(arn: Optional[builtins.str] = None,
         role_configuration=pulumi.get(__ret__, 'role_configuration'),
         scrape_configuration=pulumi.get(__ret__, 'scrape_configuration'),
         scraper_id=pulumi.get(__ret__, 'scraper_id'),
+        scraper_logging_configuration=pulumi.get(__ret__, 'scraper_logging_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_scraper_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScraperResult]:
@@ -175,4 +189,5 @@ def get_scraper_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         role_configuration=pulumi.get(__response__, 'role_configuration'),
         scrape_configuration=pulumi.get(__response__, 'scrape_configuration'),
         scraper_id=pulumi.get(__response__, 'scraper_id'),
+        scraper_logging_configuration=pulumi.get(__response__, 'scraper_logging_configuration'),
         tags=pulumi.get(__response__, 'tags')))

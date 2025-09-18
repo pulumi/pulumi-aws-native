@@ -17,6 +17,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['CloudExadataInfrastructureArgs', 'CloudExadataInfrastructure']
@@ -30,6 +31,7 @@ class CloudExadataInfrastructureArgs:
                  customer_contacts_to_send_to_oci: Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureCustomerContactArgs']]]] = None,
                  database_server_type: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 maintenance_window: Optional[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowArgs']] = None,
                  shape: Optional[pulumi.Input[builtins.str]] = None,
                  storage_count: Optional[pulumi.Input[builtins.int]] = None,
                  storage_server_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -42,6 +44,7 @@ class CloudExadataInfrastructureArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureCustomerContactArgs']]] customer_contacts_to_send_to_oci: The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure.
         :param pulumi.Input[builtins.str] database_server_type: The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
         :param pulumi.Input[builtins.str] display_name: The user-friendly name for the Exadata infrastructure.
+        :param pulumi.Input['CloudExadataInfrastructureMaintenanceWindowArgs'] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
         :param pulumi.Input[builtins.str] shape: The model name of the Exadata infrastructure.
         :param pulumi.Input[builtins.int] storage_count: The number of storage servers that are activated for the Exadata infrastructure.
         :param pulumi.Input[builtins.str] storage_server_type: The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
@@ -59,6 +62,8 @@ class CloudExadataInfrastructureArgs:
             pulumi.set(__self__, "database_server_type", database_server_type)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if maintenance_window is not None:
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if shape is not None:
             pulumi.set(__self__, "shape", shape)
         if storage_count is not None:
@@ -141,6 +146,18 @@ class CloudExadataInfrastructureArgs:
         pulumi.set(self, "display_name", value)
 
     @property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> Optional[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowArgs']]:
+        """
+        The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+        """
+        return pulumi.get(self, "maintenance_window")
+
+    @maintenance_window.setter
+    def maintenance_window(self, value: Optional[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowArgs']]):
+        pulumi.set(self, "maintenance_window", value)
+
+    @property
     @pulumi.getter
     def shape(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -201,6 +218,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
                  customer_contacts_to_send_to_oci: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactArgs', 'CloudExadataInfrastructureCustomerContactArgsDict']]]]] = None,
                  database_server_type: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict']]] = None,
                  shape: Optional[pulumi.Input[builtins.str]] = None,
                  storage_count: Optional[pulumi.Input[builtins.int]] = None,
                  storage_server_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -217,6 +235,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactArgs', 'CloudExadataInfrastructureCustomerContactArgsDict']]]] customer_contacts_to_send_to_oci: The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure.
         :param pulumi.Input[builtins.str] database_server_type: The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
         :param pulumi.Input[builtins.str] display_name: The user-friendly name for the Exadata infrastructure.
+        :param pulumi.Input[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict']] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
         :param pulumi.Input[builtins.str] shape: The model name of the Exadata infrastructure.
         :param pulumi.Input[builtins.int] storage_count: The number of storage servers that are activated for the Exadata infrastructure.
         :param pulumi.Input[builtins.str] storage_server_type: The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
@@ -252,6 +271,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
                  customer_contacts_to_send_to_oci: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactArgs', 'CloudExadataInfrastructureCustomerContactArgsDict']]]]] = None,
                  database_server_type: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 maintenance_window: Optional[pulumi.Input[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict']]] = None,
                  shape: Optional[pulumi.Input[builtins.str]] = None,
                  storage_count: Optional[pulumi.Input[builtins.int]] = None,
                  storage_server_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -271,6 +291,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
             __props__.__dict__["customer_contacts_to_send_to_oci"] = customer_contacts_to_send_to_oci
             __props__.__dict__["database_server_type"] = database_server_type
             __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["shape"] = shape
             __props__.__dict__["storage_count"] = storage_count
             __props__.__dict__["storage_server_type"] = storage_server_type
@@ -337,6 +358,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         __props__.__dict__["db_server_ids"] = None
         __props__.__dict__["db_server_version"] = None
         __props__.__dict__["display_name"] = None
+        __props__.__dict__["maintenance_window"] = None
         __props__.__dict__["max_cpu_count"] = None
         __props__.__dict__["max_data_storage_in_tbs"] = None
         __props__.__dict__["max_db_node_storage_size_in_gbs"] = None
@@ -488,6 +510,14 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         The user-friendly name for the Exadata infrastructure.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> pulumi.Output[Optional['outputs.CloudExadataInfrastructureMaintenanceWindow']]:
+        """
+        The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+        """
+        return pulumi.get(self, "maintenance_window")
 
     @property
     @pulumi.getter(name="maxCpuCount")

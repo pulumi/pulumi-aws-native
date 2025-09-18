@@ -1621,7 +1621,7 @@ func (o DomainEncryptionAtRestOptionsPtrOutput) KmsKeyId() pulumi.StringPtrOutpu
 type DomainEndpointOptions struct {
 	// The fully qualified URL for your custom endpoint. Required if you enabled a custom endpoint for the domain.
 	CustomEndpoint *string `pulumi:"customEndpoint"`
-	// The AWS Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
+	// The Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
 	CustomEndpointCertificateArn *string `pulumi:"customEndpointCertificateArn"`
 	// True to enable a custom endpoint for the domain. If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
 	CustomEndpointEnabled *bool `pulumi:"customEndpointEnabled"`
@@ -1649,7 +1649,7 @@ type DomainEndpointOptionsInput interface {
 type DomainEndpointOptionsArgs struct {
 	// The fully qualified URL for your custom endpoint. Required if you enabled a custom endpoint for the domain.
 	CustomEndpoint pulumi.StringPtrInput `pulumi:"customEndpoint"`
-	// The AWS Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
+	// The Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
 	CustomEndpointCertificateArn pulumi.StringPtrInput `pulumi:"customEndpointCertificateArn"`
 	// True to enable a custom endpoint for the domain. If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
 	CustomEndpointEnabled pulumi.BoolPtrInput `pulumi:"customEndpointEnabled"`
@@ -1745,7 +1745,7 @@ func (o DomainEndpointOptionsOutput) CustomEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainEndpointOptions) *string { return v.CustomEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
+// The Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
 func (o DomainEndpointOptionsOutput) CustomEndpointCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainEndpointOptions) *string { return v.CustomEndpointCertificateArn }).(pulumi.StringPtrOutput)
 }
@@ -1803,7 +1803,7 @@ func (o DomainEndpointOptionsPtrOutput) CustomEndpoint() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AWS Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
+// The Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
 func (o DomainEndpointOptionsPtrOutput) CustomEndpointCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainEndpointOptions) *string {
 		if v == nil {

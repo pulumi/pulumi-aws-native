@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Outputs
     [OutputType]
     public sealed class WorkspaceInstanceIamInstanceProfileSpecification
     {
+        public readonly string? Arn;
         public readonly string? Name;
 
         [OutputConstructor]
-        private WorkspaceInstanceIamInstanceProfileSpecification(string? name)
+        private WorkspaceInstanceIamInstanceProfileSpecification(
+            string? arn,
+
+            string? name)
         {
+            Arn = arn;
             Name = name;
         }
     }

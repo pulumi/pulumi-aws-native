@@ -84,7 +84,7 @@ export class DomainName extends pulumi.CustomResource {
     }
 
     /**
-     * The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+     * The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
      */
     public readonly certificateArn!: pulumi.Output<string | undefined>;
     /**
@@ -118,7 +118,7 @@ export class DomainName extends pulumi.CustomResource {
      */
     public readonly ownershipVerificationCertificateArn!: pulumi.Output<string | undefined>;
     /**
-     * The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+     * The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
      */
     public readonly regionalCertificateArn!: pulumi.Output<string | undefined>;
     /**
@@ -195,7 +195,7 @@ export class DomainName extends pulumi.CustomResource {
  */
 export interface DomainNameArgs {
     /**
-     * The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+     * The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
      */
     certificateArn?: pulumi.Input<string>;
     /**
@@ -215,7 +215,7 @@ export interface DomainNameArgs {
      */
     ownershipVerificationCertificateArn?: pulumi.Input<string>;
     /**
-     * The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+     * The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
      */
     regionalCertificateArn?: pulumi.Input<string>;
     /**

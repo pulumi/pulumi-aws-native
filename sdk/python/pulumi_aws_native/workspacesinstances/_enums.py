@@ -10,9 +10,11 @@ __all__ = [
     'VolumeAssociationDisassociateMode',
     'VolumeTagSpecificationResourceType',
     'VolumeType',
+    'WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference',
     'WorkspaceInstanceCreditSpecificationRequestCpuCredits',
     'WorkspaceInstanceEbsBlockDeviceVolumeType',
     'WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery',
+    'WorkspaceInstanceInstanceMarketOptionsRequestMarketType',
     'WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint',
     'WorkspaceInstanceInstanceMetadataOptionsRequestHttpProtocolIpv6',
     'WorkspaceInstanceInstanceMetadataOptionsRequestHttpTokens',
@@ -21,6 +23,8 @@ __all__ = [
     'WorkspaceInstancePlacementTenancy',
     'WorkspaceInstancePrivateDnsNameOptionsRequestHostnameType',
     'WorkspaceInstanceProvisionState',
+    'WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior',
+    'WorkspaceInstanceSpotMarketOptionsSpotInstanceType',
     'WorkspaceInstanceTagSpecificationResourceType',
 ]
 
@@ -56,6 +60,13 @@ class VolumeType(builtins.str, Enum):
     GP3 = "gp3"
 
 
+@pulumi.type_token("aws-native:workspacesinstances:WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference")
+class WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference(builtins.str, Enum):
+    CAPACITY_RESERVATIONS_ONLY = "capacity-reservations-only"
+    OPEN = "open"
+    NONE = "none"
+
+
 @pulumi.type_token("aws-native:workspacesinstances:WorkspaceInstanceCreditSpecificationRequestCpuCredits")
 class WorkspaceInstanceCreditSpecificationRequestCpuCredits(builtins.str, Enum):
     STANDARD = "standard"
@@ -77,6 +88,12 @@ class WorkspaceInstanceEbsBlockDeviceVolumeType(builtins.str, Enum):
 class WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery(builtins.str, Enum):
     DISABLED = "disabled"
     DEFAULT = "default"
+
+
+@pulumi.type_token("aws-native:workspacesinstances:WorkspaceInstanceInstanceMarketOptionsRequestMarketType")
+class WorkspaceInstanceInstanceMarketOptionsRequestMarketType(builtins.str, Enum):
+    SPOT = "spot"
+    CAPACITY_BLOCK = "capacity-block"
 
 
 @pulumi.type_token("aws-native:workspacesinstances:WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint")
@@ -134,6 +151,18 @@ class WorkspaceInstanceProvisionState(builtins.str, Enum):
     DEALLOCATED = "DEALLOCATED"
     ERROR_ALLOCATING = "ERROR_ALLOCATING"
     ERROR_DEALLOCATING = "ERROR_DEALLOCATING"
+
+
+@pulumi.type_token("aws-native:workspacesinstances:WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior")
+class WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior(builtins.str, Enum):
+    HIBERNATE = "hibernate"
+    STOP = "stop"
+
+
+@pulumi.type_token("aws-native:workspacesinstances:WorkspaceInstanceSpotMarketOptionsSpotInstanceType")
+class WorkspaceInstanceSpotMarketOptionsSpotInstanceType(builtins.str, Enum):
+    ONE_TIME = "one-time"
+    PERSISTENT = "persistent"
 
 
 @pulumi.type_token("aws-native:workspacesinstances:WorkspaceInstanceTagSpecificationResourceType")

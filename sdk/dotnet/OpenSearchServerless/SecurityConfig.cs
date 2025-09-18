@@ -84,6 +84,12 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
+        /// </summary>
+        [Output("iamFederationOptions")]
+        public Output<Outputs.SecurityConfigIamFederationConfigOptions?> IamFederationOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Describes IAM Identity Center options in the form of a key-value map.
         /// </summary>
         [Output("iamIdentityCenterOptions")]
@@ -163,6 +169,12 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
+        /// </summary>
+        [Input("iamFederationOptions")]
+        public Input<Inputs.SecurityConfigIamFederationConfigOptionsArgs>? IamFederationOptions { get; set; }
 
         /// <summary>
         /// Describes IAM Identity Center options in the form of a key-value map.

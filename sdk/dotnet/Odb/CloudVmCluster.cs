@@ -70,6 +70,12 @@ namespace Pulumi.AwsNative.Odb
         public Output<int?> DbNodeStorageSizeInGbs { get; private set; } = null!;
 
         /// <summary>
+        /// The DB nodes that are implicitly created and managed as part of this VM Cluster.
+        /// </summary>
+        [Output("dbNodes")]
+        public Output<ImmutableArray<Outputs.CloudVmClusterDbNode>> DbNodes { get; private set; } = null!;
+
+        /// <summary>
         /// The list of database servers for the VM cluster.
         /// </summary>
         [Output("dbServers")]
@@ -256,6 +262,7 @@ namespace Pulumi.AwsNative.Odb
                     "dataCollectionOptions",
                     "dataStorageSizeInTbs",
                     "dbNodeStorageSizeInGbs",
+                    "dbNodes[*].dbServerId",
                     "dbServers[*]",
                     "displayName",
                     "giVersion",
@@ -327,6 +334,18 @@ namespace Pulumi.AwsNative.Odb
         /// </summary>
         [Input("dbNodeStorageSizeInGbs")]
         public Input<int>? DbNodeStorageSizeInGbs { get; set; }
+
+        [Input("dbNodes")]
+        private InputList<Inputs.CloudVmClusterDbNodeArgs>? _dbNodes;
+
+        /// <summary>
+        /// The DB nodes that are implicitly created and managed as part of this VM Cluster.
+        /// </summary>
+        public InputList<Inputs.CloudVmClusterDbNodeArgs> DbNodes
+        {
+            get => _dbNodes ?? (_dbNodes = new InputList<Inputs.CloudVmClusterDbNodeArgs>());
+            set => _dbNodes = value;
+        }
 
         [Input("dbServers")]
         private InputList<string>? _dbServers;

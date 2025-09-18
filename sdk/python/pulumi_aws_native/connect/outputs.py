@@ -54,6 +54,7 @@ __all__ = [
     'QuickConnectQueueQuickConnectConfig',
     'QuickConnectUserQuickConnectConfig',
     'RoutingProfileCrossChannelBehavior',
+    'RoutingProfileManualAssignmentQueueConfig',
     'RoutingProfileMediaConcurrency',
     'RoutingProfileQueueConfig',
     'RoutingProfileQueueReference',
@@ -2195,6 +2196,41 @@ class RoutingProfileCrossChannelBehavior(dict):
         Specifies the other channels that can be routed to an agent handling their current channel.
         """
         return pulumi.get(self, "behavior_type")
+
+
+@pulumi.output_type
+class RoutingProfileManualAssignmentQueueConfig(dict):
+    """
+    Contains information about the manual assignment queue and channel
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queueReference":
+            suggest = "queue_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingProfileManualAssignmentQueueConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingProfileManualAssignmentQueueConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingProfileManualAssignmentQueueConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 queue_reference: 'outputs.RoutingProfileQueueReference'):
+        """
+        Contains information about the manual assignment queue and channel
+        """
+        pulumi.set(__self__, "queue_reference", queue_reference)
+
+    @property
+    @pulumi.getter(name="queueReference")
+    def queue_reference(self) -> 'outputs.RoutingProfileQueueReference':
+        return pulumi.get(self, "queue_reference")
 
 
 @pulumi.output_type

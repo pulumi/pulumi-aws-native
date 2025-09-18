@@ -14,26 +14,32 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ManagedInstanceProperties struct {
-	BlockDeviceMappings       []WorkspaceInstanceBlockDeviceMapping                      `pulumi:"blockDeviceMappings"`
-	CpuOptions                *WorkspaceInstanceCpuOptionsRequest                        `pulumi:"cpuOptions"`
-	CreditSpecification       *WorkspaceInstanceCreditSpecificationRequest               `pulumi:"creditSpecification"`
-	DisableApiStop            *bool                                                      `pulumi:"disableApiStop"`
-	EbsOptimized              *bool                                                      `pulumi:"ebsOptimized"`
-	EnclaveOptions            *WorkspaceInstanceEnclaveOptionsRequest                    `pulumi:"enclaveOptions"`
-	HibernationOptions        *WorkspaceInstanceHibernationOptionsRequest                `pulumi:"hibernationOptions"`
-	IamInstanceProfile        *WorkspaceInstanceIamInstanceProfileSpecification          `pulumi:"iamInstanceProfile"`
-	ImageId                   string                                                     `pulumi:"imageId"`
-	InstanceType              string                                                     `pulumi:"instanceType"`
-	KeyName                   *string                                                    `pulumi:"keyName"`
-	MaintenanceOptions        *WorkspaceInstanceInstanceMaintenanceOptionsRequest        `pulumi:"maintenanceOptions"`
-	MetadataOptions           *WorkspaceInstanceInstanceMetadataOptionsRequest           `pulumi:"metadataOptions"`
-	Monitoring                *WorkspaceInstanceRunInstancesMonitoringEnabled            `pulumi:"monitoring"`
-	NetworkInterfaces         []WorkspaceInstanceInstanceNetworkInterfaceSpecification   `pulumi:"networkInterfaces"`
-	NetworkPerformanceOptions *WorkspaceInstanceInstanceNetworkPerformanceOptionsRequest `pulumi:"networkPerformanceOptions"`
-	Placement                 *WorkspaceInstancePlacement                                `pulumi:"placement"`
-	PrivateDnsNameOptions     *WorkspaceInstancePrivateDnsNameOptionsRequest             `pulumi:"privateDnsNameOptions"`
-	TagSpecifications         []WorkspaceInstanceTagSpecification                        `pulumi:"tagSpecifications"`
-	UserData                  *string                                                    `pulumi:"userData"`
+	BlockDeviceMappings              []WorkspaceInstanceBlockDeviceMapping                      `pulumi:"blockDeviceMappings"`
+	CapacityReservationSpecification *WorkspaceInstanceCapacityReservationSpecification         `pulumi:"capacityReservationSpecification"`
+	CpuOptions                       *WorkspaceInstanceCpuOptionsRequest                        `pulumi:"cpuOptions"`
+	CreditSpecification              *WorkspaceInstanceCreditSpecificationRequest               `pulumi:"creditSpecification"`
+	DisableApiStop                   *bool                                                      `pulumi:"disableApiStop"`
+	EbsOptimized                     *bool                                                      `pulumi:"ebsOptimized"`
+	EnablePrimaryIpv6                *bool                                                      `pulumi:"enablePrimaryIpv6"`
+	EnclaveOptions                   *WorkspaceInstanceEnclaveOptionsRequest                    `pulumi:"enclaveOptions"`
+	HibernationOptions               *WorkspaceInstanceHibernationOptionsRequest                `pulumi:"hibernationOptions"`
+	IamInstanceProfile               *WorkspaceInstanceIamInstanceProfileSpecification          `pulumi:"iamInstanceProfile"`
+	ImageId                          string                                                     `pulumi:"imageId"`
+	InstanceMarketOptions            *WorkspaceInstanceInstanceMarketOptionsRequest             `pulumi:"instanceMarketOptions"`
+	InstanceType                     string                                                     `pulumi:"instanceType"`
+	Ipv6AddressCount                 *int                                                       `pulumi:"ipv6AddressCount"`
+	KeyName                          *string                                                    `pulumi:"keyName"`
+	LicenseSpecifications            []WorkspaceInstanceLicenseConfigurationRequest             `pulumi:"licenseSpecifications"`
+	MaintenanceOptions               *WorkspaceInstanceInstanceMaintenanceOptionsRequest        `pulumi:"maintenanceOptions"`
+	MetadataOptions                  *WorkspaceInstanceInstanceMetadataOptionsRequest           `pulumi:"metadataOptions"`
+	Monitoring                       *WorkspaceInstanceRunInstancesMonitoringEnabled            `pulumi:"monitoring"`
+	NetworkInterfaces                []WorkspaceInstanceInstanceNetworkInterfaceSpecification   `pulumi:"networkInterfaces"`
+	NetworkPerformanceOptions        *WorkspaceInstanceInstanceNetworkPerformanceOptionsRequest `pulumi:"networkPerformanceOptions"`
+	Placement                        *WorkspaceInstancePlacement                                `pulumi:"placement"`
+	PrivateDnsNameOptions            *WorkspaceInstancePrivateDnsNameOptionsRequest             `pulumi:"privateDnsNameOptions"`
+	SubnetId                         *string                                                    `pulumi:"subnetId"`
+	TagSpecifications                []WorkspaceInstanceTagSpecification                        `pulumi:"tagSpecifications"`
+	UserData                         *string                                                    `pulumi:"userData"`
 }
 
 // ManagedInstancePropertiesInput is an input type that accepts ManagedInstancePropertiesArgs and ManagedInstancePropertiesOutput values.
@@ -48,26 +54,32 @@ type ManagedInstancePropertiesInput interface {
 }
 
 type ManagedInstancePropertiesArgs struct {
-	BlockDeviceMappings       WorkspaceInstanceBlockDeviceMappingArrayInput                     `pulumi:"blockDeviceMappings"`
-	CpuOptions                WorkspaceInstanceCpuOptionsRequestPtrInput                        `pulumi:"cpuOptions"`
-	CreditSpecification       WorkspaceInstanceCreditSpecificationRequestPtrInput               `pulumi:"creditSpecification"`
-	DisableApiStop            pulumi.BoolPtrInput                                               `pulumi:"disableApiStop"`
-	EbsOptimized              pulumi.BoolPtrInput                                               `pulumi:"ebsOptimized"`
-	EnclaveOptions            WorkspaceInstanceEnclaveOptionsRequestPtrInput                    `pulumi:"enclaveOptions"`
-	HibernationOptions        WorkspaceInstanceHibernationOptionsRequestPtrInput                `pulumi:"hibernationOptions"`
-	IamInstanceProfile        WorkspaceInstanceIamInstanceProfileSpecificationPtrInput          `pulumi:"iamInstanceProfile"`
-	ImageId                   pulumi.StringInput                                                `pulumi:"imageId"`
-	InstanceType              pulumi.StringInput                                                `pulumi:"instanceType"`
-	KeyName                   pulumi.StringPtrInput                                             `pulumi:"keyName"`
-	MaintenanceOptions        WorkspaceInstanceInstanceMaintenanceOptionsRequestPtrInput        `pulumi:"maintenanceOptions"`
-	MetadataOptions           WorkspaceInstanceInstanceMetadataOptionsRequestPtrInput           `pulumi:"metadataOptions"`
-	Monitoring                WorkspaceInstanceRunInstancesMonitoringEnabledPtrInput            `pulumi:"monitoring"`
-	NetworkInterfaces         WorkspaceInstanceInstanceNetworkInterfaceSpecificationArrayInput  `pulumi:"networkInterfaces"`
-	NetworkPerformanceOptions WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestPtrInput `pulumi:"networkPerformanceOptions"`
-	Placement                 WorkspaceInstancePlacementPtrInput                                `pulumi:"placement"`
-	PrivateDnsNameOptions     WorkspaceInstancePrivateDnsNameOptionsRequestPtrInput             `pulumi:"privateDnsNameOptions"`
-	TagSpecifications         WorkspaceInstanceTagSpecificationArrayInput                       `pulumi:"tagSpecifications"`
-	UserData                  pulumi.StringPtrInput                                             `pulumi:"userData"`
+	BlockDeviceMappings              WorkspaceInstanceBlockDeviceMappingArrayInput                     `pulumi:"blockDeviceMappings"`
+	CapacityReservationSpecification WorkspaceInstanceCapacityReservationSpecificationPtrInput         `pulumi:"capacityReservationSpecification"`
+	CpuOptions                       WorkspaceInstanceCpuOptionsRequestPtrInput                        `pulumi:"cpuOptions"`
+	CreditSpecification              WorkspaceInstanceCreditSpecificationRequestPtrInput               `pulumi:"creditSpecification"`
+	DisableApiStop                   pulumi.BoolPtrInput                                               `pulumi:"disableApiStop"`
+	EbsOptimized                     pulumi.BoolPtrInput                                               `pulumi:"ebsOptimized"`
+	EnablePrimaryIpv6                pulumi.BoolPtrInput                                               `pulumi:"enablePrimaryIpv6"`
+	EnclaveOptions                   WorkspaceInstanceEnclaveOptionsRequestPtrInput                    `pulumi:"enclaveOptions"`
+	HibernationOptions               WorkspaceInstanceHibernationOptionsRequestPtrInput                `pulumi:"hibernationOptions"`
+	IamInstanceProfile               WorkspaceInstanceIamInstanceProfileSpecificationPtrInput          `pulumi:"iamInstanceProfile"`
+	ImageId                          pulumi.StringInput                                                `pulumi:"imageId"`
+	InstanceMarketOptions            WorkspaceInstanceInstanceMarketOptionsRequestPtrInput             `pulumi:"instanceMarketOptions"`
+	InstanceType                     pulumi.StringInput                                                `pulumi:"instanceType"`
+	Ipv6AddressCount                 pulumi.IntPtrInput                                                `pulumi:"ipv6AddressCount"`
+	KeyName                          pulumi.StringPtrInput                                             `pulumi:"keyName"`
+	LicenseSpecifications            WorkspaceInstanceLicenseConfigurationRequestArrayInput            `pulumi:"licenseSpecifications"`
+	MaintenanceOptions               WorkspaceInstanceInstanceMaintenanceOptionsRequestPtrInput        `pulumi:"maintenanceOptions"`
+	MetadataOptions                  WorkspaceInstanceInstanceMetadataOptionsRequestPtrInput           `pulumi:"metadataOptions"`
+	Monitoring                       WorkspaceInstanceRunInstancesMonitoringEnabledPtrInput            `pulumi:"monitoring"`
+	NetworkInterfaces                WorkspaceInstanceInstanceNetworkInterfaceSpecificationArrayInput  `pulumi:"networkInterfaces"`
+	NetworkPerformanceOptions        WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestPtrInput `pulumi:"networkPerformanceOptions"`
+	Placement                        WorkspaceInstancePlacementPtrInput                                `pulumi:"placement"`
+	PrivateDnsNameOptions            WorkspaceInstancePrivateDnsNameOptionsRequestPtrInput             `pulumi:"privateDnsNameOptions"`
+	SubnetId                         pulumi.StringPtrInput                                             `pulumi:"subnetId"`
+	TagSpecifications                WorkspaceInstanceTagSpecificationArrayInput                       `pulumi:"tagSpecifications"`
+	UserData                         pulumi.StringPtrInput                                             `pulumi:"userData"`
 }
 
 func (ManagedInstancePropertiesArgs) ElementType() reflect.Type {
@@ -151,6 +163,12 @@ func (o ManagedInstancePropertiesOutput) BlockDeviceMappings() WorkspaceInstance
 	return o.ApplyT(func(v ManagedInstanceProperties) []WorkspaceInstanceBlockDeviceMapping { return v.BlockDeviceMappings }).(WorkspaceInstanceBlockDeviceMappingArrayOutput)
 }
 
+func (o ManagedInstancePropertiesOutput) CapacityReservationSpecification() WorkspaceInstanceCapacityReservationSpecificationPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceProperties) *WorkspaceInstanceCapacityReservationSpecification {
+		return v.CapacityReservationSpecification
+	}).(WorkspaceInstanceCapacityReservationSpecificationPtrOutput)
+}
+
 func (o ManagedInstancePropertiesOutput) CpuOptions() WorkspaceInstanceCpuOptionsRequestPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceProperties) *WorkspaceInstanceCpuOptionsRequest { return v.CpuOptions }).(WorkspaceInstanceCpuOptionsRequestPtrOutput)
 }
@@ -167,6 +185,10 @@ func (o ManagedInstancePropertiesOutput) DisableApiStop() pulumi.BoolPtrOutput {
 
 func (o ManagedInstancePropertiesOutput) EbsOptimized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceProperties) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
+}
+
+func (o ManagedInstancePropertiesOutput) EnablePrimaryIpv6() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceProperties) *bool { return v.EnablePrimaryIpv6 }).(pulumi.BoolPtrOutput)
 }
 
 func (o ManagedInstancePropertiesOutput) EnclaveOptions() WorkspaceInstanceEnclaveOptionsRequestPtrOutput {
@@ -189,12 +211,28 @@ func (o ManagedInstancePropertiesOutput) ImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedInstanceProperties) string { return v.ImageId }).(pulumi.StringOutput)
 }
 
+func (o ManagedInstancePropertiesOutput) InstanceMarketOptions() WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceProperties) *WorkspaceInstanceInstanceMarketOptionsRequest {
+		return v.InstanceMarketOptions
+	}).(WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput)
+}
+
 func (o ManagedInstancePropertiesOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedInstanceProperties) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
+func (o ManagedInstancePropertiesOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceProperties) *int { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
+}
+
 func (o ManagedInstancePropertiesOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceProperties) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedInstancePropertiesOutput) LicenseSpecifications() WorkspaceInstanceLicenseConfigurationRequestArrayOutput {
+	return o.ApplyT(func(v ManagedInstanceProperties) []WorkspaceInstanceLicenseConfigurationRequest {
+		return v.LicenseSpecifications
+	}).(WorkspaceInstanceLicenseConfigurationRequestArrayOutput)
 }
 
 func (o ManagedInstancePropertiesOutput) MaintenanceOptions() WorkspaceInstanceInstanceMaintenanceOptionsRequestPtrOutput {
@@ -233,6 +271,10 @@ func (o ManagedInstancePropertiesOutput) PrivateDnsNameOptions() WorkspaceInstan
 	return o.ApplyT(func(v ManagedInstanceProperties) *WorkspaceInstancePrivateDnsNameOptionsRequest {
 		return v.PrivateDnsNameOptions
 	}).(WorkspaceInstancePrivateDnsNameOptionsRequestPtrOutput)
+}
+
+func (o ManagedInstancePropertiesOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceProperties) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o ManagedInstancePropertiesOutput) TagSpecifications() WorkspaceInstanceTagSpecificationArrayOutput {
@@ -276,6 +318,15 @@ func (o ManagedInstancePropertiesPtrOutput) BlockDeviceMappings() WorkspaceInsta
 	}).(WorkspaceInstanceBlockDeviceMappingArrayOutput)
 }
 
+func (o ManagedInstancePropertiesPtrOutput) CapacityReservationSpecification() WorkspaceInstanceCapacityReservationSpecificationPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceProperties) *WorkspaceInstanceCapacityReservationSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationSpecification
+	}).(WorkspaceInstanceCapacityReservationSpecificationPtrOutput)
+}
+
 func (o ManagedInstancePropertiesPtrOutput) CpuOptions() WorkspaceInstanceCpuOptionsRequestPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceProperties) *WorkspaceInstanceCpuOptionsRequest {
 		if v == nil {
@@ -309,6 +360,15 @@ func (o ManagedInstancePropertiesPtrOutput) EbsOptimized() pulumi.BoolPtrOutput 
 			return nil
 		}
 		return v.EbsOptimized
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ManagedInstancePropertiesPtrOutput) EnablePrimaryIpv6() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnablePrimaryIpv6
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -348,6 +408,15 @@ func (o ManagedInstancePropertiesPtrOutput) ImageId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o ManagedInstancePropertiesPtrOutput) InstanceMarketOptions() WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceProperties) *WorkspaceInstanceInstanceMarketOptionsRequest {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceMarketOptions
+	}).(WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput)
+}
+
 func (o ManagedInstancePropertiesPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceProperties) *string {
 		if v == nil {
@@ -357,6 +426,15 @@ func (o ManagedInstancePropertiesPtrOutput) InstanceType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o ManagedInstancePropertiesPtrOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Ipv6AddressCount
+	}).(pulumi.IntPtrOutput)
+}
+
 func (o ManagedInstancePropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceProperties) *string {
 		if v == nil {
@@ -364,6 +442,15 @@ func (o ManagedInstancePropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 		}
 		return v.KeyName
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedInstancePropertiesPtrOutput) LicenseSpecifications() WorkspaceInstanceLicenseConfigurationRequestArrayOutput {
+	return o.ApplyT(func(v *ManagedInstanceProperties) []WorkspaceInstanceLicenseConfigurationRequest {
+		if v == nil {
+			return nil
+		}
+		return v.LicenseSpecifications
+	}).(WorkspaceInstanceLicenseConfigurationRequestArrayOutput)
 }
 
 func (o ManagedInstancePropertiesPtrOutput) MaintenanceOptions() WorkspaceInstanceInstanceMaintenanceOptionsRequestPtrOutput {
@@ -427,6 +514,15 @@ func (o ManagedInstancePropertiesPtrOutput) PrivateDnsNameOptions() WorkspaceIns
 		}
 		return v.PrivateDnsNameOptions
 	}).(WorkspaceInstancePrivateDnsNameOptionsRequestPtrOutput)
+}
+
+func (o ManagedInstancePropertiesPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ManagedInstancePropertiesPtrOutput) TagSpecifications() WorkspaceInstanceTagSpecificationArrayOutput {
@@ -766,6 +862,308 @@ func (o WorkspaceInstanceBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput)
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceInstanceBlockDeviceMapping {
 		return vs[0].([]WorkspaceInstanceBlockDeviceMapping)[vs[1].(int)]
 	}).(WorkspaceInstanceBlockDeviceMappingOutput)
+}
+
+type WorkspaceInstanceCapacityReservationSpecification struct {
+	CapacityReservationPreference *WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference `pulumi:"capacityReservationPreference"`
+	CapacityReservationTarget     *WorkspaceInstanceCapacityReservationTarget                                     `pulumi:"capacityReservationTarget"`
+}
+
+// WorkspaceInstanceCapacityReservationSpecificationInput is an input type that accepts WorkspaceInstanceCapacityReservationSpecificationArgs and WorkspaceInstanceCapacityReservationSpecificationOutput values.
+// You can construct a concrete instance of `WorkspaceInstanceCapacityReservationSpecificationInput` via:
+//
+//	WorkspaceInstanceCapacityReservationSpecificationArgs{...}
+type WorkspaceInstanceCapacityReservationSpecificationInput interface {
+	pulumi.Input
+
+	ToWorkspaceInstanceCapacityReservationSpecificationOutput() WorkspaceInstanceCapacityReservationSpecificationOutput
+	ToWorkspaceInstanceCapacityReservationSpecificationOutputWithContext(context.Context) WorkspaceInstanceCapacityReservationSpecificationOutput
+}
+
+type WorkspaceInstanceCapacityReservationSpecificationArgs struct {
+	CapacityReservationPreference WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreferencePtrInput `pulumi:"capacityReservationPreference"`
+	CapacityReservationTarget     WorkspaceInstanceCapacityReservationTargetPtrInput                                     `pulumi:"capacityReservationTarget"`
+}
+
+func (WorkspaceInstanceCapacityReservationSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceInstanceCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (i WorkspaceInstanceCapacityReservationSpecificationArgs) ToWorkspaceInstanceCapacityReservationSpecificationOutput() WorkspaceInstanceCapacityReservationSpecificationOutput {
+	return i.ToWorkspaceInstanceCapacityReservationSpecificationOutputWithContext(context.Background())
+}
+
+func (i WorkspaceInstanceCapacityReservationSpecificationArgs) ToWorkspaceInstanceCapacityReservationSpecificationOutputWithContext(ctx context.Context) WorkspaceInstanceCapacityReservationSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceInstanceCapacityReservationSpecificationOutput)
+}
+
+func (i WorkspaceInstanceCapacityReservationSpecificationArgs) ToWorkspaceInstanceCapacityReservationSpecificationPtrOutput() WorkspaceInstanceCapacityReservationSpecificationPtrOutput {
+	return i.ToWorkspaceInstanceCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceInstanceCapacityReservationSpecificationArgs) ToWorkspaceInstanceCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) WorkspaceInstanceCapacityReservationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceInstanceCapacityReservationSpecificationOutput).ToWorkspaceInstanceCapacityReservationSpecificationPtrOutputWithContext(ctx)
+}
+
+// WorkspaceInstanceCapacityReservationSpecificationPtrInput is an input type that accepts WorkspaceInstanceCapacityReservationSpecificationArgs, WorkspaceInstanceCapacityReservationSpecificationPtr and WorkspaceInstanceCapacityReservationSpecificationPtrOutput values.
+// You can construct a concrete instance of `WorkspaceInstanceCapacityReservationSpecificationPtrInput` via:
+//
+//	        WorkspaceInstanceCapacityReservationSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceInstanceCapacityReservationSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceInstanceCapacityReservationSpecificationPtrOutput() WorkspaceInstanceCapacityReservationSpecificationPtrOutput
+	ToWorkspaceInstanceCapacityReservationSpecificationPtrOutputWithContext(context.Context) WorkspaceInstanceCapacityReservationSpecificationPtrOutput
+}
+
+type workspaceInstanceCapacityReservationSpecificationPtrType WorkspaceInstanceCapacityReservationSpecificationArgs
+
+func WorkspaceInstanceCapacityReservationSpecificationPtr(v *WorkspaceInstanceCapacityReservationSpecificationArgs) WorkspaceInstanceCapacityReservationSpecificationPtrInput {
+	return (*workspaceInstanceCapacityReservationSpecificationPtrType)(v)
+}
+
+func (*workspaceInstanceCapacityReservationSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceInstanceCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (i *workspaceInstanceCapacityReservationSpecificationPtrType) ToWorkspaceInstanceCapacityReservationSpecificationPtrOutput() WorkspaceInstanceCapacityReservationSpecificationPtrOutput {
+	return i.ToWorkspaceInstanceCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceInstanceCapacityReservationSpecificationPtrType) ToWorkspaceInstanceCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) WorkspaceInstanceCapacityReservationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceInstanceCapacityReservationSpecificationPtrOutput)
+}
+
+type WorkspaceInstanceCapacityReservationSpecificationOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceInstanceCapacityReservationSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceInstanceCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (o WorkspaceInstanceCapacityReservationSpecificationOutput) ToWorkspaceInstanceCapacityReservationSpecificationOutput() WorkspaceInstanceCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o WorkspaceInstanceCapacityReservationSpecificationOutput) ToWorkspaceInstanceCapacityReservationSpecificationOutputWithContext(ctx context.Context) WorkspaceInstanceCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o WorkspaceInstanceCapacityReservationSpecificationOutput) ToWorkspaceInstanceCapacityReservationSpecificationPtrOutput() WorkspaceInstanceCapacityReservationSpecificationPtrOutput {
+	return o.ToWorkspaceInstanceCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceInstanceCapacityReservationSpecificationOutput) ToWorkspaceInstanceCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) WorkspaceInstanceCapacityReservationSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceInstanceCapacityReservationSpecification) *WorkspaceInstanceCapacityReservationSpecification {
+		return &v
+	}).(WorkspaceInstanceCapacityReservationSpecificationPtrOutput)
+}
+
+func (o WorkspaceInstanceCapacityReservationSpecificationOutput) CapacityReservationPreference() WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreferencePtrOutput {
+	return o.ApplyT(func(v WorkspaceInstanceCapacityReservationSpecification) *WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference {
+		return v.CapacityReservationPreference
+	}).(WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreferencePtrOutput)
+}
+
+func (o WorkspaceInstanceCapacityReservationSpecificationOutput) CapacityReservationTarget() WorkspaceInstanceCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v WorkspaceInstanceCapacityReservationSpecification) *WorkspaceInstanceCapacityReservationTarget {
+		return v.CapacityReservationTarget
+	}).(WorkspaceInstanceCapacityReservationTargetPtrOutput)
+}
+
+type WorkspaceInstanceCapacityReservationSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceInstanceCapacityReservationSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceInstanceCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (o WorkspaceInstanceCapacityReservationSpecificationPtrOutput) ToWorkspaceInstanceCapacityReservationSpecificationPtrOutput() WorkspaceInstanceCapacityReservationSpecificationPtrOutput {
+	return o
+}
+
+func (o WorkspaceInstanceCapacityReservationSpecificationPtrOutput) ToWorkspaceInstanceCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) WorkspaceInstanceCapacityReservationSpecificationPtrOutput {
+	return o
+}
+
+func (o WorkspaceInstanceCapacityReservationSpecificationPtrOutput) Elem() WorkspaceInstanceCapacityReservationSpecificationOutput {
+	return o.ApplyT(func(v *WorkspaceInstanceCapacityReservationSpecification) WorkspaceInstanceCapacityReservationSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceInstanceCapacityReservationSpecification
+		return ret
+	}).(WorkspaceInstanceCapacityReservationSpecificationOutput)
+}
+
+func (o WorkspaceInstanceCapacityReservationSpecificationPtrOutput) CapacityReservationPreference() WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreferencePtrOutput {
+	return o.ApplyT(func(v *WorkspaceInstanceCapacityReservationSpecification) *WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationPreference
+	}).(WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreferencePtrOutput)
+}
+
+func (o WorkspaceInstanceCapacityReservationSpecificationPtrOutput) CapacityReservationTarget() WorkspaceInstanceCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v *WorkspaceInstanceCapacityReservationSpecification) *WorkspaceInstanceCapacityReservationTarget {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationTarget
+	}).(WorkspaceInstanceCapacityReservationTargetPtrOutput)
+}
+
+type WorkspaceInstanceCapacityReservationTarget struct {
+	CapacityReservationId               *string `pulumi:"capacityReservationId"`
+	CapacityReservationResourceGroupArn *string `pulumi:"capacityReservationResourceGroupArn"`
+}
+
+// WorkspaceInstanceCapacityReservationTargetInput is an input type that accepts WorkspaceInstanceCapacityReservationTargetArgs and WorkspaceInstanceCapacityReservationTargetOutput values.
+// You can construct a concrete instance of `WorkspaceInstanceCapacityReservationTargetInput` via:
+//
+//	WorkspaceInstanceCapacityReservationTargetArgs{...}
+type WorkspaceInstanceCapacityReservationTargetInput interface {
+	pulumi.Input
+
+	ToWorkspaceInstanceCapacityReservationTargetOutput() WorkspaceInstanceCapacityReservationTargetOutput
+	ToWorkspaceInstanceCapacityReservationTargetOutputWithContext(context.Context) WorkspaceInstanceCapacityReservationTargetOutput
+}
+
+type WorkspaceInstanceCapacityReservationTargetArgs struct {
+	CapacityReservationId               pulumi.StringPtrInput `pulumi:"capacityReservationId"`
+	CapacityReservationResourceGroupArn pulumi.StringPtrInput `pulumi:"capacityReservationResourceGroupArn"`
+}
+
+func (WorkspaceInstanceCapacityReservationTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceInstanceCapacityReservationTarget)(nil)).Elem()
+}
+
+func (i WorkspaceInstanceCapacityReservationTargetArgs) ToWorkspaceInstanceCapacityReservationTargetOutput() WorkspaceInstanceCapacityReservationTargetOutput {
+	return i.ToWorkspaceInstanceCapacityReservationTargetOutputWithContext(context.Background())
+}
+
+func (i WorkspaceInstanceCapacityReservationTargetArgs) ToWorkspaceInstanceCapacityReservationTargetOutputWithContext(ctx context.Context) WorkspaceInstanceCapacityReservationTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceInstanceCapacityReservationTargetOutput)
+}
+
+func (i WorkspaceInstanceCapacityReservationTargetArgs) ToWorkspaceInstanceCapacityReservationTargetPtrOutput() WorkspaceInstanceCapacityReservationTargetPtrOutput {
+	return i.ToWorkspaceInstanceCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceInstanceCapacityReservationTargetArgs) ToWorkspaceInstanceCapacityReservationTargetPtrOutputWithContext(ctx context.Context) WorkspaceInstanceCapacityReservationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceInstanceCapacityReservationTargetOutput).ToWorkspaceInstanceCapacityReservationTargetPtrOutputWithContext(ctx)
+}
+
+// WorkspaceInstanceCapacityReservationTargetPtrInput is an input type that accepts WorkspaceInstanceCapacityReservationTargetArgs, WorkspaceInstanceCapacityReservationTargetPtr and WorkspaceInstanceCapacityReservationTargetPtrOutput values.
+// You can construct a concrete instance of `WorkspaceInstanceCapacityReservationTargetPtrInput` via:
+//
+//	        WorkspaceInstanceCapacityReservationTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceInstanceCapacityReservationTargetPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceInstanceCapacityReservationTargetPtrOutput() WorkspaceInstanceCapacityReservationTargetPtrOutput
+	ToWorkspaceInstanceCapacityReservationTargetPtrOutputWithContext(context.Context) WorkspaceInstanceCapacityReservationTargetPtrOutput
+}
+
+type workspaceInstanceCapacityReservationTargetPtrType WorkspaceInstanceCapacityReservationTargetArgs
+
+func WorkspaceInstanceCapacityReservationTargetPtr(v *WorkspaceInstanceCapacityReservationTargetArgs) WorkspaceInstanceCapacityReservationTargetPtrInput {
+	return (*workspaceInstanceCapacityReservationTargetPtrType)(v)
+}
+
+func (*workspaceInstanceCapacityReservationTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceInstanceCapacityReservationTarget)(nil)).Elem()
+}
+
+func (i *workspaceInstanceCapacityReservationTargetPtrType) ToWorkspaceInstanceCapacityReservationTargetPtrOutput() WorkspaceInstanceCapacityReservationTargetPtrOutput {
+	return i.ToWorkspaceInstanceCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceInstanceCapacityReservationTargetPtrType) ToWorkspaceInstanceCapacityReservationTargetPtrOutputWithContext(ctx context.Context) WorkspaceInstanceCapacityReservationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceInstanceCapacityReservationTargetPtrOutput)
+}
+
+type WorkspaceInstanceCapacityReservationTargetOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceInstanceCapacityReservationTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceInstanceCapacityReservationTarget)(nil)).Elem()
+}
+
+func (o WorkspaceInstanceCapacityReservationTargetOutput) ToWorkspaceInstanceCapacityReservationTargetOutput() WorkspaceInstanceCapacityReservationTargetOutput {
+	return o
+}
+
+func (o WorkspaceInstanceCapacityReservationTargetOutput) ToWorkspaceInstanceCapacityReservationTargetOutputWithContext(ctx context.Context) WorkspaceInstanceCapacityReservationTargetOutput {
+	return o
+}
+
+func (o WorkspaceInstanceCapacityReservationTargetOutput) ToWorkspaceInstanceCapacityReservationTargetPtrOutput() WorkspaceInstanceCapacityReservationTargetPtrOutput {
+	return o.ToWorkspaceInstanceCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceInstanceCapacityReservationTargetOutput) ToWorkspaceInstanceCapacityReservationTargetPtrOutputWithContext(ctx context.Context) WorkspaceInstanceCapacityReservationTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceInstanceCapacityReservationTarget) *WorkspaceInstanceCapacityReservationTarget {
+		return &v
+	}).(WorkspaceInstanceCapacityReservationTargetPtrOutput)
+}
+
+func (o WorkspaceInstanceCapacityReservationTargetOutput) CapacityReservationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceInstanceCapacityReservationTarget) *string { return v.CapacityReservationId }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspaceInstanceCapacityReservationTargetOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceInstanceCapacityReservationTarget) *string {
+		return v.CapacityReservationResourceGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceInstanceCapacityReservationTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceInstanceCapacityReservationTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceInstanceCapacityReservationTarget)(nil)).Elem()
+}
+
+func (o WorkspaceInstanceCapacityReservationTargetPtrOutput) ToWorkspaceInstanceCapacityReservationTargetPtrOutput() WorkspaceInstanceCapacityReservationTargetPtrOutput {
+	return o
+}
+
+func (o WorkspaceInstanceCapacityReservationTargetPtrOutput) ToWorkspaceInstanceCapacityReservationTargetPtrOutputWithContext(ctx context.Context) WorkspaceInstanceCapacityReservationTargetPtrOutput {
+	return o
+}
+
+func (o WorkspaceInstanceCapacityReservationTargetPtrOutput) Elem() WorkspaceInstanceCapacityReservationTargetOutput {
+	return o.ApplyT(func(v *WorkspaceInstanceCapacityReservationTarget) WorkspaceInstanceCapacityReservationTarget {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceInstanceCapacityReservationTarget
+		return ret
+	}).(WorkspaceInstanceCapacityReservationTargetOutput)
+}
+
+func (o WorkspaceInstanceCapacityReservationTargetPtrOutput) CapacityReservationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceInstanceCapacityReservationTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspaceInstanceCapacityReservationTargetPtrOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceInstanceCapacityReservationTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationResourceGroupArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type WorkspaceInstanceCpuOptionsRequest struct {
@@ -1583,6 +1981,7 @@ func (o WorkspaceInstanceHibernationOptionsRequestPtrOutput) Configured() pulumi
 }
 
 type WorkspaceInstanceIamInstanceProfileSpecification struct {
+	Arn  *string `pulumi:"arn"`
 	Name *string `pulumi:"name"`
 }
 
@@ -1598,6 +1997,7 @@ type WorkspaceInstanceIamInstanceProfileSpecificationInput interface {
 }
 
 type WorkspaceInstanceIamInstanceProfileSpecificationArgs struct {
+	Arn  pulumi.StringPtrInput `pulumi:"arn"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1678,6 +2078,10 @@ func (o WorkspaceInstanceIamInstanceProfileSpecificationOutput) ToWorkspaceInsta
 	}).(WorkspaceInstanceIamInstanceProfileSpecificationPtrOutput)
 }
 
+func (o WorkspaceInstanceIamInstanceProfileSpecificationOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceInstanceIamInstanceProfileSpecification) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
 func (o WorkspaceInstanceIamInstanceProfileSpecificationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceInstanceIamInstanceProfileSpecification) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1704,6 +2108,15 @@ func (o WorkspaceInstanceIamInstanceProfileSpecificationPtrOutput) Elem() Worksp
 		var ret WorkspaceInstanceIamInstanceProfileSpecification
 		return ret
 	}).(WorkspaceInstanceIamInstanceProfileSpecificationOutput)
+}
+
+func (o WorkspaceInstanceIamInstanceProfileSpecificationPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceInstanceIamInstanceProfileSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o WorkspaceInstanceIamInstanceProfileSpecificationPtrOutput) Name() pulumi.StringPtrOutput {
@@ -1848,6 +2261,158 @@ func (o WorkspaceInstanceInstanceMaintenanceOptionsRequestPtrOutput) AutoRecover
 		}
 		return v.AutoRecovery
 	}).(WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecoveryPtrOutput)
+}
+
+type WorkspaceInstanceInstanceMarketOptionsRequest struct {
+	MarketType  *WorkspaceInstanceInstanceMarketOptionsRequestMarketType `pulumi:"marketType"`
+	SpotOptions *WorkspaceInstanceSpotMarketOptions                      `pulumi:"spotOptions"`
+}
+
+// WorkspaceInstanceInstanceMarketOptionsRequestInput is an input type that accepts WorkspaceInstanceInstanceMarketOptionsRequestArgs and WorkspaceInstanceInstanceMarketOptionsRequestOutput values.
+// You can construct a concrete instance of `WorkspaceInstanceInstanceMarketOptionsRequestInput` via:
+//
+//	WorkspaceInstanceInstanceMarketOptionsRequestArgs{...}
+type WorkspaceInstanceInstanceMarketOptionsRequestInput interface {
+	pulumi.Input
+
+	ToWorkspaceInstanceInstanceMarketOptionsRequestOutput() WorkspaceInstanceInstanceMarketOptionsRequestOutput
+	ToWorkspaceInstanceInstanceMarketOptionsRequestOutputWithContext(context.Context) WorkspaceInstanceInstanceMarketOptionsRequestOutput
+}
+
+type WorkspaceInstanceInstanceMarketOptionsRequestArgs struct {
+	MarketType  WorkspaceInstanceInstanceMarketOptionsRequestMarketTypePtrInput `pulumi:"marketType"`
+	SpotOptions WorkspaceInstanceSpotMarketOptionsPtrInput                      `pulumi:"spotOptions"`
+}
+
+func (WorkspaceInstanceInstanceMarketOptionsRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceInstanceInstanceMarketOptionsRequest)(nil)).Elem()
+}
+
+func (i WorkspaceInstanceInstanceMarketOptionsRequestArgs) ToWorkspaceInstanceInstanceMarketOptionsRequestOutput() WorkspaceInstanceInstanceMarketOptionsRequestOutput {
+	return i.ToWorkspaceInstanceInstanceMarketOptionsRequestOutputWithContext(context.Background())
+}
+
+func (i WorkspaceInstanceInstanceMarketOptionsRequestArgs) ToWorkspaceInstanceInstanceMarketOptionsRequestOutputWithContext(ctx context.Context) WorkspaceInstanceInstanceMarketOptionsRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceInstanceInstanceMarketOptionsRequestOutput)
+}
+
+func (i WorkspaceInstanceInstanceMarketOptionsRequestArgs) ToWorkspaceInstanceInstanceMarketOptionsRequestPtrOutput() WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput {
+	return i.ToWorkspaceInstanceInstanceMarketOptionsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceInstanceInstanceMarketOptionsRequestArgs) ToWorkspaceInstanceInstanceMarketOptionsRequestPtrOutputWithContext(ctx context.Context) WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceInstanceInstanceMarketOptionsRequestOutput).ToWorkspaceInstanceInstanceMarketOptionsRequestPtrOutputWithContext(ctx)
+}
+
+// WorkspaceInstanceInstanceMarketOptionsRequestPtrInput is an input type that accepts WorkspaceInstanceInstanceMarketOptionsRequestArgs, WorkspaceInstanceInstanceMarketOptionsRequestPtr and WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput values.
+// You can construct a concrete instance of `WorkspaceInstanceInstanceMarketOptionsRequestPtrInput` via:
+//
+//	        WorkspaceInstanceInstanceMarketOptionsRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceInstanceInstanceMarketOptionsRequestPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceInstanceInstanceMarketOptionsRequestPtrOutput() WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput
+	ToWorkspaceInstanceInstanceMarketOptionsRequestPtrOutputWithContext(context.Context) WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput
+}
+
+type workspaceInstanceInstanceMarketOptionsRequestPtrType WorkspaceInstanceInstanceMarketOptionsRequestArgs
+
+func WorkspaceInstanceInstanceMarketOptionsRequestPtr(v *WorkspaceInstanceInstanceMarketOptionsRequestArgs) WorkspaceInstanceInstanceMarketOptionsRequestPtrInput {
+	return (*workspaceInstanceInstanceMarketOptionsRequestPtrType)(v)
+}
+
+func (*workspaceInstanceInstanceMarketOptionsRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceInstanceInstanceMarketOptionsRequest)(nil)).Elem()
+}
+
+func (i *workspaceInstanceInstanceMarketOptionsRequestPtrType) ToWorkspaceInstanceInstanceMarketOptionsRequestPtrOutput() WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput {
+	return i.ToWorkspaceInstanceInstanceMarketOptionsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceInstanceInstanceMarketOptionsRequestPtrType) ToWorkspaceInstanceInstanceMarketOptionsRequestPtrOutputWithContext(ctx context.Context) WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput)
+}
+
+type WorkspaceInstanceInstanceMarketOptionsRequestOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceInstanceInstanceMarketOptionsRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceInstanceInstanceMarketOptionsRequest)(nil)).Elem()
+}
+
+func (o WorkspaceInstanceInstanceMarketOptionsRequestOutput) ToWorkspaceInstanceInstanceMarketOptionsRequestOutput() WorkspaceInstanceInstanceMarketOptionsRequestOutput {
+	return o
+}
+
+func (o WorkspaceInstanceInstanceMarketOptionsRequestOutput) ToWorkspaceInstanceInstanceMarketOptionsRequestOutputWithContext(ctx context.Context) WorkspaceInstanceInstanceMarketOptionsRequestOutput {
+	return o
+}
+
+func (o WorkspaceInstanceInstanceMarketOptionsRequestOutput) ToWorkspaceInstanceInstanceMarketOptionsRequestPtrOutput() WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput {
+	return o.ToWorkspaceInstanceInstanceMarketOptionsRequestPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceInstanceInstanceMarketOptionsRequestOutput) ToWorkspaceInstanceInstanceMarketOptionsRequestPtrOutputWithContext(ctx context.Context) WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceInstanceInstanceMarketOptionsRequest) *WorkspaceInstanceInstanceMarketOptionsRequest {
+		return &v
+	}).(WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput)
+}
+
+func (o WorkspaceInstanceInstanceMarketOptionsRequestOutput) MarketType() WorkspaceInstanceInstanceMarketOptionsRequestMarketTypePtrOutput {
+	return o.ApplyT(func(v WorkspaceInstanceInstanceMarketOptionsRequest) *WorkspaceInstanceInstanceMarketOptionsRequestMarketType {
+		return v.MarketType
+	}).(WorkspaceInstanceInstanceMarketOptionsRequestMarketTypePtrOutput)
+}
+
+func (o WorkspaceInstanceInstanceMarketOptionsRequestOutput) SpotOptions() WorkspaceInstanceSpotMarketOptionsPtrOutput {
+	return o.ApplyT(func(v WorkspaceInstanceInstanceMarketOptionsRequest) *WorkspaceInstanceSpotMarketOptions {
+		return v.SpotOptions
+	}).(WorkspaceInstanceSpotMarketOptionsPtrOutput)
+}
+
+type WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceInstanceInstanceMarketOptionsRequest)(nil)).Elem()
+}
+
+func (o WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput) ToWorkspaceInstanceInstanceMarketOptionsRequestPtrOutput() WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput {
+	return o
+}
+
+func (o WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput) ToWorkspaceInstanceInstanceMarketOptionsRequestPtrOutputWithContext(ctx context.Context) WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput {
+	return o
+}
+
+func (o WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput) Elem() WorkspaceInstanceInstanceMarketOptionsRequestOutput {
+	return o.ApplyT(func(v *WorkspaceInstanceInstanceMarketOptionsRequest) WorkspaceInstanceInstanceMarketOptionsRequest {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceInstanceInstanceMarketOptionsRequest
+		return ret
+	}).(WorkspaceInstanceInstanceMarketOptionsRequestOutput)
+}
+
+func (o WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput) MarketType() WorkspaceInstanceInstanceMarketOptionsRequestMarketTypePtrOutput {
+	return o.ApplyT(func(v *WorkspaceInstanceInstanceMarketOptionsRequest) *WorkspaceInstanceInstanceMarketOptionsRequestMarketType {
+		if v == nil {
+			return nil
+		}
+		return v.MarketType
+	}).(WorkspaceInstanceInstanceMarketOptionsRequestMarketTypePtrOutput)
+}
+
+func (o WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput) SpotOptions() WorkspaceInstanceSpotMarketOptionsPtrOutput {
+	return o.ApplyT(func(v *WorkspaceInstanceInstanceMarketOptionsRequest) *WorkspaceInstanceSpotMarketOptions {
+		if v == nil {
+			return nil
+		}
+		return v.SpotOptions
+	}).(WorkspaceInstanceSpotMarketOptionsPtrOutput)
 }
 
 type WorkspaceInstanceInstanceMetadataOptionsRequest struct {
@@ -2298,9 +2863,105 @@ func (o WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestPtrOutput) Band
 	}).(WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestBandwidthWeightingPtrOutput)
 }
 
+type WorkspaceInstanceLicenseConfigurationRequest struct {
+	LicenseConfigurationArn *string `pulumi:"licenseConfigurationArn"`
+}
+
+// WorkspaceInstanceLicenseConfigurationRequestInput is an input type that accepts WorkspaceInstanceLicenseConfigurationRequestArgs and WorkspaceInstanceLicenseConfigurationRequestOutput values.
+// You can construct a concrete instance of `WorkspaceInstanceLicenseConfigurationRequestInput` via:
+//
+//	WorkspaceInstanceLicenseConfigurationRequestArgs{...}
+type WorkspaceInstanceLicenseConfigurationRequestInput interface {
+	pulumi.Input
+
+	ToWorkspaceInstanceLicenseConfigurationRequestOutput() WorkspaceInstanceLicenseConfigurationRequestOutput
+	ToWorkspaceInstanceLicenseConfigurationRequestOutputWithContext(context.Context) WorkspaceInstanceLicenseConfigurationRequestOutput
+}
+
+type WorkspaceInstanceLicenseConfigurationRequestArgs struct {
+	LicenseConfigurationArn pulumi.StringPtrInput `pulumi:"licenseConfigurationArn"`
+}
+
+func (WorkspaceInstanceLicenseConfigurationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceInstanceLicenseConfigurationRequest)(nil)).Elem()
+}
+
+func (i WorkspaceInstanceLicenseConfigurationRequestArgs) ToWorkspaceInstanceLicenseConfigurationRequestOutput() WorkspaceInstanceLicenseConfigurationRequestOutput {
+	return i.ToWorkspaceInstanceLicenseConfigurationRequestOutputWithContext(context.Background())
+}
+
+func (i WorkspaceInstanceLicenseConfigurationRequestArgs) ToWorkspaceInstanceLicenseConfigurationRequestOutputWithContext(ctx context.Context) WorkspaceInstanceLicenseConfigurationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceInstanceLicenseConfigurationRequestOutput)
+}
+
+// WorkspaceInstanceLicenseConfigurationRequestArrayInput is an input type that accepts WorkspaceInstanceLicenseConfigurationRequestArray and WorkspaceInstanceLicenseConfigurationRequestArrayOutput values.
+// You can construct a concrete instance of `WorkspaceInstanceLicenseConfigurationRequestArrayInput` via:
+//
+//	WorkspaceInstanceLicenseConfigurationRequestArray{ WorkspaceInstanceLicenseConfigurationRequestArgs{...} }
+type WorkspaceInstanceLicenseConfigurationRequestArrayInput interface {
+	pulumi.Input
+
+	ToWorkspaceInstanceLicenseConfigurationRequestArrayOutput() WorkspaceInstanceLicenseConfigurationRequestArrayOutput
+	ToWorkspaceInstanceLicenseConfigurationRequestArrayOutputWithContext(context.Context) WorkspaceInstanceLicenseConfigurationRequestArrayOutput
+}
+
+type WorkspaceInstanceLicenseConfigurationRequestArray []WorkspaceInstanceLicenseConfigurationRequestInput
+
+func (WorkspaceInstanceLicenseConfigurationRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceInstanceLicenseConfigurationRequest)(nil)).Elem()
+}
+
+func (i WorkspaceInstanceLicenseConfigurationRequestArray) ToWorkspaceInstanceLicenseConfigurationRequestArrayOutput() WorkspaceInstanceLicenseConfigurationRequestArrayOutput {
+	return i.ToWorkspaceInstanceLicenseConfigurationRequestArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspaceInstanceLicenseConfigurationRequestArray) ToWorkspaceInstanceLicenseConfigurationRequestArrayOutputWithContext(ctx context.Context) WorkspaceInstanceLicenseConfigurationRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceInstanceLicenseConfigurationRequestArrayOutput)
+}
+
+type WorkspaceInstanceLicenseConfigurationRequestOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceInstanceLicenseConfigurationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceInstanceLicenseConfigurationRequest)(nil)).Elem()
+}
+
+func (o WorkspaceInstanceLicenseConfigurationRequestOutput) ToWorkspaceInstanceLicenseConfigurationRequestOutput() WorkspaceInstanceLicenseConfigurationRequestOutput {
+	return o
+}
+
+func (o WorkspaceInstanceLicenseConfigurationRequestOutput) ToWorkspaceInstanceLicenseConfigurationRequestOutputWithContext(ctx context.Context) WorkspaceInstanceLicenseConfigurationRequestOutput {
+	return o
+}
+
+func (o WorkspaceInstanceLicenseConfigurationRequestOutput) LicenseConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceInstanceLicenseConfigurationRequest) *string { return v.LicenseConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceInstanceLicenseConfigurationRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceInstanceLicenseConfigurationRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceInstanceLicenseConfigurationRequest)(nil)).Elem()
+}
+
+func (o WorkspaceInstanceLicenseConfigurationRequestArrayOutput) ToWorkspaceInstanceLicenseConfigurationRequestArrayOutput() WorkspaceInstanceLicenseConfigurationRequestArrayOutput {
+	return o
+}
+
+func (o WorkspaceInstanceLicenseConfigurationRequestArrayOutput) ToWorkspaceInstanceLicenseConfigurationRequestArrayOutputWithContext(ctx context.Context) WorkspaceInstanceLicenseConfigurationRequestArrayOutput {
+	return o
+}
+
+func (o WorkspaceInstanceLicenseConfigurationRequestArrayOutput) Index(i pulumi.IntInput) WorkspaceInstanceLicenseConfigurationRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceInstanceLicenseConfigurationRequest {
+		return vs[0].([]WorkspaceInstanceLicenseConfigurationRequest)[vs[1].(int)]
+	}).(WorkspaceInstanceLicenseConfigurationRequestOutput)
+}
+
 type WorkspaceInstancePlacement struct {
 	AvailabilityZone *string                            `pulumi:"availabilityZone"`
+	GroupId          *string                            `pulumi:"groupId"`
 	GroupName        *string                            `pulumi:"groupName"`
+	PartitionNumber  *int                               `pulumi:"partitionNumber"`
 	Tenancy          *WorkspaceInstancePlacementTenancy `pulumi:"tenancy"`
 }
 
@@ -2317,7 +2978,9 @@ type WorkspaceInstancePlacementInput interface {
 
 type WorkspaceInstancePlacementArgs struct {
 	AvailabilityZone pulumi.StringPtrInput                     `pulumi:"availabilityZone"`
+	GroupId          pulumi.StringPtrInput                     `pulumi:"groupId"`
 	GroupName        pulumi.StringPtrInput                     `pulumi:"groupName"`
+	PartitionNumber  pulumi.IntPtrInput                        `pulumi:"partitionNumber"`
 	Tenancy          WorkspaceInstancePlacementTenancyPtrInput `pulumi:"tenancy"`
 }
 
@@ -2402,8 +3065,16 @@ func (o WorkspaceInstancePlacementOutput) AvailabilityZone() pulumi.StringPtrOut
 	return o.ApplyT(func(v WorkspaceInstancePlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+func (o WorkspaceInstancePlacementOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceInstancePlacement) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
 func (o WorkspaceInstancePlacementOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceInstancePlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspaceInstancePlacementOutput) PartitionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceInstancePlacement) *int { return v.PartitionNumber }).(pulumi.IntPtrOutput)
 }
 
 func (o WorkspaceInstancePlacementOutput) Tenancy() WorkspaceInstancePlacementTenancyPtrOutput {
@@ -2443,6 +3114,15 @@ func (o WorkspaceInstancePlacementPtrOutput) AvailabilityZone() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o WorkspaceInstancePlacementPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceInstancePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o WorkspaceInstancePlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceInstancePlacement) *string {
 		if v == nil {
@@ -2450,6 +3130,15 @@ func (o WorkspaceInstancePlacementPtrOutput) GroupName() pulumi.StringPtrOutput 
 		}
 		return v.GroupName
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspaceInstancePlacementPtrOutput) PartitionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceInstancePlacement) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionNumber
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o WorkspaceInstancePlacementPtrOutput) Tenancy() WorkspaceInstancePlacementTenancyPtrOutput {
@@ -2759,6 +3448,188 @@ func (o WorkspaceInstanceRunInstancesMonitoringEnabledPtrOutput) Enabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+type WorkspaceInstanceSpotMarketOptions struct {
+	InstanceInterruptionBehavior *WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior `pulumi:"instanceInterruptionBehavior"`
+	MaxPrice                     *string                                                         `pulumi:"maxPrice"`
+	SpotInstanceType             *WorkspaceInstanceSpotMarketOptionsSpotInstanceType             `pulumi:"spotInstanceType"`
+	ValidUntilUtc                *string                                                         `pulumi:"validUntilUtc"`
+}
+
+// WorkspaceInstanceSpotMarketOptionsInput is an input type that accepts WorkspaceInstanceSpotMarketOptionsArgs and WorkspaceInstanceSpotMarketOptionsOutput values.
+// You can construct a concrete instance of `WorkspaceInstanceSpotMarketOptionsInput` via:
+//
+//	WorkspaceInstanceSpotMarketOptionsArgs{...}
+type WorkspaceInstanceSpotMarketOptionsInput interface {
+	pulumi.Input
+
+	ToWorkspaceInstanceSpotMarketOptionsOutput() WorkspaceInstanceSpotMarketOptionsOutput
+	ToWorkspaceInstanceSpotMarketOptionsOutputWithContext(context.Context) WorkspaceInstanceSpotMarketOptionsOutput
+}
+
+type WorkspaceInstanceSpotMarketOptionsArgs struct {
+	InstanceInterruptionBehavior WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehaviorPtrInput `pulumi:"instanceInterruptionBehavior"`
+	MaxPrice                     pulumi.StringPtrInput                                                  `pulumi:"maxPrice"`
+	SpotInstanceType             WorkspaceInstanceSpotMarketOptionsSpotInstanceTypePtrInput             `pulumi:"spotInstanceType"`
+	ValidUntilUtc                pulumi.StringPtrInput                                                  `pulumi:"validUntilUtc"`
+}
+
+func (WorkspaceInstanceSpotMarketOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceInstanceSpotMarketOptions)(nil)).Elem()
+}
+
+func (i WorkspaceInstanceSpotMarketOptionsArgs) ToWorkspaceInstanceSpotMarketOptionsOutput() WorkspaceInstanceSpotMarketOptionsOutput {
+	return i.ToWorkspaceInstanceSpotMarketOptionsOutputWithContext(context.Background())
+}
+
+func (i WorkspaceInstanceSpotMarketOptionsArgs) ToWorkspaceInstanceSpotMarketOptionsOutputWithContext(ctx context.Context) WorkspaceInstanceSpotMarketOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceInstanceSpotMarketOptionsOutput)
+}
+
+func (i WorkspaceInstanceSpotMarketOptionsArgs) ToWorkspaceInstanceSpotMarketOptionsPtrOutput() WorkspaceInstanceSpotMarketOptionsPtrOutput {
+	return i.ToWorkspaceInstanceSpotMarketOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceInstanceSpotMarketOptionsArgs) ToWorkspaceInstanceSpotMarketOptionsPtrOutputWithContext(ctx context.Context) WorkspaceInstanceSpotMarketOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceInstanceSpotMarketOptionsOutput).ToWorkspaceInstanceSpotMarketOptionsPtrOutputWithContext(ctx)
+}
+
+// WorkspaceInstanceSpotMarketOptionsPtrInput is an input type that accepts WorkspaceInstanceSpotMarketOptionsArgs, WorkspaceInstanceSpotMarketOptionsPtr and WorkspaceInstanceSpotMarketOptionsPtrOutput values.
+// You can construct a concrete instance of `WorkspaceInstanceSpotMarketOptionsPtrInput` via:
+//
+//	        WorkspaceInstanceSpotMarketOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceInstanceSpotMarketOptionsPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceInstanceSpotMarketOptionsPtrOutput() WorkspaceInstanceSpotMarketOptionsPtrOutput
+	ToWorkspaceInstanceSpotMarketOptionsPtrOutputWithContext(context.Context) WorkspaceInstanceSpotMarketOptionsPtrOutput
+}
+
+type workspaceInstanceSpotMarketOptionsPtrType WorkspaceInstanceSpotMarketOptionsArgs
+
+func WorkspaceInstanceSpotMarketOptionsPtr(v *WorkspaceInstanceSpotMarketOptionsArgs) WorkspaceInstanceSpotMarketOptionsPtrInput {
+	return (*workspaceInstanceSpotMarketOptionsPtrType)(v)
+}
+
+func (*workspaceInstanceSpotMarketOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceInstanceSpotMarketOptions)(nil)).Elem()
+}
+
+func (i *workspaceInstanceSpotMarketOptionsPtrType) ToWorkspaceInstanceSpotMarketOptionsPtrOutput() WorkspaceInstanceSpotMarketOptionsPtrOutput {
+	return i.ToWorkspaceInstanceSpotMarketOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceInstanceSpotMarketOptionsPtrType) ToWorkspaceInstanceSpotMarketOptionsPtrOutputWithContext(ctx context.Context) WorkspaceInstanceSpotMarketOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceInstanceSpotMarketOptionsPtrOutput)
+}
+
+type WorkspaceInstanceSpotMarketOptionsOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceInstanceSpotMarketOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceInstanceSpotMarketOptions)(nil)).Elem()
+}
+
+func (o WorkspaceInstanceSpotMarketOptionsOutput) ToWorkspaceInstanceSpotMarketOptionsOutput() WorkspaceInstanceSpotMarketOptionsOutput {
+	return o
+}
+
+func (o WorkspaceInstanceSpotMarketOptionsOutput) ToWorkspaceInstanceSpotMarketOptionsOutputWithContext(ctx context.Context) WorkspaceInstanceSpotMarketOptionsOutput {
+	return o
+}
+
+func (o WorkspaceInstanceSpotMarketOptionsOutput) ToWorkspaceInstanceSpotMarketOptionsPtrOutput() WorkspaceInstanceSpotMarketOptionsPtrOutput {
+	return o.ToWorkspaceInstanceSpotMarketOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceInstanceSpotMarketOptionsOutput) ToWorkspaceInstanceSpotMarketOptionsPtrOutputWithContext(ctx context.Context) WorkspaceInstanceSpotMarketOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceInstanceSpotMarketOptions) *WorkspaceInstanceSpotMarketOptions {
+		return &v
+	}).(WorkspaceInstanceSpotMarketOptionsPtrOutput)
+}
+
+func (o WorkspaceInstanceSpotMarketOptionsOutput) InstanceInterruptionBehavior() WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehaviorPtrOutput {
+	return o.ApplyT(func(v WorkspaceInstanceSpotMarketOptions) *WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior {
+		return v.InstanceInterruptionBehavior
+	}).(WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehaviorPtrOutput)
+}
+
+func (o WorkspaceInstanceSpotMarketOptionsOutput) MaxPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceInstanceSpotMarketOptions) *string { return v.MaxPrice }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspaceInstanceSpotMarketOptionsOutput) SpotInstanceType() WorkspaceInstanceSpotMarketOptionsSpotInstanceTypePtrOutput {
+	return o.ApplyT(func(v WorkspaceInstanceSpotMarketOptions) *WorkspaceInstanceSpotMarketOptionsSpotInstanceType {
+		return v.SpotInstanceType
+	}).(WorkspaceInstanceSpotMarketOptionsSpotInstanceTypePtrOutput)
+}
+
+func (o WorkspaceInstanceSpotMarketOptionsOutput) ValidUntilUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceInstanceSpotMarketOptions) *string { return v.ValidUntilUtc }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceInstanceSpotMarketOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceInstanceSpotMarketOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceInstanceSpotMarketOptions)(nil)).Elem()
+}
+
+func (o WorkspaceInstanceSpotMarketOptionsPtrOutput) ToWorkspaceInstanceSpotMarketOptionsPtrOutput() WorkspaceInstanceSpotMarketOptionsPtrOutput {
+	return o
+}
+
+func (o WorkspaceInstanceSpotMarketOptionsPtrOutput) ToWorkspaceInstanceSpotMarketOptionsPtrOutputWithContext(ctx context.Context) WorkspaceInstanceSpotMarketOptionsPtrOutput {
+	return o
+}
+
+func (o WorkspaceInstanceSpotMarketOptionsPtrOutput) Elem() WorkspaceInstanceSpotMarketOptionsOutput {
+	return o.ApplyT(func(v *WorkspaceInstanceSpotMarketOptions) WorkspaceInstanceSpotMarketOptions {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceInstanceSpotMarketOptions
+		return ret
+	}).(WorkspaceInstanceSpotMarketOptionsOutput)
+}
+
+func (o WorkspaceInstanceSpotMarketOptionsPtrOutput) InstanceInterruptionBehavior() WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehaviorPtrOutput {
+	return o.ApplyT(func(v *WorkspaceInstanceSpotMarketOptions) *WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceInterruptionBehavior
+	}).(WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehaviorPtrOutput)
+}
+
+func (o WorkspaceInstanceSpotMarketOptionsPtrOutput) MaxPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceInstanceSpotMarketOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPrice
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspaceInstanceSpotMarketOptionsPtrOutput) SpotInstanceType() WorkspaceInstanceSpotMarketOptionsSpotInstanceTypePtrOutput {
+	return o.ApplyT(func(v *WorkspaceInstanceSpotMarketOptions) *WorkspaceInstanceSpotMarketOptionsSpotInstanceType {
+		if v == nil {
+			return nil
+		}
+		return v.SpotInstanceType
+	}).(WorkspaceInstanceSpotMarketOptionsSpotInstanceTypePtrOutput)
+}
+
+func (o WorkspaceInstanceSpotMarketOptionsPtrOutput) ValidUntilUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceInstanceSpotMarketOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidUntilUtc
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceInstanceTag struct {
 	Key   string  `pulumi:"key"`
 	Value *string `pulumi:"value"`
@@ -2970,6 +3841,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTagSpecificationArrayInput)(nil)).Elem(), VolumeTagSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceBlockDeviceMappingInput)(nil)).Elem(), WorkspaceInstanceBlockDeviceMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceBlockDeviceMappingArrayInput)(nil)).Elem(), WorkspaceInstanceBlockDeviceMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceCapacityReservationSpecificationInput)(nil)).Elem(), WorkspaceInstanceCapacityReservationSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceCapacityReservationSpecificationPtrInput)(nil)).Elem(), WorkspaceInstanceCapacityReservationSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceCapacityReservationTargetInput)(nil)).Elem(), WorkspaceInstanceCapacityReservationTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceCapacityReservationTargetPtrInput)(nil)).Elem(), WorkspaceInstanceCapacityReservationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceCpuOptionsRequestInput)(nil)).Elem(), WorkspaceInstanceCpuOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceCpuOptionsRequestPtrInput)(nil)).Elem(), WorkspaceInstanceCpuOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceCreditSpecificationRequestInput)(nil)).Elem(), WorkspaceInstanceCreditSpecificationRequestArgs{})
@@ -2984,18 +3859,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceIamInstanceProfileSpecificationPtrInput)(nil)).Elem(), WorkspaceInstanceIamInstanceProfileSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceInstanceMaintenanceOptionsRequestInput)(nil)).Elem(), WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceInstanceMaintenanceOptionsRequestPtrInput)(nil)).Elem(), WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceInstanceMarketOptionsRequestInput)(nil)).Elem(), WorkspaceInstanceInstanceMarketOptionsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceInstanceMarketOptionsRequestPtrInput)(nil)).Elem(), WorkspaceInstanceInstanceMarketOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceInstanceMetadataOptionsRequestInput)(nil)).Elem(), WorkspaceInstanceInstanceMetadataOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceInstanceMetadataOptionsRequestPtrInput)(nil)).Elem(), WorkspaceInstanceInstanceMetadataOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceInstanceNetworkInterfaceSpecificationInput)(nil)).Elem(), WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceInstanceNetworkInterfaceSpecificationArrayInput)(nil)).Elem(), WorkspaceInstanceInstanceNetworkInterfaceSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestInput)(nil)).Elem(), WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestPtrInput)(nil)).Elem(), WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceLicenseConfigurationRequestInput)(nil)).Elem(), WorkspaceInstanceLicenseConfigurationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceLicenseConfigurationRequestArrayInput)(nil)).Elem(), WorkspaceInstanceLicenseConfigurationRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstancePlacementInput)(nil)).Elem(), WorkspaceInstancePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstancePlacementPtrInput)(nil)).Elem(), WorkspaceInstancePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstancePrivateDnsNameOptionsRequestInput)(nil)).Elem(), WorkspaceInstancePrivateDnsNameOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstancePrivateDnsNameOptionsRequestPtrInput)(nil)).Elem(), WorkspaceInstancePrivateDnsNameOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceRunInstancesMonitoringEnabledInput)(nil)).Elem(), WorkspaceInstanceRunInstancesMonitoringEnabledArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceRunInstancesMonitoringEnabledPtrInput)(nil)).Elem(), WorkspaceInstanceRunInstancesMonitoringEnabledArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceSpotMarketOptionsInput)(nil)).Elem(), WorkspaceInstanceSpotMarketOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceSpotMarketOptionsPtrInput)(nil)).Elem(), WorkspaceInstanceSpotMarketOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceTagInput)(nil)).Elem(), WorkspaceInstanceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceTagArrayInput)(nil)).Elem(), WorkspaceInstanceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceInstanceTagSpecificationInput)(nil)).Elem(), WorkspaceInstanceTagSpecificationArgs{})
@@ -3008,6 +3889,10 @@ func init() {
 	pulumi.RegisterOutputType(VolumeTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceBlockDeviceMappingOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceInstanceCapacityReservationSpecificationOutput{})
+	pulumi.RegisterOutputType(WorkspaceInstanceCapacityReservationSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceInstanceCapacityReservationTargetOutput{})
+	pulumi.RegisterOutputType(WorkspaceInstanceCapacityReservationTargetPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceCpuOptionsRequestOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceCpuOptionsRequestPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceCreditSpecificationRequestOutput{})
@@ -3024,18 +3909,24 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceInstanceIamInstanceProfileSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceInstanceMaintenanceOptionsRequestOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceInstanceMaintenanceOptionsRequestPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceInstanceInstanceMarketOptionsRequestOutput{})
+	pulumi.RegisterOutputType(WorkspaceInstanceInstanceMarketOptionsRequestPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceInstanceMetadataOptionsRequestOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceInstanceMetadataOptionsRequestPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceInstanceNetworkInterfaceSpecificationOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceInstanceNetworkInterfaceSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceInstanceLicenseConfigurationRequestOutput{})
+	pulumi.RegisterOutputType(WorkspaceInstanceLicenseConfigurationRequestArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstancePlacementOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstancePlacementPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstancePrivateDnsNameOptionsRequestOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstancePrivateDnsNameOptionsRequestPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceRunInstancesMonitoringEnabledOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceRunInstancesMonitoringEnabledPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceInstanceSpotMarketOptionsOutput{})
+	pulumi.RegisterOutputType(WorkspaceInstanceSpotMarketOptionsPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceTagOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceTagArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceInstanceTagSpecificationOutput{})

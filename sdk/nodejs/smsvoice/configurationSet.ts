@@ -37,6 +37,9 @@ export class ConfigurationSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationSet.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the ConfigurationSet.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name to use for the configuration set.

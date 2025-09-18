@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
         public Input<string>? CustomEndpoint { get; set; }
 
         /// <summary>
-        /// The AWS Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
+        /// The Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
         /// </summary>
         [Input("customEndpointCertificateArn")]
         public Input<string>? CustomEndpointCertificateArn { get; set; }

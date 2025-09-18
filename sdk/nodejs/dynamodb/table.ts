@@ -289,7 +289,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly billingMode!: pulumi.Output<string | undefined>;
     /**
-     * The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+     * The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
      */
     public readonly contributorInsightsSpecification!: pulumi.Output<outputs.dynamodb.TableContributorInsightsSpecification | undefined>;
     /**
@@ -305,6 +305,7 @@ export class Table extends pulumi.CustomResource {
      *   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
      */
     public readonly globalSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableGlobalSecondaryIndex[] | undefined>;
+    public readonly globalTableSettingsReplicationMode!: pulumi.Output<enums.dynamodb.TableGlobalTableSettingsReplicationMode | undefined>;
     /**
      * Specifies the properties of data being imported from the S3 bucket source to the" table.
      *   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
@@ -353,7 +354,7 @@ export class Table extends pulumi.CustomResource {
      */
     public /*out*/ readonly streamArn!: pulumi.Output<string>;
     /**
-     * The settings for the DDB table stream, which capture changes to items stored in the table.
+     * The settings for the DDB table stream, which captures changes to items stored in the table. Including this property in your CFNlong template automatically enables streaming.
      */
     public readonly streamSpecification!: pulumi.Output<outputs.dynamodb.TableStreamSpecification | undefined>;
     /**
@@ -399,6 +400,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["contributorInsightsSpecification"] = args ? args.contributorInsightsSpecification : undefined;
             resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
             resourceInputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
+            resourceInputs["globalTableSettingsReplicationMode"] = args ? args.globalTableSettingsReplicationMode : undefined;
             resourceInputs["importSourceSpecification"] = args ? args.importSourceSpecification : undefined;
             resourceInputs["keySchema"] = args ? args.keySchema : undefined;
             resourceInputs["kinesisStreamSpecification"] = args ? args.kinesisStreamSpecification : undefined;
@@ -423,6 +425,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["contributorInsightsSpecification"] = undefined /*out*/;
             resourceInputs["deletionProtectionEnabled"] = undefined /*out*/;
             resourceInputs["globalSecondaryIndexes"] = undefined /*out*/;
+            resourceInputs["globalTableSettingsReplicationMode"] = undefined /*out*/;
             resourceInputs["importSourceSpecification"] = undefined /*out*/;
             resourceInputs["keySchema"] = undefined /*out*/;
             resourceInputs["kinesisStreamSpecification"] = undefined /*out*/;
@@ -467,7 +470,7 @@ export interface TableArgs {
      */
     billingMode?: pulumi.Input<string>;
     /**
-     * The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+     * The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
      */
     contributorInsightsSpecification?: pulumi.Input<inputs.dynamodb.TableContributorInsightsSpecificationArgs>;
     /**
@@ -483,6 +486,7 @@ export interface TableArgs {
      *   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
      */
     globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableGlobalSecondaryIndexArgs>[]>;
+    globalTableSettingsReplicationMode?: pulumi.Input<enums.dynamodb.TableGlobalTableSettingsReplicationMode>;
     /**
      * Specifies the properties of data being imported from the S3 bucket source to the" table.
      *   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
@@ -525,7 +529,7 @@ export interface TableArgs {
      */
     sseSpecification?: pulumi.Input<inputs.dynamodb.TableSseSpecificationArgs>;
     /**
-     * The settings for the DDB table stream, which capture changes to items stored in the table.
+     * The settings for the DDB table stream, which captures changes to items stored in the table. Including this property in your CFNlong template automatically enables streaming.
      */
     streamSpecification?: pulumi.Input<inputs.dynamodb.TableStreamSpecificationArgs>;
     /**

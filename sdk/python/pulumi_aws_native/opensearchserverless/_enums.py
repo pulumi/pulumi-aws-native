@@ -103,6 +103,7 @@ class SecurityConfigType(builtins.str, Enum):
     """
     SAML = "saml"
     IAMIDENTITYCENTER = "iamidentitycenter"
+    IAMFEDERATION = "iamfederation"
 
 
 @pulumi.type_token("aws-native:opensearchserverless:SecurityPolicyType")

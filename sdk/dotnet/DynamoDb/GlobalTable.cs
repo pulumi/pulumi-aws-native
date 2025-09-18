@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("globalSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.GlobalTableGlobalSecondaryIndex>> GlobalSecondaryIndexes { get; private set; } = null!;
 
+        [Output("globalTableSettingsReplicationMode")]
+        public Output<Pulumi.AwsNative.DynamoDb.GlobalTableSettingsReplicationMode?> GlobalTableSettingsReplicationMode { get; private set; } = null!;
+
+        [Output("globalTableSourceArn")]
+        public Output<string?> GlobalTableSourceArn { get; private set; } = null!;
+
         /// <summary>
         /// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
         /// </summary>
@@ -172,6 +178,7 @@ namespace Pulumi.AwsNative.DynamoDb
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "globalTableSourceArn",
                     "keySchema[*]",
                     "localSecondaryIndexes[*]",
                     "tableName",
@@ -234,6 +241,12 @@ namespace Pulumi.AwsNative.DynamoDb
             get => _globalSecondaryIndexes ?? (_globalSecondaryIndexes = new InputList<Inputs.GlobalTableGlobalSecondaryIndexArgs>());
             set => _globalSecondaryIndexes = value;
         }
+
+        [Input("globalTableSettingsReplicationMode")]
+        public Input<Pulumi.AwsNative.DynamoDb.GlobalTableSettingsReplicationMode>? GlobalTableSettingsReplicationMode { get; set; }
+
+        [Input("globalTableSourceArn")]
+        public Input<string>? GlobalTableSourceArn { get; set; }
 
         [Input("globalTableWitnesses")]
         private InputList<Inputs.GlobalTableWitnessArgs>? _globalTableWitnesses;

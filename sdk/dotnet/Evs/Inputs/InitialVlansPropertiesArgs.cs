@@ -39,6 +39,12 @@ namespace Pulumi.AwsNative.Evs.Inputs
         [Input("hcx", required: true)]
         public Input<Inputs.EnvironmentInitialVlanInfoArgs> Hcx { get; set; } = null!;
 
+        [Input("hcxNetworkAclId")]
+        public Input<string>? HcxNetworkAclId { get; set; }
+
+        [Input("isHcxPublic")]
+        public Input<bool>? IsHcxPublic { get; set; }
+
         /// <summary>
         /// The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
         /// </summary>

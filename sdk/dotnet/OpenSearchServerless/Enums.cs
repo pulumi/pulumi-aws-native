@@ -274,6 +274,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
 
         public static SecurityConfigType Saml { get; } = new SecurityConfigType("saml");
         public static SecurityConfigType Iamidentitycenter { get; } = new SecurityConfigType("iamidentitycenter");
+        public static SecurityConfigType Iamfederation { get; } = new SecurityConfigType("iamfederation");
 
         public static bool operator ==(SecurityConfigType left, SecurityConfigType right) => left.Equals(right);
         public static bool operator !=(SecurityConfigType left, SecurityConfigType right) => !left.Equals(right);

@@ -5449,7 +5449,7 @@ func (o TlsInspectionConfigurationPortRangeArrayOutput) Index(i pulumi.IntInput)
 }
 
 type TlsInspectionConfigurationServerCertificate struct {
-	// The Amazon Resource Name (ARN) of the AWS Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
+	// The Amazon Resource Name (ARN) of the Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
 	ResourceArn *string `pulumi:"resourceArn"`
 }
 
@@ -5465,7 +5465,7 @@ type TlsInspectionConfigurationServerCertificateInput interface {
 }
 
 type TlsInspectionConfigurationServerCertificateArgs struct {
-	// The Amazon Resource Name (ARN) of the AWS Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
+	// The Amazon Resource Name (ARN) of the Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
 	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
 }
 
@@ -5520,7 +5520,7 @@ func (o TlsInspectionConfigurationServerCertificateOutput) ToTlsInspectionConfig
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the AWS Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
+// The Amazon Resource Name (ARN) of the Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
 func (o TlsInspectionConfigurationServerCertificateOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificate) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
@@ -5546,7 +5546,7 @@ func (o TlsInspectionConfigurationServerCertificateArrayOutput) Index(i pulumi.I
 }
 
 type TlsInspectionConfigurationServerCertificateConfiguration struct {
-	// The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within AWS Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
+	// The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
 	//
 	// The following limitations apply:
 	//
@@ -5555,7 +5555,7 @@ type TlsInspectionConfigurationServerCertificateConfiguration struct {
 	//
 	// For more information about configuring certificates for outbound inspection, see [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
 	//
-	// For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
+	// For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *Certificate Manager User Guide* .
 	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
 	// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkfirewall-servercertificateconfiguration.html) .
 	CheckCertificateRevocationStatus *TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties `pulumi:"checkCertificateRevocationStatus"`
@@ -5577,7 +5577,7 @@ type TlsInspectionConfigurationServerCertificateConfigurationInput interface {
 }
 
 type TlsInspectionConfigurationServerCertificateConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within AWS Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
+	// The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
 	//
 	// The following limitations apply:
 	//
@@ -5586,7 +5586,7 @@ type TlsInspectionConfigurationServerCertificateConfigurationArgs struct {
 	//
 	// For more information about configuring certificates for outbound inspection, see [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
 	//
-	// For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
+	// For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *Certificate Manager User Guide* .
 	CertificateAuthorityArn pulumi.StringPtrInput `pulumi:"certificateAuthorityArn"`
 	// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkfirewall-servercertificateconfiguration.html) .
 	CheckCertificateRevocationStatus TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrInput `pulumi:"checkCertificateRevocationStatus"`
@@ -5647,7 +5647,7 @@ func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) ToTlsIns
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within AWS Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
+// The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
 //
 // The following limitations apply:
 //
@@ -5656,7 +5656,7 @@ func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) ToTlsIns
 //
 // For more information about configuring certificates for outbound inspection, see [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
 //
-// For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
+// For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *Certificate Manager User Guide* .
 func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateConfiguration) *string {
 		return v.CertificateAuthorityArn

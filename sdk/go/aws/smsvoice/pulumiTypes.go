@@ -621,7 +621,9 @@ type ConfigurationSetTag struct {
 
 // A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
 type MandatoryKeywordsProperties struct {
+	// Specifies the pool's `HELP` keyword. For more information, see [Opt out list required keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/opt-out-list-keywords.html) in the End User Messaging  User Guide.
 	Help PoolMandatoryKeyword `pulumi:"help"`
+	// Specifies the pool's opt-out keyword. For more information, see [Required opt-out keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/keywords-required.html) in the End User Messaging  User Guide.
 	Stop PoolMandatoryKeyword `pulumi:"stop"`
 }
 
@@ -638,7 +640,9 @@ type MandatoryKeywordsPropertiesInput interface {
 
 // A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
 type MandatoryKeywordsPropertiesArgs struct {
+	// Specifies the pool's `HELP` keyword. For more information, see [Opt out list required keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/opt-out-list-keywords.html) in the End User Messaging  User Guide.
 	Help PoolMandatoryKeywordInput `pulumi:"help"`
+	// Specifies the pool's opt-out keyword. For more information, see [Required opt-out keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/keywords-required.html) in the End User Messaging  User Guide.
 	Stop PoolMandatoryKeywordInput `pulumi:"stop"`
 }
 
@@ -669,10 +673,12 @@ func (o MandatoryKeywordsPropertiesOutput) ToMandatoryKeywordsPropertiesOutputWi
 	return o
 }
 
+// Specifies the pool's `HELP` keyword. For more information, see [Opt out list required keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/opt-out-list-keywords.html) in the End User Messaging  User Guide.
 func (o MandatoryKeywordsPropertiesOutput) Help() PoolMandatoryKeywordOutput {
 	return o.ApplyT(func(v MandatoryKeywordsProperties) PoolMandatoryKeyword { return v.Help }).(PoolMandatoryKeywordOutput)
 }
 
+// Specifies the pool's opt-out keyword. For more information, see [Required opt-out keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/keywords-required.html) in the End User Messaging  User Guide.
 func (o MandatoryKeywordsPropertiesOutput) Stop() PoolMandatoryKeywordOutput {
 	return o.ApplyT(func(v MandatoryKeywordsProperties) PoolMandatoryKeyword { return v.Stop }).(PoolMandatoryKeywordOutput)
 }
@@ -701,6 +707,7 @@ func (o MandatoryKeywordsPropertiesPtrOutput) Elem() MandatoryKeywordsProperties
 	}).(MandatoryKeywordsPropertiesOutput)
 }
 
+// Specifies the pool's `HELP` keyword. For more information, see [Opt out list required keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/opt-out-list-keywords.html) in the End User Messaging  User Guide.
 func (o MandatoryKeywordsPropertiesPtrOutput) Help() PoolMandatoryKeywordPtrOutput {
 	return o.ApplyT(func(v *MandatoryKeywordsProperties) *PoolMandatoryKeyword {
 		if v == nil {
@@ -710,6 +717,7 @@ func (o MandatoryKeywordsPropertiesPtrOutput) Help() PoolMandatoryKeywordPtrOutp
 	}).(PoolMandatoryKeywordPtrOutput)
 }
 
+// Specifies the pool's opt-out keyword. For more information, see [Required opt-out keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/keywords-required.html) in the End User Messaging  User Guide.
 func (o MandatoryKeywordsPropertiesPtrOutput) Stop() PoolMandatoryKeywordPtrOutput {
 	return o.ApplyT(func(v *MandatoryKeywordsProperties) *PoolMandatoryKeyword {
 		if v == nil {
@@ -729,14 +737,18 @@ type OptOutListTag struct {
 
 // A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
 type PhoneNumberMandatoryKeyword struct {
+	// The message associated with the keyword.
 	Message string `pulumi:"message"`
 }
 
 // A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
 type PhoneNumberOptionalKeyword struct {
-	Action  PhoneNumberOptionalKeywordAction `pulumi:"action"`
-	Keyword string                           `pulumi:"keyword"`
-	Message string                           `pulumi:"message"`
+	// The action to perform when the keyword is used.
+	Action PhoneNumberOptionalKeywordAction `pulumi:"action"`
+	// The new keyword to add.
+	Keyword string `pulumi:"keyword"`
+	// The message associated with the keyword.
+	Message string `pulumi:"message"`
 }
 
 // PhoneNumberOptionalKeywordInput is an input type that accepts PhoneNumberOptionalKeywordArgs and PhoneNumberOptionalKeywordOutput values.
@@ -752,9 +764,12 @@ type PhoneNumberOptionalKeywordInput interface {
 
 // A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
 type PhoneNumberOptionalKeywordArgs struct {
-	Action  PhoneNumberOptionalKeywordActionInput `pulumi:"action"`
-	Keyword pulumi.StringInput                    `pulumi:"keyword"`
-	Message pulumi.StringInput                    `pulumi:"message"`
+	// The action to perform when the keyword is used.
+	Action PhoneNumberOptionalKeywordActionInput `pulumi:"action"`
+	// The new keyword to add.
+	Keyword pulumi.StringInput `pulumi:"keyword"`
+	// The message associated with the keyword.
+	Message pulumi.StringInput `pulumi:"message"`
 }
 
 func (PhoneNumberOptionalKeywordArgs) ElementType() reflect.Type {
@@ -809,14 +824,17 @@ func (o PhoneNumberOptionalKeywordOutput) ToPhoneNumberOptionalKeywordOutputWith
 	return o
 }
 
+// The action to perform when the keyword is used.
 func (o PhoneNumberOptionalKeywordOutput) Action() PhoneNumberOptionalKeywordActionOutput {
 	return o.ApplyT(func(v PhoneNumberOptionalKeyword) PhoneNumberOptionalKeywordAction { return v.Action }).(PhoneNumberOptionalKeywordActionOutput)
 }
 
+// The new keyword to add.
 func (o PhoneNumberOptionalKeywordOutput) Keyword() pulumi.StringOutput {
 	return o.ApplyT(func(v PhoneNumberOptionalKeyword) string { return v.Keyword }).(pulumi.StringOutput)
 }
 
+// The message associated with the keyword.
 func (o PhoneNumberOptionalKeywordOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v PhoneNumberOptionalKeyword) string { return v.Message }).(pulumi.StringOutput)
 }
@@ -851,6 +869,7 @@ type PhoneNumberTag struct {
 
 // A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
 type PoolMandatoryKeyword struct {
+	// The message associated with the keyword.
 	Message string `pulumi:"message"`
 }
 
@@ -867,6 +886,7 @@ type PoolMandatoryKeywordInput interface {
 
 // A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
 type PoolMandatoryKeywordArgs struct {
+	// The message associated with the keyword.
 	Message pulumi.StringInput `pulumi:"message"`
 }
 
@@ -897,6 +917,7 @@ func (o PoolMandatoryKeywordOutput) ToPoolMandatoryKeywordOutputWithContext(ctx 
 	return o
 }
 
+// The message associated with the keyword.
 func (o PoolMandatoryKeywordOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolMandatoryKeyword) string { return v.Message }).(pulumi.StringOutput)
 }
@@ -925,6 +946,7 @@ func (o PoolMandatoryKeywordPtrOutput) Elem() PoolMandatoryKeywordOutput {
 	}).(PoolMandatoryKeywordOutput)
 }
 
+// The message associated with the keyword.
 func (o PoolMandatoryKeywordPtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PoolMandatoryKeyword) *string {
 		if v == nil {
@@ -936,9 +958,12 @@ func (o PoolMandatoryKeywordPtrOutput) Message() pulumi.StringPtrOutput {
 
 // A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
 type PoolOptionalKeyword struct {
-	Action  PoolOptionalKeywordAction `pulumi:"action"`
-	Keyword string                    `pulumi:"keyword"`
-	Message string                    `pulumi:"message"`
+	// The action to perform when the keyword is used.
+	Action PoolOptionalKeywordAction `pulumi:"action"`
+	// The new keyword to add.
+	Keyword string `pulumi:"keyword"`
+	// The message associated with the keyword.
+	Message string `pulumi:"message"`
 }
 
 // PoolOptionalKeywordInput is an input type that accepts PoolOptionalKeywordArgs and PoolOptionalKeywordOutput values.
@@ -954,9 +979,12 @@ type PoolOptionalKeywordInput interface {
 
 // A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
 type PoolOptionalKeywordArgs struct {
-	Action  PoolOptionalKeywordActionInput `pulumi:"action"`
-	Keyword pulumi.StringInput             `pulumi:"keyword"`
-	Message pulumi.StringInput             `pulumi:"message"`
+	// The action to perform when the keyword is used.
+	Action PoolOptionalKeywordActionInput `pulumi:"action"`
+	// The new keyword to add.
+	Keyword pulumi.StringInput `pulumi:"keyword"`
+	// The message associated with the keyword.
+	Message pulumi.StringInput `pulumi:"message"`
 }
 
 func (PoolOptionalKeywordArgs) ElementType() reflect.Type {
@@ -1011,14 +1039,17 @@ func (o PoolOptionalKeywordOutput) ToPoolOptionalKeywordOutputWithContext(ctx co
 	return o
 }
 
+// The action to perform when the keyword is used.
 func (o PoolOptionalKeywordOutput) Action() PoolOptionalKeywordActionOutput {
 	return o.ApplyT(func(v PoolOptionalKeyword) PoolOptionalKeywordAction { return v.Action }).(PoolOptionalKeywordActionOutput)
 }
 
+// The new keyword to add.
 func (o PoolOptionalKeywordOutput) Keyword() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolOptionalKeyword) string { return v.Keyword }).(pulumi.StringOutput)
 }
 
+// The message associated with the keyword.
 func (o PoolOptionalKeywordOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolOptionalKeyword) string { return v.Message }).(pulumi.StringOutput)
 }
@@ -1160,8 +1191,11 @@ func (o ProtectConfigurationCountryRuleArrayOutput) Index(i pulumi.IntInput) Pro
 }
 
 type ProtectConfigurationCountryRuleSet struct {
-	Mms   []ProtectConfigurationCountryRule `pulumi:"mms"`
-	Sms   []ProtectConfigurationCountryRule `pulumi:"sms"`
+	// The set of `CountryRule` s to control which destination countries End User Messaging  can send your MMS messages to.
+	Mms []ProtectConfigurationCountryRule `pulumi:"mms"`
+	// The set of `CountryRule` s to control which destination countries End User Messaging  can send your SMS messages to.
+	Sms []ProtectConfigurationCountryRule `pulumi:"sms"`
+	// The set of `CountryRule` s to control which destination countries End User Messaging  can send your VOICE messages to.
 	Voice []ProtectConfigurationCountryRule `pulumi:"voice"`
 }
 
@@ -1177,8 +1211,11 @@ type ProtectConfigurationCountryRuleSetInput interface {
 }
 
 type ProtectConfigurationCountryRuleSetArgs struct {
-	Mms   ProtectConfigurationCountryRuleArrayInput `pulumi:"mms"`
-	Sms   ProtectConfigurationCountryRuleArrayInput `pulumi:"sms"`
+	// The set of `CountryRule` s to control which destination countries End User Messaging  can send your MMS messages to.
+	Mms ProtectConfigurationCountryRuleArrayInput `pulumi:"mms"`
+	// The set of `CountryRule` s to control which destination countries End User Messaging  can send your SMS messages to.
+	Sms ProtectConfigurationCountryRuleArrayInput `pulumi:"sms"`
+	// The set of `CountryRule` s to control which destination countries End User Messaging  can send your VOICE messages to.
 	Voice ProtectConfigurationCountryRuleArrayInput `pulumi:"voice"`
 }
 
@@ -1259,14 +1296,17 @@ func (o ProtectConfigurationCountryRuleSetOutput) ToProtectConfigurationCountryR
 	}).(ProtectConfigurationCountryRuleSetPtrOutput)
 }
 
+// The set of `CountryRule` s to control which destination countries End User Messaging  can send your MMS messages to.
 func (o ProtectConfigurationCountryRuleSetOutput) Mms() ProtectConfigurationCountryRuleArrayOutput {
 	return o.ApplyT(func(v ProtectConfigurationCountryRuleSet) []ProtectConfigurationCountryRule { return v.Mms }).(ProtectConfigurationCountryRuleArrayOutput)
 }
 
+// The set of `CountryRule` s to control which destination countries End User Messaging  can send your SMS messages to.
 func (o ProtectConfigurationCountryRuleSetOutput) Sms() ProtectConfigurationCountryRuleArrayOutput {
 	return o.ApplyT(func(v ProtectConfigurationCountryRuleSet) []ProtectConfigurationCountryRule { return v.Sms }).(ProtectConfigurationCountryRuleArrayOutput)
 }
 
+// The set of `CountryRule` s to control which destination countries End User Messaging  can send your VOICE messages to.
 func (o ProtectConfigurationCountryRuleSetOutput) Voice() ProtectConfigurationCountryRuleArrayOutput {
 	return o.ApplyT(func(v ProtectConfigurationCountryRuleSet) []ProtectConfigurationCountryRule { return v.Voice }).(ProtectConfigurationCountryRuleArrayOutput)
 }
@@ -1295,6 +1335,7 @@ func (o ProtectConfigurationCountryRuleSetPtrOutput) Elem() ProtectConfiguration
 	}).(ProtectConfigurationCountryRuleSetOutput)
 }
 
+// The set of `CountryRule` s to control which destination countries End User Messaging  can send your MMS messages to.
 func (o ProtectConfigurationCountryRuleSetPtrOutput) Mms() ProtectConfigurationCountryRuleArrayOutput {
 	return o.ApplyT(func(v *ProtectConfigurationCountryRuleSet) []ProtectConfigurationCountryRule {
 		if v == nil {
@@ -1304,6 +1345,7 @@ func (o ProtectConfigurationCountryRuleSetPtrOutput) Mms() ProtectConfigurationC
 	}).(ProtectConfigurationCountryRuleArrayOutput)
 }
 
+// The set of `CountryRule` s to control which destination countries End User Messaging  can send your SMS messages to.
 func (o ProtectConfigurationCountryRuleSetPtrOutput) Sms() ProtectConfigurationCountryRuleArrayOutput {
 	return o.ApplyT(func(v *ProtectConfigurationCountryRuleSet) []ProtectConfigurationCountryRule {
 		if v == nil {
@@ -1313,6 +1355,7 @@ func (o ProtectConfigurationCountryRuleSetPtrOutput) Sms() ProtectConfigurationC
 	}).(ProtectConfigurationCountryRuleArrayOutput)
 }
 
+// The set of `CountryRule` s to control which destination countries End User Messaging  can send your VOICE messages to.
 func (o ProtectConfigurationCountryRuleSetPtrOutput) Voice() ProtectConfigurationCountryRuleArrayOutput {
 	return o.ApplyT(func(v *ProtectConfigurationCountryRuleSet) []ProtectConfigurationCountryRule {
 		if v == nil {

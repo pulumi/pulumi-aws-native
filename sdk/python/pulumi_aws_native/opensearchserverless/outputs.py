@@ -24,6 +24,7 @@ __all__ = [
     'IndexSettings',
     'IndexSettingsIndexProperties',
     'MappingsProperties',
+    'SecurityConfigIamFederationConfigOptions',
     'SecurityConfigIamIdentityCenterConfigOptions',
     'SecurityConfigSamlConfigOptions',
 ]
@@ -129,31 +130,24 @@ class IndexPropertyMappingMethodProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 engine: 'IndexPropertyMappingMethodPropertiesEngine',
                  name: 'IndexPropertyMappingMethodPropertiesName',
+                 engine: Optional['IndexPropertyMappingMethodPropertiesEngine'] = None,
                  parameters: Optional['outputs.IndexPropertyMappingMethodPropertiesParametersProperties'] = None,
                  space_type: Optional['IndexPropertyMappingMethodPropertiesSpaceType'] = None):
         """
         Configuration for k-NN search method
-        :param 'IndexPropertyMappingMethodPropertiesEngine' engine: The k-NN search engine to use
         :param 'IndexPropertyMappingMethodPropertiesName' name: The algorithm name for k-NN search
+        :param 'IndexPropertyMappingMethodPropertiesEngine' engine: The k-NN search engine to use
         :param 'IndexPropertyMappingMethodPropertiesParametersProperties' parameters: Additional parameters for the k-NN algorithm
         :param 'IndexPropertyMappingMethodPropertiesSpaceType' space_type: The distance function used for k-NN search
         """
-        pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "name", name)
+        if engine is not None:
+            pulumi.set(__self__, "engine", engine)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if space_type is not None:
             pulumi.set(__self__, "space_type", space_type)
-
-    @property
-    @pulumi.getter
-    def engine(self) -> 'IndexPropertyMappingMethodPropertiesEngine':
-        """
-        The k-NN search engine to use
-        """
-        return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter
@@ -162,6 +156,14 @@ class IndexPropertyMappingMethodProperties(dict):
         The algorithm name for k-NN search
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def engine(self) -> Optional['IndexPropertyMappingMethodPropertiesEngine']:
+        """
+        The k-NN search engine to use
+        """
+        return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter
@@ -338,6 +340,60 @@ class MappingsProperties(dict):
         Defines the fields within the mapping, including their types and configurations
         """
         return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class SecurityConfigIamFederationConfigOptions(dict):
+    """
+    Describe IAM federation options in form of key value map
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupAttribute":
+            suggest = "group_attribute"
+        elif key == "userAttribute":
+            suggest = "user_attribute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigIamFederationConfigOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigIamFederationConfigOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigIamFederationConfigOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_attribute: Optional[builtins.str] = None,
+                 user_attribute: Optional[builtins.str] = None):
+        """
+        Describe IAM federation options in form of key value map
+        :param builtins.str group_attribute: Group attribute for this IAM federation integration
+        :param builtins.str user_attribute: User attribute for this IAM federation integration
+        """
+        if group_attribute is not None:
+            pulumi.set(__self__, "group_attribute", group_attribute)
+        if user_attribute is not None:
+            pulumi.set(__self__, "user_attribute", user_attribute)
+
+    @property
+    @pulumi.getter(name="groupAttribute")
+    def group_attribute(self) -> Optional[builtins.str]:
+        """
+        Group attribute for this IAM federation integration
+        """
+        return pulumi.get(self, "group_attribute")
+
+    @property
+    @pulumi.getter(name="userAttribute")
+    def user_attribute(self) -> Optional[builtins.str]:
+        """
+        User attribute for this IAM federation integration
+        """
+        return pulumi.get(self, "user_attribute")
 
 
 @pulumi.output_type

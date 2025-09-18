@@ -26,6 +26,11 @@ export interface GetOdbNetworkArgs {
 
 export interface GetOdbNetworkResult {
     /**
+     * The user-friendly name of the ODB network.
+     */
+    readonly displayName?: string;
+    readonly managedServices?: outputs.odb.OdbNetworkManagedServices;
+    /**
      * The unique identifier of the OCI network anchor for the ODB network.
      */
     readonly ociNetworkAnchorId?: string;

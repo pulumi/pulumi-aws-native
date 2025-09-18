@@ -24,10 +24,12 @@ func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.Invoke
 }
 
 type LookupPoolArgs struct {
+	// The unique identifier for the pool.
 	PoolId string `pulumi:"poolId"`
 }
 
 type LookupPoolResult struct {
+	// The Amazon Resource Name of the `Pool` .
 	Arn *string `pulumi:"arn"`
 	// When set to true the pool can't be deleted. By default this is set to false.
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
@@ -39,7 +41,8 @@ type LookupPoolResult struct {
 	OptionalKeywords []PoolOptionalKeyword `pulumi:"optionalKeywords"`
 	// The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn and it's IsoCountryCode.
 	OriginationIdentities []string `pulumi:"originationIdentities"`
-	PoolId                *string  `pulumi:"poolId"`
+	// The unique identifier for the pool.
+	PoolId *string `pulumi:"poolId"`
 	// By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.
 	SelfManagedOptOutsEnabled *bool `pulumi:"selfManagedOptOutsEnabled"`
 	// Indicates whether shared routes are enabled for the pool.
@@ -60,6 +63,7 @@ func LookupPoolOutput(ctx *pulumi.Context, args LookupPoolOutputArgs, opts ...pu
 }
 
 type LookupPoolOutputArgs struct {
+	// The unique identifier for the pool.
 	PoolId pulumi.StringInput `pulumi:"poolId"`
 }
 
@@ -81,6 +85,7 @@ func (o LookupPoolResultOutput) ToLookupPoolResultOutputWithContext(ctx context.
 	return o
 }
 
+// The Amazon Resource Name of the `Pool` .
 func (o LookupPoolResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPoolResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -110,6 +115,7 @@ func (o LookupPoolResultOutput) OriginationIdentities() pulumi.StringArrayOutput
 	return o.ApplyT(func(v LookupPoolResult) []string { return v.OriginationIdentities }).(pulumi.StringArrayOutput)
 }
 
+// The unique identifier for the pool.
 func (o LookupPoolResultOutput) PoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPoolResult) *string { return v.PoolId }).(pulumi.StringPtrOutput)
 }

@@ -43,6 +43,8 @@ type LookupScraperResult struct {
 	ScrapeConfiguration *ScraperScrapeConfiguration `pulumi:"scrapeConfiguration"`
 	// Required to identify a specific scraper.
 	ScraperId *string `pulumi:"scraperId"`
+	// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+	ScraperLoggingConfiguration *ScraperLoggingConfiguration `pulumi:"scraperLoggingConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -112,6 +114,11 @@ func (o LookupScraperResultOutput) ScrapeConfiguration() ScraperScrapeConfigurat
 // Required to identify a specific scraper.
 func (o LookupScraperResultOutput) ScraperId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupScraperResult) *string { return v.ScraperId }).(pulumi.StringPtrOutput)
+}
+
+// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+func (o LookupScraperResultOutput) ScraperLoggingConfiguration() ScraperLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupScraperResult) *ScraperLoggingConfiguration { return v.ScraperLoggingConfiguration }).(ScraperLoggingConfigurationPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

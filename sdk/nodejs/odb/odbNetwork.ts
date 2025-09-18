@@ -54,6 +54,10 @@ export class OdbNetwork extends pulumi.CustomResource {
      */
     public readonly clientSubnetCidr!: pulumi.Output<string | undefined>;
     /**
+     * The domain name to use for the resources in the ODB network.
+     */
+    public readonly customDomainName!: pulumi.Output<string | undefined>;
+    /**
      * The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com.
      */
     public readonly defaultDnsPrefix!: pulumi.Output<string | undefined>;
@@ -65,6 +69,7 @@ export class OdbNetwork extends pulumi.CustomResource {
      * The user-friendly name of the ODB network.
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly managedServices!: pulumi.Output<outputs.odb.OdbNetworkManagedServices>;
     /**
      * The unique identifier of the OCI network anchor for the ODB network.
      */
@@ -86,9 +91,21 @@ export class OdbNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly odbNetworkId!: pulumi.Output<string>;
     /**
+     * Specifies the configuration for Amazon S3 access from the ODB network.
+     */
+    public readonly s3Access!: pulumi.Output<enums.odb.OdbNetworkS3Access | undefined>;
+    /**
+     * Specifies the endpoint policy for Amazon S3 access from the ODB network.
+     */
+    public readonly s3PolicyDocument!: pulumi.Output<string | undefined>;
+    /**
      * Tags to assign to the Odb Network.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Specifies the configuration for Zero-ETL access from the ODB network.
+     */
+    public readonly zeroEtlAccess!: pulumi.Output<enums.odb.OdbNetworkZeroEtlAccess | undefined>;
 
     /**
      * Create a OdbNetwork resource with the given unique name, arguments, and options.
@@ -105,10 +122,15 @@ export class OdbNetwork extends pulumi.CustomResource {
             resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
             resourceInputs["backupSubnetCidr"] = args ? args.backupSubnetCidr : undefined;
             resourceInputs["clientSubnetCidr"] = args ? args.clientSubnetCidr : undefined;
+            resourceInputs["customDomainName"] = args ? args.customDomainName : undefined;
             resourceInputs["defaultDnsPrefix"] = args ? args.defaultDnsPrefix : undefined;
             resourceInputs["deleteAssociatedResources"] = args ? args.deleteAssociatedResources : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["s3Access"] = args ? args.s3Access : undefined;
+            resourceInputs["s3PolicyDocument"] = args ? args.s3PolicyDocument : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zeroEtlAccess"] = args ? args.zeroEtlAccess : undefined;
+            resourceInputs["managedServices"] = undefined /*out*/;
             resourceInputs["ociNetworkAnchorId"] = undefined /*out*/;
             resourceInputs["ociResourceAnchorName"] = undefined /*out*/;
             resourceInputs["ociVcnUrl"] = undefined /*out*/;
@@ -119,18 +141,23 @@ export class OdbNetwork extends pulumi.CustomResource {
             resourceInputs["availabilityZoneId"] = undefined /*out*/;
             resourceInputs["backupSubnetCidr"] = undefined /*out*/;
             resourceInputs["clientSubnetCidr"] = undefined /*out*/;
+            resourceInputs["customDomainName"] = undefined /*out*/;
             resourceInputs["defaultDnsPrefix"] = undefined /*out*/;
             resourceInputs["deleteAssociatedResources"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["managedServices"] = undefined /*out*/;
             resourceInputs["ociNetworkAnchorId"] = undefined /*out*/;
             resourceInputs["ociResourceAnchorName"] = undefined /*out*/;
             resourceInputs["ociVcnUrl"] = undefined /*out*/;
             resourceInputs["odbNetworkArn"] = undefined /*out*/;
             resourceInputs["odbNetworkId"] = undefined /*out*/;
+            resourceInputs["s3Access"] = undefined /*out*/;
+            resourceInputs["s3PolicyDocument"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["zeroEtlAccess"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["availabilityZone", "availabilityZoneId", "backupSubnetCidr", "clientSubnetCidr", "defaultDnsPrefix", "displayName"] };
+        const replaceOnChanges = { replaceOnChanges: ["availabilityZone", "availabilityZoneId", "backupSubnetCidr", "clientSubnetCidr", "customDomainName", "defaultDnsPrefix"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(OdbNetwork.__pulumiType, name, resourceInputs, opts);
     }
@@ -157,6 +184,10 @@ export interface OdbNetworkArgs {
      */
     clientSubnetCidr?: pulumi.Input<string>;
     /**
+     * The domain name to use for the resources in the ODB network.
+     */
+    customDomainName?: pulumi.Input<string>;
+    /**
      * The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com.
      */
     defaultDnsPrefix?: pulumi.Input<string>;
@@ -169,7 +200,19 @@ export interface OdbNetworkArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
+     * Specifies the configuration for Amazon S3 access from the ODB network.
+     */
+    s3Access?: pulumi.Input<enums.odb.OdbNetworkS3Access>;
+    /**
+     * Specifies the endpoint policy for Amazon S3 access from the ODB network.
+     */
+    s3PolicyDocument?: pulumi.Input<string>;
+    /**
      * Tags to assign to the Odb Network.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Specifies the configuration for Zero-ETL access from the ODB network.
+     */
+    zeroEtlAccess?: pulumi.Input<enums.odb.OdbNetworkZeroEtlAccess>;
 }

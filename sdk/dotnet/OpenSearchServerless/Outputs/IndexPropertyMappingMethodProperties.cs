@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Outputs
         /// <summary>
         /// The k-NN search engine to use
         /// </summary>
-        public readonly Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingMethodPropertiesEngine Engine;
+        public readonly Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingMethodPropertiesEngine? Engine;
         /// <summary>
         /// The algorithm name for k-NN search
         /// </summary>
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Outputs
 
         [OutputConstructor]
         private IndexPropertyMappingMethodProperties(
-            Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingMethodPropertiesEngine engine,
+            Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingMethodPropertiesEngine? engine,
 
             Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingMethodPropertiesName name,
 

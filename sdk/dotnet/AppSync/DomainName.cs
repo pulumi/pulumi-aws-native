@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.AppSync
         public Output<string> AppSyncDomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+        /// The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate.
         /// </summary>
         [Output("certificateArn")]
         public Output<string> CertificateArn { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.AppSync
     public sealed class DomainNameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+        /// The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate.
         /// </summary>
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;
