@@ -257,7 +257,7 @@
     "properties": {
       "certificateArn": {
         "type": "string",
-        "description": "The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source."
+        "description": "The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source."
       },
       "domainName": {
         "type": "string",
@@ -282,7 +282,7 @@
       },
       "regionalCertificateArn": {
         "type": "string",
-        "description": "The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source."
+        "description": "The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source."
       },
       "routingMode": {
         "$ref": "#/types/aws-native:apigateway:DomainNameRoutingMode",
@@ -1113,7 +1113,7 @@
     "properties": {
       "certificateArn": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate."
+        "description": "The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate."
       },
       "description": {
         "type": "string",
@@ -1275,6 +1275,10 @@
       "scrapeConfiguration": {
         "$ref": "#/types/aws-native:aps:ScraperScrapeConfiguration",
         "description": "The configuration in use by the scraper."
+      },
+      "scraperLoggingConfiguration": {
+        "$ref": "#/types/aws-native:aps:ScraperLoggingConfiguration",
+        "description": "The definition of logging configuration in an Amazon Managed Service for Prometheus workspace."
       },
       "source": {
         "$ref": "#/types/aws-native:aps:ScraperSource",
@@ -3514,7 +3518,7 @@
         "description": "The type of entity (resource) to which the grant is added."
       },
       "policyType": {
-        "type": "string",
+        "$ref": "#/types/aws-native:datazone:PolicyGrantManagedPolicyType",
         "description": "The type of policy that you want to grant."
       },
       "principal": {
@@ -5394,11 +5398,15 @@
     "properties": {
       "deleteOnTermination": {
         "type": "boolean",
-        "description": "Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``."
+        "description": "Whether to delete the network interface when the instance terminates. By default, this value is set to true."
       },
       "deviceIndex": {
         "type": "string",
-        "description": "The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0."
+        "description": "The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0."
+      },
+      "enaQueueCount": {
+        "type": "integer",
+        "description": "The number of ENA queues to be created with the instance."
       },
       "enaSrdSpecification": {
         "$ref": "#/types/aws-native:ec2:NetworkInterfaceAttachmentEnaSrdSpecification",
@@ -11258,6 +11266,10 @@
         "type": "string",
         "description": "The user-friendly name for the Exadata infrastructure."
       },
+      "maintenanceWindow": {
+        "$ref": "#/types/aws-native:odb:CloudExadataInfrastructureMaintenanceWindow",
+        "description": "The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window."
+      },
       "shape": {
         "type": "string",
         "description": "The model name of the Exadata infrastructure."
@@ -11298,6 +11310,10 @@
         "type": "string",
         "description": "The CIDR range of the client subnet in the ODB network."
       },
+      "customDomainName": {
+        "type": "string",
+        "description": "The domain name to use for the resources in the ODB network."
+      },
       "defaultDnsPrefix": {
         "type": "string",
         "description": "The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com."
@@ -11310,12 +11326,48 @@
         "type": "string",
         "description": "The user-friendly name of the ODB network."
       },
+      "s3Access": {
+        "$ref": "#/types/aws-native:odb:OdbNetworkS3Access",
+        "description": "Specifies the configuration for Amazon S3 access from the ODB network."
+      },
+      "s3PolicyDocument": {
+        "type": "string",
+        "description": "Specifies the endpoint policy for Amazon S3 access from the ODB network."
+      },
       "tags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "Tags to assign to the Odb Network."
+      },
+      "zeroEtlAccess": {
+        "$ref": "#/types/aws-native:odb:OdbNetworkZeroEtlAccess",
+        "description": "Specifies the configuration for Zero-ETL access from the ODB network."
+      }
+    }
+  },
+  "aws-native:odb:OdbPeeringConnection": {
+    "cfTypeName": "AWS::ODB::OdbPeeringConnection",
+    "properties": {
+      "displayName": {
+        "type": "string",
+        "description": "The name of the ODB peering connection."
+      },
+      "odbNetworkId": {
+        "type": "string",
+        "description": "The unique identifier of the ODB network."
+      },
+      "peerNetworkId": {
+        "type": "string",
+        "description": "The unique identifier of the peer network."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Tags to assign to the Odb peering connection."
       }
     }
   },
@@ -13912,6 +13964,73 @@
       }
     }
   },
+  "aws-native:servicecatalog:LaunchTemplateConstraint": {
+    "cfTypeName": "AWS::ServiceCatalog::LaunchTemplateConstraint",
+    "properties": {
+      "acceptLanguage": {
+        "type": "string",
+        "description": "The language code."
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the constraint."
+      },
+      "portfolioId": {
+        "type": "string",
+        "description": "The portfolio identifier."
+      },
+      "productId": {
+        "type": "string",
+        "description": "The product identifier."
+      },
+      "rules": {
+        "type": "string",
+        "description": "A json encoded string of the template constraint rules"
+      }
+    }
+  },
+  "aws-native:servicecatalog:PortfolioPrincipalAssociation": {
+    "cfTypeName": "AWS::ServiceCatalog::PortfolioPrincipalAssociation",
+    "properties": {
+      "acceptLanguage": {
+        "type": "string",
+        "description": "The language code."
+      },
+      "portfolioId": {
+        "type": "string",
+        "description": "The portfolio identifier."
+      },
+      "principalArn": {
+        "type": "string",
+        "description": "The ARN of the principal (user, role, or group)."
+      },
+      "principalType": {
+        "type": "string",
+        "description": "The principal type. The supported value is IAM if you use a fully defined Amazon Resource Name (ARN), or IAM_PATTERN if you use an ARN with no accountID, with or without wildcard characters."
+      }
+    }
+  },
+  "aws-native:servicecatalog:PortfolioProductAssociation": {
+    "cfTypeName": "AWS::ServiceCatalog::PortfolioProductAssociation",
+    "properties": {
+      "acceptLanguage": {
+        "type": "string",
+        "description": "The language code."
+      },
+      "portfolioId": {
+        "type": "string",
+        "description": "The portfolio identifier."
+      },
+      "productId": {
+        "type": "string",
+        "description": "The product identifier."
+      },
+      "sourcePortfolioId": {
+        "type": "string",
+        "description": "The identifier of the source portfolio. The source portfolio must be a portfolio imported from a different account than the one creating the association. This account must have previously shared this portfolio with the account creating the association."
+      }
+    }
+  },
   "aws-native:servicecatalog:ServiceActionAssociation": {
     "cfTypeName": "AWS::ServiceCatalog::ServiceActionAssociation",
     "properties": {
@@ -14906,7 +15025,7 @@
     "properties": {
       "certificate": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS` .\n\nTo request a new public certificate, see [Request a public certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html) in the *AWS Certificate Manager User Guide* .\n\nTo import an existing certificate into ACM, see [Importing certificates into ACM](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .\n\nTo request a private certificate to use FTPS through private IP addresses, see [Request a private certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html) in the *AWS Certificate Manager User Guide* .\n\nCertificates with the following cryptographic algorithms and key sizes are supported:\n\n- 2048-bit RSA (RSA_2048)\n- 4096-bit RSA (RSA_4096)\n- Elliptic Prime Curve 256 bit (EC_prime256v1)\n- Elliptic Prime Curve 384 bit (EC_secp384r1)\n- Elliptic Prime Curve 521 bit (EC_secp521r1)\n\n\u003e The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP address specified and information about the issuer."
+        "description": "The Amazon Resource Name (ARN) of the Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS` .\n\nTo request a new public certificate, see [Request a public certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html) in the *Certificate Manager User Guide* .\n\nTo import an existing certificate into ACM, see [Importing certificates into ACM](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *Certificate Manager User Guide* .\n\nTo request a private certificate to use FTPS through private IP addresses, see [Request a private certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html) in the *Certificate Manager User Guide* .\n\nCertificates with the following cryptographic algorithms and key sizes are supported:\n\n- 2048-bit RSA (RSA_2048)\n- 4096-bit RSA (RSA_4096)\n- Elliptic Prime Curve 256 bit (EC_prime256v1)\n- Elliptic Prime Curve 384 bit (EC_secp384r1)\n- Elliptic Prime Curve 521 bit (EC_secp521r1)\n\n\u003e The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP address specified and information about the issuer."
       },
       "domain": {
         "$ref": "#/types/aws-native:transfer:ServerDomain",
@@ -14953,7 +15072,7 @@
         "items": {
           "$ref": "#/types/aws-native:transfer:ServerProtocol"
         },
-        "description": "Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. The available protocols are:\n\n- `SFTP` (Secure Shell (SSH) File Transfer Protocol): File transfer over SSH\n- `FTPS` (File Transfer Protocol Secure): File transfer with TLS encryption\n- `FTP` (File Transfer Protocol): Unencrypted file transfer\n- `AS2` (Applicability Statement 2): used for transporting structured business-to-business data\n\n\u003e - If you select `FTPS` , you must choose a certificate stored in AWS Certificate Manager (ACM) which is used to identify your server when clients connect to it over FTPS.\n\u003e - If `Protocol` includes either `FTP` or `FTPS` , then the `EndpointType` must be `VPC` and the `IdentityProviderType` must be either `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .\n\u003e - If `Protocol` includes `FTP` , then `AddressAllocationIds` cannot be associated.\n\u003e - If `Protocol` is set only to `SFTP` , the `EndpointType` can be set to `PUBLIC` and the `IdentityProviderType` can be set any of the supported identity types: `SERVICE_MANAGED` , `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .\n\u003e - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3. \n\nThe `Protocols` parameter is an array of strings.\n\n*Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`"
+        "description": "Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. The available protocols are:\n\n- `SFTP` (Secure Shell (SSH) File Transfer Protocol): File transfer over SSH\n- `FTPS` (File Transfer Protocol Secure): File transfer with TLS encryption\n- `FTP` (File Transfer Protocol): Unencrypted file transfer\n- `AS2` (Applicability Statement 2): used for transporting structured business-to-business data\n\n\u003e - If you select `FTPS` , you must choose a certificate stored in Certificate Manager (ACM) which is used to identify your server when clients connect to it over FTPS.\n\u003e - If `Protocol` includes either `FTP` or `FTPS` , then the `EndpointType` must be `VPC` and the `IdentityProviderType` must be either `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .\n\u003e - If `Protocol` includes `FTP` , then `AddressAllocationIds` cannot be associated.\n\u003e - If `Protocol` is set only to `SFTP` , the `EndpointType` can be set to `PUBLIC` and the `IdentityProviderType` can be set any of the supported identity types: `SERVICE_MANAGED` , `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .\n\u003e - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3. \n\nThe `Protocols` parameter is an array of strings.\n\n*Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`"
       },
       "s3StorageOptions": {
         "$ref": "#/types/aws-native:transfer:ServerS3StorageOptions",

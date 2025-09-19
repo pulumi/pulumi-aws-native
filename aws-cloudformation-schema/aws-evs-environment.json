@@ -120,6 +120,10 @@
     },
     "Timestamp" : {
       "type" : "string"
+    },
+    "NetworkAclId" : {
+      "type" : "string",
+      "pattern" : "^acl-[a-zA-Z0-9_-]+$"
     }
   },
   "properties" : {
@@ -193,6 +197,12 @@
         },
         "Hcx" : {
           "$ref" : "#/definitions/InitialVlanInfo"
+        },
+        "IsHcxPublic" : {
+          "type" : "boolean"
+        },
+        "HcxNetworkAclId" : {
+          "$ref" : "#/definitions/NetworkAclId"
         },
         "ExpansionVlan1" : {
           "$ref" : "#/definitions/InitialVlanInfo"

@@ -95,6 +95,17 @@
       },
       "required" : [ "Delay", "Priority", "QueueReference" ]
     },
+    "RoutingProfileManualAssignmentQueueConfig" : {
+      "description" : "Contains information about the manual assignment queue and channel",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "QueueReference" : {
+          "$ref" : "#/definitions/RoutingProfileQueueReference"
+        }
+      },
+      "required" : [ "QueueReference" ]
+    },
     "Tag" : {
       "description" : "A key-value pair to associate with a resource.",
       "type" : "object",
@@ -161,6 +172,16 @@
         "$ref" : "#/definitions/RoutingProfileQueueConfig"
       }
     },
+    "ManualAssignmentQueueConfigs" : {
+      "description" : "The manual assignment queues to associate with this routing profile.",
+      "type" : "array",
+      "minItems" : 1,
+      "maxItems" : 10,
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/RoutingProfileManualAssignmentQueueConfig"
+      }
+    },
     "Tags" : {
       "type" : "array",
       "maxItems" : 50,
@@ -183,13 +204,13 @@
       "permissions" : [ "connect:CreateRoutingProfile", "connect:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "connect:DescribeRoutingProfile", "connect:ListRoutingProfileQueues" ]
+      "permissions" : [ "connect:DescribeRoutingProfile", "connect:ListRoutingProfileQueues", "connect:ListRoutingProfileManualAssignmentQueues" ]
     },
     "delete" : {
       "permissions" : [ "connect:DeleteRoutingProfile", "connect:UntagResource" ]
     },
     "update" : {
-      "permissions" : [ "connect:AssociateRoutingProfileQueues", "connect:DisassociateRoutingProfileQueues", "connect:UpdateRoutingProfileConcurrency", "connect:UpdateRoutingProfileName", "connect:UpdateRoutingProfileDefaultOutboundQueue", "connect:UpdateRoutingProfileQueues", "connect:TagResource", "connect:UntagResource", "connect:ListRoutingProfileQueues", "connect:UpdateRoutingProfileAgentAvailabilityTimer" ]
+      "permissions" : [ "connect:AssociateRoutingProfileQueues", "connect:DisassociateRoutingProfileQueues", "connect:UpdateRoutingProfileConcurrency", "connect:UpdateRoutingProfileName", "connect:UpdateRoutingProfileDefaultOutboundQueue", "connect:UpdateRoutingProfileQueues", "connect:TagResource", "connect:UntagResource", "connect:ListRoutingProfileQueues", "connect:ListRoutingProfileManualAssignmentQueues", "connect:UpdateRoutingProfileAgentAvailabilityTimer" ]
     },
     "list" : {
       "handlerSchema" : {
@@ -200,7 +221,7 @@
         },
         "required" : [ "InstanceArn" ]
       },
-      "permissions" : [ "connect:ListRoutingProfiles", "connect:ListRoutingProfileQueues" ]
+      "permissions" : [ "connect:ListRoutingProfiles", "connect:ListRoutingProfileQueues", "connect:ListRoutingProfileManualAssignmentQueues" ]
     }
   },
   "additionalProperties" : false,
