@@ -12,7 +12,13 @@ __all__ = [
     'CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekItem',
     'CloudAutonomousVmClusterMaintenanceWindowMonthsItem',
     'CloudAutonomousVmClusterMaintenanceWindowPreference',
+    'CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem',
+    'CloudExadataInfrastructureMaintenanceWindowMonthsItem',
     'CloudVmClusterLicenseModel',
+    'OdbNetworkManagedResourceStatus',
+    'OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType',
+    'OdbNetworkS3Access',
+    'OdbNetworkZeroEtlAccess',
 ]
 
 
@@ -70,6 +76,33 @@ class CloudAutonomousVmClusterMaintenanceWindowPreference(builtins.str, Enum):
     CUSTOM_PREFERENCE = "CUSTOM_PREFERENCE"
 
 
+@pulumi.type_token("aws-native:odb:CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem")
+class CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem(builtins.str, Enum):
+    MONDAY = "MONDAY"
+    TUESDAY = "TUESDAY"
+    WEDNESDAY = "WEDNESDAY"
+    THURSDAY = "THURSDAY"
+    FRIDAY = "FRIDAY"
+    SATURDAY = "SATURDAY"
+    SUNDAY = "SUNDAY"
+
+
+@pulumi.type_token("aws-native:odb:CloudExadataInfrastructureMaintenanceWindowMonthsItem")
+class CloudExadataInfrastructureMaintenanceWindowMonthsItem(builtins.str, Enum):
+    JANUARY = "JANUARY"
+    FEBRUARY = "FEBRUARY"
+    MARCH = "MARCH"
+    APRIL = "APRIL"
+    MAY = "MAY"
+    JUNE = "JUNE"
+    JULY = "JULY"
+    AUGUST = "AUGUST"
+    SEPTEMBER = "SEPTEMBER"
+    OCTOBER = "OCTOBER"
+    NOVEMBER = "NOVEMBER"
+    DECEMBER = "DECEMBER"
+
+
 @pulumi.type_token("aws-native:odb:CloudVmClusterLicenseModel")
 class CloudVmClusterLicenseModel(builtins.str, Enum):
     """
@@ -77,3 +110,40 @@ class CloudVmClusterLicenseModel(builtins.str, Enum):
     """
     BRING_YOUR_OWN_LICENSE = "BRING_YOUR_OWN_LICENSE"
     LICENSE_INCLUDED = "LICENSE_INCLUDED"
+
+
+@pulumi.type_token("aws-native:odb:OdbNetworkManagedResourceStatus")
+class OdbNetworkManagedResourceStatus(builtins.str, Enum):
+    """
+    The status of the managed resource access.
+    """
+    ENABLED = "ENABLED"
+    ENABLING = "ENABLING"
+    DISABLED = "DISABLED"
+    DISABLING = "DISABLING"
+
+
+@pulumi.type_token("aws-native:odb:OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType")
+class OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType(builtins.str, Enum):
+    """
+    The type of the VPC endpoint.
+    """
+    SERVICENETWORK = "SERVICENETWORK"
+
+
+@pulumi.type_token("aws-native:odb:OdbNetworkS3Access")
+class OdbNetworkS3Access(builtins.str, Enum):
+    """
+    Specifies the configuration for Amazon S3 access from the ODB network.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:odb:OdbNetworkZeroEtlAccess")
+class OdbNetworkZeroEtlAccess(builtins.str, Enum):
+    """
+    Specifies the configuration for Zero-ETL access from the ODB network.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"

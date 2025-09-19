@@ -123,6 +123,11 @@ namespace Pulumi.AwsNative.AppStream
         /// - stream.graphics.g6.24xlarge
         /// - stream.graphics.gr6.4xlarge
         /// - stream.graphics.gr6.8xlarge
+        /// - stream.graphics.g6f.large
+        /// - stream.graphics.g6f.xlarge
+        /// - stream.graphics.g6f.2xlarge
+        /// - stream.graphics.g6f.4xlarge
+        /// - stream.graphics.gr6f.4xlarge
         /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
@@ -310,6 +315,11 @@ namespace Pulumi.AwsNative.AppStream
         /// - stream.graphics.g6.24xlarge
         /// - stream.graphics.gr6.4xlarge
         /// - stream.graphics.gr6.8xlarge
+        /// - stream.graphics.g6f.large
+        /// - stream.graphics.g6f.xlarge
+        /// - stream.graphics.g6f.2xlarge
+        /// - stream.graphics.g6f.4xlarge
+        /// - stream.graphics.gr6f.4xlarge
         /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;

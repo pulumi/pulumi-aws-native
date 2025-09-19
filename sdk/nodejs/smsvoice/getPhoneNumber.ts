@@ -18,10 +18,16 @@ export function getPhoneNumber(args: GetPhoneNumberArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetPhoneNumberArgs {
+    /**
+     * The unique identifier for the phone number.
+     */
     phoneNumberId: string;
 }
 
 export interface GetPhoneNumberResult {
+    /**
+     * The `PhoneNumber` 's Amazon Resource Name (ARN)
+     */
     readonly arn?: string;
     /**
      * When set to true the sender ID can't be deleted. By default this is set to false.
@@ -39,7 +45,13 @@ export interface GetPhoneNumberResult {
      * A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
      */
     readonly optionalKeywords?: outputs.smsvoice.PhoneNumberOptionalKeyword[];
+    /**
+     * The phone number in E.164 format.
+     */
     readonly phoneNumber?: string;
+    /**
+     * The unique identifier for the phone number.
+     */
     readonly phoneNumberId?: string;
     /**
      * By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.
@@ -65,5 +77,8 @@ export function getPhoneNumberOutput(args: GetPhoneNumberOutputArgs, opts?: pulu
 }
 
 export interface GetPhoneNumberOutputArgs {
+    /**
+     * The unique identifier for the phone number.
+     */
     phoneNumberId: pulumi.Input<string>;
 }

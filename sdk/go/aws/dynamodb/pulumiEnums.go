@@ -515,7 +515,172 @@ func (in *globalTableMultiRegionConsistencyPtr) ToGlobalTableMultiRegionConsiste
 	return pulumi.ToOutputWithContext(ctx, in).(GlobalTableMultiRegionConsistencyPtrOutput)
 }
 
-// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+type GlobalTableSettingsReplicationMode string
+
+const (
+	GlobalTableSettingsReplicationModeEnabled  = GlobalTableSettingsReplicationMode("ENABLED")
+	GlobalTableSettingsReplicationModeDisabled = GlobalTableSettingsReplicationMode("DISABLED")
+)
+
+func (GlobalTableSettingsReplicationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableSettingsReplicationMode)(nil)).Elem()
+}
+
+func (e GlobalTableSettingsReplicationMode) ToGlobalTableSettingsReplicationModeOutput() GlobalTableSettingsReplicationModeOutput {
+	return pulumi.ToOutput(e).(GlobalTableSettingsReplicationModeOutput)
+}
+
+func (e GlobalTableSettingsReplicationMode) ToGlobalTableSettingsReplicationModeOutputWithContext(ctx context.Context) GlobalTableSettingsReplicationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GlobalTableSettingsReplicationModeOutput)
+}
+
+func (e GlobalTableSettingsReplicationMode) ToGlobalTableSettingsReplicationModePtrOutput() GlobalTableSettingsReplicationModePtrOutput {
+	return e.ToGlobalTableSettingsReplicationModePtrOutputWithContext(context.Background())
+}
+
+func (e GlobalTableSettingsReplicationMode) ToGlobalTableSettingsReplicationModePtrOutputWithContext(ctx context.Context) GlobalTableSettingsReplicationModePtrOutput {
+	return GlobalTableSettingsReplicationMode(e).ToGlobalTableSettingsReplicationModeOutputWithContext(ctx).ToGlobalTableSettingsReplicationModePtrOutputWithContext(ctx)
+}
+
+func (e GlobalTableSettingsReplicationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GlobalTableSettingsReplicationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GlobalTableSettingsReplicationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GlobalTableSettingsReplicationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GlobalTableSettingsReplicationModeOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableSettingsReplicationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableSettingsReplicationMode)(nil)).Elem()
+}
+
+func (o GlobalTableSettingsReplicationModeOutput) ToGlobalTableSettingsReplicationModeOutput() GlobalTableSettingsReplicationModeOutput {
+	return o
+}
+
+func (o GlobalTableSettingsReplicationModeOutput) ToGlobalTableSettingsReplicationModeOutputWithContext(ctx context.Context) GlobalTableSettingsReplicationModeOutput {
+	return o
+}
+
+func (o GlobalTableSettingsReplicationModeOutput) ToGlobalTableSettingsReplicationModePtrOutput() GlobalTableSettingsReplicationModePtrOutput {
+	return o.ToGlobalTableSettingsReplicationModePtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableSettingsReplicationModeOutput) ToGlobalTableSettingsReplicationModePtrOutputWithContext(ctx context.Context) GlobalTableSettingsReplicationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTableSettingsReplicationMode) *GlobalTableSettingsReplicationMode {
+		return &v
+	}).(GlobalTableSettingsReplicationModePtrOutput)
+}
+
+func (o GlobalTableSettingsReplicationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GlobalTableSettingsReplicationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GlobalTableSettingsReplicationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GlobalTableSettingsReplicationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableSettingsReplicationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GlobalTableSettingsReplicationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GlobalTableSettingsReplicationModePtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableSettingsReplicationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableSettingsReplicationMode)(nil)).Elem()
+}
+
+func (o GlobalTableSettingsReplicationModePtrOutput) ToGlobalTableSettingsReplicationModePtrOutput() GlobalTableSettingsReplicationModePtrOutput {
+	return o
+}
+
+func (o GlobalTableSettingsReplicationModePtrOutput) ToGlobalTableSettingsReplicationModePtrOutputWithContext(ctx context.Context) GlobalTableSettingsReplicationModePtrOutput {
+	return o
+}
+
+func (o GlobalTableSettingsReplicationModePtrOutput) Elem() GlobalTableSettingsReplicationModeOutput {
+	return o.ApplyT(func(v *GlobalTableSettingsReplicationMode) GlobalTableSettingsReplicationMode {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalTableSettingsReplicationMode
+		return ret
+	}).(GlobalTableSettingsReplicationModeOutput)
+}
+
+func (o GlobalTableSettingsReplicationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableSettingsReplicationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GlobalTableSettingsReplicationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GlobalTableSettingsReplicationModeInput is an input type that accepts values of the GlobalTableSettingsReplicationMode enum
+// A concrete instance of `GlobalTableSettingsReplicationModeInput` can be one of the following:
+//
+//	GlobalTableSettingsReplicationModeEnabled
+//	GlobalTableSettingsReplicationModeDisabled
+type GlobalTableSettingsReplicationModeInput interface {
+	pulumi.Input
+
+	ToGlobalTableSettingsReplicationModeOutput() GlobalTableSettingsReplicationModeOutput
+	ToGlobalTableSettingsReplicationModeOutputWithContext(context.Context) GlobalTableSettingsReplicationModeOutput
+}
+
+var globalTableSettingsReplicationModePtrType = reflect.TypeOf((**GlobalTableSettingsReplicationMode)(nil)).Elem()
+
+type GlobalTableSettingsReplicationModePtrInput interface {
+	pulumi.Input
+
+	ToGlobalTableSettingsReplicationModePtrOutput() GlobalTableSettingsReplicationModePtrOutput
+	ToGlobalTableSettingsReplicationModePtrOutputWithContext(context.Context) GlobalTableSettingsReplicationModePtrOutput
+}
+
+type globalTableSettingsReplicationModePtr string
+
+func GlobalTableSettingsReplicationModePtr(v string) GlobalTableSettingsReplicationModePtrInput {
+	return (*globalTableSettingsReplicationModePtr)(&v)
+}
+
+func (*globalTableSettingsReplicationModePtr) ElementType() reflect.Type {
+	return globalTableSettingsReplicationModePtrType
+}
+
+func (in *globalTableSettingsReplicationModePtr) ToGlobalTableSettingsReplicationModePtrOutput() GlobalTableSettingsReplicationModePtrOutput {
+	return pulumi.ToOutput(in).(GlobalTableSettingsReplicationModePtrOutput)
+}
+
+func (in *globalTableSettingsReplicationModePtr) ToGlobalTableSettingsReplicationModePtrOutputWithContext(ctx context.Context) GlobalTableSettingsReplicationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GlobalTableSettingsReplicationModePtrOutput)
+}
+
+// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are “ACCESSED_AND_THROTTLED_KEYS“ (tracks all access and throttled events) or “THROTTLED_KEYS“ (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
 type TableContributorInsightsSpecificationMode string
 
 const (
@@ -679,6 +844,171 @@ func (in *tableContributorInsightsSpecificationModePtr) ToTableContributorInsigh
 
 func (in *tableContributorInsightsSpecificationModePtr) ToTableContributorInsightsSpecificationModePtrOutputWithContext(ctx context.Context) TableContributorInsightsSpecificationModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TableContributorInsightsSpecificationModePtrOutput)
+}
+
+type TableGlobalTableSettingsReplicationMode string
+
+const (
+	TableGlobalTableSettingsReplicationModeEnabled  = TableGlobalTableSettingsReplicationMode("ENABLED")
+	TableGlobalTableSettingsReplicationModeDisabled = TableGlobalTableSettingsReplicationMode("DISABLED")
+)
+
+func (TableGlobalTableSettingsReplicationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableGlobalTableSettingsReplicationMode)(nil)).Elem()
+}
+
+func (e TableGlobalTableSettingsReplicationMode) ToTableGlobalTableSettingsReplicationModeOutput() TableGlobalTableSettingsReplicationModeOutput {
+	return pulumi.ToOutput(e).(TableGlobalTableSettingsReplicationModeOutput)
+}
+
+func (e TableGlobalTableSettingsReplicationMode) ToTableGlobalTableSettingsReplicationModeOutputWithContext(ctx context.Context) TableGlobalTableSettingsReplicationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TableGlobalTableSettingsReplicationModeOutput)
+}
+
+func (e TableGlobalTableSettingsReplicationMode) ToTableGlobalTableSettingsReplicationModePtrOutput() TableGlobalTableSettingsReplicationModePtrOutput {
+	return e.ToTableGlobalTableSettingsReplicationModePtrOutputWithContext(context.Background())
+}
+
+func (e TableGlobalTableSettingsReplicationMode) ToTableGlobalTableSettingsReplicationModePtrOutputWithContext(ctx context.Context) TableGlobalTableSettingsReplicationModePtrOutput {
+	return TableGlobalTableSettingsReplicationMode(e).ToTableGlobalTableSettingsReplicationModeOutputWithContext(ctx).ToTableGlobalTableSettingsReplicationModePtrOutputWithContext(ctx)
+}
+
+func (e TableGlobalTableSettingsReplicationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableGlobalTableSettingsReplicationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableGlobalTableSettingsReplicationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TableGlobalTableSettingsReplicationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TableGlobalTableSettingsReplicationModeOutput struct{ *pulumi.OutputState }
+
+func (TableGlobalTableSettingsReplicationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableGlobalTableSettingsReplicationMode)(nil)).Elem()
+}
+
+func (o TableGlobalTableSettingsReplicationModeOutput) ToTableGlobalTableSettingsReplicationModeOutput() TableGlobalTableSettingsReplicationModeOutput {
+	return o
+}
+
+func (o TableGlobalTableSettingsReplicationModeOutput) ToTableGlobalTableSettingsReplicationModeOutputWithContext(ctx context.Context) TableGlobalTableSettingsReplicationModeOutput {
+	return o
+}
+
+func (o TableGlobalTableSettingsReplicationModeOutput) ToTableGlobalTableSettingsReplicationModePtrOutput() TableGlobalTableSettingsReplicationModePtrOutput {
+	return o.ToTableGlobalTableSettingsReplicationModePtrOutputWithContext(context.Background())
+}
+
+func (o TableGlobalTableSettingsReplicationModeOutput) ToTableGlobalTableSettingsReplicationModePtrOutputWithContext(ctx context.Context) TableGlobalTableSettingsReplicationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableGlobalTableSettingsReplicationMode) *TableGlobalTableSettingsReplicationMode {
+		return &v
+	}).(TableGlobalTableSettingsReplicationModePtrOutput)
+}
+
+func (o TableGlobalTableSettingsReplicationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TableGlobalTableSettingsReplicationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableGlobalTableSettingsReplicationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TableGlobalTableSettingsReplicationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableGlobalTableSettingsReplicationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableGlobalTableSettingsReplicationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableGlobalTableSettingsReplicationModePtrOutput struct{ *pulumi.OutputState }
+
+func (TableGlobalTableSettingsReplicationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableGlobalTableSettingsReplicationMode)(nil)).Elem()
+}
+
+func (o TableGlobalTableSettingsReplicationModePtrOutput) ToTableGlobalTableSettingsReplicationModePtrOutput() TableGlobalTableSettingsReplicationModePtrOutput {
+	return o
+}
+
+func (o TableGlobalTableSettingsReplicationModePtrOutput) ToTableGlobalTableSettingsReplicationModePtrOutputWithContext(ctx context.Context) TableGlobalTableSettingsReplicationModePtrOutput {
+	return o
+}
+
+func (o TableGlobalTableSettingsReplicationModePtrOutput) Elem() TableGlobalTableSettingsReplicationModeOutput {
+	return o.ApplyT(func(v *TableGlobalTableSettingsReplicationMode) TableGlobalTableSettingsReplicationMode {
+		if v != nil {
+			return *v
+		}
+		var ret TableGlobalTableSettingsReplicationMode
+		return ret
+	}).(TableGlobalTableSettingsReplicationModeOutput)
+}
+
+func (o TableGlobalTableSettingsReplicationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableGlobalTableSettingsReplicationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TableGlobalTableSettingsReplicationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TableGlobalTableSettingsReplicationModeInput is an input type that accepts values of the TableGlobalTableSettingsReplicationMode enum
+// A concrete instance of `TableGlobalTableSettingsReplicationModeInput` can be one of the following:
+//
+//	TableGlobalTableSettingsReplicationModeEnabled
+//	TableGlobalTableSettingsReplicationModeDisabled
+type TableGlobalTableSettingsReplicationModeInput interface {
+	pulumi.Input
+
+	ToTableGlobalTableSettingsReplicationModeOutput() TableGlobalTableSettingsReplicationModeOutput
+	ToTableGlobalTableSettingsReplicationModeOutputWithContext(context.Context) TableGlobalTableSettingsReplicationModeOutput
+}
+
+var tableGlobalTableSettingsReplicationModePtrType = reflect.TypeOf((**TableGlobalTableSettingsReplicationMode)(nil)).Elem()
+
+type TableGlobalTableSettingsReplicationModePtrInput interface {
+	pulumi.Input
+
+	ToTableGlobalTableSettingsReplicationModePtrOutput() TableGlobalTableSettingsReplicationModePtrOutput
+	ToTableGlobalTableSettingsReplicationModePtrOutputWithContext(context.Context) TableGlobalTableSettingsReplicationModePtrOutput
+}
+
+type tableGlobalTableSettingsReplicationModePtr string
+
+func TableGlobalTableSettingsReplicationModePtr(v string) TableGlobalTableSettingsReplicationModePtrInput {
+	return (*tableGlobalTableSettingsReplicationModePtr)(&v)
+}
+
+func (*tableGlobalTableSettingsReplicationModePtr) ElementType() reflect.Type {
+	return tableGlobalTableSettingsReplicationModePtrType
+}
+
+func (in *tableGlobalTableSettingsReplicationModePtr) ToTableGlobalTableSettingsReplicationModePtrOutput() TableGlobalTableSettingsReplicationModePtrOutput {
+	return pulumi.ToOutput(in).(TableGlobalTableSettingsReplicationModePtrOutput)
+}
+
+func (in *tableGlobalTableSettingsReplicationModePtr) ToTableGlobalTableSettingsReplicationModePtrOutputWithContext(ctx context.Context) TableGlobalTableSettingsReplicationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TableGlobalTableSettingsReplicationModePtrOutput)
 }
 
 // The precision for the time and date that the stream was created.
@@ -854,8 +1184,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrInput)(nil)).Elem(), GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision("MICROSECOND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableMultiRegionConsistencyInput)(nil)).Elem(), GlobalTableMultiRegionConsistency("EVENTUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableMultiRegionConsistencyPtrInput)(nil)).Elem(), GlobalTableMultiRegionConsistency("EVENTUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableSettingsReplicationModeInput)(nil)).Elem(), GlobalTableSettingsReplicationMode("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableSettingsReplicationModePtrInput)(nil)).Elem(), GlobalTableSettingsReplicationMode("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableContributorInsightsSpecificationModeInput)(nil)).Elem(), TableContributorInsightsSpecificationMode("ACCESSED_AND_THROTTLED_KEYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableContributorInsightsSpecificationModePtrInput)(nil)).Elem(), TableContributorInsightsSpecificationMode("ACCESSED_AND_THROTTLED_KEYS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalTableSettingsReplicationModeInput)(nil)).Elem(), TableGlobalTableSettingsReplicationMode("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalTableSettingsReplicationModePtrInput)(nil)).Elem(), TableGlobalTableSettingsReplicationMode("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionInput)(nil)).Elem(), TableKinesisStreamSpecificationApproximateCreationDateTimePrecision("MICROSECOND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrInput)(nil)).Elem(), TableKinesisStreamSpecificationApproximateCreationDateTimePrecision("MICROSECOND"))
 	pulumi.RegisterOutputType(GlobalTableContributorInsightsSpecificationModeOutput{})
@@ -864,8 +1198,12 @@ func init() {
 	pulumi.RegisterOutputType(GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableMultiRegionConsistencyOutput{})
 	pulumi.RegisterOutputType(GlobalTableMultiRegionConsistencyPtrOutput{})
+	pulumi.RegisterOutputType(GlobalTableSettingsReplicationModeOutput{})
+	pulumi.RegisterOutputType(GlobalTableSettingsReplicationModePtrOutput{})
 	pulumi.RegisterOutputType(TableContributorInsightsSpecificationModeOutput{})
 	pulumi.RegisterOutputType(TableContributorInsightsSpecificationModePtrOutput{})
+	pulumi.RegisterOutputType(TableGlobalTableSettingsReplicationModeOutput{})
+	pulumi.RegisterOutputType(TableGlobalTableSettingsReplicationModePtrOutput{})
 	pulumi.RegisterOutputType(TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionOutput{})
 	pulumi.RegisterOutputType(TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput{})
 }

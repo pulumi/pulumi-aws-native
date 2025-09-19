@@ -230,6 +230,12 @@ if not MYPY:
         hcx: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
         """
         The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
+
+        If you plan to use a public HCX VLAN subnet, the following requirements must be met:
+
+        - Must have a /28 netmask and be allocated from the IPAM public pool. Required for HCX internet access configuration.
+        - The HCX public VLAN CIDR block must be added to the VPC as a secondary CIDR block.
+        - Must have at least two Elastic IP addresses to be allocated from the public IPAM pool for HCX components.
         """
         nsx_up_link: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
         """
@@ -255,6 +261,14 @@ if not MYPY:
         """
         The host VMkernel management VLAN subnet. This VLAN subnet carries traffic for managing ESXi hosts and communicating with VMware vCenter Server.
         """
+        hcx_network_acl_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A unique ID for a network access control list that the HCX VLAN uses. Required when `isHcxPublic` is set to `true` .
+        """
+        is_hcx_public: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Determines if the HCX VLAN that Amazon EVS provisions is public or private.
+        """
 elif False:
     InitialVlansPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -270,19 +284,29 @@ class InitialVlansPropertiesArgs:
                  v_san: pulumi.Input['EnvironmentInitialVlanInfoArgs'],
                  v_tep: pulumi.Input['EnvironmentInitialVlanInfoArgs'],
                  vm_management: pulumi.Input['EnvironmentInitialVlanInfoArgs'],
-                 vmk_management: pulumi.Input['EnvironmentInitialVlanInfoArgs']):
+                 vmk_management: pulumi.Input['EnvironmentInitialVlanInfoArgs'],
+                 hcx_network_acl_id: Optional[pulumi.Input[builtins.str]] = None,
+                 is_hcx_public: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The initial Vlan configuration only required upon creation. Modification after creation will have no effect
         :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] edge_v_tep: The edge VTEP VLAN subnet. This VLAN subnet manages traffic flowing between the internal network and external networks, including internet access and other site connections.
         :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] expansion_vlan1: An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
         :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] expansion_vlan2: An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
         :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] hcx: The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
+               
+               If you plan to use a public HCX VLAN subnet, the following requirements must be met:
+               
+               - Must have a /28 netmask and be allocated from the IPAM public pool. Required for HCX internet access configuration.
+               - The HCX public VLAN CIDR block must be added to the VPC as a secondary CIDR block.
+               - Must have at least two Elastic IP addresses to be allocated from the public IPAM pool for HCX components.
         :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] nsx_up_link: The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
         :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] v_motion: The vMotion VLAN subnet. This VLAN subnet carries traffic for vSphere vMotion.
         :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] v_san: The vSAN VLAN subnet. This VLAN subnet carries the communication between ESXi hosts to implement a vSAN shared storage pool.
         :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] v_tep: The VTEP VLAN subnet. This VLAN subnet handles internal network traffic between virtual machines within a VCF instance.
         :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] vm_management: The VM management VLAN subnet. This VLAN subnet carries traffic for vSphere virtual machines.
         :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] vmk_management: The host VMkernel management VLAN subnet. This VLAN subnet carries traffic for managing ESXi hosts and communicating with VMware vCenter Server.
+        :param pulumi.Input[builtins.str] hcx_network_acl_id: A unique ID for a network access control list that the HCX VLAN uses. Required when `isHcxPublic` is set to `true` .
+        :param pulumi.Input[builtins.bool] is_hcx_public: Determines if the HCX VLAN that Amazon EVS provisions is public or private.
         """
         pulumi.set(__self__, "edge_v_tep", edge_v_tep)
         pulumi.set(__self__, "expansion_vlan1", expansion_vlan1)
@@ -294,6 +318,10 @@ class InitialVlansPropertiesArgs:
         pulumi.set(__self__, "v_tep", v_tep)
         pulumi.set(__self__, "vm_management", vm_management)
         pulumi.set(__self__, "vmk_management", vmk_management)
+        if hcx_network_acl_id is not None:
+            pulumi.set(__self__, "hcx_network_acl_id", hcx_network_acl_id)
+        if is_hcx_public is not None:
+            pulumi.set(__self__, "is_hcx_public", is_hcx_public)
 
     @property
     @pulumi.getter(name="edgeVTep")
@@ -336,6 +364,12 @@ class InitialVlansPropertiesArgs:
     def hcx(self) -> pulumi.Input['EnvironmentInitialVlanInfoArgs']:
         """
         The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
+
+        If you plan to use a public HCX VLAN subnet, the following requirements must be met:
+
+        - Must have a /28 netmask and be allocated from the IPAM public pool. Required for HCX internet access configuration.
+        - The HCX public VLAN CIDR block must be added to the VPC as a secondary CIDR block.
+        - Must have at least two Elastic IP addresses to be allocated from the public IPAM pool for HCX components.
         """
         return pulumi.get(self, "hcx")
 
@@ -414,6 +448,30 @@ class InitialVlansPropertiesArgs:
     @vmk_management.setter
     def vmk_management(self, value: pulumi.Input['EnvironmentInitialVlanInfoArgs']):
         pulumi.set(self, "vmk_management", value)
+
+    @property
+    @pulumi.getter(name="hcxNetworkAclId")
+    def hcx_network_acl_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A unique ID for a network access control list that the HCX VLAN uses. Required when `isHcxPublic` is set to `true` .
+        """
+        return pulumi.get(self, "hcx_network_acl_id")
+
+    @hcx_network_acl_id.setter
+    def hcx_network_acl_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "hcx_network_acl_id", value)
+
+    @property
+    @pulumi.getter(name="isHcxPublic")
+    def is_hcx_public(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Determines if the HCX VLAN that Amazon EVS provisions is public or private.
+        """
+        return pulumi.get(self, "is_hcx_public")
+
+    @is_hcx_public.setter
+    def is_hcx_public(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_hcx_public", value)
 
 
 if not MYPY:

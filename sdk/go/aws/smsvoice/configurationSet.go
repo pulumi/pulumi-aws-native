@@ -16,6 +16,7 @@ import (
 type ConfigurationSet struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the ConfigurationSet.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name to use for the configuration set.
 	ConfigurationSetName pulumi.StringPtrOutput `pulumi:"configurationSetName"`
@@ -142,6 +143,7 @@ func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the ConfigurationSet.
 func (o ConfigurationSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

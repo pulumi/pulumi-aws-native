@@ -14,8 +14,10 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = ['OdbNetworkArgs', 'OdbNetwork']
 
@@ -26,20 +28,28 @@ class OdbNetworkArgs:
                  availability_zone_id: Optional[pulumi.Input[builtins.str]] = None,
                  backup_subnet_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  client_subnet_cidr: Optional[pulumi.Input[builtins.str]] = None,
+                 custom_domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  default_dns_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  delete_associated_resources: Optional[pulumi.Input[builtins.bool]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 s3_access: Optional[pulumi.Input['OdbNetworkS3Access']] = None,
+                 s3_policy_document: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 zero_etl_access: Optional[pulumi.Input['OdbNetworkZeroEtlAccess']] = None):
         """
         The set of arguments for constructing a OdbNetwork resource.
         :param pulumi.Input[builtins.str] availability_zone: The AWS Availability Zone (AZ) where the ODB network is located.
         :param pulumi.Input[builtins.str] availability_zone_id: The AZ ID of the AZ where the ODB network is located.
         :param pulumi.Input[builtins.str] backup_subnet_cidr: The CIDR range of the backup subnet in the ODB network.
         :param pulumi.Input[builtins.str] client_subnet_cidr: The CIDR range of the client subnet in the ODB network.
+        :param pulumi.Input[builtins.str] custom_domain_name: The domain name to use for the resources in the ODB network.
         :param pulumi.Input[builtins.str] default_dns_prefix: The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com.
         :param pulumi.Input[builtins.bool] delete_associated_resources: Specifies whether to delete associated OCI networking resources along with the ODB network.
         :param pulumi.Input[builtins.str] display_name: The user-friendly name of the ODB network.
+        :param pulumi.Input['OdbNetworkS3Access'] s3_access: Specifies the configuration for Amazon S3 access from the ODB network.
+        :param pulumi.Input[builtins.str] s3_policy_document: Specifies the endpoint policy for Amazon S3 access from the ODB network.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags to assign to the Odb Network.
+        :param pulumi.Input['OdbNetworkZeroEtlAccess'] zero_etl_access: Specifies the configuration for Zero-ETL access from the ODB network.
         """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
@@ -49,14 +59,22 @@ class OdbNetworkArgs:
             pulumi.set(__self__, "backup_subnet_cidr", backup_subnet_cidr)
         if client_subnet_cidr is not None:
             pulumi.set(__self__, "client_subnet_cidr", client_subnet_cidr)
+        if custom_domain_name is not None:
+            pulumi.set(__self__, "custom_domain_name", custom_domain_name)
         if default_dns_prefix is not None:
             pulumi.set(__self__, "default_dns_prefix", default_dns_prefix)
         if delete_associated_resources is not None:
             pulumi.set(__self__, "delete_associated_resources", delete_associated_resources)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if s3_access is not None:
+            pulumi.set(__self__, "s3_access", s3_access)
+        if s3_policy_document is not None:
+            pulumi.set(__self__, "s3_policy_document", s3_policy_document)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zero_etl_access is not None:
+            pulumi.set(__self__, "zero_etl_access", zero_etl_access)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -107,6 +125,18 @@ class OdbNetworkArgs:
         pulumi.set(self, "client_subnet_cidr", value)
 
     @property
+    @pulumi.getter(name="customDomainName")
+    def custom_domain_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The domain name to use for the resources in the ODB network.
+        """
+        return pulumi.get(self, "custom_domain_name")
+
+    @custom_domain_name.setter
+    def custom_domain_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "custom_domain_name", value)
+
+    @property
     @pulumi.getter(name="defaultDnsPrefix")
     def default_dns_prefix(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -143,6 +173,30 @@ class OdbNetworkArgs:
         pulumi.set(self, "display_name", value)
 
     @property
+    @pulumi.getter(name="s3Access")
+    def s3_access(self) -> Optional[pulumi.Input['OdbNetworkS3Access']]:
+        """
+        Specifies the configuration for Amazon S3 access from the ODB network.
+        """
+        return pulumi.get(self, "s3_access")
+
+    @s3_access.setter
+    def s3_access(self, value: Optional[pulumi.Input['OdbNetworkS3Access']]):
+        pulumi.set(self, "s3_access", value)
+
+    @property
+    @pulumi.getter(name="s3PolicyDocument")
+    def s3_policy_document(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the endpoint policy for Amazon S3 access from the ODB network.
+        """
+        return pulumi.get(self, "s3_policy_document")
+
+    @s3_policy_document.setter
+    def s3_policy_document(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "s3_policy_document", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -153,6 +207,18 @@ class OdbNetworkArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="zeroEtlAccess")
+    def zero_etl_access(self) -> Optional[pulumi.Input['OdbNetworkZeroEtlAccess']]:
+        """
+        Specifies the configuration for Zero-ETL access from the ODB network.
+        """
+        return pulumi.get(self, "zero_etl_access")
+
+    @zero_etl_access.setter
+    def zero_etl_access(self, value: Optional[pulumi.Input['OdbNetworkZeroEtlAccess']]):
+        pulumi.set(self, "zero_etl_access", value)
 
 
 @pulumi.type_token("aws-native:odb:OdbNetwork")
@@ -165,10 +231,14 @@ class OdbNetwork(pulumi.CustomResource):
                  availability_zone_id: Optional[pulumi.Input[builtins.str]] = None,
                  backup_subnet_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  client_subnet_cidr: Optional[pulumi.Input[builtins.str]] = None,
+                 custom_domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  default_dns_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  delete_associated_resources: Optional[pulumi.Input[builtins.bool]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 s3_access: Optional[pulumi.Input['OdbNetworkS3Access']] = None,
+                 s3_policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 zero_etl_access: Optional[pulumi.Input['OdbNetworkZeroEtlAccess']] = None,
                  __props__=None):
         """
         The AWS::ODB::OdbNetwork resource creates an ODB Network
@@ -179,10 +249,14 @@ class OdbNetwork(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] availability_zone_id: The AZ ID of the AZ where the ODB network is located.
         :param pulumi.Input[builtins.str] backup_subnet_cidr: The CIDR range of the backup subnet in the ODB network.
         :param pulumi.Input[builtins.str] client_subnet_cidr: The CIDR range of the client subnet in the ODB network.
+        :param pulumi.Input[builtins.str] custom_domain_name: The domain name to use for the resources in the ODB network.
         :param pulumi.Input[builtins.str] default_dns_prefix: The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com.
         :param pulumi.Input[builtins.bool] delete_associated_resources: Specifies whether to delete associated OCI networking resources along with the ODB network.
         :param pulumi.Input[builtins.str] display_name: The user-friendly name of the ODB network.
+        :param pulumi.Input['OdbNetworkS3Access'] s3_access: Specifies the configuration for Amazon S3 access from the ODB network.
+        :param pulumi.Input[builtins.str] s3_policy_document: Specifies the endpoint policy for Amazon S3 access from the ODB network.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the Odb Network.
+        :param pulumi.Input['OdbNetworkZeroEtlAccess'] zero_etl_access: Specifies the configuration for Zero-ETL access from the ODB network.
         """
         ...
     @overload
@@ -212,10 +286,14 @@ class OdbNetwork(pulumi.CustomResource):
                  availability_zone_id: Optional[pulumi.Input[builtins.str]] = None,
                  backup_subnet_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  client_subnet_cidr: Optional[pulumi.Input[builtins.str]] = None,
+                 custom_domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  default_dns_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  delete_associated_resources: Optional[pulumi.Input[builtins.bool]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 s3_access: Optional[pulumi.Input['OdbNetworkS3Access']] = None,
+                 s3_policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 zero_etl_access: Optional[pulumi.Input['OdbNetworkZeroEtlAccess']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -229,16 +307,21 @@ class OdbNetwork(pulumi.CustomResource):
             __props__.__dict__["availability_zone_id"] = availability_zone_id
             __props__.__dict__["backup_subnet_cidr"] = backup_subnet_cidr
             __props__.__dict__["client_subnet_cidr"] = client_subnet_cidr
+            __props__.__dict__["custom_domain_name"] = custom_domain_name
             __props__.__dict__["default_dns_prefix"] = default_dns_prefix
             __props__.__dict__["delete_associated_resources"] = delete_associated_resources
             __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["s3_access"] = s3_access
+            __props__.__dict__["s3_policy_document"] = s3_policy_document
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["zero_etl_access"] = zero_etl_access
+            __props__.__dict__["managed_services"] = None
             __props__.__dict__["oci_network_anchor_id"] = None
             __props__.__dict__["oci_resource_anchor_name"] = None
             __props__.__dict__["oci_vcn_url"] = None
             __props__.__dict__["odb_network_arn"] = None
             __props__.__dict__["odb_network_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "availabilityZoneId", "backupSubnetCidr", "clientSubnetCidr", "defaultDnsPrefix", "displayName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "availabilityZoneId", "backupSubnetCidr", "clientSubnetCidr", "customDomainName", "defaultDnsPrefix"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(OdbNetwork, __self__).__init__(
             'aws-native:odb:OdbNetwork',
@@ -266,15 +349,20 @@ class OdbNetwork(pulumi.CustomResource):
         __props__.__dict__["availability_zone_id"] = None
         __props__.__dict__["backup_subnet_cidr"] = None
         __props__.__dict__["client_subnet_cidr"] = None
+        __props__.__dict__["custom_domain_name"] = None
         __props__.__dict__["default_dns_prefix"] = None
         __props__.__dict__["delete_associated_resources"] = None
         __props__.__dict__["display_name"] = None
+        __props__.__dict__["managed_services"] = None
         __props__.__dict__["oci_network_anchor_id"] = None
         __props__.__dict__["oci_resource_anchor_name"] = None
         __props__.__dict__["oci_vcn_url"] = None
         __props__.__dict__["odb_network_arn"] = None
         __props__.__dict__["odb_network_id"] = None
+        __props__.__dict__["s3_access"] = None
+        __props__.__dict__["s3_policy_document"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["zero_etl_access"] = None
         return OdbNetwork(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -310,6 +398,14 @@ class OdbNetwork(pulumi.CustomResource):
         return pulumi.get(self, "client_subnet_cidr")
 
     @property
+    @pulumi.getter(name="customDomainName")
+    def custom_domain_name(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The domain name to use for the resources in the ODB network.
+        """
+        return pulumi.get(self, "custom_domain_name")
+
+    @property
     @pulumi.getter(name="defaultDnsPrefix")
     def default_dns_prefix(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -332,6 +428,11 @@ class OdbNetwork(pulumi.CustomResource):
         The user-friendly name of the ODB network.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="managedServices")
+    def managed_services(self) -> pulumi.Output['outputs.OdbNetworkManagedServices']:
+        return pulumi.get(self, "managed_services")
 
     @property
     @pulumi.getter(name="ociNetworkAnchorId")
@@ -374,10 +475,34 @@ class OdbNetwork(pulumi.CustomResource):
         return pulumi.get(self, "odb_network_id")
 
     @property
+    @pulumi.getter(name="s3Access")
+    def s3_access(self) -> pulumi.Output[Optional['OdbNetworkS3Access']]:
+        """
+        Specifies the configuration for Amazon S3 access from the ODB network.
+        """
+        return pulumi.get(self, "s3_access")
+
+    @property
+    @pulumi.getter(name="s3PolicyDocument")
+    def s3_policy_document(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Specifies the endpoint policy for Amazon S3 access from the ODB network.
+        """
+        return pulumi.get(self, "s3_policy_document")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         Tags to assign to the Odb Network.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="zeroEtlAccess")
+    def zero_etl_access(self) -> pulumi.Output[Optional['OdbNetworkZeroEtlAccess']]:
+        """
+        Specifies the configuration for Zero-ETL access from the ODB network.
+        """
+        return pulumi.get(self, "zero_etl_access")
 

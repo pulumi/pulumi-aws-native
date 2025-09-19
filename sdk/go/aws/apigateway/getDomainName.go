@@ -32,7 +32,7 @@ type LookupDomainNameArgs struct {
 }
 
 type LookupDomainNameResult struct {
-	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The Amazon CloudFront distribution domain name that's mapped to the custom domain name. This is only applicable for endpoints whose type is `EDGE` .
 	//
@@ -48,7 +48,7 @@ type LookupDomainNameResult struct {
 	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
 	// The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
 	OwnershipVerificationCertificateArn *string `pulumi:"ownershipVerificationCertificateArn"`
-	// The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+	// The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
 	RegionalCertificateArn *string `pulumi:"regionalCertificateArn"`
 	// The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
 	RegionalDomainName *string `pulumi:"regionalDomainName"`
@@ -94,7 +94,7 @@ func (o LookupDomainNameResultOutput) ToLookupDomainNameResultOutputWithContext(
 	return o
 }
 
-// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
 func (o LookupDomainNameResultOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
@@ -131,7 +131,7 @@ func (o LookupDomainNameResultOutput) OwnershipVerificationCertificateArn() pulu
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.OwnershipVerificationCertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+// The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
 func (o LookupDomainNameResultOutput) RegionalCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.RegionalCertificateArn }).(pulumi.StringPtrOutput)
 }

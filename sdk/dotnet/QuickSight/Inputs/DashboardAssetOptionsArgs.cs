@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("excludedDataSetArns")]
         private InputList<string>? _excludedDataSetArns;
+
+        /// <summary>
+        /// A list of dataset ARNS to exclude from Dashboard Q&amp;A.
+        /// </summary>
         public InputList<string> ExcludedDataSetArns
         {
             get => _excludedDataSetArns ?? (_excludedDataSetArns = new InputList<string>());
             set => _excludedDataSetArns = value;
         }
 
+        /// <summary>
+        /// Determines whether insight summaries from Amazon Q Business are allowed in Dashboard Q&amp;A.
+        /// </summary>
         [Input("qBusinessInsightsStatus")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardQBusinessInsightsStatus>? QBusinessInsightsStatus { get; set; }
 

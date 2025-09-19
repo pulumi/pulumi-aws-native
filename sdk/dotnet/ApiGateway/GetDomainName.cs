@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class GetDomainNameResult
     {
         /// <summary>
-        /// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+        /// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
         /// </summary>
         public readonly string? CertificateArn;
         /// <summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly string? OwnershipVerificationCertificateArn;
         /// <summary>
-        /// The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+        /// The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
         /// </summary>
         public readonly string? RegionalCertificateArn;
         /// <summary>

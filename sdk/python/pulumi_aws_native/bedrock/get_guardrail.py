@@ -27,7 +27,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetGuardrailResult:
-    def __init__(__self__, blocked_input_messaging=None, blocked_outputs_messaging=None, content_policy_config=None, contextual_grounding_policy_config=None, created_at=None, cross_region_config=None, description=None, failure_recommendations=None, guardrail_arn=None, guardrail_id=None, kms_key_arn=None, name=None, sensitive_information_policy_config=None, status=None, status_reasons=None, tags=None, topic_policy_config=None, updated_at=None, version=None, word_policy_config=None):
+    def __init__(__self__, automated_reasoning_policy_config=None, blocked_input_messaging=None, blocked_outputs_messaging=None, content_policy_config=None, contextual_grounding_policy_config=None, created_at=None, cross_region_config=None, description=None, failure_recommendations=None, guardrail_arn=None, guardrail_id=None, kms_key_arn=None, name=None, sensitive_information_policy_config=None, status=None, status_reasons=None, tags=None, topic_policy_config=None, updated_at=None, version=None, word_policy_config=None):
+        if automated_reasoning_policy_config and not isinstance(automated_reasoning_policy_config, dict):
+            raise TypeError("Expected argument 'automated_reasoning_policy_config' to be a dict")
+        pulumi.set(__self__, "automated_reasoning_policy_config", automated_reasoning_policy_config)
         if blocked_input_messaging and not isinstance(blocked_input_messaging, str):
             raise TypeError("Expected argument 'blocked_input_messaging' to be a str")
         pulumi.set(__self__, "blocked_input_messaging", blocked_input_messaging)
@@ -88,6 +91,14 @@ class GetGuardrailResult:
         if word_policy_config and not isinstance(word_policy_config, dict):
             raise TypeError("Expected argument 'word_policy_config' to be a dict")
         pulumi.set(__self__, "word_policy_config", word_policy_config)
+
+    @property
+    @pulumi.getter(name="automatedReasoningPolicyConfig")
+    def automated_reasoning_policy_config(self) -> Optional['outputs.GuardrailAutomatedReasoningPolicyConfig']:
+        """
+        Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.
+        """
+        return pulumi.get(self, "automated_reasoning_policy_config")
 
     @property
     @pulumi.getter(name="blockedInputMessaging")
@@ -255,6 +266,7 @@ class AwaitableGetGuardrailResult(GetGuardrailResult):
         if False:
             yield self
         return GetGuardrailResult(
+            automated_reasoning_policy_config=self.automated_reasoning_policy_config,
             blocked_input_messaging=self.blocked_input_messaging,
             blocked_outputs_messaging=self.blocked_outputs_messaging,
             content_policy_config=self.content_policy_config,
@@ -291,6 +303,7 @@ def get_guardrail(guardrail_arn: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:bedrock:getGuardrail', __args__, opts=opts, typ=GetGuardrailResult).value
 
     return AwaitableGetGuardrailResult(
+        automated_reasoning_policy_config=pulumi.get(__ret__, 'automated_reasoning_policy_config'),
         blocked_input_messaging=pulumi.get(__ret__, 'blocked_input_messaging'),
         blocked_outputs_messaging=pulumi.get(__ret__, 'blocked_outputs_messaging'),
         content_policy_config=pulumi.get(__ret__, 'content_policy_config'),
@@ -324,6 +337,7 @@ def get_guardrail_output(guardrail_arn: Optional[pulumi.Input[builtins.str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getGuardrail', __args__, opts=opts, typ=GetGuardrailResult)
     return __ret__.apply(lambda __response__: GetGuardrailResult(
+        automated_reasoning_policy_config=pulumi.get(__response__, 'automated_reasoning_policy_config'),
         blocked_input_messaging=pulumi.get(__response__, 'blocked_input_messaging'),
         blocked_outputs_messaging=pulumi.get(__response__, 'blocked_outputs_messaging'),
         content_policy_config=pulumi.get(__response__, 'content_policy_config'),

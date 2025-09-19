@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.Smsvoice.Inputs
     /// </summary>
     public sealed class PoolOptionalKeywordArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action to perform when the keyword is used.
+        /// </summary>
         [Input("action", required: true)]
         public Input<Pulumi.AwsNative.Smsvoice.PoolOptionalKeywordAction> Action { get; set; } = null!;
 
+        /// <summary>
+        /// The new keyword to add.
+        /// </summary>
         [Input("keyword", required: true)]
         public Input<string> Keyword { get; set; } = null!;
 
+        /// <summary>
+        /// The message associated with the keyword.
+        /// </summary>
         [Input("message", required: true)]
         public Input<string> Message { get; set; } = null!;
 

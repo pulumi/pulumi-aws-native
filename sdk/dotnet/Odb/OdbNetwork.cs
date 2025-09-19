@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Odb
         public Output<string?> ClientSubnetCidr { get; private set; } = null!;
 
         /// <summary>
+        /// The domain name to use for the resources in the ODB network.
+        /// </summary>
+        [Output("customDomainName")]
+        public Output<string?> CustomDomainName { get; private set; } = null!;
+
+        /// <summary>
         /// The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com.
         /// </summary>
         [Output("defaultDnsPrefix")]
@@ -56,6 +62,9 @@ namespace Pulumi.AwsNative.Odb
         /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
+
+        [Output("managedServices")]
+        public Output<Outputs.OdbNetworkManagedServices> ManagedServices { get; private set; } = null!;
 
         /// <summary>
         /// The unique identifier of the OCI network anchor for the ODB network.
@@ -88,10 +97,28 @@ namespace Pulumi.AwsNative.Odb
         public Output<string> OdbNetworkId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the configuration for Amazon S3 access from the ODB network.
+        /// </summary>
+        [Output("s3Access")]
+        public Output<Pulumi.AwsNative.Odb.OdbNetworkS3Access?> S3Access { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the endpoint policy for Amazon S3 access from the ODB network.
+        /// </summary>
+        [Output("s3PolicyDocument")]
+        public Output<string?> S3PolicyDocument { get; private set; } = null!;
+
+        /// <summary>
         /// Tags to assign to the Odb Network.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the configuration for Zero-ETL access from the ODB network.
+        /// </summary>
+        [Output("zeroEtlAccess")]
+        public Output<Pulumi.AwsNative.Odb.OdbNetworkZeroEtlAccess?> ZeroEtlAccess { get; private set; } = null!;
 
 
         /// <summary>
@@ -122,8 +149,8 @@ namespace Pulumi.AwsNative.Odb
                     "availabilityZoneId",
                     "backupSubnetCidr",
                     "clientSubnetCidr",
+                    "customDomainName",
                     "defaultDnsPrefix",
-                    "displayName",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -172,6 +199,12 @@ namespace Pulumi.AwsNative.Odb
         public Input<string>? ClientSubnetCidr { get; set; }
 
         /// <summary>
+        /// The domain name to use for the resources in the ODB network.
+        /// </summary>
+        [Input("customDomainName")]
+        public Input<string>? CustomDomainName { get; set; }
+
+        /// <summary>
         /// The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com.
         /// </summary>
         [Input("defaultDnsPrefix")]
@@ -189,6 +222,18 @@ namespace Pulumi.AwsNative.Odb
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        /// <summary>
+        /// Specifies the configuration for Amazon S3 access from the ODB network.
+        /// </summary>
+        [Input("s3Access")]
+        public Input<Pulumi.AwsNative.Odb.OdbNetworkS3Access>? S3Access { get; set; }
+
+        /// <summary>
+        /// Specifies the endpoint policy for Amazon S3 access from the ODB network.
+        /// </summary>
+        [Input("s3PolicyDocument")]
+        public Input<string>? S3PolicyDocument { get; set; }
+
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
@@ -200,6 +245,12 @@ namespace Pulumi.AwsNative.Odb
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies the configuration for Zero-ETL access from the ODB network.
+        /// </summary>
+        [Input("zeroEtlAccess")]
+        public Input<Pulumi.AwsNative.Odb.OdbNetworkZeroEtlAccess>? ZeroEtlAccess { get; set; }
 
         public OdbNetworkArgs()
         {

@@ -42,7 +42,7 @@ export class DomainName extends pulumi.CustomResource {
      */
     public /*out*/ readonly appSyncDomainName!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+     * The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate.
      */
     public readonly certificateArn!: pulumi.Output<string>;
     /**
@@ -111,7 +111,7 @@ export class DomainName extends pulumi.CustomResource {
  */
 export interface DomainNameArgs {
     /**
-     * The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+     * The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate.
      */
     certificateArn: pulumi.Input<string>;
     /**

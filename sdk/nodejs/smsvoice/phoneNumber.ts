@@ -37,6 +37,9 @@ export class PhoneNumber extends pulumi.CustomResource {
         return obj['__pulumiType'] === PhoneNumber.__pulumiType;
     }
 
+    /**
+     * The `PhoneNumber` 's Amazon Resource Name (ARN)
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * When set to true the sender ID can't be deleted. By default this is set to false.
@@ -66,7 +69,13 @@ export class PhoneNumber extends pulumi.CustomResource {
      * A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
      */
     public readonly optionalKeywords!: pulumi.Output<outputs.smsvoice.PhoneNumberOptionalKeyword[] | undefined>;
+    /**
+     * The phone number in E.164 format.
+     */
     public /*out*/ readonly phoneNumber!: pulumi.Output<string>;
+    /**
+     * The unique identifier for the phone number.
+     */
     public /*out*/ readonly phoneNumberId!: pulumi.Output<string>;
     /**
      * By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.

@@ -1900,6 +1900,8 @@ class ServiceDeploymentLifecycleHook(dict):
             suggest = "lifecycle_stages"
         elif key == "roleArn":
             suggest = "role_arn"
+        elif key == "hookDetails":
+            suggest = "hook_details"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceDeploymentLifecycleHook. Access the value via the '{suggest}' property getter instead.")
@@ -1915,7 +1917,8 @@ class ServiceDeploymentLifecycleHook(dict):
     def __init__(__self__, *,
                  hook_target_arn: builtins.str,
                  lifecycle_stages: Sequence['ServiceDeploymentLifecycleHookLifecycleStagesItem'],
-                 role_arn: builtins.str):
+                 role_arn: builtins.str,
+                 hook_details: Optional[Any] = None):
         """
         A deployment lifecycle hook runs custom logic at specific stages of the deployment process. Currently, you can use Lambda functions as hook targets.
          For more information, see [Lifecycle hooks for Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -1947,10 +1950,15 @@ class ServiceDeploymentLifecycleHook(dict):
                 You must provide this parameter when configuring a deployment lifecycle hook.
         :param builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
                 For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
+        :param Any hook_details: Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
+               
+               This field must be a JSON object as a string.
         """
         pulumi.set(__self__, "hook_target_arn", hook_target_arn)
         pulumi.set(__self__, "lifecycle_stages", lifecycle_stages)
         pulumi.set(__self__, "role_arn", role_arn)
+        if hook_details is not None:
+            pulumi.set(__self__, "hook_details", hook_details)
 
     @property
     @pulumi.getter(name="hookTargetArn")
@@ -2000,6 +2008,16 @@ class ServiceDeploymentLifecycleHook(dict):
          For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="hookDetails")
+    def hook_details(self) -> Optional[Any]:
+        """
+        Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
+
+        This field must be a JSON object as a string.
+        """
+        return pulumi.get(self, "hook_details")
 
 
 @pulumi.output_type
@@ -2075,6 +2093,9 @@ class ServiceEbsTagSpecification(dict):
 
 @pulumi.output_type
 class ServiceForceNewDeployment(dict):
+    """
+    Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2098,8 +2119,9 @@ class ServiceForceNewDeployment(dict):
                  enable_force_new_deployment: builtins.bool,
                  force_new_deployment_nonce: Optional[builtins.str] = None):
         """
-        :param builtins.bool enable_force_new_deployment: Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
-        :param builtins.str force_new_deployment_nonce: When you change the `ForceNewDeploymentNonce` value in your template, it signals Amazon ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
+        Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
+        :param builtins.bool enable_force_new_deployment: Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
+        :param builtins.str force_new_deployment_nonce: When you change the``ForceNewDeploymentNonce`` value in your template, it signals ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
         """
         pulumi.set(__self__, "enable_force_new_deployment", enable_force_new_deployment)
         if force_new_deployment_nonce is not None:
@@ -2109,7 +2131,7 @@ class ServiceForceNewDeployment(dict):
     @pulumi.getter(name="enableForceNewDeployment")
     def enable_force_new_deployment(self) -> builtins.bool:
         """
-        Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
+        Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
         """
         return pulumi.get(self, "enable_force_new_deployment")
 
@@ -2117,7 +2139,7 @@ class ServiceForceNewDeployment(dict):
     @pulumi.getter(name="forceNewDeploymentNonce")
     def force_new_deployment_nonce(self) -> Optional[builtins.str]:
         """
-        When you change the `ForceNewDeploymentNonce` value in your template, it signals Amazon ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
+        When you change the``ForceNewDeploymentNonce`` value in your template, it signals ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
         """
         return pulumi.get(self, "force_new_deployment_nonce")
 

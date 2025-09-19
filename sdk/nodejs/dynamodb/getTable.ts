@@ -50,7 +50,7 @@ export interface GetTableResult {
      */
     readonly billingMode?: string;
     /**
-     * The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+     * The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
      */
     readonly contributorInsightsSpecification?: outputs.dynamodb.TableContributorInsightsSpecification;
     /**
@@ -66,6 +66,7 @@ export interface GetTableResult {
      *   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
      */
     readonly globalSecondaryIndexes?: outputs.dynamodb.TableGlobalSecondaryIndex[];
+    readonly globalTableSettingsReplicationMode?: enums.dynamodb.TableGlobalTableSettingsReplicationMode;
     /**
      * Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
      */
@@ -109,7 +110,7 @@ export interface GetTableResult {
      */
     readonly streamArn?: string;
     /**
-     * The settings for the DDB table stream, which capture changes to items stored in the table.
+     * The settings for the DDB table stream, which captures changes to items stored in the table. Including this property in your CFNlong template automatically enables streaming.
      */
     readonly streamSpecification?: outputs.dynamodb.TableStreamSpecification;
     /**

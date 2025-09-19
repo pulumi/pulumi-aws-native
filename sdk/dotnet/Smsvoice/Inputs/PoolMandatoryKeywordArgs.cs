@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Smsvoice.Inputs
     /// </summary>
     public sealed class PoolMandatoryKeywordArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The message associated with the keyword.
+        /// </summary>
         [Input("message", required: true)]
         public Input<string> Message { get; set; } = null!;
 

@@ -68,7 +68,7 @@ export class PolicyGrant extends pulumi.CustomResource {
     /**
      * The type of policy that you want to grant.
      */
-    public readonly policyType!: pulumi.Output<string>;
+    public readonly policyType!: pulumi.Output<enums.datazone.PolicyGrantManagedPolicyType>;
     /**
      * The principal of the policy grant member.
      */
@@ -147,7 +147,7 @@ export interface PolicyGrantArgs {
     /**
      * The type of policy that you want to grant.
      */
-    policyType: pulumi.Input<string>;
+    policyType: pulumi.Input<enums.datazone.PolicyGrantManagedPolicyType>;
     /**
      * The principal of the policy grant member.
      */

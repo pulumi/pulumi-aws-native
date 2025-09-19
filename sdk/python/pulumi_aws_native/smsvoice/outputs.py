@@ -277,6 +277,8 @@ class MandatoryKeywordsProperties(dict):
                  stop: 'outputs.PoolMandatoryKeyword'):
         """
         A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
+        :param 'PoolMandatoryKeyword' help: Specifies the pool's `HELP` keyword. For more information, see [Opt out list required keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/opt-out-list-keywords.html) in the End User Messaging  User Guide.
+        :param 'PoolMandatoryKeyword' stop: Specifies the pool's opt-out keyword. For more information, see [Required opt-out keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/keywords-required.html) in the End User Messaging  User Guide.
         """
         pulumi.set(__self__, "help", help)
         pulumi.set(__self__, "stop", stop)
@@ -284,11 +286,17 @@ class MandatoryKeywordsProperties(dict):
     @property
     @pulumi.getter
     def help(self) -> 'outputs.PoolMandatoryKeyword':
+        """
+        Specifies the pool's `HELP` keyword. For more information, see [Opt out list required keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/opt-out-list-keywords.html) in the End User Messaging  User Guide.
+        """
         return pulumi.get(self, "help")
 
     @property
     @pulumi.getter
     def stop(self) -> 'outputs.PoolMandatoryKeyword':
+        """
+        Specifies the pool's opt-out keyword. For more information, see [Required opt-out keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/keywords-required.html) in the End User Messaging  User Guide.
+        """
         return pulumi.get(self, "stop")
 
 
@@ -303,6 +311,9 @@ class PhoneNumberOptionalKeyword(dict):
                  message: builtins.str):
         """
         A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
+        :param 'PhoneNumberOptionalKeywordAction' action: The action to perform when the keyword is used.
+        :param builtins.str keyword: The new keyword to add.
+        :param builtins.str message: The message associated with the keyword.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "keyword", keyword)
@@ -311,16 +322,25 @@ class PhoneNumberOptionalKeyword(dict):
     @property
     @pulumi.getter
     def action(self) -> 'PhoneNumberOptionalKeywordAction':
+        """
+        The action to perform when the keyword is used.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
     def keyword(self) -> builtins.str:
+        """
+        The new keyword to add.
+        """
         return pulumi.get(self, "keyword")
 
     @property
     @pulumi.getter
     def message(self) -> builtins.str:
+        """
+        The message associated with the keyword.
+        """
         return pulumi.get(self, "message")
 
 
@@ -333,12 +353,16 @@ class PoolMandatoryKeyword(dict):
                  message: builtins.str):
         """
         A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
+        :param builtins.str message: The message associated with the keyword.
         """
         pulumi.set(__self__, "message", message)
 
     @property
     @pulumi.getter
     def message(self) -> builtins.str:
+        """
+        The message associated with the keyword.
+        """
         return pulumi.get(self, "message")
 
 
@@ -353,6 +377,9 @@ class PoolOptionalKeyword(dict):
                  message: builtins.str):
         """
         A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
+        :param 'PoolOptionalKeywordAction' action: The action to perform when the keyword is used.
+        :param builtins.str keyword: The new keyword to add.
+        :param builtins.str message: The message associated with the keyword.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "keyword", keyword)
@@ -361,16 +388,25 @@ class PoolOptionalKeyword(dict):
     @property
     @pulumi.getter
     def action(self) -> 'PoolOptionalKeywordAction':
+        """
+        The action to perform when the keyword is used.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
     def keyword(self) -> builtins.str:
+        """
+        The new keyword to add.
+        """
         return pulumi.get(self, "keyword")
 
     @property
     @pulumi.getter
     def message(self) -> builtins.str:
+        """
+        The message associated with the keyword.
+        """
         return pulumi.get(self, "message")
 
 
@@ -428,6 +464,11 @@ class ProtectConfigurationCountryRuleSet(dict):
                  mms: Optional[Sequence['outputs.ProtectConfigurationCountryRule']] = None,
                  sms: Optional[Sequence['outputs.ProtectConfigurationCountryRule']] = None,
                  voice: Optional[Sequence['outputs.ProtectConfigurationCountryRule']] = None):
+        """
+        :param Sequence['ProtectConfigurationCountryRule'] mms: The set of `CountryRule` s to control which destination countries End User Messaging  can send your MMS messages to.
+        :param Sequence['ProtectConfigurationCountryRule'] sms: The set of `CountryRule` s to control which destination countries End User Messaging  can send your SMS messages to.
+        :param Sequence['ProtectConfigurationCountryRule'] voice: The set of `CountryRule` s to control which destination countries End User Messaging  can send your VOICE messages to.
+        """
         if mms is not None:
             pulumi.set(__self__, "mms", mms)
         if sms is not None:
@@ -438,16 +479,25 @@ class ProtectConfigurationCountryRuleSet(dict):
     @property
     @pulumi.getter
     def mms(self) -> Optional[Sequence['outputs.ProtectConfigurationCountryRule']]:
+        """
+        The set of `CountryRule` s to control which destination countries End User Messaging  can send your MMS messages to.
+        """
         return pulumi.get(self, "mms")
 
     @property
     @pulumi.getter
     def sms(self) -> Optional[Sequence['outputs.ProtectConfigurationCountryRule']]:
+        """
+        The set of `CountryRule` s to control which destination countries End User Messaging  can send your SMS messages to.
+        """
         return pulumi.get(self, "sms")
 
     @property
     @pulumi.getter
     def voice(self) -> Optional[Sequence['outputs.ProtectConfigurationCountryRule']]:
+        """
+        The set of `CountryRule` s to control which destination countries End User Messaging  can send your VOICE messages to.
+        """
         return pulumi.get(self, "voice")
 
 

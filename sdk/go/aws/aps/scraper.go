@@ -31,6 +31,8 @@ type Scraper struct {
 	ScrapeConfiguration ScraperScrapeConfigurationOutput `pulumi:"scrapeConfiguration"`
 	// Required to identify a specific scraper.
 	ScraperId pulumi.StringOutput `pulumi:"scraperId"`
+	// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+	ScraperLoggingConfiguration ScraperLoggingConfigurationPtrOutput `pulumi:"scraperLoggingConfiguration"`
 	// The Amazon EKS cluster from which the scraper collects metrics.
 	Source ScraperSourceOutput `pulumi:"source"`
 	// An array of key-value pairs to apply to this resource.
@@ -98,6 +100,8 @@ type scraperArgs struct {
 	RoleConfiguration *ScraperRoleConfiguration `pulumi:"roleConfiguration"`
 	// The configuration in use by the scraper.
 	ScrapeConfiguration ScraperScrapeConfiguration `pulumi:"scrapeConfiguration"`
+	// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+	ScraperLoggingConfiguration *ScraperLoggingConfiguration `pulumi:"scraperLoggingConfiguration"`
 	// The Amazon EKS cluster from which the scraper collects metrics.
 	Source ScraperSource `pulumi:"source"`
 	// An array of key-value pairs to apply to this resource.
@@ -114,6 +118,8 @@ type ScraperArgs struct {
 	RoleConfiguration ScraperRoleConfigurationPtrInput
 	// The configuration in use by the scraper.
 	ScrapeConfiguration ScraperScrapeConfigurationInput
+	// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+	ScraperLoggingConfiguration ScraperLoggingConfigurationPtrInput
 	// The Amazon EKS cluster from which the scraper collects metrics.
 	Source ScraperSourceInput
 	// An array of key-value pairs to apply to this resource.
@@ -190,6 +196,11 @@ func (o ScraperOutput) ScrapeConfiguration() ScraperScrapeConfigurationOutput {
 // Required to identify a specific scraper.
 func (o ScraperOutput) ScraperId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringOutput { return v.ScraperId }).(pulumi.StringOutput)
+}
+
+// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+func (o ScraperOutput) ScraperLoggingConfiguration() ScraperLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *Scraper) ScraperLoggingConfigurationPtrOutput { return v.ScraperLoggingConfiguration }).(ScraperLoggingConfigurationPtrOutput)
 }
 
 // The Amazon EKS cluster from which the scraper collects metrics.

@@ -31,7 +31,7 @@ type PolicyGrant struct {
 	// The unique identifier of the policy grant returned by the AddPolicyGrant API
 	GrantId pulumi.StringOutput `pulumi:"grantId"`
 	// The type of policy that you want to grant.
-	PolicyType pulumi.StringOutput `pulumi:"policyType"`
+	PolicyType PolicyGrantManagedPolicyTypeOutput `pulumi:"policyType"`
 	// The principal of the policy grant member.
 	Principal pulumi.AnyOutput `pulumi:"principal"`
 }
@@ -106,7 +106,7 @@ type policyGrantArgs struct {
 	// The type of entity (resource) to which the grant is added.
 	EntityType PolicyGrantTargetEntityType `pulumi:"entityType"`
 	// The type of policy that you want to grant.
-	PolicyType string `pulumi:"policyType"`
+	PolicyType PolicyGrantManagedPolicyType `pulumi:"policyType"`
 	// The principal of the policy grant member.
 	Principal interface{} `pulumi:"principal"`
 }
@@ -122,7 +122,7 @@ type PolicyGrantArgs struct {
 	// The type of entity (resource) to which the grant is added.
 	EntityType PolicyGrantTargetEntityTypeInput
 	// The type of policy that you want to grant.
-	PolicyType pulumi.StringInput
+	PolicyType PolicyGrantManagedPolicyTypeInput
 	// The principal of the policy grant member.
 	Principal pulumi.Input
 }
@@ -200,8 +200,8 @@ func (o PolicyGrantOutput) GrantId() pulumi.StringOutput {
 }
 
 // The type of policy that you want to grant.
-func (o PolicyGrantOutput) PolicyType() pulumi.StringOutput {
-	return o.ApplyT(func(v *PolicyGrant) pulumi.StringOutput { return v.PolicyType }).(pulumi.StringOutput)
+func (o PolicyGrantOutput) PolicyType() PolicyGrantManagedPolicyTypeOutput {
+	return o.ApplyT(func(v *PolicyGrant) PolicyGrantManagedPolicyTypeOutput { return v.PolicyType }).(PolicyGrantManagedPolicyTypeOutput)
 }
 
 // The principal of the policy grant member.

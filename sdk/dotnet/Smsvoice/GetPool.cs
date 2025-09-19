@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Smsvoice
 
     public sealed class GetPoolArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the pool.
+        /// </summary>
         [Input("poolId", required: true)]
         public string PoolId { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.Smsvoice
 
     public sealed class GetPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the pool.
+        /// </summary>
         [Input("poolId", required: true)]
         public Input<string> PoolId { get; set; } = null!;
 
@@ -57,6 +63,9 @@ namespace Pulumi.AwsNative.Smsvoice
     [OutputType]
     public sealed class GetPoolResult
     {
+        /// <summary>
+        /// The Amazon Resource Name of the `Pool` .
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// When set to true the pool can't be deleted. By default this is set to false.
@@ -78,6 +87,9 @@ namespace Pulumi.AwsNative.Smsvoice
         /// The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn and it's IsoCountryCode.
         /// </summary>
         public readonly ImmutableArray<string> OriginationIdentities;
+        /// <summary>
+        /// The unique identifier for the pool.
+        /// </summary>
         public readonly string? PoolId;
         /// <summary>
         /// By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.

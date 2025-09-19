@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
+// Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
 func LookupNetworkInterfaceAttachment(ctx *pulumi.Context, args *LookupNetworkInterfaceAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkInterfaceAttachmentResult
@@ -30,8 +30,10 @@ type LookupNetworkInterfaceAttachmentArgs struct {
 type LookupNetworkInterfaceAttachmentResult struct {
 	// The ID of the network interface attachment.
 	AttachmentId *string `pulumi:"attachmentId"`
-	// Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
+	// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// The number of ENA queues to be created with the instance.
+	EnaQueueCount *int `pulumi:"enaQueueCount"`
 	// Configures ENA Express for the network interface that this action attaches to the instance.
 	EnaSrdSpecification *NetworkInterfaceAttachmentEnaSrdSpecification `pulumi:"enaSrdSpecification"`
 }
@@ -73,9 +75,14 @@ func (o LookupNetworkInterfaceAttachmentResultOutput) AttachmentId() pulumi.Stri
 	return o.ApplyT(func(v LookupNetworkInterfaceAttachmentResult) *string { return v.AttachmentId }).(pulumi.StringPtrOutput)
 }
 
-// Whether to delete the network interface when the instance terminates. By default, this value is set to “true“.
+// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
 func (o LookupNetworkInterfaceAttachmentResultOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceAttachmentResult) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+// The number of ENA queues to be created with the instance.
+func (o LookupNetworkInterfaceAttachmentResultOutput) EnaQueueCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceAttachmentResult) *int { return v.EnaQueueCount }).(pulumi.IntPtrOutput)
 }
 
 // Configures ENA Express for the network interface that this action attaches to the instance.

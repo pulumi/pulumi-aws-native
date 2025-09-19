@@ -32,7 +32,7 @@ type LookupPolicyGrantArgs struct {
 	// The unique identifier of the policy grant returned by the AddPolicyGrant API
 	GrantId string `pulumi:"grantId"`
 	// The type of policy that you want to grant.
-	PolicyType string `pulumi:"policyType"`
+	PolicyType PolicyGrantManagedPolicyType `pulumi:"policyType"`
 }
 
 type LookupPolicyGrantResult struct {
@@ -63,7 +63,7 @@ type LookupPolicyGrantOutputArgs struct {
 	// The unique identifier of the policy grant returned by the AddPolicyGrant API
 	GrantId pulumi.StringInput `pulumi:"grantId"`
 	// The type of policy that you want to grant.
-	PolicyType pulumi.StringInput `pulumi:"policyType"`
+	PolicyType PolicyGrantManagedPolicyTypeInput `pulumi:"policyType"`
 }
 
 func (LookupPolicyGrantOutputArgs) ElementType() reflect.Type {

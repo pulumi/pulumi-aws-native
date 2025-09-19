@@ -38,6 +38,10 @@ export interface GetCloudVmClusterResult {
      */
     readonly computeModel?: string;
     /**
+     * The DB nodes that are implicitly created and managed as part of this VM Cluster.
+     */
+    readonly dbNodes?: outputs.odb.CloudVmClusterDbNode[];
+    /**
      * The type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.
      */
     readonly diskRedundancy?: string;

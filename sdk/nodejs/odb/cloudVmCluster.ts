@@ -74,6 +74,10 @@ export class CloudVmCluster extends pulumi.CustomResource {
      */
     public readonly dbNodeStorageSizeInGbs!: pulumi.Output<number | undefined>;
     /**
+     * The DB nodes that are implicitly created and managed as part of this VM Cluster.
+     */
+    public readonly dbNodes!: pulumi.Output<outputs.odb.CloudVmClusterDbNode[] | undefined>;
+    /**
      * The list of database servers for the VM cluster.
      */
     public readonly dbServers!: pulumi.Output<string[] | undefined>;
@@ -195,6 +199,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["dataCollectionOptions"] = args ? args.dataCollectionOptions : undefined;
             resourceInputs["dataStorageSizeInTbs"] = args ? args.dataStorageSizeInTbs : undefined;
             resourceInputs["dbNodeStorageSizeInGbs"] = args ? args.dbNodeStorageSizeInGbs : undefined;
+            resourceInputs["dbNodes"] = args ? args.dbNodes : undefined;
             resourceInputs["dbServers"] = args ? args.dbServers : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["giVersion"] = args ? args.giVersion : undefined;
@@ -234,6 +239,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["dataCollectionOptions"] = undefined /*out*/;
             resourceInputs["dataStorageSizeInTbs"] = undefined /*out*/;
             resourceInputs["dbNodeStorageSizeInGbs"] = undefined /*out*/;
+            resourceInputs["dbNodes"] = undefined /*out*/;
             resourceInputs["dbServers"] = undefined /*out*/;
             resourceInputs["diskRedundancy"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
@@ -262,7 +268,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["vipIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["cloudExadataInfrastructureId", "clusterName", "cpuCoreCount", "dataCollectionOptions", "dataStorageSizeInTbs", "dbNodeStorageSizeInGbs", "dbServers[*]", "displayName", "giVersion", "hostname", "isLocalBackupEnabled", "isSparseDiskgroupEnabled", "licenseModel", "memorySizeInGbs", "odbNetworkId", "scanListenerPortTcp", "sshPublicKeys[*]", "systemVersion", "timeZone"] };
+        const replaceOnChanges = { replaceOnChanges: ["cloudExadataInfrastructureId", "clusterName", "cpuCoreCount", "dataCollectionOptions", "dataStorageSizeInTbs", "dbNodeStorageSizeInGbs", "dbNodes[*].dbServerId", "dbServers[*]", "displayName", "giVersion", "hostname", "isLocalBackupEnabled", "isSparseDiskgroupEnabled", "licenseModel", "memorySizeInGbs", "odbNetworkId", "scanListenerPortTcp", "sshPublicKeys[*]", "systemVersion", "timeZone"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CloudVmCluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -296,6 +302,10 @@ export interface CloudVmClusterArgs {
      * The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
      */
     dbNodeStorageSizeInGbs?: pulumi.Input<number>;
+    /**
+     * The DB nodes that are implicitly created and managed as part of this VM Cluster.
+     */
+    dbNodes?: pulumi.Input<pulumi.Input<inputs.odb.CloudVmClusterDbNodeArgs>[]>;
     /**
      * The list of database servers for the VM cluster.
      */

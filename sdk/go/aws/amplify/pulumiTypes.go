@@ -1578,7 +1578,7 @@ type BranchTag struct {
 }
 
 type DomainCertificate struct {
-	// The Amazon resource name (ARN) for a custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+	// The Amazon resource name (ARN) for a custom certificate that you have already added to Certificate Manager in your AWS account .
 	//
 	// This field is required only when the certificate type is `CUSTOM` .
 	CertificateArn *string `pulumi:"certificateArn"`
@@ -1586,7 +1586,7 @@ type DomainCertificate struct {
 	//
 	// Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
 	//
-	// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+	// Specify `CUSTOM` to use your own certificate that you have already added to Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
 	CertificateType *DomainCertificateCertificateType `pulumi:"certificateType"`
 	// The DNS record for certificate verification.
 	CertificateVerificationDnsRecord *string `pulumi:"certificateVerificationDnsRecord"`
@@ -1606,7 +1606,7 @@ func (o DomainCertificateOutput) ToDomainCertificateOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon resource name (ARN) for a custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+// The Amazon resource name (ARN) for a custom certificate that you have already added to Certificate Manager in your AWS account .
 //
 // This field is required only when the certificate type is `CUSTOM` .
 func (o DomainCertificateOutput) CertificateArn() pulumi.StringPtrOutput {
@@ -1617,7 +1617,7 @@ func (o DomainCertificateOutput) CertificateArn() pulumi.StringPtrOutput {
 //
 // Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
 //
-// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+// Specify `CUSTOM` to use your own certificate that you have already added to Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
 func (o DomainCertificateOutput) CertificateType() DomainCertificateCertificateTypePtrOutput {
 	return o.ApplyT(func(v DomainCertificate) *DomainCertificateCertificateType { return v.CertificateType }).(DomainCertificateCertificateTypePtrOutput)
 }
@@ -1651,7 +1651,7 @@ func (o DomainCertificatePtrOutput) Elem() DomainCertificateOutput {
 	}).(DomainCertificateOutput)
 }
 
-// The Amazon resource name (ARN) for a custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+// The Amazon resource name (ARN) for a custom certificate that you have already added to Certificate Manager in your AWS account .
 //
 // This field is required only when the certificate type is `CUSTOM` .
 func (o DomainCertificatePtrOutput) CertificateArn() pulumi.StringPtrOutput {
@@ -1667,7 +1667,7 @@ func (o DomainCertificatePtrOutput) CertificateArn() pulumi.StringPtrOutput {
 //
 // Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
 //
-// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+// Specify `CUSTOM` to use your own certificate that you have already added to Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
 func (o DomainCertificatePtrOutput) CertificateType() DomainCertificateCertificateTypePtrOutput {
 	return o.ApplyT(func(v *DomainCertificate) *DomainCertificateCertificateType {
 		if v == nil {
@@ -1692,9 +1692,9 @@ type DomainCertificateSettings struct {
 	//
 	// Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
 	//
-	// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+	// Specify `CUSTOM` to use your own certificate that you have already added to Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
 	CertificateType *DomainCertificateSettingsCertificateType `pulumi:"certificateType"`
-	// The Amazon resource name (ARN) for the custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+	// The Amazon resource name (ARN) for the custom certificate that you have already added to Certificate Manager in your AWS account .
 	//
 	// This field is required only when the certificate type is `CUSTOM` .
 	CustomCertificateArn *string `pulumi:"customCertificateArn"`
@@ -1716,9 +1716,9 @@ type DomainCertificateSettingsArgs struct {
 	//
 	// Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
 	//
-	// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+	// Specify `CUSTOM` to use your own certificate that you have already added to Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
 	CertificateType DomainCertificateSettingsCertificateTypePtrInput `pulumi:"certificateType"`
-	// The Amazon resource name (ARN) for the custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+	// The Amazon resource name (ARN) for the custom certificate that you have already added to Certificate Manager in your AWS account .
 	//
 	// This field is required only when the certificate type is `CUSTOM` .
 	CustomCertificateArn pulumi.StringPtrInput `pulumi:"customCertificateArn"`
@@ -1805,12 +1805,12 @@ func (o DomainCertificateSettingsOutput) ToDomainCertificateSettingsPtrOutputWit
 //
 // Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
 //
-// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+// Specify `CUSTOM` to use your own certificate that you have already added to Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
 func (o DomainCertificateSettingsOutput) CertificateType() DomainCertificateSettingsCertificateTypePtrOutput {
 	return o.ApplyT(func(v DomainCertificateSettings) *DomainCertificateSettingsCertificateType { return v.CertificateType }).(DomainCertificateSettingsCertificateTypePtrOutput)
 }
 
-// The Amazon resource name (ARN) for the custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+// The Amazon resource name (ARN) for the custom certificate that you have already added to Certificate Manager in your AWS account .
 //
 // This field is required only when the certificate type is `CUSTOM` .
 func (o DomainCertificateSettingsOutput) CustomCertificateArn() pulumi.StringPtrOutput {
@@ -1845,7 +1845,7 @@ func (o DomainCertificateSettingsPtrOutput) Elem() DomainCertificateSettingsOutp
 //
 // Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
 //
-// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+// Specify `CUSTOM` to use your own certificate that you have already added to Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
 func (o DomainCertificateSettingsPtrOutput) CertificateType() DomainCertificateSettingsCertificateTypePtrOutput {
 	return o.ApplyT(func(v *DomainCertificateSettings) *DomainCertificateSettingsCertificateType {
 		if v == nil {
@@ -1855,7 +1855,7 @@ func (o DomainCertificateSettingsPtrOutput) CertificateType() DomainCertificateS
 	}).(DomainCertificateSettingsCertificateTypePtrOutput)
 }
 
-// The Amazon resource name (ARN) for the custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+// The Amazon resource name (ARN) for the custom certificate that you have already added to Certificate Manager in your AWS account .
 //
 // This field is required only when the certificate type is `CUSTOM` .
 func (o DomainCertificateSettingsPtrOutput) CustomCertificateArn() pulumi.StringPtrOutput {

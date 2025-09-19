@@ -65,6 +65,9 @@ class GetPoolResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name of the `Pool` .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -110,6 +113,9 @@ class GetPoolResult:
     @property
     @pulumi.getter(name="poolId")
     def pool_id(self) -> Optional[builtins.str]:
+        """
+        The unique identifier for the pool.
+        """
         return pulumi.get(self, "pool_id")
 
     @property
@@ -168,6 +174,9 @@ def get_pool(pool_id: Optional[builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
     Resource Type definition for AWS::SMSVOICE::Pool
+
+
+    :param builtins.str pool_id: The unique identifier for the pool.
     """
     __args__ = dict()
     __args__['poolId'] = pool_id
@@ -190,6 +199,9 @@ def get_pool_output(pool_id: Optional[pulumi.Input[builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPoolResult]:
     """
     Resource Type definition for AWS::SMSVOICE::Pool
+
+
+    :param builtins.str pool_id: The unique identifier for the pool.
     """
     __args__ = dict()
     __args__['poolId'] = pool_id

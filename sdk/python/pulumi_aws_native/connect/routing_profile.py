@@ -30,6 +30,7 @@ class RoutingProfileArgs:
                  instance_arn: pulumi.Input[builtins.str],
                  media_concurrencies: pulumi.Input[Sequence[pulumi.Input['RoutingProfileMediaConcurrencyArgs']]],
                  agent_availability_timer: Optional[pulumi.Input['RoutingProfileAgentAvailabilityTimer']] = None,
+                 manual_assignment_queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileManualAssignmentQueueConfigArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -40,6 +41,7 @@ class RoutingProfileArgs:
         :param pulumi.Input[builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[Sequence[pulumi.Input['RoutingProfileMediaConcurrencyArgs']]] media_concurrencies: The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
         :param pulumi.Input['RoutingProfileAgentAvailabilityTimer'] agent_availability_timer: Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
+        :param pulumi.Input[Sequence[pulumi.Input['RoutingProfileManualAssignmentQueueConfigArgs']]] manual_assignment_queue_configs: The manual assignment queues to associate with this routing profile.
         :param pulumi.Input[builtins.str] name: The name of the routing profile.
         :param pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]] queue_configs: The queues to associate with this routing profile.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -50,6 +52,8 @@ class RoutingProfileArgs:
         pulumi.set(__self__, "media_concurrencies", media_concurrencies)
         if agent_availability_timer is not None:
             pulumi.set(__self__, "agent_availability_timer", agent_availability_timer)
+        if manual_assignment_queue_configs is not None:
+            pulumi.set(__self__, "manual_assignment_queue_configs", manual_assignment_queue_configs)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if queue_configs is not None:
@@ -118,6 +122,18 @@ class RoutingProfileArgs:
         pulumi.set(self, "agent_availability_timer", value)
 
     @property
+    @pulumi.getter(name="manualAssignmentQueueConfigs")
+    def manual_assignment_queue_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileManualAssignmentQueueConfigArgs']]]]:
+        """
+        The manual assignment queues to associate with this routing profile.
+        """
+        return pulumi.get(self, "manual_assignment_queue_configs")
+
+    @manual_assignment_queue_configs.setter
+    def manual_assignment_queue_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileManualAssignmentQueueConfigArgs']]]]):
+        pulumi.set(self, "manual_assignment_queue_configs", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -164,6 +180,7 @@ class RoutingProfile(pulumi.CustomResource):
                  default_outbound_queue_arn: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  instance_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 manual_assignment_queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileManualAssignmentQueueConfigArgs', 'RoutingProfileManualAssignmentQueueConfigArgsDict']]]]] = None,
                  media_concurrencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]]] = None,
@@ -178,6 +195,7 @@ class RoutingProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] default_outbound_queue_arn: The identifier of the default outbound queue for this routing profile.
         :param pulumi.Input[builtins.str] description: The description of the routing profile.
         :param pulumi.Input[builtins.str] instance_arn: The identifier of the Amazon Connect instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileManualAssignmentQueueConfigArgs', 'RoutingProfileManualAssignmentQueueConfigArgsDict']]]] manual_assignment_queue_configs: The manual assignment queues to associate with this routing profile.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]] media_concurrencies: The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
         :param pulumi.Input[builtins.str] name: The name of the routing profile.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]] queue_configs: The queues to associate with this routing profile.
@@ -211,6 +229,7 @@ class RoutingProfile(pulumi.CustomResource):
                  default_outbound_queue_arn: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  instance_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 manual_assignment_queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileManualAssignmentQueueConfigArgs', 'RoutingProfileManualAssignmentQueueConfigArgsDict']]]]] = None,
                  media_concurrencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]]] = None,
@@ -234,6 +253,7 @@ class RoutingProfile(pulumi.CustomResource):
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
+            __props__.__dict__["manual_assignment_queue_configs"] = manual_assignment_queue_configs
             if media_concurrencies is None and not opts.urn:
                 raise TypeError("Missing required property 'media_concurrencies'")
             __props__.__dict__["media_concurrencies"] = media_concurrencies
@@ -267,6 +287,7 @@ class RoutingProfile(pulumi.CustomResource):
         __props__.__dict__["default_outbound_queue_arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["instance_arn"] = None
+        __props__.__dict__["manual_assignment_queue_configs"] = None
         __props__.__dict__["media_concurrencies"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["queue_configs"] = None
@@ -305,6 +326,14 @@ class RoutingProfile(pulumi.CustomResource):
         The identifier of the Amazon Connect instance.
         """
         return pulumi.get(self, "instance_arn")
+
+    @property
+    @pulumi.getter(name="manualAssignmentQueueConfigs")
+    def manual_assignment_queue_configs(self) -> pulumi.Output[Optional[Sequence['outputs.RoutingProfileManualAssignmentQueueConfig']]]:
+        """
+        The manual assignment queues to associate with this routing profile.
+        """
+        return pulumi.get(self, "manual_assignment_queue_configs")
 
     @property
     @pulumi.getter(name="mediaConcurrencies")

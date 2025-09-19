@@ -392,6 +392,7 @@ func (in *phoneNumberNumberTypePtr) ToPhoneNumberNumberTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(PhoneNumberNumberTypePtrOutput)
 }
 
+// The action to perform when the keyword is used.
 type PhoneNumberOptionalKeywordAction string
 
 const (
@@ -559,6 +560,7 @@ func (in *phoneNumberOptionalKeywordActionPtr) ToPhoneNumberOptionalKeywordActio
 	return pulumi.ToOutputWithContext(ctx, in).(PhoneNumberOptionalKeywordActionPtrOutput)
 }
 
+// The action to perform when the keyword is used.
 type PoolOptionalKeywordAction string
 
 const (

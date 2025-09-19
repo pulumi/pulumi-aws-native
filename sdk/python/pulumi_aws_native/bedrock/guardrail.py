@@ -27,6 +27,7 @@ class GuardrailArgs:
     def __init__(__self__, *,
                  blocked_input_messaging: pulumi.Input[builtins.str],
                  blocked_outputs_messaging: pulumi.Input[builtins.str],
+                 automated_reasoning_policy_config: Optional[pulumi.Input['GuardrailAutomatedReasoningPolicyConfigArgs']] = None,
                  content_policy_config: Optional[pulumi.Input['GuardrailContentPolicyConfigArgs']] = None,
                  contextual_grounding_policy_config: Optional[pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs']] = None,
                  cross_region_config: Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']] = None,
@@ -41,6 +42,7 @@ class GuardrailArgs:
         The set of arguments for constructing a Guardrail resource.
         :param pulumi.Input[builtins.str] blocked_input_messaging: Messaging for when violations are detected in text
         :param pulumi.Input[builtins.str] blocked_outputs_messaging: Messaging for when violations are detected in text
+        :param pulumi.Input['GuardrailAutomatedReasoningPolicyConfigArgs'] automated_reasoning_policy_config: Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.
         :param pulumi.Input['GuardrailContentPolicyConfigArgs'] content_policy_config: The content filter policies to configure for the guardrail.
         :param pulumi.Input['GuardrailCrossRegionConfigArgs'] cross_region_config: The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination AWS Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
                
@@ -55,6 +57,8 @@ class GuardrailArgs:
         """
         pulumi.set(__self__, "blocked_input_messaging", blocked_input_messaging)
         pulumi.set(__self__, "blocked_outputs_messaging", blocked_outputs_messaging)
+        if automated_reasoning_policy_config is not None:
+            pulumi.set(__self__, "automated_reasoning_policy_config", automated_reasoning_policy_config)
         if content_policy_config is not None:
             pulumi.set(__self__, "content_policy_config", content_policy_config)
         if contextual_grounding_policy_config is not None:
@@ -99,6 +103,18 @@ class GuardrailArgs:
     @blocked_outputs_messaging.setter
     def blocked_outputs_messaging(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "blocked_outputs_messaging", value)
+
+    @property
+    @pulumi.getter(name="automatedReasoningPolicyConfig")
+    def automated_reasoning_policy_config(self) -> Optional[pulumi.Input['GuardrailAutomatedReasoningPolicyConfigArgs']]:
+        """
+        Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.
+        """
+        return pulumi.get(self, "automated_reasoning_policy_config")
+
+    @automated_reasoning_policy_config.setter
+    def automated_reasoning_policy_config(self, value: Optional[pulumi.Input['GuardrailAutomatedReasoningPolicyConfigArgs']]):
+        pulumi.set(self, "automated_reasoning_policy_config", value)
 
     @property
     @pulumi.getter(name="contentPolicyConfig")
@@ -226,6 +242,7 @@ class Guardrail(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 automated_reasoning_policy_config: Optional[pulumi.Input[Union['GuardrailAutomatedReasoningPolicyConfigArgs', 'GuardrailAutomatedReasoningPolicyConfigArgsDict']]] = None,
                  blocked_input_messaging: Optional[pulumi.Input[builtins.str]] = None,
                  blocked_outputs_messaging: Optional[pulumi.Input[builtins.str]] = None,
                  content_policy_config: Optional[pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']]] = None,
@@ -244,6 +261,7 @@ class Guardrail(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['GuardrailAutomatedReasoningPolicyConfigArgs', 'GuardrailAutomatedReasoningPolicyConfigArgsDict']] automated_reasoning_policy_config: Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.
         :param pulumi.Input[builtins.str] blocked_input_messaging: Messaging for when violations are detected in text
         :param pulumi.Input[builtins.str] blocked_outputs_messaging: Messaging for when violations are detected in text
         :param pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']] content_policy_config: The content filter policies to configure for the guardrail.
@@ -282,6 +300,7 @@ class Guardrail(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 automated_reasoning_policy_config: Optional[pulumi.Input[Union['GuardrailAutomatedReasoningPolicyConfigArgs', 'GuardrailAutomatedReasoningPolicyConfigArgsDict']]] = None,
                  blocked_input_messaging: Optional[pulumi.Input[builtins.str]] = None,
                  blocked_outputs_messaging: Optional[pulumi.Input[builtins.str]] = None,
                  content_policy_config: Optional[pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']]] = None,
@@ -303,6 +322,7 @@ class Guardrail(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GuardrailArgs.__new__(GuardrailArgs)
 
+            __props__.__dict__["automated_reasoning_policy_config"] = automated_reasoning_policy_config
             if blocked_input_messaging is None and not opts.urn:
                 raise TypeError("Missing required property 'blocked_input_messaging'")
             __props__.__dict__["blocked_input_messaging"] = blocked_input_messaging
@@ -349,6 +369,7 @@ class Guardrail(pulumi.CustomResource):
 
         __props__ = GuardrailArgs.__new__(GuardrailArgs)
 
+        __props__.__dict__["automated_reasoning_policy_config"] = None
         __props__.__dict__["blocked_input_messaging"] = None
         __props__.__dict__["blocked_outputs_messaging"] = None
         __props__.__dict__["content_policy_config"] = None
@@ -370,6 +391,14 @@ class Guardrail(pulumi.CustomResource):
         __props__.__dict__["version"] = None
         __props__.__dict__["word_policy_config"] = None
         return Guardrail(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="automatedReasoningPolicyConfig")
+    def automated_reasoning_policy_config(self) -> pulumi.Output[Optional['outputs.GuardrailAutomatedReasoningPolicyConfig']]:
+        """
+        Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.
+        """
+        return pulumi.get(self, "automated_reasoning_policy_config")
 
     @property
     @pulumi.getter(name="blockedInputMessaging")

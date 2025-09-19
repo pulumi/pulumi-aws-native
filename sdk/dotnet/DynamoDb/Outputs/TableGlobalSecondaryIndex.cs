@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
     public sealed class TableGlobalSecondaryIndex
     {
         /// <summary>
-        /// The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
+        /// The settings used to specify whether to enable CloudWatch Contributor Insights for the global table and define which events to monitor.
         /// </summary>
         public readonly Outputs.TableContributorInsightsSpecification? ContributorInsightsSpecification;
         /// <summary>

@@ -18,6 +18,12 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     public sealed class ServiceDeploymentLifecycleHook
     {
         /// <summary>
+        /// Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
+        /// 
+        /// This field must be a JSON object as a string.
+        /// </summary>
+        public readonly object? HookDetails;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
         ///  You must provide this parameter when configuring a deployment lifecycle hook.
         /// </summary>
@@ -57,12 +63,15 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
         [OutputConstructor]
         private ServiceDeploymentLifecycleHook(
+            object? hookDetails,
+
             string hookTargetArn,
 
             ImmutableArray<Pulumi.AwsNative.Ecs.ServiceDeploymentLifecycleHookLifecycleStagesItem> lifecycleStages,
 
             string roleArn)
         {
+            HookDetails = hookDetails;
             HookTargetArn = hookTargetArn;
             LifecycleStages = lifecycleStages;
             RoleArn = roleArn;

@@ -100,6 +100,11 @@ type LookupImageBuilderResult struct {
 	// - stream.graphics.g6.24xlarge
 	// - stream.graphics.gr6.4xlarge
 	// - stream.graphics.gr6.8xlarge
+	// - stream.graphics.g6f.large
+	// - stream.graphics.g6f.xlarge
+	// - stream.graphics.g6f.2xlarge
+	// - stream.graphics.g6f.4xlarge
+	// - stream.graphics.gr6f.4xlarge
 	InstanceType *string `pulumi:"instanceType"`
 	// A unique name for the image builder.
 	Name *string `pulumi:"name"`
@@ -241,6 +246,11 @@ func (o LookupImageBuilderResultOutput) ImageName() pulumi.StringPtrOutput {
 // - stream.graphics.g6.24xlarge
 // - stream.graphics.gr6.4xlarge
 // - stream.graphics.gr6.8xlarge
+// - stream.graphics.g6f.large
+// - stream.graphics.g6f.xlarge
+// - stream.graphics.g6f.2xlarge
+// - stream.graphics.g6f.4xlarge
+// - stream.graphics.gr6f.4xlarge
 func (o LookupImageBuilderResultOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageBuilderResult) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }

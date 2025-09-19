@@ -14,6 +14,8 @@ from .get_cloud_autonomous_vm_cluster import *
 from .get_cloud_exadata_infrastructure import *
 from .get_cloud_vm_cluster import *
 from .get_odb_network import *
+from .get_odb_peering_connection import *
 from .odb_network import *
+from .odb_peering_connection import *
 from ._inputs import *
 from . import outputs

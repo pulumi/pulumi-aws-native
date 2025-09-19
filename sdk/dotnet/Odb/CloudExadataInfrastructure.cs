@@ -118,6 +118,12 @@ namespace Pulumi.AwsNative.Odb
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+        /// </summary>
+        [Output("maintenanceWindow")]
+        public Output<Outputs.CloudExadataInfrastructureMaintenanceWindow?> MaintenanceWindow { get; private set; } = null!;
+
+        /// <summary>
         /// The total number of CPU cores available on the Exadata infrastructure.
         /// </summary>
         [Output("maxCpuCount")]
@@ -299,6 +305,12 @@ namespace Pulumi.AwsNative.Odb
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+        /// </summary>
+        [Input("maintenanceWindow")]
+        public Input<Inputs.CloudExadataInfrastructureMaintenanceWindowArgs>? MaintenanceWindow { get; set; }
 
         /// <summary>
         /// The model name of the Exadata infrastructure.

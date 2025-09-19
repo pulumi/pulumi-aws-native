@@ -28,7 +28,7 @@ export interface GetDomainNameArgs {
 
 export interface GetDomainNameResult {
     /**
-     * The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+     * The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
      */
     readonly certificateArn?: string;
     /**
@@ -58,7 +58,7 @@ export interface GetDomainNameResult {
      */
     readonly ownershipVerificationCertificateArn?: string;
     /**
-     * The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+     * The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
      */
     readonly regionalCertificateArn?: string;
     /**

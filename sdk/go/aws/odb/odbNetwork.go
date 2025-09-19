@@ -24,12 +24,15 @@ type OdbNetwork struct {
 	BackupSubnetCidr pulumi.StringPtrOutput `pulumi:"backupSubnetCidr"`
 	// The CIDR range of the client subnet in the ODB network.
 	ClientSubnetCidr pulumi.StringPtrOutput `pulumi:"clientSubnetCidr"`
+	// The domain name to use for the resources in the ODB network.
+	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
 	// The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com.
 	DefaultDnsPrefix pulumi.StringPtrOutput `pulumi:"defaultDnsPrefix"`
 	// Specifies whether to delete associated OCI networking resources along with the ODB network.
 	DeleteAssociatedResources pulumi.BoolPtrOutput `pulumi:"deleteAssociatedResources"`
 	// The user-friendly name of the ODB network.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	DisplayName     pulumi.StringPtrOutput          `pulumi:"displayName"`
+	ManagedServices OdbNetworkManagedServicesOutput `pulumi:"managedServices"`
 	// The unique identifier of the OCI network anchor for the ODB network.
 	OciNetworkAnchorId pulumi.StringOutput `pulumi:"ociNetworkAnchorId"`
 	// The name of the OCI resource anchor that's associated with the ODB network.
@@ -40,8 +43,14 @@ type OdbNetwork struct {
 	OdbNetworkArn pulumi.StringOutput `pulumi:"odbNetworkArn"`
 	// The unique identifier of the ODB network.
 	OdbNetworkId pulumi.StringOutput `pulumi:"odbNetworkId"`
+	// Specifies the configuration for Amazon S3 access from the ODB network.
+	S3Access OdbNetworkS3AccessPtrOutput `pulumi:"s3Access"`
+	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
+	S3PolicyDocument pulumi.StringPtrOutput `pulumi:"s3PolicyDocument"`
 	// Tags to assign to the Odb Network.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Specifies the configuration for Zero-ETL access from the ODB network.
+	ZeroEtlAccess OdbNetworkZeroEtlAccessPtrOutput `pulumi:"zeroEtlAccess"`
 }
 
 // NewOdbNetwork registers a new resource with the given unique name, arguments, and options.
@@ -56,8 +65,8 @@ func NewOdbNetwork(ctx *pulumi.Context,
 		"availabilityZoneId",
 		"backupSubnetCidr",
 		"clientSubnetCidr",
+		"customDomainName",
 		"defaultDnsPrefix",
-		"displayName",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -101,14 +110,22 @@ type odbNetworkArgs struct {
 	BackupSubnetCidr *string `pulumi:"backupSubnetCidr"`
 	// The CIDR range of the client subnet in the ODB network.
 	ClientSubnetCidr *string `pulumi:"clientSubnetCidr"`
+	// The domain name to use for the resources in the ODB network.
+	CustomDomainName *string `pulumi:"customDomainName"`
 	// The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com.
 	DefaultDnsPrefix *string `pulumi:"defaultDnsPrefix"`
 	// Specifies whether to delete associated OCI networking resources along with the ODB network.
 	DeleteAssociatedResources *bool `pulumi:"deleteAssociatedResources"`
 	// The user-friendly name of the ODB network.
 	DisplayName *string `pulumi:"displayName"`
+	// Specifies the configuration for Amazon S3 access from the ODB network.
+	S3Access *OdbNetworkS3Access `pulumi:"s3Access"`
+	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
+	S3PolicyDocument *string `pulumi:"s3PolicyDocument"`
 	// Tags to assign to the Odb Network.
 	Tags []aws.Tag `pulumi:"tags"`
+	// Specifies the configuration for Zero-ETL access from the ODB network.
+	ZeroEtlAccess *OdbNetworkZeroEtlAccess `pulumi:"zeroEtlAccess"`
 }
 
 // The set of arguments for constructing a OdbNetwork resource.
@@ -121,14 +138,22 @@ type OdbNetworkArgs struct {
 	BackupSubnetCidr pulumi.StringPtrInput
 	// The CIDR range of the client subnet in the ODB network.
 	ClientSubnetCidr pulumi.StringPtrInput
+	// The domain name to use for the resources in the ODB network.
+	CustomDomainName pulumi.StringPtrInput
 	// The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com.
 	DefaultDnsPrefix pulumi.StringPtrInput
 	// Specifies whether to delete associated OCI networking resources along with the ODB network.
 	DeleteAssociatedResources pulumi.BoolPtrInput
 	// The user-friendly name of the ODB network.
 	DisplayName pulumi.StringPtrInput
+	// Specifies the configuration for Amazon S3 access from the ODB network.
+	S3Access OdbNetworkS3AccessPtrInput
+	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
+	S3PolicyDocument pulumi.StringPtrInput
 	// Tags to assign to the Odb Network.
 	Tags aws.TagArrayInput
+	// Specifies the configuration for Zero-ETL access from the ODB network.
+	ZeroEtlAccess OdbNetworkZeroEtlAccessPtrInput
 }
 
 func (OdbNetworkArgs) ElementType() reflect.Type {
@@ -188,6 +213,11 @@ func (o OdbNetworkOutput) ClientSubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OdbNetwork) pulumi.StringPtrOutput { return v.ClientSubnetCidr }).(pulumi.StringPtrOutput)
 }
 
+// The domain name to use for the resources in the ODB network.
+func (o OdbNetworkOutput) CustomDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OdbNetwork) pulumi.StringPtrOutput { return v.CustomDomainName }).(pulumi.StringPtrOutput)
+}
+
 // The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com.
 func (o OdbNetworkOutput) DefaultDnsPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OdbNetwork) pulumi.StringPtrOutput { return v.DefaultDnsPrefix }).(pulumi.StringPtrOutput)
@@ -201,6 +231,10 @@ func (o OdbNetworkOutput) DeleteAssociatedResources() pulumi.BoolPtrOutput {
 // The user-friendly name of the ODB network.
 func (o OdbNetworkOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OdbNetwork) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o OdbNetworkOutput) ManagedServices() OdbNetworkManagedServicesOutput {
+	return o.ApplyT(func(v *OdbNetwork) OdbNetworkManagedServicesOutput { return v.ManagedServices }).(OdbNetworkManagedServicesOutput)
 }
 
 // The unique identifier of the OCI network anchor for the ODB network.
@@ -228,9 +262,24 @@ func (o OdbNetworkOutput) OdbNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OdbNetwork) pulumi.StringOutput { return v.OdbNetworkId }).(pulumi.StringOutput)
 }
 
+// Specifies the configuration for Amazon S3 access from the ODB network.
+func (o OdbNetworkOutput) S3Access() OdbNetworkS3AccessPtrOutput {
+	return o.ApplyT(func(v *OdbNetwork) OdbNetworkS3AccessPtrOutput { return v.S3Access }).(OdbNetworkS3AccessPtrOutput)
+}
+
+// Specifies the endpoint policy for Amazon S3 access from the ODB network.
+func (o OdbNetworkOutput) S3PolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OdbNetwork) pulumi.StringPtrOutput { return v.S3PolicyDocument }).(pulumi.StringPtrOutput)
+}
+
 // Tags to assign to the Odb Network.
 func (o OdbNetworkOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *OdbNetwork) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// Specifies the configuration for Zero-ETL access from the ODB network.
+func (o OdbNetworkOutput) ZeroEtlAccess() OdbNetworkZeroEtlAccessPtrOutput {
+	return o.ApplyT(func(v *OdbNetwork) OdbNetworkZeroEtlAccessPtrOutput { return v.ZeroEtlAccess }).(OdbNetworkZeroEtlAccessPtrOutput)
 }
 
 func init() {

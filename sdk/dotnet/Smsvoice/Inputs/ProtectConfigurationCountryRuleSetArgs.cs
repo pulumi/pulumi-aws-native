@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Smsvoice.Inputs
     {
         [Input("mms")]
         private InputList<Inputs.ProtectConfigurationCountryRuleArgs>? _mms;
+
+        /// <summary>
+        /// The set of `CountryRule` s to control which destination countries End User Messaging  can send your MMS messages to.
+        /// </summary>
         public InputList<Inputs.ProtectConfigurationCountryRuleArgs> Mms
         {
             get => _mms ?? (_mms = new InputList<Inputs.ProtectConfigurationCountryRuleArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.Smsvoice.Inputs
 
         [Input("sms")]
         private InputList<Inputs.ProtectConfigurationCountryRuleArgs>? _sms;
+
+        /// <summary>
+        /// The set of `CountryRule` s to control which destination countries End User Messaging  can send your SMS messages to.
+        /// </summary>
         public InputList<Inputs.ProtectConfigurationCountryRuleArgs> Sms
         {
             get => _sms ?? (_sms = new InputList<Inputs.ProtectConfigurationCountryRuleArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.Smsvoice.Inputs
 
         [Input("voice")]
         private InputList<Inputs.ProtectConfigurationCountryRuleArgs>? _voice;
+
+        /// <summary>
+        /// The set of `CountryRule` s to control which destination countries End User Messaging  can send your VOICE messages to.
+        /// </summary>
         public InputList<Inputs.ProtectConfigurationCountryRuleArgs> Voice
         {
             get => _voice ?? (_voice = new InputList<Inputs.ProtectConfigurationCountryRuleArgs>());

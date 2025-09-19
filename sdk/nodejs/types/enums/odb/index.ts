@@ -61,6 +61,35 @@ export const CloudAutonomousVmClusterMaintenanceWindowPreference = {
  */
 export type CloudAutonomousVmClusterMaintenanceWindowPreference = (typeof CloudAutonomousVmClusterMaintenanceWindowPreference)[keyof typeof CloudAutonomousVmClusterMaintenanceWindowPreference];
 
+export const CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem = {
+    Monday: "MONDAY",
+    Tuesday: "TUESDAY",
+    Wednesday: "WEDNESDAY",
+    Thursday: "THURSDAY",
+    Friday: "FRIDAY",
+    Saturday: "SATURDAY",
+    Sunday: "SUNDAY",
+} as const;
+
+export type CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem = (typeof CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem)[keyof typeof CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem];
+
+export const CloudExadataInfrastructureMaintenanceWindowMonthsItem = {
+    January: "JANUARY",
+    February: "FEBRUARY",
+    March: "MARCH",
+    April: "APRIL",
+    May: "MAY",
+    June: "JUNE",
+    July: "JULY",
+    August: "AUGUST",
+    September: "SEPTEMBER",
+    October: "OCTOBER",
+    November: "NOVEMBER",
+    December: "DECEMBER",
+} as const;
+
+export type CloudExadataInfrastructureMaintenanceWindowMonthsItem = (typeof CloudExadataInfrastructureMaintenanceWindowMonthsItem)[keyof typeof CloudExadataInfrastructureMaintenanceWindowMonthsItem];
+
 export const CloudVmClusterLicenseModel = {
     BringYourOwnLicense: "BRING_YOUR_OWN_LICENSE",
     LicenseIncluded: "LICENSE_INCLUDED",
@@ -70,3 +99,44 @@ export const CloudVmClusterLicenseModel = {
  * The Oracle license model applied to the VM cluster.
  */
 export type CloudVmClusterLicenseModel = (typeof CloudVmClusterLicenseModel)[keyof typeof CloudVmClusterLicenseModel];
+
+export const OdbNetworkManagedResourceStatus = {
+    Enabled: "ENABLED",
+    Enabling: "ENABLING",
+    Disabled: "DISABLED",
+    Disabling: "DISABLING",
+} as const;
+
+/**
+ * The status of the managed resource access.
+ */
+export type OdbNetworkManagedResourceStatus = (typeof OdbNetworkManagedResourceStatus)[keyof typeof OdbNetworkManagedResourceStatus];
+
+export const OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType = {
+    Servicenetwork: "SERVICENETWORK",
+} as const;
+
+/**
+ * The type of the VPC endpoint.
+ */
+export type OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType = (typeof OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType)[keyof typeof OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType];
+
+export const OdbNetworkS3Access = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Specifies the configuration for Amazon S3 access from the ODB network.
+ */
+export type OdbNetworkS3Access = (typeof OdbNetworkS3Access)[keyof typeof OdbNetworkS3Access];
+
+export const OdbNetworkZeroEtlAccess = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Specifies the configuration for Zero-ETL access from the ODB network.
+ */
+export type OdbNetworkZeroEtlAccess = (typeof OdbNetworkZeroEtlAccess)[keyof typeof OdbNetworkZeroEtlAccess];

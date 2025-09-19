@@ -4714,6 +4714,10 @@ func (o ServiceDeploymentControllerPtrOutput) Type() ServiceDeploymentController
 //
 //	For more information, see [Lifecycle hooks for Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentLifecycleHook struct {
+	// Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
+	//
+	// This field must be a JSON object as a string.
+	HookDetails interface{} `pulumi:"hookDetails"`
 	// The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
 	//  You must provide this parameter when configuring a deployment lifecycle hook.
 	HookTargetArn string `pulumi:"hookTargetArn"`
@@ -4762,6 +4766,10 @@ type ServiceDeploymentLifecycleHookInput interface {
 //
 //	For more information, see [Lifecycle hooks for Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentLifecycleHookArgs struct {
+	// Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
+	//
+	// This field must be a JSON object as a string.
+	HookDetails pulumi.Input `pulumi:"hookDetails"`
 	// The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
 	//  You must provide this parameter when configuring a deployment lifecycle hook.
 	HookTargetArn pulumi.StringInput `pulumi:"hookTargetArn"`
@@ -4847,6 +4855,13 @@ func (o ServiceDeploymentLifecycleHookOutput) ToServiceDeploymentLifecycleHookOu
 
 func (o ServiceDeploymentLifecycleHookOutput) ToServiceDeploymentLifecycleHookOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookOutput {
 	return o
+}
+
+// Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
+//
+// This field must be a JSON object as a string.
+func (o ServiceDeploymentLifecycleHookOutput) HookDetails() pulumi.AnyOutput {
+	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) interface{} { return v.HookDetails }).(pulumi.AnyOutput)
 }
 
 // The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
@@ -5047,10 +5062,11 @@ func (o ServiceEbsTagSpecificationArrayOutput) Index(i pulumi.IntInput) ServiceE
 	}).(ServiceEbsTagSpecificationOutput)
 }
 
+// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (“my_image:latest“) or to roll Fargate tasks onto a newer platform version.
 type ServiceForceNewDeployment struct {
-	// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
+	// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
 	EnableForceNewDeployment bool `pulumi:"enableForceNewDeployment"`
-	// When you change the `ForceNewDeploymentNonce` value in your template, it signals Amazon ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
+	// When you change the``ForceNewDeploymentNonce`` value in your template, it signals ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
 	ForceNewDeploymentNonce *string `pulumi:"forceNewDeploymentNonce"`
 }
 
@@ -5065,10 +5081,11 @@ type ServiceForceNewDeploymentInput interface {
 	ToServiceForceNewDeploymentOutputWithContext(context.Context) ServiceForceNewDeploymentOutput
 }
 
+// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (“my_image:latest“) or to roll Fargate tasks onto a newer platform version.
 type ServiceForceNewDeploymentArgs struct {
-	// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
+	// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
 	EnableForceNewDeployment pulumi.BoolInput `pulumi:"enableForceNewDeployment"`
-	// When you change the `ForceNewDeploymentNonce` value in your template, it signals Amazon ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
+	// When you change the``ForceNewDeploymentNonce`` value in your template, it signals ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
 	ForceNewDeploymentNonce pulumi.StringPtrInput `pulumi:"forceNewDeploymentNonce"`
 }
 
@@ -5125,6 +5142,7 @@ func (i *serviceForceNewDeploymentPtrType) ToServiceForceNewDeploymentPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceForceNewDeploymentPtrOutput)
 }
 
+// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (“my_image:latest“) or to roll Fargate tasks onto a newer platform version.
 type ServiceForceNewDeploymentOutput struct{ *pulumi.OutputState }
 
 func (ServiceForceNewDeploymentOutput) ElementType() reflect.Type {
@@ -5149,12 +5167,12 @@ func (o ServiceForceNewDeploymentOutput) ToServiceForceNewDeploymentPtrOutputWit
 	}).(ServiceForceNewDeploymentPtrOutput)
 }
 
-// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
+// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (“my_image:latest“) or to roll Fargate tasks onto a newer platform version.
 func (o ServiceForceNewDeploymentOutput) EnableForceNewDeployment() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceForceNewDeployment) bool { return v.EnableForceNewDeployment }).(pulumi.BoolOutput)
 }
 
-// When you change the `ForceNewDeploymentNonce` value in your template, it signals Amazon ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
+// When you change the“ForceNewDeploymentNonce“ value in your template, it signals ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
 func (o ServiceForceNewDeploymentOutput) ForceNewDeploymentNonce() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceForceNewDeployment) *string { return v.ForceNewDeploymentNonce }).(pulumi.StringPtrOutput)
 }
@@ -5183,7 +5201,7 @@ func (o ServiceForceNewDeploymentPtrOutput) Elem() ServiceForceNewDeploymentOutp
 	}).(ServiceForceNewDeploymentOutput)
 }
 
-// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
+// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (“my_image:latest“) or to roll Fargate tasks onto a newer platform version.
 func (o ServiceForceNewDeploymentPtrOutput) EnableForceNewDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceForceNewDeployment) *bool {
 		if v == nil {
@@ -5193,7 +5211,7 @@ func (o ServiceForceNewDeploymentPtrOutput) EnableForceNewDeployment() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When you change the `ForceNewDeploymentNonce` value in your template, it signals Amazon ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
+// When you change the“ForceNewDeploymentNonce“ value in your template, it signals ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
 func (o ServiceForceNewDeploymentPtrOutput) ForceNewDeploymentNonce() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceForceNewDeployment) *string {
 		if v == nil {
