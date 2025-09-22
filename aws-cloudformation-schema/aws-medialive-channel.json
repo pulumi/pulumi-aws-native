@@ -509,6 +509,13 @@
         "TimedMetadataId3Period" : {
           "type" : "integer"
         },
+        "AdditionalDestinations" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/AdditionalDestinations"
+          }
+        },
         "NielsenId3NameModifier" : {
           "type" : "string"
         },
@@ -799,6 +806,15 @@
         },
         "VideoSelectorPid" : {
           "$ref" : "#/definitions/VideoSelectorPid"
+        }
+      }
+    },
+    "AdditionalDestinations" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Destination" : {
+          "$ref" : "#/definitions/OutputLocationRef"
         }
       }
     },
@@ -1442,6 +1458,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "MediapackageV2GroupSettings" : {
+          "$ref" : "#/definitions/MediaPackageV2GroupSettings"
+        },
         "Destination" : {
           "$ref" : "#/definitions/OutputLocationRef"
         }
@@ -2305,10 +2324,6 @@
       "type" : "object",
       "additionalProperties" : false
     },
-    "Rec709Settings" : {
-      "type" : "object",
-      "additionalProperties" : false
-    },
     "ArchiveContainerSettings" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -2320,6 +2335,10 @@
           "$ref" : "#/definitions/RawSettings"
         }
       }
+    },
+    "Rec709Settings" : {
+      "type" : "object",
+      "additionalProperties" : false
     },
     "InputAttachment" : {
       "type" : "object",
@@ -2381,7 +2400,12 @@
     },
     "MediaPackageOutputSettings" : {
       "type" : "object",
-      "additionalProperties" : false
+      "additionalProperties" : false,
+      "properties" : {
+        "MediaPackageV2DestinationSettings" : {
+          "$ref" : "#/definitions/MediaPackageV2DestinationSettings"
+        }
+      }
     },
     "Av1ColorSpaceSettings" : {
       "type" : "object",
@@ -2669,6 +2693,19 @@
         }
       }
     },
+    "MediaPackageV2GroupSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CaptionLanguageMappings" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/CaptionLanguageMapping"
+          }
+        }
+      }
+    },
     "AudioSelector" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -2934,6 +2971,9 @@
         "TeletextGridControl" : {
           "type" : "string"
         },
+        "SubtitleRows" : {
+          "type" : "string"
+        },
         "FontOpacity" : {
           "type" : "integer"
         },
@@ -3035,6 +3075,9 @@
           "type" : "integer"
         },
         "TeletextGridControl" : {
+          "type" : "string"
+        },
+        "SubtitleRows" : {
           "type" : "string"
         },
         "FontOpacity" : {
@@ -3405,6 +3448,24 @@
           "$ref" : "#/definitions/VideoSelectorSettings"
         },
         "ColorSpace" : {
+          "type" : "string"
+        }
+      }
+    },
+    "MediaPackageV2DestinationSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "HlsDefault" : {
+          "type" : "string"
+        },
+        "AudioRenditionSets" : {
+          "type" : "string"
+        },
+        "AudioGroupId" : {
+          "type" : "string"
+        },
+        "HlsAutoSelect" : {
           "type" : "string"
         }
       }

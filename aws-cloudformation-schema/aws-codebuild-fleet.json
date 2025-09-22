@@ -47,7 +47,7 @@
     },
     "ImageId" : {
       "type" : "string",
-      "pattern" : "^((aws/codebuild/[A-Za-z-]+:[0-9]+(-[0-9._]+)?)|ami-[a-z0-9]{1,1020})$"
+      "pattern" : "^((aws/codebuild/([A-Za-z0-9._-]+|ami/[A-Za-z0-9._-]+):[A-Za-z0-9._-]+)|ami-[a-z0-9]{1,1020})$"
     },
     "ScalingConfiguration" : {
       "$ref" : "#/definitions/ScalingConfigurationInput"

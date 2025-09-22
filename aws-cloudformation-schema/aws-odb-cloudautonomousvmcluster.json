@@ -277,6 +277,10 @@
   "createOnlyProperties" : [ "/properties/OdbNetworkId", "/properties/CloudExadataInfrastructureId", "/properties/DbServers", "/properties/IsMtlsEnabledVmCluster", "/properties/MemoryPerOracleComputeUnitInGBs", "/properties/ScanListenerPortNonTls", "/properties/ScanListenerPortTls", "/properties/TimeZone", "/properties/AutonomousDataStorageSizeInTBs", "/properties/DisplayName", "/properties/CpuCoreCountPerNode", "/properties/Description", "/properties/LicenseModel", "/properties/MaintenanceWindow", "/properties/TotalContainerDatabases" ],
   "readOnlyProperties" : [ "/properties/CloudAutonomousVmClusterId", "/properties/CloudAutonomousVmClusterArn", "/properties/OciResourceAnchorName", "/properties/AutonomousDataStoragePercentage", "/properties/AvailableAutonomousDataStorageSizeInTBs", "/properties/AvailableContainerDatabases", "/properties/AvailableCpus", "/properties/ComputeModel", "/properties/CpuCoreCount", "/properties/CpuPercentage", "/properties/DataStorageSizeInGBs", "/properties/DataStorageSizeInTBs", "/properties/DbNodeStorageSizeInGBs", "/properties/Domain", "/properties/ExadataStorageInTBsLowestScaledValue", "/properties/Hostname", "/properties/Ocid", "/properties/OciUrl", "/properties/MaxAcdsLowestScaledValue", "/properties/MemorySizeInGBs", "/properties/NodeCount", "/properties/NonProvisionableAutonomousContainerDatabases", "/properties/ProvisionableAutonomousContainerDatabases", "/properties/ProvisionedAutonomousContainerDatabases", "/properties/ProvisionedCpus", "/properties/ReclaimableCpus", "/properties/ReservedCpus", "/properties/Shape" ],
   "primaryIdentifier" : [ "/properties/CloudAutonomousVmClusterArn" ],
+  "propertyTransform" : {
+    "/properties/CloudExadataInfrastructureId" : "$split(CloudExadataInfrastructureId, \"cloud-exadata-infrastructure/\")[-1] $OR CloudExadataInfrastructureId",
+    "/properties/OdbNetworkId" : "$split(OdbNetworkId, \"odb-network/\")[-1] $OR OdbNetworkId"
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:DescribeAvailabilityZones", "iam:CreateServiceLinkedRole", "odb:CreateCloudAutonomousVmCluster", "odb:GetCloudAutonomousVmCluster", "odb:ListCloudAutonomousVmClusters", "odb:ListTagsForResource", "odb:TagResource", "sts:GetCallerIdentity" ],
@@ -296,6 +300,7 @@
       "permissions" : [ "odb:ListCloudAutonomousVmClusters", "odb:ListTagsForResource", "sts:GetCallerIdentity" ]
     }
   },
+  "replacementStrategy" : "delete_then_create",
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
