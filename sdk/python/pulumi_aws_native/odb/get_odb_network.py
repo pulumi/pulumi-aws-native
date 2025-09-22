@@ -14,7 +14,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetOdbNetworkResult',
@@ -25,7 +27,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetOdbNetworkResult:
-    def __init__(__self__, oci_network_anchor_id=None, oci_resource_anchor_name=None, oci_vcn_url=None, odb_network_arn=None, odb_network_id=None, tags=None):
+    def __init__(__self__, display_name=None, managed_services=None, oci_network_anchor_id=None, oci_resource_anchor_name=None, oci_vcn_url=None, odb_network_arn=None, odb_network_id=None, tags=None):
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
+        if managed_services and not isinstance(managed_services, dict):
+            raise TypeError("Expected argument 'managed_services' to be a dict")
+        pulumi.set(__self__, "managed_services", managed_services)
         if oci_network_anchor_id and not isinstance(oci_network_anchor_id, str):
             raise TypeError("Expected argument 'oci_network_anchor_id' to be a str")
         pulumi.set(__self__, "oci_network_anchor_id", oci_network_anchor_id)
@@ -44,6 +52,19 @@ class GetOdbNetworkResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[builtins.str]:
+        """
+        The user-friendly name of the ODB network.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="managedServices")
+    def managed_services(self) -> Optional['outputs.OdbNetworkManagedServices']:
+        return pulumi.get(self, "managed_services")
 
     @property
     @pulumi.getter(name="ociNetworkAnchorId")
@@ -100,6 +121,8 @@ class AwaitableGetOdbNetworkResult(GetOdbNetworkResult):
         if False:
             yield self
         return GetOdbNetworkResult(
+            display_name=self.display_name,
+            managed_services=self.managed_services,
             oci_network_anchor_id=self.oci_network_anchor_id,
             oci_resource_anchor_name=self.oci_resource_anchor_name,
             oci_vcn_url=self.oci_vcn_url,
@@ -122,6 +145,8 @@ def get_odb_network(odb_network_arn: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:odb:getOdbNetwork', __args__, opts=opts, typ=GetOdbNetworkResult).value
 
     return AwaitableGetOdbNetworkResult(
+        display_name=pulumi.get(__ret__, 'display_name'),
+        managed_services=pulumi.get(__ret__, 'managed_services'),
         oci_network_anchor_id=pulumi.get(__ret__, 'oci_network_anchor_id'),
         oci_resource_anchor_name=pulumi.get(__ret__, 'oci_resource_anchor_name'),
         oci_vcn_url=pulumi.get(__ret__, 'oci_vcn_url'),
@@ -141,6 +166,8 @@ def get_odb_network_output(odb_network_arn: Optional[pulumi.Input[builtins.str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:odb:getOdbNetwork', __args__, opts=opts, typ=GetOdbNetworkResult)
     return __ret__.apply(lambda __response__: GetOdbNetworkResult(
+        display_name=pulumi.get(__response__, 'display_name'),
+        managed_services=pulumi.get(__response__, 'managed_services'),
         oci_network_anchor_id=pulumi.get(__response__, 'oci_network_anchor_id'),
         oci_resource_anchor_name=pulumi.get(__response__, 'oci_resource_anchor_name'),
         oci_vcn_url=pulumi.get(__response__, 'oci_vcn_url'),

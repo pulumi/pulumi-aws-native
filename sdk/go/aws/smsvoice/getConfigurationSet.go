@@ -29,6 +29,7 @@ type LookupConfigurationSetArgs struct {
 }
 
 type LookupConfigurationSetResult struct {
+	// The Amazon Resource Name (ARN) of the ConfigurationSet.
 	Arn *string `pulumi:"arn"`
 	// The default sender ID to set for the ConfigurationSet.
 	DefaultSenderId *string `pulumi:"defaultSenderId"`
@@ -74,6 +75,7 @@ func (o LookupConfigurationSetResultOutput) ToLookupConfigurationSetResultOutput
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the ConfigurationSet.
 func (o LookupConfigurationSetResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Smsvoice.Outputs
     [OutputType]
     public sealed class MandatoryKeywordsProperties
     {
+        /// <summary>
+        /// Specifies the pool's `HELP` keyword. For more information, see [Opt out list required keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/opt-out-list-keywords.html) in the End User Messaging  User Guide.
+        /// </summary>
         public readonly Outputs.PoolMandatoryKeyword Help;
+        /// <summary>
+        /// Specifies the pool's opt-out keyword. For more information, see [Required opt-out keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/keywords-required.html) in the End User Messaging  User Guide.
+        /// </summary>
         public readonly Outputs.PoolMandatoryKeyword Stop;
 
         [OutputConstructor]

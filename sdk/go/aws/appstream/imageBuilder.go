@@ -88,6 +88,11 @@ type ImageBuilder struct {
 	// - stream.graphics.g6.24xlarge
 	// - stream.graphics.gr6.4xlarge
 	// - stream.graphics.gr6.8xlarge
+	// - stream.graphics.g6f.large
+	// - stream.graphics.g6f.xlarge
+	// - stream.graphics.g6f.2xlarge
+	// - stream.graphics.g6f.4xlarge
+	// - stream.graphics.gr6f.4xlarge
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// A unique name for the image builder.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -213,6 +218,11 @@ type imageBuilderArgs struct {
 	// - stream.graphics.g6.24xlarge
 	// - stream.graphics.gr6.4xlarge
 	// - stream.graphics.gr6.8xlarge
+	// - stream.graphics.g6f.large
+	// - stream.graphics.g6f.xlarge
+	// - stream.graphics.g6f.2xlarge
+	// - stream.graphics.g6f.4xlarge
+	// - stream.graphics.gr6f.4xlarge
 	InstanceType string `pulumi:"instanceType"`
 	// A unique name for the image builder.
 	Name *string `pulumi:"name"`
@@ -295,6 +305,11 @@ type ImageBuilderArgs struct {
 	// - stream.graphics.g6.24xlarge
 	// - stream.graphics.gr6.4xlarge
 	// - stream.graphics.gr6.8xlarge
+	// - stream.graphics.g6f.large
+	// - stream.graphics.g6f.xlarge
+	// - stream.graphics.g6f.2xlarge
+	// - stream.graphics.g6f.4xlarge
+	// - stream.graphics.gr6f.4xlarge
 	InstanceType pulumi.StringInput
 	// A unique name for the image builder.
 	Name pulumi.StringPtrInput
@@ -439,6 +454,11 @@ func (o ImageBuilderOutput) ImageName() pulumi.StringPtrOutput {
 // - stream.graphics.g6.24xlarge
 // - stream.graphics.gr6.4xlarge
 // - stream.graphics.gr6.8xlarge
+// - stream.graphics.g6f.large
+// - stream.graphics.g6f.xlarge
+// - stream.graphics.g6f.2xlarge
+// - stream.graphics.g6f.4xlarge
+// - stream.graphics.gr6f.4xlarge
 func (o ImageBuilderOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
 }

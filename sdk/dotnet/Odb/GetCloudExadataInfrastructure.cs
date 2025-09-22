@@ -108,6 +108,10 @@ namespace Pulumi.AwsNative.Odb
         /// </summary>
         public readonly string? DbServerVersion;
         /// <summary>
+        /// The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+        /// </summary>
+        public readonly Outputs.CloudExadataInfrastructureMaintenanceWindow? MaintenanceWindow;
+        /// <summary>
         /// The total number of CPU cores available on the Exadata infrastructure.
         /// </summary>
         public readonly int? MaxCpuCount;
@@ -176,6 +180,8 @@ namespace Pulumi.AwsNative.Odb
 
             string? dbServerVersion,
 
+            Outputs.CloudExadataInfrastructureMaintenanceWindow? maintenanceWindow,
+
             int? maxCpuCount,
 
             double? maxDataStorageInTbs,
@@ -209,6 +215,7 @@ namespace Pulumi.AwsNative.Odb
             DbNodeStorageSizeInGbs = dbNodeStorageSizeInGbs;
             DbServerIds = dbServerIds;
             DbServerVersion = dbServerVersion;
+            MaintenanceWindow = maintenanceWindow;
             MaxCpuCount = maxCpuCount;
             MaxDataStorageInTbs = maxDataStorageInTbs;
             MaxDbNodeStorageSizeInGbs = maxDbNodeStorageSizeInGbs;

@@ -42,6 +42,10 @@ export interface GetRoutingProfileResult {
      */
     readonly instanceArn?: string;
     /**
+     * The manual assignment queues to associate with this routing profile.
+     */
+    readonly manualAssignmentQueueConfigs?: outputs.connect.RoutingProfileManualAssignmentQueueConfig[];
+    /**
      * The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
      */
     readonly mediaConcurrencies?: outputs.connect.RoutingProfileMediaConcurrency[];

@@ -89,6 +89,8 @@ __all__ = [
     'QuickConnectUserQuickConnectConfigArgsDict',
     'RoutingProfileCrossChannelBehaviorArgs',
     'RoutingProfileCrossChannelBehaviorArgsDict',
+    'RoutingProfileManualAssignmentQueueConfigArgs',
+    'RoutingProfileManualAssignmentQueueConfigArgsDict',
     'RoutingProfileMediaConcurrencyArgs',
     'RoutingProfileMediaConcurrencyArgsDict',
     'RoutingProfileQueueConfigArgs',
@@ -2669,6 +2671,34 @@ class RoutingProfileCrossChannelBehaviorArgs:
     @behavior_type.setter
     def behavior_type(self, value: pulumi.Input['RoutingProfileBehaviorType']):
         pulumi.set(self, "behavior_type", value)
+
+
+if not MYPY:
+    class RoutingProfileManualAssignmentQueueConfigArgsDict(TypedDict):
+        """
+        Contains information about the manual assignment queue and channel
+        """
+        queue_reference: pulumi.Input['RoutingProfileQueueReferenceArgsDict']
+elif False:
+    RoutingProfileManualAssignmentQueueConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoutingProfileManualAssignmentQueueConfigArgs:
+    def __init__(__self__, *,
+                 queue_reference: pulumi.Input['RoutingProfileQueueReferenceArgs']):
+        """
+        Contains information about the manual assignment queue and channel
+        """
+        pulumi.set(__self__, "queue_reference", queue_reference)
+
+    @property
+    @pulumi.getter(name="queueReference")
+    def queue_reference(self) -> pulumi.Input['RoutingProfileQueueReferenceArgs']:
+        return pulumi.get(self, "queue_reference")
+
+    @queue_reference.setter
+    def queue_reference(self, value: pulumi.Input['RoutingProfileQueueReferenceArgs']):
+        pulumi.set(self, "queue_reference", value)
 
 
 if not MYPY:

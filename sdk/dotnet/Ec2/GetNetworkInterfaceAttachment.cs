@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Ec2
     public static class GetNetworkInterfaceAttachment
     {
         /// <summary>
-        /// Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
+        /// Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
         /// </summary>
         public static Task<GetNetworkInterfaceAttachmentResult> InvokeAsync(GetNetworkInterfaceAttachmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceAttachmentResult>("aws-native:ec2:getNetworkInterfaceAttachment", args ?? new GetNetworkInterfaceAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
+        /// Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
         /// </summary>
         public static Output<GetNetworkInterfaceAttachmentResult> Invoke(GetNetworkInterfaceAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceAttachmentResult>("aws-native:ec2:getNetworkInterfaceAttachment", args ?? new GetNetworkInterfaceAttachmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
+        /// Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
         /// </summary>
         public static Output<GetNetworkInterfaceAttachmentResult> Invoke(GetNetworkInterfaceAttachmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceAttachmentResult>("aws-native:ec2:getNetworkInterfaceAttachment", args ?? new GetNetworkInterfaceAttachmentInvokeArgs(), options.WithDefaults());
@@ -68,9 +68,13 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? AttachmentId;
         /// <summary>
-        /// Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
+        /// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
         /// </summary>
         public readonly bool? DeleteOnTermination;
+        /// <summary>
+        /// The number of ENA queues to be created with the instance.
+        /// </summary>
+        public readonly int? EnaQueueCount;
         /// <summary>
         /// Configures ENA Express for the network interface that this action attaches to the instance.
         /// </summary>
@@ -82,10 +86,13 @@ namespace Pulumi.AwsNative.Ec2
 
             bool? deleteOnTermination,
 
+            int? enaQueueCount,
+
             Outputs.NetworkInterfaceAttachmentEnaSrdSpecification? enaSrdSpecification)
         {
             AttachmentId = attachmentId;
             DeleteOnTermination = deleteOnTermination;
+            EnaQueueCount = enaQueueCount;
             EnaSrdSpecification = enaSrdSpecification;
         }
     }

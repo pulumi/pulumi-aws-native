@@ -298,6 +298,9 @@ class Pool(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The Amazon Resource Name of the `Pool` .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -343,6 +346,9 @@ class Pool(pulumi.CustomResource):
     @property
     @pulumi.getter(name="poolId")
     def pool_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The unique identifier for the pool.
+        """
         return pulumi.get(self, "pool_id")
 
     @property

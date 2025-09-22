@@ -29891,6 +29891,165 @@ func (o FlowVersionVectorSearchRerankingConfigurationPtrOutput) Type() FlowVersi
 	}).(FlowVersionVectorSearchRerankingConfigurationTypePtrOutput)
 }
 
+// Optional configuration for integrating Automated Reasoning policies with the guardrail.
+type GuardrailAutomatedReasoningPolicyConfig struct {
+	// The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.
+	ConfidenceThreshold *float64 `pulumi:"confidenceThreshold"`
+	// The list of Automated Reasoning policy ARNs to include in the guardrail configuration
+	Policies []string `pulumi:"policies"`
+}
+
+// GuardrailAutomatedReasoningPolicyConfigInput is an input type that accepts GuardrailAutomatedReasoningPolicyConfigArgs and GuardrailAutomatedReasoningPolicyConfigOutput values.
+// You can construct a concrete instance of `GuardrailAutomatedReasoningPolicyConfigInput` via:
+//
+//	GuardrailAutomatedReasoningPolicyConfigArgs{...}
+type GuardrailAutomatedReasoningPolicyConfigInput interface {
+	pulumi.Input
+
+	ToGuardrailAutomatedReasoningPolicyConfigOutput() GuardrailAutomatedReasoningPolicyConfigOutput
+	ToGuardrailAutomatedReasoningPolicyConfigOutputWithContext(context.Context) GuardrailAutomatedReasoningPolicyConfigOutput
+}
+
+// Optional configuration for integrating Automated Reasoning policies with the guardrail.
+type GuardrailAutomatedReasoningPolicyConfigArgs struct {
+	// The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.
+	ConfidenceThreshold pulumi.Float64PtrInput `pulumi:"confidenceThreshold"`
+	// The list of Automated Reasoning policy ARNs to include in the guardrail configuration
+	Policies pulumi.StringArrayInput `pulumi:"policies"`
+}
+
+func (GuardrailAutomatedReasoningPolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailAutomatedReasoningPolicyConfig)(nil)).Elem()
+}
+
+func (i GuardrailAutomatedReasoningPolicyConfigArgs) ToGuardrailAutomatedReasoningPolicyConfigOutput() GuardrailAutomatedReasoningPolicyConfigOutput {
+	return i.ToGuardrailAutomatedReasoningPolicyConfigOutputWithContext(context.Background())
+}
+
+func (i GuardrailAutomatedReasoningPolicyConfigArgs) ToGuardrailAutomatedReasoningPolicyConfigOutputWithContext(ctx context.Context) GuardrailAutomatedReasoningPolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailAutomatedReasoningPolicyConfigOutput)
+}
+
+func (i GuardrailAutomatedReasoningPolicyConfigArgs) ToGuardrailAutomatedReasoningPolicyConfigPtrOutput() GuardrailAutomatedReasoningPolicyConfigPtrOutput {
+	return i.ToGuardrailAutomatedReasoningPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GuardrailAutomatedReasoningPolicyConfigArgs) ToGuardrailAutomatedReasoningPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailAutomatedReasoningPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailAutomatedReasoningPolicyConfigOutput).ToGuardrailAutomatedReasoningPolicyConfigPtrOutputWithContext(ctx)
+}
+
+// GuardrailAutomatedReasoningPolicyConfigPtrInput is an input type that accepts GuardrailAutomatedReasoningPolicyConfigArgs, GuardrailAutomatedReasoningPolicyConfigPtr and GuardrailAutomatedReasoningPolicyConfigPtrOutput values.
+// You can construct a concrete instance of `GuardrailAutomatedReasoningPolicyConfigPtrInput` via:
+//
+//	        GuardrailAutomatedReasoningPolicyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GuardrailAutomatedReasoningPolicyConfigPtrInput interface {
+	pulumi.Input
+
+	ToGuardrailAutomatedReasoningPolicyConfigPtrOutput() GuardrailAutomatedReasoningPolicyConfigPtrOutput
+	ToGuardrailAutomatedReasoningPolicyConfigPtrOutputWithContext(context.Context) GuardrailAutomatedReasoningPolicyConfigPtrOutput
+}
+
+type guardrailAutomatedReasoningPolicyConfigPtrType GuardrailAutomatedReasoningPolicyConfigArgs
+
+func GuardrailAutomatedReasoningPolicyConfigPtr(v *GuardrailAutomatedReasoningPolicyConfigArgs) GuardrailAutomatedReasoningPolicyConfigPtrInput {
+	return (*guardrailAutomatedReasoningPolicyConfigPtrType)(v)
+}
+
+func (*guardrailAutomatedReasoningPolicyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailAutomatedReasoningPolicyConfig)(nil)).Elem()
+}
+
+func (i *guardrailAutomatedReasoningPolicyConfigPtrType) ToGuardrailAutomatedReasoningPolicyConfigPtrOutput() GuardrailAutomatedReasoningPolicyConfigPtrOutput {
+	return i.ToGuardrailAutomatedReasoningPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *guardrailAutomatedReasoningPolicyConfigPtrType) ToGuardrailAutomatedReasoningPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailAutomatedReasoningPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailAutomatedReasoningPolicyConfigPtrOutput)
+}
+
+// Optional configuration for integrating Automated Reasoning policies with the guardrail.
+type GuardrailAutomatedReasoningPolicyConfigOutput struct{ *pulumi.OutputState }
+
+func (GuardrailAutomatedReasoningPolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailAutomatedReasoningPolicyConfig)(nil)).Elem()
+}
+
+func (o GuardrailAutomatedReasoningPolicyConfigOutput) ToGuardrailAutomatedReasoningPolicyConfigOutput() GuardrailAutomatedReasoningPolicyConfigOutput {
+	return o
+}
+
+func (o GuardrailAutomatedReasoningPolicyConfigOutput) ToGuardrailAutomatedReasoningPolicyConfigOutputWithContext(ctx context.Context) GuardrailAutomatedReasoningPolicyConfigOutput {
+	return o
+}
+
+func (o GuardrailAutomatedReasoningPolicyConfigOutput) ToGuardrailAutomatedReasoningPolicyConfigPtrOutput() GuardrailAutomatedReasoningPolicyConfigPtrOutput {
+	return o.ToGuardrailAutomatedReasoningPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailAutomatedReasoningPolicyConfigOutput) ToGuardrailAutomatedReasoningPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailAutomatedReasoningPolicyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailAutomatedReasoningPolicyConfig) *GuardrailAutomatedReasoningPolicyConfig {
+		return &v
+	}).(GuardrailAutomatedReasoningPolicyConfigPtrOutput)
+}
+
+// The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.
+func (o GuardrailAutomatedReasoningPolicyConfigOutput) ConfidenceThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GuardrailAutomatedReasoningPolicyConfig) *float64 { return v.ConfidenceThreshold }).(pulumi.Float64PtrOutput)
+}
+
+// The list of Automated Reasoning policy ARNs to include in the guardrail configuration
+func (o GuardrailAutomatedReasoningPolicyConfigOutput) Policies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GuardrailAutomatedReasoningPolicyConfig) []string { return v.Policies }).(pulumi.StringArrayOutput)
+}
+
+type GuardrailAutomatedReasoningPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailAutomatedReasoningPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailAutomatedReasoningPolicyConfig)(nil)).Elem()
+}
+
+func (o GuardrailAutomatedReasoningPolicyConfigPtrOutput) ToGuardrailAutomatedReasoningPolicyConfigPtrOutput() GuardrailAutomatedReasoningPolicyConfigPtrOutput {
+	return o
+}
+
+func (o GuardrailAutomatedReasoningPolicyConfigPtrOutput) ToGuardrailAutomatedReasoningPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailAutomatedReasoningPolicyConfigPtrOutput {
+	return o
+}
+
+func (o GuardrailAutomatedReasoningPolicyConfigPtrOutput) Elem() GuardrailAutomatedReasoningPolicyConfigOutput {
+	return o.ApplyT(func(v *GuardrailAutomatedReasoningPolicyConfig) GuardrailAutomatedReasoningPolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailAutomatedReasoningPolicyConfig
+		return ret
+	}).(GuardrailAutomatedReasoningPolicyConfigOutput)
+}
+
+// The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.
+func (o GuardrailAutomatedReasoningPolicyConfigPtrOutput) ConfidenceThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GuardrailAutomatedReasoningPolicyConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ConfidenceThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The list of Automated Reasoning policy ARNs to include in the guardrail configuration
+func (o GuardrailAutomatedReasoningPolicyConfigPtrOutput) Policies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GuardrailAutomatedReasoningPolicyConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Policies
+	}).(pulumi.StringArrayOutput)
+}
+
 // Content filter config in content policy.
 type GuardrailContentFilterConfig struct {
 	// Specifies the action to take when harmful content is detected. Supported values include:
@@ -43627,6 +43786,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowVectorSearchBedrockRerankingModelConfigurationPtrInput)(nil)).Elem(), FlowVectorSearchBedrockRerankingModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowVectorSearchRerankingConfigurationInput)(nil)).Elem(), FlowVectorSearchRerankingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowVectorSearchRerankingConfigurationPtrInput)(nil)).Elem(), FlowVectorSearchRerankingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailAutomatedReasoningPolicyConfigInput)(nil)).Elem(), GuardrailAutomatedReasoningPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailAutomatedReasoningPolicyConfigPtrInput)(nil)).Elem(), GuardrailAutomatedReasoningPolicyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterConfigInput)(nil)).Elem(), GuardrailContentFilterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterConfigArrayInput)(nil)).Elem(), GuardrailContentFilterConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentPolicyConfigInput)(nil)).Elem(), GuardrailContentPolicyConfigArgs{})
@@ -44260,6 +44421,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowVersionVectorSearchBedrockRerankingModelConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionVectorSearchRerankingConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionVectorSearchRerankingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GuardrailAutomatedReasoningPolicyConfigOutput{})
+	pulumi.RegisterOutputType(GuardrailAutomatedReasoningPolicyConfigPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterConfigOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterConfigArrayOutput{})
 	pulumi.RegisterOutputType(GuardrailContentPolicyConfigOutput{})

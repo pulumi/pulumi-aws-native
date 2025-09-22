@@ -166,7 +166,7 @@ func (o IndexPropertyMappingMapOutput) MapIndex(k pulumi.StringInput) IndexPrope
 // Configuration for k-NN search method
 type IndexPropertyMappingMethodProperties struct {
 	// The k-NN search engine to use
-	Engine IndexPropertyMappingMethodPropertiesEngine `pulumi:"engine"`
+	Engine *IndexPropertyMappingMethodPropertiesEngine `pulumi:"engine"`
 	// The algorithm name for k-NN search
 	Name IndexPropertyMappingMethodPropertiesName `pulumi:"name"`
 	// Additional parameters for the k-NN algorithm
@@ -189,7 +189,7 @@ type IndexPropertyMappingMethodPropertiesInput interface {
 // Configuration for k-NN search method
 type IndexPropertyMappingMethodPropertiesArgs struct {
 	// The k-NN search engine to use
-	Engine IndexPropertyMappingMethodPropertiesEngineInput `pulumi:"engine"`
+	Engine IndexPropertyMappingMethodPropertiesEnginePtrInput `pulumi:"engine"`
 	// The algorithm name for k-NN search
 	Name IndexPropertyMappingMethodPropertiesNameInput `pulumi:"name"`
 	// Additional parameters for the k-NN algorithm
@@ -277,10 +277,10 @@ func (o IndexPropertyMappingMethodPropertiesOutput) ToIndexPropertyMappingMethod
 }
 
 // The k-NN search engine to use
-func (o IndexPropertyMappingMethodPropertiesOutput) Engine() IndexPropertyMappingMethodPropertiesEngineOutput {
-	return o.ApplyT(func(v IndexPropertyMappingMethodProperties) IndexPropertyMappingMethodPropertiesEngine {
+func (o IndexPropertyMappingMethodPropertiesOutput) Engine() IndexPropertyMappingMethodPropertiesEnginePtrOutput {
+	return o.ApplyT(func(v IndexPropertyMappingMethodProperties) *IndexPropertyMappingMethodPropertiesEngine {
 		return v.Engine
-	}).(IndexPropertyMappingMethodPropertiesEngineOutput)
+	}).(IndexPropertyMappingMethodPropertiesEnginePtrOutput)
 }
 
 // The algorithm name for k-NN search
@@ -332,7 +332,7 @@ func (o IndexPropertyMappingMethodPropertiesPtrOutput) Engine() IndexPropertyMap
 		if v == nil {
 			return nil
 		}
-		return &v.Engine
+		return v.Engine
 	}).(IndexPropertyMappingMethodPropertiesEnginePtrOutput)
 }
 
@@ -980,6 +980,165 @@ func (o MappingsPropertiesPtrOutput) Properties() IndexPropertyMappingMapOutput 
 	}).(IndexPropertyMappingMapOutput)
 }
 
+// Describe IAM federation options in form of key value map
+type SecurityConfigIamFederationConfigOptions struct {
+	// Group attribute for this IAM federation integration
+	GroupAttribute *string `pulumi:"groupAttribute"`
+	// User attribute for this IAM federation integration
+	UserAttribute *string `pulumi:"userAttribute"`
+}
+
+// SecurityConfigIamFederationConfigOptionsInput is an input type that accepts SecurityConfigIamFederationConfigOptionsArgs and SecurityConfigIamFederationConfigOptionsOutput values.
+// You can construct a concrete instance of `SecurityConfigIamFederationConfigOptionsInput` via:
+//
+//	SecurityConfigIamFederationConfigOptionsArgs{...}
+type SecurityConfigIamFederationConfigOptionsInput interface {
+	pulumi.Input
+
+	ToSecurityConfigIamFederationConfigOptionsOutput() SecurityConfigIamFederationConfigOptionsOutput
+	ToSecurityConfigIamFederationConfigOptionsOutputWithContext(context.Context) SecurityConfigIamFederationConfigOptionsOutput
+}
+
+// Describe IAM federation options in form of key value map
+type SecurityConfigIamFederationConfigOptionsArgs struct {
+	// Group attribute for this IAM federation integration
+	GroupAttribute pulumi.StringPtrInput `pulumi:"groupAttribute"`
+	// User attribute for this IAM federation integration
+	UserAttribute pulumi.StringPtrInput `pulumi:"userAttribute"`
+}
+
+func (SecurityConfigIamFederationConfigOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigIamFederationConfigOptions)(nil)).Elem()
+}
+
+func (i SecurityConfigIamFederationConfigOptionsArgs) ToSecurityConfigIamFederationConfigOptionsOutput() SecurityConfigIamFederationConfigOptionsOutput {
+	return i.ToSecurityConfigIamFederationConfigOptionsOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigIamFederationConfigOptionsArgs) ToSecurityConfigIamFederationConfigOptionsOutputWithContext(ctx context.Context) SecurityConfigIamFederationConfigOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigIamFederationConfigOptionsOutput)
+}
+
+func (i SecurityConfigIamFederationConfigOptionsArgs) ToSecurityConfigIamFederationConfigOptionsPtrOutput() SecurityConfigIamFederationConfigOptionsPtrOutput {
+	return i.ToSecurityConfigIamFederationConfigOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigIamFederationConfigOptionsArgs) ToSecurityConfigIamFederationConfigOptionsPtrOutputWithContext(ctx context.Context) SecurityConfigIamFederationConfigOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigIamFederationConfigOptionsOutput).ToSecurityConfigIamFederationConfigOptionsPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigIamFederationConfigOptionsPtrInput is an input type that accepts SecurityConfigIamFederationConfigOptionsArgs, SecurityConfigIamFederationConfigOptionsPtr and SecurityConfigIamFederationConfigOptionsPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigIamFederationConfigOptionsPtrInput` via:
+//
+//	        SecurityConfigIamFederationConfigOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigIamFederationConfigOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigIamFederationConfigOptionsPtrOutput() SecurityConfigIamFederationConfigOptionsPtrOutput
+	ToSecurityConfigIamFederationConfigOptionsPtrOutputWithContext(context.Context) SecurityConfigIamFederationConfigOptionsPtrOutput
+}
+
+type securityConfigIamFederationConfigOptionsPtrType SecurityConfigIamFederationConfigOptionsArgs
+
+func SecurityConfigIamFederationConfigOptionsPtr(v *SecurityConfigIamFederationConfigOptionsArgs) SecurityConfigIamFederationConfigOptionsPtrInput {
+	return (*securityConfigIamFederationConfigOptionsPtrType)(v)
+}
+
+func (*securityConfigIamFederationConfigOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigIamFederationConfigOptions)(nil)).Elem()
+}
+
+func (i *securityConfigIamFederationConfigOptionsPtrType) ToSecurityConfigIamFederationConfigOptionsPtrOutput() SecurityConfigIamFederationConfigOptionsPtrOutput {
+	return i.ToSecurityConfigIamFederationConfigOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigIamFederationConfigOptionsPtrType) ToSecurityConfigIamFederationConfigOptionsPtrOutputWithContext(ctx context.Context) SecurityConfigIamFederationConfigOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigIamFederationConfigOptionsPtrOutput)
+}
+
+// Describe IAM federation options in form of key value map
+type SecurityConfigIamFederationConfigOptionsOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigIamFederationConfigOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigIamFederationConfigOptions)(nil)).Elem()
+}
+
+func (o SecurityConfigIamFederationConfigOptionsOutput) ToSecurityConfigIamFederationConfigOptionsOutput() SecurityConfigIamFederationConfigOptionsOutput {
+	return o
+}
+
+func (o SecurityConfigIamFederationConfigOptionsOutput) ToSecurityConfigIamFederationConfigOptionsOutputWithContext(ctx context.Context) SecurityConfigIamFederationConfigOptionsOutput {
+	return o
+}
+
+func (o SecurityConfigIamFederationConfigOptionsOutput) ToSecurityConfigIamFederationConfigOptionsPtrOutput() SecurityConfigIamFederationConfigOptionsPtrOutput {
+	return o.ToSecurityConfigIamFederationConfigOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigIamFederationConfigOptionsOutput) ToSecurityConfigIamFederationConfigOptionsPtrOutputWithContext(ctx context.Context) SecurityConfigIamFederationConfigOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigIamFederationConfigOptions) *SecurityConfigIamFederationConfigOptions {
+		return &v
+	}).(SecurityConfigIamFederationConfigOptionsPtrOutput)
+}
+
+// Group attribute for this IAM federation integration
+func (o SecurityConfigIamFederationConfigOptionsOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigIamFederationConfigOptions) *string { return v.GroupAttribute }).(pulumi.StringPtrOutput)
+}
+
+// User attribute for this IAM federation integration
+func (o SecurityConfigIamFederationConfigOptionsOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigIamFederationConfigOptions) *string { return v.UserAttribute }).(pulumi.StringPtrOutput)
+}
+
+type SecurityConfigIamFederationConfigOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigIamFederationConfigOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigIamFederationConfigOptions)(nil)).Elem()
+}
+
+func (o SecurityConfigIamFederationConfigOptionsPtrOutput) ToSecurityConfigIamFederationConfigOptionsPtrOutput() SecurityConfigIamFederationConfigOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityConfigIamFederationConfigOptionsPtrOutput) ToSecurityConfigIamFederationConfigOptionsPtrOutputWithContext(ctx context.Context) SecurityConfigIamFederationConfigOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityConfigIamFederationConfigOptionsPtrOutput) Elem() SecurityConfigIamFederationConfigOptionsOutput {
+	return o.ApplyT(func(v *SecurityConfigIamFederationConfigOptions) SecurityConfigIamFederationConfigOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigIamFederationConfigOptions
+		return ret
+	}).(SecurityConfigIamFederationConfigOptionsOutput)
+}
+
+// Group attribute for this IAM federation integration
+func (o SecurityConfigIamFederationConfigOptionsPtrOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigIamFederationConfigOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// User attribute for this IAM federation integration
+func (o SecurityConfigIamFederationConfigOptionsPtrOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigIamFederationConfigOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
 // Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
 type SecurityConfigIamIdentityCenterConfigOptions struct {
 	// The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
@@ -1444,6 +1603,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexSettingsIndexPropertiesPtrInput)(nil)).Elem(), IndexSettingsIndexPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MappingsPropertiesInput)(nil)).Elem(), MappingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MappingsPropertiesPtrInput)(nil)).Elem(), MappingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigIamFederationConfigOptionsInput)(nil)).Elem(), SecurityConfigIamFederationConfigOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigIamFederationConfigOptionsPtrInput)(nil)).Elem(), SecurityConfigIamFederationConfigOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigIamIdentityCenterConfigOptionsInput)(nil)).Elem(), SecurityConfigIamIdentityCenterConfigOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigIamIdentityCenterConfigOptionsPtrInput)(nil)).Elem(), SecurityConfigIamIdentityCenterConfigOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigSamlConfigOptionsInput)(nil)).Elem(), SecurityConfigSamlConfigOptionsArgs{})
@@ -1460,6 +1621,8 @@ func init() {
 	pulumi.RegisterOutputType(IndexSettingsIndexPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MappingsPropertiesOutput{})
 	pulumi.RegisterOutputType(MappingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigIamFederationConfigOptionsOutput{})
+	pulumi.RegisterOutputType(SecurityConfigIamFederationConfigOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigIamIdentityCenterConfigOptionsOutput{})
 	pulumi.RegisterOutputType(SecurityConfigIamIdentityCenterConfigOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigSamlConfigOptionsOutput{})

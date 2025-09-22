@@ -883,6 +883,456 @@ func (in *cloudAutonomousVmClusterMaintenanceWindowPreferencePtr) ToCloudAutonom
 	return pulumi.ToOutputWithContext(ctx, in).(CloudAutonomousVmClusterMaintenanceWindowPreferencePtrOutput)
 }
 
+type CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem string
+
+const (
+	CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemMonday    = CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem("MONDAY")
+	CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemTuesday   = CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem("TUESDAY")
+	CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemWednesday = CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem("WEDNESDAY")
+	CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemThursday  = CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem("THURSDAY")
+	CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemFriday    = CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem("FRIDAY")
+	CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemSaturday  = CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem("SATURDAY")
+	CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemSunday    = CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem("SUNDAY")
+)
+
+func (CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem)(nil)).Elem()
+}
+
+func (e CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem) ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput() CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput {
+	return pulumi.ToOutput(e).(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput)
+}
+
+func (e CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem) ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutputWithContext(ctx context.Context) CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput)
+}
+
+func (e CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem) ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput() CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput {
+	return e.ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutputWithContext(context.Background())
+}
+
+func (e CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem) ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutputWithContext(ctx context.Context) CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput {
+	return CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem(e).ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutputWithContext(ctx).ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutputWithContext(ctx)
+}
+
+func (e CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput struct{ *pulumi.OutputState }
+
+func (CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem)(nil)).Elem()
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput) ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput() CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput {
+	return o
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput) ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutputWithContext(ctx context.Context) CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput {
+	return o
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput) ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput() CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput {
+	return o.ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutputWithContext(context.Background())
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput) ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutputWithContext(ctx context.Context) CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem) *CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem {
+		return &v
+	}).(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput)
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem)(nil)).Elem()
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput) ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput() CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput {
+	return o
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput) ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutputWithContext(ctx context.Context) CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput {
+	return o
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput) Elem() CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput {
+	return o.ApplyT(func(v *CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem) CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem {
+		if v != nil {
+			return *v
+		}
+		var ret CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem
+		return ret
+	}).(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput)
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemInput is an input type that accepts values of the CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem enum
+// A concrete instance of `CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemInput` can be one of the following:
+//
+//	CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemMonday
+//	CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemTuesday
+//	CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemWednesday
+//	CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemThursday
+//	CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemFriday
+//	CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemSaturday
+//	CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemSunday
+type CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemInput interface {
+	pulumi.Input
+
+	ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput() CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput
+	ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutputWithContext(context.Context) CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput
+}
+
+var cloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrType = reflect.TypeOf((**CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem)(nil)).Elem()
+
+type CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrInput interface {
+	pulumi.Input
+
+	ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput() CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput
+	ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutputWithContext(context.Context) CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput
+}
+
+type cloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtr string
+
+func CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtr(v string) CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrInput {
+	return (*cloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtr)(&v)
+}
+
+func (*cloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtr) ElementType() reflect.Type {
+	return cloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrType
+}
+
+func (in *cloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtr) ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput() CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput {
+	return pulumi.ToOutput(in).(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput)
+}
+
+func (in *cloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtr) ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutputWithContext(ctx context.Context) CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput)
+}
+
+// CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayInput is an input type that accepts CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArray and CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput values.
+// You can construct a concrete instance of `CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayInput` via:
+//
+//	CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArray{ CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArgs{...} }
+type CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayInput interface {
+	pulumi.Input
+
+	ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput() CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput
+	ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutputWithContext(context.Context) CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput
+}
+
+type CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArray []CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem
+
+func (CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem)(nil)).Elem()
+}
+
+func (i CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArray) ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput() CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput {
+	return i.ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutputWithContext(context.Background())
+}
+
+func (i CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArray) ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutputWithContext(ctx context.Context) CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput)
+}
+
+type CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem)(nil)).Elem()
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput) ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput() CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput {
+	return o
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput) ToCloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutputWithContext(ctx context.Context) CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput {
+	return o
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput) Index(i pulumi.IntInput) CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem {
+		return vs[0].([]CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem)[vs[1].(int)]
+	}).(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput)
+}
+
+type CloudExadataInfrastructureMaintenanceWindowMonthsItem string
+
+const (
+	CloudExadataInfrastructureMaintenanceWindowMonthsItemJanuary   = CloudExadataInfrastructureMaintenanceWindowMonthsItem("JANUARY")
+	CloudExadataInfrastructureMaintenanceWindowMonthsItemFebruary  = CloudExadataInfrastructureMaintenanceWindowMonthsItem("FEBRUARY")
+	CloudExadataInfrastructureMaintenanceWindowMonthsItemMarch     = CloudExadataInfrastructureMaintenanceWindowMonthsItem("MARCH")
+	CloudExadataInfrastructureMaintenanceWindowMonthsItemApril     = CloudExadataInfrastructureMaintenanceWindowMonthsItem("APRIL")
+	CloudExadataInfrastructureMaintenanceWindowMonthsItemMay       = CloudExadataInfrastructureMaintenanceWindowMonthsItem("MAY")
+	CloudExadataInfrastructureMaintenanceWindowMonthsItemJune      = CloudExadataInfrastructureMaintenanceWindowMonthsItem("JUNE")
+	CloudExadataInfrastructureMaintenanceWindowMonthsItemJuly      = CloudExadataInfrastructureMaintenanceWindowMonthsItem("JULY")
+	CloudExadataInfrastructureMaintenanceWindowMonthsItemAugust    = CloudExadataInfrastructureMaintenanceWindowMonthsItem("AUGUST")
+	CloudExadataInfrastructureMaintenanceWindowMonthsItemSeptember = CloudExadataInfrastructureMaintenanceWindowMonthsItem("SEPTEMBER")
+	CloudExadataInfrastructureMaintenanceWindowMonthsItemOctober   = CloudExadataInfrastructureMaintenanceWindowMonthsItem("OCTOBER")
+	CloudExadataInfrastructureMaintenanceWindowMonthsItemNovember  = CloudExadataInfrastructureMaintenanceWindowMonthsItem("NOVEMBER")
+	CloudExadataInfrastructureMaintenanceWindowMonthsItemDecember  = CloudExadataInfrastructureMaintenanceWindowMonthsItem("DECEMBER")
+)
+
+func (CloudExadataInfrastructureMaintenanceWindowMonthsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudExadataInfrastructureMaintenanceWindowMonthsItem)(nil)).Elem()
+}
+
+func (e CloudExadataInfrastructureMaintenanceWindowMonthsItem) ToCloudExadataInfrastructureMaintenanceWindowMonthsItemOutput() CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput {
+	return pulumi.ToOutput(e).(CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput)
+}
+
+func (e CloudExadataInfrastructureMaintenanceWindowMonthsItem) ToCloudExadataInfrastructureMaintenanceWindowMonthsItemOutputWithContext(ctx context.Context) CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput)
+}
+
+func (e CloudExadataInfrastructureMaintenanceWindowMonthsItem) ToCloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput() CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput {
+	return e.ToCloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutputWithContext(context.Background())
+}
+
+func (e CloudExadataInfrastructureMaintenanceWindowMonthsItem) ToCloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutputWithContext(ctx context.Context) CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput {
+	return CloudExadataInfrastructureMaintenanceWindowMonthsItem(e).ToCloudExadataInfrastructureMaintenanceWindowMonthsItemOutputWithContext(ctx).ToCloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutputWithContext(ctx)
+}
+
+func (e CloudExadataInfrastructureMaintenanceWindowMonthsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CloudExadataInfrastructureMaintenanceWindowMonthsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CloudExadataInfrastructureMaintenanceWindowMonthsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CloudExadataInfrastructureMaintenanceWindowMonthsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput struct{ *pulumi.OutputState }
+
+func (CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudExadataInfrastructureMaintenanceWindowMonthsItem)(nil)).Elem()
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput) ToCloudExadataInfrastructureMaintenanceWindowMonthsItemOutput() CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput {
+	return o
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput) ToCloudExadataInfrastructureMaintenanceWindowMonthsItemOutputWithContext(ctx context.Context) CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput {
+	return o
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput) ToCloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput() CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput {
+	return o.ToCloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutputWithContext(context.Background())
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput) ToCloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutputWithContext(ctx context.Context) CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudExadataInfrastructureMaintenanceWindowMonthsItem) *CloudExadataInfrastructureMaintenanceWindowMonthsItem {
+		return &v
+	}).(CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput)
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CloudExadataInfrastructureMaintenanceWindowMonthsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CloudExadataInfrastructureMaintenanceWindowMonthsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudExadataInfrastructureMaintenanceWindowMonthsItem)(nil)).Elem()
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput) ToCloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput() CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput {
+	return o
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput) ToCloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutputWithContext(ctx context.Context) CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput {
+	return o
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput) Elem() CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput {
+	return o.ApplyT(func(v *CloudExadataInfrastructureMaintenanceWindowMonthsItem) CloudExadataInfrastructureMaintenanceWindowMonthsItem {
+		if v != nil {
+			return *v
+		}
+		var ret CloudExadataInfrastructureMaintenanceWindowMonthsItem
+		return ret
+	}).(CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput)
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CloudExadataInfrastructureMaintenanceWindowMonthsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CloudExadataInfrastructureMaintenanceWindowMonthsItemInput is an input type that accepts values of the CloudExadataInfrastructureMaintenanceWindowMonthsItem enum
+// A concrete instance of `CloudExadataInfrastructureMaintenanceWindowMonthsItemInput` can be one of the following:
+//
+//	CloudExadataInfrastructureMaintenanceWindowMonthsItemJanuary
+//	CloudExadataInfrastructureMaintenanceWindowMonthsItemFebruary
+//	CloudExadataInfrastructureMaintenanceWindowMonthsItemMarch
+//	CloudExadataInfrastructureMaintenanceWindowMonthsItemApril
+//	CloudExadataInfrastructureMaintenanceWindowMonthsItemMay
+//	CloudExadataInfrastructureMaintenanceWindowMonthsItemJune
+//	CloudExadataInfrastructureMaintenanceWindowMonthsItemJuly
+//	CloudExadataInfrastructureMaintenanceWindowMonthsItemAugust
+//	CloudExadataInfrastructureMaintenanceWindowMonthsItemSeptember
+//	CloudExadataInfrastructureMaintenanceWindowMonthsItemOctober
+//	CloudExadataInfrastructureMaintenanceWindowMonthsItemNovember
+//	CloudExadataInfrastructureMaintenanceWindowMonthsItemDecember
+type CloudExadataInfrastructureMaintenanceWindowMonthsItemInput interface {
+	pulumi.Input
+
+	ToCloudExadataInfrastructureMaintenanceWindowMonthsItemOutput() CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput
+	ToCloudExadataInfrastructureMaintenanceWindowMonthsItemOutputWithContext(context.Context) CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput
+}
+
+var cloudExadataInfrastructureMaintenanceWindowMonthsItemPtrType = reflect.TypeOf((**CloudExadataInfrastructureMaintenanceWindowMonthsItem)(nil)).Elem()
+
+type CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrInput interface {
+	pulumi.Input
+
+	ToCloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput() CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput
+	ToCloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutputWithContext(context.Context) CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput
+}
+
+type cloudExadataInfrastructureMaintenanceWindowMonthsItemPtr string
+
+func CloudExadataInfrastructureMaintenanceWindowMonthsItemPtr(v string) CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrInput {
+	return (*cloudExadataInfrastructureMaintenanceWindowMonthsItemPtr)(&v)
+}
+
+func (*cloudExadataInfrastructureMaintenanceWindowMonthsItemPtr) ElementType() reflect.Type {
+	return cloudExadataInfrastructureMaintenanceWindowMonthsItemPtrType
+}
+
+func (in *cloudExadataInfrastructureMaintenanceWindowMonthsItemPtr) ToCloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput() CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput {
+	return pulumi.ToOutput(in).(CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput)
+}
+
+func (in *cloudExadataInfrastructureMaintenanceWindowMonthsItemPtr) ToCloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutputWithContext(ctx context.Context) CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput)
+}
+
+// CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayInput is an input type that accepts CloudExadataInfrastructureMaintenanceWindowMonthsItemArray and CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput values.
+// You can construct a concrete instance of `CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayInput` via:
+//
+//	CloudExadataInfrastructureMaintenanceWindowMonthsItemArray{ CloudExadataInfrastructureMaintenanceWindowMonthsItemArgs{...} }
+type CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayInput interface {
+	pulumi.Input
+
+	ToCloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput() CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput
+	ToCloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutputWithContext(context.Context) CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput
+}
+
+type CloudExadataInfrastructureMaintenanceWindowMonthsItemArray []CloudExadataInfrastructureMaintenanceWindowMonthsItem
+
+func (CloudExadataInfrastructureMaintenanceWindowMonthsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudExadataInfrastructureMaintenanceWindowMonthsItem)(nil)).Elem()
+}
+
+func (i CloudExadataInfrastructureMaintenanceWindowMonthsItemArray) ToCloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput() CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput {
+	return i.ToCloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutputWithContext(context.Background())
+}
+
+func (i CloudExadataInfrastructureMaintenanceWindowMonthsItemArray) ToCloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutputWithContext(ctx context.Context) CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput)
+}
+
+type CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudExadataInfrastructureMaintenanceWindowMonthsItem)(nil)).Elem()
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput) ToCloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput() CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput {
+	return o
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput) ToCloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutputWithContext(ctx context.Context) CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput {
+	return o
+}
+
+func (o CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput) Index(i pulumi.IntInput) CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudExadataInfrastructureMaintenanceWindowMonthsItem {
+		return vs[0].([]CloudExadataInfrastructureMaintenanceWindowMonthsItem)[vs[1].(int)]
+	}).(CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput)
+}
+
 // The Oracle license model applied to the VM cluster.
 type CloudVmClusterLicenseModel string
 
@@ -1049,6 +1499,521 @@ func (in *cloudVmClusterLicenseModelPtr) ToCloudVmClusterLicenseModelPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(CloudVmClusterLicenseModelPtrOutput)
 }
 
+// The status of the managed resource access.
+type OdbNetworkManagedResourceStatus string
+
+const (
+	OdbNetworkManagedResourceStatusEnabled   = OdbNetworkManagedResourceStatus("ENABLED")
+	OdbNetworkManagedResourceStatusEnabling  = OdbNetworkManagedResourceStatus("ENABLING")
+	OdbNetworkManagedResourceStatusDisabled  = OdbNetworkManagedResourceStatus("DISABLED")
+	OdbNetworkManagedResourceStatusDisabling = OdbNetworkManagedResourceStatus("DISABLING")
+)
+
+type OdbNetworkManagedResourceStatusOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkManagedResourceStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OdbNetworkManagedResourceStatus)(nil)).Elem()
+}
+
+func (o OdbNetworkManagedResourceStatusOutput) ToOdbNetworkManagedResourceStatusOutput() OdbNetworkManagedResourceStatusOutput {
+	return o
+}
+
+func (o OdbNetworkManagedResourceStatusOutput) ToOdbNetworkManagedResourceStatusOutputWithContext(ctx context.Context) OdbNetworkManagedResourceStatusOutput {
+	return o
+}
+
+func (o OdbNetworkManagedResourceStatusOutput) ToOdbNetworkManagedResourceStatusPtrOutput() OdbNetworkManagedResourceStatusPtrOutput {
+	return o.ToOdbNetworkManagedResourceStatusPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkManagedResourceStatusOutput) ToOdbNetworkManagedResourceStatusPtrOutputWithContext(ctx context.Context) OdbNetworkManagedResourceStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OdbNetworkManagedResourceStatus) *OdbNetworkManagedResourceStatus {
+		return &v
+	}).(OdbNetworkManagedResourceStatusPtrOutput)
+}
+
+func (o OdbNetworkManagedResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkManagedResourceStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OdbNetworkManagedResourceStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OdbNetworkManagedResourceStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkManagedResourceStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OdbNetworkManagedResourceStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OdbNetworkManagedResourceStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkManagedResourceStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OdbNetworkManagedResourceStatus)(nil)).Elem()
+}
+
+func (o OdbNetworkManagedResourceStatusPtrOutput) ToOdbNetworkManagedResourceStatusPtrOutput() OdbNetworkManagedResourceStatusPtrOutput {
+	return o
+}
+
+func (o OdbNetworkManagedResourceStatusPtrOutput) ToOdbNetworkManagedResourceStatusPtrOutputWithContext(ctx context.Context) OdbNetworkManagedResourceStatusPtrOutput {
+	return o
+}
+
+func (o OdbNetworkManagedResourceStatusPtrOutput) Elem() OdbNetworkManagedResourceStatusOutput {
+	return o.ApplyT(func(v *OdbNetworkManagedResourceStatus) OdbNetworkManagedResourceStatus {
+		if v != nil {
+			return *v
+		}
+		var ret OdbNetworkManagedResourceStatus
+		return ret
+	}).(OdbNetworkManagedResourceStatusOutput)
+}
+
+func (o OdbNetworkManagedResourceStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkManagedResourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OdbNetworkManagedResourceStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the VPC endpoint.
+type OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType string
+
+const (
+	OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeServicenetwork = OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType("SERVICENETWORK")
+)
+
+type OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType)(nil)).Elem()
+}
+
+func (o OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput) ToOdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput() OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput {
+	return o
+}
+
+func (o OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput) ToOdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutputWithContext(ctx context.Context) OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput {
+	return o
+}
+
+func (o OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput) ToOdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput() OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput {
+	return o.ToOdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput) ToOdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutputWithContext(ctx context.Context) OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType) *OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType {
+		return &v
+	}).(OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput)
+}
+
+func (o OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType)(nil)).Elem()
+}
+
+func (o OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput) ToOdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput() OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput {
+	return o
+}
+
+func (o OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput) ToOdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutputWithContext(ctx context.Context) OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput {
+	return o
+}
+
+func (o OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput) Elem() OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput {
+	return o.ApplyT(func(v *OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType) OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType {
+		if v != nil {
+			return *v
+		}
+		var ret OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType
+		return ret
+	}).(OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput)
+}
+
+func (o OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the configuration for Amazon S3 access from the ODB network.
+type OdbNetworkS3Access string
+
+const (
+	OdbNetworkS3AccessEnabled  = OdbNetworkS3Access("ENABLED")
+	OdbNetworkS3AccessDisabled = OdbNetworkS3Access("DISABLED")
+)
+
+func (OdbNetworkS3Access) ElementType() reflect.Type {
+	return reflect.TypeOf((*OdbNetworkS3Access)(nil)).Elem()
+}
+
+func (e OdbNetworkS3Access) ToOdbNetworkS3AccessOutput() OdbNetworkS3AccessOutput {
+	return pulumi.ToOutput(e).(OdbNetworkS3AccessOutput)
+}
+
+func (e OdbNetworkS3Access) ToOdbNetworkS3AccessOutputWithContext(ctx context.Context) OdbNetworkS3AccessOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OdbNetworkS3AccessOutput)
+}
+
+func (e OdbNetworkS3Access) ToOdbNetworkS3AccessPtrOutput() OdbNetworkS3AccessPtrOutput {
+	return e.ToOdbNetworkS3AccessPtrOutputWithContext(context.Background())
+}
+
+func (e OdbNetworkS3Access) ToOdbNetworkS3AccessPtrOutputWithContext(ctx context.Context) OdbNetworkS3AccessPtrOutput {
+	return OdbNetworkS3Access(e).ToOdbNetworkS3AccessOutputWithContext(ctx).ToOdbNetworkS3AccessPtrOutputWithContext(ctx)
+}
+
+func (e OdbNetworkS3Access) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OdbNetworkS3Access) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OdbNetworkS3Access) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OdbNetworkS3Access) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OdbNetworkS3AccessOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkS3AccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OdbNetworkS3Access)(nil)).Elem()
+}
+
+func (o OdbNetworkS3AccessOutput) ToOdbNetworkS3AccessOutput() OdbNetworkS3AccessOutput {
+	return o
+}
+
+func (o OdbNetworkS3AccessOutput) ToOdbNetworkS3AccessOutputWithContext(ctx context.Context) OdbNetworkS3AccessOutput {
+	return o
+}
+
+func (o OdbNetworkS3AccessOutput) ToOdbNetworkS3AccessPtrOutput() OdbNetworkS3AccessPtrOutput {
+	return o.ToOdbNetworkS3AccessPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkS3AccessOutput) ToOdbNetworkS3AccessPtrOutputWithContext(ctx context.Context) OdbNetworkS3AccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OdbNetworkS3Access) *OdbNetworkS3Access {
+		return &v
+	}).(OdbNetworkS3AccessPtrOutput)
+}
+
+func (o OdbNetworkS3AccessOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkS3AccessOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OdbNetworkS3Access) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OdbNetworkS3AccessOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkS3AccessOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OdbNetworkS3Access) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OdbNetworkS3AccessPtrOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkS3AccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OdbNetworkS3Access)(nil)).Elem()
+}
+
+func (o OdbNetworkS3AccessPtrOutput) ToOdbNetworkS3AccessPtrOutput() OdbNetworkS3AccessPtrOutput {
+	return o
+}
+
+func (o OdbNetworkS3AccessPtrOutput) ToOdbNetworkS3AccessPtrOutputWithContext(ctx context.Context) OdbNetworkS3AccessPtrOutput {
+	return o
+}
+
+func (o OdbNetworkS3AccessPtrOutput) Elem() OdbNetworkS3AccessOutput {
+	return o.ApplyT(func(v *OdbNetworkS3Access) OdbNetworkS3Access {
+		if v != nil {
+			return *v
+		}
+		var ret OdbNetworkS3Access
+		return ret
+	}).(OdbNetworkS3AccessOutput)
+}
+
+func (o OdbNetworkS3AccessPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkS3AccessPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OdbNetworkS3Access) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OdbNetworkS3AccessInput is an input type that accepts values of the OdbNetworkS3Access enum
+// A concrete instance of `OdbNetworkS3AccessInput` can be one of the following:
+//
+//	OdbNetworkS3AccessEnabled
+//	OdbNetworkS3AccessDisabled
+type OdbNetworkS3AccessInput interface {
+	pulumi.Input
+
+	ToOdbNetworkS3AccessOutput() OdbNetworkS3AccessOutput
+	ToOdbNetworkS3AccessOutputWithContext(context.Context) OdbNetworkS3AccessOutput
+}
+
+var odbNetworkS3AccessPtrType = reflect.TypeOf((**OdbNetworkS3Access)(nil)).Elem()
+
+type OdbNetworkS3AccessPtrInput interface {
+	pulumi.Input
+
+	ToOdbNetworkS3AccessPtrOutput() OdbNetworkS3AccessPtrOutput
+	ToOdbNetworkS3AccessPtrOutputWithContext(context.Context) OdbNetworkS3AccessPtrOutput
+}
+
+type odbNetworkS3AccessPtr string
+
+func OdbNetworkS3AccessPtr(v string) OdbNetworkS3AccessPtrInput {
+	return (*odbNetworkS3AccessPtr)(&v)
+}
+
+func (*odbNetworkS3AccessPtr) ElementType() reflect.Type {
+	return odbNetworkS3AccessPtrType
+}
+
+func (in *odbNetworkS3AccessPtr) ToOdbNetworkS3AccessPtrOutput() OdbNetworkS3AccessPtrOutput {
+	return pulumi.ToOutput(in).(OdbNetworkS3AccessPtrOutput)
+}
+
+func (in *odbNetworkS3AccessPtr) ToOdbNetworkS3AccessPtrOutputWithContext(ctx context.Context) OdbNetworkS3AccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OdbNetworkS3AccessPtrOutput)
+}
+
+// Specifies the configuration for Zero-ETL access from the ODB network.
+type OdbNetworkZeroEtlAccess string
+
+const (
+	OdbNetworkZeroEtlAccessEnabled  = OdbNetworkZeroEtlAccess("ENABLED")
+	OdbNetworkZeroEtlAccessDisabled = OdbNetworkZeroEtlAccess("DISABLED")
+)
+
+func (OdbNetworkZeroEtlAccess) ElementType() reflect.Type {
+	return reflect.TypeOf((*OdbNetworkZeroEtlAccess)(nil)).Elem()
+}
+
+func (e OdbNetworkZeroEtlAccess) ToOdbNetworkZeroEtlAccessOutput() OdbNetworkZeroEtlAccessOutput {
+	return pulumi.ToOutput(e).(OdbNetworkZeroEtlAccessOutput)
+}
+
+func (e OdbNetworkZeroEtlAccess) ToOdbNetworkZeroEtlAccessOutputWithContext(ctx context.Context) OdbNetworkZeroEtlAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OdbNetworkZeroEtlAccessOutput)
+}
+
+func (e OdbNetworkZeroEtlAccess) ToOdbNetworkZeroEtlAccessPtrOutput() OdbNetworkZeroEtlAccessPtrOutput {
+	return e.ToOdbNetworkZeroEtlAccessPtrOutputWithContext(context.Background())
+}
+
+func (e OdbNetworkZeroEtlAccess) ToOdbNetworkZeroEtlAccessPtrOutputWithContext(ctx context.Context) OdbNetworkZeroEtlAccessPtrOutput {
+	return OdbNetworkZeroEtlAccess(e).ToOdbNetworkZeroEtlAccessOutputWithContext(ctx).ToOdbNetworkZeroEtlAccessPtrOutputWithContext(ctx)
+}
+
+func (e OdbNetworkZeroEtlAccess) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OdbNetworkZeroEtlAccess) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OdbNetworkZeroEtlAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OdbNetworkZeroEtlAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OdbNetworkZeroEtlAccessOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkZeroEtlAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OdbNetworkZeroEtlAccess)(nil)).Elem()
+}
+
+func (o OdbNetworkZeroEtlAccessOutput) ToOdbNetworkZeroEtlAccessOutput() OdbNetworkZeroEtlAccessOutput {
+	return o
+}
+
+func (o OdbNetworkZeroEtlAccessOutput) ToOdbNetworkZeroEtlAccessOutputWithContext(ctx context.Context) OdbNetworkZeroEtlAccessOutput {
+	return o
+}
+
+func (o OdbNetworkZeroEtlAccessOutput) ToOdbNetworkZeroEtlAccessPtrOutput() OdbNetworkZeroEtlAccessPtrOutput {
+	return o.ToOdbNetworkZeroEtlAccessPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkZeroEtlAccessOutput) ToOdbNetworkZeroEtlAccessPtrOutputWithContext(ctx context.Context) OdbNetworkZeroEtlAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OdbNetworkZeroEtlAccess) *OdbNetworkZeroEtlAccess {
+		return &v
+	}).(OdbNetworkZeroEtlAccessPtrOutput)
+}
+
+func (o OdbNetworkZeroEtlAccessOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkZeroEtlAccessOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OdbNetworkZeroEtlAccess) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OdbNetworkZeroEtlAccessOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkZeroEtlAccessOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OdbNetworkZeroEtlAccess) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OdbNetworkZeroEtlAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkZeroEtlAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OdbNetworkZeroEtlAccess)(nil)).Elem()
+}
+
+func (o OdbNetworkZeroEtlAccessPtrOutput) ToOdbNetworkZeroEtlAccessPtrOutput() OdbNetworkZeroEtlAccessPtrOutput {
+	return o
+}
+
+func (o OdbNetworkZeroEtlAccessPtrOutput) ToOdbNetworkZeroEtlAccessPtrOutputWithContext(ctx context.Context) OdbNetworkZeroEtlAccessPtrOutput {
+	return o
+}
+
+func (o OdbNetworkZeroEtlAccessPtrOutput) Elem() OdbNetworkZeroEtlAccessOutput {
+	return o.ApplyT(func(v *OdbNetworkZeroEtlAccess) OdbNetworkZeroEtlAccess {
+		if v != nil {
+			return *v
+		}
+		var ret OdbNetworkZeroEtlAccess
+		return ret
+	}).(OdbNetworkZeroEtlAccessOutput)
+}
+
+func (o OdbNetworkZeroEtlAccessPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkZeroEtlAccessPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OdbNetworkZeroEtlAccess) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OdbNetworkZeroEtlAccessInput is an input type that accepts values of the OdbNetworkZeroEtlAccess enum
+// A concrete instance of `OdbNetworkZeroEtlAccessInput` can be one of the following:
+//
+//	OdbNetworkZeroEtlAccessEnabled
+//	OdbNetworkZeroEtlAccessDisabled
+type OdbNetworkZeroEtlAccessInput interface {
+	pulumi.Input
+
+	ToOdbNetworkZeroEtlAccessOutput() OdbNetworkZeroEtlAccessOutput
+	ToOdbNetworkZeroEtlAccessOutputWithContext(context.Context) OdbNetworkZeroEtlAccessOutput
+}
+
+var odbNetworkZeroEtlAccessPtrType = reflect.TypeOf((**OdbNetworkZeroEtlAccess)(nil)).Elem()
+
+type OdbNetworkZeroEtlAccessPtrInput interface {
+	pulumi.Input
+
+	ToOdbNetworkZeroEtlAccessPtrOutput() OdbNetworkZeroEtlAccessPtrOutput
+	ToOdbNetworkZeroEtlAccessPtrOutputWithContext(context.Context) OdbNetworkZeroEtlAccessPtrOutput
+}
+
+type odbNetworkZeroEtlAccessPtr string
+
+func OdbNetworkZeroEtlAccessPtr(v string) OdbNetworkZeroEtlAccessPtrInput {
+	return (*odbNetworkZeroEtlAccessPtr)(&v)
+}
+
+func (*odbNetworkZeroEtlAccessPtr) ElementType() reflect.Type {
+	return odbNetworkZeroEtlAccessPtrType
+}
+
+func (in *odbNetworkZeroEtlAccessPtr) ToOdbNetworkZeroEtlAccessPtrOutput() OdbNetworkZeroEtlAccessPtrOutput {
+	return pulumi.ToOutput(in).(OdbNetworkZeroEtlAccessPtrOutput)
+}
+
+func (in *odbNetworkZeroEtlAccessPtr) ToOdbNetworkZeroEtlAccessPtrOutputWithContext(ctx context.Context) OdbNetworkZeroEtlAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OdbNetworkZeroEtlAccessPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudAutonomousVmClusterLicenseModelInput)(nil)).Elem(), CloudAutonomousVmClusterLicenseModel("BRING_YOUR_OWN_LICENSE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudAutonomousVmClusterLicenseModelPtrInput)(nil)).Elem(), CloudAutonomousVmClusterLicenseModel("BRING_YOUR_OWN_LICENSE"))
@@ -1060,8 +2025,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudAutonomousVmClusterMaintenanceWindowMonthsItemArrayInput)(nil)).Elem(), CloudAutonomousVmClusterMaintenanceWindowMonthsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudAutonomousVmClusterMaintenanceWindowPreferenceInput)(nil)).Elem(), CloudAutonomousVmClusterMaintenanceWindowPreference("NO_PREFERENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudAutonomousVmClusterMaintenanceWindowPreferencePtrInput)(nil)).Elem(), CloudAutonomousVmClusterMaintenanceWindowPreference("NO_PREFERENCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemInput)(nil)).Elem(), CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem("MONDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrInput)(nil)).Elem(), CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem("MONDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayInput)(nil)).Elem(), CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudExadataInfrastructureMaintenanceWindowMonthsItemInput)(nil)).Elem(), CloudExadataInfrastructureMaintenanceWindowMonthsItem("JANUARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrInput)(nil)).Elem(), CloudExadataInfrastructureMaintenanceWindowMonthsItem("JANUARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayInput)(nil)).Elem(), CloudExadataInfrastructureMaintenanceWindowMonthsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterLicenseModelInput)(nil)).Elem(), CloudVmClusterLicenseModel("BRING_YOUR_OWN_LICENSE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterLicenseModelPtrInput)(nil)).Elem(), CloudVmClusterLicenseModel("BRING_YOUR_OWN_LICENSE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OdbNetworkS3AccessInput)(nil)).Elem(), OdbNetworkS3Access("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OdbNetworkS3AccessPtrInput)(nil)).Elem(), OdbNetworkS3Access("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OdbNetworkZeroEtlAccessInput)(nil)).Elem(), OdbNetworkZeroEtlAccess("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OdbNetworkZeroEtlAccessPtrInput)(nil)).Elem(), OdbNetworkZeroEtlAccess("ENABLED"))
 	pulumi.RegisterOutputType(CloudAutonomousVmClusterComputeModelOutput{})
 	pulumi.RegisterOutputType(CloudAutonomousVmClusterComputeModelPtrOutput{})
 	pulumi.RegisterOutputType(CloudAutonomousVmClusterLicenseModelOutput{})
@@ -1074,6 +2049,20 @@ func init() {
 	pulumi.RegisterOutputType(CloudAutonomousVmClusterMaintenanceWindowMonthsItemArrayOutput{})
 	pulumi.RegisterOutputType(CloudAutonomousVmClusterMaintenanceWindowPreferenceOutput{})
 	pulumi.RegisterOutputType(CloudAutonomousVmClusterMaintenanceWindowPreferencePtrOutput{})
+	pulumi.RegisterOutputType(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemOutput{})
+	pulumi.RegisterOutputType(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemPtrOutput{})
+	pulumi.RegisterOutputType(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItemArrayOutput{})
+	pulumi.RegisterOutputType(CloudExadataInfrastructureMaintenanceWindowMonthsItemOutput{})
+	pulumi.RegisterOutputType(CloudExadataInfrastructureMaintenanceWindowMonthsItemPtrOutput{})
+	pulumi.RegisterOutputType(CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput{})
 	pulumi.RegisterOutputType(CloudVmClusterLicenseModelOutput{})
 	pulumi.RegisterOutputType(CloudVmClusterLicenseModelPtrOutput{})
+	pulumi.RegisterOutputType(OdbNetworkManagedResourceStatusOutput{})
+	pulumi.RegisterOutputType(OdbNetworkManagedResourceStatusPtrOutput{})
+	pulumi.RegisterOutputType(OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput{})
+	pulumi.RegisterOutputType(OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput{})
+	pulumi.RegisterOutputType(OdbNetworkS3AccessOutput{})
+	pulumi.RegisterOutputType(OdbNetworkS3AccessPtrOutput{})
+	pulumi.RegisterOutputType(OdbNetworkZeroEtlAccessOutput{})
+	pulumi.RegisterOutputType(OdbNetworkZeroEtlAccessPtrOutput{})
 }

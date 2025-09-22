@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.Aps
         public Output<string> ScraperId { get; private set; } = null!;
 
         /// <summary>
+        /// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+        /// </summary>
+        [Output("scraperLoggingConfiguration")]
+        public Output<Outputs.ScraperLoggingConfiguration?> ScraperLoggingConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon EKS cluster from which the scraper collects metrics.
         /// </summary>
         [Output("source")]
@@ -141,6 +147,12 @@ namespace Pulumi.AwsNative.Aps
         /// </summary>
         [Input("scrapeConfiguration", required: true)]
         public Input<Inputs.ScraperScrapeConfigurationArgs> ScrapeConfiguration { get; set; } = null!;
+
+        /// <summary>
+        /// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+        /// </summary>
+        [Input("scraperLoggingConfiguration")]
+        public Input<Inputs.ScraperLoggingConfigurationArgs>? ScraperLoggingConfiguration { get; set; }
 
         /// <summary>
         /// The Amazon EKS cluster from which the scraper collects metrics.

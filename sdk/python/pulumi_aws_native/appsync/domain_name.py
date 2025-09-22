@@ -28,7 +28,7 @@ class DomainNameArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DomainName resource.
-        :param pulumi.Input[builtins.str] certificate_arn: The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+        :param pulumi.Input[builtins.str] certificate_arn: The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate.
         :param pulumi.Input[builtins.str] domain_name: The domain name.
         :param pulumi.Input[builtins.str] description: The decription for your domain name.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of tags (key-value pairs) for this domain name.
@@ -44,7 +44,7 @@ class DomainNameArgs:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+        The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate.
         """
         return pulumi.get(self, "certificate_arn")
 
@@ -105,7 +105,7 @@ class DomainName(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] certificate_arn: The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+        :param pulumi.Input[builtins.str] certificate_arn: The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate.
         :param pulumi.Input[builtins.str] description: The decription for your domain name.
         :param pulumi.Input[builtins.str] domain_name: The domain name.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A set of tags (key-value pairs) for this domain name.
@@ -203,7 +203,7 @@ class DomainName(pulumi.CustomResource):
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+        The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate.
         """
         return pulumi.get(self, "certificate_arn")
 

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Smsvoice
     [AwsNativeResourceType("aws-native:smsvoice:PhoneNumber")]
     public partial class PhoneNumber : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The `PhoneNumber` 's Amazon Resource Name (ARN)
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -60,9 +63,15 @@ namespace Pulumi.AwsNative.Smsvoice
         [Output("optionalKeywords")]
         public Output<ImmutableArray<Outputs.PhoneNumberOptionalKeyword>> OptionalKeywords { get; private set; } = null!;
 
+        /// <summary>
+        /// The phone number in E.164 format.
+        /// </summary>
         [Output("phoneNumber")]
         public Output<string> PhoneNumberValue { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for the phone number.
+        /// </summary>
         [Output("phoneNumberId")]
         public Output<string> PhoneNumberId { get; private set; } = null!;
 

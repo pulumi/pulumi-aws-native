@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.ApiGateway
     public partial class DomainName : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+        /// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
         /// </summary>
         [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string?> OwnershipVerificationCertificateArn { get; private set; } = null!;
 
         /// <summary>
-        /// The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+        /// The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
         /// </summary>
         [Output("regionalCertificateArn")]
         public Output<string?> RegionalCertificateArn { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class DomainNameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+        /// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
@@ -255,7 +255,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string>? OwnershipVerificationCertificateArn { get; set; }
 
         /// <summary>
-        /// The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+        /// The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
         /// </summary>
         [Input("regionalCertificateArn")]
         public Input<string>? RegionalCertificateArn { get; set; }

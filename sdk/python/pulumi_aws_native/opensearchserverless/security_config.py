@@ -24,6 +24,7 @@ __all__ = ['SecurityConfigArgs', 'SecurityConfig']
 class SecurityConfigArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 iam_federation_options: Optional[pulumi.Input['SecurityConfigIamFederationConfigOptionsArgs']] = None,
                  iam_identity_center_options: Optional[pulumi.Input['SecurityConfigIamIdentityCenterConfigOptionsArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  saml_options: Optional[pulumi.Input['SecurityConfigSamlConfigOptionsArgs']] = None,
@@ -31,6 +32,7 @@ class SecurityConfigArgs:
         """
         The set of arguments for constructing a SecurityConfig resource.
         :param pulumi.Input[builtins.str] description: Security config description
+        :param pulumi.Input['SecurityConfigIamFederationConfigOptionsArgs'] iam_federation_options: Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
         :param pulumi.Input['SecurityConfigIamIdentityCenterConfigOptionsArgs'] iam_identity_center_options: Describes IAM Identity Center options in the form of a key-value map.
         :param pulumi.Input[builtins.str] name: The friendly name of the security config
         :param pulumi.Input['SecurityConfigSamlConfigOptionsArgs'] saml_options: SAML options for the security configuration in the form of a key-value map.
@@ -38,6 +40,8 @@ class SecurityConfigArgs:
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if iam_federation_options is not None:
+            pulumi.set(__self__, "iam_federation_options", iam_federation_options)
         if iam_identity_center_options is not None:
             pulumi.set(__self__, "iam_identity_center_options", iam_identity_center_options)
         if name is not None:
@@ -58,6 +62,18 @@ class SecurityConfigArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="iamFederationOptions")
+    def iam_federation_options(self) -> Optional[pulumi.Input['SecurityConfigIamFederationConfigOptionsArgs']]:
+        """
+        Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
+        """
+        return pulumi.get(self, "iam_federation_options")
+
+    @iam_federation_options.setter
+    def iam_federation_options(self, value: Optional[pulumi.Input['SecurityConfigIamFederationConfigOptionsArgs']]):
+        pulumi.set(self, "iam_federation_options", value)
 
     @property
     @pulumi.getter(name="iamIdentityCenterOptions")
@@ -115,6 +131,7 @@ class SecurityConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 iam_federation_options: Optional[pulumi.Input[Union['SecurityConfigIamFederationConfigOptionsArgs', 'SecurityConfigIamFederationConfigOptionsArgsDict']]] = None,
                  iam_identity_center_options: Optional[pulumi.Input[Union['SecurityConfigIamIdentityCenterConfigOptionsArgs', 'SecurityConfigIamIdentityCenterConfigOptionsArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  saml_options: Optional[pulumi.Input[Union['SecurityConfigSamlConfigOptionsArgs', 'SecurityConfigSamlConfigOptionsArgsDict']]] = None,
@@ -164,6 +181,7 @@ class SecurityConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: Security config description
+        :param pulumi.Input[Union['SecurityConfigIamFederationConfigOptionsArgs', 'SecurityConfigIamFederationConfigOptionsArgsDict']] iam_federation_options: Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
         :param pulumi.Input[Union['SecurityConfigIamIdentityCenterConfigOptionsArgs', 'SecurityConfigIamIdentityCenterConfigOptionsArgsDict']] iam_identity_center_options: Describes IAM Identity Center options in the form of a key-value map.
         :param pulumi.Input[builtins.str] name: The friendly name of the security config
         :param pulumi.Input[Union['SecurityConfigSamlConfigOptionsArgs', 'SecurityConfigSamlConfigOptionsArgsDict']] saml_options: SAML options for the security configuration in the form of a key-value map.
@@ -232,6 +250,7 @@ class SecurityConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 iam_federation_options: Optional[pulumi.Input[Union['SecurityConfigIamFederationConfigOptionsArgs', 'SecurityConfigIamFederationConfigOptionsArgsDict']]] = None,
                  iam_identity_center_options: Optional[pulumi.Input[Union['SecurityConfigIamIdentityCenterConfigOptionsArgs', 'SecurityConfigIamIdentityCenterConfigOptionsArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  saml_options: Optional[pulumi.Input[Union['SecurityConfigSamlConfigOptionsArgs', 'SecurityConfigSamlConfigOptionsArgsDict']]] = None,
@@ -246,6 +265,7 @@ class SecurityConfig(pulumi.CustomResource):
             __props__ = SecurityConfigArgs.__new__(SecurityConfigArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["iam_federation_options"] = iam_federation_options
             __props__.__dict__["iam_identity_center_options"] = iam_identity_center_options
             __props__.__dict__["name"] = name
             __props__.__dict__["saml_options"] = saml_options
@@ -277,6 +297,7 @@ class SecurityConfig(pulumi.CustomResource):
 
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["iam_federation_options"] = None
         __props__.__dict__["iam_identity_center_options"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["saml_options"] = None
@@ -298,6 +319,14 @@ class SecurityConfig(pulumi.CustomResource):
         Security config description
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="iamFederationOptions")
+    def iam_federation_options(self) -> pulumi.Output[Optional['outputs.SecurityConfigIamFederationConfigOptions']]:
+        """
+        Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
+        """
+        return pulumi.get(self, "iam_federation_options")
 
     @property
     @pulumi.getter(name="iamIdentityCenterOptions")

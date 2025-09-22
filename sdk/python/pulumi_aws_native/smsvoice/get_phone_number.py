@@ -62,6 +62,9 @@ class GetPhoneNumberResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[builtins.str]:
+        """
+        The `PhoneNumber` 's Amazon Resource Name (ARN)
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -99,11 +102,17 @@ class GetPhoneNumberResult:
     @property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> Optional[builtins.str]:
+        """
+        The phone number in E.164 format.
+        """
         return pulumi.get(self, "phone_number")
 
     @property
     @pulumi.getter(name="phoneNumberId")
     def phone_number_id(self) -> Optional[builtins.str]:
+        """
+        The unique identifier for the phone number.
+        """
         return pulumi.get(self, "phone_number_id")
 
     @property
@@ -153,6 +162,9 @@ def get_phone_number(phone_number_id: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPhoneNumberResult:
     """
     Resource Type definition for AWS::SMSVOICE::PhoneNumber
+
+
+    :param builtins.str phone_number_id: The unique identifier for the phone number.
     """
     __args__ = dict()
     __args__['phoneNumberId'] = phone_number_id
@@ -174,6 +186,9 @@ def get_phone_number_output(phone_number_id: Optional[pulumi.Input[builtins.str]
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPhoneNumberResult]:
     """
     Resource Type definition for AWS::SMSVOICE::PhoneNumber
+
+
+    :param builtins.str phone_number_id: The unique identifier for the phone number.
     """
     __args__ = dict()
     __args__['phoneNumberId'] = phone_number_id

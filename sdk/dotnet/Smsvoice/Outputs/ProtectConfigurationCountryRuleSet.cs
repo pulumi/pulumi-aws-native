@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Smsvoice.Outputs
     [OutputType]
     public sealed class ProtectConfigurationCountryRuleSet
     {
+        /// <summary>
+        /// The set of `CountryRule` s to control which destination countries End User Messaging  can send your MMS messages to.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ProtectConfigurationCountryRule> Mms;
+        /// <summary>
+        /// The set of `CountryRule` s to control which destination countries End User Messaging  can send your SMS messages to.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ProtectConfigurationCountryRule> Sms;
+        /// <summary>
+        /// The set of `CountryRule` s to control which destination countries End User Messaging  can send your VOICE messages to.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ProtectConfigurationCountryRule> Voice;
 
         [OutputConstructor]

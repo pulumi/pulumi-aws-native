@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.Smsvoice
     [OutputType]
     public sealed class GetConfigurationSetResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the ConfigurationSet.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// The default sender ID to set for the ConfigurationSet.

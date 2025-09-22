@@ -13,6 +13,7 @@ import * as applicationinsights from "./applicationinsights";
 import * as applicationsignals from "./applicationsignals";
 import * as apprunner from "./apprunner";
 import * as appsync from "./appsync";
+import * as aps from "./aps";
 import * as arcregionswitch from "./arcregionswitch";
 import * as arczonalshift from "./arczonalshift";
 import * as athena from "./athena";
@@ -22,6 +23,7 @@ import * as b2bi from "./b2bi";
 import * as backup from "./backup";
 import * as batch from "./batch";
 import * as bedrock from "./bedrock";
+import * as bedrockagentcore from "./bedrockagentcore";
 import * as billing from "./billing";
 import * as budgets from "./budgets";
 import * as cassandra from "./cassandra";
@@ -198,6 +200,7 @@ export {
     applicationsignals,
     apprunner,
     appsync,
+    aps,
     arcregionswitch,
     arczonalshift,
     athena,
@@ -207,6 +210,7 @@ export {
     backup,
     batch,
     bedrock,
+    bedrockagentcore,
     billing,
     budgets,
     cassandra,

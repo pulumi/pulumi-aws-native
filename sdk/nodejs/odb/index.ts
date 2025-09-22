@@ -40,10 +40,20 @@ export const getOdbNetwork: typeof import("./getOdbNetwork").getOdbNetwork = nul
 export const getOdbNetworkOutput: typeof import("./getOdbNetwork").getOdbNetworkOutput = null as any;
 utilities.lazyLoad(exports, ["getOdbNetwork","getOdbNetworkOutput"], () => require("./getOdbNetwork"));
 
+export { GetOdbPeeringConnectionArgs, GetOdbPeeringConnectionResult, GetOdbPeeringConnectionOutputArgs } from "./getOdbPeeringConnection";
+export const getOdbPeeringConnection: typeof import("./getOdbPeeringConnection").getOdbPeeringConnection = null as any;
+export const getOdbPeeringConnectionOutput: typeof import("./getOdbPeeringConnection").getOdbPeeringConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getOdbPeeringConnection","getOdbPeeringConnectionOutput"], () => require("./getOdbPeeringConnection"));
+
 export { OdbNetworkArgs } from "./odbNetwork";
 export type OdbNetwork = import("./odbNetwork").OdbNetwork;
 export const OdbNetwork: typeof import("./odbNetwork").OdbNetwork = null as any;
 utilities.lazyLoad(exports, ["OdbNetwork"], () => require("./odbNetwork"));
+
+export { OdbPeeringConnectionArgs } from "./odbPeeringConnection";
+export type OdbPeeringConnection = import("./odbPeeringConnection").OdbPeeringConnection;
+export const OdbPeeringConnection: typeof import("./odbPeeringConnection").OdbPeeringConnection = null as any;
+utilities.lazyLoad(exports, ["OdbPeeringConnection"], () => require("./odbPeeringConnection"));
 
 
 // Export enums:
@@ -61,6 +71,8 @@ const _module = {
                 return new CloudVmCluster(name, <any>undefined, { urn })
             case "aws-native:odb:OdbNetwork":
                 return new OdbNetwork(name, <any>undefined, { urn })
+            case "aws-native:odb:OdbPeeringConnection":
+                return new OdbPeeringConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

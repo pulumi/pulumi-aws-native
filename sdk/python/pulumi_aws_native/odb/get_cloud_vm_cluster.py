@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCloudVmClusterResult:
-    def __init__(__self__, cloud_vm_cluster_arn=None, cloud_vm_cluster_id=None, compute_model=None, disk_redundancy=None, domain=None, listener_port=None, node_count=None, oci_resource_anchor_name=None, oci_url=None, ocid=None, scan_dns_name=None, scan_ip_ids=None, shape=None, storage_size_in_gbs=None, tags=None, vip_ids=None):
+    def __init__(__self__, cloud_vm_cluster_arn=None, cloud_vm_cluster_id=None, compute_model=None, db_nodes=None, disk_redundancy=None, domain=None, listener_port=None, node_count=None, oci_resource_anchor_name=None, oci_url=None, ocid=None, scan_dns_name=None, scan_ip_ids=None, shape=None, storage_size_in_gbs=None, tags=None, vip_ids=None):
         if cloud_vm_cluster_arn and not isinstance(cloud_vm_cluster_arn, str):
             raise TypeError("Expected argument 'cloud_vm_cluster_arn' to be a str")
         pulumi.set(__self__, "cloud_vm_cluster_arn", cloud_vm_cluster_arn)
@@ -35,6 +36,9 @@ class GetCloudVmClusterResult:
         if compute_model and not isinstance(compute_model, str):
             raise TypeError("Expected argument 'compute_model' to be a str")
         pulumi.set(__self__, "compute_model", compute_model)
+        if db_nodes and not isinstance(db_nodes, list):
+            raise TypeError("Expected argument 'db_nodes' to be a list")
+        pulumi.set(__self__, "db_nodes", db_nodes)
         if disk_redundancy and not isinstance(disk_redundancy, str):
             raise TypeError("Expected argument 'disk_redundancy' to be a str")
         pulumi.set(__self__, "disk_redundancy", disk_redundancy)
@@ -98,6 +102,14 @@ class GetCloudVmClusterResult:
         The OCI model compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
         """
         return pulumi.get(self, "compute_model")
+
+    @property
+    @pulumi.getter(name="dbNodes")
+    def db_nodes(self) -> Optional[Sequence['outputs.CloudVmClusterDbNode']]:
+        """
+        The DB nodes that are implicitly created and managed as part of this VM Cluster.
+        """
+        return pulumi.get(self, "db_nodes")
 
     @property
     @pulumi.getter(name="diskRedundancy")
@@ -213,6 +225,7 @@ class AwaitableGetCloudVmClusterResult(GetCloudVmClusterResult):
             cloud_vm_cluster_arn=self.cloud_vm_cluster_arn,
             cloud_vm_cluster_id=self.cloud_vm_cluster_id,
             compute_model=self.compute_model,
+            db_nodes=self.db_nodes,
             disk_redundancy=self.disk_redundancy,
             domain=self.domain,
             listener_port=self.listener_port,
@@ -245,6 +258,7 @@ def get_cloud_vm_cluster(cloud_vm_cluster_arn: Optional[builtins.str] = None,
         cloud_vm_cluster_arn=pulumi.get(__ret__, 'cloud_vm_cluster_arn'),
         cloud_vm_cluster_id=pulumi.get(__ret__, 'cloud_vm_cluster_id'),
         compute_model=pulumi.get(__ret__, 'compute_model'),
+        db_nodes=pulumi.get(__ret__, 'db_nodes'),
         disk_redundancy=pulumi.get(__ret__, 'disk_redundancy'),
         domain=pulumi.get(__ret__, 'domain'),
         listener_port=pulumi.get(__ret__, 'listener_port'),
@@ -274,6 +288,7 @@ def get_cloud_vm_cluster_output(cloud_vm_cluster_arn: Optional[pulumi.Input[buil
         cloud_vm_cluster_arn=pulumi.get(__response__, 'cloud_vm_cluster_arn'),
         cloud_vm_cluster_id=pulumi.get(__response__, 'cloud_vm_cluster_id'),
         compute_model=pulumi.get(__response__, 'compute_model'),
+        db_nodes=pulumi.get(__response__, 'db_nodes'),
         disk_redundancy=pulumi.get(__response__, 'disk_redundancy'),
         domain=pulumi.get(__response__, 'domain'),
         listener_port=pulumi.get(__response__, 'listener_port'),

@@ -10,7 +10,9 @@ __all__ = [
     'GlobalTableContributorInsightsSpecificationMode',
     'GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision',
     'GlobalTableMultiRegionConsistency',
+    'GlobalTableSettingsReplicationMode',
     'TableContributorInsightsSpecificationMode',
+    'TableGlobalTableSettingsReplicationMode',
     'TableKinesisStreamSpecificationApproximateCreationDateTimePrecision',
 ]
 
@@ -49,13 +51,25 @@ class GlobalTableMultiRegionConsistency(builtins.str, Enum):
     STRONG = "STRONG"
 
 
+@pulumi.type_token("aws-native:dynamodb:GlobalTableSettingsReplicationMode")
+class GlobalTableSettingsReplicationMode(builtins.str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 @pulumi.type_token("aws-native:dynamodb:TableContributorInsightsSpecificationMode")
 class TableContributorInsightsSpecificationMode(builtins.str, Enum):
     """
-    Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+    Specifies the CloudWatch Contributor Insights mode for a table. Valid values are ``ACCESSED_AND_THROTTLED_KEYS`` (tracks all access and throttled events) or ``THROTTLED_KEYS`` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
     """
     ACCESSED_AND_THROTTLED_KEYS = "ACCESSED_AND_THROTTLED_KEYS"
     THROTTLED_KEYS = "THROTTLED_KEYS"
+
+
+@pulumi.type_token("aws-native:dynamodb:TableGlobalTableSettingsReplicationMode")
+class TableGlobalTableSettingsReplicationMode(builtins.str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:dynamodb:TableKinesisStreamSpecificationApproximateCreationDateTimePrecision")

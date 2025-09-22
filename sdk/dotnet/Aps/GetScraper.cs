@@ -92,6 +92,10 @@ namespace Pulumi.AwsNative.Aps
         /// </summary>
         public readonly string? ScraperId;
         /// <summary>
+        /// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+        /// </summary>
+        public readonly Outputs.ScraperLoggingConfiguration? ScraperLoggingConfiguration;
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -112,6 +116,8 @@ namespace Pulumi.AwsNative.Aps
 
             string? scraperId,
 
+            Outputs.ScraperLoggingConfiguration? scraperLoggingConfiguration,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Alias = alias;
@@ -121,6 +127,7 @@ namespace Pulumi.AwsNative.Aps
             RoleConfiguration = roleConfiguration;
             ScrapeConfiguration = scrapeConfiguration;
             ScraperId = scraperId;
+            ScraperLoggingConfiguration = scraperLoggingConfiguration;
             Tags = tags;
         }
     }

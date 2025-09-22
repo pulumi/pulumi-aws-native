@@ -14,7 +14,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetCloudExadataInfrastructureResult',
@@ -25,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCloudExadataInfrastructureResult:
-    def __init__(__self__, activated_storage_count=None, additional_storage_count=None, available_storage_size_in_gbs=None, cloud_exadata_infrastructure_arn=None, cloud_exadata_infrastructure_id=None, compute_model=None, cpu_count=None, data_storage_size_in_tbs=None, db_node_storage_size_in_gbs=None, db_server_ids=None, db_server_version=None, max_cpu_count=None, max_data_storage_in_tbs=None, max_db_node_storage_size_in_gbs=None, max_memory_in_gbs=None, memory_size_in_gbs=None, oci_resource_anchor_name=None, oci_url=None, ocid=None, storage_server_version=None, tags=None, total_storage_size_in_gbs=None):
+    def __init__(__self__, activated_storage_count=None, additional_storage_count=None, available_storage_size_in_gbs=None, cloud_exadata_infrastructure_arn=None, cloud_exadata_infrastructure_id=None, compute_model=None, cpu_count=None, data_storage_size_in_tbs=None, db_node_storage_size_in_gbs=None, db_server_ids=None, db_server_version=None, maintenance_window=None, max_cpu_count=None, max_data_storage_in_tbs=None, max_db_node_storage_size_in_gbs=None, max_memory_in_gbs=None, memory_size_in_gbs=None, oci_resource_anchor_name=None, oci_url=None, ocid=None, storage_server_version=None, tags=None, total_storage_size_in_gbs=None):
         if activated_storage_count and not isinstance(activated_storage_count, int):
             raise TypeError("Expected argument 'activated_storage_count' to be a int")
         pulumi.set(__self__, "activated_storage_count", activated_storage_count)
@@ -59,6 +61,9 @@ class GetCloudExadataInfrastructureResult:
         if db_server_version and not isinstance(db_server_version, str):
             raise TypeError("Expected argument 'db_server_version' to be a str")
         pulumi.set(__self__, "db_server_version", db_server_version)
+        if maintenance_window and not isinstance(maintenance_window, dict):
+            raise TypeError("Expected argument 'maintenance_window' to be a dict")
+        pulumi.set(__self__, "maintenance_window", maintenance_window)
         if max_cpu_count and not isinstance(max_cpu_count, int):
             raise TypeError("Expected argument 'max_cpu_count' to be a int")
         pulumi.set(__self__, "max_cpu_count", max_cpu_count)
@@ -182,6 +187,14 @@ class GetCloudExadataInfrastructureResult:
         return pulumi.get(self, "db_server_version")
 
     @property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> Optional['outputs.CloudExadataInfrastructureMaintenanceWindow']:
+        """
+        The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+        """
+        return pulumi.get(self, "maintenance_window")
+
+    @property
     @pulumi.getter(name="maxCpuCount")
     def max_cpu_count(self) -> Optional[builtins.int]:
         """
@@ -287,6 +300,7 @@ class AwaitableGetCloudExadataInfrastructureResult(GetCloudExadataInfrastructure
             db_node_storage_size_in_gbs=self.db_node_storage_size_in_gbs,
             db_server_ids=self.db_server_ids,
             db_server_version=self.db_server_version,
+            maintenance_window=self.maintenance_window,
             max_cpu_count=self.max_cpu_count,
             max_data_storage_in_tbs=self.max_data_storage_in_tbs,
             max_db_node_storage_size_in_gbs=self.max_db_node_storage_size_in_gbs,
@@ -325,6 +339,7 @@ def get_cloud_exadata_infrastructure(cloud_exadata_infrastructure_arn: Optional[
         db_node_storage_size_in_gbs=pulumi.get(__ret__, 'db_node_storage_size_in_gbs'),
         db_server_ids=pulumi.get(__ret__, 'db_server_ids'),
         db_server_version=pulumi.get(__ret__, 'db_server_version'),
+        maintenance_window=pulumi.get(__ret__, 'maintenance_window'),
         max_cpu_count=pulumi.get(__ret__, 'max_cpu_count'),
         max_data_storage_in_tbs=pulumi.get(__ret__, 'max_data_storage_in_tbs'),
         max_db_node_storage_size_in_gbs=pulumi.get(__ret__, 'max_db_node_storage_size_in_gbs'),
@@ -360,6 +375,7 @@ def get_cloud_exadata_infrastructure_output(cloud_exadata_infrastructure_arn: Op
         db_node_storage_size_in_gbs=pulumi.get(__response__, 'db_node_storage_size_in_gbs'),
         db_server_ids=pulumi.get(__response__, 'db_server_ids'),
         db_server_version=pulumi.get(__response__, 'db_server_version'),
+        maintenance_window=pulumi.get(__response__, 'maintenance_window'),
         max_cpu_count=pulumi.get(__response__, 'max_cpu_count'),
         max_data_storage_in_tbs=pulumi.get(__response__, 'max_data_storage_in_tbs'),
         max_db_node_storage_size_in_gbs=pulumi.get(__response__, 'max_db_node_storage_size_in_gbs'),

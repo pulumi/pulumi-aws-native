@@ -127,6 +127,11 @@ export class ImageBuilder extends pulumi.CustomResource {
      * - stream.graphics.g6.24xlarge
      * - stream.graphics.gr6.4xlarge
      * - stream.graphics.gr6.8xlarge
+     * - stream.graphics.g6f.large
+     * - stream.graphics.g6f.xlarge
+     * - stream.graphics.g6f.2xlarge
+     * - stream.graphics.g6f.4xlarge
+     * - stream.graphics.gr6f.4xlarge
      */
     public readonly instanceType!: pulumi.Output<string>;
     /**
@@ -289,6 +294,11 @@ export interface ImageBuilderArgs {
      * - stream.graphics.g6.24xlarge
      * - stream.graphics.gr6.4xlarge
      * - stream.graphics.gr6.8xlarge
+     * - stream.graphics.g6f.large
+     * - stream.graphics.g6f.xlarge
+     * - stream.graphics.g6f.2xlarge
+     * - stream.graphics.g6f.4xlarge
+     * - stream.graphics.gr6f.4xlarge
      */
     instanceType: pulumi.Input<string>;
     /**

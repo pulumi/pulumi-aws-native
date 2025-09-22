@@ -3845,11 +3845,11 @@ func (o TableAttributeDefinitionArrayOutput) Index(i pulumi.IntInput) TableAttri
 	}).(TableAttributeDefinitionOutput)
 }
 
-// The settings used to enable or disable CloudWatch Contributor Insights.
+// Configures contributor insights settings for a table or one of its indexes.
 type TableContributorInsightsSpecification struct {
 	// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
 	Enabled bool `pulumi:"enabled"`
-	// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+	// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are ``ACCESSED_AND_THROTTLED_KEYS`` (tracks all access and throttled events) or ``THROTTLED_KEYS`` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
 	Mode *TableContributorInsightsSpecificationMode `pulumi:"mode"`
 }
 
@@ -3864,11 +3864,11 @@ type TableContributorInsightsSpecificationInput interface {
 	ToTableContributorInsightsSpecificationOutputWithContext(context.Context) TableContributorInsightsSpecificationOutput
 }
 
-// The settings used to enable or disable CloudWatch Contributor Insights.
+// Configures contributor insights settings for a table or one of its indexes.
 type TableContributorInsightsSpecificationArgs struct {
 	// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+	// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are ``ACCESSED_AND_THROTTLED_KEYS`` (tracks all access and throttled events) or ``THROTTLED_KEYS`` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
 	Mode TableContributorInsightsSpecificationModePtrInput `pulumi:"mode"`
 }
 
@@ -3925,7 +3925,7 @@ func (i *tableContributorInsightsSpecificationPtrType) ToTableContributorInsight
 	return pulumi.ToOutputWithContext(ctx, i).(TableContributorInsightsSpecificationPtrOutput)
 }
 
-// The settings used to enable or disable CloudWatch Contributor Insights.
+// Configures contributor insights settings for a table or one of its indexes.
 type TableContributorInsightsSpecificationOutput struct{ *pulumi.OutputState }
 
 func (TableContributorInsightsSpecificationOutput) ElementType() reflect.Type {
@@ -3955,7 +3955,7 @@ func (o TableContributorInsightsSpecificationOutput) Enabled() pulumi.BoolOutput
 	return o.ApplyT(func(v TableContributorInsightsSpecification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are “ACCESSED_AND_THROTTLED_KEYS“ (tracks all access and throttled events) or “THROTTLED_KEYS“ (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
 func (o TableContributorInsightsSpecificationOutput) Mode() TableContributorInsightsSpecificationModePtrOutput {
 	return o.ApplyT(func(v TableContributorInsightsSpecification) *TableContributorInsightsSpecificationMode {
 		return v.Mode
@@ -3996,7 +3996,7 @@ func (o TableContributorInsightsSpecificationPtrOutput) Enabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are “ACCESSED_AND_THROTTLED_KEYS“ (tracks all access and throttled events) or “THROTTLED_KEYS“ (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
 func (o TableContributorInsightsSpecificationPtrOutput) Mode() TableContributorInsightsSpecificationModePtrOutput {
 	return o.ApplyT(func(v *TableContributorInsightsSpecification) *TableContributorInsightsSpecificationMode {
 		if v == nil {
@@ -4167,7 +4167,7 @@ func (o TableCsvPtrOutput) HeaderList() pulumi.StringArrayOutput {
 
 // Represents the properties of a global secondary index.
 type TableGlobalSecondaryIndex struct {
-	// The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
+	// The settings used to specify whether to enable CloudWatch Contributor Insights for the global table and define which events to monitor.
 	ContributorInsightsSpecification *TableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
 	// The name of the global secondary index. The name must be unique among all other indexes on this table.
 	IndexName string `pulumi:"indexName"`
@@ -4202,7 +4202,7 @@ type TableGlobalSecondaryIndexInput interface {
 
 // Represents the properties of a global secondary index.
 type TableGlobalSecondaryIndexArgs struct {
-	// The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
+	// The settings used to specify whether to enable CloudWatch Contributor Insights for the global table and define which events to monitor.
 	ContributorInsightsSpecification TableContributorInsightsSpecificationPtrInput `pulumi:"contributorInsightsSpecification"`
 	// The name of the global secondary index. The name must be unique among all other indexes on this table.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
@@ -4276,7 +4276,7 @@ func (o TableGlobalSecondaryIndexOutput) ToTableGlobalSecondaryIndexOutputWithCo
 	return o
 }
 
-// The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
+// The settings used to specify whether to enable CloudWatch Contributor Insights for the global table and define which events to monitor.
 func (o TableGlobalSecondaryIndexOutput) ContributorInsightsSpecification() TableContributorInsightsSpecificationPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) *TableContributorInsightsSpecification {
 		return v.ContributorInsightsSpecification
@@ -6236,7 +6236,8 @@ func (o TableSseSpecificationPtrOutput) SseType() pulumi.StringPtrOutput {
 // Represents the DynamoDB Streams configuration for a table in DynamoDB.
 type TableStreamSpecification struct {
 	// Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
-	//  In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+	//   When you remove the ``StreamSpecification`` property from the template, DynamoDB disables the stream but retains any attached resource policy until the stream is deleted after 24 hours. When you modify the ``StreamViewType`` property, DynamoDB creates a new stream and retains the old stream's resource policy. The old stream and its resource policy are deleted after the 24-hour retention period.
+	//   In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
 	ResourcePolicy *TableResourcePolicy `pulumi:"resourcePolicy"`
 	// When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
 	//   +  ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
@@ -6260,7 +6261,8 @@ type TableStreamSpecificationInput interface {
 // Represents the DynamoDB Streams configuration for a table in DynamoDB.
 type TableStreamSpecificationArgs struct {
 	// Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
-	//  In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+	//   When you remove the ``StreamSpecification`` property from the template, DynamoDB disables the stream but retains any attached resource policy until the stream is deleted after 24 hours. When you modify the ``StreamViewType`` property, DynamoDB creates a new stream and retains the old stream's resource policy. The old stream and its resource policy are deleted after the 24-hour retention period.
+	//   In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
 	ResourcePolicy TableResourcePolicyPtrInput `pulumi:"resourcePolicy"`
 	// When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
 	//   +  ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
@@ -6350,6 +6352,7 @@ func (o TableStreamSpecificationOutput) ToTableStreamSpecificationPtrOutputWithC
 
 // Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
 //
+//	When you remove the ``StreamSpecification`` property from the template, DynamoDB disables the stream but retains any attached resource policy until the stream is deleted after 24 hours. When you modify the ``StreamViewType`` property, DynamoDB creates a new stream and retains the old stream's resource policy. The old stream and its resource policy are deleted after the 24-hour retention period.
 //	In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
 func (o TableStreamSpecificationOutput) ResourcePolicy() TableResourcePolicyPtrOutput {
 	return o.ApplyT(func(v TableStreamSpecification) *TableResourcePolicy { return v.ResourcePolicy }).(TableResourcePolicyPtrOutput)
@@ -6390,6 +6393,7 @@ func (o TableStreamSpecificationPtrOutput) Elem() TableStreamSpecificationOutput
 
 // Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
 //
+//	When you remove the ``StreamSpecification`` property from the template, DynamoDB disables the stream but retains any attached resource policy until the stream is deleted after 24 hours. When you modify the ``StreamViewType`` property, DynamoDB creates a new stream and retains the old stream's resource policy. The old stream and its resource policy are deleted after the 24-hour retention period.
 //	In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
 func (o TableStreamSpecificationPtrOutput) ResourcePolicy() TableResourcePolicyPtrOutput {
 	return o.ApplyT(func(v *TableStreamSpecification) *TableResourcePolicy {

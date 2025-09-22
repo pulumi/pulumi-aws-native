@@ -34,7 +34,8 @@ type Permission struct {
 	//  You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
 	// The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
-	FunctionUrlAuthType PermissionFunctionUrlAuthTypePtrOutput `pulumi:"functionUrlAuthType"`
+	FunctionUrlAuthType   PermissionFunctionUrlAuthTypePtrOutput `pulumi:"functionUrlAuthType"`
+	InvokedViaFunctionUrl pulumi.BoolPtrOutput                   `pulumi:"invokedViaFunctionUrl"`
 	// The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// The identifier for your organization in AOlong. Use this to grant permissions to all the AWS-accounts under this organization.
@@ -67,6 +68,7 @@ func NewPermission(ctx *pulumi.Context,
 		"eventSourceToken",
 		"functionName",
 		"functionUrlAuthType",
+		"invokedViaFunctionUrl",
 		"principal",
 		"principalOrgId",
 		"sourceAccount",
@@ -119,7 +121,8 @@ type permissionArgs struct {
 	//  You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	FunctionName string `pulumi:"functionName"`
 	// The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
-	FunctionUrlAuthType *PermissionFunctionUrlAuthType `pulumi:"functionUrlAuthType"`
+	FunctionUrlAuthType   *PermissionFunctionUrlAuthType `pulumi:"functionUrlAuthType"`
+	InvokedViaFunctionUrl *bool                          `pulumi:"invokedViaFunctionUrl"`
 	// The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
 	Principal string `pulumi:"principal"`
 	// The identifier for your organization in AOlong. Use this to grant permissions to all the AWS-accounts under this organization.
@@ -146,7 +149,8 @@ type PermissionArgs struct {
 	//  You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	FunctionName pulumi.StringInput
 	// The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
-	FunctionUrlAuthType PermissionFunctionUrlAuthTypePtrInput
+	FunctionUrlAuthType   PermissionFunctionUrlAuthTypePtrInput
+	InvokedViaFunctionUrl pulumi.BoolPtrInput
 	// The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
 	Principal pulumi.StringInput
 	// The identifier for your organization in AOlong. Use this to grant permissions to all the AWS-accounts under this organization.
@@ -224,6 +228,10 @@ func (o PermissionOutput) FunctionName() pulumi.StringOutput {
 // The type of authentication that your function URL uses. Set to “AWS_IAM“ if you want to restrict access to authenticated users only. Set to “NONE“ if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
 func (o PermissionOutput) FunctionUrlAuthType() PermissionFunctionUrlAuthTypePtrOutput {
 	return o.ApplyT(func(v *Permission) PermissionFunctionUrlAuthTypePtrOutput { return v.FunctionUrlAuthType }).(PermissionFunctionUrlAuthTypePtrOutput)
+}
+
+func (o PermissionOutput) InvokedViaFunctionUrl() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Permission) pulumi.BoolPtrOutput { return v.InvokedViaFunctionUrl }).(pulumi.BoolPtrOutput)
 }
 
 // The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use “SourceArn“ or “SourceAccount“ to limit who can invoke the function through that service.

@@ -14,19 +14,27 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Outputs
     public sealed class WorkspaceInstancePlacement
     {
         public readonly string? AvailabilityZone;
+        public readonly string? GroupId;
         public readonly string? GroupName;
+        public readonly int? PartitionNumber;
         public readonly Pulumi.AwsNative.WorkspacesInstances.WorkspaceInstancePlacementTenancy? Tenancy;
 
         [OutputConstructor]
         private WorkspaceInstancePlacement(
             string? availabilityZone,
 
+            string? groupId,
+
             string? groupName,
+
+            int? partitionNumber,
 
             Pulumi.AwsNative.WorkspacesInstances.WorkspaceInstancePlacementTenancy? tenancy)
         {
             AvailabilityZone = availabilityZone;
+            GroupId = groupId;
             GroupName = groupName;
+            PartitionNumber = partitionNumber;
             Tenancy = tenancy;
         }
     }

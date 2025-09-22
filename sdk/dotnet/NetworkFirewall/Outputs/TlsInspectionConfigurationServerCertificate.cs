@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     public sealed class TlsInspectionConfigurationServerCertificate
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
+        /// The Amazon Resource Name (ARN) of the Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
         /// </summary>
         public readonly string? ResourceArn;
 

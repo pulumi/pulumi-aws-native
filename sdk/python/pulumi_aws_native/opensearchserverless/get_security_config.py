@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetSecurityConfigResult:
-    def __init__(__self__, description=None, iam_identity_center_options=None, id=None, saml_options=None):
+    def __init__(__self__, description=None, iam_federation_options=None, iam_identity_center_options=None, id=None, saml_options=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if iam_federation_options and not isinstance(iam_federation_options, dict):
+            raise TypeError("Expected argument 'iam_federation_options' to be a dict")
+        pulumi.set(__self__, "iam_federation_options", iam_federation_options)
         if iam_identity_center_options and not isinstance(iam_identity_center_options, dict):
             raise TypeError("Expected argument 'iam_identity_center_options' to be a dict")
         pulumi.set(__self__, "iam_identity_center_options", iam_identity_center_options)
@@ -46,6 +49,14 @@ class GetSecurityConfigResult:
         Security config description
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="iamFederationOptions")
+    def iam_federation_options(self) -> Optional['outputs.SecurityConfigIamFederationConfigOptions']:
+        """
+        Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
+        """
+        return pulumi.get(self, "iam_federation_options")
 
     @property
     @pulumi.getter(name="iamIdentityCenterOptions")
@@ -79,6 +90,7 @@ class AwaitableGetSecurityConfigResult(GetSecurityConfigResult):
             yield self
         return GetSecurityConfigResult(
             description=self.description,
+            iam_federation_options=self.iam_federation_options,
             iam_identity_center_options=self.iam_identity_center_options,
             id=self.id,
             saml_options=self.saml_options)
@@ -99,6 +111,7 @@ def get_security_config(id: Optional[builtins.str] = None,
 
     return AwaitableGetSecurityConfigResult(
         description=pulumi.get(__ret__, 'description'),
+        iam_federation_options=pulumi.get(__ret__, 'iam_federation_options'),
         iam_identity_center_options=pulumi.get(__ret__, 'iam_identity_center_options'),
         id=pulumi.get(__ret__, 'id'),
         saml_options=pulumi.get(__ret__, 'saml_options'))
@@ -116,6 +129,7 @@ def get_security_config_output(id: Optional[pulumi.Input[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:opensearchserverless:getSecurityConfig', __args__, opts=opts, typ=GetSecurityConfigResult)
     return __ret__.apply(lambda __response__: GetSecurityConfigResult(
         description=pulumi.get(__response__, 'description'),
+        iam_federation_options=pulumi.get(__response__, 'iam_federation_options'),
         iam_identity_center_options=pulumi.get(__response__, 'iam_identity_center_options'),
         id=pulumi.get(__response__, 'id'),
         saml_options=pulumi.get(__response__, 'saml_options')))

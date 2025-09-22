@@ -97,7 +97,7 @@ import (
 type DomainName struct {
 	pulumi.CustomResourceState
 
-	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// The Amazon CloudFront distribution domain name that's mapped to the custom domain name. This is only applicable for endpoints whose type is `EDGE` .
 	//
@@ -115,7 +115,7 @@ type DomainName struct {
 	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrOutput `pulumi:"mutualTlsAuthentication"`
 	// The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
 	OwnershipVerificationCertificateArn pulumi.StringPtrOutput `pulumi:"ownershipVerificationCertificateArn"`
-	// The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+	// The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
 	RegionalCertificateArn pulumi.StringPtrOutput `pulumi:"regionalCertificateArn"`
 	// The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
 	RegionalDomainName pulumi.StringOutput `pulumi:"regionalDomainName"`
@@ -173,7 +173,7 @@ func (DomainNameState) ElementType() reflect.Type {
 }
 
 type domainNameArgs struct {
-	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The custom domain name as an API host name, for example, `my-api.example.com` .
 	DomainName *string `pulumi:"domainName"`
@@ -183,7 +183,7 @@ type domainNameArgs struct {
 	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
 	// The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
 	OwnershipVerificationCertificateArn *string `pulumi:"ownershipVerificationCertificateArn"`
-	// The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+	// The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
 	RegionalCertificateArn *string `pulumi:"regionalCertificateArn"`
 	// The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
 	RoutingMode *DomainNameRoutingMode `pulumi:"routingMode"`
@@ -195,7 +195,7 @@ type domainNameArgs struct {
 
 // The set of arguments for constructing a DomainName resource.
 type DomainNameArgs struct {
-	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
 	CertificateArn pulumi.StringPtrInput
 	// The custom domain name as an API host name, for example, `my-api.example.com` .
 	DomainName pulumi.StringPtrInput
@@ -205,7 +205,7 @@ type DomainNameArgs struct {
 	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
 	// The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
 	OwnershipVerificationCertificateArn pulumi.StringPtrInput
-	// The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+	// The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
 	RegionalCertificateArn pulumi.StringPtrInput
 	// The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
 	RoutingMode DomainNameRoutingModePtrInput
@@ -252,7 +252,7 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 	return o
 }
 
-// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
 func (o DomainNameOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
@@ -294,7 +294,7 @@ func (o DomainNameOutput) OwnershipVerificationCertificateArn() pulumi.StringPtr
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.OwnershipVerificationCertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+// The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
 func (o DomainNameOutput) RegionalCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.RegionalCertificateArn }).(pulumi.StringPtrOutput)
 }

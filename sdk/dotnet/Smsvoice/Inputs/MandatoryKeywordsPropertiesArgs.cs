@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Smsvoice.Inputs
     /// </summary>
     public sealed class MandatoryKeywordsPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the pool's `HELP` keyword. For more information, see [Opt out list required keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/opt-out-list-keywords.html) in the End User Messaging  User Guide.
+        /// </summary>
         [Input("help", required: true)]
         public Input<Inputs.PoolMandatoryKeywordArgs> Help { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the pool's opt-out keyword. For more information, see [Required opt-out keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/keywords-required.html) in the End User Messaging  User Guide.
+        /// </summary>
         [Input("stop", required: true)]
         public Input<Inputs.PoolMandatoryKeywordArgs> Stop { get; set; } = null!;
 

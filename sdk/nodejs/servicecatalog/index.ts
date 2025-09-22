@@ -15,6 +15,11 @@ export const getCloudFormationProvisionedProduct: typeof import("./getCloudForma
 export const getCloudFormationProvisionedProductOutput: typeof import("./getCloudFormationProvisionedProduct").getCloudFormationProvisionedProductOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudFormationProvisionedProduct","getCloudFormationProvisionedProductOutput"], () => require("./getCloudFormationProvisionedProduct"));
 
+export { GetLaunchTemplateConstraintArgs, GetLaunchTemplateConstraintResult, GetLaunchTemplateConstraintOutputArgs } from "./getLaunchTemplateConstraint";
+export const getLaunchTemplateConstraint: typeof import("./getLaunchTemplateConstraint").getLaunchTemplateConstraint = null as any;
+export const getLaunchTemplateConstraintOutput: typeof import("./getLaunchTemplateConstraint").getLaunchTemplateConstraintOutput = null as any;
+utilities.lazyLoad(exports, ["getLaunchTemplateConstraint","getLaunchTemplateConstraintOutput"], () => require("./getLaunchTemplateConstraint"));
+
 export { GetServiceActionArgs, GetServiceActionResult, GetServiceActionOutputArgs } from "./getServiceAction";
 export const getServiceAction: typeof import("./getServiceAction").getServiceAction = null as any;
 export const getServiceActionOutput: typeof import("./getServiceAction").getServiceActionOutput = null as any;
@@ -24,6 +29,16 @@ export { GetTagOptionArgs, GetTagOptionResult, GetTagOptionOutputArgs } from "./
 export const getTagOption: typeof import("./getTagOption").getTagOption = null as any;
 export const getTagOptionOutput: typeof import("./getTagOption").getTagOptionOutput = null as any;
 utilities.lazyLoad(exports, ["getTagOption","getTagOptionOutput"], () => require("./getTagOption"));
+
+export { LaunchTemplateConstraintArgs } from "./launchTemplateConstraint";
+export type LaunchTemplateConstraint = import("./launchTemplateConstraint").LaunchTemplateConstraint;
+export const LaunchTemplateConstraint: typeof import("./launchTemplateConstraint").LaunchTemplateConstraint = null as any;
+utilities.lazyLoad(exports, ["LaunchTemplateConstraint"], () => require("./launchTemplateConstraint"));
+
+export { PortfolioProductAssociationArgs } from "./portfolioProductAssociation";
+export type PortfolioProductAssociation = import("./portfolioProductAssociation").PortfolioProductAssociation;
+export const PortfolioProductAssociation: typeof import("./portfolioProductAssociation").PortfolioProductAssociation = null as any;
+utilities.lazyLoad(exports, ["PortfolioProductAssociation"], () => require("./portfolioProductAssociation"));
 
 export { ServiceActionArgs } from "./serviceAction";
 export type ServiceAction = import("./serviceAction").ServiceAction;
@@ -50,6 +65,10 @@ const _module = {
         switch (type) {
             case "aws-native:servicecatalog:CloudFormationProvisionedProduct":
                 return new CloudFormationProvisionedProduct(name, <any>undefined, { urn })
+            case "aws-native:servicecatalog:LaunchTemplateConstraint":
+                return new LaunchTemplateConstraint(name, <any>undefined, { urn })
+            case "aws-native:servicecatalog:PortfolioProductAssociation":
+                return new PortfolioProductAssociation(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:ServiceAction":
                 return new ServiceAction(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:ServiceActionAssociation":

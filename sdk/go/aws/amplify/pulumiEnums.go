@@ -878,7 +878,7 @@ func (in *branchStagePtr) ToBranchStagePtrOutputWithContext(ctx context.Context)
 //
 // Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
 //
-// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+// Specify `CUSTOM` to use your own certificate that you have already added to Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
 type DomainCertificateCertificateType string
 
 const (
@@ -973,7 +973,7 @@ func (o DomainCertificateCertificateTypePtrOutput) ToStringPtrOutputWithContext(
 //
 // Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
 //
-// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+// Specify `CUSTOM` to use your own certificate that you have already added to Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
 type DomainCertificateSettingsCertificateType string
 
 const (

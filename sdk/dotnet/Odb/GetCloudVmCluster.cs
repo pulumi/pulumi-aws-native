@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Odb
         /// </summary>
         public readonly string? ComputeModel;
         /// <summary>
+        /// The DB nodes that are implicitly created and managed as part of this VM Cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CloudVmClusterDbNode> DbNodes;
+        /// <summary>
         /// The type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.
         /// </summary>
         public readonly string? DiskRedundancy;
@@ -136,6 +140,8 @@ namespace Pulumi.AwsNative.Odb
 
             string? computeModel,
 
+            ImmutableArray<Outputs.CloudVmClusterDbNode> dbNodes,
+
             string? diskRedundancy,
 
             string? domain,
@@ -165,6 +171,7 @@ namespace Pulumi.AwsNative.Odb
             CloudVmClusterArn = cloudVmClusterArn;
             CloudVmClusterId = cloudVmClusterId;
             ComputeModel = computeModel;
+            DbNodes = dbNodes;
             DiskRedundancy = diskRedundancy;
             Domain = domain;
             ListenerPort = listenerPort;

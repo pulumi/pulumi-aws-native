@@ -2233,7 +2233,7 @@ class TlsInspectionConfigurationServerCertificate(dict):
     def __init__(__self__, *,
                  resource_arn: Optional[builtins.str] = None):
         """
-        :param builtins.str resource_arn: The Amazon Resource Name (ARN) of the AWS Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
+        :param builtins.str resource_arn: The Amazon Resource Name (ARN) of the Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
         """
         if resource_arn is not None:
             pulumi.set(__self__, "resource_arn", resource_arn)
@@ -2242,7 +2242,7 @@ class TlsInspectionConfigurationServerCertificate(dict):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the AWS Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
+        The Amazon Resource Name (ARN) of the Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -2276,7 +2276,7 @@ class TlsInspectionConfigurationServerCertificateConfiguration(dict):
                  scopes: Optional[Sequence['outputs.TlsInspectionConfigurationServerCertificateScope']] = None,
                  server_certificates: Optional[Sequence['outputs.TlsInspectionConfigurationServerCertificate']] = None):
         """
-        :param builtins.str certificate_authority_arn: The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within AWS Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
+        :param builtins.str certificate_authority_arn: The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
                
                The following limitations apply:
                
@@ -2285,7 +2285,7 @@ class TlsInspectionConfigurationServerCertificateConfiguration(dict):
                
                For more information about configuring certificates for outbound inspection, see [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
                
-               For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
+               For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *Certificate Manager User Guide* .
         :param 'TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties' check_certificate_revocation_status: When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkfirewall-servercertificateconfiguration.html) .
         :param Sequence['TlsInspectionConfigurationServerCertificateScope'] scopes: A list of scopes.
         :param Sequence['TlsInspectionConfigurationServerCertificate'] server_certificates: The list of server certificates to use for inbound SSL/TLS inspection.
@@ -2303,7 +2303,7 @@ class TlsInspectionConfigurationServerCertificateConfiguration(dict):
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> Optional[builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within AWS Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
+        The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
 
         The following limitations apply:
 
@@ -2312,7 +2312,7 @@ class TlsInspectionConfigurationServerCertificateConfiguration(dict):
 
         For more information about configuring certificates for outbound inspection, see [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
 
-        For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
+        For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *Certificate Manager User Guide* .
         """
         return pulumi.get(self, "certificate_authority_arn")
 

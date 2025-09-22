@@ -35,6 +35,8 @@ type LookupCloudVmClusterResult struct {
 	CloudVmClusterId *string `pulumi:"cloudVmClusterId"`
 	// The OCI model compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
 	ComputeModel *string `pulumi:"computeModel"`
+	// The DB nodes that are implicitly created and managed as part of this VM Cluster.
+	DbNodes []CloudVmClusterDbNode `pulumi:"dbNodes"`
 	// The type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.
 	DiskRedundancy *string `pulumi:"diskRedundancy"`
 	// The domain of the VM cluster.
@@ -108,6 +110,11 @@ func (o LookupCloudVmClusterResultOutput) CloudVmClusterId() pulumi.StringPtrOut
 // The OCI model compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
 func (o LookupCloudVmClusterResultOutput) ComputeModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) *string { return v.ComputeModel }).(pulumi.StringPtrOutput)
+}
+
+// The DB nodes that are implicitly created and managed as part of this VM Cluster.
+func (o LookupCloudVmClusterResultOutput) DbNodes() CloudVmClusterDbNodeArrayOutput {
+	return o.ApplyT(func(v LookupCloudVmClusterResult) []CloudVmClusterDbNode { return v.DbNodes }).(CloudVmClusterDbNodeArrayOutput)
 }
 
 // The type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.

@@ -54,6 +54,10 @@ export class RoutingProfile extends pulumi.CustomResource {
      */
     public readonly instanceArn!: pulumi.Output<string>;
     /**
+     * The manual assignment queues to associate with this routing profile.
+     */
+    public readonly manualAssignmentQueueConfigs!: pulumi.Output<outputs.connect.RoutingProfileManualAssignmentQueueConfig[] | undefined>;
+    /**
      * The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
      */
     public readonly mediaConcurrencies!: pulumi.Output<outputs.connect.RoutingProfileMediaConcurrency[]>;
@@ -101,6 +105,7 @@ export class RoutingProfile extends pulumi.CustomResource {
             resourceInputs["defaultOutboundQueueArn"] = args ? args.defaultOutboundQueueArn : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["manualAssignmentQueueConfigs"] = args ? args.manualAssignmentQueueConfigs : undefined;
             resourceInputs["mediaConcurrencies"] = args ? args.mediaConcurrencies : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["queueConfigs"] = args ? args.queueConfigs : undefined;
@@ -111,6 +116,7 @@ export class RoutingProfile extends pulumi.CustomResource {
             resourceInputs["defaultOutboundQueueArn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
+            resourceInputs["manualAssignmentQueueConfigs"] = undefined /*out*/;
             resourceInputs["mediaConcurrencies"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["queueConfigs"] = undefined /*out*/;
@@ -142,6 +148,10 @@ export interface RoutingProfileArgs {
      * The identifier of the Amazon Connect instance.
      */
     instanceArn: pulumi.Input<string>;
+    /**
+     * The manual assignment queues to associate with this routing profile.
+     */
+    manualAssignmentQueueConfigs?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileManualAssignmentQueueConfigArgs>[]>;
     /**
      * The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
      */

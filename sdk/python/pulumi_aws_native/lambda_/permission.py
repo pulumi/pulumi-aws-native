@@ -26,6 +26,7 @@ class PermissionArgs:
                  principal: pulumi.Input[builtins.str],
                  event_source_token: Optional[pulumi.Input[builtins.str]] = None,
                  function_url_auth_type: Optional[pulumi.Input['PermissionFunctionUrlAuthType']] = None,
+                 invoked_via_function_url: Optional[pulumi.Input[builtins.bool]] = None,
                  principal_org_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_account: Optional[pulumi.Input[builtins.str]] = None,
                  source_arn: Optional[pulumi.Input[builtins.str]] = None):
@@ -54,6 +55,8 @@ class PermissionArgs:
             pulumi.set(__self__, "event_source_token", event_source_token)
         if function_url_auth_type is not None:
             pulumi.set(__self__, "function_url_auth_type", function_url_auth_type)
+        if invoked_via_function_url is not None:
+            pulumi.set(__self__, "invoked_via_function_url", invoked_via_function_url)
         if principal_org_id is not None:
             pulumi.set(__self__, "principal_org_id", principal_org_id)
         if source_account is not None:
@@ -128,6 +131,15 @@ class PermissionArgs:
         pulumi.set(self, "function_url_auth_type", value)
 
     @property
+    @pulumi.getter(name="invokedViaFunctionUrl")
+    def invoked_via_function_url(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "invoked_via_function_url")
+
+    @invoked_via_function_url.setter
+    def invoked_via_function_url(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "invoked_via_function_url", value)
+
+    @property
     @pulumi.getter(name="principalOrgId")
     def principal_org_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -175,6 +187,7 @@ class Permission(pulumi.CustomResource):
                  event_source_token: Optional[pulumi.Input[builtins.str]] = None,
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  function_url_auth_type: Optional[pulumi.Input['PermissionFunctionUrlAuthType']] = None,
+                 invoked_via_function_url: Optional[pulumi.Input[builtins.bool]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
                  principal_org_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_account: Optional[pulumi.Input[builtins.str]] = None,
@@ -235,6 +248,7 @@ class Permission(pulumi.CustomResource):
                  event_source_token: Optional[pulumi.Input[builtins.str]] = None,
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  function_url_auth_type: Optional[pulumi.Input['PermissionFunctionUrlAuthType']] = None,
+                 invoked_via_function_url: Optional[pulumi.Input[builtins.bool]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
                  principal_org_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_account: Optional[pulumi.Input[builtins.str]] = None,
@@ -256,6 +270,7 @@ class Permission(pulumi.CustomResource):
                 raise TypeError("Missing required property 'function_name'")
             __props__.__dict__["function_name"] = function_name
             __props__.__dict__["function_url_auth_type"] = function_url_auth_type
+            __props__.__dict__["invoked_via_function_url"] = invoked_via_function_url
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
@@ -263,7 +278,7 @@ class Permission(pulumi.CustomResource):
             __props__.__dict__["source_account"] = source_account
             __props__.__dict__["source_arn"] = source_arn
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["action", "eventSourceToken", "functionName", "functionUrlAuthType", "principal", "principalOrgId", "sourceAccount", "sourceArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["action", "eventSourceToken", "functionName", "functionUrlAuthType", "invokedViaFunctionUrl", "principal", "principalOrgId", "sourceAccount", "sourceArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Permission, __self__).__init__(
             'aws-native:lambda:Permission',
@@ -292,6 +307,7 @@ class Permission(pulumi.CustomResource):
         __props__.__dict__["event_source_token"] = None
         __props__.__dict__["function_name"] = None
         __props__.__dict__["function_url_auth_type"] = None
+        __props__.__dict__["invoked_via_function_url"] = None
         __props__.__dict__["principal"] = None
         __props__.__dict__["principal_org_id"] = None
         __props__.__dict__["source_account"] = None
@@ -340,6 +356,11 @@ class Permission(pulumi.CustomResource):
         The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
         """
         return pulumi.get(self, "function_url_auth_type")
+
+    @property
+    @pulumi.getter(name="invokedViaFunctionUrl")
+    def invoked_via_function_url(self) -> pulumi.Output[Optional[builtins.bool]]:
+        return pulumi.get(self, "invoked_via_function_url")
 
     @property
     @pulumi.getter

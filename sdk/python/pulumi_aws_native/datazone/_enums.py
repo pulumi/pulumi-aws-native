@@ -20,6 +20,7 @@ __all__ = [
     'GroupProfileStatus',
     'OwnerEntityType',
     'PolicyGrantDomainUnitDesignation',
+    'PolicyGrantManagedPolicyType',
     'PolicyGrantProjectDesignation',
     'PolicyGrantTargetEntityType',
     'ProjectMembershipUserDesignation',
@@ -167,6 +168,23 @@ class PolicyGrantDomainUnitDesignation(builtins.str, Enum):
     OWNER = "OWNER"
 
 
+@pulumi.type_token("aws-native:datazone:PolicyGrantManagedPolicyType")
+class PolicyGrantManagedPolicyType(builtins.str, Enum):
+    CREATE_DOMAIN_UNIT = "CREATE_DOMAIN_UNIT"
+    OVERRIDE_DOMAIN_UNIT_OWNERS = "OVERRIDE_DOMAIN_UNIT_OWNERS"
+    ADD_TO_PROJECT_MEMBER_POOL = "ADD_TO_PROJECT_MEMBER_POOL"
+    OVERRIDE_PROJECT_OWNERS = "OVERRIDE_PROJECT_OWNERS"
+    CREATE_GLOSSARY = "CREATE_GLOSSARY"
+    CREATE_FORM_TYPE = "CREATE_FORM_TYPE"
+    CREATE_ASSET_TYPE = "CREATE_ASSET_TYPE"
+    CREATE_PROJECT = "CREATE_PROJECT"
+    CREATE_ENVIRONMENT_PROFILE = "CREATE_ENVIRONMENT_PROFILE"
+    DELEGATE_CREATE_ENVIRONMENT_PROFILE = "DELEGATE_CREATE_ENVIRONMENT_PROFILE"
+    CREATE_ENVIRONMENT = "CREATE_ENVIRONMENT"
+    CREATE_ENVIRONMENT_FROM_BLUEPRINT = "CREATE_ENVIRONMENT_FROM_BLUEPRINT"
+    CREATE_PROJECT_FROM_PROJECT_PROFILE = "CREATE_PROJECT_FROM_PROJECT_PROFILE"
+
+
 @pulumi.type_token("aws-native:datazone:PolicyGrantProjectDesignation")
 class PolicyGrantProjectDesignation(builtins.str, Enum):
     OWNER = "OWNER"
@@ -176,9 +194,9 @@ class PolicyGrantProjectDesignation(builtins.str, Enum):
 
 @pulumi.type_token("aws-native:datazone:PolicyGrantTargetEntityType")
 class PolicyGrantTargetEntityType(builtins.str, Enum):
-    DOMAIN_UNIT = "DomainUnit"
-    ENVIRONMENT_BLUEPRINT_CONFIGURATION = "EnvironmentBlueprintConfiguration"
-    ENVIRONMENT_PROFILE = "EnvironmentProfile"
+    DOMAIN_UNIT = "DOMAIN_UNIT"
+    ENVIRONMENT_BLUEPRINT_CONFIGURATION = "ENVIRONMENT_BLUEPRINT_CONFIGURATION"
+    ENVIRONMENT_PROFILE = "ENVIRONMENT_PROFILE"
     ASSET_TYPE = "ASSET_TYPE"
 
 

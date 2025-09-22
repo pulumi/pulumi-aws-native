@@ -429,6 +429,45 @@ namespace Pulumi.AwsNative.DataZone
     }
 
     [EnumType]
+    public readonly struct PolicyGrantManagedPolicyType : IEquatable<PolicyGrantManagedPolicyType>
+    {
+        private readonly string _value;
+
+        private PolicyGrantManagedPolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyGrantManagedPolicyType CreateDomainUnit { get; } = new PolicyGrantManagedPolicyType("CREATE_DOMAIN_UNIT");
+        public static PolicyGrantManagedPolicyType OverrideDomainUnitOwners { get; } = new PolicyGrantManagedPolicyType("OVERRIDE_DOMAIN_UNIT_OWNERS");
+        public static PolicyGrantManagedPolicyType AddToProjectMemberPool { get; } = new PolicyGrantManagedPolicyType("ADD_TO_PROJECT_MEMBER_POOL");
+        public static PolicyGrantManagedPolicyType OverrideProjectOwners { get; } = new PolicyGrantManagedPolicyType("OVERRIDE_PROJECT_OWNERS");
+        public static PolicyGrantManagedPolicyType CreateGlossary { get; } = new PolicyGrantManagedPolicyType("CREATE_GLOSSARY");
+        public static PolicyGrantManagedPolicyType CreateFormType { get; } = new PolicyGrantManagedPolicyType("CREATE_FORM_TYPE");
+        public static PolicyGrantManagedPolicyType CreateAssetType { get; } = new PolicyGrantManagedPolicyType("CREATE_ASSET_TYPE");
+        public static PolicyGrantManagedPolicyType CreateProject { get; } = new PolicyGrantManagedPolicyType("CREATE_PROJECT");
+        public static PolicyGrantManagedPolicyType CreateEnvironmentProfile { get; } = new PolicyGrantManagedPolicyType("CREATE_ENVIRONMENT_PROFILE");
+        public static PolicyGrantManagedPolicyType DelegateCreateEnvironmentProfile { get; } = new PolicyGrantManagedPolicyType("DELEGATE_CREATE_ENVIRONMENT_PROFILE");
+        public static PolicyGrantManagedPolicyType CreateEnvironment { get; } = new PolicyGrantManagedPolicyType("CREATE_ENVIRONMENT");
+        public static PolicyGrantManagedPolicyType CreateEnvironmentFromBlueprint { get; } = new PolicyGrantManagedPolicyType("CREATE_ENVIRONMENT_FROM_BLUEPRINT");
+        public static PolicyGrantManagedPolicyType CreateProjectFromProjectProfile { get; } = new PolicyGrantManagedPolicyType("CREATE_PROJECT_FROM_PROJECT_PROFILE");
+
+        public static bool operator ==(PolicyGrantManagedPolicyType left, PolicyGrantManagedPolicyType right) => left.Equals(right);
+        public static bool operator !=(PolicyGrantManagedPolicyType left, PolicyGrantManagedPolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyGrantManagedPolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyGrantManagedPolicyType other && Equals(other);
+        public bool Equals(PolicyGrantManagedPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct PolicyGrantProjectDesignation : IEquatable<PolicyGrantProjectDesignation>
     {
         private readonly string _value;
@@ -467,9 +506,9 @@ namespace Pulumi.AwsNative.DataZone
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static PolicyGrantTargetEntityType DomainUnit { get; } = new PolicyGrantTargetEntityType("DomainUnit");
-        public static PolicyGrantTargetEntityType EnvironmentBlueprintConfiguration { get; } = new PolicyGrantTargetEntityType("EnvironmentBlueprintConfiguration");
-        public static PolicyGrantTargetEntityType EnvironmentProfile { get; } = new PolicyGrantTargetEntityType("EnvironmentProfile");
+        public static PolicyGrantTargetEntityType DomainUnit { get; } = new PolicyGrantTargetEntityType("DOMAIN_UNIT");
+        public static PolicyGrantTargetEntityType EnvironmentBlueprintConfiguration { get; } = new PolicyGrantTargetEntityType("ENVIRONMENT_BLUEPRINT_CONFIGURATION");
+        public static PolicyGrantTargetEntityType EnvironmentProfile { get; } = new PolicyGrantTargetEntityType("ENVIRONMENT_PROFILE");
         public static PolicyGrantTargetEntityType AssetType { get; } = new PolicyGrantTargetEntityType("ASSET_TYPE");
 
         public static bool operator ==(PolicyGrantTargetEntityType left, PolicyGrantTargetEntityType right) => left.Equals(right);

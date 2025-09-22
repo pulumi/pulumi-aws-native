@@ -21,6 +21,389 @@ type RuleGroupsNamespaceTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Represents a cloudwatch logs destination for scraper logging
+type ScraperCloudWatchLogDestination struct {
+	// ARN of the CloudWatch log group
+	LogGroupArn *string `pulumi:"logGroupArn"`
+}
+
+// ScraperCloudWatchLogDestinationInput is an input type that accepts ScraperCloudWatchLogDestinationArgs and ScraperCloudWatchLogDestinationOutput values.
+// You can construct a concrete instance of `ScraperCloudWatchLogDestinationInput` via:
+//
+//	ScraperCloudWatchLogDestinationArgs{...}
+type ScraperCloudWatchLogDestinationInput interface {
+	pulumi.Input
+
+	ToScraperCloudWatchLogDestinationOutput() ScraperCloudWatchLogDestinationOutput
+	ToScraperCloudWatchLogDestinationOutputWithContext(context.Context) ScraperCloudWatchLogDestinationOutput
+}
+
+// Represents a cloudwatch logs destination for scraper logging
+type ScraperCloudWatchLogDestinationArgs struct {
+	// ARN of the CloudWatch log group
+	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
+}
+
+func (ScraperCloudWatchLogDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperCloudWatchLogDestination)(nil)).Elem()
+}
+
+func (i ScraperCloudWatchLogDestinationArgs) ToScraperCloudWatchLogDestinationOutput() ScraperCloudWatchLogDestinationOutput {
+	return i.ToScraperCloudWatchLogDestinationOutputWithContext(context.Background())
+}
+
+func (i ScraperCloudWatchLogDestinationArgs) ToScraperCloudWatchLogDestinationOutputWithContext(ctx context.Context) ScraperCloudWatchLogDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperCloudWatchLogDestinationOutput)
+}
+
+func (i ScraperCloudWatchLogDestinationArgs) ToScraperCloudWatchLogDestinationPtrOutput() ScraperCloudWatchLogDestinationPtrOutput {
+	return i.ToScraperCloudWatchLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ScraperCloudWatchLogDestinationArgs) ToScraperCloudWatchLogDestinationPtrOutputWithContext(ctx context.Context) ScraperCloudWatchLogDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperCloudWatchLogDestinationOutput).ToScraperCloudWatchLogDestinationPtrOutputWithContext(ctx)
+}
+
+// ScraperCloudWatchLogDestinationPtrInput is an input type that accepts ScraperCloudWatchLogDestinationArgs, ScraperCloudWatchLogDestinationPtr and ScraperCloudWatchLogDestinationPtrOutput values.
+// You can construct a concrete instance of `ScraperCloudWatchLogDestinationPtrInput` via:
+//
+//	        ScraperCloudWatchLogDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScraperCloudWatchLogDestinationPtrInput interface {
+	pulumi.Input
+
+	ToScraperCloudWatchLogDestinationPtrOutput() ScraperCloudWatchLogDestinationPtrOutput
+	ToScraperCloudWatchLogDestinationPtrOutputWithContext(context.Context) ScraperCloudWatchLogDestinationPtrOutput
+}
+
+type scraperCloudWatchLogDestinationPtrType ScraperCloudWatchLogDestinationArgs
+
+func ScraperCloudWatchLogDestinationPtr(v *ScraperCloudWatchLogDestinationArgs) ScraperCloudWatchLogDestinationPtrInput {
+	return (*scraperCloudWatchLogDestinationPtrType)(v)
+}
+
+func (*scraperCloudWatchLogDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperCloudWatchLogDestination)(nil)).Elem()
+}
+
+func (i *scraperCloudWatchLogDestinationPtrType) ToScraperCloudWatchLogDestinationPtrOutput() ScraperCloudWatchLogDestinationPtrOutput {
+	return i.ToScraperCloudWatchLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *scraperCloudWatchLogDestinationPtrType) ToScraperCloudWatchLogDestinationPtrOutputWithContext(ctx context.Context) ScraperCloudWatchLogDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperCloudWatchLogDestinationPtrOutput)
+}
+
+// Represents a cloudwatch logs destination for scraper logging
+type ScraperCloudWatchLogDestinationOutput struct{ *pulumi.OutputState }
+
+func (ScraperCloudWatchLogDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperCloudWatchLogDestination)(nil)).Elem()
+}
+
+func (o ScraperCloudWatchLogDestinationOutput) ToScraperCloudWatchLogDestinationOutput() ScraperCloudWatchLogDestinationOutput {
+	return o
+}
+
+func (o ScraperCloudWatchLogDestinationOutput) ToScraperCloudWatchLogDestinationOutputWithContext(ctx context.Context) ScraperCloudWatchLogDestinationOutput {
+	return o
+}
+
+func (o ScraperCloudWatchLogDestinationOutput) ToScraperCloudWatchLogDestinationPtrOutput() ScraperCloudWatchLogDestinationPtrOutput {
+	return o.ToScraperCloudWatchLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ScraperCloudWatchLogDestinationOutput) ToScraperCloudWatchLogDestinationPtrOutputWithContext(ctx context.Context) ScraperCloudWatchLogDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScraperCloudWatchLogDestination) *ScraperCloudWatchLogDestination {
+		return &v
+	}).(ScraperCloudWatchLogDestinationPtrOutput)
+}
+
+// ARN of the CloudWatch log group
+func (o ScraperCloudWatchLogDestinationOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScraperCloudWatchLogDestination) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
+}
+
+type ScraperCloudWatchLogDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperCloudWatchLogDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperCloudWatchLogDestination)(nil)).Elem()
+}
+
+func (o ScraperCloudWatchLogDestinationPtrOutput) ToScraperCloudWatchLogDestinationPtrOutput() ScraperCloudWatchLogDestinationPtrOutput {
+	return o
+}
+
+func (o ScraperCloudWatchLogDestinationPtrOutput) ToScraperCloudWatchLogDestinationPtrOutputWithContext(ctx context.Context) ScraperCloudWatchLogDestinationPtrOutput {
+	return o
+}
+
+func (o ScraperCloudWatchLogDestinationPtrOutput) Elem() ScraperCloudWatchLogDestinationOutput {
+	return o.ApplyT(func(v *ScraperCloudWatchLogDestination) ScraperCloudWatchLogDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperCloudWatchLogDestination
+		return ret
+	}).(ScraperCloudWatchLogDestinationOutput)
+}
+
+// ARN of the CloudWatch log group
+func (o ScraperCloudWatchLogDestinationPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScraperCloudWatchLogDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScraperComponent struct {
+	// The configuration settings for the scraper component.
+	Config *ScraperComponentConfig `pulumi:"config"`
+	// The type of the scraper component.
+	Type ScraperComponentType `pulumi:"type"`
+}
+
+// ScraperComponentInput is an input type that accepts ScraperComponentArgs and ScraperComponentOutput values.
+// You can construct a concrete instance of `ScraperComponentInput` via:
+//
+//	ScraperComponentArgs{...}
+type ScraperComponentInput interface {
+	pulumi.Input
+
+	ToScraperComponentOutput() ScraperComponentOutput
+	ToScraperComponentOutputWithContext(context.Context) ScraperComponentOutput
+}
+
+type ScraperComponentArgs struct {
+	// The configuration settings for the scraper component.
+	Config ScraperComponentConfigPtrInput `pulumi:"config"`
+	// The type of the scraper component.
+	Type ScraperComponentTypeInput `pulumi:"type"`
+}
+
+func (ScraperComponentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperComponent)(nil)).Elem()
+}
+
+func (i ScraperComponentArgs) ToScraperComponentOutput() ScraperComponentOutput {
+	return i.ToScraperComponentOutputWithContext(context.Background())
+}
+
+func (i ScraperComponentArgs) ToScraperComponentOutputWithContext(ctx context.Context) ScraperComponentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperComponentOutput)
+}
+
+// ScraperComponentArrayInput is an input type that accepts ScraperComponentArray and ScraperComponentArrayOutput values.
+// You can construct a concrete instance of `ScraperComponentArrayInput` via:
+//
+//	ScraperComponentArray{ ScraperComponentArgs{...} }
+type ScraperComponentArrayInput interface {
+	pulumi.Input
+
+	ToScraperComponentArrayOutput() ScraperComponentArrayOutput
+	ToScraperComponentArrayOutputWithContext(context.Context) ScraperComponentArrayOutput
+}
+
+type ScraperComponentArray []ScraperComponentInput
+
+func (ScraperComponentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScraperComponent)(nil)).Elem()
+}
+
+func (i ScraperComponentArray) ToScraperComponentArrayOutput() ScraperComponentArrayOutput {
+	return i.ToScraperComponentArrayOutputWithContext(context.Background())
+}
+
+func (i ScraperComponentArray) ToScraperComponentArrayOutputWithContext(ctx context.Context) ScraperComponentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperComponentArrayOutput)
+}
+
+type ScraperComponentOutput struct{ *pulumi.OutputState }
+
+func (ScraperComponentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperComponent)(nil)).Elem()
+}
+
+func (o ScraperComponentOutput) ToScraperComponentOutput() ScraperComponentOutput {
+	return o
+}
+
+func (o ScraperComponentOutput) ToScraperComponentOutputWithContext(ctx context.Context) ScraperComponentOutput {
+	return o
+}
+
+// The configuration settings for the scraper component.
+func (o ScraperComponentOutput) Config() ScraperComponentConfigPtrOutput {
+	return o.ApplyT(func(v ScraperComponent) *ScraperComponentConfig { return v.Config }).(ScraperComponentConfigPtrOutput)
+}
+
+// The type of the scraper component.
+func (o ScraperComponentOutput) Type() ScraperComponentTypeOutput {
+	return o.ApplyT(func(v ScraperComponent) ScraperComponentType { return v.Type }).(ScraperComponentTypeOutput)
+}
+
+type ScraperComponentArrayOutput struct{ *pulumi.OutputState }
+
+func (ScraperComponentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScraperComponent)(nil)).Elem()
+}
+
+func (o ScraperComponentArrayOutput) ToScraperComponentArrayOutput() ScraperComponentArrayOutput {
+	return o
+}
+
+func (o ScraperComponentArrayOutput) ToScraperComponentArrayOutputWithContext(ctx context.Context) ScraperComponentArrayOutput {
+	return o
+}
+
+func (o ScraperComponentArrayOutput) Index(i pulumi.IntInput) ScraperComponentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScraperComponent {
+		return vs[0].([]ScraperComponent)[vs[1].(int)]
+	}).(ScraperComponentOutput)
+}
+
+type ScraperComponentConfig struct {
+	// Configuration options for the scraper component.
+	Options map[string]string `pulumi:"options"`
+}
+
+// ScraperComponentConfigInput is an input type that accepts ScraperComponentConfigArgs and ScraperComponentConfigOutput values.
+// You can construct a concrete instance of `ScraperComponentConfigInput` via:
+//
+//	ScraperComponentConfigArgs{...}
+type ScraperComponentConfigInput interface {
+	pulumi.Input
+
+	ToScraperComponentConfigOutput() ScraperComponentConfigOutput
+	ToScraperComponentConfigOutputWithContext(context.Context) ScraperComponentConfigOutput
+}
+
+type ScraperComponentConfigArgs struct {
+	// Configuration options for the scraper component.
+	Options pulumi.StringMapInput `pulumi:"options"`
+}
+
+func (ScraperComponentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperComponentConfig)(nil)).Elem()
+}
+
+func (i ScraperComponentConfigArgs) ToScraperComponentConfigOutput() ScraperComponentConfigOutput {
+	return i.ToScraperComponentConfigOutputWithContext(context.Background())
+}
+
+func (i ScraperComponentConfigArgs) ToScraperComponentConfigOutputWithContext(ctx context.Context) ScraperComponentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperComponentConfigOutput)
+}
+
+func (i ScraperComponentConfigArgs) ToScraperComponentConfigPtrOutput() ScraperComponentConfigPtrOutput {
+	return i.ToScraperComponentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ScraperComponentConfigArgs) ToScraperComponentConfigPtrOutputWithContext(ctx context.Context) ScraperComponentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperComponentConfigOutput).ToScraperComponentConfigPtrOutputWithContext(ctx)
+}
+
+// ScraperComponentConfigPtrInput is an input type that accepts ScraperComponentConfigArgs, ScraperComponentConfigPtr and ScraperComponentConfigPtrOutput values.
+// You can construct a concrete instance of `ScraperComponentConfigPtrInput` via:
+//
+//	        ScraperComponentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScraperComponentConfigPtrInput interface {
+	pulumi.Input
+
+	ToScraperComponentConfigPtrOutput() ScraperComponentConfigPtrOutput
+	ToScraperComponentConfigPtrOutputWithContext(context.Context) ScraperComponentConfigPtrOutput
+}
+
+type scraperComponentConfigPtrType ScraperComponentConfigArgs
+
+func ScraperComponentConfigPtr(v *ScraperComponentConfigArgs) ScraperComponentConfigPtrInput {
+	return (*scraperComponentConfigPtrType)(v)
+}
+
+func (*scraperComponentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperComponentConfig)(nil)).Elem()
+}
+
+func (i *scraperComponentConfigPtrType) ToScraperComponentConfigPtrOutput() ScraperComponentConfigPtrOutput {
+	return i.ToScraperComponentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *scraperComponentConfigPtrType) ToScraperComponentConfigPtrOutputWithContext(ctx context.Context) ScraperComponentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperComponentConfigPtrOutput)
+}
+
+type ScraperComponentConfigOutput struct{ *pulumi.OutputState }
+
+func (ScraperComponentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperComponentConfig)(nil)).Elem()
+}
+
+func (o ScraperComponentConfigOutput) ToScraperComponentConfigOutput() ScraperComponentConfigOutput {
+	return o
+}
+
+func (o ScraperComponentConfigOutput) ToScraperComponentConfigOutputWithContext(ctx context.Context) ScraperComponentConfigOutput {
+	return o
+}
+
+func (o ScraperComponentConfigOutput) ToScraperComponentConfigPtrOutput() ScraperComponentConfigPtrOutput {
+	return o.ToScraperComponentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ScraperComponentConfigOutput) ToScraperComponentConfigPtrOutputWithContext(ctx context.Context) ScraperComponentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScraperComponentConfig) *ScraperComponentConfig {
+		return &v
+	}).(ScraperComponentConfigPtrOutput)
+}
+
+// Configuration options for the scraper component.
+func (o ScraperComponentConfigOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ScraperComponentConfig) map[string]string { return v.Options }).(pulumi.StringMapOutput)
+}
+
+type ScraperComponentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperComponentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperComponentConfig)(nil)).Elem()
+}
+
+func (o ScraperComponentConfigPtrOutput) ToScraperComponentConfigPtrOutput() ScraperComponentConfigPtrOutput {
+	return o
+}
+
+func (o ScraperComponentConfigPtrOutput) ToScraperComponentConfigPtrOutputWithContext(ctx context.Context) ScraperComponentConfigPtrOutput {
+	return o
+}
+
+func (o ScraperComponentConfigPtrOutput) Elem() ScraperComponentConfigOutput {
+	return o.ApplyT(func(v *ScraperComponentConfig) ScraperComponentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperComponentConfig
+		return ret
+	}).(ScraperComponentConfigOutput)
+}
+
+// Configuration options for the scraper component.
+func (o ScraperComponentConfigPtrOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ScraperComponentConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Options
+	}).(pulumi.StringMapOutput)
+}
+
 // Scraper metrics destination
 type ScraperDestination struct {
 	// Configuration for Amazon Managed Prometheus metrics destination
@@ -248,6 +631,297 @@ func (o ScraperDestinationAmpConfigurationPropertiesPtrOutput) WorkspaceArn() pu
 		}
 		return &v.WorkspaceArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for scraper logging
+type ScraperLoggingConfiguration struct {
+	LoggingDestination ScraperLoggingDestination `pulumi:"loggingDestination"`
+	ScraperComponents  []ScraperComponent        `pulumi:"scraperComponents"`
+}
+
+// ScraperLoggingConfigurationInput is an input type that accepts ScraperLoggingConfigurationArgs and ScraperLoggingConfigurationOutput values.
+// You can construct a concrete instance of `ScraperLoggingConfigurationInput` via:
+//
+//	ScraperLoggingConfigurationArgs{...}
+type ScraperLoggingConfigurationInput interface {
+	pulumi.Input
+
+	ToScraperLoggingConfigurationOutput() ScraperLoggingConfigurationOutput
+	ToScraperLoggingConfigurationOutputWithContext(context.Context) ScraperLoggingConfigurationOutput
+}
+
+// Configuration for scraper logging
+type ScraperLoggingConfigurationArgs struct {
+	LoggingDestination ScraperLoggingDestinationInput `pulumi:"loggingDestination"`
+	ScraperComponents  ScraperComponentArrayInput     `pulumi:"scraperComponents"`
+}
+
+func (ScraperLoggingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperLoggingConfiguration)(nil)).Elem()
+}
+
+func (i ScraperLoggingConfigurationArgs) ToScraperLoggingConfigurationOutput() ScraperLoggingConfigurationOutput {
+	return i.ToScraperLoggingConfigurationOutputWithContext(context.Background())
+}
+
+func (i ScraperLoggingConfigurationArgs) ToScraperLoggingConfigurationOutputWithContext(ctx context.Context) ScraperLoggingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperLoggingConfigurationOutput)
+}
+
+func (i ScraperLoggingConfigurationArgs) ToScraperLoggingConfigurationPtrOutput() ScraperLoggingConfigurationPtrOutput {
+	return i.ToScraperLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ScraperLoggingConfigurationArgs) ToScraperLoggingConfigurationPtrOutputWithContext(ctx context.Context) ScraperLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperLoggingConfigurationOutput).ToScraperLoggingConfigurationPtrOutputWithContext(ctx)
+}
+
+// ScraperLoggingConfigurationPtrInput is an input type that accepts ScraperLoggingConfigurationArgs, ScraperLoggingConfigurationPtr and ScraperLoggingConfigurationPtrOutput values.
+// You can construct a concrete instance of `ScraperLoggingConfigurationPtrInput` via:
+//
+//	        ScraperLoggingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScraperLoggingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToScraperLoggingConfigurationPtrOutput() ScraperLoggingConfigurationPtrOutput
+	ToScraperLoggingConfigurationPtrOutputWithContext(context.Context) ScraperLoggingConfigurationPtrOutput
+}
+
+type scraperLoggingConfigurationPtrType ScraperLoggingConfigurationArgs
+
+func ScraperLoggingConfigurationPtr(v *ScraperLoggingConfigurationArgs) ScraperLoggingConfigurationPtrInput {
+	return (*scraperLoggingConfigurationPtrType)(v)
+}
+
+func (*scraperLoggingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperLoggingConfiguration)(nil)).Elem()
+}
+
+func (i *scraperLoggingConfigurationPtrType) ToScraperLoggingConfigurationPtrOutput() ScraperLoggingConfigurationPtrOutput {
+	return i.ToScraperLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *scraperLoggingConfigurationPtrType) ToScraperLoggingConfigurationPtrOutputWithContext(ctx context.Context) ScraperLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperLoggingConfigurationPtrOutput)
+}
+
+// Configuration for scraper logging
+type ScraperLoggingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ScraperLoggingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperLoggingConfiguration)(nil)).Elem()
+}
+
+func (o ScraperLoggingConfigurationOutput) ToScraperLoggingConfigurationOutput() ScraperLoggingConfigurationOutput {
+	return o
+}
+
+func (o ScraperLoggingConfigurationOutput) ToScraperLoggingConfigurationOutputWithContext(ctx context.Context) ScraperLoggingConfigurationOutput {
+	return o
+}
+
+func (o ScraperLoggingConfigurationOutput) ToScraperLoggingConfigurationPtrOutput() ScraperLoggingConfigurationPtrOutput {
+	return o.ToScraperLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ScraperLoggingConfigurationOutput) ToScraperLoggingConfigurationPtrOutputWithContext(ctx context.Context) ScraperLoggingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScraperLoggingConfiguration) *ScraperLoggingConfiguration {
+		return &v
+	}).(ScraperLoggingConfigurationPtrOutput)
+}
+
+func (o ScraperLoggingConfigurationOutput) LoggingDestination() ScraperLoggingDestinationOutput {
+	return o.ApplyT(func(v ScraperLoggingConfiguration) ScraperLoggingDestination { return v.LoggingDestination }).(ScraperLoggingDestinationOutput)
+}
+
+func (o ScraperLoggingConfigurationOutput) ScraperComponents() ScraperComponentArrayOutput {
+	return o.ApplyT(func(v ScraperLoggingConfiguration) []ScraperComponent { return v.ScraperComponents }).(ScraperComponentArrayOutput)
+}
+
+type ScraperLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperLoggingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperLoggingConfiguration)(nil)).Elem()
+}
+
+func (o ScraperLoggingConfigurationPtrOutput) ToScraperLoggingConfigurationPtrOutput() ScraperLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o ScraperLoggingConfigurationPtrOutput) ToScraperLoggingConfigurationPtrOutputWithContext(ctx context.Context) ScraperLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o ScraperLoggingConfigurationPtrOutput) Elem() ScraperLoggingConfigurationOutput {
+	return o.ApplyT(func(v *ScraperLoggingConfiguration) ScraperLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperLoggingConfiguration
+		return ret
+	}).(ScraperLoggingConfigurationOutput)
+}
+
+func (o ScraperLoggingConfigurationPtrOutput) LoggingDestination() ScraperLoggingDestinationPtrOutput {
+	return o.ApplyT(func(v *ScraperLoggingConfiguration) *ScraperLoggingDestination {
+		if v == nil {
+			return nil
+		}
+		return &v.LoggingDestination
+	}).(ScraperLoggingDestinationPtrOutput)
+}
+
+func (o ScraperLoggingConfigurationPtrOutput) ScraperComponents() ScraperComponentArrayOutput {
+	return o.ApplyT(func(v *ScraperLoggingConfiguration) []ScraperComponent {
+		if v == nil {
+			return nil
+		}
+		return v.ScraperComponents
+	}).(ScraperComponentArrayOutput)
+}
+
+// Destination for scraper logging
+type ScraperLoggingDestination struct {
+	// The CloudWatch Logs configuration for the scraper logging destination.
+	CloudWatchLogs *ScraperCloudWatchLogDestination `pulumi:"cloudWatchLogs"`
+}
+
+// ScraperLoggingDestinationInput is an input type that accepts ScraperLoggingDestinationArgs and ScraperLoggingDestinationOutput values.
+// You can construct a concrete instance of `ScraperLoggingDestinationInput` via:
+//
+//	ScraperLoggingDestinationArgs{...}
+type ScraperLoggingDestinationInput interface {
+	pulumi.Input
+
+	ToScraperLoggingDestinationOutput() ScraperLoggingDestinationOutput
+	ToScraperLoggingDestinationOutputWithContext(context.Context) ScraperLoggingDestinationOutput
+}
+
+// Destination for scraper logging
+type ScraperLoggingDestinationArgs struct {
+	// The CloudWatch Logs configuration for the scraper logging destination.
+	CloudWatchLogs ScraperCloudWatchLogDestinationPtrInput `pulumi:"cloudWatchLogs"`
+}
+
+func (ScraperLoggingDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperLoggingDestination)(nil)).Elem()
+}
+
+func (i ScraperLoggingDestinationArgs) ToScraperLoggingDestinationOutput() ScraperLoggingDestinationOutput {
+	return i.ToScraperLoggingDestinationOutputWithContext(context.Background())
+}
+
+func (i ScraperLoggingDestinationArgs) ToScraperLoggingDestinationOutputWithContext(ctx context.Context) ScraperLoggingDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperLoggingDestinationOutput)
+}
+
+func (i ScraperLoggingDestinationArgs) ToScraperLoggingDestinationPtrOutput() ScraperLoggingDestinationPtrOutput {
+	return i.ToScraperLoggingDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ScraperLoggingDestinationArgs) ToScraperLoggingDestinationPtrOutputWithContext(ctx context.Context) ScraperLoggingDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperLoggingDestinationOutput).ToScraperLoggingDestinationPtrOutputWithContext(ctx)
+}
+
+// ScraperLoggingDestinationPtrInput is an input type that accepts ScraperLoggingDestinationArgs, ScraperLoggingDestinationPtr and ScraperLoggingDestinationPtrOutput values.
+// You can construct a concrete instance of `ScraperLoggingDestinationPtrInput` via:
+//
+//	        ScraperLoggingDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScraperLoggingDestinationPtrInput interface {
+	pulumi.Input
+
+	ToScraperLoggingDestinationPtrOutput() ScraperLoggingDestinationPtrOutput
+	ToScraperLoggingDestinationPtrOutputWithContext(context.Context) ScraperLoggingDestinationPtrOutput
+}
+
+type scraperLoggingDestinationPtrType ScraperLoggingDestinationArgs
+
+func ScraperLoggingDestinationPtr(v *ScraperLoggingDestinationArgs) ScraperLoggingDestinationPtrInput {
+	return (*scraperLoggingDestinationPtrType)(v)
+}
+
+func (*scraperLoggingDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperLoggingDestination)(nil)).Elem()
+}
+
+func (i *scraperLoggingDestinationPtrType) ToScraperLoggingDestinationPtrOutput() ScraperLoggingDestinationPtrOutput {
+	return i.ToScraperLoggingDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *scraperLoggingDestinationPtrType) ToScraperLoggingDestinationPtrOutputWithContext(ctx context.Context) ScraperLoggingDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperLoggingDestinationPtrOutput)
+}
+
+// Destination for scraper logging
+type ScraperLoggingDestinationOutput struct{ *pulumi.OutputState }
+
+func (ScraperLoggingDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperLoggingDestination)(nil)).Elem()
+}
+
+func (o ScraperLoggingDestinationOutput) ToScraperLoggingDestinationOutput() ScraperLoggingDestinationOutput {
+	return o
+}
+
+func (o ScraperLoggingDestinationOutput) ToScraperLoggingDestinationOutputWithContext(ctx context.Context) ScraperLoggingDestinationOutput {
+	return o
+}
+
+func (o ScraperLoggingDestinationOutput) ToScraperLoggingDestinationPtrOutput() ScraperLoggingDestinationPtrOutput {
+	return o.ToScraperLoggingDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ScraperLoggingDestinationOutput) ToScraperLoggingDestinationPtrOutputWithContext(ctx context.Context) ScraperLoggingDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScraperLoggingDestination) *ScraperLoggingDestination {
+		return &v
+	}).(ScraperLoggingDestinationPtrOutput)
+}
+
+// The CloudWatch Logs configuration for the scraper logging destination.
+func (o ScraperLoggingDestinationOutput) CloudWatchLogs() ScraperCloudWatchLogDestinationPtrOutput {
+	return o.ApplyT(func(v ScraperLoggingDestination) *ScraperCloudWatchLogDestination { return v.CloudWatchLogs }).(ScraperCloudWatchLogDestinationPtrOutput)
+}
+
+type ScraperLoggingDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperLoggingDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperLoggingDestination)(nil)).Elem()
+}
+
+func (o ScraperLoggingDestinationPtrOutput) ToScraperLoggingDestinationPtrOutput() ScraperLoggingDestinationPtrOutput {
+	return o
+}
+
+func (o ScraperLoggingDestinationPtrOutput) ToScraperLoggingDestinationPtrOutputWithContext(ctx context.Context) ScraperLoggingDestinationPtrOutput {
+	return o
+}
+
+func (o ScraperLoggingDestinationPtrOutput) Elem() ScraperLoggingDestinationOutput {
+	return o.ApplyT(func(v *ScraperLoggingDestination) ScraperLoggingDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperLoggingDestination
+		return ret
+	}).(ScraperLoggingDestinationOutput)
+}
+
+// The CloudWatch Logs configuration for the scraper logging destination.
+func (o ScraperLoggingDestinationPtrOutput) CloudWatchLogs() ScraperCloudWatchLogDestinationPtrOutput {
+	return o.ApplyT(func(v *ScraperLoggingDestination) *ScraperCloudWatchLogDestination {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLogs
+	}).(ScraperCloudWatchLogDestinationPtrOutput)
 }
 
 // Role configuration
@@ -1679,9 +2353,19 @@ type WorkspaceTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperCloudWatchLogDestinationInput)(nil)).Elem(), ScraperCloudWatchLogDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperCloudWatchLogDestinationPtrInput)(nil)).Elem(), ScraperCloudWatchLogDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperComponentInput)(nil)).Elem(), ScraperComponentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperComponentArrayInput)(nil)).Elem(), ScraperComponentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperComponentConfigInput)(nil)).Elem(), ScraperComponentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperComponentConfigPtrInput)(nil)).Elem(), ScraperComponentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationInput)(nil)).Elem(), ScraperDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationAmpConfigurationPropertiesInput)(nil)).Elem(), ScraperDestinationAmpConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationAmpConfigurationPropertiesPtrInput)(nil)).Elem(), ScraperDestinationAmpConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperLoggingConfigurationInput)(nil)).Elem(), ScraperLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperLoggingConfigurationPtrInput)(nil)).Elem(), ScraperLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperLoggingDestinationInput)(nil)).Elem(), ScraperLoggingDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperLoggingDestinationPtrInput)(nil)).Elem(), ScraperLoggingDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperRoleConfigurationInput)(nil)).Elem(), ScraperRoleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperRoleConfigurationPtrInput)(nil)).Elem(), ScraperRoleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperScrapeConfigurationInput)(nil)).Elem(), ScraperScrapeConfigurationArgs{})
@@ -1703,10 +2387,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingFilterInput)(nil)).Elem(), WorkspaceLoggingFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceQueryLoggingConfigurationInput)(nil)).Elem(), WorkspaceQueryLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceQueryLoggingConfigurationPtrInput)(nil)).Elem(), WorkspaceQueryLoggingConfigurationArgs{})
+	pulumi.RegisterOutputType(ScraperCloudWatchLogDestinationOutput{})
+	pulumi.RegisterOutputType(ScraperCloudWatchLogDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ScraperComponentOutput{})
+	pulumi.RegisterOutputType(ScraperComponentArrayOutput{})
+	pulumi.RegisterOutputType(ScraperComponentConfigOutput{})
+	pulumi.RegisterOutputType(ScraperComponentConfigPtrOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationAmpConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationAmpConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ScraperLoggingConfigurationOutput{})
+	pulumi.RegisterOutputType(ScraperLoggingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ScraperLoggingDestinationOutput{})
+	pulumi.RegisterOutputType(ScraperLoggingDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperRoleConfigurationOutput{})
 	pulumi.RegisterOutputType(ScraperRoleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperScrapeConfigurationOutput{})

@@ -171,6 +171,77 @@ namespace Pulumi.AwsNative.Odb
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem : IEquatable<CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem>
+    {
+        private readonly string _value;
+
+        private CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem Monday { get; } = new CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem("MONDAY");
+        public static CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem Tuesday { get; } = new CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem("TUESDAY");
+        public static CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem Wednesday { get; } = new CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem("WEDNESDAY");
+        public static CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem Thursday { get; } = new CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem("THURSDAY");
+        public static CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem Friday { get; } = new CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem("FRIDAY");
+        public static CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem Saturday { get; } = new CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem("SATURDAY");
+        public static CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem Sunday { get; } = new CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem("SUNDAY");
+
+        public static bool operator ==(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem left, CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem right) => left.Equals(right);
+        public static bool operator !=(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem left, CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem right) => !left.Equals(right);
+
+        public static explicit operator string(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem other && Equals(other);
+        public bool Equals(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CloudExadataInfrastructureMaintenanceWindowMonthsItem : IEquatable<CloudExadataInfrastructureMaintenanceWindowMonthsItem>
+    {
+        private readonly string _value;
+
+        private CloudExadataInfrastructureMaintenanceWindowMonthsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CloudExadataInfrastructureMaintenanceWindowMonthsItem January { get; } = new CloudExadataInfrastructureMaintenanceWindowMonthsItem("JANUARY");
+        public static CloudExadataInfrastructureMaintenanceWindowMonthsItem February { get; } = new CloudExadataInfrastructureMaintenanceWindowMonthsItem("FEBRUARY");
+        public static CloudExadataInfrastructureMaintenanceWindowMonthsItem March { get; } = new CloudExadataInfrastructureMaintenanceWindowMonthsItem("MARCH");
+        public static CloudExadataInfrastructureMaintenanceWindowMonthsItem April { get; } = new CloudExadataInfrastructureMaintenanceWindowMonthsItem("APRIL");
+        public static CloudExadataInfrastructureMaintenanceWindowMonthsItem May { get; } = new CloudExadataInfrastructureMaintenanceWindowMonthsItem("MAY");
+        public static CloudExadataInfrastructureMaintenanceWindowMonthsItem June { get; } = new CloudExadataInfrastructureMaintenanceWindowMonthsItem("JUNE");
+        public static CloudExadataInfrastructureMaintenanceWindowMonthsItem July { get; } = new CloudExadataInfrastructureMaintenanceWindowMonthsItem("JULY");
+        public static CloudExadataInfrastructureMaintenanceWindowMonthsItem August { get; } = new CloudExadataInfrastructureMaintenanceWindowMonthsItem("AUGUST");
+        public static CloudExadataInfrastructureMaintenanceWindowMonthsItem September { get; } = new CloudExadataInfrastructureMaintenanceWindowMonthsItem("SEPTEMBER");
+        public static CloudExadataInfrastructureMaintenanceWindowMonthsItem October { get; } = new CloudExadataInfrastructureMaintenanceWindowMonthsItem("OCTOBER");
+        public static CloudExadataInfrastructureMaintenanceWindowMonthsItem November { get; } = new CloudExadataInfrastructureMaintenanceWindowMonthsItem("NOVEMBER");
+        public static CloudExadataInfrastructureMaintenanceWindowMonthsItem December { get; } = new CloudExadataInfrastructureMaintenanceWindowMonthsItem("DECEMBER");
+
+        public static bool operator ==(CloudExadataInfrastructureMaintenanceWindowMonthsItem left, CloudExadataInfrastructureMaintenanceWindowMonthsItem right) => left.Equals(right);
+        public static bool operator !=(CloudExadataInfrastructureMaintenanceWindowMonthsItem left, CloudExadataInfrastructureMaintenanceWindowMonthsItem right) => !left.Equals(right);
+
+        public static explicit operator string(CloudExadataInfrastructureMaintenanceWindowMonthsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CloudExadataInfrastructureMaintenanceWindowMonthsItem other && Equals(other);
+        public bool Equals(CloudExadataInfrastructureMaintenanceWindowMonthsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The Oracle license model applied to the VM cluster.
     /// </summary>
@@ -195,6 +266,131 @@ namespace Pulumi.AwsNative.Odb
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CloudVmClusterLicenseModel other && Equals(other);
         public bool Equals(CloudVmClusterLicenseModel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the managed resource access.
+    /// </summary>
+    [EnumType]
+    public readonly struct OdbNetworkManagedResourceStatus : IEquatable<OdbNetworkManagedResourceStatus>
+    {
+        private readonly string _value;
+
+        private OdbNetworkManagedResourceStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OdbNetworkManagedResourceStatus Enabled { get; } = new OdbNetworkManagedResourceStatus("ENABLED");
+        public static OdbNetworkManagedResourceStatus Enabling { get; } = new OdbNetworkManagedResourceStatus("ENABLING");
+        public static OdbNetworkManagedResourceStatus Disabled { get; } = new OdbNetworkManagedResourceStatus("DISABLED");
+        public static OdbNetworkManagedResourceStatus Disabling { get; } = new OdbNetworkManagedResourceStatus("DISABLING");
+
+        public static bool operator ==(OdbNetworkManagedResourceStatus left, OdbNetworkManagedResourceStatus right) => left.Equals(right);
+        public static bool operator !=(OdbNetworkManagedResourceStatus left, OdbNetworkManagedResourceStatus right) => !left.Equals(right);
+
+        public static explicit operator string(OdbNetworkManagedResourceStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OdbNetworkManagedResourceStatus other && Equals(other);
+        public bool Equals(OdbNetworkManagedResourceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the VPC endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType : IEquatable<OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType>
+    {
+        private readonly string _value;
+
+        private OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType Servicenetwork { get; } = new OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType("SERVICENETWORK");
+
+        public static bool operator ==(OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType left, OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType right) => left.Equals(right);
+        public static bool operator !=(OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType left, OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType right) => !left.Equals(right);
+
+        public static explicit operator string(OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType other && Equals(other);
+        public bool Equals(OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the configuration for Amazon S3 access from the ODB network.
+    /// </summary>
+    [EnumType]
+    public readonly struct OdbNetworkS3Access : IEquatable<OdbNetworkS3Access>
+    {
+        private readonly string _value;
+
+        private OdbNetworkS3Access(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OdbNetworkS3Access Enabled { get; } = new OdbNetworkS3Access("ENABLED");
+        public static OdbNetworkS3Access Disabled { get; } = new OdbNetworkS3Access("DISABLED");
+
+        public static bool operator ==(OdbNetworkS3Access left, OdbNetworkS3Access right) => left.Equals(right);
+        public static bool operator !=(OdbNetworkS3Access left, OdbNetworkS3Access right) => !left.Equals(right);
+
+        public static explicit operator string(OdbNetworkS3Access value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OdbNetworkS3Access other && Equals(other);
+        public bool Equals(OdbNetworkS3Access other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the configuration for Zero-ETL access from the ODB network.
+    /// </summary>
+    [EnumType]
+    public readonly struct OdbNetworkZeroEtlAccess : IEquatable<OdbNetworkZeroEtlAccess>
+    {
+        private readonly string _value;
+
+        private OdbNetworkZeroEtlAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OdbNetworkZeroEtlAccess Enabled { get; } = new OdbNetworkZeroEtlAccess("ENABLED");
+        public static OdbNetworkZeroEtlAccess Disabled { get; } = new OdbNetworkZeroEtlAccess("DISABLED");
+
+        public static bool operator ==(OdbNetworkZeroEtlAccess left, OdbNetworkZeroEtlAccess right) => left.Equals(right);
+        public static bool operator !=(OdbNetworkZeroEtlAccess left, OdbNetworkZeroEtlAccess right) => !left.Equals(right);
+
+        public static explicit operator string(OdbNetworkZeroEtlAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OdbNetworkZeroEtlAccess other && Equals(other);
+        public bool Equals(OdbNetworkZeroEtlAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

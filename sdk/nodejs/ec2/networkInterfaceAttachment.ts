@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
+ * Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
  */
 export class NetworkInterfaceAttachment extends pulumi.CustomResource {
     /**
@@ -42,13 +42,17 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
      */
     public /*out*/ readonly attachmentId!: pulumi.Output<string>;
     /**
-     * Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
+     * Whether to delete the network interface when the instance terminates. By default, this value is set to true.
      */
     public readonly deleteOnTermination!: pulumi.Output<boolean | undefined>;
     /**
-     * The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0.
+     * The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
      */
     public readonly deviceIndex!: pulumi.Output<string>;
+    /**
+     * The number of ENA queues to be created with the instance.
+     */
+    public readonly enaQueueCount!: pulumi.Output<number | undefined>;
     /**
      * Configures ENA Express for the network interface that this action attaches to the instance.
      */
@@ -84,6 +88,7 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
             }
             resourceInputs["deleteOnTermination"] = args ? args.deleteOnTermination : undefined;
             resourceInputs["deviceIndex"] = args ? args.deviceIndex : undefined;
+            resourceInputs["enaQueueCount"] = args ? args.enaQueueCount : undefined;
             resourceInputs["enaSrdSpecification"] = args ? args.enaSrdSpecification : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
@@ -92,6 +97,7 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
             resourceInputs["attachmentId"] = undefined /*out*/;
             resourceInputs["deleteOnTermination"] = undefined /*out*/;
             resourceInputs["deviceIndex"] = undefined /*out*/;
+            resourceInputs["enaQueueCount"] = undefined /*out*/;
             resourceInputs["enaSrdSpecification"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["networkInterfaceId"] = undefined /*out*/;
@@ -108,13 +114,17 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
  */
 export interface NetworkInterfaceAttachmentArgs {
     /**
-     * Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
+     * Whether to delete the network interface when the instance terminates. By default, this value is set to true.
      */
     deleteOnTermination?: pulumi.Input<boolean>;
     /**
-     * The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0.
+     * The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
      */
     deviceIndex: pulumi.Input<string>;
+    /**
+     * The number of ENA queues to be created with the instance.
+     */
+    enaQueueCount?: pulumi.Input<number>;
     /**
      * Configures ENA Express for the network interface that this action attaches to the instance.
      */

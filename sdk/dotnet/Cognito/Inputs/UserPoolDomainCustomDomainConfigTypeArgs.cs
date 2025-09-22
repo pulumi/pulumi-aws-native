@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Cognito.Inputs
     public sealed class UserPoolDomainCustomDomainConfigTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
+        /// The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }

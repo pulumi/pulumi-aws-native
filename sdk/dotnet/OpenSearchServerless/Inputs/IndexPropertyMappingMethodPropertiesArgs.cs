@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Inputs
         /// <summary>
         /// The k-NN search engine to use
         /// </summary>
-        [Input("engine", required: true)]
-        public Input<Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingMethodPropertiesEngine> Engine { get; set; } = null!;
+        [Input("engine")]
+        public Input<Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingMethodPropertiesEngine>? Engine { get; set; }
 
         /// <summary>
         /// The algorithm name for k-NN search

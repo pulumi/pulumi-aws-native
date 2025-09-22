@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.Smsvoice
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The action to perform when the keyword is used.
+    /// </summary>
     [EnumType]
     public readonly struct PhoneNumberOptionalKeywordAction : IEquatable<PhoneNumberOptionalKeywordAction>
     {
@@ -98,6 +101,9 @@ namespace Pulumi.AwsNative.Smsvoice
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The action to perform when the keyword is used.
+    /// </summary>
     [EnumType]
     public readonly struct PoolOptionalKeywordAction : IEquatable<PoolOptionalKeywordAction>
     {

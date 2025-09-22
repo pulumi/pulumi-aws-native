@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Smsvoice
     [AwsNativeResourceType("aws-native:smsvoice:Pool")]
     public partial class Pool : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name of the `Pool` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -48,6 +51,9 @@ namespace Pulumi.AwsNative.Smsvoice
         [Output("originationIdentities")]
         public Output<ImmutableArray<string>> OriginationIdentities { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for the pool.
+        /// </summary>
         [Output("poolId")]
         public Output<string> PoolId { get; private set; } = null!;
 

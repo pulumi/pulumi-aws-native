@@ -259,6 +259,7 @@ __all__ = [
     'FlowVersionVectorSearchBedrockRerankingConfiguration',
     'FlowVersionVectorSearchBedrockRerankingModelConfiguration',
     'FlowVersionVectorSearchRerankingConfiguration',
+    'GuardrailAutomatedReasoningPolicyConfig',
     'GuardrailContentFilterConfig',
     'GuardrailContentPolicyConfig',
     'GuardrailContentPolicyConfigContentFiltersTierConfigProperties',
@@ -9901,6 +9902,57 @@ class FlowVersionVectorSearchRerankingConfiguration(dict):
     @pulumi.getter(name="bedrockRerankingConfiguration")
     def bedrock_reranking_configuration(self) -> Optional['outputs.FlowVersionVectorSearchBedrockRerankingConfiguration']:
         return pulumi.get(self, "bedrock_reranking_configuration")
+
+
+@pulumi.output_type
+class GuardrailAutomatedReasoningPolicyConfig(dict):
+    """
+    Optional configuration for integrating Automated Reasoning policies with the guardrail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confidenceThreshold":
+            suggest = "confidence_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailAutomatedReasoningPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailAutomatedReasoningPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailAutomatedReasoningPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policies: Sequence[builtins.str],
+                 confidence_threshold: Optional[builtins.float] = None):
+        """
+        Optional configuration for integrating Automated Reasoning policies with the guardrail.
+        :param Sequence[builtins.str] policies: The list of Automated Reasoning policy ARNs to include in the guardrail configuration
+        :param builtins.float confidence_threshold: The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.
+        """
+        pulumi.set(__self__, "policies", policies)
+        if confidence_threshold is not None:
+            pulumi.set(__self__, "confidence_threshold", confidence_threshold)
+
+    @property
+    @pulumi.getter
+    def policies(self) -> Sequence[builtins.str]:
+        """
+        The list of Automated Reasoning policy ARNs to include in the guardrail configuration
+        """
+        return pulumi.get(self, "policies")
+
+    @property
+    @pulumi.getter(name="confidenceThreshold")
+    def confidence_threshold(self) -> Optional[builtins.float]:
+        """
+        The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.
+        """
+        return pulumi.get(self, "confidence_threshold")
 
 
 @pulumi.output_type

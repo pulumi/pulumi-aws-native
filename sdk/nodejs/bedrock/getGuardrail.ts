@@ -26,6 +26,10 @@ export interface GetGuardrailArgs {
 
 export interface GetGuardrailResult {
     /**
+     * Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.
+     */
+    readonly automatedReasoningPolicyConfig?: outputs.bedrock.GuardrailAutomatedReasoningPolicyConfig;
+    /**
      * Messaging for when violations are detected in text
      */
     readonly blockedInputMessaging?: string;

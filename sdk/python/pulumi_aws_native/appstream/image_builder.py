@@ -90,6 +90,11 @@ class ImageBuilderArgs:
                - stream.graphics.g6.24xlarge
                - stream.graphics.gr6.4xlarge
                - stream.graphics.gr6.8xlarge
+               - stream.graphics.g6f.large
+               - stream.graphics.g6f.xlarge
+               - stream.graphics.g6f.2xlarge
+               - stream.graphics.g6f.4xlarge
+               - stream.graphics.gr6f.4xlarge
         :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]] access_endpoints: The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
         :param pulumi.Input[builtins.str] appstream_agent_version: The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
         :param pulumi.Input[builtins.str] description: The description to display.
@@ -186,6 +191,11 @@ class ImageBuilderArgs:
         - stream.graphics.g6.24xlarge
         - stream.graphics.gr6.4xlarge
         - stream.graphics.gr6.8xlarge
+        - stream.graphics.g6f.large
+        - stream.graphics.g6f.xlarge
+        - stream.graphics.g6f.2xlarge
+        - stream.graphics.g6f.4xlarge
+        - stream.graphics.gr6f.4xlarge
         """
         return pulumi.get(self, "instance_type")
 
@@ -427,6 +437,11 @@ class ImageBuilder(pulumi.CustomResource):
                - stream.graphics.g6.24xlarge
                - stream.graphics.gr6.4xlarge
                - stream.graphics.gr6.8xlarge
+               - stream.graphics.g6f.large
+               - stream.graphics.g6f.xlarge
+               - stream.graphics.g6f.2xlarge
+               - stream.graphics.g6f.4xlarge
+               - stream.graphics.gr6f.4xlarge
         :param pulumi.Input[builtins.str] name: A unique name for the image builder.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs.
         :param pulumi.Input[Union['ImageBuilderVpcConfigArgs', 'ImageBuilderVpcConfigArgsDict']] vpc_config: The VPC configuration for the image builder. You can specify only one subnet.
@@ -660,6 +675,11 @@ class ImageBuilder(pulumi.CustomResource):
         - stream.graphics.g6.24xlarge
         - stream.graphics.gr6.4xlarge
         - stream.graphics.gr6.8xlarge
+        - stream.graphics.g6f.large
+        - stream.graphics.g6f.xlarge
+        - stream.graphics.g6f.2xlarge
+        - stream.graphics.g6f.4xlarge
+        - stream.graphics.gr6f.4xlarge
         """
         return pulumi.get(self, "instance_type")
 

@@ -1891,7 +1891,7 @@ class TableAttributeDefinitionArgs:
 if not MYPY:
     class TableContributorInsightsSpecificationArgsDict(TypedDict):
         """
-        The settings used to enable or disable CloudWatch Contributor Insights.
+        Configures contributor insights settings for a table or one of its indexes.
         """
         enabled: pulumi.Input[builtins.bool]
         """
@@ -1899,7 +1899,7 @@ if not MYPY:
         """
         mode: NotRequired[pulumi.Input['TableContributorInsightsSpecificationMode']]
         """
-        Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+        Specifies the CloudWatch Contributor Insights mode for a table. Valid values are ``ACCESSED_AND_THROTTLED_KEYS`` (tracks all access and throttled events) or ``THROTTLED_KEYS`` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
         """
 elif False:
     TableContributorInsightsSpecificationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1910,9 +1910,9 @@ class TableContributorInsightsSpecificationArgs:
                  enabled: pulumi.Input[builtins.bool],
                  mode: Optional[pulumi.Input['TableContributorInsightsSpecificationMode']] = None):
         """
-        The settings used to enable or disable CloudWatch Contributor Insights.
+        Configures contributor insights settings for a table or one of its indexes.
         :param pulumi.Input[builtins.bool] enabled: Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
-        :param pulumi.Input['TableContributorInsightsSpecificationMode'] mode: Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+        :param pulumi.Input['TableContributorInsightsSpecificationMode'] mode: Specifies the CloudWatch Contributor Insights mode for a table. Valid values are ``ACCESSED_AND_THROTTLED_KEYS`` (tracks all access and throttled events) or ``THROTTLED_KEYS`` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
         """
         pulumi.set(__self__, "enabled", enabled)
         if mode is not None:
@@ -1934,7 +1934,7 @@ class TableContributorInsightsSpecificationArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input['TableContributorInsightsSpecificationMode']]:
         """
-        Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+        Specifies the CloudWatch Contributor Insights mode for a table. Valid values are ``ACCESSED_AND_THROTTLED_KEYS`` (tracks all access and throttled events) or ``THROTTLED_KEYS`` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
         """
         return pulumi.get(self, "mode")
 
@@ -2023,7 +2023,7 @@ if not MYPY:
         """
         contributor_insights_specification: NotRequired[pulumi.Input['TableContributorInsightsSpecificationArgsDict']]
         """
-        The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
+        The settings used to specify whether to enable CloudWatch Contributor Insights for the global table and define which events to monitor.
         """
         on_demand_throughput: NotRequired[pulumi.Input['TableOnDemandThroughputArgsDict']]
         """
@@ -2061,7 +2061,7 @@ class TableGlobalSecondaryIndexArgs:
                  The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
                 The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         :param pulumi.Input['TableProjectionArgs'] projection: Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-        :param pulumi.Input['TableContributorInsightsSpecificationArgs'] contributor_insights_specification: The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
+        :param pulumi.Input['TableContributorInsightsSpecificationArgs'] contributor_insights_specification: The settings used to specify whether to enable CloudWatch Contributor Insights for the global table and define which events to monitor.
         :param pulumi.Input['TableOnDemandThroughputArgs'] on_demand_throughput: The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.
         :param pulumi.Input['TableProvisionedThroughputArgs'] provisioned_throughput: Represents the provisioned throughput settings for the specified global secondary index. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.
                 For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
@@ -2124,7 +2124,7 @@ class TableGlobalSecondaryIndexArgs:
     @pulumi.getter(name="contributorInsightsSpecification")
     def contributor_insights_specification(self) -> Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']]:
         """
-        The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
+        The settings used to specify whether to enable CloudWatch Contributor Insights for the global table and define which events to monitor.
         """
         return pulumi.get(self, "contributor_insights_specification")
 
@@ -2993,7 +2993,8 @@ if not MYPY:
         resource_policy: NotRequired[pulumi.Input['TableResourcePolicyArgsDict']]
         """
         Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
-         In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+          When you remove the ``StreamSpecification`` property from the template, DynamoDB disables the stream but retains any attached resource policy until the stream is deleted after 24 hours. When you modify the ``StreamViewType`` property, DynamoDB creates a new stream and retains the old stream's resource policy. The old stream and its resource policy are deleted after the 24-hour retention period.
+          In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
         """
 elif False:
     TableStreamSpecificationArgsDict: TypeAlias = Mapping[str, Any]
@@ -3011,7 +3012,8 @@ class TableStreamSpecificationArgs:
                  +  ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
                  +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
         :param pulumi.Input['TableResourcePolicyArgs'] resource_policy: Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
-                In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+                 When you remove the ``StreamSpecification`` property from the template, DynamoDB disables the stream but retains any attached resource policy until the stream is deleted after 24 hours. When you modify the ``StreamViewType`` property, DynamoDB creates a new stream and retains the old stream's resource policy. The old stream and its resource policy are deleted after the 24-hour retention period.
+                 In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
         """
         pulumi.set(__self__, "stream_view_type", stream_view_type)
         if resource_policy is not None:
@@ -3038,7 +3040,8 @@ class TableStreamSpecificationArgs:
     def resource_policy(self) -> Optional[pulumi.Input['TableResourcePolicyArgs']]:
         """
         Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
-         In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+          When you remove the ``StreamSpecification`` property from the template, DynamoDB disables the stream but retains any attached resource policy until the stream is deleted after 24 hours. When you modify the ``StreamViewType`` property, DynamoDB creates a new stream and retains the old stream's resource policy. The old stream and its resource policy are deleted after the 24-hour retention period.
+          In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
         """
         return pulumi.get(self, "resource_policy")
 

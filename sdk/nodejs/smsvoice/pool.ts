@@ -37,6 +37,9 @@ export class Pool extends pulumi.CustomResource {
         return obj['__pulumiType'] === Pool.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name of the `Pool` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * When set to true the pool can't be deleted. By default this is set to false.
@@ -58,6 +61,9 @@ export class Pool extends pulumi.CustomResource {
      * The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn and it's IsoCountryCode.
      */
     public readonly originationIdentities!: pulumi.Output<string[]>;
+    /**
+     * The unique identifier for the pool.
+     */
     public /*out*/ readonly poolId!: pulumi.Output<string>;
     /**
      * By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.

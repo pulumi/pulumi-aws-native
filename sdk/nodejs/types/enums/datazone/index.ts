@@ -150,6 +150,24 @@ export const PolicyGrantDomainUnitDesignation = {
 
 export type PolicyGrantDomainUnitDesignation = (typeof PolicyGrantDomainUnitDesignation)[keyof typeof PolicyGrantDomainUnitDesignation];
 
+export const PolicyGrantManagedPolicyType = {
+    CreateDomainUnit: "CREATE_DOMAIN_UNIT",
+    OverrideDomainUnitOwners: "OVERRIDE_DOMAIN_UNIT_OWNERS",
+    AddToProjectMemberPool: "ADD_TO_PROJECT_MEMBER_POOL",
+    OverrideProjectOwners: "OVERRIDE_PROJECT_OWNERS",
+    CreateGlossary: "CREATE_GLOSSARY",
+    CreateFormType: "CREATE_FORM_TYPE",
+    CreateAssetType: "CREATE_ASSET_TYPE",
+    CreateProject: "CREATE_PROJECT",
+    CreateEnvironmentProfile: "CREATE_ENVIRONMENT_PROFILE",
+    DelegateCreateEnvironmentProfile: "DELEGATE_CREATE_ENVIRONMENT_PROFILE",
+    CreateEnvironment: "CREATE_ENVIRONMENT",
+    CreateEnvironmentFromBlueprint: "CREATE_ENVIRONMENT_FROM_BLUEPRINT",
+    CreateProjectFromProjectProfile: "CREATE_PROJECT_FROM_PROJECT_PROFILE",
+} as const;
+
+export type PolicyGrantManagedPolicyType = (typeof PolicyGrantManagedPolicyType)[keyof typeof PolicyGrantManagedPolicyType];
+
 export const PolicyGrantProjectDesignation = {
     Owner: "OWNER",
     Contributor: "CONTRIBUTOR",
@@ -159,9 +177,9 @@ export const PolicyGrantProjectDesignation = {
 export type PolicyGrantProjectDesignation = (typeof PolicyGrantProjectDesignation)[keyof typeof PolicyGrantProjectDesignation];
 
 export const PolicyGrantTargetEntityType = {
-    DomainUnit: "DomainUnit",
-    EnvironmentBlueprintConfiguration: "EnvironmentBlueprintConfiguration",
-    EnvironmentProfile: "EnvironmentProfile",
+    DomainUnit: "DOMAIN_UNIT",
+    EnvironmentBlueprintConfiguration: "ENVIRONMENT_BLUEPRINT_CONFIGURATION",
+    EnvironmentProfile: "ENVIRONMENT_PROFILE",
     AssetType: "ASSET_TYPE",
 } as const;
 

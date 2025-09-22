@@ -14,12 +14,23 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
+    'ScraperCloudWatchLogDestinationArgs',
+    'ScraperCloudWatchLogDestinationArgsDict',
+    'ScraperComponentConfigArgs',
+    'ScraperComponentConfigArgsDict',
+    'ScraperComponentArgs',
+    'ScraperComponentArgsDict',
     'ScraperDestinationAmpConfigurationPropertiesArgs',
     'ScraperDestinationAmpConfigurationPropertiesArgsDict',
     'ScraperDestinationArgs',
     'ScraperDestinationArgsDict',
+    'ScraperLoggingConfigurationArgs',
+    'ScraperLoggingConfigurationArgsDict',
+    'ScraperLoggingDestinationArgs',
+    'ScraperLoggingDestinationArgsDict',
     'ScraperRoleConfigurationArgs',
     'ScraperRoleConfigurationArgsDict',
     'ScraperScrapeConfigurationArgs',
@@ -49,6 +60,125 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ScraperCloudWatchLogDestinationArgsDict(TypedDict):
+        """
+        Represents a cloudwatch logs destination for scraper logging
+        """
+        log_group_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        ARN of the CloudWatch log group
+        """
+elif False:
+    ScraperCloudWatchLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScraperCloudWatchLogDestinationArgs:
+    def __init__(__self__, *,
+                 log_group_arn: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Represents a cloudwatch logs destination for scraper logging
+        :param pulumi.Input[builtins.str] log_group_arn: ARN of the CloudWatch log group
+        """
+        if log_group_arn is not None:
+            pulumi.set(__self__, "log_group_arn", log_group_arn)
+
+    @property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        ARN of the CloudWatch log group
+        """
+        return pulumi.get(self, "log_group_arn")
+
+    @log_group_arn.setter
+    def log_group_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "log_group_arn", value)
+
+
+if not MYPY:
+    class ScraperComponentConfigArgsDict(TypedDict):
+        options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
+        """
+        Configuration options for the scraper component.
+        """
+elif False:
+    ScraperComponentConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScraperComponentConfigArgs:
+    def __init__(__self__, *,
+                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] options: Configuration options for the scraper component.
+        """
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Configuration options for the scraper component.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "options", value)
+
+
+if not MYPY:
+    class ScraperComponentArgsDict(TypedDict):
+        type: pulumi.Input['ScraperComponentType']
+        """
+        The type of the scraper component.
+        """
+        config: NotRequired[pulumi.Input['ScraperComponentConfigArgsDict']]
+        """
+        The configuration settings for the scraper component.
+        """
+elif False:
+    ScraperComponentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScraperComponentArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['ScraperComponentType'],
+                 config: Optional[pulumi.Input['ScraperComponentConfigArgs']] = None):
+        """
+        :param pulumi.Input['ScraperComponentType'] type: The type of the scraper component.
+        :param pulumi.Input['ScraperComponentConfigArgs'] config: The configuration settings for the scraper component.
+        """
+        pulumi.set(__self__, "type", type)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ScraperComponentType']:
+        """
+        The type of the scraper component.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ScraperComponentType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[pulumi.Input['ScraperComponentConfigArgs']]:
+        """
+        The configuration settings for the scraper component.
+        """
+        return pulumi.get(self, "config")
+
+    @config.setter
+    def config(self, value: Optional[pulumi.Input['ScraperComponentConfigArgs']]):
+        pulumi.set(self, "config", value)
+
 
 if not MYPY:
     class ScraperDestinationAmpConfigurationPropertiesArgsDict(TypedDict):
@@ -119,6 +249,82 @@ class ScraperDestinationArgs:
     @amp_configuration.setter
     def amp_configuration(self, value: Optional[pulumi.Input['ScraperDestinationAmpConfigurationPropertiesArgs']]):
         pulumi.set(self, "amp_configuration", value)
+
+
+if not MYPY:
+    class ScraperLoggingConfigurationArgsDict(TypedDict):
+        """
+        Configuration for scraper logging
+        """
+        logging_destination: pulumi.Input['ScraperLoggingDestinationArgsDict']
+        scraper_components: pulumi.Input[Sequence[pulumi.Input['ScraperComponentArgsDict']]]
+elif False:
+    ScraperLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScraperLoggingConfigurationArgs:
+    def __init__(__self__, *,
+                 logging_destination: pulumi.Input['ScraperLoggingDestinationArgs'],
+                 scraper_components: pulumi.Input[Sequence[pulumi.Input['ScraperComponentArgs']]]):
+        """
+        Configuration for scraper logging
+        """
+        pulumi.set(__self__, "logging_destination", logging_destination)
+        pulumi.set(__self__, "scraper_components", scraper_components)
+
+    @property
+    @pulumi.getter(name="loggingDestination")
+    def logging_destination(self) -> pulumi.Input['ScraperLoggingDestinationArgs']:
+        return pulumi.get(self, "logging_destination")
+
+    @logging_destination.setter
+    def logging_destination(self, value: pulumi.Input['ScraperLoggingDestinationArgs']):
+        pulumi.set(self, "logging_destination", value)
+
+    @property
+    @pulumi.getter(name="scraperComponents")
+    def scraper_components(self) -> pulumi.Input[Sequence[pulumi.Input['ScraperComponentArgs']]]:
+        return pulumi.get(self, "scraper_components")
+
+    @scraper_components.setter
+    def scraper_components(self, value: pulumi.Input[Sequence[pulumi.Input['ScraperComponentArgs']]]):
+        pulumi.set(self, "scraper_components", value)
+
+
+if not MYPY:
+    class ScraperLoggingDestinationArgsDict(TypedDict):
+        """
+        Destination for scraper logging
+        """
+        cloud_watch_logs: NotRequired[pulumi.Input['ScraperCloudWatchLogDestinationArgsDict']]
+        """
+        The CloudWatch Logs configuration for the scraper logging destination.
+        """
+elif False:
+    ScraperLoggingDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScraperLoggingDestinationArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs: Optional[pulumi.Input['ScraperCloudWatchLogDestinationArgs']] = None):
+        """
+        Destination for scraper logging
+        :param pulumi.Input['ScraperCloudWatchLogDestinationArgs'] cloud_watch_logs: The CloudWatch Logs configuration for the scraper logging destination.
+        """
+        if cloud_watch_logs is not None:
+            pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogs")
+    def cloud_watch_logs(self) -> Optional[pulumi.Input['ScraperCloudWatchLogDestinationArgs']]:
+        """
+        The CloudWatch Logs configuration for the scraper logging destination.
+        """
+        return pulumi.get(self, "cloud_watch_logs")
+
+    @cloud_watch_logs.setter
+    def cloud_watch_logs(self, value: Optional[pulumi.Input['ScraperCloudWatchLogDestinationArgs']]):
+        pulumi.set(self, "cloud_watch_logs", value)
 
 
 if not MYPY:

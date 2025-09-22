@@ -471,7 +471,17 @@ type InitialVlansProperties struct {
 	// An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
 	ExpansionVlan2 EnvironmentInitialVlanInfo `pulumi:"expansionVlan2"`
 	// The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
+	//
+	// If you plan to use a public HCX VLAN subnet, the following requirements must be met:
+	//
+	// - Must have a /28 netmask and be allocated from the IPAM public pool. Required for HCX internet access configuration.
+	// - The HCX public VLAN CIDR block must be added to the VPC as a secondary CIDR block.
+	// - Must have at least two Elastic IP addresses to be allocated from the public IPAM pool for HCX components.
 	Hcx EnvironmentInitialVlanInfo `pulumi:"hcx"`
+	// A unique ID for a network access control list that the HCX VLAN uses. Required when `isHcxPublic` is set to `true` .
+	HcxNetworkAclId *string `pulumi:"hcxNetworkAclId"`
+	// Determines if the HCX VLAN that Amazon EVS provisions is public or private.
+	IsHcxPublic *bool `pulumi:"isHcxPublic"`
 	// The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
 	NsxUpLink EnvironmentInitialVlanInfo `pulumi:"nsxUpLink"`
 	// The vMotion VLAN subnet. This VLAN subnet carries traffic for vSphere vMotion.
@@ -506,7 +516,17 @@ type InitialVlansPropertiesArgs struct {
 	// An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
 	ExpansionVlan2 EnvironmentInitialVlanInfoInput `pulumi:"expansionVlan2"`
 	// The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
+	//
+	// If you plan to use a public HCX VLAN subnet, the following requirements must be met:
+	//
+	// - Must have a /28 netmask and be allocated from the IPAM public pool. Required for HCX internet access configuration.
+	// - The HCX public VLAN CIDR block must be added to the VPC as a secondary CIDR block.
+	// - Must have at least two Elastic IP addresses to be allocated from the public IPAM pool for HCX components.
 	Hcx EnvironmentInitialVlanInfoInput `pulumi:"hcx"`
+	// A unique ID for a network access control list that the HCX VLAN uses. Required when `isHcxPublic` is set to `true` .
+	HcxNetworkAclId pulumi.StringPtrInput `pulumi:"hcxNetworkAclId"`
+	// Determines if the HCX VLAN that Amazon EVS provisions is public or private.
+	IsHcxPublic pulumi.BoolPtrInput `pulumi:"isHcxPublic"`
 	// The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
 	NsxUpLink EnvironmentInitialVlanInfoInput `pulumi:"nsxUpLink"`
 	// The vMotion VLAN subnet. This VLAN subnet carries traffic for vSphere vMotion.
@@ -615,8 +635,24 @@ func (o InitialVlansPropertiesOutput) ExpansionVlan2() EnvironmentInitialVlanInf
 }
 
 // The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
+//
+// If you plan to use a public HCX VLAN subnet, the following requirements must be met:
+//
+// - Must have a /28 netmask and be allocated from the IPAM public pool. Required for HCX internet access configuration.
+// - The HCX public VLAN CIDR block must be added to the VPC as a secondary CIDR block.
+// - Must have at least two Elastic IP addresses to be allocated from the public IPAM pool for HCX components.
 func (o InitialVlansPropertiesOutput) Hcx() EnvironmentInitialVlanInfoOutput {
 	return o.ApplyT(func(v InitialVlansProperties) EnvironmentInitialVlanInfo { return v.Hcx }).(EnvironmentInitialVlanInfoOutput)
+}
+
+// A unique ID for a network access control list that the HCX VLAN uses. Required when `isHcxPublic` is set to `true` .
+func (o InitialVlansPropertiesOutput) HcxNetworkAclId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InitialVlansProperties) *string { return v.HcxNetworkAclId }).(pulumi.StringPtrOutput)
+}
+
+// Determines if the HCX VLAN that Amazon EVS provisions is public or private.
+func (o InitialVlansPropertiesOutput) IsHcxPublic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InitialVlansProperties) *bool { return v.IsHcxPublic }).(pulumi.BoolPtrOutput)
 }
 
 // The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
@@ -704,6 +740,12 @@ func (o InitialVlansPropertiesPtrOutput) ExpansionVlan2() EnvironmentInitialVlan
 }
 
 // The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
+//
+// If you plan to use a public HCX VLAN subnet, the following requirements must be met:
+//
+// - Must have a /28 netmask and be allocated from the IPAM public pool. Required for HCX internet access configuration.
+// - The HCX public VLAN CIDR block must be added to the VPC as a secondary CIDR block.
+// - Must have at least two Elastic IP addresses to be allocated from the public IPAM pool for HCX components.
 func (o InitialVlansPropertiesPtrOutput) Hcx() EnvironmentInitialVlanInfoPtrOutput {
 	return o.ApplyT(func(v *InitialVlansProperties) *EnvironmentInitialVlanInfo {
 		if v == nil {
@@ -711,6 +753,26 @@ func (o InitialVlansPropertiesPtrOutput) Hcx() EnvironmentInitialVlanInfoPtrOutp
 		}
 		return &v.Hcx
 	}).(EnvironmentInitialVlanInfoPtrOutput)
+}
+
+// A unique ID for a network access control list that the HCX VLAN uses. Required when `isHcxPublic` is set to `true` .
+func (o InitialVlansPropertiesPtrOutput) HcxNetworkAclId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InitialVlansProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HcxNetworkAclId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines if the HCX VLAN that Amazon EVS provisions is public or private.
+func (o InitialVlansPropertiesPtrOutput) IsHcxPublic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InitialVlansProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsHcxPublic
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.

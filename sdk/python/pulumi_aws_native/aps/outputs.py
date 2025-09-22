@@ -15,10 +15,16 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
+    'ScraperCloudWatchLogDestination',
+    'ScraperComponent',
+    'ScraperComponentConfig',
     'ScraperDestination',
     'ScraperDestinationAmpConfigurationProperties',
+    'ScraperLoggingConfiguration',
+    'ScraperLoggingDestination',
     'ScraperRoleConfiguration',
     'ScraperScrapeConfiguration',
     'ScraperSource',
@@ -33,6 +39,95 @@ __all__ = [
     'WorkspaceLoggingFilter',
     'WorkspaceQueryLoggingConfiguration',
 ]
+
+@pulumi.output_type
+class ScraperCloudWatchLogDestination(dict):
+    """
+    Represents a cloudwatch logs destination for scraper logging
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupArn":
+            suggest = "log_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScraperCloudWatchLogDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScraperCloudWatchLogDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScraperCloudWatchLogDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_arn: Optional[builtins.str] = None):
+        """
+        Represents a cloudwatch logs destination for scraper logging
+        :param builtins.str log_group_arn: ARN of the CloudWatch log group
+        """
+        if log_group_arn is not None:
+            pulumi.set(__self__, "log_group_arn", log_group_arn)
+
+    @property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> Optional[builtins.str]:
+        """
+        ARN of the CloudWatch log group
+        """
+        return pulumi.get(self, "log_group_arn")
+
+
+@pulumi.output_type
+class ScraperComponent(dict):
+    def __init__(__self__, *,
+                 type: 'ScraperComponentType',
+                 config: Optional['outputs.ScraperComponentConfig'] = None):
+        """
+        :param 'ScraperComponentType' type: The type of the scraper component.
+        :param 'ScraperComponentConfig' config: The configuration settings for the scraper component.
+        """
+        pulumi.set(__self__, "type", type)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'ScraperComponentType':
+        """
+        The type of the scraper component.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional['outputs.ScraperComponentConfig']:
+        """
+        The configuration settings for the scraper component.
+        """
+        return pulumi.get(self, "config")
+
+
+@pulumi.output_type
+class ScraperComponentConfig(dict):
+    def __init__(__self__, *,
+                 options: Optional[Mapping[str, builtins.str]] = None):
+        """
+        :param Mapping[str, builtins.str] options: Configuration options for the scraper component.
+        """
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Configuration options for the scraper component.
+        """
+        return pulumi.get(self, "options")
+
 
 @pulumi.output_type
 class ScraperDestination(dict):
@@ -111,6 +206,90 @@ class ScraperDestinationAmpConfigurationProperties(dict):
         ARN of an Amazon Managed Prometheus workspace
         """
         return pulumi.get(self, "workspace_arn")
+
+
+@pulumi.output_type
+class ScraperLoggingConfiguration(dict):
+    """
+    Configuration for scraper logging
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loggingDestination":
+            suggest = "logging_destination"
+        elif key == "scraperComponents":
+            suggest = "scraper_components"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScraperLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScraperLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScraperLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 logging_destination: 'outputs.ScraperLoggingDestination',
+                 scraper_components: Sequence['outputs.ScraperComponent']):
+        """
+        Configuration for scraper logging
+        """
+        pulumi.set(__self__, "logging_destination", logging_destination)
+        pulumi.set(__self__, "scraper_components", scraper_components)
+
+    @property
+    @pulumi.getter(name="loggingDestination")
+    def logging_destination(self) -> 'outputs.ScraperLoggingDestination':
+        return pulumi.get(self, "logging_destination")
+
+    @property
+    @pulumi.getter(name="scraperComponents")
+    def scraper_components(self) -> Sequence['outputs.ScraperComponent']:
+        return pulumi.get(self, "scraper_components")
+
+
+@pulumi.output_type
+class ScraperLoggingDestination(dict):
+    """
+    Destination for scraper logging
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogs":
+            suggest = "cloud_watch_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScraperLoggingDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScraperLoggingDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScraperLoggingDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_logs: Optional['outputs.ScraperCloudWatchLogDestination'] = None):
+        """
+        Destination for scraper logging
+        :param 'ScraperCloudWatchLogDestination' cloud_watch_logs: The CloudWatch Logs configuration for the scraper logging destination.
+        """
+        if cloud_watch_logs is not None:
+            pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogs")
+    def cloud_watch_logs(self) -> Optional['outputs.ScraperCloudWatchLogDestination']:
+        """
+        The CloudWatch Logs configuration for the scraper logging destination.
+        """
+        return pulumi.get(self, "cloud_watch_logs")
 
 
 @pulumi.output_type

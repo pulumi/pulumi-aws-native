@@ -25,6 +25,9 @@ export interface GetConfigurationSetArgs {
 }
 
 export interface GetConfigurationSetResult {
+    /**
+     * The Amazon Resource Name (ARN) of the ConfigurationSet.
+     */
     readonly arn?: string;
     /**
      * The default sender ID to set for the ConfigurationSet.

@@ -50,6 +50,8 @@ type CloudExadataInfrastructure struct {
 	DbServerVersion pulumi.StringOutput `pulumi:"dbServerVersion"`
 	// The user-friendly name for the Exadata infrastructure.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+	MaintenanceWindow CloudExadataInfrastructureMaintenanceWindowPtrOutput `pulumi:"maintenanceWindow"`
 	// The total number of CPU cores available on the Exadata infrastructure.
 	MaxCpuCount pulumi.IntOutput `pulumi:"maxCpuCount"`
 	// The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
@@ -144,6 +146,8 @@ type cloudExadataInfrastructureArgs struct {
 	DatabaseServerType *string `pulumi:"databaseServerType"`
 	// The user-friendly name for the Exadata infrastructure.
 	DisplayName *string `pulumi:"displayName"`
+	// The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+	MaintenanceWindow *CloudExadataInfrastructureMaintenanceWindow `pulumi:"maintenanceWindow"`
 	// The model name of the Exadata infrastructure.
 	Shape *string `pulumi:"shape"`
 	// The number of storage servers that are activated for the Exadata infrastructure.
@@ -168,6 +172,8 @@ type CloudExadataInfrastructureArgs struct {
 	DatabaseServerType pulumi.StringPtrInput
 	// The user-friendly name for the Exadata infrastructure.
 	DisplayName pulumi.StringPtrInput
+	// The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+	MaintenanceWindow CloudExadataInfrastructureMaintenanceWindowPtrInput
 	// The model name of the Exadata infrastructure.
 	Shape pulumi.StringPtrInput
 	// The number of storage servers that are activated for the Exadata infrastructure.
@@ -300,6 +306,13 @@ func (o CloudExadataInfrastructureOutput) DbServerVersion() pulumi.StringOutput 
 // The user-friendly name for the Exadata infrastructure.
 func (o CloudExadataInfrastructureOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudExadataInfrastructure) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+func (o CloudExadataInfrastructureOutput) MaintenanceWindow() CloudExadataInfrastructureMaintenanceWindowPtrOutput {
+	return o.ApplyT(func(v *CloudExadataInfrastructure) CloudExadataInfrastructureMaintenanceWindowPtrOutput {
+		return v.MaintenanceWindow
+	}).(CloudExadataInfrastructureMaintenanceWindowPtrOutput)
 }
 
 // The total number of CPU cores available on the Exadata infrastructure.

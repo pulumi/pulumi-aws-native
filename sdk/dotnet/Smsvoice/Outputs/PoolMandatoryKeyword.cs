@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Smsvoice.Outputs
     [OutputType]
     public sealed class PoolMandatoryKeyword
     {
+        /// <summary>
+        /// The message associated with the keyword.
+        /// </summary>
         public readonly string Message;
 
         [OutputConstructor]

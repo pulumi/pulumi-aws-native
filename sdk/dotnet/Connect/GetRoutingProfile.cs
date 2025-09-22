@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly string? InstanceArn;
         /// <summary>
+        /// The manual assignment queues to associate with this routing profile.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RoutingProfileManualAssignmentQueueConfig> ManualAssignmentQueueConfigs;
+        /// <summary>
         /// The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
         /// </summary>
         public readonly ImmutableArray<Outputs.RoutingProfileMediaConcurrency> MediaConcurrencies;
@@ -110,6 +114,8 @@ namespace Pulumi.AwsNative.Connect
 
             string? instanceArn,
 
+            ImmutableArray<Outputs.RoutingProfileManualAssignmentQueueConfig> manualAssignmentQueueConfigs,
+
             ImmutableArray<Outputs.RoutingProfileMediaConcurrency> mediaConcurrencies,
 
             string? name,
@@ -124,6 +130,7 @@ namespace Pulumi.AwsNative.Connect
             DefaultOutboundQueueArn = defaultOutboundQueueArn;
             Description = description;
             InstanceArn = instanceArn;
+            ManualAssignmentQueueConfigs = manualAssignmentQueueConfigs;
             MediaConcurrencies = mediaConcurrencies;
             Name = name;
             QueueConfigs = queueConfigs;

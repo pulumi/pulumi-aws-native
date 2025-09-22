@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.DataZone
         /// The type of policy that you want to grant.
         /// </summary>
         [Input("policyType", required: true)]
-        public string PolicyType { get; set; } = null!;
+        public Pulumi.AwsNative.DataZone.PolicyGrantManagedPolicyType PolicyType { get; set; }
 
         public GetPolicyGrantArgs()
         {
@@ -99,7 +99,7 @@ namespace Pulumi.AwsNative.DataZone
         /// The type of policy that you want to grant.
         /// </summary>
         [Input("policyType", required: true)]
-        public Input<string> PolicyType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.DataZone.PolicyGrantManagedPolicyType> PolicyType { get; set; } = null!;
 
         public GetPolicyGrantInvokeArgs()
         {

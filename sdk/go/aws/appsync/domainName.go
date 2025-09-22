@@ -19,7 +19,7 @@ type DomainName struct {
 
 	// The domain name provided by AWS AppSync .
 	AppSyncDomainName pulumi.StringOutput `pulumi:"appSyncDomainName"`
-	// The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+	// The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate.
 	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
 	// The decription for your domain name.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -84,7 +84,7 @@ func (DomainNameState) ElementType() reflect.Type {
 }
 
 type domainNameArgs struct {
-	// The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+	// The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate.
 	CertificateArn string `pulumi:"certificateArn"`
 	// The decription for your domain name.
 	Description *string `pulumi:"description"`
@@ -96,7 +96,7 @@ type domainNameArgs struct {
 
 // The set of arguments for constructing a DomainName resource.
 type DomainNameArgs struct {
-	// The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+	// The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate.
 	CertificateArn pulumi.StringInput
 	// The decription for your domain name.
 	Description pulumi.StringPtrInput
@@ -148,7 +148,7 @@ func (o DomainNameOutput) AppSyncDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.AppSyncDomainName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+// The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate.
 func (o DomainNameOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
 }

@@ -2310,11 +2310,17 @@
         "VisualPublishOptions" : {
           "$ref" : "#/definitions/DashboardVisualPublishOptions"
         },
+        "DataStoriesSharingOption" : {
+          "$ref" : "#/definitions/DataStoriesSharingOption"
+        },
         "VisualAxisSortOption" : {
           "$ref" : "#/definitions/VisualAxisSortOption"
         },
         "ExportWithHiddenFieldsOption" : {
           "$ref" : "#/definitions/ExportWithHiddenFieldsOption"
+        },
+        "ExecutiveSummaryOption" : {
+          "$ref" : "#/definitions/ExecutiveSummaryOption"
         },
         "ExportToCSVOption" : {
           "$ref" : "#/definitions/ExportToCSVOption"
@@ -2860,6 +2866,15 @@
     "AxisDisplayDataDrivenRange" : {
       "additionalProperties" : false,
       "type" : "object"
+    },
+    "DataStoriesSharingOption" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "AvailabilityStatus" : {
+          "$ref" : "#/definitions/DashboardBehavior"
+        }
+      }
     },
     "FilterGroup" : {
       "additionalProperties" : false,
@@ -5868,6 +5883,15 @@
       "properties" : {
         "LineChartAggregatedFieldWells" : {
           "$ref" : "#/definitions/LineChartAggregatedFieldWells"
+        }
+      }
+    },
+    "ExecutiveSummaryOption" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "AvailabilityStatus" : {
+          "$ref" : "#/definitions/DashboardBehavior"
         }
       }
     },

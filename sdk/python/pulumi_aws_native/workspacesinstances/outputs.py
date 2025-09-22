@@ -22,6 +22,8 @@ __all__ = [
     'VolumeTag',
     'VolumeTagSpecification',
     'WorkspaceInstanceBlockDeviceMapping',
+    'WorkspaceInstanceCapacityReservationSpecification',
+    'WorkspaceInstanceCapacityReservationTarget',
     'WorkspaceInstanceCpuOptionsRequest',
     'WorkspaceInstanceCreditSpecificationRequest',
     'WorkspaceInstanceEbsBlockDevice',
@@ -30,12 +32,15 @@ __all__ = [
     'WorkspaceInstanceHibernationOptionsRequest',
     'WorkspaceInstanceIamInstanceProfileSpecification',
     'WorkspaceInstanceInstanceMaintenanceOptionsRequest',
+    'WorkspaceInstanceInstanceMarketOptionsRequest',
     'WorkspaceInstanceInstanceMetadataOptionsRequest',
     'WorkspaceInstanceInstanceNetworkInterfaceSpecification',
     'WorkspaceInstanceInstanceNetworkPerformanceOptionsRequest',
+    'WorkspaceInstanceLicenseConfigurationRequest',
     'WorkspaceInstancePlacement',
     'WorkspaceInstancePrivateDnsNameOptionsRequest',
     'WorkspaceInstanceRunInstancesMonitoringEnabled',
+    'WorkspaceInstanceSpotMarketOptions',
     'WorkspaceInstanceTag',
     'WorkspaceInstanceTagSpecification',
 ]
@@ -51,6 +56,8 @@ class ManagedInstanceProperties(dict):
             suggest = "instance_type"
         elif key == "blockDeviceMappings":
             suggest = "block_device_mappings"
+        elif key == "capacityReservationSpecification":
+            suggest = "capacity_reservation_specification"
         elif key == "cpuOptions":
             suggest = "cpu_options"
         elif key == "creditSpecification":
@@ -59,14 +66,22 @@ class ManagedInstanceProperties(dict):
             suggest = "disable_api_stop"
         elif key == "ebsOptimized":
             suggest = "ebs_optimized"
+        elif key == "enablePrimaryIpv6":
+            suggest = "enable_primary_ipv6"
         elif key == "enclaveOptions":
             suggest = "enclave_options"
         elif key == "hibernationOptions":
             suggest = "hibernation_options"
         elif key == "iamInstanceProfile":
             suggest = "iam_instance_profile"
+        elif key == "instanceMarketOptions":
+            suggest = "instance_market_options"
+        elif key == "ipv6AddressCount":
+            suggest = "ipv6_address_count"
         elif key == "keyName":
             suggest = "key_name"
+        elif key == "licenseSpecifications":
+            suggest = "license_specifications"
         elif key == "maintenanceOptions":
             suggest = "maintenance_options"
         elif key == "metadataOptions":
@@ -77,6 +92,8 @@ class ManagedInstanceProperties(dict):
             suggest = "network_performance_options"
         elif key == "privateDnsNameOptions":
             suggest = "private_dns_name_options"
+        elif key == "subnetId":
+            suggest = "subnet_id"
         elif key == "tagSpecifications":
             suggest = "tag_specifications"
         elif key == "userData":
@@ -97,14 +114,19 @@ class ManagedInstanceProperties(dict):
                  image_id: builtins.str,
                  instance_type: builtins.str,
                  block_device_mappings: Optional[Sequence['outputs.WorkspaceInstanceBlockDeviceMapping']] = None,
+                 capacity_reservation_specification: Optional['outputs.WorkspaceInstanceCapacityReservationSpecification'] = None,
                  cpu_options: Optional['outputs.WorkspaceInstanceCpuOptionsRequest'] = None,
                  credit_specification: Optional['outputs.WorkspaceInstanceCreditSpecificationRequest'] = None,
                  disable_api_stop: Optional[builtins.bool] = None,
                  ebs_optimized: Optional[builtins.bool] = None,
+                 enable_primary_ipv6: Optional[builtins.bool] = None,
                  enclave_options: Optional['outputs.WorkspaceInstanceEnclaveOptionsRequest'] = None,
                  hibernation_options: Optional['outputs.WorkspaceInstanceHibernationOptionsRequest'] = None,
                  iam_instance_profile: Optional['outputs.WorkspaceInstanceIamInstanceProfileSpecification'] = None,
+                 instance_market_options: Optional['outputs.WorkspaceInstanceInstanceMarketOptionsRequest'] = None,
+                 ipv6_address_count: Optional[builtins.int] = None,
                  key_name: Optional[builtins.str] = None,
+                 license_specifications: Optional[Sequence['outputs.WorkspaceInstanceLicenseConfigurationRequest']] = None,
                  maintenance_options: Optional['outputs.WorkspaceInstanceInstanceMaintenanceOptionsRequest'] = None,
                  metadata_options: Optional['outputs.WorkspaceInstanceInstanceMetadataOptionsRequest'] = None,
                  monitoring: Optional['outputs.WorkspaceInstanceRunInstancesMonitoringEnabled'] = None,
@@ -112,12 +134,15 @@ class ManagedInstanceProperties(dict):
                  network_performance_options: Optional['outputs.WorkspaceInstanceInstanceNetworkPerformanceOptionsRequest'] = None,
                  placement: Optional['outputs.WorkspaceInstancePlacement'] = None,
                  private_dns_name_options: Optional['outputs.WorkspaceInstancePrivateDnsNameOptionsRequest'] = None,
+                 subnet_id: Optional[builtins.str] = None,
                  tag_specifications: Optional[Sequence['outputs.WorkspaceInstanceTagSpecification']] = None,
                  user_data: Optional[builtins.str] = None):
         pulumi.set(__self__, "image_id", image_id)
         pulumi.set(__self__, "instance_type", instance_type)
         if block_device_mappings is not None:
             pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+        if capacity_reservation_specification is not None:
+            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
         if cpu_options is not None:
             pulumi.set(__self__, "cpu_options", cpu_options)
         if credit_specification is not None:
@@ -126,14 +151,22 @@ class ManagedInstanceProperties(dict):
             pulumi.set(__self__, "disable_api_stop", disable_api_stop)
         if ebs_optimized is not None:
             pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+        if enable_primary_ipv6 is not None:
+            pulumi.set(__self__, "enable_primary_ipv6", enable_primary_ipv6)
         if enclave_options is not None:
             pulumi.set(__self__, "enclave_options", enclave_options)
         if hibernation_options is not None:
             pulumi.set(__self__, "hibernation_options", hibernation_options)
         if iam_instance_profile is not None:
             pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
+        if instance_market_options is not None:
+            pulumi.set(__self__, "instance_market_options", instance_market_options)
+        if ipv6_address_count is not None:
+            pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
+        if license_specifications is not None:
+            pulumi.set(__self__, "license_specifications", license_specifications)
         if maintenance_options is not None:
             pulumi.set(__self__, "maintenance_options", maintenance_options)
         if metadata_options is not None:
@@ -148,6 +181,8 @@ class ManagedInstanceProperties(dict):
             pulumi.set(__self__, "placement", placement)
         if private_dns_name_options is not None:
             pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if tag_specifications is not None:
             pulumi.set(__self__, "tag_specifications", tag_specifications)
         if user_data is not None:
@@ -167,6 +202,11 @@ class ManagedInstanceProperties(dict):
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Optional[Sequence['outputs.WorkspaceInstanceBlockDeviceMapping']]:
         return pulumi.get(self, "block_device_mappings")
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> Optional['outputs.WorkspaceInstanceCapacityReservationSpecification']:
+        return pulumi.get(self, "capacity_reservation_specification")
 
     @property
     @pulumi.getter(name="cpuOptions")
@@ -189,6 +229,11 @@ class ManagedInstanceProperties(dict):
         return pulumi.get(self, "ebs_optimized")
 
     @property
+    @pulumi.getter(name="enablePrimaryIpv6")
+    def enable_primary_ipv6(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "enable_primary_ipv6")
+
+    @property
     @pulumi.getter(name="enclaveOptions")
     def enclave_options(self) -> Optional['outputs.WorkspaceInstanceEnclaveOptionsRequest']:
         return pulumi.get(self, "enclave_options")
@@ -204,9 +249,24 @@ class ManagedInstanceProperties(dict):
         return pulumi.get(self, "iam_instance_profile")
 
     @property
+    @pulumi.getter(name="instanceMarketOptions")
+    def instance_market_options(self) -> Optional['outputs.WorkspaceInstanceInstanceMarketOptionsRequest']:
+        return pulumi.get(self, "instance_market_options")
+
+    @property
+    @pulumi.getter(name="ipv6AddressCount")
+    def ipv6_address_count(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "ipv6_address_count")
+
+    @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[builtins.str]:
         return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="licenseSpecifications")
+    def license_specifications(self) -> Optional[Sequence['outputs.WorkspaceInstanceLicenseConfigurationRequest']]:
+        return pulumi.get(self, "license_specifications")
 
     @property
     @pulumi.getter(name="maintenanceOptions")
@@ -242,6 +302,11 @@ class ManagedInstanceProperties(dict):
     @pulumi.getter(name="privateDnsNameOptions")
     def private_dns_name_options(self) -> Optional['outputs.WorkspaceInstancePrivateDnsNameOptionsRequest']:
         return pulumi.get(self, "private_dns_name_options")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="tagSpecifications")
@@ -383,6 +448,86 @@ class WorkspaceInstanceBlockDeviceMapping(dict):
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> Optional[builtins.str]:
         return pulumi.get(self, "virtual_name")
+
+
+@pulumi.output_type
+class WorkspaceInstanceCapacityReservationSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationPreference":
+            suggest = "capacity_reservation_preference"
+        elif key == "capacityReservationTarget":
+            suggest = "capacity_reservation_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceInstanceCapacityReservationSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceInstanceCapacityReservationSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceInstanceCapacityReservationSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_preference: Optional['WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference'] = None,
+                 capacity_reservation_target: Optional['outputs.WorkspaceInstanceCapacityReservationTarget'] = None):
+        if capacity_reservation_preference is not None:
+            pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if capacity_reservation_target is not None:
+            pulumi.set(__self__, "capacity_reservation_target", capacity_reservation_target)
+
+    @property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> Optional['WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference']:
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @property
+    @pulumi.getter(name="capacityReservationTarget")
+    def capacity_reservation_target(self) -> Optional['outputs.WorkspaceInstanceCapacityReservationTarget']:
+        return pulumi.get(self, "capacity_reservation_target")
+
+
+@pulumi.output_type
+class WorkspaceInstanceCapacityReservationTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationId":
+            suggest = "capacity_reservation_id"
+        elif key == "capacityReservationResourceGroupArn":
+            suggest = "capacity_reservation_resource_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceInstanceCapacityReservationTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceInstanceCapacityReservationTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceInstanceCapacityReservationTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_id: Optional[builtins.str] = None,
+                 capacity_reservation_resource_group_arn: Optional[builtins.str] = None):
+        if capacity_reservation_id is not None:
+            pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+        if capacity_reservation_resource_group_arn is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arn", capacity_reservation_resource_group_arn)
+
+    @property
+    @pulumi.getter(name="capacityReservationId")
+    def capacity_reservation_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "capacity_reservation_id")
+
+    @property
+    @pulumi.getter(name="capacityReservationResourceGroupArn")
+    def capacity_reservation_resource_group_arn(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "capacity_reservation_resource_group_arn")
 
 
 @pulumi.output_type
@@ -588,9 +733,17 @@ class WorkspaceInstanceHibernationOptionsRequest(dict):
 @pulumi.output_type
 class WorkspaceInstanceIamInstanceProfileSpecification(dict):
     def __init__(__self__, *,
+                 arn: Optional[builtins.str] = None,
                  name: Optional[builtins.str] = None):
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -626,6 +779,46 @@ class WorkspaceInstanceInstanceMaintenanceOptionsRequest(dict):
     @pulumi.getter(name="autoRecovery")
     def auto_recovery(self) -> Optional['WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery']:
         return pulumi.get(self, "auto_recovery")
+
+
+@pulumi.output_type
+class WorkspaceInstanceInstanceMarketOptionsRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "marketType":
+            suggest = "market_type"
+        elif key == "spotOptions":
+            suggest = "spot_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceInstanceInstanceMarketOptionsRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceInstanceInstanceMarketOptionsRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceInstanceInstanceMarketOptionsRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 market_type: Optional['WorkspaceInstanceInstanceMarketOptionsRequestMarketType'] = None,
+                 spot_options: Optional['outputs.WorkspaceInstanceSpotMarketOptions'] = None):
+        if market_type is not None:
+            pulumi.set(__self__, "market_type", market_type)
+        if spot_options is not None:
+            pulumi.set(__self__, "spot_options", spot_options)
+
+    @property
+    @pulumi.getter(name="marketType")
+    def market_type(self) -> Optional['WorkspaceInstanceInstanceMarketOptionsRequestMarketType']:
+        return pulumi.get(self, "market_type")
+
+    @property
+    @pulumi.getter(name="spotOptions")
+    def spot_options(self) -> Optional['outputs.WorkspaceInstanceSpotMarketOptions']:
+        return pulumi.get(self, "spot_options")
 
 
 @pulumi.output_type
@@ -785,14 +978,48 @@ class WorkspaceInstanceInstanceNetworkPerformanceOptionsRequest(dict):
 
 
 @pulumi.output_type
+class WorkspaceInstanceLicenseConfigurationRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "licenseConfigurationArn":
+            suggest = "license_configuration_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceInstanceLicenseConfigurationRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceInstanceLicenseConfigurationRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceInstanceLicenseConfigurationRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 license_configuration_arn: Optional[builtins.str] = None):
+        if license_configuration_arn is not None:
+            pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
+
+    @property
+    @pulumi.getter(name="licenseConfigurationArn")
+    def license_configuration_arn(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "license_configuration_arn")
+
+
+@pulumi.output_type
 class WorkspaceInstancePlacement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "availabilityZone":
             suggest = "availability_zone"
+        elif key == "groupId":
+            suggest = "group_id"
         elif key == "groupName":
             suggest = "group_name"
+        elif key == "partitionNumber":
+            suggest = "partition_number"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WorkspaceInstancePlacement. Access the value via the '{suggest}' property getter instead.")
@@ -807,12 +1034,18 @@ class WorkspaceInstancePlacement(dict):
 
     def __init__(__self__, *,
                  availability_zone: Optional[builtins.str] = None,
+                 group_id: Optional[builtins.str] = None,
                  group_name: Optional[builtins.str] = None,
+                 partition_number: Optional[builtins.int] = None,
                  tenancy: Optional['WorkspaceInstancePlacementTenancy'] = None):
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
+        if partition_number is not None:
+            pulumi.set(__self__, "partition_number", partition_number)
         if tenancy is not None:
             pulumi.set(__self__, "tenancy", tenancy)
 
@@ -822,9 +1055,19 @@ class WorkspaceInstancePlacement(dict):
         return pulumi.get(self, "availability_zone")
 
     @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "group_id")
+
+    @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[builtins.str]:
         return pulumi.get(self, "group_name")
+
+    @property
+    @pulumi.getter(name="partitionNumber")
+    def partition_number(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "partition_number")
 
     @property
     @pulumi.getter
@@ -893,6 +1136,66 @@ class WorkspaceInstanceRunInstancesMonitoringEnabled(dict):
     @pulumi.getter
     def enabled(self) -> Optional[builtins.bool]:
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class WorkspaceInstanceSpotMarketOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceInterruptionBehavior":
+            suggest = "instance_interruption_behavior"
+        elif key == "maxPrice":
+            suggest = "max_price"
+        elif key == "spotInstanceType":
+            suggest = "spot_instance_type"
+        elif key == "validUntilUtc":
+            suggest = "valid_until_utc"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceInstanceSpotMarketOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceInstanceSpotMarketOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceInstanceSpotMarketOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_interruption_behavior: Optional['WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior'] = None,
+                 max_price: Optional[builtins.str] = None,
+                 spot_instance_type: Optional['WorkspaceInstanceSpotMarketOptionsSpotInstanceType'] = None,
+                 valid_until_utc: Optional[builtins.str] = None):
+        if instance_interruption_behavior is not None:
+            pulumi.set(__self__, "instance_interruption_behavior", instance_interruption_behavior)
+        if max_price is not None:
+            pulumi.set(__self__, "max_price", max_price)
+        if spot_instance_type is not None:
+            pulumi.set(__self__, "spot_instance_type", spot_instance_type)
+        if valid_until_utc is not None:
+            pulumi.set(__self__, "valid_until_utc", valid_until_utc)
+
+    @property
+    @pulumi.getter(name="instanceInterruptionBehavior")
+    def instance_interruption_behavior(self) -> Optional['WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior']:
+        return pulumi.get(self, "instance_interruption_behavior")
+
+    @property
+    @pulumi.getter(name="maxPrice")
+    def max_price(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "max_price")
+
+    @property
+    @pulumi.getter(name="spotInstanceType")
+    def spot_instance_type(self) -> Optional['WorkspaceInstanceSpotMarketOptionsSpotInstanceType']:
+        return pulumi.get(self, "spot_instance_type")
+
+    @property
+    @pulumi.getter(name="validUntilUtc")
+    def valid_until_utc(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "valid_until_utc")
 
 
 @pulumi.output_type

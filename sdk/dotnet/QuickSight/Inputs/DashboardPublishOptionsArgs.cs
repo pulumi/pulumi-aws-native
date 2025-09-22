@@ -39,8 +39,17 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("dataPointTooltipOption")]
         public Input<Inputs.DashboardDataPointTooltipOptionArgs>? DataPointTooltipOption { get; set; }
 
+        /// <summary>
+        /// Adds Q&amp;A capabilities to an Amazon QuickSight dashboard. If no topic is linked, Dashboard Q&amp;A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&amp;A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&amp;A is used.
+        /// </summary>
         [Input("dataQaEnabledOption")]
         public Input<Inputs.DashboardDataQaEnabledOptionArgs>? DataQaEnabledOption { get; set; }
+
+        [Input("dataStoriesSharingOption")]
+        public Input<Inputs.DashboardDataStoriesSharingOptionArgs>? DataStoriesSharingOption { get; set; }
+
+        [Input("executiveSummaryOption")]
+        public Input<Inputs.DashboardExecutiveSummaryOptionArgs>? ExecutiveSummaryOption { get; set; }
 
         /// <summary>
         /// Export to .csv option.

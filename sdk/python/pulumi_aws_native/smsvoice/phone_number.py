@@ -325,6 +325,9 @@ class PhoneNumber(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The `PhoneNumber` 's Amazon Resource Name (ARN)
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -386,11 +389,17 @@ class PhoneNumber(pulumi.CustomResource):
     @property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> pulumi.Output[builtins.str]:
+        """
+        The phone number in E.164 format.
+        """
         return pulumi.get(self, "phone_number")
 
     @property
     @pulumi.getter(name="phoneNumberId")
     def phone_number_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The unique identifier for the phone number.
+        """
         return pulumi.get(self, "phone_number_id")
 
     @property

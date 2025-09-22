@@ -24,7 +24,6 @@ type LogGroup struct {
 	// The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
-	//  For more information, including a list of types of data that can be audited and masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 	DataProtectionPolicy pulumi.AnyOutput `pulumi:"dataProtectionPolicy"`
@@ -50,7 +49,7 @@ type LogGroup struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 	ResourcePolicyDocument pulumi.AnyOutput `pulumi:"resourcePolicyDocument"`
 	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.
-	//  To set a log group so that its log events do not expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html).
+	//  To set a log group so that its log events do not expire, do not specify this property.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
 	// An array of key-value pairs to apply to the log group.
 	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
@@ -102,7 +101,6 @@ func (LogGroupState) ElementType() reflect.Type {
 
 type logGroupArgs struct {
 	// Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
-	//  For more information, including a list of types of data that can be audited and masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
@@ -128,7 +126,7 @@ type logGroupArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 	ResourcePolicyDocument interface{} `pulumi:"resourcePolicyDocument"`
 	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.
-	//  To set a log group so that its log events do not expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html).
+	//  To set a log group so that its log events do not expire, do not specify this property.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// An array of key-value pairs to apply to the log group.
 	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
@@ -138,7 +136,6 @@ type logGroupArgs struct {
 // The set of arguments for constructing a LogGroup resource.
 type LogGroupArgs struct {
 	// Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
-	//  For more information, including a list of types of data that can be audited and masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 	DataProtectionPolicy pulumi.Input
@@ -164,7 +161,7 @@ type LogGroupArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 	ResourcePolicyDocument pulumi.Input
 	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.
-	//  To set a log group so that its log events do not expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html).
+	//  To set a log group so that its log events do not expire, do not specify this property.
 	RetentionInDays pulumi.IntPtrInput
 	// An array of key-value pairs to apply to the log group.
 	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
@@ -215,8 +212,6 @@ func (o LogGroupOutput) Arn() pulumi.StringOutput {
 
 // Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
 //
-//	For more information, including a list of types of data that can be audited and masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
-//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 func (o LogGroupOutput) DataProtectionPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.AnyOutput { return v.DataProtectionPolicy }).(pulumi.AnyOutput)
@@ -264,7 +259,7 @@ func (o LogGroupOutput) ResourcePolicyDocument() pulumi.AnyOutput {
 
 // The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.
 //
-//	To set a log group so that its log events do not expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html).
+//	To set a log group so that its log events do not expire, do not specify this property.
 func (o LogGroupOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }

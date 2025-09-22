@@ -15,8 +15,14 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Inputs
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        [Input("groupId")]
+        public Input<string>? GroupId { get; set; }
+
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
+
+        [Input("partitionNumber")]
+        public Input<int>? PartitionNumber { get; set; }
 
         [Input("tenancy")]
         public Input<Pulumi.AwsNative.WorkspacesInstances.WorkspaceInstancePlacementTenancy>? Tenancy { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     public sealed class TlsInspectionConfigurationServerCertificateConfiguration
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within AWS Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
+        /// The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
         /// 
         /// The following limitations apply:
         /// 
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// 
         /// For more information about configuring certificates for outbound inspection, see [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
         /// 
-        /// For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
+        /// For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *Certificate Manager User Guide* .
         /// </summary>
         public readonly string? CertificateAuthorityArn;
         /// <summary>

@@ -87,6 +87,8 @@ type SecurityConfig struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Security config description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
+	IamFederationOptions SecurityConfigIamFederationConfigOptionsPtrOutput `pulumi:"iamFederationOptions"`
 	// Describes IAM Identity Center options in the form of a key-value map.
 	IamIdentityCenterOptions SecurityConfigIamIdentityCenterConfigOptionsPtrOutput `pulumi:"iamIdentityCenterOptions"`
 	// The friendly name of the security config
@@ -145,6 +147,8 @@ func (SecurityConfigState) ElementType() reflect.Type {
 type securityConfigArgs struct {
 	// Security config description
 	Description *string `pulumi:"description"`
+	// Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
+	IamFederationOptions *SecurityConfigIamFederationConfigOptions `pulumi:"iamFederationOptions"`
 	// Describes IAM Identity Center options in the form of a key-value map.
 	IamIdentityCenterOptions *SecurityConfigIamIdentityCenterConfigOptions `pulumi:"iamIdentityCenterOptions"`
 	// The friendly name of the security config
@@ -159,6 +163,8 @@ type securityConfigArgs struct {
 type SecurityConfigArgs struct {
 	// Security config description
 	Description pulumi.StringPtrInput
+	// Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
+	IamFederationOptions SecurityConfigIamFederationConfigOptionsPtrInput
 	// Describes IAM Identity Center options in the form of a key-value map.
 	IamIdentityCenterOptions SecurityConfigIamIdentityCenterConfigOptionsPtrInput
 	// The friendly name of the security config
@@ -214,6 +220,13 @@ func (o SecurityConfigOutput) AwsId() pulumi.StringOutput {
 // Security config description
 func (o SecurityConfigOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityConfig) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
+func (o SecurityConfigOutput) IamFederationOptions() SecurityConfigIamFederationConfigOptionsPtrOutput {
+	return o.ApplyT(func(v *SecurityConfig) SecurityConfigIamFederationConfigOptionsPtrOutput {
+		return v.IamFederationOptions
+	}).(SecurityConfigIamFederationConfigOptionsPtrOutput)
 }
 
 // Describes IAM Identity Center options in the form of a key-value map.

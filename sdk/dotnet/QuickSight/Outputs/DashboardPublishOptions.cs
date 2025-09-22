@@ -32,7 +32,12 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The data point tool tip options of a dashboard.
         /// </summary>
         public readonly Outputs.DashboardDataPointTooltipOption? DataPointTooltipOption;
+        /// <summary>
+        /// Adds Q&amp;A capabilities to an Amazon QuickSight dashboard. If no topic is linked, Dashboard Q&amp;A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&amp;A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&amp;A is used.
+        /// </summary>
         public readonly Outputs.DashboardDataQaEnabledOption? DataQaEnabledOption;
+        public readonly Outputs.DashboardDataStoriesSharingOption? DataStoriesSharingOption;
+        public readonly Outputs.DashboardExecutiveSummaryOption? ExecutiveSummaryOption;
         /// <summary>
         /// Export to .csv option.
         /// </summary>
@@ -74,6 +79,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardDataQaEnabledOption? dataQaEnabledOption,
 
+            Outputs.DashboardDataStoriesSharingOption? dataStoriesSharingOption,
+
+            Outputs.DashboardExecutiveSummaryOption? executiveSummaryOption,
+
             Outputs.DashboardExportToCsvOption? exportToCsvOption,
 
             Outputs.DashboardExportWithHiddenFieldsOption? exportWithHiddenFieldsOption,
@@ -93,6 +102,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             DataPointMenuLabelOption = dataPointMenuLabelOption;
             DataPointTooltipOption = dataPointTooltipOption;
             DataQaEnabledOption = dataQaEnabledOption;
+            DataStoriesSharingOption = dataStoriesSharingOption;
+            ExecutiveSummaryOption = executiveSummaryOption;
             ExportToCsvOption = exportToCsvOption;
             ExportWithHiddenFieldsOption = exportWithHiddenFieldsOption;
             SheetControlsOption = sheetControlsOption;

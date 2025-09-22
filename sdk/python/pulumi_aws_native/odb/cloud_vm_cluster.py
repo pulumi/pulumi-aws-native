@@ -31,6 +31,7 @@ class CloudVmClusterArgs:
                  data_collection_options: Optional[pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']] = None,
                  data_storage_size_in_tbs: Optional[pulumi.Input[builtins.float]] = None,
                  db_node_storage_size_in_gbs: Optional[pulumi.Input[builtins.int]] = None,
+                 db_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterDbNodeArgs']]]] = None,
                  db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  gi_version: Optional[pulumi.Input[builtins.str]] = None,
@@ -53,6 +54,7 @@ class CloudVmClusterArgs:
         :param pulumi.Input['CloudVmClusterDataCollectionOptionsArgs'] data_collection_options: The set of diagnostic collection options enabled for the VM cluster.
         :param pulumi.Input[builtins.float] data_storage_size_in_tbs: The size of the data disk group, in terabytes (TB), that's allocated for the VM cluster.
         :param pulumi.Input[builtins.int] db_node_storage_size_in_gbs: The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudVmClusterDbNodeArgs']]] db_nodes: The DB nodes that are implicitly created and managed as part of this VM Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] db_servers: The list of database servers for the VM cluster.
         :param pulumi.Input[builtins.str] display_name: The user-friendly name for the VM cluster.
         :param pulumi.Input[builtins.str] gi_version: The software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
@@ -80,6 +82,8 @@ class CloudVmClusterArgs:
             pulumi.set(__self__, "data_storage_size_in_tbs", data_storage_size_in_tbs)
         if db_node_storage_size_in_gbs is not None:
             pulumi.set(__self__, "db_node_storage_size_in_gbs", db_node_storage_size_in_gbs)
+        if db_nodes is not None:
+            pulumi.set(__self__, "db_nodes", db_nodes)
         if db_servers is not None:
             pulumi.set(__self__, "db_servers", db_servers)
         if display_name is not None:
@@ -180,6 +184,18 @@ class CloudVmClusterArgs:
     @db_node_storage_size_in_gbs.setter
     def db_node_storage_size_in_gbs(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "db_node_storage_size_in_gbs", value)
+
+    @property
+    @pulumi.getter(name="dbNodes")
+    def db_nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterDbNodeArgs']]]]:
+        """
+        The DB nodes that are implicitly created and managed as part of this VM Cluster.
+        """
+        return pulumi.get(self, "db_nodes")
+
+    @db_nodes.setter
+    def db_nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterDbNodeArgs']]]]):
+        pulumi.set(self, "db_nodes", value)
 
     @property
     @pulumi.getter(name="dbServers")
@@ -362,6 +378,7 @@ class CloudVmCluster(pulumi.CustomResource):
                  data_collection_options: Optional[pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']]] = None,
                  data_storage_size_in_tbs: Optional[pulumi.Input[builtins.float]] = None,
                  db_node_storage_size_in_gbs: Optional[pulumi.Input[builtins.int]] = None,
+                 db_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterDbNodeArgs', 'CloudVmClusterDbNodeArgsDict']]]]] = None,
                  db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  gi_version: Optional[pulumi.Input[builtins.str]] = None,
@@ -388,6 +405,7 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']] data_collection_options: The set of diagnostic collection options enabled for the VM cluster.
         :param pulumi.Input[builtins.float] data_storage_size_in_tbs: The size of the data disk group, in terabytes (TB), that's allocated for the VM cluster.
         :param pulumi.Input[builtins.int] db_node_storage_size_in_gbs: The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterDbNodeArgs', 'CloudVmClusterDbNodeArgsDict']]]] db_nodes: The DB nodes that are implicitly created and managed as part of this VM Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] db_servers: The list of database servers for the VM cluster.
         :param pulumi.Input[builtins.str] display_name: The user-friendly name for the VM cluster.
         :param pulumi.Input[builtins.str] gi_version: The software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
@@ -433,6 +451,7 @@ class CloudVmCluster(pulumi.CustomResource):
                  data_collection_options: Optional[pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']]] = None,
                  data_storage_size_in_tbs: Optional[pulumi.Input[builtins.float]] = None,
                  db_node_storage_size_in_gbs: Optional[pulumi.Input[builtins.int]] = None,
+                 db_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterDbNodeArgs', 'CloudVmClusterDbNodeArgsDict']]]]] = None,
                  db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  gi_version: Optional[pulumi.Input[builtins.str]] = None,
@@ -462,6 +481,7 @@ class CloudVmCluster(pulumi.CustomResource):
             __props__.__dict__["data_collection_options"] = data_collection_options
             __props__.__dict__["data_storage_size_in_tbs"] = data_storage_size_in_tbs
             __props__.__dict__["db_node_storage_size_in_gbs"] = db_node_storage_size_in_gbs
+            __props__.__dict__["db_nodes"] = db_nodes
             __props__.__dict__["db_servers"] = db_servers
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["gi_version"] = gi_version
@@ -491,7 +511,7 @@ class CloudVmCluster(pulumi.CustomResource):
             __props__.__dict__["shape"] = None
             __props__.__dict__["storage_size_in_gbs"] = None
             __props__.__dict__["vip_ids"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cloudExadataInfrastructureId", "clusterName", "cpuCoreCount", "dataCollectionOptions", "dataStorageSizeInTbs", "dbNodeStorageSizeInGbs", "dbServers[*]", "displayName", "giVersion", "hostname", "isLocalBackupEnabled", "isSparseDiskgroupEnabled", "licenseModel", "memorySizeInGbs", "odbNetworkId", "scanListenerPortTcp", "sshPublicKeys[*]", "systemVersion", "timeZone"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cloudExadataInfrastructureId", "clusterName", "cpuCoreCount", "dataCollectionOptions", "dataStorageSizeInTbs", "dbNodeStorageSizeInGbs", "dbNodes[*].dbServerId", "dbServers[*]", "displayName", "giVersion", "hostname", "isLocalBackupEnabled", "isSparseDiskgroupEnabled", "licenseModel", "memorySizeInGbs", "odbNetworkId", "scanListenerPortTcp", "sshPublicKeys[*]", "systemVersion", "timeZone"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CloudVmCluster, __self__).__init__(
             'aws-native:odb:CloudVmCluster',
@@ -524,6 +544,7 @@ class CloudVmCluster(pulumi.CustomResource):
         __props__.__dict__["data_collection_options"] = None
         __props__.__dict__["data_storage_size_in_tbs"] = None
         __props__.__dict__["db_node_storage_size_in_gbs"] = None
+        __props__.__dict__["db_nodes"] = None
         __props__.__dict__["db_servers"] = None
         __props__.__dict__["disk_redundancy"] = None
         __props__.__dict__["display_name"] = None
@@ -623,6 +644,14 @@ class CloudVmCluster(pulumi.CustomResource):
         The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
         """
         return pulumi.get(self, "db_node_storage_size_in_gbs")
+
+    @property
+    @pulumi.getter(name="dbNodes")
+    def db_nodes(self) -> pulumi.Output[Optional[Sequence['outputs.CloudVmClusterDbNode']]]:
+        """
+        The DB nodes that are implicitly created and managed as part of this VM Cluster.
+        """
+        return pulumi.get(self, "db_nodes")
 
     @property
     @pulumi.getter(name="dbServers")

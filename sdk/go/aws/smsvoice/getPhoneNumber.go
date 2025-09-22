@@ -24,10 +24,12 @@ func LookupPhoneNumber(ctx *pulumi.Context, args *LookupPhoneNumberArgs, opts ..
 }
 
 type LookupPhoneNumberArgs struct {
+	// The unique identifier for the phone number.
 	PhoneNumberId string `pulumi:"phoneNumberId"`
 }
 
 type LookupPhoneNumberResult struct {
+	// The `PhoneNumber` 's Amazon Resource Name (ARN)
 	Arn *string `pulumi:"arn"`
 	// When set to true the sender ID can't be deleted. By default this is set to false.
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
@@ -37,8 +39,10 @@ type LookupPhoneNumberResult struct {
 	OptOutListName *string `pulumi:"optOutListName"`
 	// A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
 	OptionalKeywords []PhoneNumberOptionalKeyword `pulumi:"optionalKeywords"`
-	PhoneNumber      *string                      `pulumi:"phoneNumber"`
-	PhoneNumberId    *string                      `pulumi:"phoneNumberId"`
+	// The phone number in E.164 format.
+	PhoneNumber *string `pulumi:"phoneNumber"`
+	// The unique identifier for the phone number.
+	PhoneNumberId *string `pulumi:"phoneNumberId"`
 	// By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.
 	SelfManagedOptOutsEnabled *bool `pulumi:"selfManagedOptOutsEnabled"`
 	// An array of key-value pairs to apply to this resource.
@@ -57,6 +61,7 @@ func LookupPhoneNumberOutput(ctx *pulumi.Context, args LookupPhoneNumberOutputAr
 }
 
 type LookupPhoneNumberOutputArgs struct {
+	// The unique identifier for the phone number.
 	PhoneNumberId pulumi.StringInput `pulumi:"phoneNumberId"`
 }
 
@@ -78,6 +83,7 @@ func (o LookupPhoneNumberResultOutput) ToLookupPhoneNumberResultOutputWithContex
 	return o
 }
 
+// The `PhoneNumber` 's Amazon Resource Name (ARN)
 func (o LookupPhoneNumberResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPhoneNumberResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -102,10 +108,12 @@ func (o LookupPhoneNumberResultOutput) OptionalKeywords() PhoneNumberOptionalKey
 	return o.ApplyT(func(v LookupPhoneNumberResult) []PhoneNumberOptionalKeyword { return v.OptionalKeywords }).(PhoneNumberOptionalKeywordArrayOutput)
 }
 
+// The phone number in E.164 format.
 func (o LookupPhoneNumberResultOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPhoneNumberResult) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the phone number.
 func (o LookupPhoneNumberResultOutput) PhoneNumberId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPhoneNumberResult) *string { return v.PhoneNumberId }).(pulumi.StringPtrOutput)
 }

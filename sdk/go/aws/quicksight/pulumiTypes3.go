@@ -13,6 +13,362 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateLineSeriesAxisDisplayOptions struct {
+	// The options that determine the presentation of the line series axis.
+	AxisOptions *TemplateAxisDisplayOptions `pulumi:"axisOptions"`
+	// The configuration options that determine how missing data is treated during the rendering of a line chart.
+	MissingDataConfigurations []TemplateMissingDataConfiguration `pulumi:"missingDataConfigurations"`
+}
+
+// TemplateLineSeriesAxisDisplayOptionsInput is an input type that accepts TemplateLineSeriesAxisDisplayOptionsArgs and TemplateLineSeriesAxisDisplayOptionsOutput values.
+// You can construct a concrete instance of `TemplateLineSeriesAxisDisplayOptionsInput` via:
+//
+//	TemplateLineSeriesAxisDisplayOptionsArgs{...}
+type TemplateLineSeriesAxisDisplayOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateLineSeriesAxisDisplayOptionsOutput() TemplateLineSeriesAxisDisplayOptionsOutput
+	ToTemplateLineSeriesAxisDisplayOptionsOutputWithContext(context.Context) TemplateLineSeriesAxisDisplayOptionsOutput
+}
+
+type TemplateLineSeriesAxisDisplayOptionsArgs struct {
+	// The options that determine the presentation of the line series axis.
+	AxisOptions TemplateAxisDisplayOptionsPtrInput `pulumi:"axisOptions"`
+	// The configuration options that determine how missing data is treated during the rendering of a line chart.
+	MissingDataConfigurations TemplateMissingDataConfigurationArrayInput `pulumi:"missingDataConfigurations"`
+}
+
+func (TemplateLineSeriesAxisDisplayOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateLineSeriesAxisDisplayOptions)(nil)).Elem()
+}
+
+func (i TemplateLineSeriesAxisDisplayOptionsArgs) ToTemplateLineSeriesAxisDisplayOptionsOutput() TemplateLineSeriesAxisDisplayOptionsOutput {
+	return i.ToTemplateLineSeriesAxisDisplayOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateLineSeriesAxisDisplayOptionsArgs) ToTemplateLineSeriesAxisDisplayOptionsOutputWithContext(ctx context.Context) TemplateLineSeriesAxisDisplayOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLineSeriesAxisDisplayOptionsOutput)
+}
+
+func (i TemplateLineSeriesAxisDisplayOptionsArgs) ToTemplateLineSeriesAxisDisplayOptionsPtrOutput() TemplateLineSeriesAxisDisplayOptionsPtrOutput {
+	return i.ToTemplateLineSeriesAxisDisplayOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateLineSeriesAxisDisplayOptionsArgs) ToTemplateLineSeriesAxisDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateLineSeriesAxisDisplayOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLineSeriesAxisDisplayOptionsOutput).ToTemplateLineSeriesAxisDisplayOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateLineSeriesAxisDisplayOptionsPtrInput is an input type that accepts TemplateLineSeriesAxisDisplayOptionsArgs, TemplateLineSeriesAxisDisplayOptionsPtr and TemplateLineSeriesAxisDisplayOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateLineSeriesAxisDisplayOptionsPtrInput` via:
+//
+//	        TemplateLineSeriesAxisDisplayOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateLineSeriesAxisDisplayOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateLineSeriesAxisDisplayOptionsPtrOutput() TemplateLineSeriesAxisDisplayOptionsPtrOutput
+	ToTemplateLineSeriesAxisDisplayOptionsPtrOutputWithContext(context.Context) TemplateLineSeriesAxisDisplayOptionsPtrOutput
+}
+
+type templateLineSeriesAxisDisplayOptionsPtrType TemplateLineSeriesAxisDisplayOptionsArgs
+
+func TemplateLineSeriesAxisDisplayOptionsPtr(v *TemplateLineSeriesAxisDisplayOptionsArgs) TemplateLineSeriesAxisDisplayOptionsPtrInput {
+	return (*templateLineSeriesAxisDisplayOptionsPtrType)(v)
+}
+
+func (*templateLineSeriesAxisDisplayOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateLineSeriesAxisDisplayOptions)(nil)).Elem()
+}
+
+func (i *templateLineSeriesAxisDisplayOptionsPtrType) ToTemplateLineSeriesAxisDisplayOptionsPtrOutput() TemplateLineSeriesAxisDisplayOptionsPtrOutput {
+	return i.ToTemplateLineSeriesAxisDisplayOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateLineSeriesAxisDisplayOptionsPtrType) ToTemplateLineSeriesAxisDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateLineSeriesAxisDisplayOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLineSeriesAxisDisplayOptionsPtrOutput)
+}
+
+type TemplateLineSeriesAxisDisplayOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateLineSeriesAxisDisplayOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateLineSeriesAxisDisplayOptions)(nil)).Elem()
+}
+
+func (o TemplateLineSeriesAxisDisplayOptionsOutput) ToTemplateLineSeriesAxisDisplayOptionsOutput() TemplateLineSeriesAxisDisplayOptionsOutput {
+	return o
+}
+
+func (o TemplateLineSeriesAxisDisplayOptionsOutput) ToTemplateLineSeriesAxisDisplayOptionsOutputWithContext(ctx context.Context) TemplateLineSeriesAxisDisplayOptionsOutput {
+	return o
+}
+
+func (o TemplateLineSeriesAxisDisplayOptionsOutput) ToTemplateLineSeriesAxisDisplayOptionsPtrOutput() TemplateLineSeriesAxisDisplayOptionsPtrOutput {
+	return o.ToTemplateLineSeriesAxisDisplayOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateLineSeriesAxisDisplayOptionsOutput) ToTemplateLineSeriesAxisDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateLineSeriesAxisDisplayOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLineSeriesAxisDisplayOptions) *TemplateLineSeriesAxisDisplayOptions {
+		return &v
+	}).(TemplateLineSeriesAxisDisplayOptionsPtrOutput)
+}
+
+// The options that determine the presentation of the line series axis.
+func (o TemplateLineSeriesAxisDisplayOptionsOutput) AxisOptions() TemplateAxisDisplayOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateLineSeriesAxisDisplayOptions) *TemplateAxisDisplayOptions { return v.AxisOptions }).(TemplateAxisDisplayOptionsPtrOutput)
+}
+
+// The configuration options that determine how missing data is treated during the rendering of a line chart.
+func (o TemplateLineSeriesAxisDisplayOptionsOutput) MissingDataConfigurations() TemplateMissingDataConfigurationArrayOutput {
+	return o.ApplyT(func(v TemplateLineSeriesAxisDisplayOptions) []TemplateMissingDataConfiguration {
+		return v.MissingDataConfigurations
+	}).(TemplateMissingDataConfigurationArrayOutput)
+}
+
+type TemplateLineSeriesAxisDisplayOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateLineSeriesAxisDisplayOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateLineSeriesAxisDisplayOptions)(nil)).Elem()
+}
+
+func (o TemplateLineSeriesAxisDisplayOptionsPtrOutput) ToTemplateLineSeriesAxisDisplayOptionsPtrOutput() TemplateLineSeriesAxisDisplayOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateLineSeriesAxisDisplayOptionsPtrOutput) ToTemplateLineSeriesAxisDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateLineSeriesAxisDisplayOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateLineSeriesAxisDisplayOptionsPtrOutput) Elem() TemplateLineSeriesAxisDisplayOptionsOutput {
+	return o.ApplyT(func(v *TemplateLineSeriesAxisDisplayOptions) TemplateLineSeriesAxisDisplayOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateLineSeriesAxisDisplayOptions
+		return ret
+	}).(TemplateLineSeriesAxisDisplayOptionsOutput)
+}
+
+// The options that determine the presentation of the line series axis.
+func (o TemplateLineSeriesAxisDisplayOptionsPtrOutput) AxisOptions() TemplateAxisDisplayOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateLineSeriesAxisDisplayOptions) *TemplateAxisDisplayOptions {
+		if v == nil {
+			return nil
+		}
+		return v.AxisOptions
+	}).(TemplateAxisDisplayOptionsPtrOutput)
+}
+
+// The configuration options that determine how missing data is treated during the rendering of a line chart.
+func (o TemplateLineSeriesAxisDisplayOptionsPtrOutput) MissingDataConfigurations() TemplateMissingDataConfigurationArrayOutput {
+	return o.ApplyT(func(v *TemplateLineSeriesAxisDisplayOptions) []TemplateMissingDataConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.MissingDataConfigurations
+	}).(TemplateMissingDataConfigurationArrayOutput)
+}
+
+type TemplateListControlDisplayOptions struct {
+	// The configuration of info icon label options.
+	InfoIconLabelOptions *TemplateSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
+	// The configuration of the search options in a list control.
+	SearchOptions *TemplateListControlSearchOptions `pulumi:"searchOptions"`
+	// The configuration of the `Select all` options in a list control.
+	SelectAllOptions *TemplateListControlSelectAllOptions `pulumi:"selectAllOptions"`
+	// The options to configure the title visibility, name, and font size.
+	TitleOptions *TemplateLabelOptions `pulumi:"titleOptions"`
+}
+
+// TemplateListControlDisplayOptionsInput is an input type that accepts TemplateListControlDisplayOptionsArgs and TemplateListControlDisplayOptionsOutput values.
+// You can construct a concrete instance of `TemplateListControlDisplayOptionsInput` via:
+//
+//	TemplateListControlDisplayOptionsArgs{...}
+type TemplateListControlDisplayOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateListControlDisplayOptionsOutput() TemplateListControlDisplayOptionsOutput
+	ToTemplateListControlDisplayOptionsOutputWithContext(context.Context) TemplateListControlDisplayOptionsOutput
+}
+
+type TemplateListControlDisplayOptionsArgs struct {
+	// The configuration of info icon label options.
+	InfoIconLabelOptions TemplateSheetControlInfoIconLabelOptionsPtrInput `pulumi:"infoIconLabelOptions"`
+	// The configuration of the search options in a list control.
+	SearchOptions TemplateListControlSearchOptionsPtrInput `pulumi:"searchOptions"`
+	// The configuration of the `Select all` options in a list control.
+	SelectAllOptions TemplateListControlSelectAllOptionsPtrInput `pulumi:"selectAllOptions"`
+	// The options to configure the title visibility, name, and font size.
+	TitleOptions TemplateLabelOptionsPtrInput `pulumi:"titleOptions"`
+}
+
+func (TemplateListControlDisplayOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateListControlDisplayOptions)(nil)).Elem()
+}
+
+func (i TemplateListControlDisplayOptionsArgs) ToTemplateListControlDisplayOptionsOutput() TemplateListControlDisplayOptionsOutput {
+	return i.ToTemplateListControlDisplayOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateListControlDisplayOptionsArgs) ToTemplateListControlDisplayOptionsOutputWithContext(ctx context.Context) TemplateListControlDisplayOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlDisplayOptionsOutput)
+}
+
+func (i TemplateListControlDisplayOptionsArgs) ToTemplateListControlDisplayOptionsPtrOutput() TemplateListControlDisplayOptionsPtrOutput {
+	return i.ToTemplateListControlDisplayOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateListControlDisplayOptionsArgs) ToTemplateListControlDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlDisplayOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlDisplayOptionsOutput).ToTemplateListControlDisplayOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateListControlDisplayOptionsPtrInput is an input type that accepts TemplateListControlDisplayOptionsArgs, TemplateListControlDisplayOptionsPtr and TemplateListControlDisplayOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateListControlDisplayOptionsPtrInput` via:
+//
+//	        TemplateListControlDisplayOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateListControlDisplayOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateListControlDisplayOptionsPtrOutput() TemplateListControlDisplayOptionsPtrOutput
+	ToTemplateListControlDisplayOptionsPtrOutputWithContext(context.Context) TemplateListControlDisplayOptionsPtrOutput
+}
+
+type templateListControlDisplayOptionsPtrType TemplateListControlDisplayOptionsArgs
+
+func TemplateListControlDisplayOptionsPtr(v *TemplateListControlDisplayOptionsArgs) TemplateListControlDisplayOptionsPtrInput {
+	return (*templateListControlDisplayOptionsPtrType)(v)
+}
+
+func (*templateListControlDisplayOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateListControlDisplayOptions)(nil)).Elem()
+}
+
+func (i *templateListControlDisplayOptionsPtrType) ToTemplateListControlDisplayOptionsPtrOutput() TemplateListControlDisplayOptionsPtrOutput {
+	return i.ToTemplateListControlDisplayOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateListControlDisplayOptionsPtrType) ToTemplateListControlDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlDisplayOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlDisplayOptionsPtrOutput)
+}
+
+type TemplateListControlDisplayOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateListControlDisplayOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateListControlDisplayOptions)(nil)).Elem()
+}
+
+func (o TemplateListControlDisplayOptionsOutput) ToTemplateListControlDisplayOptionsOutput() TemplateListControlDisplayOptionsOutput {
+	return o
+}
+
+func (o TemplateListControlDisplayOptionsOutput) ToTemplateListControlDisplayOptionsOutputWithContext(ctx context.Context) TemplateListControlDisplayOptionsOutput {
+	return o
+}
+
+func (o TemplateListControlDisplayOptionsOutput) ToTemplateListControlDisplayOptionsPtrOutput() TemplateListControlDisplayOptionsPtrOutput {
+	return o.ToTemplateListControlDisplayOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateListControlDisplayOptionsOutput) ToTemplateListControlDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlDisplayOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateListControlDisplayOptions) *TemplateListControlDisplayOptions {
+		return &v
+	}).(TemplateListControlDisplayOptionsPtrOutput)
+}
+
+// The configuration of info icon label options.
+func (o TemplateListControlDisplayOptionsOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateListControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
+		return v.InfoIconLabelOptions
+	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
+}
+
+// The configuration of the search options in a list control.
+func (o TemplateListControlDisplayOptionsOutput) SearchOptions() TemplateListControlSearchOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateListControlDisplayOptions) *TemplateListControlSearchOptions { return v.SearchOptions }).(TemplateListControlSearchOptionsPtrOutput)
+}
+
+// The configuration of the `Select all` options in a list control.
+func (o TemplateListControlDisplayOptionsOutput) SelectAllOptions() TemplateListControlSelectAllOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateListControlDisplayOptions) *TemplateListControlSelectAllOptions {
+		return v.SelectAllOptions
+	}).(TemplateListControlSelectAllOptionsPtrOutput)
+}
+
+// The options to configure the title visibility, name, and font size.
+func (o TemplateListControlDisplayOptionsOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateListControlDisplayOptions) *TemplateLabelOptions { return v.TitleOptions }).(TemplateLabelOptionsPtrOutput)
+}
+
+type TemplateListControlDisplayOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateListControlDisplayOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateListControlDisplayOptions)(nil)).Elem()
+}
+
+func (o TemplateListControlDisplayOptionsPtrOutput) ToTemplateListControlDisplayOptionsPtrOutput() TemplateListControlDisplayOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateListControlDisplayOptionsPtrOutput) ToTemplateListControlDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlDisplayOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateListControlDisplayOptionsPtrOutput) Elem() TemplateListControlDisplayOptionsOutput {
+	return o.ApplyT(func(v *TemplateListControlDisplayOptions) TemplateListControlDisplayOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateListControlDisplayOptions
+		return ret
+	}).(TemplateListControlDisplayOptionsOutput)
+}
+
+// The configuration of info icon label options.
+func (o TemplateListControlDisplayOptionsPtrOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateListControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.InfoIconLabelOptions
+	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
+}
+
+// The configuration of the search options in a list control.
+func (o TemplateListControlDisplayOptionsPtrOutput) SearchOptions() TemplateListControlSearchOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateListControlDisplayOptions) *TemplateListControlSearchOptions {
+		if v == nil {
+			return nil
+		}
+		return v.SearchOptions
+	}).(TemplateListControlSearchOptionsPtrOutput)
+}
+
+// The configuration of the `Select all` options in a list control.
+func (o TemplateListControlDisplayOptionsPtrOutput) SelectAllOptions() TemplateListControlSelectAllOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateListControlDisplayOptions) *TemplateListControlSelectAllOptions {
+		if v == nil {
+			return nil
+		}
+		return v.SelectAllOptions
+	}).(TemplateListControlSelectAllOptionsPtrOutput)
+}
+
+// The options to configure the title visibility, name, and font size.
+func (o TemplateListControlDisplayOptionsPtrOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateListControlDisplayOptions) *TemplateLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.TitleOptions
+	}).(TemplateLabelOptionsPtrOutput)
+}
+
 type TemplateListControlSearchOptions struct {
 	// The visibility configuration of the search options in a list control.
 	Visibility interface{} `pulumi:"visibility"`
@@ -49509,6 +49865,10 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineSeriesAxisDisplayOptionsInput)(nil)).Elem(), TemplateLineSeriesAxisDisplayOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineSeriesAxisDisplayOptionsPtrInput)(nil)).Elem(), TemplateLineSeriesAxisDisplayOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlDisplayOptionsInput)(nil)).Elem(), TemplateListControlDisplayOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlDisplayOptionsPtrInput)(nil)).Elem(), TemplateListControlDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSearchOptionsInput)(nil)).Elem(), TemplateListControlSearchOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSearchOptionsPtrInput)(nil)).Elem(), TemplateListControlSearchOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSelectAllOptionsInput)(nil)).Elem(), TemplateListControlSelectAllOptionsArgs{})
@@ -50061,6 +50421,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateLineSeriesAxisDisplayOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateLineSeriesAxisDisplayOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateListControlDisplayOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateListControlDisplayOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateListControlSearchOptionsOutput{})
 	pulumi.RegisterOutputType(TemplateListControlSearchOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateListControlSelectAllOptionsOutput{})

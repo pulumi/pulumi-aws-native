@@ -1963,6 +1963,193 @@ func (in *policyGrantDomainUnitDesignationPtr) ToPolicyGrantDomainUnitDesignatio
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyGrantDomainUnitDesignationPtrOutput)
 }
 
+type PolicyGrantManagedPolicyType string
+
+const (
+	PolicyGrantManagedPolicyTypeCreateDomainUnit                 = PolicyGrantManagedPolicyType("CREATE_DOMAIN_UNIT")
+	PolicyGrantManagedPolicyTypeOverrideDomainUnitOwners         = PolicyGrantManagedPolicyType("OVERRIDE_DOMAIN_UNIT_OWNERS")
+	PolicyGrantManagedPolicyTypeAddToProjectMemberPool           = PolicyGrantManagedPolicyType("ADD_TO_PROJECT_MEMBER_POOL")
+	PolicyGrantManagedPolicyTypeOverrideProjectOwners            = PolicyGrantManagedPolicyType("OVERRIDE_PROJECT_OWNERS")
+	PolicyGrantManagedPolicyTypeCreateGlossary                   = PolicyGrantManagedPolicyType("CREATE_GLOSSARY")
+	PolicyGrantManagedPolicyTypeCreateFormType                   = PolicyGrantManagedPolicyType("CREATE_FORM_TYPE")
+	PolicyGrantManagedPolicyTypeCreateAssetType                  = PolicyGrantManagedPolicyType("CREATE_ASSET_TYPE")
+	PolicyGrantManagedPolicyTypeCreateProject                    = PolicyGrantManagedPolicyType("CREATE_PROJECT")
+	PolicyGrantManagedPolicyTypeCreateEnvironmentProfile         = PolicyGrantManagedPolicyType("CREATE_ENVIRONMENT_PROFILE")
+	PolicyGrantManagedPolicyTypeDelegateCreateEnvironmentProfile = PolicyGrantManagedPolicyType("DELEGATE_CREATE_ENVIRONMENT_PROFILE")
+	PolicyGrantManagedPolicyTypeCreateEnvironment                = PolicyGrantManagedPolicyType("CREATE_ENVIRONMENT")
+	PolicyGrantManagedPolicyTypeCreateEnvironmentFromBlueprint   = PolicyGrantManagedPolicyType("CREATE_ENVIRONMENT_FROM_BLUEPRINT")
+	PolicyGrantManagedPolicyTypeCreateProjectFromProjectProfile  = PolicyGrantManagedPolicyType("CREATE_PROJECT_FROM_PROJECT_PROFILE")
+)
+
+func (PolicyGrantManagedPolicyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantManagedPolicyType)(nil)).Elem()
+}
+
+func (e PolicyGrantManagedPolicyType) ToPolicyGrantManagedPolicyTypeOutput() PolicyGrantManagedPolicyTypeOutput {
+	return pulumi.ToOutput(e).(PolicyGrantManagedPolicyTypeOutput)
+}
+
+func (e PolicyGrantManagedPolicyType) ToPolicyGrantManagedPolicyTypeOutputWithContext(ctx context.Context) PolicyGrantManagedPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyGrantManagedPolicyTypeOutput)
+}
+
+func (e PolicyGrantManagedPolicyType) ToPolicyGrantManagedPolicyTypePtrOutput() PolicyGrantManagedPolicyTypePtrOutput {
+	return e.ToPolicyGrantManagedPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (e PolicyGrantManagedPolicyType) ToPolicyGrantManagedPolicyTypePtrOutputWithContext(ctx context.Context) PolicyGrantManagedPolicyTypePtrOutput {
+	return PolicyGrantManagedPolicyType(e).ToPolicyGrantManagedPolicyTypeOutputWithContext(ctx).ToPolicyGrantManagedPolicyTypePtrOutputWithContext(ctx)
+}
+
+func (e PolicyGrantManagedPolicyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyGrantManagedPolicyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyGrantManagedPolicyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyGrantManagedPolicyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicyGrantManagedPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantManagedPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantManagedPolicyType)(nil)).Elem()
+}
+
+func (o PolicyGrantManagedPolicyTypeOutput) ToPolicyGrantManagedPolicyTypeOutput() PolicyGrantManagedPolicyTypeOutput {
+	return o
+}
+
+func (o PolicyGrantManagedPolicyTypeOutput) ToPolicyGrantManagedPolicyTypeOutputWithContext(ctx context.Context) PolicyGrantManagedPolicyTypeOutput {
+	return o
+}
+
+func (o PolicyGrantManagedPolicyTypeOutput) ToPolicyGrantManagedPolicyTypePtrOutput() PolicyGrantManagedPolicyTypePtrOutput {
+	return o.ToPolicyGrantManagedPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantManagedPolicyTypeOutput) ToPolicyGrantManagedPolicyTypePtrOutputWithContext(ctx context.Context) PolicyGrantManagedPolicyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantManagedPolicyType) *PolicyGrantManagedPolicyType {
+		return &v
+	}).(PolicyGrantManagedPolicyTypePtrOutput)
+}
+
+func (o PolicyGrantManagedPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantManagedPolicyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyGrantManagedPolicyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyGrantManagedPolicyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantManagedPolicyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyGrantManagedPolicyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyGrantManagedPolicyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantManagedPolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantManagedPolicyType)(nil)).Elem()
+}
+
+func (o PolicyGrantManagedPolicyTypePtrOutput) ToPolicyGrantManagedPolicyTypePtrOutput() PolicyGrantManagedPolicyTypePtrOutput {
+	return o
+}
+
+func (o PolicyGrantManagedPolicyTypePtrOutput) ToPolicyGrantManagedPolicyTypePtrOutputWithContext(ctx context.Context) PolicyGrantManagedPolicyTypePtrOutput {
+	return o
+}
+
+func (o PolicyGrantManagedPolicyTypePtrOutput) Elem() PolicyGrantManagedPolicyTypeOutput {
+	return o.ApplyT(func(v *PolicyGrantManagedPolicyType) PolicyGrantManagedPolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantManagedPolicyType
+		return ret
+	}).(PolicyGrantManagedPolicyTypeOutput)
+}
+
+func (o PolicyGrantManagedPolicyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantManagedPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyGrantManagedPolicyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PolicyGrantManagedPolicyTypeInput is an input type that accepts values of the PolicyGrantManagedPolicyType enum
+// A concrete instance of `PolicyGrantManagedPolicyTypeInput` can be one of the following:
+//
+//	PolicyGrantManagedPolicyTypeCreateDomainUnit
+//	PolicyGrantManagedPolicyTypeOverrideDomainUnitOwners
+//	PolicyGrantManagedPolicyTypeAddToProjectMemberPool
+//	PolicyGrantManagedPolicyTypeOverrideProjectOwners
+//	PolicyGrantManagedPolicyTypeCreateGlossary
+//	PolicyGrantManagedPolicyTypeCreateFormType
+//	PolicyGrantManagedPolicyTypeCreateAssetType
+//	PolicyGrantManagedPolicyTypeCreateProject
+//	PolicyGrantManagedPolicyTypeCreateEnvironmentProfile
+//	PolicyGrantManagedPolicyTypeDelegateCreateEnvironmentProfile
+//	PolicyGrantManagedPolicyTypeCreateEnvironment
+//	PolicyGrantManagedPolicyTypeCreateEnvironmentFromBlueprint
+//	PolicyGrantManagedPolicyTypeCreateProjectFromProjectProfile
+type PolicyGrantManagedPolicyTypeInput interface {
+	pulumi.Input
+
+	ToPolicyGrantManagedPolicyTypeOutput() PolicyGrantManagedPolicyTypeOutput
+	ToPolicyGrantManagedPolicyTypeOutputWithContext(context.Context) PolicyGrantManagedPolicyTypeOutput
+}
+
+var policyGrantManagedPolicyTypePtrType = reflect.TypeOf((**PolicyGrantManagedPolicyType)(nil)).Elem()
+
+type PolicyGrantManagedPolicyTypePtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantManagedPolicyTypePtrOutput() PolicyGrantManagedPolicyTypePtrOutput
+	ToPolicyGrantManagedPolicyTypePtrOutputWithContext(context.Context) PolicyGrantManagedPolicyTypePtrOutput
+}
+
+type policyGrantManagedPolicyTypePtr string
+
+func PolicyGrantManagedPolicyTypePtr(v string) PolicyGrantManagedPolicyTypePtrInput {
+	return (*policyGrantManagedPolicyTypePtr)(&v)
+}
+
+func (*policyGrantManagedPolicyTypePtr) ElementType() reflect.Type {
+	return policyGrantManagedPolicyTypePtrType
+}
+
+func (in *policyGrantManagedPolicyTypePtr) ToPolicyGrantManagedPolicyTypePtrOutput() PolicyGrantManagedPolicyTypePtrOutput {
+	return pulumi.ToOutput(in).(PolicyGrantManagedPolicyTypePtrOutput)
+}
+
+func (in *policyGrantManagedPolicyTypePtr) ToPolicyGrantManagedPolicyTypePtrOutputWithContext(ctx context.Context) PolicyGrantManagedPolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyGrantManagedPolicyTypePtrOutput)
+}
+
 type PolicyGrantProjectDesignation string
 
 const (
@@ -2133,9 +2320,9 @@ func (in *policyGrantProjectDesignationPtr) ToPolicyGrantProjectDesignationPtrOu
 type PolicyGrantTargetEntityType string
 
 const (
-	PolicyGrantTargetEntityTypeDomainUnit                        = PolicyGrantTargetEntityType("DomainUnit")
-	PolicyGrantTargetEntityTypeEnvironmentBlueprintConfiguration = PolicyGrantTargetEntityType("EnvironmentBlueprintConfiguration")
-	PolicyGrantTargetEntityTypeEnvironmentProfile                = PolicyGrantTargetEntityType("EnvironmentProfile")
+	PolicyGrantTargetEntityTypeDomainUnit                        = PolicyGrantTargetEntityType("DOMAIN_UNIT")
+	PolicyGrantTargetEntityTypeEnvironmentBlueprintConfiguration = PolicyGrantTargetEntityType("ENVIRONMENT_BLUEPRINT_CONFIGURATION")
+	PolicyGrantTargetEntityTypeEnvironmentProfile                = PolicyGrantTargetEntityType("ENVIRONMENT_PROFILE")
 	PolicyGrantTargetEntityTypeAssetType                         = PolicyGrantTargetEntityType("ASSET_TYPE")
 )
 
@@ -3344,10 +3531,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OwnerEntityTypePtrInput)(nil)).Elem(), OwnerEntityType("DOMAIN_UNIT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDomainUnitDesignationInput)(nil)).Elem(), PolicyGrantDomainUnitDesignation("OWNER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDomainUnitDesignationPtrInput)(nil)).Elem(), PolicyGrantDomainUnitDesignation("OWNER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantManagedPolicyTypeInput)(nil)).Elem(), PolicyGrantManagedPolicyType("CREATE_DOMAIN_UNIT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantManagedPolicyTypePtrInput)(nil)).Elem(), PolicyGrantManagedPolicyType("CREATE_DOMAIN_UNIT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantProjectDesignationInput)(nil)).Elem(), PolicyGrantProjectDesignation("OWNER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantProjectDesignationPtrInput)(nil)).Elem(), PolicyGrantProjectDesignation("OWNER"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantTargetEntityTypeInput)(nil)).Elem(), PolicyGrantTargetEntityType("DomainUnit"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantTargetEntityTypePtrInput)(nil)).Elem(), PolicyGrantTargetEntityType("DomainUnit"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantTargetEntityTypeInput)(nil)).Elem(), PolicyGrantTargetEntityType("DOMAIN_UNIT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantTargetEntityTypePtrInput)(nil)).Elem(), PolicyGrantTargetEntityType("DOMAIN_UNIT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipUserDesignationInput)(nil)).Elem(), ProjectMembershipUserDesignation("PROJECT_OWNER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipUserDesignationPtrInput)(nil)).Elem(), ProjectMembershipUserDesignation("PROJECT_OWNER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileDeploymentModeInput)(nil)).Elem(), ProjectProfileDeploymentMode("ON_CREATE"))
@@ -3384,6 +3573,8 @@ func init() {
 	pulumi.RegisterOutputType(OwnerEntityTypePtrOutput{})
 	pulumi.RegisterOutputType(PolicyGrantDomainUnitDesignationOutput{})
 	pulumi.RegisterOutputType(PolicyGrantDomainUnitDesignationPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantManagedPolicyTypeOutput{})
+	pulumi.RegisterOutputType(PolicyGrantManagedPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(PolicyGrantProjectDesignationOutput{})
 	pulumi.RegisterOutputType(PolicyGrantProjectDesignationPtrOutput{})
 	pulumi.RegisterOutputType(PolicyGrantTargetEntityTypeOutput{})

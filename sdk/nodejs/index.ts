@@ -93,6 +93,7 @@ import * as backup from "./backup";
 import * as backupgateway from "./backupgateway";
 import * as batch from "./batch";
 import * as bedrock from "./bedrock";
+import * as bedrockagentcore from "./bedrockagentcore";
 import * as billing from "./billing";
 import * as budgets from "./budgets";
 import * as cassandra from "./cassandra";
@@ -329,6 +330,7 @@ export {
     backupgateway,
     batch,
     bedrock,
+    bedrockagentcore,
     billing,
     budgets,
     cassandra,

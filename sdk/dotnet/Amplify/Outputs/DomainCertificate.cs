@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Amplify.Outputs
     public sealed class DomainCertificate
     {
         /// <summary>
-        /// The Amazon resource name (ARN) for a custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+        /// The Amazon resource name (ARN) for a custom certificate that you have already added to Certificate Manager in your AWS account .
         /// 
         /// This field is required only when the certificate type is `CUSTOM` .
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.Amplify.Outputs
         /// 
         /// Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
         /// 
-        /// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+        /// Specify `CUSTOM` to use your own certificate that you have already added to Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
         /// </summary>
         public readonly Pulumi.AwsNative.Amplify.DomainCertificateCertificateType? CertificateType;
         /// <summary>

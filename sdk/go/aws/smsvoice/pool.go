@@ -17,6 +17,7 @@ import (
 type Pool struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name of the `Pool` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// When set to true the pool can't be deleted. By default this is set to false.
 	DeletionProtectionEnabled pulumi.BoolPtrOutput `pulumi:"deletionProtectionEnabled"`
@@ -28,7 +29,8 @@ type Pool struct {
 	OptionalKeywords PoolOptionalKeywordArrayOutput `pulumi:"optionalKeywords"`
 	// The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn and it's IsoCountryCode.
 	OriginationIdentities pulumi.StringArrayOutput `pulumi:"originationIdentities"`
-	PoolId                pulumi.StringOutput      `pulumi:"poolId"`
+	// The unique identifier for the pool.
+	PoolId pulumi.StringOutput `pulumi:"poolId"`
 	// By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.
 	SelfManagedOptOutsEnabled pulumi.BoolPtrOutput `pulumi:"selfManagedOptOutsEnabled"`
 	// Indicates whether shared routes are enabled for the pool.
@@ -164,6 +166,7 @@ func (o PoolOutput) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 	return o
 }
 
+// The Amazon Resource Name of the `Pool` .
 func (o PoolOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -193,6 +196,7 @@ func (o PoolOutput) OriginationIdentities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringArrayOutput { return v.OriginationIdentities }).(pulumi.StringArrayOutput)
 }
 
+// The unique identifier for the pool.
 func (o PoolOutput) PoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.PoolId }).(pulumi.StringOutput)
 }

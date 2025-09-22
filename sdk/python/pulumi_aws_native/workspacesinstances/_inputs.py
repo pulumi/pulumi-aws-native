@@ -25,6 +25,10 @@ __all__ = [
     'VolumeTagArgsDict',
     'WorkspaceInstanceBlockDeviceMappingArgs',
     'WorkspaceInstanceBlockDeviceMappingArgsDict',
+    'WorkspaceInstanceCapacityReservationSpecificationArgs',
+    'WorkspaceInstanceCapacityReservationSpecificationArgsDict',
+    'WorkspaceInstanceCapacityReservationTargetArgs',
+    'WorkspaceInstanceCapacityReservationTargetArgsDict',
     'WorkspaceInstanceCpuOptionsRequestArgs',
     'WorkspaceInstanceCpuOptionsRequestArgsDict',
     'WorkspaceInstanceCreditSpecificationRequestArgs',
@@ -39,18 +43,24 @@ __all__ = [
     'WorkspaceInstanceIamInstanceProfileSpecificationArgsDict',
     'WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs',
     'WorkspaceInstanceInstanceMaintenanceOptionsRequestArgsDict',
+    'WorkspaceInstanceInstanceMarketOptionsRequestArgs',
+    'WorkspaceInstanceInstanceMarketOptionsRequestArgsDict',
     'WorkspaceInstanceInstanceMetadataOptionsRequestArgs',
     'WorkspaceInstanceInstanceMetadataOptionsRequestArgsDict',
     'WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgs',
     'WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgsDict',
     'WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgs',
     'WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgsDict',
+    'WorkspaceInstanceLicenseConfigurationRequestArgs',
+    'WorkspaceInstanceLicenseConfigurationRequestArgsDict',
     'WorkspaceInstancePlacementArgs',
     'WorkspaceInstancePlacementArgsDict',
     'WorkspaceInstancePrivateDnsNameOptionsRequestArgs',
     'WorkspaceInstancePrivateDnsNameOptionsRequestArgsDict',
     'WorkspaceInstanceRunInstancesMonitoringEnabledArgs',
     'WorkspaceInstanceRunInstancesMonitoringEnabledArgsDict',
+    'WorkspaceInstanceSpotMarketOptionsArgs',
+    'WorkspaceInstanceSpotMarketOptionsArgsDict',
     'WorkspaceInstanceTagSpecificationArgs',
     'WorkspaceInstanceTagSpecificationArgsDict',
     'WorkspaceInstanceTagArgs',
@@ -64,14 +74,19 @@ if not MYPY:
         image_id: pulumi.Input[builtins.str]
         instance_type: pulumi.Input[builtins.str]
         block_device_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceBlockDeviceMappingArgsDict']]]]
+        capacity_reservation_specification: NotRequired[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationArgsDict']]
         cpu_options: NotRequired[pulumi.Input['WorkspaceInstanceCpuOptionsRequestArgsDict']]
         credit_specification: NotRequired[pulumi.Input['WorkspaceInstanceCreditSpecificationRequestArgsDict']]
         disable_api_stop: NotRequired[pulumi.Input[builtins.bool]]
         ebs_optimized: NotRequired[pulumi.Input[builtins.bool]]
+        enable_primary_ipv6: NotRequired[pulumi.Input[builtins.bool]]
         enclave_options: NotRequired[pulumi.Input['WorkspaceInstanceEnclaveOptionsRequestArgsDict']]
         hibernation_options: NotRequired[pulumi.Input['WorkspaceInstanceHibernationOptionsRequestArgsDict']]
         iam_instance_profile: NotRequired[pulumi.Input['WorkspaceInstanceIamInstanceProfileSpecificationArgsDict']]
+        instance_market_options: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestArgsDict']]
+        ipv6_address_count: NotRequired[pulumi.Input[builtins.int]]
         key_name: NotRequired[pulumi.Input[builtins.str]]
+        license_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceLicenseConfigurationRequestArgsDict']]]]
         maintenance_options: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMaintenanceOptionsRequestArgsDict']]
         metadata_options: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestArgsDict']]
         monitoring: NotRequired[pulumi.Input['WorkspaceInstanceRunInstancesMonitoringEnabledArgsDict']]
@@ -79,6 +94,7 @@ if not MYPY:
         network_performance_options: NotRequired[pulumi.Input['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgsDict']]
         placement: NotRequired[pulumi.Input['WorkspaceInstancePlacementArgsDict']]
         private_dns_name_options: NotRequired[pulumi.Input['WorkspaceInstancePrivateDnsNameOptionsRequestArgsDict']]
+        subnet_id: NotRequired[pulumi.Input[builtins.str]]
         tag_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceTagSpecificationArgsDict']]]]
         user_data: NotRequired[pulumi.Input[builtins.str]]
 elif False:
@@ -90,14 +106,19 @@ class ManagedInstancePropertiesArgs:
                  image_id: pulumi.Input[builtins.str],
                  instance_type: pulumi.Input[builtins.str],
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceBlockDeviceMappingArgs']]]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationArgs']] = None,
                  cpu_options: Optional[pulumi.Input['WorkspaceInstanceCpuOptionsRequestArgs']] = None,
                  credit_specification: Optional[pulumi.Input['WorkspaceInstanceCreditSpecificationRequestArgs']] = None,
                  disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  ebs_optimized: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_primary_ipv6: Optional[pulumi.Input[builtins.bool]] = None,
                  enclave_options: Optional[pulumi.Input['WorkspaceInstanceEnclaveOptionsRequestArgs']] = None,
                  hibernation_options: Optional[pulumi.Input['WorkspaceInstanceHibernationOptionsRequestArgs']] = None,
                  iam_instance_profile: Optional[pulumi.Input['WorkspaceInstanceIamInstanceProfileSpecificationArgs']] = None,
+                 instance_market_options: Optional[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestArgs']] = None,
+                 ipv6_address_count: Optional[pulumi.Input[builtins.int]] = None,
                  key_name: Optional[pulumi.Input[builtins.str]] = None,
+                 license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceLicenseConfigurationRequestArgs']]]] = None,
                  maintenance_options: Optional[pulumi.Input['WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs']] = None,
                  metadata_options: Optional[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestArgs']] = None,
                  monitoring: Optional[pulumi.Input['WorkspaceInstanceRunInstancesMonitoringEnabledArgs']] = None,
@@ -105,12 +126,15 @@ class ManagedInstancePropertiesArgs:
                  network_performance_options: Optional[pulumi.Input['WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgs']] = None,
                  placement: Optional[pulumi.Input['WorkspaceInstancePlacementArgs']] = None,
                  private_dns_name_options: Optional[pulumi.Input['WorkspaceInstancePrivateDnsNameOptionsRequestArgs']] = None,
+                 subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceTagSpecificationArgs']]]] = None,
                  user_data: Optional[pulumi.Input[builtins.str]] = None):
         pulumi.set(__self__, "image_id", image_id)
         pulumi.set(__self__, "instance_type", instance_type)
         if block_device_mappings is not None:
             pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+        if capacity_reservation_specification is not None:
+            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
         if cpu_options is not None:
             pulumi.set(__self__, "cpu_options", cpu_options)
         if credit_specification is not None:
@@ -119,14 +143,22 @@ class ManagedInstancePropertiesArgs:
             pulumi.set(__self__, "disable_api_stop", disable_api_stop)
         if ebs_optimized is not None:
             pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+        if enable_primary_ipv6 is not None:
+            pulumi.set(__self__, "enable_primary_ipv6", enable_primary_ipv6)
         if enclave_options is not None:
             pulumi.set(__self__, "enclave_options", enclave_options)
         if hibernation_options is not None:
             pulumi.set(__self__, "hibernation_options", hibernation_options)
         if iam_instance_profile is not None:
             pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
+        if instance_market_options is not None:
+            pulumi.set(__self__, "instance_market_options", instance_market_options)
+        if ipv6_address_count is not None:
+            pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
+        if license_specifications is not None:
+            pulumi.set(__self__, "license_specifications", license_specifications)
         if maintenance_options is not None:
             pulumi.set(__self__, "maintenance_options", maintenance_options)
         if metadata_options is not None:
@@ -141,6 +173,8 @@ class ManagedInstancePropertiesArgs:
             pulumi.set(__self__, "placement", placement)
         if private_dns_name_options is not None:
             pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if tag_specifications is not None:
             pulumi.set(__self__, "tag_specifications", tag_specifications)
         if user_data is not None:
@@ -172,6 +206,15 @@ class ManagedInstancePropertiesArgs:
     @block_device_mappings.setter
     def block_device_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceBlockDeviceMappingArgs']]]]):
         pulumi.set(self, "block_device_mappings", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> Optional[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationArgs']]:
+        return pulumi.get(self, "capacity_reservation_specification")
+
+    @capacity_reservation_specification.setter
+    def capacity_reservation_specification(self, value: Optional[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationArgs']]):
+        pulumi.set(self, "capacity_reservation_specification", value)
 
     @property
     @pulumi.getter(name="cpuOptions")
@@ -210,6 +253,15 @@ class ManagedInstancePropertiesArgs:
         pulumi.set(self, "ebs_optimized", value)
 
     @property
+    @pulumi.getter(name="enablePrimaryIpv6")
+    def enable_primary_ipv6(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "enable_primary_ipv6")
+
+    @enable_primary_ipv6.setter
+    def enable_primary_ipv6(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable_primary_ipv6", value)
+
+    @property
     @pulumi.getter(name="enclaveOptions")
     def enclave_options(self) -> Optional[pulumi.Input['WorkspaceInstanceEnclaveOptionsRequestArgs']]:
         return pulumi.get(self, "enclave_options")
@@ -237,6 +289,24 @@ class ManagedInstancePropertiesArgs:
         pulumi.set(self, "iam_instance_profile", value)
 
     @property
+    @pulumi.getter(name="instanceMarketOptions")
+    def instance_market_options(self) -> Optional[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestArgs']]:
+        return pulumi.get(self, "instance_market_options")
+
+    @instance_market_options.setter
+    def instance_market_options(self, value: Optional[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestArgs']]):
+        pulumi.set(self, "instance_market_options", value)
+
+    @property
+    @pulumi.getter(name="ipv6AddressCount")
+    def ipv6_address_count(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "ipv6_address_count")
+
+    @ipv6_address_count.setter
+    def ipv6_address_count(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "ipv6_address_count", value)
+
+    @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "key_name")
@@ -244,6 +314,15 @@ class ManagedInstancePropertiesArgs:
     @key_name.setter
     def key_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="licenseSpecifications")
+    def license_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceLicenseConfigurationRequestArgs']]]]:
+        return pulumi.get(self, "license_specifications")
+
+    @license_specifications.setter
+    def license_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceLicenseConfigurationRequestArgs']]]]):
+        pulumi.set(self, "license_specifications", value)
 
     @property
     @pulumi.getter(name="maintenanceOptions")
@@ -307,6 +386,15 @@ class ManagedInstancePropertiesArgs:
     @private_dns_name_options.setter
     def private_dns_name_options(self, value: Optional[pulumi.Input['WorkspaceInstancePrivateDnsNameOptionsRequestArgs']]):
         pulumi.set(self, "private_dns_name_options", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "subnet_id", value)
 
     @property
     @pulumi.getter(name="tagSpecifications")
@@ -482,6 +570,78 @@ class WorkspaceInstanceBlockDeviceMappingArgs:
     @virtual_name.setter
     def virtual_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "virtual_name", value)
+
+
+if not MYPY:
+    class WorkspaceInstanceCapacityReservationSpecificationArgsDict(TypedDict):
+        capacity_reservation_preference: NotRequired[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference']]
+        capacity_reservation_target: NotRequired[pulumi.Input['WorkspaceInstanceCapacityReservationTargetArgsDict']]
+elif False:
+    WorkspaceInstanceCapacityReservationSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceInstanceCapacityReservationSpecificationArgs:
+    def __init__(__self__, *,
+                 capacity_reservation_preference: Optional[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference']] = None,
+                 capacity_reservation_target: Optional[pulumi.Input['WorkspaceInstanceCapacityReservationTargetArgs']] = None):
+        if capacity_reservation_preference is not None:
+            pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if capacity_reservation_target is not None:
+            pulumi.set(__self__, "capacity_reservation_target", capacity_reservation_target)
+
+    @property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> Optional[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference']]:
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @capacity_reservation_preference.setter
+    def capacity_reservation_preference(self, value: Optional[pulumi.Input['WorkspaceInstanceCapacityReservationSpecificationCapacityReservationPreference']]):
+        pulumi.set(self, "capacity_reservation_preference", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationTarget")
+    def capacity_reservation_target(self) -> Optional[pulumi.Input['WorkspaceInstanceCapacityReservationTargetArgs']]:
+        return pulumi.get(self, "capacity_reservation_target")
+
+    @capacity_reservation_target.setter
+    def capacity_reservation_target(self, value: Optional[pulumi.Input['WorkspaceInstanceCapacityReservationTargetArgs']]):
+        pulumi.set(self, "capacity_reservation_target", value)
+
+
+if not MYPY:
+    class WorkspaceInstanceCapacityReservationTargetArgsDict(TypedDict):
+        capacity_reservation_id: NotRequired[pulumi.Input[builtins.str]]
+        capacity_reservation_resource_group_arn: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    WorkspaceInstanceCapacityReservationTargetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceInstanceCapacityReservationTargetArgs:
+    def __init__(__self__, *,
+                 capacity_reservation_id: Optional[pulumi.Input[builtins.str]] = None,
+                 capacity_reservation_resource_group_arn: Optional[pulumi.Input[builtins.str]] = None):
+        if capacity_reservation_id is not None:
+            pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+        if capacity_reservation_resource_group_arn is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arn", capacity_reservation_resource_group_arn)
+
+    @property
+    @pulumi.getter(name="capacityReservationId")
+    def capacity_reservation_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "capacity_reservation_id")
+
+    @capacity_reservation_id.setter
+    def capacity_reservation_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "capacity_reservation_id", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationResourceGroupArn")
+    def capacity_reservation_resource_group_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "capacity_reservation_resource_group_arn")
+
+    @capacity_reservation_resource_group_arn.setter
+    def capacity_reservation_resource_group_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "capacity_reservation_resource_group_arn", value)
 
 
 if not MYPY:
@@ -679,6 +839,7 @@ class WorkspaceInstanceHibernationOptionsRequestArgs:
 
 if not MYPY:
     class WorkspaceInstanceIamInstanceProfileSpecificationArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[builtins.str]]
         name: NotRequired[pulumi.Input[builtins.str]]
 elif False:
     WorkspaceInstanceIamInstanceProfileSpecificationArgsDict: TypeAlias = Mapping[str, Any]
@@ -686,9 +847,21 @@ elif False:
 @pulumi.input_type
 class WorkspaceInstanceIamInstanceProfileSpecificationArgs:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None):
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -721,6 +894,42 @@ class WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs:
     @auto_recovery.setter
     def auto_recovery(self, value: Optional[pulumi.Input['WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery']]):
         pulumi.set(self, "auto_recovery", value)
+
+
+if not MYPY:
+    class WorkspaceInstanceInstanceMarketOptionsRequestArgsDict(TypedDict):
+        market_type: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestMarketType']]
+        spot_options: NotRequired[pulumi.Input['WorkspaceInstanceSpotMarketOptionsArgsDict']]
+elif False:
+    WorkspaceInstanceInstanceMarketOptionsRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceInstanceInstanceMarketOptionsRequestArgs:
+    def __init__(__self__, *,
+                 market_type: Optional[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestMarketType']] = None,
+                 spot_options: Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsArgs']] = None):
+        if market_type is not None:
+            pulumi.set(__self__, "market_type", market_type)
+        if spot_options is not None:
+            pulumi.set(__self__, "spot_options", spot_options)
+
+    @property
+    @pulumi.getter(name="marketType")
+    def market_type(self) -> Optional[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestMarketType']]:
+        return pulumi.get(self, "market_type")
+
+    @market_type.setter
+    def market_type(self, value: Optional[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestMarketType']]):
+        pulumi.set(self, "market_type", value)
+
+    @property
+    @pulumi.getter(name="spotOptions")
+    def spot_options(self) -> Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsArgs']]:
+        return pulumi.get(self, "spot_options")
+
+    @spot_options.setter
+    def spot_options(self, value: Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsArgs']]):
+        pulumi.set(self, "spot_options", value)
 
 
 if not MYPY:
@@ -884,9 +1093,34 @@ class WorkspaceInstanceInstanceNetworkPerformanceOptionsRequestArgs:
 
 
 if not MYPY:
+    class WorkspaceInstanceLicenseConfigurationRequestArgsDict(TypedDict):
+        license_configuration_arn: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    WorkspaceInstanceLicenseConfigurationRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceInstanceLicenseConfigurationRequestArgs:
+    def __init__(__self__, *,
+                 license_configuration_arn: Optional[pulumi.Input[builtins.str]] = None):
+        if license_configuration_arn is not None:
+            pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
+
+    @property
+    @pulumi.getter(name="licenseConfigurationArn")
+    def license_configuration_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "license_configuration_arn")
+
+    @license_configuration_arn.setter
+    def license_configuration_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "license_configuration_arn", value)
+
+
+if not MYPY:
     class WorkspaceInstancePlacementArgsDict(TypedDict):
         availability_zone: NotRequired[pulumi.Input[builtins.str]]
+        group_id: NotRequired[pulumi.Input[builtins.str]]
         group_name: NotRequired[pulumi.Input[builtins.str]]
+        partition_number: NotRequired[pulumi.Input[builtins.int]]
         tenancy: NotRequired[pulumi.Input['WorkspaceInstancePlacementTenancy']]
 elif False:
     WorkspaceInstancePlacementArgsDict: TypeAlias = Mapping[str, Any]
@@ -895,12 +1129,18 @@ elif False:
 class WorkspaceInstancePlacementArgs:
     def __init__(__self__, *,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
+                 group_id: Optional[pulumi.Input[builtins.str]] = None,
                  group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 partition_number: Optional[pulumi.Input[builtins.int]] = None,
                  tenancy: Optional[pulumi.Input['WorkspaceInstancePlacementTenancy']] = None):
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
+        if partition_number is not None:
+            pulumi.set(__self__, "partition_number", partition_number)
         if tenancy is not None:
             pulumi.set(__self__, "tenancy", tenancy)
 
@@ -914,6 +1154,15 @@ class WorkspaceInstancePlacementArgs:
         pulumi.set(self, "availability_zone", value)
 
     @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "group_id", value)
+
+    @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "group_name")
@@ -921,6 +1170,15 @@ class WorkspaceInstancePlacementArgs:
     @group_name.setter
     def group_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "group_name", value)
+
+    @property
+    @pulumi.getter(name="partitionNumber")
+    def partition_number(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "partition_number")
+
+    @partition_number.setter
+    def partition_number(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "partition_number", value)
 
     @property
     @pulumi.getter
@@ -1002,6 +1260,68 @@ class WorkspaceInstanceRunInstancesMonitoringEnabledArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class WorkspaceInstanceSpotMarketOptionsArgsDict(TypedDict):
+        instance_interruption_behavior: NotRequired[pulumi.Input['WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior']]
+        max_price: NotRequired[pulumi.Input[builtins.str]]
+        spot_instance_type: NotRequired[pulumi.Input['WorkspaceInstanceSpotMarketOptionsSpotInstanceType']]
+        valid_until_utc: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    WorkspaceInstanceSpotMarketOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceInstanceSpotMarketOptionsArgs:
+    def __init__(__self__, *,
+                 instance_interruption_behavior: Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior']] = None,
+                 max_price: Optional[pulumi.Input[builtins.str]] = None,
+                 spot_instance_type: Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsSpotInstanceType']] = None,
+                 valid_until_utc: Optional[pulumi.Input[builtins.str]] = None):
+        if instance_interruption_behavior is not None:
+            pulumi.set(__self__, "instance_interruption_behavior", instance_interruption_behavior)
+        if max_price is not None:
+            pulumi.set(__self__, "max_price", max_price)
+        if spot_instance_type is not None:
+            pulumi.set(__self__, "spot_instance_type", spot_instance_type)
+        if valid_until_utc is not None:
+            pulumi.set(__self__, "valid_until_utc", valid_until_utc)
+
+    @property
+    @pulumi.getter(name="instanceInterruptionBehavior")
+    def instance_interruption_behavior(self) -> Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior']]:
+        return pulumi.get(self, "instance_interruption_behavior")
+
+    @instance_interruption_behavior.setter
+    def instance_interruption_behavior(self, value: Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior']]):
+        pulumi.set(self, "instance_interruption_behavior", value)
+
+    @property
+    @pulumi.getter(name="maxPrice")
+    def max_price(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "max_price")
+
+    @max_price.setter
+    def max_price(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "max_price", value)
+
+    @property
+    @pulumi.getter(name="spotInstanceType")
+    def spot_instance_type(self) -> Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsSpotInstanceType']]:
+        return pulumi.get(self, "spot_instance_type")
+
+    @spot_instance_type.setter
+    def spot_instance_type(self, value: Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsSpotInstanceType']]):
+        pulumi.set(self, "spot_instance_type", value)
+
+    @property
+    @pulumi.getter(name="validUntilUtc")
+    def valid_until_utc(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "valid_until_utc")
+
+    @valid_until_utc.setter
+    def valid_until_utc(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "valid_until_utc", value)
 
 
 if not MYPY:

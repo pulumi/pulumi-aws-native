@@ -49,6 +49,9 @@ class GetConfigurationSetResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the ConfigurationSet.
+        """
         return pulumi.get(self, "arn")
 
     @property

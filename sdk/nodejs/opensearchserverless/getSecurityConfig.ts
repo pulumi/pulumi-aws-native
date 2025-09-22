@@ -30,6 +30,10 @@ export interface GetSecurityConfigResult {
      */
     readonly description?: string;
     /**
+     * Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
+     */
+    readonly iamFederationOptions?: outputs.opensearchserverless.SecurityConfigIamFederationConfigOptions;
+    /**
      * Describes IAM Identity Center options in the form of a key-value map.
      */
     readonly iamIdentityCenterOptions?: outputs.opensearchserverless.SecurityConfigIamIdentityCenterConfigOptions;

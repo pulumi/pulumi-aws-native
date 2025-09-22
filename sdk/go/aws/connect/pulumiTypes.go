@@ -5627,6 +5627,105 @@ func (o RoutingProfileCrossChannelBehaviorPtrOutput) BehaviorType() RoutingProfi
 	}).(RoutingProfileBehaviorTypePtrOutput)
 }
 
+// Contains information about the manual assignment queue and channel
+type RoutingProfileManualAssignmentQueueConfig struct {
+	QueueReference RoutingProfileQueueReference `pulumi:"queueReference"`
+}
+
+// RoutingProfileManualAssignmentQueueConfigInput is an input type that accepts RoutingProfileManualAssignmentQueueConfigArgs and RoutingProfileManualAssignmentQueueConfigOutput values.
+// You can construct a concrete instance of `RoutingProfileManualAssignmentQueueConfigInput` via:
+//
+//	RoutingProfileManualAssignmentQueueConfigArgs{...}
+type RoutingProfileManualAssignmentQueueConfigInput interface {
+	pulumi.Input
+
+	ToRoutingProfileManualAssignmentQueueConfigOutput() RoutingProfileManualAssignmentQueueConfigOutput
+	ToRoutingProfileManualAssignmentQueueConfigOutputWithContext(context.Context) RoutingProfileManualAssignmentQueueConfigOutput
+}
+
+// Contains information about the manual assignment queue and channel
+type RoutingProfileManualAssignmentQueueConfigArgs struct {
+	QueueReference RoutingProfileQueueReferenceInput `pulumi:"queueReference"`
+}
+
+func (RoutingProfileManualAssignmentQueueConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileManualAssignmentQueueConfig)(nil)).Elem()
+}
+
+func (i RoutingProfileManualAssignmentQueueConfigArgs) ToRoutingProfileManualAssignmentQueueConfigOutput() RoutingProfileManualAssignmentQueueConfigOutput {
+	return i.ToRoutingProfileManualAssignmentQueueConfigOutputWithContext(context.Background())
+}
+
+func (i RoutingProfileManualAssignmentQueueConfigArgs) ToRoutingProfileManualAssignmentQueueConfigOutputWithContext(ctx context.Context) RoutingProfileManualAssignmentQueueConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileManualAssignmentQueueConfigOutput)
+}
+
+// RoutingProfileManualAssignmentQueueConfigArrayInput is an input type that accepts RoutingProfileManualAssignmentQueueConfigArray and RoutingProfileManualAssignmentQueueConfigArrayOutput values.
+// You can construct a concrete instance of `RoutingProfileManualAssignmentQueueConfigArrayInput` via:
+//
+//	RoutingProfileManualAssignmentQueueConfigArray{ RoutingProfileManualAssignmentQueueConfigArgs{...} }
+type RoutingProfileManualAssignmentQueueConfigArrayInput interface {
+	pulumi.Input
+
+	ToRoutingProfileManualAssignmentQueueConfigArrayOutput() RoutingProfileManualAssignmentQueueConfigArrayOutput
+	ToRoutingProfileManualAssignmentQueueConfigArrayOutputWithContext(context.Context) RoutingProfileManualAssignmentQueueConfigArrayOutput
+}
+
+type RoutingProfileManualAssignmentQueueConfigArray []RoutingProfileManualAssignmentQueueConfigInput
+
+func (RoutingProfileManualAssignmentQueueConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingProfileManualAssignmentQueueConfig)(nil)).Elem()
+}
+
+func (i RoutingProfileManualAssignmentQueueConfigArray) ToRoutingProfileManualAssignmentQueueConfigArrayOutput() RoutingProfileManualAssignmentQueueConfigArrayOutput {
+	return i.ToRoutingProfileManualAssignmentQueueConfigArrayOutputWithContext(context.Background())
+}
+
+func (i RoutingProfileManualAssignmentQueueConfigArray) ToRoutingProfileManualAssignmentQueueConfigArrayOutputWithContext(ctx context.Context) RoutingProfileManualAssignmentQueueConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileManualAssignmentQueueConfigArrayOutput)
+}
+
+// Contains information about the manual assignment queue and channel
+type RoutingProfileManualAssignmentQueueConfigOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileManualAssignmentQueueConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileManualAssignmentQueueConfig)(nil)).Elem()
+}
+
+func (o RoutingProfileManualAssignmentQueueConfigOutput) ToRoutingProfileManualAssignmentQueueConfigOutput() RoutingProfileManualAssignmentQueueConfigOutput {
+	return o
+}
+
+func (o RoutingProfileManualAssignmentQueueConfigOutput) ToRoutingProfileManualAssignmentQueueConfigOutputWithContext(ctx context.Context) RoutingProfileManualAssignmentQueueConfigOutput {
+	return o
+}
+
+func (o RoutingProfileManualAssignmentQueueConfigOutput) QueueReference() RoutingProfileQueueReferenceOutput {
+	return o.ApplyT(func(v RoutingProfileManualAssignmentQueueConfig) RoutingProfileQueueReference {
+		return v.QueueReference
+	}).(RoutingProfileQueueReferenceOutput)
+}
+
+type RoutingProfileManualAssignmentQueueConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileManualAssignmentQueueConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingProfileManualAssignmentQueueConfig)(nil)).Elem()
+}
+
+func (o RoutingProfileManualAssignmentQueueConfigArrayOutput) ToRoutingProfileManualAssignmentQueueConfigArrayOutput() RoutingProfileManualAssignmentQueueConfigArrayOutput {
+	return o
+}
+
+func (o RoutingProfileManualAssignmentQueueConfigArrayOutput) ToRoutingProfileManualAssignmentQueueConfigArrayOutputWithContext(ctx context.Context) RoutingProfileManualAssignmentQueueConfigArrayOutput {
+	return o
+}
+
+func (o RoutingProfileManualAssignmentQueueConfigArrayOutput) Index(i pulumi.IntInput) RoutingProfileManualAssignmentQueueConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoutingProfileManualAssignmentQueueConfig {
+		return vs[0].([]RoutingProfileManualAssignmentQueueConfig)[vs[1].(int)]
+	}).(RoutingProfileManualAssignmentQueueConfigOutput)
+}
+
 // Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
 type RoutingProfileMediaConcurrency struct {
 	// The channels that agents can handle in the Contact Control Panel (CCP).
@@ -10078,6 +10177,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectUserQuickConnectConfigPtrInput)(nil)).Elem(), QuickConnectUserQuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileCrossChannelBehaviorInput)(nil)).Elem(), RoutingProfileCrossChannelBehaviorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileCrossChannelBehaviorPtrInput)(nil)).Elem(), RoutingProfileCrossChannelBehaviorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileManualAssignmentQueueConfigInput)(nil)).Elem(), RoutingProfileManualAssignmentQueueConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileManualAssignmentQueueConfigArrayInput)(nil)).Elem(), RoutingProfileManualAssignmentQueueConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileMediaConcurrencyInput)(nil)).Elem(), RoutingProfileMediaConcurrencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileMediaConcurrencyArrayInput)(nil)).Elem(), RoutingProfileMediaConcurrencyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileQueueConfigInput)(nil)).Elem(), RoutingProfileQueueConfigArgs{})
@@ -10210,6 +10311,8 @@ func init() {
 	pulumi.RegisterOutputType(QuickConnectUserQuickConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(RoutingProfileCrossChannelBehaviorOutput{})
 	pulumi.RegisterOutputType(RoutingProfileCrossChannelBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(RoutingProfileManualAssignmentQueueConfigOutput{})
+	pulumi.RegisterOutputType(RoutingProfileManualAssignmentQueueConfigArrayOutput{})
 	pulumi.RegisterOutputType(RoutingProfileMediaConcurrencyOutput{})
 	pulumi.RegisterOutputType(RoutingProfileMediaConcurrencyArrayOutput{})
 	pulumi.RegisterOutputType(RoutingProfileQueueConfigOutput{})

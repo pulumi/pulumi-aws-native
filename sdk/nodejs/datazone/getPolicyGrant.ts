@@ -41,7 +41,7 @@ export interface GetPolicyGrantArgs {
     /**
      * The type of policy that you want to grant.
      */
-    policyType: string;
+    policyType: enums.datazone.PolicyGrantManagedPolicyType;
 }
 
 export interface GetPolicyGrantResult {
@@ -92,5 +92,5 @@ export interface GetPolicyGrantOutputArgs {
     /**
      * The type of policy that you want to grant.
      */
-    policyType: pulumi.Input<string>;
+    policyType: pulumi.Input<enums.datazone.PolicyGrantManagedPolicyType>;
 }

@@ -79,6 +79,8 @@ if typing.TYPE_CHECKING:
     batch = __batch
     import pulumi_aws_native.bedrock as __bedrock
     bedrock = __bedrock
+    import pulumi_aws_native.bedrockagentcore as __bedrockagentcore
+    bedrockagentcore = __bedrockagentcore
     import pulumi_aws_native.billing as __billing
     billing = __billing
     import pulumi_aws_native.budgets as __budgets
@@ -518,6 +520,7 @@ else:
     backupgateway = _utilities.lazy_import('pulumi_aws_native.backupgateway')
     batch = _utilities.lazy_import('pulumi_aws_native.batch')
     bedrock = _utilities.lazy_import('pulumi_aws_native.bedrock')
+    bedrockagentcore = _utilities.lazy_import('pulumi_aws_native.bedrockagentcore')
     billing = _utilities.lazy_import('pulumi_aws_native.billing')
     budgets = _utilities.lazy_import('pulumi_aws_native.budgets')
     cassandra = _utilities.lazy_import('pulumi_aws_native.cassandra')
@@ -1064,6 +1067,17 @@ _utilities.register(
    "aws-native:bedrock:KnowledgeBase": "KnowledgeBase",
    "aws-native:bedrock:Prompt": "Prompt",
    "aws-native:bedrock:PromptVersion": "PromptVersion"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "bedrockagentcore",
+  "fqn": "pulumi_aws_native.bedrockagentcore",
+  "classes": {
+   "aws-native:bedrockagentcore:BrowserCustom": "BrowserCustom",
+   "aws-native:bedrockagentcore:CodeInterpreterCustom": "CodeInterpreterCustom",
+   "aws-native:bedrockagentcore:Runtime": "Runtime",
+   "aws-native:bedrockagentcore:RuntimeEndpoint": "RuntimeEndpoint"
   }
  },
  {
@@ -2667,7 +2681,8 @@ _utilities.register(
    "aws-native:odb:CloudAutonomousVmCluster": "CloudAutonomousVmCluster",
    "aws-native:odb:CloudExadataInfrastructure": "CloudExadataInfrastructure",
    "aws-native:odb:CloudVmCluster": "CloudVmCluster",
-   "aws-native:odb:OdbNetwork": "OdbNetwork"
+   "aws-native:odb:OdbNetwork": "OdbNetwork",
+   "aws-native:odb:OdbPeeringConnection": "OdbPeeringConnection"
   }
  },
  {
@@ -3220,6 +3235,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.servicecatalog",
   "classes": {
    "aws-native:servicecatalog:CloudFormationProvisionedProduct": "CloudFormationProvisionedProduct",
+   "aws-native:servicecatalog:LaunchTemplateConstraint": "LaunchTemplateConstraint",
+   "aws-native:servicecatalog:PortfolioProductAssociation": "PortfolioProductAssociation",
    "aws-native:servicecatalog:ServiceAction": "ServiceAction",
    "aws-native:servicecatalog:ServiceActionAssociation": "ServiceActionAssociation",
    "aws-native:servicecatalog:TagOption": "TagOption"

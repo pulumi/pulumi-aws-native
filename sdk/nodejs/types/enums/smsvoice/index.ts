@@ -28,6 +28,9 @@ export const PhoneNumberOptionalKeywordAction = {
     OptIn: "OPT_IN",
 } as const;
 
+/**
+ * The action to perform when the keyword is used.
+ */
 export type PhoneNumberOptionalKeywordAction = (typeof PhoneNumberOptionalKeywordAction)[keyof typeof PhoneNumberOptionalKeywordAction];
 
 export const PoolOptionalKeywordAction = {
@@ -36,6 +39,9 @@ export const PoolOptionalKeywordAction = {
     OptIn: "OPT_IN",
 } as const;
 
+/**
+ * The action to perform when the keyword is used.
+ */
 export type PoolOptionalKeywordAction = (typeof PoolOptionalKeywordAction)[keyof typeof PoolOptionalKeywordAction];
 
 export const ProtectConfigurationCountryRuleProtectStatus = {

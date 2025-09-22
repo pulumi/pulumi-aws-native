@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.DynamoDb
         /// </summary>
         public readonly string? BillingMode;
         /// <summary>
-        /// The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+        /// The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
         /// </summary>
         public readonly Outputs.TableContributorInsightsSpecification? ContributorInsightsSpecification;
         /// <summary>
@@ -113,6 +113,7 @@ namespace Pulumi.AwsNative.DynamoDb
         ///   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
         /// </summary>
         public readonly ImmutableArray<Outputs.TableGlobalSecondaryIndex> GlobalSecondaryIndexes;
+        public readonly Pulumi.AwsNative.DynamoDb.TableGlobalTableSettingsReplicationMode? GlobalTableSettingsReplicationMode;
         /// <summary>
         /// Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
         /// </summary>
@@ -156,7 +157,7 @@ namespace Pulumi.AwsNative.DynamoDb
         /// </summary>
         public readonly string? StreamArn;
         /// <summary>
-        /// The settings for the DDB table stream, which capture changes to items stored in the table.
+        /// The settings for the DDB table stream, which captures changes to items stored in the table. Including this property in your CFNlong template automatically enables streaming.
         /// </summary>
         public readonly Outputs.TableStreamSpecification? StreamSpecification;
         /// <summary>
@@ -192,6 +193,8 @@ namespace Pulumi.AwsNative.DynamoDb
 
             ImmutableArray<Outputs.TableGlobalSecondaryIndex> globalSecondaryIndexes,
 
+            Pulumi.AwsNative.DynamoDb.TableGlobalTableSettingsReplicationMode? globalTableSettingsReplicationMode,
+
             Union<ImmutableArray<Outputs.TableKeySchema>, object>? keySchema,
 
             Outputs.TableKinesisStreamSpecification? kinesisStreamSpecification,
@@ -226,6 +229,7 @@ namespace Pulumi.AwsNative.DynamoDb
             ContributorInsightsSpecification = contributorInsightsSpecification;
             DeletionProtectionEnabled = deletionProtectionEnabled;
             GlobalSecondaryIndexes = globalSecondaryIndexes;
+            GlobalTableSettingsReplicationMode = globalTableSettingsReplicationMode;
             KeySchema = keySchema;
             KinesisStreamSpecification = kinesisStreamSpecification;
             LocalSecondaryIndexes = localSecondaryIndexes;

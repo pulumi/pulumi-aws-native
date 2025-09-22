@@ -3159,7 +3159,7 @@ func (o UserPoolDeviceConfigurationPtrOutput) DeviceOnlyRememberedOnUserPrompt()
 }
 
 type UserPoolDomainCustomDomainConfigType struct {
-	// The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
+	// The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
 	CertificateArn *string `pulumi:"certificateArn"`
 }
 
@@ -3175,7 +3175,7 @@ type UserPoolDomainCustomDomainConfigTypeInput interface {
 }
 
 type UserPoolDomainCustomDomainConfigTypeArgs struct {
-	// The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
+	// The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
 	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
 }
 
@@ -3256,7 +3256,7 @@ func (o UserPoolDomainCustomDomainConfigTypeOutput) ToUserPoolDomainCustomDomain
 	}).(UserPoolDomainCustomDomainConfigTypePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
+// The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
 func (o UserPoolDomainCustomDomainConfigTypeOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolDomainCustomDomainConfigType) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
@@ -3285,7 +3285,7 @@ func (o UserPoolDomainCustomDomainConfigTypePtrOutput) Elem() UserPoolDomainCust
 	}).(UserPoolDomainCustomDomainConfigTypeOutput)
 }
 
-// The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
+// The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
 func (o UserPoolDomainCustomDomainConfigTypePtrOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolDomainCustomDomainConfigType) *string {
 		if v == nil {

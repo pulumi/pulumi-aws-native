@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.Smsvoice.Outputs
     [OutputType]
     public sealed class PoolOptionalKeyword
     {
+        /// <summary>
+        /// The action to perform when the keyword is used.
+        /// </summary>
         public readonly Pulumi.AwsNative.Smsvoice.PoolOptionalKeywordAction Action;
+        /// <summary>
+        /// The new keyword to add.
+        /// </summary>
         public readonly string Keyword;
+        /// <summary>
+        /// The message associated with the keyword.
+        /// </summary>
         public readonly string Message;
 
         [OutputConstructor]

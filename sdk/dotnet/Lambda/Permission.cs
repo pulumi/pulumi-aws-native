@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("functionUrlAuthType")]
         public Output<Pulumi.AwsNative.Lambda.PermissionFunctionUrlAuthType?> FunctionUrlAuthType { get; private set; } = null!;
 
+        [Output("invokedViaFunctionUrl")]
+        public Output<bool?> InvokedViaFunctionUrl { get; private set; } = null!;
+
         /// <summary>
         /// The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
         /// </summary>
@@ -105,6 +108,7 @@ namespace Pulumi.AwsNative.Lambda
                     "eventSourceToken",
                     "functionName",
                     "functionUrlAuthType",
+                    "invokedViaFunctionUrl",
                     "principal",
                     "principalOrgId",
                     "sourceAccount",
@@ -161,6 +165,9 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Input("functionUrlAuthType")]
         public Input<Pulumi.AwsNative.Lambda.PermissionFunctionUrlAuthType>? FunctionUrlAuthType { get; set; }
+
+        [Input("invokedViaFunctionUrl")]
+        public Input<bool>? InvokedViaFunctionUrl { get; set; }
 
         /// <summary>
         /// The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.

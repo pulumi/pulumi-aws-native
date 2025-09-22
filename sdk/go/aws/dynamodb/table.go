@@ -295,7 +295,7 @@ type Table struct {
 	//
 	//  If not specified, the default is ``PROVISIONED``.
 	BillingMode pulumi.StringPtrOutput `pulumi:"billingMode"`
-	// The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+	// The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
 	ContributorInsightsSpecification TableContributorInsightsSpecificationPtrOutput `pulumi:"contributorInsightsSpecification"`
 	// Determines if a table is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Developer Guide*.
 	DeletionProtectionEnabled pulumi.BoolPtrOutput `pulumi:"deletionProtectionEnabled"`
@@ -305,7 +305,8 @@ type Table struct {
 	//  Updates are not supported. The following are exceptions:
 	//   +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
 	//   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
-	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayOutput `pulumi:"globalSecondaryIndexes"`
+	GlobalSecondaryIndexes             TableGlobalSecondaryIndexArrayOutput             `pulumi:"globalSecondaryIndexes"`
+	GlobalTableSettingsReplicationMode TableGlobalTableSettingsReplicationModePtrOutput `pulumi:"globalTableSettingsReplicationMode"`
 	// Specifies the properties of data being imported from the S3 bucket source to the" table.
 	//   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
 	ImportSourceSpecification TableImportSourceSpecificationPtrOutput `pulumi:"importSourceSpecification"`
@@ -333,7 +334,7 @@ type Table struct {
 	//
 	// > You must specify the `StreamSpecification` property to use this attribute.
 	StreamArn pulumi.StringOutput `pulumi:"streamArn"`
-	// The settings for the DDB table stream, which capture changes to items stored in the table.
+	// The settings for the DDB table stream, which captures changes to items stored in the table. Including this property in your CFNlong template automatically enables streaming.
 	StreamSpecification TableStreamSpecificationPtrOutput `pulumi:"streamSpecification"`
 	// The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.
 	TableClass pulumi.StringPtrOutput `pulumi:"tableClass"`
@@ -409,7 +410,7 @@ type tableArgs struct {
 	//
 	//  If not specified, the default is ``PROVISIONED``.
 	BillingMode *string `pulumi:"billingMode"`
-	// The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+	// The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
 	ContributorInsightsSpecification *TableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
 	// Determines if a table is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Developer Guide*.
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
@@ -419,7 +420,8 @@ type tableArgs struct {
 	//  Updates are not supported. The following are exceptions:
 	//   +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
 	//   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
-	GlobalSecondaryIndexes []TableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
+	GlobalSecondaryIndexes             []TableGlobalSecondaryIndex              `pulumi:"globalSecondaryIndexes"`
+	GlobalTableSettingsReplicationMode *TableGlobalTableSettingsReplicationMode `pulumi:"globalTableSettingsReplicationMode"`
 	// Specifies the properties of data being imported from the S3 bucket source to the" table.
 	//   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
 	ImportSourceSpecification *TableImportSourceSpecification `pulumi:"importSourceSpecification"`
@@ -443,7 +445,7 @@ type tableArgs struct {
 	ResourcePolicy *TableResourcePolicy `pulumi:"resourcePolicy"`
 	// Specifies the settings to enable server-side encryption.
 	SseSpecification *TableSseSpecification `pulumi:"sseSpecification"`
-	// The settings for the DDB table stream, which capture changes to items stored in the table.
+	// The settings for the DDB table stream, which captures changes to items stored in the table. Including this property in your CFNlong template automatically enables streaming.
 	StreamSpecification *TableStreamSpecification `pulumi:"streamSpecification"`
 	// The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.
 	TableClass *string `pulumi:"tableClass"`
@@ -473,7 +475,7 @@ type TableArgs struct {
 	//
 	//  If not specified, the default is ``PROVISIONED``.
 	BillingMode pulumi.StringPtrInput
-	// The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+	// The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
 	ContributorInsightsSpecification TableContributorInsightsSpecificationPtrInput
 	// Determines if a table is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Developer Guide*.
 	DeletionProtectionEnabled pulumi.BoolPtrInput
@@ -483,7 +485,8 @@ type TableArgs struct {
 	//  Updates are not supported. The following are exceptions:
 	//   +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
 	//   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
-	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayInput
+	GlobalSecondaryIndexes             TableGlobalSecondaryIndexArrayInput
+	GlobalTableSettingsReplicationMode TableGlobalTableSettingsReplicationModePtrInput
 	// Specifies the properties of data being imported from the S3 bucket source to the" table.
 	//   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
 	ImportSourceSpecification TableImportSourceSpecificationPtrInput
@@ -507,7 +510,7 @@ type TableArgs struct {
 	ResourcePolicy TableResourcePolicyPtrInput
 	// Specifies the settings to enable server-side encryption.
 	SseSpecification TableSseSpecificationPtrInput
-	// The settings for the DDB table stream, which capture changes to items stored in the table.
+	// The settings for the DDB table stream, which captures changes to items stored in the table. Including this property in your CFNlong template automatically enables streaming.
 	StreamSpecification TableStreamSpecificationPtrInput
 	// The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.
 	TableClass pulumi.StringPtrInput
@@ -585,7 +588,7 @@ func (o TableOutput) BillingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.BillingMode }).(pulumi.StringPtrOutput)
 }
 
-// The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+// The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor.
 func (o TableOutput) ContributorInsightsSpecification() TableContributorInsightsSpecificationPtrOutput {
 	return o.ApplyT(func(v *Table) TableContributorInsightsSpecificationPtrOutput {
 		return v.ContributorInsightsSpecification
@@ -606,6 +609,12 @@ func (o TableOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutput {
 //	 +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
 func (o TableOutput) GlobalSecondaryIndexes() TableGlobalSecondaryIndexArrayOutput {
 	return o.ApplyT(func(v *Table) TableGlobalSecondaryIndexArrayOutput { return v.GlobalSecondaryIndexes }).(TableGlobalSecondaryIndexArrayOutput)
+}
+
+func (o TableOutput) GlobalTableSettingsReplicationMode() TableGlobalTableSettingsReplicationModePtrOutput {
+	return o.ApplyT(func(v *Table) TableGlobalTableSettingsReplicationModePtrOutput {
+		return v.GlobalTableSettingsReplicationMode
+	}).(TableGlobalTableSettingsReplicationModePtrOutput)
 }
 
 // Specifies the properties of data being imported from the S3 bucket source to the" table.
@@ -670,7 +679,7 @@ func (o TableOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.StreamArn }).(pulumi.StringOutput)
 }
 
-// The settings for the DDB table stream, which capture changes to items stored in the table.
+// The settings for the DDB table stream, which captures changes to items stored in the table. Including this property in your CFNlong template automatically enables streaming.
 func (o TableOutput) StreamSpecification() TableStreamSpecificationPtrOutput {
 	return o.ApplyT(func(v *Table) TableStreamSpecificationPtrOutput { return v.StreamSpecification }).(TableStreamSpecificationPtrOutput)
 }

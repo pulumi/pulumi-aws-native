@@ -26,7 +26,7 @@ class PolicyGrantArgs:
                  domain_identifier: pulumi.Input[builtins.str],
                  entity_identifier: pulumi.Input[builtins.str],
                  entity_type: pulumi.Input['PolicyGrantTargetEntityType'],
-                 policy_type: pulumi.Input[builtins.str],
+                 policy_type: pulumi.Input['PolicyGrantManagedPolicyType'],
                  detail: Optional[pulumi.Input[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']]] = None,
                  principal: Optional[pulumi.Input[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']]] = None):
         """
@@ -34,7 +34,7 @@ class PolicyGrantArgs:
         :param pulumi.Input[builtins.str] domain_identifier: The ID of the domain where you want to add a policy grant.
         :param pulumi.Input[builtins.str] entity_identifier: The ID of the entity (resource) to which you want to add a policy grant.
         :param pulumi.Input['PolicyGrantTargetEntityType'] entity_type: The type of entity (resource) to which the grant is added.
-        :param pulumi.Input[builtins.str] policy_type: The type of policy that you want to grant.
+        :param pulumi.Input['PolicyGrantManagedPolicyType'] policy_type: The type of policy that you want to grant.
         :param pulumi.Input[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']] detail: The details of the policy grant member.
         :param pulumi.Input[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']] principal: The principal of the policy grant member.
         """
@@ -85,14 +85,14 @@ class PolicyGrantArgs:
 
     @property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> pulumi.Input[builtins.str]:
+    def policy_type(self) -> pulumi.Input['PolicyGrantManagedPolicyType']:
         """
         The type of policy that you want to grant.
         """
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
-    def policy_type(self, value: pulumi.Input[builtins.str]):
+    def policy_type(self, value: pulumi.Input['PolicyGrantManagedPolicyType']):
         pulumi.set(self, "policy_type", value)
 
     @property
@@ -130,7 +130,7 @@ class PolicyGrant(pulumi.CustomResource):
                  domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  entity_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  entity_type: Optional[pulumi.Input['PolicyGrantTargetEntityType']] = None,
-                 policy_type: Optional[pulumi.Input[builtins.str]] = None,
+                 policy_type: Optional[pulumi.Input['PolicyGrantManagedPolicyType']] = None,
                  principal: Optional[pulumi.Input[Union[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal0PropertiesArgsDict'], Union['PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgsDict'], Union['PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgsDict'], Union['PolicyGrantPrincipal3PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgsDict']]]] = None,
                  __props__=None):
         """
@@ -142,7 +142,7 @@ class PolicyGrant(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_identifier: The ID of the domain where you want to add a policy grant.
         :param pulumi.Input[builtins.str] entity_identifier: The ID of the entity (resource) to which you want to add a policy grant.
         :param pulumi.Input['PolicyGrantTargetEntityType'] entity_type: The type of entity (resource) to which the grant is added.
-        :param pulumi.Input[builtins.str] policy_type: The type of policy that you want to grant.
+        :param pulumi.Input['PolicyGrantManagedPolicyType'] policy_type: The type of policy that you want to grant.
         :param pulumi.Input[Union[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal0PropertiesArgsDict'], Union['PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgsDict'], Union['PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgsDict'], Union['PolicyGrantPrincipal3PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgsDict']]] principal: The principal of the policy grant member.
         """
         ...
@@ -173,7 +173,7 @@ class PolicyGrant(pulumi.CustomResource):
                  domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  entity_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  entity_type: Optional[pulumi.Input['PolicyGrantTargetEntityType']] = None,
-                 policy_type: Optional[pulumi.Input[builtins.str]] = None,
+                 policy_type: Optional[pulumi.Input['PolicyGrantManagedPolicyType']] = None,
                  principal: Optional[pulumi.Input[Union[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal0PropertiesArgsDict'], Union['PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgsDict'], Union['PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgsDict'], Union['PolicyGrantPrincipal3PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgsDict']]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -294,7 +294,7 @@ class PolicyGrant(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> pulumi.Output[builtins.str]:
+    def policy_type(self) -> pulumi.Output['PolicyGrantManagedPolicyType']:
         """
         The type of policy that you want to grant.
         """

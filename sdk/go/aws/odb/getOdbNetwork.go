@@ -29,6 +29,9 @@ type LookupOdbNetworkArgs struct {
 }
 
 type LookupOdbNetworkResult struct {
+	// The user-friendly name of the ODB network.
+	DisplayName     *string                    `pulumi:"displayName"`
+	ManagedServices *OdbNetworkManagedServices `pulumi:"managedServices"`
 	// The unique identifier of the OCI network anchor for the ODB network.
 	OciNetworkAnchorId *string `pulumi:"ociNetworkAnchorId"`
 	// The name of the OCI resource anchor that's associated with the ODB network.
@@ -73,6 +76,15 @@ func (o LookupOdbNetworkResultOutput) ToLookupOdbNetworkResultOutput() LookupOdb
 
 func (o LookupOdbNetworkResultOutput) ToLookupOdbNetworkResultOutputWithContext(ctx context.Context) LookupOdbNetworkResultOutput {
 	return o
+}
+
+// The user-friendly name of the ODB network.
+func (o LookupOdbNetworkResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOdbNetworkResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupOdbNetworkResultOutput) ManagedServices() OdbNetworkManagedServicesPtrOutput {
+	return o.ApplyT(func(v LookupOdbNetworkResult) *OdbNetworkManagedServices { return v.ManagedServices }).(OdbNetworkManagedServicesPtrOutput)
 }
 
 // The unique identifier of the OCI network anchor for the ODB network.

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardDataQaEnabledOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The status of the Data Q&amp;A option on the dashboard.
+        /// </summary>
         [Input("availabilityStatus")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardBehavior>? AvailabilityStatus { get; set; }
 

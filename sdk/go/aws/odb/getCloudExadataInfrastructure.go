@@ -51,6 +51,8 @@ type LookupCloudExadataInfrastructureResult struct {
 	DbServerIds []string `pulumi:"dbServerIds"`
 	// The software version of the database servers (dom0) in the Exadata infrastructure.
 	DbServerVersion *string `pulumi:"dbServerVersion"`
+	// The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+	MaintenanceWindow *CloudExadataInfrastructureMaintenanceWindow `pulumi:"maintenanceWindow"`
 	// The total number of CPU cores available on the Exadata infrastructure.
 	MaxCpuCount *int `pulumi:"maxCpuCount"`
 	// The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
@@ -160,6 +162,13 @@ func (o LookupCloudExadataInfrastructureResultOutput) DbServerIds() pulumi.Strin
 // The software version of the database servers (dom0) in the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) DbServerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) *string { return v.DbServerVersion }).(pulumi.StringPtrOutput)
+}
+
+// The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+func (o LookupCloudExadataInfrastructureResultOutput) MaintenanceWindow() CloudExadataInfrastructureMaintenanceWindowPtrOutput {
+	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) *CloudExadataInfrastructureMaintenanceWindow {
+		return v.MaintenanceWindow
+	}).(CloudExadataInfrastructureMaintenanceWindowPtrOutput)
 }
 
 // The total number of CPU cores available on the Exadata infrastructure.

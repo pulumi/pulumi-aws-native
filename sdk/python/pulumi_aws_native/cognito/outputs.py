@@ -1183,7 +1183,7 @@ class UserPoolDomainCustomDomainConfigType(dict):
     def __init__(__self__, *,
                  certificate_arn: Optional[builtins.str] = None):
         """
-        :param builtins.str certificate_arn: The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
+        :param builtins.str certificate_arn: The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
         """
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -1192,7 +1192,7 @@ class UserPoolDomainCustomDomainConfigType(dict):
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[builtins.str]:
         """
-        The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
+        The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
         """
         return pulumi.get(self, "certificate_arn")
 

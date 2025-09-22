@@ -141,6 +141,10 @@ AWS::Bedrock::IntelligentPromptRouter
 AWS::Bedrock::KnowledgeBase
 AWS::Bedrock::Prompt
 AWS::Bedrock::PromptVersion
+AWS::BedrockAgentCore::BrowserCustom
+AWS::BedrockAgentCore::CodeInterpreterCustom
+AWS::BedrockAgentCore::Runtime
+AWS::BedrockAgentCore::RuntimeEndpoint
 AWS::Billing::BillingView
 AWS::Budgets::BudgetsAction
 AWS::CE::AnomalyMonitor
@@ -845,6 +849,7 @@ AWS::ODB::CloudAutonomousVmCluster
 AWS::ODB::CloudExadataInfrastructure
 AWS::ODB::CloudVmCluster
 AWS::ODB::OdbNetwork
+AWS::ODB::OdbPeeringConnection
 AWS::OSIS::Pipeline
 AWS::Oam::Link
 AWS::Oam::Sink
@@ -1120,6 +1125,8 @@ AWS::SecurityLake::DataLake
 AWS::SecurityLake::Subscriber
 AWS::SecurityLake::SubscriberNotification
 AWS::ServiceCatalog::CloudFormationProvisionedProduct
+AWS::ServiceCatalog::LaunchTemplateConstraint
+AWS::ServiceCatalog::PortfolioProductAssociation
 AWS::ServiceCatalog::ServiceAction
 AWS::ServiceCatalog::ServiceActionAssociation
 AWS::ServiceCatalog::TagOption

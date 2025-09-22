@@ -17,6 +17,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ScraperArgs', 'Scraper']
@@ -29,6 +30,7 @@ class ScraperArgs:
                  source: pulumi.Input['ScraperSourceArgs'],
                  alias: Optional[pulumi.Input[builtins.str]] = None,
                  role_configuration: Optional[pulumi.Input['ScraperRoleConfigurationArgs']] = None,
+                 scraper_logging_configuration: Optional[pulumi.Input['ScraperLoggingConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Scraper resource.
@@ -37,6 +39,7 @@ class ScraperArgs:
         :param pulumi.Input['ScraperSourceArgs'] source: The Amazon EKS cluster from which the scraper collects metrics.
         :param pulumi.Input[builtins.str] alias: Scraper alias.
         :param pulumi.Input['ScraperRoleConfigurationArgs'] role_configuration: The role configuration in an Amazon Managed Service for Prometheus scraper.
+        :param pulumi.Input['ScraperLoggingConfigurationArgs'] scraper_logging_configuration: The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "destination", destination)
@@ -46,6 +49,8 @@ class ScraperArgs:
             pulumi.set(__self__, "alias", alias)
         if role_configuration is not None:
             pulumi.set(__self__, "role_configuration", role_configuration)
+        if scraper_logging_configuration is not None:
+            pulumi.set(__self__, "scraper_logging_configuration", scraper_logging_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -110,6 +115,18 @@ class ScraperArgs:
         pulumi.set(self, "role_configuration", value)
 
     @property
+    @pulumi.getter(name="scraperLoggingConfiguration")
+    def scraper_logging_configuration(self) -> Optional[pulumi.Input['ScraperLoggingConfigurationArgs']]:
+        """
+        The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+        """
+        return pulumi.get(self, "scraper_logging_configuration")
+
+    @scraper_logging_configuration.setter
+    def scraper_logging_configuration(self, value: Optional[pulumi.Input['ScraperLoggingConfigurationArgs']]):
+        pulumi.set(self, "scraper_logging_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -132,6 +149,7 @@ class Scraper(pulumi.CustomResource):
                  destination: Optional[pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
                  role_configuration: Optional[pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']]] = None,
                  scrape_configuration: Optional[pulumi.Input[Union['ScraperScrapeConfigurationArgs', 'ScraperScrapeConfigurationArgsDict']]] = None,
+                 scraper_logging_configuration: Optional[pulumi.Input[Union['ScraperLoggingConfigurationArgs', 'ScraperLoggingConfigurationArgsDict']]] = None,
                  source: Optional[pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -144,6 +162,7 @@ class Scraper(pulumi.CustomResource):
         :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']] destination: The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
         :param pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']] role_configuration: The role configuration in an Amazon Managed Service for Prometheus scraper.
         :param pulumi.Input[Union['ScraperScrapeConfigurationArgs', 'ScraperScrapeConfigurationArgsDict']] scrape_configuration: The configuration in use by the scraper.
+        :param pulumi.Input[Union['ScraperLoggingConfigurationArgs', 'ScraperLoggingConfigurationArgsDict']] scraper_logging_configuration: The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
         :param pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']] source: The Amazon EKS cluster from which the scraper collects metrics.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -175,6 +194,7 @@ class Scraper(pulumi.CustomResource):
                  destination: Optional[pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
                  role_configuration: Optional[pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']]] = None,
                  scrape_configuration: Optional[pulumi.Input[Union['ScraperScrapeConfigurationArgs', 'ScraperScrapeConfigurationArgsDict']]] = None,
+                 scraper_logging_configuration: Optional[pulumi.Input[Union['ScraperLoggingConfigurationArgs', 'ScraperLoggingConfigurationArgsDict']]] = None,
                  source: Optional[pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -194,6 +214,7 @@ class Scraper(pulumi.CustomResource):
             if scrape_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'scrape_configuration'")
             __props__.__dict__["scrape_configuration"] = scrape_configuration
+            __props__.__dict__["scraper_logging_configuration"] = scraper_logging_configuration
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
@@ -232,6 +253,7 @@ class Scraper(pulumi.CustomResource):
         __props__.__dict__["role_configuration"] = None
         __props__.__dict__["scrape_configuration"] = None
         __props__.__dict__["scraper_id"] = None
+        __props__.__dict__["scraper_logging_configuration"] = None
         __props__.__dict__["source"] = None
         __props__.__dict__["tags"] = None
         return Scraper(resource_name, opts=opts, __props__=__props__)
@@ -291,6 +313,14 @@ class Scraper(pulumi.CustomResource):
         Required to identify a specific scraper.
         """
         return pulumi.get(self, "scraper_id")
+
+    @property
+    @pulumi.getter(name="scraperLoggingConfiguration")
+    def scraper_logging_configuration(self) -> pulumi.Output[Optional['outputs.ScraperLoggingConfiguration']]:
+        """
+        The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+        """
+        return pulumi.get(self, "scraper_logging_configuration")
 
     @property
     @pulumi.getter

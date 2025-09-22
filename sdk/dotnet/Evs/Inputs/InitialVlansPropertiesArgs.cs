@@ -35,9 +35,27 @@ namespace Pulumi.AwsNative.Evs.Inputs
 
         /// <summary>
         /// The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
+        /// 
+        /// If you plan to use a public HCX VLAN subnet, the following requirements must be met:
+        /// 
+        /// - Must have a /28 netmask and be allocated from the IPAM public pool. Required for HCX internet access configuration.
+        /// - The HCX public VLAN CIDR block must be added to the VPC as a secondary CIDR block.
+        /// - Must have at least two Elastic IP addresses to be allocated from the public IPAM pool for HCX components.
         /// </summary>
         [Input("hcx", required: true)]
         public Input<Inputs.EnvironmentInitialVlanInfoArgs> Hcx { get; set; } = null!;
+
+        /// <summary>
+        /// A unique ID for a network access control list that the HCX VLAN uses. Required when `isHcxPublic` is set to `true` .
+        /// </summary>
+        [Input("hcxNetworkAclId")]
+        public Input<string>? HcxNetworkAclId { get; set; }
+
+        /// <summary>
+        /// Determines if the HCX VLAN that Amazon EVS provisions is public or private.
+        /// </summary>
+        [Input("isHcxPublic")]
+        public Input<bool>? IsHcxPublic { get; set; }
 
         /// <summary>
         /// The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.

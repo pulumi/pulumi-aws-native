@@ -38,6 +38,10 @@ export class Guardrail extends pulumi.CustomResource {
     }
 
     /**
+     * Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.
+     */
+    public readonly automatedReasoningPolicyConfig!: pulumi.Output<outputs.bedrock.GuardrailAutomatedReasoningPolicyConfig | undefined>;
+    /**
      * Messaging for when violations are detected in text
      */
     public readonly blockedInputMessaging!: pulumi.Output<string>;
@@ -134,6 +138,7 @@ export class Guardrail extends pulumi.CustomResource {
             if ((!args || args.blockedOutputsMessaging === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'blockedOutputsMessaging'");
             }
+            resourceInputs["automatedReasoningPolicyConfig"] = args ? args.automatedReasoningPolicyConfig : undefined;
             resourceInputs["blockedInputMessaging"] = args ? args.blockedInputMessaging : undefined;
             resourceInputs["blockedOutputsMessaging"] = args ? args.blockedOutputsMessaging : undefined;
             resourceInputs["contentPolicyConfig"] = args ? args.contentPolicyConfig : undefined;
@@ -155,6 +160,7 @@ export class Guardrail extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
+            resourceInputs["automatedReasoningPolicyConfig"] = undefined /*out*/;
             resourceInputs["blockedInputMessaging"] = undefined /*out*/;
             resourceInputs["blockedOutputsMessaging"] = undefined /*out*/;
             resourceInputs["contentPolicyConfig"] = undefined /*out*/;
@@ -185,6 +191,10 @@ export class Guardrail extends pulumi.CustomResource {
  * The set of arguments for constructing a Guardrail resource.
  */
 export interface GuardrailArgs {
+    /**
+     * Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.
+     */
+    automatedReasoningPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailAutomatedReasoningPolicyConfigArgs>;
     /**
      * Messaging for when violations are detected in text
      */

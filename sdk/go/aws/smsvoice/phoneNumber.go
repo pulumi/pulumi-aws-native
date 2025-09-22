@@ -17,6 +17,7 @@ import (
 type PhoneNumber struct {
 	pulumi.CustomResourceState
 
+	// The `PhoneNumber` 's Amazon Resource Name (ARN)
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// When set to true the sender ID can't be deleted. By default this is set to false.
 	DeletionProtectionEnabled pulumi.BoolPtrOutput `pulumi:"deletionProtectionEnabled"`
@@ -32,8 +33,10 @@ type PhoneNumber struct {
 	OptOutListName pulumi.StringPtrOutput `pulumi:"optOutListName"`
 	// A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
 	OptionalKeywords PhoneNumberOptionalKeywordArrayOutput `pulumi:"optionalKeywords"`
-	PhoneNumber      pulumi.StringOutput                   `pulumi:"phoneNumber"`
-	PhoneNumberId    pulumi.StringOutput                   `pulumi:"phoneNumberId"`
+	// The phone number in E.164 format.
+	PhoneNumber pulumi.StringOutput `pulumi:"phoneNumber"`
+	// The unique identifier for the phone number.
+	PhoneNumberId pulumi.StringOutput `pulumi:"phoneNumberId"`
 	// By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.
 	SelfManagedOptOutsEnabled pulumi.BoolPtrOutput `pulumi:"selfManagedOptOutsEnabled"`
 	// An array of key-value pairs to apply to this resource.
@@ -183,6 +186,7 @@ func (o PhoneNumberOutput) ToPhoneNumberOutputWithContext(ctx context.Context) P
 	return o
 }
 
+// The `PhoneNumber` 's Amazon Resource Name (ARN)
 func (o PhoneNumberOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -222,10 +226,12 @@ func (o PhoneNumberOutput) OptionalKeywords() PhoneNumberOptionalKeywordArrayOut
 	return o.ApplyT(func(v *PhoneNumber) PhoneNumberOptionalKeywordArrayOutput { return v.OptionalKeywords }).(PhoneNumberOptionalKeywordArrayOutput)
 }
 
+// The phone number in E.164 format.
 func (o PhoneNumberOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.PhoneNumber }).(pulumi.StringOutput)
 }
 
+// The unique identifier for the phone number.
 func (o PhoneNumberOutput) PhoneNumberId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.PhoneNumberId }).(pulumi.StringOutput)
 }
