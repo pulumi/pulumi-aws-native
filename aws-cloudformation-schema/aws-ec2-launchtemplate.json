@@ -329,7 +329,7 @@
           "type" : "integer"
         },
         "AvailabilityZone" : {
-          "description" : "The Availability Zone for the instance.",
+          "description" : "The Availability Zone for the instance.\n Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both",
           "type" : "string"
         },
         "Affinity" : {
@@ -614,7 +614,7 @@
           "type" : "integer"
         },
         "EnaQueueCount" : {
-          "description" : "",
+          "description" : "The number of ENA queues to be created with the instance.",
           "type" : "integer"
         },
         "Ipv6Prefixes" : {

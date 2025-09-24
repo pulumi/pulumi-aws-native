@@ -3363,6 +3363,12 @@
         "$ref": "#/types/aws-native:datasync:LocationSmbAuthenticationType",
         "description": "The authentication mode used to determine identity of user."
       },
+      "cmkSecretConfig": {
+        "$ref": "#/types/aws-native:datasync:LocationSmbCmkSecretConfig"
+      },
+      "customSecretConfig": {
+        "$ref": "#/types/aws-native:datasync:LocationSmbCustomSecretConfig"
+      },
       "dnsIpAddresses": {
         "type": "array",
         "items": {
