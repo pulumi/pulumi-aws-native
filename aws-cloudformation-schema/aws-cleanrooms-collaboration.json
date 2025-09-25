@@ -7,6 +7,18 @@
       "type" : "string",
       "enum" : [ "CLEAN_ROOMS_SQL", "SPARK" ]
     },
+    "AutoApprovedChangeType" : {
+      "type" : "string",
+      "enum" : [ "ADD_MEMBER" ]
+    },
+    "AutoApprovedChangeTypeList" : {
+      "type" : "array",
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/AutoApprovedChangeType"
+      },
+      "uniqueItems" : true
+    },
     "CollaborationJobLogStatus" : {
       "type" : "string",
       "enum" : [ "ENABLED", "DISABLED" ]
@@ -253,11 +265,14 @@
     },
     "CreatorPaymentConfiguration" : {
       "$ref" : "#/definitions/PaymentConfiguration"
+    },
+    "AutoApprovedChangeTypes" : {
+      "$ref" : "#/definitions/AutoApprovedChangeTypeList"
     }
   },
   "required" : [ "CreatorDisplayName", "Name", "Description", "QueryLogStatus" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CollaborationIdentifier" ],
-  "createOnlyProperties" : [ "/properties/CreatorDisplayName", "/properties/CreatorMemberAbilities", "/properties/CreatorMLMemberAbilities", "/properties/DataEncryptionMetadata", "/properties/JobLogStatus", "/properties/QueryLogStatus", "/properties/Members", "/properties/CreatorPaymentConfiguration" ],
+  "createOnlyProperties" : [ "/properties/CreatorDisplayName", "/properties/CreatorMemberAbilities", "/properties/CreatorMLMemberAbilities", "/properties/DataEncryptionMetadata", "/properties/JobLogStatus", "/properties/QueryLogStatus", "/properties/Members", "/properties/CreatorPaymentConfiguration", "/properties/AutoApprovedChangeTypes" ],
   "primaryIdentifier" : [ "/properties/CollaborationIdentifier" ],
   "tagging" : {
     "taggable" : true,
