@@ -42,97 +42,97 @@ export class Environment extends pulumi.CustomResource {
      *
      * `{ "checks": [ { "type": "KEY_REUSE", "result": "PASSED" }, { "type": "KEY_COVERAGE", "result": "PASSED" }, { "type": "REACHABILITY", "result": "PASSED" }, { "type": "HOST_COUNT", "result": "PASSED" } ] }`
      */
-    public /*out*/ readonly checks!: pulumi.Output<outputs.evs.EnvironmentCheck[]>;
+    declare public /*out*/ readonly checks: pulumi.Output<outputs.evs.EnvironmentCheck[]>;
     /**
      * The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
      */
-    public readonly connectivityInfo!: pulumi.Output<outputs.evs.ConnectivityInfoProperties>;
+    declare public readonly connectivityInfo: pulumi.Output<outputs.evs.ConnectivityInfoProperties>;
     /**
      * The date and time that the environment was created. For example: `1749081600.000` .
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The VCF credentials that are stored as Amazon EVS managed secrets in AWS Secrets Manager. Amazon EVS stores credentials that are needed to install vCenter Server, NSX, and SDDC Manager. For example:
      *
      * `{ [ { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_vCenterAdmin-MnTMEi" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_vCenterRoot-87VyCF" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXRoot-SR3k43" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXAdmin-L5LUiD" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXAudit-Q2oW46" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerRoot-bFulOq" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerVCF-Ec3gES" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerAdmin-JMTAAb" } ] }`
      */
-    public /*out*/ readonly credentials!: pulumi.Output<outputs.evs.EnvironmentSecret[]>;
+    declare public /*out*/ readonly credentials: pulumi.Output<outputs.evs.EnvironmentSecret[]>;
     /**
      * The Amazon Resource Name (ARN) that is associated with the environment. For example: `arn:aws:evs:us-east-1:000000000000:environment/env-1234567890` .
      */
-    public /*out*/ readonly environmentArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentArn: pulumi.Output<string>;
     /**
      * The unique ID for the environment. For example: `env-1234567890` .
      */
-    public /*out*/ readonly environmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentId: pulumi.Output<string>;
     /**
      * The name of an EVS environment
      */
-    public readonly environmentName!: pulumi.Output<string | undefined>;
+    declare public readonly environmentName: pulumi.Output<string | undefined>;
     /**
      * The state of an environment. For example: `CREATED` .
      */
-    public /*out*/ readonly environmentState!: pulumi.Output<enums.evs.EnvironmentState>;
+    declare public /*out*/ readonly environmentState: pulumi.Output<enums.evs.EnvironmentState>;
     /**
      * The initial hosts for environment only required upon creation. Modification after creation will have no effect
      */
-    public readonly hosts!: pulumi.Output<outputs.evs.EnvironmentHostInfoForCreate[] | undefined>;
+    declare public readonly hosts: pulumi.Output<outputs.evs.EnvironmentHostInfoForCreate[] | undefined>;
     /**
      * The initial Vlan configuration only required upon creation. Modification after creation will have no effect
      */
-    public readonly initialVlans!: pulumi.Output<outputs.evs.InitialVlansProperties | undefined>;
+    declare public readonly initialVlans: pulumi.Output<outputs.evs.InitialVlansProperties | undefined>;
     /**
      * The AWS KMS key ID that AWS Secrets Manager uses to encrypt secrets that are associated with the environment. These secrets contain the VCF credentials that are needed to install vCenter Server, NSX, and SDDC Manager.
      *
      * By default, Amazon EVS use the AWS Secrets Manager managed key `aws/secretsmanager` . You can also specify a customer managed key.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The license information for an EVS environment
      */
-    public readonly licenseInfo!: pulumi.Output<outputs.evs.LicenseInfoProperties>;
+    declare public readonly licenseInfo: pulumi.Output<outputs.evs.LicenseInfoProperties>;
     /**
      * The date and time that the environment was modified. For example: `1749081600.000` .
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     /**
      * The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
      */
-    public readonly serviceAccessSecurityGroups!: pulumi.Output<outputs.evs.ServiceAccessSecurityGroupsProperties | undefined>;
+    declare public readonly serviceAccessSecurityGroups: pulumi.Output<outputs.evs.ServiceAccessSecurityGroupsProperties | undefined>;
     /**
      * The subnet that is used to establish connectivity between the Amazon EVS control plane and VPC. Amazon EVS uses this subnet to perform validations and create the environment.
      */
-    public readonly serviceAccessSubnetId!: pulumi.Output<string>;
+    declare public readonly serviceAccessSubnetId: pulumi.Output<string>;
     /**
      * The Broadcom Site ID that is associated with your Amazon EVS environment. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.
      */
-    public readonly siteId!: pulumi.Output<string>;
+    declare public readonly siteId: pulumi.Output<string>;
     /**
      * A detailed description of the `environmentState` of an environment. For example: `Environment successfully created` .
      */
-    public /*out*/ readonly stateDetails!: pulumi.Output<string>;
+    declare public /*out*/ readonly stateDetails: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance. Amazon EVS does not validate license keys. To validate license keys, visit the Broadcom support portal.
      */
-    public readonly termsAccepted!: pulumi.Output<boolean>;
+    declare public readonly termsAccepted: pulumi.Output<boolean>;
     /**
      * The DNS hostnames to be used by the VCF management appliances in your environment.
      *
      * For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
      */
-    public readonly vcfHostnames!: pulumi.Output<outputs.evs.VcfHostnamesProperties>;
+    declare public readonly vcfHostnames: pulumi.Output<outputs.evs.VcfHostnamesProperties>;
     /**
      * The VCF version of the environment.
      */
-    public readonly vcfVersion!: pulumi.Output<enums.evs.EnvironmentVcfVersion>;
+    declare public readonly vcfVersion: pulumi.Output<enums.evs.EnvironmentVcfVersion>;
     /**
      * The VPC associated with the environment.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -145,44 +145,44 @@ export class Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectivityInfo === undefined) && !opts.urn) {
+            if (args?.connectivityInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectivityInfo'");
             }
-            if ((!args || args.licenseInfo === undefined) && !opts.urn) {
+            if (args?.licenseInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'licenseInfo'");
             }
-            if ((!args || args.serviceAccessSubnetId === undefined) && !opts.urn) {
+            if (args?.serviceAccessSubnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccessSubnetId'");
             }
-            if ((!args || args.siteId === undefined) && !opts.urn) {
+            if (args?.siteId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteId'");
             }
-            if ((!args || args.termsAccepted === undefined) && !opts.urn) {
+            if (args?.termsAccepted === undefined && !opts.urn) {
                 throw new Error("Missing required property 'termsAccepted'");
             }
-            if ((!args || args.vcfHostnames === undefined) && !opts.urn) {
+            if (args?.vcfHostnames === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vcfHostnames'");
             }
-            if ((!args || args.vcfVersion === undefined) && !opts.urn) {
+            if (args?.vcfVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vcfVersion'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["connectivityInfo"] = args ? args.connectivityInfo : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["hosts"] = args ? args.hosts : undefined;
-            resourceInputs["initialVlans"] = args ? args.initialVlans : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["licenseInfo"] = args ? args.licenseInfo : undefined;
-            resourceInputs["serviceAccessSecurityGroups"] = args ? args.serviceAccessSecurityGroups : undefined;
-            resourceInputs["serviceAccessSubnetId"] = args ? args.serviceAccessSubnetId : undefined;
-            resourceInputs["siteId"] = args ? args.siteId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["termsAccepted"] = args ? args.termsAccepted : undefined;
-            resourceInputs["vcfHostnames"] = args ? args.vcfHostnames : undefined;
-            resourceInputs["vcfVersion"] = args ? args.vcfVersion : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["connectivityInfo"] = args?.connectivityInfo;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["hosts"] = args?.hosts;
+            resourceInputs["initialVlans"] = args?.initialVlans;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["licenseInfo"] = args?.licenseInfo;
+            resourceInputs["serviceAccessSecurityGroups"] = args?.serviceAccessSecurityGroups;
+            resourceInputs["serviceAccessSubnetId"] = args?.serviceAccessSubnetId;
+            resourceInputs["siteId"] = args?.siteId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["termsAccepted"] = args?.termsAccepted;
+            resourceInputs["vcfHostnames"] = args?.vcfHostnames;
+            resourceInputs["vcfVersion"] = args?.vcfVersion;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["checks"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["credentials"] = undefined /*out*/;

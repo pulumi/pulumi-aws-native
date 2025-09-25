@@ -40,43 +40,43 @@ export class Schema extends pulumi.CustomResource {
     /**
      * Amazon Resource Name for the Schema.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
      */
-    public readonly checkpointVersion!: pulumi.Output<outputs.glue.SchemaVersion | undefined>;
+    declare public readonly checkpointVersion: pulumi.Output<outputs.glue.SchemaVersion | undefined>;
     /**
      * Compatibility setting for the schema.
      */
-    public readonly compatibility!: pulumi.Output<enums.glue.SchemaCompatibility>;
+    declare public readonly compatibility: pulumi.Output<enums.glue.SchemaCompatibility>;
     /**
      * Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
      */
-    public readonly dataFormat!: pulumi.Output<enums.glue.SchemaDataFormat>;
+    declare public readonly dataFormat: pulumi.Output<enums.glue.SchemaDataFormat>;
     /**
      * A description of the schema. If description is not provided, there will not be any default value for this.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Represents the version ID associated with the initial schema version.
      */
-    public /*out*/ readonly initialSchemaVersionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly initialSchemaVersionId: pulumi.Output<string>;
     /**
      * Name of the schema.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The registry where a schema is stored.
      */
-    public readonly registry!: pulumi.Output<outputs.glue.SchemaRegistry | undefined>;
+    declare public readonly registry: pulumi.Output<outputs.glue.SchemaRegistry | undefined>;
     /**
      * Definition for the initial schema version in plain-text.
      */
-    public readonly schemaDefinition!: pulumi.Output<string | undefined>;
+    declare public readonly schemaDefinition: pulumi.Output<string | undefined>;
     /**
      * List of tags to tag the schema
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.
@@ -89,20 +89,20 @@ export class Schema extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.compatibility === undefined) && !opts.urn) {
+            if (args?.compatibility === undefined && !opts.urn) {
                 throw new Error("Missing required property 'compatibility'");
             }
-            if ((!args || args.dataFormat === undefined) && !opts.urn) {
+            if (args?.dataFormat === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFormat'");
             }
-            resourceInputs["checkpointVersion"] = args ? args.checkpointVersion : undefined;
-            resourceInputs["compatibility"] = args ? args.compatibility : undefined;
-            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["registry"] = args ? args.registry : undefined;
-            resourceInputs["schemaDefinition"] = args ? args.schemaDefinition : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["checkpointVersion"] = args?.checkpointVersion;
+            resourceInputs["compatibility"] = args?.compatibility;
+            resourceInputs["dataFormat"] = args?.dataFormat;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["registry"] = args?.registry;
+            resourceInputs["schemaDefinition"] = args?.schemaDefinition;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["initialSchemaVersionId"] = undefined /*out*/;
         } else {

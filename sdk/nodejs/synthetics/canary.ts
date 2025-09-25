@@ -129,91 +129,91 @@ export class Canary extends pulumi.CustomResource {
     /**
      * Provide artifact configuration
      */
-    public readonly artifactConfig!: pulumi.Output<outputs.synthetics.CanaryArtifactConfig | undefined>;
+    declare public readonly artifactConfig: pulumi.Output<outputs.synthetics.CanaryArtifactConfig | undefined>;
     /**
      * Provide the s3 bucket output location for test results
      */
-    public readonly artifactS3Location!: pulumi.Output<string>;
+    declare public readonly artifactS3Location: pulumi.Output<string>;
     /**
      * Id of the canary
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * List of browser configurations for the canary
      */
-    public readonly browserConfigs!: pulumi.Output<outputs.synthetics.CanaryBrowserConfig[] | undefined>;
+    declare public readonly browserConfigs: pulumi.Output<outputs.synthetics.CanaryBrowserConfig[] | undefined>;
     /**
      * Provide the canary script source
      */
-    public readonly code!: pulumi.Output<outputs.synthetics.CanaryCode>;
+    declare public readonly code: pulumi.Output<outputs.synthetics.CanaryCode>;
     /**
      * Deletes associated lambda resources created by Synthetics if set to True. Default is False
      */
-    public readonly deleteLambdaResourcesOnCanaryDeletion!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteLambdaResourcesOnCanaryDeletion: pulumi.Output<boolean | undefined>;
     /**
      * Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
      */
-    public readonly dryRunAndUpdate!: pulumi.Output<boolean | undefined>;
+    declare public readonly dryRunAndUpdate: pulumi.Output<boolean | undefined>;
     /**
      * Lambda Execution role used to run your canaries
      */
-    public readonly executionRoleArn!: pulumi.Output<string>;
+    declare public readonly executionRoleArn: pulumi.Output<string>;
     /**
      * Retention period of failed canary runs represented in number of days
      */
-    public readonly failureRetentionPeriod!: pulumi.Output<number | undefined>;
+    declare public readonly failureRetentionPeriod: pulumi.Output<number | undefined>;
     /**
      * Name of the canary.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
      */
-    public readonly provisionedResourceCleanup!: pulumi.Output<enums.synthetics.CanaryProvisionedResourceCleanup | undefined>;
+    declare public readonly provisionedResourceCleanup: pulumi.Output<enums.synthetics.CanaryProvisionedResourceCleanup | undefined>;
     /**
      * List of resources which canary tags should be replicated to.
      */
-    public readonly resourcesToReplicateTags!: pulumi.Output<enums.synthetics.CanaryResourceToTag[] | undefined>;
+    declare public readonly resourcesToReplicateTags: pulumi.Output<enums.synthetics.CanaryResourceToTag[] | undefined>;
     /**
      * Provide canary run configuration
      */
-    public readonly runConfig!: pulumi.Output<outputs.synthetics.CanaryRunConfig | undefined>;
+    declare public readonly runConfig: pulumi.Output<outputs.synthetics.CanaryRunConfig | undefined>;
     /**
      * Runtime version of Synthetics Library
      */
-    public readonly runtimeVersion!: pulumi.Output<string>;
+    declare public readonly runtimeVersion: pulumi.Output<string>;
     /**
      * Frequency to run your canaries
      */
-    public readonly schedule!: pulumi.Output<outputs.synthetics.CanarySchedule>;
+    declare public readonly schedule: pulumi.Output<outputs.synthetics.CanarySchedule>;
     /**
      * Runs canary if set to True. Default is False
      */
-    public readonly startCanaryAfterCreation!: pulumi.Output<boolean | undefined>;
+    declare public readonly startCanaryAfterCreation: pulumi.Output<boolean | undefined>;
     /**
      * State of the canary
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Retention period of successful canary runs represented in number of days
      */
-    public readonly successRetentionPeriod!: pulumi.Output<number | undefined>;
+    declare public readonly successRetentionPeriod: pulumi.Output<number | undefined>;
     /**
      * The list of key-value pairs that are associated with the canary.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Visual reference configuration for visual testing
      */
-    public readonly visualReference!: pulumi.Output<outputs.synthetics.CanaryVisualReference | undefined>;
+    declare public readonly visualReference: pulumi.Output<outputs.synthetics.CanaryVisualReference | undefined>;
     /**
      * List of visual references for the canary
      */
-    public readonly visualReferences!: pulumi.Output<outputs.synthetics.CanaryVisualReference[] | undefined>;
+    declare public readonly visualReferences: pulumi.Output<outputs.synthetics.CanaryVisualReference[] | undefined>;
     /**
      * Provide VPC Configuration if enabled.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.synthetics.CanaryVpcConfig | undefined>;
+    declare public readonly vpcConfig: pulumi.Output<outputs.synthetics.CanaryVpcConfig | undefined>;
 
     /**
      * Create a Canary resource with the given unique name, arguments, and options.
@@ -226,41 +226,41 @@ export class Canary extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.artifactS3Location === undefined) && !opts.urn) {
+            if (args?.artifactS3Location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'artifactS3Location'");
             }
-            if ((!args || args.code === undefined) && !opts.urn) {
+            if (args?.code === undefined && !opts.urn) {
                 throw new Error("Missing required property 'code'");
             }
-            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
+            if (args?.executionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if ((!args || args.runtimeVersion === undefined) && !opts.urn) {
+            if (args?.runtimeVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runtimeVersion'");
             }
-            if ((!args || args.schedule === undefined) && !opts.urn) {
+            if (args?.schedule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            resourceInputs["artifactConfig"] = args ? args.artifactConfig : undefined;
-            resourceInputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
-            resourceInputs["browserConfigs"] = args ? args.browserConfigs : undefined;
-            resourceInputs["code"] = args ? args.code : undefined;
-            resourceInputs["deleteLambdaResourcesOnCanaryDeletion"] = args ? args.deleteLambdaResourcesOnCanaryDeletion : undefined;
-            resourceInputs["dryRunAndUpdate"] = args ? args.dryRunAndUpdate : undefined;
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["failureRetentionPeriod"] = args ? args.failureRetentionPeriod : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["provisionedResourceCleanup"] = args ? args.provisionedResourceCleanup : undefined;
-            resourceInputs["resourcesToReplicateTags"] = args ? args.resourcesToReplicateTags : undefined;
-            resourceInputs["runConfig"] = args ? args.runConfig : undefined;
-            resourceInputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["startCanaryAfterCreation"] = args ? args.startCanaryAfterCreation : undefined;
-            resourceInputs["successRetentionPeriod"] = args ? args.successRetentionPeriod : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["visualReference"] = args ? args.visualReference : undefined;
-            resourceInputs["visualReferences"] = args ? args.visualReferences : undefined;
-            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["artifactConfig"] = args?.artifactConfig;
+            resourceInputs["artifactS3Location"] = args?.artifactS3Location;
+            resourceInputs["browserConfigs"] = args?.browserConfigs;
+            resourceInputs["code"] = args?.code;
+            resourceInputs["deleteLambdaResourcesOnCanaryDeletion"] = args?.deleteLambdaResourcesOnCanaryDeletion;
+            resourceInputs["dryRunAndUpdate"] = args?.dryRunAndUpdate;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["failureRetentionPeriod"] = args?.failureRetentionPeriod;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["provisionedResourceCleanup"] = args?.provisionedResourceCleanup;
+            resourceInputs["resourcesToReplicateTags"] = args?.resourcesToReplicateTags;
+            resourceInputs["runConfig"] = args?.runConfig;
+            resourceInputs["runtimeVersion"] = args?.runtimeVersion;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["startCanaryAfterCreation"] = args?.startCanaryAfterCreation;
+            resourceInputs["successRetentionPeriod"] = args?.successRetentionPeriod;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["visualReference"] = args?.visualReference;
+            resourceInputs["visualReferences"] = args?.visualReferences;
+            resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {

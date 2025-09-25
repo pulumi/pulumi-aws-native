@@ -49,7 +49,7 @@ export class Alias extends pulumi.CustomResource {
      *   If you change the value of the ``AliasName`` property, the existing alias is deleted and a new alias is created for the specified KMS key. This change can disrupt applications that use the alias. It can also allow or deny access to a KMS key affected by attribute-based access control (ABAC).
      *   The alias must be string of 1-256 characters. It can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name cannot begin with ``alias/aws/``. The ``alias/aws/`` prefix is reserved for [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
      */
-    public readonly aliasName!: pulumi.Output<string>;
+    declare public readonly aliasName: pulumi.Output<string>;
     /**
      * Associates the alias with the specified [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk). The KMS key must be in the same AWS-account and Region.
      *  A valid key ID is required. If you supply a null or empty string value, this operation returns an error.
@@ -61,7 +61,7 @@ export class Alias extends pulumi.CustomResource {
      *   
      *  To get the key ID and key ARN for a KMS key, use [ListKeys](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html) or [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html).
      */
-    public readonly targetKeyId!: pulumi.Output<string>;
+    declare public readonly targetKeyId: pulumi.Output<string>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -74,11 +74,11 @@ export class Alias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.targetKeyId === undefined) && !opts.urn) {
+            if (args?.targetKeyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetKeyId'");
             }
-            resourceInputs["aliasName"] = args ? args.aliasName : undefined;
-            resourceInputs["targetKeyId"] = args ? args.targetKeyId : undefined;
+            resourceInputs["aliasName"] = args?.aliasName;
+            resourceInputs["targetKeyId"] = args?.targetKeyId;
         } else {
             resourceInputs["aliasName"] = undefined /*out*/;
             resourceInputs["targetKeyId"] = undefined /*out*/;

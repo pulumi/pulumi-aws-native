@@ -40,25 +40,25 @@ export class RoleAlias extends pulumi.CustomResource {
     /**
      * The number of seconds for which the credential is valid.
      */
-    public readonly credentialDurationSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly credentialDurationSeconds: pulumi.Output<number | undefined>;
     /**
      * The role alias.
      */
-    public readonly roleAlias!: pulumi.Output<string | undefined>;
+    declare public readonly roleAlias: pulumi.Output<string | undefined>;
     /**
      * The role alias ARN.
      */
-    public /*out*/ readonly roleAliasArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly roleAliasArn: pulumi.Output<string>;
     /**
      * The role ARN.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a RoleAlias resource with the given unique name, arguments, and options.
@@ -71,13 +71,13 @@ export class RoleAlias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["credentialDurationSeconds"] = args ? args.credentialDurationSeconds : undefined;
-            resourceInputs["roleAlias"] = args ? args.roleAlias : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["credentialDurationSeconds"] = args?.credentialDurationSeconds;
+            resourceInputs["roleAlias"] = args?.roleAlias;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["roleAliasArn"] = undefined /*out*/;
         } else {
             resourceInputs["credentialDurationSeconds"] = undefined /*out*/;

@@ -37,11 +37,11 @@ export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * The JSON to use as the Resource-based Policy.
      */
-    public readonly policyDocument!: pulumi.Output<string>;
+    declare public readonly policyDocument: pulumi.Output<string>;
     /**
      * The Arn of an APS Workspace that the PolicyDocument will be attached to.
      */
-    public readonly workspaceArn!: pulumi.Output<string>;
+    declare public readonly workspaceArn: pulumi.Output<string>;
 
     /**
      * Create a ResourcePolicy resource with the given unique name, arguments, and options.
@@ -54,14 +54,14 @@ export class ResourcePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyDocument === undefined) && !opts.urn) {
+            if (args?.policyDocument === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if ((!args || args.workspaceArn === undefined) && !opts.urn) {
+            if (args?.workspaceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceArn'");
             }
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["workspaceArn"] = args ? args.workspaceArn : undefined;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["workspaceArn"] = args?.workspaceArn;
         } else {
             resourceInputs["policyDocument"] = undefined /*out*/;
             resourceInputs["workspaceArn"] = undefined /*out*/;

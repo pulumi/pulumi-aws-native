@@ -70,7 +70,7 @@ export class AccountPolicy extends pulumi.CustomResource {
     /**
      * User account id
      */
-    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
     /**
      * The body of the policy document you want to use for this topic.
      *
@@ -80,23 +80,23 @@ export class AccountPolicy extends pulumi.CustomResource {
      *
      * Length Constraints: Maximum length of 30720
      */
-    public readonly policyDocument!: pulumi.Output<string>;
+    declare public readonly policyDocument: pulumi.Output<string>;
     /**
      * The name of the account policy
      */
-    public readonly policyName!: pulumi.Output<string>;
+    declare public readonly policyName: pulumi.Output<string>;
     /**
      * Type of the policy.
      */
-    public readonly policyType!: pulumi.Output<enums.logs.AccountPolicyPolicyType>;
+    declare public readonly policyType: pulumi.Output<enums.logs.AccountPolicyPolicyType>;
     /**
      * Scope for policy application
      */
-    public readonly scope!: pulumi.Output<enums.logs.AccountPolicyScope | undefined>;
+    declare public readonly scope: pulumi.Output<enums.logs.AccountPolicyScope | undefined>;
     /**
      * Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
      */
-    public readonly selectionCriteria!: pulumi.Output<string | undefined>;
+    declare public readonly selectionCriteria: pulumi.Output<string | undefined>;
 
     /**
      * Create a AccountPolicy resource with the given unique name, arguments, and options.
@@ -109,17 +109,17 @@ export class AccountPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyDocument === undefined) && !opts.urn) {
+            if (args?.policyDocument === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if ((!args || args.policyType === undefined) && !opts.urn) {
+            if (args?.policyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
             }
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["policyType"] = args ? args.policyType : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["selectionCriteria"] = args ? args.selectionCriteria : undefined;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["policyType"] = args?.policyType;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["selectionCriteria"] = args?.selectionCriteria;
             resourceInputs["accountId"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;

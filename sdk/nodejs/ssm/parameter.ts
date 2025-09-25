@@ -151,44 +151,44 @@ export class Parameter extends pulumi.CustomResource {
     /**
      * A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
      */
-    public readonly allowedPattern!: pulumi.Output<string | undefined>;
+    declare public readonly allowedPattern: pulumi.Output<string | undefined>;
     /**
      * The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
      */
-    public readonly dataType!: pulumi.Output<enums.ssm.ParameterDataType | undefined>;
+    declare public readonly dataType: pulumi.Output<enums.ssm.ParameterDataType | undefined>;
     /**
      * Information about the parameter.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the parameter.
      *   The reported maximum length of 2048 characters for a parameter name includes 1037 characters that are reserved for internal use by SYS. The maximum length for a parameter name that you specify is 1011 characters.
      *  This count of 1011 characters includes the characters in the ARN that precede the name you specify. This ARN length will vary depending on your partition and Region. For example, the following 45 characters count toward the 1011 character maximum for a parameter created in the US East (Ohio) Region: ``arn:aws:ssm:us-east-2:111122223333:parameter/``.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Information about the policies assigned to a parameter.
      *  [Assigning parameter policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html) in the *User Guide*.
      */
-    public readonly policies!: pulumi.Output<string | undefined>;
+    declare public readonly policies: pulumi.Output<string | undefined>;
     /**
      * Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The parameter tier.
      */
-    public readonly tier!: pulumi.Output<enums.ssm.ParameterTier | undefined>;
+    declare public readonly tier: pulumi.Output<enums.ssm.ParameterTier | undefined>;
     /**
      * The type of parameter.
      *   Parameters of type ``SecureString`` are not supported by CFNlong.
      */
-    public readonly type!: pulumi.Output<enums.ssm.ParameterType>;
+    declare public readonly type: pulumi.Output<enums.ssm.ParameterType>;
     /**
      * The parameter value.
      *   If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a Parameter resource with the given unique name, arguments, and options.
@@ -201,21 +201,21 @@ export class Parameter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["allowedPattern"] = args ? args.allowedPattern : undefined;
-            resourceInputs["dataType"] = args ? args.dataType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policies"] = args ? args.policies : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["allowedPattern"] = args?.allowedPattern;
+            resourceInputs["dataType"] = args?.dataType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policies"] = args?.policies;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tier"] = args?.tier;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["value"] = args?.value;
         } else {
             resourceInputs["allowedPattern"] = undefined /*out*/;
             resourceInputs["dataType"] = undefined /*out*/;

@@ -40,39 +40,39 @@ export class ResourceGateway extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the resource gateway.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the resource gateway.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The type of IP address used by the resource gateway.
      */
-    public readonly ipAddressType!: pulumi.Output<enums.vpclattice.ResourceGatewayIpAddressType | undefined>;
+    declare public readonly ipAddressType: pulumi.Output<enums.vpclattice.ResourceGatewayIpAddressType | undefined>;
     /**
      * The number of IPv4 addresses to allocate per ENI for the resource gateway
      */
-    public readonly ipv4AddressesPerEni!: pulumi.Output<number | undefined>;
+    declare public readonly ipv4AddressesPerEni: pulumi.Output<number | undefined>;
     /**
      * The name of the resource gateway.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of one or more security groups to associate with the endpoint network interface.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * The ID of one or more subnets in which to create an endpoint network interface.
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
      * The tags for the resource gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the VPC for the resource gateway.
      */
-    public readonly vpcIdentifier!: pulumi.Output<string>;
+    declare public readonly vpcIdentifier: pulumi.Output<string>;
 
     /**
      * Create a ResourceGateway resource with the given unique name, arguments, and options.
@@ -85,19 +85,19 @@ export class ResourceGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+            if (args?.subnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if ((!args || args.vpcIdentifier === undefined) && !opts.urn) {
+            if (args?.vpcIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcIdentifier'");
             }
-            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            resourceInputs["ipv4AddressesPerEni"] = args ? args.ipv4AddressesPerEni : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcIdentifier"] = args ? args.vpcIdentifier : undefined;
+            resourceInputs["ipAddressType"] = args?.ipAddressType;
+            resourceInputs["ipv4AddressesPerEni"] = args?.ipv4AddressesPerEni;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcIdentifier"] = args?.vpcIdentifier;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

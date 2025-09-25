@@ -37,23 +37,23 @@ export class IpamPoolCidr extends pulumi.CustomResource {
     /**
      * Represents a single IPv4 or IPv6 CIDR
      */
-    public readonly cidr!: pulumi.Output<string | undefined>;
+    declare public readonly cidr: pulumi.Output<string | undefined>;
     /**
      * Id of the IPAM Pool Cidr.
      */
-    public /*out*/ readonly ipamPoolCidrId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamPoolCidrId: pulumi.Output<string>;
     /**
      * Id of the IPAM Pool.
      */
-    public readonly ipamPoolId!: pulumi.Output<string>;
+    declare public readonly ipamPoolId: pulumi.Output<string>;
     /**
      * The desired netmask length of the provision. If set, IPAM will choose a block of free space with this size and return the CIDR representing it.
      */
-    public readonly netmaskLength!: pulumi.Output<number | undefined>;
+    declare public readonly netmaskLength: pulumi.Output<number | undefined>;
     /**
      * Provisioned state of the cidr.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
 
     /**
      * Create a IpamPoolCidr resource with the given unique name, arguments, and options.
@@ -66,12 +66,12 @@ export class IpamPoolCidr extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ipamPoolId === undefined) && !opts.urn) {
+            if (args?.ipamPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipamPoolId'");
             }
-            resourceInputs["cidr"] = args ? args.cidr : undefined;
-            resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
-            resourceInputs["netmaskLength"] = args ? args.netmaskLength : undefined;
+            resourceInputs["cidr"] = args?.cidr;
+            resourceInputs["ipamPoolId"] = args?.ipamPoolId;
+            resourceInputs["netmaskLength"] = args?.netmaskLength;
             resourceInputs["ipamPoolCidrId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {

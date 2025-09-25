@@ -40,15 +40,15 @@ export class Application extends pulumi.CustomResource {
     /**
      * A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
      */
-    public readonly applicationName!: pulumi.Output<string | undefined>;
+    declare public readonly applicationName: pulumi.Output<string | undefined>;
     /**
      * The compute platform that CodeDeploy deploys the application to.
      */
-    public readonly computePlatform!: pulumi.Output<string | undefined>;
+    declare public readonly computePlatform: pulumi.Output<string | undefined>;
     /**
      * The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -61,9 +61,9 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["computePlatform"] = args ? args.computePlatform : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["computePlatform"] = args?.computePlatform;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["applicationName"] = undefined /*out*/;
             resourceInputs["computePlatform"] = undefined /*out*/;

@@ -37,19 +37,19 @@ export class VpcGatewayAttachment extends pulumi.CustomResource {
     /**
      * Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
      */
-    public /*out*/ readonly attachmentType!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentType: pulumi.Output<string>;
     /**
      * The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
      */
-    public readonly internetGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly internetGatewayId: pulumi.Output<string | undefined>;
     /**
      * The ID of the VPC.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
     /**
      * The ID of the virtual private gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
      */
-    public readonly vpnGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly vpnGatewayId: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpcGatewayAttachment resource with the given unique name, arguments, and options.
@@ -62,12 +62,12 @@ export class VpcGatewayAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["internetGatewayId"] = args ? args.internetGatewayId : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
-            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            resourceInputs["internetGatewayId"] = args?.internetGatewayId;
+            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["vpnGatewayId"] = args?.vpnGatewayId;
             resourceInputs["attachmentType"] = undefined /*out*/;
         } else {
             resourceInputs["attachmentType"] = undefined /*out*/;

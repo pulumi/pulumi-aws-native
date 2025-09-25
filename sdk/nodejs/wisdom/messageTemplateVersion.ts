@@ -37,19 +37,19 @@ export class MessageTemplateVersion extends pulumi.CustomResource {
     /**
      * The unqualified Amazon Resource Name (ARN) of the message template.
      */
-    public readonly messageTemplateArn!: pulumi.Output<string>;
+    declare public readonly messageTemplateArn: pulumi.Output<string>;
     /**
      * The content SHA256 of the message template.
      */
-    public readonly messageTemplateContentSha256!: pulumi.Output<string | undefined>;
+    declare public readonly messageTemplateContentSha256: pulumi.Output<string | undefined>;
     /**
      * The unqualified Amazon Resource Name (ARN) of the message template version.
      */
-    public /*out*/ readonly messageTemplateVersionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly messageTemplateVersionArn: pulumi.Output<string>;
     /**
      * Current version number of the message template.
      */
-    public /*out*/ readonly messageTemplateVersionNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly messageTemplateVersionNumber: pulumi.Output<number>;
 
     /**
      * Create a MessageTemplateVersion resource with the given unique name, arguments, and options.
@@ -62,11 +62,11 @@ export class MessageTemplateVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.messageTemplateArn === undefined) && !opts.urn) {
+            if (args?.messageTemplateArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'messageTemplateArn'");
             }
-            resourceInputs["messageTemplateArn"] = args ? args.messageTemplateArn : undefined;
-            resourceInputs["messageTemplateContentSha256"] = args ? args.messageTemplateContentSha256 : undefined;
+            resourceInputs["messageTemplateArn"] = args?.messageTemplateArn;
+            resourceInputs["messageTemplateContentSha256"] = args?.messageTemplateContentSha256;
             resourceInputs["messageTemplateVersionArn"] = undefined /*out*/;
             resourceInputs["messageTemplateVersionNumber"] = undefined /*out*/;
         } else {

@@ -40,23 +40,23 @@ export class TopicRuleDestination extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * HTTP URL destination properties.
      */
-    public readonly httpUrlProperties!: pulumi.Output<outputs.iot.TopicRuleDestinationHttpUrlDestinationSummary | undefined>;
+    declare public readonly httpUrlProperties: pulumi.Output<outputs.iot.TopicRuleDestinationHttpUrlDestinationSummary | undefined>;
     /**
      * The status of the TopicRuleDestination.
      */
-    public readonly status!: pulumi.Output<enums.iot.TopicRuleDestinationStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.iot.TopicRuleDestinationStatus | undefined>;
     /**
      * The reasoning for the current status of the TopicRuleDestination.
      */
-    public /*out*/ readonly statusReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusReason: pulumi.Output<string>;
     /**
      * VPC destination properties.
      */
-    public readonly vpcProperties!: pulumi.Output<outputs.iot.TopicRuleDestinationVpcDestinationProperties | undefined>;
+    declare public readonly vpcProperties: pulumi.Output<outputs.iot.TopicRuleDestinationVpcDestinationProperties | undefined>;
 
     /**
      * Create a TopicRuleDestination resource with the given unique name, arguments, and options.
@@ -69,9 +69,9 @@ export class TopicRuleDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["httpUrlProperties"] = args ? args.httpUrlProperties : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["vpcProperties"] = args ? args.vpcProperties : undefined;
+            resourceInputs["httpUrlProperties"] = args?.httpUrlProperties;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["vpcProperties"] = args?.vpcProperties;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["statusReason"] = undefined /*out*/;
         } else {

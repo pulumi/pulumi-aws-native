@@ -40,19 +40,19 @@ export class TagAssociation extends pulumi.CustomResource {
     /**
      * List of Lake Formation Tags to associate with the Lake Formation Resource
      */
-    public readonly lfTags!: pulumi.Output<outputs.lakeformation.TagAssociationLfTagPair[]>;
+    declare public readonly lfTags: pulumi.Output<outputs.lakeformation.TagAssociationLfTagPair[]>;
     /**
      * Resource to tag with the Lake Formation Tags
      */
-    public readonly resource!: pulumi.Output<outputs.lakeformation.TagAssociationResource>;
+    declare public readonly resource: pulumi.Output<outputs.lakeformation.TagAssociationResource>;
     /**
      * Unique string identifying the resource. Used as primary identifier, which ideally should be a string
      */
-    public /*out*/ readonly resourceIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceIdentifier: pulumi.Output<string>;
     /**
      * Unique string identifying the resource's tags. Used as primary identifier, which ideally should be a string
      */
-    public /*out*/ readonly tagsIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly tagsIdentifier: pulumi.Output<string>;
 
     /**
      * Create a TagAssociation resource with the given unique name, arguments, and options.
@@ -65,14 +65,14 @@ export class TagAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.lfTags === undefined) && !opts.urn) {
+            if (args?.lfTags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lfTags'");
             }
-            if ((!args || args.resource === undefined) && !opts.urn) {
+            if (args?.resource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            resourceInputs["lfTags"] = args ? args.lfTags : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["lfTags"] = args?.lfTags;
+            resourceInputs["resource"] = args?.resource;
             resourceInputs["resourceIdentifier"] = undefined /*out*/;
             resourceInputs["tagsIdentifier"] = undefined /*out*/;
         } else {

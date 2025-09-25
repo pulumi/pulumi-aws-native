@@ -40,35 +40,35 @@ export class List extends pulumi.CustomResource {
     /**
      * The list ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The time when the list was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The description of the list.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The elements in this list.
      */
-    public readonly elements!: pulumi.Output<string[] | undefined>;
+    declare public readonly elements: pulumi.Output<string[] | undefined>;
     /**
      * The time when the list was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * The name of the list.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Tags associated with this list.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The variable type of the list.
      */
-    public readonly variableType!: pulumi.Output<string | undefined>;
+    declare public readonly variableType: pulumi.Output<string | undefined>;
 
     /**
      * Create a List resource with the given unique name, arguments, and options.
@@ -81,11 +81,11 @@ export class List extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["elements"] = args ? args.elements : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["variableType"] = args ? args.variableType : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["elements"] = args?.elements;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["variableType"] = args?.variableType;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

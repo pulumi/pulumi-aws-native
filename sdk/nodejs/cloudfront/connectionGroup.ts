@@ -40,55 +40,55 @@ export class ConnectionGroup extends pulumi.CustomResource {
     /**
      * The ID of the Anycast static IP list.
      */
-    public readonly anycastIpListId!: pulumi.Output<string | undefined>;
+    declare public readonly anycastIpListId: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the connection group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the connection group.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The date and time when the connection group was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The current version of the connection group.
      */
-    public /*out*/ readonly eTag!: pulumi.Output<string>;
+    declare public /*out*/ readonly eTag: pulumi.Output<string>;
     /**
      * Whether the connection group is enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * IPv6 is enabled for the connection group.
      */
-    public readonly ipv6Enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly ipv6Enabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether the connection group is the default connection group for the distribution tenants.
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
      * The date and time when the connection group was updated.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * The name of the connection group.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
      */
-    public /*out*/ readonly routingEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly routingEndpoint: pulumi.Output<string>;
     /**
      * The status of the connection group.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * A complex type that contains zero or more ``Tag`` elements.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ConnectionGroup resource with the given unique name, arguments, and options.
@@ -101,11 +101,11 @@ export class ConnectionGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["anycastIpListId"] = args ? args.anycastIpListId : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["ipv6Enabled"] = args ? args.ipv6Enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["anycastIpListId"] = args?.anycastIpListId;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["ipv6Enabled"] = args?.ipv6Enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;

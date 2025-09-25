@@ -40,7 +40,7 @@ export class CertificateProvider extends pulumi.CustomResource {
     /**
      * A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
      */
-    public readonly accountDefaultForOperations!: pulumi.Output<enums.iot.CertificateProviderOperation[]>;
+    declare public readonly accountDefaultForOperations: pulumi.Output<enums.iot.CertificateProviderOperation[]>;
     /**
      * Returns the Amazon Resource Name (ARN) for the certificate. For example:
      *
@@ -50,19 +50,19 @@ export class CertificateProvider extends pulumi.CustomResource {
      *
      * `arn:aws:iot:ap-southeast-2:123456789012:certprovider/my-certificate-provider`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the certificate provider.
      */
-    public readonly certificateProviderName!: pulumi.Output<string | undefined>;
+    declare public readonly certificateProviderName: pulumi.Output<string | undefined>;
     /**
      * The ARN of the Lambda function.
      */
-    public readonly lambdaFunctionArn!: pulumi.Output<string>;
+    declare public readonly lambdaFunctionArn: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CertificateProvider resource with the given unique name, arguments, and options.
@@ -75,16 +75,16 @@ export class CertificateProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountDefaultForOperations === undefined) && !opts.urn) {
+            if (args?.accountDefaultForOperations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountDefaultForOperations'");
             }
-            if ((!args || args.lambdaFunctionArn === undefined) && !opts.urn) {
+            if (args?.lambdaFunctionArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lambdaFunctionArn'");
             }
-            resourceInputs["accountDefaultForOperations"] = args ? args.accountDefaultForOperations : undefined;
-            resourceInputs["certificateProviderName"] = args ? args.certificateProviderName : undefined;
-            resourceInputs["lambdaFunctionArn"] = args ? args.lambdaFunctionArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountDefaultForOperations"] = args?.accountDefaultForOperations;
+            resourceInputs["certificateProviderName"] = args?.certificateProviderName;
+            resourceInputs["lambdaFunctionArn"] = args?.lambdaFunctionArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["accountDefaultForOperations"] = undefined /*out*/;

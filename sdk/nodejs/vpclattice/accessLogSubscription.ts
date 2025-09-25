@@ -40,35 +40,35 @@ export class AccessLogSubscription extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the access log subscription.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the access log subscription.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
      */
-    public readonly destinationArn!: pulumi.Output<string>;
+    declare public readonly destinationArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the access log subscription.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
      * The ID of the service network or service.
      */
-    public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceId: pulumi.Output<string>;
     /**
      * The ID or ARN of the service network or service.
      */
-    public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly resourceIdentifier: pulumi.Output<string | undefined>;
     /**
      * Log type of the service network.
      */
-    public readonly serviceNetworkLogType!: pulumi.Output<enums.vpclattice.AccessLogSubscriptionServiceNetworkLogType | undefined>;
+    declare public readonly serviceNetworkLogType: pulumi.Output<enums.vpclattice.AccessLogSubscriptionServiceNetworkLogType | undefined>;
     /**
      * The tags for the access log subscription.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a AccessLogSubscription resource with the given unique name, arguments, and options.
@@ -81,13 +81,13 @@ export class AccessLogSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationArn === undefined) && !opts.urn) {
+            if (args?.destinationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationArn'");
             }
-            resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
-            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
-            resourceInputs["serviceNetworkLogType"] = args ? args.serviceNetworkLogType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["destinationArn"] = args?.destinationArn;
+            resourceInputs["resourceIdentifier"] = args?.resourceIdentifier;
+            resourceInputs["serviceNetworkLogType"] = args?.serviceNetworkLogType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;

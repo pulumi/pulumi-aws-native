@@ -41,32 +41,32 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * The ID of the EFS access point.
      */
-    public /*out*/ readonly accessPointId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessPointId: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    public readonly accessPointTags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly accessPointTags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the access point.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The opaque string specified in the request to ensure idempotent creation.
      */
-    public readonly clientToken!: pulumi.Output<string | undefined>;
+    declare public readonly clientToken: pulumi.Output<string | undefined>;
     /**
      * The ID of the EFS file system that the access point applies to. Accepts only the ID format for input when specifying a file system, for example ``fs-0123456789abcedf2``.
      */
-    public readonly fileSystemId!: pulumi.Output<string>;
+    declare public readonly fileSystemId: pulumi.Output<string>;
     /**
      * The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.
      */
-    public readonly posixUser!: pulumi.Output<outputs.efs.AccessPointPosixUser | undefined>;
+    declare public readonly posixUser: pulumi.Output<outputs.efs.AccessPointPosixUser | undefined>;
     /**
      * The directory on the EFS file system that the access point exposes as the root directory to NFS clients using the access point.
      */
-    public readonly rootDirectory!: pulumi.Output<outputs.efs.AccessPointRootDirectory | undefined>;
+    declare public readonly rootDirectory: pulumi.Output<outputs.efs.AccessPointRootDirectory | undefined>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -79,14 +79,14 @@ export class AccessPoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fileSystemId === undefined) && !opts.urn) {
+            if (args?.fileSystemId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
-            resourceInputs["accessPointTags"] = args ? args.accessPointTags : undefined;
-            resourceInputs["clientToken"] = args ? args.clientToken : undefined;
-            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
-            resourceInputs["posixUser"] = args ? args.posixUser : undefined;
-            resourceInputs["rootDirectory"] = args ? args.rootDirectory : undefined;
+            resourceInputs["accessPointTags"] = args?.accessPointTags;
+            resourceInputs["clientToken"] = args?.clientToken;
+            resourceInputs["fileSystemId"] = args?.fileSystemId;
+            resourceInputs["posixUser"] = args?.posixUser;
+            resourceInputs["rootDirectory"] = args?.rootDirectory;
             resourceInputs["accessPointId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         } else {

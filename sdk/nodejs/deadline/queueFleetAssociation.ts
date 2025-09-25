@@ -37,15 +37,15 @@ export class QueueFleetAssociation extends pulumi.CustomResource {
     /**
      * The identifier of the farm that contains the queue and the fleet.
      */
-    public readonly farmId!: pulumi.Output<string>;
+    declare public readonly farmId: pulumi.Output<string>;
     /**
      * The fleet ID.
      */
-    public readonly fleetId!: pulumi.Output<string>;
+    declare public readonly fleetId: pulumi.Output<string>;
     /**
      * The queue ID.
      */
-    public readonly queueId!: pulumi.Output<string>;
+    declare public readonly queueId: pulumi.Output<string>;
 
     /**
      * Create a QueueFleetAssociation resource with the given unique name, arguments, and options.
@@ -58,18 +58,18 @@ export class QueueFleetAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.farmId === undefined) && !opts.urn) {
+            if (args?.farmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'farmId'");
             }
-            if ((!args || args.fleetId === undefined) && !opts.urn) {
+            if (args?.fleetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetId'");
             }
-            if ((!args || args.queueId === undefined) && !opts.urn) {
+            if (args?.queueId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queueId'");
             }
-            resourceInputs["farmId"] = args ? args.farmId : undefined;
-            resourceInputs["fleetId"] = args ? args.fleetId : undefined;
-            resourceInputs["queueId"] = args ? args.queueId : undefined;
+            resourceInputs["farmId"] = args?.farmId;
+            resourceInputs["fleetId"] = args?.fleetId;
+            resourceInputs["queueId"] = args?.queueId;
         } else {
             resourceInputs["farmId"] = undefined /*out*/;
             resourceInputs["fleetId"] = undefined /*out*/;

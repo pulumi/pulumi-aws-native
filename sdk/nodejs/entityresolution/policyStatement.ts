@@ -42,29 +42,29 @@ export class PolicyStatement extends pulumi.CustomResource {
      *
      * For example, `entityresolution:GetIdMappingJob` , `entityresolution:GetMatchingJob` .
      */
-    public readonly action!: pulumi.Output<string[] | undefined>;
+    declare public readonly action: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
      */
-    public readonly arn!: pulumi.Output<string>;
+    declare public readonly arn: pulumi.Output<string>;
     /**
      * A set of condition keys that you can use in key policies.
      */
-    public readonly condition!: pulumi.Output<string | undefined>;
+    declare public readonly condition: pulumi.Output<string | undefined>;
     /**
      * Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
      *
      * > If you set the value of the `effect` parameter to `Deny` for the `AddPolicyStatement` operation, you must also set the value of the `effect` parameter in the `policy` to `Deny` for the `PutPolicy` operation.
      */
-    public readonly effect!: pulumi.Output<enums.entityresolution.PolicyStatementStatementEffect | undefined>;
+    declare public readonly effect: pulumi.Output<enums.entityresolution.PolicyStatementStatementEffect | undefined>;
     /**
      * The AWS service or AWS account that can access the resource defined as ARN.
      */
-    public readonly principal!: pulumi.Output<string[] | undefined>;
+    declare public readonly principal: pulumi.Output<string[] | undefined>;
     /**
      * A statement identifier that differentiates the statement from others in the same policy.
      */
-    public readonly statementId!: pulumi.Output<string>;
+    declare public readonly statementId: pulumi.Output<string>;
 
     /**
      * Create a PolicyStatement resource with the given unique name, arguments, and options.
@@ -77,18 +77,18 @@ export class PolicyStatement extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.arn === undefined) && !opts.urn) {
+            if (args?.arn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arn'");
             }
-            if ((!args || args.statementId === undefined) && !opts.urn) {
+            if (args?.statementId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statementId'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["arn"] = args ? args.arn : undefined;
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["effect"] = args ? args.effect : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["statementId"] = args ? args.statementId : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["arn"] = args?.arn;
+            resourceInputs["condition"] = args?.condition;
+            resourceInputs["effect"] = args?.effect;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["statementId"] = args?.statementId;
         } else {
             resourceInputs["action"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;

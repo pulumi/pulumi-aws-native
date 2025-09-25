@@ -40,23 +40,23 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the specified bucket.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A name for the bucket.
      */
-    public readonly bucketName!: pulumi.Output<string>;
+    declare public readonly bucketName: pulumi.Output<string>;
     /**
      * Rules that define how Amazon S3Outposts manages objects during their lifetime.
      */
-    public readonly lifecycleConfiguration!: pulumi.Output<outputs.s3outposts.BucketLifecycleConfiguration | undefined>;
+    declare public readonly lifecycleConfiguration: pulumi.Output<outputs.s3outposts.BucketLifecycleConfiguration | undefined>;
     /**
      * The id of the customer outpost on which the bucket resides.
      */
-    public readonly outpostId!: pulumi.Output<string>;
+    declare public readonly outpostId: pulumi.Output<string>;
     /**
      * An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Bucket resource with the given unique name, arguments, and options.
@@ -69,13 +69,13 @@ export class Bucket extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.outpostId === undefined) && !opts.urn) {
+            if (args?.outpostId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outpostId'");
             }
-            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
-            resourceInputs["lifecycleConfiguration"] = args ? args.lifecycleConfiguration : undefined;
-            resourceInputs["outpostId"] = args ? args.outpostId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bucketName"] = args?.bucketName;
+            resourceInputs["lifecycleConfiguration"] = args?.lifecycleConfiguration;
+            resourceInputs["outpostId"] = args?.outpostId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

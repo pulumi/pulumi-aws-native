@@ -40,15 +40,15 @@ export class ClientCertificate extends pulumi.CustomResource {
     /**
      * The ID for the client certificate. For example: `abc123` .
      */
-    public /*out*/ readonly clientCertificateId!: pulumi.Output<string>;
+    declare public /*out*/ readonly clientCertificateId: pulumi.Output<string>;
     /**
      * The description of the client certificate.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ClientCertificate resource with the given unique name, arguments, and options.
@@ -61,8 +61,8 @@ export class ClientCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["clientCertificateId"] = undefined /*out*/;
         } else {
             resourceInputs["clientCertificateId"] = undefined /*out*/;

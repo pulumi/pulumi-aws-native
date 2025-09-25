@@ -40,27 +40,27 @@ export class KeyValueStore extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the key value store.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The unique Id for the key value store.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A comment for the key value store.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * The import source for the key value store.
      */
-    public readonly importSource!: pulumi.Output<outputs.cloudfront.KeyValueStoreImportSource | undefined>;
+    declare public readonly importSource: pulumi.Output<outputs.cloudfront.KeyValueStoreImportSource | undefined>;
     /**
      * The name of the key value store.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The current status of the key value store. For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
      * Create a KeyValueStore resource with the given unique name, arguments, and options.
@@ -73,9 +73,9 @@ export class KeyValueStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["importSource"] = args ? args.importSource : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["importSource"] = args?.importSource;
+            resourceInputs["name"] = args?.name;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

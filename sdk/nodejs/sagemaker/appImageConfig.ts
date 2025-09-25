@@ -40,27 +40,27 @@ export class AppImageConfig extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the AppImageConfig.
      */
-    public /*out*/ readonly appImageConfigArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly appImageConfigArn: pulumi.Output<string>;
     /**
      * The Name of the AppImageConfig.
      */
-    public readonly appImageConfigName!: pulumi.Output<string>;
+    declare public readonly appImageConfigName: pulumi.Output<string>;
     /**
      * The CodeEditorAppImageConfig.
      */
-    public readonly codeEditorAppImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigCodeEditorAppImageConfig | undefined>;
+    declare public readonly codeEditorAppImageConfig: pulumi.Output<outputs.sagemaker.AppImageConfigCodeEditorAppImageConfig | undefined>;
     /**
      * The JupyterLabAppImageConfig.
      */
-    public readonly jupyterLabAppImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigJupyterLabAppImageConfig | undefined>;
+    declare public readonly jupyterLabAppImageConfig: pulumi.Output<outputs.sagemaker.AppImageConfigJupyterLabAppImageConfig | undefined>;
     /**
      * The KernelGatewayImageConfig.
      */
-    public readonly kernelGatewayImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigKernelGatewayImageConfig | undefined>;
+    declare public readonly kernelGatewayImageConfig: pulumi.Output<outputs.sagemaker.AppImageConfigKernelGatewayImageConfig | undefined>;
     /**
      * A list of tags to apply to the AppImageConfig.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a AppImageConfig resource with the given unique name, arguments, and options.
@@ -73,11 +73,11 @@ export class AppImageConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["appImageConfigName"] = args ? args.appImageConfigName : undefined;
-            resourceInputs["codeEditorAppImageConfig"] = args ? args.codeEditorAppImageConfig : undefined;
-            resourceInputs["jupyterLabAppImageConfig"] = args ? args.jupyterLabAppImageConfig : undefined;
-            resourceInputs["kernelGatewayImageConfig"] = args ? args.kernelGatewayImageConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appImageConfigName"] = args?.appImageConfigName;
+            resourceInputs["codeEditorAppImageConfig"] = args?.codeEditorAppImageConfig;
+            resourceInputs["jupyterLabAppImageConfig"] = args?.jupyterLabAppImageConfig;
+            resourceInputs["kernelGatewayImageConfig"] = args?.kernelGatewayImageConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["appImageConfigArn"] = undefined /*out*/;
         } else {
             resourceInputs["appImageConfigArn"] = undefined /*out*/;

@@ -40,39 +40,39 @@ export class Flywheel extends pulumi.CustomResource {
     /**
      * The Amazon Resource Number (ARN) of the active model version.
      */
-    public readonly activeModelArn!: pulumi.Output<string | undefined>;
+    declare public readonly activeModelArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the flywheel.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
      */
-    public readonly dataAccessRoleArn!: pulumi.Output<string>;
+    declare public readonly dataAccessRoleArn: pulumi.Output<string>;
     /**
      * Amazon S3 URI of the data lake location.
      */
-    public readonly dataLakeS3Uri!: pulumi.Output<string>;
+    declare public readonly dataLakeS3Uri: pulumi.Output<string>;
     /**
      * Data security configuration.
      */
-    public readonly dataSecurityConfig!: pulumi.Output<outputs.comprehend.FlywheelDataSecurityConfig | undefined>;
+    declare public readonly dataSecurityConfig: pulumi.Output<outputs.comprehend.FlywheelDataSecurityConfig | undefined>;
     /**
      * Name for the flywheel.
      */
-    public readonly flywheelName!: pulumi.Output<string>;
+    declare public readonly flywheelName: pulumi.Output<string>;
     /**
      * Model type of the flywheel's model.
      */
-    public readonly modelType!: pulumi.Output<enums.comprehend.FlywheelModelType | undefined>;
+    declare public readonly modelType: pulumi.Output<enums.comprehend.FlywheelModelType | undefined>;
     /**
      * Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Configuration about the model associated with a flywheel.
      */
-    public readonly taskConfig!: pulumi.Output<outputs.comprehend.FlywheelTaskConfig | undefined>;
+    declare public readonly taskConfig: pulumi.Output<outputs.comprehend.FlywheelTaskConfig | undefined>;
 
     /**
      * Create a Flywheel resource with the given unique name, arguments, and options.
@@ -85,20 +85,20 @@ export class Flywheel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataAccessRoleArn === undefined) && !opts.urn) {
+            if (args?.dataAccessRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataAccessRoleArn'");
             }
-            if ((!args || args.dataLakeS3Uri === undefined) && !opts.urn) {
+            if (args?.dataLakeS3Uri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataLakeS3Uri'");
             }
-            resourceInputs["activeModelArn"] = args ? args.activeModelArn : undefined;
-            resourceInputs["dataAccessRoleArn"] = args ? args.dataAccessRoleArn : undefined;
-            resourceInputs["dataLakeS3Uri"] = args ? args.dataLakeS3Uri : undefined;
-            resourceInputs["dataSecurityConfig"] = args ? args.dataSecurityConfig : undefined;
-            resourceInputs["flywheelName"] = args ? args.flywheelName : undefined;
-            resourceInputs["modelType"] = args ? args.modelType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taskConfig"] = args ? args.taskConfig : undefined;
+            resourceInputs["activeModelArn"] = args?.activeModelArn;
+            resourceInputs["dataAccessRoleArn"] = args?.dataAccessRoleArn;
+            resourceInputs["dataLakeS3Uri"] = args?.dataLakeS3Uri;
+            resourceInputs["dataSecurityConfig"] = args?.dataSecurityConfig;
+            resourceInputs["flywheelName"] = args?.flywheelName;
+            resourceInputs["modelType"] = args?.modelType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taskConfig"] = args?.taskConfig;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["activeModelArn"] = undefined /*out*/;

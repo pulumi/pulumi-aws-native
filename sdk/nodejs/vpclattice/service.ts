@@ -40,52 +40,52 @@ export class Service extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the service.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The type of IAM policy.
      *
      * - `NONE` : The resource does not use an IAM policy. This is the default.
      * - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
      */
-    public readonly authType!: pulumi.Output<enums.vpclattice.ServiceAuthType | undefined>;
+    declare public readonly authType: pulumi.Output<enums.vpclattice.ServiceAuthType | undefined>;
     /**
      * The ID of the service.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the certificate.
      */
-    public readonly certificateArn!: pulumi.Output<string | undefined>;
+    declare public readonly certificateArn: pulumi.Output<string | undefined>;
     /**
      * The date and time that the service was created, specified in ISO-8601 format.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The custom domain name of the service.
      */
-    public readonly customDomainName!: pulumi.Output<string | undefined>;
+    declare public readonly customDomainName: pulumi.Output<string | undefined>;
     /**
      * Describes the DNS information of the service. This field is read-only.
      */
-    public readonly dnsEntry!: pulumi.Output<outputs.vpclattice.ServiceDnsEntry | undefined>;
+    declare public readonly dnsEntry: pulumi.Output<outputs.vpclattice.ServiceDnsEntry | undefined>;
     /**
      * The date and time that the service was last updated, specified in ISO-8601 format.
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      *
      * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The status of the service.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.ServiceStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.vpclattice.ServiceStatus>;
     /**
      * The tags for the service.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -98,12 +98,12 @@ export class Service extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["authType"] = args ? args.authType : undefined;
-            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
-            resourceInputs["customDomainName"] = args ? args.customDomainName : undefined;
-            resourceInputs["dnsEntry"] = args ? args.dnsEntry : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authType"] = args?.authType;
+            resourceInputs["certificateArn"] = args?.certificateArn;
+            resourceInputs["customDomainName"] = args?.customDomainName;
+            resourceInputs["dnsEntry"] = args?.dnsEntry;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

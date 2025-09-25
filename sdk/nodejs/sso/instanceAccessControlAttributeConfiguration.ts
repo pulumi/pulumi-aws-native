@@ -76,15 +76,15 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
     /**
      * Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
      */
-    public readonly accessControlAttributes!: pulumi.Output<outputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttribute[] | undefined>;
+    declare public readonly accessControlAttributes: pulumi.Output<outputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttribute[] | undefined>;
     /**
      * The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
      */
-    public readonly instanceAccessControlAttributeConfiguration!: pulumi.Output<outputs.sso.InstanceAccessControlAttributeConfigurationProperties | undefined>;
+    declare public readonly instanceAccessControlAttributeConfiguration: pulumi.Output<outputs.sso.InstanceAccessControlAttributeConfigurationProperties | undefined>;
     /**
      * The ARN of the AWS SSO instance under which the operation will be executed.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
 
     /**
      * Create a InstanceAccessControlAttributeConfiguration resource with the given unique name, arguments, and options.
@@ -97,12 +97,12 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["accessControlAttributes"] = args ? args.accessControlAttributes : undefined;
-            resourceInputs["instanceAccessControlAttributeConfiguration"] = args ? args.instanceAccessControlAttributeConfiguration : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["accessControlAttributes"] = args?.accessControlAttributes;
+            resourceInputs["instanceAccessControlAttributeConfiguration"] = args?.instanceAccessControlAttributeConfiguration;
+            resourceInputs["instanceArn"] = args?.instanceArn;
         } else {
             resourceInputs["accessControlAttributes"] = undefined /*out*/;
             resourceInputs["instanceAccessControlAttributeConfiguration"] = undefined /*out*/;

@@ -40,55 +40,55 @@ export class VerifiedAccessTrustProvider extends pulumi.CustomResource {
     /**
      * The creation time.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * A description for the Amazon Web Services Verified Access trust provider.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The options for device-identity trust provider.
      */
-    public readonly deviceOptions!: pulumi.Output<outputs.ec2.VerifiedAccessTrustProviderDeviceOptions | undefined>;
+    declare public readonly deviceOptions: pulumi.Output<outputs.ec2.VerifiedAccessTrustProviderDeviceOptions | undefined>;
     /**
      * The type of device-based trust provider. Possible values: jamf|crowdstrike
      */
-    public readonly deviceTrustProviderType!: pulumi.Output<string | undefined>;
+    declare public readonly deviceTrustProviderType: pulumi.Output<string | undefined>;
     /**
      * The last updated time.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * The OpenID Connect (OIDC) options.
      */
-    public readonly nativeApplicationOidcOptions!: pulumi.Output<outputs.ec2.VerifiedAccessTrustProviderNativeApplicationOidcOptions | undefined>;
+    declare public readonly nativeApplicationOidcOptions: pulumi.Output<outputs.ec2.VerifiedAccessTrustProviderNativeApplicationOidcOptions | undefined>;
     /**
      * The options for an OpenID Connect-compatible user-identity trust provider.
      */
-    public readonly oidcOptions!: pulumi.Output<outputs.ec2.VerifiedAccessTrustProviderOidcOptions | undefined>;
+    declare public readonly oidcOptions: pulumi.Output<outputs.ec2.VerifiedAccessTrustProviderOidcOptions | undefined>;
     /**
      * The identifier to be used when working with policy rules.
      */
-    public readonly policyReferenceName!: pulumi.Output<string>;
+    declare public readonly policyReferenceName: pulumi.Output<string>;
     /**
      * The configuration options for customer provided KMS encryption.
      */
-    public readonly sseSpecification!: pulumi.Output<outputs.ec2.SseSpecificationProperties | undefined>;
+    declare public readonly sseSpecification: pulumi.Output<outputs.ec2.SseSpecificationProperties | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Type of trust provider. Possible values: user|device
      */
-    public readonly trustProviderType!: pulumi.Output<string>;
+    declare public readonly trustProviderType: pulumi.Output<string>;
     /**
      * The type of device-based trust provider. Possible values: oidc|iam-identity-center
      */
-    public readonly userTrustProviderType!: pulumi.Output<string | undefined>;
+    declare public readonly userTrustProviderType: pulumi.Output<string | undefined>;
     /**
      * The ID of the Amazon Web Services Verified Access trust provider.
      */
-    public /*out*/ readonly verifiedAccessTrustProviderId!: pulumi.Output<string>;
+    declare public /*out*/ readonly verifiedAccessTrustProviderId: pulumi.Output<string>;
 
     /**
      * Create a VerifiedAccessTrustProvider resource with the given unique name, arguments, and options.
@@ -101,22 +101,22 @@ export class VerifiedAccessTrustProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyReferenceName === undefined) && !opts.urn) {
+            if (args?.policyReferenceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyReferenceName'");
             }
-            if ((!args || args.trustProviderType === undefined) && !opts.urn) {
+            if (args?.trustProviderType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trustProviderType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["deviceOptions"] = args ? args.deviceOptions : undefined;
-            resourceInputs["deviceTrustProviderType"] = args ? args.deviceTrustProviderType : undefined;
-            resourceInputs["nativeApplicationOidcOptions"] = args ? args.nativeApplicationOidcOptions : undefined;
-            resourceInputs["oidcOptions"] = args ? args.oidcOptions : undefined;
-            resourceInputs["policyReferenceName"] = args ? args.policyReferenceName : undefined;
-            resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustProviderType"] = args ? args.trustProviderType : undefined;
-            resourceInputs["userTrustProviderType"] = args ? args.userTrustProviderType : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["deviceOptions"] = args?.deviceOptions;
+            resourceInputs["deviceTrustProviderType"] = args?.deviceTrustProviderType;
+            resourceInputs["nativeApplicationOidcOptions"] = args?.nativeApplicationOidcOptions;
+            resourceInputs["oidcOptions"] = args?.oidcOptions;
+            resourceInputs["policyReferenceName"] = args?.policyReferenceName;
+            resourceInputs["sseSpecification"] = args?.sseSpecification;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trustProviderType"] = args?.trustProviderType;
+            resourceInputs["userTrustProviderType"] = args?.userTrustProviderType;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["verifiedAccessTrustProviderId"] = undefined /*out*/;

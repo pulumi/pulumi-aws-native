@@ -40,27 +40,27 @@ export class Profile extends pulumi.CustomResource {
     /**
      * Specifies the unique Amazon Resource Name (ARN) for the profile.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * AS2 identifier agreed with a trading partner.
      */
-    public readonly as2Id!: pulumi.Output<string>;
+    declare public readonly as2Id: pulumi.Output<string>;
     /**
      * List of the certificate IDs associated with this profile to be used for encryption and signing of AS2 messages.
      */
-    public readonly certificateIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly certificateIds: pulumi.Output<string[] | undefined>;
     /**
      * A unique identifier for the profile
      */
-    public /*out*/ readonly profileId!: pulumi.Output<string>;
+    declare public /*out*/ readonly profileId: pulumi.Output<string>;
     /**
      * Enum specifying whether the profile is local or associated with a trading partner.
      */
-    public readonly profileType!: pulumi.Output<enums.transfer.ProfileType>;
+    declare public readonly profileType: pulumi.Output<enums.transfer.ProfileType>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -73,16 +73,16 @@ export class Profile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.as2Id === undefined) && !opts.urn) {
+            if (args?.as2Id === undefined && !opts.urn) {
                 throw new Error("Missing required property 'as2Id'");
             }
-            if ((!args || args.profileType === undefined) && !opts.urn) {
+            if (args?.profileType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileType'");
             }
-            resourceInputs["as2Id"] = args ? args.as2Id : undefined;
-            resourceInputs["certificateIds"] = args ? args.certificateIds : undefined;
-            resourceInputs["profileType"] = args ? args.profileType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["as2Id"] = args?.as2Id;
+            resourceInputs["certificateIds"] = args?.certificateIds;
+            resourceInputs["profileType"] = args?.profileType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["profileId"] = undefined /*out*/;
         } else {

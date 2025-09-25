@@ -40,64 +40,64 @@ export class DistributionTenant extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the distribution tenant.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the distribution tenant.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
      */
-    public readonly connectionGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly connectionGroupId: pulumi.Output<string | undefined>;
     /**
      * The date and time when the distribution tenant was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
      */
-    public readonly customizations!: pulumi.Output<outputs.cloudfront.DistributionTenantCustomizations | undefined>;
+    declare public readonly customizations: pulumi.Output<outputs.cloudfront.DistributionTenantCustomizations | undefined>;
     /**
      * The ID of the multi-tenant distribution.
      */
-    public readonly distributionId!: pulumi.Output<string>;
-    public /*out*/ readonly domainResults!: pulumi.Output<outputs.cloudfront.DistributionTenantDomainResult[]>;
+    declare public readonly distributionId: pulumi.Output<string>;
+    declare public /*out*/ readonly domainResults: pulumi.Output<outputs.cloudfront.DistributionTenantDomainResult[]>;
     /**
      * The domains associated with the distribution tenant.
      */
-    public readonly domains!: pulumi.Output<string[]>;
+    declare public readonly domains: pulumi.Output<string[]>;
     /**
      * The current version of the distribution tenant.
      */
-    public /*out*/ readonly eTag!: pulumi.Output<string>;
+    declare public /*out*/ readonly eTag: pulumi.Output<string>;
     /**
      * Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The date and time when the distribution tenant was updated.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * An object that represents the request for the Amazon CloudFront managed ACM certificate.
      */
-    public readonly managedCertificateRequest!: pulumi.Output<outputs.cloudfront.DistributionTenantManagedCertificateRequest | undefined>;
+    declare public readonly managedCertificateRequest: pulumi.Output<outputs.cloudfront.DistributionTenantManagedCertificateRequest | undefined>;
     /**
      * The name of the distribution tenant.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
      */
-    public readonly parameters!: pulumi.Output<outputs.cloudfront.DistributionTenantParameter[] | undefined>;
+    declare public readonly parameters: pulumi.Output<outputs.cloudfront.DistributionTenantParameter[] | undefined>;
     /**
      * The status of the distribution tenant.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * A complex type that contains zero or more ``Tag`` elements.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DistributionTenant resource with the given unique name, arguments, and options.
@@ -110,21 +110,21 @@ export class DistributionTenant extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.distributionId === undefined) && !opts.urn) {
+            if (args?.distributionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'distributionId'");
             }
-            if ((!args || args.domains === undefined) && !opts.urn) {
+            if (args?.domains === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domains'");
             }
-            resourceInputs["connectionGroupId"] = args ? args.connectionGroupId : undefined;
-            resourceInputs["customizations"] = args ? args.customizations : undefined;
-            resourceInputs["distributionId"] = args ? args.distributionId : undefined;
-            resourceInputs["domains"] = args ? args.domains : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["managedCertificateRequest"] = args ? args.managedCertificateRequest : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectionGroupId"] = args?.connectionGroupId;
+            resourceInputs["customizations"] = args?.customizations;
+            resourceInputs["distributionId"] = args?.distributionId;
+            resourceInputs["domains"] = args?.domains;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["managedCertificateRequest"] = args?.managedCertificateRequest;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;

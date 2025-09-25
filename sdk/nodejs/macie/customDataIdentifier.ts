@@ -40,39 +40,39 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
     /**
      * Custom data identifier ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Custom data identifier ID.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Description of custom data identifier.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Words to be ignored.
      */
-    public readonly ignoreWords!: pulumi.Output<string[] | undefined>;
+    declare public readonly ignoreWords: pulumi.Output<string[] | undefined>;
     /**
      * Keywords to be matched against.
      */
-    public readonly keywords!: pulumi.Output<string[] | undefined>;
+    declare public readonly keywords: pulumi.Output<string[] | undefined>;
     /**
      * Maximum match distance.
      */
-    public readonly maximumMatchDistance!: pulumi.Output<number | undefined>;
+    declare public readonly maximumMatchDistance: pulumi.Output<number | undefined>;
     /**
      * Name of custom data identifier.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Regular expression for custom data identifier.
      */
-    public readonly regex!: pulumi.Output<string>;
+    declare public readonly regex: pulumi.Output<string>;
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CustomDataIdentifier resource with the given unique name, arguments, and options.
@@ -85,16 +85,16 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.regex === undefined) && !opts.urn) {
+            if (args?.regex === undefined && !opts.urn) {
                 throw new Error("Missing required property 'regex'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ignoreWords"] = args ? args.ignoreWords : undefined;
-            resourceInputs["keywords"] = args ? args.keywords : undefined;
-            resourceInputs["maximumMatchDistance"] = args ? args.maximumMatchDistance : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["regex"] = args ? args.regex : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ignoreWords"] = args?.ignoreWords;
+            resourceInputs["keywords"] = args?.keywords;
+            resourceInputs["maximumMatchDistance"] = args?.maximumMatchDistance;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["regex"] = args?.regex;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

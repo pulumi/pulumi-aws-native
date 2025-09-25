@@ -37,19 +37,19 @@ export class AttributeGroupAssociation extends pulumi.CustomResource {
     /**
      * The name or the Id of the Application.
      */
-    public readonly application!: pulumi.Output<string>;
+    declare public readonly application: pulumi.Output<string>;
     /**
      * The Amazon resource name (ARN) of the application that was augmented with attributes.
      */
-    public /*out*/ readonly applicationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationArn: pulumi.Output<string>;
     /**
      * The name or the Id of the AttributeGroup.
      */
-    public readonly attributeGroup!: pulumi.Output<string>;
+    declare public readonly attributeGroup: pulumi.Output<string>;
     /**
      * The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
      */
-    public /*out*/ readonly attributeGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly attributeGroupArn: pulumi.Output<string>;
 
     /**
      * Create a AttributeGroupAssociation resource with the given unique name, arguments, and options.
@@ -62,14 +62,14 @@ export class AttributeGroupAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.application === undefined) && !opts.urn) {
+            if (args?.application === undefined && !opts.urn) {
                 throw new Error("Missing required property 'application'");
             }
-            if ((!args || args.attributeGroup === undefined) && !opts.urn) {
+            if (args?.attributeGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'attributeGroup'");
             }
-            resourceInputs["application"] = args ? args.application : undefined;
-            resourceInputs["attributeGroup"] = args ? args.attributeGroup : undefined;
+            resourceInputs["application"] = args?.application;
+            resourceInputs["attributeGroup"] = args?.attributeGroup;
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["attributeGroupArn"] = undefined /*out*/;
         } else {

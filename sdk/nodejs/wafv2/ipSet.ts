@@ -40,39 +40,39 @@ export class IpSet extends pulumi.CustomResource {
     /**
      * List of IPAddresses.
      */
-    public readonly addresses!: pulumi.Output<string[]>;
+    declare public readonly addresses: pulumi.Output<string[]>;
     /**
      * The Amazon Resource Name (ARN) of the IP set.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the IP set.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A description of the IP set that helps with identification.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The version of the IP addresses, either `IPV4` or `IPV6` .
      */
-    public readonly ipAddressVersion!: pulumi.Output<enums.wafv2.IpSetIpAddressVersion>;
+    declare public readonly ipAddressVersion: pulumi.Output<enums.wafv2.IpSetIpAddressVersion>;
     /**
      * The name of the IP set. You cannot change the name of an `IPSet` after you create it.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
      *
      * > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
      */
-    public readonly scope!: pulumi.Output<enums.wafv2.IpSetScope>;
+    declare public readonly scope: pulumi.Output<enums.wafv2.IpSetScope>;
     /**
      * Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
      *
      * > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a IpSet resource with the given unique name, arguments, and options.
@@ -85,21 +85,21 @@ export class IpSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addresses === undefined) && !opts.urn) {
+            if (args?.addresses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addresses'");
             }
-            if ((!args || args.ipAddressVersion === undefined) && !opts.urn) {
+            if (args?.ipAddressVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipAddressVersion'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["addresses"] = args ? args.addresses : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ipAddressVersion"] = args ? args.ipAddressVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addresses"] = args?.addresses;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ipAddressVersion"] = args?.ipAddressVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

@@ -40,15 +40,15 @@ export class DedicatedIpPool extends pulumi.CustomResource {
     /**
      * The name of the dedicated IP pool.
      */
-    public readonly poolName!: pulumi.Output<string | undefined>;
+    declare public readonly poolName: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
      */
-    public readonly scalingMode!: pulumi.Output<string | undefined>;
+    declare public readonly scalingMode: pulumi.Output<string | undefined>;
     /**
      * The tags (keys and values) associated with the dedicated IP pool.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DedicatedIpPool resource with the given unique name, arguments, and options.
@@ -61,9 +61,9 @@ export class DedicatedIpPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["scalingMode"] = args ? args.scalingMode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["scalingMode"] = args?.scalingMode;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["poolName"] = undefined /*out*/;
             resourceInputs["scalingMode"] = undefined /*out*/;

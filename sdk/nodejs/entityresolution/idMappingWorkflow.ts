@@ -37,38 +37,38 @@ export class IdMappingWorkflow extends pulumi.CustomResource {
         return obj['__pulumiType'] === IdMappingWorkflow.__pulumiType;
     }
 
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the IdMappingWorkflow
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public readonly idMappingIncrementalRunConfig!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowIdMappingIncrementalRunConfig | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly idMappingIncrementalRunConfig: pulumi.Output<outputs.entityresolution.IdMappingWorkflowIdMappingIncrementalRunConfig | undefined>;
     /**
      * An object which defines the ID mapping technique and any additional configurations.
      */
-    public readonly idMappingTechniques!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowIdMappingTechniques>;
+    declare public readonly idMappingTechniques: pulumi.Output<outputs.entityresolution.IdMappingWorkflowIdMappingTechniques>;
     /**
      * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
      */
-    public readonly inputSourceConfig!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowInputSource[]>;
+    declare public readonly inputSourceConfig: pulumi.Output<outputs.entityresolution.IdMappingWorkflowInputSource[]>;
     /**
      * A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
      */
-    public readonly outputSourceConfig!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowOutputSource[] | undefined>;
+    declare public readonly outputSourceConfig: pulumi.Output<outputs.entityresolution.IdMappingWorkflowOutputSource[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
-    public /*out*/ readonly workflowArn!: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
+    declare public /*out*/ readonly workflowArn: pulumi.Output<string>;
     /**
      * The name of the IdMappingWorkflow
      */
-    public readonly workflowName!: pulumi.Output<string>;
+    declare public readonly workflowName: pulumi.Output<string>;
 
     /**
      * Create a IdMappingWorkflow resource with the given unique name, arguments, and options.
@@ -81,23 +81,23 @@ export class IdMappingWorkflow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.idMappingTechniques === undefined) && !opts.urn) {
+            if (args?.idMappingTechniques === undefined && !opts.urn) {
                 throw new Error("Missing required property 'idMappingTechniques'");
             }
-            if ((!args || args.inputSourceConfig === undefined) && !opts.urn) {
+            if (args?.inputSourceConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputSourceConfig'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["idMappingIncrementalRunConfig"] = args ? args.idMappingIncrementalRunConfig : undefined;
-            resourceInputs["idMappingTechniques"] = args ? args.idMappingTechniques : undefined;
-            resourceInputs["inputSourceConfig"] = args ? args.inputSourceConfig : undefined;
-            resourceInputs["outputSourceConfig"] = args ? args.outputSourceConfig : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workflowName"] = args ? args.workflowName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["idMappingIncrementalRunConfig"] = args?.idMappingIncrementalRunConfig;
+            resourceInputs["idMappingTechniques"] = args?.idMappingTechniques;
+            resourceInputs["inputSourceConfig"] = args?.inputSourceConfig;
+            resourceInputs["outputSourceConfig"] = args?.outputSourceConfig;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workflowName"] = args?.workflowName;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
             resourceInputs["workflowArn"] = undefined /*out*/;

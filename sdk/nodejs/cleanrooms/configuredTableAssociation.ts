@@ -42,41 +42,41 @@ export class ConfiguredTableAssociation extends pulumi.CustomResource {
      *
      * Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
      */
-    public readonly configuredTableAssociationAnalysisRules!: pulumi.Output<outputs.cleanrooms.ConfiguredTableAssociationAnalysisRule[] | undefined>;
+    declare public readonly configuredTableAssociationAnalysisRules: pulumi.Output<outputs.cleanrooms.ConfiguredTableAssociationAnalysisRule[] | undefined>;
     /**
      * Returns the unique identifier of the specified configured table association.
      *
      * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
      */
-    public /*out*/ readonly configuredTableAssociationIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly configuredTableAssociationIdentifier: pulumi.Output<string>;
     /**
      * A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
      */
-    public readonly configuredTableIdentifier!: pulumi.Output<string>;
+    declare public readonly configuredTableIdentifier: pulumi.Output<string>;
     /**
      * A description of the configured table association.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The unique ID for the membership this configured table association belongs to.
      */
-    public readonly membershipIdentifier!: pulumi.Output<string>;
+    declare public readonly membershipIdentifier: pulumi.Output<string>;
     /**
      * The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The service will assume this role to access catalog metadata and query the table.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ConfiguredTableAssociation resource with the given unique name, arguments, and options.
@@ -89,22 +89,22 @@ export class ConfiguredTableAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configuredTableIdentifier === undefined) && !opts.urn) {
+            if (args?.configuredTableIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuredTableIdentifier'");
             }
-            if ((!args || args.membershipIdentifier === undefined) && !opts.urn) {
+            if (args?.membershipIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'membershipIdentifier'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["configuredTableAssociationAnalysisRules"] = args ? args.configuredTableAssociationAnalysisRules : undefined;
-            resourceInputs["configuredTableIdentifier"] = args ? args.configuredTableIdentifier : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["membershipIdentifier"] = args ? args.membershipIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configuredTableAssociationAnalysisRules"] = args?.configuredTableAssociationAnalysisRules;
+            resourceInputs["configuredTableIdentifier"] = args?.configuredTableIdentifier;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["membershipIdentifier"] = args?.membershipIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["configuredTableAssociationIdentifier"] = undefined /*out*/;
         } else {

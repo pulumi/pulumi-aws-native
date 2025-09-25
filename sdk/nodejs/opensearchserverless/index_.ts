@@ -40,23 +40,23 @@ export class Index extends pulumi.CustomResource {
     /**
      * The endpoint for the collection.
      */
-    public readonly collectionEndpoint!: pulumi.Output<string>;
+    declare public readonly collectionEndpoint: pulumi.Output<string>;
     /**
      * The name of the OpenSearch Serverless index.
      */
-    public readonly indexName!: pulumi.Output<string>;
+    declare public readonly indexName: pulumi.Output<string>;
     /**
      * Index Mappings
      */
-    public readonly mappings!: pulumi.Output<outputs.opensearchserverless.MappingsProperties | undefined>;
+    declare public readonly mappings: pulumi.Output<outputs.opensearchserverless.MappingsProperties | undefined>;
     /**
      * Index settings
      */
-    public readonly settings!: pulumi.Output<outputs.opensearchserverless.IndexSettings | undefined>;
+    declare public readonly settings: pulumi.Output<outputs.opensearchserverless.IndexSettings | undefined>;
     /**
      * The unique identifier for the index.
      */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly uuid: pulumi.Output<string>;
 
     /**
      * Create a Index resource with the given unique name, arguments, and options.
@@ -69,13 +69,13 @@ export class Index extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.collectionEndpoint === undefined) && !opts.urn) {
+            if (args?.collectionEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'collectionEndpoint'");
             }
-            resourceInputs["collectionEndpoint"] = args ? args.collectionEndpoint : undefined;
-            resourceInputs["indexName"] = args ? args.indexName : undefined;
-            resourceInputs["mappings"] = args ? args.mappings : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["collectionEndpoint"] = args?.collectionEndpoint;
+            resourceInputs["indexName"] = args?.indexName;
+            resourceInputs["mappings"] = args?.mappings;
+            resourceInputs["settings"] = args?.settings;
             resourceInputs["uuid"] = undefined /*out*/;
         } else {
             resourceInputs["collectionEndpoint"] = undefined /*out*/;

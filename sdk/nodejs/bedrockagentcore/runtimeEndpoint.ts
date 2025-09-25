@@ -40,56 +40,56 @@ export class RuntimeEndpoint extends pulumi.CustomResource {
     /**
      * The ARN of the Agent Runtime
      */
-    public /*out*/ readonly agentRuntimeArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentRuntimeArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the AgentCore Runtime.
      */
-    public /*out*/ readonly agentRuntimeEndpointArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentRuntimeEndpointArn: pulumi.Output<string>;
     /**
      * The ID of the parent Agent Runtime (required for creation)
      */
-    public readonly agentRuntimeId!: pulumi.Output<string>;
+    declare public readonly agentRuntimeId: pulumi.Output<string>;
     /**
      * The version of the AgentCore Runtime to use for the endpoint.
      */
-    public readonly agentRuntimeVersion!: pulumi.Output<string | undefined>;
+    declare public readonly agentRuntimeVersion: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of the AgentCore Runtime endpoint.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The timestamp when the Agent Runtime Endpoint was created
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the AgentCore Runtime endpoint.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The reason for failure if the endpoint is in a failed state
      */
-    public /*out*/ readonly failureReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly failureReason: pulumi.Output<string>;
     /**
      * The timestamp when the Agent Runtime Endpoint was last updated
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * The Live version of the Agent Runtime
      */
-    public /*out*/ readonly liveVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly liveVersion: pulumi.Output<string>;
     /**
      * The name of the Agent Runtime Endpoint
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The status of the Agent Runtime Endpoint
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.bedrockagentcore.RuntimeEndpointAgentRuntimeEndpointStatus>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.bedrockagentcore.RuntimeEndpointAgentRuntimeEndpointStatus>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The target version of the AgentCore Runtime for the endpoint.
      */
-    public /*out*/ readonly targetVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetVersion: pulumi.Output<string>;
 
     /**
      * Create a RuntimeEndpoint resource with the given unique name, arguments, and options.
@@ -102,14 +102,14 @@ export class RuntimeEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agentRuntimeId === undefined) && !opts.urn) {
+            if (args?.agentRuntimeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentRuntimeId'");
             }
-            resourceInputs["agentRuntimeId"] = args ? args.agentRuntimeId : undefined;
-            resourceInputs["agentRuntimeVersion"] = args ? args.agentRuntimeVersion : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentRuntimeId"] = args?.agentRuntimeId;
+            resourceInputs["agentRuntimeVersion"] = args?.agentRuntimeVersion;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["agentRuntimeArn"] = undefined /*out*/;
             resourceInputs["agentRuntimeEndpointArn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;

@@ -40,19 +40,19 @@ export class Plan extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the contact.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Contact ID for the AWS SSM Incident Manager Contact to associate the plan.
      */
-    public readonly contactId!: pulumi.Output<string | undefined>;
+    declare public readonly contactId: pulumi.Output<string | undefined>;
     /**
      * Rotation Ids to associate with Oncall Contact for engagement.
      */
-    public readonly rotationIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly rotationIds: pulumi.Output<string[] | undefined>;
     /**
      * The stages that an escalation plan or engagement plan engages contacts and contact methods in.
      */
-    public readonly stages!: pulumi.Output<outputs.ssmcontacts.PlanStage[] | undefined>;
+    declare public readonly stages: pulumi.Output<outputs.ssmcontacts.PlanStage[] | undefined>;
 
     /**
      * Create a Plan resource with the given unique name, arguments, and options.
@@ -65,9 +65,9 @@ export class Plan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["contactId"] = args ? args.contactId : undefined;
-            resourceInputs["rotationIds"] = args ? args.rotationIds : undefined;
-            resourceInputs["stages"] = args ? args.stages : undefined;
+            resourceInputs["contactId"] = args?.contactId;
+            resourceInputs["rotationIds"] = args?.rotationIds;
+            resourceInputs["stages"] = args?.stages;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

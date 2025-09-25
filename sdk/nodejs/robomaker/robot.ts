@@ -40,27 +40,27 @@ export class Robot extends pulumi.CustomResource {
     /**
      * The target architecture of the robot.
      */
-    public readonly architecture!: pulumi.Output<enums.robomaker.RobotArchitecture>;
+    declare public readonly architecture: pulumi.Output<enums.robomaker.RobotArchitecture>;
     /**
      * The Amazon Resource Name (ARN) of the robot.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the fleet.
      */
-    public readonly fleet!: pulumi.Output<string | undefined>;
+    declare public readonly fleet: pulumi.Output<string | undefined>;
     /**
      * The Greengrass group id.
      */
-    public readonly greengrassGroupId!: pulumi.Output<string>;
+    declare public readonly greengrassGroupId: pulumi.Output<string>;
     /**
      * The name for the robot.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * A map that contains tag keys and tag values that are attached to the robot.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Robot resource with the given unique name, arguments, and options.
@@ -73,17 +73,17 @@ export class Robot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.architecture === undefined) && !opts.urn) {
+            if (args?.architecture === undefined && !opts.urn) {
                 throw new Error("Missing required property 'architecture'");
             }
-            if ((!args || args.greengrassGroupId === undefined) && !opts.urn) {
+            if (args?.greengrassGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'greengrassGroupId'");
             }
-            resourceInputs["architecture"] = args ? args.architecture : undefined;
-            resourceInputs["fleet"] = args ? args.fleet : undefined;
-            resourceInputs["greengrassGroupId"] = args ? args.greengrassGroupId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["architecture"] = args?.architecture;
+            resourceInputs["fleet"] = args?.fleet;
+            resourceInputs["greengrassGroupId"] = args?.greengrassGroupId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["architecture"] = undefined /*out*/;

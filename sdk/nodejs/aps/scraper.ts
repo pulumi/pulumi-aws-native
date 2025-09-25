@@ -40,43 +40,43 @@ export class Scraper extends pulumi.CustomResource {
     /**
      * Scraper alias.
      */
-    public readonly alias!: pulumi.Output<string | undefined>;
+    declare public readonly alias: pulumi.Output<string | undefined>;
     /**
      * Scraper ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
      */
-    public readonly destination!: pulumi.Output<outputs.aps.ScraperDestination>;
+    declare public readonly destination: pulumi.Output<outputs.aps.ScraperDestination>;
     /**
      * IAM role ARN for the scraper.
      */
-    public /*out*/ readonly roleArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly roleArn: pulumi.Output<string>;
     /**
      * The role configuration in an Amazon Managed Service for Prometheus scraper.
      */
-    public readonly roleConfiguration!: pulumi.Output<outputs.aps.ScraperRoleConfiguration | undefined>;
+    declare public readonly roleConfiguration: pulumi.Output<outputs.aps.ScraperRoleConfiguration | undefined>;
     /**
      * The configuration in use by the scraper.
      */
-    public readonly scrapeConfiguration!: pulumi.Output<outputs.aps.ScraperScrapeConfiguration>;
+    declare public readonly scrapeConfiguration: pulumi.Output<outputs.aps.ScraperScrapeConfiguration>;
     /**
      * Required to identify a specific scraper.
      */
-    public /*out*/ readonly scraperId!: pulumi.Output<string>;
+    declare public /*out*/ readonly scraperId: pulumi.Output<string>;
     /**
      * The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
      */
-    public readonly scraperLoggingConfiguration!: pulumi.Output<outputs.aps.ScraperLoggingConfiguration | undefined>;
+    declare public readonly scraperLoggingConfiguration: pulumi.Output<outputs.aps.ScraperLoggingConfiguration | undefined>;
     /**
      * The Amazon EKS cluster from which the scraper collects metrics.
      */
-    public readonly source!: pulumi.Output<outputs.aps.ScraperSource>;
+    declare public readonly source: pulumi.Output<outputs.aps.ScraperSource>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Scraper resource with the given unique name, arguments, and options.
@@ -89,22 +89,22 @@ export class Scraper extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destination === undefined) && !opts.urn) {
+            if (args?.destination === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            if ((!args || args.scrapeConfiguration === undefined) && !opts.urn) {
+            if (args?.scrapeConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scrapeConfiguration'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["roleConfiguration"] = args ? args.roleConfiguration : undefined;
-            resourceInputs["scrapeConfiguration"] = args ? args.scrapeConfiguration : undefined;
-            resourceInputs["scraperLoggingConfiguration"] = args ? args.scraperLoggingConfiguration : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["roleConfiguration"] = args?.roleConfiguration;
+            resourceInputs["scrapeConfiguration"] = args?.scrapeConfiguration;
+            resourceInputs["scraperLoggingConfiguration"] = args?.scraperLoggingConfiguration;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["scraperId"] = undefined /*out*/;

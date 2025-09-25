@@ -40,63 +40,63 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Specifies the active date for the certificate.
      */
-    public readonly activeDate!: pulumi.Output<string | undefined>;
+    declare public readonly activeDate: pulumi.Output<string | undefined>;
     /**
      * Specifies the unique Amazon Resource Name (ARN) for the agreement.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies the certificate body to be imported.
      */
-    public readonly certificate!: pulumi.Output<string>;
+    declare public readonly certificate: pulumi.Output<string>;
     /**
      * Specifies the certificate chain to be imported.
      */
-    public readonly certificateChain!: pulumi.Output<string | undefined>;
+    declare public readonly certificateChain: pulumi.Output<string | undefined>;
     /**
      * A unique identifier for the certificate.
      */
-    public /*out*/ readonly certificateId!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateId: pulumi.Output<string>;
     /**
      * A textual description for the certificate.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the inactive date for the certificate.
      */
-    public readonly inactiveDate!: pulumi.Output<string | undefined>;
+    declare public readonly inactiveDate: pulumi.Output<string | undefined>;
     /**
      * Specifies the not after date for the certificate.
      */
-    public /*out*/ readonly notAfterDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly notAfterDate: pulumi.Output<string>;
     /**
      * Specifies the not before date for the certificate.
      */
-    public /*out*/ readonly notBeforeDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly notBeforeDate: pulumi.Output<string>;
     /**
      * Specifies the private key for the certificate.
      */
-    public readonly privateKey!: pulumi.Output<string | undefined>;
+    declare public readonly privateKey: pulumi.Output<string | undefined>;
     /**
      * Specifies Certificate's serial.
      */
-    public /*out*/ readonly serial!: pulumi.Output<string>;
+    declare public /*out*/ readonly serial: pulumi.Output<string>;
     /**
      * A status description for the certificate.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.transfer.CertificateStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.transfer.CertificateStatus>;
     /**
      * Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Describing the type of certificate. With or without a private key.
      */
-    public /*out*/ readonly type!: pulumi.Output<enums.transfer.CertificateType>;
+    declare public /*out*/ readonly type: pulumi.Output<enums.transfer.CertificateType>;
     /**
      * Specifies the usage type for the certificate.
      */
-    public readonly usage!: pulumi.Output<enums.transfer.CertificateUsage>;
+    declare public readonly usage: pulumi.Output<enums.transfer.CertificateUsage>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -109,20 +109,20 @@ export class Certificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificate === undefined) && !opts.urn) {
+            if (args?.certificate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificate'");
             }
-            if ((!args || args.usage === undefined) && !opts.urn) {
+            if (args?.usage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'usage'");
             }
-            resourceInputs["activeDate"] = args ? args.activeDate : undefined;
-            resourceInputs["certificate"] = args ? args.certificate : undefined;
-            resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["inactiveDate"] = args ? args.inactiveDate : undefined;
-            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["usage"] = args ? args.usage : undefined;
+            resourceInputs["activeDate"] = args?.activeDate;
+            resourceInputs["certificate"] = args?.certificate;
+            resourceInputs["certificateChain"] = args?.certificateChain;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["inactiveDate"] = args?.inactiveDate;
+            resourceInputs["privateKey"] = args?.privateKey;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["usage"] = args?.usage;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificateId"] = undefined /*out*/;
             resourceInputs["notAfterDate"] = undefined /*out*/;

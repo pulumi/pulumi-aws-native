@@ -37,35 +37,35 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The ARN of the workspace.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The date and time when the workspace was created.
      */
-    public /*out*/ readonly creationDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDateTime: pulumi.Output<string>;
     /**
      * The description of the workspace.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ARN of the execution role associated with the workspace.
      */
-    public readonly role!: pulumi.Output<string>;
+    declare public readonly role: pulumi.Output<string>;
     /**
      * The ARN of the S3 bucket where resources associated with the workspace are stored.
      */
-    public readonly s3Location!: pulumi.Output<string>;
+    declare public readonly s3Location: pulumi.Output<string>;
     /**
      * A map of key-value pairs to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The date and time of the current update.
      */
-    public /*out*/ readonly updateDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly updateDateTime: pulumi.Output<string>;
     /**
      * The ID of the workspace.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -78,20 +78,20 @@ export class Workspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            if ((!args || args.s3Location === undefined) && !opts.urn) {
+            if (args?.s3Location === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3Location'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["s3Location"] = args ? args.s3Location : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["s3Location"] = args?.s3Location;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDateTime"] = undefined /*out*/;
             resourceInputs["updateDateTime"] = undefined /*out*/;
