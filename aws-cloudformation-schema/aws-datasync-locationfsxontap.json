@@ -172,7 +172,7 @@
   "additionalProperties" : false,
   "required" : [ "SecurityGroupArns", "StorageVirtualMachineArn" ],
   "readOnlyProperties" : [ "/properties/LocationArn", "/properties/LocationUri", "/properties/FsxFilesystemArn" ],
-  "writeOnlyProperties" : [ "/properties/Protocol", "/properties/Subdirectory" ],
+  "writeOnlyProperties" : [ "/properties/Protocol/SMB/Password", "/properties/Subdirectory" ],
   "primaryIdentifier" : [ "/properties/LocationArn" ],
   "createOnlyProperties" : [ "/properties/StorageVirtualMachineArn", "/properties/SecurityGroupArns" ],
   "handlers" : {

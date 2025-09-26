@@ -1,67 +1,40 @@
 {
-  "typeName" : "AWS::EC2::TransitGateway",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-transitgateway",
-  "description" : "Resource Type definition for AWS::EC2::TransitGateway",
-  "additionalProperties" : false,
-  "properties" : {
-    "DefaultRouteTablePropagation" : {
-      "type" : "string"
+  "tagging" : {
+    "permissions" : [ "ec2:CreateTags", "ec2:DeleteTags" ],
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "tagProperty" : "/properties/Tags",
+    "cloudFormationSystemTags" : true
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "ec2:DescribeTransitGateways", "ec2:DescribeTags" ]
     },
-    "TransitGatewayArn" : {
-      "type" : "string"
+    "create" : {
+      "permissions" : [ "ec2:CreateTransitGateway", "ec2:CreateTags", "ec2:DescribeTransitGateways", "ec2:DescribeTags", "ec2:ModifyTransitGateway", "ec2:ModifyTransitGatewayOptions" ]
     },
-    "Description" : {
-      "type" : "string"
+    "update" : {
+      "permissions" : [ "ec2:CreateTransitGateway", "ec2:CreateTags", "ec2:DescribeTransitGateways", "ec2:DescribeTags", "ec2:DeleteTransitGateway", "ec2:DeleteTags", "ec2:ModifyTransitGateway", "ec2:ModifyTransitGatewayOptions" ]
     },
-    "AutoAcceptSharedAttachments" : {
-      "type" : "string"
+    "list" : {
+      "permissions" : [ "ec2:DescribeTransitGateways", "ec2:DescribeTags" ]
     },
-    "DefaultRouteTableAssociation" : {
-      "type" : "string"
-    },
-    "Id" : {
-      "type" : "string"
-    },
-    "VpnEcmpSupport" : {
-      "type" : "string"
-    },
-    "DnsSupport" : {
-      "type" : "string"
-    },
-    "SecurityGroupReferencingSupport" : {
-      "type" : "string"
-    },
-    "MulticastSupport" : {
-      "type" : "string"
-    },
-    "AmazonSideAsn" : {
-      "type" : "integer",
-      "format" : "int64"
-    },
-    "TransitGatewayCidrBlocks" : {
-      "type" : "array",
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "Tags" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "$ref" : "#/definitions/Tag"
-      }
-    },
-    "AssociationDefaultRouteTableId" : {
-      "type" : "string"
-    },
-    "PropagationDefaultRouteTableId" : {
-      "type" : "string"
+    "delete" : {
+      "permissions" : [ "ec2:DescribeTransitGateways", "ec2:DescribeTags", "ec2:DeleteTransitGateway", "ec2:DeleteTags" ]
     }
   },
+  "typeName" : "AWS::EC2::TransitGateway",
+  "readOnlyProperties" : [ "/properties/Id", "/properties/TransitGatewayArn" ],
+  "description" : "Resource Type definition for AWS::EC2::TransitGateway",
+  "createOnlyProperties" : [ "/properties/AmazonSideAsn", "/properties/MulticastSupport" ],
+  "additionalProperties" : false,
+  "primaryIdentifier" : [ "/properties/Id" ],
   "definitions" : {
     "Tag" : {
-      "type" : "object",
       "additionalProperties" : false,
+      "type" : "object",
       "properties" : {
         "Value" : {
           "type" : "string"
@@ -73,32 +46,59 @@
       "required" : [ "Value", "Key" ]
     }
   },
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id", "/properties/TransitGatewayArn" ],
-  "createOnlyProperties" : [ "/properties/AmazonSideAsn", "/properties/MulticastSupport" ],
-  "tagging" : {
-    "taggable" : true,
-    "tagOnCreate" : true,
-    "tagUpdatable" : true,
-    "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags",
-    "permissions" : [ "ec2:CreateTags", "ec2:DeleteTags" ]
-  },
-  "handlers" : {
-    "create" : {
-      "permissions" : [ "ec2:CreateTransitGateway", "ec2:CreateTags", "ec2:DescribeTransitGateways", "ec2:DescribeTags" ]
+  "properties" : {
+    "Description" : {
+      "type" : "string"
     },
-    "read" : {
-      "permissions" : [ "ec2:DescribeTransitGateways", "ec2:DescribeTags" ]
+    "AssociationDefaultRouteTableId" : {
+      "type" : "string"
     },
-    "delete" : {
-      "permissions" : [ "ec2:DescribeTransitGateways", "ec2:DescribeTags", "ec2:DeleteTransitGateway", "ec2:DeleteTags" ]
+    "AutoAcceptSharedAttachments" : {
+      "type" : "string"
     },
-    "update" : {
-      "permissions" : [ "ec2:CreateTransitGateway", "ec2:CreateTags", "ec2:DescribeTransitGateways", "ec2:DescribeTags", "ec2:DeleteTransitGateway", "ec2:DeleteTags", "ec2:ModifyTransitGateway", "ec2:ModifyTransitGatewayOptions" ]
+    "TransitGatewayArn" : {
+      "type" : "string"
     },
-    "list" : {
-      "permissions" : [ "ec2:DescribeTransitGateways", "ec2:DescribeTags" ]
+    "DefaultRouteTablePropagation" : {
+      "type" : "string"
+    },
+    "TransitGatewayCidrBlocks" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "PropagationDefaultRouteTableId" : {
+      "type" : "string"
+    },
+    "DefaultRouteTableAssociation" : {
+      "type" : "string"
+    },
+    "Id" : {
+      "type" : "string"
+    },
+    "VpnEcmpSupport" : {
+      "type" : "string"
+    },
+    "SecurityGroupReferencingSupport" : {
+      "type" : "string"
+    },
+    "DnsSupport" : {
+      "type" : "string"
+    },
+    "MulticastSupport" : {
+      "type" : "string"
+    },
+    "AmazonSideAsn" : {
+      "format" : "int64",
+      "type" : "integer"
+    },
+    "Tags" : {
+      "uniqueItems" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
     }
   }
 }

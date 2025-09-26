@@ -22,7 +22,7 @@
   "primaryIdentifier" : [ "/properties/AccountId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "application-signals:StartDiscovery", "application-signals:ListServices", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "application-signals:StartDiscovery", "application-signals:ListServices", "iam:CreateServiceLinkedRole", "cloudtrail:CreateServiceLinkedChannel" ]
     },
     "read" : {
       "permissions" : [ "application-signals:ListServices" ]

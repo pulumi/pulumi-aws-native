@@ -75,6 +75,13 @@
     "VpnConnectionArn" : {
       "description" : "The ARN of the site-to-site VPN attachment.",
       "type" : "string"
+    },
+    "LastModificationErrors" : {
+      "description" : "Errors from the last modification of the attachment.",
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
     }
   },
   "definitions" : {
@@ -153,7 +160,7 @@
   },
   "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/CoreNetworkId", "/properties/VpnConnectionArn" ],
-  "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/ResourceArn", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/AttachmentPolicyRuleNumber", "/properties/SegmentName" ],
+  "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/ResourceArn", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/AttachmentPolicyRuleNumber", "/properties/SegmentName", "/properties/LastModificationErrors" ],
   "primaryIdentifier" : [ "/properties/AttachmentId" ],
   "additionalIdentifiers" : [ [ "/properties/CoreNetworkId", "/properties/VpnConnectionArn" ] ],
   "required" : [ "CoreNetworkId", "VpnConnectionArn" ],

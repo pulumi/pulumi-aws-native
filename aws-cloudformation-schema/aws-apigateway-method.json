@@ -84,6 +84,12 @@
           "description" : "",
           "type" : "string"
         },
+        "ResponseTransferMode" : {
+          "default" : "BUFFERED",
+          "description" : "",
+          "type" : "string",
+          "enum" : [ "BUFFERED", "STREAM" ]
+        },
         "Uri" : {
           "description" : "",
           "type" : "string"

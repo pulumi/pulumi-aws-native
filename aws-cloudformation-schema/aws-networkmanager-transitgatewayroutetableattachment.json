@@ -146,6 +146,13 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "LastModificationErrors" : {
+      "description" : "Errors from the last modification of the attachment.",
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
     }
   },
   "additionalProperties" : false,
@@ -159,7 +166,7 @@
   },
   "required" : [ "PeeringId", "TransitGatewayRouteTableArn" ],
   "createOnlyProperties" : [ "/properties/PeeringId", "/properties/TransitGatewayRouteTableArn" ],
-  "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CoreNetworkId", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/ResourceArn", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/AttachmentPolicyRuleNumber", "/properties/SegmentName" ],
+  "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CoreNetworkId", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/ResourceArn", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/AttachmentPolicyRuleNumber", "/properties/SegmentName", "/properties/LastModificationErrors" ],
   "primaryIdentifier" : [ "/properties/AttachmentId" ],
   "handlers" : {
     "create" : {
