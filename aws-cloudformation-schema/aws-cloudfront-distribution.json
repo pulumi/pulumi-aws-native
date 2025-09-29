@@ -1002,7 +1002,8 @@
   "description" : "A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.",
   "handlers" : {
     "create" : {
-      "permissions" : [ "cloudfront:CreateConnectionGroup", "cloudfront:CreateDistribution", "cloudfront:CreateDistributionWithTags", "cloudfront:GetConnectionGroup", "cloudfront:GetDistribution", "cloudfront:GetDistributionConfig", "cloudfront:TagResource" ]
+      "permissions" : [ "cloudfront:CreateConnectionGroup", "cloudfront:CreateDistribution", "cloudfront:CreateDistributionWithTags", "cloudfront:GetConnectionGroup", "cloudfront:GetDistribution", "cloudfront:GetDistributionConfig", "cloudfront:TagResource" ],
+      "timeoutInMinutes" : 60
     },
     "delete" : {
       "permissions" : [ "cloudfront:DeleteDistribution", "cloudfront:GetDistribution", "cloudfront:GetDistributionConfig" ]
@@ -1014,7 +1015,8 @@
       "permissions" : [ "cloudfront:GetDistribution", "cloudfront:GetDistributionConfig" ]
     },
     "update" : {
-      "permissions" : [ "cloudfront:CreateConnectionGroup", "cloudfront:GetConnectionGroup", "cloudfront:GetDistribution", "cloudfront:GetDistributionConfig", "cloudfront:UpdateDistribution", "cloudfront:UpdateDistributionWithStagingConfig", "cloudfront:ListTagsForResource", "cloudfront:TagResource", "cloudfront:UntagResource" ]
+      "permissions" : [ "cloudfront:CreateConnectionGroup", "cloudfront:GetConnectionGroup", "cloudfront:GetDistribution", "cloudfront:GetDistributionConfig", "cloudfront:UpdateDistribution", "cloudfront:UpdateDistributionWithStagingConfig", "cloudfront:ListTagsForResource", "cloudfront:TagResource", "cloudfront:UntagResource" ],
+      "timeoutInMinutes" : 60
     }
   },
   "primaryIdentifier" : [ "/properties/Id" ],

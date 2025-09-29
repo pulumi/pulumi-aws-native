@@ -24,7 +24,7 @@
   "primaryIdentifier" : [ "/properties/GlobalNetworkId", "/properties/TransitGatewayArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "networkmanager:RegisterTransitGateway", "networkmanager:GetTransitGatewayRegistrations" ],
+      "permissions" : [ "networkmanager:RegisterTransitGateway", "networkmanager:GetTransitGatewayRegistrations", "ec2:DescribeRegions" ],
       "timeoutInMinutes" : 30
     },
     "read" : {

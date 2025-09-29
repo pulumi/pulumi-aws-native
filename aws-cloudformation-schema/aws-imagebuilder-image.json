@@ -1,5 +1,4 @@
 {
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder",
   "tagging" : {
     "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ],
     "taggable" : true,
@@ -8,10 +7,18 @@
     "tagProperty" : "/properties/Tags",
     "cloudFormationSystemTags" : true
   },
+  "typeName" : "AWS::ImageBuilder::Image",
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Name", "/properties/ImageId", "/properties/ImageUri" ],
+  "description" : "Resource schema for AWS::ImageBuilder::Image",
+  "createOnlyProperties" : [ "/properties/ImageRecipeArn", "/properties/ContainerRecipeArn", "/properties/InfrastructureConfigurationArn", "/properties/Workflows", "/properties/DistributionConfigurationArn", "/properties/ImageTestsConfiguration", "/properties/ImageScanningConfiguration", "/properties/EnhancedImageMetadataEnabled" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder",
   "oneOf" : [ {
     "required" : [ "ContainerRecipeArn", "InfrastructureConfigurationArn" ]
   }, {
     "required" : [ "ImageRecipeArn", "InfrastructureConfigurationArn" ]
+  }, {
+    "required" : [ "ImagePipelineExecutionSettings" ]
   }, {
     "required" : [ "ImportDiskImageSettings" ]
   } ],
@@ -40,12 +47,7 @@
       "permissions" : [ "imagebuilder:GetImage", "imagebuilder:DeleteImage", "imagebuilder:UntagResource", "imagebuilder:CancelImageCreation" ]
     }
   },
-  "typeName" : "AWS::ImageBuilder::Image",
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/Name", "/properties/ImageId", "/properties/ImageUri" ],
-  "description" : "Resource schema for AWS::ImageBuilder::Image",
-  "createOnlyProperties" : [ "/properties/ImageRecipeArn", "/properties/ContainerRecipeArn", "/properties/InfrastructureConfigurationArn", "/properties/Workflows", "/properties/DistributionConfigurationArn", "/properties/ImageTestsConfiguration", "/properties/ImageScanningConfiguration", "/properties/EnhancedImageMetadataEnabled" ],
   "additionalProperties" : false,
-  "primaryIdentifier" : [ "/properties/Arn" ],
   "definitions" : {
     "ImageScanningConfiguration" : {
       "description" : "Contains settings for Image Builder image resource and container image scans.",
@@ -112,6 +114,21 @@
     "WorkflowParameterValue" : {
       "description" : "The value associated with the workflow parameter",
       "type" : "string"
+    },
+    "ImagePipelineExecutionSettings" : {
+      "description" : "The settings for starting an image pipeline execution.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "DeploymentId" : {
+          "description" : "The deployment ID of the pipeline, used to trigger new image pipeline executions.",
+          "type" : "string"
+        },
+        "OnUpdate" : {
+          "description" : "Whether to trigger the image pipeline when the pipeline is updated. False by default.",
+          "type" : "boolean"
+        }
+      }
     },
     "ImageTestsConfiguration" : {
       "description" : "The image tests configuration used when creating this image.",
