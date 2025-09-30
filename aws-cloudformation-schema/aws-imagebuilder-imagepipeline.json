@@ -116,6 +116,9 @@
           "description" : "The condition configures when the pipeline should trigger a new image build.",
           "type" : "string",
           "enum" : [ "EXPRESSION_MATCH_ONLY", "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE" ]
+        },
+        "AutoDisablePolicy" : {
+          "description" : "The auto-disable policy for the image pipeline."
         }
       }
     },

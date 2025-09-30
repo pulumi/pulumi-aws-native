@@ -176,6 +176,17 @@
         }
       },
       "required" : [ "Value", "Key" ]
+    },
+    "ErrorMessageConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Type" : {
+          "type" : "string",
+          "enum" : [ "DETAILED" ]
+        }
+      },
+      "required" : [ "Type" ],
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -249,11 +260,14 @@
     "Format" : {
       "type" : "string",
       "enum" : [ "SQL", "PYSPARK_1_0" ]
+    },
+    "ErrorMessageConfiguration" : {
+      "$ref" : "#/definitions/ErrorMessageConfiguration"
     }
   },
   "required" : [ "Source", "Format", "Name", "MembershipIdentifier" ],
   "readOnlyProperties" : [ "/properties/CollaborationArn", "/properties/CollaborationIdentifier", "/properties/AnalysisTemplateIdentifier", "/properties/Arn", "/properties/MembershipArn" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/MembershipIdentifier", "/properties/Source", "/properties/Format", "/properties/AnalysisParameters", "/properties/Schema" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/MembershipIdentifier", "/properties/Source", "/properties/Format", "/properties/AnalysisParameters", "/properties/Schema", "/properties/ErrorMessageConfiguration" ],
   "primaryIdentifier" : [ "/properties/AnalysisTemplateIdentifier", "/properties/MembershipIdentifier" ],
   "replacementStrategy" : "delete_then_create",
   "tagging" : {

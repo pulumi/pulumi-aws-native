@@ -79,6 +79,13 @@
     "UpdatedAt" : {
       "description" : "Last update time of the attachment.",
       "type" : "string"
+    },
+    "LastModificationErrors" : {
+      "description" : "Errors from the last modification of the attachment.",
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
     }
   },
   "definitions" : {
@@ -158,7 +165,7 @@
   "additionalProperties" : false,
   "required" : [ "CoreNetworkId", "DirectConnectGatewayArn", "EdgeLocations" ],
   "createOnlyProperties" : [ "/properties/CoreNetworkId", "/properties/DirectConnectGatewayArn" ],
-  "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/AttachmentPolicyRuleNumber", "/properties/SegmentName", "/properties/NetworkFunctionGroupName", "/properties/ResourceArn" ],
+  "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/AttachmentPolicyRuleNumber", "/properties/SegmentName", "/properties/NetworkFunctionGroupName", "/properties/ResourceArn", "/properties/LastModificationErrors" ],
   "primaryIdentifier" : [ "/properties/AttachmentId" ],
   "additionalIdentifiers" : [ [ "/properties/CoreNetworkId", "/properties/DirectConnectGatewayArn" ] ],
   "handlers" : {
