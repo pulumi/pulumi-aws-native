@@ -92,6 +92,10 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public readonly string? EdgeLocation;
         /// <summary>
+        /// Errors from the last modification of the attachment.
+        /// </summary>
+        public readonly ImmutableArray<string> LastModificationErrors;
+        /// <summary>
         /// The name of the network function group attachment.
         /// </summary>
         public readonly string? NetworkFunctionGroupName;
@@ -144,6 +148,8 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? edgeLocation,
 
+            ImmutableArray<string> lastModificationErrors,
+
             string? networkFunctionGroupName,
 
             string? ownerAccountId,
@@ -169,6 +175,7 @@ namespace Pulumi.AwsNative.NetworkManager
             CoreNetworkId = coreNetworkId;
             CreatedAt = createdAt;
             EdgeLocation = edgeLocation;
+            LastModificationErrors = lastModificationErrors;
             NetworkFunctionGroupName = networkFunctionGroupName;
             OwnerAccountId = ownerAccountId;
             ProposedNetworkFunctionGroupChange = proposedNetworkFunctionGroupChange;

@@ -50,6 +50,10 @@ export interface GetSiteToSiteVpnAttachmentResult {
      */
     readonly edgeLocation?: string;
     /**
+     * Errors from the last modification of the attachment.
+     */
+    readonly lastModificationErrors?: string[];
+    /**
      * The name of the network function group attachment.
      */
     readonly networkFunctionGroupName?: string;

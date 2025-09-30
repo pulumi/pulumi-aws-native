@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     public sealed class ContainerFleetLocationCapacityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
+        /// Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
         /// </summary>
-        [Input("desiredEc2Instances", required: true)]
-        public Input<int> DesiredEc2Instances { get; set; } = null!;
+        [Input("desiredEc2Instances")]
+        public Input<int>? DesiredEc2Instances { get; set; }
 
         /// <summary>
         /// The maximum value that is allowed for the fleet's instance count for a location.

@@ -73,6 +73,8 @@ __all__ = [
     'AutomatedReasoningPolicyPolicyDefinitionVariableArgsDict',
     'AutomatedReasoningPolicyPolicyDefinitionArgs',
     'AutomatedReasoningPolicyPolicyDefinitionArgsDict',
+    'DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs',
+    'DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict',
     'DataAutomationProjectAudioExtractionCategoryArgs',
     'DataAutomationProjectAudioExtractionCategoryArgsDict',
     'DataAutomationProjectAudioOverrideConfigurationArgs',
@@ -85,6 +87,8 @@ __all__ = [
     'DataAutomationProjectAudioStandardOutputConfigurationArgsDict',
     'DataAutomationProjectBlueprintItemArgs',
     'DataAutomationProjectBlueprintItemArgsDict',
+    'DataAutomationProjectChannelLabelingConfigurationArgs',
+    'DataAutomationProjectChannelLabelingConfigurationArgsDict',
     'DataAutomationProjectCustomOutputConfigurationArgs',
     'DataAutomationProjectCustomOutputConfigurationArgsDict',
     'DataAutomationProjectDocumentBoundingBoxArgs',
@@ -123,10 +127,14 @@ __all__ = [
     'DataAutomationProjectModalityRoutingConfigurationArgsDict',
     'DataAutomationProjectOverrideConfigurationArgs',
     'DataAutomationProjectOverrideConfigurationArgsDict',
+    'DataAutomationProjectSpeakerLabelingConfigurationArgs',
+    'DataAutomationProjectSpeakerLabelingConfigurationArgsDict',
     'DataAutomationProjectSplitterConfigurationArgs',
     'DataAutomationProjectSplitterConfigurationArgsDict',
     'DataAutomationProjectStandardOutputConfigurationArgs',
     'DataAutomationProjectStandardOutputConfigurationArgsDict',
+    'DataAutomationProjectTranscriptConfigurationArgs',
+    'DataAutomationProjectTranscriptConfigurationArgsDict',
     'DataAutomationProjectVideoBoundingBoxArgs',
     'DataAutomationProjectVideoBoundingBoxArgsDict',
     'DataAutomationProjectVideoExtractionCategoryArgs',
@@ -2353,11 +2361,35 @@ class AutomatedReasoningPolicyPolicyDefinitionArgs:
 
 
 if not MYPY:
+    class DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict(TypedDict):
+        transcript: NotRequired[pulumi.Input['DataAutomationProjectTranscriptConfigurationArgsDict']]
+elif False:
+    DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs:
+    def __init__(__self__, *,
+                 transcript: Optional[pulumi.Input['DataAutomationProjectTranscriptConfigurationArgs']] = None):
+        if transcript is not None:
+            pulumi.set(__self__, "transcript", transcript)
+
+    @property
+    @pulumi.getter
+    def transcript(self) -> Optional[pulumi.Input['DataAutomationProjectTranscriptConfigurationArgs']]:
+        return pulumi.get(self, "transcript")
+
+    @transcript.setter
+    def transcript(self, value: Optional[pulumi.Input['DataAutomationProjectTranscriptConfigurationArgs']]):
+        pulumi.set(self, "transcript", value)
+
+
+if not MYPY:
     class DataAutomationProjectAudioExtractionCategoryArgsDict(TypedDict):
         state: pulumi.Input['DataAutomationProjectState']
         """
         Whether generating categorical data from audio is enabled.
         """
+        type_configuration: NotRequired[pulumi.Input['DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict']]
         types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]]]
         """
         The types of data to generate.
@@ -2369,12 +2401,15 @@ elif False:
 class DataAutomationProjectAudioExtractionCategoryArgs:
     def __init__(__self__, *,
                  state: pulumi.Input['DataAutomationProjectState'],
+                 type_configuration: Optional[pulumi.Input['DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs']] = None,
                  types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]]] = None):
         """
         :param pulumi.Input['DataAutomationProjectState'] state: Whether generating categorical data from audio is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]] types: The types of data to generate.
         """
         pulumi.set(__self__, "state", state)
+        if type_configuration is not None:
+            pulumi.set(__self__, "type_configuration", type_configuration)
         if types is not None:
             pulumi.set(__self__, "types", types)
 
@@ -2389,6 +2424,15 @@ class DataAutomationProjectAudioExtractionCategoryArgs:
     @state.setter
     def state(self, value: pulumi.Input['DataAutomationProjectState']):
         pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="typeConfiguration")
+    def type_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs']]:
+        return pulumi.get(self, "type_configuration")
+
+    @type_configuration.setter
+    def type_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs']]):
+        pulumi.set(self, "type_configuration", value)
 
     @property
     @pulumi.getter
@@ -2638,6 +2682,28 @@ class DataAutomationProjectBlueprintItemArgs:
     @blueprint_version.setter
     def blueprint_version(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "blueprint_version", value)
+
+
+if not MYPY:
+    class DataAutomationProjectChannelLabelingConfigurationArgsDict(TypedDict):
+        state: pulumi.Input['DataAutomationProjectState']
+elif False:
+    DataAutomationProjectChannelLabelingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectChannelLabelingConfigurationArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['DataAutomationProjectState']:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(self, "state", value)
 
 
 if not MYPY:
@@ -3569,6 +3635,28 @@ class DataAutomationProjectOverrideConfigurationArgs:
 
 
 if not MYPY:
+    class DataAutomationProjectSpeakerLabelingConfigurationArgsDict(TypedDict):
+        state: pulumi.Input['DataAutomationProjectState']
+elif False:
+    DataAutomationProjectSpeakerLabelingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectSpeakerLabelingConfigurationArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['DataAutomationProjectState']:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['DataAutomationProjectState']):
+        pulumi.set(self, "state", value)
+
+
+if not MYPY:
     class DataAutomationProjectSplitterConfigurationArgsDict(TypedDict):
         state: NotRequired[pulumi.Input['DataAutomationProjectState']]
         """
@@ -3694,6 +3782,42 @@ class DataAutomationProjectStandardOutputConfigurationArgs:
     @video.setter
     def video(self, value: Optional[pulumi.Input['DataAutomationProjectVideoStandardOutputConfigurationArgs']]):
         pulumi.set(self, "video", value)
+
+
+if not MYPY:
+    class DataAutomationProjectTranscriptConfigurationArgsDict(TypedDict):
+        channel_labeling: NotRequired[pulumi.Input['DataAutomationProjectChannelLabelingConfigurationArgsDict']]
+        speaker_labeling: NotRequired[pulumi.Input['DataAutomationProjectSpeakerLabelingConfigurationArgsDict']]
+elif False:
+    DataAutomationProjectTranscriptConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectTranscriptConfigurationArgs:
+    def __init__(__self__, *,
+                 channel_labeling: Optional[pulumi.Input['DataAutomationProjectChannelLabelingConfigurationArgs']] = None,
+                 speaker_labeling: Optional[pulumi.Input['DataAutomationProjectSpeakerLabelingConfigurationArgs']] = None):
+        if channel_labeling is not None:
+            pulumi.set(__self__, "channel_labeling", channel_labeling)
+        if speaker_labeling is not None:
+            pulumi.set(__self__, "speaker_labeling", speaker_labeling)
+
+    @property
+    @pulumi.getter(name="channelLabeling")
+    def channel_labeling(self) -> Optional[pulumi.Input['DataAutomationProjectChannelLabelingConfigurationArgs']]:
+        return pulumi.get(self, "channel_labeling")
+
+    @channel_labeling.setter
+    def channel_labeling(self, value: Optional[pulumi.Input['DataAutomationProjectChannelLabelingConfigurationArgs']]):
+        pulumi.set(self, "channel_labeling", value)
+
+    @property
+    @pulumi.getter(name="speakerLabeling")
+    def speaker_labeling(self) -> Optional[pulumi.Input['DataAutomationProjectSpeakerLabelingConfigurationArgs']]:
+        return pulumi.get(self, "speaker_labeling")
+
+    @speaker_labeling.setter
+    def speaker_labeling(self, value: Optional[pulumi.Input['DataAutomationProjectSpeakerLabelingConfigurationArgs']]):
+        pulumi.set(self, "speaker_labeling", value)
 
 
 if not MYPY:

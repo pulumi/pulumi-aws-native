@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRestApiResult:
-    def __init__(__self__, api_key_source_type=None, binary_media_types=None, description=None, disable_execute_api_endpoint=None, endpoint_configuration=None, minimum_compression_size=None, name=None, policy=None, rest_api_id=None, root_resource_id=None, tags=None):
+    def __init__(__self__, api_key_source_type=None, binary_media_types=None, description=None, disable_execute_api_endpoint=None, endpoint_configuration=None, minimum_compression_size=None, name=None, policy=None, rest_api_id=None, root_resource_id=None, security_policy=None, tags=None):
         if api_key_source_type and not isinstance(api_key_source_type, str):
             raise TypeError("Expected argument 'api_key_source_type' to be a str")
         pulumi.set(__self__, "api_key_source_type", api_key_source_type)
@@ -57,6 +57,9 @@ class GetRestApiResult:
         if root_resource_id and not isinstance(root_resource_id, str):
             raise TypeError("Expected argument 'root_resource_id' to be a str")
         pulumi.set(__self__, "root_resource_id", root_resource_id)
+        if security_policy and not isinstance(security_policy, str):
+            raise TypeError("Expected argument 'security_policy' to be a str")
+        pulumi.set(__self__, "security_policy", security_policy)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -144,6 +147,11 @@ class GetRestApiResult:
         return pulumi.get(self, "root_resource_id")
 
     @property
+    @pulumi.getter(name="securityPolicy")
+    def security_policy(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "security_policy")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -168,6 +176,7 @@ class AwaitableGetRestApiResult(GetRestApiResult):
             policy=self.policy,
             rest_api_id=self.rest_api_id,
             root_resource_id=self.root_resource_id,
+            security_policy=self.security_policy,
             tags=self.tags)
 
 
@@ -196,6 +205,7 @@ def get_rest_api(rest_api_id: Optional[builtins.str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
         root_resource_id=pulumi.get(__ret__, 'root_resource_id'),
+        security_policy=pulumi.get(__ret__, 'security_policy'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_rest_api_output(rest_api_id: Optional[pulumi.Input[builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestApiResult]:
@@ -221,4 +231,5 @@ def get_rest_api_output(rest_api_id: Optional[pulumi.Input[builtins.str]] = None
         policy=pulumi.get(__response__, 'policy'),
         rest_api_id=pulumi.get(__response__, 'rest_api_id'),
         root_resource_id=pulumi.get(__response__, 'root_resource_id'),
+        security_policy=pulumi.get(__response__, 'security_policy'),
         tags=pulumi.get(__response__, 'tags')))

@@ -26,6 +26,7 @@ __all__ = [
     'AnalysisTemplateArtifact',
     'AnalysisTemplateArtifactMetadata',
     'AnalysisTemplateArtifacts',
+    'AnalysisTemplateErrorMessageConfiguration',
     'AnalysisTemplateHash',
     'AnalysisTemplateS3Location',
     'CollaborationDataEncryptionMetadata',
@@ -313,6 +314,28 @@ class AnalysisTemplateArtifacts(dict):
     @pulumi.getter(name="additionalArtifacts")
     def additional_artifacts(self) -> Optional[Sequence['outputs.AnalysisTemplateArtifact']]:
         return pulumi.get(self, "additional_artifacts")
+
+
+@pulumi.output_type
+class AnalysisTemplateErrorMessageConfiguration(dict):
+    def __init__(__self__, *,
+                 type: 'AnalysisTemplateErrorMessageConfigurationType'):
+        """
+        :param 'AnalysisTemplateErrorMessageConfigurationType' type: The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
+               
+               Because this setting may expose sensitive data, it is recommended for development and testing environments.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'AnalysisTemplateErrorMessageConfigurationType':
+        """
+        The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
+
+        Because this setting may expose sensitive data, it is recommended for development and testing environments.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

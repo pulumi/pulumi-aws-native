@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     /// </summary>
     public sealed class RuntimeAuthorizerConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Represents inbound authorization configuration options used to authenticate incoming requests.
+        /// </summary>
         [Input("customJwtAuthorizer")]
         public Input<Inputs.RuntimeCustomJwtAuthorizerConfigurationArgs>? CustomJwtAuthorizer { get; set; }
 

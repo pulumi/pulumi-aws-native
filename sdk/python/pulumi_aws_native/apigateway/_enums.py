@@ -15,6 +15,7 @@ __all__ = [
     'MethodIntegrationContentHandling',
     'MethodIntegrationPassthroughBehavior',
     'MethodIntegrationResponseContentHandling',
+    'MethodIntegrationResponseTransferMode',
     'MethodIntegrationType',
     'UsagePlanKeyKeyType',
 ]
@@ -106,6 +107,12 @@ class MethodIntegrationResponseContentHandling(builtins.str, Enum):
     """
     CONVERT_TO_BINARY = "CONVERT_TO_BINARY"
     CONVERT_TO_TEXT = "CONVERT_TO_TEXT"
+
+
+@pulumi.type_token("aws-native:apigateway:MethodIntegrationResponseTransferMode")
+class MethodIntegrationResponseTransferMode(builtins.str, Enum):
+    BUFFERED = "BUFFERED"
+    STREAM = "STREAM"
 
 
 @pulumi.type_token("aws-native:apigateway:MethodIntegrationType")

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     /// </summary>
     public sealed class BrowserCustomBrowserNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The network mode.
+        /// </summary>
         [Input("networkMode", required: true)]
         public Input<Pulumi.AwsNative.BedrockAgentCore.BrowserCustomBrowserNetworkMode> NetworkMode { get; set; } = null!;
 

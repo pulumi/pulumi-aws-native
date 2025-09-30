@@ -29,6 +29,7 @@ class CollaborationArgs:
                  description: pulumi.Input[builtins.str],
                  query_log_status: pulumi.Input['CollaborationQueryLogStatus'],
                  analytics_engine: Optional[pulumi.Input['CollaborationAnalyticsEngine']] = None,
+                 auto_approved_change_types: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationAutoApprovedChangeType']]]] = None,
                  creator_member_abilities: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]] = None,
                  creator_ml_member_abilities: Optional[pulumi.Input['CollaborationMlMemberAbilitiesArgs']] = None,
                  creator_payment_configuration: Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']] = None,
@@ -47,6 +48,7 @@ class CollaborationArgs:
         :param pulumi.Input['CollaborationAnalyticsEngine'] analytics_engine: The analytics engine for the collaboration.
                
                > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
+        :param pulumi.Input[Sequence[pulumi.Input['CollaborationAutoApprovedChangeType']]] auto_approved_change_types: The types of change requests that are automatically approved for this collaboration.
         :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]] creator_member_abilities: The abilities granted to the collaboration creator.
                
                *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
@@ -65,6 +67,8 @@ class CollaborationArgs:
         pulumi.set(__self__, "query_log_status", query_log_status)
         if analytics_engine is not None:
             pulumi.set(__self__, "analytics_engine", analytics_engine)
+        if auto_approved_change_types is not None:
+            pulumi.set(__self__, "auto_approved_change_types", auto_approved_change_types)
         if creator_member_abilities is not None:
             pulumi.set(__self__, "creator_member_abilities", creator_member_abilities)
         if creator_ml_member_abilities is not None:
@@ -133,6 +137,18 @@ class CollaborationArgs:
     @analytics_engine.setter
     def analytics_engine(self, value: Optional[pulumi.Input['CollaborationAnalyticsEngine']]):
         pulumi.set(self, "analytics_engine", value)
+
+    @property
+    @pulumi.getter(name="autoApprovedChangeTypes")
+    def auto_approved_change_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationAutoApprovedChangeType']]]]:
+        """
+        The types of change requests that are automatically approved for this collaboration.
+        """
+        return pulumi.get(self, "auto_approved_change_types")
+
+    @auto_approved_change_types.setter
+    def auto_approved_change_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationAutoApprovedChangeType']]]]):
+        pulumi.set(self, "auto_approved_change_types", value)
 
     @property
     @pulumi.getter(name="creatorMemberAbilities")
@@ -242,6 +258,7 @@ class Collaboration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analytics_engine: Optional[pulumi.Input['CollaborationAnalyticsEngine']] = None,
+                 auto_approved_change_types: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationAutoApprovedChangeType']]]] = None,
                  creator_display_name: Optional[pulumi.Input[builtins.str]] = None,
                  creator_member_abilities: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]] = None,
                  creator_ml_member_abilities: Optional[pulumi.Input[Union['CollaborationMlMemberAbilitiesArgs', 'CollaborationMlMemberAbilitiesArgsDict']]] = None,
@@ -262,6 +279,7 @@ class Collaboration(pulumi.CustomResource):
         :param pulumi.Input['CollaborationAnalyticsEngine'] analytics_engine: The analytics engine for the collaboration.
                
                > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
+        :param pulumi.Input[Sequence[pulumi.Input['CollaborationAutoApprovedChangeType']]] auto_approved_change_types: The types of change requests that are automatically approved for this collaboration.
         :param pulumi.Input[builtins.str] creator_display_name: A display name of the collaboration creator.
         :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]] creator_member_abilities: The abilities granted to the collaboration creator.
                
@@ -305,6 +323,7 @@ class Collaboration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analytics_engine: Optional[pulumi.Input['CollaborationAnalyticsEngine']] = None,
+                 auto_approved_change_types: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationAutoApprovedChangeType']]]] = None,
                  creator_display_name: Optional[pulumi.Input[builtins.str]] = None,
                  creator_member_abilities: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]] = None,
                  creator_ml_member_abilities: Optional[pulumi.Input[Union['CollaborationMlMemberAbilitiesArgs', 'CollaborationMlMemberAbilitiesArgsDict']]] = None,
@@ -326,6 +345,7 @@ class Collaboration(pulumi.CustomResource):
             __props__ = CollaborationArgs.__new__(CollaborationArgs)
 
             __props__.__dict__["analytics_engine"] = analytics_engine
+            __props__.__dict__["auto_approved_change_types"] = auto_approved_change_types
             if creator_display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'creator_display_name'")
             __props__.__dict__["creator_display_name"] = creator_display_name
@@ -345,7 +365,7 @@ class Collaboration(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["collaboration_identifier"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["creatorDisplayName", "creatorMemberAbilities[*]", "creatorMlMemberAbilities", "creatorPaymentConfiguration", "dataEncryptionMetadata", "jobLogStatus", "members[*]", "queryLogStatus"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["autoApprovedChangeTypes[*]", "creatorDisplayName", "creatorMemberAbilities[*]", "creatorMlMemberAbilities", "creatorPaymentConfiguration", "dataEncryptionMetadata", "jobLogStatus", "members[*]", "queryLogStatus"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Collaboration, __self__).__init__(
             'aws-native:cleanrooms:Collaboration',
@@ -371,6 +391,7 @@ class Collaboration(pulumi.CustomResource):
 
         __props__.__dict__["analytics_engine"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["auto_approved_change_types"] = None
         __props__.__dict__["collaboration_identifier"] = None
         __props__.__dict__["creator_display_name"] = None
         __props__.__dict__["creator_member_abilities"] = None
@@ -404,6 +425,14 @@ class Collaboration(pulumi.CustomResource):
         Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="autoApprovedChangeTypes")
+    def auto_approved_change_types(self) -> pulumi.Output[Optional[Sequence['CollaborationAutoApprovedChangeType']]]:
+        """
+        The types of change requests that are automatically approved for this collaboration.
+        """
+        return pulumi.get(self, "auto_approved_change_types")
 
     @property
     @pulumi.getter(name="collaborationIdentifier")

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class BrowserCustomBrowserNetworkConfiguration
     {
+        /// <summary>
+        /// The network mode.
+        /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.BrowserCustomBrowserNetworkMode NetworkMode;
 
         [OutputConstructor]

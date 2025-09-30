@@ -42,6 +42,10 @@ export class ResolverRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The name server domain for queries to be delegated to if a query matches the delegation record.
+     */
+    public readonly delegationRecord!: pulumi.Output<string | undefined>;
+    /**
      * DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
      */
     public readonly domainName!: pulumi.Output<string | undefined>;
@@ -84,6 +88,7 @@ export class ResolverRule extends pulumi.CustomResource {
             if ((!args || args.ruleType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleType'");
             }
+            resourceInputs["delegationRecord"] = args ? args.delegationRecord : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resolverEndpointId"] = args ? args.resolverEndpointId : undefined;
@@ -94,6 +99,7 @@ export class ResolverRule extends pulumi.CustomResource {
             resourceInputs["resolverRuleId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["delegationRecord"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["resolverEndpointId"] = undefined /*out*/;
@@ -113,6 +119,10 @@ export class ResolverRule extends pulumi.CustomResource {
  * The set of arguments for constructing a ResolverRule resource.
  */
 export interface ResolverRuleArgs {
+    /**
+     * The name server domain for queries to be delegated to if a query matches the delegation record.
+     */
+    delegationRecord?: pulumi.Input<string>;
     /**
      * DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
      */

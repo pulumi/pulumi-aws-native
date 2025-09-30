@@ -35,6 +35,8 @@ type LookupDbProxyResult struct {
 	DbProxyArn *string `pulumi:"dbProxyArn"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging *bool `pulumi:"debugLogging"`
+	// The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+	DefaultAuthScheme *DbProxyDefaultAuthScheme `pulumi:"defaultAuthScheme"`
 	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
 	Endpoint *string `pulumi:"endpoint"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
@@ -96,6 +98,11 @@ func (o LookupDbProxyResultOutput) DbProxyArn() pulumi.StringPtrOutput {
 // Whether the proxy includes detailed information about SQL statements in its logs.
 func (o LookupDbProxyResultOutput) DebugLogging() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDbProxyResult) *bool { return v.DebugLogging }).(pulumi.BoolPtrOutput)
+}
+
+// The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+func (o LookupDbProxyResultOutput) DefaultAuthScheme() DbProxyDefaultAuthSchemePtrOutput {
+	return o.ApplyT(func(v LookupDbProxyResult) *DbProxyDefaultAuthScheme { return v.DefaultAuthScheme }).(DbProxyDefaultAuthSchemePtrOutput)
 }
 
 // The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.

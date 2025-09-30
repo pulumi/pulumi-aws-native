@@ -45,6 +45,9 @@ export interface GetCodeInterpreterCustomResult {
      * Status of code interpreter.
      */
     readonly status?: enums.bedrockagentcore.CodeInterpreterCustomCodeInterpreterStatus;
+    /**
+     * The tags for the code interpreter.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**

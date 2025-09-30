@@ -28,6 +28,101 @@ export const CapacityProviderAutoScalingGroupProviderManagedTerminationProtectio
  */
 export type CapacityProviderAutoScalingGroupProviderManagedTerminationProtection = (typeof CapacityProviderAutoScalingGroupProviderManagedTerminationProtection)[keyof typeof CapacityProviderAutoScalingGroupProviderManagedTerminationProtection];
 
+export const CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem = {
+    AmazonWebServices: "amazon-web-services",
+    Amd: "amd",
+    Habana: "habana",
+    Nvidia: "nvidia",
+    Xilinx: "xilinx",
+} as const;
+
+export type CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem = (typeof CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem)[keyof typeof CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem];
+
+export const CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem = {
+    A10g: "a10g",
+    A100: "a100",
+    H100: "h100",
+    Inferentia: "inferentia",
+    K520: "k520",
+    K80: "k80",
+    M60: "m60",
+    RadeonProV520: "radeon-pro-v520",
+    T4: "t4",
+    T4g: "t4g",
+    Vu9p: "vu9p",
+    V100: "v100",
+} as const;
+
+export type CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem = (typeof CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem)[keyof typeof CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem];
+
+export const CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem = {
+    Gpu: "gpu",
+    Fpga: "fpga",
+    Inference: "inference",
+} as const;
+
+export type CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem = (typeof CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem)[keyof typeof CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem];
+
+export const CapacityProviderInstanceRequirementsRequestBareMetal = {
+    Included: "included",
+    Required: "required",
+    Excluded: "excluded",
+} as const;
+
+export type CapacityProviderInstanceRequirementsRequestBareMetal = (typeof CapacityProviderInstanceRequirementsRequestBareMetal)[keyof typeof CapacityProviderInstanceRequirementsRequestBareMetal];
+
+export const CapacityProviderInstanceRequirementsRequestBurstablePerformance = {
+    Included: "included",
+    Required: "required",
+    Excluded: "excluded",
+} as const;
+
+export type CapacityProviderInstanceRequirementsRequestBurstablePerformance = (typeof CapacityProviderInstanceRequirementsRequestBurstablePerformance)[keyof typeof CapacityProviderInstanceRequirementsRequestBurstablePerformance];
+
+export const CapacityProviderInstanceRequirementsRequestCpuManufacturersItem = {
+    Intel: "intel",
+    Amd: "amd",
+    AmazonWebServices: "amazon-web-services",
+} as const;
+
+export type CapacityProviderInstanceRequirementsRequestCpuManufacturersItem = (typeof CapacityProviderInstanceRequirementsRequestCpuManufacturersItem)[keyof typeof CapacityProviderInstanceRequirementsRequestCpuManufacturersItem];
+
+export const CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem = {
+    Current: "current",
+    Previous: "previous",
+} as const;
+
+export type CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem = (typeof CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem)[keyof typeof CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem];
+
+export const CapacityProviderInstanceRequirementsRequestLocalStorage = {
+    Included: "included",
+    Required: "required",
+    Excluded: "excluded",
+} as const;
+
+export type CapacityProviderInstanceRequirementsRequestLocalStorage = (typeof CapacityProviderInstanceRequirementsRequestLocalStorage)[keyof typeof CapacityProviderInstanceRequirementsRequestLocalStorage];
+
+export const CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem = {
+    Hdd: "hdd",
+    Ssd: "ssd",
+} as const;
+
+export type CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem = (typeof CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem)[keyof typeof CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem];
+
+export const CapacityProviderManagedInstancesMonitoringOptions = {
+    Basic: "BASIC",
+    Detailed: "DETAILED",
+} as const;
+
+export type CapacityProviderManagedInstancesMonitoringOptions = (typeof CapacityProviderManagedInstancesMonitoringOptions)[keyof typeof CapacityProviderManagedInstancesMonitoringOptions];
+
+export const CapacityProviderManagedInstancesProviderPropagateTags = {
+    CapacityProvider: "CAPACITY_PROVIDER",
+    None: "NONE",
+} as const;
+
+export type CapacityProviderManagedInstancesProviderPropagateTags = (typeof CapacityProviderManagedInstancesProviderPropagateTags)[keyof typeof CapacityProviderManagedInstancesProviderPropagateTags];
+
 export const CapacityProviderManagedScalingStatus = {
     Disabled: "DISABLED",
     Enabled: "ENABLED",
@@ -66,6 +161,9 @@ export const ServiceAvailabilityZoneRebalancing = {
 /**
  * Indicates whether to use Availability Zone rebalancing for the service.
  *  For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+ *  The default behavior of ``AvailabilityZoneRebalancing`` differs between create and update requests:
+ *   +  For create service requests, when no value is specified for ``AvailabilityZoneRebalancing``, Amazon ECS defaults the value to ``ENABLED``.
+ *   +  For update service requests, when no value is specified for ``AvailabilityZoneRebalancing``, Amazon ECS defaults to the existing service’s ``AvailabilityZoneRebalancing`` value. If the service never had an ``AvailabilityZoneRebalancing`` value set, Amazon ECS treats this as ``DISABLED``.
  */
 export type ServiceAvailabilityZoneRebalancing = (typeof ServiceAvailabilityZoneRebalancing)[keyof typeof ServiceAvailabilityZoneRebalancing];
 

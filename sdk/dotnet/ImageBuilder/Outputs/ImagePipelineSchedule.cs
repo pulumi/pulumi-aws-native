@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
     public sealed class ImagePipelineSchedule
     {
         /// <summary>
+        /// The auto-disable policy for the image pipeline.
+        /// </summary>
+        public readonly object? AutoDisablePolicy;
+        /// <summary>
         /// The condition configures when the pipeline should trigger a new image build.
         /// </summary>
         public readonly Pulumi.AwsNative.ImageBuilder.ImagePipelineSchedulePipelineExecutionStartCondition? PipelineExecutionStartCondition;
@@ -27,10 +31,13 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 
         [OutputConstructor]
         private ImagePipelineSchedule(
+            object? autoDisablePolicy,
+
             Pulumi.AwsNative.ImageBuilder.ImagePipelineSchedulePipelineExecutionStartCondition? pipelineExecutionStartCondition,
 
             string? scheduleExpression)
         {
+            AutoDisablePolicy = autoDisablePolicy;
             PipelineExecutionStartCondition = pipelineExecutionStartCondition;
             ScheduleExpression = scheduleExpression;
         }

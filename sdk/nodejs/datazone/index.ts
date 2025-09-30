@@ -45,6 +45,11 @@ export type EnvironmentProfile = import("./environmentProfile").EnvironmentProfi
 export const EnvironmentProfile: typeof import("./environmentProfile").EnvironmentProfile = null as any;
 utilities.lazyLoad(exports, ["EnvironmentProfile"], () => require("./environmentProfile"));
 
+export { FormTypeArgs } from "./formType";
+export type FormType = import("./formType").FormType;
+export const FormType: typeof import("./formType").FormType = null as any;
+utilities.lazyLoad(exports, ["FormType"], () => require("./formType"));
+
 export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from "./getConnection";
 export const getConnection: typeof import("./getConnection").getConnection = null as any;
 export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
@@ -85,10 +90,20 @@ export const getEnvironmentProfile: typeof import("./getEnvironmentProfile").get
 export const getEnvironmentProfileOutput: typeof import("./getEnvironmentProfile").getEnvironmentProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getEnvironmentProfile","getEnvironmentProfileOutput"], () => require("./getEnvironmentProfile"));
 
+export { GetFormTypeArgs, GetFormTypeResult, GetFormTypeOutputArgs } from "./getFormType";
+export const getFormType: typeof import("./getFormType").getFormType = null as any;
+export const getFormTypeOutput: typeof import("./getFormType").getFormTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getFormType","getFormTypeOutput"], () => require("./getFormType"));
+
 export { GetGroupProfileArgs, GetGroupProfileResult, GetGroupProfileOutputArgs } from "./getGroupProfile";
 export const getGroupProfile: typeof import("./getGroupProfile").getGroupProfile = null as any;
 export const getGroupProfileOutput: typeof import("./getGroupProfile").getGroupProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getGroupProfile","getGroupProfileOutput"], () => require("./getGroupProfile"));
+
+export { GetOwnerArgs, GetOwnerResult, GetOwnerOutputArgs } from "./getOwner";
+export const getOwner: typeof import("./getOwner").getOwner = null as any;
+export const getOwnerOutput: typeof import("./getOwner").getOwnerOutput = null as any;
+utilities.lazyLoad(exports, ["getOwner","getOwnerOutput"], () => require("./getOwner"));
 
 export { GetPolicyGrantArgs, GetPolicyGrantResult, GetPolicyGrantOutputArgs } from "./getPolicyGrant";
 export const getPolicyGrant: typeof import("./getPolicyGrant").getPolicyGrant = null as any;
@@ -99,6 +114,11 @@ export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getPro
 export const getProject: typeof import("./getProject").getProject = null as any;
 export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
 utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
+
+export { GetProjectMembershipArgs, GetProjectMembershipResult, GetProjectMembershipOutputArgs } from "./getProjectMembership";
+export const getProjectMembership: typeof import("./getProjectMembership").getProjectMembership = null as any;
+export const getProjectMembershipOutput: typeof import("./getProjectMembership").getProjectMembershipOutput = null as any;
+utilities.lazyLoad(exports, ["getProjectMembership","getProjectMembershipOutput"], () => require("./getProjectMembership"));
 
 export { GetProjectProfileArgs, GetProjectProfileResult, GetProjectProfileOutputArgs } from "./getProjectProfile";
 export const getProjectProfile: typeof import("./getProjectProfile").getProjectProfile = null as any;
@@ -179,6 +199,8 @@ const _module = {
                 return new EnvironmentBlueprintConfiguration(name, <any>undefined, { urn })
             case "aws-native:datazone:EnvironmentProfile":
                 return new EnvironmentProfile(name, <any>undefined, { urn })
+            case "aws-native:datazone:FormType":
+                return new FormType(name, <any>undefined, { urn })
             case "aws-native:datazone:GroupProfile":
                 return new GroupProfile(name, <any>undefined, { urn })
             case "aws-native:datazone:Owner":

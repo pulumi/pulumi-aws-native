@@ -1464,6 +1464,7 @@ if not MYPY:
         """
         Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
         """
+        response_transfer_mode: NotRequired[pulumi.Input['MethodIntegrationResponseTransferMode']]
         timeout_in_millis: NotRequired[pulumi.Input[builtins.int]]
         """
         Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
@@ -1492,6 +1493,7 @@ class MethodIntegrationArgs:
                  passthrough_behavior: Optional[pulumi.Input['MethodIntegrationPassthroughBehavior']] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 response_transfer_mode: Optional[pulumi.Input['MethodIntegrationResponseTransferMode']] = None,
                  timeout_in_millis: Optional[pulumi.Input[builtins.int]] = None,
                  uri: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -1540,6 +1542,8 @@ class MethodIntegrationArgs:
             pulumi.set(__self__, "request_parameters", request_parameters)
         if request_templates is not None:
             pulumi.set(__self__, "request_templates", request_templates)
+        if response_transfer_mode is not None:
+            pulumi.set(__self__, "response_transfer_mode", response_transfer_mode)
         if timeout_in_millis is not None:
             pulumi.set(__self__, "timeout_in_millis", timeout_in_millis)
         if uri is not None:
@@ -1692,6 +1696,15 @@ class MethodIntegrationArgs:
     @request_templates.setter
     def request_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "request_templates", value)
+
+    @property
+    @pulumi.getter(name="responseTransferMode")
+    def response_transfer_mode(self) -> Optional[pulumi.Input['MethodIntegrationResponseTransferMode']]:
+        return pulumi.get(self, "response_transfer_mode")
+
+    @response_transfer_mode.setter
+    def response_transfer_mode(self, value: Optional[pulumi.Input['MethodIntegrationResponseTransferMode']]):
+        pulumi.set(self, "response_transfer_mode", value)
 
     @property
     @pulumi.getter(name="timeoutInMillis")

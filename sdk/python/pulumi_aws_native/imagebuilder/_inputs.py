@@ -1734,6 +1734,10 @@ if not MYPY:
         """
         The schedule of the image pipeline.
         """
+        auto_disable_policy: NotRequired[Any]
+        """
+        The auto-disable policy for the image pipeline.
+        """
         pipeline_execution_start_condition: NotRequired[pulumi.Input['ImagePipelineSchedulePipelineExecutionStartCondition']]
         """
         The condition configures when the pipeline should trigger a new image build.
@@ -1748,17 +1752,33 @@ elif False:
 @pulumi.input_type
 class ImagePipelineScheduleArgs:
     def __init__(__self__, *,
+                 auto_disable_policy: Optional[Any] = None,
                  pipeline_execution_start_condition: Optional[pulumi.Input['ImagePipelineSchedulePipelineExecutionStartCondition']] = None,
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None):
         """
         The schedule of the image pipeline.
+        :param Any auto_disable_policy: The auto-disable policy for the image pipeline.
         :param pulumi.Input['ImagePipelineSchedulePipelineExecutionStartCondition'] pipeline_execution_start_condition: The condition configures when the pipeline should trigger a new image build.
         :param pulumi.Input[builtins.str] schedule_expression: The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
         """
+        if auto_disable_policy is not None:
+            pulumi.set(__self__, "auto_disable_policy", auto_disable_policy)
         if pipeline_execution_start_condition is not None:
             pulumi.set(__self__, "pipeline_execution_start_condition", pipeline_execution_start_condition)
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
+
+    @property
+    @pulumi.getter(name="autoDisablePolicy")
+    def auto_disable_policy(self) -> Optional[Any]:
+        """
+        The auto-disable policy for the image pipeline.
+        """
+        return pulumi.get(self, "auto_disable_policy")
+
+    @auto_disable_policy.setter
+    def auto_disable_policy(self, value: Optional[Any]):
+        pulumi.set(self, "auto_disable_policy", value)
 
     @property
     @pulumi.getter(name="pipelineExecutionStartCondition")

@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { BrokerArgs } from "./broker";
+export type Broker = import("./broker").Broker;
+export const Broker: typeof import("./broker").Broker = null as any;
+utilities.lazyLoad(exports, ["Broker"], () => require("./broker"));
+
 export { ConfigurationArgs } from "./configuration";
 export type Configuration = import("./configuration").Configuration;
 export const Configuration: typeof import("./configuration").Configuration = null as any;
 utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
+
+export { GetBrokerArgs, GetBrokerResult, GetBrokerOutputArgs } from "./getBroker";
+export const getBroker: typeof import("./getBroker").getBroker = null as any;
+export const getBrokerOutput: typeof import("./getBroker").getBrokerOutput = null as any;
+utilities.lazyLoad(exports, ["getBroker","getBrokerOutput"], () => require("./getBroker"));
 
 export { GetConfigurationArgs, GetConfigurationResult, GetConfigurationOutputArgs } from "./getConfiguration";
 export const getConfiguration: typeof import("./getConfiguration").getConfiguration = null as any;
@@ -16,10 +26,15 @@ export const getConfigurationOutput: typeof import("./getConfiguration").getConf
 utilities.lazyLoad(exports, ["getConfiguration","getConfigurationOutput"], () => require("./getConfiguration"));
 
 
+// Export enums:
+export * from "../types/enums/amazonmq";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:amazonmq:Broker":
+                return new Broker(name, <any>undefined, { urn })
             case "aws-native:amazonmq:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
             default:

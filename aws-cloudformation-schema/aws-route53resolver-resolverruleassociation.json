@@ -24,7 +24,9 @@
   "readOnlyProperties" : [ "/properties/ResolverRuleAssociationId" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/VPCId", "/properties/ResolverRuleId" ],
   "primaryIdentifier" : [ "/properties/ResolverRuleAssociationId" ],
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "route53resolver:AssociateResolverRule", "route53resolver:GetResolverRuleAssociation", "ec2:DescribeVpcs" ]

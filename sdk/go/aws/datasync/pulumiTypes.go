@@ -2796,6 +2796,384 @@ func (o LocationS3s3ConfigPtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies configuration information for a DataSync-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+type LocationSmbCmkSecretConfig struct {
+	// Specifies the ARN for the customer-managed AWS KMS key used to encrypt the secret specified for SecretArn. DataSync provides this key to AWS Secrets Manager.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// Specifies the ARN for an AWS Secrets Manager secret, managed by DataSync.
+	SecretArn *string `pulumi:"secretArn"`
+}
+
+// LocationSmbCmkSecretConfigInput is an input type that accepts LocationSmbCmkSecretConfigArgs and LocationSmbCmkSecretConfigOutput values.
+// You can construct a concrete instance of `LocationSmbCmkSecretConfigInput` via:
+//
+//	LocationSmbCmkSecretConfigArgs{...}
+type LocationSmbCmkSecretConfigInput interface {
+	pulumi.Input
+
+	ToLocationSmbCmkSecretConfigOutput() LocationSmbCmkSecretConfigOutput
+	ToLocationSmbCmkSecretConfigOutputWithContext(context.Context) LocationSmbCmkSecretConfigOutput
+}
+
+// Specifies configuration information for a DataSync-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+type LocationSmbCmkSecretConfigArgs struct {
+	// Specifies the ARN for the customer-managed AWS KMS key used to encrypt the secret specified for SecretArn. DataSync provides this key to AWS Secrets Manager.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// Specifies the ARN for an AWS Secrets Manager secret, managed by DataSync.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+}
+
+func (LocationSmbCmkSecretConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationSmbCmkSecretConfig)(nil)).Elem()
+}
+
+func (i LocationSmbCmkSecretConfigArgs) ToLocationSmbCmkSecretConfigOutput() LocationSmbCmkSecretConfigOutput {
+	return i.ToLocationSmbCmkSecretConfigOutputWithContext(context.Background())
+}
+
+func (i LocationSmbCmkSecretConfigArgs) ToLocationSmbCmkSecretConfigOutputWithContext(ctx context.Context) LocationSmbCmkSecretConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbCmkSecretConfigOutput)
+}
+
+func (i LocationSmbCmkSecretConfigArgs) ToLocationSmbCmkSecretConfigPtrOutput() LocationSmbCmkSecretConfigPtrOutput {
+	return i.ToLocationSmbCmkSecretConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LocationSmbCmkSecretConfigArgs) ToLocationSmbCmkSecretConfigPtrOutputWithContext(ctx context.Context) LocationSmbCmkSecretConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbCmkSecretConfigOutput).ToLocationSmbCmkSecretConfigPtrOutputWithContext(ctx)
+}
+
+// LocationSmbCmkSecretConfigPtrInput is an input type that accepts LocationSmbCmkSecretConfigArgs, LocationSmbCmkSecretConfigPtr and LocationSmbCmkSecretConfigPtrOutput values.
+// You can construct a concrete instance of `LocationSmbCmkSecretConfigPtrInput` via:
+//
+//	        LocationSmbCmkSecretConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationSmbCmkSecretConfigPtrInput interface {
+	pulumi.Input
+
+	ToLocationSmbCmkSecretConfigPtrOutput() LocationSmbCmkSecretConfigPtrOutput
+	ToLocationSmbCmkSecretConfigPtrOutputWithContext(context.Context) LocationSmbCmkSecretConfigPtrOutput
+}
+
+type locationSmbCmkSecretConfigPtrType LocationSmbCmkSecretConfigArgs
+
+func LocationSmbCmkSecretConfigPtr(v *LocationSmbCmkSecretConfigArgs) LocationSmbCmkSecretConfigPtrInput {
+	return (*locationSmbCmkSecretConfigPtrType)(v)
+}
+
+func (*locationSmbCmkSecretConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationSmbCmkSecretConfig)(nil)).Elem()
+}
+
+func (i *locationSmbCmkSecretConfigPtrType) ToLocationSmbCmkSecretConfigPtrOutput() LocationSmbCmkSecretConfigPtrOutput {
+	return i.ToLocationSmbCmkSecretConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *locationSmbCmkSecretConfigPtrType) ToLocationSmbCmkSecretConfigPtrOutputWithContext(ctx context.Context) LocationSmbCmkSecretConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbCmkSecretConfigPtrOutput)
+}
+
+// Specifies configuration information for a DataSync-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+type LocationSmbCmkSecretConfigOutput struct{ *pulumi.OutputState }
+
+func (LocationSmbCmkSecretConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationSmbCmkSecretConfig)(nil)).Elem()
+}
+
+func (o LocationSmbCmkSecretConfigOutput) ToLocationSmbCmkSecretConfigOutput() LocationSmbCmkSecretConfigOutput {
+	return o
+}
+
+func (o LocationSmbCmkSecretConfigOutput) ToLocationSmbCmkSecretConfigOutputWithContext(ctx context.Context) LocationSmbCmkSecretConfigOutput {
+	return o
+}
+
+func (o LocationSmbCmkSecretConfigOutput) ToLocationSmbCmkSecretConfigPtrOutput() LocationSmbCmkSecretConfigPtrOutput {
+	return o.ToLocationSmbCmkSecretConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LocationSmbCmkSecretConfigOutput) ToLocationSmbCmkSecretConfigPtrOutputWithContext(ctx context.Context) LocationSmbCmkSecretConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationSmbCmkSecretConfig) *LocationSmbCmkSecretConfig {
+		return &v
+	}).(LocationSmbCmkSecretConfigPtrOutput)
+}
+
+// Specifies the ARN for the customer-managed AWS KMS key used to encrypt the secret specified for SecretArn. DataSync provides this key to AWS Secrets Manager.
+func (o LocationSmbCmkSecretConfigOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationSmbCmkSecretConfig) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ARN for an AWS Secrets Manager secret, managed by DataSync.
+func (o LocationSmbCmkSecretConfigOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationSmbCmkSecretConfig) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+type LocationSmbCmkSecretConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationSmbCmkSecretConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationSmbCmkSecretConfig)(nil)).Elem()
+}
+
+func (o LocationSmbCmkSecretConfigPtrOutput) ToLocationSmbCmkSecretConfigPtrOutput() LocationSmbCmkSecretConfigPtrOutput {
+	return o
+}
+
+func (o LocationSmbCmkSecretConfigPtrOutput) ToLocationSmbCmkSecretConfigPtrOutputWithContext(ctx context.Context) LocationSmbCmkSecretConfigPtrOutput {
+	return o
+}
+
+func (o LocationSmbCmkSecretConfigPtrOutput) Elem() LocationSmbCmkSecretConfigOutput {
+	return o.ApplyT(func(v *LocationSmbCmkSecretConfig) LocationSmbCmkSecretConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LocationSmbCmkSecretConfig
+		return ret
+	}).(LocationSmbCmkSecretConfigOutput)
+}
+
+// Specifies the ARN for the customer-managed AWS KMS key used to encrypt the secret specified for SecretArn. DataSync provides this key to AWS Secrets Manager.
+func (o LocationSmbCmkSecretConfigPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationSmbCmkSecretConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ARN for an AWS Secrets Manager secret, managed by DataSync.
+func (o LocationSmbCmkSecretConfigPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationSmbCmkSecretConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies configuration information for a customer-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+type LocationSmbCustomSecretConfig struct {
+	// Specifies the ARN for the AWS Identity and Access Management role that DataSync uses to access the secret specified for SecretArn.
+	SecretAccessRoleArn string `pulumi:"secretAccessRoleArn"`
+	// Specifies the ARN for a customer created AWS Secrets Manager secret.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// LocationSmbCustomSecretConfigInput is an input type that accepts LocationSmbCustomSecretConfigArgs and LocationSmbCustomSecretConfigOutput values.
+// You can construct a concrete instance of `LocationSmbCustomSecretConfigInput` via:
+//
+//	LocationSmbCustomSecretConfigArgs{...}
+type LocationSmbCustomSecretConfigInput interface {
+	pulumi.Input
+
+	ToLocationSmbCustomSecretConfigOutput() LocationSmbCustomSecretConfigOutput
+	ToLocationSmbCustomSecretConfigOutputWithContext(context.Context) LocationSmbCustomSecretConfigOutput
+}
+
+// Specifies configuration information for a customer-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+type LocationSmbCustomSecretConfigArgs struct {
+	// Specifies the ARN for the AWS Identity and Access Management role that DataSync uses to access the secret specified for SecretArn.
+	SecretAccessRoleArn pulumi.StringInput `pulumi:"secretAccessRoleArn"`
+	// Specifies the ARN for a customer created AWS Secrets Manager secret.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (LocationSmbCustomSecretConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationSmbCustomSecretConfig)(nil)).Elem()
+}
+
+func (i LocationSmbCustomSecretConfigArgs) ToLocationSmbCustomSecretConfigOutput() LocationSmbCustomSecretConfigOutput {
+	return i.ToLocationSmbCustomSecretConfigOutputWithContext(context.Background())
+}
+
+func (i LocationSmbCustomSecretConfigArgs) ToLocationSmbCustomSecretConfigOutputWithContext(ctx context.Context) LocationSmbCustomSecretConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbCustomSecretConfigOutput)
+}
+
+func (i LocationSmbCustomSecretConfigArgs) ToLocationSmbCustomSecretConfigPtrOutput() LocationSmbCustomSecretConfigPtrOutput {
+	return i.ToLocationSmbCustomSecretConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LocationSmbCustomSecretConfigArgs) ToLocationSmbCustomSecretConfigPtrOutputWithContext(ctx context.Context) LocationSmbCustomSecretConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbCustomSecretConfigOutput).ToLocationSmbCustomSecretConfigPtrOutputWithContext(ctx)
+}
+
+// LocationSmbCustomSecretConfigPtrInput is an input type that accepts LocationSmbCustomSecretConfigArgs, LocationSmbCustomSecretConfigPtr and LocationSmbCustomSecretConfigPtrOutput values.
+// You can construct a concrete instance of `LocationSmbCustomSecretConfigPtrInput` via:
+//
+//	        LocationSmbCustomSecretConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationSmbCustomSecretConfigPtrInput interface {
+	pulumi.Input
+
+	ToLocationSmbCustomSecretConfigPtrOutput() LocationSmbCustomSecretConfigPtrOutput
+	ToLocationSmbCustomSecretConfigPtrOutputWithContext(context.Context) LocationSmbCustomSecretConfigPtrOutput
+}
+
+type locationSmbCustomSecretConfigPtrType LocationSmbCustomSecretConfigArgs
+
+func LocationSmbCustomSecretConfigPtr(v *LocationSmbCustomSecretConfigArgs) LocationSmbCustomSecretConfigPtrInput {
+	return (*locationSmbCustomSecretConfigPtrType)(v)
+}
+
+func (*locationSmbCustomSecretConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationSmbCustomSecretConfig)(nil)).Elem()
+}
+
+func (i *locationSmbCustomSecretConfigPtrType) ToLocationSmbCustomSecretConfigPtrOutput() LocationSmbCustomSecretConfigPtrOutput {
+	return i.ToLocationSmbCustomSecretConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *locationSmbCustomSecretConfigPtrType) ToLocationSmbCustomSecretConfigPtrOutputWithContext(ctx context.Context) LocationSmbCustomSecretConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbCustomSecretConfigPtrOutput)
+}
+
+// Specifies configuration information for a customer-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+type LocationSmbCustomSecretConfigOutput struct{ *pulumi.OutputState }
+
+func (LocationSmbCustomSecretConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationSmbCustomSecretConfig)(nil)).Elem()
+}
+
+func (o LocationSmbCustomSecretConfigOutput) ToLocationSmbCustomSecretConfigOutput() LocationSmbCustomSecretConfigOutput {
+	return o
+}
+
+func (o LocationSmbCustomSecretConfigOutput) ToLocationSmbCustomSecretConfigOutputWithContext(ctx context.Context) LocationSmbCustomSecretConfigOutput {
+	return o
+}
+
+func (o LocationSmbCustomSecretConfigOutput) ToLocationSmbCustomSecretConfigPtrOutput() LocationSmbCustomSecretConfigPtrOutput {
+	return o.ToLocationSmbCustomSecretConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LocationSmbCustomSecretConfigOutput) ToLocationSmbCustomSecretConfigPtrOutputWithContext(ctx context.Context) LocationSmbCustomSecretConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationSmbCustomSecretConfig) *LocationSmbCustomSecretConfig {
+		return &v
+	}).(LocationSmbCustomSecretConfigPtrOutput)
+}
+
+// Specifies the ARN for the AWS Identity and Access Management role that DataSync uses to access the secret specified for SecretArn.
+func (o LocationSmbCustomSecretConfigOutput) SecretAccessRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationSmbCustomSecretConfig) string { return v.SecretAccessRoleArn }).(pulumi.StringOutput)
+}
+
+// Specifies the ARN for a customer created AWS Secrets Manager secret.
+func (o LocationSmbCustomSecretConfigOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationSmbCustomSecretConfig) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type LocationSmbCustomSecretConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationSmbCustomSecretConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationSmbCustomSecretConfig)(nil)).Elem()
+}
+
+func (o LocationSmbCustomSecretConfigPtrOutput) ToLocationSmbCustomSecretConfigPtrOutput() LocationSmbCustomSecretConfigPtrOutput {
+	return o
+}
+
+func (o LocationSmbCustomSecretConfigPtrOutput) ToLocationSmbCustomSecretConfigPtrOutputWithContext(ctx context.Context) LocationSmbCustomSecretConfigPtrOutput {
+	return o
+}
+
+func (o LocationSmbCustomSecretConfigPtrOutput) Elem() LocationSmbCustomSecretConfigOutput {
+	return o.ApplyT(func(v *LocationSmbCustomSecretConfig) LocationSmbCustomSecretConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LocationSmbCustomSecretConfig
+		return ret
+	}).(LocationSmbCustomSecretConfigOutput)
+}
+
+// Specifies the ARN for the AWS Identity and Access Management role that DataSync uses to access the secret specified for SecretArn.
+func (o LocationSmbCustomSecretConfigPtrOutput) SecretAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationSmbCustomSecretConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ARN for a customer created AWS Secrets Manager secret.
+func (o LocationSmbCustomSecretConfigPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationSmbCustomSecretConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies configuration information for a DataSync-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location. DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
+type LocationSmbManagedSecretConfig struct {
+	// Specifies the ARN for an AWS Secrets Manager secret.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// Specifies configuration information for a DataSync-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location. DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
+type LocationSmbManagedSecretConfigOutput struct{ *pulumi.OutputState }
+
+func (LocationSmbManagedSecretConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationSmbManagedSecretConfig)(nil)).Elem()
+}
+
+func (o LocationSmbManagedSecretConfigOutput) ToLocationSmbManagedSecretConfigOutput() LocationSmbManagedSecretConfigOutput {
+	return o
+}
+
+func (o LocationSmbManagedSecretConfigOutput) ToLocationSmbManagedSecretConfigOutputWithContext(ctx context.Context) LocationSmbManagedSecretConfigOutput {
+	return o
+}
+
+// Specifies the ARN for an AWS Secrets Manager secret.
+func (o LocationSmbManagedSecretConfigOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationSmbManagedSecretConfig) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type LocationSmbManagedSecretConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationSmbManagedSecretConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationSmbManagedSecretConfig)(nil)).Elem()
+}
+
+func (o LocationSmbManagedSecretConfigPtrOutput) ToLocationSmbManagedSecretConfigPtrOutput() LocationSmbManagedSecretConfigPtrOutput {
+	return o
+}
+
+func (o LocationSmbManagedSecretConfigPtrOutput) ToLocationSmbManagedSecretConfigPtrOutputWithContext(ctx context.Context) LocationSmbManagedSecretConfigPtrOutput {
+	return o
+}
+
+func (o LocationSmbManagedSecretConfigPtrOutput) Elem() LocationSmbManagedSecretConfigOutput {
+	return o.ApplyT(func(v *LocationSmbManagedSecretConfig) LocationSmbManagedSecretConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LocationSmbManagedSecretConfig
+		return ret
+	}).(LocationSmbManagedSecretConfigOutput)
+}
+
+// Specifies the ARN for an AWS Secrets Manager secret.
+func (o LocationSmbManagedSecretConfigPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationSmbManagedSecretConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // The mount options used by DataSync to access the SMB server.
 type LocationSmbMountOptions struct {
 	// The specific SMB version that you want DataSync to use to mount your SMB share.
@@ -5750,6 +6128,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageCustomSecretConfigInput)(nil)).Elem(), LocationObjectStorageCustomSecretConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageCustomSecretConfigPtrInput)(nil)).Elem(), LocationObjectStorageCustomSecretConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationS3s3ConfigInput)(nil)).Elem(), LocationS3s3ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbCmkSecretConfigInput)(nil)).Elem(), LocationSmbCmkSecretConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbCmkSecretConfigPtrInput)(nil)).Elem(), LocationSmbCmkSecretConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbCustomSecretConfigInput)(nil)).Elem(), LocationSmbCustomSecretConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbCustomSecretConfigPtrInput)(nil)).Elem(), LocationSmbCustomSecretConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbMountOptionsInput)(nil)).Elem(), LocationSmbMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbMountOptionsPtrInput)(nil)).Elem(), LocationSmbMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemServerConfigurationInput)(nil)).Elem(), StorageSystemServerConfigurationArgs{})
@@ -5824,6 +6206,12 @@ func init() {
 	pulumi.RegisterOutputType(LocationObjectStorageManagedSecretConfigPtrOutput{})
 	pulumi.RegisterOutputType(LocationS3s3ConfigOutput{})
 	pulumi.RegisterOutputType(LocationS3s3ConfigPtrOutput{})
+	pulumi.RegisterOutputType(LocationSmbCmkSecretConfigOutput{})
+	pulumi.RegisterOutputType(LocationSmbCmkSecretConfigPtrOutput{})
+	pulumi.RegisterOutputType(LocationSmbCustomSecretConfigOutput{})
+	pulumi.RegisterOutputType(LocationSmbCustomSecretConfigPtrOutput{})
+	pulumi.RegisterOutputType(LocationSmbManagedSecretConfigOutput{})
+	pulumi.RegisterOutputType(LocationSmbManagedSecretConfigPtrOutput{})
 	pulumi.RegisterOutputType(LocationSmbMountOptionsOutput{})
 	pulumi.RegisterOutputType(LocationSmbMountOptionsPtrOutput{})
 	pulumi.RegisterOutputType(StorageSystemServerConfigurationOutput{})

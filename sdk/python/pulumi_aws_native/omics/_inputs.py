@@ -33,14 +33,26 @@ __all__ = [
     'VariantStoreReferenceItemArgsDict',
     'VariantStoreSseConfigArgs',
     'VariantStoreSseConfigArgsDict',
+    'WorkflowContainerRegistryMapArgs',
+    'WorkflowContainerRegistryMapArgsDict',
     'WorkflowDefinitionRepositoryArgs',
     'WorkflowDefinitionRepositoryArgsDict',
+    'WorkflowImageMappingArgs',
+    'WorkflowImageMappingArgsDict',
     'WorkflowParameterArgs',
     'WorkflowParameterArgsDict',
+    'WorkflowRegistryMappingArgs',
+    'WorkflowRegistryMappingArgsDict',
     'WorkflowSourceReferenceArgs',
     'WorkflowSourceReferenceArgsDict',
+    'WorkflowVersionContainerRegistryMapArgs',
+    'WorkflowVersionContainerRegistryMapArgsDict',
     'WorkflowVersionDefinitionRepositoryArgs',
     'WorkflowVersionDefinitionRepositoryArgsDict',
+    'WorkflowVersionImageMappingArgs',
+    'WorkflowVersionImageMappingArgsDict',
+    'WorkflowVersionRegistryMappingArgs',
+    'WorkflowVersionRegistryMappingArgsDict',
     'WorkflowVersionSourceReferenceArgs',
     'WorkflowVersionSourceReferenceArgsDict',
     'WorkflowVersionWorkflowParameterArgs',
@@ -395,6 +407,58 @@ class VariantStoreSseConfigArgs:
 
 
 if not MYPY:
+    class WorkflowContainerRegistryMapArgsDict(TypedDict):
+        image_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowImageMappingArgsDict']]]]
+        """
+        Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+        """
+        registry_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowRegistryMappingArgsDict']]]]
+        """
+        Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
+        """
+elif False:
+    WorkflowContainerRegistryMapArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkflowContainerRegistryMapArgs:
+    def __init__(__self__, *,
+                 image_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowImageMappingArgs']]]] = None,
+                 registry_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowRegistryMappingArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WorkflowImageMappingArgs']]] image_mappings: Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkflowRegistryMappingArgs']]] registry_mappings: Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
+        """
+        if image_mappings is not None:
+            pulumi.set(__self__, "image_mappings", image_mappings)
+        if registry_mappings is not None:
+            pulumi.set(__self__, "registry_mappings", registry_mappings)
+
+    @property
+    @pulumi.getter(name="imageMappings")
+    def image_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowImageMappingArgs']]]]:
+        """
+        Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+        """
+        return pulumi.get(self, "image_mappings")
+
+    @image_mappings.setter
+    def image_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowImageMappingArgs']]]]):
+        pulumi.set(self, "image_mappings", value)
+
+    @property
+    @pulumi.getter(name="registryMappings")
+    def registry_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowRegistryMappingArgs']]]]:
+        """
+        Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
+        """
+        return pulumi.get(self, "registry_mappings")
+
+    @registry_mappings.setter
+    def registry_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowRegistryMappingArgs']]]]):
+        pulumi.set(self, "registry_mappings", value)
+
+
+if not MYPY:
     class WorkflowDefinitionRepositoryArgsDict(TypedDict):
         connection_arn: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -487,6 +551,58 @@ class WorkflowDefinitionRepositoryArgs:
 
 
 if not MYPY:
+    class WorkflowImageMappingArgsDict(TypedDict):
+        destination_image: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Specifies the URI of the corresponding image in the private ECR registry.
+        """
+        source_image: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Specifies the URI of the source image in the upstream registry.
+        """
+elif False:
+    WorkflowImageMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkflowImageMappingArgs:
+    def __init__(__self__, *,
+                 destination_image: Optional[pulumi.Input[builtins.str]] = None,
+                 source_image: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] destination_image: Specifies the URI of the corresponding image in the private ECR registry.
+        :param pulumi.Input[builtins.str] source_image: Specifies the URI of the source image in the upstream registry.
+        """
+        if destination_image is not None:
+            pulumi.set(__self__, "destination_image", destination_image)
+        if source_image is not None:
+            pulumi.set(__self__, "source_image", source_image)
+
+    @property
+    @pulumi.getter(name="destinationImage")
+    def destination_image(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the URI of the corresponding image in the private ECR registry.
+        """
+        return pulumi.get(self, "destination_image")
+
+    @destination_image.setter
+    def destination_image(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "destination_image", value)
+
+    @property
+    @pulumi.getter(name="sourceImage")
+    def source_image(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the URI of the source image in the upstream registry.
+        """
+        return pulumi.get(self, "source_image")
+
+    @source_image.setter
+    def source_image(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "source_image", value)
+
+
+if not MYPY:
     class WorkflowParameterArgsDict(TypedDict):
         description: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -539,6 +655,98 @@ class WorkflowParameterArgs:
 
 
 if not MYPY:
+    class WorkflowRegistryMappingArgsDict(TypedDict):
+        ecr_account_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Account ID of the account that owns the upstream container image.
+        """
+        ecr_repository_prefix: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The repository prefix to use in the ECR private repository.
+        """
+        upstream_registry_url: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The URI of the upstream registry.
+        """
+        upstream_repository_prefix: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The repository prefix of the corresponding repository in the upstream registry.
+        """
+elif False:
+    WorkflowRegistryMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkflowRegistryMappingArgs:
+    def __init__(__self__, *,
+                 ecr_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 ecr_repository_prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 upstream_registry_url: Optional[pulumi.Input[builtins.str]] = None,
+                 upstream_repository_prefix: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] ecr_account_id: Account ID of the account that owns the upstream container image.
+        :param pulumi.Input[builtins.str] ecr_repository_prefix: The repository prefix to use in the ECR private repository.
+        :param pulumi.Input[builtins.str] upstream_registry_url: The URI of the upstream registry.
+        :param pulumi.Input[builtins.str] upstream_repository_prefix: The repository prefix of the corresponding repository in the upstream registry.
+        """
+        if ecr_account_id is not None:
+            pulumi.set(__self__, "ecr_account_id", ecr_account_id)
+        if ecr_repository_prefix is not None:
+            pulumi.set(__self__, "ecr_repository_prefix", ecr_repository_prefix)
+        if upstream_registry_url is not None:
+            pulumi.set(__self__, "upstream_registry_url", upstream_registry_url)
+        if upstream_repository_prefix is not None:
+            pulumi.set(__self__, "upstream_repository_prefix", upstream_repository_prefix)
+
+    @property
+    @pulumi.getter(name="ecrAccountId")
+    def ecr_account_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Account ID of the account that owns the upstream container image.
+        """
+        return pulumi.get(self, "ecr_account_id")
+
+    @ecr_account_id.setter
+    def ecr_account_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ecr_account_id", value)
+
+    @property
+    @pulumi.getter(name="ecrRepositoryPrefix")
+    def ecr_repository_prefix(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The repository prefix to use in the ECR private repository.
+        """
+        return pulumi.get(self, "ecr_repository_prefix")
+
+    @ecr_repository_prefix.setter
+    def ecr_repository_prefix(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ecr_repository_prefix", value)
+
+    @property
+    @pulumi.getter(name="upstreamRegistryUrl")
+    def upstream_registry_url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The URI of the upstream registry.
+        """
+        return pulumi.get(self, "upstream_registry_url")
+
+    @upstream_registry_url.setter
+    def upstream_registry_url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "upstream_registry_url", value)
+
+    @property
+    @pulumi.getter(name="upstreamRepositoryPrefix")
+    def upstream_repository_prefix(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The repository prefix of the corresponding repository in the upstream registry.
+        """
+        return pulumi.get(self, "upstream_repository_prefix")
+
+    @upstream_repository_prefix.setter
+    def upstream_repository_prefix(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "upstream_repository_prefix", value)
+
+
+if not MYPY:
     class WorkflowSourceReferenceArgsDict(TypedDict):
         type: NotRequired[pulumi.Input['WorkflowSourceReferencetype']]
         """
@@ -588,6 +796,58 @@ class WorkflowSourceReferenceArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class WorkflowVersionContainerRegistryMapArgsDict(TypedDict):
+        image_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionImageMappingArgsDict']]]]
+        """
+        Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+        """
+        registry_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionRegistryMappingArgsDict']]]]
+        """
+        Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
+        """
+elif False:
+    WorkflowVersionContainerRegistryMapArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkflowVersionContainerRegistryMapArgs:
+    def __init__(__self__, *,
+                 image_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionImageMappingArgs']]]] = None,
+                 registry_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionRegistryMappingArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WorkflowVersionImageMappingArgs']]] image_mappings: Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkflowVersionRegistryMappingArgs']]] registry_mappings: Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
+        """
+        if image_mappings is not None:
+            pulumi.set(__self__, "image_mappings", image_mappings)
+        if registry_mappings is not None:
+            pulumi.set(__self__, "registry_mappings", registry_mappings)
+
+    @property
+    @pulumi.getter(name="imageMappings")
+    def image_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionImageMappingArgs']]]]:
+        """
+        Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+        """
+        return pulumi.get(self, "image_mappings")
+
+    @image_mappings.setter
+    def image_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionImageMappingArgs']]]]):
+        pulumi.set(self, "image_mappings", value)
+
+    @property
+    @pulumi.getter(name="registryMappings")
+    def registry_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionRegistryMappingArgs']]]]:
+        """
+        Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
+        """
+        return pulumi.get(self, "registry_mappings")
+
+    @registry_mappings.setter
+    def registry_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowVersionRegistryMappingArgs']]]]):
+        pulumi.set(self, "registry_mappings", value)
 
 
 if not MYPY:
@@ -680,6 +940,150 @@ class WorkflowVersionDefinitionRepositoryArgs:
     @source_reference.setter
     def source_reference(self, value: Optional[pulumi.Input['WorkflowVersionSourceReferenceArgs']]):
         pulumi.set(self, "source_reference", value)
+
+
+if not MYPY:
+    class WorkflowVersionImageMappingArgsDict(TypedDict):
+        destination_image: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Specifies the URI of the corresponding image in the private ECR registry.
+        """
+        source_image: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Specifies the URI of the source image in the upstream registry.
+        """
+elif False:
+    WorkflowVersionImageMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkflowVersionImageMappingArgs:
+    def __init__(__self__, *,
+                 destination_image: Optional[pulumi.Input[builtins.str]] = None,
+                 source_image: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] destination_image: Specifies the URI of the corresponding image in the private ECR registry.
+        :param pulumi.Input[builtins.str] source_image: Specifies the URI of the source image in the upstream registry.
+        """
+        if destination_image is not None:
+            pulumi.set(__self__, "destination_image", destination_image)
+        if source_image is not None:
+            pulumi.set(__self__, "source_image", source_image)
+
+    @property
+    @pulumi.getter(name="destinationImage")
+    def destination_image(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the URI of the corresponding image in the private ECR registry.
+        """
+        return pulumi.get(self, "destination_image")
+
+    @destination_image.setter
+    def destination_image(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "destination_image", value)
+
+    @property
+    @pulumi.getter(name="sourceImage")
+    def source_image(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the URI of the source image in the upstream registry.
+        """
+        return pulumi.get(self, "source_image")
+
+    @source_image.setter
+    def source_image(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "source_image", value)
+
+
+if not MYPY:
+    class WorkflowVersionRegistryMappingArgsDict(TypedDict):
+        ecr_account_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Account ID of the account that owns the upstream container image.
+        """
+        ecr_repository_prefix: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The repository prefix to use in the ECR private repository.
+        """
+        upstream_registry_url: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The URI of the upstream registry.
+        """
+        upstream_repository_prefix: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The repository prefix of the corresponding repository in the upstream registry.
+        """
+elif False:
+    WorkflowVersionRegistryMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkflowVersionRegistryMappingArgs:
+    def __init__(__self__, *,
+                 ecr_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 ecr_repository_prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 upstream_registry_url: Optional[pulumi.Input[builtins.str]] = None,
+                 upstream_repository_prefix: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] ecr_account_id: Account ID of the account that owns the upstream container image.
+        :param pulumi.Input[builtins.str] ecr_repository_prefix: The repository prefix to use in the ECR private repository.
+        :param pulumi.Input[builtins.str] upstream_registry_url: The URI of the upstream registry.
+        :param pulumi.Input[builtins.str] upstream_repository_prefix: The repository prefix of the corresponding repository in the upstream registry.
+        """
+        if ecr_account_id is not None:
+            pulumi.set(__self__, "ecr_account_id", ecr_account_id)
+        if ecr_repository_prefix is not None:
+            pulumi.set(__self__, "ecr_repository_prefix", ecr_repository_prefix)
+        if upstream_registry_url is not None:
+            pulumi.set(__self__, "upstream_registry_url", upstream_registry_url)
+        if upstream_repository_prefix is not None:
+            pulumi.set(__self__, "upstream_repository_prefix", upstream_repository_prefix)
+
+    @property
+    @pulumi.getter(name="ecrAccountId")
+    def ecr_account_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Account ID of the account that owns the upstream container image.
+        """
+        return pulumi.get(self, "ecr_account_id")
+
+    @ecr_account_id.setter
+    def ecr_account_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ecr_account_id", value)
+
+    @property
+    @pulumi.getter(name="ecrRepositoryPrefix")
+    def ecr_repository_prefix(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The repository prefix to use in the ECR private repository.
+        """
+        return pulumi.get(self, "ecr_repository_prefix")
+
+    @ecr_repository_prefix.setter
+    def ecr_repository_prefix(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ecr_repository_prefix", value)
+
+    @property
+    @pulumi.getter(name="upstreamRegistryUrl")
+    def upstream_registry_url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The URI of the upstream registry.
+        """
+        return pulumi.get(self, "upstream_registry_url")
+
+    @upstream_registry_url.setter
+    def upstream_registry_url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "upstream_registry_url", value)
+
+    @property
+    @pulumi.getter(name="upstreamRepositoryPrefix")
+    def upstream_repository_prefix(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The repository prefix of the corresponding repository in the upstream registry.
+        """
+        return pulumi.get(self, "upstream_repository_prefix")
+
+    @upstream_repository_prefix.setter
+    def upstream_repository_prefix(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "upstream_repository_prefix", value)
 
 
 if not MYPY:

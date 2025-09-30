@@ -181,6 +181,8 @@ export class CapacityProvider extends pulumi.CustomResource {
      * The Auto Scaling group settings for the capacity provider.
      */
     public readonly autoScalingGroupProvider!: pulumi.Output<outputs.ecs.CapacityProviderAutoScalingGroupProvider | undefined>;
+    public readonly clusterName!: pulumi.Output<string | undefined>;
+    public readonly managedInstancesProvider!: pulumi.Output<outputs.ecs.CapacityProviderManagedInstancesProvider | undefined>;
     /**
      * The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
      */
@@ -212,15 +214,19 @@ export class CapacityProvider extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["autoScalingGroupProvider"] = args ? args.autoScalingGroupProvider : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["managedInstancesProvider"] = args ? args.managedInstancesProvider : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
             resourceInputs["autoScalingGroupProvider"] = undefined /*out*/;
+            resourceInputs["clusterName"] = undefined /*out*/;
+            resourceInputs["managedInstancesProvider"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["autoScalingGroupProvider.autoScalingGroupArn", "name"] };
+        const replaceOnChanges = { replaceOnChanges: ["autoScalingGroupProvider.autoScalingGroupArn", "clusterName", "name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CapacityProvider.__pulumiType, name, resourceInputs, opts);
     }
@@ -234,6 +240,8 @@ export interface CapacityProviderArgs {
      * The Auto Scaling group settings for the capacity provider.
      */
     autoScalingGroupProvider?: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProviderArgs>;
+    clusterName?: pulumi.Input<string>;
+    managedInstancesProvider?: pulumi.Input<inputs.ecs.CapacityProviderManagedInstancesProviderArgs>;
     /**
      * The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
      */

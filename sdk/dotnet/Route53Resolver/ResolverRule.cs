@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The name server domain for queries to be delegated to if a query matches the delegation record.
+        /// </summary>
+        [Output("delegationRecord")]
+        public Output<string?> DelegationRecord { get; private set; } = null!;
+
+        /// <summary>
         /// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
         /// </summary>
         [Output("domainName")]
@@ -112,6 +118,12 @@ namespace Pulumi.AwsNative.Route53Resolver
 
     public sealed class ResolverRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name server domain for queries to be delegated to if a query matches the delegation record.
+        /// </summary>
+        [Input("delegationRecord")]
+        public Input<string>? DelegationRecord { get; set; }
+
         /// <summary>
         /// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
         /// </summary>

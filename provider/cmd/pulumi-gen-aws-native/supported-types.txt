@@ -11,6 +11,7 @@ AWS::ARCRegionSwitch::Plan
 AWS::ARCZonalShift::AutoshiftObserverNotificationStatus
 AWS::ARCZonalShift::ZonalAutoshiftConfiguration
 AWS::AccessAnalyzer::Analyzer
+AWS::AmazonMQ::Broker
 AWS::AmazonMQ::Configuration
 AWS::Amplify::App
 AWS::Amplify::Branch
@@ -318,6 +319,7 @@ AWS::DataZone::Environment
 AWS::DataZone::EnvironmentActions
 AWS::DataZone::EnvironmentBlueprintConfiguration
 AWS::DataZone::EnvironmentProfile
+AWS::DataZone::FormType
 AWS::DataZone::GroupProfile
 AWS::DataZone::Owner
 AWS::DataZone::PolicyGrant
@@ -383,6 +385,8 @@ AWS::EC2::LocalGatewayRoute
 AWS::EC2::LocalGatewayRouteTable
 AWS::EC2::LocalGatewayRouteTableVPCAssociation
 AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation
+AWS::EC2::LocalGatewayVirtualInterface
+AWS::EC2::LocalGatewayVirtualInterfaceGroup
 AWS::EC2::NatGateway
 AWS::EC2::NetworkAcl
 AWS::EC2::NetworkInsightsAccessScope

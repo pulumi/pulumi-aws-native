@@ -20,6 +20,9 @@ type Workflow struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The workflow's ID.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
+	ContainerRegistryMap    WorkflowContainerRegistryMapPtrOutput `pulumi:"containerRegistryMap"`
+	ContainerRegistryMapUri pulumi.StringPtrOutput                `pulumi:"containerRegistryMapUri"`
 	// When the workflow was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// Contains information about a source code repository that hosts the workflow definition files.
@@ -67,6 +70,8 @@ func NewWorkflow(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"accelerators",
+		"containerRegistryMap",
+		"containerRegistryMapUri",
 		"definitionRepository",
 		"definitionUri",
 		"engine",
@@ -113,6 +118,9 @@ func (WorkflowState) ElementType() reflect.Type {
 
 type workflowArgs struct {
 	Accelerators *WorkflowAccelerators `pulumi:"accelerators"`
+	// Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
+	ContainerRegistryMap    *WorkflowContainerRegistryMap `pulumi:"containerRegistryMap"`
+	ContainerRegistryMapUri *string                       `pulumi:"containerRegistryMapUri"`
 	// Contains information about a source code repository that hosts the workflow definition files.
 	DefinitionRepository *WorkflowDefinitionRepository `pulumi:"definitionRepository"`
 	// The URI of a definition for the workflow.
@@ -147,6 +155,9 @@ type workflowArgs struct {
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
 	Accelerators WorkflowAcceleratorsPtrInput
+	// Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
+	ContainerRegistryMap    WorkflowContainerRegistryMapPtrInput
+	ContainerRegistryMapUri pulumi.StringPtrInput
 	// Contains information about a source code repository that hosts the workflow definition files.
 	DefinitionRepository WorkflowDefinitionRepositoryPtrInput
 	// The URI of a definition for the workflow.
@@ -227,6 +238,15 @@ func (o WorkflowOutput) Arn() pulumi.StringOutput {
 // The workflow's ID.
 func (o WorkflowOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
+// Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
+func (o WorkflowOutput) ContainerRegistryMap() WorkflowContainerRegistryMapPtrOutput {
+	return o.ApplyT(func(v *Workflow) WorkflowContainerRegistryMapPtrOutput { return v.ContainerRegistryMap }).(WorkflowContainerRegistryMapPtrOutput)
+}
+
+func (o WorkflowOutput) ContainerRegistryMapUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.ContainerRegistryMapUri }).(pulumi.StringPtrOutput)
 }
 
 // When the workflow was created.

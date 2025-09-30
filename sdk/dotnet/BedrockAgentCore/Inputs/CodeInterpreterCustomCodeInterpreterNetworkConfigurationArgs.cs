@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     /// </summary>
     public sealed class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The network mode.
+        /// </summary>
         [Input("networkMode", required: true)]
         public Input<Pulumi.AwsNative.BedrockAgentCore.CodeInterpreterCustomCodeInterpreterNetworkMode> NetworkMode { get; set; } = null!;
 

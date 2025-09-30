@@ -45,6 +45,9 @@ if not MYPY:
         Network configuration for browser
         """
         network_mode: pulumi.Input['BrowserCustomBrowserNetworkMode']
+        """
+        The network mode.
+        """
 elif False:
     BrowserCustomBrowserNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -54,12 +57,16 @@ class BrowserCustomBrowserNetworkConfigurationArgs:
                  network_mode: pulumi.Input['BrowserCustomBrowserNetworkMode']):
         """
         Network configuration for browser
+        :param pulumi.Input['BrowserCustomBrowserNetworkMode'] network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
 
     @property
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> pulumi.Input['BrowserCustomBrowserNetworkMode']:
+        """
+        The network mode.
+        """
         return pulumi.get(self, "network_mode")
 
     @network_mode.setter
@@ -73,7 +80,13 @@ if not MYPY:
         Recording configuration for browser
         """
         enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        The recording configuration for a browser. This structure defines how browser sessions are recorded.
+        """
         s3_location: NotRequired[pulumi.Input['BrowserCustomS3LocationArgsDict']]
+        """
+        The S3 location.
+        """
 elif False:
     BrowserCustomRecordingConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -84,6 +97,8 @@ class BrowserCustomRecordingConfigArgs:
                  s3_location: Optional[pulumi.Input['BrowserCustomS3LocationArgs']] = None):
         """
         Recording configuration for browser
+        :param pulumi.Input[builtins.bool] enabled: The recording configuration for a browser. This structure defines how browser sessions are recorded.
+        :param pulumi.Input['BrowserCustomS3LocationArgs'] s3_location: The S3 location.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -93,6 +108,9 @@ class BrowserCustomRecordingConfigArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        The recording configuration for a browser. This structure defines how browser sessions are recorded.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -102,6 +120,9 @@ class BrowserCustomRecordingConfigArgs:
     @property
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> Optional[pulumi.Input['BrowserCustomS3LocationArgs']]:
+        """
+        The S3 location.
+        """
         return pulumi.get(self, "s3_location")
 
     @s3_location.setter
@@ -115,7 +136,13 @@ if not MYPY:
         S3 Location Configuration
         """
         bucket: pulumi.Input[builtins.str]
+        """
+        The S3 location bucket name.
+        """
         prefix: pulumi.Input[builtins.str]
+        """
+        The S3 location object prefix.
+        """
 elif False:
     BrowserCustomS3LocationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -126,6 +153,8 @@ class BrowserCustomS3LocationArgs:
                  prefix: pulumi.Input[builtins.str]):
         """
         S3 Location Configuration
+        :param pulumi.Input[builtins.str] bucket: The S3 location bucket name.
+        :param pulumi.Input[builtins.str] prefix: The S3 location object prefix.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "prefix", prefix)
@@ -133,6 +162,9 @@ class BrowserCustomS3LocationArgs:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[builtins.str]:
+        """
+        The S3 location bucket name.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -142,6 +174,9 @@ class BrowserCustomS3LocationArgs:
     @property
     @pulumi.getter
     def prefix(self) -> pulumi.Input[builtins.str]:
+        """
+        The S3 location object prefix.
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -155,6 +190,9 @@ if not MYPY:
         Network configuration for code interpreter
         """
         network_mode: pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkMode']
+        """
+        The network mode.
+        """
 elif False:
     CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -164,12 +202,16 @@ class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs:
                  network_mode: pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkMode']):
         """
         Network configuration for code interpreter
+        :param pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkMode'] network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
 
     @property
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkMode']:
+        """
+        The network mode.
+        """
         return pulumi.get(self, "network_mode")
 
     @network_mode.setter
@@ -180,6 +222,9 @@ class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs:
 if not MYPY:
     class RuntimeAgentRuntimeArtifactArgsDict(TypedDict):
         container_configuration: NotRequired[pulumi.Input['RuntimeContainerConfigurationArgsDict']]
+        """
+        Representation of a container configuration.
+        """
 elif False:
     RuntimeAgentRuntimeArtifactArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -187,12 +232,18 @@ elif False:
 class RuntimeAgentRuntimeArtifactArgs:
     def __init__(__self__, *,
                  container_configuration: Optional[pulumi.Input['RuntimeContainerConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['RuntimeContainerConfigurationArgs'] container_configuration: Representation of a container configuration.
+        """
         if container_configuration is not None:
             pulumi.set(__self__, "container_configuration", container_configuration)
 
     @property
     @pulumi.getter(name="containerConfiguration")
     def container_configuration(self) -> Optional[pulumi.Input['RuntimeContainerConfigurationArgs']]:
+        """
+        Representation of a container configuration.
+        """
         return pulumi.get(self, "container_configuration")
 
     @container_configuration.setter
@@ -206,6 +257,9 @@ if not MYPY:
         Configuration for the authorizer
         """
         custom_jwt_authorizer: NotRequired[pulumi.Input['RuntimeCustomJwtAuthorizerConfigurationArgsDict']]
+        """
+        Represents inbound authorization configuration options used to authenticate incoming requests.
+        """
 elif False:
     RuntimeAuthorizerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -215,6 +269,7 @@ class RuntimeAuthorizerConfigurationArgs:
                  custom_jwt_authorizer: Optional[pulumi.Input['RuntimeCustomJwtAuthorizerConfigurationArgs']] = None):
         """
         Configuration for the authorizer
+        :param pulumi.Input['RuntimeCustomJwtAuthorizerConfigurationArgs'] custom_jwt_authorizer: Represents inbound authorization configuration options used to authenticate incoming requests.
         """
         if custom_jwt_authorizer is not None:
             pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
@@ -222,6 +277,9 @@ class RuntimeAuthorizerConfigurationArgs:
     @property
     @pulumi.getter(name="customJwtAuthorizer")
     def custom_jwt_authorizer(self) -> Optional[pulumi.Input['RuntimeCustomJwtAuthorizerConfigurationArgs']]:
+        """
+        Represents inbound authorization configuration options used to authenticate incoming requests.
+        """
         return pulumi.get(self, "custom_jwt_authorizer")
 
     @custom_jwt_authorizer.setter
@@ -232,6 +290,9 @@ class RuntimeAuthorizerConfigurationArgs:
 if not MYPY:
     class RuntimeContainerConfigurationArgsDict(TypedDict):
         container_uri: pulumi.Input[builtins.str]
+        """
+        The container Uri.
+        """
 elif False:
     RuntimeContainerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -239,11 +300,17 @@ elif False:
 class RuntimeContainerConfigurationArgs:
     def __init__(__self__, *,
                  container_uri: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] container_uri: The container Uri.
+        """
         pulumi.set(__self__, "container_uri", container_uri)
 
     @property
     @pulumi.getter(name="containerUri")
     def container_uri(self) -> pulumi.Input[builtins.str]:
+        """
+        The container Uri.
+        """
         return pulumi.get(self, "container_uri")
 
     @container_uri.setter
@@ -257,8 +324,17 @@ if not MYPY:
         Configuration for custom JWT authorizer
         """
         discovery_url: pulumi.Input[builtins.str]
+        """
+        The configuration authorization.
+        """
         allowed_audience: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Represents inbound authorization configuration options used to authenticate incoming requests.
+        """
         allowed_clients: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Represents individual client IDs that are validated in the incoming JWT token validation process.
+        """
 elif False:
     RuntimeCustomJwtAuthorizerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -270,6 +346,9 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
                  allowed_clients: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         Configuration for custom JWT authorizer
+        :param pulumi.Input[builtins.str] discovery_url: The configuration authorization.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_audience: Represents inbound authorization configuration options used to authenticate incoming requests.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_clients: Represents individual client IDs that are validated in the incoming JWT token validation process.
         """
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audience is not None:
@@ -280,6 +359,9 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
     @property
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> pulumi.Input[builtins.str]:
+        """
+        The configuration authorization.
+        """
         return pulumi.get(self, "discovery_url")
 
     @discovery_url.setter
@@ -289,6 +371,9 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
     @property
     @pulumi.getter(name="allowedAudience")
     def allowed_audience(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Represents inbound authorization configuration options used to authenticate incoming requests.
+        """
         return pulumi.get(self, "allowed_audience")
 
     @allowed_audience.setter
@@ -298,6 +383,9 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
     @property
     @pulumi.getter(name="allowedClients")
     def allowed_clients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Represents individual client IDs that are validated in the incoming JWT token validation process.
+        """
         return pulumi.get(self, "allowed_clients")
 
     @allowed_clients.setter
@@ -308,6 +396,9 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
 if not MYPY:
     class RuntimeNetworkConfigurationArgsDict(TypedDict):
         network_mode: pulumi.Input['RuntimeNetworkMode']
+        """
+        The network mode.
+        """
 elif False:
     RuntimeNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -315,11 +406,17 @@ elif False:
 class RuntimeNetworkConfigurationArgs:
     def __init__(__self__, *,
                  network_mode: pulumi.Input['RuntimeNetworkMode']):
+        """
+        :param pulumi.Input['RuntimeNetworkMode'] network_mode: The network mode.
+        """
         pulumi.set(__self__, "network_mode", network_mode)
 
     @property
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> pulumi.Input['RuntimeNetworkMode']:
+        """
+        The network mode.
+        """
         return pulumi.get(self, "network_mode")
 
     @network_mode.setter

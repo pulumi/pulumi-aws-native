@@ -244,6 +244,7 @@ class ConnectAttachment(pulumi.CustomResource):
             __props__.__dict__["attachment_type"] = None
             __props__.__dict__["core_network_arn"] = None
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["last_modification_errors"] = None
             __props__.__dict__["owner_account_id"] = None
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["segment_name"] = None
@@ -280,6 +281,7 @@ class ConnectAttachment(pulumi.CustomResource):
         __props__.__dict__["core_network_id"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["edge_location"] = None
+        __props__.__dict__["last_modification_errors"] = None
         __props__.__dict__["network_function_group_name"] = None
         __props__.__dict__["options"] = None
         __props__.__dict__["owner_account_id"] = None
@@ -348,6 +350,14 @@ class ConnectAttachment(pulumi.CustomResource):
         Edge location of the attachment.
         """
         return pulumi.get(self, "edge_location")
+
+    @property
+    @pulumi.getter(name="lastModificationErrors")
+    def last_modification_errors(self) -> pulumi.Output[Sequence[builtins.str]]:
+        """
+        Errors from the last modification of the attachment.
+        """
+        return pulumi.get(self, "last_modification_errors")
 
     @property
     @pulumi.getter(name="networkFunctionGroupName")

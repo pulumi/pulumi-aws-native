@@ -85,6 +85,9 @@ export class RuntimeEndpoint extends pulumi.CustomResource {
      * The status of the Agent Runtime Endpoint
      */
     public /*out*/ readonly status!: pulumi.Output<enums.bedrockagentcore.RuntimeEndpointAgentRuntimeEndpointStatus>;
+    /**
+     * The tags for the AgentCore Runtime endpoint.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The target version of the AgentCore Runtime for the endpoint.
@@ -162,5 +165,8 @@ export interface RuntimeEndpointArgs {
      * The name of the Agent Runtime Endpoint
      */
     name?: pulumi.Input<string>;
+    /**
+     * The tags for the AgentCore Runtime endpoint.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

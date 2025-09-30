@@ -18,8 +18,22 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CapacityProviderAcceleratorCountRequest',
+    'CapacityProviderAcceleratorTotalMemoryMiBRequest',
     'CapacityProviderAutoScalingGroupProvider',
+    'CapacityProviderBaselineEbsBandwidthMbpsRequest',
+    'CapacityProviderInstanceLaunchTemplate',
+    'CapacityProviderInstanceRequirementsRequest',
+    'CapacityProviderManagedInstancesNetworkConfiguration',
+    'CapacityProviderManagedInstancesProvider',
+    'CapacityProviderManagedInstancesStorageConfiguration',
     'CapacityProviderManagedScaling',
+    'CapacityProviderMemoryGiBPerVCpuRequest',
+    'CapacityProviderMemoryMiBRequest',
+    'CapacityProviderNetworkBandwidthGbpsRequest',
+    'CapacityProviderNetworkInterfaceCountRequest',
+    'CapacityProviderTotalLocalStorageGbRequest',
+    'CapacityProviderVCpuCountRangeRequest',
     'ClusterCapacityProviderAssociationsCapacityProviderStrategy',
     'ClusterCapacityProviderStrategyItem',
     'ClusterConfiguration',
@@ -98,6 +112,48 @@ __all__ = [
     'TaskSetScale',
     'TaskSetServiceRegistry',
 ]
+
+@pulumi.output_type
+class CapacityProviderAcceleratorCountRequest(dict):
+    def __init__(__self__, *,
+                 max: Optional[builtins.int] = None,
+                 min: Optional[builtins.int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class CapacityProviderAcceleratorTotalMemoryMiBRequest(dict):
+    def __init__(__self__, *,
+                 max: Optional[builtins.int] = None,
+                 min: Optional[builtins.int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "min")
+
 
 @pulumi.output_type
 class CapacityProviderAutoScalingGroupProvider(dict):
@@ -186,6 +242,465 @@ class CapacityProviderAutoScalingGroupProvider(dict):
         When managed termination protection is off, your Amazon EC2 instances aren't protected from termination when the Auto Scaling group scales in.
         """
         return pulumi.get(self, "managed_termination_protection")
+
+
+@pulumi.output_type
+class CapacityProviderBaselineEbsBandwidthMbpsRequest(dict):
+    def __init__(__self__, *,
+                 max: Optional[builtins.int] = None,
+                 min: Optional[builtins.int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class CapacityProviderInstanceLaunchTemplate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ec2InstanceProfileArn":
+            suggest = "ec2_instance_profile_arn"
+        elif key == "networkConfiguration":
+            suggest = "network_configuration"
+        elif key == "instanceRequirements":
+            suggest = "instance_requirements"
+        elif key == "storageConfiguration":
+            suggest = "storage_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderInstanceLaunchTemplate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderInstanceLaunchTemplate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderInstanceLaunchTemplate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ec2_instance_profile_arn: builtins.str,
+                 network_configuration: 'outputs.CapacityProviderManagedInstancesNetworkConfiguration',
+                 instance_requirements: Optional['outputs.CapacityProviderInstanceRequirementsRequest'] = None,
+                 monitoring: Optional['CapacityProviderManagedInstancesMonitoringOptions'] = None,
+                 storage_configuration: Optional['outputs.CapacityProviderManagedInstancesStorageConfiguration'] = None):
+        pulumi.set(__self__, "ec2_instance_profile_arn", ec2_instance_profile_arn)
+        pulumi.set(__self__, "network_configuration", network_configuration)
+        if instance_requirements is not None:
+            pulumi.set(__self__, "instance_requirements", instance_requirements)
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
+        if storage_configuration is not None:
+            pulumi.set(__self__, "storage_configuration", storage_configuration)
+
+    @property
+    @pulumi.getter(name="ec2InstanceProfileArn")
+    def ec2_instance_profile_arn(self) -> builtins.str:
+        return pulumi.get(self, "ec2_instance_profile_arn")
+
+    @property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> 'outputs.CapacityProviderManagedInstancesNetworkConfiguration':
+        return pulumi.get(self, "network_configuration")
+
+    @property
+    @pulumi.getter(name="instanceRequirements")
+    def instance_requirements(self) -> Optional['outputs.CapacityProviderInstanceRequirementsRequest']:
+        return pulumi.get(self, "instance_requirements")
+
+    @property
+    @pulumi.getter
+    def monitoring(self) -> Optional['CapacityProviderManagedInstancesMonitoringOptions']:
+        return pulumi.get(self, "monitoring")
+
+    @property
+    @pulumi.getter(name="storageConfiguration")
+    def storage_configuration(self) -> Optional['outputs.CapacityProviderManagedInstancesStorageConfiguration']:
+        return pulumi.get(self, "storage_configuration")
+
+
+@pulumi.output_type
+class CapacityProviderInstanceRequirementsRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "memoryMiB":
+            suggest = "memory_mi_b"
+        elif key == "vCpuCount":
+            suggest = "v_cpu_count"
+        elif key == "acceleratorCount":
+            suggest = "accelerator_count"
+        elif key == "acceleratorManufacturers":
+            suggest = "accelerator_manufacturers"
+        elif key == "acceleratorNames":
+            suggest = "accelerator_names"
+        elif key == "acceleratorTotalMemoryMiB":
+            suggest = "accelerator_total_memory_mi_b"
+        elif key == "acceleratorTypes":
+            suggest = "accelerator_types"
+        elif key == "allowedInstanceTypes":
+            suggest = "allowed_instance_types"
+        elif key == "bareMetal":
+            suggest = "bare_metal"
+        elif key == "baselineEbsBandwidthMbps":
+            suggest = "baseline_ebs_bandwidth_mbps"
+        elif key == "burstablePerformance":
+            suggest = "burstable_performance"
+        elif key == "cpuManufacturers":
+            suggest = "cpu_manufacturers"
+        elif key == "excludedInstanceTypes":
+            suggest = "excluded_instance_types"
+        elif key == "instanceGenerations":
+            suggest = "instance_generations"
+        elif key == "localStorage":
+            suggest = "local_storage"
+        elif key == "localStorageTypes":
+            suggest = "local_storage_types"
+        elif key == "maxSpotPriceAsPercentageOfOptimalOnDemandPrice":
+            suggest = "max_spot_price_as_percentage_of_optimal_on_demand_price"
+        elif key == "memoryGiBPerVCpu":
+            suggest = "memory_gi_b_per_v_cpu"
+        elif key == "networkBandwidthGbps":
+            suggest = "network_bandwidth_gbps"
+        elif key == "networkInterfaceCount":
+            suggest = "network_interface_count"
+        elif key == "onDemandMaxPricePercentageOverLowestPrice":
+            suggest = "on_demand_max_price_percentage_over_lowest_price"
+        elif key == "requireHibernateSupport":
+            suggest = "require_hibernate_support"
+        elif key == "spotMaxPricePercentageOverLowestPrice":
+            suggest = "spot_max_price_percentage_over_lowest_price"
+        elif key == "totalLocalStorageGb":
+            suggest = "total_local_storage_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderInstanceRequirementsRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderInstanceRequirementsRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderInstanceRequirementsRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 memory_mi_b: 'outputs.CapacityProviderMemoryMiBRequest',
+                 v_cpu_count: 'outputs.CapacityProviderVCpuCountRangeRequest',
+                 accelerator_count: Optional['outputs.CapacityProviderAcceleratorCountRequest'] = None,
+                 accelerator_manufacturers: Optional[Sequence['CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem']] = None,
+                 accelerator_names: Optional[Sequence['CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem']] = None,
+                 accelerator_total_memory_mi_b: Optional['outputs.CapacityProviderAcceleratorTotalMemoryMiBRequest'] = None,
+                 accelerator_types: Optional[Sequence['CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem']] = None,
+                 allowed_instance_types: Optional[Sequence[builtins.str]] = None,
+                 bare_metal: Optional['CapacityProviderInstanceRequirementsRequestBareMetal'] = None,
+                 baseline_ebs_bandwidth_mbps: Optional['outputs.CapacityProviderBaselineEbsBandwidthMbpsRequest'] = None,
+                 burstable_performance: Optional['CapacityProviderInstanceRequirementsRequestBurstablePerformance'] = None,
+                 cpu_manufacturers: Optional[Sequence['CapacityProviderInstanceRequirementsRequestCpuManufacturersItem']] = None,
+                 excluded_instance_types: Optional[Sequence[builtins.str]] = None,
+                 instance_generations: Optional[Sequence['CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem']] = None,
+                 local_storage: Optional['CapacityProviderInstanceRequirementsRequestLocalStorage'] = None,
+                 local_storage_types: Optional[Sequence['CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem']] = None,
+                 max_spot_price_as_percentage_of_optimal_on_demand_price: Optional[builtins.int] = None,
+                 memory_gi_b_per_v_cpu: Optional['outputs.CapacityProviderMemoryGiBPerVCpuRequest'] = None,
+                 network_bandwidth_gbps: Optional['outputs.CapacityProviderNetworkBandwidthGbpsRequest'] = None,
+                 network_interface_count: Optional['outputs.CapacityProviderNetworkInterfaceCountRequest'] = None,
+                 on_demand_max_price_percentage_over_lowest_price: Optional[builtins.int] = None,
+                 require_hibernate_support: Optional[builtins.bool] = None,
+                 spot_max_price_percentage_over_lowest_price: Optional[builtins.int] = None,
+                 total_local_storage_gb: Optional['outputs.CapacityProviderTotalLocalStorageGbRequest'] = None):
+        pulumi.set(__self__, "memory_mi_b", memory_mi_b)
+        pulumi.set(__self__, "v_cpu_count", v_cpu_count)
+        if accelerator_count is not None:
+            pulumi.set(__self__, "accelerator_count", accelerator_count)
+        if accelerator_manufacturers is not None:
+            pulumi.set(__self__, "accelerator_manufacturers", accelerator_manufacturers)
+        if accelerator_names is not None:
+            pulumi.set(__self__, "accelerator_names", accelerator_names)
+        if accelerator_total_memory_mi_b is not None:
+            pulumi.set(__self__, "accelerator_total_memory_mi_b", accelerator_total_memory_mi_b)
+        if accelerator_types is not None:
+            pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if allowed_instance_types is not None:
+            pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
+        if bare_metal is not None:
+            pulumi.set(__self__, "bare_metal", bare_metal)
+        if baseline_ebs_bandwidth_mbps is not None:
+            pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
+        if burstable_performance is not None:
+            pulumi.set(__self__, "burstable_performance", burstable_performance)
+        if cpu_manufacturers is not None:
+            pulumi.set(__self__, "cpu_manufacturers", cpu_manufacturers)
+        if excluded_instance_types is not None:
+            pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
+        if instance_generations is not None:
+            pulumi.set(__self__, "instance_generations", instance_generations)
+        if local_storage is not None:
+            pulumi.set(__self__, "local_storage", local_storage)
+        if local_storage_types is not None:
+            pulumi.set(__self__, "local_storage_types", local_storage_types)
+        if max_spot_price_as_percentage_of_optimal_on_demand_price is not None:
+            pulumi.set(__self__, "max_spot_price_as_percentage_of_optimal_on_demand_price", max_spot_price_as_percentage_of_optimal_on_demand_price)
+        if memory_gi_b_per_v_cpu is not None:
+            pulumi.set(__self__, "memory_gi_b_per_v_cpu", memory_gi_b_per_v_cpu)
+        if network_bandwidth_gbps is not None:
+            pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
+        if network_interface_count is not None:
+            pulumi.set(__self__, "network_interface_count", network_interface_count)
+        if on_demand_max_price_percentage_over_lowest_price is not None:
+            pulumi.set(__self__, "on_demand_max_price_percentage_over_lowest_price", on_demand_max_price_percentage_over_lowest_price)
+        if require_hibernate_support is not None:
+            pulumi.set(__self__, "require_hibernate_support", require_hibernate_support)
+        if spot_max_price_percentage_over_lowest_price is not None:
+            pulumi.set(__self__, "spot_max_price_percentage_over_lowest_price", spot_max_price_percentage_over_lowest_price)
+        if total_local_storage_gb is not None:
+            pulumi.set(__self__, "total_local_storage_gb", total_local_storage_gb)
+
+    @property
+    @pulumi.getter(name="memoryMiB")
+    def memory_mi_b(self) -> 'outputs.CapacityProviderMemoryMiBRequest':
+        return pulumi.get(self, "memory_mi_b")
+
+    @property
+    @pulumi.getter(name="vCpuCount")
+    def v_cpu_count(self) -> 'outputs.CapacityProviderVCpuCountRangeRequest':
+        return pulumi.get(self, "v_cpu_count")
+
+    @property
+    @pulumi.getter(name="acceleratorCount")
+    def accelerator_count(self) -> Optional['outputs.CapacityProviderAcceleratorCountRequest']:
+        return pulumi.get(self, "accelerator_count")
+
+    @property
+    @pulumi.getter(name="acceleratorManufacturers")
+    def accelerator_manufacturers(self) -> Optional[Sequence['CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem']]:
+        return pulumi.get(self, "accelerator_manufacturers")
+
+    @property
+    @pulumi.getter(name="acceleratorNames")
+    def accelerator_names(self) -> Optional[Sequence['CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem']]:
+        return pulumi.get(self, "accelerator_names")
+
+    @property
+    @pulumi.getter(name="acceleratorTotalMemoryMiB")
+    def accelerator_total_memory_mi_b(self) -> Optional['outputs.CapacityProviderAcceleratorTotalMemoryMiBRequest']:
+        return pulumi.get(self, "accelerator_total_memory_mi_b")
+
+    @property
+    @pulumi.getter(name="acceleratorTypes")
+    def accelerator_types(self) -> Optional[Sequence['CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem']]:
+        return pulumi.get(self, "accelerator_types")
+
+    @property
+    @pulumi.getter(name="allowedInstanceTypes")
+    def allowed_instance_types(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "allowed_instance_types")
+
+    @property
+    @pulumi.getter(name="bareMetal")
+    def bare_metal(self) -> Optional['CapacityProviderInstanceRequirementsRequestBareMetal']:
+        return pulumi.get(self, "bare_metal")
+
+    @property
+    @pulumi.getter(name="baselineEbsBandwidthMbps")
+    def baseline_ebs_bandwidth_mbps(self) -> Optional['outputs.CapacityProviderBaselineEbsBandwidthMbpsRequest']:
+        return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
+
+    @property
+    @pulumi.getter(name="burstablePerformance")
+    def burstable_performance(self) -> Optional['CapacityProviderInstanceRequirementsRequestBurstablePerformance']:
+        return pulumi.get(self, "burstable_performance")
+
+    @property
+    @pulumi.getter(name="cpuManufacturers")
+    def cpu_manufacturers(self) -> Optional[Sequence['CapacityProviderInstanceRequirementsRequestCpuManufacturersItem']]:
+        return pulumi.get(self, "cpu_manufacturers")
+
+    @property
+    @pulumi.getter(name="excludedInstanceTypes")
+    def excluded_instance_types(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "excluded_instance_types")
+
+    @property
+    @pulumi.getter(name="instanceGenerations")
+    def instance_generations(self) -> Optional[Sequence['CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem']]:
+        return pulumi.get(self, "instance_generations")
+
+    @property
+    @pulumi.getter(name="localStorage")
+    def local_storage(self) -> Optional['CapacityProviderInstanceRequirementsRequestLocalStorage']:
+        return pulumi.get(self, "local_storage")
+
+    @property
+    @pulumi.getter(name="localStorageTypes")
+    def local_storage_types(self) -> Optional[Sequence['CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem']]:
+        return pulumi.get(self, "local_storage_types")
+
+    @property
+    @pulumi.getter(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
+    def max_spot_price_as_percentage_of_optimal_on_demand_price(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "max_spot_price_as_percentage_of_optimal_on_demand_price")
+
+    @property
+    @pulumi.getter(name="memoryGiBPerVCpu")
+    def memory_gi_b_per_v_cpu(self) -> Optional['outputs.CapacityProviderMemoryGiBPerVCpuRequest']:
+        return pulumi.get(self, "memory_gi_b_per_v_cpu")
+
+    @property
+    @pulumi.getter(name="networkBandwidthGbps")
+    def network_bandwidth_gbps(self) -> Optional['outputs.CapacityProviderNetworkBandwidthGbpsRequest']:
+        return pulumi.get(self, "network_bandwidth_gbps")
+
+    @property
+    @pulumi.getter(name="networkInterfaceCount")
+    def network_interface_count(self) -> Optional['outputs.CapacityProviderNetworkInterfaceCountRequest']:
+        return pulumi.get(self, "network_interface_count")
+
+    @property
+    @pulumi.getter(name="onDemandMaxPricePercentageOverLowestPrice")
+    def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
+
+    @property
+    @pulumi.getter(name="requireHibernateSupport")
+    def require_hibernate_support(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "require_hibernate_support")
+
+    @property
+    @pulumi.getter(name="spotMaxPricePercentageOverLowestPrice")
+    def spot_max_price_percentage_over_lowest_price(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
+
+    @property
+    @pulumi.getter(name="totalLocalStorageGb")
+    def total_local_storage_gb(self) -> Optional['outputs.CapacityProviderTotalLocalStorageGbRequest']:
+        return pulumi.get(self, "total_local_storage_gb")
+
+
+@pulumi.output_type
+class CapacityProviderManagedInstancesNetworkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderManagedInstancesNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderManagedInstancesNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderManagedInstancesNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnets: Sequence[builtins.str],
+                 security_groups: Optional[Sequence[builtins.str]] = None):
+        pulumi.set(__self__, "subnets", subnets)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "security_groups")
+
+
+@pulumi.output_type
+class CapacityProviderManagedInstancesProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "infrastructureRoleArn":
+            suggest = "infrastructure_role_arn"
+        elif key == "instanceLaunchTemplate":
+            suggest = "instance_launch_template"
+        elif key == "propagateTags":
+            suggest = "propagate_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderManagedInstancesProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderManagedInstancesProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderManagedInstancesProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 infrastructure_role_arn: builtins.str,
+                 instance_launch_template: 'outputs.CapacityProviderInstanceLaunchTemplate',
+                 propagate_tags: Optional['CapacityProviderManagedInstancesProviderPropagateTags'] = None):
+        pulumi.set(__self__, "infrastructure_role_arn", infrastructure_role_arn)
+        pulumi.set(__self__, "instance_launch_template", instance_launch_template)
+        if propagate_tags is not None:
+            pulumi.set(__self__, "propagate_tags", propagate_tags)
+
+    @property
+    @pulumi.getter(name="infrastructureRoleArn")
+    def infrastructure_role_arn(self) -> builtins.str:
+        return pulumi.get(self, "infrastructure_role_arn")
+
+    @property
+    @pulumi.getter(name="instanceLaunchTemplate")
+    def instance_launch_template(self) -> 'outputs.CapacityProviderInstanceLaunchTemplate':
+        return pulumi.get(self, "instance_launch_template")
+
+    @property
+    @pulumi.getter(name="propagateTags")
+    def propagate_tags(self) -> Optional['CapacityProviderManagedInstancesProviderPropagateTags']:
+        return pulumi.get(self, "propagate_tags")
+
+
+@pulumi.output_type
+class CapacityProviderManagedInstancesStorageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageSizeGiB":
+            suggest = "storage_size_gi_b"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderManagedInstancesStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderManagedInstancesStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderManagedInstancesStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_size_gi_b: builtins.int):
+        pulumi.set(__self__, "storage_size_gi_b", storage_size_gi_b)
+
+    @property
+    @pulumi.getter(name="storageSizeGiB")
+    def storage_size_gi_b(self) -> builtins.int:
+        return pulumi.get(self, "storage_size_gi_b")
 
 
 @pulumi.output_type
@@ -284,6 +799,130 @@ class CapacityProviderManagedScaling(dict):
         The target capacity utilization as a percentage for the capacity provider. The specified value must be greater than `0` and less than or equal to `100` . For example, if you want the capacity provider to maintain 10% spare capacity, then that means the utilization is 90%, so use a `targetCapacity` of `90` . The default value of `100` percent results in the Amazon EC2 instances in your Auto Scaling group being completely used.
         """
         return pulumi.get(self, "target_capacity")
+
+
+@pulumi.output_type
+class CapacityProviderMemoryGiBPerVCpuRequest(dict):
+    def __init__(__self__, *,
+                 max: Optional[builtins.float] = None,
+                 min: Optional[builtins.float] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[builtins.float]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[builtins.float]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class CapacityProviderMemoryMiBRequest(dict):
+    def __init__(__self__, *,
+                 min: builtins.int,
+                 max: Optional[builtins.int] = None):
+        pulumi.set(__self__, "min", min)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+
+    @property
+    @pulumi.getter
+    def min(self) -> builtins.int:
+        return pulumi.get(self, "min")
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "max")
+
+
+@pulumi.output_type
+class CapacityProviderNetworkBandwidthGbpsRequest(dict):
+    def __init__(__self__, *,
+                 max: Optional[builtins.float] = None,
+                 min: Optional[builtins.float] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[builtins.float]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[builtins.float]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class CapacityProviderNetworkInterfaceCountRequest(dict):
+    def __init__(__self__, *,
+                 max: Optional[builtins.int] = None,
+                 min: Optional[builtins.int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class CapacityProviderTotalLocalStorageGbRequest(dict):
+    def __init__(__self__, *,
+                 max: Optional[builtins.float] = None,
+                 min: Optional[builtins.float] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[builtins.float]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[builtins.float]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class CapacityProviderVCpuCountRangeRequest(dict):
+    def __init__(__self__, *,
+                 min: builtins.int,
+                 max: Optional[builtins.int] = None):
+        pulumi.set(__self__, "min", min)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+
+    @property
+    @pulumi.getter
+    def min(self) -> builtins.int:
+        return pulumi.get(self, "min")
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "max")
 
 
 @pulumi.output_type
@@ -1679,7 +2318,7 @@ class ServiceDeploymentConfiguration(dict):
                  You can't specify a custom ``maximumPercent`` value for a service that uses either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and has tasks that use the EC2 launch type.
                  If the service uses either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and the tasks in the service use the Fargate launch type, the maximum percent value is not used. The value is still returned when describing your service.
         :param builtins.int minimum_healthy_percent: If a service is using the rolling update (``ECS``) deployment type, the ``minimumHealthyPercent`` represents a lower limit on the number of your service's tasks that must remain in the ``RUNNING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a ``desiredCount`` of four tasks and a ``minimumHealthyPercent`` of 50%, the service scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks. 
-                 If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html) . 
+                 If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html). 
                 For services that *do not* use a load balancer, the following should be noted:
                  +  A service is considered healthy if all essential containers within the tasks in the service pass their health checks.
                  +  If a task has no essential containers with a health check defined, the service scheduler will wait for 40 seconds after a task reaches a ``RUNNING`` state before the task is counted towards the minimum healthy percent total.
@@ -1767,7 +2406,7 @@ class ServiceDeploymentConfiguration(dict):
     def minimum_healthy_percent(self) -> Optional[builtins.int]:
         """
         If a service is using the rolling update (``ECS``) deployment type, the ``minimumHealthyPercent`` represents a lower limit on the number of your service's tasks that must remain in the ``RUNNING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a ``desiredCount`` of four tasks and a ``minimumHealthyPercent`` of 50%, the service scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks. 
-          If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html) . 
+          If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html). 
          For services that *do not* use a load balancer, the following should be noted:
           +  A service is considered healthy if all essential containers within the tasks in the service pass their health checks.
           +  If a task has no essential containers with a health check defined, the service scheduler will wait for 40 seconds after a task reaches a ``RUNNING`` state before the task is counted towards the minimum healthy percent total.
@@ -1950,9 +2589,8 @@ class ServiceDeploymentLifecycleHook(dict):
                 You must provide this parameter when configuring a deployment lifecycle hook.
         :param builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
                 For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param Any hook_details: Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
-               
-               This field must be a JSON object as a string.
+        :param Any hook_details: Use this field to specify custom parameters that ECS passes to your hook target invocations (such as a Lambda function).
+                This field must be a JSON object as a string.
         """
         pulumi.set(__self__, "hook_target_arn", hook_target_arn)
         pulumi.set(__self__, "lifecycle_stages", lifecycle_stages)
@@ -2013,9 +2651,8 @@ class ServiceDeploymentLifecycleHook(dict):
     @pulumi.getter(name="hookDetails")
     def hook_details(self) -> Optional[Any]:
         """
-        Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
-
-        This field must be a JSON object as a string.
+        Use this field to specify custom parameters that ECS passes to your hook target invocations (such as a Lambda function).
+         This field must be a JSON object as a string.
         """
         return pulumi.get(self, "hook_details")
 

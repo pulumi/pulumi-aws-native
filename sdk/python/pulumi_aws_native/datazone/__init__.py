@@ -15,6 +15,7 @@ from .environment import *
 from .environment_actions import *
 from .environment_blueprint_configuration import *
 from .environment_profile import *
+from .form_type import *
 from .get_connection import *
 from .get_data_source import *
 from .get_domain import *
@@ -23,9 +24,12 @@ from .get_environment import *
 from .get_environment_actions import *
 from .get_environment_blueprint_configuration import *
 from .get_environment_profile import *
+from .get_form_type import *
 from .get_group_profile import *
+from .get_owner import *
 from .get_policy_grant import *
 from .get_project import *
+from .get_project_membership import *
 from .get_project_profile import *
 from .get_subscription_target import *
 from .get_user_profile import *

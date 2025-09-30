@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public readonly string? EdgeLocation;
         /// <summary>
+        /// Errors from the last modification of the transit gateway peering.
+        /// </summary>
+        public readonly ImmutableArray<string> LastModificationErrors;
+        /// <summary>
         /// Peering owner account Id
         /// </summary>
         public readonly string? OwnerAccountId;
@@ -112,6 +116,8 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? edgeLocation,
 
+            ImmutableArray<string> lastModificationErrors,
+
             string? ownerAccountId,
 
             string? peeringId,
@@ -129,6 +135,7 @@ namespace Pulumi.AwsNative.NetworkManager
             CoreNetworkArn = coreNetworkArn;
             CreatedAt = createdAt;
             EdgeLocation = edgeLocation;
+            LastModificationErrors = lastModificationErrors;
             OwnerAccountId = ownerAccountId;
             PeeringId = peeringId;
             PeeringType = peeringType;

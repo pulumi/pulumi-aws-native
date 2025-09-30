@@ -53,6 +53,14 @@ export class Owner extends pulumi.CustomResource {
      * The owner that you want to add to the entity.
      */
     public readonly owner!: pulumi.Output<outputs.datazone.OwnerProperties>;
+    /**
+     * The ID of the entity to which you want to add an owner.
+     */
+    public /*out*/ readonly ownerIdentifier!: pulumi.Output<string>;
+    /**
+     * The owner that you want to add to the entity.
+     */
+    public /*out*/ readonly ownerType!: pulumi.Output<enums.datazone.OwnerType>;
 
     /**
      * Create a Owner resource with the given unique name, arguments, and options.
@@ -81,11 +89,15 @@ export class Owner extends pulumi.CustomResource {
             resourceInputs["entityIdentifier"] = args ? args.entityIdentifier : undefined;
             resourceInputs["entityType"] = args ? args.entityType : undefined;
             resourceInputs["owner"] = args ? args.owner : undefined;
+            resourceInputs["ownerIdentifier"] = undefined /*out*/;
+            resourceInputs["ownerType"] = undefined /*out*/;
         } else {
             resourceInputs["domainIdentifier"] = undefined /*out*/;
             resourceInputs["entityIdentifier"] = undefined /*out*/;
             resourceInputs["entityType"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["ownerIdentifier"] = undefined /*out*/;
+            resourceInputs["ownerType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "entityIdentifier", "entityType", "owner"] };

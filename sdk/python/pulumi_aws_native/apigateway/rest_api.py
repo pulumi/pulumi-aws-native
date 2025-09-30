@@ -38,6 +38,7 @@ class RestApiArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  policy: Optional[Any] = None,
+                 security_policy: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RestApi resource.
@@ -94,6 +95,8 @@ class RestApiArgs:
             pulumi.set(__self__, "parameters", parameters)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if security_policy is not None:
+            pulumi.set(__self__, "security_policy", security_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -275,6 +278,15 @@ class RestApiArgs:
         pulumi.set(self, "policy", value)
 
     @property
+    @pulumi.getter(name="securityPolicy")
+    def security_policy(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "security_policy")
+
+    @security_policy.setter
+    def security_policy(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "security_policy", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -307,6 +319,7 @@ class RestApi(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  policy: Optional[Any] = None,
+                 security_policy: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -1171,6 +1184,7 @@ class RestApi(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  policy: Optional[Any] = None,
+                 security_policy: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1195,6 +1209,7 @@ class RestApi(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["security_policy"] = security_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["rest_api_id"] = None
             __props__.__dict__["root_resource_id"] = None
@@ -1236,6 +1251,7 @@ class RestApi(pulumi.CustomResource):
         __props__.__dict__["policy"] = None
         __props__.__dict__["rest_api_id"] = None
         __props__.__dict__["root_resource_id"] = None
+        __props__.__dict__["security_policy"] = None
         __props__.__dict__["tags"] = None
         return RestApi(resource_name, opts=opts, __props__=__props__)
 
@@ -1375,6 +1391,11 @@ class RestApi(pulumi.CustomResource):
         The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
         """
         return pulumi.get(self, "root_resource_id")
+
+    @property
+    @pulumi.getter(name="securityPolicy")
+    def security_policy(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "security_policy")
 
     @property
     @pulumi.getter

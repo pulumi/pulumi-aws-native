@@ -88,6 +88,9 @@ class GetCodeInterpreterCustomResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        The tags for the code interpreter.
+        """
         return pulumi.get(self, "tags")
 
 

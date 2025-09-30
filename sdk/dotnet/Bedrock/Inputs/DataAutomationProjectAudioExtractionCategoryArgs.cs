@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("state", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.DataAutomationProjectState> State { get; set; } = null!;
 
+        [Input("typeConfiguration")]
+        public Input<Inputs.DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs>? TypeConfiguration { get; set; }
+
         [Input("types")]
         private InputList<Pulumi.AwsNative.Bedrock.DataAutomationProjectAudioExtractionCategoryType>? _types;
 

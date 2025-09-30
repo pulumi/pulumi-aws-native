@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EnvironmentBlueprintConfiguration{}
 	case "aws-native:datazone:EnvironmentProfile":
 		r = &EnvironmentProfile{}
+	case "aws-native:datazone:FormType":
+		r = &FormType{}
 	case "aws-native:datazone:GroupProfile":
 		r = &GroupProfile{}
 	case "aws-native:datazone:Owner":

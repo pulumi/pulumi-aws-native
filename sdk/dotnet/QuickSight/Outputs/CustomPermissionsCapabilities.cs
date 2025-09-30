@@ -18,6 +18,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? AddOrRunAnomalyDetectionForAnalyses;
         /// <summary>
+        /// The ability to perform analysis-related actions.
+        /// </summary>
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? Analysis;
+        /// <summary>
         /// The ability to create and update email reports.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateAndUpdateDashboardEmailReports;
@@ -45,6 +49,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The ability to create a SPICE dataset.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateSpiceDataset;
+        /// <summary>
+        /// The ability to perform dashboard-related actions.
+        /// </summary>
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? Dashboard;
         /// <summary>
         /// The ability to export to CSV files from the UI.
         /// </summary>
@@ -110,6 +118,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private CustomPermissionsCapabilities(
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? addOrRunAnomalyDetectionForAnalyses,
 
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? analysis,
+
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? createAndUpdateDashboardEmailReports,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? createAndUpdateDataSources,
@@ -123,6 +133,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? createSharedFolders,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? createSpiceDataset,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? dashboard,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? exportToCsv,
 
@@ -155,6 +167,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? viewAccountSpiceCapacity)
         {
             AddOrRunAnomalyDetectionForAnalyses = addOrRunAnomalyDetectionForAnalyses;
+            Analysis = analysis;
             CreateAndUpdateDashboardEmailReports = createAndUpdateDashboardEmailReports;
             CreateAndUpdateDataSources = createAndUpdateDataSources;
             CreateAndUpdateDatasets = createAndUpdateDatasets;
@@ -162,6 +175,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             CreateAndUpdateThresholdAlerts = createAndUpdateThresholdAlerts;
             CreateSharedFolders = createSharedFolders;
             CreateSpiceDataset = createSpiceDataset;
+            Dashboard = dashboard;
             ExportToCsv = exportToCsv;
             ExportToCsvInScheduledReports = exportToCsvInScheduledReports;
             ExportToExcel = exportToExcel;

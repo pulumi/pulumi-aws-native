@@ -271,6 +271,34 @@ namespace Pulumi.AwsNative.ApiGateway
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct MethodIntegrationResponseTransferMode : IEquatable<MethodIntegrationResponseTransferMode>
+    {
+        private readonly string _value;
+
+        private MethodIntegrationResponseTransferMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MethodIntegrationResponseTransferMode Buffered { get; } = new MethodIntegrationResponseTransferMode("BUFFERED");
+        public static MethodIntegrationResponseTransferMode Stream { get; } = new MethodIntegrationResponseTransferMode("STREAM");
+
+        public static bool operator ==(MethodIntegrationResponseTransferMode left, MethodIntegrationResponseTransferMode right) => left.Equals(right);
+        public static bool operator !=(MethodIntegrationResponseTransferMode left, MethodIntegrationResponseTransferMode right) => !left.Equals(right);
+
+        public static explicit operator string(MethodIntegrationResponseTransferMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MethodIntegrationResponseTransferMode other && Equals(other);
+        public bool Equals(MethodIntegrationResponseTransferMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Specifies an API method integration type. The valid value is one of the following:
     /// 

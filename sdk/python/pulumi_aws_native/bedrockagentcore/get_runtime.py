@@ -180,6 +180,9 @@ class GetRuntimeResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        The tags for the agent.
+        """
         return pulumi.get(self, "tags")
 
     @property

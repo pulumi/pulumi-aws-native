@@ -248,6 +248,8 @@ type CapacityProvider struct {
 
 	// The Auto Scaling group settings for the capacity provider.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrOutput `pulumi:"autoScalingGroupProvider"`
+	ClusterName              pulumi.StringPtrOutput                            `pulumi:"clusterName"`
+	ManagedInstancesProvider CapacityProviderManagedInstancesProviderPtrOutput `pulumi:"managedInstancesProvider"`
 	// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
@@ -273,6 +275,7 @@ func NewCapacityProvider(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"autoScalingGroupProvider.autoScalingGroupArn",
+		"clusterName",
 		"name",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -311,6 +314,8 @@ func (CapacityProviderState) ElementType() reflect.Type {
 type capacityProviderArgs struct {
 	// The Auto Scaling group settings for the capacity provider.
 	AutoScalingGroupProvider *CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
+	ClusterName              *string                                   `pulumi:"clusterName"`
+	ManagedInstancesProvider *CapacityProviderManagedInstancesProvider `pulumi:"managedInstancesProvider"`
 	// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
 	Name *string `pulumi:"name"`
 	// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
@@ -331,6 +336,8 @@ type capacityProviderArgs struct {
 type CapacityProviderArgs struct {
 	// The Auto Scaling group settings for the capacity provider.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrInput
+	ClusterName              pulumi.StringPtrInput
+	ManagedInstancesProvider CapacityProviderManagedInstancesProviderPtrInput
 	// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
 	Name pulumi.StringPtrInput
 	// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
@@ -389,6 +396,16 @@ func (o CapacityProviderOutput) AutoScalingGroupProvider() CapacityProviderAutoS
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderAutoScalingGroupProviderPtrOutput {
 		return v.AutoScalingGroupProvider
 	}).(CapacityProviderAutoScalingGroupProviderPtrOutput)
+}
+
+func (o CapacityProviderOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProvider) pulumi.StringPtrOutput { return v.ClusterName }).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityProviderOutput) ManagedInstancesProvider() CapacityProviderManagedInstancesProviderPtrOutput {
+	return o.ApplyT(func(v *CapacityProvider) CapacityProviderManagedInstancesProviderPtrOutput {
+		return v.ManagedInstancesProvider
+	}).(CapacityProviderManagedInstancesProviderPtrOutput)
 }
 
 // The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.

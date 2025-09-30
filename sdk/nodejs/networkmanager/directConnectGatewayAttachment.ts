@@ -70,6 +70,10 @@ export class DirectConnectGatewayAttachment extends pulumi.CustomResource {
      */
     public readonly edgeLocations!: pulumi.Output<string[]>;
     /**
+     * Errors from the last modification of the attachment.
+     */
+    public /*out*/ readonly lastModificationErrors!: pulumi.Output<string[]>;
+    /**
      * The name of the network function group attachment.
      */
     public /*out*/ readonly networkFunctionGroupName!: pulumi.Output<string>;
@@ -137,6 +141,7 @@ export class DirectConnectGatewayAttachment extends pulumi.CustomResource {
             resourceInputs["attachmentType"] = undefined /*out*/;
             resourceInputs["coreNetworkArn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["lastModificationErrors"] = undefined /*out*/;
             resourceInputs["networkFunctionGroupName"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
@@ -152,6 +157,7 @@ export class DirectConnectGatewayAttachment extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["directConnectGatewayArn"] = undefined /*out*/;
             resourceInputs["edgeLocations"] = undefined /*out*/;
+            resourceInputs["lastModificationErrors"] = undefined /*out*/;
             resourceInputs["networkFunctionGroupName"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
             resourceInputs["proposedNetworkFunctionGroupChange"] = undefined /*out*/;

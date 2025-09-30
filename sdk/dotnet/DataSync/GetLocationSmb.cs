@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.DataSync
     public static class GetLocationSmb
     {
         /// <summary>
-        /// Resource schema for AWS::DataSync::LocationSMB.
+        /// Resource Type definition for AWS::DataSync::LocationSMB.
         /// </summary>
         public static Task<GetLocationSmbResult> InvokeAsync(GetLocationSmbArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationSmbResult>("aws-native:datasync:getLocationSmb", args ?? new GetLocationSmbArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::DataSync::LocationSMB.
+        /// Resource Type definition for AWS::DataSync::LocationSMB.
         /// </summary>
         public static Output<GetLocationSmbResult> Invoke(GetLocationSmbInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationSmbResult>("aws-native:datasync:getLocationSmb", args ?? new GetLocationSmbInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::DataSync::LocationSMB.
+        /// Resource Type definition for AWS::DataSync::LocationSMB.
         /// </summary>
         public static Output<GetLocationSmbResult> Invoke(GetLocationSmbInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationSmbResult>("aws-native:datasync:getLocationSmb", args ?? new GetLocationSmbInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,18 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public readonly Pulumi.AwsNative.DataSync.LocationSmbAuthenticationType? AuthenticationType;
         /// <summary>
+        /// Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+        /// 
+        /// &gt; You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        /// </summary>
+        public readonly Outputs.LocationSmbCmkSecretConfig? CmkSecretConfig;
+        /// <summary>
+        /// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+        /// 
+        /// &gt; You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        /// </summary>
+        public readonly Outputs.LocationSmbCustomSecretConfig? CustomSecretConfig;
+        /// <summary>
         /// Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
         /// </summary>
         public readonly ImmutableArray<string> DnsIpAddresses;
@@ -91,6 +103,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The URL of the SMB location that was described.
         /// </summary>
         public readonly string? LocationUri;
+        public readonly Outputs.LocationSmbManagedSecretConfig? ManagedSecretConfig;
         /// <summary>
         /// Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
         /// </summary>
@@ -110,6 +123,10 @@ namespace Pulumi.AwsNative.DataSync
 
             Pulumi.AwsNative.DataSync.LocationSmbAuthenticationType? authenticationType,
 
+            Outputs.LocationSmbCmkSecretConfig? cmkSecretConfig,
+
+            Outputs.LocationSmbCustomSecretConfig? customSecretConfig,
+
             ImmutableArray<string> dnsIpAddresses,
 
             string? domain,
@@ -120,6 +137,8 @@ namespace Pulumi.AwsNative.DataSync
 
             string? locationUri,
 
+            Outputs.LocationSmbManagedSecretConfig? managedSecretConfig,
+
             Outputs.LocationSmbMountOptions? mountOptions,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -128,11 +147,14 @@ namespace Pulumi.AwsNative.DataSync
         {
             AgentArns = agentArns;
             AuthenticationType = authenticationType;
+            CmkSecretConfig = cmkSecretConfig;
+            CustomSecretConfig = customSecretConfig;
             DnsIpAddresses = dnsIpAddresses;
             Domain = domain;
             KerberosPrincipal = kerberosPrincipal;
             LocationArn = locationArn;
             LocationUri = locationUri;
+            ManagedSecretConfig = managedSecretConfig;
             MountOptions = mountOptions;
             Tags = tags;
             User = user;

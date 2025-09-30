@@ -31,6 +31,8 @@ type LookupResolverRuleArgs struct {
 type LookupResolverRuleResult struct {
 	// The Amazon Resource Name (ARN) of the resolver rule.
 	Arn *string `pulumi:"arn"`
+	// The name server domain for queries to be delegated to if a query matches the delegation record.
+	DelegationRecord *string `pulumi:"delegationRecord"`
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
 	DomainName *string `pulumi:"domainName"`
 	// The name for the Resolver rule
@@ -80,6 +82,11 @@ func (o LookupResolverRuleResultOutput) ToLookupResolverRuleResultOutputWithCont
 // The Amazon Resource Name (ARN) of the resolver rule.
 func (o LookupResolverRuleResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverRuleResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The name server domain for queries to be delegated to if a query matches the delegation record.
+func (o LookupResolverRuleResultOutput) DelegationRecord() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverRuleResult) *string { return v.DelegationRecord }).(pulumi.StringPtrOutput)
 }
 
 // DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps

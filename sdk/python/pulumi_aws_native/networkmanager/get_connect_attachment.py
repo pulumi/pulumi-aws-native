@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectAttachmentResult:
-    def __init__(__self__, attachment_id=None, attachment_policy_rule_number=None, attachment_type=None, core_network_arn=None, created_at=None, network_function_group_name=None, owner_account_id=None, proposed_network_function_group_change=None, proposed_segment_change=None, resource_arn=None, segment_name=None, state=None, tags=None, updated_at=None):
+    def __init__(__self__, attachment_id=None, attachment_policy_rule_number=None, attachment_type=None, core_network_arn=None, created_at=None, last_modification_errors=None, network_function_group_name=None, owner_account_id=None, proposed_network_function_group_change=None, proposed_segment_change=None, resource_arn=None, segment_name=None, state=None, tags=None, updated_at=None):
         if attachment_id and not isinstance(attachment_id, str):
             raise TypeError("Expected argument 'attachment_id' to be a str")
         pulumi.set(__self__, "attachment_id", attachment_id)
@@ -42,6 +42,9 @@ class GetConnectAttachmentResult:
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if last_modification_errors and not isinstance(last_modification_errors, list):
+            raise TypeError("Expected argument 'last_modification_errors' to be a list")
+        pulumi.set(__self__, "last_modification_errors", last_modification_errors)
         if network_function_group_name and not isinstance(network_function_group_name, str):
             raise TypeError("Expected argument 'network_function_group_name' to be a str")
         pulumi.set(__self__, "network_function_group_name", network_function_group_name)
@@ -109,6 +112,14 @@ class GetConnectAttachmentResult:
         Creation time of the attachment.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="lastModificationErrors")
+    def last_modification_errors(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Errors from the last modification of the attachment.
+        """
+        return pulumi.get(self, "last_modification_errors")
 
     @property
     @pulumi.getter(name="networkFunctionGroupName")
@@ -194,6 +205,7 @@ class AwaitableGetConnectAttachmentResult(GetConnectAttachmentResult):
             attachment_type=self.attachment_type,
             core_network_arn=self.core_network_arn,
             created_at=self.created_at,
+            last_modification_errors=self.last_modification_errors,
             network_function_group_name=self.network_function_group_name,
             owner_account_id=self.owner_account_id,
             proposed_network_function_group_change=self.proposed_network_function_group_change,
@@ -224,6 +236,7 @@ def get_connect_attachment(attachment_id: Optional[builtins.str] = None,
         attachment_type=pulumi.get(__ret__, 'attachment_type'),
         core_network_arn=pulumi.get(__ret__, 'core_network_arn'),
         created_at=pulumi.get(__ret__, 'created_at'),
+        last_modification_errors=pulumi.get(__ret__, 'last_modification_errors'),
         network_function_group_name=pulumi.get(__ret__, 'network_function_group_name'),
         owner_account_id=pulumi.get(__ret__, 'owner_account_id'),
         proposed_network_function_group_change=pulumi.get(__ret__, 'proposed_network_function_group_change'),
@@ -251,6 +264,7 @@ def get_connect_attachment_output(attachment_id: Optional[pulumi.Input[builtins.
         attachment_type=pulumi.get(__response__, 'attachment_type'),
         core_network_arn=pulumi.get(__response__, 'core_network_arn'),
         created_at=pulumi.get(__response__, 'created_at'),
+        last_modification_errors=pulumi.get(__response__, 'last_modification_errors'),
         network_function_group_name=pulumi.get(__response__, 'network_function_group_name'),
         owner_account_id=pulumi.get(__response__, 'owner_account_id'),
         proposed_network_function_group_change=pulumi.get(__response__, 'proposed_network_function_group_change'),

@@ -36,7 +36,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// Adds Q&amp;A capabilities to an Amazon QuickSight dashboard. If no topic is linked, Dashboard Q&amp;A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&amp;A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&amp;A is used.
         /// </summary>
         public readonly Outputs.DashboardDataQaEnabledOption? DataQaEnabledOption;
+        /// <summary>
+        /// Data stories sharing option.
+        /// </summary>
         public readonly Outputs.DashboardDataStoriesSharingOption? DataStoriesSharingOption;
+        /// <summary>
+        /// Executive summary option.
+        /// </summary>
         public readonly Outputs.DashboardExecutiveSummaryOption? ExecutiveSummaryOption;
         /// <summary>
         /// Export to .csv option.

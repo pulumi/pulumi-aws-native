@@ -735,6 +735,9 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("rootResourceId")]
         public Output<string> RootResourceId { get; private set; } = null!;
 
+        [Output("securityPolicy")]
+        public Output<string?> SecurityPolicy { get; private set; } = null!;
+
         /// <summary>
         /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         /// </summary>
@@ -890,6 +893,9 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         [Input("policy")]
         public Input<object>? Policy { get; set; }
+
+        [Input("securityPolicy")]
+        public Input<string>? SecurityPolicy { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

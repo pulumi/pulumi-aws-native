@@ -228,6 +228,172 @@ func (in *analysisTemplateAnalysisParameterTypePtr) ToAnalysisTemplateAnalysisPa
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTemplateAnalysisParameterTypePtrOutput)
 }
 
+// The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
+//
+// Because this setting may expose sensitive data, it is recommended for development and testing environments.
+type AnalysisTemplateErrorMessageConfigurationType string
+
+const (
+	AnalysisTemplateErrorMessageConfigurationTypeDetailed = AnalysisTemplateErrorMessageConfigurationType("DETAILED")
+)
+
+func (AnalysisTemplateErrorMessageConfigurationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateErrorMessageConfigurationType)(nil)).Elem()
+}
+
+func (e AnalysisTemplateErrorMessageConfigurationType) ToAnalysisTemplateErrorMessageConfigurationTypeOutput() AnalysisTemplateErrorMessageConfigurationTypeOutput {
+	return pulumi.ToOutput(e).(AnalysisTemplateErrorMessageConfigurationTypeOutput)
+}
+
+func (e AnalysisTemplateErrorMessageConfigurationType) ToAnalysisTemplateErrorMessageConfigurationTypeOutputWithContext(ctx context.Context) AnalysisTemplateErrorMessageConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisTemplateErrorMessageConfigurationTypeOutput)
+}
+
+func (e AnalysisTemplateErrorMessageConfigurationType) ToAnalysisTemplateErrorMessageConfigurationTypePtrOutput() AnalysisTemplateErrorMessageConfigurationTypePtrOutput {
+	return e.ToAnalysisTemplateErrorMessageConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisTemplateErrorMessageConfigurationType) ToAnalysisTemplateErrorMessageConfigurationTypePtrOutputWithContext(ctx context.Context) AnalysisTemplateErrorMessageConfigurationTypePtrOutput {
+	return AnalysisTemplateErrorMessageConfigurationType(e).ToAnalysisTemplateErrorMessageConfigurationTypeOutputWithContext(ctx).ToAnalysisTemplateErrorMessageConfigurationTypePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisTemplateErrorMessageConfigurationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisTemplateErrorMessageConfigurationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisTemplateErrorMessageConfigurationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisTemplateErrorMessageConfigurationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisTemplateErrorMessageConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateErrorMessageConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateErrorMessageConfigurationType)(nil)).Elem()
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationTypeOutput) ToAnalysisTemplateErrorMessageConfigurationTypeOutput() AnalysisTemplateErrorMessageConfigurationTypeOutput {
+	return o
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationTypeOutput) ToAnalysisTemplateErrorMessageConfigurationTypeOutputWithContext(ctx context.Context) AnalysisTemplateErrorMessageConfigurationTypeOutput {
+	return o
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationTypeOutput) ToAnalysisTemplateErrorMessageConfigurationTypePtrOutput() AnalysisTemplateErrorMessageConfigurationTypePtrOutput {
+	return o.ToAnalysisTemplateErrorMessageConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationTypeOutput) ToAnalysisTemplateErrorMessageConfigurationTypePtrOutputWithContext(ctx context.Context) AnalysisTemplateErrorMessageConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTemplateErrorMessageConfigurationType) *AnalysisTemplateErrorMessageConfigurationType {
+		return &v
+	}).(AnalysisTemplateErrorMessageConfigurationTypePtrOutput)
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisTemplateErrorMessageConfigurationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisTemplateErrorMessageConfigurationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisTemplateErrorMessageConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateErrorMessageConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateErrorMessageConfigurationType)(nil)).Elem()
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationTypePtrOutput) ToAnalysisTemplateErrorMessageConfigurationTypePtrOutput() AnalysisTemplateErrorMessageConfigurationTypePtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationTypePtrOutput) ToAnalysisTemplateErrorMessageConfigurationTypePtrOutputWithContext(ctx context.Context) AnalysisTemplateErrorMessageConfigurationTypePtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationTypePtrOutput) Elem() AnalysisTemplateErrorMessageConfigurationTypeOutput {
+	return o.ApplyT(func(v *AnalysisTemplateErrorMessageConfigurationType) AnalysisTemplateErrorMessageConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTemplateErrorMessageConfigurationType
+		return ret
+	}).(AnalysisTemplateErrorMessageConfigurationTypeOutput)
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisTemplateErrorMessageConfigurationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisTemplateErrorMessageConfigurationTypeInput is an input type that accepts values of the AnalysisTemplateErrorMessageConfigurationType enum
+// A concrete instance of `AnalysisTemplateErrorMessageConfigurationTypeInput` can be one of the following:
+//
+//	AnalysisTemplateErrorMessageConfigurationTypeDetailed
+type AnalysisTemplateErrorMessageConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateErrorMessageConfigurationTypeOutput() AnalysisTemplateErrorMessageConfigurationTypeOutput
+	ToAnalysisTemplateErrorMessageConfigurationTypeOutputWithContext(context.Context) AnalysisTemplateErrorMessageConfigurationTypeOutput
+}
+
+var analysisTemplateErrorMessageConfigurationTypePtrType = reflect.TypeOf((**AnalysisTemplateErrorMessageConfigurationType)(nil)).Elem()
+
+type AnalysisTemplateErrorMessageConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateErrorMessageConfigurationTypePtrOutput() AnalysisTemplateErrorMessageConfigurationTypePtrOutput
+	ToAnalysisTemplateErrorMessageConfigurationTypePtrOutputWithContext(context.Context) AnalysisTemplateErrorMessageConfigurationTypePtrOutput
+}
+
+type analysisTemplateErrorMessageConfigurationTypePtr string
+
+func AnalysisTemplateErrorMessageConfigurationTypePtr(v string) AnalysisTemplateErrorMessageConfigurationTypePtrInput {
+	return (*analysisTemplateErrorMessageConfigurationTypePtr)(&v)
+}
+
+func (*analysisTemplateErrorMessageConfigurationTypePtr) ElementType() reflect.Type {
+	return analysisTemplateErrorMessageConfigurationTypePtrType
+}
+
+func (in *analysisTemplateErrorMessageConfigurationTypePtr) ToAnalysisTemplateErrorMessageConfigurationTypePtrOutput() AnalysisTemplateErrorMessageConfigurationTypePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisTemplateErrorMessageConfigurationTypePtrOutput)
+}
+
+func (in *analysisTemplateErrorMessageConfigurationTypePtr) ToAnalysisTemplateErrorMessageConfigurationTypePtrOutputWithContext(ctx context.Context) AnalysisTemplateErrorMessageConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTemplateErrorMessageConfigurationTypePtrOutput)
+}
+
 // The format of the analysis template.
 type AnalysisTemplateFormat string
 
@@ -557,6 +723,214 @@ func (in *collaborationAnalyticsEnginePtr) ToCollaborationAnalyticsEnginePtrOutp
 
 func (in *collaborationAnalyticsEnginePtr) ToCollaborationAnalyticsEnginePtrOutputWithContext(ctx context.Context) CollaborationAnalyticsEnginePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CollaborationAnalyticsEnginePtrOutput)
+}
+
+type CollaborationAutoApprovedChangeType string
+
+const (
+	CollaborationAutoApprovedChangeTypeAddMember = CollaborationAutoApprovedChangeType("ADD_MEMBER")
+)
+
+func (CollaborationAutoApprovedChangeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationAutoApprovedChangeType)(nil)).Elem()
+}
+
+func (e CollaborationAutoApprovedChangeType) ToCollaborationAutoApprovedChangeTypeOutput() CollaborationAutoApprovedChangeTypeOutput {
+	return pulumi.ToOutput(e).(CollaborationAutoApprovedChangeTypeOutput)
+}
+
+func (e CollaborationAutoApprovedChangeType) ToCollaborationAutoApprovedChangeTypeOutputWithContext(ctx context.Context) CollaborationAutoApprovedChangeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CollaborationAutoApprovedChangeTypeOutput)
+}
+
+func (e CollaborationAutoApprovedChangeType) ToCollaborationAutoApprovedChangeTypePtrOutput() CollaborationAutoApprovedChangeTypePtrOutput {
+	return e.ToCollaborationAutoApprovedChangeTypePtrOutputWithContext(context.Background())
+}
+
+func (e CollaborationAutoApprovedChangeType) ToCollaborationAutoApprovedChangeTypePtrOutputWithContext(ctx context.Context) CollaborationAutoApprovedChangeTypePtrOutput {
+	return CollaborationAutoApprovedChangeType(e).ToCollaborationAutoApprovedChangeTypeOutputWithContext(ctx).ToCollaborationAutoApprovedChangeTypePtrOutputWithContext(ctx)
+}
+
+func (e CollaborationAutoApprovedChangeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollaborationAutoApprovedChangeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollaborationAutoApprovedChangeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CollaborationAutoApprovedChangeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CollaborationAutoApprovedChangeTypeOutput struct{ *pulumi.OutputState }
+
+func (CollaborationAutoApprovedChangeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationAutoApprovedChangeType)(nil)).Elem()
+}
+
+func (o CollaborationAutoApprovedChangeTypeOutput) ToCollaborationAutoApprovedChangeTypeOutput() CollaborationAutoApprovedChangeTypeOutput {
+	return o
+}
+
+func (o CollaborationAutoApprovedChangeTypeOutput) ToCollaborationAutoApprovedChangeTypeOutputWithContext(ctx context.Context) CollaborationAutoApprovedChangeTypeOutput {
+	return o
+}
+
+func (o CollaborationAutoApprovedChangeTypeOutput) ToCollaborationAutoApprovedChangeTypePtrOutput() CollaborationAutoApprovedChangeTypePtrOutput {
+	return o.ToCollaborationAutoApprovedChangeTypePtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationAutoApprovedChangeTypeOutput) ToCollaborationAutoApprovedChangeTypePtrOutputWithContext(ctx context.Context) CollaborationAutoApprovedChangeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollaborationAutoApprovedChangeType) *CollaborationAutoApprovedChangeType {
+		return &v
+	}).(CollaborationAutoApprovedChangeTypePtrOutput)
+}
+
+func (o CollaborationAutoApprovedChangeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CollaborationAutoApprovedChangeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollaborationAutoApprovedChangeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CollaborationAutoApprovedChangeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationAutoApprovedChangeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollaborationAutoApprovedChangeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CollaborationAutoApprovedChangeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CollaborationAutoApprovedChangeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationAutoApprovedChangeType)(nil)).Elem()
+}
+
+func (o CollaborationAutoApprovedChangeTypePtrOutput) ToCollaborationAutoApprovedChangeTypePtrOutput() CollaborationAutoApprovedChangeTypePtrOutput {
+	return o
+}
+
+func (o CollaborationAutoApprovedChangeTypePtrOutput) ToCollaborationAutoApprovedChangeTypePtrOutputWithContext(ctx context.Context) CollaborationAutoApprovedChangeTypePtrOutput {
+	return o
+}
+
+func (o CollaborationAutoApprovedChangeTypePtrOutput) Elem() CollaborationAutoApprovedChangeTypeOutput {
+	return o.ApplyT(func(v *CollaborationAutoApprovedChangeType) CollaborationAutoApprovedChangeType {
+		if v != nil {
+			return *v
+		}
+		var ret CollaborationAutoApprovedChangeType
+		return ret
+	}).(CollaborationAutoApprovedChangeTypeOutput)
+}
+
+func (o CollaborationAutoApprovedChangeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationAutoApprovedChangeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CollaborationAutoApprovedChangeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CollaborationAutoApprovedChangeTypeInput is an input type that accepts values of the CollaborationAutoApprovedChangeType enum
+// A concrete instance of `CollaborationAutoApprovedChangeTypeInput` can be one of the following:
+//
+//	CollaborationAutoApprovedChangeTypeAddMember
+type CollaborationAutoApprovedChangeTypeInput interface {
+	pulumi.Input
+
+	ToCollaborationAutoApprovedChangeTypeOutput() CollaborationAutoApprovedChangeTypeOutput
+	ToCollaborationAutoApprovedChangeTypeOutputWithContext(context.Context) CollaborationAutoApprovedChangeTypeOutput
+}
+
+var collaborationAutoApprovedChangeTypePtrType = reflect.TypeOf((**CollaborationAutoApprovedChangeType)(nil)).Elem()
+
+type CollaborationAutoApprovedChangeTypePtrInput interface {
+	pulumi.Input
+
+	ToCollaborationAutoApprovedChangeTypePtrOutput() CollaborationAutoApprovedChangeTypePtrOutput
+	ToCollaborationAutoApprovedChangeTypePtrOutputWithContext(context.Context) CollaborationAutoApprovedChangeTypePtrOutput
+}
+
+type collaborationAutoApprovedChangeTypePtr string
+
+func CollaborationAutoApprovedChangeTypePtr(v string) CollaborationAutoApprovedChangeTypePtrInput {
+	return (*collaborationAutoApprovedChangeTypePtr)(&v)
+}
+
+func (*collaborationAutoApprovedChangeTypePtr) ElementType() reflect.Type {
+	return collaborationAutoApprovedChangeTypePtrType
+}
+
+func (in *collaborationAutoApprovedChangeTypePtr) ToCollaborationAutoApprovedChangeTypePtrOutput() CollaborationAutoApprovedChangeTypePtrOutput {
+	return pulumi.ToOutput(in).(CollaborationAutoApprovedChangeTypePtrOutput)
+}
+
+func (in *collaborationAutoApprovedChangeTypePtr) ToCollaborationAutoApprovedChangeTypePtrOutputWithContext(ctx context.Context) CollaborationAutoApprovedChangeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CollaborationAutoApprovedChangeTypePtrOutput)
+}
+
+// CollaborationAutoApprovedChangeTypeArrayInput is an input type that accepts CollaborationAutoApprovedChangeTypeArray and CollaborationAutoApprovedChangeTypeArrayOutput values.
+// You can construct a concrete instance of `CollaborationAutoApprovedChangeTypeArrayInput` via:
+//
+//	CollaborationAutoApprovedChangeTypeArray{ CollaborationAutoApprovedChangeTypeArgs{...} }
+type CollaborationAutoApprovedChangeTypeArrayInput interface {
+	pulumi.Input
+
+	ToCollaborationAutoApprovedChangeTypeArrayOutput() CollaborationAutoApprovedChangeTypeArrayOutput
+	ToCollaborationAutoApprovedChangeTypeArrayOutputWithContext(context.Context) CollaborationAutoApprovedChangeTypeArrayOutput
+}
+
+type CollaborationAutoApprovedChangeTypeArray []CollaborationAutoApprovedChangeType
+
+func (CollaborationAutoApprovedChangeTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CollaborationAutoApprovedChangeType)(nil)).Elem()
+}
+
+func (i CollaborationAutoApprovedChangeTypeArray) ToCollaborationAutoApprovedChangeTypeArrayOutput() CollaborationAutoApprovedChangeTypeArrayOutput {
+	return i.ToCollaborationAutoApprovedChangeTypeArrayOutputWithContext(context.Background())
+}
+
+func (i CollaborationAutoApprovedChangeTypeArray) ToCollaborationAutoApprovedChangeTypeArrayOutputWithContext(ctx context.Context) CollaborationAutoApprovedChangeTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationAutoApprovedChangeTypeArrayOutput)
+}
+
+type CollaborationAutoApprovedChangeTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (CollaborationAutoApprovedChangeTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CollaborationAutoApprovedChangeType)(nil)).Elem()
+}
+
+func (o CollaborationAutoApprovedChangeTypeArrayOutput) ToCollaborationAutoApprovedChangeTypeArrayOutput() CollaborationAutoApprovedChangeTypeArrayOutput {
+	return o
+}
+
+func (o CollaborationAutoApprovedChangeTypeArrayOutput) ToCollaborationAutoApprovedChangeTypeArrayOutputWithContext(ctx context.Context) CollaborationAutoApprovedChangeTypeArrayOutput {
+	return o
+}
+
+func (o CollaborationAutoApprovedChangeTypeArrayOutput) Index(i pulumi.IntInput) CollaborationAutoApprovedChangeTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CollaborationAutoApprovedChangeType {
+		return vs[0].([]CollaborationAutoApprovedChangeType)[vs[1].(int)]
+	}).(CollaborationAutoApprovedChangeTypeOutput)
 }
 
 type CollaborationCustomMlMemberAbility string
@@ -4162,10 +4536,15 @@ func (in *privacyBudgetTemplatePrivacyBudgetTypePtr) ToPrivacyBudgetTemplatePriv
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterTypeInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterType("SMALLINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterTypePtrInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterType("SMALLINT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateErrorMessageConfigurationTypeInput)(nil)).Elem(), AnalysisTemplateErrorMessageConfigurationType("DETAILED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateErrorMessageConfigurationTypePtrInput)(nil)).Elem(), AnalysisTemplateErrorMessageConfigurationType("DETAILED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateFormatInput)(nil)).Elem(), AnalysisTemplateFormat("SQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateFormatPtrInput)(nil)).Elem(), AnalysisTemplateFormat("SQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationAnalyticsEngineInput)(nil)).Elem(), CollaborationAnalyticsEngine("CLEAN_ROOMS_SQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationAnalyticsEnginePtrInput)(nil)).Elem(), CollaborationAnalyticsEngine("CLEAN_ROOMS_SQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationAutoApprovedChangeTypeInput)(nil)).Elem(), CollaborationAutoApprovedChangeType("ADD_MEMBER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationAutoApprovedChangeTypePtrInput)(nil)).Elem(), CollaborationAutoApprovedChangeType("ADD_MEMBER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationAutoApprovedChangeTypeArrayInput)(nil)).Elem(), CollaborationAutoApprovedChangeTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationCustomMlMemberAbilityInput)(nil)).Elem(), CollaborationCustomMlMemberAbility("CAN_RECEIVE_MODEL_OUTPUT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationCustomMlMemberAbilityPtrInput)(nil)).Elem(), CollaborationCustomMlMemberAbility("CAN_RECEIVE_MODEL_OUTPUT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationCustomMlMemberAbilityArrayInput)(nil)).Elem(), CollaborationCustomMlMemberAbilityArray{})
@@ -4211,10 +4590,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplatePrivacyBudgetTypePtrInput)(nil)).Elem(), PrivacyBudgetTemplatePrivacyBudgetType("DIFFERENTIAL_PRIVACY"))
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterTypePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateErrorMessageConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateErrorMessageConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateFormatOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateFormatPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationAnalyticsEngineOutput{})
 	pulumi.RegisterOutputType(CollaborationAnalyticsEnginePtrOutput{})
+	pulumi.RegisterOutputType(CollaborationAutoApprovedChangeTypeOutput{})
+	pulumi.RegisterOutputType(CollaborationAutoApprovedChangeTypePtrOutput{})
+	pulumi.RegisterOutputType(CollaborationAutoApprovedChangeTypeArrayOutput{})
 	pulumi.RegisterOutputType(CollaborationCustomMlMemberAbilityOutput{})
 	pulumi.RegisterOutputType(CollaborationCustomMlMemberAbilityPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationCustomMlMemberAbilityArrayOutput{})

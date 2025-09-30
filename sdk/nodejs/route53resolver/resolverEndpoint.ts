@@ -44,7 +44,8 @@ export class ResolverEndpoint extends pulumi.CustomResource {
     /**
      * Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
      * - INBOUND: allows DNS queries to your VPC from your network 
-     * - OUTBOUND: allows DNS queries from your VPC to your network
+     * - OUTBOUND: allows DNS queries from your VPC to your network 
+     * - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
      */
     public readonly direction!: pulumi.Output<string>;
     /**
@@ -154,7 +155,8 @@ export interface ResolverEndpointArgs {
     /**
      * Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
      * - INBOUND: allows DNS queries to your VPC from your network 
-     * - OUTBOUND: allows DNS queries from your VPC to your network
+     * - OUTBOUND: allows DNS queries from your VPC to your network 
+     * - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
      */
     direction: pulumi.Input<string>;
     /**

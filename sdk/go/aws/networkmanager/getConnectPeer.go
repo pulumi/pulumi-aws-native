@@ -39,6 +39,8 @@ type LookupConnectPeerResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The Connect peer Regions where edges are located.
 	EdgeLocation *string `pulumi:"edgeLocation"`
+	// Errors from the last modification of the connect peer.
+	LastModificationErrors []string `pulumi:"lastModificationErrors"`
 	// State of the connect peer.
 	State *string `pulumi:"state"`
 	// An array of key-value pairs to apply to this resource.
@@ -100,6 +102,11 @@ func (o LookupConnectPeerResultOutput) CreatedAt() pulumi.StringPtrOutput {
 // The Connect peer Regions where edges are located.
 func (o LookupConnectPeerResultOutput) EdgeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) *string { return v.EdgeLocation }).(pulumi.StringPtrOutput)
+}
+
+// Errors from the last modification of the connect peer.
+func (o LookupConnectPeerResultOutput) LastModificationErrors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupConnectPeerResult) []string { return v.LastModificationErrors }).(pulumi.StringArrayOutput)
 }
 
 // State of the connect peer.

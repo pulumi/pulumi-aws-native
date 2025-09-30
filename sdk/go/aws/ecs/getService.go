@@ -58,6 +58,9 @@ type LookupServiceArgs struct {
 type LookupServiceResult struct {
 	// Indicates whether to use Availability Zone rebalancing for the service.
 	//  For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  The default behavior of ``AvailabilityZoneRebalancing`` differs between create and update requests:
+	//   +  For create service requests, when no value is specified for ``AvailabilityZoneRebalancing``, Amazon ECS defaults the value to ``ENABLED``.
+	//   +  For update service requests, when no value is specified for ``AvailabilityZoneRebalancing``, Amazon ECS defaults to the existing service’s ``AvailabilityZoneRebalancing`` value. If the service never had an ``AvailabilityZoneRebalancing`` value set, Amazon ECS treats this as ``DISABLED``.
 	AvailabilityZoneRebalancing *ServiceAvailabilityZoneRebalancing `pulumi:"availabilityZoneRebalancing"`
 	// The capacity provider strategy to use for the service.
 	//  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
@@ -77,8 +80,8 @@ type LookupServiceResult struct {
 	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
 	// Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
 	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
-	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you don't specify a health check grace period value, the default value of ``0`` is used. If you don't use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
-	//  If your service's tasks take a while to start and respond to health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+	// The period of time, in seconds, that the Amazon Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
+	//  If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
 	HealthCheckGracePeriodSeconds *int `pulumi:"healthCheckGracePeriodSeconds"`
 	// A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
@@ -160,6 +163,9 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 // Indicates whether to use Availability Zone rebalancing for the service.
 //
 //	For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	The default behavior of ``AvailabilityZoneRebalancing`` differs between create and update requests:
+//	 +  For create service requests, when no value is specified for ``AvailabilityZoneRebalancing``, Amazon ECS defaults the value to ``ENABLED``.
+//	 +  For update service requests, when no value is specified for ``AvailabilityZoneRebalancing``, Amazon ECS defaults to the existing service’s ``AvailabilityZoneRebalancing`` value. If the service never had an ``AvailabilityZoneRebalancing`` value set, Amazon ECS treats this as ``DISABLED``.
 func (o LookupServiceResultOutput) AvailabilityZoneRebalancing() ServiceAvailabilityZoneRebalancingPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceAvailabilityZoneRebalancing { return v.AvailabilityZoneRebalancing }).(ServiceAvailabilityZoneRebalancingPtrOutput)
 }
@@ -203,9 +209,9 @@ func (o LookupServiceResultOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *bool { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
 }
 
-// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you don't specify a health check grace period value, the default value of “0“ is used. If you don't use any of the health checks, then “healthCheckGracePeriodSeconds“ is unused.
+// The period of time, in seconds, that the Amazon Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then “healthCheckGracePeriodSeconds“ is unused.
 //
-//	If your service's tasks take a while to start and respond to health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+//	If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
 func (o LookupServiceResultOutput) HealthCheckGracePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *int { return v.HealthCheckGracePeriodSeconds }).(pulumi.IntPtrOutput)
 }

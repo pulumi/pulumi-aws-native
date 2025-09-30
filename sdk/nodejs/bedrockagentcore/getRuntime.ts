@@ -77,6 +77,9 @@ export interface GetRuntimeResult {
      * Current status of the agent
      */
     readonly status?: enums.bedrockagentcore.RuntimeAgentStatus;
+    /**
+     * The tags for the agent.
+     */
     readonly tags?: {[key: string]: string};
     /**
      * Workload identity details for the agent

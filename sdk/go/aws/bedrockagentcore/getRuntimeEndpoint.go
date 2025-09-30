@@ -46,7 +46,8 @@ type LookupRuntimeEndpointResult struct {
 	LiveVersion *string `pulumi:"liveVersion"`
 	// The status of the Agent Runtime Endpoint
 	Status *RuntimeEndpointAgentRuntimeEndpointStatus `pulumi:"status"`
-	Tags   map[string]string                          `pulumi:"tags"`
+	// The tags for the AgentCore Runtime endpoint.
+	Tags map[string]string `pulumi:"tags"`
 	// The target version of the AgentCore Runtime for the endpoint.
 	TargetVersion *string `pulumi:"targetVersion"`
 }
@@ -128,6 +129,7 @@ func (o LookupRuntimeEndpointResultOutput) Status() RuntimeEndpointAgentRuntimeE
 	return o.ApplyT(func(v LookupRuntimeEndpointResult) *RuntimeEndpointAgentRuntimeEndpointStatus { return v.Status }).(RuntimeEndpointAgentRuntimeEndpointStatusPtrOutput)
 }
 
+// The tags for the AgentCore Runtime endpoint.
 func (o LookupRuntimeEndpointResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupRuntimeEndpointResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

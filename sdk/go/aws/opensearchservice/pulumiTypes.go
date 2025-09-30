@@ -245,7 +245,8 @@ type DomainAdvancedSecurityOptionsInput struct {
 	// True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
 	AnonymousAuthEnabled *bool `pulumi:"anonymousAuthEnabled"`
 	// True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
-	Enabled              *bool                       `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
+	// Input configuration for IAM identity federation within advanced security options.
 	IamFederationOptions *DomainIamFederationOptions `pulumi:"iamFederationOptions"`
 	// True to enable the internal user database.
 	InternalUserDatabaseEnabled *bool `pulumi:"internalUserDatabaseEnabled"`
@@ -274,7 +275,8 @@ type DomainAdvancedSecurityOptionsInputArgs struct {
 	// True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
 	AnonymousAuthEnabled pulumi.BoolPtrInput `pulumi:"anonymousAuthEnabled"`
 	// True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
-	Enabled              pulumi.BoolPtrInput                `pulumi:"enabled"`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Input configuration for IAM identity federation within advanced security options.
 	IamFederationOptions DomainIamFederationOptionsPtrInput `pulumi:"iamFederationOptions"`
 	// True to enable the internal user database.
 	InternalUserDatabaseEnabled pulumi.BoolPtrInput `pulumi:"internalUserDatabaseEnabled"`
@@ -378,6 +380,7 @@ func (o DomainAdvancedSecurityOptionsInputOutput) Enabled() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Input configuration for IAM identity federation within advanced security options.
 func (o DomainAdvancedSecurityOptionsInputOutput) IamFederationOptions() DomainIamFederationOptionsPtrOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *DomainIamFederationOptions { return v.IamFederationOptions }).(DomainIamFederationOptionsPtrOutput)
 }
@@ -456,6 +459,7 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) Enabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Input configuration for IAM identity federation within advanced security options.
 func (o DomainAdvancedSecurityOptionsInputPtrOutput) IamFederationOptions() DomainIamFederationOptionsPtrOutput {
 	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *DomainIamFederationOptions {
 		if v == nil {

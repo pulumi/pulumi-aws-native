@@ -166,6 +166,10 @@
       "description" : "",
       "type" : "string"
     },
+    "SecurityPolicy" : {
+      "description" : "",
+      "type" : "string"
+    },
     "ApiKeySourceType" : {
       "description" : "",
       "type" : "string"

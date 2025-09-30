@@ -87,6 +87,13 @@
     "Options" : {
       "description" : "Vpc options of the attachment.",
       "$ref" : "#/definitions/VpcOptions"
+    },
+    "LastModificationErrors" : {
+      "description" : "Errors from the last modification of the attachment.",
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
     }
   },
   "definitions" : {
@@ -193,7 +200,7 @@
   "additionalProperties" : false,
   "required" : [ "CoreNetworkId", "VpcArn", "SubnetArns" ],
   "createOnlyProperties" : [ "/properties/CoreNetworkId", "/properties/VpcArn" ],
-  "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/AttachmentPolicyRuleNumber", "/properties/SegmentName", "/properties/NetworkFunctionGroupName", "/properties/ResourceArn" ],
+  "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/AttachmentPolicyRuleNumber", "/properties/SegmentName", "/properties/NetworkFunctionGroupName", "/properties/ResourceArn", "/properties/LastModificationErrors" ],
   "primaryIdentifier" : [ "/properties/AttachmentId" ],
   "additionalIdentifiers" : [ [ "/properties/CoreNetworkId", "/properties/VpcArn" ] ],
   "handlers" : {

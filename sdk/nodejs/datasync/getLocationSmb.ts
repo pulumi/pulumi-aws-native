@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::DataSync::LocationSMB.
+ * Resource Type definition for AWS::DataSync::LocationSMB.
  */
 export function getLocationSmb(args: GetLocationSmbArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationSmbResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,6 +34,18 @@ export interface GetLocationSmbResult {
      */
     readonly authenticationType?: enums.datasync.LocationSmbAuthenticationType;
     /**
+     * Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+     *
+     * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+     */
+    readonly cmkSecretConfig?: outputs.datasync.LocationSmbCmkSecretConfig;
+    /**
+     * Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+     *
+     * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+     */
+    readonly customSecretConfig?: outputs.datasync.LocationSmbCustomSecretConfig;
+    /**
      * Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
      */
     readonly dnsIpAddresses?: string[];
@@ -53,6 +65,7 @@ export interface GetLocationSmbResult {
      * The URL of the SMB location that was described.
      */
     readonly locationUri?: string;
+    readonly managedSecretConfig?: outputs.datasync.LocationSmbManagedSecretConfig;
     /**
      * Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
      */
@@ -67,7 +80,7 @@ export interface GetLocationSmbResult {
     readonly user?: string;
 }
 /**
- * Resource schema for AWS::DataSync::LocationSMB.
+ * Resource Type definition for AWS::DataSync::LocationSMB.
  */
 export function getLocationSmbOutput(args: GetLocationSmbOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationSmbResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

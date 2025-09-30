@@ -40,7 +40,8 @@ type RuntimeEndpoint struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The status of the Agent Runtime Endpoint
 	Status RuntimeEndpointAgentRuntimeEndpointStatusOutput `pulumi:"status"`
-	Tags   pulumi.StringMapOutput                          `pulumi:"tags"`
+	// The tags for the AgentCore Runtime endpoint.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The target version of the AgentCore Runtime for the endpoint.
 	TargetVersion pulumi.StringOutput `pulumi:"targetVersion"`
 }
@@ -101,7 +102,8 @@ type runtimeEndpointArgs struct {
 	// The description of the AgentCore Runtime endpoint.
 	Description *string `pulumi:"description"`
 	// The name of the Agent Runtime Endpoint
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The tags for the AgentCore Runtime endpoint.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -115,6 +117,7 @@ type RuntimeEndpointArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the Agent Runtime Endpoint
 	Name pulumi.StringPtrInput
+	// The tags for the AgentCore Runtime endpoint.
 	Tags pulumi.StringMapInput
 }
 
@@ -215,6 +218,7 @@ func (o RuntimeEndpointOutput) Status() RuntimeEndpointAgentRuntimeEndpointStatu
 	return o.ApplyT(func(v *RuntimeEndpoint) RuntimeEndpointAgentRuntimeEndpointStatusOutput { return v.Status }).(RuntimeEndpointAgentRuntimeEndpointStatusOutput)
 }
 
+// The tags for the AgentCore Runtime endpoint.
 func (o RuntimeEndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RuntimeEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

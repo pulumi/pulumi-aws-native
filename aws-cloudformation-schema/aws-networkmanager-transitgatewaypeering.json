@@ -69,6 +69,13 @@
       "description" : "The creation time of the transit gateway peering",
       "type" : "string"
     },
+    "LastModificationErrors" : {
+      "description" : "Errors from the last modification of the transit gateway peering.",
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
     "Tags" : {
       "description" : "An array of key-value pairs to apply to this resource.",
       "type" : "array",
@@ -89,7 +96,7 @@
     "permissions" : [ "networkmanager:TagResource", "networkmanager:UntagResource", "networkmanager:ListTagsForResource" ]
   },
   "required" : [ "CoreNetworkId", "TransitGatewayArn" ],
-  "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/PeeringId", "/properties/State", "/properties/PeeringType", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/ResourceArn", "/properties/CreatedAt", "/properties/TransitGatewayPeeringAttachmentId" ],
+  "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/PeeringId", "/properties/State", "/properties/PeeringType", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/ResourceArn", "/properties/CreatedAt", "/properties/TransitGatewayPeeringAttachmentId", "/properties/LastModificationErrors" ],
   "createOnlyProperties" : [ "/properties/CoreNetworkId", "/properties/TransitGatewayArn" ],
   "primaryIdentifier" : [ "/properties/PeeringId" ],
   "handlers" : {

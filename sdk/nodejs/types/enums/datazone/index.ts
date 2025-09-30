@@ -125,6 +125,16 @@ export const EnvironmentStatus = {
  */
 export type EnvironmentStatus = (typeof EnvironmentStatus)[keyof typeof EnvironmentStatus];
 
+export const FormTypeStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The status of this Amazon DataZone metadata form type.
+ */
+export type FormTypeStatus = (typeof FormTypeStatus)[keyof typeof FormTypeStatus];
+
 export const GroupProfileStatus = {
     Assigned: "ASSIGNED",
     NotAssigned: "NOT_ASSIGNED",
@@ -143,6 +153,16 @@ export const OwnerEntityType = {
  * The type of an entity.
  */
 export type OwnerEntityType = (typeof OwnerEntityType)[keyof typeof OwnerEntityType];
+
+export const OwnerType = {
+    User: "USER",
+    Group: "GROUP",
+} as const;
+
+/**
+ * The owner that you want to add to the entity.
+ */
+export type OwnerType = (typeof OwnerType)[keyof typeof OwnerType];
 
 export const PolicyGrantDomainUnitDesignation = {
     Owner: "OWNER",
@@ -184,6 +204,13 @@ export const PolicyGrantTargetEntityType = {
 } as const;
 
 export type PolicyGrantTargetEntityType = (typeof PolicyGrantTargetEntityType)[keyof typeof PolicyGrantTargetEntityType];
+
+export const ProjectMembershipMemberIdentifierType = {
+    UserIdentifier: "USER_IDENTIFIER",
+    GroupIdentifier: "GROUP_IDENTIFIER",
+} as const;
+
+export type ProjectMembershipMemberIdentifierType = (typeof ProjectMembershipMemberIdentifierType)[keyof typeof ProjectMembershipMemberIdentifierType];
 
 export const ProjectMembershipUserDesignation = {
     ProjectOwner: "PROJECT_OWNER",

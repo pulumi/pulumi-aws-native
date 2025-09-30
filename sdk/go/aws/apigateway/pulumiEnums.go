@@ -1366,6 +1366,171 @@ func (in *methodIntegrationResponseContentHandlingPtr) ToMethodIntegrationRespon
 	return pulumi.ToOutputWithContext(ctx, in).(MethodIntegrationResponseContentHandlingPtrOutput)
 }
 
+type MethodIntegrationResponseTransferMode string
+
+const (
+	MethodIntegrationResponseTransferModeBuffered = MethodIntegrationResponseTransferMode("BUFFERED")
+	MethodIntegrationResponseTransferModeStream   = MethodIntegrationResponseTransferMode("STREAM")
+)
+
+func (MethodIntegrationResponseTransferMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodIntegrationResponseTransferMode)(nil)).Elem()
+}
+
+func (e MethodIntegrationResponseTransferMode) ToMethodIntegrationResponseTransferModeOutput() MethodIntegrationResponseTransferModeOutput {
+	return pulumi.ToOutput(e).(MethodIntegrationResponseTransferModeOutput)
+}
+
+func (e MethodIntegrationResponseTransferMode) ToMethodIntegrationResponseTransferModeOutputWithContext(ctx context.Context) MethodIntegrationResponseTransferModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MethodIntegrationResponseTransferModeOutput)
+}
+
+func (e MethodIntegrationResponseTransferMode) ToMethodIntegrationResponseTransferModePtrOutput() MethodIntegrationResponseTransferModePtrOutput {
+	return e.ToMethodIntegrationResponseTransferModePtrOutputWithContext(context.Background())
+}
+
+func (e MethodIntegrationResponseTransferMode) ToMethodIntegrationResponseTransferModePtrOutputWithContext(ctx context.Context) MethodIntegrationResponseTransferModePtrOutput {
+	return MethodIntegrationResponseTransferMode(e).ToMethodIntegrationResponseTransferModeOutputWithContext(ctx).ToMethodIntegrationResponseTransferModePtrOutputWithContext(ctx)
+}
+
+func (e MethodIntegrationResponseTransferMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MethodIntegrationResponseTransferMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MethodIntegrationResponseTransferMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MethodIntegrationResponseTransferMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MethodIntegrationResponseTransferModeOutput struct{ *pulumi.OutputState }
+
+func (MethodIntegrationResponseTransferModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodIntegrationResponseTransferMode)(nil)).Elem()
+}
+
+func (o MethodIntegrationResponseTransferModeOutput) ToMethodIntegrationResponseTransferModeOutput() MethodIntegrationResponseTransferModeOutput {
+	return o
+}
+
+func (o MethodIntegrationResponseTransferModeOutput) ToMethodIntegrationResponseTransferModeOutputWithContext(ctx context.Context) MethodIntegrationResponseTransferModeOutput {
+	return o
+}
+
+func (o MethodIntegrationResponseTransferModeOutput) ToMethodIntegrationResponseTransferModePtrOutput() MethodIntegrationResponseTransferModePtrOutput {
+	return o.ToMethodIntegrationResponseTransferModePtrOutputWithContext(context.Background())
+}
+
+func (o MethodIntegrationResponseTransferModeOutput) ToMethodIntegrationResponseTransferModePtrOutputWithContext(ctx context.Context) MethodIntegrationResponseTransferModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MethodIntegrationResponseTransferMode) *MethodIntegrationResponseTransferMode {
+		return &v
+	}).(MethodIntegrationResponseTransferModePtrOutput)
+}
+
+func (o MethodIntegrationResponseTransferModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MethodIntegrationResponseTransferModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MethodIntegrationResponseTransferMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MethodIntegrationResponseTransferModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MethodIntegrationResponseTransferModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MethodIntegrationResponseTransferMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MethodIntegrationResponseTransferModePtrOutput struct{ *pulumi.OutputState }
+
+func (MethodIntegrationResponseTransferModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MethodIntegrationResponseTransferMode)(nil)).Elem()
+}
+
+func (o MethodIntegrationResponseTransferModePtrOutput) ToMethodIntegrationResponseTransferModePtrOutput() MethodIntegrationResponseTransferModePtrOutput {
+	return o
+}
+
+func (o MethodIntegrationResponseTransferModePtrOutput) ToMethodIntegrationResponseTransferModePtrOutputWithContext(ctx context.Context) MethodIntegrationResponseTransferModePtrOutput {
+	return o
+}
+
+func (o MethodIntegrationResponseTransferModePtrOutput) Elem() MethodIntegrationResponseTransferModeOutput {
+	return o.ApplyT(func(v *MethodIntegrationResponseTransferMode) MethodIntegrationResponseTransferMode {
+		if v != nil {
+			return *v
+		}
+		var ret MethodIntegrationResponseTransferMode
+		return ret
+	}).(MethodIntegrationResponseTransferModeOutput)
+}
+
+func (o MethodIntegrationResponseTransferModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MethodIntegrationResponseTransferModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MethodIntegrationResponseTransferMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MethodIntegrationResponseTransferModeInput is an input type that accepts values of the MethodIntegrationResponseTransferMode enum
+// A concrete instance of `MethodIntegrationResponseTransferModeInput` can be one of the following:
+//
+//	MethodIntegrationResponseTransferModeBuffered
+//	MethodIntegrationResponseTransferModeStream
+type MethodIntegrationResponseTransferModeInput interface {
+	pulumi.Input
+
+	ToMethodIntegrationResponseTransferModeOutput() MethodIntegrationResponseTransferModeOutput
+	ToMethodIntegrationResponseTransferModeOutputWithContext(context.Context) MethodIntegrationResponseTransferModeOutput
+}
+
+var methodIntegrationResponseTransferModePtrType = reflect.TypeOf((**MethodIntegrationResponseTransferMode)(nil)).Elem()
+
+type MethodIntegrationResponseTransferModePtrInput interface {
+	pulumi.Input
+
+	ToMethodIntegrationResponseTransferModePtrOutput() MethodIntegrationResponseTransferModePtrOutput
+	ToMethodIntegrationResponseTransferModePtrOutputWithContext(context.Context) MethodIntegrationResponseTransferModePtrOutput
+}
+
+type methodIntegrationResponseTransferModePtr string
+
+func MethodIntegrationResponseTransferModePtr(v string) MethodIntegrationResponseTransferModePtrInput {
+	return (*methodIntegrationResponseTransferModePtr)(&v)
+}
+
+func (*methodIntegrationResponseTransferModePtr) ElementType() reflect.Type {
+	return methodIntegrationResponseTransferModePtrType
+}
+
+func (in *methodIntegrationResponseTransferModePtr) ToMethodIntegrationResponseTransferModePtrOutput() MethodIntegrationResponseTransferModePtrOutput {
+	return pulumi.ToOutput(in).(MethodIntegrationResponseTransferModePtrOutput)
+}
+
+func (in *methodIntegrationResponseTransferModePtr) ToMethodIntegrationResponseTransferModePtrOutputWithContext(ctx context.Context) MethodIntegrationResponseTransferModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MethodIntegrationResponseTransferModePtrOutput)
+}
+
 // Specifies an API method integration type. The valid value is one of the following:
 //
 // For the HTTP and HTTP proxy integrations, each integration can specify a protocol ( `http/https` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
@@ -1721,6 +1886,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationPassthroughBehaviorPtrInput)(nil)).Elem(), MethodIntegrationPassthroughBehavior("WHEN_NO_MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationResponseContentHandlingInput)(nil)).Elem(), MethodIntegrationResponseContentHandling("CONVERT_TO_BINARY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationResponseContentHandlingPtrInput)(nil)).Elem(), MethodIntegrationResponseContentHandling("CONVERT_TO_BINARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationResponseTransferModeInput)(nil)).Elem(), MethodIntegrationResponseTransferMode("BUFFERED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationResponseTransferModePtrInput)(nil)).Elem(), MethodIntegrationResponseTransferMode("BUFFERED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationTypeInput)(nil)).Elem(), MethodIntegrationType("AWS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationTypePtrInput)(nil)).Elem(), MethodIntegrationType("AWS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyKeyTypeInput)(nil)).Elem(), UsagePlanKeyKeyType("API_KEY"))
@@ -1741,6 +1908,8 @@ func init() {
 	pulumi.RegisterOutputType(MethodIntegrationPassthroughBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationResponseContentHandlingOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationResponseContentHandlingPtrOutput{})
+	pulumi.RegisterOutputType(MethodIntegrationResponseTransferModeOutput{})
+	pulumi.RegisterOutputType(MethodIntegrationResponseTransferModePtrOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationTypeOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationTypePtrOutput{})
 	pulumi.RegisterOutputType(UsagePlanKeyKeyTypeOutput{})

@@ -40,7 +40,7 @@ type LookupComputeNodeGroupResult struct {
 	IamInstanceProfileArn *string `pulumi:"iamInstanceProfileArn"`
 	// The generated unique ID of the compute node group.
 	Id *string `pulumi:"id"`
-	// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
+	// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
 	PurchaseOption *ComputeNodeGroupPurchaseOption `pulumi:"purchaseOption"`
 	// Specifies the boundaries of the compute node group auto scaling.
 	ScalingConfiguration *ScalingConfigurationProperties `pulumi:"scalingConfiguration"`
@@ -118,7 +118,7 @@ func (o LookupComputeNodeGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupComputeNodeGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
+// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
 func (o LookupComputeNodeGroupResultOutput) PurchaseOption() ComputeNodeGroupPurchaseOptionPtrOutput {
 	return o.ApplyT(func(v LookupComputeNodeGroupResult) *ComputeNodeGroupPurchaseOption { return v.PurchaseOption }).(ComputeNodeGroupPurchaseOptionPtrOutput)
 }

@@ -213,6 +213,7 @@ if not MYPY:
         """
         The type of ID mapping.
         """
+        normalization_version: NotRequired[pulumi.Input[builtins.str]]
         provider_properties: NotRequired[pulumi.Input['IdMappingWorkflowProviderPropertiesArgsDict']]
         """
         An object which defines any additional configurations required by the provider service.
@@ -228,6 +229,7 @@ elif False:
 class IdMappingWorkflowIdMappingTechniquesArgs:
     def __init__(__self__, *,
                  id_mapping_type: Optional[pulumi.Input['IdMappingWorkflowIdMappingTechniquesIdMappingType']] = None,
+                 normalization_version: Optional[pulumi.Input[builtins.str]] = None,
                  provider_properties: Optional[pulumi.Input['IdMappingWorkflowProviderPropertiesArgs']] = None,
                  rule_based_properties: Optional[pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesArgs']] = None):
         """
@@ -237,6 +239,8 @@ class IdMappingWorkflowIdMappingTechniquesArgs:
         """
         if id_mapping_type is not None:
             pulumi.set(__self__, "id_mapping_type", id_mapping_type)
+        if normalization_version is not None:
+            pulumi.set(__self__, "normalization_version", normalization_version)
         if provider_properties is not None:
             pulumi.set(__self__, "provider_properties", provider_properties)
         if rule_based_properties is not None:
@@ -253,6 +257,15 @@ class IdMappingWorkflowIdMappingTechniquesArgs:
     @id_mapping_type.setter
     def id_mapping_type(self, value: Optional[pulumi.Input['IdMappingWorkflowIdMappingTechniquesIdMappingType']]):
         pulumi.set(self, "id_mapping_type", value)
+
+    @property
+    @pulumi.getter(name="normalizationVersion")
+    def normalization_version(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "normalization_version")
+
+    @normalization_version.setter
+    def normalization_version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "normalization_version", value)
 
     @property
     @pulumi.getter(name="providerProperties")

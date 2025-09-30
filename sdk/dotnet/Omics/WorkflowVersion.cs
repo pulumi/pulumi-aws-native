@@ -25,6 +25,15 @@ namespace Pulumi.AwsNative.Omics
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
+        /// </summary>
+        [Output("containerRegistryMap")]
+        public Output<Outputs.WorkflowVersionContainerRegistryMap?> ContainerRegistryMap { get; private set; } = null!;
+
+        [Output("containerRegistryMapUri")]
+        public Output<string?> ContainerRegistryMapUri { get; private set; } = null!;
+
+        /// <summary>
         /// The creation time of the workflow version.
         /// </summary>
         [Output("creationTime")]
@@ -143,6 +152,8 @@ namespace Pulumi.AwsNative.Omics
                 ReplaceOnChanges =
                 {
                     "accelerators",
+                    "containerRegistryMap",
+                    "containerRegistryMapUri",
                     "definitionRepository",
                     "definitionUri",
                     "engine",
@@ -179,6 +190,15 @@ namespace Pulumi.AwsNative.Omics
     {
         [Input("accelerators")]
         public Input<Pulumi.AwsNative.Omics.WorkflowVersionAccelerators>? Accelerators { get; set; }
+
+        /// <summary>
+        /// Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
+        /// </summary>
+        [Input("containerRegistryMap")]
+        public Input<Inputs.WorkflowVersionContainerRegistryMapArgs>? ContainerRegistryMap { get; set; }
+
+        [Input("containerRegistryMapUri")]
+        public Input<string>? ContainerRegistryMapUri { get; set; }
 
         /// <summary>
         /// Contains information about a source code repository that hosts the workflow definition files.

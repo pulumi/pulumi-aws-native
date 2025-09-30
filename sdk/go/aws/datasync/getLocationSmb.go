@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::DataSync::LocationSMB.
+// Resource Type definition for AWS::DataSync::LocationSMB.
 func LookupLocationSmb(ctx *pulumi.Context, args *LookupLocationSmbArgs, opts ...pulumi.InvokeOption) (*LookupLocationSmbResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocationSmbResult
@@ -33,6 +33,14 @@ type LookupLocationSmbResult struct {
 	AgentArns []string `pulumi:"agentArns"`
 	// The authentication mode used to determine identity of user.
 	AuthenticationType *LocationSmbAuthenticationType `pulumi:"authenticationType"`
+	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+	//
+	// > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+	CmkSecretConfig *LocationSmbCmkSecretConfig `pulumi:"cmkSecretConfig"`
+	// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+	//
+	// > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+	CustomSecretConfig *LocationSmbCustomSecretConfig `pulumi:"customSecretConfig"`
 	// Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
 	DnsIpAddresses []string `pulumi:"dnsIpAddresses"`
 	// The name of the Windows domain that the SMB server belongs to.
@@ -42,7 +50,8 @@ type LookupLocationSmbResult struct {
 	// The Amazon Resource Name (ARN) of the SMB location that is created.
 	LocationArn *string `pulumi:"locationArn"`
 	// The URL of the SMB location that was described.
-	LocationUri *string `pulumi:"locationUri"`
+	LocationUri         *string                         `pulumi:"locationUri"`
+	ManagedSecretConfig *LocationSmbManagedSecretConfig `pulumi:"managedSecretConfig"`
 	// Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
 	MountOptions *LocationSmbMountOptions `pulumi:"mountOptions"`
 	// An array of key-value pairs to apply to this resource.
@@ -93,6 +102,20 @@ func (o LookupLocationSmbResultOutput) AuthenticationType() LocationSmbAuthentic
 	return o.ApplyT(func(v LookupLocationSmbResult) *LocationSmbAuthenticationType { return v.AuthenticationType }).(LocationSmbAuthenticationTypePtrOutput)
 }
 
+// Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+//
+// > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+func (o LookupLocationSmbResultOutput) CmkSecretConfig() LocationSmbCmkSecretConfigPtrOutput {
+	return o.ApplyT(func(v LookupLocationSmbResult) *LocationSmbCmkSecretConfig { return v.CmkSecretConfig }).(LocationSmbCmkSecretConfigPtrOutput)
+}
+
+// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+//
+// > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+func (o LookupLocationSmbResultOutput) CustomSecretConfig() LocationSmbCustomSecretConfigPtrOutput {
+	return o.ApplyT(func(v LookupLocationSmbResult) *LocationSmbCustomSecretConfig { return v.CustomSecretConfig }).(LocationSmbCustomSecretConfigPtrOutput)
+}
+
 // Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
 func (o LookupLocationSmbResultOutput) DnsIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLocationSmbResult) []string { return v.DnsIpAddresses }).(pulumi.StringArrayOutput)
@@ -116,6 +139,10 @@ func (o LookupLocationSmbResultOutput) LocationArn() pulumi.StringPtrOutput {
 // The URL of the SMB location that was described.
 func (o LookupLocationSmbResultOutput) LocationUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocationSmbResult) *string { return v.LocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupLocationSmbResultOutput) ManagedSecretConfig() LocationSmbManagedSecretConfigPtrOutput {
+	return o.ApplyT(func(v LookupLocationSmbResult) *LocationSmbManagedSecretConfig { return v.ManagedSecretConfig }).(LocationSmbManagedSecretConfigPtrOutput)
 }
 
 // Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.

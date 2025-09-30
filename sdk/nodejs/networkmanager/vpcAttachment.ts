@@ -66,6 +66,10 @@ export class VpcAttachment extends pulumi.CustomResource {
      */
     public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
     /**
+     * Errors from the last modification of the attachment.
+     */
+    public /*out*/ readonly lastModificationErrors!: pulumi.Output<string[]>;
+    /**
      * The name of the network function group attachment.
      */
     public /*out*/ readonly networkFunctionGroupName!: pulumi.Output<string>;
@@ -147,6 +151,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["coreNetworkArn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;
+            resourceInputs["lastModificationErrors"] = undefined /*out*/;
             resourceInputs["networkFunctionGroupName"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
@@ -161,6 +166,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["coreNetworkId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;
+            resourceInputs["lastModificationErrors"] = undefined /*out*/;
             resourceInputs["networkFunctionGroupName"] = undefined /*out*/;
             resourceInputs["options"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;

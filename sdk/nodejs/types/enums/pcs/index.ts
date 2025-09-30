@@ -70,10 +70,11 @@ export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
 export const ComputeNodeGroupPurchaseOption = {
     Ondemand: "ONDEMAND",
     Spot: "SPOT",
+    CapacityBlock: "CAPACITY_BLOCK",
 } as const;
 
 /**
- * Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
+ * Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
  */
 export type ComputeNodeGroupPurchaseOption = (typeof ComputeNodeGroupPurchaseOption)[keyof typeof ComputeNodeGroupPurchaseOption];
 

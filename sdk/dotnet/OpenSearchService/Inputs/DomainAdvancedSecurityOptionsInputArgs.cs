@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Input configuration for IAM identity federation within advanced security options.
+        /// </summary>
         [Input("iamFederationOptions")]
         public Input<Inputs.DomainIamFederationOptionsArgs>? IamFederationOptions { get; set; }
 

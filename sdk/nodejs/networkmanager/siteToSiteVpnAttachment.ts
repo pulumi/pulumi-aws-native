@@ -66,6 +66,10 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
      */
     public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
     /**
+     * Errors from the last modification of the attachment.
+     */
+    public /*out*/ readonly lastModificationErrors!: pulumi.Output<string[]>;
+    /**
      * The name of the network function group attachment.
      */
     public readonly networkFunctionGroupName!: pulumi.Output<string | undefined>;
@@ -135,6 +139,7 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
             resourceInputs["coreNetworkArn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;
+            resourceInputs["lastModificationErrors"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
@@ -148,6 +153,7 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
             resourceInputs["coreNetworkId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;
+            resourceInputs["lastModificationErrors"] = undefined /*out*/;
             resourceInputs["networkFunctionGroupName"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
             resourceInputs["proposedNetworkFunctionGroupChange"] = undefined /*out*/;

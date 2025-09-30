@@ -67,6 +67,7 @@ namespace Pulumi.AwsNative.Ecs
         /// The Auto Scaling group settings for the capacity provider.
         /// </summary>
         public readonly Outputs.CapacityProviderAutoScalingGroupProvider? AutoScalingGroupProvider;
+        public readonly Outputs.CapacityProviderManagedInstancesProvider? ManagedInstancesProvider;
         /// <summary>
         /// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
         /// 
@@ -86,9 +87,12 @@ namespace Pulumi.AwsNative.Ecs
         private GetCapacityProviderResult(
             Outputs.CapacityProviderAutoScalingGroupProvider? autoScalingGroupProvider,
 
+            Outputs.CapacityProviderManagedInstancesProvider? managedInstancesProvider,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AutoScalingGroupProvider = autoScalingGroupProvider;
+            ManagedInstancesProvider = managedInstancesProvider;
             Tags = tags;
         }
     }

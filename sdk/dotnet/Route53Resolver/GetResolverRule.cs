@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The name server domain for queries to be delegated to if a query matches the delegation record.
+        /// </summary>
+        public readonly string? DelegationRecord;
+        /// <summary>
         /// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
         /// </summary>
         public readonly string? DomainName;
@@ -96,6 +100,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         private GetResolverRuleResult(
             string? arn,
 
+            string? delegationRecord,
+
             string? domainName,
 
             string? name,
@@ -109,6 +115,7 @@ namespace Pulumi.AwsNative.Route53Resolver
             ImmutableArray<Outputs.ResolverRuleTargetAddress> targetIps)
         {
             Arn = arn;
+            DelegationRecord = delegationRecord;
             DomainName = domainName;
             Name = name;
             ResolverEndpointId = resolverEndpointId;

@@ -17,12 +17,15 @@ __all__ = [
     'DomainUserAssignment',
     'DomainVersion',
     'EnvironmentStatus',
+    'FormTypeStatus',
     'GroupProfileStatus',
     'OwnerEntityType',
+    'OwnerType',
     'PolicyGrantDomainUnitDesignation',
     'PolicyGrantManagedPolicyType',
     'PolicyGrantProjectDesignation',
     'PolicyGrantTargetEntityType',
+    'ProjectMembershipMemberIdentifierType',
     'ProjectMembershipUserDesignation',
     'ProjectProfileDeploymentMode',
     'ProjectProfileStatus',
@@ -146,6 +149,15 @@ class EnvironmentStatus(builtins.str, Enum):
     INACCESSIBLE = "INACCESSIBLE"
 
 
+@pulumi.type_token("aws-native:datazone:FormTypeStatus")
+class FormTypeStatus(builtins.str, Enum):
+    """
+    The status of this Amazon DataZone metadata form type.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 @pulumi.type_token("aws-native:datazone:GroupProfileStatus")
 class GroupProfileStatus(builtins.str, Enum):
     """
@@ -161,6 +173,15 @@ class OwnerEntityType(builtins.str, Enum):
     The type of an entity.
     """
     DOMAIN_UNIT = "DOMAIN_UNIT"
+
+
+@pulumi.type_token("aws-native:datazone:OwnerType")
+class OwnerType(builtins.str, Enum):
+    """
+    The owner that you want to add to the entity.
+    """
+    USER = "USER"
+    GROUP = "GROUP"
 
 
 @pulumi.type_token("aws-native:datazone:PolicyGrantDomainUnitDesignation")
@@ -198,6 +219,12 @@ class PolicyGrantTargetEntityType(builtins.str, Enum):
     ENVIRONMENT_BLUEPRINT_CONFIGURATION = "ENVIRONMENT_BLUEPRINT_CONFIGURATION"
     ENVIRONMENT_PROFILE = "ENVIRONMENT_PROFILE"
     ASSET_TYPE = "ASSET_TYPE"
+
+
+@pulumi.type_token("aws-native:datazone:ProjectMembershipMemberIdentifierType")
+class ProjectMembershipMemberIdentifierType(builtins.str, Enum):
+    USER_IDENTIFIER = "USER_IDENTIFIER"
+    GROUP_IDENTIFIER = "GROUP_IDENTIFIER"
 
 
 @pulumi.type_token("aws-native:datazone:ProjectMembershipUserDesignation")

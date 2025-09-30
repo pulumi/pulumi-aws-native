@@ -107,6 +107,9 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
             set => _requestTemplates = value;
         }
 
+        [Input("responseTransferMode")]
+        public Input<Pulumi.AwsNative.ApiGateway.MethodIntegrationResponseTransferMode>? ResponseTransferMode { get; set; }
+
         /// <summary>
         /// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
         /// </summary>

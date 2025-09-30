@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<string> EdgeLocation { get; private set; } = null!;
 
         /// <summary>
+        /// Errors from the last modification of the attachment.
+        /// </summary>
+        [Output("lastModificationErrors")]
+        public Output<ImmutableArray<string>> LastModificationErrors { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the network function group attachment.
         /// </summary>
         [Output("networkFunctionGroupName")]

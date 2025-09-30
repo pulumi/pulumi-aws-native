@@ -441,6 +441,15 @@ type DbInstance struct {
 	//  Constraints:
 	//   +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
 	ManageMasterUserPassword pulumi.BoolPtrOutput `pulumi:"manageMasterUserPassword"`
+	// Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.
+	//
+	// You can specify one of the following values:
+	//
+	// - `password` - Use standard database authentication with a password.
+	// - `iam-db-auth` - Use IAM database authentication for the master user.
+	//
+	// This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+	MasterUserAuthenticationType pulumi.StringPtrOutput `pulumi:"masterUserAuthenticationType"`
 	// The password for the master user. The password can include any printable ASCII character except "/", """, or "@".
 	//   *Amazon Aurora*
 	//  Not applicable. The password for the master user is managed by the DB cluster.
@@ -1127,6 +1136,15 @@ type dbInstanceArgs struct {
 	//  Constraints:
 	//   +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
 	ManageMasterUserPassword *bool `pulumi:"manageMasterUserPassword"`
+	// Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.
+	//
+	// You can specify one of the following values:
+	//
+	// - `password` - Use standard database authentication with a password.
+	// - `iam-db-auth` - Use IAM database authentication for the master user.
+	//
+	// This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+	MasterUserAuthenticationType *string `pulumi:"masterUserAuthenticationType"`
 	// The password for the master user. The password can include any printable ASCII character except "/", """, or "@".
 	//   *Amazon Aurora*
 	//  Not applicable. The password for the master user is managed by the DB cluster.
@@ -1746,6 +1764,15 @@ type DbInstanceArgs struct {
 	//  Constraints:
 	//   +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
 	ManageMasterUserPassword pulumi.BoolPtrInput
+	// Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.
+	//
+	// You can specify one of the following values:
+	//
+	// - `password` - Use standard database authentication with a password.
+	// - `iam-db-auth` - Use IAM database authentication for the master user.
+	//
+	// This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+	MasterUserAuthenticationType pulumi.StringPtrInput
 	// The password for the master user. The password can include any printable ASCII character except "/", """, or "@".
 	//   *Amazon Aurora*
 	//  Not applicable. The password for the master user is managed by the DB cluster.
@@ -2623,6 +2650,18 @@ func (o DbInstanceOutput) ListenerEndpoint() DbInstanceEndpointOutput {
 //	 +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
 func (o DbInstanceOutput) ManageMasterUserPassword() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.BoolPtrOutput { return v.ManageMasterUserPassword }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.
+//
+// You can specify one of the following values:
+//
+// - `password` - Use standard database authentication with a password.
+// - `iam-db-auth` - Use IAM database authentication for the master user.
+//
+// This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+func (o DbInstanceOutput) MasterUserAuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.MasterUserAuthenticationType }).(pulumi.StringPtrOutput)
 }
 
 // The password for the master user. The password can include any printable ASCII character except "/", """, or "@".

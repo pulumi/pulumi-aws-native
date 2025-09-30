@@ -34,6 +34,7 @@ class CodeInterpreterCustomArgs:
         :param pulumi.Input[builtins.str] description: The description of the code interpreter.
         :param pulumi.Input[builtins.str] execution_role_arn: The ARN of the IAM role that the code interpreter uses to access resources.
         :param pulumi.Input[builtins.str] name: The name of the code interpreter.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the code interpreter.
         """
         pulumi.set(__self__, "network_configuration", network_configuration)
         if description is not None:
@@ -96,6 +97,9 @@ class CodeInterpreterCustomArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        The tags for the code interpreter.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -124,6 +128,7 @@ class CodeInterpreterCustom(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] execution_role_arn: The ARN of the IAM role that the code interpreter uses to access resources.
         :param pulumi.Input[builtins.str] name: The name of the code interpreter.
         :param pulumi.Input[Union['CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs', 'CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict']] network_configuration: Network configuration for code interpreter.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the code interpreter.
         """
         ...
     @overload
@@ -286,5 +291,8 @@ class CodeInterpreterCustom(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        The tags for the code interpreter.
+        """
         return pulumi.get(self, "tags")
 

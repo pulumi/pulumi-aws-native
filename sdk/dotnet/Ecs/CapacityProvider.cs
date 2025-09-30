@@ -235,6 +235,12 @@ namespace Pulumi.AwsNative.Ecs
         [Output("autoScalingGroupProvider")]
         public Output<Outputs.CapacityProviderAutoScalingGroupProvider?> AutoScalingGroupProvider { get; private set; } = null!;
 
+        [Output("clusterName")]
+        public Output<string?> ClusterName { get; private set; } = null!;
+
+        [Output("managedInstancesProvider")]
+        public Output<Outputs.CapacityProviderManagedInstancesProvider?> ManagedInstancesProvider { get; private set; } = null!;
+
         /// <summary>
         /// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
         /// </summary>
@@ -283,6 +289,7 @@ namespace Pulumi.AwsNative.Ecs
                 ReplaceOnChanges =
                 {
                     "autoScalingGroupProvider.autoScalingGroupArn",
+                    "clusterName",
                     "name",
                 },
             };
@@ -312,6 +319,12 @@ namespace Pulumi.AwsNative.Ecs
         /// </summary>
         [Input("autoScalingGroupProvider")]
         public Input<Inputs.CapacityProviderAutoScalingGroupProviderArgs>? AutoScalingGroupProvider { get; set; }
+
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
+
+        [Input("managedInstancesProvider")]
+        public Input<Inputs.CapacityProviderManagedInstancesProviderArgs>? ManagedInstancesProvider { get; set; }
 
         /// <summary>
         /// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.

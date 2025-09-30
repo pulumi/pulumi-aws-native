@@ -93,6 +93,9 @@
         "IdMappingType" : {
           "type" : "string",
           "enum" : [ "PROVIDER", "RULE_BASED" ]
+        },
+        "NormalizationVersion" : {
+          "type" : "string"
         }
       }
     },

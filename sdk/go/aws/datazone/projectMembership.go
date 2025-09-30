@@ -21,7 +21,9 @@ type ProjectMembership struct {
 	// The ID of the Amazon DataZone domain in which project membership is created.
 	DomainIdentifier pulumi.StringOutput `pulumi:"domainIdentifier"`
 	// The details about a project member.
-	Member pulumi.AnyOutput `pulumi:"member"`
+	Member               pulumi.AnyOutput                            `pulumi:"member"`
+	MemberIdentifier     pulumi.StringOutput                         `pulumi:"memberIdentifier"`
+	MemberIdentifierType ProjectMembershipMemberIdentifierTypeOutput `pulumi:"memberIdentifierType"`
 	// The ID of the project for which this project membership was created.
 	ProjectIdentifier pulumi.StringOutput `pulumi:"projectIdentifier"`
 }
@@ -156,6 +158,14 @@ func (o ProjectMembershipOutput) DomainIdentifier() pulumi.StringOutput {
 // The details about a project member.
 func (o ProjectMembershipOutput) Member() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ProjectMembership) pulumi.AnyOutput { return v.Member }).(pulumi.AnyOutput)
+}
+
+func (o ProjectMembershipOutput) MemberIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProjectMembership) pulumi.StringOutput { return v.MemberIdentifier }).(pulumi.StringOutput)
+}
+
+func (o ProjectMembershipOutput) MemberIdentifierType() ProjectMembershipMemberIdentifierTypeOutput {
+	return o.ApplyT(func(v *ProjectMembership) ProjectMembershipMemberIdentifierTypeOutput { return v.MemberIdentifierType }).(ProjectMembershipMemberIdentifierTypeOutput)
 }
 
 // The ID of the project for which this project membership was created.

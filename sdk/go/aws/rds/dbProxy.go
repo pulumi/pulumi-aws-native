@@ -25,8 +25,12 @@ type DbProxy struct {
 	DbProxyName pulumi.StringOutput `pulumi:"dbProxyName"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging pulumi.BoolPtrOutput `pulumi:"debugLogging"`
+	// The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+	DefaultAuthScheme DbProxyDefaultAuthSchemePtrOutput `pulumi:"defaultAuthScheme"`
 	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+	EndpointNetworkType DbProxyEndpointNetworkTypePtrOutput `pulumi:"endpointNetworkType"`
 	// The kinds of databases that the proxy can connect to.
 	EngineFamily DbProxyEngineFamilyOutput `pulumi:"engineFamily"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
@@ -37,6 +41,8 @@ type DbProxy struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
+	TargetConnectionNetworkType DbProxyTargetConnectionNetworkTypePtrOutput `pulumi:"targetConnectionNetworkType"`
 	// VPC ID to associate with the new DB proxy.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// VPC security group IDs to associate with the new proxy.
@@ -52,9 +58,6 @@ func NewDbProxy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Auth == nil {
-		return nil, errors.New("invalid value for required argument 'Auth'")
-	}
 	if args.EngineFamily == nil {
 		return nil, errors.New("invalid value for required argument 'EngineFamily'")
 	}
@@ -66,7 +69,9 @@ func NewDbProxy(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"dbProxyName",
+		"endpointNetworkType",
 		"engineFamily",
+		"targetConnectionNetworkType",
 		"vpcSubnetIds[*]",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -109,6 +114,10 @@ type dbProxyArgs struct {
 	DbProxyName *string `pulumi:"dbProxyName"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging *bool `pulumi:"debugLogging"`
+	// The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+	DefaultAuthScheme *DbProxyDefaultAuthScheme `pulumi:"defaultAuthScheme"`
+	// The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+	EndpointNetworkType *DbProxyEndpointNetworkType `pulumi:"endpointNetworkType"`
 	// The kinds of databases that the proxy can connect to.
 	EngineFamily DbProxyEngineFamily `pulumi:"engineFamily"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
@@ -119,6 +128,8 @@ type dbProxyArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
+	TargetConnectionNetworkType *DbProxyTargetConnectionNetworkType `pulumi:"targetConnectionNetworkType"`
 	// VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 	// VPC subnet IDs to associate with the new proxy.
@@ -133,6 +144,10 @@ type DbProxyArgs struct {
 	DbProxyName pulumi.StringPtrInput
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging pulumi.BoolPtrInput
+	// The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+	DefaultAuthScheme DbProxyDefaultAuthSchemePtrInput
+	// The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+	EndpointNetworkType DbProxyEndpointNetworkTypePtrInput
 	// The kinds of databases that the proxy can connect to.
 	EngineFamily DbProxyEngineFamilyInput
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
@@ -143,6 +158,8 @@ type DbProxyArgs struct {
 	RoleArn pulumi.StringInput
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 	Tags aws.TagArrayInput
+	// The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
+	TargetConnectionNetworkType DbProxyTargetConnectionNetworkTypePtrInput
 	// VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 	// VPC subnet IDs to associate with the new proxy.
@@ -206,9 +223,19 @@ func (o DbProxyOutput) DebugLogging() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbProxy) pulumi.BoolPtrOutput { return v.DebugLogging }).(pulumi.BoolPtrOutput)
 }
 
+// The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+func (o DbProxyOutput) DefaultAuthScheme() DbProxyDefaultAuthSchemePtrOutput {
+	return o.ApplyT(func(v *DbProxy) DbProxyDefaultAuthSchemePtrOutput { return v.DefaultAuthScheme }).(DbProxyDefaultAuthSchemePtrOutput)
+}
+
 // The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
 func (o DbProxyOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *DbProxy) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+func (o DbProxyOutput) EndpointNetworkType() DbProxyEndpointNetworkTypePtrOutput {
+	return o.ApplyT(func(v *DbProxy) DbProxyEndpointNetworkTypePtrOutput { return v.EndpointNetworkType }).(DbProxyEndpointNetworkTypePtrOutput)
 }
 
 // The kinds of databases that the proxy can connect to.
@@ -234,6 +261,11 @@ func (o DbProxyOutput) RoleArn() pulumi.StringOutput {
 // An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 func (o DbProxyOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DbProxy) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
+func (o DbProxyOutput) TargetConnectionNetworkType() DbProxyTargetConnectionNetworkTypePtrOutput {
+	return o.ApplyT(func(v *DbProxy) DbProxyTargetConnectionNetworkTypePtrOutput { return v.TargetConnectionNetworkType }).(DbProxyTargetConnectionNetworkTypePtrOutput)
 }
 
 // VPC ID to associate with the new DB proxy.

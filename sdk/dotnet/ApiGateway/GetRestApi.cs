@@ -108,6 +108,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
         /// </summary>
         public readonly string? RootResourceId;
+        public readonly string? SecurityPolicy;
         /// <summary>
         /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         /// </summary>
@@ -135,6 +136,8 @@ namespace Pulumi.AwsNative.ApiGateway
 
             string? rootResourceId,
 
+            string? securityPolicy,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ApiKeySourceType = apiKeySourceType;
@@ -147,6 +150,7 @@ namespace Pulumi.AwsNative.ApiGateway
             Policy = policy;
             RestApiId = restApiId;
             RootResourceId = rootResourceId;
+            SecurityPolicy = securityPolicy;
             Tags = tags;
         }
     }

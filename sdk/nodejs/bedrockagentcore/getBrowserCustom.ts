@@ -45,6 +45,9 @@ export interface GetBrowserCustomResult {
      * Status of browser.
      */
     readonly status?: enums.bedrockagentcore.BrowserCustomBrowserStatus;
+    /**
+     * The tags for the custom browser.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**

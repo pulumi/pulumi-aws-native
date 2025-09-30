@@ -30,6 +30,7 @@ class AnalysisTemplateArgs:
                  source: pulumi.Input[Union['AnalysisTemplateAnalysisSource0PropertiesArgs', 'AnalysisTemplateAnalysisSource1PropertiesArgs']],
                  analysis_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateAnalysisParameterArgs']]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 error_message_configuration: Optional[pulumi.Input['AnalysisTemplateErrorMessageConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  schema: Optional[pulumi.Input['AnalysisTemplateAnalysisSchemaArgs']] = None,
                  source_metadata: Optional[pulumi.Input['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs']] = None,
@@ -41,6 +42,7 @@ class AnalysisTemplateArgs:
         :param pulumi.Input[Union['AnalysisTemplateAnalysisSource0PropertiesArgs', 'AnalysisTemplateAnalysisSource1PropertiesArgs']] source: The source of the analysis template.
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateAnalysisParameterArgs']]] analysis_parameters: The member who can query can provide this placeholder for a literal data value in an analysis template
         :param pulumi.Input[builtins.str] description: The description of the analysis template.
+        :param pulumi.Input['AnalysisTemplateErrorMessageConfigurationArgs'] error_message_configuration: The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED` , error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
         :param pulumi.Input[builtins.str] name: The name of the analysis template.
         :param pulumi.Input['AnalysisTemplateAnalysisSchemaArgs'] schema: The entire schema object.
         :param pulumi.Input['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs'] source_metadata: The source metadata for the analysis template.
@@ -53,6 +55,8 @@ class AnalysisTemplateArgs:
             pulumi.set(__self__, "analysis_parameters", analysis_parameters)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if error_message_configuration is not None:
+            pulumi.set(__self__, "error_message_configuration", error_message_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if schema is not None:
@@ -123,6 +127,18 @@ class AnalysisTemplateArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="errorMessageConfiguration")
+    def error_message_configuration(self) -> Optional[pulumi.Input['AnalysisTemplateErrorMessageConfigurationArgs']]:
+        """
+        The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED` , error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
+        """
+        return pulumi.get(self, "error_message_configuration")
+
+    @error_message_configuration.setter
+    def error_message_configuration(self, value: Optional[pulumi.Input['AnalysisTemplateErrorMessageConfigurationArgs']]):
+        pulumi.set(self, "error_message_configuration", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -179,6 +195,7 @@ class AnalysisTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analysis_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisTemplateAnalysisParameterArgs', 'AnalysisTemplateAnalysisParameterArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 error_message_configuration: Optional[pulumi.Input[Union['AnalysisTemplateErrorMessageConfigurationArgs', 'AnalysisTemplateErrorMessageConfigurationArgsDict']]] = None,
                  format: Optional[pulumi.Input['AnalysisTemplateFormat']] = None,
                  membership_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -194,6 +211,7 @@ class AnalysisTemplate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AnalysisTemplateAnalysisParameterArgs', 'AnalysisTemplateAnalysisParameterArgsDict']]]] analysis_parameters: The member who can query can provide this placeholder for a literal data value in an analysis template
         :param pulumi.Input[builtins.str] description: The description of the analysis template.
+        :param pulumi.Input[Union['AnalysisTemplateErrorMessageConfigurationArgs', 'AnalysisTemplateErrorMessageConfigurationArgsDict']] error_message_configuration: The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED` , error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
         :param pulumi.Input['AnalysisTemplateFormat'] format: The format of the analysis template.
         :param pulumi.Input[builtins.str] membership_identifier: The identifier for a membership resource.
         :param pulumi.Input[builtins.str] name: The name of the analysis template.
@@ -228,6 +246,7 @@ class AnalysisTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analysis_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisTemplateAnalysisParameterArgs', 'AnalysisTemplateAnalysisParameterArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 error_message_configuration: Optional[pulumi.Input[Union['AnalysisTemplateErrorMessageConfigurationArgs', 'AnalysisTemplateErrorMessageConfigurationArgsDict']]] = None,
                  format: Optional[pulumi.Input['AnalysisTemplateFormat']] = None,
                  membership_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -246,6 +265,7 @@ class AnalysisTemplate(pulumi.CustomResource):
 
             __props__.__dict__["analysis_parameters"] = analysis_parameters
             __props__.__dict__["description"] = description
+            __props__.__dict__["error_message_configuration"] = error_message_configuration
             if format is None and not opts.urn:
                 raise TypeError("Missing required property 'format'")
             __props__.__dict__["format"] = format
@@ -264,7 +284,7 @@ class AnalysisTemplate(pulumi.CustomResource):
             __props__.__dict__["collaboration_arn"] = None
             __props__.__dict__["collaboration_identifier"] = None
             __props__.__dict__["membership_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["analysisParameters[*]", "format", "membershipIdentifier", "name", "schema", "source"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["analysisParameters[*]", "errorMessageConfiguration", "format", "membershipIdentifier", "name", "schema", "source"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AnalysisTemplate, __self__).__init__(
             'aws-native:cleanrooms:AnalysisTemplate',
@@ -294,6 +314,7 @@ class AnalysisTemplate(pulumi.CustomResource):
         __props__.__dict__["collaboration_arn"] = None
         __props__.__dict__["collaboration_identifier"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["error_message_configuration"] = None
         __props__.__dict__["format"] = None
         __props__.__dict__["membership_arn"] = None
         __props__.__dict__["membership_identifier"] = None
@@ -359,6 +380,14 @@ class AnalysisTemplate(pulumi.CustomResource):
         The description of the analysis template.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="errorMessageConfiguration")
+    def error_message_configuration(self) -> pulumi.Output[Optional['outputs.AnalysisTemplateErrorMessageConfiguration']]:
+        """
+        The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED` , error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
+        """
+        return pulumi.get(self, "error_message_configuration")
 
     @property
     @pulumi.getter

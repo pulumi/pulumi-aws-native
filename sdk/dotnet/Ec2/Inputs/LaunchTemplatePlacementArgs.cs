@@ -24,6 +24,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         /// <summary>
         /// The Availability Zone for the instance.
+        ///  Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }

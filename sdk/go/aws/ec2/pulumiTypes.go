@@ -2558,7 +2558,7 @@ type Ec2FleetEbsBlockDevice struct {
 	//
 	// The following are the supported values for each volume type:
 	//
-	// - `gp3` : 3,000 - 16,000 IOPS
+	// - `gp3` : 3,000 - 80,000 IOPS
 	// - `io1` : 100 - 64,000 IOPS
 	// - `io2` : 100 - 256,000 IOPS
 	//
@@ -2576,7 +2576,8 @@ type Ec2FleetEbsBlockDevice struct {
 	//
 	// The following are the supported sizes for each volume type:
 	//
-	// - `gp2` and `gp3` : 1 - 16,384 GiB
+	// - `gp2` : 1 - 16,384 GiB
+	// - `gp3` : 1 - 65,536 GiB
 	// - `io1` : 4 - 16,384 GiB
 	// - `io2` : 4 - 65,536 GiB
 	// - `st1` and `sc1` : 125 - 16,384 GiB
@@ -2615,7 +2616,7 @@ type Ec2FleetEbsBlockDeviceArgs struct {
 	//
 	// The following are the supported values for each volume type:
 	//
-	// - `gp3` : 3,000 - 16,000 IOPS
+	// - `gp3` : 3,000 - 80,000 IOPS
 	// - `io1` : 100 - 64,000 IOPS
 	// - `io2` : 100 - 256,000 IOPS
 	//
@@ -2633,7 +2634,8 @@ type Ec2FleetEbsBlockDeviceArgs struct {
 	//
 	// The following are the supported sizes for each volume type:
 	//
-	// - `gp2` and `gp3` : 1 - 16,384 GiB
+	// - `gp2` : 1 - 16,384 GiB
+	// - `gp3` : 1 - 65,536 GiB
 	// - `io1` : 4 - 16,384 GiB
 	// - `io2` : 4 - 65,536 GiB
 	// - `st1` and `sc1` : 125 - 16,384 GiB
@@ -2743,7 +2745,7 @@ func (o Ec2FleetEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 //
 // The following are the supported values for each volume type:
 //
-// - `gp3` : 3,000 - 16,000 IOPS
+// - `gp3` : 3,000 - 80,000 IOPS
 // - `io1` : 100 - 64,000 IOPS
 // - `io2` : 100 - 256,000 IOPS
 //
@@ -2770,7 +2772,8 @@ func (o Ec2FleetEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 //
 // The following are the supported sizes for each volume type:
 //
-// - `gp2` and `gp3` : 1 - 16,384 GiB
+// - `gp2` : 1 - 16,384 GiB
+// - `gp3` : 1 - 65,536 GiB
 // - `io1` : 4 - 16,384 GiB
 // - `io2` : 4 - 65,536 GiB
 // - `st1` and `sc1` : 125 - 16,384 GiB
@@ -2841,7 +2844,7 @@ func (o Ec2FleetEbsBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
 //
 // The following are the supported values for each volume type:
 //
-// - `gp3` : 3,000 - 16,000 IOPS
+// - `gp3` : 3,000 - 80,000 IOPS
 // - `io1` : 100 - 64,000 IOPS
 // - `io2` : 100 - 256,000 IOPS
 //
@@ -2883,7 +2886,8 @@ func (o Ec2FleetEbsBlockDevicePtrOutput) SnapshotId() pulumi.StringPtrOutput {
 //
 // The following are the supported sizes for each volume type:
 //
-// - `gp2` and `gp3` : 1 - 16,384 GiB
+// - `gp2` : 1 - 16,384 GiB
+// - `gp3` : 1 - 65,536 GiB
 // - `io1` : 4 - 16,384 GiB
 // - `io2` : 4 - 65,536 GiB
 // - `st1` and `sc1` : 125 - 16,384 GiB
@@ -17471,6 +17475,7 @@ type LaunchTemplatePlacement struct {
 	// The affinity setting for an instance on a Dedicated Host.
 	Affinity *string `pulumi:"affinity"`
 	// The Availability Zone for the instance.
+	//  Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The Group Id of a placement group. You must specify the Placement Group *Group Id* to launch an instance in a shared placement group.
 	GroupId *string `pulumi:"groupId"`
@@ -17506,6 +17511,7 @@ type LaunchTemplatePlacementArgs struct {
 	// The affinity setting for an instance on a Dedicated Host.
 	Affinity pulumi.StringPtrInput `pulumi:"affinity"`
 	// The Availability Zone for the instance.
+	//  Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	// The Group Id of a placement group. You must specify the Placement Group *Group Id* to launch an instance in a shared placement group.
 	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
@@ -17609,6 +17615,8 @@ func (o LaunchTemplatePlacementOutput) Affinity() pulumi.StringPtrOutput {
 }
 
 // The Availability Zone for the instance.
+//
+//	Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both
 func (o LaunchTemplatePlacementOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -17683,6 +17691,8 @@ func (o LaunchTemplatePlacementPtrOutput) Affinity() pulumi.StringPtrOutput {
 }
 
 // The Availability Zone for the instance.
+//
+//	Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both
 func (o LaunchTemplatePlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
 		if v == nil {
@@ -19003,6 +19013,22 @@ type LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag struct {
 
 type LocalGatewayRouteTableVpcAssociationTag struct {
 	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// A key-value pair to associate with a resource.
+type LocalGatewayVirtualInterfaceGroupTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key *string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
+// A key-value pair to associate with a resource.
+type LocalGatewayVirtualInterfaceTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key *string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value *string `pulumi:"value"`
 }
 
@@ -25246,7 +25272,7 @@ type SpotFleetEbsBlockDevice struct {
 	//
 	// The following are the supported values for each volume type:
 	//
-	// - `gp3` : 3,000 - 16,000 IOPS
+	// - `gp3` : 3,000 - 80,000 IOPS
 	// - `io1` : 100 - 64,000 IOPS
 	// - `io2` : 100 - 256,000 IOPS
 	//
@@ -25260,7 +25286,8 @@ type SpotFleetEbsBlockDevice struct {
 	//
 	// The following are the supported sizes for each volume type:
 	//
-	// - `gp2` and `gp3` : 1 - 16,384 GiB
+	// - `gp2` : 1 - 16,384 GiB
+	// - `gp3` : 1 - 65,536 GiB
 	// - `io1` : 4 - 16,384 GiB
 	// - `io2` : 4 - 65,536 GiB
 	// - `st1` and `sc1` : 125 - 16,384 GiB
@@ -25296,7 +25323,7 @@ type SpotFleetEbsBlockDeviceArgs struct {
 	//
 	// The following are the supported values for each volume type:
 	//
-	// - `gp3` : 3,000 - 16,000 IOPS
+	// - `gp3` : 3,000 - 80,000 IOPS
 	// - `io1` : 100 - 64,000 IOPS
 	// - `io2` : 100 - 256,000 IOPS
 	//
@@ -25310,7 +25337,8 @@ type SpotFleetEbsBlockDeviceArgs struct {
 	//
 	// The following are the supported sizes for each volume type:
 	//
-	// - `gp2` and `gp3` : 1 - 16,384 GiB
+	// - `gp2` : 1 - 16,384 GiB
+	// - `gp3` : 1 - 65,536 GiB
 	// - `io1` : 4 - 16,384 GiB
 	// - `io2` : 4 - 65,536 GiB
 	// - `st1` and `sc1` : 125 - 16,384 GiB
@@ -25417,7 +25445,7 @@ func (o SpotFleetEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 //
 // The following are the supported values for each volume type:
 //
-// - `gp3` : 3,000 - 16,000 IOPS
+// - `gp3` : 3,000 - 80,000 IOPS
 // - `io1` : 100 - 64,000 IOPS
 // - `io2` : 100 - 256,000 IOPS
 //
@@ -25437,7 +25465,8 @@ func (o SpotFleetEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 //
 // The following are the supported sizes for each volume type:
 //
-// - `gp2` and `gp3` : 1 - 16,384 GiB
+// - `gp2` : 1 - 16,384 GiB
+// - `gp3` : 1 - 65,536 GiB
 // - `io1` : 4 - 16,384 GiB
 // - `io2` : 4 - 65,536 GiB
 // - `st1` and `sc1` : 125 - 16,384 GiB
@@ -25505,7 +25534,7 @@ func (o SpotFleetEbsBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
 //
 // The following are the supported values for each volume type:
 //
-// - `gp3` : 3,000 - 16,000 IOPS
+// - `gp3` : 3,000 - 80,000 IOPS
 // - `io1` : 100 - 64,000 IOPS
 // - `io2` : 100 - 256,000 IOPS
 //
@@ -25535,7 +25564,8 @@ func (o SpotFleetEbsBlockDevicePtrOutput) SnapshotId() pulumi.StringPtrOutput {
 //
 // The following are the supported sizes for each volume type:
 //
-// - `gp2` and `gp3` : 1 - 16,384 GiB
+// - `gp2` : 1 - 16,384 GiB
+// - `gp3` : 1 - 65,536 GiB
 // - `io1` : 4 - 16,384 GiB
 // - `io2` : 4 - 65,536 GiB
 // - `st1` and `sc1` : 125 - 16,384 GiB

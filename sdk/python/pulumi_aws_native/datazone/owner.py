@@ -158,6 +158,8 @@ class Owner(pulumi.CustomResource):
             if owner is None and not opts.urn:
                 raise TypeError("Missing required property 'owner'")
             __props__.__dict__["owner"] = owner
+            __props__.__dict__["owner_identifier"] = None
+            __props__.__dict__["owner_type"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "entityIdentifier", "entityType", "owner"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Owner, __self__).__init__(
@@ -186,6 +188,8 @@ class Owner(pulumi.CustomResource):
         __props__.__dict__["entity_identifier"] = None
         __props__.__dict__["entity_type"] = None
         __props__.__dict__["owner"] = None
+        __props__.__dict__["owner_identifier"] = None
+        __props__.__dict__["owner_type"] = None
         return Owner(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -219,4 +223,20 @@ class Owner(pulumi.CustomResource):
         The owner that you want to add to the entity.
         """
         return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerIdentifier")
+    def owner_identifier(self) -> pulumi.Output[builtins.str]:
+        """
+        The ID of the entity to which you want to add an owner.
+        """
+        return pulumi.get(self, "owner_identifier")
+
+    @property
+    @pulumi.getter(name="ownerType")
+    def owner_type(self) -> pulumi.Output['OwnerType']:
+        """
+        The owner that you want to add to the entity.
+        """
+        return pulumi.get(self, "owner_type")
 

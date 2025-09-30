@@ -22,6 +22,7 @@ type ResolverEndpoint struct {
 	// Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
 	// - INBOUND: allows DNS queries to your VPC from your network
 	// - OUTBOUND: allows DNS queries from your VPC to your network
+	// - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
 	Direction pulumi.StringOutput `pulumi:"direction"`
 	// The ID of the VPC that you want to create the resolver endpoint in.
 	HostVpcId pulumi.StringOutput `pulumi:"hostVpcId"`
@@ -106,6 +107,7 @@ type resolverEndpointArgs struct {
 	// Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
 	// - INBOUND: allows DNS queries to your VPC from your network
 	// - OUTBOUND: allows DNS queries from your VPC to your network
+	// - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
 	Direction string `pulumi:"direction"`
 	// The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
 	IpAddresses []ResolverEndpointIpAddressRequest `pulumi:"ipAddresses"`
@@ -130,6 +132,7 @@ type ResolverEndpointArgs struct {
 	// Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
 	// - INBOUND: allows DNS queries to your VPC from your network
 	// - OUTBOUND: allows DNS queries from your VPC to your network
+	// - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
 	Direction pulumi.StringInput
 	// The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
 	IpAddresses ResolverEndpointIpAddressRequestArrayInput
@@ -194,6 +197,7 @@ func (o ResolverEndpointOutput) Arn() pulumi.StringOutput {
 // Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
 // - INBOUND: allows DNS queries to your VPC from your network
 // - OUTBOUND: allows DNS queries from your VPC to your network
+// - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
 func (o ResolverEndpointOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.Direction }).(pulumi.StringOutput)
 }

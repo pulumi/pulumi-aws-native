@@ -61,6 +61,9 @@ export interface GetRuntimeEndpointResult {
      * The status of the Agent Runtime Endpoint
      */
     readonly status?: enums.bedrockagentcore.RuntimeEndpointAgentRuntimeEndpointStatus;
+    /**
+     * The tags for the AgentCore Runtime endpoint.
+     */
     readonly tags?: {[key: string]: string};
     /**
      * The target version of the AgentCore Runtime for the endpoint.

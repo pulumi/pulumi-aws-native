@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class BrowserCustomRecordingConfig
     {
+        /// <summary>
+        /// The recording configuration for a browser. This structure defines how browser sessions are recorded.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The S3 location.
+        /// </summary>
         public readonly Outputs.BrowserCustomS3Location? S3Location;
 
         [OutputConstructor]

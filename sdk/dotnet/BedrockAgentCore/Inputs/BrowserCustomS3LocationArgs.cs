@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     /// </summary>
     public sealed class BrowserCustomS3LocationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The S3 location bucket name.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// The S3 location object prefix.
+        /// </summary>
         [Input("prefix", required: true)]
         public Input<string> Prefix { get; set; } = null!;
 

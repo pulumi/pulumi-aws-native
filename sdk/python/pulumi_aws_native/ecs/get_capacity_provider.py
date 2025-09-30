@@ -27,10 +27,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetCapacityProviderResult:
-    def __init__(__self__, auto_scaling_group_provider=None, tags=None):
+    def __init__(__self__, auto_scaling_group_provider=None, managed_instances_provider=None, tags=None):
         if auto_scaling_group_provider and not isinstance(auto_scaling_group_provider, dict):
             raise TypeError("Expected argument 'auto_scaling_group_provider' to be a dict")
         pulumi.set(__self__, "auto_scaling_group_provider", auto_scaling_group_provider)
+        if managed_instances_provider and not isinstance(managed_instances_provider, dict):
+            raise TypeError("Expected argument 'managed_instances_provider' to be a dict")
+        pulumi.set(__self__, "managed_instances_provider", managed_instances_provider)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -42,6 +45,11 @@ class GetCapacityProviderResult:
         The Auto Scaling group settings for the capacity provider.
         """
         return pulumi.get(self, "auto_scaling_group_provider")
+
+    @property
+    @pulumi.getter(name="managedInstancesProvider")
+    def managed_instances_provider(self) -> Optional['outputs.CapacityProviderManagedInstancesProvider']:
+        return pulumi.get(self, "managed_instances_provider")
 
     @property
     @pulumi.getter
@@ -69,6 +77,7 @@ class AwaitableGetCapacityProviderResult(GetCapacityProviderResult):
             yield self
         return GetCapacityProviderResult(
             auto_scaling_group_provider=self.auto_scaling_group_provider,
+            managed_instances_provider=self.managed_instances_provider,
             tags=self.tags)
 
 
@@ -87,6 +96,7 @@ def get_capacity_provider(name: Optional[builtins.str] = None,
 
     return AwaitableGetCapacityProviderResult(
         auto_scaling_group_provider=pulumi.get(__ret__, 'auto_scaling_group_provider'),
+        managed_instances_provider=pulumi.get(__ret__, 'managed_instances_provider'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_capacity_provider_output(name: Optional[pulumi.Input[builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityProviderResult]:
@@ -102,4 +112,5 @@ def get_capacity_provider_output(name: Optional[pulumi.Input[builtins.str]] = No
     __ret__ = pulumi.runtime.invoke_output('aws-native:ecs:getCapacityProvider', __args__, opts=opts, typ=GetCapacityProviderResult)
     return __ret__.apply(lambda __response__: GetCapacityProviderResult(
         auto_scaling_group_provider=pulumi.get(__response__, 'auto_scaling_group_provider'),
+        managed_instances_provider=pulumi.get(__response__, 'managed_instances_provider'),
         tags=pulumi.get(__response__, 'tags')))

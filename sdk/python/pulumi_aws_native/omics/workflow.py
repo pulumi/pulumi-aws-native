@@ -24,6 +24,8 @@ __all__ = ['WorkflowArgs', 'Workflow']
 class WorkflowArgs:
     def __init__(__self__, *,
                  accelerators: Optional[pulumi.Input['WorkflowAccelerators']] = None,
+                 container_registry_map: Optional[pulumi.Input['WorkflowContainerRegistryMapArgs']] = None,
+                 container_registry_map_uri: Optional[pulumi.Input[builtins.str]] = None,
                  definition_repository: Optional[pulumi.Input['WorkflowDefinitionRepositoryArgs']] = None,
                  definition_uri: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
@@ -41,6 +43,7 @@ class WorkflowArgs:
                  workflow_bucket_owner_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Workflow resource.
+        :param pulumi.Input['WorkflowContainerRegistryMapArgs'] container_registry_map: Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
         :param pulumi.Input['WorkflowDefinitionRepositoryArgs'] definition_repository: Contains information about a source code repository that hosts the workflow definition files.
         :param pulumi.Input[builtins.str] definition_uri: The URI of a definition for the workflow.
         :param pulumi.Input[builtins.str] description: The parameter's description.
@@ -58,6 +61,10 @@ class WorkflowArgs:
         """
         if accelerators is not None:
             pulumi.set(__self__, "accelerators", accelerators)
+        if container_registry_map is not None:
+            pulumi.set(__self__, "container_registry_map", container_registry_map)
+        if container_registry_map_uri is not None:
+            pulumi.set(__self__, "container_registry_map_uri", container_registry_map_uri)
         if definition_repository is not None:
             pulumi.set(__self__, "definition_repository", definition_repository)
         if definition_uri is not None:
@@ -97,6 +104,27 @@ class WorkflowArgs:
     @accelerators.setter
     def accelerators(self, value: Optional[pulumi.Input['WorkflowAccelerators']]):
         pulumi.set(self, "accelerators", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryMap")
+    def container_registry_map(self) -> Optional[pulumi.Input['WorkflowContainerRegistryMapArgs']]:
+        """
+        Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
+        """
+        return pulumi.get(self, "container_registry_map")
+
+    @container_registry_map.setter
+    def container_registry_map(self, value: Optional[pulumi.Input['WorkflowContainerRegistryMapArgs']]):
+        pulumi.set(self, "container_registry_map", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryMapUri")
+    def container_registry_map_uri(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "container_registry_map_uri")
+
+    @container_registry_map_uri.setter
+    def container_registry_map_uri(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "container_registry_map_uri", value)
 
     @property
     @pulumi.getter(name="definitionRepository")
@@ -283,6 +311,8 @@ class Workflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerators: Optional[pulumi.Input['WorkflowAccelerators']] = None,
+                 container_registry_map: Optional[pulumi.Input[Union['WorkflowContainerRegistryMapArgs', 'WorkflowContainerRegistryMapArgsDict']]] = None,
+                 container_registry_map_uri: Optional[pulumi.Input[builtins.str]] = None,
                  definition_repository: Optional[pulumi.Input[Union['WorkflowDefinitionRepositoryArgs', 'WorkflowDefinitionRepositoryArgsDict']]] = None,
                  definition_uri: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
@@ -304,6 +334,7 @@ class Workflow(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['WorkflowContainerRegistryMapArgs', 'WorkflowContainerRegistryMapArgsDict']] container_registry_map: Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
         :param pulumi.Input[Union['WorkflowDefinitionRepositoryArgs', 'WorkflowDefinitionRepositoryArgsDict']] definition_repository: Contains information about a source code repository that hosts the workflow definition files.
         :param pulumi.Input[builtins.str] definition_uri: The URI of a definition for the workflow.
         :param pulumi.Input[builtins.str] description: The parameter's description.
@@ -344,6 +375,8 @@ class Workflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerators: Optional[pulumi.Input['WorkflowAccelerators']] = None,
+                 container_registry_map: Optional[pulumi.Input[Union['WorkflowContainerRegistryMapArgs', 'WorkflowContainerRegistryMapArgsDict']]] = None,
+                 container_registry_map_uri: Optional[pulumi.Input[builtins.str]] = None,
                  definition_repository: Optional[pulumi.Input[Union['WorkflowDefinitionRepositoryArgs', 'WorkflowDefinitionRepositoryArgsDict']]] = None,
                  definition_uri: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
@@ -369,6 +402,8 @@ class Workflow(pulumi.CustomResource):
             __props__ = WorkflowArgs.__new__(WorkflowArgs)
 
             __props__.__dict__["accelerators"] = accelerators
+            __props__.__dict__["container_registry_map"] = container_registry_map
+            __props__.__dict__["container_registry_map_uri"] = container_registry_map_uri
             __props__.__dict__["definition_repository"] = definition_repository
             __props__.__dict__["definition_uri"] = definition_uri
             __props__.__dict__["description"] = description
@@ -390,7 +425,7 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accelerators", "definitionRepository", "definitionUri", "engine", "main", "parameterTemplate.*", "parameterTemplatePath", "readmePath", "readmeUri", "storageCapacity", "workflowBucketOwnerId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accelerators", "containerRegistryMap", "containerRegistryMapUri", "definitionRepository", "definitionUri", "engine", "main", "parameterTemplate.*", "parameterTemplatePath", "readmePath", "readmeUri", "storageCapacity", "workflowBucketOwnerId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workflow, __self__).__init__(
             'aws-native:omics:Workflow',
@@ -417,6 +452,8 @@ class Workflow(pulumi.CustomResource):
         __props__.__dict__["accelerators"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["aws_id"] = None
+        __props__.__dict__["container_registry_map"] = None
+        __props__.__dict__["container_registry_map_uri"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["definition_repository"] = None
         __props__.__dict__["definition_uri"] = None
@@ -458,6 +495,19 @@ class Workflow(pulumi.CustomResource):
         The workflow's ID.
         """
         return pulumi.get(self, "aws_id")
+
+    @property
+    @pulumi.getter(name="containerRegistryMap")
+    def container_registry_map(self) -> pulumi.Output[Optional['outputs.WorkflowContainerRegistryMap']]:
+        """
+        Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
+        """
+        return pulumi.get(self, "container_registry_map")
+
+    @property
+    @pulumi.getter(name="containerRegistryMapUri")
+    def container_registry_map_uri(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "container_registry_map_uri")
 
     @property
     @pulumi.getter(name="creationTime")

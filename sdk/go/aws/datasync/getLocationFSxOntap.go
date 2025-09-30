@@ -35,6 +35,8 @@ type LookupLocationFSxOntapResult struct {
 	LocationArn *string `pulumi:"locationArn"`
 	// The URL of the FSx ONTAP file system that was described.
 	LocationUri *string `pulumi:"locationUri"`
+	// Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
+	Protocol *LocationFSxOntapProtocol `pulumi:"protocol"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -84,6 +86,11 @@ func (o LookupLocationFSxOntapResultOutput) LocationArn() pulumi.StringPtrOutput
 // The URL of the FSx ONTAP file system that was described.
 func (o LookupLocationFSxOntapResultOutput) LocationUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocationFSxOntapResult) *string { return v.LocationUri }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
+func (o LookupLocationFSxOntapResultOutput) Protocol() LocationFSxOntapProtocolPtrOutput {
+	return o.ApplyT(func(v LookupLocationFSxOntapResult) *LocationFSxOntapProtocol { return v.Protocol }).(LocationFSxOntapProtocolPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

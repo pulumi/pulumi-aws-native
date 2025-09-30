@@ -75,6 +75,332 @@ namespace Pulumi.AwsNative.Ecs
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem : IEquatable<CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem>
+    {
+        private readonly string _value;
+
+        private CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem AmazonWebServices { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem Amd { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem("amd");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem Habana { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem("habana");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem Nvidia { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem Xilinx { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem("xilinx");
+
+        public static bool operator ==(CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem left, CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem left, CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem other && Equals(other);
+        public bool Equals(CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem : IEquatable<CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem>
+    {
+        private readonly string _value;
+
+        private CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem A10g { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("a10g");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem A100 { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("a100");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem H100 { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("h100");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem Inferentia { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("inferentia");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem K520 { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("k520");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem K80 { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("k80");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem M60 { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("m60");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem RadeonProV520 { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("radeon-pro-v520");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem T4 { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("t4");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem T4g { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("t4g");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem Vu9p { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("vu9p");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem V100 { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("v100");
+
+        public static bool operator ==(CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem left, CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem left, CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem other && Equals(other);
+        public bool Equals(CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem : IEquatable<CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem>
+    {
+        private readonly string _value;
+
+        private CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem Gpu { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem("gpu");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem Fpga { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem("fpga");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem Inference { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem("inference");
+
+        public static bool operator ==(CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem left, CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem left, CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem other && Equals(other);
+        public bool Equals(CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CapacityProviderInstanceRequirementsRequestBareMetal : IEquatable<CapacityProviderInstanceRequirementsRequestBareMetal>
+    {
+        private readonly string _value;
+
+        private CapacityProviderInstanceRequirementsRequestBareMetal(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderInstanceRequirementsRequestBareMetal Included { get; } = new CapacityProviderInstanceRequirementsRequestBareMetal("included");
+        public static CapacityProviderInstanceRequirementsRequestBareMetal Required { get; } = new CapacityProviderInstanceRequirementsRequestBareMetal("required");
+        public static CapacityProviderInstanceRequirementsRequestBareMetal Excluded { get; } = new CapacityProviderInstanceRequirementsRequestBareMetal("excluded");
+
+        public static bool operator ==(CapacityProviderInstanceRequirementsRequestBareMetal left, CapacityProviderInstanceRequirementsRequestBareMetal right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderInstanceRequirementsRequestBareMetal left, CapacityProviderInstanceRequirementsRequestBareMetal right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderInstanceRequirementsRequestBareMetal value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderInstanceRequirementsRequestBareMetal other && Equals(other);
+        public bool Equals(CapacityProviderInstanceRequirementsRequestBareMetal other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CapacityProviderInstanceRequirementsRequestBurstablePerformance : IEquatable<CapacityProviderInstanceRequirementsRequestBurstablePerformance>
+    {
+        private readonly string _value;
+
+        private CapacityProviderInstanceRequirementsRequestBurstablePerformance(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderInstanceRequirementsRequestBurstablePerformance Included { get; } = new CapacityProviderInstanceRequirementsRequestBurstablePerformance("included");
+        public static CapacityProviderInstanceRequirementsRequestBurstablePerformance Required { get; } = new CapacityProviderInstanceRequirementsRequestBurstablePerformance("required");
+        public static CapacityProviderInstanceRequirementsRequestBurstablePerformance Excluded { get; } = new CapacityProviderInstanceRequirementsRequestBurstablePerformance("excluded");
+
+        public static bool operator ==(CapacityProviderInstanceRequirementsRequestBurstablePerformance left, CapacityProviderInstanceRequirementsRequestBurstablePerformance right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderInstanceRequirementsRequestBurstablePerformance left, CapacityProviderInstanceRequirementsRequestBurstablePerformance right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderInstanceRequirementsRequestBurstablePerformance value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderInstanceRequirementsRequestBurstablePerformance other && Equals(other);
+        public bool Equals(CapacityProviderInstanceRequirementsRequestBurstablePerformance other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CapacityProviderInstanceRequirementsRequestCpuManufacturersItem : IEquatable<CapacityProviderInstanceRequirementsRequestCpuManufacturersItem>
+    {
+        private readonly string _value;
+
+        private CapacityProviderInstanceRequirementsRequestCpuManufacturersItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderInstanceRequirementsRequestCpuManufacturersItem Intel { get; } = new CapacityProviderInstanceRequirementsRequestCpuManufacturersItem("intel");
+        public static CapacityProviderInstanceRequirementsRequestCpuManufacturersItem Amd { get; } = new CapacityProviderInstanceRequirementsRequestCpuManufacturersItem("amd");
+        public static CapacityProviderInstanceRequirementsRequestCpuManufacturersItem AmazonWebServices { get; } = new CapacityProviderInstanceRequirementsRequestCpuManufacturersItem("amazon-web-services");
+
+        public static bool operator ==(CapacityProviderInstanceRequirementsRequestCpuManufacturersItem left, CapacityProviderInstanceRequirementsRequestCpuManufacturersItem right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderInstanceRequirementsRequestCpuManufacturersItem left, CapacityProviderInstanceRequirementsRequestCpuManufacturersItem right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderInstanceRequirementsRequestCpuManufacturersItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderInstanceRequirementsRequestCpuManufacturersItem other && Equals(other);
+        public bool Equals(CapacityProviderInstanceRequirementsRequestCpuManufacturersItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem : IEquatable<CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem>
+    {
+        private readonly string _value;
+
+        private CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem Current { get; } = new CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem("current");
+        public static CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem Previous { get; } = new CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem("previous");
+
+        public static bool operator ==(CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem left, CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem left, CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem other && Equals(other);
+        public bool Equals(CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CapacityProviderInstanceRequirementsRequestLocalStorage : IEquatable<CapacityProviderInstanceRequirementsRequestLocalStorage>
+    {
+        private readonly string _value;
+
+        private CapacityProviderInstanceRequirementsRequestLocalStorage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderInstanceRequirementsRequestLocalStorage Included { get; } = new CapacityProviderInstanceRequirementsRequestLocalStorage("included");
+        public static CapacityProviderInstanceRequirementsRequestLocalStorage Required { get; } = new CapacityProviderInstanceRequirementsRequestLocalStorage("required");
+        public static CapacityProviderInstanceRequirementsRequestLocalStorage Excluded { get; } = new CapacityProviderInstanceRequirementsRequestLocalStorage("excluded");
+
+        public static bool operator ==(CapacityProviderInstanceRequirementsRequestLocalStorage left, CapacityProviderInstanceRequirementsRequestLocalStorage right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderInstanceRequirementsRequestLocalStorage left, CapacityProviderInstanceRequirementsRequestLocalStorage right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderInstanceRequirementsRequestLocalStorage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderInstanceRequirementsRequestLocalStorage other && Equals(other);
+        public bool Equals(CapacityProviderInstanceRequirementsRequestLocalStorage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem : IEquatable<CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem>
+    {
+        private readonly string _value;
+
+        private CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem Hdd { get; } = new CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem("hdd");
+        public static CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem Ssd { get; } = new CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem("ssd");
+
+        public static bool operator ==(CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem left, CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem left, CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem other && Equals(other);
+        public bool Equals(CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CapacityProviderManagedInstancesMonitoringOptions : IEquatable<CapacityProviderManagedInstancesMonitoringOptions>
+    {
+        private readonly string _value;
+
+        private CapacityProviderManagedInstancesMonitoringOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderManagedInstancesMonitoringOptions Basic { get; } = new CapacityProviderManagedInstancesMonitoringOptions("BASIC");
+        public static CapacityProviderManagedInstancesMonitoringOptions Detailed { get; } = new CapacityProviderManagedInstancesMonitoringOptions("DETAILED");
+
+        public static bool operator ==(CapacityProviderManagedInstancesMonitoringOptions left, CapacityProviderManagedInstancesMonitoringOptions right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderManagedInstancesMonitoringOptions left, CapacityProviderManagedInstancesMonitoringOptions right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderManagedInstancesMonitoringOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderManagedInstancesMonitoringOptions other && Equals(other);
+        public bool Equals(CapacityProviderManagedInstancesMonitoringOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CapacityProviderManagedInstancesProviderPropagateTags : IEquatable<CapacityProviderManagedInstancesProviderPropagateTags>
+    {
+        private readonly string _value;
+
+        private CapacityProviderManagedInstancesProviderPropagateTags(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderManagedInstancesProviderPropagateTags CapacityProvider { get; } = new CapacityProviderManagedInstancesProviderPropagateTags("CAPACITY_PROVIDER");
+        public static CapacityProviderManagedInstancesProviderPropagateTags None { get; } = new CapacityProviderManagedInstancesProviderPropagateTags("NONE");
+
+        public static bool operator ==(CapacityProviderManagedInstancesProviderPropagateTags left, CapacityProviderManagedInstancesProviderPropagateTags right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderManagedInstancesProviderPropagateTags left, CapacityProviderManagedInstancesProviderPropagateTags right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderManagedInstancesProviderPropagateTags value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderManagedInstancesProviderPropagateTags other && Equals(other);
+        public bool Equals(CapacityProviderManagedInstancesProviderPropagateTags other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Determines whether to use managed scaling for the capacity provider.
     /// </summary>
@@ -171,6 +497,9 @@ namespace Pulumi.AwsNative.Ecs
     /// <summary>
     /// Indicates whether to use Availability Zone rebalancing for the service.
     ///  For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+    ///  The default behavior of ``AvailabilityZoneRebalancing`` differs between create and update requests:
+    ///   +  For create service requests, when no value is specified for ``AvailabilityZoneRebalancing``, Amazon ECS defaults the value to ``ENABLED``.
+    ///   +  For update service requests, when no value is specified for ``AvailabilityZoneRebalancing``, Amazon ECS defaults to the existing service’s ``AvailabilityZoneRebalancing`` value. If the service never had an ``AvailabilityZoneRebalancing`` value set, Amazon ECS treats this as ``DISABLED``.
     /// </summary>
     [EnumType]
     public readonly struct ServiceAvailabilityZoneRebalancing : IEquatable<ServiceAvailabilityZoneRebalancing>

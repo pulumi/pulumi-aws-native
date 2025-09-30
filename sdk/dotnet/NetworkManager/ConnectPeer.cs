@@ -70,6 +70,12 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<ImmutableArray<string>> InsideCidrBlocks { get; private set; } = null!;
 
         /// <summary>
+        /// Errors from the last modification of the connect peer.
+        /// </summary>
+        [Output("lastModificationErrors")]
+        public Output<ImmutableArray<string>> LastModificationErrors { get; private set; } = null!;
+
+        /// <summary>
         /// The IP address of the Connect peer.
         /// </summary>
         [Output("peerAddress")]

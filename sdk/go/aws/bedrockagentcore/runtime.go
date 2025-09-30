@@ -44,7 +44,8 @@ type Runtime struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Current status of the agent
 	Status RuntimeAgentStatusOutput `pulumi:"status"`
-	Tags   pulumi.StringMapOutput   `pulumi:"tags"`
+	// The tags for the agent.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Workload identity details for the agent
 	WorkloadIdentityDetails RuntimeWorkloadIdentityDetailsOutput `pulumi:"workloadIdentityDetails"`
 }
@@ -120,8 +121,9 @@ type runtimeArgs struct {
 	// Protocol configuration for the agent runtime
 	ProtocolConfiguration *RuntimeProtocolConfiguration `pulumi:"protocolConfiguration"`
 	// Amazon Resource Name (ARN) of an IAM role
-	RoleArn string            `pulumi:"roleArn"`
-	Tags    map[string]string `pulumi:"tags"`
+	RoleArn string `pulumi:"roleArn"`
+	// The tags for the agent.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Runtime resource.
@@ -142,7 +144,8 @@ type RuntimeArgs struct {
 	ProtocolConfiguration RuntimeProtocolConfigurationPtrInput
 	// Amazon Resource Name (ARN) of an IAM role
 	RoleArn pulumi.StringInput
-	Tags    pulumi.StringMapInput
+	// The tags for the agent.
+	Tags pulumi.StringMapInput
 }
 
 func (RuntimeArgs) ElementType() reflect.Type {
@@ -252,6 +255,7 @@ func (o RuntimeOutput) Status() RuntimeAgentStatusOutput {
 	return o.ApplyT(func(v *Runtime) RuntimeAgentStatusOutput { return v.Status }).(RuntimeAgentStatusOutput)
 }
 
+// The tags for the agent.
 func (o RuntimeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Runtime) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

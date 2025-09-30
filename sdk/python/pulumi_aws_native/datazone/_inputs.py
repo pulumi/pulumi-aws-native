@@ -125,6 +125,8 @@ __all__ = [
     'EnvironmentParameterArgsDict',
     'EnvironmentProfileEnvironmentParameterArgs',
     'EnvironmentProfileEnvironmentParameterArgsDict',
+    'FormTypeModelArgs',
+    'FormTypeModelArgsDict',
     'OwnerPropertiesArgs',
     'OwnerPropertiesArgsDict',
     'PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgs',
@@ -2858,6 +2860,35 @@ class EnvironmentProfileEnvironmentParameterArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class FormTypeModelArgsDict(TypedDict):
+        """
+        Indicates the smithy model of the API.
+        """
+        smithy: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    FormTypeModelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FormTypeModelArgs:
+    def __init__(__self__, *,
+                 smithy: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Indicates the smithy model of the API.
+        """
+        if smithy is not None:
+            pulumi.set(__self__, "smithy", smithy)
+
+    @property
+    @pulumi.getter
+    def smithy(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "smithy")
+
+    @smithy.setter
+    def smithy(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "smithy", value)
 
 
 if not MYPY:

@@ -135,6 +135,9 @@ class GetRuntimeEndpointResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        The tags for the AgentCore Runtime endpoint.
+        """
         return pulumi.get(self, "tags")
 
     @property

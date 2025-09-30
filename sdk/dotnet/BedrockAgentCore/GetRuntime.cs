@@ -115,6 +115,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// Current status of the agent
         /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.RuntimeAgentStatus? Status;
+        /// <summary>
+        /// The tags for the agent.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Workload identity details for the agent

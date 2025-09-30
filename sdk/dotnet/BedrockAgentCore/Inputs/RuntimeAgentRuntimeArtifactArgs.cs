@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 
     public sealed class RuntimeAgentRuntimeArtifactArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Representation of a container configuration.
+        /// </summary>
         [Input("containerConfiguration")]
         public Input<Inputs.RuntimeContainerConfigurationArgs>? ContainerConfiguration { get; set; }
 

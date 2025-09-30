@@ -8,8 +8,10 @@ from enum import Enum
 
 __all__ = [
     'AnalysisTemplateAnalysisParameterType',
+    'AnalysisTemplateErrorMessageConfigurationType',
     'AnalysisTemplateFormat',
     'CollaborationAnalyticsEngine',
+    'CollaborationAutoApprovedChangeType',
     'CollaborationCustomMlMemberAbility',
     'CollaborationJobLogStatus',
     'CollaborationMemberAbility',
@@ -69,6 +71,16 @@ class AnalysisTemplateAnalysisParameterType(builtins.str, Enum):
     TINYINT = "TINYINT"
 
 
+@pulumi.type_token("aws-native:cleanrooms:AnalysisTemplateErrorMessageConfigurationType")
+class AnalysisTemplateErrorMessageConfigurationType(builtins.str, Enum):
+    """
+    The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
+
+    Because this setting may expose sensitive data, it is recommended for development and testing environments.
+    """
+    DETAILED = "DETAILED"
+
+
 @pulumi.type_token("aws-native:cleanrooms:AnalysisTemplateFormat")
 class AnalysisTemplateFormat(builtins.str, Enum):
     """
@@ -82,6 +94,11 @@ class AnalysisTemplateFormat(builtins.str, Enum):
 class CollaborationAnalyticsEngine(builtins.str, Enum):
     CLEAN_ROOMS_SQL = "CLEAN_ROOMS_SQL"
     SPARK = "SPARK"
+
+
+@pulumi.type_token("aws-native:cleanrooms:CollaborationAutoApprovedChangeType")
+class CollaborationAutoApprovedChangeType(builtins.str, Enum):
+    ADD_MEMBER = "ADD_MEMBER"
 
 
 @pulumi.type_token("aws-native:cleanrooms:CollaborationCustomMlMemberAbility")

@@ -167,6 +167,101 @@ namespace Pulumi.AwsNative.Rds
     }
 
     /// <summary>
+    /// The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+    /// </summary>
+    [EnumType]
+    public readonly struct DbProxyDefaultAuthScheme : IEquatable<DbProxyDefaultAuthScheme>
+    {
+        private readonly string _value;
+
+        private DbProxyDefaultAuthScheme(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DbProxyDefaultAuthScheme IamAuth { get; } = new DbProxyDefaultAuthScheme("IAM_AUTH");
+        public static DbProxyDefaultAuthScheme None { get; } = new DbProxyDefaultAuthScheme("NONE");
+
+        public static bool operator ==(DbProxyDefaultAuthScheme left, DbProxyDefaultAuthScheme right) => left.Equals(right);
+        public static bool operator !=(DbProxyDefaultAuthScheme left, DbProxyDefaultAuthScheme right) => !left.Equals(right);
+
+        public static explicit operator string(DbProxyDefaultAuthScheme value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DbProxyDefaultAuthScheme other && Equals(other);
+        public bool Equals(DbProxyDefaultAuthScheme other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+    /// </summary>
+    [EnumType]
+    public readonly struct DbProxyEndpointEndpointNetworkType : IEquatable<DbProxyEndpointEndpointNetworkType>
+    {
+        private readonly string _value;
+
+        private DbProxyEndpointEndpointNetworkType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DbProxyEndpointEndpointNetworkType Ipv4 { get; } = new DbProxyEndpointEndpointNetworkType("IPV4");
+        public static DbProxyEndpointEndpointNetworkType Ipv6 { get; } = new DbProxyEndpointEndpointNetworkType("IPV6");
+        public static DbProxyEndpointEndpointNetworkType Dual { get; } = new DbProxyEndpointEndpointNetworkType("DUAL");
+
+        public static bool operator ==(DbProxyEndpointEndpointNetworkType left, DbProxyEndpointEndpointNetworkType right) => left.Equals(right);
+        public static bool operator !=(DbProxyEndpointEndpointNetworkType left, DbProxyEndpointEndpointNetworkType right) => !left.Equals(right);
+
+        public static explicit operator string(DbProxyEndpointEndpointNetworkType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DbProxyEndpointEndpointNetworkType other && Equals(other);
+        public bool Equals(DbProxyEndpointEndpointNetworkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+    /// </summary>
+    [EnumType]
+    public readonly struct DbProxyEndpointNetworkType : IEquatable<DbProxyEndpointNetworkType>
+    {
+        private readonly string _value;
+
+        private DbProxyEndpointNetworkType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DbProxyEndpointNetworkType Ipv4 { get; } = new DbProxyEndpointNetworkType("IPV4");
+        public static DbProxyEndpointNetworkType Ipv6 { get; } = new DbProxyEndpointNetworkType("IPV6");
+        public static DbProxyEndpointNetworkType Dual { get; } = new DbProxyEndpointNetworkType("DUAL");
+
+        public static bool operator ==(DbProxyEndpointNetworkType left, DbProxyEndpointNetworkType right) => left.Equals(right);
+        public static bool operator !=(DbProxyEndpointNetworkType left, DbProxyEndpointNetworkType right) => !left.Equals(right);
+
+        public static explicit operator string(DbProxyEndpointNetworkType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DbProxyEndpointNetworkType other && Equals(other);
+        public bool Equals(DbProxyEndpointNetworkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
     /// </summary>
     [EnumType]
@@ -222,6 +317,37 @@ namespace Pulumi.AwsNative.Rds
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DbProxyEngineFamily other && Equals(other);
         public bool Equals(DbProxyEngineFamily other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
+    /// </summary>
+    [EnumType]
+    public readonly struct DbProxyTargetConnectionNetworkType : IEquatable<DbProxyTargetConnectionNetworkType>
+    {
+        private readonly string _value;
+
+        private DbProxyTargetConnectionNetworkType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DbProxyTargetConnectionNetworkType Ipv4 { get; } = new DbProxyTargetConnectionNetworkType("IPV4");
+        public static DbProxyTargetConnectionNetworkType Ipv6 { get; } = new DbProxyTargetConnectionNetworkType("IPV6");
+
+        public static bool operator ==(DbProxyTargetConnectionNetworkType left, DbProxyTargetConnectionNetworkType right) => left.Equals(right);
+        public static bool operator !=(DbProxyTargetConnectionNetworkType left, DbProxyTargetConnectionNetworkType right) => !left.Equals(right);
+
+        public static explicit operator string(DbProxyTargetConnectionNetworkType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DbProxyTargetConnectionNetworkType other && Equals(other);
+        public bool Equals(DbProxyTargetConnectionNetworkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

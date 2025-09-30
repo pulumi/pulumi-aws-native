@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class RuntimeAgentRuntimeArtifact
     {
+        /// <summary>
+        /// Representation of a container configuration.
+        /// </summary>
         public readonly Outputs.RuntimeContainerConfiguration? ContainerConfiguration;
 
         [OutputConstructor]

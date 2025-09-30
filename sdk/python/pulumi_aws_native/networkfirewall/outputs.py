@@ -1765,7 +1765,9 @@ class RuleGroupRulesSourceList(dict):
                  target_types: Sequence['RuleGroupTargetType'],
                  targets: Sequence[builtins.str]):
         """
-        :param 'RuleGroupGeneratedRulesType' generated_rules_type: Whether you want to allow or deny access to the domains in your target list.
+        :param 'RuleGroupGeneratedRulesType' generated_rules_type: Whether you want to apply allow, reject, alert, or drop behavior to the domains in your target list.
+               
+               > When logging is enabled and you choose Alert, traffic that matches the domain specifications generates an alert in the firewall's logs. Then, traffic either passes, is rejected, or drops based on other rules in the firewall policy.
         :param Sequence['RuleGroupTargetType'] target_types: The types of targets to inspect for. Valid values are `TLS_SNI` and `HTTP_HOST` .
         :param Sequence[builtins.str] targets: The domains that you want to inspect for in your traffic flows. Valid domain specifications are the following:
                
@@ -1780,7 +1782,9 @@ class RuleGroupRulesSourceList(dict):
     @pulumi.getter(name="generatedRulesType")
     def generated_rules_type(self) -> 'RuleGroupGeneratedRulesType':
         """
-        Whether you want to allow or deny access to the domains in your target list.
+        Whether you want to apply allow, reject, alert, or drop behavior to the domains in your target list.
+
+        > When logging is enabled and you choose Alert, traffic that matches the domain specifications generates an alert in the firewall's logs. Then, traffic either passes, is rejected, or drops based on other rules in the firewall policy.
         """
         return pulumi.get(self, "generated_rules_type")
 

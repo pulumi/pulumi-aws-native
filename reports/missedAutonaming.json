@@ -1615,7 +1615,8 @@
         "type": "object",
         "additionalProperties": {
           "type": "string"
-        }
+        },
+        "description": "The tags for the agent."
       }
     }
   },
@@ -3362,6 +3363,14 @@
       "authenticationType": {
         "$ref": "#/types/aws-native:datasync:LocationSmbAuthenticationType",
         "description": "The authentication mode used to determine identity of user."
+      },
+      "cmkSecretConfig": {
+        "$ref": "#/types/aws-native:datasync:LocationSmbCmkSecretConfig",
+        "description": "Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .\n\n\u003e You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request."
+      },
+      "customSecretConfig": {
+        "$ref": "#/types/aws-native:datasync:LocationSmbCustomSecretConfig",
+        "description": "Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.\n\n\u003e You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request."
       },
       "dnsIpAddresses": {
         "type": "array",
@@ -5156,6 +5165,70 @@
       "vpcId": {
         "type": "string",
         "description": "The ID of the VPC."
+      }
+    }
+  },
+  "aws-native:ec2:LocalGatewayVirtualInterface": {
+    "cfTypeName": "AWS::EC2::LocalGatewayVirtualInterface",
+    "properties": {
+      "localAddress": {
+        "type": "string",
+        "description": "The local address."
+      },
+      "localGatewayVirtualInterfaceGroupId": {
+        "type": "string",
+        "description": "The ID of the virtual interface group"
+      },
+      "outpostLagId": {
+        "type": "string",
+        "description": "The Outpost LAG ID."
+      },
+      "peerAddress": {
+        "type": "string",
+        "description": "The peer address."
+      },
+      "peerBgpAsn": {
+        "type": "integer",
+        "description": "The peer BGP ASN."
+      },
+      "peerBgpAsnExtended": {
+        "type": "integer",
+        "description": "The extended 32-bit ASN of the BGP peer for use with larger ASN values."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
+      },
+      "vlan": {
+        "type": "integer",
+        "description": "The ID of the VLAN."
+      }
+    }
+  },
+  "aws-native:ec2:LocalGatewayVirtualInterfaceGroup": {
+    "cfTypeName": "AWS::EC2::LocalGatewayVirtualInterfaceGroup",
+    "properties": {
+      "localBgpAsn": {
+        "type": "integer",
+        "description": "The Autonomous System Number(ASN) for the local Border Gateway Protocol (BGP)"
+      },
+      "localBgpAsnExtended": {
+        "type": "integer",
+        "description": "The extended 32-bit ASN for the local BGP configuration"
+      },
+      "localGatewayId": {
+        "type": "string",
+        "description": "The ID of the local gateway"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags assigned to the virtual interface group"
       }
     }
   },
@@ -12291,6 +12364,10 @@
         "type": "boolean",
         "description": "Specifies whether to manage the master user password with AWS Secrets Manager.\n For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*\n Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters\n Constraints:\n  +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified."
       },
+      "masterUserAuthenticationType": {
+        "type": "string",
+        "description": "Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.\n\nYou can specify one of the following values:\n\n- `password` - Use standard database authentication with a password.\n- `iam-db-auth` - Use IAM database authentication for the master user.\n\nValid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters\n\nThis option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines."
+      },
       "masterUserPassword": {
         "type": "string",
         "description": "The master password for the DB instance.\n  If you specify the ``SourceDBClusterIdentifier``, ``SnapshotIdentifier``, or ``GlobalClusterIdentifier`` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.\n  Valid for: Aurora DB clusters and Multi-AZ DB clusters"
@@ -12605,6 +12682,10 @@
       "manageMasterUserPassword": {
         "type": "boolean",
         "description": "Specifies whether to manage the master user password with AWS Secrets Manager.\n For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*\n Constraints:\n  +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified."
+      },
+      "masterUserAuthenticationType": {
+        "type": "string",
+        "description": "Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.\n\nYou can specify one of the following values:\n\n- `password` - Use standard database authentication with a password.\n- `iam-db-auth` - Use IAM database authentication for the master user.\n\nThis option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines."
       },
       "masterUserPassword": {
         "type": "string",

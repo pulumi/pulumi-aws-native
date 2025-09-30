@@ -35,6 +35,8 @@ type LookupTransitGatewayPeeringResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The location of the transit gateway peering
 	EdgeLocation *string `pulumi:"edgeLocation"`
+	// Errors from the last modification of the transit gateway peering.
+	LastModificationErrors []string `pulumi:"lastModificationErrors"`
 	// Peering owner account Id
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
 	// The Id of the transit gateway peering
@@ -96,6 +98,11 @@ func (o LookupTransitGatewayPeeringResultOutput) CreatedAt() pulumi.StringPtrOut
 // The location of the transit gateway peering
 func (o LookupTransitGatewayPeeringResultOutput) EdgeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayPeeringResult) *string { return v.EdgeLocation }).(pulumi.StringPtrOutput)
+}
+
+// Errors from the last modification of the transit gateway peering.
+func (o LookupTransitGatewayPeeringResultOutput) LastModificationErrors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupTransitGatewayPeeringResult) []string { return v.LastModificationErrors }).(pulumi.StringArrayOutput)
 }
 
 // Peering owner account Id

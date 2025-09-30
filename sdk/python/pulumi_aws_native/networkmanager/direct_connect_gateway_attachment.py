@@ -203,6 +203,7 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
             __props__.__dict__["attachment_type"] = None
             __props__.__dict__["core_network_arn"] = None
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["last_modification_errors"] = None
             __props__.__dict__["network_function_group_name"] = None
             __props__.__dict__["owner_account_id"] = None
             __props__.__dict__["resource_arn"] = None
@@ -241,6 +242,7 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["direct_connect_gateway_arn"] = None
         __props__.__dict__["edge_locations"] = None
+        __props__.__dict__["last_modification_errors"] = None
         __props__.__dict__["network_function_group_name"] = None
         __props__.__dict__["owner_account_id"] = None
         __props__.__dict__["proposed_network_function_group_change"] = None
@@ -315,6 +317,14 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
         The Regions where the edges are located.
         """
         return pulumi.get(self, "edge_locations")
+
+    @property
+    @pulumi.getter(name="lastModificationErrors")
+    def last_modification_errors(self) -> pulumi.Output[Sequence[builtins.str]]:
+        """
+        Errors from the last modification of the attachment.
+        """
+        return pulumi.get(self, "last_modification_errors")
 
     @property
     @pulumi.getter(name="networkFunctionGroupName")

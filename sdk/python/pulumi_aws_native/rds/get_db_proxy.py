@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbProxyResult:
-    def __init__(__self__, auth=None, db_proxy_arn=None, debug_logging=None, endpoint=None, idle_client_timeout=None, require_tls=None, role_arn=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
+    def __init__(__self__, auth=None, db_proxy_arn=None, debug_logging=None, default_auth_scheme=None, endpoint=None, idle_client_timeout=None, require_tls=None, role_arn=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
         if auth and not isinstance(auth, list):
             raise TypeError("Expected argument 'auth' to be a list")
         pulumi.set(__self__, "auth", auth)
@@ -37,6 +37,9 @@ class GetDbProxyResult:
         if debug_logging and not isinstance(debug_logging, bool):
             raise TypeError("Expected argument 'debug_logging' to be a bool")
         pulumi.set(__self__, "debug_logging", debug_logging)
+        if default_auth_scheme and not isinstance(default_auth_scheme, str):
+            raise TypeError("Expected argument 'default_auth_scheme' to be a str")
+        pulumi.set(__self__, "default_auth_scheme", default_auth_scheme)
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
@@ -82,6 +85,14 @@ class GetDbProxyResult:
         Whether the proxy includes detailed information about SQL statements in its logs.
         """
         return pulumi.get(self, "debug_logging")
+
+    @property
+    @pulumi.getter(name="defaultAuthScheme")
+    def default_auth_scheme(self) -> Optional['DbProxyDefaultAuthScheme']:
+        """
+        The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+        """
+        return pulumi.get(self, "default_auth_scheme")
 
     @property
     @pulumi.getter
@@ -149,6 +160,7 @@ class AwaitableGetDbProxyResult(GetDbProxyResult):
             auth=self.auth,
             db_proxy_arn=self.db_proxy_arn,
             debug_logging=self.debug_logging,
+            default_auth_scheme=self.default_auth_scheme,
             endpoint=self.endpoint,
             idle_client_timeout=self.idle_client_timeout,
             require_tls=self.require_tls,
@@ -175,6 +187,7 @@ def get_db_proxy(db_proxy_name: Optional[builtins.str] = None,
         auth=pulumi.get(__ret__, 'auth'),
         db_proxy_arn=pulumi.get(__ret__, 'db_proxy_arn'),
         debug_logging=pulumi.get(__ret__, 'debug_logging'),
+        default_auth_scheme=pulumi.get(__ret__, 'default_auth_scheme'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         idle_client_timeout=pulumi.get(__ret__, 'idle_client_timeout'),
         require_tls=pulumi.get(__ret__, 'require_tls'),
@@ -198,6 +211,7 @@ def get_db_proxy_output(db_proxy_name: Optional[pulumi.Input[builtins.str]] = No
         auth=pulumi.get(__response__, 'auth'),
         db_proxy_arn=pulumi.get(__response__, 'db_proxy_arn'),
         debug_logging=pulumi.get(__response__, 'debug_logging'),
+        default_auth_scheme=pulumi.get(__response__, 'default_auth_scheme'),
         endpoint=pulumi.get(__response__, 'endpoint'),
         idle_client_timeout=pulumi.get(__response__, 'idle_client_timeout'),
         require_tls=pulumi.get(__response__, 'require_tls'),

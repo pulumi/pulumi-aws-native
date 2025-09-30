@@ -77,6 +77,9 @@ export class BrowserCustom extends pulumi.CustomResource {
      * Status of browser.
      */
     public /*out*/ readonly status!: pulumi.Output<enums.bedrockagentcore.BrowserCustomBrowserStatus>;
+    /**
+     * The tags for the custom browser.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -148,5 +151,8 @@ export interface BrowserCustomArgs {
      * Recording configuration for browser.
      */
     recordingConfig?: pulumi.Input<inputs.bedrockagentcore.BrowserCustomRecordingConfigArgs>;
+    /**
+     * The tags for the custom browser.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -158,6 +158,8 @@ class ProjectMembership(pulumi.CustomResource):
             if project_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'project_identifier'")
             __props__.__dict__["project_identifier"] = project_identifier
+            __props__.__dict__["member_identifier"] = None
+            __props__.__dict__["member_identifier_type"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "member", "projectIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ProjectMembership, __self__).__init__(
@@ -185,6 +187,8 @@ class ProjectMembership(pulumi.CustomResource):
         __props__.__dict__["designation"] = None
         __props__.__dict__["domain_identifier"] = None
         __props__.__dict__["member"] = None
+        __props__.__dict__["member_identifier"] = None
+        __props__.__dict__["member_identifier_type"] = None
         __props__.__dict__["project_identifier"] = None
         return ProjectMembership(resource_name, opts=opts, __props__=__props__)
 
@@ -211,6 +215,16 @@ class ProjectMembership(pulumi.CustomResource):
         The details about a project member.
         """
         return pulumi.get(self, "member")
+
+    @property
+    @pulumi.getter(name="memberIdentifier")
+    def member_identifier(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "member_identifier")
+
+    @property
+    @pulumi.getter(name="memberIdentifierType")
+    def member_identifier_type(self) -> pulumi.Output['ProjectMembershipMemberIdentifierType']:
+        return pulumi.get(self, "member_identifier_type")
 
     @property
     @pulumi.getter(name="projectIdentifier")

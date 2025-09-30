@@ -568,6 +568,17 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly manageMasterUserPassword!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.
+     *
+     * You can specify one of the following values:
+     *
+     * - `password` - Use standard database authentication with a password.
+     * - `iam-db-auth` - Use IAM database authentication for the master user.
+     *
+     * This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+     */
+    public readonly masterUserAuthenticationType!: pulumi.Output<string | undefined>;
+    /**
      * The password for the master user. The password can include any printable ASCII character except "/", """, or "@".
      *   *Amazon Aurora* 
      *  Not applicable. The password for the master user is managed by the DB cluster.
@@ -943,6 +954,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["licenseModel"] = args ? args.licenseModel : undefined;
             resourceInputs["manageMasterUserPassword"] = args ? args.manageMasterUserPassword : undefined;
+            resourceInputs["masterUserAuthenticationType"] = args ? args.masterUserAuthenticationType : undefined;
             resourceInputs["masterUserPassword"] = args ? args.masterUserPassword : undefined;
             resourceInputs["masterUserSecret"] = args ? args.masterUserSecret : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
@@ -1051,6 +1063,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["licenseModel"] = undefined /*out*/;
             resourceInputs["listenerEndpoint"] = undefined /*out*/;
             resourceInputs["manageMasterUserPassword"] = undefined /*out*/;
+            resourceInputs["masterUserAuthenticationType"] = undefined /*out*/;
             resourceInputs["masterUserPassword"] = undefined /*out*/;
             resourceInputs["masterUserSecret"] = undefined /*out*/;
             resourceInputs["masterUsername"] = undefined /*out*/;
@@ -1583,6 +1596,17 @@ export interface DbInstanceArgs {
      *   +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
      */
     manageMasterUserPassword?: pulumi.Input<boolean>;
+    /**
+     * Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.
+     *
+     * You can specify one of the following values:
+     *
+     * - `password` - Use standard database authentication with a password.
+     * - `iam-db-auth` - Use IAM database authentication for the master user.
+     *
+     * This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+     */
+    masterUserAuthenticationType?: pulumi.Input<string>;
     /**
      * The password for the master user. The password can include any printable ASCII character except "/", """, or "@".
      *   *Amazon Aurora* 

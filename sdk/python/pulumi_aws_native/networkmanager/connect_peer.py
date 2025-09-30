@@ -222,6 +222,7 @@ class ConnectPeer(pulumi.CustomResource):
             __props__.__dict__["core_network_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["edge_location"] = None
+            __props__.__dict__["last_modification_errors"] = None
             __props__.__dict__["state"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bgpOptions", "connectAttachmentId", "coreNetworkAddress", "insideCidrBlocks[*]", "peerAddress", "subnetArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -256,6 +257,7 @@ class ConnectPeer(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["edge_location"] = None
         __props__.__dict__["inside_cidr_blocks"] = None
+        __props__.__dict__["last_modification_errors"] = None
         __props__.__dict__["peer_address"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["subnet_arn"] = None
@@ -333,6 +335,14 @@ class ConnectPeer(pulumi.CustomResource):
         The inside IP addresses used for a Connect peer configuration.
         """
         return pulumi.get(self, "inside_cidr_blocks")
+
+    @property
+    @pulumi.getter(name="lastModificationErrors")
+    def last_modification_errors(self) -> pulumi.Output[Sequence[builtins.str]]:
+        """
+        Errors from the last modification of the connect peer.
+        """
+        return pulumi.get(self, "last_modification_errors")
 
     @property
     @pulumi.getter(name="peerAddress")

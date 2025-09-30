@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
         [Input("idMappingType")]
         public Input<Pulumi.AwsNative.EntityResolution.IdMappingWorkflowIdMappingTechniquesIdMappingType>? IdMappingType { get; set; }
 
+        [Input("normalizationVersion")]
+        public Input<string>? NormalizationVersion { get; set; }
+
         /// <summary>
         /// An object which defines any additional configurations required by the provider service.
         /// </summary>

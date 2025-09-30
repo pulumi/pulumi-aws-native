@@ -98,6 +98,13 @@ export const MethodIntegrationResponseContentHandling = {
  */
 export type MethodIntegrationResponseContentHandling = (typeof MethodIntegrationResponseContentHandling)[keyof typeof MethodIntegrationResponseContentHandling];
 
+export const MethodIntegrationResponseTransferMode = {
+    Buffered: "BUFFERED",
+    Stream: "STREAM",
+} as const;
+
+export type MethodIntegrationResponseTransferMode = (typeof MethodIntegrationResponseTransferMode)[keyof typeof MethodIntegrationResponseTransferMode];
+
 export const MethodIntegrationType = {
     Aws: "AWS",
     AwsProxy: "AWS_PROXY",

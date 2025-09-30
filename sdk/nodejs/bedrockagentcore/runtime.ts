@@ -93,6 +93,9 @@ export class Runtime extends pulumi.CustomResource {
      * Current status of the agent
      */
     public /*out*/ readonly status!: pulumi.Output<enums.bedrockagentcore.RuntimeAgentStatus>;
+    /**
+     * The tags for the agent.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Workload identity details for the agent
@@ -199,5 +202,8 @@ export interface RuntimeArgs {
      * Amazon Resource Name (ARN) of an IAM role
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * The tags for the agent.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

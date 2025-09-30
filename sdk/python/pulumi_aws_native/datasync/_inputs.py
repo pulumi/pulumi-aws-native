@@ -55,6 +55,10 @@ __all__ = [
     'LocationObjectStorageCustomSecretConfigArgsDict',
     'LocationS3s3ConfigArgs',
     'LocationS3s3ConfigArgsDict',
+    'LocationSmbCmkSecretConfigArgs',
+    'LocationSmbCmkSecretConfigArgsDict',
+    'LocationSmbCustomSecretConfigArgs',
+    'LocationSmbCustomSecretConfigArgsDict',
     'LocationSmbMountOptionsArgs',
     'LocationSmbMountOptionsArgsDict',
     'StorageSystemServerConfigurationArgs',
@@ -979,6 +983,116 @@ class LocationS3s3ConfigArgs:
     @bucket_access_role_arn.setter
     def bucket_access_role_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "bucket_access_role_arn", value)
+
+
+if not MYPY:
+    class LocationSmbCmkSecretConfigArgsDict(TypedDict):
+        """
+        Specifies configuration information for a DataSync-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+        """
+        kms_key_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Specifies the ARN for the customer-managed AWS KMS key used to encrypt the secret specified for SecretArn. DataSync provides this key to AWS Secrets Manager.
+        """
+        secret_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Specifies the ARN for an AWS Secrets Manager secret, managed by DataSync.
+        """
+elif False:
+    LocationSmbCmkSecretConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LocationSmbCmkSecretConfigArgs:
+    def __init__(__self__, *,
+                 kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 secret_arn: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Specifies configuration information for a DataSync-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+        :param pulumi.Input[builtins.str] kms_key_arn: Specifies the ARN for the customer-managed AWS KMS key used to encrypt the secret specified for SecretArn. DataSync provides this key to AWS Secrets Manager.
+        :param pulumi.Input[builtins.str] secret_arn: Specifies the ARN for an AWS Secrets Manager secret, managed by DataSync.
+        """
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the ARN for the customer-managed AWS KMS key used to encrypt the secret specified for SecretArn. DataSync provides this key to AWS Secrets Manager.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the ARN for an AWS Secrets Manager secret, managed by DataSync.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "secret_arn", value)
+
+
+if not MYPY:
+    class LocationSmbCustomSecretConfigArgsDict(TypedDict):
+        """
+        Specifies configuration information for a customer-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+        """
+        secret_access_role_arn: pulumi.Input[builtins.str]
+        """
+        Specifies the ARN for the AWS Identity and Access Management role that DataSync uses to access the secret specified for SecretArn.
+        """
+        secret_arn: pulumi.Input[builtins.str]
+        """
+        Specifies the ARN for a customer created AWS Secrets Manager secret.
+        """
+elif False:
+    LocationSmbCustomSecretConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LocationSmbCustomSecretConfigArgs:
+    def __init__(__self__, *,
+                 secret_access_role_arn: pulumi.Input[builtins.str],
+                 secret_arn: pulumi.Input[builtins.str]):
+        """
+        Specifies configuration information for a customer-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+        :param pulumi.Input[builtins.str] secret_access_role_arn: Specifies the ARN for the AWS Identity and Access Management role that DataSync uses to access the secret specified for SecretArn.
+        :param pulumi.Input[builtins.str] secret_arn: Specifies the ARN for a customer created AWS Secrets Manager secret.
+        """
+        pulumi.set(__self__, "secret_access_role_arn", secret_access_role_arn)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="secretAccessRoleArn")
+    def secret_access_role_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies the ARN for the AWS Identity and Access Management role that DataSync uses to access the secret specified for SecretArn.
+        """
+        return pulumi.get(self, "secret_access_role_arn")
+
+    @secret_access_role_arn.setter
+    def secret_access_role_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "secret_access_role_arn", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies the ARN for a customer created AWS Secrets Manager secret.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "secret_arn", value)
 
 
 if not MYPY:

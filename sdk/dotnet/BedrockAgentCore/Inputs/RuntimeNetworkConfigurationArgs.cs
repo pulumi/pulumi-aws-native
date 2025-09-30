@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 
     public sealed class RuntimeNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The network mode.
+        /// </summary>
         [Input("networkMode", required: true)]
         public Input<Pulumi.AwsNative.BedrockAgentCore.RuntimeNetworkMode> NetworkMode { get; set; } = null!;
 

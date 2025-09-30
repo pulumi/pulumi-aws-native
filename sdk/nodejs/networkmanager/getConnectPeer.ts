@@ -46,6 +46,10 @@ export interface GetConnectPeerResult {
      */
     readonly edgeLocation?: string;
     /**
+     * Errors from the last modification of the connect peer.
+     */
+    readonly lastModificationErrors?: string[];
+    /**
      * State of the connect peer.
      */
     readonly state?: string;

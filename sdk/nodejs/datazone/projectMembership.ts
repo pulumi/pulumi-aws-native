@@ -49,6 +49,8 @@ export class ProjectMembership extends pulumi.CustomResource {
      * The details about a project member.
      */
     public readonly member!: pulumi.Output<outputs.datazone.ProjectMembershipMember0Properties | outputs.datazone.ProjectMembershipMember1Properties>;
+    public /*out*/ readonly memberIdentifier!: pulumi.Output<string>;
+    public /*out*/ readonly memberIdentifierType!: pulumi.Output<enums.datazone.ProjectMembershipMemberIdentifierType>;
     /**
      * The ID of the project for which this project membership was created.
      */
@@ -81,10 +83,14 @@ export class ProjectMembership extends pulumi.CustomResource {
             resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
             resourceInputs["member"] = args ? args.member : undefined;
             resourceInputs["projectIdentifier"] = args ? args.projectIdentifier : undefined;
+            resourceInputs["memberIdentifier"] = undefined /*out*/;
+            resourceInputs["memberIdentifierType"] = undefined /*out*/;
         } else {
             resourceInputs["designation"] = undefined /*out*/;
             resourceInputs["domainIdentifier"] = undefined /*out*/;
             resourceInputs["member"] = undefined /*out*/;
+            resourceInputs["memberIdentifier"] = undefined /*out*/;
+            resourceInputs["memberIdentifierType"] = undefined /*out*/;
             resourceInputs["projectIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

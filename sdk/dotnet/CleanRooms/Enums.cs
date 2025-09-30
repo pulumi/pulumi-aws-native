@@ -65,6 +65,38 @@ namespace Pulumi.AwsNative.CleanRooms
     }
 
     /// <summary>
+    /// The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
+    /// 
+    /// Because this setting may expose sensitive data, it is recommended for development and testing environments.
+    /// </summary>
+    [EnumType]
+    public readonly struct AnalysisTemplateErrorMessageConfigurationType : IEquatable<AnalysisTemplateErrorMessageConfigurationType>
+    {
+        private readonly string _value;
+
+        private AnalysisTemplateErrorMessageConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisTemplateErrorMessageConfigurationType Detailed { get; } = new AnalysisTemplateErrorMessageConfigurationType("DETAILED");
+
+        public static bool operator ==(AnalysisTemplateErrorMessageConfigurationType left, AnalysisTemplateErrorMessageConfigurationType right) => left.Equals(right);
+        public static bool operator !=(AnalysisTemplateErrorMessageConfigurationType left, AnalysisTemplateErrorMessageConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisTemplateErrorMessageConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisTemplateErrorMessageConfigurationType other && Equals(other);
+        public bool Equals(AnalysisTemplateErrorMessageConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The format of the analysis template.
     /// </summary>
     [EnumType]
@@ -116,6 +148,33 @@ namespace Pulumi.AwsNative.CleanRooms
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CollaborationAnalyticsEngine other && Equals(other);
         public bool Equals(CollaborationAnalyticsEngine other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CollaborationAutoApprovedChangeType : IEquatable<CollaborationAutoApprovedChangeType>
+    {
+        private readonly string _value;
+
+        private CollaborationAutoApprovedChangeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CollaborationAutoApprovedChangeType AddMember { get; } = new CollaborationAutoApprovedChangeType("ADD_MEMBER");
+
+        public static bool operator ==(CollaborationAutoApprovedChangeType left, CollaborationAutoApprovedChangeType right) => left.Equals(right);
+        public static bool operator !=(CollaborationAutoApprovedChangeType left, CollaborationAutoApprovedChangeType right) => !left.Equals(right);
+
+        public static explicit operator string(CollaborationAutoApprovedChangeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CollaborationAutoApprovedChangeType other && Equals(other);
+        public bool Equals(CollaborationAutoApprovedChangeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

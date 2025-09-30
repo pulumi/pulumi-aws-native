@@ -25,6 +25,8 @@ type Collaboration struct {
 	//
 	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The types of change requests that are automatically approved for this collaboration.
+	AutoApprovedChangeTypes CollaborationAutoApprovedChangeTypeArrayOutput `pulumi:"autoApprovedChangeTypes"`
 	// Returns the unique identifier of the specified collaboration.
 	//
 	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
@@ -76,6 +78,7 @@ func NewCollaboration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'QueryLogStatus'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"autoApprovedChangeTypes[*]",
 		"creatorDisplayName",
 		"creatorMemberAbilities[*]",
 		"creatorMlMemberAbilities",
@@ -123,6 +126,8 @@ type collaborationArgs struct {
 	//
 	// > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
 	AnalyticsEngine *CollaborationAnalyticsEngine `pulumi:"analyticsEngine"`
+	// The types of change requests that are automatically approved for this collaboration.
+	AutoApprovedChangeTypes []CollaborationAutoApprovedChangeType `pulumi:"autoApprovedChangeTypes"`
 	// A display name of the collaboration creator.
 	CreatorDisplayName string `pulumi:"creatorDisplayName"`
 	// The abilities granted to the collaboration creator.
@@ -159,6 +164,8 @@ type CollaborationArgs struct {
 	//
 	// > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
 	AnalyticsEngine CollaborationAnalyticsEnginePtrInput
+	// The types of change requests that are automatically approved for this collaboration.
+	AutoApprovedChangeTypes CollaborationAutoApprovedChangeTypeArrayInput
 	// A display name of the collaboration creator.
 	CreatorDisplayName pulumi.StringInput
 	// The abilities granted to the collaboration creator.
@@ -238,6 +245,13 @@ func (o CollaborationOutput) AnalyticsEngine() CollaborationAnalyticsEnginePtrOu
 // Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 func (o CollaborationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The types of change requests that are automatically approved for this collaboration.
+func (o CollaborationOutput) AutoApprovedChangeTypes() CollaborationAutoApprovedChangeTypeArrayOutput {
+	return o.ApplyT(func(v *Collaboration) CollaborationAutoApprovedChangeTypeArrayOutput {
+		return v.AutoApprovedChangeTypes
+	}).(CollaborationAutoApprovedChangeTypeArrayOutput)
 }
 
 // Returns the unique identifier of the specified collaboration.

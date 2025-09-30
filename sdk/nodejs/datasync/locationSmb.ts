@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::DataSync::LocationSMB.
+ * Resource Type definition for AWS::DataSync::LocationSMB.
  */
 export class LocationSmb extends pulumi.CustomResource {
     /**
@@ -46,6 +46,18 @@ export class LocationSmb extends pulumi.CustomResource {
      */
     public readonly authenticationType!: pulumi.Output<enums.datasync.LocationSmbAuthenticationType | undefined>;
     /**
+     * Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+     *
+     * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+     */
+    public readonly cmkSecretConfig!: pulumi.Output<outputs.datasync.LocationSmbCmkSecretConfig | undefined>;
+    /**
+     * Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+     *
+     * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+     */
+    public readonly customSecretConfig!: pulumi.Output<outputs.datasync.LocationSmbCustomSecretConfig | undefined>;
+    /**
      * Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
      */
     public readonly dnsIpAddresses!: pulumi.Output<string[] | undefined>;
@@ -73,6 +85,7 @@ export class LocationSmb extends pulumi.CustomResource {
      * The URL of the SMB location that was described.
      */
     public /*out*/ readonly locationUri!: pulumi.Output<string>;
+    public /*out*/ readonly managedSecretConfig!: pulumi.Output<outputs.datasync.LocationSmbManagedSecretConfig>;
     /**
      * Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
      */
@@ -114,6 +127,8 @@ export class LocationSmb extends pulumi.CustomResource {
             }
             resourceInputs["agentArns"] = args ? args.agentArns : undefined;
             resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["cmkSecretConfig"] = args ? args.cmkSecretConfig : undefined;
+            resourceInputs["customSecretConfig"] = args ? args.customSecretConfig : undefined;
             resourceInputs["dnsIpAddresses"] = args ? args.dnsIpAddresses : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["kerberosKeytab"] = args ? args.kerberosKeytab : undefined;
@@ -127,9 +142,12 @@ export class LocationSmb extends pulumi.CustomResource {
             resourceInputs["user"] = args ? args.user : undefined;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["managedSecretConfig"] = undefined /*out*/;
         } else {
             resourceInputs["agentArns"] = undefined /*out*/;
             resourceInputs["authenticationType"] = undefined /*out*/;
+            resourceInputs["cmkSecretConfig"] = undefined /*out*/;
+            resourceInputs["customSecretConfig"] = undefined /*out*/;
             resourceInputs["dnsIpAddresses"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["kerberosKeytab"] = undefined /*out*/;
@@ -137,6 +155,7 @@ export class LocationSmb extends pulumi.CustomResource {
             resourceInputs["kerberosPrincipal"] = undefined /*out*/;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["managedSecretConfig"] = undefined /*out*/;
             resourceInputs["mountOptions"] = undefined /*out*/;
             resourceInputs["password"] = undefined /*out*/;
             resourceInputs["serverHostname"] = undefined /*out*/;
@@ -161,6 +180,18 @@ export interface LocationSmbArgs {
      * The authentication mode used to determine identity of user.
      */
     authenticationType?: pulumi.Input<enums.datasync.LocationSmbAuthenticationType>;
+    /**
+     * Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+     *
+     * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+     */
+    cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationSmbCmkSecretConfigArgs>;
+    /**
+     * Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+     *
+     * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+     */
+    customSecretConfig?: pulumi.Input<inputs.datasync.LocationSmbCustomSecretConfigArgs>;
     /**
      * Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
      */

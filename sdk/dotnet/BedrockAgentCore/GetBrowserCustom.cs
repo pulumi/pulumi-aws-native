@@ -83,6 +83,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// Status of browser.
         /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.BrowserCustomBrowserStatus? Status;
+        /// <summary>
+        /// The tags for the custom browser.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

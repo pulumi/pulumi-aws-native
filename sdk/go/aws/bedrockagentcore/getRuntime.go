@@ -54,7 +54,8 @@ type LookupRuntimeResult struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// Current status of the agent
 	Status *RuntimeAgentStatus `pulumi:"status"`
-	Tags   map[string]string   `pulumi:"tags"`
+	// The tags for the agent.
+	Tags map[string]string `pulumi:"tags"`
 	// Workload identity details for the agent
 	WorkloadIdentityDetails *RuntimeWorkloadIdentityDetails `pulumi:"workloadIdentityDetails"`
 }
@@ -156,6 +157,7 @@ func (o LookupRuntimeResultOutput) Status() RuntimeAgentStatusPtrOutput {
 	return o.ApplyT(func(v LookupRuntimeResult) *RuntimeAgentStatus { return v.Status }).(RuntimeAgentStatusPtrOutput)
 }
 
+// The tags for the agent.
 func (o LookupRuntimeResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupRuntimeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

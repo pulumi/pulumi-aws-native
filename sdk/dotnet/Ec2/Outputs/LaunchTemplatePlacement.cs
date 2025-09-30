@@ -23,6 +23,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly string? Affinity;
         /// <summary>
         /// The Availability Zone for the instance.
+        ///  Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>

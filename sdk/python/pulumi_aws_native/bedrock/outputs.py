@@ -49,11 +49,13 @@ __all__ = [
     'AutomatedReasoningPolicyPolicyDefinitionTypeValue',
     'AutomatedReasoningPolicyPolicyDefinitionVariable',
     'DataAutomationProjectAudioExtractionCategory',
+    'DataAutomationProjectAudioExtractionCategoryTypeConfiguration',
     'DataAutomationProjectAudioOverrideConfiguration',
     'DataAutomationProjectAudioStandardExtraction',
     'DataAutomationProjectAudioStandardGenerativeField',
     'DataAutomationProjectAudioStandardOutputConfiguration',
     'DataAutomationProjectBlueprintItem',
+    'DataAutomationProjectChannelLabelingConfiguration',
     'DataAutomationProjectCustomOutputConfiguration',
     'DataAutomationProjectDocumentBoundingBox',
     'DataAutomationProjectDocumentExtractionGranularity',
@@ -73,8 +75,10 @@ __all__ = [
     'DataAutomationProjectModalityProcessingConfiguration',
     'DataAutomationProjectModalityRoutingConfiguration',
     'DataAutomationProjectOverrideConfiguration',
+    'DataAutomationProjectSpeakerLabelingConfiguration',
     'DataAutomationProjectSplitterConfiguration',
     'DataAutomationProjectStandardOutputConfiguration',
+    'DataAutomationProjectTranscriptConfiguration',
     'DataAutomationProjectVideoBoundingBox',
     'DataAutomationProjectVideoExtractionCategory',
     'DataAutomationProjectVideoOverrideConfiguration',
@@ -1956,14 +1960,34 @@ class AutomatedReasoningPolicyPolicyDefinitionVariable(dict):
 
 @pulumi.output_type
 class DataAutomationProjectAudioExtractionCategory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "typeConfiguration":
+            suggest = "type_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationProjectAudioExtractionCategory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationProjectAudioExtractionCategory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationProjectAudioExtractionCategory.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  state: 'DataAutomationProjectState',
+                 type_configuration: Optional['outputs.DataAutomationProjectAudioExtractionCategoryTypeConfiguration'] = None,
                  types: Optional[Sequence['DataAutomationProjectAudioExtractionCategoryType']] = None):
         """
         :param 'DataAutomationProjectState' state: Whether generating categorical data from audio is enabled.
         :param Sequence['DataAutomationProjectAudioExtractionCategoryType'] types: The types of data to generate.
         """
         pulumi.set(__self__, "state", state)
+        if type_configuration is not None:
+            pulumi.set(__self__, "type_configuration", type_configuration)
         if types is not None:
             pulumi.set(__self__, "types", types)
 
@@ -1976,12 +2000,30 @@ class DataAutomationProjectAudioExtractionCategory(dict):
         return pulumi.get(self, "state")
 
     @property
+    @pulumi.getter(name="typeConfiguration")
+    def type_configuration(self) -> Optional['outputs.DataAutomationProjectAudioExtractionCategoryTypeConfiguration']:
+        return pulumi.get(self, "type_configuration")
+
+    @property
     @pulumi.getter
     def types(self) -> Optional[Sequence['DataAutomationProjectAudioExtractionCategoryType']]:
         """
         The types of data to generate.
         """
         return pulumi.get(self, "types")
+
+
+@pulumi.output_type
+class DataAutomationProjectAudioExtractionCategoryTypeConfiguration(dict):
+    def __init__(__self__, *,
+                 transcript: Optional['outputs.DataAutomationProjectTranscriptConfiguration'] = None):
+        if transcript is not None:
+            pulumi.set(__self__, "transcript", transcript)
+
+    @property
+    @pulumi.getter
+    def transcript(self) -> Optional['outputs.DataAutomationProjectTranscriptConfiguration']:
+        return pulumi.get(self, "transcript")
 
 
 @pulumi.output_type
@@ -2177,6 +2219,18 @@ class DataAutomationProjectBlueprintItem(dict):
         Blueprint Version
         """
         return pulumi.get(self, "blueprint_version")
+
+
+@pulumi.output_type
+class DataAutomationProjectChannelLabelingConfiguration(dict):
+    def __init__(__self__, *,
+                 state: 'DataAutomationProjectState'):
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> 'DataAutomationProjectState':
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type
@@ -2873,6 +2927,18 @@ class DataAutomationProjectOverrideConfiguration(dict):
 
 
 @pulumi.output_type
+class DataAutomationProjectSpeakerLabelingConfiguration(dict):
+    def __init__(__self__, *,
+                 state: 'DataAutomationProjectState'):
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> 'DataAutomationProjectState':
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class DataAutomationProjectSplitterConfiguration(dict):
     def __init__(__self__, *,
                  state: Optional['DataAutomationProjectState'] = None):
@@ -2948,6 +3014,46 @@ class DataAutomationProjectStandardOutputConfiguration(dict):
         Settings for processing video.
         """
         return pulumi.get(self, "video")
+
+
+@pulumi.output_type
+class DataAutomationProjectTranscriptConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "channelLabeling":
+            suggest = "channel_labeling"
+        elif key == "speakerLabeling":
+            suggest = "speaker_labeling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationProjectTranscriptConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationProjectTranscriptConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationProjectTranscriptConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel_labeling: Optional['outputs.DataAutomationProjectChannelLabelingConfiguration'] = None,
+                 speaker_labeling: Optional['outputs.DataAutomationProjectSpeakerLabelingConfiguration'] = None):
+        if channel_labeling is not None:
+            pulumi.set(__self__, "channel_labeling", channel_labeling)
+        if speaker_labeling is not None:
+            pulumi.set(__self__, "speaker_labeling", speaker_labeling)
+
+    @property
+    @pulumi.getter(name="channelLabeling")
+    def channel_labeling(self) -> Optional['outputs.DataAutomationProjectChannelLabelingConfiguration']:
+        return pulumi.get(self, "channel_labeling")
+
+    @property
+    @pulumi.getter(name="speakerLabeling")
+    def speaker_labeling(self) -> Optional['outputs.DataAutomationProjectSpeakerLabelingConfiguration']:
+        return pulumi.get(self, "speaker_labeling")
 
 
 @pulumi.output_type

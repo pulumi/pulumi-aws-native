@@ -38,7 +38,8 @@ class ResolverEndpointArgs:
         The set of arguments for constructing a ResolverEndpoint resource.
         :param pulumi.Input[builtins.str] direction: Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
                - INBOUND: allows DNS queries to your VPC from your network 
-               - OUTBOUND: allows DNS queries from your VPC to your network
+               - OUTBOUND: allows DNS queries from your VPC to your network 
+               - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
         :param pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressRequestArgs']]] ip_addresses: The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
         :param pulumi.Input[builtins.str] name: A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
@@ -70,7 +71,8 @@ class ResolverEndpointArgs:
         """
         Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
         - INBOUND: allows DNS queries to your VPC from your network 
-        - OUTBOUND: allows DNS queries from your VPC to your network
+        - OUTBOUND: allows DNS queries from your VPC to your network 
+        - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
         """
         return pulumi.get(self, "direction")
 
@@ -198,7 +200,8 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] direction: Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
                - INBOUND: allows DNS queries to your VPC from your network 
-               - OUTBOUND: allows DNS queries from your VPC to your network
+               - OUTBOUND: allows DNS queries from your VPC to your network 
+               - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressRequestArgs', 'ResolverEndpointIpAddressRequestArgsDict']]]] ip_addresses: The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
         :param pulumi.Input[builtins.str] name: A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
         :param pulumi.Input[builtins.str] outpost_arn: The ARN (Amazon Resource Name) for the Outpost.
@@ -322,7 +325,8 @@ class ResolverEndpoint(pulumi.CustomResource):
         """
         Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
         - INBOUND: allows DNS queries to your VPC from your network 
-        - OUTBOUND: allows DNS queries from your VPC to your network
+        - OUTBOUND: allows DNS queries from your VPC to your network 
+        - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
         """
         return pulumi.get(self, "direction")
 

@@ -341,6 +341,37 @@ namespace Pulumi.AwsNative.DataZone
     }
 
     /// <summary>
+    /// The status of this Amazon DataZone metadata form type.
+    /// </summary>
+    [EnumType]
+    public readonly struct FormTypeStatus : IEquatable<FormTypeStatus>
+    {
+        private readonly string _value;
+
+        private FormTypeStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FormTypeStatus Enabled { get; } = new FormTypeStatus("ENABLED");
+        public static FormTypeStatus Disabled { get; } = new FormTypeStatus("DISABLED");
+
+        public static bool operator ==(FormTypeStatus left, FormTypeStatus right) => left.Equals(right);
+        public static bool operator !=(FormTypeStatus left, FormTypeStatus right) => !left.Equals(right);
+
+        public static explicit operator string(FormTypeStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FormTypeStatus other && Equals(other);
+        public bool Equals(FormTypeStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the group profile.
     /// </summary>
     [EnumType]
@@ -394,6 +425,37 @@ namespace Pulumi.AwsNative.DataZone
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OwnerEntityType other && Equals(other);
         public bool Equals(OwnerEntityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The owner that you want to add to the entity.
+    /// </summary>
+    [EnumType]
+    public readonly struct OwnerType : IEquatable<OwnerType>
+    {
+        private readonly string _value;
+
+        private OwnerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OwnerType User { get; } = new OwnerType("USER");
+        public static OwnerType Group { get; } = new OwnerType("GROUP");
+
+        public static bool operator ==(OwnerType left, OwnerType right) => left.Equals(right);
+        public static bool operator !=(OwnerType left, OwnerType right) => !left.Equals(right);
+
+        public static explicit operator string(OwnerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OwnerType other && Equals(other);
+        public bool Equals(OwnerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -519,6 +581,34 @@ namespace Pulumi.AwsNative.DataZone
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PolicyGrantTargetEntityType other && Equals(other);
         public bool Equals(PolicyGrantTargetEntityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ProjectMembershipMemberIdentifierType : IEquatable<ProjectMembershipMemberIdentifierType>
+    {
+        private readonly string _value;
+
+        private ProjectMembershipMemberIdentifierType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProjectMembershipMemberIdentifierType UserIdentifier { get; } = new ProjectMembershipMemberIdentifierType("USER_IDENTIFIER");
+        public static ProjectMembershipMemberIdentifierType GroupIdentifier { get; } = new ProjectMembershipMemberIdentifierType("GROUP_IDENTIFIER");
+
+        public static bool operator ==(ProjectMembershipMemberIdentifierType left, ProjectMembershipMemberIdentifierType right) => left.Equals(right);
+        public static bool operator !=(ProjectMembershipMemberIdentifierType left, ProjectMembershipMemberIdentifierType right) => !left.Equals(right);
+
+        public static explicit operator string(ProjectMembershipMemberIdentifierType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProjectMembershipMemberIdentifierType other && Equals(other);
+        public bool Equals(ProjectMembershipMemberIdentifierType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

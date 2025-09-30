@@ -84,6 +84,10 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public readonly string? EdgeLocation;
         /// <summary>
+        /// Errors from the last modification of the connect peer.
+        /// </summary>
+        public readonly ImmutableArray<string> LastModificationErrors;
+        /// <summary>
         /// State of the connect peer.
         /// </summary>
         public readonly string? State;
@@ -104,6 +108,8 @@ namespace Pulumi.AwsNative.NetworkManager
 
             string? edgeLocation,
 
+            ImmutableArray<string> lastModificationErrors,
+
             string? state,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
@@ -113,6 +119,7 @@ namespace Pulumi.AwsNative.NetworkManager
             CoreNetworkId = coreNetworkId;
             CreatedAt = createdAt;
             EdgeLocation = edgeLocation;
+            LastModificationErrors = lastModificationErrors;
             State = state;
             Tags = tags;
         }

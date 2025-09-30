@@ -726,7 +726,6 @@ func (o EvaluationFormItemArrayOutput) Index(i pulumi.IntInput) EvaluationFormIt
 
 // Information about the automation configuration in numeric questions.
 type EvaluationFormNumericQuestionAutomation struct {
-	AnswerSource interface{} `pulumi:"answerSource"`
 	// The property value of the automation.
 	PropertyValue *EvaluationFormNumericQuestionPropertyValueAutomation `pulumi:"propertyValue"`
 }
@@ -744,7 +743,6 @@ type EvaluationFormNumericQuestionAutomationInput interface {
 
 // Information about the automation configuration in numeric questions.
 type EvaluationFormNumericQuestionAutomationArgs struct {
-	AnswerSource pulumi.Input `pulumi:"answerSource"`
 	// The property value of the automation.
 	PropertyValue EvaluationFormNumericQuestionPropertyValueAutomationPtrInput `pulumi:"propertyValue"`
 }
@@ -827,10 +825,6 @@ func (o EvaluationFormNumericQuestionAutomationOutput) ToEvaluationFormNumericQu
 	}).(EvaluationFormNumericQuestionAutomationPtrOutput)
 }
 
-func (o EvaluationFormNumericQuestionAutomationOutput) AnswerSource() pulumi.AnyOutput {
-	return o.ApplyT(func(v EvaluationFormNumericQuestionAutomation) interface{} { return v.AnswerSource }).(pulumi.AnyOutput)
-}
-
 // The property value of the automation.
 func (o EvaluationFormNumericQuestionAutomationOutput) PropertyValue() EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput {
 	return o.ApplyT(func(v EvaluationFormNumericQuestionAutomation) *EvaluationFormNumericQuestionPropertyValueAutomation {
@@ -860,15 +854,6 @@ func (o EvaluationFormNumericQuestionAutomationPtrOutput) Elem() EvaluationFormN
 		var ret EvaluationFormNumericQuestionAutomation
 		return ret
 	}).(EvaluationFormNumericQuestionAutomationOutput)
-}
-
-func (o EvaluationFormNumericQuestionAutomationPtrOutput) AnswerSource() pulumi.AnyOutput {
-	return o.ApplyT(func(v *EvaluationFormNumericQuestionAutomation) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.AnswerSource
-	}).(pulumi.AnyOutput)
 }
 
 // The property value of the automation.
@@ -9675,8 +9660,9 @@ type UserPhoneConfig struct {
 	// The Auto accept setting.
 	AutoAccept *bool `pulumi:"autoAccept"`
 	// The phone number for the user's desk phone.
-	DeskPhoneNumber      *string `pulumi:"deskPhoneNumber"`
-	PersistentConnection *bool   `pulumi:"persistentConnection"`
+	DeskPhoneNumber *string `pulumi:"deskPhoneNumber"`
+	// The persistent connection setting for the user.
+	PersistentConnection *bool `pulumi:"persistentConnection"`
 	// The phone type.
 	PhoneType UserPhoneType `pulumi:"phoneType"`
 }
@@ -9701,8 +9687,9 @@ type UserPhoneConfigArgs struct {
 	// The Auto accept setting.
 	AutoAccept pulumi.BoolPtrInput `pulumi:"autoAccept"`
 	// The phone number for the user's desk phone.
-	DeskPhoneNumber      pulumi.StringPtrInput `pulumi:"deskPhoneNumber"`
-	PersistentConnection pulumi.BoolPtrInput   `pulumi:"persistentConnection"`
+	DeskPhoneNumber pulumi.StringPtrInput `pulumi:"deskPhoneNumber"`
+	// The persistent connection setting for the user.
+	PersistentConnection pulumi.BoolPtrInput `pulumi:"persistentConnection"`
 	// The phone type.
 	PhoneType UserPhoneTypeInput `pulumi:"phoneType"`
 }
@@ -9751,6 +9738,7 @@ func (o UserPhoneConfigOutput) DeskPhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPhoneConfig) *string { return v.DeskPhoneNumber }).(pulumi.StringPtrOutput)
 }
 
+// The persistent connection setting for the user.
 func (o UserPhoneConfigOutput) PersistentConnection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPhoneConfig) *bool { return v.PersistentConnection }).(pulumi.BoolPtrOutput)
 }
@@ -9816,6 +9804,7 @@ func (o UserPhoneConfigPtrOutput) DeskPhoneNumber() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The persistent connection setting for the user.
 func (o UserPhoneConfigPtrOutput) PersistentConnection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPhoneConfig) *bool {
 		if v == nil {

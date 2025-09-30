@@ -19,7 +19,7 @@
       "type" : "string"
     }
   },
-  "required" : [ "PrincipalType" ],
+  "required" : [ "PrincipalARN", "PortfolioId", "PrincipalType" ],
   "createOnlyProperties" : [ "/properties/AcceptLanguage", "/properties/PortfolioId", "/properties/PrincipalARN", "/properties/PrincipalType" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]

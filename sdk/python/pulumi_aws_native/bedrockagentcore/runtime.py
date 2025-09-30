@@ -42,6 +42,7 @@ class RuntimeArgs:
         :param pulumi.Input[builtins.str] description: Description of the resource
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables for the agent runtime
         :param pulumi.Input['RuntimeProtocolConfiguration'] protocol_configuration: Protocol configuration for the agent runtime
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the agent.
         """
         pulumi.set(__self__, "agent_runtime_artifact", agent_runtime_artifact)
         pulumi.set(__self__, "agent_runtime_name", agent_runtime_name)
@@ -157,6 +158,9 @@ class RuntimeArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        The tags for the agent.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -193,6 +197,7 @@ class Runtime(pulumi.CustomResource):
         :param pulumi.Input[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict']] network_configuration: Network access configuration for the Agent
         :param pulumi.Input['RuntimeProtocolConfiguration'] protocol_configuration: Protocol configuration for the agent runtime
         :param pulumi.Input[builtins.str] role_arn: Amazon Resource Name (ARN) of an IAM role
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the agent.
         """
         ...
     @overload
@@ -417,6 +422,9 @@ class Runtime(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        The tags for the agent.
+        """
         return pulumi.get(self, "tags")
 
     @property

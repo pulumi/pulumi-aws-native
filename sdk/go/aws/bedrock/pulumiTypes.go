@@ -4063,7 +4063,8 @@ type BlueprintTag struct {
 
 type DataAutomationProjectAudioExtractionCategory struct {
 	// Whether generating categorical data from audio is enabled.
-	State DataAutomationProjectStateEnum `pulumi:"state"`
+	State             DataAutomationProjectStateEnum                                 `pulumi:"state"`
+	TypeConfiguration *DataAutomationProjectAudioExtractionCategoryTypeConfiguration `pulumi:"typeConfiguration"`
 	// The types of data to generate.
 	Types []DataAutomationProjectAudioExtractionCategoryType `pulumi:"types"`
 }
@@ -4081,7 +4082,8 @@ type DataAutomationProjectAudioExtractionCategoryInput interface {
 
 type DataAutomationProjectAudioExtractionCategoryArgs struct {
 	// Whether generating categorical data from audio is enabled.
-	State DataAutomationProjectStateEnumInput `pulumi:"state"`
+	State             DataAutomationProjectStateEnumInput                                   `pulumi:"state"`
+	TypeConfiguration DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrInput `pulumi:"typeConfiguration"`
 	// The types of data to generate.
 	Types DataAutomationProjectAudioExtractionCategoryTypeArrayInput `pulumi:"types"`
 }
@@ -4168,6 +4170,12 @@ func (o DataAutomationProjectAudioExtractionCategoryOutput) State() DataAutomati
 	return o.ApplyT(func(v DataAutomationProjectAudioExtractionCategory) DataAutomationProjectStateEnum { return v.State }).(DataAutomationProjectStateEnumOutput)
 }
 
+func (o DataAutomationProjectAudioExtractionCategoryOutput) TypeConfiguration() DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectAudioExtractionCategory) *DataAutomationProjectAudioExtractionCategoryTypeConfiguration {
+		return v.TypeConfiguration
+	}).(DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput)
+}
+
 // The types of data to generate.
 func (o DataAutomationProjectAudioExtractionCategoryOutput) Types() DataAutomationProjectAudioExtractionCategoryTypeArrayOutput {
 	return o.ApplyT(func(v DataAutomationProjectAudioExtractionCategory) []DataAutomationProjectAudioExtractionCategoryType {
@@ -4209,6 +4217,15 @@ func (o DataAutomationProjectAudioExtractionCategoryPtrOutput) State() DataAutom
 	}).(DataAutomationProjectStateEnumPtrOutput)
 }
 
+func (o DataAutomationProjectAudioExtractionCategoryPtrOutput) TypeConfiguration() DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectAudioExtractionCategory) *DataAutomationProjectAudioExtractionCategoryTypeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.TypeConfiguration
+	}).(DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput)
+}
+
 // The types of data to generate.
 func (o DataAutomationProjectAudioExtractionCategoryPtrOutput) Types() DataAutomationProjectAudioExtractionCategoryTypeArrayOutput {
 	return o.ApplyT(func(v *DataAutomationProjectAudioExtractionCategory) []DataAutomationProjectAudioExtractionCategoryType {
@@ -4217,6 +4234,141 @@ func (o DataAutomationProjectAudioExtractionCategoryPtrOutput) Types() DataAutom
 		}
 		return v.Types
 	}).(DataAutomationProjectAudioExtractionCategoryTypeArrayOutput)
+}
+
+type DataAutomationProjectAudioExtractionCategoryTypeConfiguration struct {
+	Transcript *DataAutomationProjectTranscriptConfiguration `pulumi:"transcript"`
+}
+
+// DataAutomationProjectAudioExtractionCategoryTypeConfigurationInput is an input type that accepts DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs and DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput values.
+// You can construct a concrete instance of `DataAutomationProjectAudioExtractionCategoryTypeConfigurationInput` via:
+//
+//	DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs{...}
+type DataAutomationProjectAudioExtractionCategoryTypeConfigurationInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput() DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput
+	ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationOutputWithContext(context.Context) DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput
+}
+
+type DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs struct {
+	Transcript DataAutomationProjectTranscriptConfigurationPtrInput `pulumi:"transcript"`
+}
+
+func (DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryTypeConfiguration)(nil)).Elem()
+}
+
+func (i DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs) ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput() DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput {
+	return i.ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs) ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput)
+}
+
+func (i DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs) ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput() DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput {
+	return i.ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs) ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput).ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrInput is an input type that accepts DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs, DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtr and DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrInput` via:
+//
+//	        DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput() DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput
+	ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutputWithContext(context.Context) DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput
+}
+
+type dataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrType DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs
+
+func DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtr(v *DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs) DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrInput {
+	return (*dataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrType)(v)
+}
+
+func (*dataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectAudioExtractionCategoryTypeConfiguration)(nil)).Elem()
+}
+
+func (i *dataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrType) ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput() DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput {
+	return i.ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrType) ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput)
+}
+
+type DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryTypeConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput) ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput() DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput) ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput) ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput() DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput {
+	return o.ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput) ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectAudioExtractionCategoryTypeConfiguration) *DataAutomationProjectAudioExtractionCategoryTypeConfiguration {
+		return &v
+	}).(DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput) Transcript() DataAutomationProjectTranscriptConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectAudioExtractionCategoryTypeConfiguration) *DataAutomationProjectTranscriptConfiguration {
+		return v.Transcript
+	}).(DataAutomationProjectTranscriptConfigurationPtrOutput)
+}
+
+type DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectAudioExtractionCategoryTypeConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput) ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput() DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput) ToDataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput) Elem() DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput {
+	return o.ApplyT(func(v *DataAutomationProjectAudioExtractionCategoryTypeConfiguration) DataAutomationProjectAudioExtractionCategoryTypeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectAudioExtractionCategoryTypeConfiguration
+		return ret
+	}).(DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput)
+}
+
+func (o DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput) Transcript() DataAutomationProjectTranscriptConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectAudioExtractionCategoryTypeConfiguration) *DataAutomationProjectTranscriptConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Transcript
+	}).(DataAutomationProjectTranscriptConfigurationPtrOutput)
 }
 
 type DataAutomationProjectAudioOverrideConfiguration struct {
@@ -4932,6 +5084,141 @@ func (o DataAutomationProjectBlueprintItemArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataAutomationProjectBlueprintItem {
 		return vs[0].([]DataAutomationProjectBlueprintItem)[vs[1].(int)]
 	}).(DataAutomationProjectBlueprintItemOutput)
+}
+
+type DataAutomationProjectChannelLabelingConfiguration struct {
+	State DataAutomationProjectStateEnum `pulumi:"state"`
+}
+
+// DataAutomationProjectChannelLabelingConfigurationInput is an input type that accepts DataAutomationProjectChannelLabelingConfigurationArgs and DataAutomationProjectChannelLabelingConfigurationOutput values.
+// You can construct a concrete instance of `DataAutomationProjectChannelLabelingConfigurationInput` via:
+//
+//	DataAutomationProjectChannelLabelingConfigurationArgs{...}
+type DataAutomationProjectChannelLabelingConfigurationInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectChannelLabelingConfigurationOutput() DataAutomationProjectChannelLabelingConfigurationOutput
+	ToDataAutomationProjectChannelLabelingConfigurationOutputWithContext(context.Context) DataAutomationProjectChannelLabelingConfigurationOutput
+}
+
+type DataAutomationProjectChannelLabelingConfigurationArgs struct {
+	State DataAutomationProjectStateEnumInput `pulumi:"state"`
+}
+
+func (DataAutomationProjectChannelLabelingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectChannelLabelingConfiguration)(nil)).Elem()
+}
+
+func (i DataAutomationProjectChannelLabelingConfigurationArgs) ToDataAutomationProjectChannelLabelingConfigurationOutput() DataAutomationProjectChannelLabelingConfigurationOutput {
+	return i.ToDataAutomationProjectChannelLabelingConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectChannelLabelingConfigurationArgs) ToDataAutomationProjectChannelLabelingConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectChannelLabelingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectChannelLabelingConfigurationOutput)
+}
+
+func (i DataAutomationProjectChannelLabelingConfigurationArgs) ToDataAutomationProjectChannelLabelingConfigurationPtrOutput() DataAutomationProjectChannelLabelingConfigurationPtrOutput {
+	return i.ToDataAutomationProjectChannelLabelingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectChannelLabelingConfigurationArgs) ToDataAutomationProjectChannelLabelingConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectChannelLabelingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectChannelLabelingConfigurationOutput).ToDataAutomationProjectChannelLabelingConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataAutomationProjectChannelLabelingConfigurationPtrInput is an input type that accepts DataAutomationProjectChannelLabelingConfigurationArgs, DataAutomationProjectChannelLabelingConfigurationPtr and DataAutomationProjectChannelLabelingConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataAutomationProjectChannelLabelingConfigurationPtrInput` via:
+//
+//	        DataAutomationProjectChannelLabelingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAutomationProjectChannelLabelingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectChannelLabelingConfigurationPtrOutput() DataAutomationProjectChannelLabelingConfigurationPtrOutput
+	ToDataAutomationProjectChannelLabelingConfigurationPtrOutputWithContext(context.Context) DataAutomationProjectChannelLabelingConfigurationPtrOutput
+}
+
+type dataAutomationProjectChannelLabelingConfigurationPtrType DataAutomationProjectChannelLabelingConfigurationArgs
+
+func DataAutomationProjectChannelLabelingConfigurationPtr(v *DataAutomationProjectChannelLabelingConfigurationArgs) DataAutomationProjectChannelLabelingConfigurationPtrInput {
+	return (*dataAutomationProjectChannelLabelingConfigurationPtrType)(v)
+}
+
+func (*dataAutomationProjectChannelLabelingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectChannelLabelingConfiguration)(nil)).Elem()
+}
+
+func (i *dataAutomationProjectChannelLabelingConfigurationPtrType) ToDataAutomationProjectChannelLabelingConfigurationPtrOutput() DataAutomationProjectChannelLabelingConfigurationPtrOutput {
+	return i.ToDataAutomationProjectChannelLabelingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAutomationProjectChannelLabelingConfigurationPtrType) ToDataAutomationProjectChannelLabelingConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectChannelLabelingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectChannelLabelingConfigurationPtrOutput)
+}
+
+type DataAutomationProjectChannelLabelingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectChannelLabelingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectChannelLabelingConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectChannelLabelingConfigurationOutput) ToDataAutomationProjectChannelLabelingConfigurationOutput() DataAutomationProjectChannelLabelingConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectChannelLabelingConfigurationOutput) ToDataAutomationProjectChannelLabelingConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectChannelLabelingConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectChannelLabelingConfigurationOutput) ToDataAutomationProjectChannelLabelingConfigurationPtrOutput() DataAutomationProjectChannelLabelingConfigurationPtrOutput {
+	return o.ToDataAutomationProjectChannelLabelingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectChannelLabelingConfigurationOutput) ToDataAutomationProjectChannelLabelingConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectChannelLabelingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectChannelLabelingConfiguration) *DataAutomationProjectChannelLabelingConfiguration {
+		return &v
+	}).(DataAutomationProjectChannelLabelingConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectChannelLabelingConfigurationOutput) State() DataAutomationProjectStateEnumOutput {
+	return o.ApplyT(func(v DataAutomationProjectChannelLabelingConfiguration) DataAutomationProjectStateEnum {
+		return v.State
+	}).(DataAutomationProjectStateEnumOutput)
+}
+
+type DataAutomationProjectChannelLabelingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectChannelLabelingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectChannelLabelingConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectChannelLabelingConfigurationPtrOutput) ToDataAutomationProjectChannelLabelingConfigurationPtrOutput() DataAutomationProjectChannelLabelingConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectChannelLabelingConfigurationPtrOutput) ToDataAutomationProjectChannelLabelingConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectChannelLabelingConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectChannelLabelingConfigurationPtrOutput) Elem() DataAutomationProjectChannelLabelingConfigurationOutput {
+	return o.ApplyT(func(v *DataAutomationProjectChannelLabelingConfiguration) DataAutomationProjectChannelLabelingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectChannelLabelingConfiguration
+		return ret
+	}).(DataAutomationProjectChannelLabelingConfigurationOutput)
+}
+
+func (o DataAutomationProjectChannelLabelingConfigurationPtrOutput) State() DataAutomationProjectStateEnumPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectChannelLabelingConfiguration) *DataAutomationProjectStateEnum {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(DataAutomationProjectStateEnumPtrOutput)
 }
 
 // Custom output configuration
@@ -7914,6 +8201,141 @@ func (o DataAutomationProjectOverrideConfigurationPtrOutput) Video() DataAutomat
 	}).(DataAutomationProjectVideoOverrideConfigurationPtrOutput)
 }
 
+type DataAutomationProjectSpeakerLabelingConfiguration struct {
+	State DataAutomationProjectStateEnum `pulumi:"state"`
+}
+
+// DataAutomationProjectSpeakerLabelingConfigurationInput is an input type that accepts DataAutomationProjectSpeakerLabelingConfigurationArgs and DataAutomationProjectSpeakerLabelingConfigurationOutput values.
+// You can construct a concrete instance of `DataAutomationProjectSpeakerLabelingConfigurationInput` via:
+//
+//	DataAutomationProjectSpeakerLabelingConfigurationArgs{...}
+type DataAutomationProjectSpeakerLabelingConfigurationInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectSpeakerLabelingConfigurationOutput() DataAutomationProjectSpeakerLabelingConfigurationOutput
+	ToDataAutomationProjectSpeakerLabelingConfigurationOutputWithContext(context.Context) DataAutomationProjectSpeakerLabelingConfigurationOutput
+}
+
+type DataAutomationProjectSpeakerLabelingConfigurationArgs struct {
+	State DataAutomationProjectStateEnumInput `pulumi:"state"`
+}
+
+func (DataAutomationProjectSpeakerLabelingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectSpeakerLabelingConfiguration)(nil)).Elem()
+}
+
+func (i DataAutomationProjectSpeakerLabelingConfigurationArgs) ToDataAutomationProjectSpeakerLabelingConfigurationOutput() DataAutomationProjectSpeakerLabelingConfigurationOutput {
+	return i.ToDataAutomationProjectSpeakerLabelingConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectSpeakerLabelingConfigurationArgs) ToDataAutomationProjectSpeakerLabelingConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectSpeakerLabelingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectSpeakerLabelingConfigurationOutput)
+}
+
+func (i DataAutomationProjectSpeakerLabelingConfigurationArgs) ToDataAutomationProjectSpeakerLabelingConfigurationPtrOutput() DataAutomationProjectSpeakerLabelingConfigurationPtrOutput {
+	return i.ToDataAutomationProjectSpeakerLabelingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectSpeakerLabelingConfigurationArgs) ToDataAutomationProjectSpeakerLabelingConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectSpeakerLabelingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectSpeakerLabelingConfigurationOutput).ToDataAutomationProjectSpeakerLabelingConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataAutomationProjectSpeakerLabelingConfigurationPtrInput is an input type that accepts DataAutomationProjectSpeakerLabelingConfigurationArgs, DataAutomationProjectSpeakerLabelingConfigurationPtr and DataAutomationProjectSpeakerLabelingConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataAutomationProjectSpeakerLabelingConfigurationPtrInput` via:
+//
+//	        DataAutomationProjectSpeakerLabelingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAutomationProjectSpeakerLabelingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectSpeakerLabelingConfigurationPtrOutput() DataAutomationProjectSpeakerLabelingConfigurationPtrOutput
+	ToDataAutomationProjectSpeakerLabelingConfigurationPtrOutputWithContext(context.Context) DataAutomationProjectSpeakerLabelingConfigurationPtrOutput
+}
+
+type dataAutomationProjectSpeakerLabelingConfigurationPtrType DataAutomationProjectSpeakerLabelingConfigurationArgs
+
+func DataAutomationProjectSpeakerLabelingConfigurationPtr(v *DataAutomationProjectSpeakerLabelingConfigurationArgs) DataAutomationProjectSpeakerLabelingConfigurationPtrInput {
+	return (*dataAutomationProjectSpeakerLabelingConfigurationPtrType)(v)
+}
+
+func (*dataAutomationProjectSpeakerLabelingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectSpeakerLabelingConfiguration)(nil)).Elem()
+}
+
+func (i *dataAutomationProjectSpeakerLabelingConfigurationPtrType) ToDataAutomationProjectSpeakerLabelingConfigurationPtrOutput() DataAutomationProjectSpeakerLabelingConfigurationPtrOutput {
+	return i.ToDataAutomationProjectSpeakerLabelingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAutomationProjectSpeakerLabelingConfigurationPtrType) ToDataAutomationProjectSpeakerLabelingConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectSpeakerLabelingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectSpeakerLabelingConfigurationPtrOutput)
+}
+
+type DataAutomationProjectSpeakerLabelingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectSpeakerLabelingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectSpeakerLabelingConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectSpeakerLabelingConfigurationOutput) ToDataAutomationProjectSpeakerLabelingConfigurationOutput() DataAutomationProjectSpeakerLabelingConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectSpeakerLabelingConfigurationOutput) ToDataAutomationProjectSpeakerLabelingConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectSpeakerLabelingConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectSpeakerLabelingConfigurationOutput) ToDataAutomationProjectSpeakerLabelingConfigurationPtrOutput() DataAutomationProjectSpeakerLabelingConfigurationPtrOutput {
+	return o.ToDataAutomationProjectSpeakerLabelingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectSpeakerLabelingConfigurationOutput) ToDataAutomationProjectSpeakerLabelingConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectSpeakerLabelingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectSpeakerLabelingConfiguration) *DataAutomationProjectSpeakerLabelingConfiguration {
+		return &v
+	}).(DataAutomationProjectSpeakerLabelingConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectSpeakerLabelingConfigurationOutput) State() DataAutomationProjectStateEnumOutput {
+	return o.ApplyT(func(v DataAutomationProjectSpeakerLabelingConfiguration) DataAutomationProjectStateEnum {
+		return v.State
+	}).(DataAutomationProjectStateEnumOutput)
+}
+
+type DataAutomationProjectSpeakerLabelingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectSpeakerLabelingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectSpeakerLabelingConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectSpeakerLabelingConfigurationPtrOutput) ToDataAutomationProjectSpeakerLabelingConfigurationPtrOutput() DataAutomationProjectSpeakerLabelingConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectSpeakerLabelingConfigurationPtrOutput) ToDataAutomationProjectSpeakerLabelingConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectSpeakerLabelingConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectSpeakerLabelingConfigurationPtrOutput) Elem() DataAutomationProjectSpeakerLabelingConfigurationOutput {
+	return o.ApplyT(func(v *DataAutomationProjectSpeakerLabelingConfiguration) DataAutomationProjectSpeakerLabelingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectSpeakerLabelingConfiguration
+		return ret
+	}).(DataAutomationProjectSpeakerLabelingConfigurationOutput)
+}
+
+func (o DataAutomationProjectSpeakerLabelingConfigurationPtrOutput) State() DataAutomationProjectStateEnumPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectSpeakerLabelingConfiguration) *DataAutomationProjectStateEnum {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(DataAutomationProjectStateEnumPtrOutput)
+}
+
 type DataAutomationProjectSplitterConfiguration struct {
 	// Whether document splitter is enabled for a project.
 	State *DataAutomationProjectStateEnum `pulumi:"state"`
@@ -8262,6 +8684,158 @@ type DataAutomationProjectTag struct {
 	Key string `pulumi:"key"`
 	// Value for the tag
 	Value string `pulumi:"value"`
+}
+
+type DataAutomationProjectTranscriptConfiguration struct {
+	ChannelLabeling *DataAutomationProjectChannelLabelingConfiguration `pulumi:"channelLabeling"`
+	SpeakerLabeling *DataAutomationProjectSpeakerLabelingConfiguration `pulumi:"speakerLabeling"`
+}
+
+// DataAutomationProjectTranscriptConfigurationInput is an input type that accepts DataAutomationProjectTranscriptConfigurationArgs and DataAutomationProjectTranscriptConfigurationOutput values.
+// You can construct a concrete instance of `DataAutomationProjectTranscriptConfigurationInput` via:
+//
+//	DataAutomationProjectTranscriptConfigurationArgs{...}
+type DataAutomationProjectTranscriptConfigurationInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectTranscriptConfigurationOutput() DataAutomationProjectTranscriptConfigurationOutput
+	ToDataAutomationProjectTranscriptConfigurationOutputWithContext(context.Context) DataAutomationProjectTranscriptConfigurationOutput
+}
+
+type DataAutomationProjectTranscriptConfigurationArgs struct {
+	ChannelLabeling DataAutomationProjectChannelLabelingConfigurationPtrInput `pulumi:"channelLabeling"`
+	SpeakerLabeling DataAutomationProjectSpeakerLabelingConfigurationPtrInput `pulumi:"speakerLabeling"`
+}
+
+func (DataAutomationProjectTranscriptConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectTranscriptConfiguration)(nil)).Elem()
+}
+
+func (i DataAutomationProjectTranscriptConfigurationArgs) ToDataAutomationProjectTranscriptConfigurationOutput() DataAutomationProjectTranscriptConfigurationOutput {
+	return i.ToDataAutomationProjectTranscriptConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectTranscriptConfigurationArgs) ToDataAutomationProjectTranscriptConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectTranscriptConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectTranscriptConfigurationOutput)
+}
+
+func (i DataAutomationProjectTranscriptConfigurationArgs) ToDataAutomationProjectTranscriptConfigurationPtrOutput() DataAutomationProjectTranscriptConfigurationPtrOutput {
+	return i.ToDataAutomationProjectTranscriptConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectTranscriptConfigurationArgs) ToDataAutomationProjectTranscriptConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectTranscriptConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectTranscriptConfigurationOutput).ToDataAutomationProjectTranscriptConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataAutomationProjectTranscriptConfigurationPtrInput is an input type that accepts DataAutomationProjectTranscriptConfigurationArgs, DataAutomationProjectTranscriptConfigurationPtr and DataAutomationProjectTranscriptConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataAutomationProjectTranscriptConfigurationPtrInput` via:
+//
+//	        DataAutomationProjectTranscriptConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAutomationProjectTranscriptConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectTranscriptConfigurationPtrOutput() DataAutomationProjectTranscriptConfigurationPtrOutput
+	ToDataAutomationProjectTranscriptConfigurationPtrOutputWithContext(context.Context) DataAutomationProjectTranscriptConfigurationPtrOutput
+}
+
+type dataAutomationProjectTranscriptConfigurationPtrType DataAutomationProjectTranscriptConfigurationArgs
+
+func DataAutomationProjectTranscriptConfigurationPtr(v *DataAutomationProjectTranscriptConfigurationArgs) DataAutomationProjectTranscriptConfigurationPtrInput {
+	return (*dataAutomationProjectTranscriptConfigurationPtrType)(v)
+}
+
+func (*dataAutomationProjectTranscriptConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectTranscriptConfiguration)(nil)).Elem()
+}
+
+func (i *dataAutomationProjectTranscriptConfigurationPtrType) ToDataAutomationProjectTranscriptConfigurationPtrOutput() DataAutomationProjectTranscriptConfigurationPtrOutput {
+	return i.ToDataAutomationProjectTranscriptConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAutomationProjectTranscriptConfigurationPtrType) ToDataAutomationProjectTranscriptConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectTranscriptConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectTranscriptConfigurationPtrOutput)
+}
+
+type DataAutomationProjectTranscriptConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectTranscriptConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectTranscriptConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectTranscriptConfigurationOutput) ToDataAutomationProjectTranscriptConfigurationOutput() DataAutomationProjectTranscriptConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectTranscriptConfigurationOutput) ToDataAutomationProjectTranscriptConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectTranscriptConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectTranscriptConfigurationOutput) ToDataAutomationProjectTranscriptConfigurationPtrOutput() DataAutomationProjectTranscriptConfigurationPtrOutput {
+	return o.ToDataAutomationProjectTranscriptConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectTranscriptConfigurationOutput) ToDataAutomationProjectTranscriptConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectTranscriptConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectTranscriptConfiguration) *DataAutomationProjectTranscriptConfiguration {
+		return &v
+	}).(DataAutomationProjectTranscriptConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectTranscriptConfigurationOutput) ChannelLabeling() DataAutomationProjectChannelLabelingConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectTranscriptConfiguration) *DataAutomationProjectChannelLabelingConfiguration {
+		return v.ChannelLabeling
+	}).(DataAutomationProjectChannelLabelingConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectTranscriptConfigurationOutput) SpeakerLabeling() DataAutomationProjectSpeakerLabelingConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectTranscriptConfiguration) *DataAutomationProjectSpeakerLabelingConfiguration {
+		return v.SpeakerLabeling
+	}).(DataAutomationProjectSpeakerLabelingConfigurationPtrOutput)
+}
+
+type DataAutomationProjectTranscriptConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectTranscriptConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectTranscriptConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectTranscriptConfigurationPtrOutput) ToDataAutomationProjectTranscriptConfigurationPtrOutput() DataAutomationProjectTranscriptConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectTranscriptConfigurationPtrOutput) ToDataAutomationProjectTranscriptConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectTranscriptConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectTranscriptConfigurationPtrOutput) Elem() DataAutomationProjectTranscriptConfigurationOutput {
+	return o.ApplyT(func(v *DataAutomationProjectTranscriptConfiguration) DataAutomationProjectTranscriptConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectTranscriptConfiguration
+		return ret
+	}).(DataAutomationProjectTranscriptConfigurationOutput)
+}
+
+func (o DataAutomationProjectTranscriptConfigurationPtrOutput) ChannelLabeling() DataAutomationProjectChannelLabelingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectTranscriptConfiguration) *DataAutomationProjectChannelLabelingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ChannelLabeling
+	}).(DataAutomationProjectChannelLabelingConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectTranscriptConfigurationPtrOutput) SpeakerLabeling() DataAutomationProjectSpeakerLabelingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectTranscriptConfiguration) *DataAutomationProjectSpeakerLabelingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SpeakerLabeling
+	}).(DataAutomationProjectSpeakerLabelingConfigurationPtrOutput)
 }
 
 type DataAutomationProjectVideoBoundingBox struct {
@@ -43504,6 +44078,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionVariableArrayInput)(nil)).Elem(), AutomatedReasoningPolicyPolicyDefinitionVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryPtrInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryTypeConfigurationInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioOverrideConfigurationInput)(nil)).Elem(), DataAutomationProjectAudioOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioOverrideConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectAudioOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioStandardExtractionInput)(nil)).Elem(), DataAutomationProjectAudioStandardExtractionArgs{})
@@ -43514,6 +44090,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioStandardOutputConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectAudioStandardOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectBlueprintItemInput)(nil)).Elem(), DataAutomationProjectBlueprintItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectBlueprintItemArrayInput)(nil)).Elem(), DataAutomationProjectBlueprintItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectChannelLabelingConfigurationInput)(nil)).Elem(), DataAutomationProjectChannelLabelingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectChannelLabelingConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectChannelLabelingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectCustomOutputConfigurationInput)(nil)).Elem(), DataAutomationProjectCustomOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectCustomOutputConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectCustomOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectDocumentBoundingBoxInput)(nil)).Elem(), DataAutomationProjectDocumentBoundingBoxArgs{})
@@ -43552,10 +44130,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectModalityRoutingConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectModalityRoutingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectOverrideConfigurationInput)(nil)).Elem(), DataAutomationProjectOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectOverrideConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectOverrideConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectSpeakerLabelingConfigurationInput)(nil)).Elem(), DataAutomationProjectSpeakerLabelingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectSpeakerLabelingConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectSpeakerLabelingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectSplitterConfigurationInput)(nil)).Elem(), DataAutomationProjectSplitterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectSplitterConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectSplitterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectStandardOutputConfigurationInput)(nil)).Elem(), DataAutomationProjectStandardOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectStandardOutputConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectStandardOutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectTranscriptConfigurationInput)(nil)).Elem(), DataAutomationProjectTranscriptConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectTranscriptConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectTranscriptConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoBoundingBoxInput)(nil)).Elem(), DataAutomationProjectVideoBoundingBoxArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoBoundingBoxPtrInput)(nil)).Elem(), DataAutomationProjectVideoBoundingBoxArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoExtractionCategoryInput)(nil)).Elem(), DataAutomationProjectVideoExtractionCategoryArgs{})
@@ -44001,6 +44583,8 @@ func init() {
 	pulumi.RegisterOutputType(AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryPtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioOverrideConfigurationOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioOverrideConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioStandardExtractionOutput{})
@@ -44011,6 +44595,8 @@ func init() {
 	pulumi.RegisterOutputType(DataAutomationProjectAudioStandardOutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectBlueprintItemOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectBlueprintItemArrayOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectChannelLabelingConfigurationOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectChannelLabelingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectCustomOutputConfigurationOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectCustomOutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectDocumentBoundingBoxOutput{})
@@ -44049,10 +44635,14 @@ func init() {
 	pulumi.RegisterOutputType(DataAutomationProjectModalityRoutingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectOverrideConfigurationOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectOverrideConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectSpeakerLabelingConfigurationOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectSpeakerLabelingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectSplitterConfigurationOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectSplitterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectStandardOutputConfigurationOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectStandardOutputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectTranscriptConfigurationOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectTranscriptConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectVideoBoundingBoxOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectVideoBoundingBoxPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectVideoExtractionCategoryOutput{})

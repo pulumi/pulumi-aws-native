@@ -31,6 +31,8 @@ type TransitGatewayRouteTableAttachment struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The Region where the edge is located.
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
+	// Errors from the last modification of the attachment.
+	LastModificationErrors pulumi.StringArrayOutput `pulumi:"lastModificationErrors"`
 	// The name of the network function group attachment.
 	NetworkFunctionGroupName pulumi.StringPtrOutput `pulumi:"networkFunctionGroupName"`
 	// Owner account of the attachment.
@@ -206,6 +208,11 @@ func (o TransitGatewayRouteTableAttachmentOutput) CreatedAt() pulumi.StringOutpu
 // The Region where the edge is located.
 func (o TransitGatewayRouteTableAttachmentOutput) EdgeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
+}
+
+// Errors from the last modification of the attachment.
+func (o TransitGatewayRouteTableAttachmentOutput) LastModificationErrors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringArrayOutput { return v.LastModificationErrors }).(pulumi.StringArrayOutput)
 }
 
 // The name of the network function group attachment.

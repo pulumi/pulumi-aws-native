@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as amazonmq from "./amazonmq";
 import * as amplify from "./amplify";
 import * as amplifyuibuilder from "./amplifyuibuilder";
 import * as apigateway from "./apigateway";
@@ -189,6 +190,7 @@ import * as workspacesthinclient from "./workspacesthinclient";
 import * as workspacesweb from "./workspacesweb";
 
 export {
+    amazonmq,
     amplify,
     amplifyuibuilder,
     apigateway,

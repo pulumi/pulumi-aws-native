@@ -18,9 +18,8 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     public sealed class ServiceDeploymentLifecycleHook
     {
         /// <summary>
-        /// Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
-        /// 
-        /// This field must be a JSON object as a string.
+        /// Use this field to specify custom parameters that ECS passes to your hook target invocations (such as a Lambda function).
+        ///  This field must be a JSON object as a string.
         /// </summary>
         public readonly object? HookDetails;
         /// <summary>

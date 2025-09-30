@@ -54,6 +54,10 @@ export class DbProxyEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
+     * The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+     */
+    public readonly endpointNetworkType!: pulumi.Output<enums.rds.DbProxyEndpointEndpointNetworkType | undefined>;
+    /**
      * A value that indicates whether this endpoint is the default endpoint for the associated DB proxy. Default DB proxy endpoints always have read/write capability. Other endpoints that you associate with the DB proxy can be either read/write or read-only.
      */
     public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
@@ -97,6 +101,7 @@ export class DbProxyEndpoint extends pulumi.CustomResource {
             }
             resourceInputs["dbProxyEndpointName"] = args ? args.dbProxyEndpointName : undefined;
             resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
+            resourceInputs["endpointNetworkType"] = args ? args.endpointNetworkType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetRole"] = args ? args.targetRole : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
@@ -110,6 +115,7 @@ export class DbProxyEndpoint extends pulumi.CustomResource {
             resourceInputs["dbProxyEndpointName"] = undefined /*out*/;
             resourceInputs["dbProxyName"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["endpointNetworkType"] = undefined /*out*/;
             resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetRole"] = undefined /*out*/;
@@ -118,7 +124,7 @@ export class DbProxyEndpoint extends pulumi.CustomResource {
             resourceInputs["vpcSubnetIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["dbProxyEndpointName", "dbProxyName", "vpcSubnetIds[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["dbProxyEndpointName", "dbProxyName", "endpointNetworkType", "vpcSubnetIds[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbProxyEndpoint.__pulumiType, name, resourceInputs, opts);
     }
@@ -136,6 +142,10 @@ export interface DbProxyEndpointArgs {
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
     dbProxyName: pulumi.Input<string>;
+    /**
+     * The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+     */
+    endpointNetworkType?: pulumi.Input<enums.rds.DbProxyEndpointEndpointNetworkType>;
     /**
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
      */

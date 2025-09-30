@@ -43,6 +43,11 @@ export class WorkflowVersion extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
+     */
+    public readonly containerRegistryMap!: pulumi.Output<outputs.omics.WorkflowVersionContainerRegistryMap | undefined>;
+    public readonly containerRegistryMapUri!: pulumi.Output<string | undefined>;
+    /**
      * The creation time of the workflow version.
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
@@ -111,6 +116,8 @@ export class WorkflowVersion extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workflowId'");
             }
             resourceInputs["accelerators"] = args ? args.accelerators : undefined;
+            resourceInputs["containerRegistryMap"] = args ? args.containerRegistryMap : undefined;
+            resourceInputs["containerRegistryMapUri"] = args ? args.containerRegistryMapUri : undefined;
             resourceInputs["definitionRepository"] = args ? args.definitionRepository : undefined;
             resourceInputs["definitionUri"] = args ? args.definitionUri : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -135,6 +142,8 @@ export class WorkflowVersion extends pulumi.CustomResource {
         } else {
             resourceInputs["accelerators"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["containerRegistryMap"] = undefined /*out*/;
+            resourceInputs["containerRegistryMapUri"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["definitionRepository"] = undefined /*out*/;
             resourceInputs["definitionUri"] = undefined /*out*/;
@@ -157,7 +166,7 @@ export class WorkflowVersion extends pulumi.CustomResource {
             resourceInputs["workflowId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["accelerators", "definitionRepository", "definitionUri", "engine", "main", "parameterTemplate.*", "parameterTemplatePath", "readmePath", "readmeUri", "versionName", "workflowBucketOwnerId", "workflowId"] };
+        const replaceOnChanges = { replaceOnChanges: ["accelerators", "containerRegistryMap", "containerRegistryMapUri", "definitionRepository", "definitionUri", "engine", "main", "parameterTemplate.*", "parameterTemplatePath", "readmePath", "readmeUri", "versionName", "workflowBucketOwnerId", "workflowId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(WorkflowVersion.__pulumiType, name, resourceInputs, opts);
     }
@@ -168,6 +177,11 @@ export class WorkflowVersion extends pulumi.CustomResource {
  */
 export interface WorkflowVersionArgs {
     accelerators?: pulumi.Input<enums.omics.WorkflowVersionAccelerators>;
+    /**
+     * Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
+     */
+    containerRegistryMap?: pulumi.Input<inputs.omics.WorkflowVersionContainerRegistryMapArgs>;
+    containerRegistryMapUri?: pulumi.Input<string>;
     /**
      * Contains information about a source code repository that hosts the workflow definition files.
      */

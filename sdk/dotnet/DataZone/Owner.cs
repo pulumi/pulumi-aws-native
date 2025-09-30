@@ -39,6 +39,18 @@ namespace Pulumi.AwsNative.DataZone
         [Output("owner")]
         public Output<Outputs.OwnerProperties> OwnerValue { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the entity to which you want to add an owner.
+        /// </summary>
+        [Output("ownerIdentifier")]
+        public Output<string> OwnerIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The owner that you want to add to the entity.
+        /// </summary>
+        [Output("ownerType")]
+        public Output<Pulumi.AwsNative.DataZone.OwnerType> OwnerType { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Owner resource with the given unique name, arguments, and options.

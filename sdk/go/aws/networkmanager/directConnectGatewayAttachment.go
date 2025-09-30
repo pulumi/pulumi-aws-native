@@ -33,6 +33,8 @@ type DirectConnectGatewayAttachment struct {
 	DirectConnectGatewayArn pulumi.StringOutput `pulumi:"directConnectGatewayArn"`
 	// The Regions where the edges are located.
 	EdgeLocations pulumi.StringArrayOutput `pulumi:"edgeLocations"`
+	// Errors from the last modification of the attachment.
+	LastModificationErrors pulumi.StringArrayOutput `pulumi:"lastModificationErrors"`
 	// The name of the network function group attachment.
 	NetworkFunctionGroupName pulumi.StringOutput `pulumi:"networkFunctionGroupName"`
 	// Owner account of the attachment.
@@ -212,6 +214,11 @@ func (o DirectConnectGatewayAttachmentOutput) DirectConnectGatewayArn() pulumi.S
 // The Regions where the edges are located.
 func (o DirectConnectGatewayAttachmentOutput) EdgeLocations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DirectConnectGatewayAttachment) pulumi.StringArrayOutput { return v.EdgeLocations }).(pulumi.StringArrayOutput)
+}
+
+// Errors from the last modification of the attachment.
+func (o DirectConnectGatewayAttachmentOutput) LastModificationErrors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DirectConnectGatewayAttachment) pulumi.StringArrayOutput { return v.LastModificationErrors }).(pulumi.StringArrayOutput)
 }
 
 // The name of the network function group attachment.

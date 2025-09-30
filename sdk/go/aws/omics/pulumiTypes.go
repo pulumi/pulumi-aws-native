@@ -1132,6 +1132,162 @@ func (o VariantStoreSseConfigPtrOutput) Type() VariantStoreEncryptionTypePtrOutp
 	}).(VariantStoreEncryptionTypePtrOutput)
 }
 
+type WorkflowContainerRegistryMap struct {
+	// Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+	ImageMappings []WorkflowImageMapping `pulumi:"imageMappings"`
+	// Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
+	RegistryMappings []WorkflowRegistryMapping `pulumi:"registryMappings"`
+}
+
+// WorkflowContainerRegistryMapInput is an input type that accepts WorkflowContainerRegistryMap and WorkflowContainerRegistryMapOutput values.
+// You can construct a concrete instance of `WorkflowContainerRegistryMapInput` via:
+//
+//	WorkflowContainerRegistryMap{ "key": WorkflowContainerRegistryArgs{...} }
+type WorkflowContainerRegistryMapInput interface {
+	pulumi.Input
+
+	ToWorkflowContainerRegistryMapOutput() WorkflowContainerRegistryMapOutput
+	ToWorkflowContainerRegistryMapOutputWithContext(context.Context) WorkflowContainerRegistryMapOutput
+}
+
+type WorkflowContainerRegistryMapArgs struct {
+	// Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+	ImageMappings WorkflowImageMappingArrayInput `pulumi:"imageMappings"`
+	// Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
+	RegistryMappings WorkflowRegistryMappingArrayInput `pulumi:"registryMappings"`
+}
+
+func (WorkflowContainerRegistryMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowContainerRegistryMap)(nil)).Elem()
+}
+
+func (i WorkflowContainerRegistryMapArgs) ToWorkflowContainerRegistryMapOutput() WorkflowContainerRegistryMapOutput {
+	return i.ToWorkflowContainerRegistryMapOutputWithContext(context.Background())
+}
+
+func (i WorkflowContainerRegistryMapArgs) ToWorkflowContainerRegistryMapOutputWithContext(ctx context.Context) WorkflowContainerRegistryMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowContainerRegistryMapOutput)
+}
+
+func (i WorkflowContainerRegistryMapArgs) ToWorkflowContainerRegistryMapPtrOutput() WorkflowContainerRegistryMapPtrOutput {
+	return i.ToWorkflowContainerRegistryMapPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowContainerRegistryMapArgs) ToWorkflowContainerRegistryMapPtrOutputWithContext(ctx context.Context) WorkflowContainerRegistryMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowContainerRegistryMapOutput).ToWorkflowContainerRegistryMapPtrOutputWithContext(ctx)
+}
+
+// WorkflowContainerRegistryMapPtrInput is an input type that accepts WorkflowContainerRegistryMapArgs, WorkflowContainerRegistryMapPtr and WorkflowContainerRegistryMapPtrOutput values.
+// You can construct a concrete instance of `WorkflowContainerRegistryMapPtrInput` via:
+//
+//	        WorkflowContainerRegistryMapArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowContainerRegistryMapPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowContainerRegistryMapPtrOutput() WorkflowContainerRegistryMapPtrOutput
+	ToWorkflowContainerRegistryMapPtrOutputWithContext(context.Context) WorkflowContainerRegistryMapPtrOutput
+}
+
+type workflowContainerRegistryMapPtrType WorkflowContainerRegistryMapArgs
+
+func WorkflowContainerRegistryMapPtr(v *WorkflowContainerRegistryMapArgs) WorkflowContainerRegistryMapPtrInput {
+	return (*workflowContainerRegistryMapPtrType)(v)
+}
+
+func (*workflowContainerRegistryMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowContainerRegistryMap)(nil)).Elem()
+}
+
+func (i *workflowContainerRegistryMapPtrType) ToWorkflowContainerRegistryMapPtrOutput() WorkflowContainerRegistryMapPtrOutput {
+	return i.ToWorkflowContainerRegistryMapPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowContainerRegistryMapPtrType) ToWorkflowContainerRegistryMapPtrOutputWithContext(ctx context.Context) WorkflowContainerRegistryMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowContainerRegistryMapPtrOutput)
+}
+
+type WorkflowContainerRegistryMapOutput struct{ *pulumi.OutputState }
+
+func (WorkflowContainerRegistryMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowContainerRegistryMap)(nil)).Elem()
+}
+
+func (o WorkflowContainerRegistryMapOutput) ToWorkflowContainerRegistryMapOutput() WorkflowContainerRegistryMapOutput {
+	return o
+}
+
+func (o WorkflowContainerRegistryMapOutput) ToWorkflowContainerRegistryMapOutputWithContext(ctx context.Context) WorkflowContainerRegistryMapOutput {
+	return o
+}
+
+func (o WorkflowContainerRegistryMapOutput) ToWorkflowContainerRegistryMapPtrOutput() WorkflowContainerRegistryMapPtrOutput {
+	return o.ToWorkflowContainerRegistryMapPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowContainerRegistryMapOutput) ToWorkflowContainerRegistryMapPtrOutputWithContext(ctx context.Context) WorkflowContainerRegistryMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowContainerRegistryMap) *WorkflowContainerRegistryMap {
+		return &v
+	}).(WorkflowContainerRegistryMapPtrOutput)
+}
+
+// Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+func (o WorkflowContainerRegistryMapOutput) ImageMappings() WorkflowImageMappingArrayOutput {
+	return o.ApplyT(func(v WorkflowContainerRegistryMap) []WorkflowImageMapping { return v.ImageMappings }).(WorkflowImageMappingArrayOutput)
+}
+
+// Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
+func (o WorkflowContainerRegistryMapOutput) RegistryMappings() WorkflowRegistryMappingArrayOutput {
+	return o.ApplyT(func(v WorkflowContainerRegistryMap) []WorkflowRegistryMapping { return v.RegistryMappings }).(WorkflowRegistryMappingArrayOutput)
+}
+
+type WorkflowContainerRegistryMapPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowContainerRegistryMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowContainerRegistryMap)(nil)).Elem()
+}
+
+func (o WorkflowContainerRegistryMapPtrOutput) ToWorkflowContainerRegistryMapPtrOutput() WorkflowContainerRegistryMapPtrOutput {
+	return o
+}
+
+func (o WorkflowContainerRegistryMapPtrOutput) ToWorkflowContainerRegistryMapPtrOutputWithContext(ctx context.Context) WorkflowContainerRegistryMapPtrOutput {
+	return o
+}
+
+func (o WorkflowContainerRegistryMapPtrOutput) Elem() WorkflowContainerRegistryMapOutput {
+	return o.ApplyT(func(v *WorkflowContainerRegistryMap) WorkflowContainerRegistryMap {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowContainerRegistryMap
+		return ret
+	}).(WorkflowContainerRegistryMapOutput)
+}
+
+// Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+func (o WorkflowContainerRegistryMapPtrOutput) ImageMappings() WorkflowImageMappingArrayOutput {
+	return o.ApplyT(func(v *WorkflowContainerRegistryMap) []WorkflowImageMapping {
+		if v == nil {
+			return nil
+		}
+		return v.ImageMappings
+	}).(WorkflowImageMappingArrayOutput)
+}
+
+// Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
+func (o WorkflowContainerRegistryMapPtrOutput) RegistryMappings() WorkflowRegistryMappingArrayOutput {
+	return o.ApplyT(func(v *WorkflowContainerRegistryMap) []WorkflowRegistryMapping {
+		if v == nil {
+			return nil
+		}
+		return v.RegistryMappings
+	}).(WorkflowRegistryMappingArrayOutput)
+}
+
 type WorkflowDefinitionRepository struct {
 	// The Amazon Resource Name (ARN) of the connection to the source code repository.
 	ConnectionArn *string `pulumi:"connectionArn"`
@@ -1326,6 +1482,112 @@ func (o WorkflowDefinitionRepositoryPtrOutput) SourceReference() WorkflowSourceR
 	}).(WorkflowSourceReferencePtrOutput)
 }
 
+type WorkflowImageMapping struct {
+	// Specifies the URI of the corresponding image in the private ECR registry.
+	DestinationImage *string `pulumi:"destinationImage"`
+	// Specifies the URI of the source image in the upstream registry.
+	SourceImage *string `pulumi:"sourceImage"`
+}
+
+// WorkflowImageMappingInput is an input type that accepts WorkflowImageMappingArgs and WorkflowImageMappingOutput values.
+// You can construct a concrete instance of `WorkflowImageMappingInput` via:
+//
+//	WorkflowImageMappingArgs{...}
+type WorkflowImageMappingInput interface {
+	pulumi.Input
+
+	ToWorkflowImageMappingOutput() WorkflowImageMappingOutput
+	ToWorkflowImageMappingOutputWithContext(context.Context) WorkflowImageMappingOutput
+}
+
+type WorkflowImageMappingArgs struct {
+	// Specifies the URI of the corresponding image in the private ECR registry.
+	DestinationImage pulumi.StringPtrInput `pulumi:"destinationImage"`
+	// Specifies the URI of the source image in the upstream registry.
+	SourceImage pulumi.StringPtrInput `pulumi:"sourceImage"`
+}
+
+func (WorkflowImageMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowImageMapping)(nil)).Elem()
+}
+
+func (i WorkflowImageMappingArgs) ToWorkflowImageMappingOutput() WorkflowImageMappingOutput {
+	return i.ToWorkflowImageMappingOutputWithContext(context.Background())
+}
+
+func (i WorkflowImageMappingArgs) ToWorkflowImageMappingOutputWithContext(ctx context.Context) WorkflowImageMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowImageMappingOutput)
+}
+
+// WorkflowImageMappingArrayInput is an input type that accepts WorkflowImageMappingArray and WorkflowImageMappingArrayOutput values.
+// You can construct a concrete instance of `WorkflowImageMappingArrayInput` via:
+//
+//	WorkflowImageMappingArray{ WorkflowImageMappingArgs{...} }
+type WorkflowImageMappingArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowImageMappingArrayOutput() WorkflowImageMappingArrayOutput
+	ToWorkflowImageMappingArrayOutputWithContext(context.Context) WorkflowImageMappingArrayOutput
+}
+
+type WorkflowImageMappingArray []WorkflowImageMappingInput
+
+func (WorkflowImageMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowImageMapping)(nil)).Elem()
+}
+
+func (i WorkflowImageMappingArray) ToWorkflowImageMappingArrayOutput() WorkflowImageMappingArrayOutput {
+	return i.ToWorkflowImageMappingArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowImageMappingArray) ToWorkflowImageMappingArrayOutputWithContext(ctx context.Context) WorkflowImageMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowImageMappingArrayOutput)
+}
+
+type WorkflowImageMappingOutput struct{ *pulumi.OutputState }
+
+func (WorkflowImageMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowImageMapping)(nil)).Elem()
+}
+
+func (o WorkflowImageMappingOutput) ToWorkflowImageMappingOutput() WorkflowImageMappingOutput {
+	return o
+}
+
+func (o WorkflowImageMappingOutput) ToWorkflowImageMappingOutputWithContext(ctx context.Context) WorkflowImageMappingOutput {
+	return o
+}
+
+// Specifies the URI of the corresponding image in the private ECR registry.
+func (o WorkflowImageMappingOutput) DestinationImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowImageMapping) *string { return v.DestinationImage }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URI of the source image in the upstream registry.
+func (o WorkflowImageMappingOutput) SourceImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowImageMapping) *string { return v.SourceImage }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowImageMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowImageMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowImageMapping)(nil)).Elem()
+}
+
+func (o WorkflowImageMappingArrayOutput) ToWorkflowImageMappingArrayOutput() WorkflowImageMappingArrayOutput {
+	return o
+}
+
+func (o WorkflowImageMappingArrayOutput) ToWorkflowImageMappingArrayOutputWithContext(ctx context.Context) WorkflowImageMappingArrayOutput {
+	return o
+}
+
+func (o WorkflowImageMappingArrayOutput) Index(i pulumi.IntInput) WorkflowImageMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowImageMapping {
+		return vs[0].([]WorkflowImageMapping)[vs[1].(int)]
+	}).(WorkflowImageMappingOutput)
+}
+
 type WorkflowParameter struct {
 	// The parameter's description.
 	Description *string `pulumi:"description"`
@@ -1430,6 +1692,130 @@ func (o WorkflowParameterMapOutput) MapIndex(k pulumi.StringInput) WorkflowParam
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkflowParameter {
 		return vs[0].(map[string]WorkflowParameter)[vs[1].(string)]
 	}).(WorkflowParameterOutput)
+}
+
+type WorkflowRegistryMapping struct {
+	// Account ID of the account that owns the upstream container image.
+	EcrAccountId *string `pulumi:"ecrAccountId"`
+	// The repository prefix to use in the ECR private repository.
+	EcrRepositoryPrefix *string `pulumi:"ecrRepositoryPrefix"`
+	// The URI of the upstream registry.
+	UpstreamRegistryUrl *string `pulumi:"upstreamRegistryUrl"`
+	// The repository prefix of the corresponding repository in the upstream registry.
+	UpstreamRepositoryPrefix *string `pulumi:"upstreamRepositoryPrefix"`
+}
+
+// WorkflowRegistryMappingInput is an input type that accepts WorkflowRegistryMappingArgs and WorkflowRegistryMappingOutput values.
+// You can construct a concrete instance of `WorkflowRegistryMappingInput` via:
+//
+//	WorkflowRegistryMappingArgs{...}
+type WorkflowRegistryMappingInput interface {
+	pulumi.Input
+
+	ToWorkflowRegistryMappingOutput() WorkflowRegistryMappingOutput
+	ToWorkflowRegistryMappingOutputWithContext(context.Context) WorkflowRegistryMappingOutput
+}
+
+type WorkflowRegistryMappingArgs struct {
+	// Account ID of the account that owns the upstream container image.
+	EcrAccountId pulumi.StringPtrInput `pulumi:"ecrAccountId"`
+	// The repository prefix to use in the ECR private repository.
+	EcrRepositoryPrefix pulumi.StringPtrInput `pulumi:"ecrRepositoryPrefix"`
+	// The URI of the upstream registry.
+	UpstreamRegistryUrl pulumi.StringPtrInput `pulumi:"upstreamRegistryUrl"`
+	// The repository prefix of the corresponding repository in the upstream registry.
+	UpstreamRepositoryPrefix pulumi.StringPtrInput `pulumi:"upstreamRepositoryPrefix"`
+}
+
+func (WorkflowRegistryMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowRegistryMapping)(nil)).Elem()
+}
+
+func (i WorkflowRegistryMappingArgs) ToWorkflowRegistryMappingOutput() WorkflowRegistryMappingOutput {
+	return i.ToWorkflowRegistryMappingOutputWithContext(context.Background())
+}
+
+func (i WorkflowRegistryMappingArgs) ToWorkflowRegistryMappingOutputWithContext(ctx context.Context) WorkflowRegistryMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowRegistryMappingOutput)
+}
+
+// WorkflowRegistryMappingArrayInput is an input type that accepts WorkflowRegistryMappingArray and WorkflowRegistryMappingArrayOutput values.
+// You can construct a concrete instance of `WorkflowRegistryMappingArrayInput` via:
+//
+//	WorkflowRegistryMappingArray{ WorkflowRegistryMappingArgs{...} }
+type WorkflowRegistryMappingArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowRegistryMappingArrayOutput() WorkflowRegistryMappingArrayOutput
+	ToWorkflowRegistryMappingArrayOutputWithContext(context.Context) WorkflowRegistryMappingArrayOutput
+}
+
+type WorkflowRegistryMappingArray []WorkflowRegistryMappingInput
+
+func (WorkflowRegistryMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowRegistryMapping)(nil)).Elem()
+}
+
+func (i WorkflowRegistryMappingArray) ToWorkflowRegistryMappingArrayOutput() WorkflowRegistryMappingArrayOutput {
+	return i.ToWorkflowRegistryMappingArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowRegistryMappingArray) ToWorkflowRegistryMappingArrayOutputWithContext(ctx context.Context) WorkflowRegistryMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowRegistryMappingArrayOutput)
+}
+
+type WorkflowRegistryMappingOutput struct{ *pulumi.OutputState }
+
+func (WorkflowRegistryMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowRegistryMapping)(nil)).Elem()
+}
+
+func (o WorkflowRegistryMappingOutput) ToWorkflowRegistryMappingOutput() WorkflowRegistryMappingOutput {
+	return o
+}
+
+func (o WorkflowRegistryMappingOutput) ToWorkflowRegistryMappingOutputWithContext(ctx context.Context) WorkflowRegistryMappingOutput {
+	return o
+}
+
+// Account ID of the account that owns the upstream container image.
+func (o WorkflowRegistryMappingOutput) EcrAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowRegistryMapping) *string { return v.EcrAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The repository prefix to use in the ECR private repository.
+func (o WorkflowRegistryMappingOutput) EcrRepositoryPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowRegistryMapping) *string { return v.EcrRepositoryPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The URI of the upstream registry.
+func (o WorkflowRegistryMappingOutput) UpstreamRegistryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowRegistryMapping) *string { return v.UpstreamRegistryUrl }).(pulumi.StringPtrOutput)
+}
+
+// The repository prefix of the corresponding repository in the upstream registry.
+func (o WorkflowRegistryMappingOutput) UpstreamRepositoryPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowRegistryMapping) *string { return v.UpstreamRepositoryPrefix }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowRegistryMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowRegistryMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowRegistryMapping)(nil)).Elem()
+}
+
+func (o WorkflowRegistryMappingArrayOutput) ToWorkflowRegistryMappingArrayOutput() WorkflowRegistryMappingArrayOutput {
+	return o
+}
+
+func (o WorkflowRegistryMappingArrayOutput) ToWorkflowRegistryMappingArrayOutputWithContext(ctx context.Context) WorkflowRegistryMappingArrayOutput {
+	return o
+}
+
+func (o WorkflowRegistryMappingArrayOutput) Index(i pulumi.IntInput) WorkflowRegistryMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowRegistryMapping {
+		return vs[0].([]WorkflowRegistryMapping)[vs[1].(int)]
+	}).(WorkflowRegistryMappingOutput)
 }
 
 type WorkflowSourceReference struct {
@@ -1586,6 +1972,164 @@ func (o WorkflowSourceReferencePtrOutput) Value() pulumi.StringPtrOutput {
 		}
 		return v.Value
 	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowVersionContainerRegistryMap struct {
+	// Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+	ImageMappings []WorkflowVersionImageMapping `pulumi:"imageMappings"`
+	// Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
+	RegistryMappings []WorkflowVersionRegistryMapping `pulumi:"registryMappings"`
+}
+
+// WorkflowVersionContainerRegistryMapInput is an input type that accepts WorkflowVersionContainerRegistryMap and WorkflowVersionContainerRegistryMapOutput values.
+// You can construct a concrete instance of `WorkflowVersionContainerRegistryMapInput` via:
+//
+//	WorkflowVersionContainerRegistryMap{ "key": WorkflowVersionContainerRegistryArgs{...} }
+type WorkflowVersionContainerRegistryMapInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionContainerRegistryMapOutput() WorkflowVersionContainerRegistryMapOutput
+	ToWorkflowVersionContainerRegistryMapOutputWithContext(context.Context) WorkflowVersionContainerRegistryMapOutput
+}
+
+type WorkflowVersionContainerRegistryMapArgs struct {
+	// Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+	ImageMappings WorkflowVersionImageMappingArrayInput `pulumi:"imageMappings"`
+	// Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
+	RegistryMappings WorkflowVersionRegistryMappingArrayInput `pulumi:"registryMappings"`
+}
+
+func (WorkflowVersionContainerRegistryMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionContainerRegistryMap)(nil)).Elem()
+}
+
+func (i WorkflowVersionContainerRegistryMapArgs) ToWorkflowVersionContainerRegistryMapOutput() WorkflowVersionContainerRegistryMapOutput {
+	return i.ToWorkflowVersionContainerRegistryMapOutputWithContext(context.Background())
+}
+
+func (i WorkflowVersionContainerRegistryMapArgs) ToWorkflowVersionContainerRegistryMapOutputWithContext(ctx context.Context) WorkflowVersionContainerRegistryMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowVersionContainerRegistryMapOutput)
+}
+
+func (i WorkflowVersionContainerRegistryMapArgs) ToWorkflowVersionContainerRegistryMapPtrOutput() WorkflowVersionContainerRegistryMapPtrOutput {
+	return i.ToWorkflowVersionContainerRegistryMapPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowVersionContainerRegistryMapArgs) ToWorkflowVersionContainerRegistryMapPtrOutputWithContext(ctx context.Context) WorkflowVersionContainerRegistryMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowVersionContainerRegistryMapOutput).ToWorkflowVersionContainerRegistryMapPtrOutputWithContext(ctx)
+}
+
+// WorkflowVersionContainerRegistryMapPtrInput is an input type that accepts WorkflowVersionContainerRegistryMapArgs, WorkflowVersionContainerRegistryMapPtr and WorkflowVersionContainerRegistryMapPtrOutput values.
+// You can construct a concrete instance of `WorkflowVersionContainerRegistryMapPtrInput` via:
+//
+//	        WorkflowVersionContainerRegistryMapArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowVersionContainerRegistryMapPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionContainerRegistryMapPtrOutput() WorkflowVersionContainerRegistryMapPtrOutput
+	ToWorkflowVersionContainerRegistryMapPtrOutputWithContext(context.Context) WorkflowVersionContainerRegistryMapPtrOutput
+}
+
+type workflowVersionContainerRegistryMapPtrType WorkflowVersionContainerRegistryMapArgs
+
+func WorkflowVersionContainerRegistryMapPtr(v *WorkflowVersionContainerRegistryMapArgs) WorkflowVersionContainerRegistryMapPtrInput {
+	return (*workflowVersionContainerRegistryMapPtrType)(v)
+}
+
+func (*workflowVersionContainerRegistryMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowVersionContainerRegistryMap)(nil)).Elem()
+}
+
+func (i *workflowVersionContainerRegistryMapPtrType) ToWorkflowVersionContainerRegistryMapPtrOutput() WorkflowVersionContainerRegistryMapPtrOutput {
+	return i.ToWorkflowVersionContainerRegistryMapPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowVersionContainerRegistryMapPtrType) ToWorkflowVersionContainerRegistryMapPtrOutputWithContext(ctx context.Context) WorkflowVersionContainerRegistryMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowVersionContainerRegistryMapPtrOutput)
+}
+
+type WorkflowVersionContainerRegistryMapOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionContainerRegistryMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionContainerRegistryMap)(nil)).Elem()
+}
+
+func (o WorkflowVersionContainerRegistryMapOutput) ToWorkflowVersionContainerRegistryMapOutput() WorkflowVersionContainerRegistryMapOutput {
+	return o
+}
+
+func (o WorkflowVersionContainerRegistryMapOutput) ToWorkflowVersionContainerRegistryMapOutputWithContext(ctx context.Context) WorkflowVersionContainerRegistryMapOutput {
+	return o
+}
+
+func (o WorkflowVersionContainerRegistryMapOutput) ToWorkflowVersionContainerRegistryMapPtrOutput() WorkflowVersionContainerRegistryMapPtrOutput {
+	return o.ToWorkflowVersionContainerRegistryMapPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionContainerRegistryMapOutput) ToWorkflowVersionContainerRegistryMapPtrOutputWithContext(ctx context.Context) WorkflowVersionContainerRegistryMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowVersionContainerRegistryMap) *WorkflowVersionContainerRegistryMap {
+		return &v
+	}).(WorkflowVersionContainerRegistryMapPtrOutput)
+}
+
+// Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+func (o WorkflowVersionContainerRegistryMapOutput) ImageMappings() WorkflowVersionImageMappingArrayOutput {
+	return o.ApplyT(func(v WorkflowVersionContainerRegistryMap) []WorkflowVersionImageMapping { return v.ImageMappings }).(WorkflowVersionImageMappingArrayOutput)
+}
+
+// Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
+func (o WorkflowVersionContainerRegistryMapOutput) RegistryMappings() WorkflowVersionRegistryMappingArrayOutput {
+	return o.ApplyT(func(v WorkflowVersionContainerRegistryMap) []WorkflowVersionRegistryMapping {
+		return v.RegistryMappings
+	}).(WorkflowVersionRegistryMappingArrayOutput)
+}
+
+type WorkflowVersionContainerRegistryMapPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionContainerRegistryMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowVersionContainerRegistryMap)(nil)).Elem()
+}
+
+func (o WorkflowVersionContainerRegistryMapPtrOutput) ToWorkflowVersionContainerRegistryMapPtrOutput() WorkflowVersionContainerRegistryMapPtrOutput {
+	return o
+}
+
+func (o WorkflowVersionContainerRegistryMapPtrOutput) ToWorkflowVersionContainerRegistryMapPtrOutputWithContext(ctx context.Context) WorkflowVersionContainerRegistryMapPtrOutput {
+	return o
+}
+
+func (o WorkflowVersionContainerRegistryMapPtrOutput) Elem() WorkflowVersionContainerRegistryMapOutput {
+	return o.ApplyT(func(v *WorkflowVersionContainerRegistryMap) WorkflowVersionContainerRegistryMap {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowVersionContainerRegistryMap
+		return ret
+	}).(WorkflowVersionContainerRegistryMapOutput)
+}
+
+// Image mappings specify path mappings between the ECR private repository and their corresponding external repositories.
+func (o WorkflowVersionContainerRegistryMapPtrOutput) ImageMappings() WorkflowVersionImageMappingArrayOutput {
+	return o.ApplyT(func(v *WorkflowVersionContainerRegistryMap) []WorkflowVersionImageMapping {
+		if v == nil {
+			return nil
+		}
+		return v.ImageMappings
+	}).(WorkflowVersionImageMappingArrayOutput)
+}
+
+// Mapping that provides the ECR repository path where upstream container images are pulled and synchronized.
+func (o WorkflowVersionContainerRegistryMapPtrOutput) RegistryMappings() WorkflowVersionRegistryMappingArrayOutput {
+	return o.ApplyT(func(v *WorkflowVersionContainerRegistryMap) []WorkflowVersionRegistryMapping {
+		if v == nil {
+			return nil
+		}
+		return v.RegistryMappings
+	}).(WorkflowVersionRegistryMappingArrayOutput)
 }
 
 type WorkflowVersionDefinitionRepository struct {
@@ -1780,6 +2324,236 @@ func (o WorkflowVersionDefinitionRepositoryPtrOutput) SourceReference() Workflow
 		}
 		return v.SourceReference
 	}).(WorkflowVersionSourceReferencePtrOutput)
+}
+
+type WorkflowVersionImageMapping struct {
+	// Specifies the URI of the corresponding image in the private ECR registry.
+	DestinationImage *string `pulumi:"destinationImage"`
+	// Specifies the URI of the source image in the upstream registry.
+	SourceImage *string `pulumi:"sourceImage"`
+}
+
+// WorkflowVersionImageMappingInput is an input type that accepts WorkflowVersionImageMappingArgs and WorkflowVersionImageMappingOutput values.
+// You can construct a concrete instance of `WorkflowVersionImageMappingInput` via:
+//
+//	WorkflowVersionImageMappingArgs{...}
+type WorkflowVersionImageMappingInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionImageMappingOutput() WorkflowVersionImageMappingOutput
+	ToWorkflowVersionImageMappingOutputWithContext(context.Context) WorkflowVersionImageMappingOutput
+}
+
+type WorkflowVersionImageMappingArgs struct {
+	// Specifies the URI of the corresponding image in the private ECR registry.
+	DestinationImage pulumi.StringPtrInput `pulumi:"destinationImage"`
+	// Specifies the URI of the source image in the upstream registry.
+	SourceImage pulumi.StringPtrInput `pulumi:"sourceImage"`
+}
+
+func (WorkflowVersionImageMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionImageMapping)(nil)).Elem()
+}
+
+func (i WorkflowVersionImageMappingArgs) ToWorkflowVersionImageMappingOutput() WorkflowVersionImageMappingOutput {
+	return i.ToWorkflowVersionImageMappingOutputWithContext(context.Background())
+}
+
+func (i WorkflowVersionImageMappingArgs) ToWorkflowVersionImageMappingOutputWithContext(ctx context.Context) WorkflowVersionImageMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowVersionImageMappingOutput)
+}
+
+// WorkflowVersionImageMappingArrayInput is an input type that accepts WorkflowVersionImageMappingArray and WorkflowVersionImageMappingArrayOutput values.
+// You can construct a concrete instance of `WorkflowVersionImageMappingArrayInput` via:
+//
+//	WorkflowVersionImageMappingArray{ WorkflowVersionImageMappingArgs{...} }
+type WorkflowVersionImageMappingArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionImageMappingArrayOutput() WorkflowVersionImageMappingArrayOutput
+	ToWorkflowVersionImageMappingArrayOutputWithContext(context.Context) WorkflowVersionImageMappingArrayOutput
+}
+
+type WorkflowVersionImageMappingArray []WorkflowVersionImageMappingInput
+
+func (WorkflowVersionImageMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowVersionImageMapping)(nil)).Elem()
+}
+
+func (i WorkflowVersionImageMappingArray) ToWorkflowVersionImageMappingArrayOutput() WorkflowVersionImageMappingArrayOutput {
+	return i.ToWorkflowVersionImageMappingArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowVersionImageMappingArray) ToWorkflowVersionImageMappingArrayOutputWithContext(ctx context.Context) WorkflowVersionImageMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowVersionImageMappingArrayOutput)
+}
+
+type WorkflowVersionImageMappingOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionImageMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionImageMapping)(nil)).Elem()
+}
+
+func (o WorkflowVersionImageMappingOutput) ToWorkflowVersionImageMappingOutput() WorkflowVersionImageMappingOutput {
+	return o
+}
+
+func (o WorkflowVersionImageMappingOutput) ToWorkflowVersionImageMappingOutputWithContext(ctx context.Context) WorkflowVersionImageMappingOutput {
+	return o
+}
+
+// Specifies the URI of the corresponding image in the private ECR registry.
+func (o WorkflowVersionImageMappingOutput) DestinationImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowVersionImageMapping) *string { return v.DestinationImage }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URI of the source image in the upstream registry.
+func (o WorkflowVersionImageMappingOutput) SourceImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowVersionImageMapping) *string { return v.SourceImage }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowVersionImageMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionImageMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowVersionImageMapping)(nil)).Elem()
+}
+
+func (o WorkflowVersionImageMappingArrayOutput) ToWorkflowVersionImageMappingArrayOutput() WorkflowVersionImageMappingArrayOutput {
+	return o
+}
+
+func (o WorkflowVersionImageMappingArrayOutput) ToWorkflowVersionImageMappingArrayOutputWithContext(ctx context.Context) WorkflowVersionImageMappingArrayOutput {
+	return o
+}
+
+func (o WorkflowVersionImageMappingArrayOutput) Index(i pulumi.IntInput) WorkflowVersionImageMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowVersionImageMapping {
+		return vs[0].([]WorkflowVersionImageMapping)[vs[1].(int)]
+	}).(WorkflowVersionImageMappingOutput)
+}
+
+type WorkflowVersionRegistryMapping struct {
+	// Account ID of the account that owns the upstream container image.
+	EcrAccountId *string `pulumi:"ecrAccountId"`
+	// The repository prefix to use in the ECR private repository.
+	EcrRepositoryPrefix *string `pulumi:"ecrRepositoryPrefix"`
+	// The URI of the upstream registry.
+	UpstreamRegistryUrl *string `pulumi:"upstreamRegistryUrl"`
+	// The repository prefix of the corresponding repository in the upstream registry.
+	UpstreamRepositoryPrefix *string `pulumi:"upstreamRepositoryPrefix"`
+}
+
+// WorkflowVersionRegistryMappingInput is an input type that accepts WorkflowVersionRegistryMappingArgs and WorkflowVersionRegistryMappingOutput values.
+// You can construct a concrete instance of `WorkflowVersionRegistryMappingInput` via:
+//
+//	WorkflowVersionRegistryMappingArgs{...}
+type WorkflowVersionRegistryMappingInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionRegistryMappingOutput() WorkflowVersionRegistryMappingOutput
+	ToWorkflowVersionRegistryMappingOutputWithContext(context.Context) WorkflowVersionRegistryMappingOutput
+}
+
+type WorkflowVersionRegistryMappingArgs struct {
+	// Account ID of the account that owns the upstream container image.
+	EcrAccountId pulumi.StringPtrInput `pulumi:"ecrAccountId"`
+	// The repository prefix to use in the ECR private repository.
+	EcrRepositoryPrefix pulumi.StringPtrInput `pulumi:"ecrRepositoryPrefix"`
+	// The URI of the upstream registry.
+	UpstreamRegistryUrl pulumi.StringPtrInput `pulumi:"upstreamRegistryUrl"`
+	// The repository prefix of the corresponding repository in the upstream registry.
+	UpstreamRepositoryPrefix pulumi.StringPtrInput `pulumi:"upstreamRepositoryPrefix"`
+}
+
+func (WorkflowVersionRegistryMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionRegistryMapping)(nil)).Elem()
+}
+
+func (i WorkflowVersionRegistryMappingArgs) ToWorkflowVersionRegistryMappingOutput() WorkflowVersionRegistryMappingOutput {
+	return i.ToWorkflowVersionRegistryMappingOutputWithContext(context.Background())
+}
+
+func (i WorkflowVersionRegistryMappingArgs) ToWorkflowVersionRegistryMappingOutputWithContext(ctx context.Context) WorkflowVersionRegistryMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowVersionRegistryMappingOutput)
+}
+
+// WorkflowVersionRegistryMappingArrayInput is an input type that accepts WorkflowVersionRegistryMappingArray and WorkflowVersionRegistryMappingArrayOutput values.
+// You can construct a concrete instance of `WorkflowVersionRegistryMappingArrayInput` via:
+//
+//	WorkflowVersionRegistryMappingArray{ WorkflowVersionRegistryMappingArgs{...} }
+type WorkflowVersionRegistryMappingArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionRegistryMappingArrayOutput() WorkflowVersionRegistryMappingArrayOutput
+	ToWorkflowVersionRegistryMappingArrayOutputWithContext(context.Context) WorkflowVersionRegistryMappingArrayOutput
+}
+
+type WorkflowVersionRegistryMappingArray []WorkflowVersionRegistryMappingInput
+
+func (WorkflowVersionRegistryMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowVersionRegistryMapping)(nil)).Elem()
+}
+
+func (i WorkflowVersionRegistryMappingArray) ToWorkflowVersionRegistryMappingArrayOutput() WorkflowVersionRegistryMappingArrayOutput {
+	return i.ToWorkflowVersionRegistryMappingArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowVersionRegistryMappingArray) ToWorkflowVersionRegistryMappingArrayOutputWithContext(ctx context.Context) WorkflowVersionRegistryMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowVersionRegistryMappingArrayOutput)
+}
+
+type WorkflowVersionRegistryMappingOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionRegistryMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionRegistryMapping)(nil)).Elem()
+}
+
+func (o WorkflowVersionRegistryMappingOutput) ToWorkflowVersionRegistryMappingOutput() WorkflowVersionRegistryMappingOutput {
+	return o
+}
+
+func (o WorkflowVersionRegistryMappingOutput) ToWorkflowVersionRegistryMappingOutputWithContext(ctx context.Context) WorkflowVersionRegistryMappingOutput {
+	return o
+}
+
+// Account ID of the account that owns the upstream container image.
+func (o WorkflowVersionRegistryMappingOutput) EcrAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowVersionRegistryMapping) *string { return v.EcrAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The repository prefix to use in the ECR private repository.
+func (o WorkflowVersionRegistryMappingOutput) EcrRepositoryPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowVersionRegistryMapping) *string { return v.EcrRepositoryPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The URI of the upstream registry.
+func (o WorkflowVersionRegistryMappingOutput) UpstreamRegistryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowVersionRegistryMapping) *string { return v.UpstreamRegistryUrl }).(pulumi.StringPtrOutput)
+}
+
+// The repository prefix of the corresponding repository in the upstream registry.
+func (o WorkflowVersionRegistryMappingOutput) UpstreamRepositoryPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowVersionRegistryMapping) *string { return v.UpstreamRepositoryPrefix }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowVersionRegistryMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionRegistryMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowVersionRegistryMapping)(nil)).Elem()
+}
+
+func (o WorkflowVersionRegistryMappingArrayOutput) ToWorkflowVersionRegistryMappingArrayOutput() WorkflowVersionRegistryMappingArrayOutput {
+	return o
+}
+
+func (o WorkflowVersionRegistryMappingArrayOutput) ToWorkflowVersionRegistryMappingArrayOutputWithContext(ctx context.Context) WorkflowVersionRegistryMappingArrayOutput {
+	return o
+}
+
+func (o WorkflowVersionRegistryMappingArrayOutput) Index(i pulumi.IntInput) WorkflowVersionRegistryMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowVersionRegistryMapping {
+		return vs[0].([]WorkflowVersionRegistryMapping)[vs[1].(int)]
+	}).(WorkflowVersionRegistryMappingOutput)
 }
 
 type WorkflowVersionSourceReference struct {
@@ -2105,14 +2879,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VariantStoreReferenceItemInput)(nil)).Elem(), VariantStoreReferenceItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariantStoreSseConfigInput)(nil)).Elem(), VariantStoreSseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariantStoreSseConfigPtrInput)(nil)).Elem(), VariantStoreSseConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowContainerRegistryMapInput)(nil)).Elem(), WorkflowContainerRegistryMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowContainerRegistryMapPtrInput)(nil)).Elem(), WorkflowContainerRegistryMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowDefinitionRepositoryInput)(nil)).Elem(), WorkflowDefinitionRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowDefinitionRepositoryPtrInput)(nil)).Elem(), WorkflowDefinitionRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowImageMappingInput)(nil)).Elem(), WorkflowImageMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowImageMappingArrayInput)(nil)).Elem(), WorkflowImageMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowParameterInput)(nil)).Elem(), WorkflowParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowParameterMapInput)(nil)).Elem(), WorkflowParameterMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowRegistryMappingInput)(nil)).Elem(), WorkflowRegistryMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowRegistryMappingArrayInput)(nil)).Elem(), WorkflowRegistryMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowSourceReferenceInput)(nil)).Elem(), WorkflowSourceReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowSourceReferencePtrInput)(nil)).Elem(), WorkflowSourceReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionContainerRegistryMapInput)(nil)).Elem(), WorkflowVersionContainerRegistryMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionContainerRegistryMapPtrInput)(nil)).Elem(), WorkflowVersionContainerRegistryMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionDefinitionRepositoryInput)(nil)).Elem(), WorkflowVersionDefinitionRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionDefinitionRepositoryPtrInput)(nil)).Elem(), WorkflowVersionDefinitionRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionImageMappingInput)(nil)).Elem(), WorkflowVersionImageMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionImageMappingArrayInput)(nil)).Elem(), WorkflowVersionImageMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionRegistryMappingInput)(nil)).Elem(), WorkflowVersionRegistryMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionRegistryMappingArrayInput)(nil)).Elem(), WorkflowVersionRegistryMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionSourceReferenceInput)(nil)).Elem(), WorkflowVersionSourceReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionSourceReferencePtrInput)(nil)).Elem(), WorkflowVersionSourceReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionWorkflowParameterInput)(nil)).Elem(), WorkflowVersionWorkflowParameterArgs{})
@@ -2133,14 +2919,26 @@ func init() {
 	pulumi.RegisterOutputType(VariantStoreReferenceItemOutput{})
 	pulumi.RegisterOutputType(VariantStoreSseConfigOutput{})
 	pulumi.RegisterOutputType(VariantStoreSseConfigPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowContainerRegistryMapOutput{})
+	pulumi.RegisterOutputType(WorkflowContainerRegistryMapPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowDefinitionRepositoryOutput{})
 	pulumi.RegisterOutputType(WorkflowDefinitionRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowImageMappingOutput{})
+	pulumi.RegisterOutputType(WorkflowImageMappingArrayOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterMapOutput{})
+	pulumi.RegisterOutputType(WorkflowRegistryMappingOutput{})
+	pulumi.RegisterOutputType(WorkflowRegistryMappingArrayOutput{})
 	pulumi.RegisterOutputType(WorkflowSourceReferenceOutput{})
 	pulumi.RegisterOutputType(WorkflowSourceReferencePtrOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionContainerRegistryMapOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionContainerRegistryMapPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowVersionDefinitionRepositoryOutput{})
 	pulumi.RegisterOutputType(WorkflowVersionDefinitionRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionImageMappingOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionImageMappingArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionRegistryMappingOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionRegistryMappingArrayOutput{})
 	pulumi.RegisterOutputType(WorkflowVersionSourceReferenceOutput{})
 	pulumi.RegisterOutputType(WorkflowVersionSourceReferencePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowVersionWorkflowParameterOutput{})

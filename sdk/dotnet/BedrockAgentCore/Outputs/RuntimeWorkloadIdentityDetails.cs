@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class RuntimeWorkloadIdentityDetails
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the workload identity.
+        /// </summary>
         public readonly string WorkloadIdentityArn;
 
         [OutputConstructor]

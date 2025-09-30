@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:amazonmq:Broker":
+		r = &Broker{}
 	case "aws-native:amazonmq:Configuration":
 		r = &Configuration{}
 	default:

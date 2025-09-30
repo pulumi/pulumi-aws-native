@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectPeerResult:
-    def __init__(__self__, configuration=None, connect_peer_id=None, core_network_id=None, created_at=None, edge_location=None, state=None, tags=None):
+    def __init__(__self__, configuration=None, connect_peer_id=None, core_network_id=None, created_at=None, edge_location=None, last_modification_errors=None, state=None, tags=None):
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
@@ -42,6 +42,9 @@ class GetConnectPeerResult:
         if edge_location and not isinstance(edge_location, str):
             raise TypeError("Expected argument 'edge_location' to be a str")
         pulumi.set(__self__, "edge_location", edge_location)
+        if last_modification_errors and not isinstance(last_modification_errors, list):
+            raise TypeError("Expected argument 'last_modification_errors' to be a list")
+        pulumi.set(__self__, "last_modification_errors", last_modification_errors)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -90,6 +93,14 @@ class GetConnectPeerResult:
         return pulumi.get(self, "edge_location")
 
     @property
+    @pulumi.getter(name="lastModificationErrors")
+    def last_modification_errors(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Errors from the last modification of the connect peer.
+        """
+        return pulumi.get(self, "last_modification_errors")
+
+    @property
     @pulumi.getter
     def state(self) -> Optional[builtins.str]:
         """
@@ -117,6 +128,7 @@ class AwaitableGetConnectPeerResult(GetConnectPeerResult):
             core_network_id=self.core_network_id,
             created_at=self.created_at,
             edge_location=self.edge_location,
+            last_modification_errors=self.last_modification_errors,
             state=self.state,
             tags=self.tags)
 
@@ -140,6 +152,7 @@ def get_connect_peer(connect_peer_id: Optional[builtins.str] = None,
         core_network_id=pulumi.get(__ret__, 'core_network_id'),
         created_at=pulumi.get(__ret__, 'created_at'),
         edge_location=pulumi.get(__ret__, 'edge_location'),
+        last_modification_errors=pulumi.get(__ret__, 'last_modification_errors'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_connect_peer_output(connect_peer_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -160,5 +173,6 @@ def get_connect_peer_output(connect_peer_id: Optional[pulumi.Input[builtins.str]
         core_network_id=pulumi.get(__response__, 'core_network_id'),
         created_at=pulumi.get(__response__, 'created_at'),
         edge_location=pulumi.get(__response__, 'edge_location'),
+        last_modification_errors=pulumi.get(__response__, 'last_modification_errors'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags')))

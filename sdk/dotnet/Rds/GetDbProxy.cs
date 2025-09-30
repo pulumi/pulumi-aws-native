@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly bool? DebugLogging;
         /// <summary>
+        /// The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Rds.DbProxyDefaultAuthScheme? DefaultAuthScheme;
+        /// <summary>
         /// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         /// </summary>
         public readonly string? Endpoint;
@@ -112,6 +116,8 @@ namespace Pulumi.AwsNative.Rds
 
             bool? debugLogging,
 
+            Pulumi.AwsNative.Rds.DbProxyDefaultAuthScheme? defaultAuthScheme,
+
             string? endpoint,
 
             int? idleClientTimeout,
@@ -129,6 +135,7 @@ namespace Pulumi.AwsNative.Rds
             Auth = auth;
             DbProxyArn = dbProxyArn;
             DebugLogging = debugLogging;
+            DefaultAuthScheme = defaultAuthScheme;
             Endpoint = endpoint;
             IdleClientTimeout = idleClientTimeout;
             RequireTls = requireTls;

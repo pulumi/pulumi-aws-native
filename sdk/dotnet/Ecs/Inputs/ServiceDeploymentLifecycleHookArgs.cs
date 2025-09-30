@@ -17,9 +17,8 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     public sealed class ServiceDeploymentLifecycleHookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
-        /// 
-        /// This field must be a JSON object as a string.
+        /// Use this field to specify custom parameters that ECS passes to your hook target invocations (such as a Lambda function).
+        ///  This field must be a JSON object as a string.
         /// </summary>
         [Input("hookDetails")]
         public Input<object>? HookDetails { get; set; }

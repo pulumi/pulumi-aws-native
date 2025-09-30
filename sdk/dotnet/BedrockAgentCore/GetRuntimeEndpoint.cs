@@ -99,6 +99,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The status of the Agent Runtime Endpoint
         /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.RuntimeEndpointAgentRuntimeEndpointStatus? Status;
+        /// <summary>
+        /// The tags for the AgentCore Runtime endpoint.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The target version of the AgentCore Runtime for the endpoint.

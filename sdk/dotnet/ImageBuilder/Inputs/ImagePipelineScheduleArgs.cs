@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     public sealed class ImagePipelineScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The auto-disable policy for the image pipeline.
+        /// </summary>
+        [Input("autoDisablePolicy")]
+        public Input<object>? AutoDisablePolicy { get; set; }
+
+        /// <summary>
         /// The condition configures when the pipeline should trigger a new image build.
         /// </summary>
         [Input("pipelineExecutionStartCondition")]

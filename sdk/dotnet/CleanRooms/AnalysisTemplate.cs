@@ -60,6 +60,12 @@ namespace Pulumi.AwsNative.CleanRooms
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED` , error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
+        /// </summary>
+        [Output("errorMessageConfiguration")]
+        public Output<Outputs.AnalysisTemplateErrorMessageConfiguration?> ErrorMessageConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The format of the analysis template.
         /// </summary>
         [Output("format")]
@@ -135,6 +141,7 @@ namespace Pulumi.AwsNative.CleanRooms
                 ReplaceOnChanges =
                 {
                     "analysisParameters[*]",
+                    "errorMessageConfiguration",
                     "format",
                     "membershipIdentifier",
                     "name",
@@ -180,6 +187,12 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED` , error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
+        /// </summary>
+        [Input("errorMessageConfiguration")]
+        public Input<Inputs.AnalysisTemplateErrorMessageConfigurationArgs>? ErrorMessageConfiguration { get; set; }
 
         /// <summary>
         /// The format of the analysis template.

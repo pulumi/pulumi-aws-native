@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     /// </summary>
     public sealed class BrowserCustomRecordingConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The recording configuration for a browser. This structure defines how browser sessions are recorded.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The S3 location.
+        /// </summary>
         [Input("s3Location")]
         public Input<Inputs.BrowserCustomS3LocationArgs>? S3Location { get; set; }
 

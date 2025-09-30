@@ -1042,8 +1042,8 @@ func (o ContainerFleetIpPermissionArrayOutput) Index(i pulumi.IntInput) Containe
 
 // Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
 type ContainerFleetLocationCapacity struct {
-	// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
-	DesiredEc2Instances int `pulumi:"desiredEc2Instances"`
+	// Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
+	DesiredEc2Instances *int `pulumi:"desiredEc2Instances"`
 	// The maximum value that is allowed for the fleet's instance count for a location.
 	MaxSize int `pulumi:"maxSize"`
 	// The minimum value allowed for the fleet's instance count for a location.
@@ -1063,8 +1063,8 @@ type ContainerFleetLocationCapacityInput interface {
 
 // Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
 type ContainerFleetLocationCapacityArgs struct {
-	// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
-	DesiredEc2Instances pulumi.IntInput `pulumi:"desiredEc2Instances"`
+	// Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
+	DesiredEc2Instances pulumi.IntPtrInput `pulumi:"desiredEc2Instances"`
 	// The maximum value that is allowed for the fleet's instance count for a location.
 	MaxSize pulumi.IntInput `pulumi:"maxSize"`
 	// The minimum value allowed for the fleet's instance count for a location.
@@ -1149,9 +1149,9 @@ func (o ContainerFleetLocationCapacityOutput) ToContainerFleetLocationCapacityPt
 	}).(ContainerFleetLocationCapacityPtrOutput)
 }
 
-// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
-func (o ContainerFleetLocationCapacityOutput) DesiredEc2Instances() pulumi.IntOutput {
-	return o.ApplyT(func(v ContainerFleetLocationCapacity) int { return v.DesiredEc2Instances }).(pulumi.IntOutput)
+// Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
+func (o ContainerFleetLocationCapacityOutput) DesiredEc2Instances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerFleetLocationCapacity) *int { return v.DesiredEc2Instances }).(pulumi.IntPtrOutput)
 }
 
 // The maximum value that is allowed for the fleet's instance count for a location.
@@ -1188,13 +1188,13 @@ func (o ContainerFleetLocationCapacityPtrOutput) Elem() ContainerFleetLocationCa
 	}).(ContainerFleetLocationCapacityOutput)
 }
 
-// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
+// Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
 func (o ContainerFleetLocationCapacityPtrOutput) DesiredEc2Instances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerFleetLocationCapacity) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.DesiredEc2Instances
+		return v.DesiredEc2Instances
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -3588,8 +3588,8 @@ func (o FleetIpPermissionArrayOutput) Index(i pulumi.IntInput) FleetIpPermission
 
 // Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
 type FleetLocationCapacity struct {
-	// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
-	DesiredEc2Instances int `pulumi:"desiredEc2Instances"`
+	// Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+	DesiredEc2Instances *int `pulumi:"desiredEc2Instances"`
 	// The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
 	MaxSize int `pulumi:"maxSize"`
 	// The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
@@ -3609,8 +3609,8 @@ type FleetLocationCapacityInput interface {
 
 // Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
 type FleetLocationCapacityArgs struct {
-	// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
-	DesiredEc2Instances pulumi.IntInput `pulumi:"desiredEc2Instances"`
+	// Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+	DesiredEc2Instances pulumi.IntPtrInput `pulumi:"desiredEc2Instances"`
 	// The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
 	MaxSize pulumi.IntInput `pulumi:"maxSize"`
 	// The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
@@ -3695,9 +3695,9 @@ func (o FleetLocationCapacityOutput) ToFleetLocationCapacityPtrOutputWithContext
 	}).(FleetLocationCapacityPtrOutput)
 }
 
-// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
-func (o FleetLocationCapacityOutput) DesiredEc2Instances() pulumi.IntOutput {
-	return o.ApplyT(func(v FleetLocationCapacity) int { return v.DesiredEc2Instances }).(pulumi.IntOutput)
+// Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+func (o FleetLocationCapacityOutput) DesiredEc2Instances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetLocationCapacity) *int { return v.DesiredEc2Instances }).(pulumi.IntPtrOutput)
 }
 
 // The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
@@ -3734,13 +3734,13 @@ func (o FleetLocationCapacityPtrOutput) Elem() FleetLocationCapacityOutput {
 	}).(FleetLocationCapacityOutput)
 }
 
-// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+// Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
 func (o FleetLocationCapacityPtrOutput) DesiredEc2Instances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLocationCapacity) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.DesiredEc2Instances
+		return v.DesiredEc2Instances
 	}).(pulumi.IntPtrOutput)
 }
 

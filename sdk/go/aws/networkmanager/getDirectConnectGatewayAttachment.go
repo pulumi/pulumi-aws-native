@@ -41,6 +41,8 @@ type LookupDirectConnectGatewayAttachmentResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The Regions where the edges are located.
 	EdgeLocations []string `pulumi:"edgeLocations"`
+	// Errors from the last modification of the attachment.
+	LastModificationErrors []string `pulumi:"lastModificationErrors"`
 	// The name of the network function group attachment.
 	NetworkFunctionGroupName *string `pulumi:"networkFunctionGroupName"`
 	// Owner account of the attachment.
@@ -121,6 +123,11 @@ func (o LookupDirectConnectGatewayAttachmentResultOutput) CreatedAt() pulumi.Str
 // The Regions where the edges are located.
 func (o LookupDirectConnectGatewayAttachmentResultOutput) EdgeLocations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDirectConnectGatewayAttachmentResult) []string { return v.EdgeLocations }).(pulumi.StringArrayOutput)
+}
+
+// Errors from the last modification of the attachment.
+func (o LookupDirectConnectGatewayAttachmentResultOutput) LastModificationErrors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDirectConnectGatewayAttachmentResult) []string { return v.LastModificationErrors }).(pulumi.StringArrayOutput)
 }
 
 // The name of the network function group attachment.

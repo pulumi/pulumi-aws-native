@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? AddOrRunAnomalyDetectionForAnalyses { get; set; }
 
         /// <summary>
+        /// The ability to perform analysis-related actions.
+        /// </summary>
+        [Input("analysis")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Analysis { get; set; }
+
+        /// <summary>
         /// The ability to create and update email reports.
         /// </summary>
         [Input("createAndUpdateDashboardEmailReports")]
@@ -59,6 +65,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// </summary>
         [Input("createSpiceDataset")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateSpiceDataset { get; set; }
+
+        /// <summary>
+        /// The ability to perform dashboard-related actions.
+        /// </summary>
+        [Input("dashboard")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Dashboard { get; set; }
 
         /// <summary>
         /// The ability to export to CSV files from the UI.

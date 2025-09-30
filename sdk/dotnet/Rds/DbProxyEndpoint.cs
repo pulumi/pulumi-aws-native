@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Rds
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+        /// </summary>
+        [Output("endpointNetworkType")]
+        public Output<Pulumi.AwsNative.Rds.DbProxyEndpointEndpointNetworkType?> EndpointNetworkType { get; private set; } = null!;
+
+        /// <summary>
         /// A value that indicates whether this endpoint is the default endpoint for the associated DB proxy. Default DB proxy endpoints always have read/write capability. Other endpoints that you associate with the DB proxy can be either read/write or read-only.
         /// </summary>
         [Output("isDefault")]
@@ -102,6 +108,7 @@ namespace Pulumi.AwsNative.Rds
                 {
                     "dbProxyEndpointName",
                     "dbProxyName",
+                    "endpointNetworkType",
                     "vpcSubnetIds[*]",
                 },
             };
@@ -137,6 +144,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("dbProxyName", required: true)]
         public Input<string> DbProxyName { get; set; } = null!;
+
+        /// <summary>
+        /// The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+        /// </summary>
+        [Input("endpointNetworkType")]
+        public Input<Pulumi.AwsNative.Rds.DbProxyEndpointEndpointNetworkType>? EndpointNetworkType { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

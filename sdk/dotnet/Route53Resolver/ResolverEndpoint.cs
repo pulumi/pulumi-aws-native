@@ -24,7 +24,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
         /// - INBOUND: allows DNS queries to your VPC from your network 
-        /// - OUTBOUND: allows DNS queries from your VPC to your network
+        /// - OUTBOUND: allows DNS queries from your VPC to your network 
+        /// - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
         /// </summary>
         [Output("direction")]
         public Output<string> Direction { get; private set; } = null!;
@@ -150,7 +151,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
         /// - INBOUND: allows DNS queries to your VPC from your network 
-        /// - OUTBOUND: allows DNS queries from your VPC to your network
+        /// - OUTBOUND: allows DNS queries from your VPC to your network 
+        /// - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
         /// </summary>
         [Input("direction", required: true)]
         public Input<string> Direction { get; set; } = null!;

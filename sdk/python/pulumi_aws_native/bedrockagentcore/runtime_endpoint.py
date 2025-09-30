@@ -32,6 +32,7 @@ class RuntimeEndpointArgs:
         :param pulumi.Input[builtins.str] agent_runtime_version: The version of the AgentCore Runtime to use for the endpoint.
         :param pulumi.Input[builtins.str] description: The description of the AgentCore Runtime endpoint.
         :param pulumi.Input[builtins.str] name: The name of the Agent Runtime Endpoint
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the AgentCore Runtime endpoint.
         """
         pulumi.set(__self__, "agent_runtime_id", agent_runtime_id)
         if agent_runtime_version is not None:
@@ -94,6 +95,9 @@ class RuntimeEndpointArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        The tags for the AgentCore Runtime endpoint.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -122,6 +126,7 @@ class RuntimeEndpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] agent_runtime_version: The version of the AgentCore Runtime to use for the endpoint.
         :param pulumi.Input[builtins.str] description: The description of the AgentCore Runtime endpoint.
         :param pulumi.Input[builtins.str] name: The name of the Agent Runtime Endpoint
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the AgentCore Runtime endpoint.
         """
         ...
     @overload
@@ -316,6 +321,9 @@ class RuntimeEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        The tags for the AgentCore Runtime endpoint.
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -1427,7 +1427,7 @@ if not MYPY:
 
         The following are the supported values for each volume type:
 
-        - `gp3` : 3,000 - 16,000 IOPS
+        - `gp3` : 3,000 - 80,000 IOPS
         - `io1` : 100 - 64,000 IOPS
         - `io2` : 100 - 256,000 IOPS
 
@@ -1451,7 +1451,8 @@ if not MYPY:
 
         The following are the supported sizes for each volume type:
 
-        - `gp2` and `gp3` : 1 - 16,384 GiB
+        - `gp2` : 1 - 16,384 GiB
+        - `gp3` : 1 - 65,536 GiB
         - `io1` : 4 - 16,384 GiB
         - `io2` : 4 - 65,536 GiB
         - `st1` and `sc1` : 125 - 16,384 GiB
@@ -1490,7 +1491,7 @@ class Ec2FleetEbsBlockDeviceArgs:
                
                The following are the supported values for each volume type:
                
-               - `gp3` : 3,000 - 16,000 IOPS
+               - `gp3` : 3,000 - 80,000 IOPS
                - `io1` : 100 - 64,000 IOPS
                - `io2` : 100 - 256,000 IOPS
                
@@ -1505,7 +1506,8 @@ class Ec2FleetEbsBlockDeviceArgs:
                
                The following are the supported sizes for each volume type:
                
-               - `gp2` and `gp3` : 1 - 16,384 GiB
+               - `gp2` : 1 - 16,384 GiB
+               - `gp3` : 1 - 65,536 GiB
                - `io1` : 4 - 16,384 GiB
                - `io2` : 4 - 65,536 GiB
                - `st1` and `sc1` : 125 - 16,384 GiB
@@ -1568,7 +1570,7 @@ class Ec2FleetEbsBlockDeviceArgs:
 
         The following are the supported values for each volume type:
 
-        - `gp3` : 3,000 - 16,000 IOPS
+        - `gp3` : 3,000 - 80,000 IOPS
         - `io1` : 100 - 64,000 IOPS
         - `io2` : 100 - 256,000 IOPS
 
@@ -1616,7 +1618,8 @@ class Ec2FleetEbsBlockDeviceArgs:
 
         The following are the supported sizes for each volume type:
 
-        - `gp2` and `gp3` : 1 - 16,384 GiB
+        - `gp2` : 1 - 16,384 GiB
+        - `gp3` : 1 - 65,536 GiB
         - `io1` : 4 - 16,384 GiB
         - `io2` : 4 - 65,536 GiB
         - `st1` and `sc1` : 125 - 16,384 GiB
@@ -9737,6 +9740,7 @@ if not MYPY:
         availability_zone: NotRequired[pulumi.Input[builtins.str]]
         """
         The Availability Zone for the instance.
+         Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both
         """
         group_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -9786,6 +9790,7 @@ class LaunchTemplatePlacementArgs:
          ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param pulumi.Input[builtins.str] affinity: The affinity setting for an instance on a Dedicated Host.
         :param pulumi.Input[builtins.str] availability_zone: The Availability Zone for the instance.
+                Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both
         :param pulumi.Input[builtins.str] group_id: The Group Id of a placement group. You must specify the Placement Group *Group Id* to launch an instance in a shared placement group.
         :param pulumi.Input[builtins.str] group_name: The name of the placement group for the instance.
         :param pulumi.Input[builtins.str] host_id: The ID of the Dedicated Host for the instance.
@@ -9830,6 +9835,7 @@ class LaunchTemplatePlacementArgs:
     def availability_zone(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The Availability Zone for the instance.
+         Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both
         """
         return pulumi.get(self, "availability_zone")
 
@@ -12474,7 +12480,7 @@ if not MYPY:
 
         The following are the supported values for each volume type:
 
-        - `gp3` : 3,000 - 16,000 IOPS
+        - `gp3` : 3,000 - 80,000 IOPS
         - `io1` : 100 - 64,000 IOPS
         - `io2` : 100 - 256,000 IOPS
 
@@ -12492,7 +12498,8 @@ if not MYPY:
 
         The following are the supported sizes for each volume type:
 
-        - `gp2` and `gp3` : 1 - 16,384 GiB
+        - `gp2` : 1 - 16,384 GiB
+        - `gp3` : 1 - 65,536 GiB
         - `io1` : 4 - 16,384 GiB
         - `io2` : 4 - 65,536 GiB
         - `st1` and `sc1` : 125 - 16,384 GiB
@@ -12527,7 +12534,7 @@ class SpotFleetEbsBlockDeviceArgs:
                
                The following are the supported values for each volume type:
                
-               - `gp3` : 3,000 - 16,000 IOPS
+               - `gp3` : 3,000 - 80,000 IOPS
                - `io1` : 100 - 64,000 IOPS
                - `io2` : 100 - 256,000 IOPS
                
@@ -12539,7 +12546,8 @@ class SpotFleetEbsBlockDeviceArgs:
                
                The following are the supported sizes for each volume type:
                
-               - `gp2` and `gp3` : 1 - 16,384 GiB
+               - `gp2` : 1 - 16,384 GiB
+               - `gp3` : 1 - 65,536 GiB
                - `io1` : 4 - 16,384 GiB
                - `io2` : 4 - 65,536 GiB
                - `st1` and `sc1` : 125 - 16,384 GiB
@@ -12597,7 +12605,7 @@ class SpotFleetEbsBlockDeviceArgs:
 
         The following are the supported values for each volume type:
 
-        - `gp3` : 3,000 - 16,000 IOPS
+        - `gp3` : 3,000 - 80,000 IOPS
         - `io1` : 100 - 64,000 IOPS
         - `io2` : 100 - 256,000 IOPS
 
@@ -12631,7 +12639,8 @@ class SpotFleetEbsBlockDeviceArgs:
 
         The following are the supported sizes for each volume type:
 
-        - `gp2` and `gp3` : 1 - 16,384 GiB
+        - `gp2` : 1 - 16,384 GiB
+        - `gp3` : 1 - 65,536 GiB
         - `io1` : 4 - 16,384 GiB
         - `io2` : 4 - 65,536 GiB
         - `st1` and `sc1` : 125 - 16,384 GiB

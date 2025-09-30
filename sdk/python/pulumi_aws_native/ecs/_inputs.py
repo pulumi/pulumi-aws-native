@@ -17,10 +17,38 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CapacityProviderAcceleratorCountRequestArgs',
+    'CapacityProviderAcceleratorCountRequestArgsDict',
+    'CapacityProviderAcceleratorTotalMemoryMiBRequestArgs',
+    'CapacityProviderAcceleratorTotalMemoryMiBRequestArgsDict',
     'CapacityProviderAutoScalingGroupProviderArgs',
     'CapacityProviderAutoScalingGroupProviderArgsDict',
+    'CapacityProviderBaselineEbsBandwidthMbpsRequestArgs',
+    'CapacityProviderBaselineEbsBandwidthMbpsRequestArgsDict',
+    'CapacityProviderInstanceLaunchTemplateArgs',
+    'CapacityProviderInstanceLaunchTemplateArgsDict',
+    'CapacityProviderInstanceRequirementsRequestArgs',
+    'CapacityProviderInstanceRequirementsRequestArgsDict',
+    'CapacityProviderManagedInstancesNetworkConfigurationArgs',
+    'CapacityProviderManagedInstancesNetworkConfigurationArgsDict',
+    'CapacityProviderManagedInstancesProviderArgs',
+    'CapacityProviderManagedInstancesProviderArgsDict',
+    'CapacityProviderManagedInstancesStorageConfigurationArgs',
+    'CapacityProviderManagedInstancesStorageConfigurationArgsDict',
     'CapacityProviderManagedScalingArgs',
     'CapacityProviderManagedScalingArgsDict',
+    'CapacityProviderMemoryGiBPerVCpuRequestArgs',
+    'CapacityProviderMemoryGiBPerVCpuRequestArgsDict',
+    'CapacityProviderMemoryMiBRequestArgs',
+    'CapacityProviderMemoryMiBRequestArgsDict',
+    'CapacityProviderNetworkBandwidthGbpsRequestArgs',
+    'CapacityProviderNetworkBandwidthGbpsRequestArgsDict',
+    'CapacityProviderNetworkInterfaceCountRequestArgs',
+    'CapacityProviderNetworkInterfaceCountRequestArgsDict',
+    'CapacityProviderTotalLocalStorageGbRequestArgs',
+    'CapacityProviderTotalLocalStorageGbRequestArgsDict',
+    'CapacityProviderVCpuCountRangeRequestArgs',
+    'CapacityProviderVCpuCountRangeRequestArgsDict',
     'ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs',
     'ClusterCapacityProviderAssociationsCapacityProviderStrategyArgsDict',
     'ClusterCapacityProviderStrategyItemArgs',
@@ -180,6 +208,78 @@ __all__ = [
 MYPY = False
 
 if not MYPY:
+    class CapacityProviderAcceleratorCountRequestArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[builtins.int]]
+        min: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CapacityProviderAcceleratorCountRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderAcceleratorCountRequestArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[builtins.int]] = None,
+                 min: Optional[pulumi.Input[builtins.int]] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min", value)
+
+
+if not MYPY:
+    class CapacityProviderAcceleratorTotalMemoryMiBRequestArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[builtins.int]]
+        min: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CapacityProviderAcceleratorTotalMemoryMiBRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderAcceleratorTotalMemoryMiBRequestArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[builtins.int]] = None,
+                 min: Optional[pulumi.Input[builtins.int]] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min", value)
+
+
+if not MYPY:
     class CapacityProviderAutoScalingGroupProviderArgsDict(TypedDict):
         auto_scaling_group_arn: pulumi.Input[builtins.str]
         """
@@ -286,6 +386,539 @@ class CapacityProviderAutoScalingGroupProviderArgs:
     @managed_termination_protection.setter
     def managed_termination_protection(self, value: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedTerminationProtection']]):
         pulumi.set(self, "managed_termination_protection", value)
+
+
+if not MYPY:
+    class CapacityProviderBaselineEbsBandwidthMbpsRequestArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[builtins.int]]
+        min: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CapacityProviderBaselineEbsBandwidthMbpsRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderBaselineEbsBandwidthMbpsRequestArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[builtins.int]] = None,
+                 min: Optional[pulumi.Input[builtins.int]] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min", value)
+
+
+if not MYPY:
+    class CapacityProviderInstanceLaunchTemplateArgsDict(TypedDict):
+        ec2_instance_profile_arn: pulumi.Input[builtins.str]
+        network_configuration: pulumi.Input['CapacityProviderManagedInstancesNetworkConfigurationArgsDict']
+        instance_requirements: NotRequired[pulumi.Input['CapacityProviderInstanceRequirementsRequestArgsDict']]
+        monitoring: NotRequired[pulumi.Input['CapacityProviderManagedInstancesMonitoringOptions']]
+        storage_configuration: NotRequired[pulumi.Input['CapacityProviderManagedInstancesStorageConfigurationArgsDict']]
+elif False:
+    CapacityProviderInstanceLaunchTemplateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderInstanceLaunchTemplateArgs:
+    def __init__(__self__, *,
+                 ec2_instance_profile_arn: pulumi.Input[builtins.str],
+                 network_configuration: pulumi.Input['CapacityProviderManagedInstancesNetworkConfigurationArgs'],
+                 instance_requirements: Optional[pulumi.Input['CapacityProviderInstanceRequirementsRequestArgs']] = None,
+                 monitoring: Optional[pulumi.Input['CapacityProviderManagedInstancesMonitoringOptions']] = None,
+                 storage_configuration: Optional[pulumi.Input['CapacityProviderManagedInstancesStorageConfigurationArgs']] = None):
+        pulumi.set(__self__, "ec2_instance_profile_arn", ec2_instance_profile_arn)
+        pulumi.set(__self__, "network_configuration", network_configuration)
+        if instance_requirements is not None:
+            pulumi.set(__self__, "instance_requirements", instance_requirements)
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
+        if storage_configuration is not None:
+            pulumi.set(__self__, "storage_configuration", storage_configuration)
+
+    @property
+    @pulumi.getter(name="ec2InstanceProfileArn")
+    def ec2_instance_profile_arn(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "ec2_instance_profile_arn")
+
+    @ec2_instance_profile_arn.setter
+    def ec2_instance_profile_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "ec2_instance_profile_arn", value)
+
+    @property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> pulumi.Input['CapacityProviderManagedInstancesNetworkConfigurationArgs']:
+        return pulumi.get(self, "network_configuration")
+
+    @network_configuration.setter
+    def network_configuration(self, value: pulumi.Input['CapacityProviderManagedInstancesNetworkConfigurationArgs']):
+        pulumi.set(self, "network_configuration", value)
+
+    @property
+    @pulumi.getter(name="instanceRequirements")
+    def instance_requirements(self) -> Optional[pulumi.Input['CapacityProviderInstanceRequirementsRequestArgs']]:
+        return pulumi.get(self, "instance_requirements")
+
+    @instance_requirements.setter
+    def instance_requirements(self, value: Optional[pulumi.Input['CapacityProviderInstanceRequirementsRequestArgs']]):
+        pulumi.set(self, "instance_requirements", value)
+
+    @property
+    @pulumi.getter
+    def monitoring(self) -> Optional[pulumi.Input['CapacityProviderManagedInstancesMonitoringOptions']]:
+        return pulumi.get(self, "monitoring")
+
+    @monitoring.setter
+    def monitoring(self, value: Optional[pulumi.Input['CapacityProviderManagedInstancesMonitoringOptions']]):
+        pulumi.set(self, "monitoring", value)
+
+    @property
+    @pulumi.getter(name="storageConfiguration")
+    def storage_configuration(self) -> Optional[pulumi.Input['CapacityProviderManagedInstancesStorageConfigurationArgs']]:
+        return pulumi.get(self, "storage_configuration")
+
+    @storage_configuration.setter
+    def storage_configuration(self, value: Optional[pulumi.Input['CapacityProviderManagedInstancesStorageConfigurationArgs']]):
+        pulumi.set(self, "storage_configuration", value)
+
+
+if not MYPY:
+    class CapacityProviderInstanceRequirementsRequestArgsDict(TypedDict):
+        memory_mi_b: pulumi.Input['CapacityProviderMemoryMiBRequestArgsDict']
+        v_cpu_count: pulumi.Input['CapacityProviderVCpuCountRangeRequestArgsDict']
+        accelerator_count: NotRequired[pulumi.Input['CapacityProviderAcceleratorCountRequestArgsDict']]
+        accelerator_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem']]]]
+        accelerator_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem']]]]
+        accelerator_total_memory_mi_b: NotRequired[pulumi.Input['CapacityProviderAcceleratorTotalMemoryMiBRequestArgsDict']]
+        accelerator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem']]]]
+        allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        bare_metal: NotRequired[pulumi.Input['CapacityProviderInstanceRequirementsRequestBareMetal']]
+        baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input['CapacityProviderBaselineEbsBandwidthMbpsRequestArgsDict']]
+        burstable_performance: NotRequired[pulumi.Input['CapacityProviderInstanceRequirementsRequestBurstablePerformance']]
+        cpu_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestCpuManufacturersItem']]]]
+        excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        instance_generations: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem']]]]
+        local_storage: NotRequired[pulumi.Input['CapacityProviderInstanceRequirementsRequestLocalStorage']]
+        local_storage_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem']]]]
+        max_spot_price_as_percentage_of_optimal_on_demand_price: NotRequired[pulumi.Input[builtins.int]]
+        memory_gi_b_per_v_cpu: NotRequired[pulumi.Input['CapacityProviderMemoryGiBPerVCpuRequestArgsDict']]
+        network_bandwidth_gbps: NotRequired[pulumi.Input['CapacityProviderNetworkBandwidthGbpsRequestArgsDict']]
+        network_interface_count: NotRequired[pulumi.Input['CapacityProviderNetworkInterfaceCountRequestArgsDict']]
+        on_demand_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[builtins.int]]
+        require_hibernate_support: NotRequired[pulumi.Input[builtins.bool]]
+        spot_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[builtins.int]]
+        total_local_storage_gb: NotRequired[pulumi.Input['CapacityProviderTotalLocalStorageGbRequestArgsDict']]
+elif False:
+    CapacityProviderInstanceRequirementsRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderInstanceRequirementsRequestArgs:
+    def __init__(__self__, *,
+                 memory_mi_b: pulumi.Input['CapacityProviderMemoryMiBRequestArgs'],
+                 v_cpu_count: pulumi.Input['CapacityProviderVCpuCountRangeRequestArgs'],
+                 accelerator_count: Optional[pulumi.Input['CapacityProviderAcceleratorCountRequestArgs']] = None,
+                 accelerator_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem']]]] = None,
+                 accelerator_names: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem']]]] = None,
+                 accelerator_total_memory_mi_b: Optional[pulumi.Input['CapacityProviderAcceleratorTotalMemoryMiBRequestArgs']] = None,
+                 accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem']]]] = None,
+                 allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 bare_metal: Optional[pulumi.Input['CapacityProviderInstanceRequirementsRequestBareMetal']] = None,
+                 baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['CapacityProviderBaselineEbsBandwidthMbpsRequestArgs']] = None,
+                 burstable_performance: Optional[pulumi.Input['CapacityProviderInstanceRequirementsRequestBurstablePerformance']] = None,
+                 cpu_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestCpuManufacturersItem']]]] = None,
+                 excluded_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 instance_generations: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem']]]] = None,
+                 local_storage: Optional[pulumi.Input['CapacityProviderInstanceRequirementsRequestLocalStorage']] = None,
+                 local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem']]]] = None,
+                 max_spot_price_as_percentage_of_optimal_on_demand_price: Optional[pulumi.Input[builtins.int]] = None,
+                 memory_gi_b_per_v_cpu: Optional[pulumi.Input['CapacityProviderMemoryGiBPerVCpuRequestArgs']] = None,
+                 network_bandwidth_gbps: Optional[pulumi.Input['CapacityProviderNetworkBandwidthGbpsRequestArgs']] = None,
+                 network_interface_count: Optional[pulumi.Input['CapacityProviderNetworkInterfaceCountRequestArgs']] = None,
+                 on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[builtins.int]] = None,
+                 require_hibernate_support: Optional[pulumi.Input[builtins.bool]] = None,
+                 spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[builtins.int]] = None,
+                 total_local_storage_gb: Optional[pulumi.Input['CapacityProviderTotalLocalStorageGbRequestArgs']] = None):
+        pulumi.set(__self__, "memory_mi_b", memory_mi_b)
+        pulumi.set(__self__, "v_cpu_count", v_cpu_count)
+        if accelerator_count is not None:
+            pulumi.set(__self__, "accelerator_count", accelerator_count)
+        if accelerator_manufacturers is not None:
+            pulumi.set(__self__, "accelerator_manufacturers", accelerator_manufacturers)
+        if accelerator_names is not None:
+            pulumi.set(__self__, "accelerator_names", accelerator_names)
+        if accelerator_total_memory_mi_b is not None:
+            pulumi.set(__self__, "accelerator_total_memory_mi_b", accelerator_total_memory_mi_b)
+        if accelerator_types is not None:
+            pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if allowed_instance_types is not None:
+            pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
+        if bare_metal is not None:
+            pulumi.set(__self__, "bare_metal", bare_metal)
+        if baseline_ebs_bandwidth_mbps is not None:
+            pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
+        if burstable_performance is not None:
+            pulumi.set(__self__, "burstable_performance", burstable_performance)
+        if cpu_manufacturers is not None:
+            pulumi.set(__self__, "cpu_manufacturers", cpu_manufacturers)
+        if excluded_instance_types is not None:
+            pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
+        if instance_generations is not None:
+            pulumi.set(__self__, "instance_generations", instance_generations)
+        if local_storage is not None:
+            pulumi.set(__self__, "local_storage", local_storage)
+        if local_storage_types is not None:
+            pulumi.set(__self__, "local_storage_types", local_storage_types)
+        if max_spot_price_as_percentage_of_optimal_on_demand_price is not None:
+            pulumi.set(__self__, "max_spot_price_as_percentage_of_optimal_on_demand_price", max_spot_price_as_percentage_of_optimal_on_demand_price)
+        if memory_gi_b_per_v_cpu is not None:
+            pulumi.set(__self__, "memory_gi_b_per_v_cpu", memory_gi_b_per_v_cpu)
+        if network_bandwidth_gbps is not None:
+            pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
+        if network_interface_count is not None:
+            pulumi.set(__self__, "network_interface_count", network_interface_count)
+        if on_demand_max_price_percentage_over_lowest_price is not None:
+            pulumi.set(__self__, "on_demand_max_price_percentage_over_lowest_price", on_demand_max_price_percentage_over_lowest_price)
+        if require_hibernate_support is not None:
+            pulumi.set(__self__, "require_hibernate_support", require_hibernate_support)
+        if spot_max_price_percentage_over_lowest_price is not None:
+            pulumi.set(__self__, "spot_max_price_percentage_over_lowest_price", spot_max_price_percentage_over_lowest_price)
+        if total_local_storage_gb is not None:
+            pulumi.set(__self__, "total_local_storage_gb", total_local_storage_gb)
+
+    @property
+    @pulumi.getter(name="memoryMiB")
+    def memory_mi_b(self) -> pulumi.Input['CapacityProviderMemoryMiBRequestArgs']:
+        return pulumi.get(self, "memory_mi_b")
+
+    @memory_mi_b.setter
+    def memory_mi_b(self, value: pulumi.Input['CapacityProviderMemoryMiBRequestArgs']):
+        pulumi.set(self, "memory_mi_b", value)
+
+    @property
+    @pulumi.getter(name="vCpuCount")
+    def v_cpu_count(self) -> pulumi.Input['CapacityProviderVCpuCountRangeRequestArgs']:
+        return pulumi.get(self, "v_cpu_count")
+
+    @v_cpu_count.setter
+    def v_cpu_count(self, value: pulumi.Input['CapacityProviderVCpuCountRangeRequestArgs']):
+        pulumi.set(self, "v_cpu_count", value)
+
+    @property
+    @pulumi.getter(name="acceleratorCount")
+    def accelerator_count(self) -> Optional[pulumi.Input['CapacityProviderAcceleratorCountRequestArgs']]:
+        return pulumi.get(self, "accelerator_count")
+
+    @accelerator_count.setter
+    def accelerator_count(self, value: Optional[pulumi.Input['CapacityProviderAcceleratorCountRequestArgs']]):
+        pulumi.set(self, "accelerator_count", value)
+
+    @property
+    @pulumi.getter(name="acceleratorManufacturers")
+    def accelerator_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem']]]]:
+        return pulumi.get(self, "accelerator_manufacturers")
+
+    @accelerator_manufacturers.setter
+    def accelerator_manufacturers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem']]]]):
+        pulumi.set(self, "accelerator_manufacturers", value)
+
+    @property
+    @pulumi.getter(name="acceleratorNames")
+    def accelerator_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem']]]]:
+        return pulumi.get(self, "accelerator_names")
+
+    @accelerator_names.setter
+    def accelerator_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem']]]]):
+        pulumi.set(self, "accelerator_names", value)
+
+    @property
+    @pulumi.getter(name="acceleratorTotalMemoryMiB")
+    def accelerator_total_memory_mi_b(self) -> Optional[pulumi.Input['CapacityProviderAcceleratorTotalMemoryMiBRequestArgs']]:
+        return pulumi.get(self, "accelerator_total_memory_mi_b")
+
+    @accelerator_total_memory_mi_b.setter
+    def accelerator_total_memory_mi_b(self, value: Optional[pulumi.Input['CapacityProviderAcceleratorTotalMemoryMiBRequestArgs']]):
+        pulumi.set(self, "accelerator_total_memory_mi_b", value)
+
+    @property
+    @pulumi.getter(name="acceleratorTypes")
+    def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem']]]]:
+        return pulumi.get(self, "accelerator_types")
+
+    @accelerator_types.setter
+    def accelerator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem']]]]):
+        pulumi.set(self, "accelerator_types", value)
+
+    @property
+    @pulumi.getter(name="allowedInstanceTypes")
+    def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "allowed_instance_types")
+
+    @allowed_instance_types.setter
+    def allowed_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "allowed_instance_types", value)
+
+    @property
+    @pulumi.getter(name="bareMetal")
+    def bare_metal(self) -> Optional[pulumi.Input['CapacityProviderInstanceRequirementsRequestBareMetal']]:
+        return pulumi.get(self, "bare_metal")
+
+    @bare_metal.setter
+    def bare_metal(self, value: Optional[pulumi.Input['CapacityProviderInstanceRequirementsRequestBareMetal']]):
+        pulumi.set(self, "bare_metal", value)
+
+    @property
+    @pulumi.getter(name="baselineEbsBandwidthMbps")
+    def baseline_ebs_bandwidth_mbps(self) -> Optional[pulumi.Input['CapacityProviderBaselineEbsBandwidthMbpsRequestArgs']]:
+        return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
+
+    @baseline_ebs_bandwidth_mbps.setter
+    def baseline_ebs_bandwidth_mbps(self, value: Optional[pulumi.Input['CapacityProviderBaselineEbsBandwidthMbpsRequestArgs']]):
+        pulumi.set(self, "baseline_ebs_bandwidth_mbps", value)
+
+    @property
+    @pulumi.getter(name="burstablePerformance")
+    def burstable_performance(self) -> Optional[pulumi.Input['CapacityProviderInstanceRequirementsRequestBurstablePerformance']]:
+        return pulumi.get(self, "burstable_performance")
+
+    @burstable_performance.setter
+    def burstable_performance(self, value: Optional[pulumi.Input['CapacityProviderInstanceRequirementsRequestBurstablePerformance']]):
+        pulumi.set(self, "burstable_performance", value)
+
+    @property
+    @pulumi.getter(name="cpuManufacturers")
+    def cpu_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestCpuManufacturersItem']]]]:
+        return pulumi.get(self, "cpu_manufacturers")
+
+    @cpu_manufacturers.setter
+    def cpu_manufacturers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestCpuManufacturersItem']]]]):
+        pulumi.set(self, "cpu_manufacturers", value)
+
+    @property
+    @pulumi.getter(name="excludedInstanceTypes")
+    def excluded_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "excluded_instance_types")
+
+    @excluded_instance_types.setter
+    def excluded_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "excluded_instance_types", value)
+
+    @property
+    @pulumi.getter(name="instanceGenerations")
+    def instance_generations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem']]]]:
+        return pulumi.get(self, "instance_generations")
+
+    @instance_generations.setter
+    def instance_generations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem']]]]):
+        pulumi.set(self, "instance_generations", value)
+
+    @property
+    @pulumi.getter(name="localStorage")
+    def local_storage(self) -> Optional[pulumi.Input['CapacityProviderInstanceRequirementsRequestLocalStorage']]:
+        return pulumi.get(self, "local_storage")
+
+    @local_storage.setter
+    def local_storage(self, value: Optional[pulumi.Input['CapacityProviderInstanceRequirementsRequestLocalStorage']]):
+        pulumi.set(self, "local_storage", value)
+
+    @property
+    @pulumi.getter(name="localStorageTypes")
+    def local_storage_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem']]]]:
+        return pulumi.get(self, "local_storage_types")
+
+    @local_storage_types.setter
+    def local_storage_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem']]]]):
+        pulumi.set(self, "local_storage_types", value)
+
+    @property
+    @pulumi.getter(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
+    def max_spot_price_as_percentage_of_optimal_on_demand_price(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "max_spot_price_as_percentage_of_optimal_on_demand_price")
+
+    @max_spot_price_as_percentage_of_optimal_on_demand_price.setter
+    def max_spot_price_as_percentage_of_optimal_on_demand_price(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_spot_price_as_percentage_of_optimal_on_demand_price", value)
+
+    @property
+    @pulumi.getter(name="memoryGiBPerVCpu")
+    def memory_gi_b_per_v_cpu(self) -> Optional[pulumi.Input['CapacityProviderMemoryGiBPerVCpuRequestArgs']]:
+        return pulumi.get(self, "memory_gi_b_per_v_cpu")
+
+    @memory_gi_b_per_v_cpu.setter
+    def memory_gi_b_per_v_cpu(self, value: Optional[pulumi.Input['CapacityProviderMemoryGiBPerVCpuRequestArgs']]):
+        pulumi.set(self, "memory_gi_b_per_v_cpu", value)
+
+    @property
+    @pulumi.getter(name="networkBandwidthGbps")
+    def network_bandwidth_gbps(self) -> Optional[pulumi.Input['CapacityProviderNetworkBandwidthGbpsRequestArgs']]:
+        return pulumi.get(self, "network_bandwidth_gbps")
+
+    @network_bandwidth_gbps.setter
+    def network_bandwidth_gbps(self, value: Optional[pulumi.Input['CapacityProviderNetworkBandwidthGbpsRequestArgs']]):
+        pulumi.set(self, "network_bandwidth_gbps", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceCount")
+    def network_interface_count(self) -> Optional[pulumi.Input['CapacityProviderNetworkInterfaceCountRequestArgs']]:
+        return pulumi.get(self, "network_interface_count")
+
+    @network_interface_count.setter
+    def network_interface_count(self, value: Optional[pulumi.Input['CapacityProviderNetworkInterfaceCountRequestArgs']]):
+        pulumi.set(self, "network_interface_count", value)
+
+    @property
+    @pulumi.getter(name="onDemandMaxPricePercentageOverLowestPrice")
+    def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
+
+    @on_demand_max_price_percentage_over_lowest_price.setter
+    def on_demand_max_price_percentage_over_lowest_price(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "on_demand_max_price_percentage_over_lowest_price", value)
+
+    @property
+    @pulumi.getter(name="requireHibernateSupport")
+    def require_hibernate_support(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "require_hibernate_support")
+
+    @require_hibernate_support.setter
+    def require_hibernate_support(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "require_hibernate_support", value)
+
+    @property
+    @pulumi.getter(name="spotMaxPricePercentageOverLowestPrice")
+    def spot_max_price_percentage_over_lowest_price(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
+
+    @spot_max_price_percentage_over_lowest_price.setter
+    def spot_max_price_percentage_over_lowest_price(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "spot_max_price_percentage_over_lowest_price", value)
+
+    @property
+    @pulumi.getter(name="totalLocalStorageGb")
+    def total_local_storage_gb(self) -> Optional[pulumi.Input['CapacityProviderTotalLocalStorageGbRequestArgs']]:
+        return pulumi.get(self, "total_local_storage_gb")
+
+    @total_local_storage_gb.setter
+    def total_local_storage_gb(self, value: Optional[pulumi.Input['CapacityProviderTotalLocalStorageGbRequestArgs']]):
+        pulumi.set(self, "total_local_storage_gb", value)
+
+
+if not MYPY:
+    class CapacityProviderManagedInstancesNetworkConfigurationArgsDict(TypedDict):
+        subnets: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+elif False:
+    CapacityProviderManagedInstancesNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderManagedInstancesNetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 subnets: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        pulumi.set(__self__, "subnets", subnets)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "subnets", value)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "security_groups", value)
+
+
+if not MYPY:
+    class CapacityProviderManagedInstancesProviderArgsDict(TypedDict):
+        infrastructure_role_arn: pulumi.Input[builtins.str]
+        instance_launch_template: pulumi.Input['CapacityProviderInstanceLaunchTemplateArgsDict']
+        propagate_tags: NotRequired[pulumi.Input['CapacityProviderManagedInstancesProviderPropagateTags']]
+elif False:
+    CapacityProviderManagedInstancesProviderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderManagedInstancesProviderArgs:
+    def __init__(__self__, *,
+                 infrastructure_role_arn: pulumi.Input[builtins.str],
+                 instance_launch_template: pulumi.Input['CapacityProviderInstanceLaunchTemplateArgs'],
+                 propagate_tags: Optional[pulumi.Input['CapacityProviderManagedInstancesProviderPropagateTags']] = None):
+        pulumi.set(__self__, "infrastructure_role_arn", infrastructure_role_arn)
+        pulumi.set(__self__, "instance_launch_template", instance_launch_template)
+        if propagate_tags is not None:
+            pulumi.set(__self__, "propagate_tags", propagate_tags)
+
+    @property
+    @pulumi.getter(name="infrastructureRoleArn")
+    def infrastructure_role_arn(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "infrastructure_role_arn")
+
+    @infrastructure_role_arn.setter
+    def infrastructure_role_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "infrastructure_role_arn", value)
+
+    @property
+    @pulumi.getter(name="instanceLaunchTemplate")
+    def instance_launch_template(self) -> pulumi.Input['CapacityProviderInstanceLaunchTemplateArgs']:
+        return pulumi.get(self, "instance_launch_template")
+
+    @instance_launch_template.setter
+    def instance_launch_template(self, value: pulumi.Input['CapacityProviderInstanceLaunchTemplateArgs']):
+        pulumi.set(self, "instance_launch_template", value)
+
+    @property
+    @pulumi.getter(name="propagateTags")
+    def propagate_tags(self) -> Optional[pulumi.Input['CapacityProviderManagedInstancesProviderPropagateTags']]:
+        return pulumi.get(self, "propagate_tags")
+
+    @propagate_tags.setter
+    def propagate_tags(self, value: Optional[pulumi.Input['CapacityProviderManagedInstancesProviderPropagateTags']]):
+        pulumi.set(self, "propagate_tags", value)
+
+
+if not MYPY:
+    class CapacityProviderManagedInstancesStorageConfigurationArgsDict(TypedDict):
+        storage_size_gi_b: pulumi.Input[builtins.int]
+elif False:
+    CapacityProviderManagedInstancesStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderManagedInstancesStorageConfigurationArgs:
+    def __init__(__self__, *,
+                 storage_size_gi_b: pulumi.Input[builtins.int]):
+        pulumi.set(__self__, "storage_size_gi_b", storage_size_gi_b)
+
+    @property
+    @pulumi.getter(name="storageSizeGiB")
+    def storage_size_gi_b(self) -> pulumi.Input[builtins.int]:
+        return pulumi.get(self, "storage_size_gi_b")
+
+    @storage_size_gi_b.setter
+    def storage_size_gi_b(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "storage_size_gi_b", value)
 
 
 if not MYPY:
@@ -408,6 +1041,220 @@ class CapacityProviderManagedScalingArgs:
     @target_capacity.setter
     def target_capacity(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "target_capacity", value)
+
+
+if not MYPY:
+    class CapacityProviderMemoryGiBPerVCpuRequestArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[builtins.float]]
+        min: NotRequired[pulumi.Input[builtins.float]]
+elif False:
+    CapacityProviderMemoryGiBPerVCpuRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderMemoryGiBPerVCpuRequestArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[builtins.float]] = None,
+                 min: Optional[pulumi.Input[builtins.float]] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[builtins.float]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[builtins.float]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "min", value)
+
+
+if not MYPY:
+    class CapacityProviderMemoryMiBRequestArgsDict(TypedDict):
+        min: pulumi.Input[builtins.int]
+        max: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CapacityProviderMemoryMiBRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderMemoryMiBRequestArgs:
+    def __init__(__self__, *,
+                 min: pulumi.Input[builtins.int],
+                 max: Optional[pulumi.Input[builtins.int]] = None):
+        pulumi.set(__self__, "min", min)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+
+    @property
+    @pulumi.getter
+    def min(self) -> pulumi.Input[builtins.int]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "min", value)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max", value)
+
+
+if not MYPY:
+    class CapacityProviderNetworkBandwidthGbpsRequestArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[builtins.float]]
+        min: NotRequired[pulumi.Input[builtins.float]]
+elif False:
+    CapacityProviderNetworkBandwidthGbpsRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderNetworkBandwidthGbpsRequestArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[builtins.float]] = None,
+                 min: Optional[pulumi.Input[builtins.float]] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[builtins.float]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[builtins.float]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "min", value)
+
+
+if not MYPY:
+    class CapacityProviderNetworkInterfaceCountRequestArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[builtins.int]]
+        min: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CapacityProviderNetworkInterfaceCountRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderNetworkInterfaceCountRequestArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[builtins.int]] = None,
+                 min: Optional[pulumi.Input[builtins.int]] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min", value)
+
+
+if not MYPY:
+    class CapacityProviderTotalLocalStorageGbRequestArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[builtins.float]]
+        min: NotRequired[pulumi.Input[builtins.float]]
+elif False:
+    CapacityProviderTotalLocalStorageGbRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderTotalLocalStorageGbRequestArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[builtins.float]] = None,
+                 min: Optional[pulumi.Input[builtins.float]] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[builtins.float]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[builtins.float]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "min", value)
+
+
+if not MYPY:
+    class CapacityProviderVCpuCountRangeRequestArgsDict(TypedDict):
+        min: pulumi.Input[builtins.int]
+        max: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CapacityProviderVCpuCountRangeRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderVCpuCountRangeRequestArgs:
+    def __init__(__self__, *,
+                 min: pulumi.Input[builtins.int],
+                 max: Optional[pulumi.Input[builtins.int]] = None):
+        pulumi.set(__self__, "min", min)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+
+    @property
+    @pulumi.getter
+    def min(self) -> pulumi.Input[builtins.int]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "min", value)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max", value)
 
 
 if not MYPY:
@@ -2119,7 +2966,7 @@ if not MYPY:
         minimum_healthy_percent: NotRequired[pulumi.Input[builtins.int]]
         """
         If a service is using the rolling update (``ECS``) deployment type, the ``minimumHealthyPercent`` represents a lower limit on the number of your service's tasks that must remain in the ``RUNNING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a ``desiredCount`` of four tasks and a ``minimumHealthyPercent`` of 50%, the service scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks. 
-          If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html) . 
+          If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html). 
          For services that *do not* use a load balancer, the following should be noted:
           +  A service is considered healthy if all essential containers within the tasks in the service pass their health checks.
           +  If a task has no essential containers with a health check defined, the service scheduler will wait for 40 seconds after a task reaches a ``RUNNING`` state before the task is counted towards the minimum healthy percent total.
@@ -2171,7 +3018,7 @@ class ServiceDeploymentConfigurationArgs:
                  You can't specify a custom ``maximumPercent`` value for a service that uses either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and has tasks that use the EC2 launch type.
                  If the service uses either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and the tasks in the service use the Fargate launch type, the maximum percent value is not used. The value is still returned when describing your service.
         :param pulumi.Input[builtins.int] minimum_healthy_percent: If a service is using the rolling update (``ECS``) deployment type, the ``minimumHealthyPercent`` represents a lower limit on the number of your service's tasks that must remain in the ``RUNNING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a ``desiredCount`` of four tasks and a ``minimumHealthyPercent`` of 50%, the service scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks. 
-                 If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html) . 
+                 If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html). 
                 For services that *do not* use a load balancer, the following should be noted:
                  +  A service is considered healthy if all essential containers within the tasks in the service pass their health checks.
                  +  If a task has no essential containers with a health check defined, the service scheduler will wait for 40 seconds after a task reaches a ``RUNNING`` state before the task is counted towards the minimum healthy percent total.
@@ -2279,7 +3126,7 @@ class ServiceDeploymentConfigurationArgs:
     def minimum_healthy_percent(self) -> Optional[pulumi.Input[builtins.int]]:
         """
         If a service is using the rolling update (``ECS``) deployment type, the ``minimumHealthyPercent`` represents a lower limit on the number of your service's tasks that must remain in the ``RUNNING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a ``desiredCount`` of four tasks and a ``minimumHealthyPercent`` of 50%, the service scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks. 
-          If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html) . 
+          If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html). 
          For services that *do not* use a load balancer, the following should be noted:
           +  A service is considered healthy if all essential containers within the tasks in the service pass their health checks.
           +  If a task has no essential containers with a health check defined, the service scheduler will wait for 40 seconds after a task reaches a ``RUNNING`` state before the task is counted towards the minimum healthy percent total.
@@ -2496,9 +3343,8 @@ if not MYPY:
         """
         hook_details: NotRequired[Any]
         """
-        Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
-
-        This field must be a JSON object as a string.
+        Use this field to specify custom parameters that ECS passes to your hook target invocations (such as a Lambda function).
+         This field must be a JSON object as a string.
         """
 elif False:
     ServiceDeploymentLifecycleHookArgsDict: TypeAlias = Mapping[str, Any]
@@ -2541,9 +3387,8 @@ class ServiceDeploymentLifecycleHookArgs:
                 You must provide this parameter when configuring a deployment lifecycle hook.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
                 For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param Any hook_details: Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
-               
-               This field must be a JSON object as a string.
+        :param Any hook_details: Use this field to specify custom parameters that ECS passes to your hook target invocations (such as a Lambda function).
+                This field must be a JSON object as a string.
         """
         pulumi.set(__self__, "hook_target_arn", hook_target_arn)
         pulumi.set(__self__, "lifecycle_stages", lifecycle_stages)
@@ -2616,9 +3461,8 @@ class ServiceDeploymentLifecycleHookArgs:
     @pulumi.getter(name="hookDetails")
     def hook_details(self) -> Optional[Any]:
         """
-        Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
-
-        This field must be a JSON object as a string.
+        Use this field to specify custom parameters that ECS passes to your hook target invocations (such as a Lambda function).
+         This field must be a JSON object as a string.
         """
         return pulumi.get(self, "hook_details")
 

@@ -31,6 +31,8 @@ type SiteToSiteVpnAttachment struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The Region where the edge is located.
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
+	// Errors from the last modification of the attachment.
+	LastModificationErrors pulumi.StringArrayOutput `pulumi:"lastModificationErrors"`
 	// The name of the network function group attachment.
 	NetworkFunctionGroupName pulumi.StringPtrOutput `pulumi:"networkFunctionGroupName"`
 	// Owner account of the attachment.
@@ -204,6 +206,11 @@ func (o SiteToSiteVpnAttachmentOutput) CreatedAt() pulumi.StringOutput {
 // The Region where the edge is located.
 func (o SiteToSiteVpnAttachmentOutput) EdgeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
+}
+
+// Errors from the last modification of the attachment.
+func (o SiteToSiteVpnAttachmentOutput) LastModificationErrors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringArrayOutput { return v.LastModificationErrors }).(pulumi.StringArrayOutput)
 }
 
 // The name of the network function group attachment.

@@ -38,6 +38,10 @@ export interface GetDbProxyResult {
      */
     readonly debugLogging?: boolean;
     /**
+     * The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+     */
+    readonly defaultAuthScheme?: enums.rds.DbProxyDefaultAuthScheme;
+    /**
      * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      */
     readonly endpoint?: string;

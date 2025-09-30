@@ -45,7 +45,7 @@ class ComputeNodeGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The list of subnet IDs where instances are provisioned by the compute node group. The subnets must be in the same VPC as the cluster.
         :param pulumi.Input[builtins.str] ami_id: The ID of the Amazon Machine Image (AMI) that AWS PCS uses to launch instances. If not provided, AWS PCS uses the AMI ID specified in the custom launch template.
         :param pulumi.Input[builtins.str] name: The name that identifies the compute node group.
-        :param pulumi.Input['ComputeNodeGroupPurchaseOption'] purchase_option: Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
+        :param pulumi.Input['ComputeNodeGroupPurchaseOption'] purchase_option: Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
         :param pulumi.Input['SlurmConfigurationPropertiesArgs'] slurm_configuration: Additional options related to the Slurm scheduler.
         :param pulumi.Input['SpotOptionsPropertiesArgs'] spot_options: Additional configuration when you specify SPOT as the purchase option.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
@@ -169,7 +169,7 @@ class ComputeNodeGroupArgs:
     @pulumi.getter(name="purchaseOption")
     def purchase_option(self) -> Optional[pulumi.Input['ComputeNodeGroupPurchaseOption']]:
         """
-        Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
+        Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
         """
         return pulumi.get(self, "purchase_option")
 
@@ -244,7 +244,7 @@ class ComputeNodeGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] iam_instance_profile_arn: The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have pcs:RegisterComputeNodeGroupInstance permissions attached to provision instances correctly.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ComputeNodeGroupInstanceConfigArgs', 'ComputeNodeGroupInstanceConfigArgsDict']]]] instance_configs: A list of EC2 instance configurations that AWS PCS can provision in the compute node group.
         :param pulumi.Input[builtins.str] name: The name that identifies the compute node group.
-        :param pulumi.Input['ComputeNodeGroupPurchaseOption'] purchase_option: Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
+        :param pulumi.Input['ComputeNodeGroupPurchaseOption'] purchase_option: Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
         :param pulumi.Input[Union['ScalingConfigurationPropertiesArgs', 'ScalingConfigurationPropertiesArgsDict']] scaling_configuration: Specifies the boundaries of the compute node group auto scaling.
         :param pulumi.Input[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']] slurm_configuration: Additional options related to the Slurm scheduler.
         :param pulumi.Input[Union['SpotOptionsPropertiesArgs', 'SpotOptionsPropertiesArgsDict']] spot_options: Additional configuration when you specify SPOT as the purchase option.
@@ -442,7 +442,7 @@ class ComputeNodeGroup(pulumi.CustomResource):
     @pulumi.getter(name="purchaseOption")
     def purchase_option(self) -> pulumi.Output[Optional['ComputeNodeGroupPurchaseOption']]:
         """
-        Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
+        Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
         """
         return pulumi.get(self, "purchase_option")
 

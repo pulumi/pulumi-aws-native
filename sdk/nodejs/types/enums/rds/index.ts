@@ -56,6 +56,38 @@ export const DbProxyAuthFormatIamAuth = {
  */
 export type DbProxyAuthFormatIamAuth = (typeof DbProxyAuthFormatIamAuth)[keyof typeof DbProxyAuthFormatIamAuth];
 
+export const DbProxyDefaultAuthScheme = {
+    IamAuth: "IAM_AUTH",
+    None: "NONE",
+} as const;
+
+/**
+ * The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+ */
+export type DbProxyDefaultAuthScheme = (typeof DbProxyDefaultAuthScheme)[keyof typeof DbProxyDefaultAuthScheme];
+
+export const DbProxyEndpointEndpointNetworkType = {
+    Ipv4: "IPV4",
+    Ipv6: "IPV6",
+    Dual: "DUAL",
+} as const;
+
+/**
+ * The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+ */
+export type DbProxyEndpointEndpointNetworkType = (typeof DbProxyEndpointEndpointNetworkType)[keyof typeof DbProxyEndpointEndpointNetworkType];
+
+export const DbProxyEndpointNetworkType = {
+    Ipv4: "IPV4",
+    Ipv6: "IPV6",
+    Dual: "DUAL",
+} as const;
+
+/**
+ * The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+ */
+export type DbProxyEndpointNetworkType = (typeof DbProxyEndpointNetworkType)[keyof typeof DbProxyEndpointNetworkType];
+
 export const DbProxyEndpointTargetRole = {
     ReadWrite: "READ_WRITE",
     ReadOnly: "READ_ONLY",
@@ -76,6 +108,16 @@ export const DbProxyEngineFamily = {
  * The kinds of databases that the proxy can connect to.
  */
 export type DbProxyEngineFamily = (typeof DbProxyEngineFamily)[keyof typeof DbProxyEngineFamily];
+
+export const DbProxyTargetConnectionNetworkType = {
+    Ipv4: "IPV4",
+    Ipv6: "IPV6",
+} as const;
+
+/**
+ * The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
+ */
+export type DbProxyTargetConnectionNetworkType = (typeof DbProxyTargetConnectionNetworkType)[keyof typeof DbProxyTargetConnectionNetworkType];
 
 export const DbProxyTargetGroupTargetGroupName = {
     Default: "default",

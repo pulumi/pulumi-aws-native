@@ -35,6 +35,8 @@ type ConnectPeer struct {
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
 	// The inside IP addresses used for a Connect peer configuration.
 	InsideCidrBlocks pulumi.StringArrayOutput `pulumi:"insideCidrBlocks"`
+	// Errors from the last modification of the connect peer.
+	LastModificationErrors pulumi.StringArrayOutput `pulumi:"lastModificationErrors"`
 	// The IP address of the Connect peer.
 	PeerAddress pulumi.StringOutput `pulumi:"peerAddress"`
 	// State of the connect peer.
@@ -214,6 +216,11 @@ func (o ConnectPeerOutput) EdgeLocation() pulumi.StringOutput {
 // The inside IP addresses used for a Connect peer configuration.
 func (o ConnectPeerOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringArrayOutput { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+// Errors from the last modification of the connect peer.
+func (o ConnectPeerOutput) LastModificationErrors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectPeer) pulumi.StringArrayOutput { return v.LastModificationErrors }).(pulumi.StringArrayOutput)
 }
 
 // The IP address of the Connect peer.

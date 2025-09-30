@@ -43,6 +43,8 @@ type LookupTransitGatewayRouteTableAttachmentResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The Region where the edge is located.
 	EdgeLocation *string `pulumi:"edgeLocation"`
+	// Errors from the last modification of the attachment.
+	LastModificationErrors []string `pulumi:"lastModificationErrors"`
 	// The name of the network function group attachment.
 	NetworkFunctionGroupName *string `pulumi:"networkFunctionGroupName"`
 	// Owner account of the attachment.
@@ -128,6 +130,11 @@ func (o LookupTransitGatewayRouteTableAttachmentResultOutput) CreatedAt() pulumi
 // The Region where the edge is located.
 func (o LookupTransitGatewayRouteTableAttachmentResultOutput) EdgeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayRouteTableAttachmentResult) *string { return v.EdgeLocation }).(pulumi.StringPtrOutput)
+}
+
+// Errors from the last modification of the attachment.
+func (o LookupTransitGatewayRouteTableAttachmentResultOutput) LastModificationErrors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupTransitGatewayRouteTableAttachmentResult) []string { return v.LastModificationErrors }).(pulumi.StringArrayOutput)
 }
 
 // The name of the network function group attachment.

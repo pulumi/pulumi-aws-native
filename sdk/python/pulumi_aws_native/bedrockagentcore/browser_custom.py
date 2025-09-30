@@ -36,6 +36,7 @@ class BrowserCustomArgs:
         :param pulumi.Input[builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
         :param pulumi.Input[builtins.str] name: The name of the browser.
         :param pulumi.Input['BrowserCustomRecordingConfigArgs'] recording_config: Recording configuration for browser.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the custom browser.
         """
         pulumi.set(__self__, "network_configuration", network_configuration)
         if description is not None:
@@ -112,6 +113,9 @@ class BrowserCustomArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        The tags for the custom browser.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -142,6 +146,7 @@ class BrowserCustom(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the browser.
         :param pulumi.Input[Union['BrowserCustomBrowserNetworkConfigurationArgs', 'BrowserCustomBrowserNetworkConfigurationArgsDict']] network_configuration: Network configuration for browser.
         :param pulumi.Input[Union['BrowserCustomRecordingConfigArgs', 'BrowserCustomRecordingConfigArgsDict']] recording_config: Recording configuration for browser.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the custom browser.
         """
         ...
     @overload
@@ -315,5 +320,8 @@ class BrowserCustom(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        The tags for the custom browser.
+        """
         return pulumi.get(self, "tags")
 

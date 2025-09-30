@@ -203,6 +203,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
             __props__.__dict__["core_network_arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["edge_location"] = None
+            __props__.__dict__["last_modification_errors"] = None
             __props__.__dict__["owner_account_id"] = None
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["segment_name"] = None
@@ -239,6 +240,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         __props__.__dict__["core_network_id"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["edge_location"] = None
+        __props__.__dict__["last_modification_errors"] = None
         __props__.__dict__["network_function_group_name"] = None
         __props__.__dict__["owner_account_id"] = None
         __props__.__dict__["proposed_network_function_group_change"] = None
@@ -306,6 +308,14 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         The Region where the edge is located.
         """
         return pulumi.get(self, "edge_location")
+
+    @property
+    @pulumi.getter(name="lastModificationErrors")
+    def last_modification_errors(self) -> pulumi.Output[Sequence[builtins.str]]:
+        """
+        Errors from the last modification of the attachment.
+        """
+        return pulumi.get(self, "last_modification_errors")
 
     @property
     @pulumi.getter(name="networkFunctionGroupName")

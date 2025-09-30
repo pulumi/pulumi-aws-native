@@ -762,6 +762,7 @@ _utilities.register(
   "mod": "amazonmq",
   "fqn": "pulumi_aws_native.amazonmq",
   "classes": {
+   "aws-native:amazonmq:Broker": "Broker",
    "aws-native:amazonmq:Configuration": "Configuration"
   }
  },
@@ -1477,6 +1478,7 @@ _utilities.register(
    "aws-native:datazone:EnvironmentActions": "EnvironmentActions",
    "aws-native:datazone:EnvironmentBlueprintConfiguration": "EnvironmentBlueprintConfiguration",
    "aws-native:datazone:EnvironmentProfile": "EnvironmentProfile",
+   "aws-native:datazone:FormType": "FormType",
    "aws-native:datazone:GroupProfile": "GroupProfile",
    "aws-native:datazone:Owner": "Owner",
    "aws-native:datazone:PolicyGrant": "PolicyGrant",
@@ -1618,6 +1620,8 @@ _utilities.register(
    "aws-native:ec2:LocalGatewayRouteTable": "LocalGatewayRouteTable",
    "aws-native:ec2:LocalGatewayRouteTableVirtualInterfaceGroupAssociation": "LocalGatewayRouteTableVirtualInterfaceGroupAssociation",
    "aws-native:ec2:LocalGatewayRouteTableVpcAssociation": "LocalGatewayRouteTableVpcAssociation",
+   "aws-native:ec2:LocalGatewayVirtualInterface": "LocalGatewayVirtualInterface",
+   "aws-native:ec2:LocalGatewayVirtualInterfaceGroup": "LocalGatewayVirtualInterfaceGroup",
    "aws-native:ec2:NatGateway": "NatGateway",
    "aws-native:ec2:NetworkAcl": "NetworkAcl",
    "aws-native:ec2:NetworkInsightsAccessScope": "NetworkInsightsAccessScope",

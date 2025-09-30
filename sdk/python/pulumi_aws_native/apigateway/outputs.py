@@ -1049,6 +1049,8 @@ class MethodIntegration(dict):
             suggest = "request_parameters"
         elif key == "requestTemplates":
             suggest = "request_templates"
+        elif key == "responseTransferMode":
+            suggest = "response_transfer_mode"
         elif key == "timeoutInMillis":
             suggest = "timeout_in_millis"
 
@@ -1076,6 +1078,7 @@ class MethodIntegration(dict):
                  passthrough_behavior: Optional['MethodIntegrationPassthroughBehavior'] = None,
                  request_parameters: Optional[Mapping[str, builtins.str]] = None,
                  request_templates: Optional[Mapping[str, builtins.str]] = None,
+                 response_transfer_mode: Optional['MethodIntegrationResponseTransferMode'] = None,
                  timeout_in_millis: Optional[builtins.int] = None,
                  uri: Optional[builtins.str] = None):
         """
@@ -1124,6 +1127,8 @@ class MethodIntegration(dict):
             pulumi.set(__self__, "request_parameters", request_parameters)
         if request_templates is not None:
             pulumi.set(__self__, "request_templates", request_templates)
+        if response_transfer_mode is not None:
+            pulumi.set(__self__, "response_transfer_mode", response_transfer_mode)
         if timeout_in_millis is not None:
             pulumi.set(__self__, "timeout_in_millis", timeout_in_millis)
         if uri is not None:
@@ -1228,6 +1233,11 @@ class MethodIntegration(dict):
         Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
         """
         return pulumi.get(self, "request_templates")
+
+    @property
+    @pulumi.getter(name="responseTransferMode")
+    def response_transfer_mode(self) -> Optional['MethodIntegrationResponseTransferMode']:
+        return pulumi.get(self, "response_transfer_mode")
 
     @property
     @pulumi.getter(name="timeoutInMillis")

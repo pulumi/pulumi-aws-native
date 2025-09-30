@@ -416,7 +416,6 @@ if not MYPY:
         """
         Information about the automation configuration in numeric questions.
         """
-        answer_source: NotRequired[Any]
         property_value: NotRequired[pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgsDict']]
         """
         The property value of the automation.
@@ -427,25 +426,13 @@ elif False:
 @pulumi.input_type
 class EvaluationFormNumericQuestionAutomationArgs:
     def __init__(__self__, *,
-                 answer_source: Optional[Any] = None,
                  property_value: Optional[pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgs']] = None):
         """
         Information about the automation configuration in numeric questions.
         :param pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgs'] property_value: The property value of the automation.
         """
-        if answer_source is not None:
-            pulumi.set(__self__, "answer_source", answer_source)
         if property_value is not None:
             pulumi.set(__self__, "property_value", property_value)
-
-    @property
-    @pulumi.getter(name="answerSource")
-    def answer_source(self) -> Optional[Any]:
-        return pulumi.get(self, "answer_source")
-
-    @answer_source.setter
-    def answer_source(self, value: Optional[Any]):
-        pulumi.set(self, "answer_source", value)
 
     @property
     @pulumi.getter(name="propertyValue")
@@ -4697,6 +4684,9 @@ if not MYPY:
         The phone number for the user's desk phone.
         """
         persistent_connection: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        The persistent connection setting for the user.
+        """
 elif False:
     UserPhoneConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4716,6 +4706,7 @@ class UserPhoneConfigArgs:
                > When returned by a `SearchUsers` call, `AfterContactWorkTimeLimit` is returned in milliseconds.
         :param pulumi.Input[builtins.bool] auto_accept: The Auto accept setting.
         :param pulumi.Input[builtins.str] desk_phone_number: The phone number for the user's desk phone.
+        :param pulumi.Input[builtins.bool] persistent_connection: The persistent connection setting for the user.
         """
         pulumi.set(__self__, "phone_type", phone_type)
         if after_contact_work_time_limit is not None:
@@ -4780,6 +4771,9 @@ class UserPhoneConfigArgs:
     @property
     @pulumi.getter(name="persistentConnection")
     def persistent_connection(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        The persistent connection setting for the user.
+        """
         return pulumi.get(self, "persistent_connection")
 
     @persistent_connection.setter

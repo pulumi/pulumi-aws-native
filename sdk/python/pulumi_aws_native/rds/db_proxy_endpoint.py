@@ -26,6 +26,7 @@ class DbProxyEndpointArgs:
                  db_proxy_name: pulumi.Input[builtins.str],
                  vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  db_proxy_endpoint_name: Optional[pulumi.Input[builtins.str]] = None,
+                 endpoint_network_type: Optional[pulumi.Input['DbProxyEndpointEndpointNetworkType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  target_role: Optional[pulumi.Input['DbProxyEndpointTargetRole']] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
@@ -34,6 +35,7 @@ class DbProxyEndpointArgs:
         :param pulumi.Input[builtins.str] db_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new DB proxy endpoint.
         :param pulumi.Input[builtins.str] db_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
+        :param pulumi.Input['DbProxyEndpointEndpointNetworkType'] endpoint_network_type: The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
         :param pulumi.Input['DbProxyEndpointTargetRole'] target_role: A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: VPC security group IDs to associate with the new DB proxy endpoint.
@@ -42,6 +44,8 @@ class DbProxyEndpointArgs:
         pulumi.set(__self__, "vpc_subnet_ids", vpc_subnet_ids)
         if db_proxy_endpoint_name is not None:
             pulumi.set(__self__, "db_proxy_endpoint_name", db_proxy_endpoint_name)
+        if endpoint_network_type is not None:
+            pulumi.set(__self__, "endpoint_network_type", endpoint_network_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_role is not None:
@@ -84,6 +88,18 @@ class DbProxyEndpointArgs:
     @db_proxy_endpoint_name.setter
     def db_proxy_endpoint_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "db_proxy_endpoint_name", value)
+
+    @property
+    @pulumi.getter(name="endpointNetworkType")
+    def endpoint_network_type(self) -> Optional[pulumi.Input['DbProxyEndpointEndpointNetworkType']]:
+        """
+        The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+        """
+        return pulumi.get(self, "endpoint_network_type")
+
+    @endpoint_network_type.setter
+    def endpoint_network_type(self, value: Optional[pulumi.Input['DbProxyEndpointEndpointNetworkType']]):
+        pulumi.set(self, "endpoint_network_type", value)
 
     @property
     @pulumi.getter
@@ -130,6 +146,7 @@ class DbProxyEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_proxy_endpoint_name: Optional[pulumi.Input[builtins.str]] = None,
                  db_proxy_name: Optional[pulumi.Input[builtins.str]] = None,
+                 endpoint_network_type: Optional[pulumi.Input['DbProxyEndpointEndpointNetworkType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  target_role: Optional[pulumi.Input['DbProxyEndpointTargetRole']] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -142,6 +159,7 @@ class DbProxyEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] db_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
         :param pulumi.Input[builtins.str] db_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
+        :param pulumi.Input['DbProxyEndpointEndpointNetworkType'] endpoint_network_type: The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
         :param pulumi.Input['DbProxyEndpointTargetRole'] target_role: A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: VPC security group IDs to associate with the new DB proxy endpoint.
@@ -173,6 +191,7 @@ class DbProxyEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_proxy_endpoint_name: Optional[pulumi.Input[builtins.str]] = None,
                  db_proxy_name: Optional[pulumi.Input[builtins.str]] = None,
+                 endpoint_network_type: Optional[pulumi.Input['DbProxyEndpointEndpointNetworkType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  target_role: Optional[pulumi.Input['DbProxyEndpointTargetRole']] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -190,6 +209,7 @@ class DbProxyEndpoint(pulumi.CustomResource):
             if db_proxy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'db_proxy_name'")
             __props__.__dict__["db_proxy_name"] = db_proxy_name
+            __props__.__dict__["endpoint_network_type"] = endpoint_network_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_role"] = target_role
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
@@ -200,7 +220,7 @@ class DbProxyEndpoint(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["is_default"] = None
             __props__.__dict__["vpc_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dbProxyEndpointName", "dbProxyName", "vpcSubnetIds[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dbProxyEndpointName", "dbProxyName", "endpointNetworkType", "vpcSubnetIds[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbProxyEndpoint, __self__).__init__(
             'aws-native:rds:DbProxyEndpoint',
@@ -228,6 +248,7 @@ class DbProxyEndpoint(pulumi.CustomResource):
         __props__.__dict__["db_proxy_endpoint_name"] = None
         __props__.__dict__["db_proxy_name"] = None
         __props__.__dict__["endpoint"] = None
+        __props__.__dict__["endpoint_network_type"] = None
         __props__.__dict__["is_default"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_role"] = None
@@ -267,6 +288,14 @@ class DbProxyEndpoint(pulumi.CustomResource):
         The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="endpointNetworkType")
+    def endpoint_network_type(self) -> pulumi.Output[Optional['DbProxyEndpointEndpointNetworkType']]:
+        """
+        The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+        """
+        return pulumi.get(self, "endpoint_network_type")
 
     @property
     @pulumi.getter(name="isDefault")

@@ -848,6 +848,508 @@ func (in *dbProxyAuthFormatIamAuthPtr) ToDbProxyAuthFormatIamAuthPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(DbProxyAuthFormatIamAuthPtrOutput)
 }
 
+// The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+type DbProxyDefaultAuthScheme string
+
+const (
+	DbProxyDefaultAuthSchemeIamAuth = DbProxyDefaultAuthScheme("IAM_AUTH")
+	DbProxyDefaultAuthSchemeNone    = DbProxyDefaultAuthScheme("NONE")
+)
+
+func (DbProxyDefaultAuthScheme) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyDefaultAuthScheme)(nil)).Elem()
+}
+
+func (e DbProxyDefaultAuthScheme) ToDbProxyDefaultAuthSchemeOutput() DbProxyDefaultAuthSchemeOutput {
+	return pulumi.ToOutput(e).(DbProxyDefaultAuthSchemeOutput)
+}
+
+func (e DbProxyDefaultAuthScheme) ToDbProxyDefaultAuthSchemeOutputWithContext(ctx context.Context) DbProxyDefaultAuthSchemeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DbProxyDefaultAuthSchemeOutput)
+}
+
+func (e DbProxyDefaultAuthScheme) ToDbProxyDefaultAuthSchemePtrOutput() DbProxyDefaultAuthSchemePtrOutput {
+	return e.ToDbProxyDefaultAuthSchemePtrOutputWithContext(context.Background())
+}
+
+func (e DbProxyDefaultAuthScheme) ToDbProxyDefaultAuthSchemePtrOutputWithContext(ctx context.Context) DbProxyDefaultAuthSchemePtrOutput {
+	return DbProxyDefaultAuthScheme(e).ToDbProxyDefaultAuthSchemeOutputWithContext(ctx).ToDbProxyDefaultAuthSchemePtrOutputWithContext(ctx)
+}
+
+func (e DbProxyDefaultAuthScheme) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DbProxyDefaultAuthScheme) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DbProxyDefaultAuthScheme) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DbProxyDefaultAuthScheme) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DbProxyDefaultAuthSchemeOutput struct{ *pulumi.OutputState }
+
+func (DbProxyDefaultAuthSchemeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyDefaultAuthScheme)(nil)).Elem()
+}
+
+func (o DbProxyDefaultAuthSchemeOutput) ToDbProxyDefaultAuthSchemeOutput() DbProxyDefaultAuthSchemeOutput {
+	return o
+}
+
+func (o DbProxyDefaultAuthSchemeOutput) ToDbProxyDefaultAuthSchemeOutputWithContext(ctx context.Context) DbProxyDefaultAuthSchemeOutput {
+	return o
+}
+
+func (o DbProxyDefaultAuthSchemeOutput) ToDbProxyDefaultAuthSchemePtrOutput() DbProxyDefaultAuthSchemePtrOutput {
+	return o.ToDbProxyDefaultAuthSchemePtrOutputWithContext(context.Background())
+}
+
+func (o DbProxyDefaultAuthSchemeOutput) ToDbProxyDefaultAuthSchemePtrOutputWithContext(ctx context.Context) DbProxyDefaultAuthSchemePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbProxyDefaultAuthScheme) *DbProxyDefaultAuthScheme {
+		return &v
+	}).(DbProxyDefaultAuthSchemePtrOutput)
+}
+
+func (o DbProxyDefaultAuthSchemeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DbProxyDefaultAuthSchemeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyDefaultAuthScheme) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DbProxyDefaultAuthSchemeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DbProxyDefaultAuthSchemeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyDefaultAuthScheme) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DbProxyDefaultAuthSchemePtrOutput struct{ *pulumi.OutputState }
+
+func (DbProxyDefaultAuthSchemePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbProxyDefaultAuthScheme)(nil)).Elem()
+}
+
+func (o DbProxyDefaultAuthSchemePtrOutput) ToDbProxyDefaultAuthSchemePtrOutput() DbProxyDefaultAuthSchemePtrOutput {
+	return o
+}
+
+func (o DbProxyDefaultAuthSchemePtrOutput) ToDbProxyDefaultAuthSchemePtrOutputWithContext(ctx context.Context) DbProxyDefaultAuthSchemePtrOutput {
+	return o
+}
+
+func (o DbProxyDefaultAuthSchemePtrOutput) Elem() DbProxyDefaultAuthSchemeOutput {
+	return o.ApplyT(func(v *DbProxyDefaultAuthScheme) DbProxyDefaultAuthScheme {
+		if v != nil {
+			return *v
+		}
+		var ret DbProxyDefaultAuthScheme
+		return ret
+	}).(DbProxyDefaultAuthSchemeOutput)
+}
+
+func (o DbProxyDefaultAuthSchemePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DbProxyDefaultAuthSchemePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DbProxyDefaultAuthScheme) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DbProxyDefaultAuthSchemeInput is an input type that accepts values of the DbProxyDefaultAuthScheme enum
+// A concrete instance of `DbProxyDefaultAuthSchemeInput` can be one of the following:
+//
+//	DbProxyDefaultAuthSchemeIamAuth
+//	DbProxyDefaultAuthSchemeNone
+type DbProxyDefaultAuthSchemeInput interface {
+	pulumi.Input
+
+	ToDbProxyDefaultAuthSchemeOutput() DbProxyDefaultAuthSchemeOutput
+	ToDbProxyDefaultAuthSchemeOutputWithContext(context.Context) DbProxyDefaultAuthSchemeOutput
+}
+
+var dbProxyDefaultAuthSchemePtrType = reflect.TypeOf((**DbProxyDefaultAuthScheme)(nil)).Elem()
+
+type DbProxyDefaultAuthSchemePtrInput interface {
+	pulumi.Input
+
+	ToDbProxyDefaultAuthSchemePtrOutput() DbProxyDefaultAuthSchemePtrOutput
+	ToDbProxyDefaultAuthSchemePtrOutputWithContext(context.Context) DbProxyDefaultAuthSchemePtrOutput
+}
+
+type dbProxyDefaultAuthSchemePtr string
+
+func DbProxyDefaultAuthSchemePtr(v string) DbProxyDefaultAuthSchemePtrInput {
+	return (*dbProxyDefaultAuthSchemePtr)(&v)
+}
+
+func (*dbProxyDefaultAuthSchemePtr) ElementType() reflect.Type {
+	return dbProxyDefaultAuthSchemePtrType
+}
+
+func (in *dbProxyDefaultAuthSchemePtr) ToDbProxyDefaultAuthSchemePtrOutput() DbProxyDefaultAuthSchemePtrOutput {
+	return pulumi.ToOutput(in).(DbProxyDefaultAuthSchemePtrOutput)
+}
+
+func (in *dbProxyDefaultAuthSchemePtr) ToDbProxyDefaultAuthSchemePtrOutputWithContext(ctx context.Context) DbProxyDefaultAuthSchemePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DbProxyDefaultAuthSchemePtrOutput)
+}
+
+// The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+type DbProxyEndpointEndpointNetworkType string
+
+const (
+	DbProxyEndpointEndpointNetworkTypeIpv4 = DbProxyEndpointEndpointNetworkType("IPV4")
+	DbProxyEndpointEndpointNetworkTypeIpv6 = DbProxyEndpointEndpointNetworkType("IPV6")
+	DbProxyEndpointEndpointNetworkTypeDual = DbProxyEndpointEndpointNetworkType("DUAL")
+)
+
+func (DbProxyEndpointEndpointNetworkType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyEndpointEndpointNetworkType)(nil)).Elem()
+}
+
+func (e DbProxyEndpointEndpointNetworkType) ToDbProxyEndpointEndpointNetworkTypeOutput() DbProxyEndpointEndpointNetworkTypeOutput {
+	return pulumi.ToOutput(e).(DbProxyEndpointEndpointNetworkTypeOutput)
+}
+
+func (e DbProxyEndpointEndpointNetworkType) ToDbProxyEndpointEndpointNetworkTypeOutputWithContext(ctx context.Context) DbProxyEndpointEndpointNetworkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DbProxyEndpointEndpointNetworkTypeOutput)
+}
+
+func (e DbProxyEndpointEndpointNetworkType) ToDbProxyEndpointEndpointNetworkTypePtrOutput() DbProxyEndpointEndpointNetworkTypePtrOutput {
+	return e.ToDbProxyEndpointEndpointNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (e DbProxyEndpointEndpointNetworkType) ToDbProxyEndpointEndpointNetworkTypePtrOutputWithContext(ctx context.Context) DbProxyEndpointEndpointNetworkTypePtrOutput {
+	return DbProxyEndpointEndpointNetworkType(e).ToDbProxyEndpointEndpointNetworkTypeOutputWithContext(ctx).ToDbProxyEndpointEndpointNetworkTypePtrOutputWithContext(ctx)
+}
+
+func (e DbProxyEndpointEndpointNetworkType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DbProxyEndpointEndpointNetworkType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DbProxyEndpointEndpointNetworkType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DbProxyEndpointEndpointNetworkType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DbProxyEndpointEndpointNetworkTypeOutput struct{ *pulumi.OutputState }
+
+func (DbProxyEndpointEndpointNetworkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyEndpointEndpointNetworkType)(nil)).Elem()
+}
+
+func (o DbProxyEndpointEndpointNetworkTypeOutput) ToDbProxyEndpointEndpointNetworkTypeOutput() DbProxyEndpointEndpointNetworkTypeOutput {
+	return o
+}
+
+func (o DbProxyEndpointEndpointNetworkTypeOutput) ToDbProxyEndpointEndpointNetworkTypeOutputWithContext(ctx context.Context) DbProxyEndpointEndpointNetworkTypeOutput {
+	return o
+}
+
+func (o DbProxyEndpointEndpointNetworkTypeOutput) ToDbProxyEndpointEndpointNetworkTypePtrOutput() DbProxyEndpointEndpointNetworkTypePtrOutput {
+	return o.ToDbProxyEndpointEndpointNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (o DbProxyEndpointEndpointNetworkTypeOutput) ToDbProxyEndpointEndpointNetworkTypePtrOutputWithContext(ctx context.Context) DbProxyEndpointEndpointNetworkTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbProxyEndpointEndpointNetworkType) *DbProxyEndpointEndpointNetworkType {
+		return &v
+	}).(DbProxyEndpointEndpointNetworkTypePtrOutput)
+}
+
+func (o DbProxyEndpointEndpointNetworkTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DbProxyEndpointEndpointNetworkTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyEndpointEndpointNetworkType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DbProxyEndpointEndpointNetworkTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DbProxyEndpointEndpointNetworkTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyEndpointEndpointNetworkType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DbProxyEndpointEndpointNetworkTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DbProxyEndpointEndpointNetworkTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbProxyEndpointEndpointNetworkType)(nil)).Elem()
+}
+
+func (o DbProxyEndpointEndpointNetworkTypePtrOutput) ToDbProxyEndpointEndpointNetworkTypePtrOutput() DbProxyEndpointEndpointNetworkTypePtrOutput {
+	return o
+}
+
+func (o DbProxyEndpointEndpointNetworkTypePtrOutput) ToDbProxyEndpointEndpointNetworkTypePtrOutputWithContext(ctx context.Context) DbProxyEndpointEndpointNetworkTypePtrOutput {
+	return o
+}
+
+func (o DbProxyEndpointEndpointNetworkTypePtrOutput) Elem() DbProxyEndpointEndpointNetworkTypeOutput {
+	return o.ApplyT(func(v *DbProxyEndpointEndpointNetworkType) DbProxyEndpointEndpointNetworkType {
+		if v != nil {
+			return *v
+		}
+		var ret DbProxyEndpointEndpointNetworkType
+		return ret
+	}).(DbProxyEndpointEndpointNetworkTypeOutput)
+}
+
+func (o DbProxyEndpointEndpointNetworkTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DbProxyEndpointEndpointNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DbProxyEndpointEndpointNetworkType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DbProxyEndpointEndpointNetworkTypeInput is an input type that accepts values of the DbProxyEndpointEndpointNetworkType enum
+// A concrete instance of `DbProxyEndpointEndpointNetworkTypeInput` can be one of the following:
+//
+//	DbProxyEndpointEndpointNetworkTypeIpv4
+//	DbProxyEndpointEndpointNetworkTypeIpv6
+//	DbProxyEndpointEndpointNetworkTypeDual
+type DbProxyEndpointEndpointNetworkTypeInput interface {
+	pulumi.Input
+
+	ToDbProxyEndpointEndpointNetworkTypeOutput() DbProxyEndpointEndpointNetworkTypeOutput
+	ToDbProxyEndpointEndpointNetworkTypeOutputWithContext(context.Context) DbProxyEndpointEndpointNetworkTypeOutput
+}
+
+var dbProxyEndpointEndpointNetworkTypePtrType = reflect.TypeOf((**DbProxyEndpointEndpointNetworkType)(nil)).Elem()
+
+type DbProxyEndpointEndpointNetworkTypePtrInput interface {
+	pulumi.Input
+
+	ToDbProxyEndpointEndpointNetworkTypePtrOutput() DbProxyEndpointEndpointNetworkTypePtrOutput
+	ToDbProxyEndpointEndpointNetworkTypePtrOutputWithContext(context.Context) DbProxyEndpointEndpointNetworkTypePtrOutput
+}
+
+type dbProxyEndpointEndpointNetworkTypePtr string
+
+func DbProxyEndpointEndpointNetworkTypePtr(v string) DbProxyEndpointEndpointNetworkTypePtrInput {
+	return (*dbProxyEndpointEndpointNetworkTypePtr)(&v)
+}
+
+func (*dbProxyEndpointEndpointNetworkTypePtr) ElementType() reflect.Type {
+	return dbProxyEndpointEndpointNetworkTypePtrType
+}
+
+func (in *dbProxyEndpointEndpointNetworkTypePtr) ToDbProxyEndpointEndpointNetworkTypePtrOutput() DbProxyEndpointEndpointNetworkTypePtrOutput {
+	return pulumi.ToOutput(in).(DbProxyEndpointEndpointNetworkTypePtrOutput)
+}
+
+func (in *dbProxyEndpointEndpointNetworkTypePtr) ToDbProxyEndpointEndpointNetworkTypePtrOutputWithContext(ctx context.Context) DbProxyEndpointEndpointNetworkTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DbProxyEndpointEndpointNetworkTypePtrOutput)
+}
+
+// The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+type DbProxyEndpointNetworkType string
+
+const (
+	DbProxyEndpointNetworkTypeIpv4 = DbProxyEndpointNetworkType("IPV4")
+	DbProxyEndpointNetworkTypeIpv6 = DbProxyEndpointNetworkType("IPV6")
+	DbProxyEndpointNetworkTypeDual = DbProxyEndpointNetworkType("DUAL")
+)
+
+func (DbProxyEndpointNetworkType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyEndpointNetworkType)(nil)).Elem()
+}
+
+func (e DbProxyEndpointNetworkType) ToDbProxyEndpointNetworkTypeOutput() DbProxyEndpointNetworkTypeOutput {
+	return pulumi.ToOutput(e).(DbProxyEndpointNetworkTypeOutput)
+}
+
+func (e DbProxyEndpointNetworkType) ToDbProxyEndpointNetworkTypeOutputWithContext(ctx context.Context) DbProxyEndpointNetworkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DbProxyEndpointNetworkTypeOutput)
+}
+
+func (e DbProxyEndpointNetworkType) ToDbProxyEndpointNetworkTypePtrOutput() DbProxyEndpointNetworkTypePtrOutput {
+	return e.ToDbProxyEndpointNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (e DbProxyEndpointNetworkType) ToDbProxyEndpointNetworkTypePtrOutputWithContext(ctx context.Context) DbProxyEndpointNetworkTypePtrOutput {
+	return DbProxyEndpointNetworkType(e).ToDbProxyEndpointNetworkTypeOutputWithContext(ctx).ToDbProxyEndpointNetworkTypePtrOutputWithContext(ctx)
+}
+
+func (e DbProxyEndpointNetworkType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DbProxyEndpointNetworkType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DbProxyEndpointNetworkType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DbProxyEndpointNetworkType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DbProxyEndpointNetworkTypeOutput struct{ *pulumi.OutputState }
+
+func (DbProxyEndpointNetworkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyEndpointNetworkType)(nil)).Elem()
+}
+
+func (o DbProxyEndpointNetworkTypeOutput) ToDbProxyEndpointNetworkTypeOutput() DbProxyEndpointNetworkTypeOutput {
+	return o
+}
+
+func (o DbProxyEndpointNetworkTypeOutput) ToDbProxyEndpointNetworkTypeOutputWithContext(ctx context.Context) DbProxyEndpointNetworkTypeOutput {
+	return o
+}
+
+func (o DbProxyEndpointNetworkTypeOutput) ToDbProxyEndpointNetworkTypePtrOutput() DbProxyEndpointNetworkTypePtrOutput {
+	return o.ToDbProxyEndpointNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (o DbProxyEndpointNetworkTypeOutput) ToDbProxyEndpointNetworkTypePtrOutputWithContext(ctx context.Context) DbProxyEndpointNetworkTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbProxyEndpointNetworkType) *DbProxyEndpointNetworkType {
+		return &v
+	}).(DbProxyEndpointNetworkTypePtrOutput)
+}
+
+func (o DbProxyEndpointNetworkTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DbProxyEndpointNetworkTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyEndpointNetworkType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DbProxyEndpointNetworkTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DbProxyEndpointNetworkTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyEndpointNetworkType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DbProxyEndpointNetworkTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DbProxyEndpointNetworkTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbProxyEndpointNetworkType)(nil)).Elem()
+}
+
+func (o DbProxyEndpointNetworkTypePtrOutput) ToDbProxyEndpointNetworkTypePtrOutput() DbProxyEndpointNetworkTypePtrOutput {
+	return o
+}
+
+func (o DbProxyEndpointNetworkTypePtrOutput) ToDbProxyEndpointNetworkTypePtrOutputWithContext(ctx context.Context) DbProxyEndpointNetworkTypePtrOutput {
+	return o
+}
+
+func (o DbProxyEndpointNetworkTypePtrOutput) Elem() DbProxyEndpointNetworkTypeOutput {
+	return o.ApplyT(func(v *DbProxyEndpointNetworkType) DbProxyEndpointNetworkType {
+		if v != nil {
+			return *v
+		}
+		var ret DbProxyEndpointNetworkType
+		return ret
+	}).(DbProxyEndpointNetworkTypeOutput)
+}
+
+func (o DbProxyEndpointNetworkTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DbProxyEndpointNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DbProxyEndpointNetworkType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DbProxyEndpointNetworkTypeInput is an input type that accepts values of the DbProxyEndpointNetworkType enum
+// A concrete instance of `DbProxyEndpointNetworkTypeInput` can be one of the following:
+//
+//	DbProxyEndpointNetworkTypeIpv4
+//	DbProxyEndpointNetworkTypeIpv6
+//	DbProxyEndpointNetworkTypeDual
+type DbProxyEndpointNetworkTypeInput interface {
+	pulumi.Input
+
+	ToDbProxyEndpointNetworkTypeOutput() DbProxyEndpointNetworkTypeOutput
+	ToDbProxyEndpointNetworkTypeOutputWithContext(context.Context) DbProxyEndpointNetworkTypeOutput
+}
+
+var dbProxyEndpointNetworkTypePtrType = reflect.TypeOf((**DbProxyEndpointNetworkType)(nil)).Elem()
+
+type DbProxyEndpointNetworkTypePtrInput interface {
+	pulumi.Input
+
+	ToDbProxyEndpointNetworkTypePtrOutput() DbProxyEndpointNetworkTypePtrOutput
+	ToDbProxyEndpointNetworkTypePtrOutputWithContext(context.Context) DbProxyEndpointNetworkTypePtrOutput
+}
+
+type dbProxyEndpointNetworkTypePtr string
+
+func DbProxyEndpointNetworkTypePtr(v string) DbProxyEndpointNetworkTypePtrInput {
+	return (*dbProxyEndpointNetworkTypePtr)(&v)
+}
+
+func (*dbProxyEndpointNetworkTypePtr) ElementType() reflect.Type {
+	return dbProxyEndpointNetworkTypePtrType
+}
+
+func (in *dbProxyEndpointNetworkTypePtr) ToDbProxyEndpointNetworkTypePtrOutput() DbProxyEndpointNetworkTypePtrOutput {
+	return pulumi.ToOutput(in).(DbProxyEndpointNetworkTypePtrOutput)
+}
+
+func (in *dbProxyEndpointNetworkTypePtr) ToDbProxyEndpointNetworkTypePtrOutputWithContext(ctx context.Context) DbProxyEndpointNetworkTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DbProxyEndpointNetworkTypePtrOutput)
+}
+
 // A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
 type DbProxyEndpointTargetRole string
 
@@ -1180,6 +1682,172 @@ func (in *dbProxyEngineFamilyPtr) ToDbProxyEngineFamilyPtrOutput() DbProxyEngine
 
 func (in *dbProxyEngineFamilyPtr) ToDbProxyEngineFamilyPtrOutputWithContext(ctx context.Context) DbProxyEngineFamilyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DbProxyEngineFamilyPtrOutput)
+}
+
+// The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
+type DbProxyTargetConnectionNetworkType string
+
+const (
+	DbProxyTargetConnectionNetworkTypeIpv4 = DbProxyTargetConnectionNetworkType("IPV4")
+	DbProxyTargetConnectionNetworkTypeIpv6 = DbProxyTargetConnectionNetworkType("IPV6")
+)
+
+func (DbProxyTargetConnectionNetworkType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyTargetConnectionNetworkType)(nil)).Elem()
+}
+
+func (e DbProxyTargetConnectionNetworkType) ToDbProxyTargetConnectionNetworkTypeOutput() DbProxyTargetConnectionNetworkTypeOutput {
+	return pulumi.ToOutput(e).(DbProxyTargetConnectionNetworkTypeOutput)
+}
+
+func (e DbProxyTargetConnectionNetworkType) ToDbProxyTargetConnectionNetworkTypeOutputWithContext(ctx context.Context) DbProxyTargetConnectionNetworkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DbProxyTargetConnectionNetworkTypeOutput)
+}
+
+func (e DbProxyTargetConnectionNetworkType) ToDbProxyTargetConnectionNetworkTypePtrOutput() DbProxyTargetConnectionNetworkTypePtrOutput {
+	return e.ToDbProxyTargetConnectionNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (e DbProxyTargetConnectionNetworkType) ToDbProxyTargetConnectionNetworkTypePtrOutputWithContext(ctx context.Context) DbProxyTargetConnectionNetworkTypePtrOutput {
+	return DbProxyTargetConnectionNetworkType(e).ToDbProxyTargetConnectionNetworkTypeOutputWithContext(ctx).ToDbProxyTargetConnectionNetworkTypePtrOutputWithContext(ctx)
+}
+
+func (e DbProxyTargetConnectionNetworkType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DbProxyTargetConnectionNetworkType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DbProxyTargetConnectionNetworkType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DbProxyTargetConnectionNetworkType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DbProxyTargetConnectionNetworkTypeOutput struct{ *pulumi.OutputState }
+
+func (DbProxyTargetConnectionNetworkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbProxyTargetConnectionNetworkType)(nil)).Elem()
+}
+
+func (o DbProxyTargetConnectionNetworkTypeOutput) ToDbProxyTargetConnectionNetworkTypeOutput() DbProxyTargetConnectionNetworkTypeOutput {
+	return o
+}
+
+func (o DbProxyTargetConnectionNetworkTypeOutput) ToDbProxyTargetConnectionNetworkTypeOutputWithContext(ctx context.Context) DbProxyTargetConnectionNetworkTypeOutput {
+	return o
+}
+
+func (o DbProxyTargetConnectionNetworkTypeOutput) ToDbProxyTargetConnectionNetworkTypePtrOutput() DbProxyTargetConnectionNetworkTypePtrOutput {
+	return o.ToDbProxyTargetConnectionNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (o DbProxyTargetConnectionNetworkTypeOutput) ToDbProxyTargetConnectionNetworkTypePtrOutputWithContext(ctx context.Context) DbProxyTargetConnectionNetworkTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbProxyTargetConnectionNetworkType) *DbProxyTargetConnectionNetworkType {
+		return &v
+	}).(DbProxyTargetConnectionNetworkTypePtrOutput)
+}
+
+func (o DbProxyTargetConnectionNetworkTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DbProxyTargetConnectionNetworkTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyTargetConnectionNetworkType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DbProxyTargetConnectionNetworkTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DbProxyTargetConnectionNetworkTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DbProxyTargetConnectionNetworkType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DbProxyTargetConnectionNetworkTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DbProxyTargetConnectionNetworkTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbProxyTargetConnectionNetworkType)(nil)).Elem()
+}
+
+func (o DbProxyTargetConnectionNetworkTypePtrOutput) ToDbProxyTargetConnectionNetworkTypePtrOutput() DbProxyTargetConnectionNetworkTypePtrOutput {
+	return o
+}
+
+func (o DbProxyTargetConnectionNetworkTypePtrOutput) ToDbProxyTargetConnectionNetworkTypePtrOutputWithContext(ctx context.Context) DbProxyTargetConnectionNetworkTypePtrOutput {
+	return o
+}
+
+func (o DbProxyTargetConnectionNetworkTypePtrOutput) Elem() DbProxyTargetConnectionNetworkTypeOutput {
+	return o.ApplyT(func(v *DbProxyTargetConnectionNetworkType) DbProxyTargetConnectionNetworkType {
+		if v != nil {
+			return *v
+		}
+		var ret DbProxyTargetConnectionNetworkType
+		return ret
+	}).(DbProxyTargetConnectionNetworkTypeOutput)
+}
+
+func (o DbProxyTargetConnectionNetworkTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DbProxyTargetConnectionNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DbProxyTargetConnectionNetworkType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DbProxyTargetConnectionNetworkTypeInput is an input type that accepts values of the DbProxyTargetConnectionNetworkType enum
+// A concrete instance of `DbProxyTargetConnectionNetworkTypeInput` can be one of the following:
+//
+//	DbProxyTargetConnectionNetworkTypeIpv4
+//	DbProxyTargetConnectionNetworkTypeIpv6
+type DbProxyTargetConnectionNetworkTypeInput interface {
+	pulumi.Input
+
+	ToDbProxyTargetConnectionNetworkTypeOutput() DbProxyTargetConnectionNetworkTypeOutput
+	ToDbProxyTargetConnectionNetworkTypeOutputWithContext(context.Context) DbProxyTargetConnectionNetworkTypeOutput
+}
+
+var dbProxyTargetConnectionNetworkTypePtrType = reflect.TypeOf((**DbProxyTargetConnectionNetworkType)(nil)).Elem()
+
+type DbProxyTargetConnectionNetworkTypePtrInput interface {
+	pulumi.Input
+
+	ToDbProxyTargetConnectionNetworkTypePtrOutput() DbProxyTargetConnectionNetworkTypePtrOutput
+	ToDbProxyTargetConnectionNetworkTypePtrOutputWithContext(context.Context) DbProxyTargetConnectionNetworkTypePtrOutput
+}
+
+type dbProxyTargetConnectionNetworkTypePtr string
+
+func DbProxyTargetConnectionNetworkTypePtr(v string) DbProxyTargetConnectionNetworkTypePtrInput {
+	return (*dbProxyTargetConnectionNetworkTypePtr)(&v)
+}
+
+func (*dbProxyTargetConnectionNetworkTypePtr) ElementType() reflect.Type {
+	return dbProxyTargetConnectionNetworkTypePtrType
+}
+
+func (in *dbProxyTargetConnectionNetworkTypePtr) ToDbProxyTargetConnectionNetworkTypePtrOutput() DbProxyTargetConnectionNetworkTypePtrOutput {
+	return pulumi.ToOutput(in).(DbProxyTargetConnectionNetworkTypePtrOutput)
+}
+
+func (in *dbProxyTargetConnectionNetworkTypePtr) ToDbProxyTargetConnectionNetworkTypePtrOutputWithContext(ctx context.Context) DbProxyTargetConnectionNetworkTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DbProxyTargetConnectionNetworkTypePtrOutput)
 }
 
 // The identifier for the DBProxyTargetGroup
@@ -1526,10 +2194,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyAuthFormatClientPasswordAuthTypePtrInput)(nil)).Elem(), DbProxyAuthFormatClientPasswordAuthType("MYSQL_NATIVE_PASSWORD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyAuthFormatIamAuthInput)(nil)).Elem(), DbProxyAuthFormatIamAuth("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyAuthFormatIamAuthPtrInput)(nil)).Elem(), DbProxyAuthFormatIamAuth("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyDefaultAuthSchemeInput)(nil)).Elem(), DbProxyDefaultAuthScheme("IAM_AUTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyDefaultAuthSchemePtrInput)(nil)).Elem(), DbProxyDefaultAuthScheme("IAM_AUTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyEndpointEndpointNetworkTypeInput)(nil)).Elem(), DbProxyEndpointEndpointNetworkType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyEndpointEndpointNetworkTypePtrInput)(nil)).Elem(), DbProxyEndpointEndpointNetworkType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyEndpointNetworkTypeInput)(nil)).Elem(), DbProxyEndpointNetworkType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyEndpointNetworkTypePtrInput)(nil)).Elem(), DbProxyEndpointNetworkType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyEndpointTargetRoleInput)(nil)).Elem(), DbProxyEndpointTargetRole("READ_WRITE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyEndpointTargetRolePtrInput)(nil)).Elem(), DbProxyEndpointTargetRole("READ_WRITE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyEngineFamilyInput)(nil)).Elem(), DbProxyEngineFamily("MYSQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyEngineFamilyPtrInput)(nil)).Elem(), DbProxyEngineFamily("MYSQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyTargetConnectionNetworkTypeInput)(nil)).Elem(), DbProxyTargetConnectionNetworkType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyTargetConnectionNetworkTypePtrInput)(nil)).Elem(), DbProxyTargetConnectionNetworkType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyTargetGroupTargetGroupNameInput)(nil)).Elem(), DbProxyTargetGroupTargetGroupName("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyTargetGroupTargetGroupNamePtrInput)(nil)).Elem(), DbProxyTargetGroupTargetGroupName("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterEngineInput)(nil)).Elem(), GlobalClusterEngine("aurora"))
@@ -1544,10 +2220,18 @@ func init() {
 	pulumi.RegisterOutputType(DbProxyAuthFormatClientPasswordAuthTypePtrOutput{})
 	pulumi.RegisterOutputType(DbProxyAuthFormatIamAuthOutput{})
 	pulumi.RegisterOutputType(DbProxyAuthFormatIamAuthPtrOutput{})
+	pulumi.RegisterOutputType(DbProxyDefaultAuthSchemeOutput{})
+	pulumi.RegisterOutputType(DbProxyDefaultAuthSchemePtrOutput{})
+	pulumi.RegisterOutputType(DbProxyEndpointEndpointNetworkTypeOutput{})
+	pulumi.RegisterOutputType(DbProxyEndpointEndpointNetworkTypePtrOutput{})
+	pulumi.RegisterOutputType(DbProxyEndpointNetworkTypeOutput{})
+	pulumi.RegisterOutputType(DbProxyEndpointNetworkTypePtrOutput{})
 	pulumi.RegisterOutputType(DbProxyEndpointTargetRoleOutput{})
 	pulumi.RegisterOutputType(DbProxyEndpointTargetRolePtrOutput{})
 	pulumi.RegisterOutputType(DbProxyEngineFamilyOutput{})
 	pulumi.RegisterOutputType(DbProxyEngineFamilyPtrOutput{})
+	pulumi.RegisterOutputType(DbProxyTargetConnectionNetworkTypeOutput{})
+	pulumi.RegisterOutputType(DbProxyTargetConnectionNetworkTypePtrOutput{})
 	pulumi.RegisterOutputType(DbProxyTargetGroupTargetGroupNameOutput{})
 	pulumi.RegisterOutputType(DbProxyTargetGroupTargetGroupNamePtrOutput{})
 	pulumi.RegisterOutputType(GlobalClusterEngineOutput{})

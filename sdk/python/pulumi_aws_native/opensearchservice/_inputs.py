@@ -199,6 +199,9 @@ if not MYPY:
         True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
         """
         iam_federation_options: NotRequired[pulumi.Input['DomainIamFederationOptionsArgsDict']]
+        """
+        Input configuration for IAM identity federation within advanced security options.
+        """
         internal_user_database_enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
         True to enable the internal user database.
@@ -233,6 +236,7 @@ class DomainAdvancedSecurityOptionsInputArgs:
         :param pulumi.Input[builtins.str] anonymous_auth_disable_date: Date and time when the migration period will be disabled. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
         :param pulumi.Input[builtins.bool] anonymous_auth_enabled: True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
         :param pulumi.Input[builtins.bool] enabled: True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
+        :param pulumi.Input['DomainIamFederationOptionsArgs'] iam_federation_options: Input configuration for IAM identity federation within advanced security options.
         :param pulumi.Input[builtins.bool] internal_user_database_enabled: True to enable the internal user database.
         :param pulumi.Input['DomainJwtOptionsArgs'] jwt_options: Container for information about the JWT configuration of the Amazon OpenSearch Service.
         :param pulumi.Input['DomainMasterUserOptionsArgs'] master_user_options: Specifies information about the master user.
@@ -294,6 +298,9 @@ class DomainAdvancedSecurityOptionsInputArgs:
     @property
     @pulumi.getter(name="iamFederationOptions")
     def iam_federation_options(self) -> Optional[pulumi.Input['DomainIamFederationOptionsArgs']]:
+        """
+        Input configuration for IAM identity federation within advanced security options.
+        """
         return pulumi.get(self, "iam_federation_options")
 
     @iam_federation_options.setter

@@ -38,7 +38,8 @@ type LookupBrowserCustomResult struct {
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// Status of browser.
 	Status *BrowserCustomBrowserStatus `pulumi:"status"`
-	Tags   map[string]string           `pulumi:"tags"`
+	// The tags for the custom browser.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupBrowserCustomOutput(ctx *pulumi.Context, args LookupBrowserCustomOutputArgs, opts ...pulumi.InvokeOption) LookupBrowserCustomResultOutput {
@@ -98,6 +99,7 @@ func (o LookupBrowserCustomResultOutput) Status() BrowserCustomBrowserStatusPtrO
 	return o.ApplyT(func(v LookupBrowserCustomResult) *BrowserCustomBrowserStatus { return v.Status }).(BrowserCustomBrowserStatusPtrOutput)
 }
 
+// The tags for the custom browser.
 func (o LookupBrowserCustomResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupBrowserCustomResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

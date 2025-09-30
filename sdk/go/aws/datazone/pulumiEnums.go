@@ -1470,6 +1470,172 @@ func (o EnvironmentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
+// The status of this Amazon DataZone metadata form type.
+type FormTypeStatus string
+
+const (
+	FormTypeStatusEnabled  = FormTypeStatus("ENABLED")
+	FormTypeStatusDisabled = FormTypeStatus("DISABLED")
+)
+
+func (FormTypeStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormTypeStatus)(nil)).Elem()
+}
+
+func (e FormTypeStatus) ToFormTypeStatusOutput() FormTypeStatusOutput {
+	return pulumi.ToOutput(e).(FormTypeStatusOutput)
+}
+
+func (e FormTypeStatus) ToFormTypeStatusOutputWithContext(ctx context.Context) FormTypeStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FormTypeStatusOutput)
+}
+
+func (e FormTypeStatus) ToFormTypeStatusPtrOutput() FormTypeStatusPtrOutput {
+	return e.ToFormTypeStatusPtrOutputWithContext(context.Background())
+}
+
+func (e FormTypeStatus) ToFormTypeStatusPtrOutputWithContext(ctx context.Context) FormTypeStatusPtrOutput {
+	return FormTypeStatus(e).ToFormTypeStatusOutputWithContext(ctx).ToFormTypeStatusPtrOutputWithContext(ctx)
+}
+
+func (e FormTypeStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FormTypeStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FormTypeStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FormTypeStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FormTypeStatusOutput struct{ *pulumi.OutputState }
+
+func (FormTypeStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormTypeStatus)(nil)).Elem()
+}
+
+func (o FormTypeStatusOutput) ToFormTypeStatusOutput() FormTypeStatusOutput {
+	return o
+}
+
+func (o FormTypeStatusOutput) ToFormTypeStatusOutputWithContext(ctx context.Context) FormTypeStatusOutput {
+	return o
+}
+
+func (o FormTypeStatusOutput) ToFormTypeStatusPtrOutput() FormTypeStatusPtrOutput {
+	return o.ToFormTypeStatusPtrOutputWithContext(context.Background())
+}
+
+func (o FormTypeStatusOutput) ToFormTypeStatusPtrOutputWithContext(ctx context.Context) FormTypeStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormTypeStatus) *FormTypeStatus {
+		return &v
+	}).(FormTypeStatusPtrOutput)
+}
+
+func (o FormTypeStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FormTypeStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FormTypeStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FormTypeStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FormTypeStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FormTypeStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FormTypeStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (FormTypeStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormTypeStatus)(nil)).Elem()
+}
+
+func (o FormTypeStatusPtrOutput) ToFormTypeStatusPtrOutput() FormTypeStatusPtrOutput {
+	return o
+}
+
+func (o FormTypeStatusPtrOutput) ToFormTypeStatusPtrOutputWithContext(ctx context.Context) FormTypeStatusPtrOutput {
+	return o
+}
+
+func (o FormTypeStatusPtrOutput) Elem() FormTypeStatusOutput {
+	return o.ApplyT(func(v *FormTypeStatus) FormTypeStatus {
+		if v != nil {
+			return *v
+		}
+		var ret FormTypeStatus
+		return ret
+	}).(FormTypeStatusOutput)
+}
+
+func (o FormTypeStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FormTypeStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FormTypeStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FormTypeStatusInput is an input type that accepts values of the FormTypeStatus enum
+// A concrete instance of `FormTypeStatusInput` can be one of the following:
+//
+//	FormTypeStatusEnabled
+//	FormTypeStatusDisabled
+type FormTypeStatusInput interface {
+	pulumi.Input
+
+	ToFormTypeStatusOutput() FormTypeStatusOutput
+	ToFormTypeStatusOutputWithContext(context.Context) FormTypeStatusOutput
+}
+
+var formTypeStatusPtrType = reflect.TypeOf((**FormTypeStatus)(nil)).Elem()
+
+type FormTypeStatusPtrInput interface {
+	pulumi.Input
+
+	ToFormTypeStatusPtrOutput() FormTypeStatusPtrOutput
+	ToFormTypeStatusPtrOutputWithContext(context.Context) FormTypeStatusPtrOutput
+}
+
+type formTypeStatusPtr string
+
+func FormTypeStatusPtr(v string) FormTypeStatusPtrInput {
+	return (*formTypeStatusPtr)(&v)
+}
+
+func (*formTypeStatusPtr) ElementType() reflect.Type {
+	return formTypeStatusPtrType
+}
+
+func (in *formTypeStatusPtr) ToFormTypeStatusPtrOutput() FormTypeStatusPtrOutput {
+	return pulumi.ToOutput(in).(FormTypeStatusPtrOutput)
+}
+
+func (in *formTypeStatusPtr) ToFormTypeStatusPtrOutputWithContext(ctx context.Context) FormTypeStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FormTypeStatusPtrOutput)
+}
+
 // The status of the group profile.
 type GroupProfileStatus string
 
@@ -1798,6 +1964,172 @@ func (in *ownerEntityTypePtr) ToOwnerEntityTypePtrOutput() OwnerEntityTypePtrOut
 
 func (in *ownerEntityTypePtr) ToOwnerEntityTypePtrOutputWithContext(ctx context.Context) OwnerEntityTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OwnerEntityTypePtrOutput)
+}
+
+// The owner that you want to add to the entity.
+type OwnerType string
+
+const (
+	OwnerTypeUser  = OwnerType("USER")
+	OwnerTypeGroup = OwnerType("GROUP")
+)
+
+func (OwnerType) ElementType() reflect.Type {
+	return reflect.TypeOf((*OwnerType)(nil)).Elem()
+}
+
+func (e OwnerType) ToOwnerTypeOutput() OwnerTypeOutput {
+	return pulumi.ToOutput(e).(OwnerTypeOutput)
+}
+
+func (e OwnerType) ToOwnerTypeOutputWithContext(ctx context.Context) OwnerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OwnerTypeOutput)
+}
+
+func (e OwnerType) ToOwnerTypePtrOutput() OwnerTypePtrOutput {
+	return e.ToOwnerTypePtrOutputWithContext(context.Background())
+}
+
+func (e OwnerType) ToOwnerTypePtrOutputWithContext(ctx context.Context) OwnerTypePtrOutput {
+	return OwnerType(e).ToOwnerTypeOutputWithContext(ctx).ToOwnerTypePtrOutputWithContext(ctx)
+}
+
+func (e OwnerType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OwnerType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OwnerType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OwnerType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OwnerTypeOutput struct{ *pulumi.OutputState }
+
+func (OwnerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OwnerType)(nil)).Elem()
+}
+
+func (o OwnerTypeOutput) ToOwnerTypeOutput() OwnerTypeOutput {
+	return o
+}
+
+func (o OwnerTypeOutput) ToOwnerTypeOutputWithContext(ctx context.Context) OwnerTypeOutput {
+	return o
+}
+
+func (o OwnerTypeOutput) ToOwnerTypePtrOutput() OwnerTypePtrOutput {
+	return o.ToOwnerTypePtrOutputWithContext(context.Background())
+}
+
+func (o OwnerTypeOutput) ToOwnerTypePtrOutputWithContext(ctx context.Context) OwnerTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OwnerType) *OwnerType {
+		return &v
+	}).(OwnerTypePtrOutput)
+}
+
+func (o OwnerTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OwnerTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OwnerType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OwnerTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OwnerTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OwnerType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OwnerTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OwnerTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OwnerType)(nil)).Elem()
+}
+
+func (o OwnerTypePtrOutput) ToOwnerTypePtrOutput() OwnerTypePtrOutput {
+	return o
+}
+
+func (o OwnerTypePtrOutput) ToOwnerTypePtrOutputWithContext(ctx context.Context) OwnerTypePtrOutput {
+	return o
+}
+
+func (o OwnerTypePtrOutput) Elem() OwnerTypeOutput {
+	return o.ApplyT(func(v *OwnerType) OwnerType {
+		if v != nil {
+			return *v
+		}
+		var ret OwnerType
+		return ret
+	}).(OwnerTypeOutput)
+}
+
+func (o OwnerTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OwnerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OwnerType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OwnerTypeInput is an input type that accepts values of the OwnerType enum
+// A concrete instance of `OwnerTypeInput` can be one of the following:
+//
+//	OwnerTypeUser
+//	OwnerTypeGroup
+type OwnerTypeInput interface {
+	pulumi.Input
+
+	ToOwnerTypeOutput() OwnerTypeOutput
+	ToOwnerTypeOutputWithContext(context.Context) OwnerTypeOutput
+}
+
+var ownerTypePtrType = reflect.TypeOf((**OwnerType)(nil)).Elem()
+
+type OwnerTypePtrInput interface {
+	pulumi.Input
+
+	ToOwnerTypePtrOutput() OwnerTypePtrOutput
+	ToOwnerTypePtrOutputWithContext(context.Context) OwnerTypePtrOutput
+}
+
+type ownerTypePtr string
+
+func OwnerTypePtr(v string) OwnerTypePtrInput {
+	return (*ownerTypePtr)(&v)
+}
+
+func (*ownerTypePtr) ElementType() reflect.Type {
+	return ownerTypePtrType
+}
+
+func (in *ownerTypePtr) ToOwnerTypePtrOutput() OwnerTypePtrOutput {
+	return pulumi.ToOutput(in).(OwnerTypePtrOutput)
+}
+
+func (in *ownerTypePtr) ToOwnerTypePtrOutputWithContext(ctx context.Context) OwnerTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OwnerTypePtrOutput)
 }
 
 type PolicyGrantDomainUnitDesignation string
@@ -2484,6 +2816,171 @@ func (in *policyGrantTargetEntityTypePtr) ToPolicyGrantTargetEntityTypePtrOutput
 
 func (in *policyGrantTargetEntityTypePtr) ToPolicyGrantTargetEntityTypePtrOutputWithContext(ctx context.Context) PolicyGrantTargetEntityTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyGrantTargetEntityTypePtrOutput)
+}
+
+type ProjectMembershipMemberIdentifierType string
+
+const (
+	ProjectMembershipMemberIdentifierTypeUserIdentifier  = ProjectMembershipMemberIdentifierType("USER_IDENTIFIER")
+	ProjectMembershipMemberIdentifierTypeGroupIdentifier = ProjectMembershipMemberIdentifierType("GROUP_IDENTIFIER")
+)
+
+func (ProjectMembershipMemberIdentifierType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectMembershipMemberIdentifierType)(nil)).Elem()
+}
+
+func (e ProjectMembershipMemberIdentifierType) ToProjectMembershipMemberIdentifierTypeOutput() ProjectMembershipMemberIdentifierTypeOutput {
+	return pulumi.ToOutput(e).(ProjectMembershipMemberIdentifierTypeOutput)
+}
+
+func (e ProjectMembershipMemberIdentifierType) ToProjectMembershipMemberIdentifierTypeOutputWithContext(ctx context.Context) ProjectMembershipMemberIdentifierTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProjectMembershipMemberIdentifierTypeOutput)
+}
+
+func (e ProjectMembershipMemberIdentifierType) ToProjectMembershipMemberIdentifierTypePtrOutput() ProjectMembershipMemberIdentifierTypePtrOutput {
+	return e.ToProjectMembershipMemberIdentifierTypePtrOutputWithContext(context.Background())
+}
+
+func (e ProjectMembershipMemberIdentifierType) ToProjectMembershipMemberIdentifierTypePtrOutputWithContext(ctx context.Context) ProjectMembershipMemberIdentifierTypePtrOutput {
+	return ProjectMembershipMemberIdentifierType(e).ToProjectMembershipMemberIdentifierTypeOutputWithContext(ctx).ToProjectMembershipMemberIdentifierTypePtrOutputWithContext(ctx)
+}
+
+func (e ProjectMembershipMemberIdentifierType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProjectMembershipMemberIdentifierType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProjectMembershipMemberIdentifierType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProjectMembershipMemberIdentifierType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProjectMembershipMemberIdentifierTypeOutput struct{ *pulumi.OutputState }
+
+func (ProjectMembershipMemberIdentifierTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectMembershipMemberIdentifierType)(nil)).Elem()
+}
+
+func (o ProjectMembershipMemberIdentifierTypeOutput) ToProjectMembershipMemberIdentifierTypeOutput() ProjectMembershipMemberIdentifierTypeOutput {
+	return o
+}
+
+func (o ProjectMembershipMemberIdentifierTypeOutput) ToProjectMembershipMemberIdentifierTypeOutputWithContext(ctx context.Context) ProjectMembershipMemberIdentifierTypeOutput {
+	return o
+}
+
+func (o ProjectMembershipMemberIdentifierTypeOutput) ToProjectMembershipMemberIdentifierTypePtrOutput() ProjectMembershipMemberIdentifierTypePtrOutput {
+	return o.ToProjectMembershipMemberIdentifierTypePtrOutputWithContext(context.Background())
+}
+
+func (o ProjectMembershipMemberIdentifierTypeOutput) ToProjectMembershipMemberIdentifierTypePtrOutputWithContext(ctx context.Context) ProjectMembershipMemberIdentifierTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectMembershipMemberIdentifierType) *ProjectMembershipMemberIdentifierType {
+		return &v
+	}).(ProjectMembershipMemberIdentifierTypePtrOutput)
+}
+
+func (o ProjectMembershipMemberIdentifierTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProjectMembershipMemberIdentifierTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProjectMembershipMemberIdentifierType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProjectMembershipMemberIdentifierTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectMembershipMemberIdentifierTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProjectMembershipMemberIdentifierType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectMembershipMemberIdentifierTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectMembershipMemberIdentifierTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectMembershipMemberIdentifierType)(nil)).Elem()
+}
+
+func (o ProjectMembershipMemberIdentifierTypePtrOutput) ToProjectMembershipMemberIdentifierTypePtrOutput() ProjectMembershipMemberIdentifierTypePtrOutput {
+	return o
+}
+
+func (o ProjectMembershipMemberIdentifierTypePtrOutput) ToProjectMembershipMemberIdentifierTypePtrOutputWithContext(ctx context.Context) ProjectMembershipMemberIdentifierTypePtrOutput {
+	return o
+}
+
+func (o ProjectMembershipMemberIdentifierTypePtrOutput) Elem() ProjectMembershipMemberIdentifierTypeOutput {
+	return o.ApplyT(func(v *ProjectMembershipMemberIdentifierType) ProjectMembershipMemberIdentifierType {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectMembershipMemberIdentifierType
+		return ret
+	}).(ProjectMembershipMemberIdentifierTypeOutput)
+}
+
+func (o ProjectMembershipMemberIdentifierTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectMembershipMemberIdentifierTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProjectMembershipMemberIdentifierType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProjectMembershipMemberIdentifierTypeInput is an input type that accepts values of the ProjectMembershipMemberIdentifierType enum
+// A concrete instance of `ProjectMembershipMemberIdentifierTypeInput` can be one of the following:
+//
+//	ProjectMembershipMemberIdentifierTypeUserIdentifier
+//	ProjectMembershipMemberIdentifierTypeGroupIdentifier
+type ProjectMembershipMemberIdentifierTypeInput interface {
+	pulumi.Input
+
+	ToProjectMembershipMemberIdentifierTypeOutput() ProjectMembershipMemberIdentifierTypeOutput
+	ToProjectMembershipMemberIdentifierTypeOutputWithContext(context.Context) ProjectMembershipMemberIdentifierTypeOutput
+}
+
+var projectMembershipMemberIdentifierTypePtrType = reflect.TypeOf((**ProjectMembershipMemberIdentifierType)(nil)).Elem()
+
+type ProjectMembershipMemberIdentifierTypePtrInput interface {
+	pulumi.Input
+
+	ToProjectMembershipMemberIdentifierTypePtrOutput() ProjectMembershipMemberIdentifierTypePtrOutput
+	ToProjectMembershipMemberIdentifierTypePtrOutputWithContext(context.Context) ProjectMembershipMemberIdentifierTypePtrOutput
+}
+
+type projectMembershipMemberIdentifierTypePtr string
+
+func ProjectMembershipMemberIdentifierTypePtr(v string) ProjectMembershipMemberIdentifierTypePtrInput {
+	return (*projectMembershipMemberIdentifierTypePtr)(&v)
+}
+
+func (*projectMembershipMemberIdentifierTypePtr) ElementType() reflect.Type {
+	return projectMembershipMemberIdentifierTypePtrType
+}
+
+func (in *projectMembershipMemberIdentifierTypePtr) ToProjectMembershipMemberIdentifierTypePtrOutput() ProjectMembershipMemberIdentifierTypePtrOutput {
+	return pulumi.ToOutput(in).(ProjectMembershipMemberIdentifierTypePtrOutput)
+}
+
+func (in *projectMembershipMemberIdentifierTypePtr) ToProjectMembershipMemberIdentifierTypePtrOutputWithContext(ctx context.Context) ProjectMembershipMemberIdentifierTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProjectMembershipMemberIdentifierTypePtrOutput)
 }
 
 type ProjectMembershipUserDesignation string
@@ -3525,10 +4022,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserAssignmentPtrInput)(nil)).Elem(), DomainUserAssignment("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVersionInput)(nil)).Elem(), DomainVersion("V1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVersionPtrInput)(nil)).Elem(), DomainVersion("V1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FormTypeStatusInput)(nil)).Elem(), FormTypeStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FormTypeStatusPtrInput)(nil)).Elem(), FormTypeStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupProfileStatusInput)(nil)).Elem(), GroupProfileStatus("ASSIGNED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupProfileStatusPtrInput)(nil)).Elem(), GroupProfileStatus("ASSIGNED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OwnerEntityTypeInput)(nil)).Elem(), OwnerEntityType("DOMAIN_UNIT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OwnerEntityTypePtrInput)(nil)).Elem(), OwnerEntityType("DOMAIN_UNIT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OwnerTypeInput)(nil)).Elem(), OwnerType("USER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OwnerTypePtrInput)(nil)).Elem(), OwnerType("USER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDomainUnitDesignationInput)(nil)).Elem(), PolicyGrantDomainUnitDesignation("OWNER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDomainUnitDesignationPtrInput)(nil)).Elem(), PolicyGrantDomainUnitDesignation("OWNER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantManagedPolicyTypeInput)(nil)).Elem(), PolicyGrantManagedPolicyType("CREATE_DOMAIN_UNIT"))
@@ -3537,6 +4038,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantProjectDesignationPtrInput)(nil)).Elem(), PolicyGrantProjectDesignation("OWNER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantTargetEntityTypeInput)(nil)).Elem(), PolicyGrantTargetEntityType("DOMAIN_UNIT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantTargetEntityTypePtrInput)(nil)).Elem(), PolicyGrantTargetEntityType("DOMAIN_UNIT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipMemberIdentifierTypeInput)(nil)).Elem(), ProjectMembershipMemberIdentifierType("USER_IDENTIFIER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipMemberIdentifierTypePtrInput)(nil)).Elem(), ProjectMembershipMemberIdentifierType("USER_IDENTIFIER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipUserDesignationInput)(nil)).Elem(), ProjectMembershipUserDesignation("PROJECT_OWNER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipUserDesignationPtrInput)(nil)).Elem(), ProjectMembershipUserDesignation("PROJECT_OWNER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileDeploymentModeInput)(nil)).Elem(), ProjectProfileDeploymentMode("ON_CREATE"))
@@ -3567,10 +4070,14 @@ func init() {
 	pulumi.RegisterOutputType(DomainVersionPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentStatusOutput{})
 	pulumi.RegisterOutputType(EnvironmentStatusPtrOutput{})
+	pulumi.RegisterOutputType(FormTypeStatusOutput{})
+	pulumi.RegisterOutputType(FormTypeStatusPtrOutput{})
 	pulumi.RegisterOutputType(GroupProfileStatusOutput{})
 	pulumi.RegisterOutputType(GroupProfileStatusPtrOutput{})
 	pulumi.RegisterOutputType(OwnerEntityTypeOutput{})
 	pulumi.RegisterOutputType(OwnerEntityTypePtrOutput{})
+	pulumi.RegisterOutputType(OwnerTypeOutput{})
+	pulumi.RegisterOutputType(OwnerTypePtrOutput{})
 	pulumi.RegisterOutputType(PolicyGrantDomainUnitDesignationOutput{})
 	pulumi.RegisterOutputType(PolicyGrantDomainUnitDesignationPtrOutput{})
 	pulumi.RegisterOutputType(PolicyGrantManagedPolicyTypeOutput{})
@@ -3579,6 +4086,8 @@ func init() {
 	pulumi.RegisterOutputType(PolicyGrantProjectDesignationPtrOutput{})
 	pulumi.RegisterOutputType(PolicyGrantTargetEntityTypeOutput{})
 	pulumi.RegisterOutputType(PolicyGrantTargetEntityTypePtrOutput{})
+	pulumi.RegisterOutputType(ProjectMembershipMemberIdentifierTypeOutput{})
+	pulumi.RegisterOutputType(ProjectMembershipMemberIdentifierTypePtrOutput{})
 	pulumi.RegisterOutputType(ProjectMembershipUserDesignationOutput{})
 	pulumi.RegisterOutputType(ProjectMembershipUserDesignationPtrOutput{})
 	pulumi.RegisterOutputType(ProjectProfileDeploymentModeOutput{})

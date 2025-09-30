@@ -36,7 +36,8 @@ type BrowserCustom struct {
 	RecordingConfig BrowserCustomRecordingConfigPtrOutput `pulumi:"recordingConfig"`
 	// Status of browser.
 	Status BrowserCustomBrowserStatusOutput `pulumi:"status"`
-	Tags   pulumi.StringMapOutput           `pulumi:"tags"`
+	// The tags for the custom browser.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewBrowserCustom registers a new resource with the given unique name, arguments, and options.
@@ -100,7 +101,8 @@ type browserCustomArgs struct {
 	NetworkConfiguration BrowserCustomBrowserNetworkConfiguration `pulumi:"networkConfiguration"`
 	// Recording configuration for browser.
 	RecordingConfig *BrowserCustomRecordingConfig `pulumi:"recordingConfig"`
-	Tags            map[string]string             `pulumi:"tags"`
+	// The tags for the custom browser.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a BrowserCustom resource.
@@ -115,7 +117,8 @@ type BrowserCustomArgs struct {
 	NetworkConfiguration BrowserCustomBrowserNetworkConfigurationInput
 	// Recording configuration for browser.
 	RecordingConfig BrowserCustomRecordingConfigPtrInput
-	Tags            pulumi.StringMapInput
+	// The tags for the custom browser.
+	Tags pulumi.StringMapInput
 }
 
 func (BrowserCustomArgs) ElementType() reflect.Type {
@@ -205,6 +208,7 @@ func (o BrowserCustomOutput) Status() BrowserCustomBrowserStatusOutput {
 	return o.ApplyT(func(v *BrowserCustom) BrowserCustomBrowserStatusOutput { return v.Status }).(BrowserCustomBrowserStatusOutput)
 }
 
+// The tags for the custom browser.
 func (o BrowserCustomOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BrowserCustom) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

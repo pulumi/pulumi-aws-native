@@ -45,9 +45,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("dataQaEnabledOption")]
         public Input<Inputs.DashboardDataQaEnabledOptionArgs>? DataQaEnabledOption { get; set; }
 
+        /// <summary>
+        /// Data stories sharing option.
+        /// </summary>
         [Input("dataStoriesSharingOption")]
         public Input<Inputs.DashboardDataStoriesSharingOptionArgs>? DataStoriesSharingOption { get; set; }
 
+        /// <summary>
+        /// Executive summary option.
+        /// </summary>
         [Input("executiveSummaryOption")]
         public Input<Inputs.DashboardExecutiveSummaryOptionArgs>? ExecutiveSummaryOption { get; set; }
 

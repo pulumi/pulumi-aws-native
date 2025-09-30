@@ -19,6 +19,9 @@ type WorkflowVersion struct {
 	Accelerators WorkflowVersionAcceleratorsPtrOutput `pulumi:"accelerators"`
 	// ARN of the workflow version.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
+	ContainerRegistryMap    WorkflowVersionContainerRegistryMapPtrOutput `pulumi:"containerRegistryMap"`
+	ContainerRegistryMapUri pulumi.StringPtrOutput                       `pulumi:"containerRegistryMapUri"`
 	// The creation time of the workflow version.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// Contains information about a source code repository that hosts the workflow definition files.
@@ -64,6 +67,8 @@ func NewWorkflowVersion(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"accelerators",
+		"containerRegistryMap",
+		"containerRegistryMapUri",
 		"definitionRepository",
 		"definitionUri",
 		"engine",
@@ -111,6 +116,9 @@ func (WorkflowVersionState) ElementType() reflect.Type {
 
 type workflowVersionArgs struct {
 	Accelerators *WorkflowVersionAccelerators `pulumi:"accelerators"`
+	// Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
+	ContainerRegistryMap    *WorkflowVersionContainerRegistryMap `pulumi:"containerRegistryMap"`
+	ContainerRegistryMapUri *string                              `pulumi:"containerRegistryMapUri"`
 	// Contains information about a source code repository that hosts the workflow definition files.
 	DefinitionRepository *WorkflowVersionDefinitionRepository `pulumi:"definitionRepository"`
 	DefinitionUri        *string                              `pulumi:"definitionUri"`
@@ -140,6 +148,9 @@ type workflowVersionArgs struct {
 // The set of arguments for constructing a WorkflowVersion resource.
 type WorkflowVersionArgs struct {
 	Accelerators WorkflowVersionAcceleratorsPtrInput
+	// Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
+	ContainerRegistryMap    WorkflowVersionContainerRegistryMapPtrInput
+	ContainerRegistryMapUri pulumi.StringPtrInput
 	// Contains information about a source code repository that hosts the workflow definition files.
 	DefinitionRepository WorkflowVersionDefinitionRepositoryPtrInput
 	DefinitionUri        pulumi.StringPtrInput
@@ -210,6 +221,15 @@ func (o WorkflowVersionOutput) Accelerators() WorkflowVersionAcceleratorsPtrOutp
 // ARN of the workflow version.
 func (o WorkflowVersionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkflowVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
+func (o WorkflowVersionOutput) ContainerRegistryMap() WorkflowVersionContainerRegistryMapPtrOutput {
+	return o.ApplyT(func(v *WorkflowVersion) WorkflowVersionContainerRegistryMapPtrOutput { return v.ContainerRegistryMap }).(WorkflowVersionContainerRegistryMapPtrOutput)
+}
+
+func (o WorkflowVersionOutput) ContainerRegistryMapUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowVersion) pulumi.StringPtrOutput { return v.ContainerRegistryMapUri }).(pulumi.StringPtrOutput)
 }
 
 // The creation time of the workflow version.

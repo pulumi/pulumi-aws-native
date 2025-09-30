@@ -72,6 +72,7 @@ __all__ = [
     'EnvironmentBlueprintConfigurationRegionalParameter',
     'EnvironmentParameter',
     'EnvironmentProfileEnvironmentParameter',
+    'FormTypeModel',
     'OwnerProperties',
     'PolicyGrantAddToProjectMemberPoolPolicyGrantDetail',
     'PolicyGrantAllDomainUnitsGrantFilter',
@@ -2613,6 +2614,25 @@ class EnvironmentProfileEnvironmentParameter(dict):
         The value of an environment profile parameter.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FormTypeModel(dict):
+    """
+    Indicates the smithy model of the API.
+    """
+    def __init__(__self__, *,
+                 smithy: Optional[builtins.str] = None):
+        """
+        Indicates the smithy model of the API.
+        """
+        if smithy is not None:
+            pulumi.set(__self__, "smithy", smithy)
+
+    @property
+    @pulumi.getter
+    def smithy(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "smithy")
 
 
 @pulumi.output_type

@@ -33,6 +33,12 @@ namespace Pulumi.AwsNative.DataZone
         [Output("member")]
         public Output<Union<Outputs.ProjectMembershipMember0Properties, Outputs.ProjectMembershipMember1Properties>> Member { get; private set; } = null!;
 
+        [Output("memberIdentifier")]
+        public Output<string> MemberIdentifier { get; private set; } = null!;
+
+        [Output("memberIdentifierType")]
+        public Output<Pulumi.AwsNative.DataZone.ProjectMembershipMemberIdentifierType> MemberIdentifierType { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the project for which this project membership was created.
         /// </summary>

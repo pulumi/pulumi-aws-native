@@ -1191,7 +1191,7 @@ class Ec2FleetEbsBlockDevice(dict):
                
                The following are the supported values for each volume type:
                
-               - `gp3` : 3,000 - 16,000 IOPS
+               - `gp3` : 3,000 - 80,000 IOPS
                - `io1` : 100 - 64,000 IOPS
                - `io2` : 100 - 256,000 IOPS
                
@@ -1206,7 +1206,8 @@ class Ec2FleetEbsBlockDevice(dict):
                
                The following are the supported sizes for each volume type:
                
-               - `gp2` and `gp3` : 1 - 16,384 GiB
+               - `gp2` : 1 - 16,384 GiB
+               - `gp3` : 1 - 65,536 GiB
                - `io1` : 4 - 16,384 GiB
                - `io2` : 4 - 65,536 GiB
                - `st1` and `sc1` : 125 - 16,384 GiB
@@ -1261,7 +1262,7 @@ class Ec2FleetEbsBlockDevice(dict):
 
         The following are the supported values for each volume type:
 
-        - `gp3` : 3,000 - 16,000 IOPS
+        - `gp3` : 3,000 - 80,000 IOPS
         - `io1` : 100 - 64,000 IOPS
         - `io2` : 100 - 256,000 IOPS
 
@@ -1297,7 +1298,8 @@ class Ec2FleetEbsBlockDevice(dict):
 
         The following are the supported sizes for each volume type:
 
-        - `gp2` and `gp3` : 1 - 16,384 GiB
+        - `gp2` : 1 - 16,384 GiB
+        - `gp3` : 1 - 65,536 GiB
         - `io1` : 4 - 16,384 GiB
         - `io2` : 4 - 65,536 GiB
         - `st1` and `sc1` : 125 - 16,384 GiB
@@ -7574,6 +7576,7 @@ class LaunchTemplatePlacement(dict):
          ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param builtins.str affinity: The affinity setting for an instance on a Dedicated Host.
         :param builtins.str availability_zone: The Availability Zone for the instance.
+                Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both
         :param builtins.str group_id: The Group Id of a placement group. You must specify the Placement Group *Group Id* to launch an instance in a shared placement group.
         :param builtins.str group_name: The name of the placement group for the instance.
         :param builtins.str host_id: The ID of the Dedicated Host for the instance.
@@ -7614,6 +7617,7 @@ class LaunchTemplatePlacement(dict):
     def availability_zone(self) -> Optional[builtins.str]:
         """
         The Availability Zone for the instance.
+         Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both
         """
         return pulumi.get(self, "availability_zone")
 
@@ -11689,7 +11693,7 @@ class SpotFleetEbsBlockDevice(dict):
                
                The following are the supported values for each volume type:
                
-               - `gp3` : 3,000 - 16,000 IOPS
+               - `gp3` : 3,000 - 80,000 IOPS
                - `io1` : 100 - 64,000 IOPS
                - `io2` : 100 - 256,000 IOPS
                
@@ -11701,7 +11705,8 @@ class SpotFleetEbsBlockDevice(dict):
                
                The following are the supported sizes for each volume type:
                
-               - `gp2` and `gp3` : 1 - 16,384 GiB
+               - `gp2` : 1 - 16,384 GiB
+               - `gp3` : 1 - 65,536 GiB
                - `io1` : 4 - 16,384 GiB
                - `io2` : 4 - 65,536 GiB
                - `st1` and `sc1` : 125 - 16,384 GiB
@@ -11751,7 +11756,7 @@ class SpotFleetEbsBlockDevice(dict):
 
         The following are the supported values for each volume type:
 
-        - `gp3` : 3,000 - 16,000 IOPS
+        - `gp3` : 3,000 - 80,000 IOPS
         - `io1` : 100 - 64,000 IOPS
         - `io2` : 100 - 256,000 IOPS
 
@@ -11777,7 +11782,8 @@ class SpotFleetEbsBlockDevice(dict):
 
         The following are the supported sizes for each volume type:
 
-        - `gp2` and `gp3` : 1 - 16,384 GiB
+        - `gp2` : 1 - 16,384 GiB
+        - `gp3` : 1 - 65,536 GiB
         - `io1` : 4 - 16,384 GiB
         - `io2` : 4 - 65,536 GiB
         - `st1` and `sc1` : 125 - 16,384 GiB

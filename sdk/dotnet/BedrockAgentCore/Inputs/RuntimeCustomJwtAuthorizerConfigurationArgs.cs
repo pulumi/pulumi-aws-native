@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     {
         [Input("allowedAudience")]
         private InputList<string>? _allowedAudience;
+
+        /// <summary>
+        /// Represents inbound authorization configuration options used to authenticate incoming requests.
+        /// </summary>
         public InputList<string> AllowedAudience
         {
             get => _allowedAudience ?? (_allowedAudience = new InputList<string>());
@@ -25,12 +29,19 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 
         [Input("allowedClients")]
         private InputList<string>? _allowedClients;
+
+        /// <summary>
+        /// Represents individual client IDs that are validated in the incoming JWT token validation process.
+        /// </summary>
         public InputList<string> AllowedClients
         {
             get => _allowedClients ?? (_allowedClients = new InputList<string>());
             set => _allowedClients = value;
         }
 
+        /// <summary>
+        /// The configuration authorization.
+        /// </summary>
         [Input("discoveryUrl", required: true)]
         public Input<string> DiscoveryUrl { get; set; } = null!;
 

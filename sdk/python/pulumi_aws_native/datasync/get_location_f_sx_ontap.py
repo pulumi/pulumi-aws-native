@@ -14,7 +14,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetLocationFSxOntapResult',
@@ -25,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLocationFSxOntapResult:
-    def __init__(__self__, fsx_filesystem_arn=None, location_arn=None, location_uri=None, tags=None):
+    def __init__(__self__, fsx_filesystem_arn=None, location_arn=None, location_uri=None, protocol=None, tags=None):
         if fsx_filesystem_arn and not isinstance(fsx_filesystem_arn, str):
             raise TypeError("Expected argument 'fsx_filesystem_arn' to be a str")
         pulumi.set(__self__, "fsx_filesystem_arn", fsx_filesystem_arn)
@@ -35,6 +37,9 @@ class GetLocationFSxOntapResult:
         if location_uri and not isinstance(location_uri, str):
             raise TypeError("Expected argument 'location_uri' to be a str")
         pulumi.set(__self__, "location_uri", location_uri)
+        if protocol and not isinstance(protocol, dict):
+            raise TypeError("Expected argument 'protocol' to be a dict")
+        pulumi.set(__self__, "protocol", protocol)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -65,6 +70,14 @@ class GetLocationFSxOntapResult:
 
     @property
     @pulumi.getter
+    def protocol(self) -> Optional['outputs.LocationFSxOntapProtocol']:
+        """
+        Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         An array of key-value pairs to apply to this resource.
@@ -81,6 +94,7 @@ class AwaitableGetLocationFSxOntapResult(GetLocationFSxOntapResult):
             fsx_filesystem_arn=self.fsx_filesystem_arn,
             location_arn=self.location_arn,
             location_uri=self.location_uri,
+            protocol=self.protocol,
             tags=self.tags)
 
 
@@ -101,6 +115,7 @@ def get_location_f_sx_ontap(location_arn: Optional[builtins.str] = None,
         fsx_filesystem_arn=pulumi.get(__ret__, 'fsx_filesystem_arn'),
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
+        protocol=pulumi.get(__ret__, 'protocol'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_location_f_sx_ontap_output(location_arn: Optional[pulumi.Input[builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationFSxOntapResult]:
@@ -118,4 +133,5 @@ def get_location_f_sx_ontap_output(location_arn: Optional[pulumi.Input[builtins.
         fsx_filesystem_arn=pulumi.get(__response__, 'fsx_filesystem_arn'),
         location_arn=pulumi.get(__response__, 'location_arn'),
         location_uri=pulumi.get(__response__, 'location_uri'),
+        protocol=pulumi.get(__response__, 'protocol'),
         tags=pulumi.get(__response__, 'tags')))

@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// The phone number for the user's desk phone.
         /// </summary>
         public readonly string? DeskPhoneNumber;
+        /// <summary>
+        /// The persistent connection setting for the user.
+        /// </summary>
         public readonly bool? PersistentConnection;
         /// <summary>
         /// The phone type.

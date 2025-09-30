@@ -2082,7 +2082,8 @@ type MethodIntegration struct {
 	// A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` must be a valid and unique method request parameter name.
 	RequestParameters map[string]string `pulumi:"requestParameters"`
 	// Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
-	RequestTemplates map[string]string `pulumi:"requestTemplates"`
+	RequestTemplates     map[string]string                      `pulumi:"requestTemplates"`
+	ResponseTransferMode *MethodIntegrationResponseTransferMode `pulumi:"responseTransferMode"`
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
 	TimeoutInMillis *int `pulumi:"timeoutInMillis"`
 	// Specifies an API method integration type. The valid value is one of the following:
@@ -2131,7 +2132,8 @@ type MethodIntegrationArgs struct {
 	// A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` must be a valid and unique method request parameter name.
 	RequestParameters pulumi.StringMapInput `pulumi:"requestParameters"`
 	// Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
-	RequestTemplates pulumi.StringMapInput `pulumi:"requestTemplates"`
+	RequestTemplates     pulumi.StringMapInput                         `pulumi:"requestTemplates"`
+	ResponseTransferMode MethodIntegrationResponseTransferModePtrInput `pulumi:"responseTransferMode"`
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
 	TimeoutInMillis pulumi.IntPtrInput `pulumi:"timeoutInMillis"`
 	// Specifies an API method integration type. The valid value is one of the following:
@@ -2277,6 +2279,10 @@ func (o MethodIntegrationOutput) RequestParameters() pulumi.StringMapOutput {
 // Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
 func (o MethodIntegrationOutput) RequestTemplates() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MethodIntegration) map[string]string { return v.RequestTemplates }).(pulumi.StringMapOutput)
+}
+
+func (o MethodIntegrationOutput) ResponseTransferMode() MethodIntegrationResponseTransferModePtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *MethodIntegrationResponseTransferMode { return v.ResponseTransferMode }).(MethodIntegrationResponseTransferModePtrOutput)
 }
 
 // Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
@@ -2432,6 +2438,15 @@ func (o MethodIntegrationPtrOutput) RequestTemplates() pulumi.StringMapOutput {
 		}
 		return v.RequestTemplates
 	}).(pulumi.StringMapOutput)
+}
+
+func (o MethodIntegrationPtrOutput) ResponseTransferMode() MethodIntegrationResponseTransferModePtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *MethodIntegrationResponseTransferMode {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseTransferMode
+	}).(MethodIntegrationResponseTransferModePtrOutput)
 }
 
 // Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.

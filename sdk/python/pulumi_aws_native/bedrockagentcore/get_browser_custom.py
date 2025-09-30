@@ -88,6 +88,9 @@ class GetBrowserCustomResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        The tags for the custom browser.
+        """
         return pulumi.get(self, "tags")
 
 

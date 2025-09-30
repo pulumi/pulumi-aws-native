@@ -40,7 +40,7 @@ export class DbProxy extends pulumi.CustomResource {
     /**
      * The authorization mechanism that the proxy uses.
      */
-    public readonly auth!: pulumi.Output<outputs.rds.DbProxyAuthFormat[]>;
+    public readonly auth!: pulumi.Output<outputs.rds.DbProxyAuthFormat[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the proxy.
      */
@@ -54,9 +54,17 @@ export class DbProxy extends pulumi.CustomResource {
      */
     public readonly debugLogging!: pulumi.Output<boolean | undefined>;
     /**
+     * The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+     */
+    public readonly defaultAuthScheme!: pulumi.Output<enums.rds.DbProxyDefaultAuthScheme | undefined>;
+    /**
      * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
+     * The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+     */
+    public readonly endpointNetworkType!: pulumi.Output<enums.rds.DbProxyEndpointNetworkType | undefined>;
     /**
      * The kinds of databases that the proxy can connect to.
      */
@@ -77,6 +85,10 @@ export class DbProxy extends pulumi.CustomResource {
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
+     */
+    public readonly targetConnectionNetworkType!: pulumi.Output<enums.rds.DbProxyTargetConnectionNetworkType | undefined>;
     /**
      * VPC ID to associate with the new DB proxy.
      */
@@ -101,9 +113,6 @@ export class DbProxy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.auth === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'auth'");
-            }
             if ((!args || args.engineFamily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineFamily'");
             }
@@ -116,11 +125,14 @@ export class DbProxy extends pulumi.CustomResource {
             resourceInputs["auth"] = args ? args.auth : undefined;
             resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
             resourceInputs["debugLogging"] = args ? args.debugLogging : undefined;
+            resourceInputs["defaultAuthScheme"] = args ? args.defaultAuthScheme : undefined;
+            resourceInputs["endpointNetworkType"] = args ? args.endpointNetworkType : undefined;
             resourceInputs["engineFamily"] = args ? args.engineFamily : undefined;
             resourceInputs["idleClientTimeout"] = args ? args.idleClientTimeout : undefined;
             resourceInputs["requireTls"] = args ? args.requireTls : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetConnectionNetworkType"] = args ? args.targetConnectionNetworkType : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
             resourceInputs["dbProxyArn"] = undefined /*out*/;
@@ -131,18 +143,21 @@ export class DbProxy extends pulumi.CustomResource {
             resourceInputs["dbProxyArn"] = undefined /*out*/;
             resourceInputs["dbProxyName"] = undefined /*out*/;
             resourceInputs["debugLogging"] = undefined /*out*/;
+            resourceInputs["defaultAuthScheme"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["endpointNetworkType"] = undefined /*out*/;
             resourceInputs["engineFamily"] = undefined /*out*/;
             resourceInputs["idleClientTimeout"] = undefined /*out*/;
             resourceInputs["requireTls"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetConnectionNetworkType"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
             resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
             resourceInputs["vpcSubnetIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["dbProxyName", "engineFamily", "vpcSubnetIds[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["dbProxyName", "endpointNetworkType", "engineFamily", "targetConnectionNetworkType", "vpcSubnetIds[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbProxy.__pulumiType, name, resourceInputs, opts);
     }
@@ -155,7 +170,7 @@ export interface DbProxyArgs {
     /**
      * The authorization mechanism that the proxy uses.
      */
-    auth: pulumi.Input<pulumi.Input<inputs.rds.DbProxyAuthFormatArgs>[]>;
+    auth?: pulumi.Input<pulumi.Input<inputs.rds.DbProxyAuthFormatArgs>[]>;
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
@@ -164,6 +179,14 @@ export interface DbProxyArgs {
      * Whether the proxy includes detailed information about SQL statements in its logs.
      */
     debugLogging?: pulumi.Input<boolean>;
+    /**
+     * The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+     */
+    defaultAuthScheme?: pulumi.Input<enums.rds.DbProxyDefaultAuthScheme>;
+    /**
+     * The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+     */
+    endpointNetworkType?: pulumi.Input<enums.rds.DbProxyEndpointNetworkType>;
     /**
      * The kinds of databases that the proxy can connect to.
      */
@@ -184,6 +207,10 @@ export interface DbProxyArgs {
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
+     */
+    targetConnectionNetworkType?: pulumi.Input<enums.rds.DbProxyTargetConnectionNetworkType>;
     /**
      * VPC security group IDs to associate with the new proxy.
      */

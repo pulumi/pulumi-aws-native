@@ -26,6 +26,8 @@ __all__ = ['CapacityProviderArgs', 'CapacityProvider']
 class CapacityProviderArgs:
     def __init__(__self__, *,
                  auto_scaling_group_provider: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs']] = None,
+                 cluster_name: Optional[pulumi.Input[builtins.str]] = None,
+                 managed_instances_provider: Optional[pulumi.Input['CapacityProviderManagedInstancesProviderArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -46,6 +48,10 @@ class CapacityProviderArgs:
         """
         if auto_scaling_group_provider is not None:
             pulumi.set(__self__, "auto_scaling_group_provider", auto_scaling_group_provider)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
+        if managed_instances_provider is not None:
+            pulumi.set(__self__, "managed_instances_provider", managed_instances_provider)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -62,6 +68,24 @@ class CapacityProviderArgs:
     @auto_scaling_group_provider.setter
     def auto_scaling_group_provider(self, value: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs']]):
         pulumi.set(self, "auto_scaling_group_provider", value)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="managedInstancesProvider")
+    def managed_instances_provider(self) -> Optional[pulumi.Input['CapacityProviderManagedInstancesProviderArgs']]:
+        return pulumi.get(self, "managed_instances_provider")
+
+    @managed_instances_provider.setter
+    def managed_instances_provider(self, value: Optional[pulumi.Input['CapacityProviderManagedInstancesProviderArgs']]):
+        pulumi.set(self, "managed_instances_provider", value)
 
     @property
     @pulumi.getter
@@ -105,6 +129,8 @@ class CapacityProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling_group_provider: Optional[pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']]] = None,
+                 cluster_name: Optional[pulumi.Input[builtins.str]] = None,
+                 managed_instances_provider: Optional[pulumi.Input[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -424,6 +450,8 @@ class CapacityProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling_group_provider: Optional[pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']]] = None,
+                 cluster_name: Optional[pulumi.Input[builtins.str]] = None,
+                 managed_instances_provider: Optional[pulumi.Input[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -436,9 +464,11 @@ class CapacityProvider(pulumi.CustomResource):
             __props__ = CapacityProviderArgs.__new__(CapacityProviderArgs)
 
             __props__.__dict__["auto_scaling_group_provider"] = auto_scaling_group_provider
+            __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["managed_instances_provider"] = managed_instances_provider
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["autoScalingGroupProvider.autoScalingGroupArn", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["autoScalingGroupProvider.autoScalingGroupArn", "clusterName", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CapacityProvider, __self__).__init__(
             'aws-native:ecs:CapacityProvider',
@@ -463,6 +493,8 @@ class CapacityProvider(pulumi.CustomResource):
         __props__ = CapacityProviderArgs.__new__(CapacityProviderArgs)
 
         __props__.__dict__["auto_scaling_group_provider"] = None
+        __props__.__dict__["cluster_name"] = None
+        __props__.__dict__["managed_instances_provider"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return CapacityProvider(resource_name, opts=opts, __props__=__props__)
@@ -474,6 +506,16 @@ class CapacityProvider(pulumi.CustomResource):
         The Auto Scaling group settings for the capacity provider.
         """
         return pulumi.get(self, "auto_scaling_group_provider")
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "cluster_name")
+
+    @property
+    @pulumi.getter(name="managedInstancesProvider")
+    def managed_instances_provider(self) -> pulumi.Output[Optional['outputs.CapacityProviderManagedInstancesProvider']]:
+        return pulumi.get(self, "managed_instances_provider")
 
     @property
     @pulumi.getter

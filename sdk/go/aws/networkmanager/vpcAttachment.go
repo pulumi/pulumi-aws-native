@@ -31,6 +31,8 @@ type VpcAttachment struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The Region where the edge is located.
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
+	// Errors from the last modification of the attachment.
+	LastModificationErrors pulumi.StringArrayOutput `pulumi:"lastModificationErrors"`
 	// The name of the network function group attachment.
 	NetworkFunctionGroupName pulumi.StringOutput `pulumi:"networkFunctionGroupName"`
 	// Vpc options of the attachment.
@@ -215,6 +217,11 @@ func (o VpcAttachmentOutput) CreatedAt() pulumi.StringOutput {
 // The Region where the edge is located.
 func (o VpcAttachmentOutput) EdgeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
+}
+
+// Errors from the last modification of the attachment.
+func (o VpcAttachmentOutput) LastModificationErrors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringArrayOutput { return v.LastModificationErrors }).(pulumi.StringArrayOutput)
 }
 
 // The name of the network function group attachment.

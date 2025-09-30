@@ -31,6 +31,8 @@ type ConnectAttachment struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Edge location of the attachment.
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
+	// Errors from the last modification of the attachment.
+	LastModificationErrors pulumi.StringArrayOutput `pulumi:"lastModificationErrors"`
 	// The name of the network function group attachment.
 	NetworkFunctionGroupName pulumi.StringPtrOutput `pulumi:"networkFunctionGroupName"`
 	// Protocol options for connect attachment
@@ -222,6 +224,11 @@ func (o ConnectAttachmentOutput) CreatedAt() pulumi.StringOutput {
 // Edge location of the attachment.
 func (o ConnectAttachmentOutput) EdgeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
+}
+
+// Errors from the last modification of the attachment.
+func (o ConnectAttachmentOutput) LastModificationErrors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringArrayOutput { return v.LastModificationErrors }).(pulumi.StringArrayOutput)
 }
 
 // The name of the network function group attachment.

@@ -13,6 +13,302 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type CapacityProviderAcceleratorCountRequest struct {
+	Max *int `pulumi:"max"`
+	Min *int `pulumi:"min"`
+}
+
+// CapacityProviderAcceleratorCountRequestInput is an input type that accepts CapacityProviderAcceleratorCountRequestArgs and CapacityProviderAcceleratorCountRequestOutput values.
+// You can construct a concrete instance of `CapacityProviderAcceleratorCountRequestInput` via:
+//
+//	CapacityProviderAcceleratorCountRequestArgs{...}
+type CapacityProviderAcceleratorCountRequestInput interface {
+	pulumi.Input
+
+	ToCapacityProviderAcceleratorCountRequestOutput() CapacityProviderAcceleratorCountRequestOutput
+	ToCapacityProviderAcceleratorCountRequestOutputWithContext(context.Context) CapacityProviderAcceleratorCountRequestOutput
+}
+
+type CapacityProviderAcceleratorCountRequestArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (CapacityProviderAcceleratorCountRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderAcceleratorCountRequest)(nil)).Elem()
+}
+
+func (i CapacityProviderAcceleratorCountRequestArgs) ToCapacityProviderAcceleratorCountRequestOutput() CapacityProviderAcceleratorCountRequestOutput {
+	return i.ToCapacityProviderAcceleratorCountRequestOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderAcceleratorCountRequestArgs) ToCapacityProviderAcceleratorCountRequestOutputWithContext(ctx context.Context) CapacityProviderAcceleratorCountRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderAcceleratorCountRequestOutput)
+}
+
+func (i CapacityProviderAcceleratorCountRequestArgs) ToCapacityProviderAcceleratorCountRequestPtrOutput() CapacityProviderAcceleratorCountRequestPtrOutput {
+	return i.ToCapacityProviderAcceleratorCountRequestPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderAcceleratorCountRequestArgs) ToCapacityProviderAcceleratorCountRequestPtrOutputWithContext(ctx context.Context) CapacityProviderAcceleratorCountRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderAcceleratorCountRequestOutput).ToCapacityProviderAcceleratorCountRequestPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderAcceleratorCountRequestPtrInput is an input type that accepts CapacityProviderAcceleratorCountRequestArgs, CapacityProviderAcceleratorCountRequestPtr and CapacityProviderAcceleratorCountRequestPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderAcceleratorCountRequestPtrInput` via:
+//
+//	        CapacityProviderAcceleratorCountRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderAcceleratorCountRequestPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderAcceleratorCountRequestPtrOutput() CapacityProviderAcceleratorCountRequestPtrOutput
+	ToCapacityProviderAcceleratorCountRequestPtrOutputWithContext(context.Context) CapacityProviderAcceleratorCountRequestPtrOutput
+}
+
+type capacityProviderAcceleratorCountRequestPtrType CapacityProviderAcceleratorCountRequestArgs
+
+func CapacityProviderAcceleratorCountRequestPtr(v *CapacityProviderAcceleratorCountRequestArgs) CapacityProviderAcceleratorCountRequestPtrInput {
+	return (*capacityProviderAcceleratorCountRequestPtrType)(v)
+}
+
+func (*capacityProviderAcceleratorCountRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderAcceleratorCountRequest)(nil)).Elem()
+}
+
+func (i *capacityProviderAcceleratorCountRequestPtrType) ToCapacityProviderAcceleratorCountRequestPtrOutput() CapacityProviderAcceleratorCountRequestPtrOutput {
+	return i.ToCapacityProviderAcceleratorCountRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderAcceleratorCountRequestPtrType) ToCapacityProviderAcceleratorCountRequestPtrOutputWithContext(ctx context.Context) CapacityProviderAcceleratorCountRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderAcceleratorCountRequestPtrOutput)
+}
+
+type CapacityProviderAcceleratorCountRequestOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderAcceleratorCountRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderAcceleratorCountRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderAcceleratorCountRequestOutput) ToCapacityProviderAcceleratorCountRequestOutput() CapacityProviderAcceleratorCountRequestOutput {
+	return o
+}
+
+func (o CapacityProviderAcceleratorCountRequestOutput) ToCapacityProviderAcceleratorCountRequestOutputWithContext(ctx context.Context) CapacityProviderAcceleratorCountRequestOutput {
+	return o
+}
+
+func (o CapacityProviderAcceleratorCountRequestOutput) ToCapacityProviderAcceleratorCountRequestPtrOutput() CapacityProviderAcceleratorCountRequestPtrOutput {
+	return o.ToCapacityProviderAcceleratorCountRequestPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderAcceleratorCountRequestOutput) ToCapacityProviderAcceleratorCountRequestPtrOutputWithContext(ctx context.Context) CapacityProviderAcceleratorCountRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderAcceleratorCountRequest) *CapacityProviderAcceleratorCountRequest {
+		return &v
+	}).(CapacityProviderAcceleratorCountRequestPtrOutput)
+}
+
+func (o CapacityProviderAcceleratorCountRequestOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderAcceleratorCountRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderAcceleratorCountRequestOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderAcceleratorCountRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderAcceleratorCountRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderAcceleratorCountRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderAcceleratorCountRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderAcceleratorCountRequestPtrOutput) ToCapacityProviderAcceleratorCountRequestPtrOutput() CapacityProviderAcceleratorCountRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderAcceleratorCountRequestPtrOutput) ToCapacityProviderAcceleratorCountRequestPtrOutputWithContext(ctx context.Context) CapacityProviderAcceleratorCountRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderAcceleratorCountRequestPtrOutput) Elem() CapacityProviderAcceleratorCountRequestOutput {
+	return o.ApplyT(func(v *CapacityProviderAcceleratorCountRequest) CapacityProviderAcceleratorCountRequest {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderAcceleratorCountRequest
+		return ret
+	}).(CapacityProviderAcceleratorCountRequestOutput)
+}
+
+func (o CapacityProviderAcceleratorCountRequestPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderAcceleratorCountRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderAcceleratorCountRequestPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderAcceleratorCountRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderAcceleratorTotalMemoryMiBRequest struct {
+	Max *int `pulumi:"max"`
+	Min *int `pulumi:"min"`
+}
+
+// CapacityProviderAcceleratorTotalMemoryMiBRequestInput is an input type that accepts CapacityProviderAcceleratorTotalMemoryMiBRequestArgs and CapacityProviderAcceleratorTotalMemoryMiBRequestOutput values.
+// You can construct a concrete instance of `CapacityProviderAcceleratorTotalMemoryMiBRequestInput` via:
+//
+//	CapacityProviderAcceleratorTotalMemoryMiBRequestArgs{...}
+type CapacityProviderAcceleratorTotalMemoryMiBRequestInput interface {
+	pulumi.Input
+
+	ToCapacityProviderAcceleratorTotalMemoryMiBRequestOutput() CapacityProviderAcceleratorTotalMemoryMiBRequestOutput
+	ToCapacityProviderAcceleratorTotalMemoryMiBRequestOutputWithContext(context.Context) CapacityProviderAcceleratorTotalMemoryMiBRequestOutput
+}
+
+type CapacityProviderAcceleratorTotalMemoryMiBRequestArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (CapacityProviderAcceleratorTotalMemoryMiBRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderAcceleratorTotalMemoryMiBRequest)(nil)).Elem()
+}
+
+func (i CapacityProviderAcceleratorTotalMemoryMiBRequestArgs) ToCapacityProviderAcceleratorTotalMemoryMiBRequestOutput() CapacityProviderAcceleratorTotalMemoryMiBRequestOutput {
+	return i.ToCapacityProviderAcceleratorTotalMemoryMiBRequestOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderAcceleratorTotalMemoryMiBRequestArgs) ToCapacityProviderAcceleratorTotalMemoryMiBRequestOutputWithContext(ctx context.Context) CapacityProviderAcceleratorTotalMemoryMiBRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderAcceleratorTotalMemoryMiBRequestOutput)
+}
+
+func (i CapacityProviderAcceleratorTotalMemoryMiBRequestArgs) ToCapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput() CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return i.ToCapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderAcceleratorTotalMemoryMiBRequestArgs) ToCapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx context.Context) CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderAcceleratorTotalMemoryMiBRequestOutput).ToCapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderAcceleratorTotalMemoryMiBRequestPtrInput is an input type that accepts CapacityProviderAcceleratorTotalMemoryMiBRequestArgs, CapacityProviderAcceleratorTotalMemoryMiBRequestPtr and CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderAcceleratorTotalMemoryMiBRequestPtrInput` via:
+//
+//	        CapacityProviderAcceleratorTotalMemoryMiBRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderAcceleratorTotalMemoryMiBRequestPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput() CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput
+	ToCapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(context.Context) CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput
+}
+
+type capacityProviderAcceleratorTotalMemoryMiBRequestPtrType CapacityProviderAcceleratorTotalMemoryMiBRequestArgs
+
+func CapacityProviderAcceleratorTotalMemoryMiBRequestPtr(v *CapacityProviderAcceleratorTotalMemoryMiBRequestArgs) CapacityProviderAcceleratorTotalMemoryMiBRequestPtrInput {
+	return (*capacityProviderAcceleratorTotalMemoryMiBRequestPtrType)(v)
+}
+
+func (*capacityProviderAcceleratorTotalMemoryMiBRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderAcceleratorTotalMemoryMiBRequest)(nil)).Elem()
+}
+
+func (i *capacityProviderAcceleratorTotalMemoryMiBRequestPtrType) ToCapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput() CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return i.ToCapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderAcceleratorTotalMemoryMiBRequestPtrType) ToCapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx context.Context) CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput)
+}
+
+type CapacityProviderAcceleratorTotalMemoryMiBRequestOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderAcceleratorTotalMemoryMiBRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderAcceleratorTotalMemoryMiBRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderAcceleratorTotalMemoryMiBRequestOutput) ToCapacityProviderAcceleratorTotalMemoryMiBRequestOutput() CapacityProviderAcceleratorTotalMemoryMiBRequestOutput {
+	return o
+}
+
+func (o CapacityProviderAcceleratorTotalMemoryMiBRequestOutput) ToCapacityProviderAcceleratorTotalMemoryMiBRequestOutputWithContext(ctx context.Context) CapacityProviderAcceleratorTotalMemoryMiBRequestOutput {
+	return o
+}
+
+func (o CapacityProviderAcceleratorTotalMemoryMiBRequestOutput) ToCapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput() CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return o.ToCapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderAcceleratorTotalMemoryMiBRequestOutput) ToCapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx context.Context) CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderAcceleratorTotalMemoryMiBRequest) *CapacityProviderAcceleratorTotalMemoryMiBRequest {
+		return &v
+	}).(CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput)
+}
+
+func (o CapacityProviderAcceleratorTotalMemoryMiBRequestOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderAcceleratorTotalMemoryMiBRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderAcceleratorTotalMemoryMiBRequestOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderAcceleratorTotalMemoryMiBRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderAcceleratorTotalMemoryMiBRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput) ToCapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput() CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput) ToCapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutputWithContext(ctx context.Context) CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput) Elem() CapacityProviderAcceleratorTotalMemoryMiBRequestOutput {
+	return o.ApplyT(func(v *CapacityProviderAcceleratorTotalMemoryMiBRequest) CapacityProviderAcceleratorTotalMemoryMiBRequest {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderAcceleratorTotalMemoryMiBRequest
+		return ret
+	}).(CapacityProviderAcceleratorTotalMemoryMiBRequestOutput)
+}
+
+func (o CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderAcceleratorTotalMemoryMiBRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderAcceleratorTotalMemoryMiBRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
 type CapacityProviderAutoScalingGroupProvider struct {
 	// The Amazon Resource Name (ARN) that identifies the Auto Scaling group, or the Auto Scaling group name.
 	AutoScalingGroupArn string `pulumi:"autoScalingGroupArn"`
@@ -235,6 +531,1323 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedTerminationPro
 		}
 		return v.ManagedTerminationProtection
 	}).(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput)
+}
+
+type CapacityProviderBaselineEbsBandwidthMbpsRequest struct {
+	Max *int `pulumi:"max"`
+	Min *int `pulumi:"min"`
+}
+
+// CapacityProviderBaselineEbsBandwidthMbpsRequestInput is an input type that accepts CapacityProviderBaselineEbsBandwidthMbpsRequestArgs and CapacityProviderBaselineEbsBandwidthMbpsRequestOutput values.
+// You can construct a concrete instance of `CapacityProviderBaselineEbsBandwidthMbpsRequestInput` via:
+//
+//	CapacityProviderBaselineEbsBandwidthMbpsRequestArgs{...}
+type CapacityProviderBaselineEbsBandwidthMbpsRequestInput interface {
+	pulumi.Input
+
+	ToCapacityProviderBaselineEbsBandwidthMbpsRequestOutput() CapacityProviderBaselineEbsBandwidthMbpsRequestOutput
+	ToCapacityProviderBaselineEbsBandwidthMbpsRequestOutputWithContext(context.Context) CapacityProviderBaselineEbsBandwidthMbpsRequestOutput
+}
+
+type CapacityProviderBaselineEbsBandwidthMbpsRequestArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (CapacityProviderBaselineEbsBandwidthMbpsRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderBaselineEbsBandwidthMbpsRequest)(nil)).Elem()
+}
+
+func (i CapacityProviderBaselineEbsBandwidthMbpsRequestArgs) ToCapacityProviderBaselineEbsBandwidthMbpsRequestOutput() CapacityProviderBaselineEbsBandwidthMbpsRequestOutput {
+	return i.ToCapacityProviderBaselineEbsBandwidthMbpsRequestOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderBaselineEbsBandwidthMbpsRequestArgs) ToCapacityProviderBaselineEbsBandwidthMbpsRequestOutputWithContext(ctx context.Context) CapacityProviderBaselineEbsBandwidthMbpsRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderBaselineEbsBandwidthMbpsRequestOutput)
+}
+
+func (i CapacityProviderBaselineEbsBandwidthMbpsRequestArgs) ToCapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput() CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return i.ToCapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderBaselineEbsBandwidthMbpsRequestArgs) ToCapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx context.Context) CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderBaselineEbsBandwidthMbpsRequestOutput).ToCapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderBaselineEbsBandwidthMbpsRequestPtrInput is an input type that accepts CapacityProviderBaselineEbsBandwidthMbpsRequestArgs, CapacityProviderBaselineEbsBandwidthMbpsRequestPtr and CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderBaselineEbsBandwidthMbpsRequestPtrInput` via:
+//
+//	        CapacityProviderBaselineEbsBandwidthMbpsRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderBaselineEbsBandwidthMbpsRequestPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput() CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput
+	ToCapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(context.Context) CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput
+}
+
+type capacityProviderBaselineEbsBandwidthMbpsRequestPtrType CapacityProviderBaselineEbsBandwidthMbpsRequestArgs
+
+func CapacityProviderBaselineEbsBandwidthMbpsRequestPtr(v *CapacityProviderBaselineEbsBandwidthMbpsRequestArgs) CapacityProviderBaselineEbsBandwidthMbpsRequestPtrInput {
+	return (*capacityProviderBaselineEbsBandwidthMbpsRequestPtrType)(v)
+}
+
+func (*capacityProviderBaselineEbsBandwidthMbpsRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderBaselineEbsBandwidthMbpsRequest)(nil)).Elem()
+}
+
+func (i *capacityProviderBaselineEbsBandwidthMbpsRequestPtrType) ToCapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput() CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return i.ToCapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderBaselineEbsBandwidthMbpsRequestPtrType) ToCapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx context.Context) CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput)
+}
+
+type CapacityProviderBaselineEbsBandwidthMbpsRequestOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderBaselineEbsBandwidthMbpsRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderBaselineEbsBandwidthMbpsRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderBaselineEbsBandwidthMbpsRequestOutput) ToCapacityProviderBaselineEbsBandwidthMbpsRequestOutput() CapacityProviderBaselineEbsBandwidthMbpsRequestOutput {
+	return o
+}
+
+func (o CapacityProviderBaselineEbsBandwidthMbpsRequestOutput) ToCapacityProviderBaselineEbsBandwidthMbpsRequestOutputWithContext(ctx context.Context) CapacityProviderBaselineEbsBandwidthMbpsRequestOutput {
+	return o
+}
+
+func (o CapacityProviderBaselineEbsBandwidthMbpsRequestOutput) ToCapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput() CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return o.ToCapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderBaselineEbsBandwidthMbpsRequestOutput) ToCapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx context.Context) CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderBaselineEbsBandwidthMbpsRequest) *CapacityProviderBaselineEbsBandwidthMbpsRequest {
+		return &v
+	}).(CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput)
+}
+
+func (o CapacityProviderBaselineEbsBandwidthMbpsRequestOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderBaselineEbsBandwidthMbpsRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderBaselineEbsBandwidthMbpsRequestOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderBaselineEbsBandwidthMbpsRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderBaselineEbsBandwidthMbpsRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput) ToCapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput() CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput) ToCapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutputWithContext(ctx context.Context) CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput) Elem() CapacityProviderBaselineEbsBandwidthMbpsRequestOutput {
+	return o.ApplyT(func(v *CapacityProviderBaselineEbsBandwidthMbpsRequest) CapacityProviderBaselineEbsBandwidthMbpsRequest {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderBaselineEbsBandwidthMbpsRequest
+		return ret
+	}).(CapacityProviderBaselineEbsBandwidthMbpsRequestOutput)
+}
+
+func (o CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderBaselineEbsBandwidthMbpsRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderBaselineEbsBandwidthMbpsRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderInstanceLaunchTemplate struct {
+	Ec2InstanceProfileArn string                                                `pulumi:"ec2InstanceProfileArn"`
+	InstanceRequirements  *CapacityProviderInstanceRequirementsRequest          `pulumi:"instanceRequirements"`
+	Monitoring            *CapacityProviderManagedInstancesMonitoringOptions    `pulumi:"monitoring"`
+	NetworkConfiguration  CapacityProviderManagedInstancesNetworkConfiguration  `pulumi:"networkConfiguration"`
+	StorageConfiguration  *CapacityProviderManagedInstancesStorageConfiguration `pulumi:"storageConfiguration"`
+}
+
+// CapacityProviderInstanceLaunchTemplateInput is an input type that accepts CapacityProviderInstanceLaunchTemplateArgs and CapacityProviderInstanceLaunchTemplateOutput values.
+// You can construct a concrete instance of `CapacityProviderInstanceLaunchTemplateInput` via:
+//
+//	CapacityProviderInstanceLaunchTemplateArgs{...}
+type CapacityProviderInstanceLaunchTemplateInput interface {
+	pulumi.Input
+
+	ToCapacityProviderInstanceLaunchTemplateOutput() CapacityProviderInstanceLaunchTemplateOutput
+	ToCapacityProviderInstanceLaunchTemplateOutputWithContext(context.Context) CapacityProviderInstanceLaunchTemplateOutput
+}
+
+type CapacityProviderInstanceLaunchTemplateArgs struct {
+	Ec2InstanceProfileArn pulumi.StringInput                                           `pulumi:"ec2InstanceProfileArn"`
+	InstanceRequirements  CapacityProviderInstanceRequirementsRequestPtrInput          `pulumi:"instanceRequirements"`
+	Monitoring            CapacityProviderManagedInstancesMonitoringOptionsPtrInput    `pulumi:"monitoring"`
+	NetworkConfiguration  CapacityProviderManagedInstancesNetworkConfigurationInput    `pulumi:"networkConfiguration"`
+	StorageConfiguration  CapacityProviderManagedInstancesStorageConfigurationPtrInput `pulumi:"storageConfiguration"`
+}
+
+func (CapacityProviderInstanceLaunchTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderInstanceLaunchTemplate)(nil)).Elem()
+}
+
+func (i CapacityProviderInstanceLaunchTemplateArgs) ToCapacityProviderInstanceLaunchTemplateOutput() CapacityProviderInstanceLaunchTemplateOutput {
+	return i.ToCapacityProviderInstanceLaunchTemplateOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderInstanceLaunchTemplateArgs) ToCapacityProviderInstanceLaunchTemplateOutputWithContext(ctx context.Context) CapacityProviderInstanceLaunchTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderInstanceLaunchTemplateOutput)
+}
+
+func (i CapacityProviderInstanceLaunchTemplateArgs) ToCapacityProviderInstanceLaunchTemplatePtrOutput() CapacityProviderInstanceLaunchTemplatePtrOutput {
+	return i.ToCapacityProviderInstanceLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderInstanceLaunchTemplateArgs) ToCapacityProviderInstanceLaunchTemplatePtrOutputWithContext(ctx context.Context) CapacityProviderInstanceLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderInstanceLaunchTemplateOutput).ToCapacityProviderInstanceLaunchTemplatePtrOutputWithContext(ctx)
+}
+
+// CapacityProviderInstanceLaunchTemplatePtrInput is an input type that accepts CapacityProviderInstanceLaunchTemplateArgs, CapacityProviderInstanceLaunchTemplatePtr and CapacityProviderInstanceLaunchTemplatePtrOutput values.
+// You can construct a concrete instance of `CapacityProviderInstanceLaunchTemplatePtrInput` via:
+//
+//	        CapacityProviderInstanceLaunchTemplateArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderInstanceLaunchTemplatePtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderInstanceLaunchTemplatePtrOutput() CapacityProviderInstanceLaunchTemplatePtrOutput
+	ToCapacityProviderInstanceLaunchTemplatePtrOutputWithContext(context.Context) CapacityProviderInstanceLaunchTemplatePtrOutput
+}
+
+type capacityProviderInstanceLaunchTemplatePtrType CapacityProviderInstanceLaunchTemplateArgs
+
+func CapacityProviderInstanceLaunchTemplatePtr(v *CapacityProviderInstanceLaunchTemplateArgs) CapacityProviderInstanceLaunchTemplatePtrInput {
+	return (*capacityProviderInstanceLaunchTemplatePtrType)(v)
+}
+
+func (*capacityProviderInstanceLaunchTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderInstanceLaunchTemplate)(nil)).Elem()
+}
+
+func (i *capacityProviderInstanceLaunchTemplatePtrType) ToCapacityProviderInstanceLaunchTemplatePtrOutput() CapacityProviderInstanceLaunchTemplatePtrOutput {
+	return i.ToCapacityProviderInstanceLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderInstanceLaunchTemplatePtrType) ToCapacityProviderInstanceLaunchTemplatePtrOutputWithContext(ctx context.Context) CapacityProviderInstanceLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderInstanceLaunchTemplatePtrOutput)
+}
+
+type CapacityProviderInstanceLaunchTemplateOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderInstanceLaunchTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderInstanceLaunchTemplate)(nil)).Elem()
+}
+
+func (o CapacityProviderInstanceLaunchTemplateOutput) ToCapacityProviderInstanceLaunchTemplateOutput() CapacityProviderInstanceLaunchTemplateOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceLaunchTemplateOutput) ToCapacityProviderInstanceLaunchTemplateOutputWithContext(ctx context.Context) CapacityProviderInstanceLaunchTemplateOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceLaunchTemplateOutput) ToCapacityProviderInstanceLaunchTemplatePtrOutput() CapacityProviderInstanceLaunchTemplatePtrOutput {
+	return o.ToCapacityProviderInstanceLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderInstanceLaunchTemplateOutput) ToCapacityProviderInstanceLaunchTemplatePtrOutputWithContext(ctx context.Context) CapacityProviderInstanceLaunchTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderInstanceLaunchTemplate) *CapacityProviderInstanceLaunchTemplate {
+		return &v
+	}).(CapacityProviderInstanceLaunchTemplatePtrOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplateOutput) Ec2InstanceProfileArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) string { return v.Ec2InstanceProfileArn }).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplateOutput) InstanceRequirements() CapacityProviderInstanceRequirementsRequestPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) *CapacityProviderInstanceRequirementsRequest {
+		return v.InstanceRequirements
+	}).(CapacityProviderInstanceRequirementsRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplateOutput) Monitoring() CapacityProviderManagedInstancesMonitoringOptionsPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesMonitoringOptions {
+		return v.Monitoring
+	}).(CapacityProviderManagedInstancesMonitoringOptionsPtrOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplateOutput) NetworkConfiguration() CapacityProviderManagedInstancesNetworkConfigurationOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) CapacityProviderManagedInstancesNetworkConfiguration {
+		return v.NetworkConfiguration
+	}).(CapacityProviderManagedInstancesNetworkConfigurationOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplateOutput) StorageConfiguration() CapacityProviderManagedInstancesStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesStorageConfiguration {
+		return v.StorageConfiguration
+	}).(CapacityProviderManagedInstancesStorageConfigurationPtrOutput)
+}
+
+type CapacityProviderInstanceLaunchTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderInstanceLaunchTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderInstanceLaunchTemplate)(nil)).Elem()
+}
+
+func (o CapacityProviderInstanceLaunchTemplatePtrOutput) ToCapacityProviderInstanceLaunchTemplatePtrOutput() CapacityProviderInstanceLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceLaunchTemplatePtrOutput) ToCapacityProviderInstanceLaunchTemplatePtrOutputWithContext(ctx context.Context) CapacityProviderInstanceLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceLaunchTemplatePtrOutput) Elem() CapacityProviderInstanceLaunchTemplateOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) CapacityProviderInstanceLaunchTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderInstanceLaunchTemplate
+		return ret
+	}).(CapacityProviderInstanceLaunchTemplateOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplatePtrOutput) Ec2InstanceProfileArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Ec2InstanceProfileArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplatePtrOutput) InstanceRequirements() CapacityProviderInstanceRequirementsRequestPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) *CapacityProviderInstanceRequirementsRequest {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceRequirements
+	}).(CapacityProviderInstanceRequirementsRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplatePtrOutput) Monitoring() CapacityProviderManagedInstancesMonitoringOptionsPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesMonitoringOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Monitoring
+	}).(CapacityProviderManagedInstancesMonitoringOptionsPtrOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplatePtrOutput) NetworkConfiguration() CapacityProviderManagedInstancesNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesNetworkConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkConfiguration
+	}).(CapacityProviderManagedInstancesNetworkConfigurationPtrOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplatePtrOutput) StorageConfiguration() CapacityProviderManagedInstancesStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesStorageConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.StorageConfiguration
+	}).(CapacityProviderManagedInstancesStorageConfigurationPtrOutput)
+}
+
+type CapacityProviderInstanceRequirementsRequest struct {
+	AcceleratorCount                               *CapacityProviderAcceleratorCountRequest                                  `pulumi:"acceleratorCount"`
+	AcceleratorManufacturers                       []CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                               []CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem         `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMiB                      *CapacityProviderAcceleratorTotalMemoryMiBRequest                         `pulumi:"acceleratorTotalMemoryMiB"`
+	AcceleratorTypes                               []CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem         `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                           []string                                                                  `pulumi:"allowedInstanceTypes"`
+	BareMetal                                      *CapacityProviderInstanceRequirementsRequestBareMetal                     `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                       *CapacityProviderBaselineEbsBandwidthMbpsRequest                          `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                           *CapacityProviderInstanceRequirementsRequestBurstablePerformance          `pulumi:"burstablePerformance"`
+	CpuManufacturers                               []CapacityProviderInstanceRequirementsRequestCpuManufacturersItem         `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                          []string                                                                  `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                            []CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem      `pulumi:"instanceGenerations"`
+	LocalStorage                                   *CapacityProviderInstanceRequirementsRequestLocalStorage                  `pulumi:"localStorage"`
+	LocalStorageTypes                              []CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem        `pulumi:"localStorageTypes"`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int                                                                      `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGiBPerVCpu                               *CapacityProviderMemoryGiBPerVCpuRequest                                  `pulumi:"memoryGiBPerVCpu"`
+	MemoryMiB                                      CapacityProviderMemoryMiBRequest                                          `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                           *CapacityProviderNetworkBandwidthGbpsRequest                              `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount                          *CapacityProviderNetworkInterfaceCountRequest                             `pulumi:"networkInterfaceCount"`
+	OnDemandMaxPricePercentageOverLowestPrice      *int                                                                      `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                        *bool                                                                     `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice          *int                                                                      `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGb                            *CapacityProviderTotalLocalStorageGbRequest                               `pulumi:"totalLocalStorageGb"`
+	VCpuCount                                      CapacityProviderVCpuCountRangeRequest                                     `pulumi:"vCpuCount"`
+}
+
+// CapacityProviderInstanceRequirementsRequestInput is an input type that accepts CapacityProviderInstanceRequirementsRequestArgs and CapacityProviderInstanceRequirementsRequestOutput values.
+// You can construct a concrete instance of `CapacityProviderInstanceRequirementsRequestInput` via:
+//
+//	CapacityProviderInstanceRequirementsRequestArgs{...}
+type CapacityProviderInstanceRequirementsRequestInput interface {
+	pulumi.Input
+
+	ToCapacityProviderInstanceRequirementsRequestOutput() CapacityProviderInstanceRequirementsRequestOutput
+	ToCapacityProviderInstanceRequirementsRequestOutputWithContext(context.Context) CapacityProviderInstanceRequirementsRequestOutput
+}
+
+type CapacityProviderInstanceRequirementsRequestArgs struct {
+	AcceleratorCount                               CapacityProviderAcceleratorCountRequestPtrInput                                   `pulumi:"acceleratorCount"`
+	AcceleratorManufacturers                       CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                               CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemArrayInput         `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMiB                      CapacityProviderAcceleratorTotalMemoryMiBRequestPtrInput                          `pulumi:"acceleratorTotalMemoryMiB"`
+	AcceleratorTypes                               CapacityProviderInstanceRequirementsRequestAcceleratorTypesItemArrayInput         `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                           pulumi.StringArrayInput                                                           `pulumi:"allowedInstanceTypes"`
+	BareMetal                                      CapacityProviderInstanceRequirementsRequestBareMetalPtrInput                      `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                       CapacityProviderBaselineEbsBandwidthMbpsRequestPtrInput                           `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                           CapacityProviderInstanceRequirementsRequestBurstablePerformancePtrInput           `pulumi:"burstablePerformance"`
+	CpuManufacturers                               CapacityProviderInstanceRequirementsRequestCpuManufacturersItemArrayInput         `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                          pulumi.StringArrayInput                                                           `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                            CapacityProviderInstanceRequirementsRequestInstanceGenerationsItemArrayInput      `pulumi:"instanceGenerations"`
+	LocalStorage                                   CapacityProviderInstanceRequirementsRequestLocalStoragePtrInput                   `pulumi:"localStorage"`
+	LocalStorageTypes                              CapacityProviderInstanceRequirementsRequestLocalStorageTypesItemArrayInput        `pulumi:"localStorageTypes"`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput                                                                `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGiBPerVCpu                               CapacityProviderMemoryGiBPerVCpuRequestPtrInput                                   `pulumi:"memoryGiBPerVCpu"`
+	MemoryMiB                                      CapacityProviderMemoryMiBRequestInput                                             `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                           CapacityProviderNetworkBandwidthGbpsRequestPtrInput                               `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount                          CapacityProviderNetworkInterfaceCountRequestPtrInput                              `pulumi:"networkInterfaceCount"`
+	OnDemandMaxPricePercentageOverLowestPrice      pulumi.IntPtrInput                                                                `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                        pulumi.BoolPtrInput                                                               `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice          pulumi.IntPtrInput                                                                `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGb                            CapacityProviderTotalLocalStorageGbRequestPtrInput                                `pulumi:"totalLocalStorageGb"`
+	VCpuCount                                      CapacityProviderVCpuCountRangeRequestInput                                        `pulumi:"vCpuCount"`
+}
+
+func (CapacityProviderInstanceRequirementsRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderInstanceRequirementsRequest)(nil)).Elem()
+}
+
+func (i CapacityProviderInstanceRequirementsRequestArgs) ToCapacityProviderInstanceRequirementsRequestOutput() CapacityProviderInstanceRequirementsRequestOutput {
+	return i.ToCapacityProviderInstanceRequirementsRequestOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderInstanceRequirementsRequestArgs) ToCapacityProviderInstanceRequirementsRequestOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementsRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderInstanceRequirementsRequestOutput)
+}
+
+func (i CapacityProviderInstanceRequirementsRequestArgs) ToCapacityProviderInstanceRequirementsRequestPtrOutput() CapacityProviderInstanceRequirementsRequestPtrOutput {
+	return i.ToCapacityProviderInstanceRequirementsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderInstanceRequirementsRequestArgs) ToCapacityProviderInstanceRequirementsRequestPtrOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderInstanceRequirementsRequestOutput).ToCapacityProviderInstanceRequirementsRequestPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderInstanceRequirementsRequestPtrInput is an input type that accepts CapacityProviderInstanceRequirementsRequestArgs, CapacityProviderInstanceRequirementsRequestPtr and CapacityProviderInstanceRequirementsRequestPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderInstanceRequirementsRequestPtrInput` via:
+//
+//	        CapacityProviderInstanceRequirementsRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderInstanceRequirementsRequestPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderInstanceRequirementsRequestPtrOutput() CapacityProviderInstanceRequirementsRequestPtrOutput
+	ToCapacityProviderInstanceRequirementsRequestPtrOutputWithContext(context.Context) CapacityProviderInstanceRequirementsRequestPtrOutput
+}
+
+type capacityProviderInstanceRequirementsRequestPtrType CapacityProviderInstanceRequirementsRequestArgs
+
+func CapacityProviderInstanceRequirementsRequestPtr(v *CapacityProviderInstanceRequirementsRequestArgs) CapacityProviderInstanceRequirementsRequestPtrInput {
+	return (*capacityProviderInstanceRequirementsRequestPtrType)(v)
+}
+
+func (*capacityProviderInstanceRequirementsRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderInstanceRequirementsRequest)(nil)).Elem()
+}
+
+func (i *capacityProviderInstanceRequirementsRequestPtrType) ToCapacityProviderInstanceRequirementsRequestPtrOutput() CapacityProviderInstanceRequirementsRequestPtrOutput {
+	return i.ToCapacityProviderInstanceRequirementsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderInstanceRequirementsRequestPtrType) ToCapacityProviderInstanceRequirementsRequestPtrOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderInstanceRequirementsRequestPtrOutput)
+}
+
+type CapacityProviderInstanceRequirementsRequestOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderInstanceRequirementsRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderInstanceRequirementsRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) ToCapacityProviderInstanceRequirementsRequestOutput() CapacityProviderInstanceRequirementsRequestOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) ToCapacityProviderInstanceRequirementsRequestOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementsRequestOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) ToCapacityProviderInstanceRequirementsRequestPtrOutput() CapacityProviderInstanceRequirementsRequestPtrOutput {
+	return o.ToCapacityProviderInstanceRequirementsRequestPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) ToCapacityProviderInstanceRequirementsRequestPtrOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementsRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderInstanceRequirementsRequest) *CapacityProviderInstanceRequirementsRequest {
+		return &v
+	}).(CapacityProviderInstanceRequirementsRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) AcceleratorCount() CapacityProviderAcceleratorCountRequestPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderAcceleratorCountRequest {
+		return v.AcceleratorCount
+	}).(CapacityProviderAcceleratorCountRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) AcceleratorManufacturers() CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem {
+		return v.AcceleratorManufacturers
+	}).(CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) AcceleratorNames() CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem {
+		return v.AcceleratorNames
+	}).(CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) AcceleratorTotalMemoryMiB() CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderAcceleratorTotalMemoryMiBRequest {
+		return v.AcceleratorTotalMemoryMiB
+	}).(CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) AcceleratorTypes() CapacityProviderInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem {
+		return v.AcceleratorTypes
+	}).(CapacityProviderInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) BareMetal() CapacityProviderInstanceRequirementsRequestBareMetalPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderInstanceRequirementsRequestBareMetal {
+		return v.BareMetal
+	}).(CapacityProviderInstanceRequirementsRequestBareMetalPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) BaselineEbsBandwidthMbps() CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderBaselineEbsBandwidthMbpsRequest {
+		return v.BaselineEbsBandwidthMbps
+	}).(CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) BurstablePerformance() CapacityProviderInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderInstanceRequirementsRequestBurstablePerformance {
+		return v.BurstablePerformance
+	}).(CapacityProviderInstanceRequirementsRequestBurstablePerformancePtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) CpuManufacturers() CapacityProviderInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestCpuManufacturersItem {
+		return v.CpuManufacturers
+	}).(CapacityProviderInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) InstanceGenerations() CapacityProviderInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem {
+		return v.InstanceGenerations
+	}).(CapacityProviderInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) LocalStorage() CapacityProviderInstanceRequirementsRequestLocalStoragePtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderInstanceRequirementsRequestLocalStorage {
+		return v.LocalStorage
+	}).(CapacityProviderInstanceRequirementsRequestLocalStoragePtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) LocalStorageTypes() CapacityProviderInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem {
+		return v.LocalStorageTypes
+	}).(CapacityProviderInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *int {
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) MemoryGiBPerVCpu() CapacityProviderMemoryGiBPerVCpuRequestPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderMemoryGiBPerVCpuRequest {
+		return v.MemoryGiBPerVCpu
+	}).(CapacityProviderMemoryGiBPerVCpuRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) MemoryMiB() CapacityProviderMemoryMiBRequestOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) CapacityProviderMemoryMiBRequest {
+		return v.MemoryMiB
+	}).(CapacityProviderMemoryMiBRequestOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) NetworkBandwidthGbps() CapacityProviderNetworkBandwidthGbpsRequestPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderNetworkBandwidthGbpsRequest {
+		return v.NetworkBandwidthGbps
+	}).(CapacityProviderNetworkBandwidthGbpsRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) NetworkInterfaceCount() CapacityProviderNetworkInterfaceCountRequestPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderNetworkInterfaceCountRequest {
+		return v.NetworkInterfaceCount
+	}).(CapacityProviderNetworkInterfaceCountRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *int {
+		return v.OnDemandMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *bool { return v.RequireHibernateSupport }).(pulumi.BoolPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *int {
+		return v.SpotMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) TotalLocalStorageGb() CapacityProviderTotalLocalStorageGbRequestPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderTotalLocalStorageGbRequest {
+		return v.TotalLocalStorageGb
+	}).(CapacityProviderTotalLocalStorageGbRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestOutput) VCpuCount() CapacityProviderVCpuCountRangeRequestOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) CapacityProviderVCpuCountRangeRequest {
+		return v.VCpuCount
+	}).(CapacityProviderVCpuCountRangeRequestOutput)
+}
+
+type CapacityProviderInstanceRequirementsRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderInstanceRequirementsRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderInstanceRequirementsRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) ToCapacityProviderInstanceRequirementsRequestPtrOutput() CapacityProviderInstanceRequirementsRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) ToCapacityProviderInstanceRequirementsRequestPtrOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementsRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) Elem() CapacityProviderInstanceRequirementsRequestOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) CapacityProviderInstanceRequirementsRequest {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderInstanceRequirementsRequest
+		return ret
+	}).(CapacityProviderInstanceRequirementsRequestOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AcceleratorCount() CapacityProviderAcceleratorCountRequestPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderAcceleratorCountRequest {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorCount
+	}).(CapacityProviderAcceleratorCountRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AcceleratorManufacturers() CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorManufacturers
+	}).(CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AcceleratorNames() CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorNames
+	}).(CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AcceleratorTotalMemoryMiB() CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderAcceleratorTotalMemoryMiBRequest {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorTotalMemoryMiB
+	}).(CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AcceleratorTypes() CapacityProviderInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorTypes
+	}).(CapacityProviderInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) BareMetal() CapacityProviderInstanceRequirementsRequestBareMetalPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderInstanceRequirementsRequestBareMetal {
+		if v == nil {
+			return nil
+		}
+		return v.BareMetal
+	}).(CapacityProviderInstanceRequirementsRequestBareMetalPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) BaselineEbsBandwidthMbps() CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderBaselineEbsBandwidthMbpsRequest {
+		if v == nil {
+			return nil
+		}
+		return v.BaselineEbsBandwidthMbps
+	}).(CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) BurstablePerformance() CapacityProviderInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderInstanceRequirementsRequestBurstablePerformance {
+		if v == nil {
+			return nil
+		}
+		return v.BurstablePerformance
+	}).(CapacityProviderInstanceRequirementsRequestBurstablePerformancePtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) CpuManufacturers() CapacityProviderInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestCpuManufacturersItem {
+		if v == nil {
+			return nil
+		}
+		return v.CpuManufacturers
+	}).(CapacityProviderInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) InstanceGenerations() CapacityProviderInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceGenerations
+	}).(CapacityProviderInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) LocalStorage() CapacityProviderInstanceRequirementsRequestLocalStoragePtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderInstanceRequirementsRequestLocalStorage {
+		if v == nil {
+			return nil
+		}
+		return v.LocalStorage
+	}).(CapacityProviderInstanceRequirementsRequestLocalStoragePtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) LocalStorageTypes() CapacityProviderInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem {
+		if v == nil {
+			return nil
+		}
+		return v.LocalStorageTypes
+	}).(CapacityProviderInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) MemoryGiBPerVCpu() CapacityProviderMemoryGiBPerVCpuRequestPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderMemoryGiBPerVCpuRequest {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryGiBPerVCpu
+	}).(CapacityProviderMemoryGiBPerVCpuRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) MemoryMiB() CapacityProviderMemoryMiBRequestPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderMemoryMiBRequest {
+		if v == nil {
+			return nil
+		}
+		return &v.MemoryMiB
+	}).(CapacityProviderMemoryMiBRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) NetworkBandwidthGbps() CapacityProviderNetworkBandwidthGbpsRequestPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderNetworkBandwidthGbpsRequest {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkBandwidthGbps
+	}).(CapacityProviderNetworkBandwidthGbpsRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) NetworkInterfaceCount() CapacityProviderNetworkInterfaceCountRequestPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderNetworkInterfaceCountRequest {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaceCount
+	}).(CapacityProviderNetworkInterfaceCountRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireHibernateSupport
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpotMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) TotalLocalStorageGb() CapacityProviderTotalLocalStorageGbRequestPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderTotalLocalStorageGbRequest {
+		if v == nil {
+			return nil
+		}
+		return v.TotalLocalStorageGb
+	}).(CapacityProviderTotalLocalStorageGbRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceRequirementsRequestPtrOutput) VCpuCount() CapacityProviderVCpuCountRangeRequestPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderVCpuCountRangeRequest {
+		if v == nil {
+			return nil
+		}
+		return &v.VCpuCount
+	}).(CapacityProviderVCpuCountRangeRequestPtrOutput)
+}
+
+type CapacityProviderManagedInstancesNetworkConfiguration struct {
+	SecurityGroups []string `pulumi:"securityGroups"`
+	Subnets        []string `pulumi:"subnets"`
+}
+
+// CapacityProviderManagedInstancesNetworkConfigurationInput is an input type that accepts CapacityProviderManagedInstancesNetworkConfigurationArgs and CapacityProviderManagedInstancesNetworkConfigurationOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesNetworkConfigurationInput` via:
+//
+//	CapacityProviderManagedInstancesNetworkConfigurationArgs{...}
+type CapacityProviderManagedInstancesNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesNetworkConfigurationOutput() CapacityProviderManagedInstancesNetworkConfigurationOutput
+	ToCapacityProviderManagedInstancesNetworkConfigurationOutputWithContext(context.Context) CapacityProviderManagedInstancesNetworkConfigurationOutput
+}
+
+type CapacityProviderManagedInstancesNetworkConfigurationArgs struct {
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	Subnets        pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (CapacityProviderManagedInstancesNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesNetworkConfiguration)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesNetworkConfigurationArgs) ToCapacityProviderManagedInstancesNetworkConfigurationOutput() CapacityProviderManagedInstancesNetworkConfigurationOutput {
+	return i.ToCapacityProviderManagedInstancesNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesNetworkConfigurationArgs) ToCapacityProviderManagedInstancesNetworkConfigurationOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesNetworkConfigurationOutput)
+}
+
+func (i CapacityProviderManagedInstancesNetworkConfigurationArgs) ToCapacityProviderManagedInstancesNetworkConfigurationPtrOutput() CapacityProviderManagedInstancesNetworkConfigurationPtrOutput {
+	return i.ToCapacityProviderManagedInstancesNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesNetworkConfigurationArgs) ToCapacityProviderManagedInstancesNetworkConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesNetworkConfigurationOutput).ToCapacityProviderManagedInstancesNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesNetworkConfigurationPtrInput is an input type that accepts CapacityProviderManagedInstancesNetworkConfigurationArgs, CapacityProviderManagedInstancesNetworkConfigurationPtr and CapacityProviderManagedInstancesNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesNetworkConfigurationPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesNetworkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesNetworkConfigurationPtrOutput() CapacityProviderManagedInstancesNetworkConfigurationPtrOutput
+	ToCapacityProviderManagedInstancesNetworkConfigurationPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesNetworkConfigurationPtrOutput
+}
+
+type capacityProviderManagedInstancesNetworkConfigurationPtrType CapacityProviderManagedInstancesNetworkConfigurationArgs
+
+func CapacityProviderManagedInstancesNetworkConfigurationPtr(v *CapacityProviderManagedInstancesNetworkConfigurationArgs) CapacityProviderManagedInstancesNetworkConfigurationPtrInput {
+	return (*capacityProviderManagedInstancesNetworkConfigurationPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesNetworkConfigurationPtrType) ToCapacityProviderManagedInstancesNetworkConfigurationPtrOutput() CapacityProviderManagedInstancesNetworkConfigurationPtrOutput {
+	return i.ToCapacityProviderManagedInstancesNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesNetworkConfigurationPtrType) ToCapacityProviderManagedInstancesNetworkConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesNetworkConfigurationPtrOutput)
+}
+
+type CapacityProviderManagedInstancesNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesNetworkConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesNetworkConfigurationOutput) ToCapacityProviderManagedInstancesNetworkConfigurationOutput() CapacityProviderManagedInstancesNetworkConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesNetworkConfigurationOutput) ToCapacityProviderManagedInstancesNetworkConfigurationOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesNetworkConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesNetworkConfigurationOutput) ToCapacityProviderManagedInstancesNetworkConfigurationPtrOutput() CapacityProviderManagedInstancesNetworkConfigurationPtrOutput {
+	return o.ToCapacityProviderManagedInstancesNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesNetworkConfigurationOutput) ToCapacityProviderManagedInstancesNetworkConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesNetworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesNetworkConfiguration) *CapacityProviderManagedInstancesNetworkConfiguration {
+		return &v
+	}).(CapacityProviderManagedInstancesNetworkConfigurationPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesNetworkConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o CapacityProviderManagedInstancesNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesNetworkConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type CapacityProviderManagedInstancesNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesNetworkConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesNetworkConfigurationPtrOutput) ToCapacityProviderManagedInstancesNetworkConfigurationPtrOutput() CapacityProviderManagedInstancesNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesNetworkConfigurationPtrOutput) ToCapacityProviderManagedInstancesNetworkConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesNetworkConfigurationPtrOutput) Elem() CapacityProviderManagedInstancesNetworkConfigurationOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesNetworkConfiguration) CapacityProviderManagedInstancesNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesNetworkConfiguration
+		return ret
+	}).(CapacityProviderManagedInstancesNetworkConfigurationOutput)
+}
+
+func (o CapacityProviderManagedInstancesNetworkConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesNetworkConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o CapacityProviderManagedInstancesNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesNetworkConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+type CapacityProviderManagedInstancesProvider struct {
+	InfrastructureRoleArn  string                                                 `pulumi:"infrastructureRoleArn"`
+	InstanceLaunchTemplate CapacityProviderInstanceLaunchTemplate                 `pulumi:"instanceLaunchTemplate"`
+	PropagateTags          *CapacityProviderManagedInstancesProviderPropagateTags `pulumi:"propagateTags"`
+}
+
+// CapacityProviderManagedInstancesProviderInput is an input type that accepts CapacityProviderManagedInstancesProviderArgs and CapacityProviderManagedInstancesProviderOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInput` via:
+//
+//	CapacityProviderManagedInstancesProviderArgs{...}
+type CapacityProviderManagedInstancesProviderInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderOutput() CapacityProviderManagedInstancesProviderOutput
+	ToCapacityProviderManagedInstancesProviderOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderOutput
+}
+
+type CapacityProviderManagedInstancesProviderArgs struct {
+	InfrastructureRoleArn  pulumi.StringInput                                            `pulumi:"infrastructureRoleArn"`
+	InstanceLaunchTemplate CapacityProviderInstanceLaunchTemplateInput                   `pulumi:"instanceLaunchTemplate"`
+	PropagateTags          CapacityProviderManagedInstancesProviderPropagateTagsPtrInput `pulumi:"propagateTags"`
+}
+
+func (CapacityProviderManagedInstancesProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProvider)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderArgs) ToCapacityProviderManagedInstancesProviderOutput() CapacityProviderManagedInstancesProviderOutput {
+	return i.ToCapacityProviderManagedInstancesProviderOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderArgs) ToCapacityProviderManagedInstancesProviderOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderArgs) ToCapacityProviderManagedInstancesProviderPtrOutput() CapacityProviderManagedInstancesProviderPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderArgs) ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderOutput).ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderArgs, CapacityProviderManagedInstancesProviderPtr and CapacityProviderManagedInstancesProviderPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderPtrOutput() CapacityProviderManagedInstancesProviderPtrOutput
+	ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderPtrType CapacityProviderManagedInstancesProviderArgs
+
+func CapacityProviderManagedInstancesProviderPtr(v *CapacityProviderManagedInstancesProviderArgs) CapacityProviderManagedInstancesProviderPtrInput {
+	return (*capacityProviderManagedInstancesProviderPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProvider)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderPtrType) ToCapacityProviderManagedInstancesProviderPtrOutput() CapacityProviderManagedInstancesProviderPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderPtrType) ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProvider)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderOutput) ToCapacityProviderManagedInstancesProviderOutput() CapacityProviderManagedInstancesProviderOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderOutput) ToCapacityProviderManagedInstancesProviderOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderOutput) ToCapacityProviderManagedInstancesProviderPtrOutput() CapacityProviderManagedInstancesProviderPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderOutput) ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProvider {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderOutput) InfrastructureRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) string { return v.InfrastructureRoleArn }).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderOutput) InstanceLaunchTemplate() CapacityProviderInstanceLaunchTemplateOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) CapacityProviderInstanceLaunchTemplate {
+		return v.InstanceLaunchTemplate
+	}).(CapacityProviderInstanceLaunchTemplateOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderOutput) PropagateTags() CapacityProviderManagedInstancesProviderPropagateTagsPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProviderPropagateTags {
+		return v.PropagateTags
+	}).(CapacityProviderManagedInstancesProviderPropagateTagsPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProvider)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderPtrOutput) ToCapacityProviderManagedInstancesProviderPtrOutput() CapacityProviderManagedInstancesProviderPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderPtrOutput) ToCapacityProviderManagedInstancesProviderPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderPtrOutput) Elem() CapacityProviderManagedInstancesProviderOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) CapacityProviderManagedInstancesProvider {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProvider
+		return ret
+	}).(CapacityProviderManagedInstancesProviderOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderPtrOutput) InfrastructureRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InfrastructureRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderPtrOutput) InstanceLaunchTemplate() CapacityProviderInstanceLaunchTemplatePtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *CapacityProviderInstanceLaunchTemplate {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceLaunchTemplate
+	}).(CapacityProviderInstanceLaunchTemplatePtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesProviderPtrOutput) PropagateTags() CapacityProviderManagedInstancesProviderPropagateTagsPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProviderPropagateTags {
+		if v == nil {
+			return nil
+		}
+		return v.PropagateTags
+	}).(CapacityProviderManagedInstancesProviderPropagateTagsPtrOutput)
+}
+
+type CapacityProviderManagedInstancesStorageConfiguration struct {
+	StorageSizeGiB int `pulumi:"storageSizeGiB"`
+}
+
+// CapacityProviderManagedInstancesStorageConfigurationInput is an input type that accepts CapacityProviderManagedInstancesStorageConfigurationArgs and CapacityProviderManagedInstancesStorageConfigurationOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesStorageConfigurationInput` via:
+//
+//	CapacityProviderManagedInstancesStorageConfigurationArgs{...}
+type CapacityProviderManagedInstancesStorageConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesStorageConfigurationOutput() CapacityProviderManagedInstancesStorageConfigurationOutput
+	ToCapacityProviderManagedInstancesStorageConfigurationOutputWithContext(context.Context) CapacityProviderManagedInstancesStorageConfigurationOutput
+}
+
+type CapacityProviderManagedInstancesStorageConfigurationArgs struct {
+	StorageSizeGiB pulumi.IntInput `pulumi:"storageSizeGiB"`
+}
+
+func (CapacityProviderManagedInstancesStorageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesStorageConfiguration)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesStorageConfigurationArgs) ToCapacityProviderManagedInstancesStorageConfigurationOutput() CapacityProviderManagedInstancesStorageConfigurationOutput {
+	return i.ToCapacityProviderManagedInstancesStorageConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesStorageConfigurationArgs) ToCapacityProviderManagedInstancesStorageConfigurationOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesStorageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesStorageConfigurationOutput)
+}
+
+func (i CapacityProviderManagedInstancesStorageConfigurationArgs) ToCapacityProviderManagedInstancesStorageConfigurationPtrOutput() CapacityProviderManagedInstancesStorageConfigurationPtrOutput {
+	return i.ToCapacityProviderManagedInstancesStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesStorageConfigurationArgs) ToCapacityProviderManagedInstancesStorageConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesStorageConfigurationOutput).ToCapacityProviderManagedInstancesStorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesStorageConfigurationPtrInput is an input type that accepts CapacityProviderManagedInstancesStorageConfigurationArgs, CapacityProviderManagedInstancesStorageConfigurationPtr and CapacityProviderManagedInstancesStorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesStorageConfigurationPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesStorageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesStorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesStorageConfigurationPtrOutput() CapacityProviderManagedInstancesStorageConfigurationPtrOutput
+	ToCapacityProviderManagedInstancesStorageConfigurationPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesStorageConfigurationPtrOutput
+}
+
+type capacityProviderManagedInstancesStorageConfigurationPtrType CapacityProviderManagedInstancesStorageConfigurationArgs
+
+func CapacityProviderManagedInstancesStorageConfigurationPtr(v *CapacityProviderManagedInstancesStorageConfigurationArgs) CapacityProviderManagedInstancesStorageConfigurationPtrInput {
+	return (*capacityProviderManagedInstancesStorageConfigurationPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesStorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesStorageConfiguration)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesStorageConfigurationPtrType) ToCapacityProviderManagedInstancesStorageConfigurationPtrOutput() CapacityProviderManagedInstancesStorageConfigurationPtrOutput {
+	return i.ToCapacityProviderManagedInstancesStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesStorageConfigurationPtrType) ToCapacityProviderManagedInstancesStorageConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesStorageConfigurationPtrOutput)
+}
+
+type CapacityProviderManagedInstancesStorageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesStorageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesStorageConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesStorageConfigurationOutput) ToCapacityProviderManagedInstancesStorageConfigurationOutput() CapacityProviderManagedInstancesStorageConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesStorageConfigurationOutput) ToCapacityProviderManagedInstancesStorageConfigurationOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesStorageConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesStorageConfigurationOutput) ToCapacityProviderManagedInstancesStorageConfigurationPtrOutput() CapacityProviderManagedInstancesStorageConfigurationPtrOutput {
+	return o.ToCapacityProviderManagedInstancesStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesStorageConfigurationOutput) ToCapacityProviderManagedInstancesStorageConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesStorageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesStorageConfiguration) *CapacityProviderManagedInstancesStorageConfiguration {
+		return &v
+	}).(CapacityProviderManagedInstancesStorageConfigurationPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesStorageConfigurationOutput) StorageSizeGiB() pulumi.IntOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesStorageConfiguration) int { return v.StorageSizeGiB }).(pulumi.IntOutput)
+}
+
+type CapacityProviderManagedInstancesStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesStorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesStorageConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesStorageConfigurationPtrOutput) ToCapacityProviderManagedInstancesStorageConfigurationPtrOutput() CapacityProviderManagedInstancesStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesStorageConfigurationPtrOutput) ToCapacityProviderManagedInstancesStorageConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesStorageConfigurationPtrOutput) Elem() CapacityProviderManagedInstancesStorageConfigurationOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesStorageConfiguration) CapacityProviderManagedInstancesStorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesStorageConfiguration
+		return ret
+	}).(CapacityProviderManagedInstancesStorageConfigurationOutput)
+}
+
+func (o CapacityProviderManagedInstancesStorageConfigurationPtrOutput) StorageSizeGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesStorageConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageSizeGiB
+	}).(pulumi.IntPtrOutput)
 }
 
 // The managed scaling settings for the Auto Scaling group capacity provider.
@@ -461,11 +2074,899 @@ func (o CapacityProviderManagedScalingPtrOutput) TargetCapacity() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+type CapacityProviderMemoryGiBPerVCpuRequest struct {
+	Max *float64 `pulumi:"max"`
+	Min *float64 `pulumi:"min"`
+}
+
+// CapacityProviderMemoryGiBPerVCpuRequestInput is an input type that accepts CapacityProviderMemoryGiBPerVCpuRequestArgs and CapacityProviderMemoryGiBPerVCpuRequestOutput values.
+// You can construct a concrete instance of `CapacityProviderMemoryGiBPerVCpuRequestInput` via:
+//
+//	CapacityProviderMemoryGiBPerVCpuRequestArgs{...}
+type CapacityProviderMemoryGiBPerVCpuRequestInput interface {
+	pulumi.Input
+
+	ToCapacityProviderMemoryGiBPerVCpuRequestOutput() CapacityProviderMemoryGiBPerVCpuRequestOutput
+	ToCapacityProviderMemoryGiBPerVCpuRequestOutputWithContext(context.Context) CapacityProviderMemoryGiBPerVCpuRequestOutput
+}
+
+type CapacityProviderMemoryGiBPerVCpuRequestArgs struct {
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (CapacityProviderMemoryGiBPerVCpuRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderMemoryGiBPerVCpuRequest)(nil)).Elem()
+}
+
+func (i CapacityProviderMemoryGiBPerVCpuRequestArgs) ToCapacityProviderMemoryGiBPerVCpuRequestOutput() CapacityProviderMemoryGiBPerVCpuRequestOutput {
+	return i.ToCapacityProviderMemoryGiBPerVCpuRequestOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderMemoryGiBPerVCpuRequestArgs) ToCapacityProviderMemoryGiBPerVCpuRequestOutputWithContext(ctx context.Context) CapacityProviderMemoryGiBPerVCpuRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderMemoryGiBPerVCpuRequestOutput)
+}
+
+func (i CapacityProviderMemoryGiBPerVCpuRequestArgs) ToCapacityProviderMemoryGiBPerVCpuRequestPtrOutput() CapacityProviderMemoryGiBPerVCpuRequestPtrOutput {
+	return i.ToCapacityProviderMemoryGiBPerVCpuRequestPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderMemoryGiBPerVCpuRequestArgs) ToCapacityProviderMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx context.Context) CapacityProviderMemoryGiBPerVCpuRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderMemoryGiBPerVCpuRequestOutput).ToCapacityProviderMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderMemoryGiBPerVCpuRequestPtrInput is an input type that accepts CapacityProviderMemoryGiBPerVCpuRequestArgs, CapacityProviderMemoryGiBPerVCpuRequestPtr and CapacityProviderMemoryGiBPerVCpuRequestPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderMemoryGiBPerVCpuRequestPtrInput` via:
+//
+//	        CapacityProviderMemoryGiBPerVCpuRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderMemoryGiBPerVCpuRequestPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderMemoryGiBPerVCpuRequestPtrOutput() CapacityProviderMemoryGiBPerVCpuRequestPtrOutput
+	ToCapacityProviderMemoryGiBPerVCpuRequestPtrOutputWithContext(context.Context) CapacityProviderMemoryGiBPerVCpuRequestPtrOutput
+}
+
+type capacityProviderMemoryGiBPerVCpuRequestPtrType CapacityProviderMemoryGiBPerVCpuRequestArgs
+
+func CapacityProviderMemoryGiBPerVCpuRequestPtr(v *CapacityProviderMemoryGiBPerVCpuRequestArgs) CapacityProviderMemoryGiBPerVCpuRequestPtrInput {
+	return (*capacityProviderMemoryGiBPerVCpuRequestPtrType)(v)
+}
+
+func (*capacityProviderMemoryGiBPerVCpuRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderMemoryGiBPerVCpuRequest)(nil)).Elem()
+}
+
+func (i *capacityProviderMemoryGiBPerVCpuRequestPtrType) ToCapacityProviderMemoryGiBPerVCpuRequestPtrOutput() CapacityProviderMemoryGiBPerVCpuRequestPtrOutput {
+	return i.ToCapacityProviderMemoryGiBPerVCpuRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderMemoryGiBPerVCpuRequestPtrType) ToCapacityProviderMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx context.Context) CapacityProviderMemoryGiBPerVCpuRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderMemoryGiBPerVCpuRequestPtrOutput)
+}
+
+type CapacityProviderMemoryGiBPerVCpuRequestOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderMemoryGiBPerVCpuRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderMemoryGiBPerVCpuRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderMemoryGiBPerVCpuRequestOutput) ToCapacityProviderMemoryGiBPerVCpuRequestOutput() CapacityProviderMemoryGiBPerVCpuRequestOutput {
+	return o
+}
+
+func (o CapacityProviderMemoryGiBPerVCpuRequestOutput) ToCapacityProviderMemoryGiBPerVCpuRequestOutputWithContext(ctx context.Context) CapacityProviderMemoryGiBPerVCpuRequestOutput {
+	return o
+}
+
+func (o CapacityProviderMemoryGiBPerVCpuRequestOutput) ToCapacityProviderMemoryGiBPerVCpuRequestPtrOutput() CapacityProviderMemoryGiBPerVCpuRequestPtrOutput {
+	return o.ToCapacityProviderMemoryGiBPerVCpuRequestPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderMemoryGiBPerVCpuRequestOutput) ToCapacityProviderMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx context.Context) CapacityProviderMemoryGiBPerVCpuRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderMemoryGiBPerVCpuRequest) *CapacityProviderMemoryGiBPerVCpuRequest {
+		return &v
+	}).(CapacityProviderMemoryGiBPerVCpuRequestPtrOutput)
+}
+
+func (o CapacityProviderMemoryGiBPerVCpuRequestOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CapacityProviderMemoryGiBPerVCpuRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+}
+
+func (o CapacityProviderMemoryGiBPerVCpuRequestOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CapacityProviderMemoryGiBPerVCpuRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+}
+
+type CapacityProviderMemoryGiBPerVCpuRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderMemoryGiBPerVCpuRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderMemoryGiBPerVCpuRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderMemoryGiBPerVCpuRequestPtrOutput) ToCapacityProviderMemoryGiBPerVCpuRequestPtrOutput() CapacityProviderMemoryGiBPerVCpuRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderMemoryGiBPerVCpuRequestPtrOutput) ToCapacityProviderMemoryGiBPerVCpuRequestPtrOutputWithContext(ctx context.Context) CapacityProviderMemoryGiBPerVCpuRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderMemoryGiBPerVCpuRequestPtrOutput) Elem() CapacityProviderMemoryGiBPerVCpuRequestOutput {
+	return o.ApplyT(func(v *CapacityProviderMemoryGiBPerVCpuRequest) CapacityProviderMemoryGiBPerVCpuRequest {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderMemoryGiBPerVCpuRequest
+		return ret
+	}).(CapacityProviderMemoryGiBPerVCpuRequestOutput)
+}
+
+func (o CapacityProviderMemoryGiBPerVCpuRequestPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CapacityProviderMemoryGiBPerVCpuRequest) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o CapacityProviderMemoryGiBPerVCpuRequestPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CapacityProviderMemoryGiBPerVCpuRequest) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type CapacityProviderMemoryMiBRequest struct {
+	Max *int `pulumi:"max"`
+	Min int  `pulumi:"min"`
+}
+
+// CapacityProviderMemoryMiBRequestInput is an input type that accepts CapacityProviderMemoryMiBRequestArgs and CapacityProviderMemoryMiBRequestOutput values.
+// You can construct a concrete instance of `CapacityProviderMemoryMiBRequestInput` via:
+//
+//	CapacityProviderMemoryMiBRequestArgs{...}
+type CapacityProviderMemoryMiBRequestInput interface {
+	pulumi.Input
+
+	ToCapacityProviderMemoryMiBRequestOutput() CapacityProviderMemoryMiBRequestOutput
+	ToCapacityProviderMemoryMiBRequestOutputWithContext(context.Context) CapacityProviderMemoryMiBRequestOutput
+}
+
+type CapacityProviderMemoryMiBRequestArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntInput    `pulumi:"min"`
+}
+
+func (CapacityProviderMemoryMiBRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderMemoryMiBRequest)(nil)).Elem()
+}
+
+func (i CapacityProviderMemoryMiBRequestArgs) ToCapacityProviderMemoryMiBRequestOutput() CapacityProviderMemoryMiBRequestOutput {
+	return i.ToCapacityProviderMemoryMiBRequestOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderMemoryMiBRequestArgs) ToCapacityProviderMemoryMiBRequestOutputWithContext(ctx context.Context) CapacityProviderMemoryMiBRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderMemoryMiBRequestOutput)
+}
+
+func (i CapacityProviderMemoryMiBRequestArgs) ToCapacityProviderMemoryMiBRequestPtrOutput() CapacityProviderMemoryMiBRequestPtrOutput {
+	return i.ToCapacityProviderMemoryMiBRequestPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderMemoryMiBRequestArgs) ToCapacityProviderMemoryMiBRequestPtrOutputWithContext(ctx context.Context) CapacityProviderMemoryMiBRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderMemoryMiBRequestOutput).ToCapacityProviderMemoryMiBRequestPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderMemoryMiBRequestPtrInput is an input type that accepts CapacityProviderMemoryMiBRequestArgs, CapacityProviderMemoryMiBRequestPtr and CapacityProviderMemoryMiBRequestPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderMemoryMiBRequestPtrInput` via:
+//
+//	        CapacityProviderMemoryMiBRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderMemoryMiBRequestPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderMemoryMiBRequestPtrOutput() CapacityProviderMemoryMiBRequestPtrOutput
+	ToCapacityProviderMemoryMiBRequestPtrOutputWithContext(context.Context) CapacityProviderMemoryMiBRequestPtrOutput
+}
+
+type capacityProviderMemoryMiBRequestPtrType CapacityProviderMemoryMiBRequestArgs
+
+func CapacityProviderMemoryMiBRequestPtr(v *CapacityProviderMemoryMiBRequestArgs) CapacityProviderMemoryMiBRequestPtrInput {
+	return (*capacityProviderMemoryMiBRequestPtrType)(v)
+}
+
+func (*capacityProviderMemoryMiBRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderMemoryMiBRequest)(nil)).Elem()
+}
+
+func (i *capacityProviderMemoryMiBRequestPtrType) ToCapacityProviderMemoryMiBRequestPtrOutput() CapacityProviderMemoryMiBRequestPtrOutput {
+	return i.ToCapacityProviderMemoryMiBRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderMemoryMiBRequestPtrType) ToCapacityProviderMemoryMiBRequestPtrOutputWithContext(ctx context.Context) CapacityProviderMemoryMiBRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderMemoryMiBRequestPtrOutput)
+}
+
+type CapacityProviderMemoryMiBRequestOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderMemoryMiBRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderMemoryMiBRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderMemoryMiBRequestOutput) ToCapacityProviderMemoryMiBRequestOutput() CapacityProviderMemoryMiBRequestOutput {
+	return o
+}
+
+func (o CapacityProviderMemoryMiBRequestOutput) ToCapacityProviderMemoryMiBRequestOutputWithContext(ctx context.Context) CapacityProviderMemoryMiBRequestOutput {
+	return o
+}
+
+func (o CapacityProviderMemoryMiBRequestOutput) ToCapacityProviderMemoryMiBRequestPtrOutput() CapacityProviderMemoryMiBRequestPtrOutput {
+	return o.ToCapacityProviderMemoryMiBRequestPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderMemoryMiBRequestOutput) ToCapacityProviderMemoryMiBRequestPtrOutputWithContext(ctx context.Context) CapacityProviderMemoryMiBRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderMemoryMiBRequest) *CapacityProviderMemoryMiBRequest {
+		return &v
+	}).(CapacityProviderMemoryMiBRequestPtrOutput)
+}
+
+func (o CapacityProviderMemoryMiBRequestOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderMemoryMiBRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderMemoryMiBRequestOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v CapacityProviderMemoryMiBRequest) int { return v.Min }).(pulumi.IntOutput)
+}
+
+type CapacityProviderMemoryMiBRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderMemoryMiBRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderMemoryMiBRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderMemoryMiBRequestPtrOutput) ToCapacityProviderMemoryMiBRequestPtrOutput() CapacityProviderMemoryMiBRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderMemoryMiBRequestPtrOutput) ToCapacityProviderMemoryMiBRequestPtrOutputWithContext(ctx context.Context) CapacityProviderMemoryMiBRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderMemoryMiBRequestPtrOutput) Elem() CapacityProviderMemoryMiBRequestOutput {
+	return o.ApplyT(func(v *CapacityProviderMemoryMiBRequest) CapacityProviderMemoryMiBRequest {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderMemoryMiBRequest
+		return ret
+	}).(CapacityProviderMemoryMiBRequestOutput)
+}
+
+func (o CapacityProviderMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderMemoryMiBRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderMemoryMiBRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderNetworkBandwidthGbpsRequest struct {
+	Max *float64 `pulumi:"max"`
+	Min *float64 `pulumi:"min"`
+}
+
+// CapacityProviderNetworkBandwidthGbpsRequestInput is an input type that accepts CapacityProviderNetworkBandwidthGbpsRequestArgs and CapacityProviderNetworkBandwidthGbpsRequestOutput values.
+// You can construct a concrete instance of `CapacityProviderNetworkBandwidthGbpsRequestInput` via:
+//
+//	CapacityProviderNetworkBandwidthGbpsRequestArgs{...}
+type CapacityProviderNetworkBandwidthGbpsRequestInput interface {
+	pulumi.Input
+
+	ToCapacityProviderNetworkBandwidthGbpsRequestOutput() CapacityProviderNetworkBandwidthGbpsRequestOutput
+	ToCapacityProviderNetworkBandwidthGbpsRequestOutputWithContext(context.Context) CapacityProviderNetworkBandwidthGbpsRequestOutput
+}
+
+type CapacityProviderNetworkBandwidthGbpsRequestArgs struct {
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (CapacityProviderNetworkBandwidthGbpsRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderNetworkBandwidthGbpsRequest)(nil)).Elem()
+}
+
+func (i CapacityProviderNetworkBandwidthGbpsRequestArgs) ToCapacityProviderNetworkBandwidthGbpsRequestOutput() CapacityProviderNetworkBandwidthGbpsRequestOutput {
+	return i.ToCapacityProviderNetworkBandwidthGbpsRequestOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderNetworkBandwidthGbpsRequestArgs) ToCapacityProviderNetworkBandwidthGbpsRequestOutputWithContext(ctx context.Context) CapacityProviderNetworkBandwidthGbpsRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderNetworkBandwidthGbpsRequestOutput)
+}
+
+func (i CapacityProviderNetworkBandwidthGbpsRequestArgs) ToCapacityProviderNetworkBandwidthGbpsRequestPtrOutput() CapacityProviderNetworkBandwidthGbpsRequestPtrOutput {
+	return i.ToCapacityProviderNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderNetworkBandwidthGbpsRequestArgs) ToCapacityProviderNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) CapacityProviderNetworkBandwidthGbpsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderNetworkBandwidthGbpsRequestOutput).ToCapacityProviderNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderNetworkBandwidthGbpsRequestPtrInput is an input type that accepts CapacityProviderNetworkBandwidthGbpsRequestArgs, CapacityProviderNetworkBandwidthGbpsRequestPtr and CapacityProviderNetworkBandwidthGbpsRequestPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderNetworkBandwidthGbpsRequestPtrInput` via:
+//
+//	        CapacityProviderNetworkBandwidthGbpsRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderNetworkBandwidthGbpsRequestPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderNetworkBandwidthGbpsRequestPtrOutput() CapacityProviderNetworkBandwidthGbpsRequestPtrOutput
+	ToCapacityProviderNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Context) CapacityProviderNetworkBandwidthGbpsRequestPtrOutput
+}
+
+type capacityProviderNetworkBandwidthGbpsRequestPtrType CapacityProviderNetworkBandwidthGbpsRequestArgs
+
+func CapacityProviderNetworkBandwidthGbpsRequestPtr(v *CapacityProviderNetworkBandwidthGbpsRequestArgs) CapacityProviderNetworkBandwidthGbpsRequestPtrInput {
+	return (*capacityProviderNetworkBandwidthGbpsRequestPtrType)(v)
+}
+
+func (*capacityProviderNetworkBandwidthGbpsRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderNetworkBandwidthGbpsRequest)(nil)).Elem()
+}
+
+func (i *capacityProviderNetworkBandwidthGbpsRequestPtrType) ToCapacityProviderNetworkBandwidthGbpsRequestPtrOutput() CapacityProviderNetworkBandwidthGbpsRequestPtrOutput {
+	return i.ToCapacityProviderNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderNetworkBandwidthGbpsRequestPtrType) ToCapacityProviderNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) CapacityProviderNetworkBandwidthGbpsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderNetworkBandwidthGbpsRequestPtrOutput)
+}
+
+type CapacityProviderNetworkBandwidthGbpsRequestOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderNetworkBandwidthGbpsRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderNetworkBandwidthGbpsRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderNetworkBandwidthGbpsRequestOutput) ToCapacityProviderNetworkBandwidthGbpsRequestOutput() CapacityProviderNetworkBandwidthGbpsRequestOutput {
+	return o
+}
+
+func (o CapacityProviderNetworkBandwidthGbpsRequestOutput) ToCapacityProviderNetworkBandwidthGbpsRequestOutputWithContext(ctx context.Context) CapacityProviderNetworkBandwidthGbpsRequestOutput {
+	return o
+}
+
+func (o CapacityProviderNetworkBandwidthGbpsRequestOutput) ToCapacityProviderNetworkBandwidthGbpsRequestPtrOutput() CapacityProviderNetworkBandwidthGbpsRequestPtrOutput {
+	return o.ToCapacityProviderNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderNetworkBandwidthGbpsRequestOutput) ToCapacityProviderNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) CapacityProviderNetworkBandwidthGbpsRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderNetworkBandwidthGbpsRequest) *CapacityProviderNetworkBandwidthGbpsRequest {
+		return &v
+	}).(CapacityProviderNetworkBandwidthGbpsRequestPtrOutput)
+}
+
+func (o CapacityProviderNetworkBandwidthGbpsRequestOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CapacityProviderNetworkBandwidthGbpsRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+}
+
+func (o CapacityProviderNetworkBandwidthGbpsRequestOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CapacityProviderNetworkBandwidthGbpsRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+}
+
+type CapacityProviderNetworkBandwidthGbpsRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderNetworkBandwidthGbpsRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderNetworkBandwidthGbpsRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderNetworkBandwidthGbpsRequestPtrOutput) ToCapacityProviderNetworkBandwidthGbpsRequestPtrOutput() CapacityProviderNetworkBandwidthGbpsRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderNetworkBandwidthGbpsRequestPtrOutput) ToCapacityProviderNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) CapacityProviderNetworkBandwidthGbpsRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderNetworkBandwidthGbpsRequestPtrOutput) Elem() CapacityProviderNetworkBandwidthGbpsRequestOutput {
+	return o.ApplyT(func(v *CapacityProviderNetworkBandwidthGbpsRequest) CapacityProviderNetworkBandwidthGbpsRequest {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderNetworkBandwidthGbpsRequest
+		return ret
+	}).(CapacityProviderNetworkBandwidthGbpsRequestOutput)
+}
+
+func (o CapacityProviderNetworkBandwidthGbpsRequestPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CapacityProviderNetworkBandwidthGbpsRequest) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o CapacityProviderNetworkBandwidthGbpsRequestPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CapacityProviderNetworkBandwidthGbpsRequest) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type CapacityProviderNetworkInterfaceCountRequest struct {
+	Max *int `pulumi:"max"`
+	Min *int `pulumi:"min"`
+}
+
+// CapacityProviderNetworkInterfaceCountRequestInput is an input type that accepts CapacityProviderNetworkInterfaceCountRequestArgs and CapacityProviderNetworkInterfaceCountRequestOutput values.
+// You can construct a concrete instance of `CapacityProviderNetworkInterfaceCountRequestInput` via:
+//
+//	CapacityProviderNetworkInterfaceCountRequestArgs{...}
+type CapacityProviderNetworkInterfaceCountRequestInput interface {
+	pulumi.Input
+
+	ToCapacityProviderNetworkInterfaceCountRequestOutput() CapacityProviderNetworkInterfaceCountRequestOutput
+	ToCapacityProviderNetworkInterfaceCountRequestOutputWithContext(context.Context) CapacityProviderNetworkInterfaceCountRequestOutput
+}
+
+type CapacityProviderNetworkInterfaceCountRequestArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (CapacityProviderNetworkInterfaceCountRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderNetworkInterfaceCountRequest)(nil)).Elem()
+}
+
+func (i CapacityProviderNetworkInterfaceCountRequestArgs) ToCapacityProviderNetworkInterfaceCountRequestOutput() CapacityProviderNetworkInterfaceCountRequestOutput {
+	return i.ToCapacityProviderNetworkInterfaceCountRequestOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderNetworkInterfaceCountRequestArgs) ToCapacityProviderNetworkInterfaceCountRequestOutputWithContext(ctx context.Context) CapacityProviderNetworkInterfaceCountRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderNetworkInterfaceCountRequestOutput)
+}
+
+func (i CapacityProviderNetworkInterfaceCountRequestArgs) ToCapacityProviderNetworkInterfaceCountRequestPtrOutput() CapacityProviderNetworkInterfaceCountRequestPtrOutput {
+	return i.ToCapacityProviderNetworkInterfaceCountRequestPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderNetworkInterfaceCountRequestArgs) ToCapacityProviderNetworkInterfaceCountRequestPtrOutputWithContext(ctx context.Context) CapacityProviderNetworkInterfaceCountRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderNetworkInterfaceCountRequestOutput).ToCapacityProviderNetworkInterfaceCountRequestPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderNetworkInterfaceCountRequestPtrInput is an input type that accepts CapacityProviderNetworkInterfaceCountRequestArgs, CapacityProviderNetworkInterfaceCountRequestPtr and CapacityProviderNetworkInterfaceCountRequestPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderNetworkInterfaceCountRequestPtrInput` via:
+//
+//	        CapacityProviderNetworkInterfaceCountRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderNetworkInterfaceCountRequestPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderNetworkInterfaceCountRequestPtrOutput() CapacityProviderNetworkInterfaceCountRequestPtrOutput
+	ToCapacityProviderNetworkInterfaceCountRequestPtrOutputWithContext(context.Context) CapacityProviderNetworkInterfaceCountRequestPtrOutput
+}
+
+type capacityProviderNetworkInterfaceCountRequestPtrType CapacityProviderNetworkInterfaceCountRequestArgs
+
+func CapacityProviderNetworkInterfaceCountRequestPtr(v *CapacityProviderNetworkInterfaceCountRequestArgs) CapacityProviderNetworkInterfaceCountRequestPtrInput {
+	return (*capacityProviderNetworkInterfaceCountRequestPtrType)(v)
+}
+
+func (*capacityProviderNetworkInterfaceCountRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderNetworkInterfaceCountRequest)(nil)).Elem()
+}
+
+func (i *capacityProviderNetworkInterfaceCountRequestPtrType) ToCapacityProviderNetworkInterfaceCountRequestPtrOutput() CapacityProviderNetworkInterfaceCountRequestPtrOutput {
+	return i.ToCapacityProviderNetworkInterfaceCountRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderNetworkInterfaceCountRequestPtrType) ToCapacityProviderNetworkInterfaceCountRequestPtrOutputWithContext(ctx context.Context) CapacityProviderNetworkInterfaceCountRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderNetworkInterfaceCountRequestPtrOutput)
+}
+
+type CapacityProviderNetworkInterfaceCountRequestOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderNetworkInterfaceCountRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderNetworkInterfaceCountRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderNetworkInterfaceCountRequestOutput) ToCapacityProviderNetworkInterfaceCountRequestOutput() CapacityProviderNetworkInterfaceCountRequestOutput {
+	return o
+}
+
+func (o CapacityProviderNetworkInterfaceCountRequestOutput) ToCapacityProviderNetworkInterfaceCountRequestOutputWithContext(ctx context.Context) CapacityProviderNetworkInterfaceCountRequestOutput {
+	return o
+}
+
+func (o CapacityProviderNetworkInterfaceCountRequestOutput) ToCapacityProviderNetworkInterfaceCountRequestPtrOutput() CapacityProviderNetworkInterfaceCountRequestPtrOutput {
+	return o.ToCapacityProviderNetworkInterfaceCountRequestPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderNetworkInterfaceCountRequestOutput) ToCapacityProviderNetworkInterfaceCountRequestPtrOutputWithContext(ctx context.Context) CapacityProviderNetworkInterfaceCountRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderNetworkInterfaceCountRequest) *CapacityProviderNetworkInterfaceCountRequest {
+		return &v
+	}).(CapacityProviderNetworkInterfaceCountRequestPtrOutput)
+}
+
+func (o CapacityProviderNetworkInterfaceCountRequestOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderNetworkInterfaceCountRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderNetworkInterfaceCountRequestOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderNetworkInterfaceCountRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderNetworkInterfaceCountRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderNetworkInterfaceCountRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderNetworkInterfaceCountRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderNetworkInterfaceCountRequestPtrOutput) ToCapacityProviderNetworkInterfaceCountRequestPtrOutput() CapacityProviderNetworkInterfaceCountRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderNetworkInterfaceCountRequestPtrOutput) ToCapacityProviderNetworkInterfaceCountRequestPtrOutputWithContext(ctx context.Context) CapacityProviderNetworkInterfaceCountRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderNetworkInterfaceCountRequestPtrOutput) Elem() CapacityProviderNetworkInterfaceCountRequestOutput {
+	return o.ApplyT(func(v *CapacityProviderNetworkInterfaceCountRequest) CapacityProviderNetworkInterfaceCountRequest {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderNetworkInterfaceCountRequest
+		return ret
+	}).(CapacityProviderNetworkInterfaceCountRequestOutput)
+}
+
+func (o CapacityProviderNetworkInterfaceCountRequestPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderNetworkInterfaceCountRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderNetworkInterfaceCountRequestPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderNetworkInterfaceCountRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
 type CapacityProviderTag struct {
 	// One part of a key-value pair that make up a tag. A `key` is a general label that acts like a category for more specific tag values.
 	Key *string `pulumi:"key"`
 	// The optional part of a key-value pair that make up a tag. A `value` acts as a descriptor within a tag category (key).
 	Value *string `pulumi:"value"`
+}
+
+type CapacityProviderTotalLocalStorageGbRequest struct {
+	Max *float64 `pulumi:"max"`
+	Min *float64 `pulumi:"min"`
+}
+
+// CapacityProviderTotalLocalStorageGbRequestInput is an input type that accepts CapacityProviderTotalLocalStorageGbRequestArgs and CapacityProviderTotalLocalStorageGbRequestOutput values.
+// You can construct a concrete instance of `CapacityProviderTotalLocalStorageGbRequestInput` via:
+//
+//	CapacityProviderTotalLocalStorageGbRequestArgs{...}
+type CapacityProviderTotalLocalStorageGbRequestInput interface {
+	pulumi.Input
+
+	ToCapacityProviderTotalLocalStorageGbRequestOutput() CapacityProviderTotalLocalStorageGbRequestOutput
+	ToCapacityProviderTotalLocalStorageGbRequestOutputWithContext(context.Context) CapacityProviderTotalLocalStorageGbRequestOutput
+}
+
+type CapacityProviderTotalLocalStorageGbRequestArgs struct {
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (CapacityProviderTotalLocalStorageGbRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderTotalLocalStorageGbRequest)(nil)).Elem()
+}
+
+func (i CapacityProviderTotalLocalStorageGbRequestArgs) ToCapacityProviderTotalLocalStorageGbRequestOutput() CapacityProviderTotalLocalStorageGbRequestOutput {
+	return i.ToCapacityProviderTotalLocalStorageGbRequestOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderTotalLocalStorageGbRequestArgs) ToCapacityProviderTotalLocalStorageGbRequestOutputWithContext(ctx context.Context) CapacityProviderTotalLocalStorageGbRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTotalLocalStorageGbRequestOutput)
+}
+
+func (i CapacityProviderTotalLocalStorageGbRequestArgs) ToCapacityProviderTotalLocalStorageGbRequestPtrOutput() CapacityProviderTotalLocalStorageGbRequestPtrOutput {
+	return i.ToCapacityProviderTotalLocalStorageGbRequestPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderTotalLocalStorageGbRequestArgs) ToCapacityProviderTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) CapacityProviderTotalLocalStorageGbRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTotalLocalStorageGbRequestOutput).ToCapacityProviderTotalLocalStorageGbRequestPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderTotalLocalStorageGbRequestPtrInput is an input type that accepts CapacityProviderTotalLocalStorageGbRequestArgs, CapacityProviderTotalLocalStorageGbRequestPtr and CapacityProviderTotalLocalStorageGbRequestPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderTotalLocalStorageGbRequestPtrInput` via:
+//
+//	        CapacityProviderTotalLocalStorageGbRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderTotalLocalStorageGbRequestPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderTotalLocalStorageGbRequestPtrOutput() CapacityProviderTotalLocalStorageGbRequestPtrOutput
+	ToCapacityProviderTotalLocalStorageGbRequestPtrOutputWithContext(context.Context) CapacityProviderTotalLocalStorageGbRequestPtrOutput
+}
+
+type capacityProviderTotalLocalStorageGbRequestPtrType CapacityProviderTotalLocalStorageGbRequestArgs
+
+func CapacityProviderTotalLocalStorageGbRequestPtr(v *CapacityProviderTotalLocalStorageGbRequestArgs) CapacityProviderTotalLocalStorageGbRequestPtrInput {
+	return (*capacityProviderTotalLocalStorageGbRequestPtrType)(v)
+}
+
+func (*capacityProviderTotalLocalStorageGbRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderTotalLocalStorageGbRequest)(nil)).Elem()
+}
+
+func (i *capacityProviderTotalLocalStorageGbRequestPtrType) ToCapacityProviderTotalLocalStorageGbRequestPtrOutput() CapacityProviderTotalLocalStorageGbRequestPtrOutput {
+	return i.ToCapacityProviderTotalLocalStorageGbRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderTotalLocalStorageGbRequestPtrType) ToCapacityProviderTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) CapacityProviderTotalLocalStorageGbRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTotalLocalStorageGbRequestPtrOutput)
+}
+
+type CapacityProviderTotalLocalStorageGbRequestOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderTotalLocalStorageGbRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderTotalLocalStorageGbRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderTotalLocalStorageGbRequestOutput) ToCapacityProviderTotalLocalStorageGbRequestOutput() CapacityProviderTotalLocalStorageGbRequestOutput {
+	return o
+}
+
+func (o CapacityProviderTotalLocalStorageGbRequestOutput) ToCapacityProviderTotalLocalStorageGbRequestOutputWithContext(ctx context.Context) CapacityProviderTotalLocalStorageGbRequestOutput {
+	return o
+}
+
+func (o CapacityProviderTotalLocalStorageGbRequestOutput) ToCapacityProviderTotalLocalStorageGbRequestPtrOutput() CapacityProviderTotalLocalStorageGbRequestPtrOutput {
+	return o.ToCapacityProviderTotalLocalStorageGbRequestPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderTotalLocalStorageGbRequestOutput) ToCapacityProviderTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) CapacityProviderTotalLocalStorageGbRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderTotalLocalStorageGbRequest) *CapacityProviderTotalLocalStorageGbRequest {
+		return &v
+	}).(CapacityProviderTotalLocalStorageGbRequestPtrOutput)
+}
+
+func (o CapacityProviderTotalLocalStorageGbRequestOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CapacityProviderTotalLocalStorageGbRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+}
+
+func (o CapacityProviderTotalLocalStorageGbRequestOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CapacityProviderTotalLocalStorageGbRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+}
+
+type CapacityProviderTotalLocalStorageGbRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderTotalLocalStorageGbRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderTotalLocalStorageGbRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderTotalLocalStorageGbRequestPtrOutput) ToCapacityProviderTotalLocalStorageGbRequestPtrOutput() CapacityProviderTotalLocalStorageGbRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderTotalLocalStorageGbRequestPtrOutput) ToCapacityProviderTotalLocalStorageGbRequestPtrOutputWithContext(ctx context.Context) CapacityProviderTotalLocalStorageGbRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderTotalLocalStorageGbRequestPtrOutput) Elem() CapacityProviderTotalLocalStorageGbRequestOutput {
+	return o.ApplyT(func(v *CapacityProviderTotalLocalStorageGbRequest) CapacityProviderTotalLocalStorageGbRequest {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderTotalLocalStorageGbRequest
+		return ret
+	}).(CapacityProviderTotalLocalStorageGbRequestOutput)
+}
+
+func (o CapacityProviderTotalLocalStorageGbRequestPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CapacityProviderTotalLocalStorageGbRequest) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o CapacityProviderTotalLocalStorageGbRequestPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CapacityProviderTotalLocalStorageGbRequest) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type CapacityProviderVCpuCountRangeRequest struct {
+	Max *int `pulumi:"max"`
+	Min int  `pulumi:"min"`
+}
+
+// CapacityProviderVCpuCountRangeRequestInput is an input type that accepts CapacityProviderVCpuCountRangeRequestArgs and CapacityProviderVCpuCountRangeRequestOutput values.
+// You can construct a concrete instance of `CapacityProviderVCpuCountRangeRequestInput` via:
+//
+//	CapacityProviderVCpuCountRangeRequestArgs{...}
+type CapacityProviderVCpuCountRangeRequestInput interface {
+	pulumi.Input
+
+	ToCapacityProviderVCpuCountRangeRequestOutput() CapacityProviderVCpuCountRangeRequestOutput
+	ToCapacityProviderVCpuCountRangeRequestOutputWithContext(context.Context) CapacityProviderVCpuCountRangeRequestOutput
+}
+
+type CapacityProviderVCpuCountRangeRequestArgs struct {
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	Min pulumi.IntInput    `pulumi:"min"`
+}
+
+func (CapacityProviderVCpuCountRangeRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderVCpuCountRangeRequest)(nil)).Elem()
+}
+
+func (i CapacityProviderVCpuCountRangeRequestArgs) ToCapacityProviderVCpuCountRangeRequestOutput() CapacityProviderVCpuCountRangeRequestOutput {
+	return i.ToCapacityProviderVCpuCountRangeRequestOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderVCpuCountRangeRequestArgs) ToCapacityProviderVCpuCountRangeRequestOutputWithContext(ctx context.Context) CapacityProviderVCpuCountRangeRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderVCpuCountRangeRequestOutput)
+}
+
+func (i CapacityProviderVCpuCountRangeRequestArgs) ToCapacityProviderVCpuCountRangeRequestPtrOutput() CapacityProviderVCpuCountRangeRequestPtrOutput {
+	return i.ToCapacityProviderVCpuCountRangeRequestPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderVCpuCountRangeRequestArgs) ToCapacityProviderVCpuCountRangeRequestPtrOutputWithContext(ctx context.Context) CapacityProviderVCpuCountRangeRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderVCpuCountRangeRequestOutput).ToCapacityProviderVCpuCountRangeRequestPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderVCpuCountRangeRequestPtrInput is an input type that accepts CapacityProviderVCpuCountRangeRequestArgs, CapacityProviderVCpuCountRangeRequestPtr and CapacityProviderVCpuCountRangeRequestPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderVCpuCountRangeRequestPtrInput` via:
+//
+//	        CapacityProviderVCpuCountRangeRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderVCpuCountRangeRequestPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderVCpuCountRangeRequestPtrOutput() CapacityProviderVCpuCountRangeRequestPtrOutput
+	ToCapacityProviderVCpuCountRangeRequestPtrOutputWithContext(context.Context) CapacityProviderVCpuCountRangeRequestPtrOutput
+}
+
+type capacityProviderVCpuCountRangeRequestPtrType CapacityProviderVCpuCountRangeRequestArgs
+
+func CapacityProviderVCpuCountRangeRequestPtr(v *CapacityProviderVCpuCountRangeRequestArgs) CapacityProviderVCpuCountRangeRequestPtrInput {
+	return (*capacityProviderVCpuCountRangeRequestPtrType)(v)
+}
+
+func (*capacityProviderVCpuCountRangeRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderVCpuCountRangeRequest)(nil)).Elem()
+}
+
+func (i *capacityProviderVCpuCountRangeRequestPtrType) ToCapacityProviderVCpuCountRangeRequestPtrOutput() CapacityProviderVCpuCountRangeRequestPtrOutput {
+	return i.ToCapacityProviderVCpuCountRangeRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderVCpuCountRangeRequestPtrType) ToCapacityProviderVCpuCountRangeRequestPtrOutputWithContext(ctx context.Context) CapacityProviderVCpuCountRangeRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderVCpuCountRangeRequestPtrOutput)
+}
+
+type CapacityProviderVCpuCountRangeRequestOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderVCpuCountRangeRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderVCpuCountRangeRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderVCpuCountRangeRequestOutput) ToCapacityProviderVCpuCountRangeRequestOutput() CapacityProviderVCpuCountRangeRequestOutput {
+	return o
+}
+
+func (o CapacityProviderVCpuCountRangeRequestOutput) ToCapacityProviderVCpuCountRangeRequestOutputWithContext(ctx context.Context) CapacityProviderVCpuCountRangeRequestOutput {
+	return o
+}
+
+func (o CapacityProviderVCpuCountRangeRequestOutput) ToCapacityProviderVCpuCountRangeRequestPtrOutput() CapacityProviderVCpuCountRangeRequestPtrOutput {
+	return o.ToCapacityProviderVCpuCountRangeRequestPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderVCpuCountRangeRequestOutput) ToCapacityProviderVCpuCountRangeRequestPtrOutputWithContext(ctx context.Context) CapacityProviderVCpuCountRangeRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderVCpuCountRangeRequest) *CapacityProviderVCpuCountRangeRequest {
+		return &v
+	}).(CapacityProviderVCpuCountRangeRequestPtrOutput)
+}
+
+func (o CapacityProviderVCpuCountRangeRequestOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderVCpuCountRangeRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderVCpuCountRangeRequestOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v CapacityProviderVCpuCountRangeRequest) int { return v.Min }).(pulumi.IntOutput)
+}
+
+type CapacityProviderVCpuCountRangeRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderVCpuCountRangeRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderVCpuCountRangeRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderVCpuCountRangeRequestPtrOutput) ToCapacityProviderVCpuCountRangeRequestPtrOutput() CapacityProviderVCpuCountRangeRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderVCpuCountRangeRequestPtrOutput) ToCapacityProviderVCpuCountRangeRequestPtrOutputWithContext(ctx context.Context) CapacityProviderVCpuCountRangeRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderVCpuCountRangeRequestPtrOutput) Elem() CapacityProviderVCpuCountRangeRequestOutput {
+	return o.ApplyT(func(v *CapacityProviderVCpuCountRangeRequest) CapacityProviderVCpuCountRangeRequest {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderVCpuCountRangeRequest
+		return ret
+	}).(CapacityProviderVCpuCountRangeRequestOutput)
+}
+
+func (o CapacityProviderVCpuCountRangeRequestPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderVCpuCountRangeRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderVCpuCountRangeRequestPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderVCpuCountRangeRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Min
+	}).(pulumi.IntPtrOutput)
 }
 
 type ClusterCapacityProviderAssociationsCapacityProviderStrategy struct {
@@ -4094,7 +6595,7 @@ type ServiceDeploymentConfiguration struct {
 	//   If the service uses either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and the tasks in the service use the Fargate launch type, the maximum percent value is not used. The value is still returned when describing your service.
 	MaximumPercent *int `pulumi:"maximumPercent"`
 	// If a service is using the rolling update (``ECS``) deployment type, the ``minimumHealthyPercent`` represents a lower limit on the number of your service's tasks that must remain in the ``RUNNING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a ``desiredCount`` of four tasks and a ``minimumHealthyPercent`` of 50%, the service scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks.
-	//   If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html) .
+	//   If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 	//  For services that *do not* use a load balancer, the following should be noted:
 	//   +  A service is considered healthy if all essential containers within the tasks in the service pass their health checks.
 	//   +  If a task has no essential containers with a health check defined, the service scheduler will wait for 40 seconds after a task reaches a ``RUNNING`` state before the task is counted towards the minimum healthy percent total.
@@ -4149,7 +6650,7 @@ type ServiceDeploymentConfigurationArgs struct {
 	//   If the service uses either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and the tasks in the service use the Fargate launch type, the maximum percent value is not used. The value is still returned when describing your service.
 	MaximumPercent pulumi.IntPtrInput `pulumi:"maximumPercent"`
 	// If a service is using the rolling update (``ECS``) deployment type, the ``minimumHealthyPercent`` represents a lower limit on the number of your service's tasks that must remain in the ``RUNNING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a ``desiredCount`` of four tasks and a ``minimumHealthyPercent`` of 50%, the service scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks.
-	//   If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html) .
+	//   If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 	//  For services that *do not* use a load balancer, the following should be noted:
 	//   +  A service is considered healthy if all essential containers within the tasks in the service pass their health checks.
 	//   +  If a task has no essential containers with a health check defined, the service scheduler will wait for 40 seconds after a task reaches a ``RUNNING`` state before the task is counted towards the minimum healthy percent total.
@@ -4290,7 +6791,7 @@ func (o ServiceDeploymentConfigurationOutput) MaximumPercent() pulumi.IntPtrOutp
 
 // If a service is using the rolling update (“ECS“) deployment type, the “minimumHealthyPercent“ represents a lower limit on the number of your service's tasks that must remain in the “RUNNING“ state during a deployment, as a percentage of the “desiredCount“ (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a “desiredCount“ of four tasks and a “minimumHealthyPercent“ of 50%, the service scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks.
 //
-//	 If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html) .
+//	 If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 //	For services that *do not* use a load balancer, the following should be noted:
 //	 +  A service is considered healthy if all essential containers within the tasks in the service pass their health checks.
 //	 +  If a task has no essential containers with a health check defined, the service scheduler will wait for 40 seconds after a task reaches a ``RUNNING`` state before the task is counted towards the minimum healthy percent total.
@@ -4404,7 +6905,7 @@ func (o ServiceDeploymentConfigurationPtrOutput) MaximumPercent() pulumi.IntPtrO
 
 // If a service is using the rolling update (“ECS“) deployment type, the “minimumHealthyPercent“ represents a lower limit on the number of your service's tasks that must remain in the “RUNNING“ state during a deployment, as a percentage of the “desiredCount“ (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a “desiredCount“ of four tasks and a “minimumHealthyPercent“ of 50%, the service scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks.
 //
-//	 If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html) .
+//	 If any tasks are unhealthy and if ``maximumPercent`` doesn't allow the Amazon ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks one-by-one — using the ``minimumHealthyPercent`` as a constraint — to clear up capacity to launch replacement tasks. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 //	For services that *do not* use a load balancer, the following should be noted:
 //	 +  A service is considered healthy if all essential containers within the tasks in the service pass their health checks.
 //	 +  If a task has no essential containers with a health check defined, the service scheduler will wait for 40 seconds after a task reaches a ``RUNNING`` state before the task is counted towards the minimum healthy percent total.
@@ -4714,9 +7215,8 @@ func (o ServiceDeploymentControllerPtrOutput) Type() ServiceDeploymentController
 //
 //	For more information, see [Lifecycle hooks for Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentLifecycleHook struct {
-	// Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
-	//
-	// This field must be a JSON object as a string.
+	// Use this field to specify custom parameters that ECS passes to your hook target invocations (such as a Lambda function).
+	//  This field must be a JSON object as a string.
 	HookDetails interface{} `pulumi:"hookDetails"`
 	// The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
 	//  You must provide this parameter when configuring a deployment lifecycle hook.
@@ -4766,9 +7266,8 @@ type ServiceDeploymentLifecycleHookInput interface {
 //
 //	For more information, see [Lifecycle hooks for Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentLifecycleHookArgs struct {
-	// Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
-	//
-	// This field must be a JSON object as a string.
+	// Use this field to specify custom parameters that ECS passes to your hook target invocations (such as a Lambda function).
+	//  This field must be a JSON object as a string.
 	HookDetails pulumi.Input `pulumi:"hookDetails"`
 	// The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
 	//  You must provide this parameter when configuring a deployment lifecycle hook.
@@ -4857,9 +7356,9 @@ func (o ServiceDeploymentLifecycleHookOutput) ToServiceDeploymentLifecycleHookOu
 	return o
 }
 
-// Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
+// Use this field to specify custom parameters that ECS passes to your hook target invocations (such as a Lambda function).
 //
-// This field must be a JSON object as a string.
+//	This field must be a JSON object as a string.
 func (o ServiceDeploymentLifecycleHookOutput) HookDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) interface{} { return v.HookDetails }).(pulumi.AnyOutput)
 }
@@ -14299,10 +16798,38 @@ type TaskSetTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAcceleratorCountRequestInput)(nil)).Elem(), CapacityProviderAcceleratorCountRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAcceleratorCountRequestPtrInput)(nil)).Elem(), CapacityProviderAcceleratorCountRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAcceleratorTotalMemoryMiBRequestInput)(nil)).Elem(), CapacityProviderAcceleratorTotalMemoryMiBRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAcceleratorTotalMemoryMiBRequestPtrInput)(nil)).Elem(), CapacityProviderAcceleratorTotalMemoryMiBRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderBaselineEbsBandwidthMbpsRequestInput)(nil)).Elem(), CapacityProviderBaselineEbsBandwidthMbpsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderBaselineEbsBandwidthMbpsRequestPtrInput)(nil)).Elem(), CapacityProviderBaselineEbsBandwidthMbpsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceLaunchTemplateInput)(nil)).Elem(), CapacityProviderInstanceLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceLaunchTemplatePtrInput)(nil)).Elem(), CapacityProviderInstanceLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsRequestInput)(nil)).Elem(), CapacityProviderInstanceRequirementsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsRequestPtrInput)(nil)).Elem(), CapacityProviderInstanceRequirementsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesNetworkConfigurationInput)(nil)).Elem(), CapacityProviderManagedInstancesNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesNetworkConfigurationPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesStorageConfigurationInput)(nil)).Elem(), CapacityProviderManagedInstancesStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesStorageConfigurationPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedScalingInput)(nil)).Elem(), CapacityProviderManagedScalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedScalingPtrInput)(nil)).Elem(), CapacityProviderManagedScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderMemoryGiBPerVCpuRequestInput)(nil)).Elem(), CapacityProviderMemoryGiBPerVCpuRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderMemoryGiBPerVCpuRequestPtrInput)(nil)).Elem(), CapacityProviderMemoryGiBPerVCpuRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderMemoryMiBRequestInput)(nil)).Elem(), CapacityProviderMemoryMiBRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderMemoryMiBRequestPtrInput)(nil)).Elem(), CapacityProviderMemoryMiBRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderNetworkBandwidthGbpsRequestInput)(nil)).Elem(), CapacityProviderNetworkBandwidthGbpsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderNetworkBandwidthGbpsRequestPtrInput)(nil)).Elem(), CapacityProviderNetworkBandwidthGbpsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderNetworkInterfaceCountRequestInput)(nil)).Elem(), CapacityProviderNetworkInterfaceCountRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderNetworkInterfaceCountRequestPtrInput)(nil)).Elem(), CapacityProviderNetworkInterfaceCountRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTotalLocalStorageGbRequestInput)(nil)).Elem(), CapacityProviderTotalLocalStorageGbRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTotalLocalStorageGbRequestPtrInput)(nil)).Elem(), CapacityProviderTotalLocalStorageGbRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderVCpuCountRangeRequestInput)(nil)).Elem(), CapacityProviderVCpuCountRangeRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderVCpuCountRangeRequestPtrInput)(nil)).Elem(), CapacityProviderVCpuCountRangeRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProviderStrategyInput)(nil)).Elem(), ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayInput)(nil)).Elem(), ClusterCapacityProviderAssociationsCapacityProviderStrategyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderStrategyItemInput)(nil)).Elem(), ClusterCapacityProviderStrategyItemArgs{})
@@ -14457,10 +16984,38 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetScalePtrInput)(nil)).Elem(), TaskSetScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetServiceRegistryInput)(nil)).Elem(), TaskSetServiceRegistryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetServiceRegistryArrayInput)(nil)).Elem(), TaskSetServiceRegistryArray{})
+	pulumi.RegisterOutputType(CapacityProviderAcceleratorCountRequestOutput{})
+	pulumi.RegisterOutputType(CapacityProviderAcceleratorCountRequestPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderAcceleratorTotalMemoryMiBRequestOutput{})
+	pulumi.RegisterOutputType(CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderBaselineEbsBandwidthMbpsRequestOutput{})
+	pulumi.RegisterOutputType(CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderInstanceLaunchTemplateOutput{})
+	pulumi.RegisterOutputType(CapacityProviderInstanceLaunchTemplatePtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsRequestOutput{})
+	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsRequestPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesStorageConfigurationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesStorageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderMemoryGiBPerVCpuRequestOutput{})
+	pulumi.RegisterOutputType(CapacityProviderMemoryGiBPerVCpuRequestPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderMemoryMiBRequestOutput{})
+	pulumi.RegisterOutputType(CapacityProviderMemoryMiBRequestPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderNetworkBandwidthGbpsRequestOutput{})
+	pulumi.RegisterOutputType(CapacityProviderNetworkBandwidthGbpsRequestPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderNetworkInterfaceCountRequestOutput{})
+	pulumi.RegisterOutputType(CapacityProviderNetworkInterfaceCountRequestPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderTotalLocalStorageGbRequestOutput{})
+	pulumi.RegisterOutputType(CapacityProviderTotalLocalStorageGbRequestPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderVCpuCountRangeRequestOutput{})
+	pulumi.RegisterOutputType(CapacityProviderVCpuCountRangeRequestPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderStrategyItemOutput{})

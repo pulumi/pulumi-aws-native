@@ -73,6 +73,9 @@ export class CodeInterpreterCustom extends pulumi.CustomResource {
      * Status of code interpreter.
      */
     public /*out*/ readonly status!: pulumi.Output<enums.bedrockagentcore.CodeInterpreterCustomCodeInterpreterStatus>;
+    /**
+     * The tags for the code interpreter.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -138,5 +141,8 @@ export interface CodeInterpreterCustomArgs {
      * Network configuration for code interpreter.
      */
     networkConfiguration: pulumi.Input<inputs.bedrockagentcore.CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs>;
+    /**
+     * The tags for the code interpreter.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

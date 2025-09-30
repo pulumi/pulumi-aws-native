@@ -49,6 +49,8 @@ from .get_local_gateway_route import *
 from .get_local_gateway_route_table import *
 from .get_local_gateway_route_table_virtual_interface_group_association import *
 from .get_local_gateway_route_table_vpc_association import *
+from .get_local_gateway_virtual_interface import *
+from .get_local_gateway_virtual_interface_group import *
 from .get_nat_gateway import *
 from .get_network_acl import *
 from .get_network_insights_access_scope import *
@@ -124,6 +126,8 @@ from .local_gateway_route import *
 from .local_gateway_route_table import *
 from .local_gateway_route_table_virtual_interface_group_association import *
 from .local_gateway_route_table_vpc_association import *
+from .local_gateway_virtual_interface import *
+from .local_gateway_virtual_interface_group import *
 from .nat_gateway import *
 from .network_acl import *
 from .network_insights_access_scope import *

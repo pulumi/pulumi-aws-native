@@ -57,6 +57,7 @@ class DbClusterArgs:
                  iops: Optional[pulumi.Input[builtins.int]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  manage_master_user_password: Optional[pulumi.Input[builtins.bool]] = None,
+                 master_user_authentication_type: Optional[pulumi.Input[builtins.str]] = None,
                  master_user_password: Optional[pulumi.Input[builtins.str]] = None,
                  master_user_secret: Optional[pulumi.Input['DbClusterMasterUserSecretArgs']] = None,
                  master_username: Optional[pulumi.Input[builtins.str]] = None,
@@ -235,6 +236,16 @@ class DbClusterArgs:
                 Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
                 Constraints:
                  +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
+        :param pulumi.Input[builtins.str] master_user_authentication_type: Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.
+               
+               You can specify one of the following values:
+               
+               - `password` - Use standard database authentication with a password.
+               - `iam-db-auth` - Use IAM database authentication for the master user.
+               
+               Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
+               
+               This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
         :param pulumi.Input[builtins.str] master_user_password: The master password for the DB instance.
                  If you specify the ``SourceDBClusterIdentifier``, ``SnapshotIdentifier``, or ``GlobalClusterIdentifier`` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
                  Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -459,6 +470,8 @@ class DbClusterArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if manage_master_user_password is not None:
             pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
+        if master_user_authentication_type is not None:
+            pulumi.set(__self__, "master_user_authentication_type", master_user_authentication_type)
         if master_user_password is not None:
             pulumi.set(__self__, "master_user_password", master_user_password)
         if master_user_secret is not None:
@@ -1027,6 +1040,27 @@ class DbClusterArgs:
         pulumi.set(self, "manage_master_user_password", value)
 
     @property
+    @pulumi.getter(name="masterUserAuthenticationType")
+    def master_user_authentication_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.
+
+        You can specify one of the following values:
+
+        - `password` - Use standard database authentication with a password.
+        - `iam-db-auth` - Use IAM database authentication for the master user.
+
+        Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
+
+        This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+        """
+        return pulumi.get(self, "master_user_authentication_type")
+
+    @master_user_authentication_type.setter
+    def master_user_authentication_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "master_user_authentication_type", value)
+
+    @property
     @pulumi.getter(name="masterUserPassword")
     def master_user_password(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1520,6 +1554,7 @@ class DbCluster(pulumi.CustomResource):
                  iops: Optional[pulumi.Input[builtins.int]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  manage_master_user_password: Optional[pulumi.Input[builtins.bool]] = None,
+                 master_user_authentication_type: Optional[pulumi.Input[builtins.str]] = None,
                  master_user_password: Optional[pulumi.Input[builtins.str]] = None,
                  master_user_secret: Optional[pulumi.Input[Union['DbClusterMasterUserSecretArgs', 'DbClusterMasterUserSecretArgsDict']]] = None,
                  master_username: Optional[pulumi.Input[builtins.str]] = None,
@@ -1718,6 +1753,16 @@ class DbCluster(pulumi.CustomResource):
                 Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
                 Constraints:
                  +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
+        :param pulumi.Input[builtins.str] master_user_authentication_type: Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.
+               
+               You can specify one of the following values:
+               
+               - `password` - Use standard database authentication with a password.
+               - `iam-db-auth` - Use IAM database authentication for the master user.
+               
+               Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
+               
+               This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
         :param pulumi.Input[builtins.str] master_user_password: The master password for the DB instance.
                  If you specify the ``SourceDBClusterIdentifier``, ``SnapshotIdentifier``, or ``GlobalClusterIdentifier`` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
                  Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -1949,6 +1994,7 @@ class DbCluster(pulumi.CustomResource):
                  iops: Optional[pulumi.Input[builtins.int]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  manage_master_user_password: Optional[pulumi.Input[builtins.bool]] = None,
+                 master_user_authentication_type: Optional[pulumi.Input[builtins.str]] = None,
                  master_user_password: Optional[pulumi.Input[builtins.str]] = None,
                  master_user_secret: Optional[pulumi.Input[Union['DbClusterMasterUserSecretArgs', 'DbClusterMasterUserSecretArgsDict']]] = None,
                  master_username: Optional[pulumi.Input[builtins.str]] = None,
@@ -2018,6 +2064,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["iops"] = iops
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["manage_master_user_password"] = manage_master_user_password
+            __props__.__dict__["master_user_authentication_type"] = master_user_authentication_type
             __props__.__dict__["master_user_password"] = master_user_password
             __props__.__dict__["master_user_secret"] = master_user_secret
             __props__.__dict__["master_username"] = master_username
@@ -2110,6 +2157,7 @@ class DbCluster(pulumi.CustomResource):
         __props__.__dict__["iops"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["manage_master_user_password"] = None
+        __props__.__dict__["master_user_authentication_type"] = None
         __props__.__dict__["master_user_password"] = None
         __props__.__dict__["master_user_secret"] = None
         __props__.__dict__["master_username"] = None
@@ -2541,6 +2589,23 @@ class DbCluster(pulumi.CustomResource):
           +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
         """
         return pulumi.get(self, "manage_master_user_password")
+
+    @property
+    @pulumi.getter(name="masterUserAuthenticationType")
+    def master_user_authentication_type(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.
+
+        You can specify one of the following values:
+
+        - `password` - Use standard database authentication with a password.
+        - `iam-db-auth` - Use IAM database authentication for the master user.
+
+        Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
+
+        This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+        """
+        return pulumi.get(self, "master_user_authentication_type")
 
     @property
     @pulumi.getter(name="masterUserPassword")

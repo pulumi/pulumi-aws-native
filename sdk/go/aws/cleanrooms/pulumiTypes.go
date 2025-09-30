@@ -805,6 +805,153 @@ func (o AnalysisTemplateArtifactsOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisTemplateArtifacts) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+type AnalysisTemplateErrorMessageConfiguration struct {
+	// The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
+	//
+	// Because this setting may expose sensitive data, it is recommended for development and testing environments.
+	Type AnalysisTemplateErrorMessageConfigurationType `pulumi:"type"`
+}
+
+// AnalysisTemplateErrorMessageConfigurationInput is an input type that accepts AnalysisTemplateErrorMessageConfigurationArgs and AnalysisTemplateErrorMessageConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisTemplateErrorMessageConfigurationInput` via:
+//
+//	AnalysisTemplateErrorMessageConfigurationArgs{...}
+type AnalysisTemplateErrorMessageConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateErrorMessageConfigurationOutput() AnalysisTemplateErrorMessageConfigurationOutput
+	ToAnalysisTemplateErrorMessageConfigurationOutputWithContext(context.Context) AnalysisTemplateErrorMessageConfigurationOutput
+}
+
+type AnalysisTemplateErrorMessageConfigurationArgs struct {
+	// The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
+	//
+	// Because this setting may expose sensitive data, it is recommended for development and testing environments.
+	Type AnalysisTemplateErrorMessageConfigurationTypeInput `pulumi:"type"`
+}
+
+func (AnalysisTemplateErrorMessageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateErrorMessageConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisTemplateErrorMessageConfigurationArgs) ToAnalysisTemplateErrorMessageConfigurationOutput() AnalysisTemplateErrorMessageConfigurationOutput {
+	return i.ToAnalysisTemplateErrorMessageConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateErrorMessageConfigurationArgs) ToAnalysisTemplateErrorMessageConfigurationOutputWithContext(ctx context.Context) AnalysisTemplateErrorMessageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateErrorMessageConfigurationOutput)
+}
+
+func (i AnalysisTemplateErrorMessageConfigurationArgs) ToAnalysisTemplateErrorMessageConfigurationPtrOutput() AnalysisTemplateErrorMessageConfigurationPtrOutput {
+	return i.ToAnalysisTemplateErrorMessageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateErrorMessageConfigurationArgs) ToAnalysisTemplateErrorMessageConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTemplateErrorMessageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateErrorMessageConfigurationOutput).ToAnalysisTemplateErrorMessageConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalysisTemplateErrorMessageConfigurationPtrInput is an input type that accepts AnalysisTemplateErrorMessageConfigurationArgs, AnalysisTemplateErrorMessageConfigurationPtr and AnalysisTemplateErrorMessageConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisTemplateErrorMessageConfigurationPtrInput` via:
+//
+//	        AnalysisTemplateErrorMessageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisTemplateErrorMessageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateErrorMessageConfigurationPtrOutput() AnalysisTemplateErrorMessageConfigurationPtrOutput
+	ToAnalysisTemplateErrorMessageConfigurationPtrOutputWithContext(context.Context) AnalysisTemplateErrorMessageConfigurationPtrOutput
+}
+
+type analysisTemplateErrorMessageConfigurationPtrType AnalysisTemplateErrorMessageConfigurationArgs
+
+func AnalysisTemplateErrorMessageConfigurationPtr(v *AnalysisTemplateErrorMessageConfigurationArgs) AnalysisTemplateErrorMessageConfigurationPtrInput {
+	return (*analysisTemplateErrorMessageConfigurationPtrType)(v)
+}
+
+func (*analysisTemplateErrorMessageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateErrorMessageConfiguration)(nil)).Elem()
+}
+
+func (i *analysisTemplateErrorMessageConfigurationPtrType) ToAnalysisTemplateErrorMessageConfigurationPtrOutput() AnalysisTemplateErrorMessageConfigurationPtrOutput {
+	return i.ToAnalysisTemplateErrorMessageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisTemplateErrorMessageConfigurationPtrType) ToAnalysisTemplateErrorMessageConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTemplateErrorMessageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateErrorMessageConfigurationPtrOutput)
+}
+
+type AnalysisTemplateErrorMessageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateErrorMessageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateErrorMessageConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationOutput) ToAnalysisTemplateErrorMessageConfigurationOutput() AnalysisTemplateErrorMessageConfigurationOutput {
+	return o
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationOutput) ToAnalysisTemplateErrorMessageConfigurationOutputWithContext(ctx context.Context) AnalysisTemplateErrorMessageConfigurationOutput {
+	return o
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationOutput) ToAnalysisTemplateErrorMessageConfigurationPtrOutput() AnalysisTemplateErrorMessageConfigurationPtrOutput {
+	return o.ToAnalysisTemplateErrorMessageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationOutput) ToAnalysisTemplateErrorMessageConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTemplateErrorMessageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTemplateErrorMessageConfiguration) *AnalysisTemplateErrorMessageConfiguration {
+		return &v
+	}).(AnalysisTemplateErrorMessageConfigurationPtrOutput)
+}
+
+// The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
+//
+// Because this setting may expose sensitive data, it is recommended for development and testing environments.
+func (o AnalysisTemplateErrorMessageConfigurationOutput) Type() AnalysisTemplateErrorMessageConfigurationTypeOutput {
+	return o.ApplyT(func(v AnalysisTemplateErrorMessageConfiguration) AnalysisTemplateErrorMessageConfigurationType {
+		return v.Type
+	}).(AnalysisTemplateErrorMessageConfigurationTypeOutput)
+}
+
+type AnalysisTemplateErrorMessageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateErrorMessageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateErrorMessageConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationPtrOutput) ToAnalysisTemplateErrorMessageConfigurationPtrOutput() AnalysisTemplateErrorMessageConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationPtrOutput) ToAnalysisTemplateErrorMessageConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTemplateErrorMessageConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateErrorMessageConfigurationPtrOutput) Elem() AnalysisTemplateErrorMessageConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisTemplateErrorMessageConfiguration) AnalysisTemplateErrorMessageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTemplateErrorMessageConfiguration
+		return ret
+	}).(AnalysisTemplateErrorMessageConfigurationOutput)
+}
+
+// The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
+//
+// Because this setting may expose sensitive data, it is recommended for development and testing environments.
+func (o AnalysisTemplateErrorMessageConfigurationPtrOutput) Type() AnalysisTemplateErrorMessageConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *AnalysisTemplateErrorMessageConfiguration) *AnalysisTemplateErrorMessageConfigurationType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(AnalysisTemplateErrorMessageConfigurationTypePtrOutput)
+}
+
 type AnalysisTemplateHash struct {
 	Sha256 *string `pulumi:"sha256"`
 }
@@ -7380,6 +7527,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateArtifactMetadataInput)(nil)).Elem(), AnalysisTemplateArtifactMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateArtifactMetadataPtrInput)(nil)).Elem(), AnalysisTemplateArtifactMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateArtifactsInput)(nil)).Elem(), AnalysisTemplateArtifactsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateErrorMessageConfigurationInput)(nil)).Elem(), AnalysisTemplateErrorMessageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateErrorMessageConfigurationPtrInput)(nil)).Elem(), AnalysisTemplateErrorMessageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateHashInput)(nil)).Elem(), AnalysisTemplateHashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateHashPtrInput)(nil)).Elem(), AnalysisTemplateHashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateHashArrayInput)(nil)).Elem(), AnalysisTemplateHashArray{})
@@ -7479,6 +7628,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisTemplateArtifactMetadataOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateArtifactMetadataPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateArtifactsOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateErrorMessageConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateErrorMessageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateHashOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateHashPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateHashArrayOutput{})

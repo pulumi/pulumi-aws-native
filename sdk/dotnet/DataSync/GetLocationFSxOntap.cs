@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public readonly string? LocationUri;
         /// <summary>
+        /// Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
+        /// </summary>
+        public readonly Outputs.LocationFSxOntapProtocol? Protocol;
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -88,11 +92,14 @@ namespace Pulumi.AwsNative.DataSync
 
             string? locationUri,
 
+            Outputs.LocationFSxOntapProtocol? protocol,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             FsxFilesystemArn = fsxFilesystemArn;
             LocationArn = locationArn;
             LocationUri = locationUri;
+            Protocol = protocol;
             Tags = tags;
         }
     }

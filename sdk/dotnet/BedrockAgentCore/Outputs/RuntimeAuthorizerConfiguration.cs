@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class RuntimeAuthorizerConfiguration
     {
+        /// <summary>
+        /// Represents inbound authorization configuration options used to authenticate incoming requests.
+        /// </summary>
         public readonly Outputs.RuntimeCustomJwtAuthorizerConfiguration? CustomJwtAuthorizer;
 
         [OutputConstructor]

@@ -40,10 +40,22 @@ namespace Pulumi.AwsNative.Rds
         public Output<bool?> DebugLogging { get; private set; } = null!;
 
         /// <summary>
+        /// The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+        /// </summary>
+        [Output("defaultAuthScheme")]
+        public Output<Pulumi.AwsNative.Rds.DbProxyDefaultAuthScheme?> DefaultAuthScheme { get; private set; } = null!;
+
+        /// <summary>
         /// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+        /// </summary>
+        [Output("endpointNetworkType")]
+        public Output<Pulumi.AwsNative.Rds.DbProxyEndpointNetworkType?> EndpointNetworkType { get; private set; } = null!;
 
         /// <summary>
         /// The kinds of databases that the proxy can connect to.
@@ -74,6 +86,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
+        /// </summary>
+        [Output("targetConnectionNetworkType")]
+        public Output<Pulumi.AwsNative.Rds.DbProxyTargetConnectionNetworkType?> TargetConnectionNetworkType { get; private set; } = null!;
 
         /// <summary>
         /// VPC ID to associate with the new DB proxy.
@@ -119,7 +137,9 @@ namespace Pulumi.AwsNative.Rds
                 ReplaceOnChanges =
                 {
                     "dbProxyName",
+                    "endpointNetworkType",
                     "engineFamily",
+                    "targetConnectionNetworkType",
                     "vpcSubnetIds[*]",
                 },
             };
@@ -144,7 +164,7 @@ namespace Pulumi.AwsNative.Rds
 
     public sealed class DbProxyArgs : global::Pulumi.ResourceArgs
     {
-        [Input("auth", required: true)]
+        [Input("auth")]
         private InputList<Inputs.DbProxyAuthFormatArgs>? _auth;
 
         /// <summary>
@@ -167,6 +187,18 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("debugLogging")]
         public Input<bool>? DebugLogging { get; set; }
+
+        /// <summary>
+        /// The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+        /// </summary>
+        [Input("defaultAuthScheme")]
+        public Input<Pulumi.AwsNative.Rds.DbProxyDefaultAuthScheme>? DefaultAuthScheme { get; set; }
+
+        /// <summary>
+        /// The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+        /// </summary>
+        [Input("endpointNetworkType")]
+        public Input<Pulumi.AwsNative.Rds.DbProxyEndpointNetworkType>? EndpointNetworkType { get; set; }
 
         /// <summary>
         /// The kinds of databases that the proxy can connect to.
@@ -203,6 +235,12 @@ namespace Pulumi.AwsNative.Rds
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
+        /// </summary>
+        [Input("targetConnectionNetworkType")]
+        public Input<Pulumi.AwsNative.Rds.DbProxyTargetConnectionNetworkType>? TargetConnectionNetworkType { get; set; }
 
         [Input("vpcSecurityGroupIds")]
         private InputList<string>? _vpcSecurityGroupIds;

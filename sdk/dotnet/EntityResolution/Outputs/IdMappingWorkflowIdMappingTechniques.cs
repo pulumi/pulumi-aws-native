@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         /// The type of ID mapping.
         /// </summary>
         public readonly Pulumi.AwsNative.EntityResolution.IdMappingWorkflowIdMappingTechniquesIdMappingType? IdMappingType;
+        public readonly string? NormalizationVersion;
         /// <summary>
         /// An object which defines any additional configurations required by the provider service.
         /// </summary>
@@ -30,11 +31,14 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         private IdMappingWorkflowIdMappingTechniques(
             Pulumi.AwsNative.EntityResolution.IdMappingWorkflowIdMappingTechniquesIdMappingType? idMappingType,
 
+            string? normalizationVersion,
+
             Outputs.IdMappingWorkflowProviderProperties? providerProperties,
 
             Outputs.IdMappingWorkflowIdMappingRuleBasedProperties? ruleBasedProperties)
         {
             IdMappingType = idMappingType;
+            NormalizationVersion = normalizationVersion;
             ProviderProperties = providerProperties;
             RuleBasedProperties = ruleBasedProperties;
         }

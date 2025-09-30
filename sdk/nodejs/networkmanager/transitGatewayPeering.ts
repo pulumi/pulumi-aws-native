@@ -54,6 +54,10 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
      */
     public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
     /**
+     * Errors from the last modification of the transit gateway peering.
+     */
+    public /*out*/ readonly lastModificationErrors!: pulumi.Output<string[]>;
+    /**
      * Peering owner account Id
      */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
@@ -109,6 +113,7 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
             resourceInputs["coreNetworkArn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;
+            resourceInputs["lastModificationErrors"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
             resourceInputs["peeringId"] = undefined /*out*/;
             resourceInputs["peeringType"] = undefined /*out*/;
@@ -120,6 +125,7 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
             resourceInputs["coreNetworkId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;
+            resourceInputs["lastModificationErrors"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
             resourceInputs["peeringId"] = undefined /*out*/;
             resourceInputs["peeringType"] = undefined /*out*/;

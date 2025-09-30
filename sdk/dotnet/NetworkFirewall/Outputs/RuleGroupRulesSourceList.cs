@@ -14,7 +14,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     public sealed class RuleGroupRulesSourceList
     {
         /// <summary>
-        /// Whether you want to allow or deny access to the domains in your target list.
+        /// Whether you want to apply allow, reject, alert, or drop behavior to the domains in your target list.
+        /// 
+        /// &gt; When logging is enabled and you choose Alert, traffic that matches the domain specifications generates an alert in the firewall's logs. Then, traffic either passes, is rejected, or drops based on other rules in the firewall policy.
         /// </summary>
         public readonly Pulumi.AwsNative.NetworkFirewall.RuleGroupGeneratedRulesType GeneratedRulesType;
         /// <summary>

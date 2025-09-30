@@ -15,6 +15,7 @@ var _ = internal.GetEnvOrDefault
 
 // Network configuration for browser
 type BrowserCustomBrowserNetworkConfiguration struct {
+	// The network mode.
 	NetworkMode BrowserCustomBrowserNetworkMode `pulumi:"networkMode"`
 }
 
@@ -31,6 +32,7 @@ type BrowserCustomBrowserNetworkConfigurationInput interface {
 
 // Network configuration for browser
 type BrowserCustomBrowserNetworkConfigurationArgs struct {
+	// The network mode.
 	NetworkMode BrowserCustomBrowserNetworkModeInput `pulumi:"networkMode"`
 }
 
@@ -61,13 +63,16 @@ func (o BrowserCustomBrowserNetworkConfigurationOutput) ToBrowserCustomBrowserNe
 	return o
 }
 
+// The network mode.
 func (o BrowserCustomBrowserNetworkConfigurationOutput) NetworkMode() BrowserCustomBrowserNetworkModeOutput {
 	return o.ApplyT(func(v BrowserCustomBrowserNetworkConfiguration) BrowserCustomBrowserNetworkMode { return v.NetworkMode }).(BrowserCustomBrowserNetworkModeOutput)
 }
 
 // Recording configuration for browser
 type BrowserCustomRecordingConfig struct {
-	Enabled    *bool                    `pulumi:"enabled"`
+	// The recording configuration for a browser. This structure defines how browser sessions are recorded.
+	Enabled *bool `pulumi:"enabled"`
+	// The S3 location.
 	S3Location *BrowserCustomS3Location `pulumi:"s3Location"`
 }
 
@@ -84,7 +89,9 @@ type BrowserCustomRecordingConfigInput interface {
 
 // Recording configuration for browser
 type BrowserCustomRecordingConfigArgs struct {
-	Enabled    pulumi.BoolPtrInput             `pulumi:"enabled"`
+	// The recording configuration for a browser. This structure defines how browser sessions are recorded.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The S3 location.
 	S3Location BrowserCustomS3LocationPtrInput `pulumi:"s3Location"`
 }
 
@@ -166,10 +173,12 @@ func (o BrowserCustomRecordingConfigOutput) ToBrowserCustomRecordingConfigPtrOut
 	}).(BrowserCustomRecordingConfigPtrOutput)
 }
 
+// The recording configuration for a browser. This structure defines how browser sessions are recorded.
 func (o BrowserCustomRecordingConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BrowserCustomRecordingConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The S3 location.
 func (o BrowserCustomRecordingConfigOutput) S3Location() BrowserCustomS3LocationPtrOutput {
 	return o.ApplyT(func(v BrowserCustomRecordingConfig) *BrowserCustomS3Location { return v.S3Location }).(BrowserCustomS3LocationPtrOutput)
 }
@@ -198,6 +207,7 @@ func (o BrowserCustomRecordingConfigPtrOutput) Elem() BrowserCustomRecordingConf
 	}).(BrowserCustomRecordingConfigOutput)
 }
 
+// The recording configuration for a browser. This structure defines how browser sessions are recorded.
 func (o BrowserCustomRecordingConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BrowserCustomRecordingConfig) *bool {
 		if v == nil {
@@ -207,6 +217,7 @@ func (o BrowserCustomRecordingConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The S3 location.
 func (o BrowserCustomRecordingConfigPtrOutput) S3Location() BrowserCustomS3LocationPtrOutput {
 	return o.ApplyT(func(v *BrowserCustomRecordingConfig) *BrowserCustomS3Location {
 		if v == nil {
@@ -218,7 +229,9 @@ func (o BrowserCustomRecordingConfigPtrOutput) S3Location() BrowserCustomS3Locat
 
 // S3 Location Configuration
 type BrowserCustomS3Location struct {
+	// The S3 location bucket name.
 	Bucket string `pulumi:"bucket"`
+	// The S3 location object prefix.
 	Prefix string `pulumi:"prefix"`
 }
 
@@ -235,7 +248,9 @@ type BrowserCustomS3LocationInput interface {
 
 // S3 Location Configuration
 type BrowserCustomS3LocationArgs struct {
+	// The S3 location bucket name.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The S3 location object prefix.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
 }
 
@@ -317,10 +332,12 @@ func (o BrowserCustomS3LocationOutput) ToBrowserCustomS3LocationPtrOutputWithCon
 	}).(BrowserCustomS3LocationPtrOutput)
 }
 
+// The S3 location bucket name.
 func (o BrowserCustomS3LocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v BrowserCustomS3Location) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// The S3 location object prefix.
 func (o BrowserCustomS3LocationOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v BrowserCustomS3Location) string { return v.Prefix }).(pulumi.StringOutput)
 }
@@ -349,6 +366,7 @@ func (o BrowserCustomS3LocationPtrOutput) Elem() BrowserCustomS3LocationOutput {
 	}).(BrowserCustomS3LocationOutput)
 }
 
+// The S3 location bucket name.
 func (o BrowserCustomS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrowserCustomS3Location) *string {
 		if v == nil {
@@ -358,6 +376,7 @@ func (o BrowserCustomS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The S3 location object prefix.
 func (o BrowserCustomS3LocationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrowserCustomS3Location) *string {
 		if v == nil {
@@ -369,6 +388,7 @@ func (o BrowserCustomS3LocationPtrOutput) Prefix() pulumi.StringPtrOutput {
 
 // Network configuration for code interpreter
 type CodeInterpreterCustomCodeInterpreterNetworkConfiguration struct {
+	// The network mode.
 	NetworkMode CodeInterpreterCustomCodeInterpreterNetworkMode `pulumi:"networkMode"`
 }
 
@@ -385,6 +405,7 @@ type CodeInterpreterCustomCodeInterpreterNetworkConfigurationInput interface {
 
 // Network configuration for code interpreter
 type CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs struct {
+	// The network mode.
 	NetworkMode CodeInterpreterCustomCodeInterpreterNetworkModeInput `pulumi:"networkMode"`
 }
 
@@ -415,6 +436,7 @@ func (o CodeInterpreterCustomCodeInterpreterNetworkConfigurationOutput) ToCodeIn
 	return o
 }
 
+// The network mode.
 func (o CodeInterpreterCustomCodeInterpreterNetworkConfigurationOutput) NetworkMode() CodeInterpreterCustomCodeInterpreterNetworkModeOutput {
 	return o.ApplyT(func(v CodeInterpreterCustomCodeInterpreterNetworkConfiguration) CodeInterpreterCustomCodeInterpreterNetworkMode {
 		return v.NetworkMode
@@ -422,6 +444,7 @@ func (o CodeInterpreterCustomCodeInterpreterNetworkConfigurationOutput) NetworkM
 }
 
 type RuntimeAgentRuntimeArtifact struct {
+	// Representation of a container configuration.
 	ContainerConfiguration *RuntimeContainerConfiguration `pulumi:"containerConfiguration"`
 }
 
@@ -437,6 +460,7 @@ type RuntimeAgentRuntimeArtifactInput interface {
 }
 
 type RuntimeAgentRuntimeArtifactArgs struct {
+	// Representation of a container configuration.
 	ContainerConfiguration RuntimeContainerConfigurationPtrInput `pulumi:"containerConfiguration"`
 }
 
@@ -466,6 +490,7 @@ func (o RuntimeAgentRuntimeArtifactOutput) ToRuntimeAgentRuntimeArtifactOutputWi
 	return o
 }
 
+// Representation of a container configuration.
 func (o RuntimeAgentRuntimeArtifactOutput) ContainerConfiguration() RuntimeContainerConfigurationPtrOutput {
 	return o.ApplyT(func(v RuntimeAgentRuntimeArtifact) *RuntimeContainerConfiguration { return v.ContainerConfiguration }).(RuntimeContainerConfigurationPtrOutput)
 }
@@ -494,6 +519,7 @@ func (o RuntimeAgentRuntimeArtifactPtrOutput) Elem() RuntimeAgentRuntimeArtifact
 	}).(RuntimeAgentRuntimeArtifactOutput)
 }
 
+// Representation of a container configuration.
 func (o RuntimeAgentRuntimeArtifactPtrOutput) ContainerConfiguration() RuntimeContainerConfigurationPtrOutput {
 	return o.ApplyT(func(v *RuntimeAgentRuntimeArtifact) *RuntimeContainerConfiguration {
 		if v == nil {
@@ -505,6 +531,7 @@ func (o RuntimeAgentRuntimeArtifactPtrOutput) ContainerConfiguration() RuntimeCo
 
 // Configuration for the authorizer
 type RuntimeAuthorizerConfiguration struct {
+	// Represents inbound authorization configuration options used to authenticate incoming requests.
 	CustomJwtAuthorizer *RuntimeCustomJwtAuthorizerConfiguration `pulumi:"customJwtAuthorizer"`
 }
 
@@ -521,6 +548,7 @@ type RuntimeAuthorizerConfigurationInput interface {
 
 // Configuration for the authorizer
 type RuntimeAuthorizerConfigurationArgs struct {
+	// Represents inbound authorization configuration options used to authenticate incoming requests.
 	CustomJwtAuthorizer RuntimeCustomJwtAuthorizerConfigurationPtrInput `pulumi:"customJwtAuthorizer"`
 }
 
@@ -602,6 +630,7 @@ func (o RuntimeAuthorizerConfigurationOutput) ToRuntimeAuthorizerConfigurationPt
 	}).(RuntimeAuthorizerConfigurationPtrOutput)
 }
 
+// Represents inbound authorization configuration options used to authenticate incoming requests.
 func (o RuntimeAuthorizerConfigurationOutput) CustomJwtAuthorizer() RuntimeCustomJwtAuthorizerConfigurationPtrOutput {
 	return o.ApplyT(func(v RuntimeAuthorizerConfiguration) *RuntimeCustomJwtAuthorizerConfiguration {
 		return v.CustomJwtAuthorizer
@@ -632,6 +661,7 @@ func (o RuntimeAuthorizerConfigurationPtrOutput) Elem() RuntimeAuthorizerConfigu
 	}).(RuntimeAuthorizerConfigurationOutput)
 }
 
+// Represents inbound authorization configuration options used to authenticate incoming requests.
 func (o RuntimeAuthorizerConfigurationPtrOutput) CustomJwtAuthorizer() RuntimeCustomJwtAuthorizerConfigurationPtrOutput {
 	return o.ApplyT(func(v *RuntimeAuthorizerConfiguration) *RuntimeCustomJwtAuthorizerConfiguration {
 		if v == nil {
@@ -642,6 +672,7 @@ func (o RuntimeAuthorizerConfigurationPtrOutput) CustomJwtAuthorizer() RuntimeCu
 }
 
 type RuntimeContainerConfiguration struct {
+	// The container Uri.
 	ContainerUri string `pulumi:"containerUri"`
 }
 
@@ -657,6 +688,7 @@ type RuntimeContainerConfigurationInput interface {
 }
 
 type RuntimeContainerConfigurationArgs struct {
+	// The container Uri.
 	ContainerUri pulumi.StringInput `pulumi:"containerUri"`
 }
 
@@ -737,6 +769,7 @@ func (o RuntimeContainerConfigurationOutput) ToRuntimeContainerConfigurationPtrO
 	}).(RuntimeContainerConfigurationPtrOutput)
 }
 
+// The container Uri.
 func (o RuntimeContainerConfigurationOutput) ContainerUri() pulumi.StringOutput {
 	return o.ApplyT(func(v RuntimeContainerConfiguration) string { return v.ContainerUri }).(pulumi.StringOutput)
 }
@@ -765,6 +798,7 @@ func (o RuntimeContainerConfigurationPtrOutput) Elem() RuntimeContainerConfigura
 	}).(RuntimeContainerConfigurationOutput)
 }
 
+// The container Uri.
 func (o RuntimeContainerConfigurationPtrOutput) ContainerUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuntimeContainerConfiguration) *string {
 		if v == nil {
@@ -776,9 +810,12 @@ func (o RuntimeContainerConfigurationPtrOutput) ContainerUri() pulumi.StringPtrO
 
 // Configuration for custom JWT authorizer
 type RuntimeCustomJwtAuthorizerConfiguration struct {
+	// Represents inbound authorization configuration options used to authenticate incoming requests.
 	AllowedAudience []string `pulumi:"allowedAudience"`
-	AllowedClients  []string `pulumi:"allowedClients"`
-	DiscoveryUrl    string   `pulumi:"discoveryUrl"`
+	// Represents individual client IDs that are validated in the incoming JWT token validation process.
+	AllowedClients []string `pulumi:"allowedClients"`
+	// The configuration authorization.
+	DiscoveryUrl string `pulumi:"discoveryUrl"`
 }
 
 // RuntimeCustomJwtAuthorizerConfigurationInput is an input type that accepts RuntimeCustomJwtAuthorizerConfigurationArgs and RuntimeCustomJwtAuthorizerConfigurationOutput values.
@@ -794,9 +831,12 @@ type RuntimeCustomJwtAuthorizerConfigurationInput interface {
 
 // Configuration for custom JWT authorizer
 type RuntimeCustomJwtAuthorizerConfigurationArgs struct {
+	// Represents inbound authorization configuration options used to authenticate incoming requests.
 	AllowedAudience pulumi.StringArrayInput `pulumi:"allowedAudience"`
-	AllowedClients  pulumi.StringArrayInput `pulumi:"allowedClients"`
-	DiscoveryUrl    pulumi.StringInput      `pulumi:"discoveryUrl"`
+	// Represents individual client IDs that are validated in the incoming JWT token validation process.
+	AllowedClients pulumi.StringArrayInput `pulumi:"allowedClients"`
+	// The configuration authorization.
+	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
 }
 
 func (RuntimeCustomJwtAuthorizerConfigurationArgs) ElementType() reflect.Type {
@@ -877,14 +917,17 @@ func (o RuntimeCustomJwtAuthorizerConfigurationOutput) ToRuntimeCustomJwtAuthori
 	}).(RuntimeCustomJwtAuthorizerConfigurationPtrOutput)
 }
 
+// Represents inbound authorization configuration options used to authenticate incoming requests.
 func (o RuntimeCustomJwtAuthorizerConfigurationOutput) AllowedAudience() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) []string { return v.AllowedAudience }).(pulumi.StringArrayOutput)
 }
 
+// Represents individual client IDs that are validated in the incoming JWT token validation process.
 func (o RuntimeCustomJwtAuthorizerConfigurationOutput) AllowedClients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
 }
 
+// The configuration authorization.
 func (o RuntimeCustomJwtAuthorizerConfigurationOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
 }
@@ -913,6 +956,7 @@ func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) Elem() RuntimeCustomJw
 	}).(RuntimeCustomJwtAuthorizerConfigurationOutput)
 }
 
+// Represents inbound authorization configuration options used to authenticate incoming requests.
 func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) AllowedAudience() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RuntimeCustomJwtAuthorizerConfiguration) []string {
 		if v == nil {
@@ -922,6 +966,7 @@ func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) AllowedAudience() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
+// Represents individual client IDs that are validated in the incoming JWT token validation process.
 func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) AllowedClients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RuntimeCustomJwtAuthorizerConfiguration) []string {
 		if v == nil {
@@ -931,6 +976,7 @@ func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) AllowedClients() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
+// The configuration authorization.
 func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) DiscoveryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuntimeCustomJwtAuthorizerConfiguration) *string {
 		if v == nil {
@@ -941,6 +987,7 @@ func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) DiscoveryUrl() pulumi.
 }
 
 type RuntimeNetworkConfiguration struct {
+	// The network mode.
 	NetworkMode RuntimeNetworkMode `pulumi:"networkMode"`
 }
 
@@ -956,6 +1003,7 @@ type RuntimeNetworkConfigurationInput interface {
 }
 
 type RuntimeNetworkConfigurationArgs struct {
+	// The network mode.
 	NetworkMode RuntimeNetworkModeInput `pulumi:"networkMode"`
 }
 
@@ -985,6 +1033,7 @@ func (o RuntimeNetworkConfigurationOutput) ToRuntimeNetworkConfigurationOutputWi
 	return o
 }
 
+// The network mode.
 func (o RuntimeNetworkConfigurationOutput) NetworkMode() RuntimeNetworkModeOutput {
 	return o.ApplyT(func(v RuntimeNetworkConfiguration) RuntimeNetworkMode { return v.NetworkMode }).(RuntimeNetworkModeOutput)
 }
@@ -1013,6 +1062,7 @@ func (o RuntimeNetworkConfigurationPtrOutput) Elem() RuntimeNetworkConfiguration
 	}).(RuntimeNetworkConfigurationOutput)
 }
 
+// The network mode.
 func (o RuntimeNetworkConfigurationPtrOutput) NetworkMode() RuntimeNetworkModePtrOutput {
 	return o.ApplyT(func(v *RuntimeNetworkConfiguration) *RuntimeNetworkMode {
 		if v == nil {
@@ -1024,6 +1074,7 @@ func (o RuntimeNetworkConfigurationPtrOutput) NetworkMode() RuntimeNetworkModePt
 
 // Configuration for workload identity
 type RuntimeWorkloadIdentityDetails struct {
+	// The Amazon Resource Name (ARN) for the workload identity.
 	WorkloadIdentityArn string `pulumi:"workloadIdentityArn"`
 }
 
@@ -1042,6 +1093,7 @@ func (o RuntimeWorkloadIdentityDetailsOutput) ToRuntimeWorkloadIdentityDetailsOu
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the workload identity.
 func (o RuntimeWorkloadIdentityDetailsOutput) WorkloadIdentityArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RuntimeWorkloadIdentityDetails) string { return v.WorkloadIdentityArn }).(pulumi.StringOutput)
 }
@@ -1070,6 +1122,7 @@ func (o RuntimeWorkloadIdentityDetailsPtrOutput) Elem() RuntimeWorkloadIdentityD
 	}).(RuntimeWorkloadIdentityDetailsOutput)
 }
 
+// The Amazon Resource Name (ARN) for the workload identity.
 func (o RuntimeWorkloadIdentityDetailsPtrOutput) WorkloadIdentityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuntimeWorkloadIdentityDetails) *string {
 		if v == nil {

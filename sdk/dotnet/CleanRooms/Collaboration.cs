@@ -32,6 +32,12 @@ namespace Pulumi.AwsNative.CleanRooms
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The types of change requests that are automatically approved for this collaboration.
+        /// </summary>
+        [Output("autoApprovedChangeTypes")]
+        public Output<ImmutableArray<Pulumi.AwsNative.CleanRooms.CollaborationAutoApprovedChangeType>> AutoApprovedChangeTypes { get; private set; } = null!;
+
+        /// <summary>
         /// Returns the unique identifier of the specified collaboration.
         /// 
         /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
@@ -136,6 +142,7 @@ namespace Pulumi.AwsNative.CleanRooms
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "autoApprovedChangeTypes[*]",
                     "creatorDisplayName",
                     "creatorMemberAbilities[*]",
                     "creatorMlMemberAbilities",
@@ -174,6 +181,18 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         [Input("analyticsEngine")]
         public Input<Pulumi.AwsNative.CleanRooms.CollaborationAnalyticsEngine>? AnalyticsEngine { get; set; }
+
+        [Input("autoApprovedChangeTypes")]
+        private InputList<Pulumi.AwsNative.CleanRooms.CollaborationAutoApprovedChangeType>? _autoApprovedChangeTypes;
+
+        /// <summary>
+        /// The types of change requests that are automatically approved for this collaboration.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.CleanRooms.CollaborationAutoApprovedChangeType> AutoApprovedChangeTypes
+        {
+            get => _autoApprovedChangeTypes ?? (_autoApprovedChangeTypes = new InputList<Pulumi.AwsNative.CleanRooms.CollaborationAutoApprovedChangeType>());
+            set => _autoApprovedChangeTypes = value;
+        }
 
         /// <summary>
         /// A display name of the collaboration creator.

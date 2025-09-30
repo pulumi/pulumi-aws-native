@@ -39,6 +39,8 @@ type LookupConnectAttachmentResult struct {
 	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
 	// Creation time of the attachment.
 	CreatedAt *string `pulumi:"createdAt"`
+	// Errors from the last modification of the attachment.
+	LastModificationErrors []string `pulumi:"lastModificationErrors"`
 	// The name of the network function group attachment.
 	NetworkFunctionGroupName *string `pulumi:"networkFunctionGroupName"`
 	// The ID of the attachment account owner.
@@ -114,6 +116,11 @@ func (o LookupConnectAttachmentResultOutput) CoreNetworkArn() pulumi.StringPtrOu
 // Creation time of the attachment.
 func (o LookupConnectAttachmentResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectAttachmentResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// Errors from the last modification of the attachment.
+func (o LookupConnectAttachmentResultOutput) LastModificationErrors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupConnectAttachmentResult) []string { return v.LastModificationErrors }).(pulumi.StringArrayOutput)
 }
 
 // The name of the network function group attachment.

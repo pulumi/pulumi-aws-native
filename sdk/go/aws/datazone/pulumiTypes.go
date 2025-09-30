@@ -8138,6 +8138,91 @@ func (o EnvironmentProfileEnvironmentParameterArrayOutput) Index(i pulumi.IntInp
 	}).(EnvironmentProfileEnvironmentParameterOutput)
 }
 
+// Indicates the smithy model of the API.
+type FormTypeModel struct {
+	Smithy *string `pulumi:"smithy"`
+}
+
+// FormTypeModelInput is an input type that accepts FormTypeModelArgs and FormTypeModelOutput values.
+// You can construct a concrete instance of `FormTypeModelInput` via:
+//
+//	FormTypeModelArgs{...}
+type FormTypeModelInput interface {
+	pulumi.Input
+
+	ToFormTypeModelOutput() FormTypeModelOutput
+	ToFormTypeModelOutputWithContext(context.Context) FormTypeModelOutput
+}
+
+// Indicates the smithy model of the API.
+type FormTypeModelArgs struct {
+	Smithy pulumi.StringPtrInput `pulumi:"smithy"`
+}
+
+func (FormTypeModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormTypeModel)(nil)).Elem()
+}
+
+func (i FormTypeModelArgs) ToFormTypeModelOutput() FormTypeModelOutput {
+	return i.ToFormTypeModelOutputWithContext(context.Background())
+}
+
+func (i FormTypeModelArgs) ToFormTypeModelOutputWithContext(ctx context.Context) FormTypeModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormTypeModelOutput)
+}
+
+// Indicates the smithy model of the API.
+type FormTypeModelOutput struct{ *pulumi.OutputState }
+
+func (FormTypeModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormTypeModel)(nil)).Elem()
+}
+
+func (o FormTypeModelOutput) ToFormTypeModelOutput() FormTypeModelOutput {
+	return o
+}
+
+func (o FormTypeModelOutput) ToFormTypeModelOutputWithContext(ctx context.Context) FormTypeModelOutput {
+	return o
+}
+
+func (o FormTypeModelOutput) Smithy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormTypeModel) *string { return v.Smithy }).(pulumi.StringPtrOutput)
+}
+
+type FormTypeModelPtrOutput struct{ *pulumi.OutputState }
+
+func (FormTypeModelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormTypeModel)(nil)).Elem()
+}
+
+func (o FormTypeModelPtrOutput) ToFormTypeModelPtrOutput() FormTypeModelPtrOutput {
+	return o
+}
+
+func (o FormTypeModelPtrOutput) ToFormTypeModelPtrOutputWithContext(ctx context.Context) FormTypeModelPtrOutput {
+	return o
+}
+
+func (o FormTypeModelPtrOutput) Elem() FormTypeModelOutput {
+	return o.ApplyT(func(v *FormTypeModel) FormTypeModel {
+		if v != nil {
+			return *v
+		}
+		var ret FormTypeModel
+		return ret
+	}).(FormTypeModelOutput)
+}
+
+func (o FormTypeModelPtrOutput) Smithy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormTypeModel) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Smithy
+	}).(pulumi.StringPtrOutput)
+}
+
 // The properties of a domain unit's owner.
 type OwnerProperties struct {
 }
@@ -14785,6 +14870,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentParameterArrayInput)(nil)).Elem(), EnvironmentParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProfileEnvironmentParameterInput)(nil)).Elem(), EnvironmentProfileEnvironmentParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProfileEnvironmentParameterArrayInput)(nil)).Elem(), EnvironmentProfileEnvironmentParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormTypeModelInput)(nil)).Elem(), FormTypeModelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OwnerPropertiesInput)(nil)).Elem(), OwnerPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantAddToProjectMemberPoolPolicyGrantDetailInput)(nil)).Elem(), PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantAddToProjectMemberPoolPolicyGrantDetailPtrInput)(nil)).Elem(), PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgs{})
@@ -14986,6 +15072,8 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentParameterArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentProfileEnvironmentParameterOutput{})
 	pulumi.RegisterOutputType(EnvironmentProfileEnvironmentParameterArrayOutput{})
+	pulumi.RegisterOutputType(FormTypeModelOutput{})
+	pulumi.RegisterOutputType(FormTypeModelPtrOutput{})
 	pulumi.RegisterOutputType(OwnerPropertiesOutput{})
 	pulumi.RegisterOutputType(PolicyGrantAddToProjectMemberPoolPolicyGrantDetailOutput{})
 	pulumi.RegisterOutputType(PolicyGrantAddToProjectMemberPoolPolicyGrantDetailPtrOutput{})

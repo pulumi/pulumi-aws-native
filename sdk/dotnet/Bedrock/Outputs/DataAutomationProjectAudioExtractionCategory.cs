@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Whether generating categorical data from audio is enabled.
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.DataAutomationProjectState State;
+        public readonly Outputs.DataAutomationProjectAudioExtractionCategoryTypeConfiguration? TypeConfiguration;
         /// <summary>
         /// The types of data to generate.
         /// </summary>
@@ -26,9 +27,12 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         private DataAutomationProjectAudioExtractionCategory(
             Pulumi.AwsNative.Bedrock.DataAutomationProjectState state,
 
+            Outputs.DataAutomationProjectAudioExtractionCategoryTypeConfiguration? typeConfiguration,
+
             ImmutableArray<Pulumi.AwsNative.Bedrock.DataAutomationProjectAudioExtractionCategoryType> types)
         {
             State = state;
+            TypeConfiguration = typeConfiguration;
             Types = types;
         }
     }

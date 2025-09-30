@@ -12,8 +12,12 @@ __all__ = [
     'DbProxyAuthFormatAuthScheme',
     'DbProxyAuthFormatClientPasswordAuthType',
     'DbProxyAuthFormatIamAuth',
+    'DbProxyDefaultAuthScheme',
+    'DbProxyEndpointEndpointNetworkType',
+    'DbProxyEndpointNetworkType',
     'DbProxyEndpointTargetRole',
     'DbProxyEngineFamily',
+    'DbProxyTargetConnectionNetworkType',
     'DbProxyTargetGroupTargetGroupName',
     'GlobalClusterEngine',
 ]
@@ -68,6 +72,35 @@ class DbProxyAuthFormatIamAuth(builtins.str, Enum):
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("aws-native:rds:DbProxyDefaultAuthScheme")
+class DbProxyDefaultAuthScheme(builtins.str, Enum):
+    """
+    The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+    """
+    IAM_AUTH = "IAM_AUTH"
+    NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:rds:DbProxyEndpointEndpointNetworkType")
+class DbProxyEndpointEndpointNetworkType(builtins.str, Enum):
+    """
+    The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+    """
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
+    DUAL = "DUAL"
+
+
+@pulumi.type_token("aws-native:rds:DbProxyEndpointNetworkType")
+class DbProxyEndpointNetworkType(builtins.str, Enum):
+    """
+    The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+    """
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
+    DUAL = "DUAL"
+
+
 @pulumi.type_token("aws-native:rds:DbProxyEndpointTargetRole")
 class DbProxyEndpointTargetRole(builtins.str, Enum):
     """
@@ -85,6 +118,15 @@ class DbProxyEngineFamily(builtins.str, Enum):
     MYSQL = "MYSQL"
     POSTGRESQL = "POSTGRESQL"
     SQLSERVER = "SQLSERVER"
+
+
+@pulumi.type_token("aws-native:rds:DbProxyTargetConnectionNetworkType")
+class DbProxyTargetConnectionNetworkType(builtins.str, Enum):
+    """
+    The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
+    """
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
 
 
 @pulumi.type_token("aws-native:rds:DbProxyTargetGroupTargetGroupName")

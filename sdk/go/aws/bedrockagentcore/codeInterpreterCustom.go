@@ -34,7 +34,8 @@ type CodeInterpreterCustom struct {
 	NetworkConfiguration CodeInterpreterCustomCodeInterpreterNetworkConfigurationOutput `pulumi:"networkConfiguration"`
 	// Status of code interpreter.
 	Status CodeInterpreterCustomCodeInterpreterStatusOutput `pulumi:"status"`
-	Tags   pulumi.StringMapOutput                           `pulumi:"tags"`
+	// The tags for the code interpreter.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewCodeInterpreterCustom registers a new resource with the given unique name, arguments, and options.
@@ -95,7 +96,8 @@ type codeInterpreterCustomArgs struct {
 	Name *string `pulumi:"name"`
 	// Network configuration for code interpreter.
 	NetworkConfiguration CodeInterpreterCustomCodeInterpreterNetworkConfiguration `pulumi:"networkConfiguration"`
-	Tags                 map[string]string                                        `pulumi:"tags"`
+	// The tags for the code interpreter.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CodeInterpreterCustom resource.
@@ -108,7 +110,8 @@ type CodeInterpreterCustomArgs struct {
 	Name pulumi.StringPtrInput
 	// Network configuration for code interpreter.
 	NetworkConfiguration CodeInterpreterCustomCodeInterpreterNetworkConfigurationInput
-	Tags                 pulumi.StringMapInput
+	// The tags for the code interpreter.
+	Tags pulumi.StringMapInput
 }
 
 func (CodeInterpreterCustomArgs) ElementType() reflect.Type {
@@ -195,6 +198,7 @@ func (o CodeInterpreterCustomOutput) Status() CodeInterpreterCustomCodeInterpret
 	return o.ApplyT(func(v *CodeInterpreterCustom) CodeInterpreterCustomCodeInterpreterStatusOutput { return v.Status }).(CodeInterpreterCustomCodeInterpreterStatusOutput)
 }
 
+// The tags for the code interpreter.
 func (o CodeInterpreterCustomOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CodeInterpreterCustom) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

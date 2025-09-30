@@ -70,6 +70,10 @@ export class AnalysisTemplate extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED` , error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
+     */
+    public readonly errorMessageConfiguration!: pulumi.Output<outputs.cleanrooms.AnalysisTemplateErrorMessageConfiguration | undefined>;
+    /**
      * The format of the analysis template.
      */
     public readonly format!: pulumi.Output<enums.cleanrooms.AnalysisTemplateFormat>;
@@ -126,6 +130,7 @@ export class AnalysisTemplate extends pulumi.CustomResource {
             }
             resourceInputs["analysisParameters"] = args ? args.analysisParameters : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["errorMessageConfiguration"] = args ? args.errorMessageConfiguration : undefined;
             resourceInputs["format"] = args ? args.format : undefined;
             resourceInputs["membershipIdentifier"] = args ? args.membershipIdentifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -145,6 +150,7 @@ export class AnalysisTemplate extends pulumi.CustomResource {
             resourceInputs["collaborationArn"] = undefined /*out*/;
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["errorMessageConfiguration"] = undefined /*out*/;
             resourceInputs["format"] = undefined /*out*/;
             resourceInputs["membershipArn"] = undefined /*out*/;
             resourceInputs["membershipIdentifier"] = undefined /*out*/;
@@ -155,7 +161,7 @@ export class AnalysisTemplate extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["analysisParameters[*]", "format", "membershipIdentifier", "name", "schema", "source"] };
+        const replaceOnChanges = { replaceOnChanges: ["analysisParameters[*]", "errorMessageConfiguration", "format", "membershipIdentifier", "name", "schema", "source"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AnalysisTemplate.__pulumiType, name, resourceInputs, opts);
     }
@@ -173,6 +179,10 @@ export interface AnalysisTemplateArgs {
      * The description of the analysis template.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED` , error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
+     */
+    errorMessageConfiguration?: pulumi.Input<inputs.cleanrooms.AnalysisTemplateErrorMessageConfigurationArgs>;
     /**
      * The format of the analysis template.
      */

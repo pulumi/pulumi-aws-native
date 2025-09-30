@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataSync
 {
     /// <summary>
-    /// Resource schema for AWS::DataSync::LocationSMB.
+    /// Resource Type definition for AWS::DataSync::LocationSMB.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:LocationSmb")]
     public partial class LocationSmb : global::Pulumi.CustomResource
@@ -26,6 +26,22 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Output("authenticationType")]
         public Output<Pulumi.AwsNative.DataSync.LocationSmbAuthenticationType?> AuthenticationType { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+        /// 
+        /// &gt; You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        /// </summary>
+        [Output("cmkSecretConfig")]
+        public Output<Outputs.LocationSmbCmkSecretConfig?> CmkSecretConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+        /// 
+        /// &gt; You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        /// </summary>
+        [Output("customSecretConfig")]
+        public Output<Outputs.LocationSmbCustomSecretConfig?> CustomSecretConfig { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
@@ -68,6 +84,9 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Output("locationUri")]
         public Output<string> LocationUri { get; private set; } = null!;
+
+        [Output("managedSecretConfig")]
+        public Output<Outputs.LocationSmbManagedSecretConfig> ManagedSecretConfig { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
@@ -167,6 +186,22 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Input("authenticationType")]
         public Input<Pulumi.AwsNative.DataSync.LocationSmbAuthenticationType>? AuthenticationType { get; set; }
+
+        /// <summary>
+        /// Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+        /// 
+        /// &gt; You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        /// </summary>
+        [Input("cmkSecretConfig")]
+        public Input<Inputs.LocationSmbCmkSecretConfigArgs>? CmkSecretConfig { get; set; }
+
+        /// <summary>
+        /// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+        /// 
+        /// &gt; You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        /// </summary>
+        [Input("customSecretConfig")]
+        public Input<Inputs.LocationSmbCustomSecretConfigArgs>? CustomSecretConfig { get; set; }
 
         [Input("dnsIpAddresses")]
         private InputList<string>? _dnsIpAddresses;

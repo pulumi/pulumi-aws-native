@@ -50,6 +50,10 @@ export class Collaboration extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The types of change requests that are automatically approved for this collaboration.
+     */
+    public readonly autoApprovedChangeTypes!: pulumi.Output<enums.cleanrooms.CollaborationAutoApprovedChangeType[] | undefined>;
+    /**
      * Returns the unique identifier of the specified collaboration.
      *
      * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
@@ -127,6 +131,7 @@ export class Collaboration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'queryLogStatus'");
             }
             resourceInputs["analyticsEngine"] = args ? args.analyticsEngine : undefined;
+            resourceInputs["autoApprovedChangeTypes"] = args ? args.autoApprovedChangeTypes : undefined;
             resourceInputs["creatorDisplayName"] = args ? args.creatorDisplayName : undefined;
             resourceInputs["creatorMemberAbilities"] = args ? args.creatorMemberAbilities : undefined;
             resourceInputs["creatorMlMemberAbilities"] = args ? args.creatorMlMemberAbilities : undefined;
@@ -143,6 +148,7 @@ export class Collaboration extends pulumi.CustomResource {
         } else {
             resourceInputs["analyticsEngine"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["autoApprovedChangeTypes"] = undefined /*out*/;
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;
             resourceInputs["creatorDisplayName"] = undefined /*out*/;
             resourceInputs["creatorMemberAbilities"] = undefined /*out*/;
@@ -157,7 +163,7 @@ export class Collaboration extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["creatorDisplayName", "creatorMemberAbilities[*]", "creatorMlMemberAbilities", "creatorPaymentConfiguration", "dataEncryptionMetadata", "jobLogStatus", "members[*]", "queryLogStatus"] };
+        const replaceOnChanges = { replaceOnChanges: ["autoApprovedChangeTypes[*]", "creatorDisplayName", "creatorMemberAbilities[*]", "creatorMlMemberAbilities", "creatorPaymentConfiguration", "dataEncryptionMetadata", "jobLogStatus", "members[*]", "queryLogStatus"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Collaboration.__pulumiType, name, resourceInputs, opts);
     }
@@ -173,6 +179,10 @@ export interface CollaborationArgs {
      * > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
      */
     analyticsEngine?: pulumi.Input<enums.cleanrooms.CollaborationAnalyticsEngine>;
+    /**
+     * The types of change requests that are automatically approved for this collaboration.
+     */
+    autoApprovedChangeTypes?: pulumi.Input<pulumi.Input<enums.cleanrooms.CollaborationAutoApprovedChangeType>[]>;
     /**
      * A display name of the collaboration creator.
      */

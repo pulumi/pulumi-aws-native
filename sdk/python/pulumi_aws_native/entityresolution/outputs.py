@@ -171,6 +171,8 @@ class IdMappingWorkflowIdMappingTechniques(dict):
         suggest = None
         if key == "idMappingType":
             suggest = "id_mapping_type"
+        elif key == "normalizationVersion":
+            suggest = "normalization_version"
         elif key == "providerProperties":
             suggest = "provider_properties"
         elif key == "ruleBasedProperties":
@@ -189,6 +191,7 @@ class IdMappingWorkflowIdMappingTechniques(dict):
 
     def __init__(__self__, *,
                  id_mapping_type: Optional['IdMappingWorkflowIdMappingTechniquesIdMappingType'] = None,
+                 normalization_version: Optional[builtins.str] = None,
                  provider_properties: Optional['outputs.IdMappingWorkflowProviderProperties'] = None,
                  rule_based_properties: Optional['outputs.IdMappingWorkflowIdMappingRuleBasedProperties'] = None):
         """
@@ -198,6 +201,8 @@ class IdMappingWorkflowIdMappingTechniques(dict):
         """
         if id_mapping_type is not None:
             pulumi.set(__self__, "id_mapping_type", id_mapping_type)
+        if normalization_version is not None:
+            pulumi.set(__self__, "normalization_version", normalization_version)
         if provider_properties is not None:
             pulumi.set(__self__, "provider_properties", provider_properties)
         if rule_based_properties is not None:
@@ -210,6 +215,11 @@ class IdMappingWorkflowIdMappingTechniques(dict):
         The type of ID mapping.
         """
         return pulumi.get(self, "id_mapping_type")
+
+    @property
+    @pulumi.getter(name="normalizationVersion")
+    def normalization_version(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "normalization_version")
 
     @property
     @pulumi.getter(name="providerProperties")

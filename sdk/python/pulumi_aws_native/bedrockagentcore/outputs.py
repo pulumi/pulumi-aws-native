@@ -56,12 +56,16 @@ class BrowserCustomBrowserNetworkConfiguration(dict):
                  network_mode: 'BrowserCustomBrowserNetworkMode'):
         """
         Network configuration for browser
+        :param 'BrowserCustomBrowserNetworkMode' network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
 
     @property
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> 'BrowserCustomBrowserNetworkMode':
+        """
+        The network mode.
+        """
         return pulumi.get(self, "network_mode")
 
 
@@ -92,6 +96,8 @@ class BrowserCustomRecordingConfig(dict):
                  s3_location: Optional['outputs.BrowserCustomS3Location'] = None):
         """
         Recording configuration for browser
+        :param builtins.bool enabled: The recording configuration for a browser. This structure defines how browser sessions are recorded.
+        :param 'BrowserCustomS3Location' s3_location: The S3 location.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -101,11 +107,17 @@ class BrowserCustomRecordingConfig(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[builtins.bool]:
+        """
+        The recording configuration for a browser. This structure defines how browser sessions are recorded.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> Optional['outputs.BrowserCustomS3Location']:
+        """
+        The S3 location.
+        """
         return pulumi.get(self, "s3_location")
 
 
@@ -119,6 +131,8 @@ class BrowserCustomS3Location(dict):
                  prefix: builtins.str):
         """
         S3 Location Configuration
+        :param builtins.str bucket: The S3 location bucket name.
+        :param builtins.str prefix: The S3 location object prefix.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "prefix", prefix)
@@ -126,11 +140,17 @@ class BrowserCustomS3Location(dict):
     @property
     @pulumi.getter
     def bucket(self) -> builtins.str:
+        """
+        The S3 location bucket name.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
     def prefix(self) -> builtins.str:
+        """
+        The S3 location object prefix.
+        """
         return pulumi.get(self, "prefix")
 
 
@@ -160,12 +180,16 @@ class CodeInterpreterCustomCodeInterpreterNetworkConfiguration(dict):
                  network_mode: 'CodeInterpreterCustomCodeInterpreterNetworkMode'):
         """
         Network configuration for code interpreter
+        :param 'CodeInterpreterCustomCodeInterpreterNetworkMode' network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
 
     @property
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> 'CodeInterpreterCustomCodeInterpreterNetworkMode':
+        """
+        The network mode.
+        """
         return pulumi.get(self, "network_mode")
 
 
@@ -190,12 +214,18 @@ class RuntimeAgentRuntimeArtifact(dict):
 
     def __init__(__self__, *,
                  container_configuration: Optional['outputs.RuntimeContainerConfiguration'] = None):
+        """
+        :param 'RuntimeContainerConfiguration' container_configuration: Representation of a container configuration.
+        """
         if container_configuration is not None:
             pulumi.set(__self__, "container_configuration", container_configuration)
 
     @property
     @pulumi.getter(name="containerConfiguration")
     def container_configuration(self) -> Optional['outputs.RuntimeContainerConfiguration']:
+        """
+        Representation of a container configuration.
+        """
         return pulumi.get(self, "container_configuration")
 
 
@@ -225,6 +255,7 @@ class RuntimeAuthorizerConfiguration(dict):
                  custom_jwt_authorizer: Optional['outputs.RuntimeCustomJwtAuthorizerConfiguration'] = None):
         """
         Configuration for the authorizer
+        :param 'RuntimeCustomJwtAuthorizerConfiguration' custom_jwt_authorizer: Represents inbound authorization configuration options used to authenticate incoming requests.
         """
         if custom_jwt_authorizer is not None:
             pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
@@ -232,6 +263,9 @@ class RuntimeAuthorizerConfiguration(dict):
     @property
     @pulumi.getter(name="customJwtAuthorizer")
     def custom_jwt_authorizer(self) -> Optional['outputs.RuntimeCustomJwtAuthorizerConfiguration']:
+        """
+        Represents inbound authorization configuration options used to authenticate incoming requests.
+        """
         return pulumi.get(self, "custom_jwt_authorizer")
 
 
@@ -256,11 +290,17 @@ class RuntimeContainerConfiguration(dict):
 
     def __init__(__self__, *,
                  container_uri: builtins.str):
+        """
+        :param builtins.str container_uri: The container Uri.
+        """
         pulumi.set(__self__, "container_uri", container_uri)
 
     @property
     @pulumi.getter(name="containerUri")
     def container_uri(self) -> builtins.str:
+        """
+        The container Uri.
+        """
         return pulumi.get(self, "container_uri")
 
 
@@ -296,6 +336,9 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
                  allowed_clients: Optional[Sequence[builtins.str]] = None):
         """
         Configuration for custom JWT authorizer
+        :param builtins.str discovery_url: The configuration authorization.
+        :param Sequence[builtins.str] allowed_audience: Represents inbound authorization configuration options used to authenticate incoming requests.
+        :param Sequence[builtins.str] allowed_clients: Represents individual client IDs that are validated in the incoming JWT token validation process.
         """
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audience is not None:
@@ -306,16 +349,25 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
     @property
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> builtins.str:
+        """
+        The configuration authorization.
+        """
         return pulumi.get(self, "discovery_url")
 
     @property
     @pulumi.getter(name="allowedAudience")
     def allowed_audience(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Represents inbound authorization configuration options used to authenticate incoming requests.
+        """
         return pulumi.get(self, "allowed_audience")
 
     @property
     @pulumi.getter(name="allowedClients")
     def allowed_clients(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Represents individual client IDs that are validated in the incoming JWT token validation process.
+        """
         return pulumi.get(self, "allowed_clients")
 
 
@@ -340,11 +392,17 @@ class RuntimeNetworkConfiguration(dict):
 
     def __init__(__self__, *,
                  network_mode: 'RuntimeNetworkMode'):
+        """
+        :param 'RuntimeNetworkMode' network_mode: The network mode.
+        """
         pulumi.set(__self__, "network_mode", network_mode)
 
     @property
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> 'RuntimeNetworkMode':
+        """
+        The network mode.
+        """
         return pulumi.get(self, "network_mode")
 
 
@@ -374,12 +432,16 @@ class RuntimeWorkloadIdentityDetails(dict):
                  workload_identity_arn: builtins.str):
         """
         Configuration for workload identity
+        :param builtins.str workload_identity_arn: The Amazon Resource Name (ARN) for the workload identity.
         """
         pulumi.set(__self__, "workload_identity_arn", workload_identity_arn)
 
     @property
     @pulumi.getter(name="workloadIdentityArn")
     def workload_identity_arn(self) -> builtins.str:
+        """
+        The Amazon Resource Name (ARN) for the workload identity.
+        """
         return pulumi.get(self, "workload_identity_arn")
 
 

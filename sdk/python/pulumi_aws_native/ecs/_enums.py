@@ -9,6 +9,17 @@ from enum import Enum
 __all__ = [
     'CapacityProviderAutoScalingGroupProviderManagedDraining',
     'CapacityProviderAutoScalingGroupProviderManagedTerminationProtection',
+    'CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem',
+    'CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem',
+    'CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem',
+    'CapacityProviderInstanceRequirementsRequestBareMetal',
+    'CapacityProviderInstanceRequirementsRequestBurstablePerformance',
+    'CapacityProviderInstanceRequirementsRequestCpuManufacturersItem',
+    'CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem',
+    'CapacityProviderInstanceRequirementsRequestLocalStorage',
+    'CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem',
+    'CapacityProviderManagedInstancesMonitoringOptions',
+    'CapacityProviderManagedInstancesProviderPropagateTags',
     'CapacityProviderManagedScalingStatus',
     'ClusterCapacityProviderAssociationsCapacityProvider',
     'ClusterCapacityProviderAssociationsCapacityProvider0',
@@ -57,6 +68,90 @@ class CapacityProviderAutoScalingGroupProviderManagedTerminationProtection(built
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("aws-native:ecs:CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem")
+class CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem(builtins.str, Enum):
+    AMAZON_WEB_SERVICES = "amazon-web-services"
+    AMD = "amd"
+    HABANA = "habana"
+    NVIDIA = "nvidia"
+    XILINX = "xilinx"
+
+
+@pulumi.type_token("aws-native:ecs:CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem")
+class CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem(builtins.str, Enum):
+    A10G = "a10g"
+    A100 = "a100"
+    H100 = "h100"
+    INFERENTIA = "inferentia"
+    K520 = "k520"
+    K80 = "k80"
+    M60 = "m60"
+    RADEON_PRO_V520 = "radeon-pro-v520"
+    T4 = "t4"
+    T4G = "t4g"
+    VU9P = "vu9p"
+    V100 = "v100"
+
+
+@pulumi.type_token("aws-native:ecs:CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem")
+class CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem(builtins.str, Enum):
+    GPU = "gpu"
+    FPGA = "fpga"
+    INFERENCE = "inference"
+
+
+@pulumi.type_token("aws-native:ecs:CapacityProviderInstanceRequirementsRequestBareMetal")
+class CapacityProviderInstanceRequirementsRequestBareMetal(builtins.str, Enum):
+    INCLUDED = "included"
+    REQUIRED = "required"
+    EXCLUDED = "excluded"
+
+
+@pulumi.type_token("aws-native:ecs:CapacityProviderInstanceRequirementsRequestBurstablePerformance")
+class CapacityProviderInstanceRequirementsRequestBurstablePerformance(builtins.str, Enum):
+    INCLUDED = "included"
+    REQUIRED = "required"
+    EXCLUDED = "excluded"
+
+
+@pulumi.type_token("aws-native:ecs:CapacityProviderInstanceRequirementsRequestCpuManufacturersItem")
+class CapacityProviderInstanceRequirementsRequestCpuManufacturersItem(builtins.str, Enum):
+    INTEL = "intel"
+    AMD = "amd"
+    AMAZON_WEB_SERVICES = "amazon-web-services"
+
+
+@pulumi.type_token("aws-native:ecs:CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem")
+class CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem(builtins.str, Enum):
+    CURRENT = "current"
+    PREVIOUS = "previous"
+
+
+@pulumi.type_token("aws-native:ecs:CapacityProviderInstanceRequirementsRequestLocalStorage")
+class CapacityProviderInstanceRequirementsRequestLocalStorage(builtins.str, Enum):
+    INCLUDED = "included"
+    REQUIRED = "required"
+    EXCLUDED = "excluded"
+
+
+@pulumi.type_token("aws-native:ecs:CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem")
+class CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem(builtins.str, Enum):
+    HDD = "hdd"
+    SSD = "ssd"
+
+
+@pulumi.type_token("aws-native:ecs:CapacityProviderManagedInstancesMonitoringOptions")
+class CapacityProviderManagedInstancesMonitoringOptions(builtins.str, Enum):
+    BASIC = "BASIC"
+    DETAILED = "DETAILED"
+
+
+@pulumi.type_token("aws-native:ecs:CapacityProviderManagedInstancesProviderPropagateTags")
+class CapacityProviderManagedInstancesProviderPropagateTags(builtins.str, Enum):
+    CAPACITY_PROVIDER = "CAPACITY_PROVIDER"
+    NONE = "NONE"
+
+
 @pulumi.type_token("aws-native:ecs:CapacityProviderManagedScalingStatus")
 class CapacityProviderManagedScalingStatus(builtins.str, Enum):
     """
@@ -89,6 +184,9 @@ class ServiceAvailabilityZoneRebalancing(builtins.str, Enum):
     """
     Indicates whether to use Availability Zone rebalancing for the service.
      For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+     The default behavior of ``AvailabilityZoneRebalancing`` differs between create and update requests:
+      +  For create service requests, when no value is specified for ``AvailabilityZoneRebalancing``, Amazon ECS defaults the value to ``ENABLED``.
+      +  For update service requests, when no value is specified for ``AvailabilityZoneRebalancing``, Amazon ECS defaults to the existing service’s ``AvailabilityZoneRebalancing`` value. If the service never had an ``AvailabilityZoneRebalancing`` value set, Amazon ECS treats this as ``DISABLED``.
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"

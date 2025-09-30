@@ -3240,6 +3240,8 @@ func (o ImagePipelineImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.I
 
 // The schedule of the image pipeline.
 type ImagePipelineSchedule struct {
+	// The auto-disable policy for the image pipeline.
+	AutoDisablePolicy interface{} `pulumi:"autoDisablePolicy"`
 	// The condition configures when the pipeline should trigger a new image build.
 	PipelineExecutionStartCondition *ImagePipelineSchedulePipelineExecutionStartCondition `pulumi:"pipelineExecutionStartCondition"`
 	// The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
@@ -3259,6 +3261,8 @@ type ImagePipelineScheduleInput interface {
 
 // The schedule of the image pipeline.
 type ImagePipelineScheduleArgs struct {
+	// The auto-disable policy for the image pipeline.
+	AutoDisablePolicy pulumi.Input `pulumi:"autoDisablePolicy"`
 	// The condition configures when the pipeline should trigger a new image build.
 	PipelineExecutionStartCondition ImagePipelineSchedulePipelineExecutionStartConditionPtrInput `pulumi:"pipelineExecutionStartCondition"`
 	// The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
@@ -3343,6 +3347,11 @@ func (o ImagePipelineScheduleOutput) ToImagePipelineSchedulePtrOutputWithContext
 	}).(ImagePipelineSchedulePtrOutput)
 }
 
+// The auto-disable policy for the image pipeline.
+func (o ImagePipelineScheduleOutput) AutoDisablePolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v ImagePipelineSchedule) interface{} { return v.AutoDisablePolicy }).(pulumi.AnyOutput)
+}
+
 // The condition configures when the pipeline should trigger a new image build.
 func (o ImagePipelineScheduleOutput) PipelineExecutionStartCondition() ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput {
 	return o.ApplyT(func(v ImagePipelineSchedule) *ImagePipelineSchedulePipelineExecutionStartCondition {
@@ -3377,6 +3386,16 @@ func (o ImagePipelineSchedulePtrOutput) Elem() ImagePipelineScheduleOutput {
 		var ret ImagePipelineSchedule
 		return ret
 	}).(ImagePipelineScheduleOutput)
+}
+
+// The auto-disable policy for the image pipeline.
+func (o ImagePipelineSchedulePtrOutput) AutoDisablePolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ImagePipelineSchedule) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.AutoDisablePolicy
+	}).(pulumi.AnyOutput)
 }
 
 // The condition configures when the pipeline should trigger a new image build.

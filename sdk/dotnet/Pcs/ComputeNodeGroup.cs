@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Pcs
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
+        /// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
         /// </summary>
         [Output("purchaseOption")]
         public Output<Pulumi.AwsNative.Pcs.ComputeNodeGroupPurchaseOption?> PurchaseOption { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.AwsNative.Pcs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
+        /// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
         /// </summary>
         [Input("purchaseOption")]
         public Input<Pulumi.AwsNative.Pcs.ComputeNodeGroupPurchaseOption>? PurchaseOption { get; set; }

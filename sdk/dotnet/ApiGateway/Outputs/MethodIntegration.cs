@@ -62,6 +62,7 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
         /// Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? RequestTemplates;
+        public readonly Pulumi.AwsNative.ApiGateway.MethodIntegrationResponseTransferMode? ResponseTransferMode;
         /// <summary>
         /// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
         /// </summary>
@@ -103,6 +104,8 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
 
             ImmutableDictionary<string, string>? requestTemplates,
 
+            Pulumi.AwsNative.ApiGateway.MethodIntegrationResponseTransferMode? responseTransferMode,
+
             int? timeoutInMillis,
 
             Pulumi.AwsNative.ApiGateway.MethodIntegrationType type,
@@ -120,6 +123,7 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
             PassthroughBehavior = passthroughBehavior;
             RequestParameters = requestParameters;
             RequestTemplates = requestTemplates;
+            ResponseTransferMode = responseTransferMode;
             TimeoutInMillis = timeoutInMillis;
             Type = type;
             Uri = uri;

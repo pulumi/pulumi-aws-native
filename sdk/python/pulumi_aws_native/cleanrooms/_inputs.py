@@ -33,6 +33,8 @@ __all__ = [
     'AnalysisTemplateArtifactsArgsDict',
     'AnalysisTemplateArtifactArgs',
     'AnalysisTemplateArtifactArgsDict',
+    'AnalysisTemplateErrorMessageConfigurationArgs',
+    'AnalysisTemplateErrorMessageConfigurationArgsDict',
     'AnalysisTemplateHashArgs',
     'AnalysisTemplateHashArgsDict',
     'AnalysisTemplateS3LocationArgs',
@@ -416,6 +418,43 @@ class AnalysisTemplateArtifactArgs:
     @location.setter
     def location(self, value: pulumi.Input['AnalysisTemplateS3LocationArgs']):
         pulumi.set(self, "location", value)
+
+
+if not MYPY:
+    class AnalysisTemplateErrorMessageConfigurationArgsDict(TypedDict):
+        type: pulumi.Input['AnalysisTemplateErrorMessageConfigurationType']
+        """
+        The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
+
+        Because this setting may expose sensitive data, it is recommended for development and testing environments.
+        """
+elif False:
+    AnalysisTemplateErrorMessageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalysisTemplateErrorMessageConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['AnalysisTemplateErrorMessageConfigurationType']):
+        """
+        :param pulumi.Input['AnalysisTemplateErrorMessageConfigurationType'] type: The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
+               
+               Because this setting may expose sensitive data, it is recommended for development and testing environments.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['AnalysisTemplateErrorMessageConfigurationType']:
+        """
+        The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
+
+        Because this setting may expose sensitive data, it is recommended for development and testing environments.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['AnalysisTemplateErrorMessageConfigurationType']):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

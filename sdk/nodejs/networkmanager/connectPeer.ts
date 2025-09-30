@@ -74,6 +74,10 @@ export class ConnectPeer extends pulumi.CustomResource {
      */
     public readonly insideCidrBlocks!: pulumi.Output<string[] | undefined>;
     /**
+     * Errors from the last modification of the connect peer.
+     */
+    public /*out*/ readonly lastModificationErrors!: pulumi.Output<string[]>;
+    /**
      * The IP address of the Connect peer.
      */
     public readonly peerAddress!: pulumi.Output<string>;
@@ -119,6 +123,7 @@ export class ConnectPeer extends pulumi.CustomResource {
             resourceInputs["coreNetworkId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;
+            resourceInputs["lastModificationErrors"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {
             resourceInputs["bgpOptions"] = undefined /*out*/;
@@ -130,6 +135,7 @@ export class ConnectPeer extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;
             resourceInputs["insideCidrBlocks"] = undefined /*out*/;
+            resourceInputs["lastModificationErrors"] = undefined /*out*/;
             resourceInputs["peerAddress"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["subnetArn"] = undefined /*out*/;

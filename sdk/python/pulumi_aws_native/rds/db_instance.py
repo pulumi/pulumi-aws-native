@@ -71,6 +71,7 @@ class DbInstanceArgs:
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  license_model: Optional[pulumi.Input[builtins.str]] = None,
                  manage_master_user_password: Optional[pulumi.Input[builtins.bool]] = None,
+                 master_user_authentication_type: Optional[pulumi.Input[builtins.str]] = None,
                  master_user_password: Optional[pulumi.Input[builtins.str]] = None,
                  master_user_secret: Optional[pulumi.Input['DbInstanceMasterUserSecretArgs']] = None,
                  master_username: Optional[pulumi.Input[builtins.str]] = None,
@@ -449,6 +450,14 @@ class DbInstanceArgs:
                 For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
                 Constraints:
                  +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
+        :param pulumi.Input[builtins.str] master_user_authentication_type: Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.
+               
+               You can specify one of the following values:
+               
+               - `password` - Use standard database authentication with a password.
+               - `iam-db-auth` - Use IAM database authentication for the master user.
+               
+               This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
         :param pulumi.Input[builtins.str] master_user_password: The password for the master user. The password can include any printable ASCII character except "/", \"\"\", or "@".
                  *Amazon Aurora* 
                 Not applicable. The password for the master user is managed by the DB cluster.
@@ -735,6 +744,8 @@ class DbInstanceArgs:
             pulumi.set(__self__, "license_model", license_model)
         if manage_master_user_password is not None:
             pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
+        if master_user_authentication_type is not None:
+            pulumi.set(__self__, "master_user_authentication_type", master_user_authentication_type)
         if master_user_password is not None:
             pulumi.set(__self__, "master_user_password", master_user_password)
         if master_user_secret is not None:
@@ -1654,6 +1665,25 @@ class DbInstanceArgs:
         pulumi.set(self, "manage_master_user_password", value)
 
     @property
+    @pulumi.getter(name="masterUserAuthenticationType")
+    def master_user_authentication_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.
+
+        You can specify one of the following values:
+
+        - `password` - Use standard database authentication with a password.
+        - `iam-db-auth` - Use IAM database authentication for the master user.
+
+        This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+        """
+        return pulumi.get(self, "master_user_authentication_type")
+
+    @master_user_authentication_type.setter
+    def master_user_authentication_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "master_user_authentication_type", value)
+
+    @property
     @pulumi.getter(name="masterUserPassword")
     def master_user_password(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -2280,6 +2310,7 @@ class DbInstance(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  license_model: Optional[pulumi.Input[builtins.str]] = None,
                  manage_master_user_password: Optional[pulumi.Input[builtins.bool]] = None,
+                 master_user_authentication_type: Optional[pulumi.Input[builtins.str]] = None,
                  master_user_password: Optional[pulumi.Input[builtins.str]] = None,
                  master_user_secret: Optional[pulumi.Input[Union['DbInstanceMasterUserSecretArgs', 'DbInstanceMasterUserSecretArgsDict']]] = None,
                  master_username: Optional[pulumi.Input[builtins.str]] = None,
@@ -2682,6 +2713,14 @@ class DbInstance(pulumi.CustomResource):
                 For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
                 Constraints:
                  +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
+        :param pulumi.Input[builtins.str] master_user_authentication_type: Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.
+               
+               You can specify one of the following values:
+               
+               - `password` - Use standard database authentication with a password.
+               - `iam-db-auth` - Use IAM database authentication for the master user.
+               
+               This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
         :param pulumi.Input[builtins.str] master_user_password: The password for the master user. The password can include any printable ASCII character except "/", \"\"\", or "@".
                  *Amazon Aurora* 
                 Not applicable. The password for the master user is managed by the DB cluster.
@@ -2966,6 +3005,7 @@ class DbInstance(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  license_model: Optional[pulumi.Input[builtins.str]] = None,
                  manage_master_user_password: Optional[pulumi.Input[builtins.bool]] = None,
+                 master_user_authentication_type: Optional[pulumi.Input[builtins.str]] = None,
                  master_user_password: Optional[pulumi.Input[builtins.str]] = None,
                  master_user_secret: Optional[pulumi.Input[Union['DbInstanceMasterUserSecretArgs', 'DbInstanceMasterUserSecretArgsDict']]] = None,
                  master_username: Optional[pulumi.Input[builtins.str]] = None,
@@ -3056,6 +3096,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["license_model"] = license_model
             __props__.__dict__["manage_master_user_password"] = manage_master_user_password
+            __props__.__dict__["master_user_authentication_type"] = master_user_authentication_type
             __props__.__dict__["master_user_password"] = master_user_password
             __props__.__dict__["master_user_secret"] = master_user_secret
             __props__.__dict__["master_username"] = master_username
@@ -3187,6 +3228,7 @@ class DbInstance(pulumi.CustomResource):
         __props__.__dict__["license_model"] = None
         __props__.__dict__["listener_endpoint"] = None
         __props__.__dict__["manage_master_user_password"] = None
+        __props__.__dict__["master_user_authentication_type"] = None
         __props__.__dict__["master_user_password"] = None
         __props__.__dict__["master_user_secret"] = None
         __props__.__dict__["master_username"] = None
@@ -3963,6 +4005,21 @@ class DbInstance(pulumi.CustomResource):
           +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
         """
         return pulumi.get(self, "manage_master_user_password")
+
+    @property
+    @pulumi.getter(name="masterUserAuthenticationType")
+    def master_user_authentication_type(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.
+
+        You can specify one of the following values:
+
+        - `password` - Use standard database authentication with a password.
+        - `iam-db-auth` - Use IAM database authentication for the master user.
+
+        This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+        """
+        return pulumi.get(self, "master_user_authentication_type")
 
     @property
     @pulumi.getter(name="masterUserPassword")

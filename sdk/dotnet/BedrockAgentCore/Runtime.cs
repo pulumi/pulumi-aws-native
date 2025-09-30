@@ -99,6 +99,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("status")]
         public Output<Pulumi.AwsNative.BedrockAgentCore.RuntimeAgentStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags for the agent.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -213,6 +216,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags for the agent.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

@@ -38,6 +38,10 @@ export interface GetTransitGatewayPeeringResult {
      */
     readonly edgeLocation?: string;
     /**
+     * Errors from the last modification of the transit gateway peering.
+     */
+    readonly lastModificationErrors?: string[];
+    /**
      * Peering owner account Id
      */
     readonly ownerAccountId?: string;

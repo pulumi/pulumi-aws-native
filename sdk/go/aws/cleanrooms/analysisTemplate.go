@@ -37,6 +37,8 @@ type AnalysisTemplate struct {
 	CollaborationIdentifier pulumi.StringOutput `pulumi:"collaborationIdentifier"`
 	// The description of the analysis template.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED` , error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
+	ErrorMessageConfiguration AnalysisTemplateErrorMessageConfigurationPtrOutput `pulumi:"errorMessageConfiguration"`
 	// The format of the analysis template.
 	Format AnalysisTemplateFormatOutput `pulumi:"format"`
 	// Returns the Amazon Resource Name (ARN) of the member who created the analysis template.
@@ -75,6 +77,7 @@ func NewAnalysisTemplate(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"analysisParameters[*]",
+		"errorMessageConfiguration",
 		"format",
 		"membershipIdentifier",
 		"name",
@@ -119,6 +122,8 @@ type analysisTemplateArgs struct {
 	AnalysisParameters []AnalysisTemplateAnalysisParameter `pulumi:"analysisParameters"`
 	// The description of the analysis template.
 	Description *string `pulumi:"description"`
+	// The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED` , error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
+	ErrorMessageConfiguration *AnalysisTemplateErrorMessageConfiguration `pulumi:"errorMessageConfiguration"`
 	// The format of the analysis template.
 	Format AnalysisTemplateFormat `pulumi:"format"`
 	// The identifier for a membership resource.
@@ -141,6 +146,8 @@ type AnalysisTemplateArgs struct {
 	AnalysisParameters AnalysisTemplateAnalysisParameterArrayInput
 	// The description of the analysis template.
 	Description pulumi.StringPtrInput
+	// The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED` , error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
+	ErrorMessageConfiguration AnalysisTemplateErrorMessageConfigurationPtrInput
 	// The format of the analysis template.
 	Format AnalysisTemplateFormatInput
 	// The identifier for a membership resource.
@@ -230,6 +237,13 @@ func (o AnalysisTemplateOutput) CollaborationIdentifier() pulumi.StringOutput {
 // The description of the analysis template.
 func (o AnalysisTemplateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED` , error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
+func (o AnalysisTemplateOutput) ErrorMessageConfiguration() AnalysisTemplateErrorMessageConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisTemplate) AnalysisTemplateErrorMessageConfigurationPtrOutput {
+		return v.ErrorMessageConfiguration
+	}).(AnalysisTemplateErrorMessageConfigurationPtrOutput)
 }
 
 // The format of the analysis template.

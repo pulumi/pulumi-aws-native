@@ -546,10 +546,6 @@ if not MYPY:
         """
         Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
         """
-        desired_ec2_instances: pulumi.Input[builtins.int]
-        """
-        The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
-        """
         max_size: pulumi.Input[builtins.int]
         """
         The maximum value that is allowed for the fleet's instance count for a location.
@@ -558,36 +554,29 @@ if not MYPY:
         """
         The minimum value allowed for the fleet's instance count for a location.
         """
+        desired_ec2_instances: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
+        """
 elif False:
     ContainerFleetLocationCapacityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerFleetLocationCapacityArgs:
     def __init__(__self__, *,
-                 desired_ec2_instances: pulumi.Input[builtins.int],
                  max_size: pulumi.Input[builtins.int],
-                 min_size: pulumi.Input[builtins.int]):
+                 min_size: pulumi.Input[builtins.int],
+                 desired_ec2_instances: Optional[pulumi.Input[builtins.int]] = None):
         """
         Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
-        :param pulumi.Input[builtins.int] desired_ec2_instances: The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
         :param pulumi.Input[builtins.int] max_size: The maximum value that is allowed for the fleet's instance count for a location.
         :param pulumi.Input[builtins.int] min_size: The minimum value allowed for the fleet's instance count for a location.
+        :param pulumi.Input[builtins.int] desired_ec2_instances: Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
         """
-        pulumi.set(__self__, "desired_ec2_instances", desired_ec2_instances)
         pulumi.set(__self__, "max_size", max_size)
         pulumi.set(__self__, "min_size", min_size)
-
-    @property
-    @pulumi.getter(name="desiredEc2Instances")
-    def desired_ec2_instances(self) -> pulumi.Input[builtins.int]:
-        """
-        The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
-        """
-        return pulumi.get(self, "desired_ec2_instances")
-
-    @desired_ec2_instances.setter
-    def desired_ec2_instances(self, value: pulumi.Input[builtins.int]):
-        pulumi.set(self, "desired_ec2_instances", value)
+        if desired_ec2_instances is not None:
+            pulumi.set(__self__, "desired_ec2_instances", desired_ec2_instances)
 
     @property
     @pulumi.getter(name="maxSize")
@@ -612,6 +601,18 @@ class ContainerFleetLocationCapacityArgs:
     @min_size.setter
     def min_size(self, value: pulumi.Input[builtins.int]):
         pulumi.set(self, "min_size", value)
+
+    @property
+    @pulumi.getter(name="desiredEc2Instances")
+    def desired_ec2_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
+        """
+        return pulumi.get(self, "desired_ec2_instances")
+
+    @desired_ec2_instances.setter
+    def desired_ec2_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "desired_ec2_instances", value)
 
 
 if not MYPY:
@@ -1987,10 +1988,6 @@ if not MYPY:
         """
         Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
         """
-        desired_ec2_instances: pulumi.Input[builtins.int]
-        """
-        The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
-        """
         max_size: pulumi.Input[builtins.int]
         """
         The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
@@ -1999,36 +1996,29 @@ if not MYPY:
         """
         The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
         """
+        desired_ec2_instances: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+        """
 elif False:
     FleetLocationCapacityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetLocationCapacityArgs:
     def __init__(__self__, *,
-                 desired_ec2_instances: pulumi.Input[builtins.int],
                  max_size: pulumi.Input[builtins.int],
-                 min_size: pulumi.Input[builtins.int]):
+                 min_size: pulumi.Input[builtins.int],
+                 desired_ec2_instances: Optional[pulumi.Input[builtins.int]] = None):
         """
         Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
-        :param pulumi.Input[builtins.int] desired_ec2_instances: The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
         :param pulumi.Input[builtins.int] max_size: The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         :param pulumi.Input[builtins.int] min_size: The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
+        :param pulumi.Input[builtins.int] desired_ec2_instances: Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
         """
-        pulumi.set(__self__, "desired_ec2_instances", desired_ec2_instances)
         pulumi.set(__self__, "max_size", max_size)
         pulumi.set(__self__, "min_size", min_size)
-
-    @property
-    @pulumi.getter(name="desiredEc2Instances")
-    def desired_ec2_instances(self) -> pulumi.Input[builtins.int]:
-        """
-        The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
-        """
-        return pulumi.get(self, "desired_ec2_instances")
-
-    @desired_ec2_instances.setter
-    def desired_ec2_instances(self, value: pulumi.Input[builtins.int]):
-        pulumi.set(self, "desired_ec2_instances", value)
+        if desired_ec2_instances is not None:
+            pulumi.set(__self__, "desired_ec2_instances", desired_ec2_instances)
 
     @property
     @pulumi.getter(name="maxSize")
@@ -2053,6 +2043,18 @@ class FleetLocationCapacityArgs:
     @min_size.setter
     def min_size(self, value: pulumi.Input[builtins.int]):
         pulumi.set(self, "min_size", value)
+
+    @property
+    @pulumi.getter(name="desiredEc2Instances")
+    def desired_ec2_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+        """
+        return pulumi.get(self, "desired_ec2_instances")
+
+    @desired_ec2_instances.setter
+    def desired_ec2_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "desired_ec2_instances", value)
 
 
 if not MYPY:

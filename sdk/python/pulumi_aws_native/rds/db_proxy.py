@@ -25,57 +25,58 @@ __all__ = ['DbProxyArgs', 'DbProxy']
 @pulumi.input_type
 class DbProxyArgs:
     def __init__(__self__, *,
-                 auth: pulumi.Input[Sequence[pulumi.Input['DbProxyAuthFormatArgs']]],
                  engine_family: pulumi.Input['DbProxyEngineFamily'],
                  role_arn: pulumi.Input[builtins.str],
                  vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 auth: Optional[pulumi.Input[Sequence[pulumi.Input['DbProxyAuthFormatArgs']]]] = None,
                  db_proxy_name: Optional[pulumi.Input[builtins.str]] = None,
                  debug_logging: Optional[pulumi.Input[builtins.bool]] = None,
+                 default_auth_scheme: Optional[pulumi.Input['DbProxyDefaultAuthScheme']] = None,
+                 endpoint_network_type: Optional[pulumi.Input['DbProxyEndpointNetworkType']] = None,
                  idle_client_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  require_tls: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 target_connection_network_type: Optional[pulumi.Input['DbProxyTargetConnectionNetworkType']] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a DbProxy resource.
-        :param pulumi.Input[Sequence[pulumi.Input['DbProxyAuthFormatArgs']]] auth: The authorization mechanism that the proxy uses.
         :param pulumi.Input['DbProxyEngineFamily'] engine_family: The kinds of databases that the proxy can connect to.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new proxy.
+        :param pulumi.Input[Sequence[pulumi.Input['DbProxyAuthFormatArgs']]] auth: The authorization mechanism that the proxy uses.
         :param pulumi.Input[builtins.str] db_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         :param pulumi.Input[builtins.bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs.
+        :param pulumi.Input['DbProxyDefaultAuthScheme'] default_auth_scheme: The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+        :param pulumi.Input['DbProxyEndpointNetworkType'] endpoint_network_type: The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
         :param pulumi.Input[builtins.int] idle_client_timeout: The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
         :param pulumi.Input[builtins.bool] require_tls: A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
+        :param pulumi.Input['DbProxyTargetConnectionNetworkType'] target_connection_network_type: The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: VPC security group IDs to associate with the new proxy.
         """
-        pulumi.set(__self__, "auth", auth)
         pulumi.set(__self__, "engine_family", engine_family)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "vpc_subnet_ids", vpc_subnet_ids)
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
         if db_proxy_name is not None:
             pulumi.set(__self__, "db_proxy_name", db_proxy_name)
         if debug_logging is not None:
             pulumi.set(__self__, "debug_logging", debug_logging)
+        if default_auth_scheme is not None:
+            pulumi.set(__self__, "default_auth_scheme", default_auth_scheme)
+        if endpoint_network_type is not None:
+            pulumi.set(__self__, "endpoint_network_type", endpoint_network_type)
         if idle_client_timeout is not None:
             pulumi.set(__self__, "idle_client_timeout", idle_client_timeout)
         if require_tls is not None:
             pulumi.set(__self__, "require_tls", require_tls)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if target_connection_network_type is not None:
+            pulumi.set(__self__, "target_connection_network_type", target_connection_network_type)
         if vpc_security_group_ids is not None:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
-
-    @property
-    @pulumi.getter
-    def auth(self) -> pulumi.Input[Sequence[pulumi.Input['DbProxyAuthFormatArgs']]]:
-        """
-        The authorization mechanism that the proxy uses.
-        """
-        return pulumi.get(self, "auth")
-
-    @auth.setter
-    def auth(self, value: pulumi.Input[Sequence[pulumi.Input['DbProxyAuthFormatArgs']]]):
-        pulumi.set(self, "auth", value)
 
     @property
     @pulumi.getter(name="engineFamily")
@@ -114,6 +115,18 @@ class DbProxyArgs:
         pulumi.set(self, "vpc_subnet_ids", value)
 
     @property
+    @pulumi.getter
+    def auth(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbProxyAuthFormatArgs']]]]:
+        """
+        The authorization mechanism that the proxy uses.
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbProxyAuthFormatArgs']]]]):
+        pulumi.set(self, "auth", value)
+
+    @property
     @pulumi.getter(name="dbProxyName")
     def db_proxy_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -136,6 +149,30 @@ class DbProxyArgs:
     @debug_logging.setter
     def debug_logging(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "debug_logging", value)
+
+    @property
+    @pulumi.getter(name="defaultAuthScheme")
+    def default_auth_scheme(self) -> Optional[pulumi.Input['DbProxyDefaultAuthScheme']]:
+        """
+        The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+        """
+        return pulumi.get(self, "default_auth_scheme")
+
+    @default_auth_scheme.setter
+    def default_auth_scheme(self, value: Optional[pulumi.Input['DbProxyDefaultAuthScheme']]):
+        pulumi.set(self, "default_auth_scheme", value)
+
+    @property
+    @pulumi.getter(name="endpointNetworkType")
+    def endpoint_network_type(self) -> Optional[pulumi.Input['DbProxyEndpointNetworkType']]:
+        """
+        The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+        """
+        return pulumi.get(self, "endpoint_network_type")
+
+    @endpoint_network_type.setter
+    def endpoint_network_type(self, value: Optional[pulumi.Input['DbProxyEndpointNetworkType']]):
+        pulumi.set(self, "endpoint_network_type", value)
 
     @property
     @pulumi.getter(name="idleClientTimeout")
@@ -174,6 +211,18 @@ class DbProxyArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="targetConnectionNetworkType")
+    def target_connection_network_type(self) -> Optional[pulumi.Input['DbProxyTargetConnectionNetworkType']]:
+        """
+        The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
+        """
+        return pulumi.get(self, "target_connection_network_type")
+
+    @target_connection_network_type.setter
+    def target_connection_network_type(self, value: Optional[pulumi.Input['DbProxyTargetConnectionNetworkType']]):
+        pulumi.set(self, "target_connection_network_type", value)
+
+    @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -195,11 +244,14 @@ class DbProxy(pulumi.CustomResource):
                  auth: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DbProxyAuthFormatArgs', 'DbProxyAuthFormatArgsDict']]]]] = None,
                  db_proxy_name: Optional[pulumi.Input[builtins.str]] = None,
                  debug_logging: Optional[pulumi.Input[builtins.bool]] = None,
+                 default_auth_scheme: Optional[pulumi.Input['DbProxyDefaultAuthScheme']] = None,
+                 endpoint_network_type: Optional[pulumi.Input['DbProxyEndpointNetworkType']] = None,
                  engine_family: Optional[pulumi.Input['DbProxyEngineFamily']] = None,
                  idle_client_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  require_tls: Optional[pulumi.Input[builtins.bool]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_connection_network_type: Optional[pulumi.Input['DbProxyTargetConnectionNetworkType']] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -211,11 +263,14 @@ class DbProxy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DbProxyAuthFormatArgs', 'DbProxyAuthFormatArgsDict']]]] auth: The authorization mechanism that the proxy uses.
         :param pulumi.Input[builtins.str] db_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         :param pulumi.Input[builtins.bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs.
+        :param pulumi.Input['DbProxyDefaultAuthScheme'] default_auth_scheme: The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+        :param pulumi.Input['DbProxyEndpointNetworkType'] endpoint_network_type: The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
         :param pulumi.Input['DbProxyEngineFamily'] engine_family: The kinds of databases that the proxy can connect to.
         :param pulumi.Input[builtins.int] idle_client_timeout: The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
         :param pulumi.Input[builtins.bool] require_tls: A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
+        :param pulumi.Input['DbProxyTargetConnectionNetworkType'] target_connection_network_type: The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: VPC security group IDs to associate with the new proxy.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new proxy.
         """
@@ -246,11 +301,14 @@ class DbProxy(pulumi.CustomResource):
                  auth: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DbProxyAuthFormatArgs', 'DbProxyAuthFormatArgsDict']]]]] = None,
                  db_proxy_name: Optional[pulumi.Input[builtins.str]] = None,
                  debug_logging: Optional[pulumi.Input[builtins.bool]] = None,
+                 default_auth_scheme: Optional[pulumi.Input['DbProxyDefaultAuthScheme']] = None,
+                 endpoint_network_type: Optional[pulumi.Input['DbProxyEndpointNetworkType']] = None,
                  engine_family: Optional[pulumi.Input['DbProxyEngineFamily']] = None,
                  idle_client_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  require_tls: Optional[pulumi.Input[builtins.bool]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_connection_network_type: Optional[pulumi.Input['DbProxyTargetConnectionNetworkType']] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -262,11 +320,11 @@ class DbProxy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DbProxyArgs.__new__(DbProxyArgs)
 
-            if auth is None and not opts.urn:
-                raise TypeError("Missing required property 'auth'")
             __props__.__dict__["auth"] = auth
             __props__.__dict__["db_proxy_name"] = db_proxy_name
             __props__.__dict__["debug_logging"] = debug_logging
+            __props__.__dict__["default_auth_scheme"] = default_auth_scheme
+            __props__.__dict__["endpoint_network_type"] = endpoint_network_type
             if engine_family is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_family'")
             __props__.__dict__["engine_family"] = engine_family
@@ -276,6 +334,7 @@ class DbProxy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["target_connection_network_type"] = target_connection_network_type
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             if vpc_subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_subnet_ids'")
@@ -283,7 +342,7 @@ class DbProxy(pulumi.CustomResource):
             __props__.__dict__["db_proxy_arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["vpc_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dbProxyName", "engineFamily", "vpcSubnetIds[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dbProxyName", "endpointNetworkType", "engineFamily", "targetConnectionNetworkType", "vpcSubnetIds[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbProxy, __self__).__init__(
             'aws-native:rds:DbProxy',
@@ -311,12 +370,15 @@ class DbProxy(pulumi.CustomResource):
         __props__.__dict__["db_proxy_arn"] = None
         __props__.__dict__["db_proxy_name"] = None
         __props__.__dict__["debug_logging"] = None
+        __props__.__dict__["default_auth_scheme"] = None
         __props__.__dict__["endpoint"] = None
+        __props__.__dict__["endpoint_network_type"] = None
         __props__.__dict__["engine_family"] = None
         __props__.__dict__["idle_client_timeout"] = None
         __props__.__dict__["require_tls"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["target_connection_network_type"] = None
         __props__.__dict__["vpc_id"] = None
         __props__.__dict__["vpc_security_group_ids"] = None
         __props__.__dict__["vpc_subnet_ids"] = None
@@ -324,7 +386,7 @@ class DbProxy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def auth(self) -> pulumi.Output[Sequence['outputs.DbProxyAuthFormat']]:
+    def auth(self) -> pulumi.Output[Optional[Sequence['outputs.DbProxyAuthFormat']]]:
         """
         The authorization mechanism that the proxy uses.
         """
@@ -355,12 +417,28 @@ class DbProxy(pulumi.CustomResource):
         return pulumi.get(self, "debug_logging")
 
     @property
+    @pulumi.getter(name="defaultAuthScheme")
+    def default_auth_scheme(self) -> pulumi.Output[Optional['DbProxyDefaultAuthScheme']]:
+        """
+        The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+        """
+        return pulumi.get(self, "default_auth_scheme")
+
+    @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[builtins.str]:
         """
         The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="endpointNetworkType")
+    def endpoint_network_type(self) -> pulumi.Output[Optional['DbProxyEndpointNetworkType']]:
+        """
+        The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+        """
+        return pulumi.get(self, "endpoint_network_type")
 
     @property
     @pulumi.getter(name="engineFamily")
@@ -401,6 +479,14 @@ class DbProxy(pulumi.CustomResource):
         An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetConnectionNetworkType")
+    def target_connection_network_type(self) -> pulumi.Output[Optional['DbProxyTargetConnectionNetworkType']]:
+        """
+        The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
+        """
+        return pulumi.get(self, "target_connection_network_type")
 
     @property
     @pulumi.getter(name="vpcId")

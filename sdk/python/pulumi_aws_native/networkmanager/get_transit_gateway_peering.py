@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTransitGatewayPeeringResult:
-    def __init__(__self__, core_network_arn=None, created_at=None, edge_location=None, owner_account_id=None, peering_id=None, peering_type=None, resource_arn=None, state=None, tags=None, transit_gateway_peering_attachment_id=None):
+    def __init__(__self__, core_network_arn=None, created_at=None, edge_location=None, last_modification_errors=None, owner_account_id=None, peering_id=None, peering_type=None, resource_arn=None, state=None, tags=None, transit_gateway_peering_attachment_id=None):
         if core_network_arn and not isinstance(core_network_arn, str):
             raise TypeError("Expected argument 'core_network_arn' to be a str")
         pulumi.set(__self__, "core_network_arn", core_network_arn)
@@ -35,6 +35,9 @@ class GetTransitGatewayPeeringResult:
         if edge_location and not isinstance(edge_location, str):
             raise TypeError("Expected argument 'edge_location' to be a str")
         pulumi.set(__self__, "edge_location", edge_location)
+        if last_modification_errors and not isinstance(last_modification_errors, list):
+            raise TypeError("Expected argument 'last_modification_errors' to be a list")
+        pulumi.set(__self__, "last_modification_errors", last_modification_errors)
         if owner_account_id and not isinstance(owner_account_id, str):
             raise TypeError("Expected argument 'owner_account_id' to be a str")
         pulumi.set(__self__, "owner_account_id", owner_account_id)
@@ -80,6 +83,14 @@ class GetTransitGatewayPeeringResult:
         The location of the transit gateway peering
         """
         return pulumi.get(self, "edge_location")
+
+    @property
+    @pulumi.getter(name="lastModificationErrors")
+    def last_modification_errors(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Errors from the last modification of the transit gateway peering.
+        """
+        return pulumi.get(self, "last_modification_errors")
 
     @property
     @pulumi.getter(name="ownerAccountId")
@@ -147,6 +158,7 @@ class AwaitableGetTransitGatewayPeeringResult(GetTransitGatewayPeeringResult):
             core_network_arn=self.core_network_arn,
             created_at=self.created_at,
             edge_location=self.edge_location,
+            last_modification_errors=self.last_modification_errors,
             owner_account_id=self.owner_account_id,
             peering_id=self.peering_id,
             peering_type=self.peering_type,
@@ -173,6 +185,7 @@ def get_transit_gateway_peering(peering_id: Optional[builtins.str] = None,
         core_network_arn=pulumi.get(__ret__, 'core_network_arn'),
         created_at=pulumi.get(__ret__, 'created_at'),
         edge_location=pulumi.get(__ret__, 'edge_location'),
+        last_modification_errors=pulumi.get(__ret__, 'last_modification_errors'),
         owner_account_id=pulumi.get(__ret__, 'owner_account_id'),
         peering_id=pulumi.get(__ret__, 'peering_id'),
         peering_type=pulumi.get(__ret__, 'peering_type'),
@@ -196,6 +209,7 @@ def get_transit_gateway_peering_output(peering_id: Optional[pulumi.Input[builtin
         core_network_arn=pulumi.get(__response__, 'core_network_arn'),
         created_at=pulumi.get(__response__, 'created_at'),
         edge_location=pulumi.get(__response__, 'edge_location'),
+        last_modification_errors=pulumi.get(__response__, 'last_modification_errors'),
         owner_account_id=pulumi.get(__response__, 'owner_account_id'),
         peering_id=pulumi.get(__response__, 'peering_id'),
         peering_type=pulumi.get(__response__, 'peering_type'),

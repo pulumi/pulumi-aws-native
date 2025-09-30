@@ -38,7 +38,8 @@ type LookupCodeInterpreterCustomResult struct {
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// Status of code interpreter.
 	Status *CodeInterpreterCustomCodeInterpreterStatus `pulumi:"status"`
-	Tags   map[string]string                           `pulumi:"tags"`
+	// The tags for the code interpreter.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupCodeInterpreterCustomOutput(ctx *pulumi.Context, args LookupCodeInterpreterCustomOutputArgs, opts ...pulumi.InvokeOption) LookupCodeInterpreterCustomResultOutput {
@@ -98,6 +99,7 @@ func (o LookupCodeInterpreterCustomResultOutput) Status() CodeInterpreterCustomC
 	return o.ApplyT(func(v LookupCodeInterpreterCustomResult) *CodeInterpreterCustomCodeInterpreterStatus { return v.Status }).(CodeInterpreterCustomCodeInterpreterStatusPtrOutput)
 }
 
+// The tags for the code interpreter.
 func (o LookupCodeInterpreterCustomResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCodeInterpreterCustomResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -30,6 +30,10 @@ export interface GetResolverRuleResult {
      */
     readonly arn?: string;
     /**
+     * The name server domain for queries to be delegated to if a query matches the delegation record.
+     */
+    readonly delegationRecord?: string;
+    /**
      * DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
      */
     readonly domainName?: string;

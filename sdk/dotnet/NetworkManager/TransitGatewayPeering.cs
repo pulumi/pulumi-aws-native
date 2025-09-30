@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<string> EdgeLocation { get; private set; } = null!;
 
         /// <summary>
+        /// Errors from the last modification of the transit gateway peering.
+        /// </summary>
+        [Output("lastModificationErrors")]
+        public Output<ImmutableArray<string>> LastModificationErrors { get; private set; } = null!;
+
+        /// <summary>
         /// Peering owner account Id
         /// </summary>
         [Output("ownerAccountId")]

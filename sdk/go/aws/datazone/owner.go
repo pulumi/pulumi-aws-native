@@ -24,6 +24,10 @@ type Owner struct {
 	EntityType OwnerEntityTypeOutput `pulumi:"entityType"`
 	// The owner that you want to add to the entity.
 	Owner OwnerPropertiesOutput `pulumi:"owner"`
+	// The ID of the entity to which you want to add an owner.
+	OwnerIdentifier pulumi.StringOutput `pulumi:"ownerIdentifier"`
+	// The owner that you want to add to the entity.
+	OwnerType OwnerTypeOutput `pulumi:"ownerType"`
 }
 
 // NewOwner registers a new resource with the given unique name, arguments, and options.
@@ -162,6 +166,16 @@ func (o OwnerOutput) EntityType() OwnerEntityTypeOutput {
 // The owner that you want to add to the entity.
 func (o OwnerOutput) Owner() OwnerPropertiesOutput {
 	return o.ApplyT(func(v *Owner) OwnerPropertiesOutput { return v.Owner }).(OwnerPropertiesOutput)
+}
+
+// The ID of the entity to which you want to add an owner.
+func (o OwnerOutput) OwnerIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Owner) pulumi.StringOutput { return v.OwnerIdentifier }).(pulumi.StringOutput)
+}
+
+// The owner that you want to add to the entity.
+func (o OwnerOutput) OwnerType() OwnerTypeOutput {
+	return o.ApplyT(func(v *Owner) OwnerTypeOutput { return v.OwnerType }).(OwnerTypeOutput)
 }
 
 func init() {

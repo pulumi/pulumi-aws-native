@@ -83,6 +83,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// Status of code interpreter.
         /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.CodeInterpreterCustomCodeInterpreterStatus? Status;
+        /// <summary>
+        /// The tags for the code interpreter.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

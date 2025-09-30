@@ -74,7 +74,7 @@ export class ComputeNodeGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
+     * Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
      */
     public readonly purchaseOption!: pulumi.Output<enums.pcs.ComputeNodeGroupPurchaseOption | undefined>;
     /**
@@ -201,7 +201,7 @@ export interface ComputeNodeGroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
+     * Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
      */
     purchaseOption?: pulumi.Input<enums.pcs.ComputeNodeGroupPurchaseOption>;
     /**

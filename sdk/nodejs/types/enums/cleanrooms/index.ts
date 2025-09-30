@@ -38,6 +38,17 @@ export const AnalysisTemplateAnalysisParameterType = {
  */
 export type AnalysisTemplateAnalysisParameterType = (typeof AnalysisTemplateAnalysisParameterType)[keyof typeof AnalysisTemplateAnalysisParameterType];
 
+export const AnalysisTemplateErrorMessageConfigurationType = {
+    Detailed: "DETAILED",
+} as const;
+
+/**
+ * The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
+ *
+ * Because this setting may expose sensitive data, it is recommended for development and testing environments.
+ */
+export type AnalysisTemplateErrorMessageConfigurationType = (typeof AnalysisTemplateErrorMessageConfigurationType)[keyof typeof AnalysisTemplateErrorMessageConfigurationType];
+
 export const AnalysisTemplateFormat = {
     Sql: "SQL",
     Pyspark10: "PYSPARK_1_0",
@@ -54,6 +65,12 @@ export const CollaborationAnalyticsEngine = {
 } as const;
 
 export type CollaborationAnalyticsEngine = (typeof CollaborationAnalyticsEngine)[keyof typeof CollaborationAnalyticsEngine];
+
+export const CollaborationAutoApprovedChangeType = {
+    AddMember: "ADD_MEMBER",
+} as const;
+
+export type CollaborationAutoApprovedChangeType = (typeof CollaborationAutoApprovedChangeType)[keyof typeof CollaborationAutoApprovedChangeType];
 
 export const CollaborationCustomMlMemberAbility = {
     CanReceiveModelOutput: "CAN_RECEIVE_MODEL_OUTPUT",
