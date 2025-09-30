@@ -29,6 +29,15 @@ checksum = "sha256:68097bd680839cbc9d464a0edce4f7c333975e27a90246890e9f1078c7e70
 size = 78516109
 url = "https://dl.google.com/go/go1.24.2.linux-amd64.tar.gz"
 
+[[tools.golangci-lint]]
+version = "1.64.8"
+backend = "aqua:golangci/golangci-lint"
+
+[tools.golangci-lint.platforms.linux-x64]
+checksum = "sha256:b6270687afb143d019f387c791cd2a6f1cb383be9b3124d241ca11bd3ce2e54e"
+size = 12364828
+url = "https://github.com/golangci/golangci-lint/releases/download/v1.64.8/golangci-lint-1.64.8-linux-amd64.tar.gz"
+
 [[tools.gradle]]
 version = "7.6.6"
 backend = "aqua:gradle/gradle"
