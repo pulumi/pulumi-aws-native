@@ -8,9 +8,6 @@ CODEGEN         := pulumi-gen-${PACK}
 
 WORKING_DIR		:= $(shell pwd)
 
-JAVA_GEN		 := pulumi-java-gen
-JAVA_GEN_VERSION := v1.16.0
-
 # Override during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
 # Local & branch builds will just used this fixed default version unless specified
 PROVIDER_VERSION ?= 1.0.0-alpha.0+dev
@@ -131,11 +128,11 @@ build_dotnet::
 		echo "${PACK}\n${VERSION_GENERIC}" > version.txt && \
 		dotnet build
 
-generate_java:: bin/pulumi-java-gen
+generate_java: .pulumi/bin/pulumi
 	rm -rf sdk/java
 	mkdir sdk/java
 	echo "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/java/go.mod'
-	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
+	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language java --version "$(VERSION_GENERIC)"
 
 build_java:: PACKAGE_VERSION := $(VERSION_GENERIC)
 build_java::
@@ -148,9 +145,6 @@ generate_go: .pulumi/bin/pulumi
 
 build_go::
 	cd sdk/ && go build github.com/pulumi/pulumi-aws-native/sdk/go/aws/...
-
-bin/pulumi-java-gen::
-	pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java
 
 clean::
 	rm -rf sdk/nodejs && mkdir sdk/nodejs && echo "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/nodejs/go.mod'
