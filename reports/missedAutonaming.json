@@ -14140,6 +14140,27 @@
       }
     }
   },
+  "aws-native:servicecatalog:PortfolioShare": {
+    "cfTypeName": "AWS::ServiceCatalog::PortfolioShare",
+    "properties": {
+      "acceptLanguage": {
+        "type": "string",
+        "description": "The language code."
+      },
+      "accountId": {
+        "type": "string",
+        "description": "The AWS account ID."
+      },
+      "portfolioId": {
+        "type": "string",
+        "description": "The portfolio identifier."
+      },
+      "shareTagOptions": {
+        "type": "boolean",
+        "description": "Enables or disables TagOptions sharing when creating the portfolio share."
+      }
+    }
+  },
   "aws-native:servicecatalog:ServiceActionAssociation": {
     "cfTypeName": "AWS::ServiceCatalog::ServiceActionAssociation",
     "properties": {

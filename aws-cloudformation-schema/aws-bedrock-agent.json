@@ -322,7 +322,7 @@
         },
         "MaximumLength" : {
           "type" : "number",
-          "maximum" : 8192,
+          "maximum" : 131072,
           "minimum" : 0,
           "description" : "Maximum length of output"
         },

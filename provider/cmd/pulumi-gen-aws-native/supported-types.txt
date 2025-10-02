@@ -144,6 +144,8 @@ AWS::Bedrock::Prompt
 AWS::Bedrock::PromptVersion
 AWS::BedrockAgentCore::BrowserCustom
 AWS::BedrockAgentCore::CodeInterpreterCustom
+AWS::BedrockAgentCore::Gateway
+AWS::BedrockAgentCore::GatewayTarget
 AWS::BedrockAgentCore::Runtime
 AWS::BedrockAgentCore::RuntimeEndpoint
 AWS::Billing::BillingView
@@ -1131,6 +1133,7 @@ AWS::SecurityLake::SubscriberNotification
 AWS::ServiceCatalog::CloudFormationProvisionedProduct
 AWS::ServiceCatalog::LaunchTemplateConstraint
 AWS::ServiceCatalog::PortfolioProductAssociation
+AWS::ServiceCatalog::PortfolioShare
 AWS::ServiceCatalog::ServiceAction
 AWS::ServiceCatalog::ServiceActionAssociation
 AWS::ServiceCatalog::TagOption
