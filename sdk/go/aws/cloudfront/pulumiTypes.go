@@ -3772,7 +3772,7 @@ type DistributionCustomOriginConfig struct {
 	HttpPort *int `pulumi:"httpPort"`
 	// The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
 	HttpsPort *int `pulumi:"httpsPort"`
-	// Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose `dualstack` to help optimize reliability.
+	// Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose ``dualstack`` to help optimize reliability.
 	IpAddressType *DistributionCustomOriginConfigIpAddressType `pulumi:"ipAddressType"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
@@ -3807,7 +3807,7 @@ type DistributionCustomOriginConfigArgs struct {
 	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
 	// The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
 	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
-	// Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose `dualstack` to help optimize reliability.
+	// Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose ``dualstack`` to help optimize reliability.
 	IpAddressType DistributionCustomOriginConfigIpAddressTypePtrInput `pulumi:"ipAddressType"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
@@ -3913,7 +3913,7 @@ func (o DistributionCustomOriginConfigOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionCustomOriginConfig) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
-// Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose `dualstack` to help optimize reliability.
+// Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose “dualstack“ to help optimize reliability.
 func (o DistributionCustomOriginConfigOutput) IpAddressType() DistributionCustomOriginConfigIpAddressTypePtrOutput {
 	return o.ApplyT(func(v DistributionCustomOriginConfig) *DistributionCustomOriginConfigIpAddressType {
 		return v.IpAddressType
@@ -3993,7 +3993,7 @@ func (o DistributionCustomOriginConfigPtrOutput) HttpsPort() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose `dualstack` to help optimize reliability.
+// Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose “dualstack“ to help optimize reliability.
 func (o DistributionCustomOriginConfigPtrOutput) IpAddressType() DistributionCustomOriginConfigIpAddressTypePtrOutput {
 	return o.ApplyT(func(v *DistributionCustomOriginConfig) *DistributionCustomOriginConfigIpAddressType {
 		if v == nil {
@@ -11147,6 +11147,8 @@ func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStrings() pulumi.St
 }
 
 // Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
+//
+//	CloudFront supports signed URLs and signed cookies with RSA 2048 or ECDSA 256 key signatures. Field-level encryption is only compatible with RSA 2048 key signatures.
 type PublicKeyConfig struct {
 	// A string included in the request to help make sure that the request can't be replayed.
 	CallerReference string `pulumi:"callerReference"`
@@ -11170,6 +11172,8 @@ type PublicKeyConfigInput interface {
 }
 
 // Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
+//
+//	CloudFront supports signed URLs and signed cookies with RSA 2048 or ECDSA 256 key signatures. Field-level encryption is only compatible with RSA 2048 key signatures.
 type PublicKeyConfigArgs struct {
 	// A string included in the request to help make sure that the request can't be replayed.
 	CallerReference pulumi.StringInput `pulumi:"callerReference"`
@@ -11194,6 +11198,8 @@ func (i PublicKeyConfigArgs) ToPublicKeyConfigOutputWithContext(ctx context.Cont
 }
 
 // Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
+//
+//	CloudFront supports signed URLs and signed cookies with RSA 2048 or ECDSA 256 key signatures. Field-level encryption is only compatible with RSA 2048 key signatures.
 type PublicKeyConfigOutput struct{ *pulumi.OutputState }
 
 func (PublicKeyConfigOutput) ElementType() reflect.Type {

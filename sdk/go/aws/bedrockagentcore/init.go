@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BrowserCustom{}
 	case "aws-native:bedrockagentcore:CodeInterpreterCustom":
 		r = &CodeInterpreterCustom{}
+	case "aws-native:bedrockagentcore:Gateway":
+		r = &Gateway{}
+	case "aws-native:bedrockagentcore:GatewayTarget":
+		r = &GatewayTarget{}
 	case "aws-native:bedrockagentcore:Runtime":
 		r = &Runtime{}
 	case "aws-native:bedrockagentcore:RuntimeEndpoint":

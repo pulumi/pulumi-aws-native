@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderNetworkBandwidthGbpsRequest
     {
+        /// <summary>
+        /// The maximum network bandwidth in Gbps. Instance types with higher network bandwidth are excluded from selection.
+        /// </summary>
         public readonly double? Max;
+        /// <summary>
+        /// The minimum network bandwidth in Gbps. Instance types with lower network bandwidth are excluded from selection.
+        /// </summary>
         public readonly double? Min;
 
         [OutputConstructor]

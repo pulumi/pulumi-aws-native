@@ -49,6 +49,9 @@ class GetCapacityProviderResult:
     @property
     @pulumi.getter(name="managedInstancesProvider")
     def managed_instances_provider(self) -> Optional['outputs.CapacityProviderManagedInstancesProvider']:
+        """
+        The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.
+        """
         return pulumi.get(self, "managed_instances_provider")
 
     @property

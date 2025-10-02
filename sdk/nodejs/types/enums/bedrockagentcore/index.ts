@@ -49,6 +49,79 @@ export const CodeInterpreterCustomCodeInterpreterStatus = {
  */
 export type CodeInterpreterCustomCodeInterpreterStatus = (typeof CodeInterpreterCustomCodeInterpreterStatus)[keyof typeof CodeInterpreterCustomCodeInterpreterStatus];
 
+export const GatewayAuthorizerType = {
+    CustomJwt: "CUSTOM_JWT",
+    AwsIam: "AWS_IAM",
+} as const;
+
+export type GatewayAuthorizerType = (typeof GatewayAuthorizerType)[keyof typeof GatewayAuthorizerType];
+
+export const GatewayExceptionLevel = {
+    Debug: "DEBUG",
+} as const;
+
+export type GatewayExceptionLevel = (typeof GatewayExceptionLevel)[keyof typeof GatewayExceptionLevel];
+
+export const GatewayProtocolType = {
+    Mcp: "MCP",
+} as const;
+
+export type GatewayProtocolType = (typeof GatewayProtocolType)[keyof typeof GatewayProtocolType];
+
+export const GatewaySearchType = {
+    Semantic: "SEMANTIC",
+} as const;
+
+export type GatewaySearchType = (typeof GatewaySearchType)[keyof typeof GatewaySearchType];
+
+export const GatewayStatus = {
+    Creating: "CREATING",
+    Updating: "UPDATING",
+    UpdateUnsuccessful: "UPDATE_UNSUCCESSFUL",
+    Deleting: "DELETING",
+    Ready: "READY",
+    Failed: "FAILED",
+} as const;
+
+export type GatewayStatus = (typeof GatewayStatus)[keyof typeof GatewayStatus];
+
+export const GatewayTargetApiKeyCredentialLocation = {
+    Header: "HEADER",
+    QueryParameter: "QUERY_PARAMETER",
+} as const;
+
+export type GatewayTargetApiKeyCredentialLocation = (typeof GatewayTargetApiKeyCredentialLocation)[keyof typeof GatewayTargetApiKeyCredentialLocation];
+
+export const GatewayTargetCredentialProviderType = {
+    GatewayIamRole: "GATEWAY_IAM_ROLE",
+    Oauth: "OAUTH",
+    ApiKey: "API_KEY",
+} as const;
+
+export type GatewayTargetCredentialProviderType = (typeof GatewayTargetCredentialProviderType)[keyof typeof GatewayTargetCredentialProviderType];
+
+export const GatewayTargetSchemaType = {
+    String: "string",
+    Number: "number",
+    Object: "object",
+    Array: "array",
+    Boolean: "boolean",
+    Integer: "integer",
+} as const;
+
+export type GatewayTargetSchemaType = (typeof GatewayTargetSchemaType)[keyof typeof GatewayTargetSchemaType];
+
+export const GatewayTargetTargetStatus = {
+    Creating: "CREATING",
+    Updating: "UPDATING",
+    UpdateUnsuccessful: "UPDATE_UNSUCCESSFUL",
+    Deleting: "DELETING",
+    Ready: "READY",
+    Failed: "FAILED",
+} as const;
+
+export type GatewayTargetTargetStatus = (typeof GatewayTargetTargetStatus)[keyof typeof GatewayTargetTargetStatus];
+
 export const RuntimeAgentStatus = {
     Creating: "CREATING",
     CreateFailed: "CREATE_FAILED",

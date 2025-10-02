@@ -182,6 +182,9 @@ export class CapacityProvider extends pulumi.CustomResource {
      */
     public readonly autoScalingGroupProvider!: pulumi.Output<outputs.ecs.CapacityProviderAutoScalingGroupProvider | undefined>;
     public readonly clusterName!: pulumi.Output<string | undefined>;
+    /**
+     * The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.
+     */
     public readonly managedInstancesProvider!: pulumi.Output<outputs.ecs.CapacityProviderManagedInstancesProvider | undefined>;
     /**
      * The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
@@ -241,6 +244,9 @@ export interface CapacityProviderArgs {
      */
     autoScalingGroupProvider?: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProviderArgs>;
     clusterName?: pulumi.Input<string>;
+    /**
+     * The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.
+     */
     managedInstancesProvider?: pulumi.Input<inputs.ecs.CapacityProviderManagedInstancesProviderArgs>;
     /**
      * The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.

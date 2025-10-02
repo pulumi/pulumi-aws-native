@@ -1077,6 +1077,8 @@ _utilities.register(
   "classes": {
    "aws-native:bedrockagentcore:BrowserCustom": "BrowserCustom",
    "aws-native:bedrockagentcore:CodeInterpreterCustom": "CodeInterpreterCustom",
+   "aws-native:bedrockagentcore:Gateway": "Gateway",
+   "aws-native:bedrockagentcore:GatewayTarget": "GatewayTarget",
    "aws-native:bedrockagentcore:Runtime": "Runtime",
    "aws-native:bedrockagentcore:RuntimeEndpoint": "RuntimeEndpoint"
   }
@@ -3241,6 +3243,7 @@ _utilities.register(
    "aws-native:servicecatalog:CloudFormationProvisionedProduct": "CloudFormationProvisionedProduct",
    "aws-native:servicecatalog:LaunchTemplateConstraint": "LaunchTemplateConstraint",
    "aws-native:servicecatalog:PortfolioProductAssociation": "PortfolioProductAssociation",
+   "aws-native:servicecatalog:PortfolioShare": "PortfolioShare",
    "aws-native:servicecatalog:ServiceAction": "ServiceAction",
    "aws-native:servicecatalog:ServiceActionAssociation": "ServiceActionAssociation",
    "aws-native:servicecatalog:TagOption": "TagOption"

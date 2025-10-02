@@ -139,6 +139,268 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     [EnumType]
+    public readonly struct GatewayAuthorizerType : IEquatable<GatewayAuthorizerType>
+    {
+        private readonly string _value;
+
+        private GatewayAuthorizerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayAuthorizerType CustomJwt { get; } = new GatewayAuthorizerType("CUSTOM_JWT");
+        public static GatewayAuthorizerType AwsIam { get; } = new GatewayAuthorizerType("AWS_IAM");
+
+        public static bool operator ==(GatewayAuthorizerType left, GatewayAuthorizerType right) => left.Equals(right);
+        public static bool operator !=(GatewayAuthorizerType left, GatewayAuthorizerType right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayAuthorizerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayAuthorizerType other && Equals(other);
+        public bool Equals(GatewayAuthorizerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GatewayExceptionLevel : IEquatable<GatewayExceptionLevel>
+    {
+        private readonly string _value;
+
+        private GatewayExceptionLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayExceptionLevel Debug { get; } = new GatewayExceptionLevel("DEBUG");
+
+        public static bool operator ==(GatewayExceptionLevel left, GatewayExceptionLevel right) => left.Equals(right);
+        public static bool operator !=(GatewayExceptionLevel left, GatewayExceptionLevel right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayExceptionLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayExceptionLevel other && Equals(other);
+        public bool Equals(GatewayExceptionLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GatewayProtocolType : IEquatable<GatewayProtocolType>
+    {
+        private readonly string _value;
+
+        private GatewayProtocolType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayProtocolType Mcp { get; } = new GatewayProtocolType("MCP");
+
+        public static bool operator ==(GatewayProtocolType left, GatewayProtocolType right) => left.Equals(right);
+        public static bool operator !=(GatewayProtocolType left, GatewayProtocolType right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayProtocolType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayProtocolType other && Equals(other);
+        public bool Equals(GatewayProtocolType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GatewaySearchType : IEquatable<GatewaySearchType>
+    {
+        private readonly string _value;
+
+        private GatewaySearchType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewaySearchType Semantic { get; } = new GatewaySearchType("SEMANTIC");
+
+        public static bool operator ==(GatewaySearchType left, GatewaySearchType right) => left.Equals(right);
+        public static bool operator !=(GatewaySearchType left, GatewaySearchType right) => !left.Equals(right);
+
+        public static explicit operator string(GatewaySearchType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewaySearchType other && Equals(other);
+        public bool Equals(GatewaySearchType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GatewayStatus : IEquatable<GatewayStatus>
+    {
+        private readonly string _value;
+
+        private GatewayStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayStatus Creating { get; } = new GatewayStatus("CREATING");
+        public static GatewayStatus Updating { get; } = new GatewayStatus("UPDATING");
+        public static GatewayStatus UpdateUnsuccessful { get; } = new GatewayStatus("UPDATE_UNSUCCESSFUL");
+        public static GatewayStatus Deleting { get; } = new GatewayStatus("DELETING");
+        public static GatewayStatus Ready { get; } = new GatewayStatus("READY");
+        public static GatewayStatus Failed { get; } = new GatewayStatus("FAILED");
+
+        public static bool operator ==(GatewayStatus left, GatewayStatus right) => left.Equals(right);
+        public static bool operator !=(GatewayStatus left, GatewayStatus right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayStatus other && Equals(other);
+        public bool Equals(GatewayStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GatewayTargetApiKeyCredentialLocation : IEquatable<GatewayTargetApiKeyCredentialLocation>
+    {
+        private readonly string _value;
+
+        private GatewayTargetApiKeyCredentialLocation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayTargetApiKeyCredentialLocation Header { get; } = new GatewayTargetApiKeyCredentialLocation("HEADER");
+        public static GatewayTargetApiKeyCredentialLocation QueryParameter { get; } = new GatewayTargetApiKeyCredentialLocation("QUERY_PARAMETER");
+
+        public static bool operator ==(GatewayTargetApiKeyCredentialLocation left, GatewayTargetApiKeyCredentialLocation right) => left.Equals(right);
+        public static bool operator !=(GatewayTargetApiKeyCredentialLocation left, GatewayTargetApiKeyCredentialLocation right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayTargetApiKeyCredentialLocation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayTargetApiKeyCredentialLocation other && Equals(other);
+        public bool Equals(GatewayTargetApiKeyCredentialLocation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GatewayTargetCredentialProviderType : IEquatable<GatewayTargetCredentialProviderType>
+    {
+        private readonly string _value;
+
+        private GatewayTargetCredentialProviderType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayTargetCredentialProviderType GatewayIamRole { get; } = new GatewayTargetCredentialProviderType("GATEWAY_IAM_ROLE");
+        public static GatewayTargetCredentialProviderType Oauth { get; } = new GatewayTargetCredentialProviderType("OAUTH");
+        public static GatewayTargetCredentialProviderType ApiKey { get; } = new GatewayTargetCredentialProviderType("API_KEY");
+
+        public static bool operator ==(GatewayTargetCredentialProviderType left, GatewayTargetCredentialProviderType right) => left.Equals(right);
+        public static bool operator !=(GatewayTargetCredentialProviderType left, GatewayTargetCredentialProviderType right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayTargetCredentialProviderType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayTargetCredentialProviderType other && Equals(other);
+        public bool Equals(GatewayTargetCredentialProviderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GatewayTargetSchemaType : IEquatable<GatewayTargetSchemaType>
+    {
+        private readonly string _value;
+
+        private GatewayTargetSchemaType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayTargetSchemaType String { get; } = new GatewayTargetSchemaType("string");
+        public static GatewayTargetSchemaType Number { get; } = new GatewayTargetSchemaType("number");
+        public static GatewayTargetSchemaType Object { get; } = new GatewayTargetSchemaType("object");
+        public static GatewayTargetSchemaType Array { get; } = new GatewayTargetSchemaType("array");
+        public static GatewayTargetSchemaType Boolean { get; } = new GatewayTargetSchemaType("boolean");
+        public static GatewayTargetSchemaType Integer { get; } = new GatewayTargetSchemaType("integer");
+
+        public static bool operator ==(GatewayTargetSchemaType left, GatewayTargetSchemaType right) => left.Equals(right);
+        public static bool operator !=(GatewayTargetSchemaType left, GatewayTargetSchemaType right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayTargetSchemaType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayTargetSchemaType other && Equals(other);
+        public bool Equals(GatewayTargetSchemaType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GatewayTargetTargetStatus : IEquatable<GatewayTargetTargetStatus>
+    {
+        private readonly string _value;
+
+        private GatewayTargetTargetStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayTargetTargetStatus Creating { get; } = new GatewayTargetTargetStatus("CREATING");
+        public static GatewayTargetTargetStatus Updating { get; } = new GatewayTargetTargetStatus("UPDATING");
+        public static GatewayTargetTargetStatus UpdateUnsuccessful { get; } = new GatewayTargetTargetStatus("UPDATE_UNSUCCESSFUL");
+        public static GatewayTargetTargetStatus Deleting { get; } = new GatewayTargetTargetStatus("DELETING");
+        public static GatewayTargetTargetStatus Ready { get; } = new GatewayTargetTargetStatus("READY");
+        public static GatewayTargetTargetStatus Failed { get; } = new GatewayTargetTargetStatus("FAILED");
+
+        public static bool operator ==(GatewayTargetTargetStatus left, GatewayTargetTargetStatus right) => left.Equals(right);
+        public static bool operator !=(GatewayTargetTargetStatus left, GatewayTargetTargetStatus right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayTargetTargetStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayTargetTargetStatus other && Equals(other);
+        public bool Equals(GatewayTargetTargetStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct RuntimeAgentStatus : IEquatable<RuntimeAgentStatus>
     {
         private readonly string _value;

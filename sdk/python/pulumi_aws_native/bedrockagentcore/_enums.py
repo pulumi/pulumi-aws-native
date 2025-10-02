@@ -11,6 +11,15 @@ __all__ = [
     'BrowserCustomBrowserStatus',
     'CodeInterpreterCustomCodeInterpreterNetworkMode',
     'CodeInterpreterCustomCodeInterpreterStatus',
+    'GatewayAuthorizerType',
+    'GatewayExceptionLevel',
+    'GatewayProtocolType',
+    'GatewaySearchType',
+    'GatewayStatus',
+    'GatewayTargetApiKeyCredentialLocation',
+    'GatewayTargetCredentialProviderType',
+    'GatewayTargetSchemaType',
+    'GatewayTargetTargetStatus',
     'RuntimeAgentStatus',
     'RuntimeEndpointAgentRuntimeEndpointStatus',
     'RuntimeNetworkMode',
@@ -59,6 +68,70 @@ class CodeInterpreterCustomCodeInterpreterStatus(builtins.str, Enum):
     DELETING = "DELETING"
     DELETE_FAILED = "DELETE_FAILED"
     DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayAuthorizerType")
+class GatewayAuthorizerType(builtins.str, Enum):
+    CUSTOM_JWT = "CUSTOM_JWT"
+    AWS_IAM = "AWS_IAM"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayExceptionLevel")
+class GatewayExceptionLevel(builtins.str, Enum):
+    DEBUG = "DEBUG"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayProtocolType")
+class GatewayProtocolType(builtins.str, Enum):
+    MCP = "MCP"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewaySearchType")
+class GatewaySearchType(builtins.str, Enum):
+    SEMANTIC = "SEMANTIC"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayStatus")
+class GatewayStatus(builtins.str, Enum):
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    UPDATE_UNSUCCESSFUL = "UPDATE_UNSUCCESSFUL"
+    DELETING = "DELETING"
+    READY = "READY"
+    FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetApiKeyCredentialLocation")
+class GatewayTargetApiKeyCredentialLocation(builtins.str, Enum):
+    HEADER = "HEADER"
+    QUERY_PARAMETER = "QUERY_PARAMETER"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetCredentialProviderType")
+class GatewayTargetCredentialProviderType(builtins.str, Enum):
+    GATEWAY_IAM_ROLE = "GATEWAY_IAM_ROLE"
+    OAUTH = "OAUTH"
+    API_KEY = "API_KEY"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetSchemaType")
+class GatewayTargetSchemaType(builtins.str, Enum):
+    STRING = "string"
+    NUMBER = "number"
+    OBJECT = "object"
+    ARRAY = "array"
+    BOOLEAN = "boolean"
+    INTEGER = "integer"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetTargetStatus")
+class GatewayTargetTargetStatus(builtins.str, Enum):
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    UPDATE_UNSUCCESSFUL = "UPDATE_UNSUCCESSFUL"
+    DELETING = "DELETING"
+    READY = "READY"
+    FAILED = "FAILED"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:RuntimeAgentStatus")

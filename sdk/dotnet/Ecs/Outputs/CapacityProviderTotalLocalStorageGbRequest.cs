@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderTotalLocalStorageGbRequest
     {
+        /// <summary>
+        /// The maximum total local storage in GB. Instance types with more local storage are excluded from selection.
+        /// </summary>
         public readonly double? Max;
+        /// <summary>
+        /// The minimum total local storage in GB. Instance types with less local storage are excluded from selection.
+        /// </summary>
         public readonly double? Min;
 
         [OutputConstructor]

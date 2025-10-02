@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly int? HttpsPort;
         /// <summary>
-        /// Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose `dualstack` to help optimize reliability.
+        /// Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose ``dualstack`` to help optimize reliability.
         /// </summary>
         public readonly Pulumi.AwsNative.CloudFront.DistributionCustomOriginConfigIpAddressType? IpAddressType;
         /// <summary>

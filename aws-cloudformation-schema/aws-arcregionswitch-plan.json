@@ -917,12 +917,18 @@
         }
       },
       "additionalProperties" : false
+    },
+    "PlanHealthChecks" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
     }
   },
   "required" : [ "ExecutionRole", "Name", "RecoveryApproach", "Regions", "Workflows" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/Owner", "/properties/Version", "/properties/HealthChecksForPlan", "/properties/Route53HealthChecks" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Owner", "/properties/Version", "/properties/HealthChecksForPlan", "/properties/Route53HealthChecks", "/properties/PlanHealthChecks" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/PrimaryRegion", "/properties/RecoveryApproach", "/properties/Regions" ],
-  "deprecatedProperties" : [ "/properties/HealthChecksForPlan" ],
+  "deprecatedProperties" : [ "/properties/HealthChecksForPlan", "/properties/Route53HealthChecks" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "tagging" : {
     "taggable" : true,

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderAcceleratorTotalMemoryMiBRequest
     {
+        /// <summary>
+        /// The maximum total accelerator memory in MiB. Instance types with more accelerator memory are excluded from selection.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// The minimum total accelerator memory in MiB. Instance types with less accelerator memory are excluded from selection.
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

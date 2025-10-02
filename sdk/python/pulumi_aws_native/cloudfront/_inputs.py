@@ -2611,7 +2611,7 @@ if not MYPY:
         """
         ip_address_type: NotRequired[pulumi.Input['DistributionCustomOriginConfigIpAddressType']]
         """
-        Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose `dualstack` to help optimize reliability.
+        Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose ``dualstack`` to help optimize reliability.
         """
         origin_keepalive_timeout: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -2649,7 +2649,7 @@ class DistributionCustomOriginConfigArgs:
                  +  ``https-only`` – CloudFront always uses HTTPS to connect to the origin.
         :param pulumi.Input[builtins.int] http_port: The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
         :param pulumi.Input[builtins.int] https_port: The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
-        :param pulumi.Input['DistributionCustomOriginConfigIpAddressType'] ip_address_type: Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose `dualstack` to help optimize reliability.
+        :param pulumi.Input['DistributionCustomOriginConfigIpAddressType'] ip_address_type: Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose ``dualstack`` to help optimize reliability.
         :param pulumi.Input[builtins.int] origin_keepalive_timeout: Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
                 For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         :param pulumi.Input[builtins.int] origin_read_timeout: Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
@@ -2714,7 +2714,7 @@ class DistributionCustomOriginConfigArgs:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input['DistributionCustomOriginConfigIpAddressType']]:
         """
-        Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose `dualstack` to help optimize reliability.
+        Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose ``dualstack`` to help optimize reliability.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -6414,6 +6414,7 @@ if not MYPY:
     class PublicKeyConfigArgsDict(TypedDict):
         """
         Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
+         CloudFront supports signed URLs and signed cookies with RSA 2048 or ECDSA 256 key signatures. Field-level encryption is only compatible with RSA 2048 key signatures.
         """
         caller_reference: pulumi.Input[builtins.str]
         """
@@ -6443,6 +6444,7 @@ class PublicKeyConfigArgs:
                  comment: Optional[pulumi.Input[builtins.str]] = None):
         """
         Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
+         CloudFront supports signed URLs and signed cookies with RSA 2048 or ECDSA 256 key signatures. Field-level encryption is only compatible with RSA 2048 key signatures.
         :param pulumi.Input[builtins.str] caller_reference: A string included in the request to help make sure that the request can't be replayed.
         :param pulumi.Input[builtins.str] encoded_key: The public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
         :param pulumi.Input[builtins.str] name: A name to help identify the public key.

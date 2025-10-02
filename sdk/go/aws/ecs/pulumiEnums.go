@@ -1006,6 +1006,7 @@ func (o CapacityProviderInstanceRequirementsRequestAcceleratorTypesItemArrayOutp
 	}).(CapacityProviderInstanceRequirementsRequestAcceleratorTypesItemOutput)
 }
 
+// Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances.
 type CapacityProviderInstanceRequirementsRequestBareMetal string
 
 const (
@@ -1173,6 +1174,7 @@ func (in *capacityProviderInstanceRequirementsRequestBareMetalPtr) ToCapacityPro
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderInstanceRequirementsRequestBareMetalPtrOutput)
 }
 
+// Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances.
 type CapacityProviderInstanceRequirementsRequestBurstablePerformance string
 
 const (
@@ -1762,6 +1764,7 @@ func (o CapacityProviderInstanceRequirementsRequestInstanceGenerationsItemArrayO
 	}).(CapacityProviderInstanceRequirementsRequestInstanceGenerationsItemOutput)
 }
 
+// Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage.
 type CapacityProviderInstanceRequirementsRequestLocalStorage string
 
 const (
@@ -2304,6 +2307,7 @@ func (in *capacityProviderManagedInstancesMonitoringOptionsPtr) ToCapacityProvid
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderManagedInstancesMonitoringOptionsPtrOutput)
 }
 
+// Determines whether tags from the capacity provider are automatically applied to Amazon ECS Managed Instances. This helps with cost allocation and resource management by ensuring consistent tagging across your infrastructure.
 type CapacityProviderManagedInstancesProviderPropagateTags string
 
 const (

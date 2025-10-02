@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderMemoryGiBPerVCpuRequest
     {
+        /// <summary>
+        /// The maximum amount of memory per vCPU in GiB. Instance types with a higher memory-to-vCPU ratio are excluded from selection.
+        /// </summary>
         public readonly double? Max;
+        /// <summary>
+        /// The minimum amount of memory per vCPU in GiB. Instance types with a lower memory-to-vCPU ratio are excluded from selection.
+        /// </summary>
         public readonly double? Min;
 
         [OutputConstructor]

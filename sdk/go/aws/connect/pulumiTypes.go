@@ -5614,6 +5614,7 @@ func (o RoutingProfileCrossChannelBehaviorPtrOutput) BehaviorType() RoutingProfi
 
 // Contains information about the manual assignment queue and channel
 type RoutingProfileManualAssignmentQueueConfig struct {
+	// Contains information about a queue resource.
 	QueueReference RoutingProfileQueueReference `pulumi:"queueReference"`
 }
 
@@ -5630,6 +5631,7 @@ type RoutingProfileManualAssignmentQueueConfigInput interface {
 
 // Contains information about the manual assignment queue and channel
 type RoutingProfileManualAssignmentQueueConfigArgs struct {
+	// Contains information about a queue resource.
 	QueueReference RoutingProfileQueueReferenceInput `pulumi:"queueReference"`
 }
 
@@ -5685,6 +5687,7 @@ func (o RoutingProfileManualAssignmentQueueConfigOutput) ToRoutingProfileManualA
 	return o
 }
 
+// Contains information about a queue resource.
 func (o RoutingProfileManualAssignmentQueueConfigOutput) QueueReference() RoutingProfileQueueReferenceOutput {
 	return o.ApplyT(func(v RoutingProfileManualAssignmentQueueConfig) RoutingProfileQueueReference {
 		return v.QueueReference

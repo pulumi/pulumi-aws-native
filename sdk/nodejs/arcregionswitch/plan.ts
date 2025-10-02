@@ -65,6 +65,7 @@ export class Plan extends pulumi.CustomResource {
      * The owner of a plan.
      */
     public /*out*/ readonly owner!: pulumi.Output<string>;
+    public /*out*/ readonly planHealthChecks!: pulumi.Output<string[]>;
     /**
      * The primary Region for a plan.
      */
@@ -133,6 +134,7 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["healthChecksForPlan"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["planHealthChecks"] = undefined /*out*/;
             resourceInputs["route53HealthChecks"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
@@ -143,6 +145,7 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["healthChecksForPlan"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["planHealthChecks"] = undefined /*out*/;
             resourceInputs["primaryRegion"] = undefined /*out*/;
             resourceInputs["recoveryApproach"] = undefined /*out*/;
             resourceInputs["recoveryTimeObjectiveMinutes"] = undefined /*out*/;

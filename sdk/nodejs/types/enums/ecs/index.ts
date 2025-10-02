@@ -69,6 +69,9 @@ export const CapacityProviderInstanceRequirementsRequestBareMetal = {
     Excluded: "excluded",
 } as const;
 
+/**
+ * Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances.
+ */
 export type CapacityProviderInstanceRequirementsRequestBareMetal = (typeof CapacityProviderInstanceRequirementsRequestBareMetal)[keyof typeof CapacityProviderInstanceRequirementsRequestBareMetal];
 
 export const CapacityProviderInstanceRequirementsRequestBurstablePerformance = {
@@ -77,6 +80,9 @@ export const CapacityProviderInstanceRequirementsRequestBurstablePerformance = {
     Excluded: "excluded",
 } as const;
 
+/**
+ * Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances.
+ */
 export type CapacityProviderInstanceRequirementsRequestBurstablePerformance = (typeof CapacityProviderInstanceRequirementsRequestBurstablePerformance)[keyof typeof CapacityProviderInstanceRequirementsRequestBurstablePerformance];
 
 export const CapacityProviderInstanceRequirementsRequestCpuManufacturersItem = {
@@ -100,6 +106,9 @@ export const CapacityProviderInstanceRequirementsRequestLocalStorage = {
     Excluded: "excluded",
 } as const;
 
+/**
+ * Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage.
+ */
 export type CapacityProviderInstanceRequirementsRequestLocalStorage = (typeof CapacityProviderInstanceRequirementsRequestLocalStorage)[keyof typeof CapacityProviderInstanceRequirementsRequestLocalStorage];
 
 export const CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem = {
@@ -121,6 +130,9 @@ export const CapacityProviderManagedInstancesProviderPropagateTags = {
     None: "NONE",
 } as const;
 
+/**
+ * Determines whether tags from the capacity provider are automatically applied to Amazon ECS Managed Instances. This helps with cost allocation and resource management by ensuring consistent tagging across your infrastructure.
+ */
 export type CapacityProviderManagedInstancesProviderPropagateTags = (typeof CapacityProviderManagedInstancesProviderPropagateTags)[keyof typeof CapacityProviderManagedInstancesProviderPropagateTags];
 
 export const CapacityProviderManagedScalingStatus = {

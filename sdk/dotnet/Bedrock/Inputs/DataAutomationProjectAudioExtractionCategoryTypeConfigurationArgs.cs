@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
 
     public sealed class DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This element allows you to configure different extractions for your transcript data, such as speaker and channel labeling.
+        /// </summary>
         [Input("transcript")]
         public Input<Inputs.DataAutomationProjectTranscriptConfigurationArgs>? Transcript { get; set; }
 

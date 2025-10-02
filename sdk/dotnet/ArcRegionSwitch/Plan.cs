@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
+        [Output("planHealthChecks")]
+        public Output<ImmutableArray<string>> PlanHealthChecks { get; private set; } = null!;
+
         /// <summary>
         /// The primary Region for a plan.
         /// </summary>

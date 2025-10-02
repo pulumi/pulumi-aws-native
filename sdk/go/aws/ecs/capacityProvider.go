@@ -249,6 +249,7 @@ type CapacityProvider struct {
 	// The Auto Scaling group settings for the capacity provider.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrOutput `pulumi:"autoScalingGroupProvider"`
 	ClusterName              pulumi.StringPtrOutput                            `pulumi:"clusterName"`
+	// The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.
 	ManagedInstancesProvider CapacityProviderManagedInstancesProviderPtrOutput `pulumi:"managedInstancesProvider"`
 	// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -315,6 +316,7 @@ type capacityProviderArgs struct {
 	// The Auto Scaling group settings for the capacity provider.
 	AutoScalingGroupProvider *CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
 	ClusterName              *string                                   `pulumi:"clusterName"`
+	// The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.
 	ManagedInstancesProvider *CapacityProviderManagedInstancesProvider `pulumi:"managedInstancesProvider"`
 	// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
 	Name *string `pulumi:"name"`
@@ -337,6 +339,7 @@ type CapacityProviderArgs struct {
 	// The Auto Scaling group settings for the capacity provider.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrInput
 	ClusterName              pulumi.StringPtrInput
+	// The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.
 	ManagedInstancesProvider CapacityProviderManagedInstancesProviderPtrInput
 	// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
 	Name pulumi.StringPtrInput
@@ -402,6 +405,7 @@ func (o CapacityProviderOutput) ClusterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringPtrOutput { return v.ClusterName }).(pulumi.StringPtrOutput)
 }
 
+// The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.
 func (o CapacityProviderOutput) ManagedInstancesProvider() CapacityProviderManagedInstancesProviderPtrOutput {
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderManagedInstancesProviderPtrOutput {
 		return v.ManagedInstancesProvider

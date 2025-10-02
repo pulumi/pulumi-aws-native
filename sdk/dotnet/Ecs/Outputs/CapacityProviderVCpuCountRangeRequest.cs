@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderVCpuCountRangeRequest
     {
+        /// <summary>
+        /// The maximum number of vCPUs. Instance types with more vCPUs than this value are excluded from selection.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// The minimum number of vCPUs. Instance types with fewer vCPUs than this value are excluded from selection.
+        /// </summary>
         public readonly int Min;
 
         [OutputConstructor]

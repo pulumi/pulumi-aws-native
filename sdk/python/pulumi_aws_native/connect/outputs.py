@@ -2214,12 +2214,16 @@ class RoutingProfileManualAssignmentQueueConfig(dict):
                  queue_reference: 'outputs.RoutingProfileQueueReference'):
         """
         Contains information about the manual assignment queue and channel
+        :param 'RoutingProfileQueueReference' queue_reference: Contains information about a queue resource.
         """
         pulumi.set(__self__, "queue_reference", queue_reference)
 
     @property
     @pulumi.getter(name="queueReference")
     def queue_reference(self) -> 'outputs.RoutingProfileQueueReference':
+        """
+        Contains information about a queue resource.
+        """
         return pulumi.get(self, "queue_reference")
 
 

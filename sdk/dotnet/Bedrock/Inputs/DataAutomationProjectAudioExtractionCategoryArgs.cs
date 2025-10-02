@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("state", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.DataAutomationProjectState> State { get; set; } = null!;
 
+        /// <summary>
+        /// This element contains information about extractions from different types. Used to enable speaker and channel labeling for transcripts.
+        /// </summary>
         [Input("typeConfiguration")]
         public Input<Inputs.DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs>? TypeConfiguration { get; set; }
 

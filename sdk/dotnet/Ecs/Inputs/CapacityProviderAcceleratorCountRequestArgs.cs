@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
     public sealed class CapacityProviderAcceleratorCountRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum number of accelerators. Instance types with more accelerators are excluded from selection.
+        /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
+        /// <summary>
+        /// The minimum number of accelerators. Instance types with fewer accelerators are excluded from selection.
+        /// </summary>
         [Input("min")]
         public Input<int>? Min { get; set; }
 

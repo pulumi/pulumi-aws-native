@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CapacityProviderAcceleratorCountRequest struct {
+	// The maximum number of accelerators. Instance types with more accelerators are excluded from selection.
 	Max *int `pulumi:"max"`
+	// The minimum number of accelerators. Instance types with fewer accelerators are excluded from selection.
 	Min *int `pulumi:"min"`
 }
 
@@ -30,7 +32,9 @@ type CapacityProviderAcceleratorCountRequestInput interface {
 }
 
 type CapacityProviderAcceleratorCountRequestArgs struct {
+	// The maximum number of accelerators. Instance types with more accelerators are excluded from selection.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum number of accelerators. Instance types with fewer accelerators are excluded from selection.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -111,10 +115,12 @@ func (o CapacityProviderAcceleratorCountRequestOutput) ToCapacityProviderAcceler
 	}).(CapacityProviderAcceleratorCountRequestPtrOutput)
 }
 
+// The maximum number of accelerators. Instance types with more accelerators are excluded from selection.
 func (o CapacityProviderAcceleratorCountRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAcceleratorCountRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of accelerators. Instance types with fewer accelerators are excluded from selection.
 func (o CapacityProviderAcceleratorCountRequestOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAcceleratorCountRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -143,6 +149,7 @@ func (o CapacityProviderAcceleratorCountRequestPtrOutput) Elem() CapacityProvide
 	}).(CapacityProviderAcceleratorCountRequestOutput)
 }
 
+// The maximum number of accelerators. Instance types with more accelerators are excluded from selection.
 func (o CapacityProviderAcceleratorCountRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAcceleratorCountRequest) *int {
 		if v == nil {
@@ -152,6 +159,7 @@ func (o CapacityProviderAcceleratorCountRequestPtrOutput) Max() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of accelerators. Instance types with fewer accelerators are excluded from selection.
 func (o CapacityProviderAcceleratorCountRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAcceleratorCountRequest) *int {
 		if v == nil {
@@ -162,7 +170,9 @@ func (o CapacityProviderAcceleratorCountRequestPtrOutput) Min() pulumi.IntPtrOut
 }
 
 type CapacityProviderAcceleratorTotalMemoryMiBRequest struct {
+	// The maximum total accelerator memory in MiB. Instance types with more accelerator memory are excluded from selection.
 	Max *int `pulumi:"max"`
+	// The minimum total accelerator memory in MiB. Instance types with less accelerator memory are excluded from selection.
 	Min *int `pulumi:"min"`
 }
 
@@ -178,7 +188,9 @@ type CapacityProviderAcceleratorTotalMemoryMiBRequestInput interface {
 }
 
 type CapacityProviderAcceleratorTotalMemoryMiBRequestArgs struct {
+	// The maximum total accelerator memory in MiB. Instance types with more accelerator memory are excluded from selection.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum total accelerator memory in MiB. Instance types with less accelerator memory are excluded from selection.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -259,10 +271,12 @@ func (o CapacityProviderAcceleratorTotalMemoryMiBRequestOutput) ToCapacityProvid
 	}).(CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput)
 }
 
+// The maximum total accelerator memory in MiB. Instance types with more accelerator memory are excluded from selection.
 func (o CapacityProviderAcceleratorTotalMemoryMiBRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAcceleratorTotalMemoryMiBRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum total accelerator memory in MiB. Instance types with less accelerator memory are excluded from selection.
 func (o CapacityProviderAcceleratorTotalMemoryMiBRequestOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAcceleratorTotalMemoryMiBRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -291,6 +305,7 @@ func (o CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput) Elem() Capaci
 	}).(CapacityProviderAcceleratorTotalMemoryMiBRequestOutput)
 }
 
+// The maximum total accelerator memory in MiB. Instance types with more accelerator memory are excluded from selection.
 func (o CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAcceleratorTotalMemoryMiBRequest) *int {
 		if v == nil {
@@ -300,6 +315,7 @@ func (o CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput) Max() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum total accelerator memory in MiB. Instance types with less accelerator memory are excluded from selection.
 func (o CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAcceleratorTotalMemoryMiBRequest) *int {
 		if v == nil {
@@ -534,7 +550,9 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedTerminationPro
 }
 
 type CapacityProviderBaselineEbsBandwidthMbpsRequest struct {
+	// The maximum baseline Amazon EBS bandwidth in Mbps. Instance types with higher Amazon EBS bandwidth are excluded from selection.
 	Max *int `pulumi:"max"`
+	// The minimum baseline Amazon EBS bandwidth in Mbps. Instance types with lower Amazon EBS bandwidth are excluded from selection.
 	Min *int `pulumi:"min"`
 }
 
@@ -550,7 +568,9 @@ type CapacityProviderBaselineEbsBandwidthMbpsRequestInput interface {
 }
 
 type CapacityProviderBaselineEbsBandwidthMbpsRequestArgs struct {
+	// The maximum baseline Amazon EBS bandwidth in Mbps. Instance types with higher Amazon EBS bandwidth are excluded from selection.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum baseline Amazon EBS bandwidth in Mbps. Instance types with lower Amazon EBS bandwidth are excluded from selection.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -631,10 +651,12 @@ func (o CapacityProviderBaselineEbsBandwidthMbpsRequestOutput) ToCapacityProvide
 	}).(CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
+// The maximum baseline Amazon EBS bandwidth in Mbps. Instance types with higher Amazon EBS bandwidth are excluded from selection.
 func (o CapacityProviderBaselineEbsBandwidthMbpsRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderBaselineEbsBandwidthMbpsRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum baseline Amazon EBS bandwidth in Mbps. Instance types with lower Amazon EBS bandwidth are excluded from selection.
 func (o CapacityProviderBaselineEbsBandwidthMbpsRequestOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderBaselineEbsBandwidthMbpsRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -663,6 +685,7 @@ func (o CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput) Elem() Capacit
 	}).(CapacityProviderBaselineEbsBandwidthMbpsRequestOutput)
 }
 
+// The maximum baseline Amazon EBS bandwidth in Mbps. Instance types with higher Amazon EBS bandwidth are excluded from selection.
 func (o CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderBaselineEbsBandwidthMbpsRequest) *int {
 		if v == nil {
@@ -672,6 +695,7 @@ func (o CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput) Max() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum baseline Amazon EBS bandwidth in Mbps. Instance types with lower Amazon EBS bandwidth are excluded from selection.
 func (o CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderBaselineEbsBandwidthMbpsRequest) *int {
 		if v == nil {
@@ -682,11 +706,23 @@ func (o CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.I
 }
 
 type CapacityProviderInstanceLaunchTemplate struct {
-	Ec2InstanceProfileArn string                                                `pulumi:"ec2InstanceProfileArn"`
-	InstanceRequirements  *CapacityProviderInstanceRequirementsRequest          `pulumi:"instanceRequirements"`
-	Monitoring            *CapacityProviderManagedInstancesMonitoringOptions    `pulumi:"monitoring"`
-	NetworkConfiguration  CapacityProviderManagedInstancesNetworkConfiguration  `pulumi:"networkConfiguration"`
-	StorageConfiguration  *CapacityProviderManagedInstancesStorageConfiguration `pulumi:"storageConfiguration"`
+	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
+	//
+	// For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html) in the *Amazon ECS Developer Guide* .
+	Ec2InstanceProfileArn string `pulumi:"ec2InstanceProfileArn"`
+	// The instance requirements. You can specify:
+	//
+	// - The instance types
+	// - Instance requirements such as vCPU count, memory, network performance, and accelerator specifications
+	//
+	// Amazon ECS automatically selects the instances that match the specified criteria.
+	InstanceRequirements *CapacityProviderInstanceRequirementsRequest `pulumi:"instanceRequirements"`
+	// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/detailed-monitoring-managed-instances.html) in the Amazon ECS Developer Guide.
+	Monitoring *CapacityProviderManagedInstancesMonitoringOptions `pulumi:"monitoring"`
+	// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity.
+	NetworkConfiguration CapacityProviderManagedInstancesNetworkConfiguration `pulumi:"networkConfiguration"`
+	// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances.
+	StorageConfiguration *CapacityProviderManagedInstancesStorageConfiguration `pulumi:"storageConfiguration"`
 }
 
 // CapacityProviderInstanceLaunchTemplateInput is an input type that accepts CapacityProviderInstanceLaunchTemplateArgs and CapacityProviderInstanceLaunchTemplateOutput values.
@@ -701,11 +737,23 @@ type CapacityProviderInstanceLaunchTemplateInput interface {
 }
 
 type CapacityProviderInstanceLaunchTemplateArgs struct {
-	Ec2InstanceProfileArn pulumi.StringInput                                           `pulumi:"ec2InstanceProfileArn"`
-	InstanceRequirements  CapacityProviderInstanceRequirementsRequestPtrInput          `pulumi:"instanceRequirements"`
-	Monitoring            CapacityProviderManagedInstancesMonitoringOptionsPtrInput    `pulumi:"monitoring"`
-	NetworkConfiguration  CapacityProviderManagedInstancesNetworkConfigurationInput    `pulumi:"networkConfiguration"`
-	StorageConfiguration  CapacityProviderManagedInstancesStorageConfigurationPtrInput `pulumi:"storageConfiguration"`
+	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
+	//
+	// For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html) in the *Amazon ECS Developer Guide* .
+	Ec2InstanceProfileArn pulumi.StringInput `pulumi:"ec2InstanceProfileArn"`
+	// The instance requirements. You can specify:
+	//
+	// - The instance types
+	// - Instance requirements such as vCPU count, memory, network performance, and accelerator specifications
+	//
+	// Amazon ECS automatically selects the instances that match the specified criteria.
+	InstanceRequirements CapacityProviderInstanceRequirementsRequestPtrInput `pulumi:"instanceRequirements"`
+	// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/detailed-monitoring-managed-instances.html) in the Amazon ECS Developer Guide.
+	Monitoring CapacityProviderManagedInstancesMonitoringOptionsPtrInput `pulumi:"monitoring"`
+	// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity.
+	NetworkConfiguration CapacityProviderManagedInstancesNetworkConfigurationInput `pulumi:"networkConfiguration"`
+	// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances.
+	StorageConfiguration CapacityProviderManagedInstancesStorageConfigurationPtrInput `pulumi:"storageConfiguration"`
 }
 
 func (CapacityProviderInstanceLaunchTemplateArgs) ElementType() reflect.Type {
@@ -785,28 +833,40 @@ func (o CapacityProviderInstanceLaunchTemplateOutput) ToCapacityProviderInstance
 	}).(CapacityProviderInstanceLaunchTemplatePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
+//
+// For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html) in the *Amazon ECS Developer Guide* .
 func (o CapacityProviderInstanceLaunchTemplateOutput) Ec2InstanceProfileArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) string { return v.Ec2InstanceProfileArn }).(pulumi.StringOutput)
 }
 
+// The instance requirements. You can specify:
+//
+// - The instance types
+// - Instance requirements such as vCPU count, memory, network performance, and accelerator specifications
+//
+// Amazon ECS automatically selects the instances that match the specified criteria.
 func (o CapacityProviderInstanceLaunchTemplateOutput) InstanceRequirements() CapacityProviderInstanceRequirementsRequestPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) *CapacityProviderInstanceRequirementsRequest {
 		return v.InstanceRequirements
 	}).(CapacityProviderInstanceRequirementsRequestPtrOutput)
 }
 
+// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/detailed-monitoring-managed-instances.html) in the Amazon ECS Developer Guide.
 func (o CapacityProviderInstanceLaunchTemplateOutput) Monitoring() CapacityProviderManagedInstancesMonitoringOptionsPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesMonitoringOptions {
 		return v.Monitoring
 	}).(CapacityProviderManagedInstancesMonitoringOptionsPtrOutput)
 }
 
+// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity.
 func (o CapacityProviderInstanceLaunchTemplateOutput) NetworkConfiguration() CapacityProviderManagedInstancesNetworkConfigurationOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) CapacityProviderManagedInstancesNetworkConfiguration {
 		return v.NetworkConfiguration
 	}).(CapacityProviderManagedInstancesNetworkConfigurationOutput)
 }
 
+// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances.
 func (o CapacityProviderInstanceLaunchTemplateOutput) StorageConfiguration() CapacityProviderManagedInstancesStorageConfigurationPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesStorageConfiguration {
 		return v.StorageConfiguration
@@ -837,6 +897,9 @@ func (o CapacityProviderInstanceLaunchTemplatePtrOutput) Elem() CapacityProvider
 	}).(CapacityProviderInstanceLaunchTemplateOutput)
 }
 
+// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
+//
+// For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html) in the *Amazon ECS Developer Guide* .
 func (o CapacityProviderInstanceLaunchTemplatePtrOutput) Ec2InstanceProfileArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) *string {
 		if v == nil {
@@ -846,6 +909,12 @@ func (o CapacityProviderInstanceLaunchTemplatePtrOutput) Ec2InstanceProfileArn()
 	}).(pulumi.StringPtrOutput)
 }
 
+// The instance requirements. You can specify:
+//
+// - The instance types
+// - Instance requirements such as vCPU count, memory, network performance, and accelerator specifications
+//
+// Amazon ECS automatically selects the instances that match the specified criteria.
 func (o CapacityProviderInstanceLaunchTemplatePtrOutput) InstanceRequirements() CapacityProviderInstanceRequirementsRequestPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) *CapacityProviderInstanceRequirementsRequest {
 		if v == nil {
@@ -855,6 +924,7 @@ func (o CapacityProviderInstanceLaunchTemplatePtrOutput) InstanceRequirements() 
 	}).(CapacityProviderInstanceRequirementsRequestPtrOutput)
 }
 
+// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/detailed-monitoring-managed-instances.html) in the Amazon ECS Developer Guide.
 func (o CapacityProviderInstanceLaunchTemplatePtrOutput) Monitoring() CapacityProviderManagedInstancesMonitoringOptionsPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesMonitoringOptions {
 		if v == nil {
@@ -864,6 +934,7 @@ func (o CapacityProviderInstanceLaunchTemplatePtrOutput) Monitoring() CapacityPr
 	}).(CapacityProviderManagedInstancesMonitoringOptionsPtrOutput)
 }
 
+// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity.
 func (o CapacityProviderInstanceLaunchTemplatePtrOutput) NetworkConfiguration() CapacityProviderManagedInstancesNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesNetworkConfiguration {
 		if v == nil {
@@ -873,6 +944,7 @@ func (o CapacityProviderInstanceLaunchTemplatePtrOutput) NetworkConfiguration() 
 	}).(CapacityProviderManagedInstancesNetworkConfigurationPtrOutput)
 }
 
+// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances.
 func (o CapacityProviderInstanceLaunchTemplatePtrOutput) StorageConfiguration() CapacityProviderManagedInstancesStorageConfigurationPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesStorageConfiguration {
 		if v == nil {
@@ -883,30 +955,54 @@ func (o CapacityProviderInstanceLaunchTemplatePtrOutput) StorageConfiguration() 
 }
 
 type CapacityProviderInstanceRequirementsRequest struct {
-	AcceleratorCount                               *CapacityProviderAcceleratorCountRequest                                  `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                       []CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                               []CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem         `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMiB                      *CapacityProviderAcceleratorTotalMemoryMiBRequest                         `pulumi:"acceleratorTotalMemoryMiB"`
-	AcceleratorTypes                               []CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem         `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                           []string                                                                  `pulumi:"allowedInstanceTypes"`
-	BareMetal                                      *CapacityProviderInstanceRequirementsRequestBareMetal                     `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                       *CapacityProviderBaselineEbsBandwidthMbpsRequest                          `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                           *CapacityProviderInstanceRequirementsRequestBurstablePerformance          `pulumi:"burstablePerformance"`
-	CpuManufacturers                               []CapacityProviderInstanceRequirementsRequestCpuManufacturersItem         `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                          []string                                                                  `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                            []CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem      `pulumi:"instanceGenerations"`
-	LocalStorage                                   *CapacityProviderInstanceRequirementsRequestLocalStorage                  `pulumi:"localStorage"`
-	LocalStorageTypes                              []CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem        `pulumi:"localStorageTypes"`
-	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int                                                                      `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
-	MemoryGiBPerVCpu                               *CapacityProviderMemoryGiBPerVCpuRequest                                  `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                      CapacityProviderMemoryMiBRequest                                          `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                           *CapacityProviderNetworkBandwidthGbpsRequest                              `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                          *CapacityProviderNetworkInterfaceCountRequest                             `pulumi:"networkInterfaceCount"`
-	OnDemandMaxPricePercentageOverLowestPrice      *int                                                                      `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                        *bool                                                                     `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice          *int                                                                      `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                            *CapacityProviderTotalLocalStorageGbRequest                               `pulumi:"totalLocalStorageGb"`
-	VCpuCount                                      CapacityProviderVCpuCountRangeRequest                                     `pulumi:"vCpuCount"`
+	// The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+	AcceleratorCount *CapacityProviderAcceleratorCountRequest `pulumi:"acceleratorCount"`
+	// The accelerator manufacturers to include. You can specify `nvidia` , `amd` , `amazon-web-services` , or `xilinx` depending on your accelerator requirements.
+	AcceleratorManufacturers []CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem `pulumi:"acceleratorManufacturers"`
+	// The specific accelerator names to include. For example, you can specify `a100` , `v100` , `k80` , or other specific accelerator models.
+	AcceleratorNames []CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem `pulumi:"acceleratorNames"`
+	// The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+	AcceleratorTotalMemoryMiB *CapacityProviderAcceleratorTotalMemoryMiBRequest `pulumi:"acceleratorTotalMemoryMiB"`
+	// The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators.
+	AcceleratorTypes []CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem `pulumi:"acceleratorTypes"`
+	// The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified.
+	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
+	// Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances.
+	BareMetal *CapacityProviderInstanceRequirementsRequestBareMetal `pulumi:"bareMetal"`
+	// The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+	BaselineEbsBandwidthMbps *CapacityProviderBaselineEbsBandwidthMbpsRequest `pulumi:"baselineEbsBandwidthMbps"`
+	// Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances.
+	BurstablePerformance *CapacityProviderInstanceRequirementsRequestBurstablePerformance `pulumi:"burstablePerformance"`
+	// The CPU manufacturers to include or exclude. You can specify `intel` , `amd` , or `amazon-web-services` to control which CPU types are used for your workloads.
+	CpuManufacturers []CapacityProviderInstanceRequirementsRequestCpuManufacturersItem `pulumi:"cpuManufacturers"`
+	// The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads.
+	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
+	// The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization.
+	InstanceGenerations []CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem `pulumi:"instanceGenerations"`
+	// Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage.
+	LocalStorage *CapacityProviderInstanceRequirementsRequestLocalStorage `pulumi:"localStorage"`
+	// The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both.
+	LocalStorageTypes []CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem `pulumi:"localStorageTypes"`
+	// The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	// The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+	MemoryGiBPerVCpu *CapacityProviderMemoryGiBPerVCpuRequest `pulumi:"memoryGiBPerVCpu"`
+	// The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+	MemoryMiB CapacityProviderMemoryMiBRequest `pulumi:"memoryMiB"`
+	// The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+	NetworkBandwidthGbps *CapacityProviderNetworkBandwidthGbpsRequest `pulumi:"networkBandwidthGbps"`
+	// The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+	NetworkInterfaceCount *CapacityProviderNetworkInterfaceCountRequest `pulumi:"networkInterfaceCount"`
+	// The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon ECS selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
+	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicates whether the instance types must support hibernation. When set to `true` , only instance types that support hibernation are selected.
+	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
+	// The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+	SpotMaxPricePercentageOverLowestPrice *int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+	TotalLocalStorageGb *CapacityProviderTotalLocalStorageGbRequest `pulumi:"totalLocalStorageGb"`
+	// The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+	VCpuCount CapacityProviderVCpuCountRangeRequest `pulumi:"vCpuCount"`
 }
 
 // CapacityProviderInstanceRequirementsRequestInput is an input type that accepts CapacityProviderInstanceRequirementsRequestArgs and CapacityProviderInstanceRequirementsRequestOutput values.
@@ -921,30 +1017,54 @@ type CapacityProviderInstanceRequirementsRequestInput interface {
 }
 
 type CapacityProviderInstanceRequirementsRequestArgs struct {
-	AcceleratorCount                               CapacityProviderAcceleratorCountRequestPtrInput                                   `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                       CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                               CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemArrayInput         `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMiB                      CapacityProviderAcceleratorTotalMemoryMiBRequestPtrInput                          `pulumi:"acceleratorTotalMemoryMiB"`
-	AcceleratorTypes                               CapacityProviderInstanceRequirementsRequestAcceleratorTypesItemArrayInput         `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                           pulumi.StringArrayInput                                                           `pulumi:"allowedInstanceTypes"`
-	BareMetal                                      CapacityProviderInstanceRequirementsRequestBareMetalPtrInput                      `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                       CapacityProviderBaselineEbsBandwidthMbpsRequestPtrInput                           `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                           CapacityProviderInstanceRequirementsRequestBurstablePerformancePtrInput           `pulumi:"burstablePerformance"`
-	CpuManufacturers                               CapacityProviderInstanceRequirementsRequestCpuManufacturersItemArrayInput         `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                          pulumi.StringArrayInput                                                           `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                            CapacityProviderInstanceRequirementsRequestInstanceGenerationsItemArrayInput      `pulumi:"instanceGenerations"`
-	LocalStorage                                   CapacityProviderInstanceRequirementsRequestLocalStoragePtrInput                   `pulumi:"localStorage"`
-	LocalStorageTypes                              CapacityProviderInstanceRequirementsRequestLocalStorageTypesItemArrayInput        `pulumi:"localStorageTypes"`
-	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput                                                                `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
-	MemoryGiBPerVCpu                               CapacityProviderMemoryGiBPerVCpuRequestPtrInput                                   `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                      CapacityProviderMemoryMiBRequestInput                                             `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                           CapacityProviderNetworkBandwidthGbpsRequestPtrInput                               `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                          CapacityProviderNetworkInterfaceCountRequestPtrInput                              `pulumi:"networkInterfaceCount"`
-	OnDemandMaxPricePercentageOverLowestPrice      pulumi.IntPtrInput                                                                `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                        pulumi.BoolPtrInput                                                               `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice          pulumi.IntPtrInput                                                                `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                            CapacityProviderTotalLocalStorageGbRequestPtrInput                                `pulumi:"totalLocalStorageGb"`
-	VCpuCount                                      CapacityProviderVCpuCountRangeRequestInput                                        `pulumi:"vCpuCount"`
+	// The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+	AcceleratorCount CapacityProviderAcceleratorCountRequestPtrInput `pulumi:"acceleratorCount"`
+	// The accelerator manufacturers to include. You can specify `nvidia` , `amd` , `amazon-web-services` , or `xilinx` depending on your accelerator requirements.
+	AcceleratorManufacturers CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput `pulumi:"acceleratorManufacturers"`
+	// The specific accelerator names to include. For example, you can specify `a100` , `v100` , `k80` , or other specific accelerator models.
+	AcceleratorNames CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemArrayInput `pulumi:"acceleratorNames"`
+	// The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+	AcceleratorTotalMemoryMiB CapacityProviderAcceleratorTotalMemoryMiBRequestPtrInput `pulumi:"acceleratorTotalMemoryMiB"`
+	// The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators.
+	AcceleratorTypes CapacityProviderInstanceRequirementsRequestAcceleratorTypesItemArrayInput `pulumi:"acceleratorTypes"`
+	// The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified.
+	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
+	// Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances.
+	BareMetal CapacityProviderInstanceRequirementsRequestBareMetalPtrInput `pulumi:"bareMetal"`
+	// The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+	BaselineEbsBandwidthMbps CapacityProviderBaselineEbsBandwidthMbpsRequestPtrInput `pulumi:"baselineEbsBandwidthMbps"`
+	// Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances.
+	BurstablePerformance CapacityProviderInstanceRequirementsRequestBurstablePerformancePtrInput `pulumi:"burstablePerformance"`
+	// The CPU manufacturers to include or exclude. You can specify `intel` , `amd` , or `amazon-web-services` to control which CPU types are used for your workloads.
+	CpuManufacturers CapacityProviderInstanceRequirementsRequestCpuManufacturersItemArrayInput `pulumi:"cpuManufacturers"`
+	// The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads.
+	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
+	// The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization.
+	InstanceGenerations CapacityProviderInstanceRequirementsRequestInstanceGenerationsItemArrayInput `pulumi:"instanceGenerations"`
+	// Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage.
+	LocalStorage CapacityProviderInstanceRequirementsRequestLocalStoragePtrInput `pulumi:"localStorage"`
+	// The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both.
+	LocalStorageTypes CapacityProviderInstanceRequirementsRequestLocalStorageTypesItemArrayInput `pulumi:"localStorageTypes"`
+	// The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	// The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+	MemoryGiBPerVCpu CapacityProviderMemoryGiBPerVCpuRequestPtrInput `pulumi:"memoryGiBPerVCpu"`
+	// The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+	MemoryMiB CapacityProviderMemoryMiBRequestInput `pulumi:"memoryMiB"`
+	// The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+	NetworkBandwidthGbps CapacityProviderNetworkBandwidthGbpsRequestPtrInput `pulumi:"networkBandwidthGbps"`
+	// The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+	NetworkInterfaceCount CapacityProviderNetworkInterfaceCountRequestPtrInput `pulumi:"networkInterfaceCount"`
+	// The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon ECS selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
+	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicates whether the instance types must support hibernation. When set to `true` , only instance types that support hibernation are selected.
+	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
+	// The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+	TotalLocalStorageGb CapacityProviderTotalLocalStorageGbRequestPtrInput `pulumi:"totalLocalStorageGb"`
+	// The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+	VCpuCount CapacityProviderVCpuCountRangeRequestInput `pulumi:"vCpuCount"`
 }
 
 func (CapacityProviderInstanceRequirementsRequestArgs) ElementType() reflect.Type {
@@ -1024,138 +1144,162 @@ func (o CapacityProviderInstanceRequirementsRequestOutput) ToCapacityProviderIns
 	}).(CapacityProviderInstanceRequirementsRequestPtrOutput)
 }
 
+// The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
 func (o CapacityProviderInstanceRequirementsRequestOutput) AcceleratorCount() CapacityProviderAcceleratorCountRequestPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderAcceleratorCountRequest {
 		return v.AcceleratorCount
 	}).(CapacityProviderAcceleratorCountRequestPtrOutput)
 }
 
+// The accelerator manufacturers to include. You can specify `nvidia` , `amd` , `amazon-web-services` , or `xilinx` depending on your accelerator requirements.
 func (o CapacityProviderInstanceRequirementsRequestOutput) AcceleratorManufacturers() CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem {
 		return v.AcceleratorManufacturers
 	}).(CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
 }
 
+// The specific accelerator names to include. For example, you can specify `a100` , `v100` , `k80` , or other specific accelerator models.
 func (o CapacityProviderInstanceRequirementsRequestOutput) AcceleratorNames() CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem {
 		return v.AcceleratorNames
 	}).(CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
 }
 
+// The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
 func (o CapacityProviderInstanceRequirementsRequestOutput) AcceleratorTotalMemoryMiB() CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderAcceleratorTotalMemoryMiBRequest {
 		return v.AcceleratorTotalMemoryMiB
 	}).(CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput)
 }
 
+// The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators.
 func (o CapacityProviderInstanceRequirementsRequestOutput) AcceleratorTypes() CapacityProviderInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem {
 		return v.AcceleratorTypes
 	}).(CapacityProviderInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
 }
 
+// The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified.
 func (o CapacityProviderInstanceRequirementsRequestOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances.
 func (o CapacityProviderInstanceRequirementsRequestOutput) BareMetal() CapacityProviderInstanceRequirementsRequestBareMetalPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderInstanceRequirementsRequestBareMetal {
 		return v.BareMetal
 	}).(CapacityProviderInstanceRequirementsRequestBareMetalPtrOutput)
 }
 
+// The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
 func (o CapacityProviderInstanceRequirementsRequestOutput) BaselineEbsBandwidthMbps() CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderBaselineEbsBandwidthMbpsRequest {
 		return v.BaselineEbsBandwidthMbps
 	}).(CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
+// Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances.
 func (o CapacityProviderInstanceRequirementsRequestOutput) BurstablePerformance() CapacityProviderInstanceRequirementsRequestBurstablePerformancePtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderInstanceRequirementsRequestBurstablePerformance {
 		return v.BurstablePerformance
 	}).(CapacityProviderInstanceRequirementsRequestBurstablePerformancePtrOutput)
 }
 
+// The CPU manufacturers to include or exclude. You can specify `intel` , `amd` , or `amazon-web-services` to control which CPU types are used for your workloads.
 func (o CapacityProviderInstanceRequirementsRequestOutput) CpuManufacturers() CapacityProviderInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestCpuManufacturersItem {
 		return v.CpuManufacturers
 	}).(CapacityProviderInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
 }
 
+// The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads.
 func (o CapacityProviderInstanceRequirementsRequestOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
+// The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization.
 func (o CapacityProviderInstanceRequirementsRequestOutput) InstanceGenerations() CapacityProviderInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem {
 		return v.InstanceGenerations
 	}).(CapacityProviderInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
 }
 
+// Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage.
 func (o CapacityProviderInstanceRequirementsRequestOutput) LocalStorage() CapacityProviderInstanceRequirementsRequestLocalStoragePtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderInstanceRequirementsRequestLocalStorage {
 		return v.LocalStorage
 	}).(CapacityProviderInstanceRequirementsRequestLocalStoragePtrOutput)
 }
 
+// The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both.
 func (o CapacityProviderInstanceRequirementsRequestOutput) LocalStorageTypes() CapacityProviderInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem {
 		return v.LocalStorageTypes
 	}).(CapacityProviderInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
 }
 
+// The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
 func (o CapacityProviderInstanceRequirementsRequestOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *int {
 		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
 func (o CapacityProviderInstanceRequirementsRequestOutput) MemoryGiBPerVCpu() CapacityProviderMemoryGiBPerVCpuRequestPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderMemoryGiBPerVCpuRequest {
 		return v.MemoryGiBPerVCpu
 	}).(CapacityProviderMemoryGiBPerVCpuRequestPtrOutput)
 }
 
+// The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
 func (o CapacityProviderInstanceRequirementsRequestOutput) MemoryMiB() CapacityProviderMemoryMiBRequestOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) CapacityProviderMemoryMiBRequest {
 		return v.MemoryMiB
 	}).(CapacityProviderMemoryMiBRequestOutput)
 }
 
+// The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
 func (o CapacityProviderInstanceRequirementsRequestOutput) NetworkBandwidthGbps() CapacityProviderNetworkBandwidthGbpsRequestPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderNetworkBandwidthGbpsRequest {
 		return v.NetworkBandwidthGbps
 	}).(CapacityProviderNetworkBandwidthGbpsRequestPtrOutput)
 }
 
+// The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
 func (o CapacityProviderInstanceRequirementsRequestOutput) NetworkInterfaceCount() CapacityProviderNetworkInterfaceCountRequestPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderNetworkInterfaceCountRequest {
 		return v.NetworkInterfaceCount
 	}).(CapacityProviderNetworkInterfaceCountRequestPtrOutput)
 }
 
+// The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon ECS selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
 func (o CapacityProviderInstanceRequirementsRequestOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *int {
 		return v.OnDemandMaxPricePercentageOverLowestPrice
 	}).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether the instance types must support hibernation. When set to `true` , only instance types that support hibernation are selected.
 func (o CapacityProviderInstanceRequirementsRequestOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *bool { return v.RequireHibernateSupport }).(pulumi.BoolPtrOutput)
 }
 
+// The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
 func (o CapacityProviderInstanceRequirementsRequestOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *int {
 		return v.SpotMaxPricePercentageOverLowestPrice
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
 func (o CapacityProviderInstanceRequirementsRequestOutput) TotalLocalStorageGb() CapacityProviderTotalLocalStorageGbRequestPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) *CapacityProviderTotalLocalStorageGbRequest {
 		return v.TotalLocalStorageGb
 	}).(CapacityProviderTotalLocalStorageGbRequestPtrOutput)
 }
 
+// The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
 func (o CapacityProviderInstanceRequirementsRequestOutput) VCpuCount() CapacityProviderVCpuCountRangeRequestOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirementsRequest) CapacityProviderVCpuCountRangeRequest {
 		return v.VCpuCount
@@ -1186,6 +1330,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) Elem() CapacityPro
 	}).(CapacityProviderInstanceRequirementsRequestOutput)
 }
 
+// The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AcceleratorCount() CapacityProviderAcceleratorCountRequestPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderAcceleratorCountRequest {
 		if v == nil {
@@ -1195,6 +1340,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AcceleratorCount()
 	}).(CapacityProviderAcceleratorCountRequestPtrOutput)
 }
 
+// The accelerator manufacturers to include. You can specify `nvidia` , `amd` , `amazon-web-services` , or `xilinx` depending on your accelerator requirements.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AcceleratorManufacturers() CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem {
 		if v == nil {
@@ -1204,6 +1350,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AcceleratorManufac
 	}).(CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
 }
 
+// The specific accelerator names to include. For example, you can specify `a100` , `v100` , `k80` , or other specific accelerator models.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AcceleratorNames() CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem {
 		if v == nil {
@@ -1213,6 +1360,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AcceleratorNames()
 	}).(CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
 }
 
+// The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AcceleratorTotalMemoryMiB() CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderAcceleratorTotalMemoryMiBRequest {
 		if v == nil {
@@ -1222,6 +1370,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AcceleratorTotalMe
 	}).(CapacityProviderAcceleratorTotalMemoryMiBRequestPtrOutput)
 }
 
+// The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AcceleratorTypes() CapacityProviderInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem {
 		if v == nil {
@@ -1231,6 +1380,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AcceleratorTypes()
 	}).(CapacityProviderInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
 }
 
+// The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) []string {
 		if v == nil {
@@ -1240,6 +1390,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) AllowedInstanceTyp
 	}).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) BareMetal() CapacityProviderInstanceRequirementsRequestBareMetalPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderInstanceRequirementsRequestBareMetal {
 		if v == nil {
@@ -1249,6 +1400,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) BareMetal() Capaci
 	}).(CapacityProviderInstanceRequirementsRequestBareMetalPtrOutput)
 }
 
+// The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) BaselineEbsBandwidthMbps() CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderBaselineEbsBandwidthMbpsRequest {
 		if v == nil {
@@ -1258,6 +1410,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) BaselineEbsBandwid
 	}).(CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
+// Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) BurstablePerformance() CapacityProviderInstanceRequirementsRequestBurstablePerformancePtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderInstanceRequirementsRequestBurstablePerformance {
 		if v == nil {
@@ -1267,6 +1420,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) BurstablePerforman
 	}).(CapacityProviderInstanceRequirementsRequestBurstablePerformancePtrOutput)
 }
 
+// The CPU manufacturers to include or exclude. You can specify `intel` , `amd` , or `amazon-web-services` to control which CPU types are used for your workloads.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) CpuManufacturers() CapacityProviderInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestCpuManufacturersItem {
 		if v == nil {
@@ -1276,6 +1430,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) CpuManufacturers()
 	}).(CapacityProviderInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
 }
 
+// The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) []string {
 		if v == nil {
@@ -1285,6 +1440,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) ExcludedInstanceTy
 	}).(pulumi.StringArrayOutput)
 }
 
+// The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) InstanceGenerations() CapacityProviderInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem {
 		if v == nil {
@@ -1294,6 +1450,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) InstanceGeneration
 	}).(CapacityProviderInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
 }
 
+// Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) LocalStorage() CapacityProviderInstanceRequirementsRequestLocalStoragePtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderInstanceRequirementsRequestLocalStorage {
 		if v == nil {
@@ -1303,6 +1460,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) LocalStorage() Cap
 	}).(CapacityProviderInstanceRequirementsRequestLocalStoragePtrOutput)
 }
 
+// The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) LocalStorageTypes() CapacityProviderInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) []CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem {
 		if v == nil {
@@ -1312,6 +1470,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) LocalStorageTypes(
 	}).(CapacityProviderInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
 }
 
+// The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *int {
 		if v == nil {
@@ -1321,6 +1480,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) MaxSpotPriceAsPerc
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) MemoryGiBPerVCpu() CapacityProviderMemoryGiBPerVCpuRequestPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderMemoryGiBPerVCpuRequest {
 		if v == nil {
@@ -1330,6 +1490,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) MemoryGiBPerVCpu()
 	}).(CapacityProviderMemoryGiBPerVCpuRequestPtrOutput)
 }
 
+// The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) MemoryMiB() CapacityProviderMemoryMiBRequestPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderMemoryMiBRequest {
 		if v == nil {
@@ -1339,6 +1500,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) MemoryMiB() Capaci
 	}).(CapacityProviderMemoryMiBRequestPtrOutput)
 }
 
+// The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) NetworkBandwidthGbps() CapacityProviderNetworkBandwidthGbpsRequestPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderNetworkBandwidthGbpsRequest {
 		if v == nil {
@@ -1348,6 +1510,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) NetworkBandwidthGb
 	}).(CapacityProviderNetworkBandwidthGbpsRequestPtrOutput)
 }
 
+// The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) NetworkInterfaceCount() CapacityProviderNetworkInterfaceCountRequestPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderNetworkInterfaceCountRequest {
 		if v == nil {
@@ -1357,6 +1520,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) NetworkInterfaceCo
 	}).(CapacityProviderNetworkInterfaceCountRequestPtrOutput)
 }
 
+// The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon ECS selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *int {
 		if v == nil {
@@ -1366,6 +1530,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) OnDemandMaxPricePe
 	}).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether the instance types must support hibernation. When set to `true` , only instance types that support hibernation are selected.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *bool {
 		if v == nil {
@@ -1375,6 +1540,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) RequireHibernateSu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *int {
 		if v == nil {
@@ -1384,6 +1550,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) SpotMaxPricePercen
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) TotalLocalStorageGb() CapacityProviderTotalLocalStorageGbRequestPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderTotalLocalStorageGbRequest {
 		if v == nil {
@@ -1393,6 +1560,7 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) TotalLocalStorageG
 	}).(CapacityProviderTotalLocalStorageGbRequestPtrOutput)
 }
 
+// The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
 func (o CapacityProviderInstanceRequirementsRequestPtrOutput) VCpuCount() CapacityProviderVCpuCountRangeRequestPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirementsRequest) *CapacityProviderVCpuCountRangeRequest {
 		if v == nil {
@@ -1403,8 +1571,10 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) VCpuCount() Capaci
 }
 
 type CapacityProviderManagedInstancesNetworkConfiguration struct {
+	// The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	Subnets        []string `pulumi:"subnets"`
+	// The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+	Subnets []string `pulumi:"subnets"`
 }
 
 // CapacityProviderManagedInstancesNetworkConfigurationInput is an input type that accepts CapacityProviderManagedInstancesNetworkConfigurationArgs and CapacityProviderManagedInstancesNetworkConfigurationOutput values.
@@ -1419,8 +1589,10 @@ type CapacityProviderManagedInstancesNetworkConfigurationInput interface {
 }
 
 type CapacityProviderManagedInstancesNetworkConfigurationArgs struct {
+	// The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	Subnets        pulumi.StringArrayInput `pulumi:"subnets"`
+	// The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
 func (CapacityProviderManagedInstancesNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -1500,10 +1672,12 @@ func (o CapacityProviderManagedInstancesNetworkConfigurationOutput) ToCapacityPr
 	}).(CapacityProviderManagedInstancesNetworkConfigurationPtrOutput)
 }
 
+// The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
 func (o CapacityProviderManagedInstancesNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesNetworkConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
 func (o CapacityProviderManagedInstancesNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesNetworkConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -1532,6 +1706,7 @@ func (o CapacityProviderManagedInstancesNetworkConfigurationPtrOutput) Elem() Ca
 	}).(CapacityProviderManagedInstancesNetworkConfigurationOutput)
 }
 
+// The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
 func (o CapacityProviderManagedInstancesNetworkConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesNetworkConfiguration) []string {
 		if v == nil {
@@ -1541,6 +1716,7 @@ func (o CapacityProviderManagedInstancesNetworkConfigurationPtrOutput) SecurityG
 	}).(pulumi.StringArrayOutput)
 }
 
+// The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
 func (o CapacityProviderManagedInstancesNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesNetworkConfiguration) []string {
 		if v == nil {
@@ -1551,9 +1727,16 @@ func (o CapacityProviderManagedInstancesNetworkConfigurationPtrOutput) Subnets()
 }
 
 type CapacityProviderManagedInstancesProvider struct {
-	InfrastructureRoleArn  string                                                 `pulumi:"infrastructureRoleArn"`
-	InstanceLaunchTemplate CapacityProviderInstanceLaunchTemplate                 `pulumi:"instanceLaunchTemplate"`
-	PropagateTags          *CapacityProviderManagedInstancesProviderPropagateTags `pulumi:"propagateTags"`
+	// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS assumes to manage instances. This role must include permissions for Amazon EC2 instance lifecycle management, networking, and any additional AWS services required for your workloads.
+	//
+	// For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide* .
+	InfrastructureRoleArn string `pulumi:"infrastructureRoleArn"`
+	// The launch template that defines how Amazon ECS launches Amazon ECS Managed Instances. This includes the instance profile for your tasks, network and storage configuration, and instance requirements that determine which Amazon EC2 instance types can be used.
+	//
+	// For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide* .
+	InstanceLaunchTemplate CapacityProviderInstanceLaunchTemplate `pulumi:"instanceLaunchTemplate"`
+	// Determines whether tags from the capacity provider are automatically applied to Amazon ECS Managed Instances. This helps with cost allocation and resource management by ensuring consistent tagging across your infrastructure.
+	PropagateTags *CapacityProviderManagedInstancesProviderPropagateTags `pulumi:"propagateTags"`
 }
 
 // CapacityProviderManagedInstancesProviderInput is an input type that accepts CapacityProviderManagedInstancesProviderArgs and CapacityProviderManagedInstancesProviderOutput values.
@@ -1568,9 +1751,16 @@ type CapacityProviderManagedInstancesProviderInput interface {
 }
 
 type CapacityProviderManagedInstancesProviderArgs struct {
-	InfrastructureRoleArn  pulumi.StringInput                                            `pulumi:"infrastructureRoleArn"`
-	InstanceLaunchTemplate CapacityProviderInstanceLaunchTemplateInput                   `pulumi:"instanceLaunchTemplate"`
-	PropagateTags          CapacityProviderManagedInstancesProviderPropagateTagsPtrInput `pulumi:"propagateTags"`
+	// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS assumes to manage instances. This role must include permissions for Amazon EC2 instance lifecycle management, networking, and any additional AWS services required for your workloads.
+	//
+	// For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide* .
+	InfrastructureRoleArn pulumi.StringInput `pulumi:"infrastructureRoleArn"`
+	// The launch template that defines how Amazon ECS launches Amazon ECS Managed Instances. This includes the instance profile for your tasks, network and storage configuration, and instance requirements that determine which Amazon EC2 instance types can be used.
+	//
+	// For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide* .
+	InstanceLaunchTemplate CapacityProviderInstanceLaunchTemplateInput `pulumi:"instanceLaunchTemplate"`
+	// Determines whether tags from the capacity provider are automatically applied to Amazon ECS Managed Instances. This helps with cost allocation and resource management by ensuring consistent tagging across your infrastructure.
+	PropagateTags CapacityProviderManagedInstancesProviderPropagateTagsPtrInput `pulumi:"propagateTags"`
 }
 
 func (CapacityProviderManagedInstancesProviderArgs) ElementType() reflect.Type {
@@ -1650,16 +1840,23 @@ func (o CapacityProviderManagedInstancesProviderOutput) ToCapacityProviderManage
 	}).(CapacityProviderManagedInstancesProviderPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS assumes to manage instances. This role must include permissions for Amazon EC2 instance lifecycle management, networking, and any additional AWS services required for your workloads.
+//
+// For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide* .
 func (o CapacityProviderManagedInstancesProviderOutput) InfrastructureRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) string { return v.InfrastructureRoleArn }).(pulumi.StringOutput)
 }
 
+// The launch template that defines how Amazon ECS launches Amazon ECS Managed Instances. This includes the instance profile for your tasks, network and storage configuration, and instance requirements that determine which Amazon EC2 instance types can be used.
+//
+// For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide* .
 func (o CapacityProviderManagedInstancesProviderOutput) InstanceLaunchTemplate() CapacityProviderInstanceLaunchTemplateOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) CapacityProviderInstanceLaunchTemplate {
 		return v.InstanceLaunchTemplate
 	}).(CapacityProviderInstanceLaunchTemplateOutput)
 }
 
+// Determines whether tags from the capacity provider are automatically applied to Amazon ECS Managed Instances. This helps with cost allocation and resource management by ensuring consistent tagging across your infrastructure.
 func (o CapacityProviderManagedInstancesProviderOutput) PropagateTags() CapacityProviderManagedInstancesProviderPropagateTagsPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProviderPropagateTags {
 		return v.PropagateTags
@@ -1690,6 +1887,9 @@ func (o CapacityProviderManagedInstancesProviderPtrOutput) Elem() CapacityProvid
 	}).(CapacityProviderManagedInstancesProviderOutput)
 }
 
+// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS assumes to manage instances. This role must include permissions for Amazon EC2 instance lifecycle management, networking, and any additional AWS services required for your workloads.
+//
+// For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide* .
 func (o CapacityProviderManagedInstancesProviderPtrOutput) InfrastructureRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *string {
 		if v == nil {
@@ -1699,6 +1899,9 @@ func (o CapacityProviderManagedInstancesProviderPtrOutput) InfrastructureRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The launch template that defines how Amazon ECS launches Amazon ECS Managed Instances. This includes the instance profile for your tasks, network and storage configuration, and instance requirements that determine which Amazon EC2 instance types can be used.
+//
+// For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide* .
 func (o CapacityProviderManagedInstancesProviderPtrOutput) InstanceLaunchTemplate() CapacityProviderInstanceLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *CapacityProviderInstanceLaunchTemplate {
 		if v == nil {
@@ -1708,6 +1911,7 @@ func (o CapacityProviderManagedInstancesProviderPtrOutput) InstanceLaunchTemplat
 	}).(CapacityProviderInstanceLaunchTemplatePtrOutput)
 }
 
+// Determines whether tags from the capacity provider are automatically applied to Amazon ECS Managed Instances. This helps with cost allocation and resource management by ensuring consistent tagging across your infrastructure.
 func (o CapacityProviderManagedInstancesProviderPtrOutput) PropagateTags() CapacityProviderManagedInstancesProviderPropagateTagsPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProviderPropagateTags {
 		if v == nil {
@@ -1718,6 +1922,7 @@ func (o CapacityProviderManagedInstancesProviderPtrOutput) PropagateTags() Capac
 }
 
 type CapacityProviderManagedInstancesStorageConfiguration struct {
+	// The size of the tasks volume.
 	StorageSizeGiB int `pulumi:"storageSizeGiB"`
 }
 
@@ -1733,6 +1938,7 @@ type CapacityProviderManagedInstancesStorageConfigurationInput interface {
 }
 
 type CapacityProviderManagedInstancesStorageConfigurationArgs struct {
+	// The size of the tasks volume.
 	StorageSizeGiB pulumi.IntInput `pulumi:"storageSizeGiB"`
 }
 
@@ -1813,6 +2019,7 @@ func (o CapacityProviderManagedInstancesStorageConfigurationOutput) ToCapacityPr
 	}).(CapacityProviderManagedInstancesStorageConfigurationPtrOutput)
 }
 
+// The size of the tasks volume.
 func (o CapacityProviderManagedInstancesStorageConfigurationOutput) StorageSizeGiB() pulumi.IntOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesStorageConfiguration) int { return v.StorageSizeGiB }).(pulumi.IntOutput)
 }
@@ -1841,6 +2048,7 @@ func (o CapacityProviderManagedInstancesStorageConfigurationPtrOutput) Elem() Ca
 	}).(CapacityProviderManagedInstancesStorageConfigurationOutput)
 }
 
+// The size of the tasks volume.
 func (o CapacityProviderManagedInstancesStorageConfigurationPtrOutput) StorageSizeGiB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesStorageConfiguration) *int {
 		if v == nil {
@@ -2075,7 +2283,9 @@ func (o CapacityProviderManagedScalingPtrOutput) TargetCapacity() pulumi.IntPtrO
 }
 
 type CapacityProviderMemoryGiBPerVCpuRequest struct {
+	// The maximum amount of memory per vCPU in GiB. Instance types with a higher memory-to-vCPU ratio are excluded from selection.
 	Max *float64 `pulumi:"max"`
+	// The minimum amount of memory per vCPU in GiB. Instance types with a lower memory-to-vCPU ratio are excluded from selection.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -2091,7 +2301,9 @@ type CapacityProviderMemoryGiBPerVCpuRequestInput interface {
 }
 
 type CapacityProviderMemoryGiBPerVCpuRequestArgs struct {
+	// The maximum amount of memory per vCPU in GiB. Instance types with a higher memory-to-vCPU ratio are excluded from selection.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// The minimum amount of memory per vCPU in GiB. Instance types with a lower memory-to-vCPU ratio are excluded from selection.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -2172,10 +2384,12 @@ func (o CapacityProviderMemoryGiBPerVCpuRequestOutput) ToCapacityProviderMemoryG
 	}).(CapacityProviderMemoryGiBPerVCpuRequestPtrOutput)
 }
 
+// The maximum amount of memory per vCPU in GiB. Instance types with a higher memory-to-vCPU ratio are excluded from selection.
 func (o CapacityProviderMemoryGiBPerVCpuRequestOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CapacityProviderMemoryGiBPerVCpuRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of memory per vCPU in GiB. Instance types with a lower memory-to-vCPU ratio are excluded from selection.
 func (o CapacityProviderMemoryGiBPerVCpuRequestOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CapacityProviderMemoryGiBPerVCpuRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -2204,6 +2418,7 @@ func (o CapacityProviderMemoryGiBPerVCpuRequestPtrOutput) Elem() CapacityProvide
 	}).(CapacityProviderMemoryGiBPerVCpuRequestOutput)
 }
 
+// The maximum amount of memory per vCPU in GiB. Instance types with a higher memory-to-vCPU ratio are excluded from selection.
 func (o CapacityProviderMemoryGiBPerVCpuRequestPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CapacityProviderMemoryGiBPerVCpuRequest) *float64 {
 		if v == nil {
@@ -2213,6 +2428,7 @@ func (o CapacityProviderMemoryGiBPerVCpuRequestPtrOutput) Max() pulumi.Float64Pt
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of memory per vCPU in GiB. Instance types with a lower memory-to-vCPU ratio are excluded from selection.
 func (o CapacityProviderMemoryGiBPerVCpuRequestPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CapacityProviderMemoryGiBPerVCpuRequest) *float64 {
 		if v == nil {
@@ -2223,8 +2439,10 @@ func (o CapacityProviderMemoryGiBPerVCpuRequestPtrOutput) Min() pulumi.Float64Pt
 }
 
 type CapacityProviderMemoryMiBRequest struct {
+	// The maximum amount of memory in MiB. Instance types with more memory than this value are excluded from selection.
 	Max *int `pulumi:"max"`
-	Min int  `pulumi:"min"`
+	// The minimum amount of memory in MiB. Instance types with less memory than this value are excluded from selection.
+	Min int `pulumi:"min"`
 }
 
 // CapacityProviderMemoryMiBRequestInput is an input type that accepts CapacityProviderMemoryMiBRequestArgs and CapacityProviderMemoryMiBRequestOutput values.
@@ -2239,8 +2457,10 @@ type CapacityProviderMemoryMiBRequestInput interface {
 }
 
 type CapacityProviderMemoryMiBRequestArgs struct {
+	// The maximum amount of memory in MiB. Instance types with more memory than this value are excluded from selection.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	Min pulumi.IntInput    `pulumi:"min"`
+	// The minimum amount of memory in MiB. Instance types with less memory than this value are excluded from selection.
+	Min pulumi.IntInput `pulumi:"min"`
 }
 
 func (CapacityProviderMemoryMiBRequestArgs) ElementType() reflect.Type {
@@ -2320,10 +2540,12 @@ func (o CapacityProviderMemoryMiBRequestOutput) ToCapacityProviderMemoryMiBReque
 	}).(CapacityProviderMemoryMiBRequestPtrOutput)
 }
 
+// The maximum amount of memory in MiB. Instance types with more memory than this value are excluded from selection.
 func (o CapacityProviderMemoryMiBRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderMemoryMiBRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum amount of memory in MiB. Instance types with less memory than this value are excluded from selection.
 func (o CapacityProviderMemoryMiBRequestOutput) Min() pulumi.IntOutput {
 	return o.ApplyT(func(v CapacityProviderMemoryMiBRequest) int { return v.Min }).(pulumi.IntOutput)
 }
@@ -2352,6 +2574,7 @@ func (o CapacityProviderMemoryMiBRequestPtrOutput) Elem() CapacityProviderMemory
 	}).(CapacityProviderMemoryMiBRequestOutput)
 }
 
+// The maximum amount of memory in MiB. Instance types with more memory than this value are excluded from selection.
 func (o CapacityProviderMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderMemoryMiBRequest) *int {
 		if v == nil {
@@ -2361,6 +2584,7 @@ func (o CapacityProviderMemoryMiBRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum amount of memory in MiB. Instance types with less memory than this value are excluded from selection.
 func (o CapacityProviderMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderMemoryMiBRequest) *int {
 		if v == nil {
@@ -2371,7 +2595,9 @@ func (o CapacityProviderMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
 }
 
 type CapacityProviderNetworkBandwidthGbpsRequest struct {
+	// The maximum network bandwidth in Gbps. Instance types with higher network bandwidth are excluded from selection.
 	Max *float64 `pulumi:"max"`
+	// The minimum network bandwidth in Gbps. Instance types with lower network bandwidth are excluded from selection.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -2387,7 +2613,9 @@ type CapacityProviderNetworkBandwidthGbpsRequestInput interface {
 }
 
 type CapacityProviderNetworkBandwidthGbpsRequestArgs struct {
+	// The maximum network bandwidth in Gbps. Instance types with higher network bandwidth are excluded from selection.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// The minimum network bandwidth in Gbps. Instance types with lower network bandwidth are excluded from selection.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -2468,10 +2696,12 @@ func (o CapacityProviderNetworkBandwidthGbpsRequestOutput) ToCapacityProviderNet
 	}).(CapacityProviderNetworkBandwidthGbpsRequestPtrOutput)
 }
 
+// The maximum network bandwidth in Gbps. Instance types with higher network bandwidth are excluded from selection.
 func (o CapacityProviderNetworkBandwidthGbpsRequestOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CapacityProviderNetworkBandwidthGbpsRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
+// The minimum network bandwidth in Gbps. Instance types with lower network bandwidth are excluded from selection.
 func (o CapacityProviderNetworkBandwidthGbpsRequestOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CapacityProviderNetworkBandwidthGbpsRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -2500,6 +2730,7 @@ func (o CapacityProviderNetworkBandwidthGbpsRequestPtrOutput) Elem() CapacityPro
 	}).(CapacityProviderNetworkBandwidthGbpsRequestOutput)
 }
 
+// The maximum network bandwidth in Gbps. Instance types with higher network bandwidth are excluded from selection.
 func (o CapacityProviderNetworkBandwidthGbpsRequestPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CapacityProviderNetworkBandwidthGbpsRequest) *float64 {
 		if v == nil {
@@ -2509,6 +2740,7 @@ func (o CapacityProviderNetworkBandwidthGbpsRequestPtrOutput) Max() pulumi.Float
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum network bandwidth in Gbps. Instance types with lower network bandwidth are excluded from selection.
 func (o CapacityProviderNetworkBandwidthGbpsRequestPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CapacityProviderNetworkBandwidthGbpsRequest) *float64 {
 		if v == nil {
@@ -2519,7 +2751,9 @@ func (o CapacityProviderNetworkBandwidthGbpsRequestPtrOutput) Min() pulumi.Float
 }
 
 type CapacityProviderNetworkInterfaceCountRequest struct {
+	// The maximum number of network interfaces. Instance types that support more network interfaces are excluded from selection.
 	Max *int `pulumi:"max"`
+	// The minimum number of network interfaces. Instance types that support fewer network interfaces are excluded from selection.
 	Min *int `pulumi:"min"`
 }
 
@@ -2535,7 +2769,9 @@ type CapacityProviderNetworkInterfaceCountRequestInput interface {
 }
 
 type CapacityProviderNetworkInterfaceCountRequestArgs struct {
+	// The maximum number of network interfaces. Instance types that support more network interfaces are excluded from selection.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum number of network interfaces. Instance types that support fewer network interfaces are excluded from selection.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -2616,10 +2852,12 @@ func (o CapacityProviderNetworkInterfaceCountRequestOutput) ToCapacityProviderNe
 	}).(CapacityProviderNetworkInterfaceCountRequestPtrOutput)
 }
 
+// The maximum number of network interfaces. Instance types that support more network interfaces are excluded from selection.
 func (o CapacityProviderNetworkInterfaceCountRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderNetworkInterfaceCountRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of network interfaces. Instance types that support fewer network interfaces are excluded from selection.
 func (o CapacityProviderNetworkInterfaceCountRequestOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderNetworkInterfaceCountRequest) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -2648,6 +2886,7 @@ func (o CapacityProviderNetworkInterfaceCountRequestPtrOutput) Elem() CapacityPr
 	}).(CapacityProviderNetworkInterfaceCountRequestOutput)
 }
 
+// The maximum number of network interfaces. Instance types that support more network interfaces are excluded from selection.
 func (o CapacityProviderNetworkInterfaceCountRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderNetworkInterfaceCountRequest) *int {
 		if v == nil {
@@ -2657,6 +2896,7 @@ func (o CapacityProviderNetworkInterfaceCountRequestPtrOutput) Max() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of network interfaces. Instance types that support fewer network interfaces are excluded from selection.
 func (o CapacityProviderNetworkInterfaceCountRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderNetworkInterfaceCountRequest) *int {
 		if v == nil {
@@ -2674,7 +2914,9 @@ type CapacityProviderTag struct {
 }
 
 type CapacityProviderTotalLocalStorageGbRequest struct {
+	// The maximum total local storage in GB. Instance types with more local storage are excluded from selection.
 	Max *float64 `pulumi:"max"`
+	// The minimum total local storage in GB. Instance types with less local storage are excluded from selection.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -2690,7 +2932,9 @@ type CapacityProviderTotalLocalStorageGbRequestInput interface {
 }
 
 type CapacityProviderTotalLocalStorageGbRequestArgs struct {
+	// The maximum total local storage in GB. Instance types with more local storage are excluded from selection.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// The minimum total local storage in GB. Instance types with less local storage are excluded from selection.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -2771,10 +3015,12 @@ func (o CapacityProviderTotalLocalStorageGbRequestOutput) ToCapacityProviderTota
 	}).(CapacityProviderTotalLocalStorageGbRequestPtrOutput)
 }
 
+// The maximum total local storage in GB. Instance types with more local storage are excluded from selection.
 func (o CapacityProviderTotalLocalStorageGbRequestOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CapacityProviderTotalLocalStorageGbRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
+// The minimum total local storage in GB. Instance types with less local storage are excluded from selection.
 func (o CapacityProviderTotalLocalStorageGbRequestOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CapacityProviderTotalLocalStorageGbRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -2803,6 +3049,7 @@ func (o CapacityProviderTotalLocalStorageGbRequestPtrOutput) Elem() CapacityProv
 	}).(CapacityProviderTotalLocalStorageGbRequestOutput)
 }
 
+// The maximum total local storage in GB. Instance types with more local storage are excluded from selection.
 func (o CapacityProviderTotalLocalStorageGbRequestPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CapacityProviderTotalLocalStorageGbRequest) *float64 {
 		if v == nil {
@@ -2812,6 +3059,7 @@ func (o CapacityProviderTotalLocalStorageGbRequestPtrOutput) Max() pulumi.Float6
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum total local storage in GB. Instance types with less local storage are excluded from selection.
 func (o CapacityProviderTotalLocalStorageGbRequestPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CapacityProviderTotalLocalStorageGbRequest) *float64 {
 		if v == nil {
@@ -2822,8 +3070,10 @@ func (o CapacityProviderTotalLocalStorageGbRequestPtrOutput) Min() pulumi.Float6
 }
 
 type CapacityProviderVCpuCountRangeRequest struct {
+	// The maximum number of vCPUs. Instance types with more vCPUs than this value are excluded from selection.
 	Max *int `pulumi:"max"`
-	Min int  `pulumi:"min"`
+	// The minimum number of vCPUs. Instance types with fewer vCPUs than this value are excluded from selection.
+	Min int `pulumi:"min"`
 }
 
 // CapacityProviderVCpuCountRangeRequestInput is an input type that accepts CapacityProviderVCpuCountRangeRequestArgs and CapacityProviderVCpuCountRangeRequestOutput values.
@@ -2838,8 +3088,10 @@ type CapacityProviderVCpuCountRangeRequestInput interface {
 }
 
 type CapacityProviderVCpuCountRangeRequestArgs struct {
+	// The maximum number of vCPUs. Instance types with more vCPUs than this value are excluded from selection.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	Min pulumi.IntInput    `pulumi:"min"`
+	// The minimum number of vCPUs. Instance types with fewer vCPUs than this value are excluded from selection.
+	Min pulumi.IntInput `pulumi:"min"`
 }
 
 func (CapacityProviderVCpuCountRangeRequestArgs) ElementType() reflect.Type {
@@ -2919,10 +3171,12 @@ func (o CapacityProviderVCpuCountRangeRequestOutput) ToCapacityProviderVCpuCount
 	}).(CapacityProviderVCpuCountRangeRequestPtrOutput)
 }
 
+// The maximum number of vCPUs. Instance types with more vCPUs than this value are excluded from selection.
 func (o CapacityProviderVCpuCountRangeRequestOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderVCpuCountRangeRequest) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of vCPUs. Instance types with fewer vCPUs than this value are excluded from selection.
 func (o CapacityProviderVCpuCountRangeRequestOutput) Min() pulumi.IntOutput {
 	return o.ApplyT(func(v CapacityProviderVCpuCountRangeRequest) int { return v.Min }).(pulumi.IntOutput)
 }
@@ -2951,6 +3205,7 @@ func (o CapacityProviderVCpuCountRangeRequestPtrOutput) Elem() CapacityProviderV
 	}).(CapacityProviderVCpuCountRangeRequestOutput)
 }
 
+// The maximum number of vCPUs. Instance types with more vCPUs than this value are excluded from selection.
 func (o CapacityProviderVCpuCountRangeRequestPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderVCpuCountRangeRequest) *int {
 		if v == nil {
@@ -2960,6 +3215,7 @@ func (o CapacityProviderVCpuCountRangeRequestPtrOutput) Max() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of vCPUs. Instance types with fewer vCPUs than this value are excluded from selection.
 func (o CapacityProviderVCpuCountRangeRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderVCpuCountRangeRequest) *int {
 		if v == nil {

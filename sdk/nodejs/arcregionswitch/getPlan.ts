@@ -49,6 +49,7 @@ export interface GetPlanResult {
      * The owner of a plan.
      */
     readonly owner?: string;
+    readonly planHealthChecks?: string[];
     /**
      * The recovery time objective for a plan.
      */

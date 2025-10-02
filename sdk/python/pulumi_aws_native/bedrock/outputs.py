@@ -1983,6 +1983,7 @@ class DataAutomationProjectAudioExtractionCategory(dict):
                  types: Optional[Sequence['DataAutomationProjectAudioExtractionCategoryType']] = None):
         """
         :param 'DataAutomationProjectState' state: Whether generating categorical data from audio is enabled.
+        :param 'DataAutomationProjectAudioExtractionCategoryTypeConfiguration' type_configuration: This element contains information about extractions from different types. Used to enable speaker and channel labeling for transcripts.
         :param Sequence['DataAutomationProjectAudioExtractionCategoryType'] types: The types of data to generate.
         """
         pulumi.set(__self__, "state", state)
@@ -2002,6 +2003,9 @@ class DataAutomationProjectAudioExtractionCategory(dict):
     @property
     @pulumi.getter(name="typeConfiguration")
     def type_configuration(self) -> Optional['outputs.DataAutomationProjectAudioExtractionCategoryTypeConfiguration']:
+        """
+        This element contains information about extractions from different types. Used to enable speaker and channel labeling for transcripts.
+        """
         return pulumi.get(self, "type_configuration")
 
     @property
@@ -2017,12 +2021,18 @@ class DataAutomationProjectAudioExtractionCategory(dict):
 class DataAutomationProjectAudioExtractionCategoryTypeConfiguration(dict):
     def __init__(__self__, *,
                  transcript: Optional['outputs.DataAutomationProjectTranscriptConfiguration'] = None):
+        """
+        :param 'DataAutomationProjectTranscriptConfiguration' transcript: This element allows you to configure different extractions for your transcript data, such as speaker and channel labeling.
+        """
         if transcript is not None:
             pulumi.set(__self__, "transcript", transcript)
 
     @property
     @pulumi.getter
     def transcript(self) -> Optional['outputs.DataAutomationProjectTranscriptConfiguration']:
+        """
+        This element allows you to configure different extractions for your transcript data, such as speaker and channel labeling.
+        """
         return pulumi.get(self, "transcript")
 
 
@@ -2225,11 +2235,17 @@ class DataAutomationProjectBlueprintItem(dict):
 class DataAutomationProjectChannelLabelingConfiguration(dict):
     def __init__(__self__, *,
                  state: 'DataAutomationProjectState'):
+        """
+        :param 'DataAutomationProjectState' state: State of channel labeling, either enabled or disabled.
+        """
         pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
     def state(self) -> 'DataAutomationProjectState':
+        """
+        State of channel labeling, either enabled or disabled.
+        """
         return pulumi.get(self, "state")
 
 
@@ -2930,11 +2946,17 @@ class DataAutomationProjectOverrideConfiguration(dict):
 class DataAutomationProjectSpeakerLabelingConfiguration(dict):
     def __init__(__self__, *,
                  state: 'DataAutomationProjectState'):
+        """
+        :param 'DataAutomationProjectState' state: State of speaker labeling, either enabled or disabled.
+        """
         pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
     def state(self) -> 'DataAutomationProjectState':
+        """
+        State of speaker labeling, either enabled or disabled.
+        """
         return pulumi.get(self, "state")
 
 
@@ -3040,6 +3062,10 @@ class DataAutomationProjectTranscriptConfiguration(dict):
     def __init__(__self__, *,
                  channel_labeling: Optional['outputs.DataAutomationProjectChannelLabelingConfiguration'] = None,
                  speaker_labeling: Optional['outputs.DataAutomationProjectSpeakerLabelingConfiguration'] = None):
+        """
+        :param 'DataAutomationProjectChannelLabelingConfiguration' channel_labeling: Enables channel labeling. Each audio channel will be labeled with a number, and the transcript will indicate which channel is being used.
+        :param 'DataAutomationProjectSpeakerLabelingConfiguration' speaker_labeling: Enables speaker labeling. Each speaker within a transcript will recieve a number, and the transcript will note which speaker is talking.
+        """
         if channel_labeling is not None:
             pulumi.set(__self__, "channel_labeling", channel_labeling)
         if speaker_labeling is not None:
@@ -3048,11 +3074,17 @@ class DataAutomationProjectTranscriptConfiguration(dict):
     @property
     @pulumi.getter(name="channelLabeling")
     def channel_labeling(self) -> Optional['outputs.DataAutomationProjectChannelLabelingConfiguration']:
+        """
+        Enables channel labeling. Each audio channel will be labeled with a number, and the transcript will indicate which channel is being used.
+        """
         return pulumi.get(self, "channel_labeling")
 
     @property
     @pulumi.getter(name="speakerLabeling")
     def speaker_labeling(self) -> Optional['outputs.DataAutomationProjectSpeakerLabelingConfiguration']:
+        """
+        Enables speaker labeling. Each speaker within a transcript will recieve a number, and the transcript will note which speaker is talking.
+        """
         return pulumi.get(self, "speaker_labeling")
 
 

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderMemoryMiBRequest
     {
+        /// <summary>
+        /// The maximum amount of memory in MiB. Instance types with more memory than this value are excluded from selection.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// The minimum amount of memory in MiB. Instance types with less memory than this value are excluded from selection.
+        /// </summary>
         public readonly int Min;
 
         [OutputConstructor]

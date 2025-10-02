@@ -29,7 +29,8 @@ type Plan struct {
 	// The name for a plan.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The owner of a plan.
-	Owner pulumi.StringOutput `pulumi:"owner"`
+	Owner            pulumi.StringOutput      `pulumi:"owner"`
+	PlanHealthChecks pulumi.StringArrayOutput `pulumi:"planHealthChecks"`
 	// The primary Region for a plan.
 	PrimaryRegion pulumi.StringPtrOutput `pulumi:"primaryRegion"`
 	// The recovery approach for a Region switch plan, which can be active/active (activeActive) or active/passive (activePassive).
@@ -225,6 +226,10 @@ func (o PlanOutput) Name() pulumi.StringOutput {
 // The owner of a plan.
 func (o PlanOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o PlanOutput) PlanHealthChecks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Plan) pulumi.StringArrayOutput { return v.PlanHealthChecks }).(pulumi.StringArrayOutput)
 }
 
 // The primary Region for a plan.

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataAutomationProjectAudioExtractionCategoryTypeConfiguration
     {
+        /// <summary>
+        /// This element allows you to configure different extractions for your transcript data, such as speaker and channel labeling.
+        /// </summary>
         public readonly Outputs.DataAutomationProjectTranscriptConfiguration? Transcript;
 
         [OutputConstructor]

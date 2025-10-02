@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
 
     public sealed class DataAutomationProjectSpeakerLabelingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// State of speaker labeling, either enabled or disabled.
+        /// </summary>
         [Input("state", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.DataAutomationProjectState> State { get; set; } = null!;
 

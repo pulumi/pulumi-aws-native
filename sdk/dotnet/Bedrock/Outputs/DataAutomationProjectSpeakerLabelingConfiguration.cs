@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataAutomationProjectSpeakerLabelingConfiguration
     {
+        /// <summary>
+        /// State of speaker labeling, either enabled or disabled.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.DataAutomationProjectState State;
 
         [OutputConstructor]

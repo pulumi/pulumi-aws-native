@@ -39,7 +39,8 @@ type LookupPlanResult struct {
 	// Represents a Region switch plan. A plan defines the steps required to shift traffic from one AWS Region to another.
 	HealthChecksForPlan map[string][]PlanHealthCheckState `pulumi:"healthChecksForPlan"`
 	// The owner of a plan.
-	Owner *string `pulumi:"owner"`
+	Owner            *string  `pulumi:"owner"`
+	PlanHealthChecks []string `pulumi:"planHealthChecks"`
 	// The recovery time objective for a plan.
 	RecoveryTimeObjectiveMinutes *float64                       `pulumi:"recoveryTimeObjectiveMinutes"`
 	Route53HealthChecks          *Route53HealthChecksProperties `pulumi:"route53HealthChecks"`
@@ -112,6 +113,10 @@ func (o LookupPlanResultOutput) HealthChecksForPlan() PlanHealthCheckStateArrayM
 // The owner of a plan.
 func (o LookupPlanResultOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPlanResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPlanResultOutput) PlanHealthChecks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupPlanResult) []string { return v.PlanHealthChecks }).(pulumi.StringArrayOutput)
 }
 
 // The recovery time objective for a plan.

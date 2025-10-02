@@ -87,6 +87,7 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         /// The owner of a plan.
         /// </summary>
         public readonly string? Owner;
+        public readonly ImmutableArray<string> PlanHealthChecks;
         /// <summary>
         /// The recovery time objective for a plan.
         /// </summary>
@@ -120,6 +121,8 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
 
             string? owner,
 
+            ImmutableArray<string> planHealthChecks,
+
             double? recoveryTimeObjectiveMinutes,
 
             Outputs.Route53HealthChecksProperties? route53HealthChecks,
@@ -138,6 +141,7 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
             ExecutionRole = executionRole;
             HealthChecksForPlan = healthChecksForPlan;
             Owner = owner;
+            PlanHealthChecks = planHealthChecks;
             RecoveryTimeObjectiveMinutes = recoveryTimeObjectiveMinutes;
             Route53HealthChecks = route53HealthChecks;
             Tags = tags;

@@ -507,7 +507,7 @@ func (in *distributionConnectionModePtr) ToDistributionConnectionModePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(DistributionConnectionModePtrOutput)
 }
 
-// Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose `dualstack` to help optimize reliability.
+// Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose “dualstack“ to help optimize reliability.
 type DistributionCustomOriginConfigIpAddressType string
 
 const (

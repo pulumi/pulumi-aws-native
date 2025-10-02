@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderNetworkInterfaceCountRequest
     {
+        /// <summary>
+        /// The maximum number of network interfaces. Instance types that support more network interfaces are excluded from selection.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// The minimum number of network interfaces. Instance types that support fewer network interfaces are excluded from selection.
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

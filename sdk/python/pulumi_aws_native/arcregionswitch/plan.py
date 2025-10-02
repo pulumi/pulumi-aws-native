@@ -296,6 +296,7 @@ class Plan(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["health_checks_for_plan"] = None
             __props__.__dict__["owner"] = None
+            __props__.__dict__["plan_health_checks"] = None
             __props__.__dict__["route53_health_checks"] = None
             __props__.__dict__["version"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "primaryRegion", "recoveryApproach", "regions[*]"])
@@ -329,6 +330,7 @@ class Plan(pulumi.CustomResource):
         __props__.__dict__["health_checks_for_plan"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["owner"] = None
+        __props__.__dict__["plan_health_checks"] = None
         __props__.__dict__["primary_region"] = None
         __props__.__dict__["recovery_approach"] = None
         __props__.__dict__["recovery_time_objective_minutes"] = None
@@ -395,6 +397,11 @@ class Plan(pulumi.CustomResource):
         The owner of a plan.
         """
         return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="planHealthChecks")
+    def plan_health_checks(self) -> pulumi.Output[Sequence[builtins.str]]:
+        return pulumi.get(self, "plan_health_checks")
 
     @property
     @pulumi.getter(name="primaryRegion")

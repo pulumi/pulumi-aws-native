@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LaunchTemplateConstraint{}
 	case "aws-native:servicecatalog:PortfolioProductAssociation":
 		r = &PortfolioProductAssociation{}
+	case "aws-native:servicecatalog:PortfolioShare":
+		r = &PortfolioShare{}
 	case "aws-native:servicecatalog:ServiceAction":
 		r = &ServiceAction{}
 	case "aws-native:servicecatalog:ServiceActionAssociation":

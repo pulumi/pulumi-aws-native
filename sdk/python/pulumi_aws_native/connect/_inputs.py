@@ -2666,6 +2666,9 @@ if not MYPY:
         Contains information about the manual assignment queue and channel
         """
         queue_reference: pulumi.Input['RoutingProfileQueueReferenceArgsDict']
+        """
+        Contains information about a queue resource.
+        """
 elif False:
     RoutingProfileManualAssignmentQueueConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2675,12 +2678,16 @@ class RoutingProfileManualAssignmentQueueConfigArgs:
                  queue_reference: pulumi.Input['RoutingProfileQueueReferenceArgs']):
         """
         Contains information about the manual assignment queue and channel
+        :param pulumi.Input['RoutingProfileQueueReferenceArgs'] queue_reference: Contains information about a queue resource.
         """
         pulumi.set(__self__, "queue_reference", queue_reference)
 
     @property
     @pulumi.getter(name="queueReference")
     def queue_reference(self) -> pulumi.Input['RoutingProfileQueueReferenceArgs']:
+        """
+        Contains information about a queue resource.
+        """
         return pulumi.get(self, "queue_reference")
 
     @queue_reference.setter

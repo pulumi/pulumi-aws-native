@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Whether generating categorical data from audio is enabled.
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.DataAutomationProjectState State;
+        /// <summary>
+        /// This element contains information about extractions from different types. Used to enable speaker and channel labeling for transcripts.
+        /// </summary>
         public readonly Outputs.DataAutomationProjectAudioExtractionCategoryTypeConfiguration? TypeConfiguration;
         /// <summary>
         /// The types of data to generate.

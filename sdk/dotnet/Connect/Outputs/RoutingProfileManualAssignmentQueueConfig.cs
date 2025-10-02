@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class RoutingProfileManualAssignmentQueueConfig
     {
+        /// <summary>
+        /// Contains information about a queue resource.
+        /// </summary>
         public readonly Outputs.RoutingProfileQueueReference QueueReference;
 
         [OutputConstructor]

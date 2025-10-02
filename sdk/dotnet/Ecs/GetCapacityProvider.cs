@@ -67,6 +67,9 @@ namespace Pulumi.AwsNative.Ecs
         /// The Auto Scaling group settings for the capacity provider.
         /// </summary>
         public readonly Outputs.CapacityProviderAutoScalingGroupProvider? AutoScalingGroupProvider;
+        /// <summary>
+        /// The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.
+        /// </summary>
         public readonly Outputs.CapacityProviderManagedInstancesProvider? ManagedInstancesProvider;
         /// <summary>
         /// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.

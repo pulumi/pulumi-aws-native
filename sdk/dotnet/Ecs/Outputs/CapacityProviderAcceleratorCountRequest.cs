@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderAcceleratorCountRequest
     {
+        /// <summary>
+        /// The maximum number of accelerators. Instance types with more accelerators are excluded from selection.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// The minimum number of accelerators. Instance types with fewer accelerators are excluded from selection.
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataAutomationProjectTranscriptConfiguration
     {
+        /// <summary>
+        /// Enables channel labeling. Each audio channel will be labeled with a number, and the transcript will indicate which channel is being used.
+        /// </summary>
         public readonly Outputs.DataAutomationProjectChannelLabelingConfiguration? ChannelLabeling;
+        /// <summary>
+        /// Enables speaker labeling. Each speaker within a transcript will recieve a number, and the transcript will note which speaker is talking.
+        /// </summary>
         public readonly Outputs.DataAutomationProjectSpeakerLabelingConfiguration? SpeakerLabeling;
 
         [OutputConstructor]

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
     public sealed class CapacityProviderMemoryMiBRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum amount of memory in MiB. Instance types with more memory than this value are excluded from selection.
+        /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
+        /// <summary>
+        /// The minimum amount of memory in MiB. Instance types with less memory than this value are excluded from selection.
+        /// </summary>
         [Input("min", required: true)]
         public Input<int> Min { get; set; } = null!;
 

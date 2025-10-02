@@ -173,6 +173,9 @@ namespace Pulumi.AwsNative.Ecs
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances.
+    /// </summary>
     [EnumType]
     public readonly struct CapacityProviderInstanceRequirementsRequestBareMetal : IEquatable<CapacityProviderInstanceRequirementsRequestBareMetal>
     {
@@ -202,6 +205,9 @@ namespace Pulumi.AwsNative.Ecs
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances.
+    /// </summary>
     [EnumType]
     public readonly struct CapacityProviderInstanceRequirementsRequestBurstablePerformance : IEquatable<CapacityProviderInstanceRequirementsRequestBurstablePerformance>
     {
@@ -288,6 +294,9 @@ namespace Pulumi.AwsNative.Ecs
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage.
+    /// </summary>
     [EnumType]
     public readonly struct CapacityProviderInstanceRequirementsRequestLocalStorage : IEquatable<CapacityProviderInstanceRequirementsRequestLocalStorage>
     {
@@ -373,6 +382,9 @@ namespace Pulumi.AwsNative.Ecs
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Determines whether tags from the capacity provider are automatically applied to Amazon ECS Managed Instances. This helps with cost allocation and resource management by ensuring consistent tagging across your infrastructure.
+    /// </summary>
     [EnumType]
     public readonly struct CapacityProviderManagedInstancesProviderPropagateTags : IEquatable<CapacityProviderManagedInstancesProviderPropagateTags>
     {

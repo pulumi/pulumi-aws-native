@@ -22,6 +22,28 @@ __all__ = [
     'BrowserCustomRecordingConfig',
     'BrowserCustomS3Location',
     'CodeInterpreterCustomCodeInterpreterNetworkConfiguration',
+    'GatewayAuthorizerConfigurationProperties',
+    'GatewayCustomJwtAuthorizerConfiguration',
+    'GatewayMcpGatewayConfiguration',
+    'GatewayProtocolConfigurationProperties',
+    'GatewayTargetApiKeyCredentialProvider',
+    'GatewayTargetApiSchemaConfiguration0Properties',
+    'GatewayTargetApiSchemaConfiguration1Properties',
+    'GatewayTargetCredentialProvider0Properties',
+    'GatewayTargetCredentialProvider1Properties',
+    'GatewayTargetCredentialProviderConfiguration',
+    'GatewayTargetMcpLambdaTargetConfiguration',
+    'GatewayTargetMcpTargetConfiguration0Properties',
+    'GatewayTargetMcpTargetConfiguration1Properties',
+    'GatewayTargetMcpTargetConfiguration2Properties',
+    'GatewayTargetOAuthCredentialProvider',
+    'GatewayTargetS3Configuration',
+    'GatewayTargetSchemaDefinition',
+    'GatewayTargetTargetConfigurationProperties',
+    'GatewayTargetToolDefinition',
+    'GatewayTargetToolSchema0Properties',
+    'GatewayTargetToolSchema1Properties',
+    'GatewayWorkloadIdentityDetails',
     'RuntimeAgentRuntimeArtifact',
     'RuntimeAuthorizerConfiguration',
     'RuntimeContainerConfiguration',
@@ -191,6 +213,729 @@ class CodeInterpreterCustomCodeInterpreterNetworkConfiguration(dict):
         The network mode.
         """
         return pulumi.get(self, "network_mode")
+
+
+@pulumi.output_type
+class GatewayAuthorizerConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customJwtAuthorizer":
+            suggest = "custom_jwt_authorizer"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayAuthorizerConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayAuthorizerConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayAuthorizerConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_jwt_authorizer: 'outputs.GatewayCustomJwtAuthorizerConfiguration'):
+        pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
+
+    @property
+    @pulumi.getter(name="customJwtAuthorizer")
+    def custom_jwt_authorizer(self) -> 'outputs.GatewayCustomJwtAuthorizerConfiguration':
+        return pulumi.get(self, "custom_jwt_authorizer")
+
+
+@pulumi.output_type
+class GatewayCustomJwtAuthorizerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "discoveryUrl":
+            suggest = "discovery_url"
+        elif key == "allowedAudience":
+            suggest = "allowed_audience"
+        elif key == "allowedClients":
+            suggest = "allowed_clients"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayCustomJwtAuthorizerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayCustomJwtAuthorizerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayCustomJwtAuthorizerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 discovery_url: builtins.str,
+                 allowed_audience: Optional[Sequence[builtins.str]] = None,
+                 allowed_clients: Optional[Sequence[builtins.str]] = None):
+        pulumi.set(__self__, "discovery_url", discovery_url)
+        if allowed_audience is not None:
+            pulumi.set(__self__, "allowed_audience", allowed_audience)
+        if allowed_clients is not None:
+            pulumi.set(__self__, "allowed_clients", allowed_clients)
+
+    @property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> builtins.str:
+        return pulumi.get(self, "discovery_url")
+
+    @property
+    @pulumi.getter(name="allowedAudience")
+    def allowed_audience(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "allowed_audience")
+
+    @property
+    @pulumi.getter(name="allowedClients")
+    def allowed_clients(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "allowed_clients")
+
+
+@pulumi.output_type
+class GatewayMcpGatewayConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "searchType":
+            suggest = "search_type"
+        elif key == "supportedVersions":
+            suggest = "supported_versions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayMcpGatewayConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayMcpGatewayConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayMcpGatewayConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instructions: Optional[builtins.str] = None,
+                 search_type: Optional['GatewaySearchType'] = None,
+                 supported_versions: Optional[Sequence[builtins.str]] = None):
+        if instructions is not None:
+            pulumi.set(__self__, "instructions", instructions)
+        if search_type is not None:
+            pulumi.set(__self__, "search_type", search_type)
+        if supported_versions is not None:
+            pulumi.set(__self__, "supported_versions", supported_versions)
+
+    @property
+    @pulumi.getter
+    def instructions(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "instructions")
+
+    @property
+    @pulumi.getter(name="searchType")
+    def search_type(self) -> Optional['GatewaySearchType']:
+        return pulumi.get(self, "search_type")
+
+    @property
+    @pulumi.getter(name="supportedVersions")
+    def supported_versions(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "supported_versions")
+
+
+@pulumi.output_type
+class GatewayProtocolConfigurationProperties(dict):
+    def __init__(__self__, *,
+                 mcp: 'outputs.GatewayMcpGatewayConfiguration'):
+        pulumi.set(__self__, "mcp", mcp)
+
+    @property
+    @pulumi.getter
+    def mcp(self) -> 'outputs.GatewayMcpGatewayConfiguration':
+        return pulumi.get(self, "mcp")
+
+
+@pulumi.output_type
+class GatewayTargetApiKeyCredentialProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerArn":
+            suggest = "provider_arn"
+        elif key == "credentialLocation":
+            suggest = "credential_location"
+        elif key == "credentialParameterName":
+            suggest = "credential_parameter_name"
+        elif key == "credentialPrefix":
+            suggest = "credential_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetApiKeyCredentialProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetApiKeyCredentialProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetApiKeyCredentialProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_arn: builtins.str,
+                 credential_location: Optional['GatewayTargetApiKeyCredentialLocation'] = None,
+                 credential_parameter_name: Optional[builtins.str] = None,
+                 credential_prefix: Optional[builtins.str] = None):
+        pulumi.set(__self__, "provider_arn", provider_arn)
+        if credential_location is not None:
+            pulumi.set(__self__, "credential_location", credential_location)
+        if credential_parameter_name is not None:
+            pulumi.set(__self__, "credential_parameter_name", credential_parameter_name)
+        if credential_prefix is not None:
+            pulumi.set(__self__, "credential_prefix", credential_prefix)
+
+    @property
+    @pulumi.getter(name="providerArn")
+    def provider_arn(self) -> builtins.str:
+        return pulumi.get(self, "provider_arn")
+
+    @property
+    @pulumi.getter(name="credentialLocation")
+    def credential_location(self) -> Optional['GatewayTargetApiKeyCredentialLocation']:
+        return pulumi.get(self, "credential_location")
+
+    @property
+    @pulumi.getter(name="credentialParameterName")
+    def credential_parameter_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "credential_parameter_name")
+
+    @property
+    @pulumi.getter(name="credentialPrefix")
+    def credential_prefix(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "credential_prefix")
+
+
+@pulumi.output_type
+class GatewayTargetApiSchemaConfiguration0Properties(dict):
+    def __init__(__self__, *,
+                 s3: 'outputs.GatewayTargetS3Configuration'):
+        pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> 'outputs.GatewayTargetS3Configuration':
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class GatewayTargetApiSchemaConfiguration1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inlinePayload":
+            suggest = "inline_payload"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetApiSchemaConfiguration1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetApiSchemaConfiguration1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetApiSchemaConfiguration1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inline_payload: builtins.str):
+        pulumi.set(__self__, "inline_payload", inline_payload)
+
+    @property
+    @pulumi.getter(name="inlinePayload")
+    def inline_payload(self) -> builtins.str:
+        return pulumi.get(self, "inline_payload")
+
+
+@pulumi.output_type
+class GatewayTargetCredentialProvider0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oauthCredentialProvider":
+            suggest = "oauth_credential_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetCredentialProvider0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetCredentialProvider0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetCredentialProvider0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oauth_credential_provider: 'outputs.GatewayTargetOAuthCredentialProvider'):
+        pulumi.set(__self__, "oauth_credential_provider", oauth_credential_provider)
+
+    @property
+    @pulumi.getter(name="oauthCredentialProvider")
+    def oauth_credential_provider(self) -> 'outputs.GatewayTargetOAuthCredentialProvider':
+        return pulumi.get(self, "oauth_credential_provider")
+
+
+@pulumi.output_type
+class GatewayTargetCredentialProvider1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKeyCredentialProvider":
+            suggest = "api_key_credential_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetCredentialProvider1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetCredentialProvider1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetCredentialProvider1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key_credential_provider: 'outputs.GatewayTargetApiKeyCredentialProvider'):
+        pulumi.set(__self__, "api_key_credential_provider", api_key_credential_provider)
+
+    @property
+    @pulumi.getter(name="apiKeyCredentialProvider")
+    def api_key_credential_provider(self) -> 'outputs.GatewayTargetApiKeyCredentialProvider':
+        return pulumi.get(self, "api_key_credential_provider")
+
+
+@pulumi.output_type
+class GatewayTargetCredentialProviderConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "credentialProviderType":
+            suggest = "credential_provider_type"
+        elif key == "credentialProvider":
+            suggest = "credential_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetCredentialProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetCredentialProviderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetCredentialProviderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 credential_provider_type: 'GatewayTargetCredentialProviderType',
+                 credential_provider: Optional[Any] = None):
+        pulumi.set(__self__, "credential_provider_type", credential_provider_type)
+        if credential_provider is not None:
+            pulumi.set(__self__, "credential_provider", credential_provider)
+
+    @property
+    @pulumi.getter(name="credentialProviderType")
+    def credential_provider_type(self) -> 'GatewayTargetCredentialProviderType':
+        return pulumi.get(self, "credential_provider_type")
+
+    @property
+    @pulumi.getter(name="credentialProvider")
+    def credential_provider(self) -> Optional[Any]:
+        return pulumi.get(self, "credential_provider")
+
+
+@pulumi.output_type
+class GatewayTargetMcpLambdaTargetConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaArn":
+            suggest = "lambda_arn"
+        elif key == "toolSchema":
+            suggest = "tool_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetMcpLambdaTargetConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetMcpLambdaTargetConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetMcpLambdaTargetConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_arn: builtins.str,
+                 tool_schema: Any):
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        pulumi.set(__self__, "tool_schema", tool_schema)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> builtins.str:
+        return pulumi.get(self, "lambda_arn")
+
+    @property
+    @pulumi.getter(name="toolSchema")
+    def tool_schema(self) -> Any:
+        return pulumi.get(self, "tool_schema")
+
+
+@pulumi.output_type
+class GatewayTargetMcpTargetConfiguration0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "openApiSchema":
+            suggest = "open_api_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetMcpTargetConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetMcpTargetConfiguration0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetMcpTargetConfiguration0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 open_api_schema: Any):
+        pulumi.set(__self__, "open_api_schema", open_api_schema)
+
+    @property
+    @pulumi.getter(name="openApiSchema")
+    def open_api_schema(self) -> Any:
+        return pulumi.get(self, "open_api_schema")
+
+
+@pulumi.output_type
+class GatewayTargetMcpTargetConfiguration1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "smithyModel":
+            suggest = "smithy_model"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetMcpTargetConfiguration1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetMcpTargetConfiguration1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetMcpTargetConfiguration1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 smithy_model: Any):
+        pulumi.set(__self__, "smithy_model", smithy_model)
+
+    @property
+    @pulumi.getter(name="smithyModel")
+    def smithy_model(self) -> Any:
+        return pulumi.get(self, "smithy_model")
+
+
+@pulumi.output_type
+class GatewayTargetMcpTargetConfiguration2Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambda":
+            suggest = "lambda_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetMcpTargetConfiguration2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetMcpTargetConfiguration2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetMcpTargetConfiguration2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_: 'outputs.GatewayTargetMcpLambdaTargetConfiguration'):
+        pulumi.set(__self__, "lambda_", lambda_)
+
+    @property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> 'outputs.GatewayTargetMcpLambdaTargetConfiguration':
+        return pulumi.get(self, "lambda_")
+
+
+@pulumi.output_type
+class GatewayTargetOAuthCredentialProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerArn":
+            suggest = "provider_arn"
+        elif key == "customParameters":
+            suggest = "custom_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetOAuthCredentialProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetOAuthCredentialProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetOAuthCredentialProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_arn: builtins.str,
+                 scopes: Sequence[builtins.str],
+                 custom_parameters: Optional[Mapping[str, builtins.str]] = None):
+        pulumi.set(__self__, "provider_arn", provider_arn)
+        pulumi.set(__self__, "scopes", scopes)
+        if custom_parameters is not None:
+            pulumi.set(__self__, "custom_parameters", custom_parameters)
+
+    @property
+    @pulumi.getter(name="providerArn")
+    def provider_arn(self) -> builtins.str:
+        return pulumi.get(self, "provider_arn")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter(name="customParameters")
+    def custom_parameters(self) -> Optional[Mapping[str, builtins.str]]:
+        return pulumi.get(self, "custom_parameters")
+
+
+@pulumi.output_type
+class GatewayTargetS3Configuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketOwnerAccountId":
+            suggest = "bucket_owner_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_owner_account_id: Optional[builtins.str] = None,
+                 uri: Optional[builtins.str] = None):
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "bucket_owner_account_id")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class GatewayTargetSchemaDefinition(dict):
+    def __init__(__self__, *,
+                 type: 'GatewayTargetSchemaType',
+                 description: Optional[builtins.str] = None,
+                 items: Optional['outputs.GatewayTargetSchemaDefinition'] = None,
+                 properties: Optional[Mapping[str, 'outputs.GatewayTargetSchemaDefinition']] = None,
+                 required: Optional[Sequence[builtins.str]] = None):
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'GatewayTargetSchemaType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional['outputs.GatewayTargetSchemaDefinition']:
+        return pulumi.get(self, "items")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, 'outputs.GatewayTargetSchemaDefinition']]:
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "required")
+
+
+@pulumi.output_type
+class GatewayTargetTargetConfigurationProperties(dict):
+    def __init__(__self__, *,
+                 mcp: Any):
+        pulumi.set(__self__, "mcp", mcp)
+
+    @property
+    @pulumi.getter
+    def mcp(self) -> Any:
+        return pulumi.get(self, "mcp")
+
+
+@pulumi.output_type
+class GatewayTargetToolDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputSchema":
+            suggest = "input_schema"
+        elif key == "outputSchema":
+            suggest = "output_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetToolDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetToolDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetToolDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: builtins.str,
+                 input_schema: 'outputs.GatewayTargetSchemaDefinition',
+                 name: builtins.str,
+                 output_schema: Optional['outputs.GatewayTargetSchemaDefinition'] = None):
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "input_schema", input_schema)
+        pulumi.set(__self__, "name", name)
+        if output_schema is not None:
+            pulumi.set(__self__, "output_schema", output_schema)
+
+    @property
+    @pulumi.getter
+    def description(self) -> builtins.str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="inputSchema")
+    def input_schema(self) -> 'outputs.GatewayTargetSchemaDefinition':
+        return pulumi.get(self, "input_schema")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="outputSchema")
+    def output_schema(self) -> Optional['outputs.GatewayTargetSchemaDefinition']:
+        return pulumi.get(self, "output_schema")
+
+
+@pulumi.output_type
+class GatewayTargetToolSchema0Properties(dict):
+    def __init__(__self__, *,
+                 s3: 'outputs.GatewayTargetS3Configuration'):
+        pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> 'outputs.GatewayTargetS3Configuration':
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class GatewayTargetToolSchema1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inlinePayload":
+            suggest = "inline_payload"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetToolSchema1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetToolSchema1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetToolSchema1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inline_payload: Sequence['outputs.GatewayTargetToolDefinition']):
+        pulumi.set(__self__, "inline_payload", inline_payload)
+
+    @property
+    @pulumi.getter(name="inlinePayload")
+    def inline_payload(self) -> Sequence['outputs.GatewayTargetToolDefinition']:
+        return pulumi.get(self, "inline_payload")
+
+
+@pulumi.output_type
+class GatewayWorkloadIdentityDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workloadIdentityArn":
+            suggest = "workload_identity_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayWorkloadIdentityDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayWorkloadIdentityDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayWorkloadIdentityDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 workload_identity_arn: builtins.str):
+        pulumi.set(__self__, "workload_identity_arn", workload_identity_arn)
+
+    @property
+    @pulumi.getter(name="workloadIdentityArn")
+    def workload_identity_arn(self) -> builtins.str:
+        return pulumi.get(self, "workload_identity_arn")
 
 
 @pulumi.output_type

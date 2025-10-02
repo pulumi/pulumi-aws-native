@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
     public sealed class CapacityProviderBaselineEbsBandwidthMbpsRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum baseline Amazon EBS bandwidth in Mbps. Instance types with higher Amazon EBS bandwidth are excluded from selection.
+        /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
+        /// <summary>
+        /// The minimum baseline Amazon EBS bandwidth in Mbps. Instance types with lower Amazon EBS bandwidth are excluded from selection.
+        /// </summary>
         [Input("min")]
         public Input<int>? Min { get; set; }
 

@@ -4063,7 +4063,8 @@ type BlueprintTag struct {
 
 type DataAutomationProjectAudioExtractionCategory struct {
 	// Whether generating categorical data from audio is enabled.
-	State             DataAutomationProjectStateEnum                                 `pulumi:"state"`
+	State DataAutomationProjectStateEnum `pulumi:"state"`
+	// This element contains information about extractions from different types. Used to enable speaker and channel labeling for transcripts.
 	TypeConfiguration *DataAutomationProjectAudioExtractionCategoryTypeConfiguration `pulumi:"typeConfiguration"`
 	// The types of data to generate.
 	Types []DataAutomationProjectAudioExtractionCategoryType `pulumi:"types"`
@@ -4082,7 +4083,8 @@ type DataAutomationProjectAudioExtractionCategoryInput interface {
 
 type DataAutomationProjectAudioExtractionCategoryArgs struct {
 	// Whether generating categorical data from audio is enabled.
-	State             DataAutomationProjectStateEnumInput                                   `pulumi:"state"`
+	State DataAutomationProjectStateEnumInput `pulumi:"state"`
+	// This element contains information about extractions from different types. Used to enable speaker and channel labeling for transcripts.
 	TypeConfiguration DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrInput `pulumi:"typeConfiguration"`
 	// The types of data to generate.
 	Types DataAutomationProjectAudioExtractionCategoryTypeArrayInput `pulumi:"types"`
@@ -4170,6 +4172,7 @@ func (o DataAutomationProjectAudioExtractionCategoryOutput) State() DataAutomati
 	return o.ApplyT(func(v DataAutomationProjectAudioExtractionCategory) DataAutomationProjectStateEnum { return v.State }).(DataAutomationProjectStateEnumOutput)
 }
 
+// This element contains information about extractions from different types. Used to enable speaker and channel labeling for transcripts.
 func (o DataAutomationProjectAudioExtractionCategoryOutput) TypeConfiguration() DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectAudioExtractionCategory) *DataAutomationProjectAudioExtractionCategoryTypeConfiguration {
 		return v.TypeConfiguration
@@ -4217,6 +4220,7 @@ func (o DataAutomationProjectAudioExtractionCategoryPtrOutput) State() DataAutom
 	}).(DataAutomationProjectStateEnumPtrOutput)
 }
 
+// This element contains information about extractions from different types. Used to enable speaker and channel labeling for transcripts.
 func (o DataAutomationProjectAudioExtractionCategoryPtrOutput) TypeConfiguration() DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectAudioExtractionCategory) *DataAutomationProjectAudioExtractionCategoryTypeConfiguration {
 		if v == nil {
@@ -4237,6 +4241,7 @@ func (o DataAutomationProjectAudioExtractionCategoryPtrOutput) Types() DataAutom
 }
 
 type DataAutomationProjectAudioExtractionCategoryTypeConfiguration struct {
+	// This element allows you to configure different extractions for your transcript data, such as speaker and channel labeling.
 	Transcript *DataAutomationProjectTranscriptConfiguration `pulumi:"transcript"`
 }
 
@@ -4252,6 +4257,7 @@ type DataAutomationProjectAudioExtractionCategoryTypeConfigurationInput interfac
 }
 
 type DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs struct {
+	// This element allows you to configure different extractions for your transcript data, such as speaker and channel labeling.
 	Transcript DataAutomationProjectTranscriptConfigurationPtrInput `pulumi:"transcript"`
 }
 
@@ -4332,6 +4338,7 @@ func (o DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput) ToD
 	}).(DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput)
 }
 
+// This element allows you to configure different extractions for your transcript data, such as speaker and channel labeling.
 func (o DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput) Transcript() DataAutomationProjectTranscriptConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectAudioExtractionCategoryTypeConfiguration) *DataAutomationProjectTranscriptConfiguration {
 		return v.Transcript
@@ -4362,6 +4369,7 @@ func (o DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput) 
 	}).(DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput)
 }
 
+// This element allows you to configure different extractions for your transcript data, such as speaker and channel labeling.
 func (o DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput) Transcript() DataAutomationProjectTranscriptConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectAudioExtractionCategoryTypeConfiguration) *DataAutomationProjectTranscriptConfiguration {
 		if v == nil {
@@ -5087,6 +5095,7 @@ func (o DataAutomationProjectBlueprintItemArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type DataAutomationProjectChannelLabelingConfiguration struct {
+	// State of channel labeling, either enabled or disabled.
 	State DataAutomationProjectStateEnum `pulumi:"state"`
 }
 
@@ -5102,6 +5111,7 @@ type DataAutomationProjectChannelLabelingConfigurationInput interface {
 }
 
 type DataAutomationProjectChannelLabelingConfigurationArgs struct {
+	// State of channel labeling, either enabled or disabled.
 	State DataAutomationProjectStateEnumInput `pulumi:"state"`
 }
 
@@ -5182,6 +5192,7 @@ func (o DataAutomationProjectChannelLabelingConfigurationOutput) ToDataAutomatio
 	}).(DataAutomationProjectChannelLabelingConfigurationPtrOutput)
 }
 
+// State of channel labeling, either enabled or disabled.
 func (o DataAutomationProjectChannelLabelingConfigurationOutput) State() DataAutomationProjectStateEnumOutput {
 	return o.ApplyT(func(v DataAutomationProjectChannelLabelingConfiguration) DataAutomationProjectStateEnum {
 		return v.State
@@ -5212,6 +5223,7 @@ func (o DataAutomationProjectChannelLabelingConfigurationPtrOutput) Elem() DataA
 	}).(DataAutomationProjectChannelLabelingConfigurationOutput)
 }
 
+// State of channel labeling, either enabled or disabled.
 func (o DataAutomationProjectChannelLabelingConfigurationPtrOutput) State() DataAutomationProjectStateEnumPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectChannelLabelingConfiguration) *DataAutomationProjectStateEnum {
 		if v == nil {
@@ -8202,6 +8214,7 @@ func (o DataAutomationProjectOverrideConfigurationPtrOutput) Video() DataAutomat
 }
 
 type DataAutomationProjectSpeakerLabelingConfiguration struct {
+	// State of speaker labeling, either enabled or disabled.
 	State DataAutomationProjectStateEnum `pulumi:"state"`
 }
 
@@ -8217,6 +8230,7 @@ type DataAutomationProjectSpeakerLabelingConfigurationInput interface {
 }
 
 type DataAutomationProjectSpeakerLabelingConfigurationArgs struct {
+	// State of speaker labeling, either enabled or disabled.
 	State DataAutomationProjectStateEnumInput `pulumi:"state"`
 }
 
@@ -8297,6 +8311,7 @@ func (o DataAutomationProjectSpeakerLabelingConfigurationOutput) ToDataAutomatio
 	}).(DataAutomationProjectSpeakerLabelingConfigurationPtrOutput)
 }
 
+// State of speaker labeling, either enabled or disabled.
 func (o DataAutomationProjectSpeakerLabelingConfigurationOutput) State() DataAutomationProjectStateEnumOutput {
 	return o.ApplyT(func(v DataAutomationProjectSpeakerLabelingConfiguration) DataAutomationProjectStateEnum {
 		return v.State
@@ -8327,6 +8342,7 @@ func (o DataAutomationProjectSpeakerLabelingConfigurationPtrOutput) Elem() DataA
 	}).(DataAutomationProjectSpeakerLabelingConfigurationOutput)
 }
 
+// State of speaker labeling, either enabled or disabled.
 func (o DataAutomationProjectSpeakerLabelingConfigurationPtrOutput) State() DataAutomationProjectStateEnumPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectSpeakerLabelingConfiguration) *DataAutomationProjectStateEnum {
 		if v == nil {
@@ -8687,7 +8703,9 @@ type DataAutomationProjectTag struct {
 }
 
 type DataAutomationProjectTranscriptConfiguration struct {
+	// Enables channel labeling. Each audio channel will be labeled with a number, and the transcript will indicate which channel is being used.
 	ChannelLabeling *DataAutomationProjectChannelLabelingConfiguration `pulumi:"channelLabeling"`
+	// Enables speaker labeling. Each speaker within a transcript will recieve a number, and the transcript will note which speaker is talking.
 	SpeakerLabeling *DataAutomationProjectSpeakerLabelingConfiguration `pulumi:"speakerLabeling"`
 }
 
@@ -8703,7 +8721,9 @@ type DataAutomationProjectTranscriptConfigurationInput interface {
 }
 
 type DataAutomationProjectTranscriptConfigurationArgs struct {
+	// Enables channel labeling. Each audio channel will be labeled with a number, and the transcript will indicate which channel is being used.
 	ChannelLabeling DataAutomationProjectChannelLabelingConfigurationPtrInput `pulumi:"channelLabeling"`
+	// Enables speaker labeling. Each speaker within a transcript will recieve a number, and the transcript will note which speaker is talking.
 	SpeakerLabeling DataAutomationProjectSpeakerLabelingConfigurationPtrInput `pulumi:"speakerLabeling"`
 }
 
@@ -8784,12 +8804,14 @@ func (o DataAutomationProjectTranscriptConfigurationOutput) ToDataAutomationProj
 	}).(DataAutomationProjectTranscriptConfigurationPtrOutput)
 }
 
+// Enables channel labeling. Each audio channel will be labeled with a number, and the transcript will indicate which channel is being used.
 func (o DataAutomationProjectTranscriptConfigurationOutput) ChannelLabeling() DataAutomationProjectChannelLabelingConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectTranscriptConfiguration) *DataAutomationProjectChannelLabelingConfiguration {
 		return v.ChannelLabeling
 	}).(DataAutomationProjectChannelLabelingConfigurationPtrOutput)
 }
 
+// Enables speaker labeling. Each speaker within a transcript will recieve a number, and the transcript will note which speaker is talking.
 func (o DataAutomationProjectTranscriptConfigurationOutput) SpeakerLabeling() DataAutomationProjectSpeakerLabelingConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectTranscriptConfiguration) *DataAutomationProjectSpeakerLabelingConfiguration {
 		return v.SpeakerLabeling
@@ -8820,6 +8842,7 @@ func (o DataAutomationProjectTranscriptConfigurationPtrOutput) Elem() DataAutoma
 	}).(DataAutomationProjectTranscriptConfigurationOutput)
 }
 
+// Enables channel labeling. Each audio channel will be labeled with a number, and the transcript will indicate which channel is being used.
 func (o DataAutomationProjectTranscriptConfigurationPtrOutput) ChannelLabeling() DataAutomationProjectChannelLabelingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectTranscriptConfiguration) *DataAutomationProjectChannelLabelingConfiguration {
 		if v == nil {
@@ -8829,6 +8852,7 @@ func (o DataAutomationProjectTranscriptConfigurationPtrOutput) ChannelLabeling()
 	}).(DataAutomationProjectChannelLabelingConfigurationPtrOutput)
 }
 
+// Enables speaker labeling. Each speaker within a transcript will recieve a number, and the transcript will note which speaker is talking.
 func (o DataAutomationProjectTranscriptConfigurationPtrOutput) SpeakerLabeling() DataAutomationProjectSpeakerLabelingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectTranscriptConfiguration) *DataAutomationProjectSpeakerLabelingConfiguration {
 		if v == nil {

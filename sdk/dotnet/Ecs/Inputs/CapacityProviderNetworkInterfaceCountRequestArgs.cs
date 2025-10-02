@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
     public sealed class CapacityProviderNetworkInterfaceCountRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum number of network interfaces. Instance types that support more network interfaces are excluded from selection.
+        /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
+        /// <summary>
+        /// The minimum number of network interfaces. Instance types that support fewer network interfaces are excluded from selection.
+        /// </summary>
         [Input("min")]
         public Input<int>? Min { get; set; }
 

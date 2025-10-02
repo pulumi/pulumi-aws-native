@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
 
     public sealed class DataAutomationProjectChannelLabelingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// State of channel labeling, either enabled or disabled.
+        /// </summary>
         [Input("state", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.DataAutomationProjectState> State { get; set; } = null!;
 

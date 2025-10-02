@@ -31,6 +31,7 @@ type LookupCapacityProviderArgs struct {
 type LookupCapacityProviderResult struct {
 	// The Auto Scaling group settings for the capacity provider.
 	AutoScalingGroupProvider *CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
+	// The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.
 	ManagedInstancesProvider *CapacityProviderManagedInstancesProvider `pulumi:"managedInstancesProvider"`
 	// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
 	//
@@ -85,6 +86,7 @@ func (o LookupCapacityProviderResultOutput) AutoScalingGroupProvider() CapacityP
 	}).(CapacityProviderAutoScalingGroupProviderPtrOutput)
 }
 
+// The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.
 func (o LookupCapacityProviderResultOutput) ManagedInstancesProvider() CapacityProviderManagedInstancesProviderPtrOutput {
 	return o.ApplyT(func(v LookupCapacityProviderResult) *CapacityProviderManagedInstancesProvider {
 		return v.ManagedInstancesProvider

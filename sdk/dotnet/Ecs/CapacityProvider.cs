@@ -238,6 +238,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("clusterName")]
         public Output<string?> ClusterName { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.
+        /// </summary>
         [Output("managedInstancesProvider")]
         public Output<Outputs.CapacityProviderManagedInstancesProvider?> ManagedInstancesProvider { get; private set; } = null!;
 
@@ -323,6 +326,9 @@ namespace Pulumi.AwsNative.Ecs
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
+        /// <summary>
+        /// The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.
+        /// </summary>
         [Input("managedInstancesProvider")]
         public Input<Inputs.CapacityProviderManagedInstancesProviderArgs>? ManagedInstancesProvider { get; set; }
 

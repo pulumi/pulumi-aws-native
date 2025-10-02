@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderManagedInstancesStorageConfiguration
     {
+        /// <summary>
+        /// The size of the tasks volume.
+        /// </summary>
         public readonly int StorageSizeGiB;
 
         [OutputConstructor]

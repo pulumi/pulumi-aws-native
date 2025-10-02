@@ -20,6 +20,11 @@ export const getLaunchTemplateConstraint: typeof import("./getLaunchTemplateCons
 export const getLaunchTemplateConstraintOutput: typeof import("./getLaunchTemplateConstraint").getLaunchTemplateConstraintOutput = null as any;
 utilities.lazyLoad(exports, ["getLaunchTemplateConstraint","getLaunchTemplateConstraintOutput"], () => require("./getLaunchTemplateConstraint"));
 
+export { GetPortfolioShareArgs, GetPortfolioShareResult, GetPortfolioShareOutputArgs } from "./getPortfolioShare";
+export const getPortfolioShare: typeof import("./getPortfolioShare").getPortfolioShare = null as any;
+export const getPortfolioShareOutput: typeof import("./getPortfolioShare").getPortfolioShareOutput = null as any;
+utilities.lazyLoad(exports, ["getPortfolioShare","getPortfolioShareOutput"], () => require("./getPortfolioShare"));
+
 export { GetServiceActionArgs, GetServiceActionResult, GetServiceActionOutputArgs } from "./getServiceAction";
 export const getServiceAction: typeof import("./getServiceAction").getServiceAction = null as any;
 export const getServiceActionOutput: typeof import("./getServiceAction").getServiceActionOutput = null as any;
@@ -39,6 +44,11 @@ export { PortfolioProductAssociationArgs } from "./portfolioProductAssociation";
 export type PortfolioProductAssociation = import("./portfolioProductAssociation").PortfolioProductAssociation;
 export const PortfolioProductAssociation: typeof import("./portfolioProductAssociation").PortfolioProductAssociation = null as any;
 utilities.lazyLoad(exports, ["PortfolioProductAssociation"], () => require("./portfolioProductAssociation"));
+
+export { PortfolioShareArgs } from "./portfolioShare";
+export type PortfolioShare = import("./portfolioShare").PortfolioShare;
+export const PortfolioShare: typeof import("./portfolioShare").PortfolioShare = null as any;
+utilities.lazyLoad(exports, ["PortfolioShare"], () => require("./portfolioShare"));
 
 export { ServiceActionArgs } from "./serviceAction";
 export type ServiceAction = import("./serviceAction").ServiceAction;
@@ -69,6 +79,8 @@ const _module = {
                 return new LaunchTemplateConstraint(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:PortfolioProductAssociation":
                 return new PortfolioProductAssociation(name, <any>undefined, { urn })
+            case "aws-native:servicecatalog:PortfolioShare":
+                return new PortfolioShare(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:ServiceAction":
                 return new ServiceAction(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:ServiceActionAssociation":

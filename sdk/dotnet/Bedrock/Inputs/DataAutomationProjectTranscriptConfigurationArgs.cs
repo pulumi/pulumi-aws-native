@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
 
     public sealed class DataAutomationProjectTranscriptConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables channel labeling. Each audio channel will be labeled with a number, and the transcript will indicate which channel is being used.
+        /// </summary>
         [Input("channelLabeling")]
         public Input<Inputs.DataAutomationProjectChannelLabelingConfigurationArgs>? ChannelLabeling { get; set; }
 
+        /// <summary>
+        /// Enables speaker labeling. Each speaker within a transcript will recieve a number, and the transcript will note which speaker is talking.
+        /// </summary>
         [Input("speakerLabeling")]
         public Input<Inputs.DataAutomationProjectSpeakerLabelingConfigurationArgs>? SpeakerLabeling { get; set; }
 

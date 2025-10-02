@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class RoutingProfileManualAssignmentQueueConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains information about a queue resource.
+        /// </summary>
         [Input("queueReference", required: true)]
         public Input<Inputs.RoutingProfileQueueReferenceArgs> QueueReference { get; set; } = null!;
 

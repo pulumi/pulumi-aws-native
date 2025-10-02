@@ -15,6 +15,16 @@ export type CodeInterpreterCustom = import("./codeInterpreterCustom").CodeInterp
 export const CodeInterpreterCustom: typeof import("./codeInterpreterCustom").CodeInterpreterCustom = null as any;
 utilities.lazyLoad(exports, ["CodeInterpreterCustom"], () => require("./codeInterpreterCustom"));
 
+export { GatewayArgs } from "./gateway";
+export type Gateway = import("./gateway").Gateway;
+export const Gateway: typeof import("./gateway").Gateway = null as any;
+utilities.lazyLoad(exports, ["Gateway"], () => require("./gateway"));
+
+export { GatewayTargetArgs } from "./gatewayTarget";
+export type GatewayTarget = import("./gatewayTarget").GatewayTarget;
+export const GatewayTarget: typeof import("./gatewayTarget").GatewayTarget = null as any;
+utilities.lazyLoad(exports, ["GatewayTarget"], () => require("./gatewayTarget"));
+
 export { GetBrowserCustomArgs, GetBrowserCustomResult, GetBrowserCustomOutputArgs } from "./getBrowserCustom";
 export const getBrowserCustom: typeof import("./getBrowserCustom").getBrowserCustom = null as any;
 export const getBrowserCustomOutput: typeof import("./getBrowserCustom").getBrowserCustomOutput = null as any;
@@ -24,6 +34,16 @@ export { GetCodeInterpreterCustomArgs, GetCodeInterpreterCustomResult, GetCodeIn
 export const getCodeInterpreterCustom: typeof import("./getCodeInterpreterCustom").getCodeInterpreterCustom = null as any;
 export const getCodeInterpreterCustomOutput: typeof import("./getCodeInterpreterCustom").getCodeInterpreterCustomOutput = null as any;
 utilities.lazyLoad(exports, ["getCodeInterpreterCustom","getCodeInterpreterCustomOutput"], () => require("./getCodeInterpreterCustom"));
+
+export { GetGatewayArgs, GetGatewayResult, GetGatewayOutputArgs } from "./getGateway";
+export const getGateway: typeof import("./getGateway").getGateway = null as any;
+export const getGatewayOutput: typeof import("./getGateway").getGatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getGateway","getGatewayOutput"], () => require("./getGateway"));
+
+export { GetGatewayTargetArgs, GetGatewayTargetResult, GetGatewayTargetOutputArgs } from "./getGatewayTarget";
+export const getGatewayTarget: typeof import("./getGatewayTarget").getGatewayTarget = null as any;
+export const getGatewayTargetOutput: typeof import("./getGatewayTarget").getGatewayTargetOutput = null as any;
+utilities.lazyLoad(exports, ["getGatewayTarget","getGatewayTargetOutput"], () => require("./getGatewayTarget"));
 
 export { GetRuntimeArgs, GetRuntimeResult, GetRuntimeOutputArgs } from "./getRuntime";
 export const getRuntime: typeof import("./getRuntime").getRuntime = null as any;
@@ -57,6 +77,10 @@ const _module = {
                 return new BrowserCustom(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:CodeInterpreterCustom":
                 return new CodeInterpreterCustom(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:Gateway":
+                return new Gateway(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:GatewayTarget":
+                return new GatewayTarget(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Runtime":
                 return new Runtime(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:RuntimeEndpoint":

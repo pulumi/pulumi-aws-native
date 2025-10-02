@@ -12,12 +12,25 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
     public sealed class CapacityProviderManagedInstancesProviderArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS assumes to manage instances. This role must include permissions for Amazon EC2 instance lifecycle management, networking, and any additional AWS services required for your workloads.
+        /// 
+        /// For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide* .
+        /// </summary>
         [Input("infrastructureRoleArn", required: true)]
         public Input<string> InfrastructureRoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// The launch template that defines how Amazon ECS launches Amazon ECS Managed Instances. This includes the instance profile for your tasks, network and storage configuration, and instance requirements that determine which Amazon EC2 instance types can be used.
+        /// 
+        /// For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide* .
+        /// </summary>
         [Input("instanceLaunchTemplate", required: true)]
         public Input<Inputs.CapacityProviderInstanceLaunchTemplateArgs> InstanceLaunchTemplate { get; set; } = null!;
 
+        /// <summary>
+        /// Determines whether tags from the capacity provider are automatically applied to Amazon ECS Managed Instances. This helps with cost allocation and resource management by ensuring consistent tagging across your infrastructure.
+        /// </summary>
         [Input("propagateTags")]
         public Input<Pulumi.AwsNative.Ecs.CapacityProviderManagedInstancesProviderPropagateTags>? PropagateTags { get; set; }
 

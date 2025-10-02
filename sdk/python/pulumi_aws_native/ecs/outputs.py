@@ -118,6 +118,10 @@ class CapacityProviderAcceleratorCountRequest(dict):
     def __init__(__self__, *,
                  max: Optional[builtins.int] = None,
                  min: Optional[builtins.int] = None):
+        """
+        :param builtins.int max: The maximum number of accelerators. Instance types with more accelerators are excluded from selection.
+        :param builtins.int min: The minimum number of accelerators. Instance types with fewer accelerators are excluded from selection.
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -126,11 +130,17 @@ class CapacityProviderAcceleratorCountRequest(dict):
     @property
     @pulumi.getter
     def max(self) -> Optional[builtins.int]:
+        """
+        The maximum number of accelerators. Instance types with more accelerators are excluded from selection.
+        """
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
     def min(self) -> Optional[builtins.int]:
+        """
+        The minimum number of accelerators. Instance types with fewer accelerators are excluded from selection.
+        """
         return pulumi.get(self, "min")
 
 
@@ -139,6 +149,10 @@ class CapacityProviderAcceleratorTotalMemoryMiBRequest(dict):
     def __init__(__self__, *,
                  max: Optional[builtins.int] = None,
                  min: Optional[builtins.int] = None):
+        """
+        :param builtins.int max: The maximum total accelerator memory in MiB. Instance types with more accelerator memory are excluded from selection.
+        :param builtins.int min: The minimum total accelerator memory in MiB. Instance types with less accelerator memory are excluded from selection.
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -147,11 +161,17 @@ class CapacityProviderAcceleratorTotalMemoryMiBRequest(dict):
     @property
     @pulumi.getter
     def max(self) -> Optional[builtins.int]:
+        """
+        The maximum total accelerator memory in MiB. Instance types with more accelerator memory are excluded from selection.
+        """
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
     def min(self) -> Optional[builtins.int]:
+        """
+        The minimum total accelerator memory in MiB. Instance types with less accelerator memory are excluded from selection.
+        """
         return pulumi.get(self, "min")
 
 
@@ -249,6 +269,10 @@ class CapacityProviderBaselineEbsBandwidthMbpsRequest(dict):
     def __init__(__self__, *,
                  max: Optional[builtins.int] = None,
                  min: Optional[builtins.int] = None):
+        """
+        :param builtins.int max: The maximum baseline Amazon EBS bandwidth in Mbps. Instance types with higher Amazon EBS bandwidth are excluded from selection.
+        :param builtins.int min: The minimum baseline Amazon EBS bandwidth in Mbps. Instance types with lower Amazon EBS bandwidth are excluded from selection.
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -257,11 +281,17 @@ class CapacityProviderBaselineEbsBandwidthMbpsRequest(dict):
     @property
     @pulumi.getter
     def max(self) -> Optional[builtins.int]:
+        """
+        The maximum baseline Amazon EBS bandwidth in Mbps. Instance types with higher Amazon EBS bandwidth are excluded from selection.
+        """
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
     def min(self) -> Optional[builtins.int]:
+        """
+        The minimum baseline Amazon EBS bandwidth in Mbps. Instance types with lower Amazon EBS bandwidth are excluded from selection.
+        """
         return pulumi.get(self, "min")
 
 
@@ -296,6 +326,20 @@ class CapacityProviderInstanceLaunchTemplate(dict):
                  instance_requirements: Optional['outputs.CapacityProviderInstanceRequirementsRequest'] = None,
                  monitoring: Optional['CapacityProviderManagedInstancesMonitoringOptions'] = None,
                  storage_configuration: Optional['outputs.CapacityProviderManagedInstancesStorageConfiguration'] = None):
+        """
+        :param builtins.str ec2_instance_profile_arn: The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
+               
+               For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html) in the *Amazon ECS Developer Guide* .
+        :param 'CapacityProviderManagedInstancesNetworkConfiguration' network_configuration: The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity.
+        :param 'CapacityProviderInstanceRequirementsRequest' instance_requirements: The instance requirements. You can specify:
+               
+               - The instance types
+               - Instance requirements such as vCPU count, memory, network performance, and accelerator specifications
+               
+               Amazon ECS automatically selects the instances that match the specified criteria.
+        :param 'CapacityProviderManagedInstancesMonitoringOptions' monitoring: CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/detailed-monitoring-managed-instances.html) in the Amazon ECS Developer Guide.
+        :param 'CapacityProviderManagedInstancesStorageConfiguration' storage_configuration: The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances.
+        """
         pulumi.set(__self__, "ec2_instance_profile_arn", ec2_instance_profile_arn)
         pulumi.set(__self__, "network_configuration", network_configuration)
         if instance_requirements is not None:
@@ -308,26 +352,48 @@ class CapacityProviderInstanceLaunchTemplate(dict):
     @property
     @pulumi.getter(name="ec2InstanceProfileArn")
     def ec2_instance_profile_arn(self) -> builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
+
+        For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html) in the *Amazon ECS Developer Guide* .
+        """
         return pulumi.get(self, "ec2_instance_profile_arn")
 
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> 'outputs.CapacityProviderManagedInstancesNetworkConfiguration':
+        """
+        The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity.
+        """
         return pulumi.get(self, "network_configuration")
 
     @property
     @pulumi.getter(name="instanceRequirements")
     def instance_requirements(self) -> Optional['outputs.CapacityProviderInstanceRequirementsRequest']:
+        """
+        The instance requirements. You can specify:
+
+        - The instance types
+        - Instance requirements such as vCPU count, memory, network performance, and accelerator specifications
+
+        Amazon ECS automatically selects the instances that match the specified criteria.
+        """
         return pulumi.get(self, "instance_requirements")
 
     @property
     @pulumi.getter
     def monitoring(self) -> Optional['CapacityProviderManagedInstancesMonitoringOptions']:
+        """
+        CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/detailed-monitoring-managed-instances.html) in the Amazon ECS Developer Guide.
+        """
         return pulumi.get(self, "monitoring")
 
     @property
     @pulumi.getter(name="storageConfiguration")
     def storage_configuration(self) -> Optional['outputs.CapacityProviderManagedInstancesStorageConfiguration']:
+        """
+        The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances.
+        """
         return pulumi.get(self, "storage_configuration")
 
 
@@ -421,6 +487,32 @@ class CapacityProviderInstanceRequirementsRequest(dict):
                  require_hibernate_support: Optional[builtins.bool] = None,
                  spot_max_price_percentage_over_lowest_price: Optional[builtins.int] = None,
                  total_local_storage_gb: Optional['outputs.CapacityProviderTotalLocalStorageGbRequest'] = None):
+        """
+        :param 'CapacityProviderMemoryMiBRequest' memory_mi_b: The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+        :param 'CapacityProviderVCpuCountRangeRequest' v_cpu_count: The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+        :param 'CapacityProviderAcceleratorCountRequest' accelerator_count: The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+        :param Sequence['CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem'] accelerator_manufacturers: The accelerator manufacturers to include. You can specify `nvidia` , `amd` , `amazon-web-services` , or `xilinx` depending on your accelerator requirements.
+        :param Sequence['CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem'] accelerator_names: The specific accelerator names to include. For example, you can specify `a100` , `v100` , `k80` , or other specific accelerator models.
+        :param 'CapacityProviderAcceleratorTotalMemoryMiBRequest' accelerator_total_memory_mi_b: The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+        :param Sequence['CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem'] accelerator_types: The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators.
+        :param Sequence[builtins.str] allowed_instance_types: The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified.
+        :param 'CapacityProviderInstanceRequirementsRequestBareMetal' bare_metal: Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances.
+        :param 'CapacityProviderBaselineEbsBandwidthMbpsRequest' baseline_ebs_bandwidth_mbps: The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+        :param 'CapacityProviderInstanceRequirementsRequestBurstablePerformance' burstable_performance: Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances.
+        :param Sequence['CapacityProviderInstanceRequirementsRequestCpuManufacturersItem'] cpu_manufacturers: The CPU manufacturers to include or exclude. You can specify `intel` , `amd` , or `amazon-web-services` to control which CPU types are used for your workloads.
+        :param Sequence[builtins.str] excluded_instance_types: The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads.
+        :param Sequence['CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem'] instance_generations: The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization.
+        :param 'CapacityProviderInstanceRequirementsRequestLocalStorage' local_storage: Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage.
+        :param Sequence['CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem'] local_storage_types: The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both.
+        :param builtins.int max_spot_price_as_percentage_of_optimal_on_demand_price: The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+        :param 'CapacityProviderMemoryGiBPerVCpuRequest' memory_gi_b_per_v_cpu: The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+        :param 'CapacityProviderNetworkBandwidthGbpsRequest' network_bandwidth_gbps: The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+        :param 'CapacityProviderNetworkInterfaceCountRequest' network_interface_count: The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+        :param builtins.int on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon ECS selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
+        :param builtins.bool require_hibernate_support: Indicates whether the instance types must support hibernation. When set to `true` , only instance types that support hibernation are selected.
+        :param builtins.int spot_max_price_percentage_over_lowest_price: The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+        :param 'CapacityProviderTotalLocalStorageGbRequest' total_local_storage_gb: The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+        """
         pulumi.set(__self__, "memory_mi_b", memory_mi_b)
         pulumi.set(__self__, "v_cpu_count", v_cpu_count)
         if accelerator_count is not None:
@@ -471,121 +563,193 @@ class CapacityProviderInstanceRequirementsRequest(dict):
     @property
     @pulumi.getter(name="memoryMiB")
     def memory_mi_b(self) -> 'outputs.CapacityProviderMemoryMiBRequest':
+        """
+        The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+        """
         return pulumi.get(self, "memory_mi_b")
 
     @property
     @pulumi.getter(name="vCpuCount")
     def v_cpu_count(self) -> 'outputs.CapacityProviderVCpuCountRangeRequest':
+        """
+        The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+        """
         return pulumi.get(self, "v_cpu_count")
 
     @property
     @pulumi.getter(name="acceleratorCount")
     def accelerator_count(self) -> Optional['outputs.CapacityProviderAcceleratorCountRequest']:
+        """
+        The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+        """
         return pulumi.get(self, "accelerator_count")
 
     @property
     @pulumi.getter(name="acceleratorManufacturers")
     def accelerator_manufacturers(self) -> Optional[Sequence['CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem']]:
+        """
+        The accelerator manufacturers to include. You can specify `nvidia` , `amd` , `amazon-web-services` , or `xilinx` depending on your accelerator requirements.
+        """
         return pulumi.get(self, "accelerator_manufacturers")
 
     @property
     @pulumi.getter(name="acceleratorNames")
     def accelerator_names(self) -> Optional[Sequence['CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem']]:
+        """
+        The specific accelerator names to include. For example, you can specify `a100` , `v100` , `k80` , or other specific accelerator models.
+        """
         return pulumi.get(self, "accelerator_names")
 
     @property
     @pulumi.getter(name="acceleratorTotalMemoryMiB")
     def accelerator_total_memory_mi_b(self) -> Optional['outputs.CapacityProviderAcceleratorTotalMemoryMiBRequest']:
+        """
+        The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+        """
         return pulumi.get(self, "accelerator_total_memory_mi_b")
 
     @property
     @pulumi.getter(name="acceleratorTypes")
     def accelerator_types(self) -> Optional[Sequence['CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem']]:
+        """
+        The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators.
+        """
         return pulumi.get(self, "accelerator_types")
 
     @property
     @pulumi.getter(name="allowedInstanceTypes")
     def allowed_instance_types(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified.
+        """
         return pulumi.get(self, "allowed_instance_types")
 
     @property
     @pulumi.getter(name="bareMetal")
     def bare_metal(self) -> Optional['CapacityProviderInstanceRequirementsRequestBareMetal']:
+        """
+        Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances.
+        """
         return pulumi.get(self, "bare_metal")
 
     @property
     @pulumi.getter(name="baselineEbsBandwidthMbps")
     def baseline_ebs_bandwidth_mbps(self) -> Optional['outputs.CapacityProviderBaselineEbsBandwidthMbpsRequest']:
+        """
+        The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+        """
         return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
 
     @property
     @pulumi.getter(name="burstablePerformance")
     def burstable_performance(self) -> Optional['CapacityProviderInstanceRequirementsRequestBurstablePerformance']:
+        """
+        Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances.
+        """
         return pulumi.get(self, "burstable_performance")
 
     @property
     @pulumi.getter(name="cpuManufacturers")
     def cpu_manufacturers(self) -> Optional[Sequence['CapacityProviderInstanceRequirementsRequestCpuManufacturersItem']]:
+        """
+        The CPU manufacturers to include or exclude. You can specify `intel` , `amd` , or `amazon-web-services` to control which CPU types are used for your workloads.
+        """
         return pulumi.get(self, "cpu_manufacturers")
 
     @property
     @pulumi.getter(name="excludedInstanceTypes")
     def excluded_instance_types(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads.
+        """
         return pulumi.get(self, "excluded_instance_types")
 
     @property
     @pulumi.getter(name="instanceGenerations")
     def instance_generations(self) -> Optional[Sequence['CapacityProviderInstanceRequirementsRequestInstanceGenerationsItem']]:
+        """
+        The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization.
+        """
         return pulumi.get(self, "instance_generations")
 
     @property
     @pulumi.getter(name="localStorage")
     def local_storage(self) -> Optional['CapacityProviderInstanceRequirementsRequestLocalStorage']:
+        """
+        Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage.
+        """
         return pulumi.get(self, "local_storage")
 
     @property
     @pulumi.getter(name="localStorageTypes")
     def local_storage_types(self) -> Optional[Sequence['CapacityProviderInstanceRequirementsRequestLocalStorageTypesItem']]:
+        """
+        The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both.
+        """
         return pulumi.get(self, "local_storage_types")
 
     @property
     @pulumi.getter(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
     def max_spot_price_as_percentage_of_optimal_on_demand_price(self) -> Optional[builtins.int]:
+        """
+        The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+        """
         return pulumi.get(self, "max_spot_price_as_percentage_of_optimal_on_demand_price")
 
     @property
     @pulumi.getter(name="memoryGiBPerVCpu")
     def memory_gi_b_per_v_cpu(self) -> Optional['outputs.CapacityProviderMemoryGiBPerVCpuRequest']:
+        """
+        The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+        """
         return pulumi.get(self, "memory_gi_b_per_v_cpu")
 
     @property
     @pulumi.getter(name="networkBandwidthGbps")
     def network_bandwidth_gbps(self) -> Optional['outputs.CapacityProviderNetworkBandwidthGbpsRequest']:
+        """
+        The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+        """
         return pulumi.get(self, "network_bandwidth_gbps")
 
     @property
     @pulumi.getter(name="networkInterfaceCount")
     def network_interface_count(self) -> Optional['outputs.CapacityProviderNetworkInterfaceCountRequest']:
+        """
+        The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+        """
         return pulumi.get(self, "network_interface_count")
 
     @property
     @pulumi.getter(name="onDemandMaxPricePercentageOverLowestPrice")
     def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[builtins.int]:
+        """
+        The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon ECS selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
+        """
         return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
 
     @property
     @pulumi.getter(name="requireHibernateSupport")
     def require_hibernate_support(self) -> Optional[builtins.bool]:
+        """
+        Indicates whether the instance types must support hibernation. When set to `true` , only instance types that support hibernation are selected.
+        """
         return pulumi.get(self, "require_hibernate_support")
 
     @property
     @pulumi.getter(name="spotMaxPricePercentageOverLowestPrice")
     def spot_max_price_percentage_over_lowest_price(self) -> Optional[builtins.int]:
+        """
+        The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+        """
         return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
 
     @property
     @pulumi.getter(name="totalLocalStorageGb")
     def total_local_storage_gb(self) -> Optional['outputs.CapacityProviderTotalLocalStorageGbRequest']:
+        """
+        The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+        """
         return pulumi.get(self, "total_local_storage_gb")
 
 
@@ -611,6 +775,10 @@ class CapacityProviderManagedInstancesNetworkConfiguration(dict):
     def __init__(__self__, *,
                  subnets: Sequence[builtins.str],
                  security_groups: Optional[Sequence[builtins.str]] = None):
+        """
+        :param Sequence[builtins.str] subnets: The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+        :param Sequence[builtins.str] security_groups: The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+        """
         pulumi.set(__self__, "subnets", subnets)
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
@@ -618,11 +786,17 @@ class CapacityProviderManagedInstancesNetworkConfiguration(dict):
     @property
     @pulumi.getter
     def subnets(self) -> Sequence[builtins.str]:
+        """
+        The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+        """
         return pulumi.get(self, "subnets")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+        """
         return pulumi.get(self, "security_groups")
 
 
@@ -653,6 +827,15 @@ class CapacityProviderManagedInstancesProvider(dict):
                  infrastructure_role_arn: builtins.str,
                  instance_launch_template: 'outputs.CapacityProviderInstanceLaunchTemplate',
                  propagate_tags: Optional['CapacityProviderManagedInstancesProviderPropagateTags'] = None):
+        """
+        :param builtins.str infrastructure_role_arn: The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS assumes to manage instances. This role must include permissions for Amazon EC2 instance lifecycle management, networking, and any additional AWS services required for your workloads.
+               
+               For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide* .
+        :param 'CapacityProviderInstanceLaunchTemplate' instance_launch_template: The launch template that defines how Amazon ECS launches Amazon ECS Managed Instances. This includes the instance profile for your tasks, network and storage configuration, and instance requirements that determine which Amazon EC2 instance types can be used.
+               
+               For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide* .
+        :param 'CapacityProviderManagedInstancesProviderPropagateTags' propagate_tags: Determines whether tags from the capacity provider are automatically applied to Amazon ECS Managed Instances. This helps with cost allocation and resource management by ensuring consistent tagging across your infrastructure.
+        """
         pulumi.set(__self__, "infrastructure_role_arn", infrastructure_role_arn)
         pulumi.set(__self__, "instance_launch_template", instance_launch_template)
         if propagate_tags is not None:
@@ -661,16 +844,29 @@ class CapacityProviderManagedInstancesProvider(dict):
     @property
     @pulumi.getter(name="infrastructureRoleArn")
     def infrastructure_role_arn(self) -> builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS assumes to manage instances. This role must include permissions for Amazon EC2 instance lifecycle management, networking, and any additional AWS services required for your workloads.
+
+        For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide* .
+        """
         return pulumi.get(self, "infrastructure_role_arn")
 
     @property
     @pulumi.getter(name="instanceLaunchTemplate")
     def instance_launch_template(self) -> 'outputs.CapacityProviderInstanceLaunchTemplate':
+        """
+        The launch template that defines how Amazon ECS launches Amazon ECS Managed Instances. This includes the instance profile for your tasks, network and storage configuration, and instance requirements that determine which Amazon EC2 instance types can be used.
+
+        For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide* .
+        """
         return pulumi.get(self, "instance_launch_template")
 
     @property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional['CapacityProviderManagedInstancesProviderPropagateTags']:
+        """
+        Determines whether tags from the capacity provider are automatically applied to Amazon ECS Managed Instances. This helps with cost allocation and resource management by ensuring consistent tagging across your infrastructure.
+        """
         return pulumi.get(self, "propagate_tags")
 
 
@@ -695,11 +891,17 @@ class CapacityProviderManagedInstancesStorageConfiguration(dict):
 
     def __init__(__self__, *,
                  storage_size_gi_b: builtins.int):
+        """
+        :param builtins.int storage_size_gi_b: The size of the tasks volume.
+        """
         pulumi.set(__self__, "storage_size_gi_b", storage_size_gi_b)
 
     @property
     @pulumi.getter(name="storageSizeGiB")
     def storage_size_gi_b(self) -> builtins.int:
+        """
+        The size of the tasks volume.
+        """
         return pulumi.get(self, "storage_size_gi_b")
 
 
@@ -806,6 +1008,10 @@ class CapacityProviderMemoryGiBPerVCpuRequest(dict):
     def __init__(__self__, *,
                  max: Optional[builtins.float] = None,
                  min: Optional[builtins.float] = None):
+        """
+        :param builtins.float max: The maximum amount of memory per vCPU in GiB. Instance types with a higher memory-to-vCPU ratio are excluded from selection.
+        :param builtins.float min: The minimum amount of memory per vCPU in GiB. Instance types with a lower memory-to-vCPU ratio are excluded from selection.
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -814,11 +1020,17 @@ class CapacityProviderMemoryGiBPerVCpuRequest(dict):
     @property
     @pulumi.getter
     def max(self) -> Optional[builtins.float]:
+        """
+        The maximum amount of memory per vCPU in GiB. Instance types with a higher memory-to-vCPU ratio are excluded from selection.
+        """
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
     def min(self) -> Optional[builtins.float]:
+        """
+        The minimum amount of memory per vCPU in GiB. Instance types with a lower memory-to-vCPU ratio are excluded from selection.
+        """
         return pulumi.get(self, "min")
 
 
@@ -827,6 +1039,10 @@ class CapacityProviderMemoryMiBRequest(dict):
     def __init__(__self__, *,
                  min: builtins.int,
                  max: Optional[builtins.int] = None):
+        """
+        :param builtins.int min: The minimum amount of memory in MiB. Instance types with less memory than this value are excluded from selection.
+        :param builtins.int max: The maximum amount of memory in MiB. Instance types with more memory than this value are excluded from selection.
+        """
         pulumi.set(__self__, "min", min)
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -834,11 +1050,17 @@ class CapacityProviderMemoryMiBRequest(dict):
     @property
     @pulumi.getter
     def min(self) -> builtins.int:
+        """
+        The minimum amount of memory in MiB. Instance types with less memory than this value are excluded from selection.
+        """
         return pulumi.get(self, "min")
 
     @property
     @pulumi.getter
     def max(self) -> Optional[builtins.int]:
+        """
+        The maximum amount of memory in MiB. Instance types with more memory than this value are excluded from selection.
+        """
         return pulumi.get(self, "max")
 
 
@@ -847,6 +1069,10 @@ class CapacityProviderNetworkBandwidthGbpsRequest(dict):
     def __init__(__self__, *,
                  max: Optional[builtins.float] = None,
                  min: Optional[builtins.float] = None):
+        """
+        :param builtins.float max: The maximum network bandwidth in Gbps. Instance types with higher network bandwidth are excluded from selection.
+        :param builtins.float min: The minimum network bandwidth in Gbps. Instance types with lower network bandwidth are excluded from selection.
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -855,11 +1081,17 @@ class CapacityProviderNetworkBandwidthGbpsRequest(dict):
     @property
     @pulumi.getter
     def max(self) -> Optional[builtins.float]:
+        """
+        The maximum network bandwidth in Gbps. Instance types with higher network bandwidth are excluded from selection.
+        """
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
     def min(self) -> Optional[builtins.float]:
+        """
+        The minimum network bandwidth in Gbps. Instance types with lower network bandwidth are excluded from selection.
+        """
         return pulumi.get(self, "min")
 
 
@@ -868,6 +1100,10 @@ class CapacityProviderNetworkInterfaceCountRequest(dict):
     def __init__(__self__, *,
                  max: Optional[builtins.int] = None,
                  min: Optional[builtins.int] = None):
+        """
+        :param builtins.int max: The maximum number of network interfaces. Instance types that support more network interfaces are excluded from selection.
+        :param builtins.int min: The minimum number of network interfaces. Instance types that support fewer network interfaces are excluded from selection.
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -876,11 +1112,17 @@ class CapacityProviderNetworkInterfaceCountRequest(dict):
     @property
     @pulumi.getter
     def max(self) -> Optional[builtins.int]:
+        """
+        The maximum number of network interfaces. Instance types that support more network interfaces are excluded from selection.
+        """
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
     def min(self) -> Optional[builtins.int]:
+        """
+        The minimum number of network interfaces. Instance types that support fewer network interfaces are excluded from selection.
+        """
         return pulumi.get(self, "min")
 
 
@@ -889,6 +1131,10 @@ class CapacityProviderTotalLocalStorageGbRequest(dict):
     def __init__(__self__, *,
                  max: Optional[builtins.float] = None,
                  min: Optional[builtins.float] = None):
+        """
+        :param builtins.float max: The maximum total local storage in GB. Instance types with more local storage are excluded from selection.
+        :param builtins.float min: The minimum total local storage in GB. Instance types with less local storage are excluded from selection.
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -897,11 +1143,17 @@ class CapacityProviderTotalLocalStorageGbRequest(dict):
     @property
     @pulumi.getter
     def max(self) -> Optional[builtins.float]:
+        """
+        The maximum total local storage in GB. Instance types with more local storage are excluded from selection.
+        """
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
     def min(self) -> Optional[builtins.float]:
+        """
+        The minimum total local storage in GB. Instance types with less local storage are excluded from selection.
+        """
         return pulumi.get(self, "min")
 
 
@@ -910,6 +1162,10 @@ class CapacityProviderVCpuCountRangeRequest(dict):
     def __init__(__self__, *,
                  min: builtins.int,
                  max: Optional[builtins.int] = None):
+        """
+        :param builtins.int min: The minimum number of vCPUs. Instance types with fewer vCPUs than this value are excluded from selection.
+        :param builtins.int max: The maximum number of vCPUs. Instance types with more vCPUs than this value are excluded from selection.
+        """
         pulumi.set(__self__, "min", min)
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -917,11 +1173,17 @@ class CapacityProviderVCpuCountRangeRequest(dict):
     @property
     @pulumi.getter
     def min(self) -> builtins.int:
+        """
+        The minimum number of vCPUs. Instance types with fewer vCPUs than this value are excluded from selection.
+        """
         return pulumi.get(self, "min")
 
     @property
     @pulumi.getter
     def max(self) -> Optional[builtins.int]:
+        """
+        The maximum number of vCPUs. Instance types with more vCPUs than this value are excluded from selection.
+        """
         return pulumi.get(self, "max")
 
 
