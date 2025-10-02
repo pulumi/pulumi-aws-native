@@ -40,31 +40,31 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * The ARN of the dashboard.
      */
-    public /*out*/ readonly dashboardArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dashboardArn: pulumi.Output<string>;
     /**
      * The dashboard definition specified in a JSON literal.
      */
-    public readonly dashboardDefinition!: pulumi.Output<string>;
+    declare public readonly dashboardDefinition: pulumi.Output<string>;
     /**
      * A description for the dashboard.
      */
-    public readonly dashboardDescription!: pulumi.Output<string>;
+    declare public readonly dashboardDescription: pulumi.Output<string>;
     /**
      * The ID of the dashboard.
      */
-    public /*out*/ readonly dashboardId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dashboardId: pulumi.Output<string>;
     /**
      * A friendly name for the dashboard.
      */
-    public readonly dashboardName!: pulumi.Output<string>;
+    declare public readonly dashboardName: pulumi.Output<string>;
     /**
      * The ID of the project in which to create the dashboard.
      */
-    public readonly projectId!: pulumi.Output<string | undefined>;
+    declare public readonly projectId: pulumi.Output<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the dashboard.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -77,17 +77,17 @@ export class Dashboard extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dashboardDefinition === undefined) && !opts.urn) {
+            if (args?.dashboardDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dashboardDefinition'");
             }
-            if ((!args || args.dashboardDescription === undefined) && !opts.urn) {
+            if (args?.dashboardDescription === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dashboardDescription'");
             }
-            resourceInputs["dashboardDefinition"] = args ? args.dashboardDefinition : undefined;
-            resourceInputs["dashboardDescription"] = args ? args.dashboardDescription : undefined;
-            resourceInputs["dashboardName"] = args ? args.dashboardName : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dashboardDefinition"] = args?.dashboardDefinition;
+            resourceInputs["dashboardDescription"] = args?.dashboardDescription;
+            resourceInputs["dashboardName"] = args?.dashboardName;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["dashboardArn"] = undefined /*out*/;
             resourceInputs["dashboardId"] = undefined /*out*/;
         } else {

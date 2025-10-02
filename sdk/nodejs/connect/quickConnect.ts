@@ -40,31 +40,31 @@ export class QuickConnect extends pulumi.CustomResource {
     /**
      * The description of the quick connect.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The identifier of the Amazon Connect instance.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The name of the quick connect.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the quick connect.
      */
-    public /*out*/ readonly quickConnectArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly quickConnectArn: pulumi.Output<string>;
     /**
      * Configuration settings for the quick connect.
      */
-    public readonly quickConnectConfig!: pulumi.Output<outputs.connect.QuickConnectConfig>;
+    declare public readonly quickConnectConfig: pulumi.Output<outputs.connect.QuickConnectConfig>;
     /**
      * The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
      */
-    public /*out*/ readonly quickConnectType!: pulumi.Output<enums.connect.QuickConnectType>;
+    declare public /*out*/ readonly quickConnectType: pulumi.Output<enums.connect.QuickConnectType>;
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a QuickConnect resource with the given unique name, arguments, and options.
@@ -77,17 +77,17 @@ export class QuickConnect extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.quickConnectConfig === undefined) && !opts.urn) {
+            if (args?.quickConnectConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'quickConnectConfig'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["quickConnectConfig"] = args ? args.quickConnectConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["quickConnectConfig"] = args?.quickConnectConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["quickConnectArn"] = undefined /*out*/;
             resourceInputs["quickConnectType"] = undefined /*out*/;
         } else {

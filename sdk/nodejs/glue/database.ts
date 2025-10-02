@@ -40,15 +40,15 @@ export class Database extends pulumi.CustomResource {
     /**
      * The AWS account ID for the account in which to create the catalog object.
      */
-    public readonly catalogId!: pulumi.Output<string>;
+    declare public readonly catalogId: pulumi.Output<string>;
     /**
      * The metadata for the database.
      */
-    public readonly databaseInput!: pulumi.Output<outputs.glue.DatabaseInput>;
+    declare public readonly databaseInput: pulumi.Output<outputs.glue.DatabaseInput>;
     /**
      * The name of the database. For hive compatibility, this is folded to lowercase when it is store.
      */
-    public readonly databaseName!: pulumi.Output<string | undefined>;
+    declare public readonly databaseName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -61,15 +61,15 @@ export class Database extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.catalogId === undefined) && !opts.urn) {
+            if (args?.catalogId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'catalogId'");
             }
-            if ((!args || args.databaseInput === undefined) && !opts.urn) {
+            if (args?.databaseInput === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseInput'");
             }
-            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
-            resourceInputs["databaseInput"] = args ? args.databaseInput : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["catalogId"] = args?.catalogId;
+            resourceInputs["databaseInput"] = args?.databaseInput;
+            resourceInputs["databaseName"] = args?.databaseName;
         } else {
             resourceInputs["catalogId"] = undefined /*out*/;
             resourceInputs["databaseInput"] = undefined /*out*/;

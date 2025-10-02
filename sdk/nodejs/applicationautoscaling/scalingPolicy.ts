@@ -41,12 +41,12 @@ export class ScalingPolicy extends pulumi.CustomResource {
     /**
      * Returns the ARN of a scaling policy.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the scaling policy.
      *  Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing ``AWS::ApplicationAutoScaling::ScalingPolicy`` resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
      */
-    public readonly policyName!: pulumi.Output<string>;
+    declare public readonly policyName: pulumi.Output<string>;
     /**
      * The scaling policy type.
      *  The following policy types are supported: 
@@ -54,11 +54,11 @@ export class ScalingPolicy extends pulumi.CustomResource {
      *  ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
      *  ``PredictiveScaling``—Only supported for Amazon ECS
      */
-    public readonly policyType!: pulumi.Output<string>;
+    declare public readonly policyType: pulumi.Output<string>;
     /**
      * The predictive scaling policy configuration.
      */
-    public readonly predictiveScalingPolicyConfiguration!: pulumi.Output<outputs.applicationautoscaling.ScalingPolicyPredictiveScalingPolicyConfiguration | undefined>;
+    declare public readonly predictiveScalingPolicyConfiguration: pulumi.Output<outputs.applicationautoscaling.ScalingPolicyPredictiveScalingPolicyConfiguration | undefined>;
     /**
      * The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
      *   +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.
@@ -82,7 +82,7 @@ export class ScalingPolicy extends pulumi.CustomResource {
      *   +  SageMaker inference component - The resource type is ``inference-component`` and the unique identifier is the resource ID. Example: ``inference-component/my-inference-component``.
      *   +  Pool of WorkSpaces - The resource type is ``workspacespool`` and the unique identifier is the pool ID. Example: ``workspacespool/wspool-123456``.
      */
-    public readonly resourceId!: pulumi.Output<string | undefined>;
+    declare public readonly resourceId: pulumi.Output<string | undefined>;
     /**
      * The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
      *   +  ``ecs:service:DesiredCount`` - The task count of an ECS service.
@@ -110,24 +110,24 @@ export class ScalingPolicy extends pulumi.CustomResource {
      *   +  ``sagemaker:inference-component:DesiredCopyCount`` - The number of copies across an endpoint for a SageMaker inference component.
      *   +  ``workspaces:workspacespool:DesiredUserSessions`` - The number of user sessions for the WorkSpaces in the pool.
      */
-    public readonly scalableDimension!: pulumi.Output<string | undefined>;
+    declare public readonly scalableDimension: pulumi.Output<string | undefined>;
     /**
      * The CloudFormation-generated ID of an Application Auto Scaling scalable target. For more information about the ID, see the Return Value section of the ``AWS::ApplicationAutoScaling::ScalableTarget`` resource.
      *   You must specify either the ``ScalingTargetId`` property, or the ``ResourceId``, ``ScalableDimension``, and ``ServiceNamespace`` properties, but not both.
      */
-    public readonly scalingTargetId!: pulumi.Output<string | undefined>;
+    declare public readonly scalingTargetId: pulumi.Output<string | undefined>;
     /**
      * The namespace of the AWS service that provides the resource, or a ``custom-resource``.
      */
-    public readonly serviceNamespace!: pulumi.Output<string | undefined>;
+    declare public readonly serviceNamespace: pulumi.Output<string | undefined>;
     /**
      * A step scaling policy.
      */
-    public readonly stepScalingPolicyConfiguration!: pulumi.Output<outputs.applicationautoscaling.ScalingPolicyStepScalingPolicyConfiguration | undefined>;
+    declare public readonly stepScalingPolicyConfiguration: pulumi.Output<outputs.applicationautoscaling.ScalingPolicyStepScalingPolicyConfiguration | undefined>;
     /**
      * A target tracking scaling policy.
      */
-    public readonly targetTrackingScalingPolicyConfiguration!: pulumi.Output<outputs.applicationautoscaling.ScalingPolicyTargetTrackingScalingPolicyConfiguration | undefined>;
+    declare public readonly targetTrackingScalingPolicyConfiguration: pulumi.Output<outputs.applicationautoscaling.ScalingPolicyTargetTrackingScalingPolicyConfiguration | undefined>;
 
     /**
      * Create a ScalingPolicy resource with the given unique name, arguments, and options.
@@ -140,18 +140,18 @@ export class ScalingPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyType === undefined) && !opts.urn) {
+            if (args?.policyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
             }
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["policyType"] = args ? args.policyType : undefined;
-            resourceInputs["predictiveScalingPolicyConfiguration"] = args ? args.predictiveScalingPolicyConfiguration : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["scalableDimension"] = args ? args.scalableDimension : undefined;
-            resourceInputs["scalingTargetId"] = args ? args.scalingTargetId : undefined;
-            resourceInputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
-            resourceInputs["stepScalingPolicyConfiguration"] = args ? args.stepScalingPolicyConfiguration : undefined;
-            resourceInputs["targetTrackingScalingPolicyConfiguration"] = args ? args.targetTrackingScalingPolicyConfiguration : undefined;
+            resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["policyType"] = args?.policyType;
+            resourceInputs["predictiveScalingPolicyConfiguration"] = args?.predictiveScalingPolicyConfiguration;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["scalableDimension"] = args?.scalableDimension;
+            resourceInputs["scalingTargetId"] = args?.scalingTargetId;
+            resourceInputs["serviceNamespace"] = args?.serviceNamespace;
+            resourceInputs["stepScalingPolicyConfiguration"] = args?.stepScalingPolicyConfiguration;
+            resourceInputs["targetTrackingScalingPolicyConfiguration"] = args?.targetTrackingScalingPolicyConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

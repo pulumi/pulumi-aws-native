@@ -40,31 +40,31 @@ export class SigningProfile extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the specified signing profile.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the target signing platform.
      */
-    public readonly platformId!: pulumi.Output<enums.signer.SigningProfilePlatformId>;
+    declare public readonly platformId: pulumi.Output<enums.signer.SigningProfilePlatformId>;
     /**
      * A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
      */
-    public readonly profileName!: pulumi.Output<string>;
+    declare public readonly profileName: pulumi.Output<string>;
     /**
      * A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.
      */
-    public /*out*/ readonly profileVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly profileVersion: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the specified signing profile version.
      */
-    public /*out*/ readonly profileVersionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly profileVersionArn: pulumi.Output<string>;
     /**
      * Signature validity period of the profile.
      */
-    public readonly signatureValidityPeriod!: pulumi.Output<outputs.signer.SigningProfileSignatureValidityPeriod | undefined>;
+    declare public readonly signatureValidityPeriod: pulumi.Output<outputs.signer.SigningProfileSignatureValidityPeriod | undefined>;
     /**
      * A list of tags associated with the signing profile.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SigningProfile resource with the given unique name, arguments, and options.
@@ -77,13 +77,13 @@ export class SigningProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.platformId === undefined) && !opts.urn) {
+            if (args?.platformId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'platformId'");
             }
-            resourceInputs["platformId"] = args ? args.platformId : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["signatureValidityPeriod"] = args ? args.signatureValidityPeriod : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["platformId"] = args?.platformId;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["signatureValidityPeriod"] = args?.signatureValidityPeriod;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["profileVersion"] = undefined /*out*/;
             resourceInputs["profileVersionArn"] = undefined /*out*/;

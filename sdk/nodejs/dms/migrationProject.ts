@@ -40,55 +40,55 @@ export class MigrationProject extends pulumi.CustomResource {
     /**
      * The optional description of the migration project.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The property describes an instance profile arn for the migration project. For read
      */
-    public readonly instanceProfileArn!: pulumi.Output<string | undefined>;
+    declare public readonly instanceProfileArn: pulumi.Output<string | undefined>;
     /**
      * The property describes an instance profile identifier for the migration project. For create
      */
-    public readonly instanceProfileIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly instanceProfileIdentifier: pulumi.Output<string | undefined>;
     /**
      * The property describes an instance profile name for the migration project. For read
      */
-    public readonly instanceProfileName!: pulumi.Output<string | undefined>;
+    declare public readonly instanceProfileName: pulumi.Output<string | undefined>;
     /**
      * The property describes an ARN of the migration project.
      */
-    public /*out*/ readonly migrationProjectArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly migrationProjectArn: pulumi.Output<string>;
     /**
      * The property describes a creating time of the migration project.
      */
-    public readonly migrationProjectCreationTime!: pulumi.Output<string | undefined>;
+    declare public readonly migrationProjectCreationTime: pulumi.Output<string | undefined>;
     /**
      * The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
      */
-    public readonly migrationProjectIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly migrationProjectIdentifier: pulumi.Output<string | undefined>;
     /**
      * The property describes a name to identify the migration project.
      */
-    public readonly migrationProjectName!: pulumi.Output<string | undefined>;
+    declare public readonly migrationProjectName: pulumi.Output<string | undefined>;
     /**
      * The property describes schema conversion application attributes for the migration project.
      */
-    public readonly schemaConversionApplicationAttributes!: pulumi.Output<outputs.dms.SchemaConversionApplicationAttributesProperties | undefined>;
+    declare public readonly schemaConversionApplicationAttributes: pulumi.Output<outputs.dms.SchemaConversionApplicationAttributesProperties | undefined>;
     /**
      * The property describes source data provider descriptors for the migration project.
      */
-    public readonly sourceDataProviderDescriptors!: pulumi.Output<outputs.dms.MigrationProjectDataProviderDescriptor[] | undefined>;
+    declare public readonly sourceDataProviderDescriptors: pulumi.Output<outputs.dms.MigrationProjectDataProviderDescriptor[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The property describes target data provider descriptors for the migration project.
      */
-    public readonly targetDataProviderDescriptors!: pulumi.Output<outputs.dms.MigrationProjectDataProviderDescriptor[] | undefined>;
+    declare public readonly targetDataProviderDescriptors: pulumi.Output<outputs.dms.MigrationProjectDataProviderDescriptor[] | undefined>;
     /**
      * The property describes transformation rules for the migration project.
      */
-    public readonly transformationRules!: pulumi.Output<string | undefined>;
+    declare public readonly transformationRules: pulumi.Output<string | undefined>;
 
     /**
      * Create a MigrationProject resource with the given unique name, arguments, and options.
@@ -101,18 +101,18 @@ export class MigrationProject extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceProfileArn"] = args ? args.instanceProfileArn : undefined;
-            resourceInputs["instanceProfileIdentifier"] = args ? args.instanceProfileIdentifier : undefined;
-            resourceInputs["instanceProfileName"] = args ? args.instanceProfileName : undefined;
-            resourceInputs["migrationProjectCreationTime"] = args ? args.migrationProjectCreationTime : undefined;
-            resourceInputs["migrationProjectIdentifier"] = args ? args.migrationProjectIdentifier : undefined;
-            resourceInputs["migrationProjectName"] = args ? args.migrationProjectName : undefined;
-            resourceInputs["schemaConversionApplicationAttributes"] = args ? args.schemaConversionApplicationAttributes : undefined;
-            resourceInputs["sourceDataProviderDescriptors"] = args ? args.sourceDataProviderDescriptors : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetDataProviderDescriptors"] = args ? args.targetDataProviderDescriptors : undefined;
-            resourceInputs["transformationRules"] = args ? args.transformationRules : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceProfileArn"] = args?.instanceProfileArn;
+            resourceInputs["instanceProfileIdentifier"] = args?.instanceProfileIdentifier;
+            resourceInputs["instanceProfileName"] = args?.instanceProfileName;
+            resourceInputs["migrationProjectCreationTime"] = args?.migrationProjectCreationTime;
+            resourceInputs["migrationProjectIdentifier"] = args?.migrationProjectIdentifier;
+            resourceInputs["migrationProjectName"] = args?.migrationProjectName;
+            resourceInputs["schemaConversionApplicationAttributes"] = args?.schemaConversionApplicationAttributes;
+            resourceInputs["sourceDataProviderDescriptors"] = args?.sourceDataProviderDescriptors;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetDataProviderDescriptors"] = args?.targetDataProviderDescriptors;
+            resourceInputs["transformationRules"] = args?.transformationRules;
             resourceInputs["migrationProjectArn"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

@@ -40,57 +40,57 @@ export class Transformer extends pulumi.CustomResource {
     /**
      * Returns a timestamp indicating when the transformer was created. For example, `2023-07-20T19:58:44.624Z` .
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    public readonly ediType!: pulumi.Output<outputs.b2bi.TransformerEdiTypeProperties | undefined>;
-    public readonly fileFormat!: pulumi.Output<enums.b2bi.TransformerFileFormat | undefined>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    declare public readonly ediType: pulumi.Output<outputs.b2bi.TransformerEdiTypeProperties | undefined>;
+    declare public readonly fileFormat: pulumi.Output<enums.b2bi.TransformerFileFormat | undefined>;
     /**
      * Returns a structure that contains the format options for the transformation.
      */
-    public readonly inputConversion!: pulumi.Output<outputs.b2bi.TransformerInputConversion | undefined>;
+    declare public readonly inputConversion: pulumi.Output<outputs.b2bi.TransformerInputConversion | undefined>;
     /**
      * Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
      */
-    public readonly mapping!: pulumi.Output<outputs.b2bi.TransformerMapping | undefined>;
+    declare public readonly mapping: pulumi.Output<outputs.b2bi.TransformerMapping | undefined>;
     /**
      * This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
      */
-    public readonly mappingTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly mappingTemplate: pulumi.Output<string | undefined>;
     /**
      * Returns a timestamp representing the date and time for the most recent change for the transformer object.
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     /**
      * Returns the descriptive name for the transformer.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
      */
-    public readonly outputConversion!: pulumi.Output<outputs.b2bi.TransformerOutputConversion | undefined>;
+    declare public readonly outputConversion: pulumi.Output<outputs.b2bi.TransformerOutputConversion | undefined>;
     /**
      * This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
      */
-    public readonly sampleDocument!: pulumi.Output<string | undefined>;
+    declare public readonly sampleDocument: pulumi.Output<string | undefined>;
     /**
      * Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
      */
-    public readonly sampleDocuments!: pulumi.Output<outputs.b2bi.TransformerSampleDocuments | undefined>;
+    declare public readonly sampleDocuments: pulumi.Output<outputs.b2bi.TransformerSampleDocuments | undefined>;
     /**
      * Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
      */
-    public readonly status!: pulumi.Output<enums.b2bi.TransformerStatus>;
+    declare public readonly status: pulumi.Output<enums.b2bi.TransformerStatus>;
     /**
      * A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Returns an Amazon Resource Name (ARN) for a specific transformer.
      */
-    public /*out*/ readonly transformerArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly transformerArn: pulumi.Output<string>;
     /**
      * The system-assigned unique identifier for the transformer.
      */
-    public /*out*/ readonly transformerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly transformerId: pulumi.Output<string>;
 
     /**
      * Create a Transformer resource with the given unique name, arguments, and options.
@@ -103,20 +103,20 @@ export class Transformer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["ediType"] = args ? args.ediType : undefined;
-            resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
-            resourceInputs["inputConversion"] = args ? args.inputConversion : undefined;
-            resourceInputs["mapping"] = args ? args.mapping : undefined;
-            resourceInputs["mappingTemplate"] = args ? args.mappingTemplate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputConversion"] = args ? args.outputConversion : undefined;
-            resourceInputs["sampleDocument"] = args ? args.sampleDocument : undefined;
-            resourceInputs["sampleDocuments"] = args ? args.sampleDocuments : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ediType"] = args?.ediType;
+            resourceInputs["fileFormat"] = args?.fileFormat;
+            resourceInputs["inputConversion"] = args?.inputConversion;
+            resourceInputs["mapping"] = args?.mapping;
+            resourceInputs["mappingTemplate"] = args?.mappingTemplate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputConversion"] = args?.outputConversion;
+            resourceInputs["sampleDocument"] = args?.sampleDocument;
+            resourceInputs["sampleDocuments"] = args?.sampleDocuments;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["transformerArn"] = undefined /*out*/;

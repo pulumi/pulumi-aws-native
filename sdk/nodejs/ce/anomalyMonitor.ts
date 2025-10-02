@@ -270,43 +270,43 @@ export class AnomalyMonitor extends pulumi.CustomResource {
     /**
      * The date when the monitor was created. 
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * The value for evaluated dimensions.
      */
-    public /*out*/ readonly dimensionalValueCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly dimensionalValueCount: pulumi.Output<number>;
     /**
      * The date when the monitor last evaluated for anomalies.
      */
-    public /*out*/ readonly lastEvaluatedDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastEvaluatedDate: pulumi.Output<string>;
     /**
      * The date when the monitor was last updated.
      */
-    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedDate: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) value for the monitor.
      */
-    public /*out*/ readonly monitorArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly monitorArn: pulumi.Output<string>;
     /**
      * The dimensions to evaluate
      */
-    public readonly monitorDimension!: pulumi.Output<enums.ce.AnomalyMonitorMonitorDimension | undefined>;
+    declare public readonly monitorDimension: pulumi.Output<enums.ce.AnomalyMonitorMonitorDimension | undefined>;
     /**
      * The name of the monitor.
      */
-    public readonly monitorName!: pulumi.Output<string>;
+    declare public readonly monitorName: pulumi.Output<string>;
     /**
      * The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
      */
-    public readonly monitorSpecification!: pulumi.Output<string | undefined>;
+    declare public readonly monitorSpecification: pulumi.Output<string | undefined>;
     /**
      * The possible type values.
      */
-    public readonly monitorType!: pulumi.Output<enums.ce.AnomalyMonitorMonitorType>;
+    declare public readonly monitorType: pulumi.Output<enums.ce.AnomalyMonitorMonitorType>;
     /**
      * Tags to assign to monitor.
      */
-    public readonly resourceTags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly resourceTags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a AnomalyMonitor resource with the given unique name, arguments, and options.
@@ -319,14 +319,14 @@ export class AnomalyMonitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.monitorType === undefined) && !opts.urn) {
+            if (args?.monitorType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitorType'");
             }
-            resourceInputs["monitorDimension"] = args ? args.monitorDimension : undefined;
-            resourceInputs["monitorName"] = args ? args.monitorName : undefined;
-            resourceInputs["monitorSpecification"] = args ? args.monitorSpecification : undefined;
-            resourceInputs["monitorType"] = args ? args.monitorType : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
+            resourceInputs["monitorDimension"] = args?.monitorDimension;
+            resourceInputs["monitorName"] = args?.monitorName;
+            resourceInputs["monitorSpecification"] = args?.monitorSpecification;
+            resourceInputs["monitorType"] = args?.monitorType;
+            resourceInputs["resourceTags"] = args?.resourceTags;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["dimensionalValueCount"] = undefined /*out*/;
             resourceInputs["lastEvaluatedDate"] = undefined /*out*/;

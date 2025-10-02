@@ -40,63 +40,63 @@ export class Ipam extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the IPAM.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Id of the default association to the default resource discovery, created with this IPAM.
      */
-    public /*out*/ readonly defaultResourceDiscoveryAssociationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultResourceDiscoveryAssociationId: pulumi.Output<string>;
     /**
      * The Id of the default resource discovery, created with this IPAM.
      */
-    public /*out*/ readonly defaultResourceDiscoveryId!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultResourceDiscoveryId: pulumi.Output<string>;
     /**
      * A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
      */
-    public readonly defaultResourceDiscoveryOrganizationalUnitExclusions!: pulumi.Output<outputs.ec2.IpamOrganizationalUnitExclusion[] | undefined>;
+    declare public readonly defaultResourceDiscoveryOrganizationalUnitExclusions: pulumi.Output<outputs.ec2.IpamOrganizationalUnitExclusion[] | undefined>;
     /**
      * The description for the IPAM.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Enable provisioning of GUA space in private pools.
      */
-    public readonly enablePrivateGua!: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePrivateGua: pulumi.Output<boolean | undefined>;
     /**
      * Id of the IPAM.
      */
-    public /*out*/ readonly ipamId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamId: pulumi.Output<string>;
     /**
      * A metered account is an account that is charged for active IP addresses managed in IPAM
      */
-    public readonly meteredAccount!: pulumi.Output<enums.ec2.IpamMeteredAccount | undefined>;
+    declare public readonly meteredAccount: pulumi.Output<enums.ec2.IpamMeteredAccount | undefined>;
     /**
      * The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
      */
-    public readonly operatingRegions!: pulumi.Output<outputs.ec2.IpamOperatingRegion[] | undefined>;
+    declare public readonly operatingRegions: pulumi.Output<outputs.ec2.IpamOperatingRegion[] | undefined>;
     /**
      * The Id of the default scope for publicly routable IP space, created with this IPAM.
      */
-    public /*out*/ readonly privateDefaultScopeId!: pulumi.Output<string>;
+    declare public /*out*/ readonly privateDefaultScopeId: pulumi.Output<string>;
     /**
      * The Id of the default scope for publicly routable IP space, created with this IPAM.
      */
-    public /*out*/ readonly publicDefaultScopeId!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicDefaultScopeId: pulumi.Output<string>;
     /**
      * The count of resource discoveries associated with this IPAM.
      */
-    public /*out*/ readonly resourceDiscoveryAssociationCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly resourceDiscoveryAssociationCount: pulumi.Output<number>;
     /**
      * The number of scopes that currently exist in this IPAM.
      */
-    public /*out*/ readonly scopeCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly scopeCount: pulumi.Output<number>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The tier of the IPAM.
      */
-    public readonly tier!: pulumi.Output<enums.ec2.IpamTier | undefined>;
+    declare public readonly tier: pulumi.Output<enums.ec2.IpamTier | undefined>;
 
     /**
      * Create a Ipam resource with the given unique name, arguments, and options.
@@ -109,13 +109,13 @@ export class Ipam extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["defaultResourceDiscoveryOrganizationalUnitExclusions"] = args ? args.defaultResourceDiscoveryOrganizationalUnitExclusions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enablePrivateGua"] = args ? args.enablePrivateGua : undefined;
-            resourceInputs["meteredAccount"] = args ? args.meteredAccount : undefined;
-            resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["defaultResourceDiscoveryOrganizationalUnitExclusions"] = args?.defaultResourceDiscoveryOrganizationalUnitExclusions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enablePrivateGua"] = args?.enablePrivateGua;
+            resourceInputs["meteredAccount"] = args?.meteredAccount;
+            resourceInputs["operatingRegions"] = args?.operatingRegions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tier"] = args?.tier;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultResourceDiscoveryAssociationId"] = undefined /*out*/;
             resourceInputs["defaultResourceDiscoveryId"] = undefined /*out*/;

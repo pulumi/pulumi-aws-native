@@ -37,11 +37,11 @@ export class ServicePrincipalName extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
      */
-    public readonly connectorArn!: pulumi.Output<string | undefined>;
+    declare public readonly connectorArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
      */
-    public readonly directoryRegistrationArn!: pulumi.Output<string | undefined>;
+    declare public readonly directoryRegistrationArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServicePrincipalName resource with the given unique name, arguments, and options.
@@ -54,8 +54,8 @@ export class ServicePrincipalName extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["connectorArn"] = args ? args.connectorArn : undefined;
-            resourceInputs["directoryRegistrationArn"] = args ? args.directoryRegistrationArn : undefined;
+            resourceInputs["connectorArn"] = args?.connectorArn;
+            resourceInputs["directoryRegistrationArn"] = args?.directoryRegistrationArn;
         } else {
             resourceInputs["connectorArn"] = undefined /*out*/;
             resourceInputs["directoryRegistrationArn"] = undefined /*out*/;

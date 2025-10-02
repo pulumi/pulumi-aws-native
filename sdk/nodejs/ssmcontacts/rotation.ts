@@ -40,31 +40,31 @@ export class Rotation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the rotation.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Members of the rotation
      */
-    public readonly contactIds!: pulumi.Output<string[]>;
+    declare public readonly contactIds: pulumi.Output<string[]>;
     /**
      * Name of the Rotation
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Information about the rule that specifies when shift team members rotate.
      */
-    public readonly recurrence!: pulumi.Output<outputs.ssmcontacts.RotationRecurrenceSettings>;
+    declare public readonly recurrence: pulumi.Output<outputs.ssmcontacts.RotationRecurrenceSettings>;
     /**
      * Start time of the first shift of Oncall Schedule
      */
-    public readonly startTime!: pulumi.Output<string>;
+    declare public readonly startTime: pulumi.Output<string>;
     /**
      * Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * TimeZone Identifier for the Oncall Schedule
      */
-    public readonly timeZoneId!: pulumi.Output<string>;
+    declare public readonly timeZoneId: pulumi.Output<string>;
 
     /**
      * Create a Rotation resource with the given unique name, arguments, and options.
@@ -77,24 +77,24 @@ export class Rotation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contactIds === undefined) && !opts.urn) {
+            if (args?.contactIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactIds'");
             }
-            if ((!args || args.recurrence === undefined) && !opts.urn) {
+            if (args?.recurrence === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recurrence'");
             }
-            if ((!args || args.startTime === undefined) && !opts.urn) {
+            if (args?.startTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
-            if ((!args || args.timeZoneId === undefined) && !opts.urn) {
+            if (args?.timeZoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeZoneId'");
             }
-            resourceInputs["contactIds"] = args ? args.contactIds : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recurrence"] = args ? args.recurrence : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeZoneId"] = args ? args.timeZoneId : undefined;
+            resourceInputs["contactIds"] = args?.contactIds;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recurrence"] = args?.recurrence;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeZoneId"] = args?.timeZoneId;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -40,27 +40,27 @@ export class DbProxyTargetGroup extends pulumi.CustomResource {
     /**
      * Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
      */
-    public readonly connectionPoolConfigurationInfo!: pulumi.Output<outputs.rds.DbProxyTargetGroupConnectionPoolConfigurationInfoFormat | undefined>;
+    declare public readonly connectionPoolConfigurationInfo: pulumi.Output<outputs.rds.DbProxyTargetGroupConnectionPoolConfigurationInfoFormat | undefined>;
     /**
      * One or more DB cluster identifiers.
      */
-    public readonly dbClusterIdentifiers!: pulumi.Output<string[] | undefined>;
+    declare public readonly dbClusterIdentifiers: pulumi.Output<string[] | undefined>;
     /**
      * One or more DB instance identifiers.
      */
-    public readonly dbInstanceIdentifiers!: pulumi.Output<string[] | undefined>;
+    declare public readonly dbInstanceIdentifiers: pulumi.Output<string[] | undefined>;
     /**
      * The identifier for the proxy.
      */
-    public readonly dbProxyName!: pulumi.Output<string>;
+    declare public readonly dbProxyName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) representing the target group.
      */
-    public /*out*/ readonly targetGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetGroupArn: pulumi.Output<string>;
     /**
      * The identifier for the DBProxyTargetGroup
      */
-    public readonly targetGroupName!: pulumi.Output<enums.rds.DbProxyTargetGroupTargetGroupName>;
+    declare public readonly targetGroupName: pulumi.Output<enums.rds.DbProxyTargetGroupTargetGroupName>;
 
     /**
      * Create a DbProxyTargetGroup resource with the given unique name, arguments, and options.
@@ -73,17 +73,17 @@ export class DbProxyTargetGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dbProxyName === undefined) && !opts.urn) {
+            if (args?.dbProxyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbProxyName'");
             }
-            if ((!args || args.targetGroupName === undefined) && !opts.urn) {
+            if (args?.targetGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetGroupName'");
             }
-            resourceInputs["connectionPoolConfigurationInfo"] = args ? args.connectionPoolConfigurationInfo : undefined;
-            resourceInputs["dbClusterIdentifiers"] = args ? args.dbClusterIdentifiers : undefined;
-            resourceInputs["dbInstanceIdentifiers"] = args ? args.dbInstanceIdentifiers : undefined;
-            resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
-            resourceInputs["targetGroupName"] = args ? args.targetGroupName : undefined;
+            resourceInputs["connectionPoolConfigurationInfo"] = args?.connectionPoolConfigurationInfo;
+            resourceInputs["dbClusterIdentifiers"] = args?.dbClusterIdentifiers;
+            resourceInputs["dbInstanceIdentifiers"] = args?.dbInstanceIdentifiers;
+            resourceInputs["dbProxyName"] = args?.dbProxyName;
+            resourceInputs["targetGroupName"] = args?.targetGroupName;
             resourceInputs["targetGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["connectionPoolConfigurationInfo"] = undefined /*out*/;

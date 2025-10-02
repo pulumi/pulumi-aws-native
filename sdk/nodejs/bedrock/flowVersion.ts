@@ -40,40 +40,40 @@ export class FlowVersion extends pulumi.CustomResource {
     /**
      * Time Stamp.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * A KMS key ARN
      */
-    public /*out*/ readonly customerEncryptionKeyArn!: pulumi.Output<string>;
-    public /*out*/ readonly definition!: pulumi.Output<outputs.bedrock.FlowVersionFlowDefinition>;
+    declare public /*out*/ readonly customerEncryptionKeyArn: pulumi.Output<string>;
+    declare public /*out*/ readonly definition: pulumi.Output<outputs.bedrock.FlowVersionFlowDefinition>;
     /**
      * Description of the flow version
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * ARN of a IAM role
      */
-    public /*out*/ readonly executionRoleArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly executionRoleArn: pulumi.Output<string>;
     /**
      * Arn representation of the Flow
      */
-    public readonly flowArn!: pulumi.Output<string>;
+    declare public readonly flowArn: pulumi.Output<string>;
     /**
      * Identifier for a Flow
      */
-    public /*out*/ readonly flowId!: pulumi.Output<string>;
+    declare public /*out*/ readonly flowId: pulumi.Output<string>;
     /**
      * Name for the flow
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The status of the flow.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.bedrock.FlowVersionFlowStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.bedrock.FlowVersionFlowStatus>;
     /**
      * Numerical Version.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a FlowVersion resource with the given unique name, arguments, and options.
@@ -86,11 +86,11 @@ export class FlowVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.flowArn === undefined) && !opts.urn) {
+            if (args?.flowArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'flowArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["flowArn"] = args ? args.flowArn : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["flowArn"] = args?.flowArn;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["customerEncryptionKeyArn"] = undefined /*out*/;
             resourceInputs["definition"] = undefined /*out*/;

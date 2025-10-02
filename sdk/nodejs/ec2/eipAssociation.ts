@@ -38,25 +38,25 @@ export class EipAssociation extends pulumi.CustomResource {
     /**
      * The allocation ID. This is required.
      */
-    public readonly allocationId!: pulumi.Output<string | undefined>;
+    declare public readonly allocationId: pulumi.Output<string | undefined>;
     /**
      * The ID of the association.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
-    public readonly eip!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
+    declare public readonly eip: pulumi.Output<string | undefined>;
     /**
      * The ID of the instance. The instance must have exactly one attached network interface. You can specify either the instance ID or the network interface ID, but not both.
      */
-    public readonly instanceId!: pulumi.Output<string | undefined>;
+    declare public readonly instanceId: pulumi.Output<string | undefined>;
     /**
      * The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
      *  You can specify either the instance ID or the network interface ID, but not both.
      */
-    public readonly networkInterfaceId!: pulumi.Output<string | undefined>;
+    declare public readonly networkInterfaceId: pulumi.Output<string | undefined>;
     /**
      * The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      */
-    public readonly privateIpAddress!: pulumi.Output<string | undefined>;
+    declare public readonly privateIpAddress: pulumi.Output<string | undefined>;
 
     /**
      * Create a EipAssociation resource with the given unique name, arguments, and options.
@@ -69,11 +69,11 @@ export class EipAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["allocationId"] = args ? args.allocationId : undefined;
-            resourceInputs["eip"] = args ? args.eip : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
+            resourceInputs["allocationId"] = args?.allocationId;
+            resourceInputs["eip"] = args?.eip;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
+            resourceInputs["privateIpAddress"] = args?.privateIpAddress;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["allocationId"] = undefined /*out*/;

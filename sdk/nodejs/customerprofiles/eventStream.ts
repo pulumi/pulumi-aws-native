@@ -40,35 +40,35 @@ export class EventStream extends pulumi.CustomResource {
     /**
      * The timestamp of when the export was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Details regarding the Kinesis stream.
      */
-    public /*out*/ readonly destinationDetails!: pulumi.Output<outputs.customerprofiles.DestinationDetailsProperties>;
+    declare public /*out*/ readonly destinationDetails: pulumi.Output<outputs.customerprofiles.DestinationDetailsProperties>;
     /**
      * The unique name of the domain.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * A unique identifier for the event stream.
      */
-    public /*out*/ readonly eventStreamArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly eventStreamArn: pulumi.Output<string>;
     /**
      * The name of the event stream.
      */
-    public readonly eventStreamName!: pulumi.Output<string>;
+    declare public readonly eventStreamName: pulumi.Output<string>;
     /**
      * The operational state of destination stream for export.
      */
-    public /*out*/ readonly state!: pulumi.Output<enums.customerprofiles.EventStreamState>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.customerprofiles.EventStreamState>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
      */
-    public readonly uri!: pulumi.Output<string>;
+    declare public readonly uri: pulumi.Output<string>;
 
     /**
      * Create a EventStream resource with the given unique name, arguments, and options.
@@ -81,16 +81,16 @@ export class EventStream extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.uri === undefined) && !opts.urn) {
+            if (args?.uri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'uri'");
             }
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["eventStreamName"] = args ? args.eventStreamName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["eventStreamName"] = args?.eventStreamName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["uri"] = args?.uri;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["destinationDetails"] = undefined /*out*/;
             resourceInputs["eventStreamArn"] = undefined /*out*/;

@@ -68,93 +68,93 @@ export class Service extends pulumi.CustomResource {
      *   +  For create service requests, when no value is specified for ``AvailabilityZoneRebalancing``, Amazon ECS defaults the value to ``ENABLED``.
      *   +  For update service requests, when no value is specified for ``AvailabilityZoneRebalancing``, Amazon ECS defaults to the existing service’s ``AvailabilityZoneRebalancing`` value. If the service never had an ``AvailabilityZoneRebalancing`` value set, Amazon ECS treats this as ``DISABLED``.
      */
-    public readonly availabilityZoneRebalancing!: pulumi.Output<enums.ecs.ServiceAvailabilityZoneRebalancing | undefined>;
+    declare public readonly availabilityZoneRebalancing: pulumi.Output<enums.ecs.ServiceAvailabilityZoneRebalancing | undefined>;
     /**
      * The capacity provider strategy to use for the service.
      *  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
      *  A capacity provider strategy can contain a maximum of 20 capacity providers.
      *   To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
      */
-    public readonly capacityProviderStrategy!: pulumi.Output<outputs.ecs.ServiceCapacityProviderStrategyItem[] | undefined>;
+    declare public readonly capacityProviderStrategy: pulumi.Output<outputs.ecs.ServiceCapacityProviderStrategyItem[] | undefined>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
      */
-    public readonly cluster!: pulumi.Output<string | undefined>;
+    declare public readonly cluster: pulumi.Output<string | undefined>;
     /**
      * Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
      */
-    public readonly deploymentConfiguration!: pulumi.Output<outputs.ecs.ServiceDeploymentConfiguration | undefined>;
+    declare public readonly deploymentConfiguration: pulumi.Output<outputs.ecs.ServiceDeploymentConfiguration | undefined>;
     /**
      * The deployment controller to use for the service.
      */
-    public readonly deploymentController!: pulumi.Output<outputs.ecs.ServiceDeploymentController | undefined>;
+    declare public readonly deploymentController: pulumi.Output<outputs.ecs.ServiceDeploymentController | undefined>;
     /**
      * The number of instantiations of the specified task definition to place and keep running in your service.
      *  For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
      *  For existing services, if a desired count is not specified, it is omitted from the operation.
      */
-    public readonly desiredCount!: pulumi.Output<number | undefined>;
+    declare public readonly desiredCount: pulumi.Output<number | undefined>;
     /**
      * Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
      *  When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
      */
-    public readonly enableEcsManagedTags!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableEcsManagedTags: pulumi.Output<boolean | undefined>;
     /**
      * Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
      */
-    public readonly enableExecuteCommand!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableExecuteCommand: pulumi.Output<boolean | undefined>;
     /**
      * Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
      */
-    public readonly forceNewDeployment!: pulumi.Output<outputs.ecs.ServiceForceNewDeployment | undefined>;
+    declare public readonly forceNewDeployment: pulumi.Output<outputs.ecs.ServiceForceNewDeployment | undefined>;
     /**
      * The period of time, in seconds, that the Amazon Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
      *  If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
      */
-    public readonly healthCheckGracePeriodSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly healthCheckGracePeriodSeconds: pulumi.Output<number | undefined>;
     /**
      * The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
-    public readonly launchType!: pulumi.Output<enums.ecs.ServiceLaunchType | undefined>;
+    declare public readonly launchType: pulumi.Output<enums.ecs.ServiceLaunchType | undefined>;
     /**
      * A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
      *   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
      */
-    public readonly loadBalancers!: pulumi.Output<outputs.ecs.ServiceLoadBalancer[] | undefined>;
+    declare public readonly loadBalancers: pulumi.Output<outputs.ecs.ServiceLoadBalancer[] | undefined>;
     /**
      * The name of the Amazon ECS service, such as `sample-webapp` .
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.ecs.ServiceNetworkConfiguration | undefined>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.ecs.ServiceNetworkConfiguration | undefined>;
     /**
      * An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
      *   To remove this property from your service resource, specify an empty ``PlacementConstraint`` array.
      */
-    public readonly placementConstraints!: pulumi.Output<outputs.ecs.ServicePlacementConstraint[] | undefined>;
+    declare public readonly placementConstraints: pulumi.Output<outputs.ecs.ServicePlacementConstraint[] | undefined>;
     /**
      * The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules for each service.
      *   To remove this property from your service resource, specify an empty ``PlacementStrategy`` array.
      */
-    public readonly placementStrategies!: pulumi.Output<outputs.ecs.ServicePlacementStrategy[] | undefined>;
+    declare public readonly placementStrategies: pulumi.Output<outputs.ecs.ServicePlacementStrategy[] | undefined>;
     /**
      * The platform version that your tasks in the service are running on. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the ``LATEST`` platform version is used. For more information, see [platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
-    public readonly platformVersion!: pulumi.Output<string | undefined>;
+    declare public readonly platformVersion: pulumi.Output<string | undefined>;
     /**
      * Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the [TagResource](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action.
      *  You must set this to a value other than ``NONE`` when you use Cost Explorer. For more information, see [Amazon ECS usage reports](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/usage-reports.html) in the *Amazon Elastic Container Service Developer Guide*.
      *  The default is ``NONE``.
      */
-    public readonly propagateTags!: pulumi.Output<enums.ecs.ServicePropagateTags | undefined>;
+    declare public readonly propagateTags: pulumi.Output<enums.ecs.ServicePropagateTags | undefined>;
     /**
      * The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is only permitted if you are using a load balancer with your service and your task definition doesn't use the ``awsvpc`` network mode. If you specify the ``role`` parameter, you must also specify a load balancer object with the ``loadBalancers`` parameter.
      *   If your account has already created the Amazon ECS service-linked role, that role is used for your service unless you specify a role here. The service-linked role is required if your task definition uses the ``awsvpc`` network mode or if the service is configured to use service discovery, an external deployment controller, multiple target groups, or Elastic Inference accelerators in which case you don't specify a role here. For more information, see [Using service-linked roles for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html) in the *Amazon Elastic Container Service Developer Guide*.
      *   If your specified role has a path other than ``/``, then you must either specify the full role ARN (this is recommended) or prefix the role name with the path. For example, if a role with the name ``bar`` has a path of ``/foo/`` then you would specify ``/foo/bar`` as the role name. For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide*.
      */
-    public readonly role!: pulumi.Output<string | undefined>;
+    declare public readonly role: pulumi.Output<string | undefined>;
     /**
      * The scheduling strategy to use for the service. For more information, see [Services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
      *  There are two service scheduler strategies available:
@@ -162,27 +162,27 @@ export class Service extends pulumi.CustomResource {
      *   +  ``DAEMON``-The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that don't meet the placement constraints. When you're using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.
      *   Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
      */
-    public readonly schedulingStrategy!: pulumi.Output<enums.ecs.ServiceSchedulingStrategy | undefined>;
+    declare public readonly schedulingStrategy: pulumi.Output<enums.ecs.ServiceSchedulingStrategy | undefined>;
     /**
      * The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
      */
-    public /*out*/ readonly serviceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceArn: pulumi.Output<string>;
     /**
      * The configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace.
      *  Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
-    public readonly serviceConnectConfiguration!: pulumi.Output<outputs.ecs.ServiceConnectConfiguration | undefined>;
+    declare public readonly serviceConnectConfiguration: pulumi.Output<outputs.ecs.ServiceConnectConfiguration | undefined>;
     /**
      * The name of your service. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
      *   The stack update fails if you change any properties that require replacement and the ``ServiceName`` is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceName`` must be unique in the cluster.
      */
-    public readonly serviceName!: pulumi.Output<string | undefined>;
+    declare public readonly serviceName: pulumi.Output<string | undefined>;
     /**
      * The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
      *   Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
      *    To remove this property from your service resource, specify an empty ``ServiceRegistry`` array.
      */
-    public readonly serviceRegistries!: pulumi.Output<outputs.ecs.ServiceRegistry[] | undefined>;
+    declare public readonly serviceRegistries: pulumi.Output<outputs.ecs.ServiceRegistry[] | undefined>;
     /**
      * The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well.
      *  The following basic restrictions apply to tags:
@@ -194,22 +194,22 @@ export class Service extends pulumi.CustomResource {
      *   +  Tag keys and values are case-sensitive.
      *   +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ``family`` and ``revision`` (``family:revision``) or full ARN of the task definition to run in your service. If a ``revision`` isn't specified, the latest ``ACTIVE`` revision is used.
      *  A task definition must be specified if the service uses either the ``ECS`` or ``CODE_DEPLOY`` deployment controllers.
      *  For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
      */
-    public readonly taskDefinition!: pulumi.Output<string | undefined>;
+    declare public readonly taskDefinition: pulumi.Output<string | undefined>;
     /**
      * The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
      *   To remove this property from your service resource, specify an empty ``ServiceVolumeConfiguration`` array.
      */
-    public readonly volumeConfigurations!: pulumi.Output<outputs.ecs.ServiceVolumeConfiguration[] | undefined>;
+    declare public readonly volumeConfigurations: pulumi.Output<outputs.ecs.ServiceVolumeConfiguration[] | undefined>;
     /**
      * The VPC Lattice configuration for the service being created.
      */
-    public readonly vpcLatticeConfigurations!: pulumi.Output<outputs.ecs.ServiceVpcLatticeConfiguration[] | undefined>;
+    declare public readonly vpcLatticeConfigurations: pulumi.Output<outputs.ecs.ServiceVpcLatticeConfiguration[] | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -222,32 +222,32 @@ export class Service extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["availabilityZoneRebalancing"] = args ? args.availabilityZoneRebalancing : undefined;
-            resourceInputs["capacityProviderStrategy"] = args ? args.capacityProviderStrategy : undefined;
-            resourceInputs["cluster"] = args ? args.cluster : undefined;
-            resourceInputs["deploymentConfiguration"] = args ? args.deploymentConfiguration : undefined;
-            resourceInputs["deploymentController"] = args ? args.deploymentController : undefined;
-            resourceInputs["desiredCount"] = args ? args.desiredCount : undefined;
-            resourceInputs["enableEcsManagedTags"] = args ? args.enableEcsManagedTags : undefined;
-            resourceInputs["enableExecuteCommand"] = args ? args.enableExecuteCommand : undefined;
-            resourceInputs["forceNewDeployment"] = args ? args.forceNewDeployment : undefined;
-            resourceInputs["healthCheckGracePeriodSeconds"] = args ? args.healthCheckGracePeriodSeconds : undefined;
-            resourceInputs["launchType"] = args ? args.launchType : undefined;
-            resourceInputs["loadBalancers"] = args ? args.loadBalancers : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["placementConstraints"] = args ? args.placementConstraints : undefined;
-            resourceInputs["placementStrategies"] = args ? args.placementStrategies : undefined;
-            resourceInputs["platformVersion"] = args ? args.platformVersion : undefined;
-            resourceInputs["propagateTags"] = args ? args.propagateTags : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
-            resourceInputs["serviceConnectConfiguration"] = args ? args.serviceConnectConfiguration : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taskDefinition"] = args ? args.taskDefinition : undefined;
-            resourceInputs["volumeConfigurations"] = args ? args.volumeConfigurations : undefined;
-            resourceInputs["vpcLatticeConfigurations"] = args ? args.vpcLatticeConfigurations : undefined;
+            resourceInputs["availabilityZoneRebalancing"] = args?.availabilityZoneRebalancing;
+            resourceInputs["capacityProviderStrategy"] = args?.capacityProviderStrategy;
+            resourceInputs["cluster"] = args?.cluster;
+            resourceInputs["deploymentConfiguration"] = args?.deploymentConfiguration;
+            resourceInputs["deploymentController"] = args?.deploymentController;
+            resourceInputs["desiredCount"] = args?.desiredCount;
+            resourceInputs["enableEcsManagedTags"] = args?.enableEcsManagedTags;
+            resourceInputs["enableExecuteCommand"] = args?.enableExecuteCommand;
+            resourceInputs["forceNewDeployment"] = args?.forceNewDeployment;
+            resourceInputs["healthCheckGracePeriodSeconds"] = args?.healthCheckGracePeriodSeconds;
+            resourceInputs["launchType"] = args?.launchType;
+            resourceInputs["loadBalancers"] = args?.loadBalancers;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["placementConstraints"] = args?.placementConstraints;
+            resourceInputs["placementStrategies"] = args?.placementStrategies;
+            resourceInputs["platformVersion"] = args?.platformVersion;
+            resourceInputs["propagateTags"] = args?.propagateTags;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["schedulingStrategy"] = args?.schedulingStrategy;
+            resourceInputs["serviceConnectConfiguration"] = args?.serviceConnectConfiguration;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["serviceRegistries"] = args?.serviceRegistries;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taskDefinition"] = args?.taskDefinition;
+            resourceInputs["volumeConfigurations"] = args?.volumeConfigurations;
+            resourceInputs["vpcLatticeConfigurations"] = args?.vpcLatticeConfigurations;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["serviceArn"] = undefined /*out*/;
         } else {

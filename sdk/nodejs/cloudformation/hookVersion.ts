@@ -118,39 +118,39 @@ export class HookVersion extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the type, here the HookVersion. This is used to uniquely identify a HookVersion resource
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
      */
-    public readonly executionRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
     /**
      * Indicates if this type version is the current default version
      */
-    public /*out*/ readonly isDefaultVersion!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDefaultVersion: pulumi.Output<boolean>;
     /**
      * Specifies logging configuration information for a type.
      */
-    public readonly loggingConfig!: pulumi.Output<outputs.cloudformation.HookVersionLoggingConfig | undefined>;
+    declare public readonly loggingConfig: pulumi.Output<outputs.cloudformation.HookVersionLoggingConfig | undefined>;
     /**
      * A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
      *
      * For information on generating a schema handler package for the type you want to register, see submit in the CloudFormation CLI User Guide.
      */
-    public readonly schemaHandlerPackage!: pulumi.Output<string>;
+    declare public readonly schemaHandlerPackage: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the type without the versionID.
      */
-    public /*out*/ readonly typeArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly typeArn: pulumi.Output<string>;
     /**
      * The name of the type being registered.
      *
      * We recommend that type names adhere to the following pattern: company_or_organization::service::type.
      */
-    public readonly typeName!: pulumi.Output<string>;
+    declare public readonly typeName: pulumi.Output<string>;
     /**
      * The ID of the version of the type represented by this hook instance.
      */
-    public /*out*/ readonly versionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly versionId: pulumi.Output<string>;
     /**
      * The scope at which the type is visible and usable in CloudFormation operations.
      *
@@ -160,7 +160,7 @@ export class HookVersion extends pulumi.CustomResource {
      *
      * PUBLIC: The type is publically visible and usable within any Amazon account.
      */
-    public /*out*/ readonly visibility!: pulumi.Output<enums.cloudformation.HookVersionVisibility>;
+    declare public /*out*/ readonly visibility: pulumi.Output<enums.cloudformation.HookVersionVisibility>;
 
     /**
      * Create a HookVersion resource with the given unique name, arguments, and options.
@@ -173,16 +173,16 @@ export class HookVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.schemaHandlerPackage === undefined) && !opts.urn) {
+            if (args?.schemaHandlerPackage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaHandlerPackage'");
             }
-            if ((!args || args.typeName === undefined) && !opts.urn) {
+            if (args?.typeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'typeName'");
             }
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
-            resourceInputs["schemaHandlerPackage"] = args ? args.schemaHandlerPackage : undefined;
-            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["loggingConfig"] = args?.loggingConfig;
+            resourceInputs["schemaHandlerPackage"] = args?.schemaHandlerPackage;
+            resourceInputs["typeName"] = args?.typeName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["isDefaultVersion"] = undefined /*out*/;
             resourceInputs["typeArn"] = undefined /*out*/;

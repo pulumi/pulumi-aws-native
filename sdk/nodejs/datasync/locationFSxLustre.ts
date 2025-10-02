@@ -68,27 +68,27 @@ export class LocationFSxLustre extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
      */
-    public readonly fsxFilesystemArn!: pulumi.Output<string | undefined>;
+    declare public readonly fsxFilesystemArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon FSx for Lustre file system location that is created.
      */
-    public /*out*/ readonly locationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationArn: pulumi.Output<string>;
     /**
      * The URL of the FSx for Lustre location that was described.
      */
-    public /*out*/ readonly locationUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationUri: pulumi.Output<string>;
     /**
      * The ARNs of the security groups that are to use to configure the FSx for Lustre file system.
      */
-    public readonly securityGroupArns!: pulumi.Output<string[]>;
+    declare public readonly securityGroupArns: pulumi.Output<string[]>;
     /**
      * A subdirectory in the location's path.
      */
-    public readonly subdirectory!: pulumi.Output<string | undefined>;
+    declare public readonly subdirectory: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LocationFSxLustre resource with the given unique name, arguments, and options.
@@ -101,13 +101,13 @@ export class LocationFSxLustre extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.securityGroupArns === undefined) && !opts.urn) {
+            if (args?.securityGroupArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupArns'");
             }
-            resourceInputs["fsxFilesystemArn"] = args ? args.fsxFilesystemArn : undefined;
-            resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["fsxFilesystemArn"] = args?.fsxFilesystemArn;
+            resourceInputs["securityGroupArns"] = args?.securityGroupArns;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
         } else {

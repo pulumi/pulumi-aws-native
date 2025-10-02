@@ -40,55 +40,55 @@ export class MessageTemplate extends pulumi.CustomResource {
     /**
      * The channel subtype this message template applies to.
      */
-    public readonly channelSubtype!: pulumi.Output<enums.wisdom.MessageTemplateChannelSubtype>;
+    declare public readonly channelSubtype: pulumi.Output<enums.wisdom.MessageTemplateChannelSubtype>;
     /**
      * The content of the message template.
      */
-    public readonly content!: pulumi.Output<outputs.wisdom.MessageTemplateContent>;
+    declare public readonly content: pulumi.Output<outputs.wisdom.MessageTemplateContent>;
     /**
      * An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
      */
-    public readonly defaultAttributes!: pulumi.Output<outputs.wisdom.MessageTemplateAttributes | undefined>;
+    declare public readonly defaultAttributes: pulumi.Output<outputs.wisdom.MessageTemplateAttributes | undefined>;
     /**
      * The description of the message template.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The configuration information of the external data source.
      */
-    public readonly groupingConfiguration!: pulumi.Output<outputs.wisdom.MessageTemplateGroupingConfiguration | undefined>;
+    declare public readonly groupingConfiguration: pulumi.Output<outputs.wisdom.MessageTemplateGroupingConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the knowledge base to which the message template belongs.
      */
-    public readonly knowledgeBaseArn!: pulumi.Output<string>;
+    declare public readonly knowledgeBaseArn: pulumi.Output<string>;
     /**
      * The language code value for the language in which the message template is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
      */
-    public readonly language!: pulumi.Output<string | undefined>;
+    declare public readonly language: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the message template.
      */
-    public /*out*/ readonly messageTemplateArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly messageTemplateArn: pulumi.Output<string>;
     /**
      * List of message template attachments
      */
-    public readonly messageTemplateAttachments!: pulumi.Output<outputs.wisdom.MessageTemplateAttachment[] | undefined>;
+    declare public readonly messageTemplateAttachments: pulumi.Output<outputs.wisdom.MessageTemplateAttachment[] | undefined>;
     /**
      * The content SHA256 of the message template.
      */
-    public /*out*/ readonly messageTemplateContentSha256!: pulumi.Output<string>;
+    declare public /*out*/ readonly messageTemplateContentSha256: pulumi.Output<string>;
     /**
      * The unique identifier of the message template.
      */
-    public /*out*/ readonly messageTemplateId!: pulumi.Output<string>;
+    declare public /*out*/ readonly messageTemplateId: pulumi.Output<string>;
     /**
      * The name of the message template.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MessageTemplate resource with the given unique name, arguments, and options.
@@ -101,25 +101,25 @@ export class MessageTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelSubtype === undefined) && !opts.urn) {
+            if (args?.channelSubtype === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelSubtype'");
             }
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.knowledgeBaseArn === undefined) && !opts.urn) {
+            if (args?.knowledgeBaseArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'knowledgeBaseArn'");
             }
-            resourceInputs["channelSubtype"] = args ? args.channelSubtype : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["defaultAttributes"] = args ? args.defaultAttributes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["groupingConfiguration"] = args ? args.groupingConfiguration : undefined;
-            resourceInputs["knowledgeBaseArn"] = args ? args.knowledgeBaseArn : undefined;
-            resourceInputs["language"] = args ? args.language : undefined;
-            resourceInputs["messageTemplateAttachments"] = args ? args.messageTemplateAttachments : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channelSubtype"] = args?.channelSubtype;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["defaultAttributes"] = args?.defaultAttributes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["groupingConfiguration"] = args?.groupingConfiguration;
+            resourceInputs["knowledgeBaseArn"] = args?.knowledgeBaseArn;
+            resourceInputs["language"] = args?.language;
+            resourceInputs["messageTemplateAttachments"] = args?.messageTemplateAttachments;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["messageTemplateArn"] = undefined /*out*/;
             resourceInputs["messageTemplateContentSha256"] = undefined /*out*/;
             resourceInputs["messageTemplateId"] = undefined /*out*/;

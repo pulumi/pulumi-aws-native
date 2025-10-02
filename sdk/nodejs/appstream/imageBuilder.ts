@@ -40,41 +40,41 @@ export class ImageBuilder extends pulumi.CustomResource {
     /**
      * The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
      */
-    public readonly accessEndpoints!: pulumi.Output<outputs.appstream.ImageBuilderAccessEndpoint[] | undefined>;
+    declare public readonly accessEndpoints: pulumi.Output<outputs.appstream.ImageBuilderAccessEndpoint[] | undefined>;
     /**
      * The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
      */
-    public readonly appstreamAgentVersion!: pulumi.Output<string | undefined>;
+    declare public readonly appstreamAgentVersion: pulumi.Output<string | undefined>;
     /**
      * The description to display.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The image builder name to display.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
      */
-    public readonly domainJoinInfo!: pulumi.Output<outputs.appstream.ImageBuilderDomainJoinInfo | undefined>;
+    declare public readonly domainJoinInfo: pulumi.Output<outputs.appstream.ImageBuilderDomainJoinInfo | undefined>;
     /**
      * Enables or disables default internet access for the image builder.
      */
-    public readonly enableDefaultInternetAccess!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableDefaultInternetAccess: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
      *
      * For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
      */
-    public readonly iamRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly iamRoleArn: pulumi.Output<string | undefined>;
     /**
      * The ARN of the public, private, or shared image to use.
      */
-    public readonly imageArn!: pulumi.Output<string | undefined>;
+    declare public readonly imageArn: pulumi.Output<string | undefined>;
     /**
      * The name of the image used to create the image builder.
      */
-    public readonly imageName!: pulumi.Output<string | undefined>;
+    declare public readonly imageName: pulumi.Output<string | undefined>;
     /**
      * The instance type to use when launching the image builder. The following instance types are available:
      *
@@ -133,23 +133,23 @@ export class ImageBuilder extends pulumi.CustomResource {
      * - stream.graphics.g6f.4xlarge
      * - stream.graphics.gr6f.4xlarge
      */
-    public readonly instanceType!: pulumi.Output<string>;
+    declare public readonly instanceType: pulumi.Output<string>;
     /**
      * A unique name for the image builder.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The URL to start an image builder streaming session, returned as a string.
      */
-    public /*out*/ readonly streamingUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly streamingUrl: pulumi.Output<string>;
     /**
      * An array of key-value pairs.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The VPC configuration for the image builder. You can specify only one subnet.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.appstream.ImageBuilderVpcConfig | undefined>;
+    declare public readonly vpcConfig: pulumi.Output<outputs.appstream.ImageBuilderVpcConfig | undefined>;
 
     /**
      * Create a ImageBuilder resource with the given unique name, arguments, and options.
@@ -162,22 +162,22 @@ export class ImageBuilder extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
+            if (args?.instanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            resourceInputs["accessEndpoints"] = args ? args.accessEndpoints : undefined;
-            resourceInputs["appstreamAgentVersion"] = args ? args.appstreamAgentVersion : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["domainJoinInfo"] = args ? args.domainJoinInfo : undefined;
-            resourceInputs["enableDefaultInternetAccess"] = args ? args.enableDefaultInternetAccess : undefined;
-            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            resourceInputs["imageArn"] = args ? args.imageArn : undefined;
-            resourceInputs["imageName"] = args ? args.imageName : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["accessEndpoints"] = args?.accessEndpoints;
+            resourceInputs["appstreamAgentVersion"] = args?.appstreamAgentVersion;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["domainJoinInfo"] = args?.domainJoinInfo;
+            resourceInputs["enableDefaultInternetAccess"] = args?.enableDefaultInternetAccess;
+            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
+            resourceInputs["imageArn"] = args?.imageArn;
+            resourceInputs["imageName"] = args?.imageName;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["streamingUrl"] = undefined /*out*/;
         } else {
             resourceInputs["accessEndpoints"] = undefined /*out*/;

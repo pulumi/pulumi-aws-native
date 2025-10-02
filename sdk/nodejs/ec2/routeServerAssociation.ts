@@ -37,11 +37,11 @@ export class RouteServerAssociation extends pulumi.CustomResource {
     /**
      * Route Server ID
      */
-    public readonly routeServerId!: pulumi.Output<string>;
+    declare public readonly routeServerId: pulumi.Output<string>;
     /**
      * VPC ID
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a RouteServerAssociation resource with the given unique name, arguments, and options.
@@ -54,14 +54,14 @@ export class RouteServerAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.routeServerId === undefined) && !opts.urn) {
+            if (args?.routeServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeServerId'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["routeServerId"] = args ? args.routeServerId : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["routeServerId"] = args?.routeServerId;
+            resourceInputs["vpcId"] = args?.vpcId;
         } else {
             resourceInputs["routeServerId"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;

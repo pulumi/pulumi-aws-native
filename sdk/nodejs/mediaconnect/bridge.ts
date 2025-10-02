@@ -40,39 +40,39 @@ export class Bridge extends pulumi.CustomResource {
     /**
      * The Amazon Resource Number (ARN) of the bridge.
      */
-    public /*out*/ readonly bridgeArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly bridgeArn: pulumi.Output<string>;
     /**
      * The current status of the bridge. Possible values are: ACTIVE or STANDBY.
      */
-    public /*out*/ readonly bridgeState!: pulumi.Output<enums.mediaconnect.BridgeStateEnum>;
+    declare public /*out*/ readonly bridgeState: pulumi.Output<enums.mediaconnect.BridgeStateEnum>;
     /**
      * An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
      */
-    public readonly egressGatewayBridge!: pulumi.Output<outputs.mediaconnect.BridgeEgressGatewayBridge | undefined>;
+    declare public readonly egressGatewayBridge: pulumi.Output<outputs.mediaconnect.BridgeEgressGatewayBridge | undefined>;
     /**
      * An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
      */
-    public readonly ingressGatewayBridge!: pulumi.Output<outputs.mediaconnect.BridgeIngressGatewayBridge | undefined>;
+    declare public readonly ingressGatewayBridge: pulumi.Output<outputs.mediaconnect.BridgeIngressGatewayBridge | undefined>;
     /**
      * The name of the bridge.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The outputs on this bridge.
      */
-    public readonly outputs!: pulumi.Output<outputs.mediaconnect.BridgeOutput[] | undefined>;
+    declare public readonly outputs: pulumi.Output<outputs.mediaconnect.BridgeOutput[] | undefined>;
     /**
      * The placement Amazon Resource Number (ARN) of the bridge.
      */
-    public readonly placementArn!: pulumi.Output<string>;
+    declare public readonly placementArn: pulumi.Output<string>;
     /**
      * The settings for source failover.
      */
-    public readonly sourceFailoverConfig!: pulumi.Output<outputs.mediaconnect.BridgeFailoverConfig | undefined>;
+    declare public readonly sourceFailoverConfig: pulumi.Output<outputs.mediaconnect.BridgeFailoverConfig | undefined>;
     /**
      * The sources on this bridge.
      */
-    public readonly sources!: pulumi.Output<outputs.mediaconnect.BridgeSource[]>;
+    declare public readonly sources: pulumi.Output<outputs.mediaconnect.BridgeSource[]>;
 
     /**
      * Create a Bridge resource with the given unique name, arguments, and options.
@@ -85,19 +85,19 @@ export class Bridge extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.placementArn === undefined) && !opts.urn) {
+            if (args?.placementArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'placementArn'");
             }
-            if ((!args || args.sources === undefined) && !opts.urn) {
+            if (args?.sources === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sources'");
             }
-            resourceInputs["egressGatewayBridge"] = args ? args.egressGatewayBridge : undefined;
-            resourceInputs["ingressGatewayBridge"] = args ? args.ingressGatewayBridge : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputs"] = args ? args.outputs : undefined;
-            resourceInputs["placementArn"] = args ? args.placementArn : undefined;
-            resourceInputs["sourceFailoverConfig"] = args ? args.sourceFailoverConfig : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
+            resourceInputs["egressGatewayBridge"] = args?.egressGatewayBridge;
+            resourceInputs["ingressGatewayBridge"] = args?.ingressGatewayBridge;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputs"] = args?.outputs;
+            resourceInputs["placementArn"] = args?.placementArn;
+            resourceInputs["sourceFailoverConfig"] = args?.sourceFailoverConfig;
+            resourceInputs["sources"] = args?.sources;
             resourceInputs["bridgeArn"] = undefined /*out*/;
             resourceInputs["bridgeState"] = undefined /*out*/;
         } else {

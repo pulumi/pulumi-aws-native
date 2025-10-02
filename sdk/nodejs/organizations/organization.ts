@@ -40,31 +40,31 @@ export class Organization extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of an organization.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The unique identifier (ID) of an organization.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
      */
-    public readonly featureSet!: pulumi.Output<enums.organizations.OrganizationFeatureSet | undefined>;
+    declare public readonly featureSet: pulumi.Output<enums.organizations.OrganizationFeatureSet | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the account that is designated as the management account for the organization.
      */
-    public /*out*/ readonly managementAccountArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly managementAccountArn: pulumi.Output<string>;
     /**
      * The email address that is associated with the AWS account that is designated as the management account for the organization.
      */
-    public /*out*/ readonly managementAccountEmail!: pulumi.Output<string>;
+    declare public /*out*/ readonly managementAccountEmail: pulumi.Output<string>;
     /**
      * The unique identifier (ID) of the management account of an organization.
      */
-    public /*out*/ readonly managementAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly managementAccountId: pulumi.Output<string>;
     /**
      * The unique identifier (ID) for the root.
      */
-    public /*out*/ readonly rootId!: pulumi.Output<string>;
+    declare public /*out*/ readonly rootId: pulumi.Output<string>;
 
     /**
      * Create a Organization resource with the given unique name, arguments, and options.
@@ -77,7 +77,7 @@ export class Organization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["featureSet"] = args ? args.featureSet : undefined;
+            resourceInputs["featureSet"] = args?.featureSet;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["managementAccountArn"] = undefined /*out*/;

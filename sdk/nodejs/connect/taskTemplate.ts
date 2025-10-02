@@ -40,51 +40,51 @@ export class TaskTemplate extends pulumi.CustomResource {
     /**
      * The identifier (arn) of the task template.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
      */
-    public readonly clientToken!: pulumi.Output<string | undefined>;
+    declare public readonly clientToken: pulumi.Output<string | undefined>;
     /**
      * The constraints for the task template
      */
-    public readonly constraints!: pulumi.Output<outputs.connect.ConstraintsProperties | undefined>;
+    declare public readonly constraints: pulumi.Output<outputs.connect.ConstraintsProperties | undefined>;
     /**
      * The identifier of the contact flow.
      */
-    public readonly contactFlowArn!: pulumi.Output<string | undefined>;
+    declare public readonly contactFlowArn: pulumi.Output<string | undefined>;
     /**
      * The default values for fields when a task is created by referencing this template.
      */
-    public readonly defaults!: pulumi.Output<outputs.connect.TaskTemplateDefaultFieldValue[] | undefined>;
+    declare public readonly defaults: pulumi.Output<outputs.connect.TaskTemplateDefaultFieldValue[] | undefined>;
     /**
      * The description of the task template.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The list of task template's fields
      */
-    public readonly fields!: pulumi.Output<outputs.connect.TaskTemplateField[] | undefined>;
+    declare public readonly fields: pulumi.Output<outputs.connect.TaskTemplateField[] | undefined>;
     /**
      * The identifier (arn) of the instance.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The name of the task template.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The identifier of the contact flow.
      */
-    public readonly selfAssignContactFlowArn!: pulumi.Output<string | undefined>;
+    declare public readonly selfAssignContactFlowArn: pulumi.Output<string | undefined>;
     /**
      * The status of the task template.
      */
-    public readonly status!: pulumi.Output<enums.connect.TaskTemplateStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.connect.TaskTemplateStatus | undefined>;
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a TaskTemplate resource with the given unique name, arguments, and options.
@@ -97,20 +97,20 @@ export class TaskTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["clientToken"] = args ? args.clientToken : undefined;
-            resourceInputs["constraints"] = args ? args.constraints : undefined;
-            resourceInputs["contactFlowArn"] = args ? args.contactFlowArn : undefined;
-            resourceInputs["defaults"] = args ? args.defaults : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fields"] = args ? args.fields : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["selfAssignContactFlowArn"] = args ? args.selfAssignContactFlowArn : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clientToken"] = args?.clientToken;
+            resourceInputs["constraints"] = args?.constraints;
+            resourceInputs["contactFlowArn"] = args?.contactFlowArn;
+            resourceInputs["defaults"] = args?.defaults;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fields"] = args?.fields;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["selfAssignContactFlowArn"] = args?.selfAssignContactFlowArn;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

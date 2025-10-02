@@ -40,23 +40,23 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
     /**
      * The identifier of the Amazon Connect instance.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The name of the user hierarchy group.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the parent user hierarchy group.
      */
-    public readonly parentGroupArn!: pulumi.Output<string | undefined>;
+    declare public readonly parentGroupArn: pulumi.Output<string | undefined>;
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the user hierarchy group.
      */
-    public /*out*/ readonly userHierarchyGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly userHierarchyGroupArn: pulumi.Output<string>;
 
     /**
      * Create a UserHierarchyGroup resource with the given unique name, arguments, and options.
@@ -69,13 +69,13 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentGroupArn"] = args ? args.parentGroupArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentGroupArn"] = args?.parentGroupArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["userHierarchyGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["instanceArn"] = undefined /*out*/;

@@ -40,11 +40,11 @@ export class SpotFleet extends pulumi.CustomResource {
     /**
      * The ID of the Spot Fleet.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Describes the configuration of a Spot Fleet request.
      */
-    public readonly spotFleetRequestConfigData!: pulumi.Output<outputs.ec2.SpotFleetRequestConfigData>;
+    declare public readonly spotFleetRequestConfigData: pulumi.Output<outputs.ec2.SpotFleetRequestConfigData>;
 
     /**
      * Create a SpotFleet resource with the given unique name, arguments, and options.
@@ -57,10 +57,10 @@ export class SpotFleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.spotFleetRequestConfigData === undefined) && !opts.urn) {
+            if (args?.spotFleetRequestConfigData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'spotFleetRequestConfigData'");
             }
-            resourceInputs["spotFleetRequestConfigData"] = args ? args.spotFleetRequestConfigData : undefined;
+            resourceInputs["spotFleetRequestConfigData"] = args?.spotFleetRequestConfigData;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

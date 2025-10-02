@@ -40,62 +40,62 @@ export class Plan extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the plan.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The associated application health alarms for a plan.
      */
-    public readonly associatedAlarms!: pulumi.Output<{[key: string]: outputs.arcregionswitch.PlanAssociatedAlarm} | undefined>;
+    declare public readonly associatedAlarms: pulumi.Output<{[key: string]: outputs.arcregionswitch.PlanAssociatedAlarm} | undefined>;
     /**
      * The description for a plan.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The execution role for a plan.
      */
-    public readonly executionRole!: pulumi.Output<string>;
+    declare public readonly executionRole: pulumi.Output<string>;
     /**
      * Represents a Region switch plan. A plan defines the steps required to shift traffic from one AWS Region to another.
      */
-    public /*out*/ readonly healthChecksForPlan!: pulumi.Output<{[key: string]: outputs.arcregionswitch.PlanHealthCheckState[]}>;
+    declare public /*out*/ readonly healthChecksForPlan: pulumi.Output<{[key: string]: outputs.arcregionswitch.PlanHealthCheckState[]}>;
     /**
      * The name for a plan.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The owner of a plan.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
-    public /*out*/ readonly planHealthChecks!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly owner: pulumi.Output<string>;
+    declare public /*out*/ readonly planHealthChecks: pulumi.Output<string[]>;
     /**
      * The primary Region for a plan.
      */
-    public readonly primaryRegion!: pulumi.Output<string | undefined>;
+    declare public readonly primaryRegion: pulumi.Output<string | undefined>;
     /**
      * The recovery approach for a Region switch plan, which can be active/active (activeActive) or active/passive (activePassive).
      */
-    public readonly recoveryApproach!: pulumi.Output<enums.arcregionswitch.PlanRecoveryApproach>;
+    declare public readonly recoveryApproach: pulumi.Output<enums.arcregionswitch.PlanRecoveryApproach>;
     /**
      * The recovery time objective for a plan.
      */
-    public readonly recoveryTimeObjectiveMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly recoveryTimeObjectiveMinutes: pulumi.Output<number | undefined>;
     /**
      * The AWS Regions for a plan.
      */
-    public readonly regions!: pulumi.Output<string[]>;
-    public /*out*/ readonly route53HealthChecks!: pulumi.Output<outputs.arcregionswitch.Route53HealthChecksProperties>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly regions: pulumi.Output<string[]>;
+    declare public /*out*/ readonly route53HealthChecks: pulumi.Output<outputs.arcregionswitch.Route53HealthChecksProperties>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The triggers for a plan.
      */
-    public readonly triggers!: pulumi.Output<outputs.arcregionswitch.PlanTrigger[] | undefined>;
+    declare public readonly triggers: pulumi.Output<outputs.arcregionswitch.PlanTrigger[] | undefined>;
     /**
      * The version for the plan.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
     /**
      * The workflows for a plan.
      */
-    public readonly workflows!: pulumi.Output<outputs.arcregionswitch.PlanWorkflow[]>;
+    declare public readonly workflows: pulumi.Output<outputs.arcregionswitch.PlanWorkflow[]>;
 
     /**
      * Create a Plan resource with the given unique name, arguments, and options.
@@ -108,29 +108,29 @@ export class Plan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.executionRole === undefined) && !opts.urn) {
+            if (args?.executionRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRole'");
             }
-            if ((!args || args.recoveryApproach === undefined) && !opts.urn) {
+            if (args?.recoveryApproach === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryApproach'");
             }
-            if ((!args || args.regions === undefined) && !opts.urn) {
+            if (args?.regions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'regions'");
             }
-            if ((!args || args.workflows === undefined) && !opts.urn) {
+            if (args?.workflows === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workflows'");
             }
-            resourceInputs["associatedAlarms"] = args ? args.associatedAlarms : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executionRole"] = args ? args.executionRole : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["primaryRegion"] = args ? args.primaryRegion : undefined;
-            resourceInputs["recoveryApproach"] = args ? args.recoveryApproach : undefined;
-            resourceInputs["recoveryTimeObjectiveMinutes"] = args ? args.recoveryTimeObjectiveMinutes : undefined;
-            resourceInputs["regions"] = args ? args.regions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["triggers"] = args ? args.triggers : undefined;
-            resourceInputs["workflows"] = args ? args.workflows : undefined;
+            resourceInputs["associatedAlarms"] = args?.associatedAlarms;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executionRole"] = args?.executionRole;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["primaryRegion"] = args?.primaryRegion;
+            resourceInputs["recoveryApproach"] = args?.recoveryApproach;
+            resourceInputs["recoveryTimeObjectiveMinutes"] = args?.recoveryTimeObjectiveMinutes;
+            resourceInputs["regions"] = args?.regions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["triggers"] = args?.triggers;
+            resourceInputs["workflows"] = args?.workflows;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["healthChecksForPlan"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;

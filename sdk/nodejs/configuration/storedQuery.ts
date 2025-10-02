@@ -40,27 +40,27 @@ export class StoredQuery extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.
      */
-    public /*out*/ readonly queryArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly queryArn: pulumi.Output<string>;
     /**
      * A unique description for the query.
      */
-    public readonly queryDescription!: pulumi.Output<string | undefined>;
+    declare public readonly queryDescription: pulumi.Output<string | undefined>;
     /**
      * The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
      */
-    public readonly queryExpression!: pulumi.Output<string>;
+    declare public readonly queryExpression: pulumi.Output<string>;
     /**
      * The ID of the query.
      */
-    public /*out*/ readonly queryId!: pulumi.Output<string>;
+    declare public /*out*/ readonly queryId: pulumi.Output<string>;
     /**
      * The name of the query.
      */
-    public readonly queryName!: pulumi.Output<string>;
+    declare public readonly queryName: pulumi.Output<string>;
     /**
      * The tags for the stored query.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a StoredQuery resource with the given unique name, arguments, and options.
@@ -73,13 +73,13 @@ export class StoredQuery extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.queryExpression === undefined) && !opts.urn) {
+            if (args?.queryExpression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryExpression'");
             }
-            resourceInputs["queryDescription"] = args ? args.queryDescription : undefined;
-            resourceInputs["queryExpression"] = args ? args.queryExpression : undefined;
-            resourceInputs["queryName"] = args ? args.queryName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["queryDescription"] = args?.queryDescription;
+            resourceInputs["queryExpression"] = args?.queryExpression;
+            resourceInputs["queryName"] = args?.queryName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["queryArn"] = undefined /*out*/;
             resourceInputs["queryId"] = undefined /*out*/;
         } else {

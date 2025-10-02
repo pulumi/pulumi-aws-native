@@ -40,63 +40,63 @@ export class EnvironmentProfile extends pulumi.CustomResource {
     /**
      * The AWS account in which the Amazon DataZone environment is created.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * The AWS region in which this environment profile is created.
      */
-    public readonly awsAccountRegion!: pulumi.Output<string>;
+    declare public readonly awsAccountRegion: pulumi.Output<string>;
     /**
      * The ID of this Amazon DataZone environment profile.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The timestamp of when this environment profile was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The Amazon DataZone user who created this environment profile.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * The description of this Amazon DataZone environment profile.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the Amazon DataZone domain in which this environment profile is created.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * The ID of the Amazon DataZone domain in which this environment profile is created.
      */
-    public readonly domainIdentifier!: pulumi.Output<string>;
+    declare public readonly domainIdentifier: pulumi.Output<string>;
     /**
      * The ID of the blueprint with which this environment profile is created.
      */
-    public /*out*/ readonly environmentBlueprintId!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentBlueprintId: pulumi.Output<string>;
     /**
      * The ID of the blueprint with which this environment profile is created.
      */
-    public readonly environmentBlueprintIdentifier!: pulumi.Output<string>;
+    declare public readonly environmentBlueprintIdentifier: pulumi.Output<string>;
     /**
      * The name of this Amazon DataZone environment profile.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The identifier of the project in which to create the environment profile.
      */
-    public /*out*/ readonly projectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly projectId: pulumi.Output<string>;
     /**
      * The identifier of the project in which to create the environment profile.
      */
-    public readonly projectIdentifier!: pulumi.Output<string>;
+    declare public readonly projectIdentifier: pulumi.Output<string>;
     /**
      * The timestamp of when this environment profile was updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * The user parameters of this Amazon DataZone environment profile.
      */
-    public readonly userParameters!: pulumi.Output<outputs.datazone.EnvironmentProfileEnvironmentParameter[] | undefined>;
+    declare public readonly userParameters: pulumi.Output<outputs.datazone.EnvironmentProfileEnvironmentParameter[] | undefined>;
 
     /**
      * Create a EnvironmentProfile resource with the given unique name, arguments, and options.
@@ -109,29 +109,29 @@ export class EnvironmentProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsAccountId === undefined) && !opts.urn) {
+            if (args?.awsAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
             }
-            if ((!args || args.awsAccountRegion === undefined) && !opts.urn) {
+            if (args?.awsAccountRegion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountRegion'");
             }
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.environmentBlueprintIdentifier === undefined) && !opts.urn) {
+            if (args?.environmentBlueprintIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentBlueprintIdentifier'");
             }
-            if ((!args || args.projectIdentifier === undefined) && !opts.urn) {
+            if (args?.projectIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectIdentifier'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["awsAccountRegion"] = args ? args.awsAccountRegion : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["environmentBlueprintIdentifier"] = args ? args.environmentBlueprintIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectIdentifier"] = args ? args.projectIdentifier : undefined;
-            resourceInputs["userParameters"] = args ? args.userParameters : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["awsAccountRegion"] = args?.awsAccountRegion;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["environmentBlueprintIdentifier"] = args?.environmentBlueprintIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectIdentifier"] = args?.projectIdentifier;
+            resourceInputs["userParameters"] = args?.userParameters;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;

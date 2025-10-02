@@ -40,63 +40,63 @@ export class ObjectType extends pulumi.CustomResource {
     /**
      * Indicates whether a profile should be created when data is received.
      */
-    public readonly allowProfileCreation!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowProfileCreation: pulumi.Output<boolean | undefined>;
     /**
      * The time of this integration got created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Description of the profile object type.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The unique name of the domain.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * The default encryption key
      */
-    public readonly encryptionKey!: pulumi.Output<string | undefined>;
+    declare public readonly encryptionKey: pulumi.Output<string | undefined>;
     /**
      * The default number of days until the data within the domain expires.
      */
-    public readonly expirationDays!: pulumi.Output<number | undefined>;
+    declare public readonly expirationDays: pulumi.Output<number | undefined>;
     /**
      * A list of the name and ObjectType field.
      */
-    public readonly fields!: pulumi.Output<outputs.customerprofiles.ObjectTypeFieldMap[] | undefined>;
+    declare public readonly fields: pulumi.Output<outputs.customerprofiles.ObjectTypeFieldMap[] | undefined>;
     /**
      * A list of unique keys that can be used to map data to the profile.
      */
-    public readonly keys!: pulumi.Output<outputs.customerprofiles.ObjectTypeKeyMap[] | undefined>;
+    declare public readonly keys: pulumi.Output<outputs.customerprofiles.ObjectTypeKeyMap[] | undefined>;
     /**
      * The time of this integration got last updated at.
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * The maximum available number of profile objects
      */
-    public /*out*/ readonly maxAvailableProfileObjectCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxAvailableProfileObjectCount: pulumi.Output<number>;
     /**
      * The maximum number of profile objects for this object type
      */
-    public readonly maxProfileObjectCount!: pulumi.Output<number | undefined>;
+    declare public readonly maxProfileObjectCount: pulumi.Output<number | undefined>;
     /**
      * The name of the profile object type.
      */
-    public readonly objectTypeName!: pulumi.Output<string>;
+    declare public readonly objectTypeName: pulumi.Output<string>;
     /**
      * The format of your sourceLastUpdatedTimestamp that was previously set up.
      */
-    public readonly sourceLastUpdatedTimestampFormat!: pulumi.Output<string | undefined>;
+    declare public readonly sourceLastUpdatedTimestampFormat: pulumi.Output<string | undefined>;
     /**
      * The tags (keys and values) associated with the integration.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A unique identifier for the object template.
      */
-    public readonly templateId!: pulumi.Output<string | undefined>;
+    declare public readonly templateId: pulumi.Output<string | undefined>;
 
     /**
      * Create a ObjectType resource with the given unique name, arguments, and options.
@@ -109,24 +109,24 @@ export class ObjectType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["allowProfileCreation"] = args ? args.allowProfileCreation : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            resourceInputs["expirationDays"] = args ? args.expirationDays : undefined;
-            resourceInputs["fields"] = args ? args.fields : undefined;
-            resourceInputs["keys"] = args ? args.keys : undefined;
-            resourceInputs["maxProfileObjectCount"] = args ? args.maxProfileObjectCount : undefined;
-            resourceInputs["objectTypeName"] = args ? args.objectTypeName : undefined;
-            resourceInputs["sourceLastUpdatedTimestampFormat"] = args ? args.sourceLastUpdatedTimestampFormat : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateId"] = args ? args.templateId : undefined;
+            resourceInputs["allowProfileCreation"] = args?.allowProfileCreation;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["encryptionKey"] = args?.encryptionKey;
+            resourceInputs["expirationDays"] = args?.expirationDays;
+            resourceInputs["fields"] = args?.fields;
+            resourceInputs["keys"] = args?.keys;
+            resourceInputs["maxProfileObjectCount"] = args?.maxProfileObjectCount;
+            resourceInputs["objectTypeName"] = args?.objectTypeName;
+            resourceInputs["sourceLastUpdatedTimestampFormat"] = args?.sourceLastUpdatedTimestampFormat;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateId"] = args?.templateId;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["maxAvailableProfileObjectCount"] = undefined /*out*/;

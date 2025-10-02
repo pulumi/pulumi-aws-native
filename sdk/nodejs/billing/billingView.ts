@@ -40,43 +40,43 @@ export class BillingView extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The type of billing group.
      */
-    public /*out*/ readonly billingViewType!: pulumi.Output<enums.billing.BillingViewType>;
+    declare public /*out*/ readonly billingViewType: pulumi.Output<enums.billing.BillingViewType>;
     /**
      * The time when the billing view was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<number>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<number>;
     /**
      * See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
      */
-    public readonly dataFilterExpression!: pulumi.Output<outputs.billing.DataFilterExpressionProperties | undefined>;
+    declare public readonly dataFilterExpression: pulumi.Output<outputs.billing.DataFilterExpressionProperties | undefined>;
     /**
      * The description of the billing view.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the billing view.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The account owner of the billing view.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
      * An array of strings that define the billing view's source.
      */
-    public readonly sourceViews!: pulumi.Output<string[]>;
+    declare public readonly sourceViews: pulumi.Output<string[]>;
     /**
      * An array of key-value pairs associated to the billing view being created.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The time when the billing view was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<number>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<number>;
 
     /**
      * Create a BillingView resource with the given unique name, arguments, and options.
@@ -89,14 +89,14 @@ export class BillingView extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sourceViews === undefined) && !opts.urn) {
+            if (args?.sourceViews === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceViews'");
             }
-            resourceInputs["dataFilterExpression"] = args ? args.dataFilterExpression : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sourceViews"] = args ? args.sourceViews : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataFilterExpression"] = args?.dataFilterExpression;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sourceViews"] = args?.sourceViews;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["billingViewType"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

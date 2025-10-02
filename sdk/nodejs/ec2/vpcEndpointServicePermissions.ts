@@ -37,11 +37,11 @@ export class VpcEndpointServicePermissions extends pulumi.CustomResource {
     /**
      * The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
      */
-    public readonly allowedPrincipals!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedPrincipals: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the service.
      */
-    public readonly serviceId!: pulumi.Output<string>;
+    declare public readonly serviceId: pulumi.Output<string>;
 
     /**
      * Create a VpcEndpointServicePermissions resource with the given unique name, arguments, and options.
@@ -54,11 +54,11 @@ export class VpcEndpointServicePermissions extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.serviceId === undefined) && !opts.urn) {
+            if (args?.serviceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceId'");
             }
-            resourceInputs["allowedPrincipals"] = args ? args.allowedPrincipals : undefined;
-            resourceInputs["serviceId"] = args ? args.serviceId : undefined;
+            resourceInputs["allowedPrincipals"] = args?.allowedPrincipals;
+            resourceInputs["serviceId"] = args?.serviceId;
         } else {
             resourceInputs["allowedPrincipals"] = undefined /*out*/;
             resourceInputs["serviceId"] = undefined /*out*/;

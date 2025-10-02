@@ -40,31 +40,31 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
     /**
      * Whether to automatically enable Security Hub in new member accounts when they join the organization.
      */
-    public readonly autoEnable!: pulumi.Output<boolean>;
+    declare public readonly autoEnable: pulumi.Output<boolean>;
     /**
      * Whether to automatically enable Security Hub default standards in new member accounts when they join the organization.
      */
-    public readonly autoEnableStandards!: pulumi.Output<enums.securityhub.OrganizationConfigurationAutoEnableStandards | undefined>;
+    declare public readonly autoEnableStandards: pulumi.Output<enums.securityhub.OrganizationConfigurationAutoEnableStandards | undefined>;
     /**
      * Indicates whether the organization uses local or central configuration.
      */
-    public readonly configurationType!: pulumi.Output<enums.securityhub.OrganizationConfigurationConfigurationType | undefined>;
+    declare public readonly configurationType: pulumi.Output<enums.securityhub.OrganizationConfigurationConfigurationType | undefined>;
     /**
      * Whether the maximum number of allowed member accounts are already associated with the Security Hub administrator account.
      */
-    public /*out*/ readonly memberAccountLimitReached!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly memberAccountLimitReached: pulumi.Output<boolean>;
     /**
      * The identifier of the OrganizationConfiguration being created and assigned as the unique identifier.
      */
-    public /*out*/ readonly organizationConfigurationIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly organizationConfigurationIdentifier: pulumi.Output<string>;
     /**
      * Describes whether central configuration could be enabled as the ConfigurationType for the organization.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.securityhub.OrganizationConfigurationStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.securityhub.OrganizationConfigurationStatus>;
     /**
      * Provides an explanation if the value of Status is equal to FAILED when ConfigurationType is equal to CENTRAL.
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
 
     /**
      * Create a OrganizationConfiguration resource with the given unique name, arguments, and options.
@@ -77,12 +77,12 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoEnable === undefined) && !opts.urn) {
+            if (args?.autoEnable === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoEnable'");
             }
-            resourceInputs["autoEnable"] = args ? args.autoEnable : undefined;
-            resourceInputs["autoEnableStandards"] = args ? args.autoEnableStandards : undefined;
-            resourceInputs["configurationType"] = args ? args.configurationType : undefined;
+            resourceInputs["autoEnable"] = args?.autoEnable;
+            resourceInputs["autoEnableStandards"] = args?.autoEnableStandards;
+            resourceInputs["configurationType"] = args?.configurationType;
             resourceInputs["memberAccountLimitReached"] = undefined /*out*/;
             resourceInputs["organizationConfigurationIdentifier"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

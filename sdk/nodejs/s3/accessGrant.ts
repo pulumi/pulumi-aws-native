@@ -40,43 +40,43 @@ export class AccessGrant extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the specified access grant.
      */
-    public /*out*/ readonly accessGrantArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessGrantArn: pulumi.Output<string>;
     /**
      * The ID assigned to this access grant.
      */
-    public /*out*/ readonly accessGrantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessGrantId: pulumi.Output<string>;
     /**
      * The configuration options of the grant location, which is the S3 path to the data to which you are granting access.
      */
-    public readonly accessGrantsLocationConfiguration!: pulumi.Output<outputs.s3.AccessGrantsLocationConfiguration | undefined>;
+    declare public readonly accessGrantsLocationConfiguration: pulumi.Output<outputs.s3.AccessGrantsLocationConfiguration | undefined>;
     /**
      * The custom S3 location to be accessed by the grantee
      */
-    public readonly accessGrantsLocationId!: pulumi.Output<string>;
+    declare public readonly accessGrantsLocationId: pulumi.Output<string>;
     /**
      * The ARN of the application grantees will use to access the location
      */
-    public readonly applicationArn!: pulumi.Output<string | undefined>;
+    declare public readonly applicationArn: pulumi.Output<string | undefined>;
     /**
      * The S3 path of the data to which you are granting access. It is a combination of the S3 path of the registered location and the subprefix.
      */
-    public /*out*/ readonly grantScope!: pulumi.Output<string>;
+    declare public /*out*/ readonly grantScope: pulumi.Output<string>;
     /**
      * The principal who will be granted permission to access S3.
      */
-    public readonly grantee!: pulumi.Output<outputs.s3.AccessGrantGrantee>;
+    declare public readonly grantee: pulumi.Output<outputs.s3.AccessGrantGrantee>;
     /**
      * The level of access to be afforded to the grantee
      */
-    public readonly permission!: pulumi.Output<enums.s3.AccessGrantPermission>;
+    declare public readonly permission: pulumi.Output<enums.s3.AccessGrantPermission>;
     /**
      * The type of S3SubPrefix.
      */
-    public readonly s3PrefixType!: pulumi.Output<enums.s3.AccessGrantS3PrefixType | undefined>;
+    declare public readonly s3PrefixType: pulumi.Output<enums.s3.AccessGrantS3PrefixType | undefined>;
     /**
      * The AWS resource tags that you are adding to the access grant. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a AccessGrant resource with the given unique name, arguments, and options.
@@ -89,22 +89,22 @@ export class AccessGrant extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessGrantsLocationId === undefined) && !opts.urn) {
+            if (args?.accessGrantsLocationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessGrantsLocationId'");
             }
-            if ((!args || args.grantee === undefined) && !opts.urn) {
+            if (args?.grantee === undefined && !opts.urn) {
                 throw new Error("Missing required property 'grantee'");
             }
-            if ((!args || args.permission === undefined) && !opts.urn) {
+            if (args?.permission === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permission'");
             }
-            resourceInputs["accessGrantsLocationConfiguration"] = args ? args.accessGrantsLocationConfiguration : undefined;
-            resourceInputs["accessGrantsLocationId"] = args ? args.accessGrantsLocationId : undefined;
-            resourceInputs["applicationArn"] = args ? args.applicationArn : undefined;
-            resourceInputs["grantee"] = args ? args.grantee : undefined;
-            resourceInputs["permission"] = args ? args.permission : undefined;
-            resourceInputs["s3PrefixType"] = args ? args.s3PrefixType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessGrantsLocationConfiguration"] = args?.accessGrantsLocationConfiguration;
+            resourceInputs["accessGrantsLocationId"] = args?.accessGrantsLocationId;
+            resourceInputs["applicationArn"] = args?.applicationArn;
+            resourceInputs["grantee"] = args?.grantee;
+            resourceInputs["permission"] = args?.permission;
+            resourceInputs["s3PrefixType"] = args?.s3PrefixType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accessGrantArn"] = undefined /*out*/;
             resourceInputs["accessGrantId"] = undefined /*out*/;
             resourceInputs["grantScope"] = undefined /*out*/;

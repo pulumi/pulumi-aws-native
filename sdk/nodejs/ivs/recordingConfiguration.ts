@@ -40,35 +40,35 @@ export class RecordingConfiguration extends pulumi.CustomResource {
     /**
      * Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A destination configuration describes an S3 bucket where recorded video will be stored. See the DestinationConfiguration property type for more information.
      */
-    public readonly destinationConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationDestinationConfiguration>;
+    declare public readonly destinationConfiguration: pulumi.Output<outputs.ivs.RecordingConfigurationDestinationConfiguration>;
     /**
      * Recording Configuration Name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Recording Reconnect Window Seconds. (0 means disabled)
      */
-    public readonly recordingReconnectWindowSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly recordingReconnectWindowSeconds: pulumi.Output<number | undefined>;
     /**
      * A rendition configuration describes which renditions should be recorded for a stream. See the RenditionConfiguration property type for more information.
      */
-    public readonly renditionConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationRenditionConfiguration | undefined>;
+    declare public readonly renditionConfiguration: pulumi.Output<outputs.ivs.RecordingConfigurationRenditionConfiguration | undefined>;
     /**
      * Recording Configuration State.
      */
-    public /*out*/ readonly state!: pulumi.Output<enums.ivs.RecordingConfigurationState>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.ivs.RecordingConfigurationState>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the ThumbnailConfiguration property type for more information.
      */
-    public readonly thumbnailConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationThumbnailConfiguration | undefined>;
+    declare public readonly thumbnailConfiguration: pulumi.Output<outputs.ivs.RecordingConfigurationThumbnailConfiguration | undefined>;
 
     /**
      * Create a RecordingConfiguration resource with the given unique name, arguments, and options.
@@ -81,15 +81,15 @@ export class RecordingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationConfiguration === undefined) && !opts.urn) {
+            if (args?.destinationConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationConfiguration'");
             }
-            resourceInputs["destinationConfiguration"] = args ? args.destinationConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recordingReconnectWindowSeconds"] = args ? args.recordingReconnectWindowSeconds : undefined;
-            resourceInputs["renditionConfiguration"] = args ? args.renditionConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["thumbnailConfiguration"] = args ? args.thumbnailConfiguration : undefined;
+            resourceInputs["destinationConfiguration"] = args?.destinationConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recordingReconnectWindowSeconds"] = args?.recordingReconnectWindowSeconds;
+            resourceInputs["renditionConfiguration"] = args?.renditionConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["thumbnailConfiguration"] = args?.thumbnailConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {

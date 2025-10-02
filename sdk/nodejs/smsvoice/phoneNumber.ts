@@ -40,55 +40,55 @@ export class PhoneNumber extends pulumi.CustomResource {
     /**
      * The `PhoneNumber` 's Amazon Resource Name (ARN)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * When set to true the sender ID can't be deleted. By default this is set to false.
      */
-    public readonly deletionProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly deletionProtectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
      */
-    public readonly isoCountryCode!: pulumi.Output<string>;
+    declare public readonly isoCountryCode: pulumi.Output<string>;
     /**
      * A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
      */
-    public readonly mandatoryKeywords!: pulumi.Output<outputs.smsvoice.MandatoryKeywordsProperties>;
+    declare public readonly mandatoryKeywords: pulumi.Output<outputs.smsvoice.MandatoryKeywordsProperties>;
     /**
      * Indicates if the phone number will be used for text messages, voice messages, or both.
      */
-    public readonly numberCapabilities!: pulumi.Output<enums.smsvoice.PhoneNumberNumberCapabilitiesItem[]>;
+    declare public readonly numberCapabilities: pulumi.Output<enums.smsvoice.PhoneNumberNumberCapabilitiesItem[]>;
     /**
      * The type of phone number to request.
      */
-    public readonly numberType!: pulumi.Output<enums.smsvoice.PhoneNumberNumberType>;
+    declare public readonly numberType: pulumi.Output<enums.smsvoice.PhoneNumberNumberType>;
     /**
      * The name of the OptOutList to associate with the phone number. You can use the OptOutListName or OptOutListArn.
      */
-    public readonly optOutListName!: pulumi.Output<string | undefined>;
+    declare public readonly optOutListName: pulumi.Output<string | undefined>;
     /**
      * A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
      */
-    public readonly optionalKeywords!: pulumi.Output<outputs.smsvoice.PhoneNumberOptionalKeyword[] | undefined>;
+    declare public readonly optionalKeywords: pulumi.Output<outputs.smsvoice.PhoneNumberOptionalKeyword[] | undefined>;
     /**
      * The phone number in E.164 format.
      */
-    public /*out*/ readonly phoneNumber!: pulumi.Output<string>;
+    declare public /*out*/ readonly phoneNumber: pulumi.Output<string>;
     /**
      * The unique identifier for the phone number.
      */
-    public /*out*/ readonly phoneNumberId!: pulumi.Output<string>;
+    declare public /*out*/ readonly phoneNumberId: pulumi.Output<string>;
     /**
      * By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.
      */
-    public readonly selfManagedOptOutsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly selfManagedOptOutsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * When you set up two-way SMS, you can receive incoming messages from your customers. When one of your customers sends a message to your phone number, the message body is sent to an Amazon SNS topic or Amazon Connect for processing.
      */
-    public readonly twoWay!: pulumi.Output<outputs.smsvoice.TwoWayProperties | undefined>;
+    declare public readonly twoWay: pulumi.Output<outputs.smsvoice.TwoWayProperties | undefined>;
 
     /**
      * Create a PhoneNumber resource with the given unique name, arguments, and options.
@@ -101,28 +101,28 @@ export class PhoneNumber extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.isoCountryCode === undefined) && !opts.urn) {
+            if (args?.isoCountryCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isoCountryCode'");
             }
-            if ((!args || args.mandatoryKeywords === undefined) && !opts.urn) {
+            if (args?.mandatoryKeywords === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mandatoryKeywords'");
             }
-            if ((!args || args.numberCapabilities === undefined) && !opts.urn) {
+            if (args?.numberCapabilities === undefined && !opts.urn) {
                 throw new Error("Missing required property 'numberCapabilities'");
             }
-            if ((!args || args.numberType === undefined) && !opts.urn) {
+            if (args?.numberType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'numberType'");
             }
-            resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
-            resourceInputs["isoCountryCode"] = args ? args.isoCountryCode : undefined;
-            resourceInputs["mandatoryKeywords"] = args ? args.mandatoryKeywords : undefined;
-            resourceInputs["numberCapabilities"] = args ? args.numberCapabilities : undefined;
-            resourceInputs["numberType"] = args ? args.numberType : undefined;
-            resourceInputs["optOutListName"] = args ? args.optOutListName : undefined;
-            resourceInputs["optionalKeywords"] = args ? args.optionalKeywords : undefined;
-            resourceInputs["selfManagedOptOutsEnabled"] = args ? args.selfManagedOptOutsEnabled : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["twoWay"] = args ? args.twoWay : undefined;
+            resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
+            resourceInputs["isoCountryCode"] = args?.isoCountryCode;
+            resourceInputs["mandatoryKeywords"] = args?.mandatoryKeywords;
+            resourceInputs["numberCapabilities"] = args?.numberCapabilities;
+            resourceInputs["numberType"] = args?.numberType;
+            resourceInputs["optOutListName"] = args?.optOutListName;
+            resourceInputs["optionalKeywords"] = args?.optionalKeywords;
+            resourceInputs["selfManagedOptOutsEnabled"] = args?.selfManagedOptOutsEnabled;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["twoWay"] = args?.twoWay;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["phoneNumber"] = undefined /*out*/;
             resourceInputs["phoneNumberId"] = undefined /*out*/;

@@ -40,27 +40,27 @@ export class AnomalyDetector extends pulumi.CustomResource {
     /**
      * Configuration options for the AnomalyDetector
      */
-    public readonly anomalyDetectorConfig!: pulumi.Output<outputs.lookoutmetrics.AnomalyDetectorConfig>;
+    declare public readonly anomalyDetectorConfig: pulumi.Output<outputs.lookoutmetrics.AnomalyDetectorConfig>;
     /**
      * A description for the AnomalyDetector.
      */
-    public readonly anomalyDetectorDescription!: pulumi.Output<string | undefined>;
+    declare public readonly anomalyDetectorDescription: pulumi.Output<string | undefined>;
     /**
      * Name for the Amazon Lookout for Metrics Anomaly Detector
      */
-    public readonly anomalyDetectorName!: pulumi.Output<string | undefined>;
+    declare public readonly anomalyDetectorName: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * KMS key used to encrypt the AnomalyDetector data
      */
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * List of metric sets for anomaly detection
      */
-    public readonly metricSetList!: pulumi.Output<outputs.lookoutmetrics.AnomalyDetectorMetricSet[]>;
+    declare public readonly metricSetList: pulumi.Output<outputs.lookoutmetrics.AnomalyDetectorMetricSet[]>;
 
     /**
      * Create a AnomalyDetector resource with the given unique name, arguments, and options.
@@ -73,17 +73,17 @@ export class AnomalyDetector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.anomalyDetectorConfig === undefined) && !opts.urn) {
+            if (args?.anomalyDetectorConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'anomalyDetectorConfig'");
             }
-            if ((!args || args.metricSetList === undefined) && !opts.urn) {
+            if (args?.metricSetList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricSetList'");
             }
-            resourceInputs["anomalyDetectorConfig"] = args ? args.anomalyDetectorConfig : undefined;
-            resourceInputs["anomalyDetectorDescription"] = args ? args.anomalyDetectorDescription : undefined;
-            resourceInputs["anomalyDetectorName"] = args ? args.anomalyDetectorName : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["metricSetList"] = args ? args.metricSetList : undefined;
+            resourceInputs["anomalyDetectorConfig"] = args?.anomalyDetectorConfig;
+            resourceInputs["anomalyDetectorDescription"] = args?.anomalyDetectorDescription;
+            resourceInputs["anomalyDetectorName"] = args?.anomalyDetectorName;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["metricSetList"] = args?.metricSetList;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["anomalyDetectorConfig"] = undefined /*out*/;

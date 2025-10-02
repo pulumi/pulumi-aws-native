@@ -96,39 +96,39 @@ export class PrefixList extends pulumi.CustomResource {
     /**
      * Ip Version of Prefix List.
      */
-    public readonly addressFamily!: pulumi.Output<enums.ec2.PrefixListAddressFamily>;
+    declare public readonly addressFamily: pulumi.Output<enums.ec2.PrefixListAddressFamily>;
     /**
      * The Amazon Resource Name (ARN) of the Prefix List.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Entries of Prefix List.
      */
-    public readonly entries!: pulumi.Output<outputs.ec2.PrefixListEntry[] | undefined>;
+    declare public readonly entries: pulumi.Output<outputs.ec2.PrefixListEntry[] | undefined>;
     /**
      * Max Entries of Prefix List.
      */
-    public readonly maxEntries!: pulumi.Output<number | undefined>;
+    declare public readonly maxEntries: pulumi.Output<number | undefined>;
     /**
      * Owner Id of Prefix List.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * Id of Prefix List.
      */
-    public /*out*/ readonly prefixListId!: pulumi.Output<string>;
+    declare public /*out*/ readonly prefixListId: pulumi.Output<string>;
     /**
      * Name of Prefix List.
      */
-    public readonly prefixListName!: pulumi.Output<string>;
+    declare public readonly prefixListName: pulumi.Output<string>;
     /**
      * Tags for Prefix List
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Version of Prefix List.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a PrefixList resource with the given unique name, arguments, and options.
@@ -141,14 +141,14 @@ export class PrefixList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addressFamily === undefined) && !opts.urn) {
+            if (args?.addressFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            resourceInputs["addressFamily"] = args ? args.addressFamily : undefined;
-            resourceInputs["entries"] = args ? args.entries : undefined;
-            resourceInputs["maxEntries"] = args ? args.maxEntries : undefined;
-            resourceInputs["prefixListName"] = args ? args.prefixListName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addressFamily"] = args?.addressFamily;
+            resourceInputs["entries"] = args?.entries;
+            resourceInputs["maxEntries"] = args?.maxEntries;
+            resourceInputs["prefixListName"] = args?.prefixListName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["prefixListId"] = undefined /*out*/;

@@ -40,34 +40,34 @@ export class DocumentClassifier extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the document classifier.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read access to your input data.
      */
-    public readonly dataAccessRoleArn!: pulumi.Output<string>;
+    declare public readonly dataAccessRoleArn: pulumi.Output<string>;
     /**
      * The name of the document classifier.
      */
-    public readonly documentClassifierName!: pulumi.Output<string>;
+    declare public readonly documentClassifierName: pulumi.Output<string>;
     /**
      * Specifies the format and location of the input data for the job.
      */
-    public readonly inputDataConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierInputDataConfig>;
+    declare public readonly inputDataConfig: pulumi.Output<outputs.comprehend.DocumentClassifierInputDataConfig>;
     /**
      * The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
      */
-    public readonly languageCode!: pulumi.Output<enums.comprehend.DocumentClassifierLanguageCode>;
+    declare public readonly languageCode: pulumi.Output<enums.comprehend.DocumentClassifierLanguageCode>;
     /**
      * Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
      */
-    public readonly mode!: pulumi.Output<enums.comprehend.DocumentClassifierMode | undefined>;
+    declare public readonly mode: pulumi.Output<enums.comprehend.DocumentClassifierMode | undefined>;
     /**
      * ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
      *
      * - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
      * - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
      */
-    public readonly modelKmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly modelKmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.
      *
@@ -79,30 +79,30 @@ export class DocumentClassifier extends pulumi.CustomResource {
      *
      * `'{"attribute": "value", "attribute": ["value"]}'`
      */
-    public readonly modelPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly modelPolicy: pulumi.Output<string | undefined>;
     /**
      * Provides output results configuration parameters for custom classifier jobs.
      */
-    public readonly outputDataConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierOutputDataConfig | undefined>;
+    declare public readonly outputDataConfig: pulumi.Output<outputs.comprehend.DocumentClassifierOutputDataConfig | undefined>;
     /**
      * Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The version name given to the newly created classifier. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the AWS account / AWS Region .
      */
-    public readonly versionName!: pulumi.Output<string | undefined>;
+    declare public readonly versionName: pulumi.Output<string | undefined>;
     /**
      * ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
      *
      * - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
      * - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
      */
-    public readonly volumeKmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly volumeKmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierVpcConfig | undefined>;
+    declare public readonly vpcConfig: pulumi.Output<outputs.comprehend.DocumentClassifierVpcConfig | undefined>;
 
     /**
      * Create a DocumentClassifier resource with the given unique name, arguments, and options.
@@ -115,27 +115,27 @@ export class DocumentClassifier extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataAccessRoleArn === undefined) && !opts.urn) {
+            if (args?.dataAccessRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataAccessRoleArn'");
             }
-            if ((!args || args.inputDataConfig === undefined) && !opts.urn) {
+            if (args?.inputDataConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputDataConfig'");
             }
-            if ((!args || args.languageCode === undefined) && !opts.urn) {
+            if (args?.languageCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'languageCode'");
             }
-            resourceInputs["dataAccessRoleArn"] = args ? args.dataAccessRoleArn : undefined;
-            resourceInputs["documentClassifierName"] = args ? args.documentClassifierName : undefined;
-            resourceInputs["inputDataConfig"] = args ? args.inputDataConfig : undefined;
-            resourceInputs["languageCode"] = args ? args.languageCode : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["modelKmsKeyId"] = args ? args.modelKmsKeyId : undefined;
-            resourceInputs["modelPolicy"] = args ? args.modelPolicy : undefined;
-            resourceInputs["outputDataConfig"] = args ? args.outputDataConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["versionName"] = args ? args.versionName : undefined;
-            resourceInputs["volumeKmsKeyId"] = args ? args.volumeKmsKeyId : undefined;
-            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["dataAccessRoleArn"] = args?.dataAccessRoleArn;
+            resourceInputs["documentClassifierName"] = args?.documentClassifierName;
+            resourceInputs["inputDataConfig"] = args?.inputDataConfig;
+            resourceInputs["languageCode"] = args?.languageCode;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["modelKmsKeyId"] = args?.modelKmsKeyId;
+            resourceInputs["modelPolicy"] = args?.modelPolicy;
+            resourceInputs["outputDataConfig"] = args?.outputDataConfig;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["versionName"] = args?.versionName;
+            resourceInputs["volumeKmsKeyId"] = args?.volumeKmsKeyId;
+            resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

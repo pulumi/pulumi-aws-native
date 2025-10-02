@@ -40,27 +40,27 @@ export class StreamConsumer extends pulumi.CustomResource {
     /**
      * The ARN returned by Kinesis Data Streams when you registered the consumer. If you don't know the ARN of the consumer that you want to deregister, you can use the ListStreamConsumers operation to get a list of the descriptions of all the consumers that are currently registered with a given data stream. The description of a consumer contains its ARN.
      */
-    public /*out*/ readonly consumerArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly consumerArn: pulumi.Output<string>;
     /**
      * Timestamp when the consumer was created.
      */
-    public /*out*/ readonly consumerCreationTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly consumerCreationTimestamp: pulumi.Output<string>;
     /**
      * The name of the Kinesis Stream Consumer. For a given Kinesis data stream, each consumer must have a unique name. However, consumer names don't have to be unique across data streams.
      */
-    public readonly consumerName!: pulumi.Output<string>;
+    declare public readonly consumerName: pulumi.Output<string>;
     /**
      * A consumer can't read data while in the CREATING or DELETING states. Valid Values: CREATING | DELETING | ACTIVE
      */
-    public /*out*/ readonly consumerStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly consumerStatus: pulumi.Output<string>;
     /**
      * The Amazon resource name (ARN) of the Kinesis data stream that you want to register the consumer with.
      */
-    public readonly streamArn!: pulumi.Output<string>;
+    declare public readonly streamArn: pulumi.Output<string>;
     /**
      * An arbitrary set of tags (key–value pairs) to associate with the Kinesis consumer.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a StreamConsumer resource with the given unique name, arguments, and options.
@@ -73,12 +73,12 @@ export class StreamConsumer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.streamArn === undefined) && !opts.urn) {
+            if (args?.streamArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamArn'");
             }
-            resourceInputs["consumerName"] = args ? args.consumerName : undefined;
-            resourceInputs["streamArn"] = args ? args.streamArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["consumerName"] = args?.consumerName;
+            resourceInputs["streamArn"] = args?.streamArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["consumerArn"] = undefined /*out*/;
             resourceInputs["consumerCreationTimestamp"] = undefined /*out*/;
             resourceInputs["consumerStatus"] = undefined /*out*/;

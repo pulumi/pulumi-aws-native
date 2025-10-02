@@ -40,19 +40,19 @@ export class AgentAlias extends pulumi.CustomResource {
     /**
      * Arn representation of the Agent Alias.
      */
-    public /*out*/ readonly agentAliasArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentAliasArn: pulumi.Output<string>;
     /**
      * The list of history events for an alias for an Agent.
      */
-    public /*out*/ readonly agentAliasHistoryEvents!: pulumi.Output<outputs.bedrock.AgentAliasHistoryEvent[]>;
+    declare public /*out*/ readonly agentAliasHistoryEvents: pulumi.Output<outputs.bedrock.AgentAliasHistoryEvent[]>;
     /**
      * Id for an Agent Alias generated at the server side.
      */
-    public /*out*/ readonly agentAliasId!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentAliasId: pulumi.Output<string>;
     /**
      * Name for a resource.
      */
-    public readonly agentAliasName!: pulumi.Output<string>;
+    declare public readonly agentAliasName: pulumi.Output<string>;
     /**
      * The status of the alias of the agent and whether it is ready for use. The following statuses are possible:
      *
@@ -63,34 +63,34 @@ export class AgentAlias extends pulumi.CustomResource {
      * - DELETING – The agent alias is being deleted.
      * - DISSOCIATED - The agent alias has no version associated with it.
      */
-    public /*out*/ readonly agentAliasStatus!: pulumi.Output<enums.bedrock.AgentAliasStatus>;
+    declare public /*out*/ readonly agentAliasStatus: pulumi.Output<enums.bedrock.AgentAliasStatus>;
     /**
      * Identifier for a resource.
      */
-    public readonly agentId!: pulumi.Output<string>;
+    declare public readonly agentId: pulumi.Output<string>;
     /**
      * Time Stamp.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Description of the Resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Routing configuration for an Agent alias.
      */
-    public readonly routingConfiguration!: pulumi.Output<outputs.bedrock.AgentAliasRoutingConfigurationListItem[] | undefined>;
+    declare public readonly routingConfiguration: pulumi.Output<outputs.bedrock.AgentAliasRoutingConfigurationListItem[] | undefined>;
     /**
      * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
      *
      * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
      * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Time Stamp.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a AgentAlias resource with the given unique name, arguments, and options.
@@ -103,14 +103,14 @@ export class AgentAlias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agentId === undefined) && !opts.urn) {
+            if (args?.agentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentId'");
             }
-            resourceInputs["agentAliasName"] = args ? args.agentAliasName : undefined;
-            resourceInputs["agentId"] = args ? args.agentId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentAliasName"] = args?.agentAliasName;
+            resourceInputs["agentId"] = args?.agentId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["routingConfiguration"] = args?.routingConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["agentAliasArn"] = undefined /*out*/;
             resourceInputs["agentAliasHistoryEvents"] = undefined /*out*/;
             resourceInputs["agentAliasId"] = undefined /*out*/;

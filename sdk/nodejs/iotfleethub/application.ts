@@ -40,51 +40,51 @@ export class Application extends pulumi.CustomResource {
     /**
      * The ARN of the application.
      */
-    public /*out*/ readonly applicationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationArn: pulumi.Output<string>;
     /**
      * When the Application was created
      */
-    public /*out*/ readonly applicationCreationDate!: pulumi.Output<number>;
+    declare public /*out*/ readonly applicationCreationDate: pulumi.Output<number>;
     /**
      * Application Description, should be between 1 and 2048 characters.
      */
-    public readonly applicationDescription!: pulumi.Output<string | undefined>;
+    declare public readonly applicationDescription: pulumi.Output<string | undefined>;
     /**
      * The ID of the application.
      */
-    public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationId: pulumi.Output<string>;
     /**
      * When the Application was last updated
      */
-    public /*out*/ readonly applicationLastUpdateDate!: pulumi.Output<number>;
+    declare public /*out*/ readonly applicationLastUpdateDate: pulumi.Output<number>;
     /**
      * Application Name, should be between 1 and 256 characters.
      */
-    public readonly applicationName!: pulumi.Output<string>;
+    declare public readonly applicationName: pulumi.Output<string>;
     /**
      * The current state of the application.
      */
-    public /*out*/ readonly applicationState!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationState: pulumi.Output<string>;
     /**
      * The URL of the application.
      */
-    public /*out*/ readonly applicationUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationUrl: pulumi.Output<string>;
     /**
      * A message indicating why Create or Delete Application failed.
      */
-    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly errorMessage: pulumi.Output<string>;
     /**
      * The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The AWS SSO application generated client ID (used with AWS SSO APIs).
      */
-    public /*out*/ readonly ssoClientId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ssoClientId: pulumi.Output<string>;
     /**
      * A list of key-value pairs that contain metadata for the application.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -97,13 +97,13 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["applicationDescription"] = args ? args.applicationDescription : undefined;
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationDescription"] = args?.applicationDescription;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["applicationCreationDate"] = undefined /*out*/;
             resourceInputs["applicationId"] = undefined /*out*/;

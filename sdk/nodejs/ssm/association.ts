@@ -148,67 +148,67 @@ export class Association extends pulumi.CustomResource {
     /**
      * By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
      */
-    public readonly applyOnlyAtCronInterval!: pulumi.Output<boolean | undefined>;
+    declare public readonly applyOnlyAtCronInterval: pulumi.Output<boolean | undefined>;
     /**
      * Unique identifier of the association.
      */
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly associationId: pulumi.Output<string>;
     /**
      * The name of the association.
      */
-    public readonly associationName!: pulumi.Output<string | undefined>;
+    declare public readonly associationName: pulumi.Output<string | undefined>;
     /**
      * Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
      */
-    public readonly automationTargetParameterName!: pulumi.Output<string | undefined>;
+    declare public readonly automationTargetParameterName: pulumi.Output<string | undefined>;
     /**
      * The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) in the *AWS Systems Manager User Guide* .
      */
-    public readonly calendarNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly calendarNames: pulumi.Output<string[] | undefined>;
     /**
      * The severity level that is assigned to the association.
      */
-    public readonly complianceSeverity!: pulumi.Output<enums.ssm.AssociationComplianceSeverity | undefined>;
+    declare public readonly complianceSeverity: pulumi.Output<enums.ssm.AssociationComplianceSeverity | undefined>;
     /**
      * The version of the SSM document to associate with the target.
      */
-    public readonly documentVersion!: pulumi.Output<string | undefined>;
+    declare public readonly documentVersion: pulumi.Output<string | undefined>;
     /**
      * The ID of the instance that the SSM document is associated with.
      */
-    public readonly instanceId!: pulumi.Output<string | undefined>;
+    declare public readonly instanceId: pulumi.Output<string | undefined>;
     /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
      *
      * If a new managed node starts and attempts to run an association while Systems Manager is running `MaxConcurrency` associations, the association is allowed to run. During the next association interval, the new managed node will process its association within the limit specified for `MaxConcurrency` .
      */
-    public readonly maxConcurrency!: pulumi.Output<string | undefined>;
+    declare public readonly maxConcurrency: pulumi.Output<string | undefined>;
     /**
      * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 managed nodes and set `MaxError` to 10%, then the system stops sending the request when the sixth error is received.
      *
      * Executions that are already running an association when `MaxErrors` is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set `MaxConcurrency` to 1 so that executions proceed one at a time.
      */
-    public readonly maxErrors!: pulumi.Output<string | undefined>;
+    declare public readonly maxErrors: pulumi.Output<string | undefined>;
     /**
      * The name of the SSM document.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
      */
-    public readonly outputLocation!: pulumi.Output<outputs.ssm.AssociationInstanceAssociationOutputLocation | undefined>;
+    declare public readonly outputLocation: pulumi.Output<outputs.ssm.AssociationInstanceAssociationOutputLocation | undefined>;
     /**
      * Parameter values that the SSM document uses at runtime.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string[]} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string[]} | undefined>;
     /**
      * A Cron or Rate expression that specifies when the association is applied to the target.
      */
-    public readonly scheduleExpression!: pulumi.Output<string | undefined>;
+    declare public readonly scheduleExpression: pulumi.Output<string | undefined>;
     /**
      * Number of days to wait after the scheduled day to run an association.
      */
-    public readonly scheduleOffset!: pulumi.Output<number | undefined>;
+    declare public readonly scheduleOffset: pulumi.Output<number | undefined>;
     /**
      * The mode for generating association compliance. You can specify `AUTO` or `MANUAL` . In `AUTO` mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is `COMPLIANT` . If the association execution doesn't run successfully, the association is `NON-COMPLIANT` .
      *
@@ -216,17 +216,17 @@ export class Association extends pulumi.CustomResource {
      *
      * By default, all associations use `AUTO` mode.
      */
-    public readonly syncCompliance!: pulumi.Output<enums.ssm.AssociationSyncCompliance | undefined>;
+    declare public readonly syncCompliance: pulumi.Output<enums.ssm.AssociationSyncCompliance | undefined>;
     /**
      * The targets that the SSM document sends commands to.
      */
-    public readonly targets!: pulumi.Output<outputs.ssm.AssociationTarget[] | undefined>;
+    declare public readonly targets: pulumi.Output<outputs.ssm.AssociationTarget[] | undefined>;
     /**
      * The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution. If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
      *
      * > When you specify a value for the `WaitForSuccessTimeoutSeconds` , [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html) for your AWS CloudFormation stack’s configuration might yield inaccurate results. If drift detection is important in your scenario, we recommend that you don’t include `WaitForSuccessTimeoutSeconds` in your template.
      */
-    public readonly waitForSuccessTimeoutSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly waitForSuccessTimeoutSeconds: pulumi.Output<number | undefined>;
 
     /**
      * Create a Association resource with the given unique name, arguments, and options.
@@ -239,23 +239,23 @@ export class Association extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["applyOnlyAtCronInterval"] = args ? args.applyOnlyAtCronInterval : undefined;
-            resourceInputs["associationName"] = args ? args.associationName : undefined;
-            resourceInputs["automationTargetParameterName"] = args ? args.automationTargetParameterName : undefined;
-            resourceInputs["calendarNames"] = args ? args.calendarNames : undefined;
-            resourceInputs["complianceSeverity"] = args ? args.complianceSeverity : undefined;
-            resourceInputs["documentVersion"] = args ? args.documentVersion : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
-            resourceInputs["maxErrors"] = args ? args.maxErrors : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputLocation"] = args ? args.outputLocation : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
-            resourceInputs["scheduleOffset"] = args ? args.scheduleOffset : undefined;
-            resourceInputs["syncCompliance"] = args ? args.syncCompliance : undefined;
-            resourceInputs["targets"] = args ? args.targets : undefined;
-            resourceInputs["waitForSuccessTimeoutSeconds"] = args ? args.waitForSuccessTimeoutSeconds : undefined;
+            resourceInputs["applyOnlyAtCronInterval"] = args?.applyOnlyAtCronInterval;
+            resourceInputs["associationName"] = args?.associationName;
+            resourceInputs["automationTargetParameterName"] = args?.automationTargetParameterName;
+            resourceInputs["calendarNames"] = args?.calendarNames;
+            resourceInputs["complianceSeverity"] = args?.complianceSeverity;
+            resourceInputs["documentVersion"] = args?.documentVersion;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["maxConcurrency"] = args?.maxConcurrency;
+            resourceInputs["maxErrors"] = args?.maxErrors;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputLocation"] = args?.outputLocation;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["scheduleExpression"] = args?.scheduleExpression;
+            resourceInputs["scheduleOffset"] = args?.scheduleOffset;
+            resourceInputs["syncCompliance"] = args?.syncCompliance;
+            resourceInputs["targets"] = args?.targets;
+            resourceInputs["waitForSuccessTimeoutSeconds"] = args?.waitForSuccessTimeoutSeconds;
             resourceInputs["associationId"] = undefined /*out*/;
         } else {
             resourceInputs["applyOnlyAtCronInterval"] = undefined /*out*/;

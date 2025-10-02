@@ -40,31 +40,31 @@ export class ConfigurationSet extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the ConfigurationSet.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name to use for the configuration set.
      */
-    public readonly configurationSetName!: pulumi.Output<string | undefined>;
+    declare public readonly configurationSetName: pulumi.Output<string | undefined>;
     /**
      * The default sender ID to set for the ConfigurationSet.
      */
-    public readonly defaultSenderId!: pulumi.Output<string | undefined>;
+    declare public readonly defaultSenderId: pulumi.Output<string | undefined>;
     /**
      * An event destination is a location where you send message events.
      */
-    public readonly eventDestinations!: pulumi.Output<outputs.smsvoice.ConfigurationSetEventDestination[] | undefined>;
+    declare public readonly eventDestinations: pulumi.Output<outputs.smsvoice.ConfigurationSetEventDestination[] | undefined>;
     /**
      * Set to true to enable message feedback.
      */
-    public readonly messageFeedbackEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly messageFeedbackEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The unique identifier for the protect configuration to be associated to the configuration set.
      */
-    public readonly protectConfigurationId!: pulumi.Output<string | undefined>;
+    declare public readonly protectConfigurationId: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ConfigurationSet resource with the given unique name, arguments, and options.
@@ -77,12 +77,12 @@ export class ConfigurationSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["configurationSetName"] = args ? args.configurationSetName : undefined;
-            resourceInputs["defaultSenderId"] = args ? args.defaultSenderId : undefined;
-            resourceInputs["eventDestinations"] = args ? args.eventDestinations : undefined;
-            resourceInputs["messageFeedbackEnabled"] = args ? args.messageFeedbackEnabled : undefined;
-            resourceInputs["protectConfigurationId"] = args ? args.protectConfigurationId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configurationSetName"] = args?.configurationSetName;
+            resourceInputs["defaultSenderId"] = args?.defaultSenderId;
+            resourceInputs["eventDestinations"] = args?.eventDestinations;
+            resourceInputs["messageFeedbackEnabled"] = args?.messageFeedbackEnabled;
+            resourceInputs["protectConfigurationId"] = args?.protectConfigurationId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

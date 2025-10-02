@@ -40,67 +40,67 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The description of the environment.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The target platform for the runtime environment.
      */
-    public readonly engineType!: pulumi.Output<enums.m2.EnvironmentEngineType>;
+    declare public readonly engineType: pulumi.Output<enums.m2.EnvironmentEngineType>;
     /**
      * The version of the runtime engine for the environment.
      */
-    public readonly engineVersion!: pulumi.Output<string | undefined>;
+    declare public readonly engineVersion: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the runtime environment.
      */
-    public /*out*/ readonly environmentArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentArn: pulumi.Output<string>;
     /**
      * The unique identifier of the environment.
      */
-    public /*out*/ readonly environmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentId: pulumi.Output<string>;
     /**
      * Defines the details of a high availability configuration.
      */
-    public readonly highAvailabilityConfig!: pulumi.Output<outputs.m2.EnvironmentHighAvailabilityConfig | undefined>;
+    declare public readonly highAvailabilityConfig: pulumi.Output<outputs.m2.EnvironmentHighAvailabilityConfig | undefined>;
     /**
      * The type of instance underlying the environment.
      */
-    public readonly instanceType!: pulumi.Output<string>;
+    declare public readonly instanceType: pulumi.Output<string>;
     /**
      * The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The name of the environment.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The network type supported by the runtime environment.
      */
-    public readonly networkType!: pulumi.Output<enums.m2.EnvironmentNetworkType | undefined>;
+    declare public readonly networkType: pulumi.Output<enums.m2.EnvironmentNetworkType | undefined>;
     /**
      * Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
      */
-    public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
+    declare public readonly preferredMaintenanceWindow: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the environment is publicly accessible.
      */
-    public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
+    declare public readonly publiclyAccessible: pulumi.Output<boolean | undefined>;
     /**
      * The list of security groups for the VPC associated with this environment.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * The storage configurations defined for the runtime environment.
      */
-    public readonly storageConfigurations!: pulumi.Output<outputs.m2.EnvironmentStorageConfiguration[] | undefined>;
+    declare public readonly storageConfigurations: pulumi.Output<outputs.m2.EnvironmentStorageConfiguration[] | undefined>;
     /**
      * The unique identifiers of the subnets assigned to this runtime environment.
      */
-    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly subnetIds: pulumi.Output<string[] | undefined>;
     /**
      * Tags associated to this environment.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -113,26 +113,26 @@ export class Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engineType === undefined) && !opts.urn) {
+            if (args?.engineType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engineType'");
             }
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
+            if (args?.instanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["engineType"] = args ? args.engineType : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["highAvailabilityConfig"] = args ? args.highAvailabilityConfig : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkType"] = args ? args.networkType : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["storageConfigurations"] = args ? args.storageConfigurations : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["engineType"] = args?.engineType;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["highAvailabilityConfig"] = args?.highAvailabilityConfig;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkType"] = args?.networkType;
+            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["storageConfigurations"] = args?.storageConfigurations;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["environmentArn"] = undefined /*out*/;
             resourceInputs["environmentId"] = undefined /*out*/;
         } else {

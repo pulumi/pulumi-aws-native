@@ -40,39 +40,39 @@ export class Theme extends pulumi.CustomResource {
     /**
      * The unique ID for the Amplify app associated with the theme.
      */
-    public readonly appId!: pulumi.Output<string | undefined>;
+    declare public readonly appId: pulumi.Output<string | undefined>;
     /**
      * The ID for the theme.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The time that the theme was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The name of the backend environment that is a part of the Amplify app.
      */
-    public readonly environmentName!: pulumi.Output<string | undefined>;
+    declare public readonly environmentName: pulumi.Output<string | undefined>;
     /**
      * The time that the theme was modified.
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     /**
      * The name of the theme.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Describes the properties that can be overriden to customize a theme.
      */
-    public readonly overrides!: pulumi.Output<outputs.amplifyuibuilder.ThemeValues[] | undefined>;
+    declare public readonly overrides: pulumi.Output<outputs.amplifyuibuilder.ThemeValues[] | undefined>;
     /**
      * One or more key-value pairs to use when tagging the theme.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of key-value pairs that defines the properties of the theme.
      */
-    public readonly values!: pulumi.Output<outputs.amplifyuibuilder.ThemeValues[] | undefined>;
+    declare public readonly values: pulumi.Output<outputs.amplifyuibuilder.ThemeValues[] | undefined>;
 
     /**
      * Create a Theme resource with the given unique name, arguments, and options.
@@ -85,12 +85,12 @@ export class Theme extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["overrides"] = args ? args.overrides : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["values"] = args ? args.values : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["overrides"] = args?.overrides;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["values"] = args?.values;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;

@@ -40,39 +40,39 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
     /**
      * The time the transit gateway peering attachment was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The ID of the peer account
      */
-    public readonly peerAccountId!: pulumi.Output<string>;
+    declare public readonly peerAccountId: pulumi.Output<string>;
     /**
      * Peer Region
      */
-    public readonly peerRegion!: pulumi.Output<string>;
+    declare public readonly peerRegion: pulumi.Output<string>;
     /**
      * The ID of the peer transit gateway.
      */
-    public readonly peerTransitGatewayId!: pulumi.Output<string>;
+    declare public readonly peerTransitGatewayId: pulumi.Output<string>;
     /**
      * The state of the transit gateway peering attachment. Note that the initiating state has been deprecated.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The status of the transit gateway peering attachment.
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.ec2.TransitGatewayPeeringAttachmentPeeringAttachmentStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.ec2.TransitGatewayPeeringAttachmentPeeringAttachmentStatus>;
     /**
      * The tags for the transit gateway peering attachment.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the transit gateway peering attachment.
      */
-    public /*out*/ readonly transitGatewayAttachmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly transitGatewayAttachmentId: pulumi.Output<string>;
     /**
      * The ID of the transit gateway.
      */
-    public readonly transitGatewayId!: pulumi.Output<string>;
+    declare public readonly transitGatewayId: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayPeeringAttachment resource with the given unique name, arguments, and options.
@@ -85,23 +85,23 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.peerAccountId === undefined) && !opts.urn) {
+            if (args?.peerAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerAccountId'");
             }
-            if ((!args || args.peerRegion === undefined) && !opts.urn) {
+            if (args?.peerRegion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerRegion'");
             }
-            if ((!args || args.peerTransitGatewayId === undefined) && !opts.urn) {
+            if (args?.peerTransitGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerTransitGatewayId'");
             }
-            if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
+            if (args?.transitGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
-            resourceInputs["peerAccountId"] = args ? args.peerAccountId : undefined;
-            resourceInputs["peerRegion"] = args ? args.peerRegion : undefined;
-            resourceInputs["peerTransitGatewayId"] = args ? args.peerTransitGatewayId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["peerAccountId"] = args?.peerAccountId;
+            resourceInputs["peerRegion"] = args?.peerRegion;
+            resourceInputs["peerTransitGatewayId"] = args?.peerTransitGatewayId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

@@ -84,7 +84,7 @@ export class Activity extends pulumi.CustomResource {
     /**
      * Returns the ARN of the resource.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Encryption configuration for the activity.
      *
@@ -92,7 +92,7 @@ export class Activity extends pulumi.CustomResource {
      *
      * To update your activity to include customer managed keys, set a new activity name within your AWS CloudFormation template.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<outputs.stepfunctions.ActivityEncryptionConfiguration | undefined>;
+    declare public readonly encryptionConfiguration: pulumi.Output<outputs.stepfunctions.ActivityEncryptionConfiguration | undefined>;
     /**
      * The name of the activity.
      *
@@ -108,13 +108,13 @@ export class Activity extends pulumi.CustomResource {
      *
      * To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The list of tags to add to a resource.
      *
      * Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Activity resource with the given unique name, arguments, and options.
@@ -127,9 +127,9 @@ export class Activity extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

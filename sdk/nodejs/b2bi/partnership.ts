@@ -40,51 +40,51 @@ export class Partnership extends pulumi.CustomResource {
     /**
      * Returns one or more capabilities associated with this partnership.
      */
-    public readonly capabilities!: pulumi.Output<string[]>;
+    declare public readonly capabilities: pulumi.Output<string[]>;
     /**
      * Contains the details for an Outbound EDI capability.
      */
-    public readonly capabilityOptions!: pulumi.Output<outputs.b2bi.PartnershipCapabilityOptions | undefined>;
+    declare public readonly capabilityOptions: pulumi.Output<outputs.b2bi.PartnershipCapabilityOptions | undefined>;
     /**
      * Returns a timestamp for creation date and time of the partnership.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Specifies the email address associated with this trading partner.
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * Returns a timestamp that identifies the most recent date and time that the partnership was modified.
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     /**
      * Returns the name of the partnership.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
      */
-    public /*out*/ readonly partnershipArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly partnershipArn: pulumi.Output<string>;
     /**
      * Returns the unique, system-generated identifier for a partnership.
      */
-    public /*out*/ readonly partnershipId!: pulumi.Output<string>;
+    declare public /*out*/ readonly partnershipId: pulumi.Output<string>;
     /**
      * Specifies the phone number associated with the partnership.
      */
-    public readonly phone!: pulumi.Output<string | undefined>;
+    declare public readonly phone: pulumi.Output<string | undefined>;
     /**
      * Returns the unique, system-generated identifier for the profile connected to this partnership.
      */
-    public readonly profileId!: pulumi.Output<string>;
+    declare public readonly profileId: pulumi.Output<string>;
     /**
      * A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Returns the unique, system-generated identifier for a trading partner.
      */
-    public /*out*/ readonly tradingPartnerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tradingPartnerId: pulumi.Output<string>;
 
     /**
      * Create a Partnership resource with the given unique name, arguments, and options.
@@ -97,22 +97,22 @@ export class Partnership extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.capabilities === undefined) && !opts.urn) {
+            if (args?.capabilities === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capabilities'");
             }
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.profileId === undefined) && !opts.urn) {
+            if (args?.profileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileId'");
             }
-            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
-            resourceInputs["capabilityOptions"] = args ? args.capabilityOptions : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["phone"] = args ? args.phone : undefined;
-            resourceInputs["profileId"] = args ? args.profileId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["capabilities"] = args?.capabilities;
+            resourceInputs["capabilityOptions"] = args?.capabilityOptions;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["phone"] = args?.phone;
+            resourceInputs["profileId"] = args?.profileId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["partnershipArn"] = undefined /*out*/;

@@ -37,19 +37,19 @@ export class CustomerGatewayAssociation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the customer gateway.
      */
-    public readonly customerGatewayArn!: pulumi.Output<string>;
+    declare public readonly customerGatewayArn: pulumi.Output<string>;
     /**
      * The ID of the device
      */
-    public readonly deviceId!: pulumi.Output<string>;
+    declare public readonly deviceId: pulumi.Output<string>;
     /**
      * The ID of the global network.
      */
-    public readonly globalNetworkId!: pulumi.Output<string>;
+    declare public readonly globalNetworkId: pulumi.Output<string>;
     /**
      * The ID of the link
      */
-    public readonly linkId!: pulumi.Output<string | undefined>;
+    declare public readonly linkId: pulumi.Output<string | undefined>;
 
     /**
      * Create a CustomerGatewayAssociation resource with the given unique name, arguments, and options.
@@ -62,19 +62,19 @@ export class CustomerGatewayAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.customerGatewayArn === undefined) && !opts.urn) {
+            if (args?.customerGatewayArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customerGatewayArn'");
             }
-            if ((!args || args.deviceId === undefined) && !opts.urn) {
+            if (args?.deviceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceId'");
             }
-            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
+            if (args?.globalNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            resourceInputs["customerGatewayArn"] = args ? args.customerGatewayArn : undefined;
-            resourceInputs["deviceId"] = args ? args.deviceId : undefined;
-            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            resourceInputs["linkId"] = args ? args.linkId : undefined;
+            resourceInputs["customerGatewayArn"] = args?.customerGatewayArn;
+            resourceInputs["deviceId"] = args?.deviceId;
+            resourceInputs["globalNetworkId"] = args?.globalNetworkId;
+            resourceInputs["linkId"] = args?.linkId;
         } else {
             resourceInputs["customerGatewayArn"] = undefined /*out*/;
             resourceInputs["deviceId"] = undefined /*out*/;

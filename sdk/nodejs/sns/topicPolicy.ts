@@ -37,17 +37,17 @@ export class TopicPolicy extends pulumi.CustomResource {
     /**
      * The provider-assigned unique ID for this managed resource.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A policy document that contains permissions to add to the specified SNS topics.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
      */
-    public readonly policyDocument!: pulumi.Output<any>;
+    declare public readonly policyDocument: pulumi.Output<any>;
     /**
      * The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.
      */
-    public readonly topics!: pulumi.Output<string[]>;
+    declare public readonly topics: pulumi.Output<string[]>;
 
     /**
      * Create a TopicPolicy resource with the given unique name, arguments, and options.
@@ -60,14 +60,14 @@ export class TopicPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyDocument === undefined) && !opts.urn) {
+            if (args?.policyDocument === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if ((!args || args.topics === undefined) && !opts.urn) {
+            if (args?.topics === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topics'");
             }
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["topics"] = args ? args.topics : undefined;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["topics"] = args?.topics;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

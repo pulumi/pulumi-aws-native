@@ -40,23 +40,23 @@ export class SenderId extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) associated with the SenderId.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * When set to true the sender ID can't be deleted. By default this is set to false.
      */
-    public readonly deletionProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly deletionProtectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
      */
-    public readonly isoCountryCode!: pulumi.Output<string>;
+    declare public readonly isoCountryCode: pulumi.Output<string>;
     /**
      * The sender ID string to request.
      */
-    public readonly senderId!: pulumi.Output<string>;
+    declare public readonly senderId: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SenderId resource with the given unique name, arguments, and options.
@@ -69,16 +69,16 @@ export class SenderId extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.isoCountryCode === undefined) && !opts.urn) {
+            if (args?.isoCountryCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isoCountryCode'");
             }
-            if ((!args || args.senderId === undefined) && !opts.urn) {
+            if (args?.senderId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'senderId'");
             }
-            resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
-            resourceInputs["isoCountryCode"] = args ? args.isoCountryCode : undefined;
-            resourceInputs["senderId"] = args ? args.senderId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
+            resourceInputs["isoCountryCode"] = args?.isoCountryCode;
+            resourceInputs["senderId"] = args?.senderId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

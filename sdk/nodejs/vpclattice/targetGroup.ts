@@ -40,45 +40,45 @@ export class TargetGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the target group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the target group.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The target group configuration.
      */
-    public readonly config!: pulumi.Output<outputs.vpclattice.TargetGroupConfig | undefined>;
+    declare public readonly config: pulumi.Output<outputs.vpclattice.TargetGroupConfig | undefined>;
     /**
      * The date and time that the target group was created, specified in ISO-8601 format.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The date and time that the target group was last updated, specified in ISO-8601 format.
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      *
      * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.TargetGroupStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.vpclattice.TargetGroupStatus>;
     /**
      * The tags for the target group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Describes a target.
      */
-    public readonly targets!: pulumi.Output<outputs.vpclattice.TargetGroupTarget[] | undefined>;
+    declare public readonly targets: pulumi.Output<outputs.vpclattice.TargetGroupTarget[] | undefined>;
     /**
      * The type of target group.
      */
-    public readonly type!: pulumi.Output<enums.vpclattice.TargetGroupType>;
+    declare public readonly type: pulumi.Output<enums.vpclattice.TargetGroupType>;
 
     /**
      * Create a TargetGroup resource with the given unique name, arguments, and options.
@@ -91,14 +91,14 @@ export class TargetGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targets"] = args ? args.targets : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["config"] = args?.config;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targets"] = args?.targets;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

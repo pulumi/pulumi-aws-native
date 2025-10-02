@@ -40,33 +40,33 @@ export class RegexPatternSet extends pulumi.CustomResource {
     /**
      * ARN of the WAF entity.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Id of the RegexPatternSet
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Description of the entity.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the RegexPatternSet.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The regular expression patterns in the set.
      */
-    public readonly regularExpressionList!: pulumi.Output<string[]>;
+    declare public readonly regularExpressionList: pulumi.Output<string[]>;
     /**
      * Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
      */
-    public readonly scope!: pulumi.Output<enums.wafv2.RegexPatternSetScope>;
+    declare public readonly scope: pulumi.Output<enums.wafv2.RegexPatternSetScope>;
     /**
      * Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
      *
      * > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a RegexPatternSet resource with the given unique name, arguments, and options.
@@ -79,17 +79,17 @@ export class RegexPatternSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.regularExpressionList === undefined) && !opts.urn) {
+            if (args?.regularExpressionList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'regularExpressionList'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["regularExpressionList"] = args ? args.regularExpressionList : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["regularExpressionList"] = args?.regularExpressionList;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

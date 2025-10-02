@@ -40,62 +40,62 @@ export class QuickResponse extends pulumi.CustomResource {
     /**
      * The Amazon Connect contact channels this quick response applies to.
      */
-    public readonly channels!: pulumi.Output<enums.wisdom.QuickResponseChannelType[] | undefined>;
+    declare public readonly channels: pulumi.Output<enums.wisdom.QuickResponseChannelType[] | undefined>;
     /**
      * The content of the quick response.
      */
-    public readonly content!: pulumi.Output<outputs.wisdom.QuickResponseContentProvider>;
+    declare public readonly content: pulumi.Output<outputs.wisdom.QuickResponseContentProvider>;
     /**
      * The media type of the quick response content.
      * - Use application/x.quickresponse;format=plain for quick response written in plain text.
      * - Use application/x.quickresponse;format=markdown for quick response written in richtext.
      */
-    public readonly contentType!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly contents!: pulumi.Output<outputs.wisdom.QuickResponseContents>;
+    declare public readonly contentType: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly contents: pulumi.Output<outputs.wisdom.QuickResponseContents>;
     /**
      * The description of the quick response.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The configuration information of the user groups that the quick response is accessible to.
      */
-    public readonly groupingConfiguration!: pulumi.Output<outputs.wisdom.QuickResponseGroupingConfiguration | undefined>;
+    declare public readonly groupingConfiguration: pulumi.Output<outputs.wisdom.QuickResponseGroupingConfiguration | undefined>;
     /**
      * Whether the quick response is active.
      */
-    public readonly isActive!: pulumi.Output<boolean | undefined>;
+    declare public readonly isActive: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the knowledge base.
      */
-    public readonly knowledgeBaseArn!: pulumi.Output<string>;
+    declare public readonly knowledgeBaseArn: pulumi.Output<string>;
     /**
      * The language code value for the language in which the quick response is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
      */
-    public readonly language!: pulumi.Output<string | undefined>;
+    declare public readonly language: pulumi.Output<string | undefined>;
     /**
      * The name of the quick response.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the quick response.
      */
-    public /*out*/ readonly quickResponseArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly quickResponseArn: pulumi.Output<string>;
     /**
      * The identifier of the quick response.
      */
-    public /*out*/ readonly quickResponseId!: pulumi.Output<string>;
+    declare public /*out*/ readonly quickResponseId: pulumi.Output<string>;
     /**
      * The shortcut key of the quick response. The value should be unique across the knowledge base.
      */
-    public readonly shortcutKey!: pulumi.Output<string | undefined>;
+    declare public readonly shortcutKey: pulumi.Output<string | undefined>;
     /**
      * The status of the quick response data.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.wisdom.QuickResponseStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.wisdom.QuickResponseStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a QuickResponse resource with the given unique name, arguments, and options.
@@ -108,23 +108,23 @@ export class QuickResponse extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.knowledgeBaseArn === undefined) && !opts.urn) {
+            if (args?.knowledgeBaseArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'knowledgeBaseArn'");
             }
-            resourceInputs["channels"] = args ? args.channels : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["groupingConfiguration"] = args ? args.groupingConfiguration : undefined;
-            resourceInputs["isActive"] = args ? args.isActive : undefined;
-            resourceInputs["knowledgeBaseArn"] = args ? args.knowledgeBaseArn : undefined;
-            resourceInputs["language"] = args ? args.language : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["shortcutKey"] = args ? args.shortcutKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channels"] = args?.channels;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["groupingConfiguration"] = args?.groupingConfiguration;
+            resourceInputs["isActive"] = args?.isActive;
+            resourceInputs["knowledgeBaseArn"] = args?.knowledgeBaseArn;
+            resourceInputs["language"] = args?.language;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["shortcutKey"] = args?.shortcutKey;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["contents"] = undefined /*out*/;
             resourceInputs["quickResponseArn"] = undefined /*out*/;
             resourceInputs["quickResponseId"] = undefined /*out*/;

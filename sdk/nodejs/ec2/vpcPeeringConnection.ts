@@ -40,31 +40,31 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
     /**
      * The ID of the peering connection.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The AWS account ID of the owner of the accepter VPC.
      */
-    public readonly peerOwnerId!: pulumi.Output<string | undefined>;
+    declare public readonly peerOwnerId: pulumi.Output<string | undefined>;
     /**
      * The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
      */
-    public readonly peerRegion!: pulumi.Output<string | undefined>;
+    declare public readonly peerRegion: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
      */
-    public readonly peerRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly peerRoleArn: pulumi.Output<string | undefined>;
     /**
      * The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
      */
-    public readonly peerVpcId!: pulumi.Output<string>;
+    declare public readonly peerVpcId: pulumi.Output<string>;
     /**
      * Any tags assigned to the resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the VPC.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a VpcPeeringConnection resource with the given unique name, arguments, and options.
@@ -77,18 +77,18 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.peerVpcId === undefined) && !opts.urn) {
+            if (args?.peerVpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerVpcId'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["peerOwnerId"] = args ? args.peerOwnerId : undefined;
-            resourceInputs["peerRegion"] = args ? args.peerRegion : undefined;
-            resourceInputs["peerRoleArn"] = args ? args.peerRoleArn : undefined;
-            resourceInputs["peerVpcId"] = args ? args.peerVpcId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["peerOwnerId"] = args?.peerOwnerId;
+            resourceInputs["peerRegion"] = args?.peerRegion;
+            resourceInputs["peerRoleArn"] = args?.peerRoleArn;
+            resourceInputs["peerVpcId"] = args?.peerVpcId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

@@ -40,47 +40,47 @@ export class Retriever extends pulumi.CustomResource {
     /**
      * The identifier of the Amazon Q Business application using the retriever.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * Provides information on how the retriever used for your Amazon Q Business application is configured.
      */
-    public readonly configuration!: pulumi.Output<outputs.qbusiness.RetrieverConfiguration0Properties | outputs.qbusiness.RetrieverConfiguration1Properties>;
+    declare public readonly configuration: pulumi.Output<outputs.qbusiness.RetrieverConfiguration0Properties | outputs.qbusiness.RetrieverConfiguration1Properties>;
     /**
      * The Unix timestamp when the retriever was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The name of your retriever.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role associated with the retriever.
      */
-    public /*out*/ readonly retrieverArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly retrieverArn: pulumi.Output<string>;
     /**
      * The identifier of the retriever used by your Amazon Q Business application.
      */
-    public /*out*/ readonly retrieverId!: pulumi.Output<string>;
+    declare public /*out*/ readonly retrieverId: pulumi.Output<string>;
     /**
      * The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * The status of your retriever.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.qbusiness.RetrieverStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.qbusiness.RetrieverStatus>;
     /**
      * A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of your retriever.
      */
-    public readonly type!: pulumi.Output<enums.qbusiness.RetrieverType>;
+    declare public readonly type: pulumi.Output<enums.qbusiness.RetrieverType>;
     /**
      * The Unix timestamp when the retriever was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a Retriever resource with the given unique name, arguments, and options.
@@ -93,24 +93,24 @@ export class Retriever extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["retrieverArn"] = undefined /*out*/;
             resourceInputs["retrieverId"] = undefined /*out*/;

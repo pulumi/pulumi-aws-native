@@ -40,27 +40,27 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the certificate.
      */
-    public /*out*/ readonly certificateArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateArn: pulumi.Output<string>;
     /**
      * The name for the certificate.
      */
-    public readonly certificateName!: pulumi.Output<string>;
+    declare public readonly certificateName: pulumi.Output<string>;
     /**
      * The domain name (e.g., example.com ) for the certificate.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * The validation status of the certificate.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * An array of strings that specify the alternate domains (e.g., example2.com) and subdomains (e.g., blog.example.com) for the certificate.
      */
-    public readonly subjectAlternativeNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly subjectAlternativeNames: pulumi.Output<string[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -73,13 +73,13 @@ export class Certificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificateName"] = args?.certificateName;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["subjectAlternativeNames"] = args?.subjectAlternativeNames;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["certificateArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

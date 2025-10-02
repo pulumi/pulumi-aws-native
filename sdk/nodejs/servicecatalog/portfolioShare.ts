@@ -37,19 +37,19 @@ export class PortfolioShare extends pulumi.CustomResource {
     /**
      * The language code.
      */
-    public readonly acceptLanguage!: pulumi.Output<string | undefined>;
+    declare public readonly acceptLanguage: pulumi.Output<string | undefined>;
     /**
      * The AWS account ID.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The portfolio identifier.
      */
-    public readonly portfolioId!: pulumi.Output<string>;
+    declare public readonly portfolioId: pulumi.Output<string>;
     /**
      * Enables or disables TagOptions sharing when creating the portfolio share.
      */
-    public readonly shareTagOptions!: pulumi.Output<boolean | undefined>;
+    declare public readonly shareTagOptions: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a PortfolioShare resource with the given unique name, arguments, and options.
@@ -62,16 +62,16 @@ export class PortfolioShare extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.portfolioId === undefined) && !opts.urn) {
+            if (args?.portfolioId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portfolioId'");
             }
-            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
-            resourceInputs["shareTagOptions"] = args ? args.shareTagOptions : undefined;
+            resourceInputs["acceptLanguage"] = args?.acceptLanguage;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["portfolioId"] = args?.portfolioId;
+            resourceInputs["shareTagOptions"] = args?.shareTagOptions;
         } else {
             resourceInputs["acceptLanguage"] = undefined /*out*/;
             resourceInputs["accountId"] = undefined /*out*/;

@@ -42,57 +42,57 @@ export class Membership extends pulumi.CustomResource {
      *
      * Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Returns the Amazon Resource Name (ARN) of the specified collaboration.
      *
      * Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
      */
-    public /*out*/ readonly collaborationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly collaborationArn: pulumi.Output<string>;
     /**
      * Returns the unique identifier of the specified collaboration creator account.
      *
      * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
      */
-    public /*out*/ readonly collaborationCreatorAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly collaborationCreatorAccountId: pulumi.Output<string>;
     /**
      * The unique ID for the associated collaboration.
      */
-    public readonly collaborationIdentifier!: pulumi.Output<string>;
+    declare public readonly collaborationIdentifier: pulumi.Output<string>;
     /**
      * The default job result configuration for the membership.
      */
-    public readonly defaultJobResultConfiguration!: pulumi.Output<outputs.cleanrooms.MembershipProtectedJobResultConfiguration | undefined>;
+    declare public readonly defaultJobResultConfiguration: pulumi.Output<outputs.cleanrooms.MembershipProtectedJobResultConfiguration | undefined>;
     /**
      * The default protected query result configuration as specified by the member who can receive results.
      */
-    public readonly defaultResultConfiguration!: pulumi.Output<outputs.cleanrooms.MembershipProtectedQueryResultConfiguration | undefined>;
+    declare public readonly defaultResultConfiguration: pulumi.Output<outputs.cleanrooms.MembershipProtectedQueryResultConfiguration | undefined>;
     /**
      * An indicator as to whether job logging has been enabled or disabled for the collaboration.
      *
      * When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
      */
-    public readonly jobLogStatus!: pulumi.Output<enums.cleanrooms.MembershipJobLogStatus | undefined>;
+    declare public readonly jobLogStatus: pulumi.Output<enums.cleanrooms.MembershipJobLogStatus | undefined>;
     /**
      * Returns the unique identifier of the specified membership.
      *
      * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
      */
-    public /*out*/ readonly membershipIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly membershipIdentifier: pulumi.Output<string>;
     /**
      * The payment responsibilities accepted by the collaboration member.
      */
-    public readonly paymentConfiguration!: pulumi.Output<outputs.cleanrooms.MembershipPaymentConfiguration | undefined>;
+    declare public readonly paymentConfiguration: pulumi.Output<outputs.cleanrooms.MembershipPaymentConfiguration | undefined>;
     /**
      * An indicator as to whether query logging has been enabled or disabled for the membership.
      *
      * When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
      */
-    public readonly queryLogStatus!: pulumi.Output<enums.cleanrooms.MembershipQueryLogStatus>;
+    declare public readonly queryLogStatus: pulumi.Output<enums.cleanrooms.MembershipQueryLogStatus>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Membership resource with the given unique name, arguments, and options.
@@ -105,19 +105,19 @@ export class Membership extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.collaborationIdentifier === undefined) && !opts.urn) {
+            if (args?.collaborationIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'collaborationIdentifier'");
             }
-            if ((!args || args.queryLogStatus === undefined) && !opts.urn) {
+            if (args?.queryLogStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryLogStatus'");
             }
-            resourceInputs["collaborationIdentifier"] = args ? args.collaborationIdentifier : undefined;
-            resourceInputs["defaultJobResultConfiguration"] = args ? args.defaultJobResultConfiguration : undefined;
-            resourceInputs["defaultResultConfiguration"] = args ? args.defaultResultConfiguration : undefined;
-            resourceInputs["jobLogStatus"] = args ? args.jobLogStatus : undefined;
-            resourceInputs["paymentConfiguration"] = args ? args.paymentConfiguration : undefined;
-            resourceInputs["queryLogStatus"] = args ? args.queryLogStatus : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["collaborationIdentifier"] = args?.collaborationIdentifier;
+            resourceInputs["defaultJobResultConfiguration"] = args?.defaultJobResultConfiguration;
+            resourceInputs["defaultResultConfiguration"] = args?.defaultResultConfiguration;
+            resourceInputs["jobLogStatus"] = args?.jobLogStatus;
+            resourceInputs["paymentConfiguration"] = args?.paymentConfiguration;
+            resourceInputs["queryLogStatus"] = args?.queryLogStatus;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationArn"] = undefined /*out*/;
             resourceInputs["collaborationCreatorAccountId"] = undefined /*out*/;

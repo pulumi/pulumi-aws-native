@@ -42,19 +42,19 @@ export class UserPoolResourceServer extends pulumi.CustomResource {
      *
      * Amazon Cognito represents scopes in the access token in the format `$resource-server-identifier/$scope` . Longer scope-identifier strings increase the size of your access tokens.
      */
-    public readonly identifier!: pulumi.Output<string>;
+    declare public readonly identifier: pulumi.Output<string>;
     /**
      * A friendly name for the resource server.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
      */
-    public readonly scopes!: pulumi.Output<outputs.cognito.UserPoolResourceServerResourceServerScopeType[] | undefined>;
+    declare public readonly scopes: pulumi.Output<outputs.cognito.UserPoolResourceServerResourceServerScopeType[] | undefined>;
     /**
      * The ID of the user pool where you want to create a resource server.
      */
-    public readonly userPoolId!: pulumi.Output<string>;
+    declare public readonly userPoolId: pulumi.Output<string>;
 
     /**
      * Create a UserPoolResourceServer resource with the given unique name, arguments, and options.
@@ -67,16 +67,16 @@ export class UserPoolResourceServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.identifier === undefined) && !opts.urn) {
+            if (args?.identifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["identifier"] = args ? args.identifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["identifier"] = args?.identifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["userPoolId"] = args?.userPoolId;
         } else {
             resourceInputs["identifier"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

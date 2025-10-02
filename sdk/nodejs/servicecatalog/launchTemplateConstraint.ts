@@ -37,27 +37,27 @@ export class LaunchTemplateConstraint extends pulumi.CustomResource {
     /**
      * The language code.
      */
-    public readonly acceptLanguage!: pulumi.Output<string | undefined>;
+    declare public readonly acceptLanguage: pulumi.Output<string | undefined>;
     /**
      * Unique identifier for the constraint
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The description of the constraint.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The portfolio identifier.
      */
-    public readonly portfolioId!: pulumi.Output<string>;
+    declare public readonly portfolioId: pulumi.Output<string>;
     /**
      * The product identifier.
      */
-    public readonly productId!: pulumi.Output<string>;
+    declare public readonly productId: pulumi.Output<string>;
     /**
      * A json encoded string of the template constraint rules
      */
-    public readonly rules!: pulumi.Output<string>;
+    declare public readonly rules: pulumi.Output<string>;
 
     /**
      * Create a LaunchTemplateConstraint resource with the given unique name, arguments, and options.
@@ -70,20 +70,20 @@ export class LaunchTemplateConstraint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.portfolioId === undefined) && !opts.urn) {
+            if (args?.portfolioId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portfolioId'");
             }
-            if ((!args || args.productId === undefined) && !opts.urn) {
+            if (args?.productId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
-            resourceInputs["productId"] = args ? args.productId : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["acceptLanguage"] = args?.acceptLanguage;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["portfolioId"] = args?.portfolioId;
+            resourceInputs["productId"] = args?.productId;
+            resourceInputs["rules"] = args?.rules;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["acceptLanguage"] = undefined /*out*/;

@@ -37,11 +37,11 @@ export class BatchScramSecret extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
      */
-    public readonly clusterArn!: pulumi.Output<string>;
+    declare public readonly clusterArn: pulumi.Output<string>;
     /**
      * List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
      */
-    public readonly secretArnList!: pulumi.Output<string[] | undefined>;
+    declare public readonly secretArnList: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a BatchScramSecret resource with the given unique name, arguments, and options.
@@ -54,11 +54,11 @@ export class BatchScramSecret extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterArn === undefined) && !opts.urn) {
+            if (args?.clusterArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterArn'");
             }
-            resourceInputs["clusterArn"] = args ? args.clusterArn : undefined;
-            resourceInputs["secretArnList"] = args ? args.secretArnList : undefined;
+            resourceInputs["clusterArn"] = args?.clusterArn;
+            resourceInputs["secretArnList"] = args?.secretArnList;
         } else {
             resourceInputs["clusterArn"] = undefined /*out*/;
             resourceInputs["secretArnList"] = undefined /*out*/;

@@ -37,19 +37,19 @@ export class PreparedStatement extends pulumi.CustomResource {
     /**
      * The description of the prepared statement.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The query string for the prepared statement.
      */
-    public readonly queryStatement!: pulumi.Output<string>;
+    declare public readonly queryStatement: pulumi.Output<string>;
     /**
      * The name of the prepared statement.
      */
-    public readonly statementName!: pulumi.Output<string>;
+    declare public readonly statementName: pulumi.Output<string>;
     /**
      * The name of the workgroup to which the prepared statement belongs.
      */
-    public readonly workGroup!: pulumi.Output<string>;
+    declare public readonly workGroup: pulumi.Output<string>;
 
     /**
      * Create a PreparedStatement resource with the given unique name, arguments, and options.
@@ -62,16 +62,16 @@ export class PreparedStatement extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.queryStatement === undefined) && !opts.urn) {
+            if (args?.queryStatement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryStatement'");
             }
-            if ((!args || args.workGroup === undefined) && !opts.urn) {
+            if (args?.workGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workGroup'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["queryStatement"] = args ? args.queryStatement : undefined;
-            resourceInputs["statementName"] = args ? args.statementName : undefined;
-            resourceInputs["workGroup"] = args ? args.workGroup : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["queryStatement"] = args?.queryStatement;
+            resourceInputs["statementName"] = args?.statementName;
+            resourceInputs["workGroup"] = args?.workGroup;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["queryStatement"] = undefined /*out*/;

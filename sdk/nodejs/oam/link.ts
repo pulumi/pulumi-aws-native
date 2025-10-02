@@ -40,11 +40,11 @@ export class Link extends pulumi.CustomResource {
     /**
      * The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The friendly human-readable name used to identify this source account when it is viewed from the monitoring account. For example, `my-account1` .
      */
-    public /*out*/ readonly label!: pulumi.Output<string>;
+    declare public /*out*/ readonly label: pulumi.Output<string>;
     /**
      * Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
      *
@@ -56,23 +56,23 @@ export class Link extends pulumi.CustomResource {
      *
      * > In the  and  Regions, the only supported option is to use custom labels, and the `$AccountName` , `$AccountEmail` , and `$AccountEmailNoDomain` variables all resolve as *account-id* instead of the specified variable.
      */
-    public readonly labelTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly labelTemplate: pulumi.Output<string | undefined>;
     /**
      * Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
      */
-    public readonly linkConfiguration!: pulumi.Output<outputs.oam.LinkConfiguration | undefined>;
+    declare public readonly linkConfiguration: pulumi.Output<outputs.oam.LinkConfiguration | undefined>;
     /**
      * An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
      */
-    public readonly resourceTypes!: pulumi.Output<enums.oam.LinkResourceType[]>;
+    declare public readonly resourceTypes: pulumi.Output<enums.oam.LinkResourceType[]>;
     /**
      * The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
      */
-    public readonly sinkIdentifier!: pulumi.Output<string>;
+    declare public readonly sinkIdentifier: pulumi.Output<string>;
     /**
      * Tags to apply to the link
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Link resource with the given unique name, arguments, and options.
@@ -85,17 +85,17 @@ export class Link extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceTypes === undefined) && !opts.urn) {
+            if (args?.resourceTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceTypes'");
             }
-            if ((!args || args.sinkIdentifier === undefined) && !opts.urn) {
+            if (args?.sinkIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sinkIdentifier'");
             }
-            resourceInputs["labelTemplate"] = args ? args.labelTemplate : undefined;
-            resourceInputs["linkConfiguration"] = args ? args.linkConfiguration : undefined;
-            resourceInputs["resourceTypes"] = args ? args.resourceTypes : undefined;
-            resourceInputs["sinkIdentifier"] = args ? args.sinkIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["labelTemplate"] = args?.labelTemplate;
+            resourceInputs["linkConfiguration"] = args?.linkConfiguration;
+            resourceInputs["resourceTypes"] = args?.resourceTypes;
+            resourceInputs["sinkIdentifier"] = args?.sinkIdentifier;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["label"] = undefined /*out*/;
         } else {

@@ -40,27 +40,27 @@ export class Template extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
      */
-    public readonly connectorArn!: pulumi.Output<string>;
+    declare public readonly connectorArn: pulumi.Output<string>;
     /**
      * Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
      */
-    public readonly definition!: pulumi.Output<outputs.pcaconnectorad.TemplateDefinition0Properties | outputs.pcaconnectorad.TemplateDefinition1Properties | outputs.pcaconnectorad.TemplateDefinition2Properties>;
+    declare public readonly definition: pulumi.Output<outputs.pcaconnectorad.TemplateDefinition0Properties | outputs.pcaconnectorad.TemplateDefinition1Properties | outputs.pcaconnectorad.TemplateDefinition2Properties>;
     /**
      * Name of the templates. Template names must be unique.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * This setting allows the major version of a template to be increased automatically. All members of Active Directory groups that are allowed to enroll with a template will receive a new certificate issued using that template.
      */
-    public readonly reenrollAllCertificateHolders!: pulumi.Output<boolean | undefined>;
+    declare public readonly reenrollAllCertificateHolders: pulumi.Output<boolean | undefined>;
     /**
      * Metadata assigned to a template consisting of a key-value pair.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
      */
-    public /*out*/ readonly templateArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly templateArn: pulumi.Output<string>;
 
     /**
      * Create a Template resource with the given unique name, arguments, and options.
@@ -73,17 +73,17 @@ export class Template extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectorArn === undefined) && !opts.urn) {
+            if (args?.connectorArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorArn'");
             }
-            if ((!args || args.definition === undefined) && !opts.urn) {
+            if (args?.definition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            resourceInputs["connectorArn"] = args ? args.connectorArn : undefined;
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["reenrollAllCertificateHolders"] = args ? args.reenrollAllCertificateHolders : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectorArn"] = args?.connectorArn;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["reenrollAllCertificateHolders"] = args?.reenrollAllCertificateHolders;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["templateArn"] = undefined /*out*/;
         } else {
             resourceInputs["connectorArn"] = undefined /*out*/;

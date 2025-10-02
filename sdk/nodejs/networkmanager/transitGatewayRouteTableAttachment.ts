@@ -40,79 +40,79 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
     /**
      * The ID of the attachment.
      */
-    public /*out*/ readonly attachmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentId: pulumi.Output<string>;
     /**
      * The policy rule number associated with the attachment.
      */
-    public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly attachmentPolicyRuleNumber: pulumi.Output<number>;
     /**
      * The type of attachment.
      */
-    public /*out*/ readonly attachmentType!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentType: pulumi.Output<string>;
     /**
      * The ARN of a core network for the VPC attachment.
      */
-    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly coreNetworkArn: pulumi.Output<string>;
     /**
      * The ID of a core network where you're creating a site-to-site VPN attachment.
      */
-    public /*out*/ readonly coreNetworkId!: pulumi.Output<string>;
+    declare public /*out*/ readonly coreNetworkId: pulumi.Output<string>;
     /**
      * Creation time of the attachment.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The Region where the edge is located.
      */
-    public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
+    declare public /*out*/ readonly edgeLocation: pulumi.Output<string>;
     /**
      * Errors from the last modification of the attachment.
      */
-    public /*out*/ readonly lastModificationErrors!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly lastModificationErrors: pulumi.Output<string[]>;
     /**
      * The name of the network function group attachment.
      */
-    public readonly networkFunctionGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly networkFunctionGroupName: pulumi.Output<string | undefined>;
     /**
      * Owner account of the attachment.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
      * The Id of peering between transit gateway and core network.
      */
-    public readonly peeringId!: pulumi.Output<string>;
+    declare public readonly peeringId: pulumi.Output<string>;
     /**
      * The attachment to move from one network function group to another.
      */
-    public readonly proposedNetworkFunctionGroupChange!: pulumi.Output<outputs.networkmanager.TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange | undefined>;
+    declare public readonly proposedNetworkFunctionGroupChange: pulumi.Output<outputs.networkmanager.TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange | undefined>;
     /**
      * The attachment to move from one segment to another.
      */
-    public readonly proposedSegmentChange!: pulumi.Output<outputs.networkmanager.TransitGatewayRouteTableAttachmentProposedSegmentChange | undefined>;
+    declare public readonly proposedSegmentChange: pulumi.Output<outputs.networkmanager.TransitGatewayRouteTableAttachmentProposedSegmentChange | undefined>;
     /**
      * The ARN of the Resource.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
      * The name of the segment that attachment is in.
      */
-    public /*out*/ readonly segmentName!: pulumi.Output<string>;
+    declare public /*out*/ readonly segmentName: pulumi.Output<string>;
     /**
      * The state of the attachment.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Arn of transit gateway route table.
      */
-    public readonly transitGatewayRouteTableArn!: pulumi.Output<string>;
+    declare public readonly transitGatewayRouteTableArn: pulumi.Output<string>;
     /**
      * Last update time of the attachment.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayRouteTableAttachment resource with the given unique name, arguments, and options.
@@ -125,18 +125,18 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.peeringId === undefined) && !opts.urn) {
+            if (args?.peeringId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peeringId'");
             }
-            if ((!args || args.transitGatewayRouteTableArn === undefined) && !opts.urn) {
+            if (args?.transitGatewayRouteTableArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableArn'");
             }
-            resourceInputs["networkFunctionGroupName"] = args ? args.networkFunctionGroupName : undefined;
-            resourceInputs["peeringId"] = args ? args.peeringId : undefined;
-            resourceInputs["proposedNetworkFunctionGroupChange"] = args ? args.proposedNetworkFunctionGroupChange : undefined;
-            resourceInputs["proposedSegmentChange"] = args ? args.proposedSegmentChange : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayRouteTableArn"] = args ? args.transitGatewayRouteTableArn : undefined;
+            resourceInputs["networkFunctionGroupName"] = args?.networkFunctionGroupName;
+            resourceInputs["peeringId"] = args?.peeringId;
+            resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
+            resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayRouteTableArn"] = args?.transitGatewayRouteTableArn;
             resourceInputs["attachmentId"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;
             resourceInputs["attachmentType"] = undefined /*out*/;

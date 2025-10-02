@@ -40,35 +40,35 @@ export class DbCluster extends pulumi.CustomResource {
     /**
      * Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
      */
-    public readonly associatedRoles!: pulumi.Output<outputs.neptune.DbClusterDbClusterRole[] | undefined>;
+    declare public readonly associatedRoles: pulumi.Output<outputs.neptune.DbClusterDbClusterRole[] | undefined>;
     /**
      * Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
      */
-    public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
+    declare public readonly availabilityZones: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the number of days for which automatic DB snapshots are retained.
      */
-    public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
+    declare public readonly backupRetentionPeriod: pulumi.Output<number | undefined>;
     /**
      * The resource id for the DB cluster. For example: `cluster-ABCD1234EFGH5678IJKL90MNOP`. The cluster ID uniquely identifies the cluster and is used in things like IAM authentication policies.
      */
-    public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterResourceId: pulumi.Output<string>;
     /**
      * A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
      */
-    public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
+    declare public readonly copyTagsToSnapshot: pulumi.Output<boolean | undefined>;
     /**
      * The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
      */
-    public readonly dbClusterIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly dbClusterIdentifier: pulumi.Output<string | undefined>;
     /**
      * Provides the name of the DB cluster parameter group.
      */
-    public readonly dbClusterParameterGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly dbClusterParameterGroupName: pulumi.Output<string | undefined>;
     /**
      * The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
      */
-    public readonly dbInstanceParameterGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly dbInstanceParameterGroupName: pulumi.Output<string | undefined>;
     /**
      * The port number on which the DB instances in the DB cluster accept connections. 
      *
@@ -76,51 +76,51 @@ export class DbCluster extends pulumi.CustomResource {
      *
      * Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
      */
-    public readonly dbPort!: pulumi.Output<number | undefined>;
+    declare public readonly dbPort: pulumi.Output<number | undefined>;
     /**
      * Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
      */
-    public readonly dbSubnetGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly dbSubnetGroupName: pulumi.Output<string | undefined>;
     /**
      * Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
      */
-    public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly deletionProtection: pulumi.Output<boolean | undefined>;
     /**
      * Specifies a list of log types that are enabled for export to CloudWatch Logs.
      */
-    public readonly enableCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
+    declare public readonly enableCloudwatchLogsExports: pulumi.Output<string[] | undefined>;
     /**
      * The connection endpoint for the DB cluster. For example: `mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * Indicates the database engine version.
      */
-    public readonly engineVersion!: pulumi.Output<string | undefined>;
+    declare public readonly engineVersion: pulumi.Output<string | undefined>;
     /**
      * True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
      */
-    public readonly iamAuthEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly iamAuthEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The port number on which the DB cluster accepts connections. For example: `8182`.
      */
-    public /*out*/ readonly port!: pulumi.Output<string>;
+    declare public /*out*/ readonly port: pulumi.Output<string>;
     /**
      * Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
      */
-    public readonly preferredBackupWindow!: pulumi.Output<string | undefined>;
+    declare public readonly preferredBackupWindow: pulumi.Output<string | undefined>;
     /**
      * Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      */
-    public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
+    declare public readonly preferredMaintenanceWindow: pulumi.Output<string | undefined>;
     /**
      * The reader endpoint for the DB cluster. For example: `mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`
      */
-    public /*out*/ readonly readEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly readEndpoint: pulumi.Output<string>;
     /**
      * Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
      *
@@ -128,7 +128,7 @@ export class DbCluster extends pulumi.CustomResource {
      *
      * If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
      */
-    public readonly restoreToTime!: pulumi.Output<string | undefined>;
+    declare public readonly restoreToTime: pulumi.Output<string | undefined>;
     /**
      * Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
      *
@@ -136,11 +136,11 @@ export class DbCluster extends pulumi.CustomResource {
      *
      * If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
      */
-    public readonly restoreType!: pulumi.Output<string | undefined>;
+    declare public readonly restoreType: pulumi.Output<string | undefined>;
     /**
      * Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
      */
-    public readonly serverlessScalingConfiguration!: pulumi.Output<outputs.neptune.DbClusterServerlessScalingConfiguration | undefined>;
+    declare public readonly serverlessScalingConfiguration: pulumi.Output<outputs.neptune.DbClusterServerlessScalingConfiguration | undefined>;
     /**
      * Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
      *
@@ -148,7 +148,7 @@ export class DbCluster extends pulumi.CustomResource {
      *
      * However, if you don't specify the SnapshotIdentifier, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the snapshot specified by the SnapshotIdentifier, and the original DB cluster is deleted.
      */
-    public readonly snapshotIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotIdentifier: pulumi.Output<string | undefined>;
     /**
      * Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
      *
@@ -156,7 +156,7 @@ export class DbCluster extends pulumi.CustomResource {
      *
      * If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
      */
-    public readonly sourceDbClusterIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly sourceDbClusterIdentifier: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the DB cluster is encrypted.
      *
@@ -168,11 +168,11 @@ export class DbCluster extends pulumi.CustomResource {
      *
      * If you specify the DBSnapshotIdentifier and don't specify this property or disable it. The value is inherited from the snapshot, and the specified KmsKeyId property from the snapshot is used.
      */
-    public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
+    declare public readonly storageEncrypted: pulumi.Output<boolean | undefined>;
     /**
      * The tags assigned to this cluster.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
      *
@@ -180,11 +180,11 @@ export class DbCluster extends pulumi.CustomResource {
      *
      * If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
      */
-    public readonly useLatestRestorableTime!: pulumi.Output<boolean | undefined>;
+    declare public readonly useLatestRestorableTime: pulumi.Output<boolean | undefined>;
     /**
      * Provides a list of VPC security groups that the DB cluster belongs to.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a DbCluster resource with the given unique name, arguments, and options.
@@ -197,31 +197,31 @@ export class DbCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["associatedRoles"] = args ? args.associatedRoles : undefined;
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
-            resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
-            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
-            resourceInputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
-            resourceInputs["dbInstanceParameterGroupName"] = args ? args.dbInstanceParameterGroupName : undefined;
-            resourceInputs["dbPort"] = args ? args.dbPort : undefined;
-            resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
-            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            resourceInputs["enableCloudwatchLogsExports"] = args ? args.enableCloudwatchLogsExports : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["iamAuthEnabled"] = args ? args.iamAuthEnabled : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            resourceInputs["restoreToTime"] = args ? args.restoreToTime : undefined;
-            resourceInputs["restoreType"] = args ? args.restoreType : undefined;
-            resourceInputs["serverlessScalingConfiguration"] = args ? args.serverlessScalingConfiguration : undefined;
-            resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
-            resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
-            resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["associatedRoles"] = args?.associatedRoles;
+            resourceInputs["availabilityZones"] = args?.availabilityZones;
+            resourceInputs["backupRetentionPeriod"] = args?.backupRetentionPeriod;
+            resourceInputs["copyTagsToSnapshot"] = args?.copyTagsToSnapshot;
+            resourceInputs["dbClusterIdentifier"] = args?.dbClusterIdentifier;
+            resourceInputs["dbClusterParameterGroupName"] = args?.dbClusterParameterGroupName;
+            resourceInputs["dbInstanceParameterGroupName"] = args?.dbInstanceParameterGroupName;
+            resourceInputs["dbPort"] = args?.dbPort;
+            resourceInputs["dbSubnetGroupName"] = args?.dbSubnetGroupName;
+            resourceInputs["deletionProtection"] = args?.deletionProtection;
+            resourceInputs["enableCloudwatchLogsExports"] = args?.enableCloudwatchLogsExports;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["iamAuthEnabled"] = args?.iamAuthEnabled;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["preferredBackupWindow"] = args?.preferredBackupWindow;
+            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["restoreToTime"] = args?.restoreToTime;
+            resourceInputs["restoreType"] = args?.restoreType;
+            resourceInputs["serverlessScalingConfiguration"] = args?.serverlessScalingConfiguration;
+            resourceInputs["snapshotIdentifier"] = args?.snapshotIdentifier;
+            resourceInputs["sourceDbClusterIdentifier"] = args?.sourceDbClusterIdentifier;
+            resourceInputs["storageEncrypted"] = args?.storageEncrypted;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["useLatestRestorableTime"] = args?.useLatestRestorableTime;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;

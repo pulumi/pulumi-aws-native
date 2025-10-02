@@ -40,95 +40,95 @@ export class VerifiedAccessEndpoint extends pulumi.CustomResource {
     /**
      * The DNS name for users to reach your application.
      */
-    public readonly applicationDomain!: pulumi.Output<string | undefined>;
+    declare public readonly applicationDomain: pulumi.Output<string | undefined>;
     /**
      * The type of attachment used to provide connectivity between the AWS Verified Access endpoint and the application.
      */
-    public readonly attachmentType!: pulumi.Output<string>;
+    declare public readonly attachmentType: pulumi.Output<string>;
     /**
      * The options for cidr type endpoint.
      */
-    public readonly cidrOptions!: pulumi.Output<outputs.ec2.VerifiedAccessEndpointCidrOptions | undefined>;
+    declare public readonly cidrOptions: pulumi.Output<outputs.ec2.VerifiedAccessEndpointCidrOptions | undefined>;
     /**
      * The creation time.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * A description for the AWS Verified Access endpoint.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Returned if endpoint has a device trust provider attached.
      */
-    public /*out*/ readonly deviceValidationDomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly deviceValidationDomain: pulumi.Output<string>;
     /**
      * The ARN of a public TLS/SSL certificate imported into or created with ACM.
      */
-    public readonly domainCertificateArn!: pulumi.Output<string | undefined>;
+    declare public readonly domainCertificateArn: pulumi.Output<string | undefined>;
     /**
      * A DNS name that is generated for the endpoint.
      */
-    public /*out*/ readonly endpointDomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpointDomain: pulumi.Output<string>;
     /**
      * A custom identifier that gets prepended to a DNS name that is generated for the endpoint.
      */
-    public readonly endpointDomainPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly endpointDomainPrefix: pulumi.Output<string | undefined>;
     /**
      * The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.
      */
-    public readonly endpointType!: pulumi.Output<string>;
+    declare public readonly endpointType: pulumi.Output<string>;
     /**
      * The last updated time.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * The load balancer details if creating the AWS Verified Access endpoint as load-balancer type.
      */
-    public readonly loadBalancerOptions!: pulumi.Output<outputs.ec2.VerifiedAccessEndpointLoadBalancerOptions | undefined>;
+    declare public readonly loadBalancerOptions: pulumi.Output<outputs.ec2.VerifiedAccessEndpointLoadBalancerOptions | undefined>;
     /**
      * The options for network-interface type endpoint.
      */
-    public readonly networkInterfaceOptions!: pulumi.Output<outputs.ec2.VerifiedAccessEndpointNetworkInterfaceOptions | undefined>;
+    declare public readonly networkInterfaceOptions: pulumi.Output<outputs.ec2.VerifiedAccessEndpointNetworkInterfaceOptions | undefined>;
     /**
      * The AWS Verified Access policy document.
      */
-    public readonly policyDocument!: pulumi.Output<string | undefined>;
+    declare public readonly policyDocument: pulumi.Output<string | undefined>;
     /**
      * The status of the Verified Access policy.
      */
-    public readonly policyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly policyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The options for rds type endpoint.
      */
-    public readonly rdsOptions!: pulumi.Output<outputs.ec2.VerifiedAccessEndpointRdsOptions | undefined>;
+    declare public readonly rdsOptions: pulumi.Output<outputs.ec2.VerifiedAccessEndpointRdsOptions | undefined>;
     /**
      * The IDs of the security groups for the endpoint.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * The configuration options for customer provided KMS encryption.
      */
-    public readonly sseSpecification!: pulumi.Output<outputs.ec2.VerifiedAccessEndpointSseSpecification | undefined>;
+    declare public readonly sseSpecification: pulumi.Output<outputs.ec2.VerifiedAccessEndpointSseSpecification | undefined>;
     /**
      * The endpoint status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the AWS Verified Access endpoint.
      */
-    public /*out*/ readonly verifiedAccessEndpointId!: pulumi.Output<string>;
+    declare public /*out*/ readonly verifiedAccessEndpointId: pulumi.Output<string>;
     /**
      * The ID of the AWS Verified Access group.
      */
-    public readonly verifiedAccessGroupId!: pulumi.Output<string>;
+    declare public readonly verifiedAccessGroupId: pulumi.Output<string>;
     /**
      * The ID of the AWS Verified Access instance.
      */
-    public /*out*/ readonly verifiedAccessInstanceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly verifiedAccessInstanceId: pulumi.Output<string>;
 
     /**
      * Create a VerifiedAccessEndpoint resource with the given unique name, arguments, and options.
@@ -141,31 +141,31 @@ export class VerifiedAccessEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.attachmentType === undefined) && !opts.urn) {
+            if (args?.attachmentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'attachmentType'");
             }
-            if ((!args || args.endpointType === undefined) && !opts.urn) {
+            if (args?.endpointType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointType'");
             }
-            if ((!args || args.verifiedAccessGroupId === undefined) && !opts.urn) {
+            if (args?.verifiedAccessGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'verifiedAccessGroupId'");
             }
-            resourceInputs["applicationDomain"] = args ? args.applicationDomain : undefined;
-            resourceInputs["attachmentType"] = args ? args.attachmentType : undefined;
-            resourceInputs["cidrOptions"] = args ? args.cidrOptions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainCertificateArn"] = args ? args.domainCertificateArn : undefined;
-            resourceInputs["endpointDomainPrefix"] = args ? args.endpointDomainPrefix : undefined;
-            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
-            resourceInputs["loadBalancerOptions"] = args ? args.loadBalancerOptions : undefined;
-            resourceInputs["networkInterfaceOptions"] = args ? args.networkInterfaceOptions : undefined;
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["policyEnabled"] = args ? args.policyEnabled : undefined;
-            resourceInputs["rdsOptions"] = args ? args.rdsOptions : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["verifiedAccessGroupId"] = args ? args.verifiedAccessGroupId : undefined;
+            resourceInputs["applicationDomain"] = args?.applicationDomain;
+            resourceInputs["attachmentType"] = args?.attachmentType;
+            resourceInputs["cidrOptions"] = args?.cidrOptions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainCertificateArn"] = args?.domainCertificateArn;
+            resourceInputs["endpointDomainPrefix"] = args?.endpointDomainPrefix;
+            resourceInputs["endpointType"] = args?.endpointType;
+            resourceInputs["loadBalancerOptions"] = args?.loadBalancerOptions;
+            resourceInputs["networkInterfaceOptions"] = args?.networkInterfaceOptions;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["policyEnabled"] = args?.policyEnabled;
+            resourceInputs["rdsOptions"] = args?.rdsOptions;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["sseSpecification"] = args?.sseSpecification;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["verifiedAccessGroupId"] = args?.verifiedAccessGroupId;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["deviceValidationDomain"] = undefined /*out*/;
             resourceInputs["endpointDomain"] = undefined /*out*/;

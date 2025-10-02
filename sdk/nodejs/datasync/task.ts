@@ -66,67 +66,67 @@ export class Task extends pulumi.CustomResource {
     /**
      * The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
      */
-    public readonly cloudWatchLogGroupArn!: pulumi.Output<string | undefined>;
+    declare public readonly cloudWatchLogGroupArn: pulumi.Output<string | undefined>;
     /**
      * The ARN of an AWS storage resource's location.
      */
-    public readonly destinationLocationArn!: pulumi.Output<string>;
+    declare public readonly destinationLocationArn: pulumi.Output<string>;
     /**
      * The ARNs of the destination elastic network interfaces (ENIs) that were created for your subnet.
      */
-    public /*out*/ readonly destinationNetworkInterfaceArns!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly destinationNetworkInterfaceArns: pulumi.Output<string[]>;
     /**
      * Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
      */
-    public readonly excludes!: pulumi.Output<outputs.datasync.TaskFilterRule[] | undefined>;
+    declare public readonly excludes: pulumi.Output<outputs.datasync.TaskFilterRule[] | undefined>;
     /**
      * Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
      */
-    public readonly includes!: pulumi.Output<outputs.datasync.TaskFilterRule[] | undefined>;
+    declare public readonly includes: pulumi.Output<outputs.datasync.TaskFilterRule[] | undefined>;
     /**
      * The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
      */
-    public readonly manifestConfig!: pulumi.Output<outputs.datasync.TaskManifestConfig | undefined>;
+    declare public readonly manifestConfig: pulumi.Output<outputs.datasync.TaskManifestConfig | undefined>;
     /**
      * The name of a task. This value is a text reference that is used to identify the task in the console.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
      */
-    public readonly options!: pulumi.Output<outputs.datasync.TaskOptions | undefined>;
+    declare public readonly options: pulumi.Output<outputs.datasync.TaskOptions | undefined>;
     /**
      * Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
      */
-    public readonly schedule!: pulumi.Output<outputs.datasync.TaskSchedule | undefined>;
+    declare public readonly schedule: pulumi.Output<outputs.datasync.TaskSchedule | undefined>;
     /**
      * The ARN of the source location for the task.
      */
-    public readonly sourceLocationArn!: pulumi.Output<string>;
+    declare public readonly sourceLocationArn: pulumi.Output<string>;
     /**
      * The ARNs of the source ENIs that were created for your subnet.
      */
-    public /*out*/ readonly sourceNetworkInterfaceArns!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly sourceNetworkInterfaceArns: pulumi.Output<string[]>;
     /**
      * The status of the task that was described.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.datasync.TaskStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.datasync.TaskStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the task.
      */
-    public /*out*/ readonly taskArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly taskArn: pulumi.Output<string>;
     /**
      * Specifies the task mode for the task.
      */
-    public readonly taskMode!: pulumi.Output<enums.datasync.TaskMode | undefined>;
+    declare public readonly taskMode: pulumi.Output<enums.datasync.TaskMode | undefined>;
     /**
      * The configuration of your task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
      */
-    public readonly taskReportConfig!: pulumi.Output<outputs.datasync.TaskReportConfig | undefined>;
+    declare public readonly taskReportConfig: pulumi.Output<outputs.datasync.TaskReportConfig | undefined>;
 
     /**
      * Create a Task resource with the given unique name, arguments, and options.
@@ -139,24 +139,24 @@ export class Task extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationLocationArn === undefined) && !opts.urn) {
+            if (args?.destinationLocationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationLocationArn'");
             }
-            if ((!args || args.sourceLocationArn === undefined) && !opts.urn) {
+            if (args?.sourceLocationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceLocationArn'");
             }
-            resourceInputs["cloudWatchLogGroupArn"] = args ? args.cloudWatchLogGroupArn : undefined;
-            resourceInputs["destinationLocationArn"] = args ? args.destinationLocationArn : undefined;
-            resourceInputs["excludes"] = args ? args.excludes : undefined;
-            resourceInputs["includes"] = args ? args.includes : undefined;
-            resourceInputs["manifestConfig"] = args ? args.manifestConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["sourceLocationArn"] = args ? args.sourceLocationArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taskMode"] = args ? args.taskMode : undefined;
-            resourceInputs["taskReportConfig"] = args ? args.taskReportConfig : undefined;
+            resourceInputs["cloudWatchLogGroupArn"] = args?.cloudWatchLogGroupArn;
+            resourceInputs["destinationLocationArn"] = args?.destinationLocationArn;
+            resourceInputs["excludes"] = args?.excludes;
+            resourceInputs["includes"] = args?.includes;
+            resourceInputs["manifestConfig"] = args?.manifestConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["sourceLocationArn"] = args?.sourceLocationArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taskMode"] = args?.taskMode;
+            resourceInputs["taskReportConfig"] = args?.taskReportConfig;
             resourceInputs["destinationNetworkInterfaceArns"] = undefined /*out*/;
             resourceInputs["sourceNetworkInterfaceArns"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

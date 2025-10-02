@@ -40,27 +40,27 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * The input configuration for a canary deployment.
      */
-    public readonly deploymentCanarySettings!: pulumi.Output<outputs.apigateway.DeploymentCanarySettings | undefined>;
+    declare public readonly deploymentCanarySettings: pulumi.Output<outputs.apigateway.DeploymentCanarySettings | undefined>;
     /**
      * The ID for the deployment. For example: `abc123` .
      */
-    public /*out*/ readonly deploymentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentId: pulumi.Output<string>;
     /**
      * The description for the Deployment resource to create.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The string identifier of the associated RestApi.
      */
-    public readonly restApiId!: pulumi.Output<string>;
+    declare public readonly restApiId: pulumi.Output<string>;
     /**
      * The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.
      */
-    public readonly stageDescription!: pulumi.Output<outputs.apigateway.DeploymentStageDescription | undefined>;
+    declare public readonly stageDescription: pulumi.Output<outputs.apigateway.DeploymentStageDescription | undefined>;
     /**
      * The name of the Stage resource for the Deployment resource to create.
      */
-    public readonly stageName!: pulumi.Output<string | undefined>;
+    declare public readonly stageName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -73,14 +73,14 @@ export class Deployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["deploymentCanarySettings"] = args ? args.deploymentCanarySettings : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
-            resourceInputs["stageDescription"] = args ? args.stageDescription : undefined;
-            resourceInputs["stageName"] = args ? args.stageName : undefined;
+            resourceInputs["deploymentCanarySettings"] = args?.deploymentCanarySettings;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["restApiId"] = args?.restApiId;
+            resourceInputs["stageDescription"] = args?.stageDescription;
+            resourceInputs["stageName"] = args?.stageName;
             resourceInputs["deploymentId"] = undefined /*out*/;
         } else {
             resourceInputs["deploymentCanarySettings"] = undefined /*out*/;

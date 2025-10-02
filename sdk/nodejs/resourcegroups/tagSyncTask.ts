@@ -40,35 +40,35 @@ export class TagSyncTask extends pulumi.CustomResource {
     /**
      * The Amazon resource name (ARN) or name of the application group for which you want to create a tag-sync task
      */
-    public readonly group!: pulumi.Output<string>;
+    declare public readonly group: pulumi.Output<string>;
     /**
      * The Amazon resource name (ARN) of the ApplicationGroup for which the TagSyncTask is created
      */
-    public /*out*/ readonly groupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly groupArn: pulumi.Output<string>;
     /**
      * The Name of the application group for which the TagSyncTask is created
      */
-    public /*out*/ readonly groupName!: pulumi.Output<string>;
+    declare public /*out*/ readonly groupName: pulumi.Output<string>;
     /**
      * The Amazon resource name (ARN) of the role assumed by the service to tag and untag resources on your behalf.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The status of the TagSyncTask
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.resourcegroups.TagSyncTaskStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.resourcegroups.TagSyncTaskStatus>;
     /**
      * The tag key. Resources tagged with this tag key-value pair will be added to the application. If a resource with this tag is later untagged, the tag-sync task removes the resource from the application.
      */
-    public readonly tagKey!: pulumi.Output<string>;
+    declare public readonly tagKey: pulumi.Output<string>;
     /**
      * The tag value. Resources tagged with this tag key-value pair will be added to the application. If a resource with this tag is later untagged, the tag-sync task removes the resource from the application.
      */
-    public readonly tagValue!: pulumi.Output<string>;
+    declare public readonly tagValue: pulumi.Output<string>;
     /**
      * The ARN of the TagSyncTask resource
      */
-    public /*out*/ readonly taskArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly taskArn: pulumi.Output<string>;
 
     /**
      * Create a TagSyncTask resource with the given unique name, arguments, and options.
@@ -81,22 +81,22 @@ export class TagSyncTask extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.group === undefined) && !opts.urn) {
+            if (args?.group === undefined && !opts.urn) {
                 throw new Error("Missing required property 'group'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.tagKey === undefined) && !opts.urn) {
+            if (args?.tagKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tagKey'");
             }
-            if ((!args || args.tagValue === undefined) && !opts.urn) {
+            if (args?.tagValue === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tagValue'");
             }
-            resourceInputs["group"] = args ? args.group : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tagKey"] = args ? args.tagKey : undefined;
-            resourceInputs["tagValue"] = args ? args.tagValue : undefined;
+            resourceInputs["group"] = args?.group;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tagKey"] = args?.tagKey;
+            resourceInputs["tagValue"] = args?.tagValue;
             resourceInputs["groupArn"] = undefined /*out*/;
             resourceInputs["groupName"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

@@ -40,45 +40,45 @@ export class AppBlock extends pulumi.CustomResource {
     /**
      * The ARN of the app block.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The time when the app block was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The description of the app block.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the app block.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The name of the app block.
      *
      * *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The packaging type of the app block.
      */
-    public readonly packagingType!: pulumi.Output<string | undefined>;
+    declare public readonly packagingType: pulumi.Output<string | undefined>;
     /**
      * The post setup script details of the app block.
      */
-    public readonly postSetupScriptDetails!: pulumi.Output<outputs.appstream.AppBlockScriptDetails | undefined>;
+    declare public readonly postSetupScriptDetails: pulumi.Output<outputs.appstream.AppBlockScriptDetails | undefined>;
     /**
      * The setup script details of the app block.
      */
-    public readonly setupScriptDetails!: pulumi.Output<outputs.appstream.AppBlockScriptDetails | undefined>;
+    declare public readonly setupScriptDetails: pulumi.Output<outputs.appstream.AppBlockScriptDetails | undefined>;
     /**
      * The source S3 location of the app block.
      */
-    public readonly sourceS3Location!: pulumi.Output<outputs.appstream.AppBlockS3Location>;
+    declare public readonly sourceS3Location: pulumi.Output<outputs.appstream.AppBlockS3Location>;
     /**
      * The tags of the app block.
      */
-    public readonly tags!: pulumi.Output<(outputs.appstream.AppBlockTag0Properties | outputs.appstream.AppBlockTag1Properties)[] | undefined>;
+    declare public readonly tags: pulumi.Output<(outputs.appstream.AppBlockTag0Properties | outputs.appstream.AppBlockTag1Properties)[] | undefined>;
 
     /**
      * Create a AppBlock resource with the given unique name, arguments, and options.
@@ -91,17 +91,17 @@ export class AppBlock extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sourceS3Location === undefined) && !opts.urn) {
+            if (args?.sourceS3Location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceS3Location'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["packagingType"] = args ? args.packagingType : undefined;
-            resourceInputs["postSetupScriptDetails"] = args ? args.postSetupScriptDetails : undefined;
-            resourceInputs["setupScriptDetails"] = args ? args.setupScriptDetails : undefined;
-            resourceInputs["sourceS3Location"] = args ? args.sourceS3Location : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["packagingType"] = args?.packagingType;
+            resourceInputs["postSetupScriptDetails"] = args?.postSetupScriptDetails;
+            resourceInputs["setupScriptDetails"] = args?.setupScriptDetails;
+            resourceInputs["sourceS3Location"] = args?.sourceS3Location;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
         } else {

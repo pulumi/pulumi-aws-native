@@ -41,15 +41,15 @@ export class KeyGroup extends pulumi.CustomResource {
     /**
      * The identifier for the key group.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The key group configuration.
      */
-    public readonly keyGroupConfig!: pulumi.Output<outputs.cloudfront.KeyGroupConfig>;
+    declare public readonly keyGroupConfig: pulumi.Output<outputs.cloudfront.KeyGroupConfig>;
     /**
      * The date and time when the key group was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
 
     /**
      * Create a KeyGroup resource with the given unique name, arguments, and options.
@@ -62,10 +62,10 @@ export class KeyGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keyGroupConfig === undefined) && !opts.urn) {
+            if (args?.keyGroupConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyGroupConfig'");
             }
-            resourceInputs["keyGroupConfig"] = args ? args.keyGroupConfig : undefined;
+            resourceInputs["keyGroupConfig"] = args?.keyGroupConfig;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {

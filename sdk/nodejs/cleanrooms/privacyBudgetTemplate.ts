@@ -40,45 +40,45 @@ export class PrivacyBudgetTemplate extends pulumi.CustomResource {
     /**
      * The ARN of the privacy budget template.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * How often the privacy budget refreshes.
      *
      * > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
      */
-    public readonly autoRefresh!: pulumi.Output<enums.cleanrooms.PrivacyBudgetTemplateAutoRefresh>;
+    declare public readonly autoRefresh: pulumi.Output<enums.cleanrooms.PrivacyBudgetTemplateAutoRefresh>;
     /**
      * The ARN of the collaboration that contains this privacy budget template.
      */
-    public /*out*/ readonly collaborationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly collaborationArn: pulumi.Output<string>;
     /**
      * The unique ID of the collaboration that contains this privacy budget template.
      */
-    public /*out*/ readonly collaborationIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly collaborationIdentifier: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the member who created the privacy budget template.
      */
-    public /*out*/ readonly membershipArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly membershipArn: pulumi.Output<string>;
     /**
      * The identifier for a membership resource.
      */
-    public readonly membershipIdentifier!: pulumi.Output<string>;
+    declare public readonly membershipIdentifier: pulumi.Output<string>;
     /**
      * Specifies the epsilon and noise parameters for the privacy budget template.
      */
-    public readonly parameters!: pulumi.Output<outputs.cleanrooms.ParametersProperties>;
+    declare public readonly parameters: pulumi.Output<outputs.cleanrooms.ParametersProperties>;
     /**
      * A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
      */
-    public /*out*/ readonly privacyBudgetTemplateIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly privacyBudgetTemplateIdentifier: pulumi.Output<string>;
     /**
      * Specifies the type of the privacy budget template.
      */
-    public readonly privacyBudgetType!: pulumi.Output<enums.cleanrooms.PrivacyBudgetTemplatePrivacyBudgetType>;
+    declare public readonly privacyBudgetType: pulumi.Output<enums.cleanrooms.PrivacyBudgetTemplatePrivacyBudgetType>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PrivacyBudgetTemplate resource with the given unique name, arguments, and options.
@@ -91,23 +91,23 @@ export class PrivacyBudgetTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoRefresh === undefined) && !opts.urn) {
+            if (args?.autoRefresh === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoRefresh'");
             }
-            if ((!args || args.membershipIdentifier === undefined) && !opts.urn) {
+            if (args?.membershipIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'membershipIdentifier'");
             }
-            if ((!args || args.parameters === undefined) && !opts.urn) {
+            if (args?.parameters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            if ((!args || args.privacyBudgetType === undefined) && !opts.urn) {
+            if (args?.privacyBudgetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privacyBudgetType'");
             }
-            resourceInputs["autoRefresh"] = args ? args.autoRefresh : undefined;
-            resourceInputs["membershipIdentifier"] = args ? args.membershipIdentifier : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["privacyBudgetType"] = args ? args.privacyBudgetType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoRefresh"] = args?.autoRefresh;
+            resourceInputs["membershipIdentifier"] = args?.membershipIdentifier;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["privacyBudgetType"] = args?.privacyBudgetType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationArn"] = undefined /*out*/;
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;

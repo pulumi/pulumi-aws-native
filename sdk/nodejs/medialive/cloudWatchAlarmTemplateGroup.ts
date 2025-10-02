@@ -37,29 +37,29 @@ export class CloudWatchAlarmTemplateGroup extends pulumi.CustomResource {
     /**
      * A cloudwatch alarm template group's ARN (Amazon Resource Name)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A cloudwatch alarm template group's id. AWS provided template groups have ids that start with `aws-`
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The date and time of resource creation.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * A resource's optional description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly identifier!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly identifier: pulumi.Output<string>;
     /**
      * The date and time of latest resource modification.
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     /**
      * A resource's name. Names must be unique within the scope of a resource type in a specific region.
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a CloudWatchAlarmTemplateGroup resource with the given unique name, arguments, and options.
@@ -72,9 +72,9 @@ export class CloudWatchAlarmTemplateGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

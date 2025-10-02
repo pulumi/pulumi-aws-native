@@ -40,27 +40,27 @@ export class ContactChannel extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the engagement to a contact channel.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The details that SSM Incident Manager uses when trying to engage the contact channel.
      */
-    public readonly channelAddress!: pulumi.Output<string | undefined>;
+    declare public readonly channelAddress: pulumi.Output<string | undefined>;
     /**
      * The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
      */
-    public readonly channelName!: pulumi.Output<string | undefined>;
+    declare public readonly channelName: pulumi.Output<string | undefined>;
     /**
      * Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
      */
-    public readonly channelType!: pulumi.Output<enums.ssmcontacts.ContactChannelChannelType | undefined>;
+    declare public readonly channelType: pulumi.Output<enums.ssmcontacts.ContactChannelChannelType | undefined>;
     /**
      * ARN of the contact resource
      */
-    public readonly contactId!: pulumi.Output<string | undefined>;
+    declare public readonly contactId: pulumi.Output<string | undefined>;
     /**
      * If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
      */
-    public readonly deferActivation!: pulumi.Output<boolean | undefined>;
+    declare public readonly deferActivation: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ContactChannel resource with the given unique name, arguments, and options.
@@ -73,11 +73,11 @@ export class ContactChannel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["channelAddress"] = args ? args.channelAddress : undefined;
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["channelType"] = args ? args.channelType : undefined;
-            resourceInputs["contactId"] = args ? args.contactId : undefined;
-            resourceInputs["deferActivation"] = args ? args.deferActivation : undefined;
+            resourceInputs["channelAddress"] = args?.channelAddress;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["channelType"] = args?.channelType;
+            resourceInputs["contactId"] = args?.contactId;
+            resourceInputs["deferActivation"] = args?.deferActivation;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

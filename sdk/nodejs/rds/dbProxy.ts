@@ -40,67 +40,67 @@ export class DbProxy extends pulumi.CustomResource {
     /**
      * The authorization mechanism that the proxy uses.
      */
-    public readonly auth!: pulumi.Output<outputs.rds.DbProxyAuthFormat[] | undefined>;
+    declare public readonly auth: pulumi.Output<outputs.rds.DbProxyAuthFormat[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the proxy.
      */
-    public /*out*/ readonly dbProxyArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dbProxyArn: pulumi.Output<string>;
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
-    public readonly dbProxyName!: pulumi.Output<string>;
+    declare public readonly dbProxyName: pulumi.Output<string>;
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs.
      */
-    public readonly debugLogging!: pulumi.Output<boolean | undefined>;
+    declare public readonly debugLogging: pulumi.Output<boolean | undefined>;
     /**
      * The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
      */
-    public readonly defaultAuthScheme!: pulumi.Output<enums.rds.DbProxyDefaultAuthScheme | undefined>;
+    declare public readonly defaultAuthScheme: pulumi.Output<enums.rds.DbProxyDefaultAuthScheme | undefined>;
     /**
      * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
      */
-    public readonly endpointNetworkType!: pulumi.Output<enums.rds.DbProxyEndpointNetworkType | undefined>;
+    declare public readonly endpointNetworkType: pulumi.Output<enums.rds.DbProxyEndpointNetworkType | undefined>;
     /**
      * The kinds of databases that the proxy can connect to.
      */
-    public readonly engineFamily!: pulumi.Output<enums.rds.DbProxyEngineFamily>;
+    declare public readonly engineFamily: pulumi.Output<enums.rds.DbProxyEngineFamily>;
     /**
      * The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
      */
-    public readonly idleClientTimeout!: pulumi.Output<number | undefined>;
+    declare public readonly idleClientTimeout: pulumi.Output<number | undefined>;
     /**
      * A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      */
-    public readonly requireTls!: pulumi.Output<boolean | undefined>;
+    declare public readonly requireTls: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
      */
-    public readonly targetConnectionNetworkType!: pulumi.Output<enums.rds.DbProxyTargetConnectionNetworkType | undefined>;
+    declare public readonly targetConnectionNetworkType: pulumi.Output<enums.rds.DbProxyTargetConnectionNetworkType | undefined>;
     /**
      * VPC ID to associate with the new DB proxy.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
     /**
      * VPC security group IDs to associate with the new proxy.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * VPC subnet IDs to associate with the new proxy.
      */
-    public readonly vpcSubnetIds!: pulumi.Output<string[]>;
+    declare public readonly vpcSubnetIds: pulumi.Output<string[]>;
 
     /**
      * Create a DbProxy resource with the given unique name, arguments, and options.
@@ -113,28 +113,28 @@ export class DbProxy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engineFamily === undefined) && !opts.urn) {
+            if (args?.engineFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engineFamily'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.vpcSubnetIds === undefined) && !opts.urn) {
+            if (args?.vpcSubnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcSubnetIds'");
             }
-            resourceInputs["auth"] = args ? args.auth : undefined;
-            resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
-            resourceInputs["debugLogging"] = args ? args.debugLogging : undefined;
-            resourceInputs["defaultAuthScheme"] = args ? args.defaultAuthScheme : undefined;
-            resourceInputs["endpointNetworkType"] = args ? args.endpointNetworkType : undefined;
-            resourceInputs["engineFamily"] = args ? args.engineFamily : undefined;
-            resourceInputs["idleClientTimeout"] = args ? args.idleClientTimeout : undefined;
-            resourceInputs["requireTls"] = args ? args.requireTls : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetConnectionNetworkType"] = args ? args.targetConnectionNetworkType : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            resourceInputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
+            resourceInputs["auth"] = args?.auth;
+            resourceInputs["dbProxyName"] = args?.dbProxyName;
+            resourceInputs["debugLogging"] = args?.debugLogging;
+            resourceInputs["defaultAuthScheme"] = args?.defaultAuthScheme;
+            resourceInputs["endpointNetworkType"] = args?.endpointNetworkType;
+            resourceInputs["engineFamily"] = args?.engineFamily;
+            resourceInputs["idleClientTimeout"] = args?.idleClientTimeout;
+            resourceInputs["requireTls"] = args?.requireTls;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetConnectionNetworkType"] = args?.targetConnectionNetworkType;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
+            resourceInputs["vpcSubnetIds"] = args?.vpcSubnetIds;
             resourceInputs["dbProxyArn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;

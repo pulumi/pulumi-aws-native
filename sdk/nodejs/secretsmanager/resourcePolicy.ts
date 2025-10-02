@@ -37,21 +37,21 @@ export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * The Arn of the secret.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Specifies whether to block resource-based policies that allow broad access to the secret.
      */
-    public readonly blockPublicPolicy!: pulumi.Output<boolean | undefined>;
+    declare public readonly blockPublicPolicy: pulumi.Output<boolean | undefined>;
     /**
      * A JSON-formatted string for an AWS resource-based policy.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
      */
-    public readonly resourcePolicy!: pulumi.Output<any>;
+    declare public readonly resourcePolicy: pulumi.Output<any>;
     /**
      * The ARN or name of the secret to attach the resource-based policy.
      */
-    public readonly secretId!: pulumi.Output<string>;
+    declare public readonly secretId: pulumi.Output<string>;
 
     /**
      * Create a ResourcePolicy resource with the given unique name, arguments, and options.
@@ -64,15 +64,15 @@ export class ResourcePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourcePolicy === undefined) && !opts.urn) {
+            if (args?.resourcePolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourcePolicy'");
             }
-            if ((!args || args.secretId === undefined) && !opts.urn) {
+            if (args?.secretId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
-            resourceInputs["blockPublicPolicy"] = args ? args.blockPublicPolicy : undefined;
-            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
-            resourceInputs["secretId"] = args ? args.secretId : undefined;
+            resourceInputs["blockPublicPolicy"] = args?.blockPublicPolicy;
+            resourceInputs["resourcePolicy"] = args?.resourcePolicy;
+            resourceInputs["secretId"] = args?.secretId;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

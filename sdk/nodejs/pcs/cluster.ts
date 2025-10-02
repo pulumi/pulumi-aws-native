@@ -40,47 +40,47 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The unique Amazon Resource Name (ARN) of the cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The generated unique ID of the cluster.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The list of endpoints available for interaction with the scheduler.
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<outputs.pcs.ClusterEndpoint[]>;
+    declare public /*out*/ readonly endpoints: pulumi.Output<outputs.pcs.ClusterEndpoint[]>;
     /**
      * The list of errors that occurred during cluster provisioning.
      */
-    public /*out*/ readonly errorInfo!: pulumi.Output<outputs.pcs.ClusterErrorInfo[]>;
+    declare public /*out*/ readonly errorInfo: pulumi.Output<outputs.pcs.ClusterErrorInfo[]>;
     /**
      * The name that identifies the cluster.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The networking configuration for the cluster's control plane.
      */
-    public readonly networking!: pulumi.Output<outputs.pcs.NetworkingProperties>;
+    declare public readonly networking: pulumi.Output<outputs.pcs.NetworkingProperties>;
     /**
      * The cluster management and job scheduling software associated with the cluster.
      */
-    public readonly scheduler!: pulumi.Output<outputs.pcs.SchedulerProperties>;
+    declare public readonly scheduler: pulumi.Output<outputs.pcs.SchedulerProperties>;
     /**
      * The size of the cluster.
      */
-    public readonly size!: pulumi.Output<enums.pcs.ClusterSize>;
+    declare public readonly size: pulumi.Output<enums.pcs.ClusterSize>;
     /**
      * Additional options related to the Slurm scheduler.
      */
-    public readonly slurmConfiguration!: pulumi.Output<outputs.pcs.SlurmConfigurationProperties | undefined>;
+    declare public readonly slurmConfiguration: pulumi.Output<outputs.pcs.SlurmConfigurationProperties | undefined>;
     /**
      * The provisioning status of the cluster. The provisioning status doesn't indicate the overall health of the cluster.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.pcs.ClusterStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.pcs.ClusterStatus>;
     /**
      * 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -93,21 +93,21 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networking === undefined) && !opts.urn) {
+            if (args?.networking === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networking'");
             }
-            if ((!args || args.scheduler === undefined) && !opts.urn) {
+            if (args?.scheduler === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduler'");
             }
-            if ((!args || args.size === undefined) && !opts.urn) {
+            if (args?.size === undefined && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networking"] = args ? args.networking : undefined;
-            resourceInputs["scheduler"] = args ? args.scheduler : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["slurmConfiguration"] = args ? args.slurmConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networking"] = args?.networking;
+            resourceInputs["scheduler"] = args?.scheduler;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["slurmConfiguration"] = args?.slurmConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;

@@ -40,55 +40,55 @@ export class Service extends pulumi.CustomResource {
     /**
      * Autoscaling configuration ARN
      */
-    public readonly autoScalingConfigurationArn!: pulumi.Output<string | undefined>;
+    declare public readonly autoScalingConfigurationArn: pulumi.Output<string | undefined>;
     /**
      * An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed key .
      */
-    public readonly encryptionConfiguration!: pulumi.Output<outputs.apprunner.ServiceEncryptionConfiguration | undefined>;
+    declare public readonly encryptionConfiguration: pulumi.Output<outputs.apprunner.ServiceEncryptionConfiguration | undefined>;
     /**
      * The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
      */
-    public readonly healthCheckConfiguration!: pulumi.Output<outputs.apprunner.ServiceHealthCheckConfiguration | undefined>;
+    declare public readonly healthCheckConfiguration: pulumi.Output<outputs.apprunner.ServiceHealthCheckConfiguration | undefined>;
     /**
      * The runtime configuration of instances (scaling units) of your service.
      */
-    public readonly instanceConfiguration!: pulumi.Output<outputs.apprunner.ServiceInstanceConfiguration | undefined>;
+    declare public readonly instanceConfiguration: pulumi.Output<outputs.apprunner.ServiceInstanceConfiguration | undefined>;
     /**
      * Configuration settings related to network traffic of the web application that the App Runner service runs.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.apprunner.ServiceNetworkConfiguration | undefined>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.apprunner.ServiceNetworkConfiguration | undefined>;
     /**
      * The observability configuration of your service.
      */
-    public readonly observabilityConfiguration!: pulumi.Output<outputs.apprunner.ServiceObservabilityConfiguration | undefined>;
+    declare public readonly observabilityConfiguration: pulumi.Output<outputs.apprunner.ServiceObservabilityConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AppRunner Service.
      */
-    public /*out*/ readonly serviceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceArn: pulumi.Output<string>;
     /**
      * The AppRunner Service Id
      */
-    public /*out*/ readonly serviceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceId: pulumi.Output<string>;
     /**
      * The AppRunner Service Name.
      */
-    public readonly serviceName!: pulumi.Output<string | undefined>;
+    declare public readonly serviceName: pulumi.Output<string | undefined>;
     /**
      * The Service Url of the AppRunner Service.
      */
-    public /*out*/ readonly serviceUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceUrl: pulumi.Output<string>;
     /**
      * The source to deploy to the App Runner service. It can be a code or an image repository.
      */
-    public readonly sourceConfiguration!: pulumi.Output<outputs.apprunner.ServiceSourceConfiguration>;
+    declare public readonly sourceConfiguration: pulumi.Output<outputs.apprunner.ServiceSourceConfiguration>;
     /**
      * AppRunner Service status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -101,18 +101,18 @@ export class Service extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sourceConfiguration === undefined) && !opts.urn) {
+            if (args?.sourceConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceConfiguration'");
             }
-            resourceInputs["autoScalingConfigurationArn"] = args ? args.autoScalingConfigurationArn : undefined;
-            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            resourceInputs["healthCheckConfiguration"] = args ? args.healthCheckConfiguration : undefined;
-            resourceInputs["instanceConfiguration"] = args ? args.instanceConfiguration : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["observabilityConfiguration"] = args ? args.observabilityConfiguration : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoScalingConfigurationArn"] = args?.autoScalingConfigurationArn;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["healthCheckConfiguration"] = args?.healthCheckConfiguration;
+            resourceInputs["instanceConfiguration"] = args?.instanceConfiguration;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["observabilityConfiguration"] = args?.observabilityConfiguration;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["sourceConfiguration"] = args?.sourceConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["serviceArn"] = undefined /*out*/;
             resourceInputs["serviceId"] = undefined /*out*/;
             resourceInputs["serviceUrl"] = undefined /*out*/;

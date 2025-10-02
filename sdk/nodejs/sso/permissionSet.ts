@@ -40,51 +40,51 @@ export class PermissionSet extends pulumi.CustomResource {
     /**
      * Specifies the names and paths of the customer managed policies that you have attached to your permission set.
      */
-    public readonly customerManagedPolicyReferences!: pulumi.Output<outputs.sso.PermissionSetCustomerManagedPolicyReference[] | undefined>;
+    declare public readonly customerManagedPolicyReferences: pulumi.Output<outputs.sso.PermissionSetCustomerManagedPolicyReference[] | undefined>;
     /**
      * The permission set description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The inline policy to put in permission set.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
      */
-    public readonly inlinePolicy!: pulumi.Output<any | undefined>;
+    declare public readonly inlinePolicy: pulumi.Output<any | undefined>;
     /**
      * The sso instance arn that the permission set is owned.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
      */
-    public readonly managedPolicies!: pulumi.Output<string[] | undefined>;
+    declare public readonly managedPolicies: pulumi.Output<string[] | undefined>;
     /**
      * The name you want to assign to this permission set.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The permission set that the policy will be attached to
      */
-    public /*out*/ readonly permissionSetArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly permissionSetArn: pulumi.Output<string>;
     /**
      * Specifies the configuration of the AWS managed or customer managed policy that you want to set as a permissions boundary. Specify either `CustomerManagedPolicyReference` to use the name and path of a customer managed policy, or `ManagedPolicyArn` to use the ARN of an AWS managed policy. A permissions boundary represents the maximum permissions that any policy can grant your role. For more information, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
      *
      * > Policies used as permissions boundaries don't provide permissions. You must also attach an IAM policy to the role. To learn how the effective permissions for a role are evaluated, see [IAM JSON policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide* .
      */
-    public readonly permissionsBoundary!: pulumi.Output<outputs.sso.PermissionSetPermissionsBoundary | undefined>;
+    declare public readonly permissionsBoundary: pulumi.Output<outputs.sso.PermissionSetPermissionsBoundary | undefined>;
     /**
      * The relay state URL that redirect links to any service in the AWS Management Console.
      */
-    public readonly relayStateType!: pulumi.Output<string | undefined>;
+    declare public readonly relayStateType: pulumi.Output<string | undefined>;
     /**
      * The length of time that a user can be signed in to an AWS account.
      */
-    public readonly sessionDuration!: pulumi.Output<string | undefined>;
+    declare public readonly sessionDuration: pulumi.Output<string | undefined>;
     /**
      * The tags to attach to the new `PermissionSet` .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PermissionSet resource with the given unique name, arguments, and options.
@@ -97,19 +97,19 @@ export class PermissionSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["customerManagedPolicyReferences"] = args ? args.customerManagedPolicyReferences : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["inlinePolicy"] = args ? args.inlinePolicy : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["managedPolicies"] = args ? args.managedPolicies : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
-            resourceInputs["relayStateType"] = args ? args.relayStateType : undefined;
-            resourceInputs["sessionDuration"] = args ? args.sessionDuration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customerManagedPolicyReferences"] = args?.customerManagedPolicyReferences;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["inlinePolicy"] = args?.inlinePolicy;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["managedPolicies"] = args?.managedPolicies;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissionsBoundary"] = args?.permissionsBoundary;
+            resourceInputs["relayStateType"] = args?.relayStateType;
+            resourceInputs["sessionDuration"] = args?.sessionDuration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["permissionSetArn"] = undefined /*out*/;
         } else {
             resourceInputs["customerManagedPolicyReferences"] = undefined /*out*/;

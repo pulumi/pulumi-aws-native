@@ -40,55 +40,55 @@ export class PartnerApp extends pulumi.CustomResource {
     /**
      * A collection of settings that specify the maintenance schedule for the PartnerApp.
      */
-    public readonly applicationConfig!: pulumi.Output<outputs.sagemaker.PartnerAppConfig | undefined>;
+    declare public readonly applicationConfig: pulumi.Output<outputs.sagemaker.PartnerAppConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the created PartnerApp.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Auth type of PartnerApp.
      */
-    public readonly authType!: pulumi.Output<enums.sagemaker.PartnerAppAuthType>;
+    declare public readonly authType: pulumi.Output<enums.sagemaker.PartnerAppAuthType>;
     /**
      * The AppServerUrl based on app and account-info.
      */
-    public /*out*/ readonly baseUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly baseUrl: pulumi.Output<string>;
     /**
      * The client token for the PartnerApp.
      */
-    public readonly clientToken!: pulumi.Output<string | undefined>;
+    declare public readonly clientToken: pulumi.Output<string | undefined>;
     /**
      * Enables IAM Session based Identity for PartnerApp.
      */
-    public readonly enableIamSessionBasedIdentity!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableIamSessionBasedIdentity: pulumi.Output<boolean | undefined>;
     /**
      * The execution role for the user.
      */
-    public readonly executionRoleArn!: pulumi.Output<string>;
+    declare public readonly executionRoleArn: pulumi.Output<string>;
     /**
      * The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * A collection of settings that specify the maintenance schedule for the PartnerApp.
      */
-    public readonly maintenanceConfig!: pulumi.Output<outputs.sagemaker.PartnerAppMaintenanceConfig | undefined>;
+    declare public readonly maintenanceConfig: pulumi.Output<outputs.sagemaker.PartnerAppMaintenanceConfig | undefined>;
     /**
      * A name for the PartnerApp.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of tags to apply to the PartnerApp.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The tier of the PartnerApp.
      */
-    public readonly tier!: pulumi.Output<string>;
+    declare public readonly tier: pulumi.Output<string>;
     /**
      * The type of PartnerApp.
      */
-    public readonly type!: pulumi.Output<enums.sagemaker.PartnerAppType>;
+    declare public readonly type: pulumi.Output<enums.sagemaker.PartnerAppType>;
 
     /**
      * Create a PartnerApp resource with the given unique name, arguments, and options.
@@ -101,29 +101,29 @@ export class PartnerApp extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authType === undefined) && !opts.urn) {
+            if (args?.authType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authType'");
             }
-            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
+            if (args?.executionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if ((!args || args.tier === undefined) && !opts.urn) {
+            if (args?.tier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["applicationConfig"] = args ? args.applicationConfig : undefined;
-            resourceInputs["authType"] = args ? args.authType : undefined;
-            resourceInputs["clientToken"] = args ? args.clientToken : undefined;
-            resourceInputs["enableIamSessionBasedIdentity"] = args ? args.enableIamSessionBasedIdentity : undefined;
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["maintenanceConfig"] = args ? args.maintenanceConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["applicationConfig"] = args?.applicationConfig;
+            resourceInputs["authType"] = args?.authType;
+            resourceInputs["clientToken"] = args?.clientToken;
+            resourceInputs["enableIamSessionBasedIdentity"] = args?.enableIamSessionBasedIdentity;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["maintenanceConfig"] = args?.maintenanceConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tier"] = args?.tier;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["baseUrl"] = undefined /*out*/;
         } else {

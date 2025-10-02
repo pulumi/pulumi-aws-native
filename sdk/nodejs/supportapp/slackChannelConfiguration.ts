@@ -104,35 +104,35 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
     /**
      * The channel ID in Slack, which identifies a channel within a workspace.
      */
-    public readonly channelId!: pulumi.Output<string>;
+    declare public readonly channelId: pulumi.Output<string>;
     /**
      * The channel name in Slack.
      */
-    public readonly channelName!: pulumi.Output<string | undefined>;
+    declare public readonly channelName: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that grants the AWS Support App access to perform operations for AWS services.
      */
-    public readonly channelRoleArn!: pulumi.Output<string>;
+    declare public readonly channelRoleArn: pulumi.Output<string>;
     /**
      * Whether to notify when a correspondence is added to a case.
      */
-    public readonly notifyOnAddCorrespondenceToCase!: pulumi.Output<boolean | undefined>;
+    declare public readonly notifyOnAddCorrespondenceToCase: pulumi.Output<boolean | undefined>;
     /**
      * The severity level of a support case that a customer wants to get notified for.
      */
-    public readonly notifyOnCaseSeverity!: pulumi.Output<enums.supportapp.SlackChannelConfigurationNotifyOnCaseSeverity>;
+    declare public readonly notifyOnCaseSeverity: pulumi.Output<enums.supportapp.SlackChannelConfigurationNotifyOnCaseSeverity>;
     /**
      * Whether to notify when a case is created or reopened.
      */
-    public readonly notifyOnCreateOrReopenCase!: pulumi.Output<boolean | undefined>;
+    declare public readonly notifyOnCreateOrReopenCase: pulumi.Output<boolean | undefined>;
     /**
      * Whether to notify when a case is resolved.
      */
-    public readonly notifyOnResolveCase!: pulumi.Output<boolean | undefined>;
+    declare public readonly notifyOnResolveCase: pulumi.Output<boolean | undefined>;
     /**
      * The team ID in Slack, which uniquely identifies a workspace.
      */
-    public readonly teamId!: pulumi.Output<string>;
+    declare public readonly teamId: pulumi.Output<string>;
 
     /**
      * Create a SlackChannelConfiguration resource with the given unique name, arguments, and options.
@@ -145,26 +145,26 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelId === undefined) && !opts.urn) {
+            if (args?.channelId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelId'");
             }
-            if ((!args || args.channelRoleArn === undefined) && !opts.urn) {
+            if (args?.channelRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelRoleArn'");
             }
-            if ((!args || args.notifyOnCaseSeverity === undefined) && !opts.urn) {
+            if (args?.notifyOnCaseSeverity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notifyOnCaseSeverity'");
             }
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            resourceInputs["channelId"] = args ? args.channelId : undefined;
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["channelRoleArn"] = args ? args.channelRoleArn : undefined;
-            resourceInputs["notifyOnAddCorrespondenceToCase"] = args ? args.notifyOnAddCorrespondenceToCase : undefined;
-            resourceInputs["notifyOnCaseSeverity"] = args ? args.notifyOnCaseSeverity : undefined;
-            resourceInputs["notifyOnCreateOrReopenCase"] = args ? args.notifyOnCreateOrReopenCase : undefined;
-            resourceInputs["notifyOnResolveCase"] = args ? args.notifyOnResolveCase : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["channelId"] = args?.channelId;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["channelRoleArn"] = args?.channelRoleArn;
+            resourceInputs["notifyOnAddCorrespondenceToCase"] = args?.notifyOnAddCorrespondenceToCase;
+            resourceInputs["notifyOnCaseSeverity"] = args?.notifyOnCaseSeverity;
+            resourceInputs["notifyOnCreateOrReopenCase"] = args?.notifyOnCreateOrReopenCase;
+            resourceInputs["notifyOnResolveCase"] = args?.notifyOnResolveCase;
+            resourceInputs["teamId"] = args?.teamId;
         } else {
             resourceInputs["channelId"] = undefined /*out*/;
             resourceInputs["channelName"] = undefined /*out*/;
