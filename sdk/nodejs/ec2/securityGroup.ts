@@ -40,35 +40,35 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * The group name or group ID depending on whether the SG is created in default or specific VPC
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A description for the security group.
      */
-    public readonly groupDescription!: pulumi.Output<string>;
+    declare public readonly groupDescription: pulumi.Output<string>;
     /**
      * The group ID of the specified security group.
      */
-    public /*out*/ readonly groupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly groupId: pulumi.Output<string>;
     /**
      * The name of the security group.
      */
-    public readonly groupName!: pulumi.Output<string | undefined>;
+    declare public readonly groupName: pulumi.Output<string | undefined>;
     /**
      * [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
      */
-    public readonly securityGroupEgress!: pulumi.Output<outputs.ec2.SecurityGroupEgress[] | undefined>;
+    declare public readonly securityGroupEgress: pulumi.Output<outputs.ec2.SecurityGroupEgress[] | undefined>;
     /**
      * The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
      */
-    public readonly securityGroupIngress!: pulumi.Output<outputs.ec2.SecurityGroupIngress[] | undefined>;
+    declare public readonly securityGroupIngress: pulumi.Output<outputs.ec2.SecurityGroupIngress[] | undefined>;
     /**
      * Any tags assigned to the security group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the VPC for the security group.
      */
-    public readonly vpcId!: pulumi.Output<string | undefined>;
+    declare public readonly vpcId: pulumi.Output<string | undefined>;
 
     /**
      * Create a SecurityGroup resource with the given unique name, arguments, and options.
@@ -81,15 +81,15 @@ export class SecurityGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupDescription === undefined) && !opts.urn) {
+            if (args?.groupDescription === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupDescription'");
             }
-            resourceInputs["groupDescription"] = args ? args.groupDescription : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["securityGroupEgress"] = args ? args.securityGroupEgress : undefined;
-            resourceInputs["securityGroupIngress"] = args ? args.securityGroupIngress : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["groupDescription"] = args?.groupDescription;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["securityGroupEgress"] = args?.securityGroupEgress;
+            resourceInputs["securityGroupIngress"] = args?.securityGroupIngress;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["groupId"] = undefined /*out*/;
         } else {

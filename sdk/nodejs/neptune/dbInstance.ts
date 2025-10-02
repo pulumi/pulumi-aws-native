@@ -40,35 +40,35 @@ export class DbInstance extends pulumi.CustomResource {
     /**
      * Indicates that major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible. This parameter must be set to true when specifying a value for the EngineVersion parameter that is a different major version than the DB instance's current version.
      */
-    public readonly allowMajorVersionUpgrade!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowMajorVersionUpgrade: pulumi.Output<boolean | undefined>;
     /**
      * Indicates that minor version patches are applied automatically.
      *
      * When updating this property, some interruptions may occur.
      */
-    public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoMinorVersionUpgrade: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the Availability Zone the DB instance is located in.
      */
-    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZone: pulumi.Output<string | undefined>;
     /**
      * If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
      */
-    public readonly dbClusterIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly dbClusterIdentifier: pulumi.Output<string | undefined>;
     /**
      * Contains the name of the compute and memory capacity class of the DB instance.
      *
      * If you update this property, some interruptions may occur.
      */
-    public readonly dbInstanceClass!: pulumi.Output<string>;
+    declare public readonly dbInstanceClass: pulumi.Output<string>;
     /**
      * Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.
      */
-    public readonly dbInstanceIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly dbInstanceIdentifier: pulumi.Output<string | undefined>;
     /**
      * The name of an existing DB parameter group or a reference to an AWS::Neptune::DBParameterGroup resource created in the template. If any of the data members of the referenced parameter group are changed during an update, the DB instance might need to be restarted, which causes some interruption. If the parameter group contains static parameters, whether they were changed or not, an update triggers a reboot.
      */
-    public readonly dbParameterGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly dbParameterGroupName: pulumi.Output<string | undefined>;
     /**
      * This parameter is not supported.
      *
@@ -76,27 +76,27 @@ export class DbInstance extends pulumi.CustomResource {
      *
      * `AWS::Neptune::DBCluster` does support restoring from snapshots.
      */
-    public readonly dbSnapshotIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly dbSnapshotIdentifier: pulumi.Output<string | undefined>;
     /**
      * A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new virtual private cloud (VPC).
      */
-    public readonly dbSubnetGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly dbSubnetGroupName: pulumi.Output<string | undefined>;
     /**
      * The connection endpoint for the database. For example: `mystack-mydb-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * The port number on which the database accepts connections. For example: `8182`.
      */
-    public /*out*/ readonly port!: pulumi.Output<string>;
+    declare public /*out*/ readonly port: pulumi.Output<string>;
     /**
      * Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      */
-    public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
+    declare public readonly preferredMaintenanceWindow: pulumi.Output<string | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this DB instance.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DbInstance resource with the given unique name, arguments, and options.
@@ -109,20 +109,20 @@ export class DbInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dbInstanceClass === undefined) && !opts.urn) {
+            if (args?.dbInstanceClass === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbInstanceClass'");
             }
-            resourceInputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
-            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
-            resourceInputs["dbInstanceClass"] = args ? args.dbInstanceClass : undefined;
-            resourceInputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
-            resourceInputs["dbParameterGroupName"] = args ? args.dbParameterGroupName : undefined;
-            resourceInputs["dbSnapshotIdentifier"] = args ? args.dbSnapshotIdentifier : undefined;
-            resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowMajorVersionUpgrade"] = args?.allowMajorVersionUpgrade;
+            resourceInputs["autoMinorVersionUpgrade"] = args?.autoMinorVersionUpgrade;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["dbClusterIdentifier"] = args?.dbClusterIdentifier;
+            resourceInputs["dbInstanceClass"] = args?.dbInstanceClass;
+            resourceInputs["dbInstanceIdentifier"] = args?.dbInstanceIdentifier;
+            resourceInputs["dbParameterGroupName"] = args?.dbParameterGroupName;
+            resourceInputs["dbSnapshotIdentifier"] = args?.dbSnapshotIdentifier;
+            resourceInputs["dbSubnetGroupName"] = args?.dbSubnetGroupName;
+            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
         } else {

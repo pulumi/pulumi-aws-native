@@ -40,31 +40,31 @@ export class UserProfile extends pulumi.CustomResource {
     /**
      * The ID of the associated Domain.
      */
-    public readonly domainId!: pulumi.Output<string>;
+    declare public readonly domainId: pulumi.Output<string>;
     /**
      * A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */
-    public readonly singleSignOnUserIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly singleSignOnUserIdentifier: pulumi.Output<string | undefined>;
     /**
      * The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */
-    public readonly singleSignOnUserValue!: pulumi.Output<string | undefined>;
+    declare public readonly singleSignOnUserValue: pulumi.Output<string | undefined>;
     /**
      * A list of tags to apply to the user profile.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The user profile Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly userProfileArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly userProfileArn: pulumi.Output<string>;
     /**
      * A name for the UserProfile.
      */
-    public readonly userProfileName!: pulumi.Output<string>;
+    declare public readonly userProfileName: pulumi.Output<string>;
     /**
      * A collection of settings.
      */
-    public readonly userSettings!: pulumi.Output<outputs.sagemaker.UserProfileUserSettings | undefined>;
+    declare public readonly userSettings: pulumi.Output<outputs.sagemaker.UserProfileUserSettings | undefined>;
 
     /**
      * Create a UserProfile resource with the given unique name, arguments, and options.
@@ -77,15 +77,15 @@ export class UserProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainId === undefined) && !opts.urn) {
+            if (args?.domainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainId'");
             }
-            resourceInputs["domainId"] = args ? args.domainId : undefined;
-            resourceInputs["singleSignOnUserIdentifier"] = args ? args.singleSignOnUserIdentifier : undefined;
-            resourceInputs["singleSignOnUserValue"] = args ? args.singleSignOnUserValue : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userProfileName"] = args ? args.userProfileName : undefined;
-            resourceInputs["userSettings"] = args ? args.userSettings : undefined;
+            resourceInputs["domainId"] = args?.domainId;
+            resourceInputs["singleSignOnUserIdentifier"] = args?.singleSignOnUserIdentifier;
+            resourceInputs["singleSignOnUserValue"] = args?.singleSignOnUserValue;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userProfileName"] = args?.userProfileName;
+            resourceInputs["userSettings"] = args?.userSettings;
             resourceInputs["userProfileArn"] = undefined /*out*/;
         } else {
             resourceInputs["domainId"] = undefined /*out*/;

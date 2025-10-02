@@ -37,7 +37,7 @@ export class Dnssec extends pulumi.CustomResource {
     /**
      * The unique string (ID) used to identify a hosted zone.
      */
-    public readonly hostedZoneId!: pulumi.Output<string>;
+    declare public readonly hostedZoneId: pulumi.Output<string>;
 
     /**
      * Create a Dnssec resource with the given unique name, arguments, and options.
@@ -50,10 +50,10 @@ export class Dnssec extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hostedZoneId === undefined) && !opts.urn) {
+            if (args?.hostedZoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostedZoneId'");
             }
-            resourceInputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
+            resourceInputs["hostedZoneId"] = args?.hostedZoneId;
         } else {
             resourceInputs["hostedZoneId"] = undefined /*out*/;
         }

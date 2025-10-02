@@ -37,7 +37,7 @@ export class Discovery extends pulumi.CustomResource {
     /**
      * The 12 digit AWS Account ID for the account.
      */
-    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
 
     /**
      * Create a Discovery resource with the given unique name, arguments, and options.

@@ -40,27 +40,27 @@ export class ReportPlan extends pulumi.CustomResource {
     /**
      * A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
      */
-    public readonly reportDeliveryChannel!: pulumi.Output<outputs.backup.ReportDeliveryChannelProperties>;
+    declare public readonly reportDeliveryChannel: pulumi.Output<outputs.backup.ReportDeliveryChannelProperties>;
     /**
      * An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.
      */
-    public /*out*/ readonly reportPlanArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly reportPlanArn: pulumi.Output<string>;
     /**
      * An optional description of the report plan with a maximum of 1,024 characters.
      */
-    public readonly reportPlanDescription!: pulumi.Output<string | undefined>;
+    declare public readonly reportPlanDescription: pulumi.Output<string | undefined>;
     /**
      * The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
      */
-    public readonly reportPlanName!: pulumi.Output<string | undefined>;
+    declare public readonly reportPlanName: pulumi.Output<string | undefined>;
     /**
      * Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
      */
-    public readonly reportPlanTags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly reportPlanTags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Identifies the report template for the report. Reports are built using a report template.
      */
-    public readonly reportSetting!: pulumi.Output<outputs.backup.ReportSettingProperties>;
+    declare public readonly reportSetting: pulumi.Output<outputs.backup.ReportSettingProperties>;
 
     /**
      * Create a ReportPlan resource with the given unique name, arguments, and options.
@@ -73,17 +73,17 @@ export class ReportPlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.reportDeliveryChannel === undefined) && !opts.urn) {
+            if (args?.reportDeliveryChannel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reportDeliveryChannel'");
             }
-            if ((!args || args.reportSetting === undefined) && !opts.urn) {
+            if (args?.reportSetting === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reportSetting'");
             }
-            resourceInputs["reportDeliveryChannel"] = args ? args.reportDeliveryChannel : undefined;
-            resourceInputs["reportPlanDescription"] = args ? args.reportPlanDescription : undefined;
-            resourceInputs["reportPlanName"] = args ? args.reportPlanName : undefined;
-            resourceInputs["reportPlanTags"] = args ? args.reportPlanTags : undefined;
-            resourceInputs["reportSetting"] = args ? args.reportSetting : undefined;
+            resourceInputs["reportDeliveryChannel"] = args?.reportDeliveryChannel;
+            resourceInputs["reportPlanDescription"] = args?.reportPlanDescription;
+            resourceInputs["reportPlanName"] = args?.reportPlanName;
+            resourceInputs["reportPlanTags"] = args?.reportPlanTags;
+            resourceInputs["reportSetting"] = args?.reportSetting;
             resourceInputs["reportPlanArn"] = undefined /*out*/;
         } else {
             resourceInputs["reportDeliveryChannel"] = undefined /*out*/;

@@ -90,25 +90,25 @@ export class HookTypeConfig extends pulumi.CustomResource {
     /**
      * The configuration data for the extension, in this account and region.
      */
-    public readonly configuration!: pulumi.Output<string | undefined>;
+    declare public readonly configuration: pulumi.Output<string | undefined>;
     /**
      * An alias by which to refer to this extension configuration data.
      */
-    public readonly configurationAlias!: pulumi.Output<enums.cloudformation.HookTypeConfigConfigurationAlias | undefined>;
+    declare public readonly configurationAlias: pulumi.Output<enums.cloudformation.HookTypeConfigConfigurationAlias | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the configuration data, in this account and region.
      */
-    public /*out*/ readonly configurationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the type without version number.
      */
-    public readonly typeArn!: pulumi.Output<string | undefined>;
+    declare public readonly typeArn: pulumi.Output<string | undefined>;
     /**
      * The name of the type being registered.
      *
      * We recommend that type names adhere to the following pattern: company_or_organization::service::type.
      */
-    public readonly typeName!: pulumi.Output<string | undefined>;
+    declare public readonly typeName: pulumi.Output<string | undefined>;
 
     /**
      * Create a HookTypeConfig resource with the given unique name, arguments, and options.
@@ -121,10 +121,10 @@ export class HookTypeConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["configurationAlias"] = args ? args.configurationAlias : undefined;
-            resourceInputs["typeArn"] = args ? args.typeArn : undefined;
-            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["configurationAlias"] = args?.configurationAlias;
+            resourceInputs["typeArn"] = args?.typeArn;
+            resourceInputs["typeName"] = args?.typeName;
             resourceInputs["configurationArn"] = undefined /*out*/;
         } else {
             resourceInputs["configuration"] = undefined /*out*/;

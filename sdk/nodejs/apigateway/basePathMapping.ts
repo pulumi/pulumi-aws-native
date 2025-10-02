@@ -37,19 +37,19 @@ export class BasePathMapping extends pulumi.CustomResource {
     /**
      * The base path name that callers of the API must provide as part of the URL after the domain name.
      */
-    public readonly basePath!: pulumi.Output<string | undefined>;
+    declare public readonly basePath: pulumi.Output<string | undefined>;
     /**
      * The domain name of the BasePathMapping resource to be described.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * The string identifier of the associated RestApi.
      */
-    public readonly restApiId!: pulumi.Output<string | undefined>;
+    declare public readonly restApiId: pulumi.Output<string | undefined>;
     /**
      * The name of the associated stage.
      */
-    public readonly stage!: pulumi.Output<string | undefined>;
+    declare public readonly stage: pulumi.Output<string | undefined>;
 
     /**
      * Create a BasePathMapping resource with the given unique name, arguments, and options.
@@ -62,13 +62,13 @@ export class BasePathMapping extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["basePath"] = args ? args.basePath : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
-            resourceInputs["stage"] = args ? args.stage : undefined;
+            resourceInputs["basePath"] = args?.basePath;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["restApiId"] = args?.restApiId;
+            resourceInputs["stage"] = args?.stage;
         } else {
             resourceInputs["basePath"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;

@@ -40,43 +40,43 @@ export class CodeInterpreterCustom extends pulumi.CustomResource {
     /**
      * The ARN of a CodeInterpreter resource.
      */
-    public /*out*/ readonly codeInterpreterArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly codeInterpreterArn: pulumi.Output<string>;
     /**
      * The id of the code interpreter.
      */
-    public /*out*/ readonly codeInterpreterId!: pulumi.Output<string>;
+    declare public /*out*/ readonly codeInterpreterId: pulumi.Output<string>;
     /**
      * Timestamp when the code interpreter was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the code interpreter.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ARN of the IAM role that the code interpreter uses to access resources.
      */
-    public readonly executionRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
     /**
      * Timestamp when the code interpreter was last updated.
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * The name of the code interpreter.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Network configuration for code interpreter.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.bedrockagentcore.CodeInterpreterCustomCodeInterpreterNetworkConfiguration>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.bedrockagentcore.CodeInterpreterCustomCodeInterpreterNetworkConfiguration>;
     /**
      * Status of code interpreter.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.bedrockagentcore.CodeInterpreterCustomCodeInterpreterStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.bedrockagentcore.CodeInterpreterCustomCodeInterpreterStatus>;
     /**
      * The tags for the code interpreter.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a CodeInterpreterCustom resource with the given unique name, arguments, and options.
@@ -89,14 +89,14 @@ export class CodeInterpreterCustom extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkConfiguration === undefined) && !opts.urn) {
+            if (args?.networkConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConfiguration'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["codeInterpreterArn"] = undefined /*out*/;
             resourceInputs["codeInterpreterId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

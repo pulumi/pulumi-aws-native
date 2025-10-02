@@ -48,70 +48,70 @@ export class DataSource extends pulumi.CustomResource {
      *             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
      *             are automatically allowed.</p>
      */
-    public readonly alternateDataSourceParameters!: pulumi.Output<outputs.quicksight.DataSourceParameters[] | undefined>;
+    declare public readonly alternateDataSourceParameters: pulumi.Output<outputs.quicksight.DataSourceParameters[] | undefined>;
     /**
      * <p>The Amazon Resource Name (ARN) of the data source.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The AWS account ID.
      */
-    public readonly awsAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly awsAccountId: pulumi.Output<string | undefined>;
     /**
      * <p>The time that this data source was created.</p>
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
      */
-    public readonly credentials!: pulumi.Output<outputs.quicksight.DataSourceCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.quicksight.DataSourceCredentials | undefined>;
     /**
      * An ID for the data source. This ID is unique per AWS Region for each AWS account.
      */
-    public readonly dataSourceId!: pulumi.Output<string | undefined>;
+    declare public readonly dataSourceId: pulumi.Output<string | undefined>;
     /**
      * The parameters that Amazon QuickSight uses to connect to your underlying source.
      */
-    public readonly dataSourceParameters!: pulumi.Output<outputs.quicksight.DataSourceParameters | undefined>;
+    declare public readonly dataSourceParameters: pulumi.Output<outputs.quicksight.DataSourceParameters | undefined>;
     /**
      * Error information from the last update or the creation of the data source.
      */
-    public readonly errorInfo!: pulumi.Output<outputs.quicksight.DataSourceErrorInfo | undefined>;
-    public readonly folderArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly errorInfo: pulumi.Output<outputs.quicksight.DataSourceErrorInfo | undefined>;
+    declare public readonly folderArns: pulumi.Output<string[] | undefined>;
     /**
      * <p>The last time that this data source was updated.</p>
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * A display name for the data source.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of resource permissions on the data source.
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.DataSourceResourcePermission[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.quicksight.DataSourceResourcePermission[] | undefined>;
     /**
      * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
      */
-    public readonly sslProperties!: pulumi.Output<outputs.quicksight.DataSourceSslProperties | undefined>;
+    declare public readonly sslProperties: pulumi.Output<outputs.quicksight.DataSourceSslProperties | undefined>;
     /**
      * The HTTP status of the request.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.quicksight.DataSourceResourceStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.quicksight.DataSourceResourceStatus>;
     /**
      * Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the data source. To return a list of all data sources, use `ListDataSources` .
      *
      * Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
      */
-    public readonly type!: pulumi.Output<enums.quicksight.DataSourceType>;
+    declare public readonly type: pulumi.Output<enums.quicksight.DataSourceType>;
     /**
      * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
      */
-    public readonly vpcConnectionProperties!: pulumi.Output<outputs.quicksight.DataSourceVpcConnectionProperties | undefined>;
+    declare public readonly vpcConnectionProperties: pulumi.Output<outputs.quicksight.DataSourceVpcConnectionProperties | undefined>;
 
     /**
      * Create a DataSource resource with the given unique name, arguments, and options.
@@ -124,22 +124,22 @@ export class DataSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["alternateDataSourceParameters"] = args ? args.alternateDataSourceParameters : undefined;
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["dataSourceId"] = args ? args.dataSourceId : undefined;
-            resourceInputs["dataSourceParameters"] = args ? args.dataSourceParameters : undefined;
-            resourceInputs["errorInfo"] = args ? args.errorInfo : undefined;
-            resourceInputs["folderArns"] = args ? args.folderArns : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["sslProperties"] = args ? args.sslProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["vpcConnectionProperties"] = args ? args.vpcConnectionProperties : undefined;
+            resourceInputs["alternateDataSourceParameters"] = args?.alternateDataSourceParameters;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["dataSourceId"] = args?.dataSourceId;
+            resourceInputs["dataSourceParameters"] = args?.dataSourceParameters;
+            resourceInputs["errorInfo"] = args?.errorInfo;
+            resourceInputs["folderArns"] = args?.folderArns;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["sslProperties"] = args?.sslProperties;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["vpcConnectionProperties"] = args?.vpcConnectionProperties;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

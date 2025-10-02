@@ -40,75 +40,75 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
     /**
      * The ID of the attachment.
      */
-    public /*out*/ readonly attachmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentId: pulumi.Output<string>;
     /**
      * The policy rule number associated with the attachment.
      */
-    public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly attachmentPolicyRuleNumber: pulumi.Output<number>;
     /**
      * The type of attachment.
      */
-    public /*out*/ readonly attachmentType!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentType: pulumi.Output<string>;
     /**
      * The ARN of a core network for the VPC attachment.
      */
-    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly coreNetworkArn: pulumi.Output<string>;
     /**
      * The ID of a core network where you're creating a site-to-site VPN attachment.
      */
-    public readonly coreNetworkId!: pulumi.Output<string>;
+    declare public readonly coreNetworkId: pulumi.Output<string>;
     /**
      * Creation time of the attachment.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The Region where the edge is located.
      */
-    public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
+    declare public /*out*/ readonly edgeLocation: pulumi.Output<string>;
     /**
      * Errors from the last modification of the attachment.
      */
-    public /*out*/ readonly lastModificationErrors!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly lastModificationErrors: pulumi.Output<string[]>;
     /**
      * The name of the network function group attachment.
      */
-    public readonly networkFunctionGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly networkFunctionGroupName: pulumi.Output<string | undefined>;
     /**
      * Owner account of the attachment.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
      * The attachment to move from one network function group to another.
      */
-    public readonly proposedNetworkFunctionGroupChange!: pulumi.Output<outputs.networkmanager.SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange | undefined>;
+    declare public readonly proposedNetworkFunctionGroupChange: pulumi.Output<outputs.networkmanager.SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange | undefined>;
     /**
      * The attachment to move from one segment to another.
      */
-    public readonly proposedSegmentChange!: pulumi.Output<outputs.networkmanager.SiteToSiteVpnAttachmentProposedSegmentChange | undefined>;
+    declare public readonly proposedSegmentChange: pulumi.Output<outputs.networkmanager.SiteToSiteVpnAttachmentProposedSegmentChange | undefined>;
     /**
      * The ARN of the Resource.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
      * The name of the segment that attachment is in.
      */
-    public /*out*/ readonly segmentName!: pulumi.Output<string>;
+    declare public /*out*/ readonly segmentName: pulumi.Output<string>;
     /**
      * The state of the attachment.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Tags for the attachment.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Last update time of the attachment.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * The ARN of the site-to-site VPN attachment.
      */
-    public readonly vpnConnectionArn!: pulumi.Output<string>;
+    declare public readonly vpnConnectionArn: pulumi.Output<string>;
 
     /**
      * Create a SiteToSiteVpnAttachment resource with the given unique name, arguments, and options.
@@ -121,18 +121,18 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
+            if (args?.coreNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'coreNetworkId'");
             }
-            if ((!args || args.vpnConnectionArn === undefined) && !opts.urn) {
+            if (args?.vpnConnectionArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpnConnectionArn'");
             }
-            resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
-            resourceInputs["networkFunctionGroupName"] = args ? args.networkFunctionGroupName : undefined;
-            resourceInputs["proposedNetworkFunctionGroupChange"] = args ? args.proposedNetworkFunctionGroupChange : undefined;
-            resourceInputs["proposedSegmentChange"] = args ? args.proposedSegmentChange : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpnConnectionArn"] = args ? args.vpnConnectionArn : undefined;
+            resourceInputs["coreNetworkId"] = args?.coreNetworkId;
+            resourceInputs["networkFunctionGroupName"] = args?.networkFunctionGroupName;
+            resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
+            resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpnConnectionArn"] = args?.vpnConnectionArn;
             resourceInputs["attachmentId"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;
             resourceInputs["attachmentType"] = undefined /*out*/;

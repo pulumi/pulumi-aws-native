@@ -84,23 +84,23 @@ export class Collection extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the collection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The identifier of the collection
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The endpoint for the collection.
      */
-    public /*out*/ readonly collectionEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly collectionEndpoint: pulumi.Output<string>;
     /**
      * The OpenSearch Dashboards endpoint for the collection.
      */
-    public /*out*/ readonly dashboardEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly dashboardEndpoint: pulumi.Output<string>;
     /**
      * The description of the collection
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the collection.
      *
@@ -110,19 +110,19 @@ export class Collection extends pulumi.CustomResource {
      * Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
      * Contains between 3 and 32 characters
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
      */
-    public readonly standbyReplicas!: pulumi.Output<enums.opensearchserverless.CollectionStandbyReplicas | undefined>;
+    declare public readonly standbyReplicas: pulumi.Output<enums.opensearchserverless.CollectionStandbyReplicas | undefined>;
     /**
      * List of tags to be added to the resource
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
      */
-    public readonly type!: pulumi.Output<enums.opensearchserverless.CollectionType | undefined>;
+    declare public readonly type: pulumi.Output<enums.opensearchserverless.CollectionType | undefined>;
 
     /**
      * Create a Collection resource with the given unique name, arguments, and options.
@@ -135,11 +135,11 @@ export class Collection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["standbyReplicas"] = args ? args.standbyReplicas : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["standbyReplicas"] = args?.standbyReplicas;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["collectionEndpoint"] = undefined /*out*/;

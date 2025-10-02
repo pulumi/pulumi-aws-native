@@ -37,17 +37,17 @@ export class WorkspaceInstance extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceInstance.__pulumiType;
     }
 
-    public /*out*/ readonly ec2ManagedInstance!: pulumi.Output<outputs.workspacesinstances.WorkspaceInstanceEc2ManagedInstance>;
-    public readonly managedInstance!: pulumi.Output<outputs.workspacesinstances.ManagedInstanceProperties | undefined>;
+    declare public /*out*/ readonly ec2ManagedInstance: pulumi.Output<outputs.workspacesinstances.WorkspaceInstanceEc2ManagedInstance>;
+    declare public readonly managedInstance: pulumi.Output<outputs.workspacesinstances.ManagedInstanceProperties | undefined>;
     /**
      * The current state of the workspace instance
      */
-    public /*out*/ readonly provisionState!: pulumi.Output<enums.workspacesinstances.WorkspaceInstanceProvisionState>;
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public /*out*/ readonly provisionState: pulumi.Output<enums.workspacesinstances.WorkspaceInstanceProvisionState>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Unique identifier for the workspace instance
      */
-    public /*out*/ readonly workspaceInstanceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly workspaceInstanceId: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceInstance resource with the given unique name, arguments, and options.
@@ -60,8 +60,8 @@ export class WorkspaceInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["managedInstance"] = args ? args.managedInstance : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["managedInstance"] = args?.managedInstance;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ec2ManagedInstance"] = undefined /*out*/;
             resourceInputs["provisionState"] = undefined /*out*/;
             resourceInputs["workspaceInstanceId"] = undefined /*out*/;

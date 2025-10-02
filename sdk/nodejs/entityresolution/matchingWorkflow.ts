@@ -37,43 +37,43 @@ export class MatchingWorkflow extends pulumi.CustomResource {
         return obj['__pulumiType'] === MatchingWorkflow.__pulumiType;
     }
 
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the MatchingWorkflow
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
      *
      * > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
      */
-    public readonly incrementalRunConfig!: pulumi.Output<outputs.entityresolution.MatchingWorkflowIncrementalRunConfig | undefined>;
+    declare public readonly incrementalRunConfig: pulumi.Output<outputs.entityresolution.MatchingWorkflowIncrementalRunConfig | undefined>;
     /**
      * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
      */
-    public readonly inputSourceConfig!: pulumi.Output<outputs.entityresolution.MatchingWorkflowInputSource[]>;
+    declare public readonly inputSourceConfig: pulumi.Output<outputs.entityresolution.MatchingWorkflowInputSource[]>;
     /**
      * A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
      */
-    public readonly outputSourceConfig!: pulumi.Output<outputs.entityresolution.MatchingWorkflowOutputSource[]>;
+    declare public readonly outputSourceConfig: pulumi.Output<outputs.entityresolution.MatchingWorkflowOutputSource[]>;
     /**
      * An object which defines the `resolutionType` and the `ruleBasedProperties` .
      */
-    public readonly resolutionTechniques!: pulumi.Output<outputs.entityresolution.MatchingWorkflowResolutionTechniques>;
+    declare public readonly resolutionTechniques: pulumi.Output<outputs.entityresolution.MatchingWorkflowResolutionTechniques>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
-    public /*out*/ readonly workflowArn!: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
+    declare public /*out*/ readonly workflowArn: pulumi.Output<string>;
     /**
      * The name of the MatchingWorkflow
      */
-    public readonly workflowName!: pulumi.Output<string>;
+    declare public readonly workflowName: pulumi.Output<string>;
 
     /**
      * Create a MatchingWorkflow resource with the given unique name, arguments, and options.
@@ -86,26 +86,26 @@ export class MatchingWorkflow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.inputSourceConfig === undefined) && !opts.urn) {
+            if (args?.inputSourceConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputSourceConfig'");
             }
-            if ((!args || args.outputSourceConfig === undefined) && !opts.urn) {
+            if (args?.outputSourceConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outputSourceConfig'");
             }
-            if ((!args || args.resolutionTechniques === undefined) && !opts.urn) {
+            if (args?.resolutionTechniques === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resolutionTechniques'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["incrementalRunConfig"] = args ? args.incrementalRunConfig : undefined;
-            resourceInputs["inputSourceConfig"] = args ? args.inputSourceConfig : undefined;
-            resourceInputs["outputSourceConfig"] = args ? args.outputSourceConfig : undefined;
-            resourceInputs["resolutionTechniques"] = args ? args.resolutionTechniques : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workflowName"] = args ? args.workflowName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["incrementalRunConfig"] = args?.incrementalRunConfig;
+            resourceInputs["inputSourceConfig"] = args?.inputSourceConfig;
+            resourceInputs["outputSourceConfig"] = args?.outputSourceConfig;
+            resourceInputs["resolutionTechniques"] = args?.resolutionTechniques;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workflowName"] = args?.workflowName;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
             resourceInputs["workflowArn"] = undefined /*out*/;

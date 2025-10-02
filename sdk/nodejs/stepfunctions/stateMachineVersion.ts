@@ -37,15 +37,15 @@ export class StateMachineVersion extends pulumi.CustomResource {
     /**
      * Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An optional description of the state machine version.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the state machine.
      */
-    public readonly stateMachineArn!: pulumi.Output<string>;
+    declare public readonly stateMachineArn: pulumi.Output<string>;
     /**
      * Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
      *
@@ -53,7 +53,7 @@ export class StateMachineVersion extends pulumi.CustomResource {
      *
      * To specify the initial state machine revision, set the value as `INITIAL` .
      */
-    public readonly stateMachineRevisionId!: pulumi.Output<string | undefined>;
+    declare public readonly stateMachineRevisionId: pulumi.Output<string | undefined>;
 
     /**
      * Create a StateMachineVersion resource with the given unique name, arguments, and options.
@@ -66,12 +66,12 @@ export class StateMachineVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.stateMachineArn === undefined) && !opts.urn) {
+            if (args?.stateMachineArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stateMachineArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["stateMachineArn"] = args ? args.stateMachineArn : undefined;
-            resourceInputs["stateMachineRevisionId"] = args ? args.stateMachineRevisionId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["stateMachineArn"] = args?.stateMachineArn;
+            resourceInputs["stateMachineRevisionId"] = args?.stateMachineRevisionId;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

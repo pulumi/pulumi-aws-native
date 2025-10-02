@@ -40,31 +40,31 @@ export class TransitGatewayMulticastDomain extends pulumi.CustomResource {
     /**
      * The time the transit gateway multicast domain was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The options for the transit gateway multicast domain.
      */
-    public readonly options!: pulumi.Output<outputs.ec2.OptionsProperties | undefined>;
+    declare public readonly options: pulumi.Output<outputs.ec2.OptionsProperties | undefined>;
     /**
      * The state of the transit gateway multicast domain.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The tags for the transit gateway multicast domain.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the transit gateway.
      */
-    public readonly transitGatewayId!: pulumi.Output<string>;
+    declare public readonly transitGatewayId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the transit gateway multicast domain.
      */
-    public /*out*/ readonly transitGatewayMulticastDomainArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly transitGatewayMulticastDomainArn: pulumi.Output<string>;
     /**
      * The ID of the transit gateway multicast domain.
      */
-    public /*out*/ readonly transitGatewayMulticastDomainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly transitGatewayMulticastDomainId: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayMulticastDomain resource with the given unique name, arguments, and options.
@@ -77,12 +77,12 @@ export class TransitGatewayMulticastDomain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
+            if (args?.transitGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["transitGatewayMulticastDomainArn"] = undefined /*out*/;

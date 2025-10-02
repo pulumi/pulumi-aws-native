@@ -40,27 +40,27 @@ export class CodeSecurityScanConfiguration extends pulumi.CustomResource {
     /**
      * Code Security Scan Configuration ARN
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Code Security Scan Configuration
      */
-    public readonly configuration!: pulumi.Output<outputs.inspectorv2.CodeSecurityScanConfiguration | undefined>;
+    declare public readonly configuration: pulumi.Output<outputs.inspectorv2.CodeSecurityScanConfiguration | undefined>;
     /**
      * Configuration Level
      */
-    public readonly level!: pulumi.Output<enums.inspectorv2.CodeSecurityScanConfigurationConfigurationLevel | undefined>;
+    declare public readonly level: pulumi.Output<enums.inspectorv2.CodeSecurityScanConfigurationConfigurationLevel | undefined>;
     /**
      * Code Security Scan Configuration name
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Scope Settings
      */
-    public readonly scopeSettings!: pulumi.Output<outputs.inspectorv2.CodeSecurityScanConfigurationScopeSettings | undefined>;
+    declare public readonly scopeSettings: pulumi.Output<outputs.inspectorv2.CodeSecurityScanConfigurationScopeSettings | undefined>;
     /**
      * The tags to apply to the scan configuration.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a CodeSecurityScanConfiguration resource with the given unique name, arguments, and options.
@@ -73,11 +73,11 @@ export class CodeSecurityScanConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["level"] = args ? args.level : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scopeSettings"] = args ? args.scopeSettings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["level"] = args?.level;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["scopeSettings"] = args?.scopeSettings;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

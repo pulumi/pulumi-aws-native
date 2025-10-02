@@ -40,83 +40,83 @@ export class ServerlessCache extends pulumi.CustomResource {
     /**
      * The ARN of the Serverless Cache.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The cache usage limit for the serverless cache.
      */
-    public readonly cacheUsageLimits!: pulumi.Output<outputs.elasticache.ServerlessCacheCacheUsageLimits | undefined>;
+    declare public readonly cacheUsageLimits: pulumi.Output<outputs.elasticache.ServerlessCacheCacheUsageLimits | undefined>;
     /**
      * The creation time of the Serverless Cache.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
      * The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
      */
-    public readonly dailySnapshotTime!: pulumi.Output<string | undefined>;
+    declare public readonly dailySnapshotTime: pulumi.Output<string | undefined>;
     /**
      * The description of the Serverless Cache.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Represents the information required for client programs to connect to a cache node. This value is read-only.
      */
-    public readonly endpoint!: pulumi.Output<outputs.elasticache.ServerlessCacheEndpoint | undefined>;
+    declare public readonly endpoint: pulumi.Output<outputs.elasticache.ServerlessCacheEndpoint | undefined>;
     /**
      * The engine name of the Serverless Cache.
      */
-    public readonly engine!: pulumi.Output<string>;
+    declare public readonly engine: pulumi.Output<string>;
     /**
      * The final snapshot name which is taken before Serverless Cache is deleted.
      */
-    public readonly finalSnapshotName!: pulumi.Output<string | undefined>;
+    declare public readonly finalSnapshotName: pulumi.Output<string | undefined>;
     /**
      * The full engine version of the Serverless Cache.
      */
-    public /*out*/ readonly fullEngineVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullEngineVersion: pulumi.Output<string>;
     /**
      * The ID of the KMS key used to encrypt the cluster.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The major engine version of the Serverless Cache.
      */
-    public readonly majorEngineVersion!: pulumi.Output<string | undefined>;
+    declare public readonly majorEngineVersion: pulumi.Output<string | undefined>;
     /**
      * Represents the information required for client programs to connect to a cache node. This value is read-only.
      */
-    public readonly readerEndpoint!: pulumi.Output<outputs.elasticache.ServerlessCacheEndpoint | undefined>;
+    declare public readonly readerEndpoint: pulumi.Output<outputs.elasticache.ServerlessCacheEndpoint | undefined>;
     /**
      * One or more Amazon VPC security groups associated with this Serverless Cache.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * The name of the Serverless Cache. This value must be unique.
      */
-    public readonly serverlessCacheName!: pulumi.Output<string>;
+    declare public readonly serverlessCacheName: pulumi.Output<string>;
     /**
      * The ARN's of snapshot to restore Serverless Cache.
      */
-    public readonly snapshotArnsToRestore!: pulumi.Output<string[] | undefined>;
+    declare public readonly snapshotArnsToRestore: pulumi.Output<string[] | undefined>;
     /**
      * The snapshot retention limit of the Serverless Cache.
      */
-    public readonly snapshotRetentionLimit!: pulumi.Output<number | undefined>;
+    declare public readonly snapshotRetentionLimit: pulumi.Output<number | undefined>;
     /**
      * The status of the Serverless Cache.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The subnet id's of the Serverless Cache.
      */
-    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly subnetIds: pulumi.Output<string[] | undefined>;
     /**
      * An array of key-value pairs to apply to this Serverless Cache.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the user group.
      */
-    public readonly userGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly userGroupId: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServerlessCache resource with the given unique name, arguments, and options.
@@ -129,25 +129,25 @@ export class ServerlessCache extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engine === undefined) && !opts.urn) {
+            if (args?.engine === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
-            resourceInputs["cacheUsageLimits"] = args ? args.cacheUsageLimits : undefined;
-            resourceInputs["dailySnapshotTime"] = args ? args.dailySnapshotTime : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["finalSnapshotName"] = args ? args.finalSnapshotName : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["majorEngineVersion"] = args ? args.majorEngineVersion : undefined;
-            resourceInputs["readerEndpoint"] = args ? args.readerEndpoint : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["serverlessCacheName"] = args ? args.serverlessCacheName : undefined;
-            resourceInputs["snapshotArnsToRestore"] = args ? args.snapshotArnsToRestore : undefined;
-            resourceInputs["snapshotRetentionLimit"] = args ? args.snapshotRetentionLimit : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userGroupId"] = args ? args.userGroupId : undefined;
+            resourceInputs["cacheUsageLimits"] = args?.cacheUsageLimits;
+            resourceInputs["dailySnapshotTime"] = args?.dailySnapshotTime;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["finalSnapshotName"] = args?.finalSnapshotName;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["majorEngineVersion"] = args?.majorEngineVersion;
+            resourceInputs["readerEndpoint"] = args?.readerEndpoint;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["serverlessCacheName"] = args?.serverlessCacheName;
+            resourceInputs["snapshotArnsToRestore"] = args?.snapshotArnsToRestore;
+            resourceInputs["snapshotRetentionLimit"] = args?.snapshotRetentionLimit;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userGroupId"] = args?.userGroupId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["fullEngineVersion"] = undefined /*out*/;

@@ -40,39 +40,39 @@ export class LambdaHook extends pulumi.CustomResource {
     /**
      * The typename alias for the hook.
      */
-    public readonly alias!: pulumi.Output<string>;
+    declare public readonly alias: pulumi.Output<string>;
     /**
      * The execution role ARN assumed by Hooks to invoke Lambda.
      */
-    public readonly executionRole!: pulumi.Output<string>;
+    declare public readonly executionRole: pulumi.Output<string>;
     /**
      * Attribute to specify CloudFormation behavior on hook failure.
      */
-    public readonly failureMode!: pulumi.Output<enums.cloudformation.LambdaHookFailureMode>;
+    declare public readonly failureMode: pulumi.Output<enums.cloudformation.LambdaHookFailureMode>;
     /**
      * The Amazon Resource Name (ARN) of the activated hook
      */
-    public /*out*/ readonly hookArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly hookArn: pulumi.Output<string>;
     /**
      * Attribute to specify which stacks this hook applies to or should get invoked for
      */
-    public readonly hookStatus!: pulumi.Output<enums.cloudformation.LambdaHookHookStatus>;
+    declare public readonly hookStatus: pulumi.Output<enums.cloudformation.LambdaHookHookStatus>;
     /**
      * Amazon Resource Name (ARN), Partial ARN, name, version, or alias of the Lambda function to invoke with this hook.
      */
-    public readonly lambdaFunction!: pulumi.Output<string>;
+    declare public readonly lambdaFunction: pulumi.Output<string>;
     /**
      * Filters to allow hooks to target specific stack attributes
      */
-    public readonly stackFilters!: pulumi.Output<outputs.cloudformation.StackFiltersProperties | undefined>;
+    declare public readonly stackFilters: pulumi.Output<outputs.cloudformation.StackFiltersProperties | undefined>;
     /**
      * Attribute to specify which targets should invoke the hook
      */
-    public readonly targetFilters!: pulumi.Output<outputs.cloudformation.TargetFilters0Properties | outputs.cloudformation.TargetFilters1Properties | undefined>;
+    declare public readonly targetFilters: pulumi.Output<outputs.cloudformation.TargetFilters0Properties | outputs.cloudformation.TargetFilters1Properties | undefined>;
     /**
      * Which operations should this Hook run against? Resource changes, stacks or change sets.
      */
-    public readonly targetOperations!: pulumi.Output<enums.cloudformation.LambdaHookTargetOperation[]>;
+    declare public readonly targetOperations: pulumi.Output<enums.cloudformation.LambdaHookTargetOperation[]>;
 
     /**
      * Create a LambdaHook resource with the given unique name, arguments, and options.
@@ -85,32 +85,32 @@ export class LambdaHook extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.alias === undefined) && !opts.urn) {
+            if (args?.alias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alias'");
             }
-            if ((!args || args.executionRole === undefined) && !opts.urn) {
+            if (args?.executionRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRole'");
             }
-            if ((!args || args.failureMode === undefined) && !opts.urn) {
+            if (args?.failureMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'failureMode'");
             }
-            if ((!args || args.hookStatus === undefined) && !opts.urn) {
+            if (args?.hookStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hookStatus'");
             }
-            if ((!args || args.lambdaFunction === undefined) && !opts.urn) {
+            if (args?.lambdaFunction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lambdaFunction'");
             }
-            if ((!args || args.targetOperations === undefined) && !opts.urn) {
+            if (args?.targetOperations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetOperations'");
             }
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["executionRole"] = args ? args.executionRole : undefined;
-            resourceInputs["failureMode"] = args ? args.failureMode : undefined;
-            resourceInputs["hookStatus"] = args ? args.hookStatus : undefined;
-            resourceInputs["lambdaFunction"] = args ? args.lambdaFunction : undefined;
-            resourceInputs["stackFilters"] = args ? args.stackFilters : undefined;
-            resourceInputs["targetFilters"] = args ? args.targetFilters : undefined;
-            resourceInputs["targetOperations"] = args ? args.targetOperations : undefined;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["executionRole"] = args?.executionRole;
+            resourceInputs["failureMode"] = args?.failureMode;
+            resourceInputs["hookStatus"] = args?.hookStatus;
+            resourceInputs["lambdaFunction"] = args?.lambdaFunction;
+            resourceInputs["stackFilters"] = args?.stackFilters;
+            resourceInputs["targetFilters"] = args?.targetFilters;
+            resourceInputs["targetOperations"] = args?.targetOperations;
             resourceInputs["hookArn"] = undefined /*out*/;
         } else {
             resourceInputs["alias"] = undefined /*out*/;

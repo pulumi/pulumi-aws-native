@@ -40,19 +40,19 @@ export class DocumentationPart extends pulumi.CustomResource {
     /**
      * The ID for the documentation part.
      */
-    public /*out*/ readonly documentationPartId!: pulumi.Output<string>;
+    declare public /*out*/ readonly documentationPartId: pulumi.Output<string>;
     /**
      * The location of the targeted API entity of the to-be-created documentation part.
      */
-    public readonly location!: pulumi.Output<outputs.apigateway.DocumentationPartLocation>;
+    declare public readonly location: pulumi.Output<outputs.apigateway.DocumentationPartLocation>;
     /**
      * The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
      */
-    public readonly properties!: pulumi.Output<string>;
+    declare public readonly properties: pulumi.Output<string>;
     /**
      * The string identifier of the associated RestApi.
      */
-    public readonly restApiId!: pulumi.Output<string>;
+    declare public readonly restApiId: pulumi.Output<string>;
 
     /**
      * Create a DocumentationPart resource with the given unique name, arguments, and options.
@@ -65,18 +65,18 @@ export class DocumentationPart extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.location === undefined) && !opts.urn) {
+            if (args?.location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            if ((!args || args.properties === undefined) && !opts.urn) {
+            if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["restApiId"] = args?.restApiId;
             resourceInputs["documentationPartId"] = undefined /*out*/;
         } else {
             resourceInputs["documentationPartId"] = undefined /*out*/;

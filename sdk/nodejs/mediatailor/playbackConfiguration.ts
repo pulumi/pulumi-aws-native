@@ -40,87 +40,87 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
     /**
      * The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
      */
-    public readonly adConditioningConfiguration!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationAdConditioningConfiguration | undefined>;
+    declare public readonly adConditioningConfiguration: pulumi.Output<outputs.mediatailor.PlaybackConfigurationAdConditioningConfiguration | undefined>;
     /**
      * The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
      */
-    public readonly adDecisionServerUrl!: pulumi.Output<string>;
+    declare public readonly adDecisionServerUrl: pulumi.Output<string>;
     /**
      * The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
      */
-    public readonly availSuppression!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationAvailSuppression | undefined>;
+    declare public readonly availSuppression: pulumi.Output<outputs.mediatailor.PlaybackConfigurationAvailSuppression | undefined>;
     /**
      * The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
      */
-    public readonly bumper!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationBumper | undefined>;
+    declare public readonly bumper: pulumi.Output<outputs.mediatailor.PlaybackConfigurationBumper | undefined>;
     /**
      * The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
      */
-    public readonly cdnConfiguration!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationCdnConfiguration | undefined>;
+    declare public readonly cdnConfiguration: pulumi.Output<outputs.mediatailor.PlaybackConfigurationCdnConfiguration | undefined>;
     /**
      * The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
      */
-    public readonly configurationAliases!: pulumi.Output<{[key: string]: any} | undefined>;
+    declare public readonly configurationAliases: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The configuration for DASH content.
      */
-    public readonly dashConfiguration!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationDashConfiguration | undefined>;
+    declare public readonly dashConfiguration: pulumi.Output<outputs.mediatailor.PlaybackConfigurationDashConfiguration | undefined>;
     /**
      * The configuration for HLS content.
      */
-    public readonly hlsConfiguration!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationHlsConfiguration | undefined>;
+    declare public readonly hlsConfiguration: pulumi.Output<outputs.mediatailor.PlaybackConfigurationHlsConfiguration | undefined>;
     /**
      * The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
      */
-    public readonly insertionMode!: pulumi.Output<enums.mediatailor.PlaybackConfigurationInsertionMode | undefined>;
+    declare public readonly insertionMode: pulumi.Output<enums.mediatailor.PlaybackConfigurationInsertionMode | undefined>;
     /**
      * The configuration for pre-roll ad insertion.
      */
-    public readonly livePreRollConfiguration!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationLivePreRollConfiguration | undefined>;
+    declare public readonly livePreRollConfiguration: pulumi.Output<outputs.mediatailor.PlaybackConfigurationLivePreRollConfiguration | undefined>;
     /**
      * The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
      */
-    public readonly logConfiguration!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationLogConfiguration | undefined>;
+    declare public readonly logConfiguration: pulumi.Output<outputs.mediatailor.PlaybackConfigurationLogConfiguration | undefined>;
     /**
      * The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
      */
-    public readonly manifestProcessingRules!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationManifestProcessingRules | undefined>;
+    declare public readonly manifestProcessingRules: pulumi.Output<outputs.mediatailor.PlaybackConfigurationManifestProcessingRules | undefined>;
     /**
      * The identifier for the playback configuration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
      */
-    public readonly personalizationThresholdSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly personalizationThresholdSeconds: pulumi.Output<number | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the playback configuration.
      */
-    public /*out*/ readonly playbackConfigurationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly playbackConfigurationArn: pulumi.Output<string>;
     /**
      * The URL that the player accesses to get a manifest from MediaTailor. This session will use server-side reporting.
      */
-    public /*out*/ readonly playbackEndpointPrefix!: pulumi.Output<string>;
+    declare public /*out*/ readonly playbackEndpointPrefix: pulumi.Output<string>;
     /**
      * The URL that the player uses to initialize a session that uses client-side reporting.
      */
-    public /*out*/ readonly sessionInitializationEndpointPrefix!: pulumi.Output<string>;
+    declare public /*out*/ readonly sessionInitializationEndpointPrefix: pulumi.Output<string>;
     /**
      * The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
      */
-    public readonly slateAdUrl!: pulumi.Output<string | undefined>;
+    declare public readonly slateAdUrl: pulumi.Output<string | undefined>;
     /**
      * The tags to assign to the playback configuration.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
      */
-    public readonly transcodeProfileName!: pulumi.Output<string | undefined>;
+    declare public readonly transcodeProfileName: pulumi.Output<string | undefined>;
     /**
      * The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.
      */
-    public readonly videoContentSourceUrl!: pulumi.Output<string>;
+    declare public readonly videoContentSourceUrl: pulumi.Output<string>;
 
     /**
      * Create a PlaybackConfiguration resource with the given unique name, arguments, and options.
@@ -133,30 +133,30 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.adDecisionServerUrl === undefined) && !opts.urn) {
+            if (args?.adDecisionServerUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adDecisionServerUrl'");
             }
-            if ((!args || args.videoContentSourceUrl === undefined) && !opts.urn) {
+            if (args?.videoContentSourceUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'videoContentSourceUrl'");
             }
-            resourceInputs["adConditioningConfiguration"] = args ? args.adConditioningConfiguration : undefined;
-            resourceInputs["adDecisionServerUrl"] = args ? args.adDecisionServerUrl : undefined;
-            resourceInputs["availSuppression"] = args ? args.availSuppression : undefined;
-            resourceInputs["bumper"] = args ? args.bumper : undefined;
-            resourceInputs["cdnConfiguration"] = args ? args.cdnConfiguration : undefined;
-            resourceInputs["configurationAliases"] = args ? args.configurationAliases : undefined;
-            resourceInputs["dashConfiguration"] = args ? args.dashConfiguration : undefined;
-            resourceInputs["hlsConfiguration"] = args ? args.hlsConfiguration : undefined;
-            resourceInputs["insertionMode"] = args ? args.insertionMode : undefined;
-            resourceInputs["livePreRollConfiguration"] = args ? args.livePreRollConfiguration : undefined;
-            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
-            resourceInputs["manifestProcessingRules"] = args ? args.manifestProcessingRules : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["personalizationThresholdSeconds"] = args ? args.personalizationThresholdSeconds : undefined;
-            resourceInputs["slateAdUrl"] = args ? args.slateAdUrl : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transcodeProfileName"] = args ? args.transcodeProfileName : undefined;
-            resourceInputs["videoContentSourceUrl"] = args ? args.videoContentSourceUrl : undefined;
+            resourceInputs["adConditioningConfiguration"] = args?.adConditioningConfiguration;
+            resourceInputs["adDecisionServerUrl"] = args?.adDecisionServerUrl;
+            resourceInputs["availSuppression"] = args?.availSuppression;
+            resourceInputs["bumper"] = args?.bumper;
+            resourceInputs["cdnConfiguration"] = args?.cdnConfiguration;
+            resourceInputs["configurationAliases"] = args?.configurationAliases;
+            resourceInputs["dashConfiguration"] = args?.dashConfiguration;
+            resourceInputs["hlsConfiguration"] = args?.hlsConfiguration;
+            resourceInputs["insertionMode"] = args?.insertionMode;
+            resourceInputs["livePreRollConfiguration"] = args?.livePreRollConfiguration;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
+            resourceInputs["manifestProcessingRules"] = args?.manifestProcessingRules;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["personalizationThresholdSeconds"] = args?.personalizationThresholdSeconds;
+            resourceInputs["slateAdUrl"] = args?.slateAdUrl;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transcodeProfileName"] = args?.transcodeProfileName;
+            resourceInputs["videoContentSourceUrl"] = args?.videoContentSourceUrl;
             resourceInputs["playbackConfigurationArn"] = undefined /*out*/;
             resourceInputs["playbackEndpointPrefix"] = undefined /*out*/;
             resourceInputs["sessionInitializationEndpointPrefix"] = undefined /*out*/;

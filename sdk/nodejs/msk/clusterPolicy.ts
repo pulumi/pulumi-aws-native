@@ -37,17 +37,17 @@ export class ClusterPolicy extends pulumi.CustomResource {
     /**
      * The arn of the cluster for the resource policy.
      */
-    public readonly clusterArn!: pulumi.Output<string>;
+    declare public readonly clusterArn: pulumi.Output<string>;
     /**
      * The current version of the policy attached to the specified cluster
      */
-    public /*out*/ readonly currentVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly currentVersion: pulumi.Output<string>;
     /**
      * A policy document containing permissions to add to the specified cluster.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property.
      */
-    public readonly policy!: pulumi.Output<any>;
+    declare public readonly policy: pulumi.Output<any>;
 
     /**
      * Create a ClusterPolicy resource with the given unique name, arguments, and options.
@@ -60,14 +60,14 @@ export class ClusterPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterArn === undefined) && !opts.urn) {
+            if (args?.clusterArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterArn'");
             }
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["clusterArn"] = args ? args.clusterArn : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["clusterArn"] = args?.clusterArn;
+            resourceInputs["policy"] = args?.policy;
             resourceInputs["currentVersion"] = undefined /*out*/;
         } else {
             resourceInputs["clusterArn"] = undefined /*out*/;

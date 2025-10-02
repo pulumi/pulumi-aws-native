@@ -40,63 +40,63 @@ export class LocationHdfs extends pulumi.CustomResource {
     /**
      * ARN(s) of the agent(s) to use for an HDFS location.
      */
-    public readonly agentArns!: pulumi.Output<string[]>;
+    declare public readonly agentArns: pulumi.Output<string[]>;
     /**
      * The authentication mode used to determine identity of user.
      */
-    public readonly authenticationType!: pulumi.Output<enums.datasync.LocationHdfsAuthenticationType>;
+    declare public readonly authenticationType: pulumi.Output<enums.datasync.LocationHdfsAuthenticationType>;
     /**
      * Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
      */
-    public readonly blockSize!: pulumi.Output<number | undefined>;
+    declare public readonly blockSize: pulumi.Output<number | undefined>;
     /**
      * The Base64 string representation of the Keytab file.
      */
-    public readonly kerberosKeytab!: pulumi.Output<string | undefined>;
+    declare public readonly kerberosKeytab: pulumi.Output<string | undefined>;
     /**
      * The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket.
      */
-    public readonly kerberosKrb5Conf!: pulumi.Output<string | undefined>;
+    declare public readonly kerberosKrb5Conf: pulumi.Output<string | undefined>;
     /**
      * The unique identity, or principal, to which Kerberos can assign tickets.
      */
-    public readonly kerberosPrincipal!: pulumi.Output<string | undefined>;
+    declare public readonly kerberosPrincipal: pulumi.Output<string | undefined>;
     /**
      * The identifier for the Key Management Server where the encryption keys that encrypt data inside HDFS clusters are stored.
      */
-    public readonly kmsKeyProviderUri!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyProviderUri: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the HDFS location.
      */
-    public /*out*/ readonly locationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationArn: pulumi.Output<string>;
     /**
      * The URL of the HDFS location that was described.
      */
-    public /*out*/ readonly locationUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationUri: pulumi.Output<string>;
     /**
      * An array of Name Node(s) of the HDFS location.
      */
-    public readonly nameNodes!: pulumi.Output<outputs.datasync.LocationHdfsNameNode[]>;
+    declare public readonly nameNodes: pulumi.Output<outputs.datasync.LocationHdfsNameNode[]>;
     /**
      * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
      */
-    public readonly qopConfiguration!: pulumi.Output<outputs.datasync.LocationHdfsQopConfiguration | undefined>;
+    declare public readonly qopConfiguration: pulumi.Output<outputs.datasync.LocationHdfsQopConfiguration | undefined>;
     /**
      * Number of copies of each block that exists inside the HDFS cluster.
      */
-    public readonly replicationFactor!: pulumi.Output<number | undefined>;
+    declare public readonly replicationFactor: pulumi.Output<number | undefined>;
     /**
      * The user name that has read and write permissions on the specified HDFS cluster.
      */
-    public readonly simpleUser!: pulumi.Output<string | undefined>;
+    declare public readonly simpleUser: pulumi.Output<string | undefined>;
     /**
      * The subdirectory in HDFS that is used to read data from the HDFS source location or write data to the HDFS destination.
      */
-    public readonly subdirectory!: pulumi.Output<string | undefined>;
+    declare public readonly subdirectory: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LocationHdfs resource with the given unique name, arguments, and options.
@@ -109,28 +109,28 @@ export class LocationHdfs extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agentArns === undefined) && !opts.urn) {
+            if (args?.agentArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentArns'");
             }
-            if ((!args || args.authenticationType === undefined) && !opts.urn) {
+            if (args?.authenticationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationType'");
             }
-            if ((!args || args.nameNodes === undefined) && !opts.urn) {
+            if (args?.nameNodes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nameNodes'");
             }
-            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
-            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
-            resourceInputs["blockSize"] = args ? args.blockSize : undefined;
-            resourceInputs["kerberosKeytab"] = args ? args.kerberosKeytab : undefined;
-            resourceInputs["kerberosKrb5Conf"] = args ? args.kerberosKrb5Conf : undefined;
-            resourceInputs["kerberosPrincipal"] = args ? args.kerberosPrincipal : undefined;
-            resourceInputs["kmsKeyProviderUri"] = args ? args.kmsKeyProviderUri : undefined;
-            resourceInputs["nameNodes"] = args ? args.nameNodes : undefined;
-            resourceInputs["qopConfiguration"] = args ? args.qopConfiguration : undefined;
-            resourceInputs["replicationFactor"] = args ? args.replicationFactor : undefined;
-            resourceInputs["simpleUser"] = args ? args.simpleUser : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentArns"] = args?.agentArns;
+            resourceInputs["authenticationType"] = args?.authenticationType;
+            resourceInputs["blockSize"] = args?.blockSize;
+            resourceInputs["kerberosKeytab"] = args?.kerberosKeytab;
+            resourceInputs["kerberosKrb5Conf"] = args?.kerberosKrb5Conf;
+            resourceInputs["kerberosPrincipal"] = args?.kerberosPrincipal;
+            resourceInputs["kmsKeyProviderUri"] = args?.kmsKeyProviderUri;
+            resourceInputs["nameNodes"] = args?.nameNodes;
+            resourceInputs["qopConfiguration"] = args?.qopConfiguration;
+            resourceInputs["replicationFactor"] = args?.replicationFactor;
+            resourceInputs["simpleUser"] = args?.simpleUser;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
         } else {

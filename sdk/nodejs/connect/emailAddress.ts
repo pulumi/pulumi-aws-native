@@ -40,27 +40,27 @@ export class EmailAddress extends pulumi.CustomResource {
     /**
      * A description for the email address.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name for the email address.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Email address to be created for this instance
      */
-    public readonly emailAddress!: pulumi.Output<string>;
+    declare public readonly emailAddress: pulumi.Output<string>;
     /**
      * The identifier of the email address.
      */
-    public /*out*/ readonly emailAddressArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly emailAddressArn: pulumi.Output<string>;
     /**
      * The identifier of the Amazon Connect instance.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EmailAddress resource with the given unique name, arguments, and options.
@@ -73,17 +73,17 @@ export class EmailAddress extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.emailAddress === undefined) && !opts.urn) {
+            if (args?.emailAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailAddress'");
             }
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["emailAddress"] = args ? args.emailAddress : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["emailAddress"] = args?.emailAddress;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["emailAddressArn"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

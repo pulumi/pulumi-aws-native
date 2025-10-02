@@ -79,23 +79,23 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking rule set resource and uniquely identifies it.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * A unique identifier for the matchmaking rule set.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A collection of matchmaking rules, formatted as a JSON string.
      */
-    public readonly ruleSetBody!: pulumi.Output<string>;
+    declare public readonly ruleSetBody: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MatchmakingRuleSet resource with the given unique name, arguments, and options.
@@ -108,12 +108,12 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ruleSetBody === undefined) && !opts.urn) {
+            if (args?.ruleSetBody === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetBody'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ruleSetBody"] = args ? args.ruleSetBody : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ruleSetBody"] = args?.ruleSetBody;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
         } else {

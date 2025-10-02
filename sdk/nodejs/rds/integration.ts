@@ -41,43 +41,43 @@ export class Integration extends pulumi.CustomResource {
      * An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *Key Management Service Developer Guide*.
      *  You can only include this parameter if you specify the ``KMSKeyId`` parameter.
      */
-    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The time when the integration was created, in Universal Coordinated Time (UTC).
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
      * Data filters for the integration. These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
      */
-    public readonly dataFilter!: pulumi.Output<string | undefined>;
+    declare public readonly dataFilter: pulumi.Output<string | undefined>;
     /**
      * A description of the integration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ARN of the integration.
      */
-    public /*out*/ readonly integrationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly integrationArn: pulumi.Output<string>;
     /**
      * The name of the integration.
      */
-    public readonly integrationName!: pulumi.Output<string | undefined>;
+    declare public readonly integrationName: pulumi.Output<string | undefined>;
     /**
      * The AWS Key Management System (AWS KMS) key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the database to use as the source for replication.
      */
-    public readonly sourceArn!: pulumi.Output<string>;
+    declare public readonly sourceArn: pulumi.Output<string>;
     /**
      * A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the Redshift data warehouse to use as the target for replication.
      */
-    public readonly targetArn!: pulumi.Output<string>;
+    declare public readonly targetArn: pulumi.Output<string>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -90,20 +90,20 @@ export class Integration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sourceArn === undefined) && !opts.urn) {
+            if (args?.sourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
-            if ((!args || args.targetArn === undefined) && !opts.urn) {
+            if (args?.targetArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
-            resourceInputs["dataFilter"] = args ? args.dataFilter : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["integrationName"] = args ? args.integrationName : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetArn"] = args ? args.targetArn : undefined;
+            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
+            resourceInputs["dataFilter"] = args?.dataFilter;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["integrationName"] = args?.integrationName;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["sourceArn"] = args?.sourceArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetArn"] = args?.targetArn;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["integrationArn"] = undefined /*out*/;
         } else {

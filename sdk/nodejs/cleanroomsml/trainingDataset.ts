@@ -40,33 +40,33 @@ export class TrainingDataset extends pulumi.CustomResource {
     /**
      * The description of the training dataset.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the training dataset.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the `dataSource` field of each dataset.
      *
      * Passing a role across accounts is not allowed. If you pass a role that isn't in your account, you get an `AccessDeniedException` error.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The status of the training dataset.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.cleanroomsml.TrainingDatasetStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.cleanroomsml.TrainingDatasetStatus>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms-ml training dataset.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
      */
-    public readonly trainingData!: pulumi.Output<outputs.cleanroomsml.TrainingDatasetDataset[]>;
+    declare public readonly trainingData: pulumi.Output<outputs.cleanroomsml.TrainingDatasetDataset[]>;
     /**
      * The Amazon Resource Name (ARN) of the training dataset.
      */
-    public /*out*/ readonly trainingDatasetArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly trainingDatasetArn: pulumi.Output<string>;
 
     /**
      * Create a TrainingDataset resource with the given unique name, arguments, and options.
@@ -79,17 +79,17 @@ export class TrainingDataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.trainingData === undefined) && !opts.urn) {
+            if (args?.trainingData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trainingData'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trainingData"] = args ? args.trainingData : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trainingData"] = args?.trainingData;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["trainingDatasetArn"] = undefined /*out*/;
         } else {

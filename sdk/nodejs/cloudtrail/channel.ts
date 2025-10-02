@@ -40,23 +40,23 @@ export class Channel extends pulumi.CustomResource {
     /**
      * `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
      */
-    public /*out*/ readonly channelArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly channelArn: pulumi.Output<string>;
     /**
      * One or more resources to which events arriving through a channel are logged and stored.
      */
-    public readonly destinations!: pulumi.Output<outputs.cloudtrail.ChannelDestination[] | undefined>;
+    declare public readonly destinations: pulumi.Output<outputs.cloudtrail.ChannelDestination[] | undefined>;
     /**
      * The name of the channel.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The ARN of an on-premises storage solution or application, or a partner event source.
      */
-    public readonly source!: pulumi.Output<string | undefined>;
+    declare public readonly source: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -69,10 +69,10 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["destinations"] = args ? args.destinations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["destinations"] = args?.destinations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["channelArn"] = undefined /*out*/;
         } else {
             resourceInputs["channelArn"] = undefined /*out*/;

@@ -40,31 +40,31 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
     /**
      * The ID of the network interface attachment.
      */
-    public /*out*/ readonly attachmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentId: pulumi.Output<string>;
     /**
      * Whether to delete the network interface when the instance terminates. By default, this value is set to true.
      */
-    public readonly deleteOnTermination!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteOnTermination: pulumi.Output<boolean | undefined>;
     /**
      * The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
      */
-    public readonly deviceIndex!: pulumi.Output<string>;
+    declare public readonly deviceIndex: pulumi.Output<string>;
     /**
      * The number of ENA queues to be created with the instance.
      */
-    public readonly enaQueueCount!: pulumi.Output<number | undefined>;
+    declare public readonly enaQueueCount: pulumi.Output<number | undefined>;
     /**
      * Configures ENA Express for the network interface that this action attaches to the instance.
      */
-    public readonly enaSrdSpecification!: pulumi.Output<outputs.ec2.NetworkInterfaceAttachmentEnaSrdSpecification | undefined>;
+    declare public readonly enaSrdSpecification: pulumi.Output<outputs.ec2.NetworkInterfaceAttachmentEnaSrdSpecification | undefined>;
     /**
      * The ID of the instance to which you will attach the ENI.
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    declare public readonly instanceId: pulumi.Output<string>;
     /**
      * The ID of the ENI that you want to attach.
      */
-    public readonly networkInterfaceId!: pulumi.Output<string>;
+    declare public readonly networkInterfaceId: pulumi.Output<string>;
 
     /**
      * Create a NetworkInterfaceAttachment resource with the given unique name, arguments, and options.
@@ -77,21 +77,21 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceIndex === undefined) && !opts.urn) {
+            if (args?.deviceIndex === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceIndex'");
             }
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
+            if (args?.networkInterfaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            resourceInputs["deleteOnTermination"] = args ? args.deleteOnTermination : undefined;
-            resourceInputs["deviceIndex"] = args ? args.deviceIndex : undefined;
-            resourceInputs["enaQueueCount"] = args ? args.enaQueueCount : undefined;
-            resourceInputs["enaSrdSpecification"] = args ? args.enaSrdSpecification : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["deleteOnTermination"] = args?.deleteOnTermination;
+            resourceInputs["deviceIndex"] = args?.deviceIndex;
+            resourceInputs["enaQueueCount"] = args?.enaQueueCount;
+            resourceInputs["enaSrdSpecification"] = args?.enaSrdSpecification;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
             resourceInputs["attachmentId"] = undefined /*out*/;
         } else {
             resourceInputs["attachmentId"] = undefined /*out*/;

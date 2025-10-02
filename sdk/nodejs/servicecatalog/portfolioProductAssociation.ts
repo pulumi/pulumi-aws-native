@@ -37,19 +37,19 @@ export class PortfolioProductAssociation extends pulumi.CustomResource {
     /**
      * The language code.
      */
-    public readonly acceptLanguage!: pulumi.Output<string | undefined>;
+    declare public readonly acceptLanguage: pulumi.Output<string | undefined>;
     /**
      * The portfolio identifier.
      */
-    public readonly portfolioId!: pulumi.Output<string | undefined>;
+    declare public readonly portfolioId: pulumi.Output<string | undefined>;
     /**
      * The product identifier.
      */
-    public readonly productId!: pulumi.Output<string | undefined>;
+    declare public readonly productId: pulumi.Output<string | undefined>;
     /**
      * The identifier of the source portfolio. The source portfolio must be a portfolio imported from a different account than the one creating the association. This account must have previously shared this portfolio with the account creating the association.
      */
-    public readonly sourcePortfolioId!: pulumi.Output<string | undefined>;
+    declare public readonly sourcePortfolioId: pulumi.Output<string | undefined>;
 
     /**
      * Create a PortfolioProductAssociation resource with the given unique name, arguments, and options.
@@ -62,10 +62,10 @@ export class PortfolioProductAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
-            resourceInputs["productId"] = args ? args.productId : undefined;
-            resourceInputs["sourcePortfolioId"] = args ? args.sourcePortfolioId : undefined;
+            resourceInputs["acceptLanguage"] = args?.acceptLanguage;
+            resourceInputs["portfolioId"] = args?.portfolioId;
+            resourceInputs["productId"] = args?.productId;
+            resourceInputs["sourcePortfolioId"] = args?.sourcePortfolioId;
         } else {
             resourceInputs["acceptLanguage"] = undefined /*out*/;
             resourceInputs["portfolioId"] = undefined /*out*/;

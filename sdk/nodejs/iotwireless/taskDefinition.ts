@@ -40,35 +40,35 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * TaskDefinition arn. Returned after successful create.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
      */
-    public readonly autoCreateTasks!: pulumi.Output<boolean>;
+    declare public readonly autoCreateTasks: pulumi.Output<boolean>;
     /**
      * The ID of the new wireless gateway task definition
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The list of task definitions.
      */
-    public readonly loRaWanUpdateGatewayTaskEntry!: pulumi.Output<outputs.iotwireless.TaskDefinitionLoRaWanUpdateGatewayTaskEntry | undefined>;
+    declare public readonly loRaWanUpdateGatewayTaskEntry: pulumi.Output<outputs.iotwireless.TaskDefinitionLoRaWanUpdateGatewayTaskEntry | undefined>;
     /**
      * The name of the new resource.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the destination.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A filter to list only the wireless gateway task definitions that use this task definition type
      */
-    public readonly taskDefinitionType!: pulumi.Output<enums.iotwireless.TaskDefinitionType | undefined>;
+    declare public readonly taskDefinitionType: pulumi.Output<enums.iotwireless.TaskDefinitionType | undefined>;
     /**
      * Information about the gateways to update.
      */
-    public readonly update!: pulumi.Output<outputs.iotwireless.TaskDefinitionUpdateWirelessGatewayTaskCreate | undefined>;
+    declare public readonly update: pulumi.Output<outputs.iotwireless.TaskDefinitionUpdateWirelessGatewayTaskCreate | undefined>;
 
     /**
      * Create a TaskDefinition resource with the given unique name, arguments, and options.
@@ -81,15 +81,15 @@ export class TaskDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoCreateTasks === undefined) && !opts.urn) {
+            if (args?.autoCreateTasks === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoCreateTasks'");
             }
-            resourceInputs["autoCreateTasks"] = args ? args.autoCreateTasks : undefined;
-            resourceInputs["loRaWanUpdateGatewayTaskEntry"] = args ? args.loRaWanUpdateGatewayTaskEntry : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taskDefinitionType"] = args ? args.taskDefinitionType : undefined;
-            resourceInputs["update"] = args ? args.update : undefined;
+            resourceInputs["autoCreateTasks"] = args?.autoCreateTasks;
+            resourceInputs["loRaWanUpdateGatewayTaskEntry"] = args?.loRaWanUpdateGatewayTaskEntry;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taskDefinitionType"] = args?.taskDefinitionType;
+            resourceInputs["update"] = args?.update;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

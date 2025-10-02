@@ -48,7 +48,7 @@ export class UserPoolClient extends pulumi.CustomResource {
      * If you don't specify otherwise in the configuration of your app client, your access
      * tokens are valid for one hour.
      */
-    public readonly accessTokenValidity!: pulumi.Output<number | undefined>;
+    declare public readonly accessTokenValidity: pulumi.Output<number | undefined>;
     /**
      * The OAuth grant types that you want your app client to generate for clients in managed login authentication. To create an app client that generates client credentials grants, you must add `client_credentials` as the only allowed OAuth flow.
      *
@@ -56,7 +56,7 @@ export class UserPoolClient extends pulumi.CustomResource {
      * - **implicit** - Issue the access token, and the ID token when scopes like `openid` and `profile` are requested, directly to your user.
      * - **client_credentials** - Issue the access token from the `/oauth2/token` endpoint directly to a non-person user, authorized by a combination of the client ID and client secret.
      */
-    public readonly allowedOAuthFlows!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedOAuthFlows: pulumi.Output<string[] | undefined>;
     /**
      * Set to `true` to use OAuth 2.0 authorization server features in your app client.
      *
@@ -69,21 +69,21 @@ export class UserPoolClient extends pulumi.CustomResource {
      *
      * To use authorization server features, configure one of these features in the Amazon Cognito console or set `AllowedOAuthFlowsUserPoolClient` to `true` in a `CreateUserPoolClient` or `UpdateUserPoolClient` API request. If you don't set a value for `AllowedOAuthFlowsUserPoolClient` in a request with the AWS CLI or SDKs, it defaults to `false` . When `false` , only SDK-based API sign-in is permitted.
      */
-    public readonly allowedOAuthFlowsUserPoolClient!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowedOAuthFlowsUserPoolClient: pulumi.Output<boolean | undefined>;
     /**
      * The OAuth, OpenID Connect (OIDC), and custom scopes that you want to permit your app client to authorize access with. Scopes govern access control to user pool self-service API operations, user data from the `userInfo` endpoint, and third-party APIs. Scope values include `phone` , `email` , `openid` , and `profile` . The `aws.cognito.signin.user.admin` scope authorizes user self-service operations. Custom scopes with resource servers authorize access to external APIs.
      */
-    public readonly allowedOAuthScopes!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedOAuthScopes: pulumi.Output<string[] | undefined>;
     /**
      * The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
      *
      * In AWS Regions where Amazon Pinpoint isn't available, user pools might not have access to analytics or might be configurable with campaigns in the US East (N. Virginia) Region. For more information, see [Using Amazon Pinpoint analytics](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-pinpoint-integration.html) .
      */
-    public readonly analyticsConfiguration!: pulumi.Output<outputs.cognito.UserPoolClientAnalyticsConfiguration | undefined>;
+    declare public readonly analyticsConfiguration: pulumi.Output<outputs.cognito.UserPoolClientAnalyticsConfiguration | undefined>;
     /**
      * Amazon Cognito creates a session token for each API request in an authentication flow. `AuthSessionValidity` is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.
      */
-    public readonly authSessionValidity!: pulumi.Output<number | undefined>;
+    declare public readonly authSessionValidity: pulumi.Output<number | undefined>;
     /**
      * A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.
      *
@@ -99,30 +99,30 @@ export class UserPoolClient extends pulumi.CustomResource {
      *
      * App callback URLs such as `myapp://example` are also supported.
      */
-    public readonly callbackUrls!: pulumi.Output<string[] | undefined>;
+    declare public readonly callbackUrls: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the app client, for example `1example23456789` .
      */
-    public /*out*/ readonly clientId!: pulumi.Output<string>;
+    declare public /*out*/ readonly clientId: pulumi.Output<string>;
     /**
      * A friendly name for the app client that you want to create.
      */
-    public readonly clientName!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly clientSecret!: pulumi.Output<string>;
+    declare public readonly clientName: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly clientSecret: pulumi.Output<string>;
     /**
      * The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
      */
-    public readonly defaultRedirectUri!: pulumi.Output<string | undefined>;
+    declare public readonly defaultRedirectUri: pulumi.Output<string | undefined>;
     /**
      * When `true` , your application can include additional `UserContextData` in authentication requests. This data includes the IP address, and contributes to analysis by threat protection features. For more information about propagation of user context data, see [Adding session data to API requests](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint) . If you don’t include this parameter, you can't send the source IP address to Amazon Cognito threat protection features. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
      */
-    public readonly enablePropagateAdditionalUserContextData!: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePropagateAdditionalUserContextData: pulumi.Output<boolean | undefined>;
     /**
      * Activates or deactivates token revocation.
      *
      * If you don't include this parameter, token revocation is automatically activated for the new user pool client.
      */
-    public readonly enableTokenRevocation!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableTokenRevocation: pulumi.Output<boolean | undefined>;
     /**
      * The [authentication flows](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html) that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.
      *
@@ -142,11 +142,11 @@ export class UserPoolClient extends pulumi.CustomResource {
      * In some environments, you will see the values `ADMIN_NO_SRP_AUTH` , `CUSTOM_AUTH_FLOW_ONLY` , or `USER_PASSWORD_AUTH` . You can't assign these legacy `ExplicitAuthFlows` values to user pool clients at the same time as values that begin with `ALLOW_` ,
      * like `ALLOW_USER_SRP_AUTH` .
      */
-    public readonly explicitAuthFlows!: pulumi.Output<string[] | undefined>;
+    declare public readonly explicitAuthFlows: pulumi.Output<string[] | undefined>;
     /**
      * When `true` , generates a client secret for the app client. Client secrets are used with server-side and machine-to-machine applications. Client secrets are automatically generated; you can't specify a secret value. For more information, see [App client types](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#user-pool-settings-client-app-client-types) .
      */
-    public readonly generateSecret!: pulumi.Output<boolean | undefined>;
+    declare public readonly generateSecret: pulumi.Output<boolean | undefined>;
     /**
      * The ID token time limit. After this limit expires, your user can't use their ID token. To specify the time unit for `IdTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
      *
@@ -157,12 +157,12 @@ export class UserPoolClient extends pulumi.CustomResource {
      * If you don't specify otherwise in the configuration of your app client, your ID
      * tokens are valid for one hour.
      */
-    public readonly idTokenValidity!: pulumi.Output<number | undefined>;
+    declare public readonly idTokenValidity: pulumi.Output<number | undefined>;
     /**
      * A list of allowed logout URLs for managed login authentication. When you pass `logout_uri` and `client_id` parameters to `/logout` , Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of `logout_uri` . A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see [Logout endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html) .
      */
-    public readonly logoutUrls!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public readonly logoutUrls: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Errors and responses that you want Amazon Cognito APIs to return during authentication, account confirmation, and password recovery when the user doesn't exist in the user pool. When set to `ENABLED` and the user doesn't exist, authentication returns an error indicating either the username or password was incorrect. Account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY` , those APIs return a `UserNotFoundException` exception if the user doesn't exist in the user pool.
      *
@@ -173,17 +173,17 @@ export class UserPoolClient extends pulumi.CustomResource {
      *
      * Defaults to `LEGACY` when you don't provide a value.
      */
-    public readonly preventUserExistenceErrors!: pulumi.Output<string | undefined>;
+    declare public readonly preventUserExistenceErrors: pulumi.Output<string | undefined>;
     /**
      * The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list. An example of this kind of activity is when your user selects a link to view their profile information.
      *
      * When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
      */
-    public readonly readAttributes!: pulumi.Output<string[] | undefined>;
+    declare public readonly readAttributes: pulumi.Output<string[] | undefined>;
     /**
      * The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.
      */
-    public readonly refreshTokenRotation!: pulumi.Output<outputs.cognito.UserPoolClientRefreshTokenRotation | undefined>;
+    declare public readonly refreshTokenRotation: pulumi.Output<outputs.cognito.UserPoolClientRefreshTokenRotation | undefined>;
     /**
      * The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
      *
@@ -195,21 +195,21 @@ export class UserPoolClient extends pulumi.CustomResource {
      * If you don't specify otherwise in the configuration of your app client, your refresh
      * tokens are valid for 30 days.
      */
-    public readonly refreshTokenValidity!: pulumi.Output<number | undefined>;
+    declare public readonly refreshTokenValidity: pulumi.Output<number | undefined>;
     /**
      * A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
      *
      * This parameter sets the IdPs that [managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) will display on the login page for your app client. The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent SDK-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
      */
-    public readonly supportedIdentityProviders!: pulumi.Output<string[] | undefined>;
+    declare public readonly supportedIdentityProviders: pulumi.Output<string[] | undefined>;
     /**
      * The units that validity times are represented in. The default unit for refresh tokens is days, and the default for ID and access tokens are hours.
      */
-    public readonly tokenValidityUnits!: pulumi.Output<outputs.cognito.UserPoolClientTokenValidityUnits | undefined>;
+    declare public readonly tokenValidityUnits: pulumi.Output<outputs.cognito.UserPoolClientTokenValidityUnits | undefined>;
     /**
      * The ID of the user pool where you want to create an app client.
      */
-    public readonly userPoolId!: pulumi.Output<string>;
+    declare public readonly userPoolId: pulumi.Output<string>;
     /**
      * The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.
      *
@@ -217,7 +217,7 @@ export class UserPoolClient extends pulumi.CustomResource {
      *
      * If your app client allows users to sign in through an IdP, this array must include all attributes that you have mapped to IdP attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an IdP. If your app client does not have write access to a mapped attribute, Amazon Cognito throws an error when it tries to update the attribute. For more information, see [Specifying IdP Attribute Mappings for Your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
      */
-    public readonly writeAttributes!: pulumi.Output<string[] | undefined>;
+    declare public readonly writeAttributes: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a UserPoolClient resource with the given unique name, arguments, and options.
@@ -230,32 +230,32 @@ export class UserPoolClient extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["accessTokenValidity"] = args ? args.accessTokenValidity : undefined;
-            resourceInputs["allowedOAuthFlows"] = args ? args.allowedOAuthFlows : undefined;
-            resourceInputs["allowedOAuthFlowsUserPoolClient"] = args ? args.allowedOAuthFlowsUserPoolClient : undefined;
-            resourceInputs["allowedOAuthScopes"] = args ? args.allowedOAuthScopes : undefined;
-            resourceInputs["analyticsConfiguration"] = args ? args.analyticsConfiguration : undefined;
-            resourceInputs["authSessionValidity"] = args ? args.authSessionValidity : undefined;
-            resourceInputs["callbackUrls"] = args ? args.callbackUrls : undefined;
-            resourceInputs["clientName"] = args ? args.clientName : undefined;
-            resourceInputs["defaultRedirectUri"] = args ? args.defaultRedirectUri : undefined;
-            resourceInputs["enablePropagateAdditionalUserContextData"] = args ? args.enablePropagateAdditionalUserContextData : undefined;
-            resourceInputs["enableTokenRevocation"] = args ? args.enableTokenRevocation : undefined;
-            resourceInputs["explicitAuthFlows"] = args ? args.explicitAuthFlows : undefined;
-            resourceInputs["generateSecret"] = args ? args.generateSecret : undefined;
-            resourceInputs["idTokenValidity"] = args ? args.idTokenValidity : undefined;
-            resourceInputs["logoutUrls"] = args ? args.logoutUrls : undefined;
-            resourceInputs["preventUserExistenceErrors"] = args ? args.preventUserExistenceErrors : undefined;
-            resourceInputs["readAttributes"] = args ? args.readAttributes : undefined;
-            resourceInputs["refreshTokenRotation"] = args ? args.refreshTokenRotation : undefined;
-            resourceInputs["refreshTokenValidity"] = args ? args.refreshTokenValidity : undefined;
-            resourceInputs["supportedIdentityProviders"] = args ? args.supportedIdentityProviders : undefined;
-            resourceInputs["tokenValidityUnits"] = args ? args.tokenValidityUnits : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
-            resourceInputs["writeAttributes"] = args ? args.writeAttributes : undefined;
+            resourceInputs["accessTokenValidity"] = args?.accessTokenValidity;
+            resourceInputs["allowedOAuthFlows"] = args?.allowedOAuthFlows;
+            resourceInputs["allowedOAuthFlowsUserPoolClient"] = args?.allowedOAuthFlowsUserPoolClient;
+            resourceInputs["allowedOAuthScopes"] = args?.allowedOAuthScopes;
+            resourceInputs["analyticsConfiguration"] = args?.analyticsConfiguration;
+            resourceInputs["authSessionValidity"] = args?.authSessionValidity;
+            resourceInputs["callbackUrls"] = args?.callbackUrls;
+            resourceInputs["clientName"] = args?.clientName;
+            resourceInputs["defaultRedirectUri"] = args?.defaultRedirectUri;
+            resourceInputs["enablePropagateAdditionalUserContextData"] = args?.enablePropagateAdditionalUserContextData;
+            resourceInputs["enableTokenRevocation"] = args?.enableTokenRevocation;
+            resourceInputs["explicitAuthFlows"] = args?.explicitAuthFlows;
+            resourceInputs["generateSecret"] = args?.generateSecret;
+            resourceInputs["idTokenValidity"] = args?.idTokenValidity;
+            resourceInputs["logoutUrls"] = args?.logoutUrls;
+            resourceInputs["preventUserExistenceErrors"] = args?.preventUserExistenceErrors;
+            resourceInputs["readAttributes"] = args?.readAttributes;
+            resourceInputs["refreshTokenRotation"] = args?.refreshTokenRotation;
+            resourceInputs["refreshTokenValidity"] = args?.refreshTokenValidity;
+            resourceInputs["supportedIdentityProviders"] = args?.supportedIdentityProviders;
+            resourceInputs["tokenValidityUnits"] = args?.tokenValidityUnits;
+            resourceInputs["userPoolId"] = args?.userPoolId;
+            resourceInputs["writeAttributes"] = args?.writeAttributes;
             resourceInputs["clientId"] = undefined /*out*/;
             resourceInputs["clientSecret"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -40,87 +40,87 @@ export class FlowSource extends pulumi.CustomResource {
     /**
      * The type of encryption that is used on the content ingested from this source.
      */
-    public readonly decryption!: pulumi.Output<outputs.mediaconnect.FlowSourceEncryption | undefined>;
+    declare public readonly decryption: pulumi.Output<outputs.mediaconnect.FlowSourceEncryption | undefined>;
     /**
      * A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
      */
-    public readonly entitlementArn!: pulumi.Output<string | undefined>;
+    declare public readonly entitlementArn: pulumi.Output<string | undefined>;
     /**
      * The ARN of the flow.
      */
-    public readonly flowArn!: pulumi.Output<string | undefined>;
+    declare public readonly flowArn: pulumi.Output<string | undefined>;
     /**
      * The source configuration for cloud flows receiving a stream from a bridge.
      */
-    public readonly gatewayBridgeSource!: pulumi.Output<outputs.mediaconnect.FlowSourceGatewayBridgeSource | undefined>;
+    declare public readonly gatewayBridgeSource: pulumi.Output<outputs.mediaconnect.FlowSourceGatewayBridgeSource | undefined>;
     /**
      * The IP address that the flow will be listening on for incoming content.
      */
-    public /*out*/ readonly ingestIp!: pulumi.Output<string>;
+    declare public /*out*/ readonly ingestIp: pulumi.Output<string>;
     /**
      * The port that the flow will be listening on for incoming content.
      */
-    public readonly ingestPort!: pulumi.Output<number | undefined>;
+    declare public readonly ingestPort: pulumi.Output<number | undefined>;
     /**
      * The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
      */
-    public readonly maxBitrate!: pulumi.Output<number | undefined>;
+    declare public readonly maxBitrate: pulumi.Output<number | undefined>;
     /**
      * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
      */
-    public readonly maxLatency!: pulumi.Output<number | undefined>;
+    declare public readonly maxLatency: pulumi.Output<number | undefined>;
     /**
      * The minimum latency in milliseconds.
      */
-    public readonly minLatency!: pulumi.Output<number | undefined>;
+    declare public readonly minLatency: pulumi.Output<number | undefined>;
     /**
      * The name of the source.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The protocol that is used by the source.
      */
-    public readonly protocol!: pulumi.Output<enums.mediaconnect.FlowSourceProtocol | undefined>;
+    declare public readonly protocol: pulumi.Output<enums.mediaconnect.FlowSourceProtocol | undefined>;
     /**
      * The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
      */
-    public readonly senderControlPort!: pulumi.Output<number | undefined>;
+    declare public readonly senderControlPort: pulumi.Output<number | undefined>;
     /**
      * The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
      */
-    public readonly senderIpAddress!: pulumi.Output<string | undefined>;
+    declare public readonly senderIpAddress: pulumi.Output<string | undefined>;
     /**
      * The ARN of the source.
      */
-    public /*out*/ readonly sourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly sourceArn: pulumi.Output<string>;
     /**
      * The port that the flow will be listening on for incoming content.(ReadOnly)
      */
-    public /*out*/ readonly sourceIngestPort!: pulumi.Output<string>;
+    declare public /*out*/ readonly sourceIngestPort: pulumi.Output<string>;
     /**
      * Source IP or domain name for SRT-caller protocol.
      */
-    public readonly sourceListenerAddress!: pulumi.Output<string | undefined>;
+    declare public readonly sourceListenerAddress: pulumi.Output<string | undefined>;
     /**
      * Source port for SRT-caller protocol.
      */
-    public readonly sourceListenerPort!: pulumi.Output<number | undefined>;
+    declare public readonly sourceListenerPort: pulumi.Output<number | undefined>;
     /**
      * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
      */
-    public readonly streamId!: pulumi.Output<string | undefined>;
+    declare public readonly streamId: pulumi.Output<string | undefined>;
     /**
      * The name of the VPC Interface this Source is configured with.
      */
-    public readonly vpcInterfaceName!: pulumi.Output<string | undefined>;
+    declare public readonly vpcInterfaceName: pulumi.Output<string | undefined>;
     /**
      * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
      */
-    public readonly whitelistCidr!: pulumi.Output<string | undefined>;
+    declare public readonly whitelistCidr: pulumi.Output<string | undefined>;
 
     /**
      * Create a FlowSource resource with the given unique name, arguments, and options.
@@ -133,27 +133,27 @@ export class FlowSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            resourceInputs["decryption"] = args ? args.decryption : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["entitlementArn"] = args ? args.entitlementArn : undefined;
-            resourceInputs["flowArn"] = args ? args.flowArn : undefined;
-            resourceInputs["gatewayBridgeSource"] = args ? args.gatewayBridgeSource : undefined;
-            resourceInputs["ingestPort"] = args ? args.ingestPort : undefined;
-            resourceInputs["maxBitrate"] = args ? args.maxBitrate : undefined;
-            resourceInputs["maxLatency"] = args ? args.maxLatency : undefined;
-            resourceInputs["minLatency"] = args ? args.minLatency : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["senderControlPort"] = args ? args.senderControlPort : undefined;
-            resourceInputs["senderIpAddress"] = args ? args.senderIpAddress : undefined;
-            resourceInputs["sourceListenerAddress"] = args ? args.sourceListenerAddress : undefined;
-            resourceInputs["sourceListenerPort"] = args ? args.sourceListenerPort : undefined;
-            resourceInputs["streamId"] = args ? args.streamId : undefined;
-            resourceInputs["vpcInterfaceName"] = args ? args.vpcInterfaceName : undefined;
-            resourceInputs["whitelistCidr"] = args ? args.whitelistCidr : undefined;
+            resourceInputs["decryption"] = args?.decryption;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["entitlementArn"] = args?.entitlementArn;
+            resourceInputs["flowArn"] = args?.flowArn;
+            resourceInputs["gatewayBridgeSource"] = args?.gatewayBridgeSource;
+            resourceInputs["ingestPort"] = args?.ingestPort;
+            resourceInputs["maxBitrate"] = args?.maxBitrate;
+            resourceInputs["maxLatency"] = args?.maxLatency;
+            resourceInputs["minLatency"] = args?.minLatency;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["senderControlPort"] = args?.senderControlPort;
+            resourceInputs["senderIpAddress"] = args?.senderIpAddress;
+            resourceInputs["sourceListenerAddress"] = args?.sourceListenerAddress;
+            resourceInputs["sourceListenerPort"] = args?.sourceListenerPort;
+            resourceInputs["streamId"] = args?.streamId;
+            resourceInputs["vpcInterfaceName"] = args?.vpcInterfaceName;
+            resourceInputs["whitelistCidr"] = args?.whitelistCidr;
             resourceInputs["ingestIp"] = undefined /*out*/;
             resourceInputs["sourceArn"] = undefined /*out*/;
             resourceInputs["sourceIngestPort"] = undefined /*out*/;

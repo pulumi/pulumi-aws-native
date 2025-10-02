@@ -40,99 +40,99 @@ export class IpamPool extends pulumi.CustomResource {
     /**
      * The address family of the address space in this pool. Either IPv4 or IPv6.
      */
-    public readonly addressFamily!: pulumi.Output<string>;
+    declare public readonly addressFamily: pulumi.Output<string>;
     /**
      * The default netmask length for allocations made from this pool. This value is used when the netmask length of an allocation isn't specified.
      */
-    public readonly allocationDefaultNetmaskLength!: pulumi.Output<number | undefined>;
+    declare public readonly allocationDefaultNetmaskLength: pulumi.Output<number | undefined>;
     /**
      * The maximum allowed netmask length for allocations made from this pool.
      */
-    public readonly allocationMaxNetmaskLength!: pulumi.Output<number | undefined>;
+    declare public readonly allocationMaxNetmaskLength: pulumi.Output<number | undefined>;
     /**
      * The minimum allowed netmask length for allocations made from this pool.
      */
-    public readonly allocationMinNetmaskLength!: pulumi.Output<number | undefined>;
+    declare public readonly allocationMinNetmaskLength: pulumi.Output<number | undefined>;
     /**
      * When specified, an allocation will not be allowed unless a resource has a matching set of tags.
      */
-    public readonly allocationResourceTags!: pulumi.Output<outputs.ec2.IpamPoolTag[] | undefined>;
+    declare public readonly allocationResourceTags: pulumi.Output<outputs.ec2.IpamPoolTag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IPAM Pool.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
      */
-    public readonly autoImport!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoImport: pulumi.Output<boolean | undefined>;
     /**
      * Limits which service in Amazon Web Services that the pool can be used in.
      */
-    public readonly awsService!: pulumi.Output<enums.ec2.IpamPoolAwsService | undefined>;
+    declare public readonly awsService: pulumi.Output<enums.ec2.IpamPoolAwsService | undefined>;
     /**
      * The description of the IPAM pool.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IPAM this pool is a part of.
      */
-    public /*out*/ readonly ipamArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamArn: pulumi.Output<string>;
     /**
      * Id of the IPAM Pool.
      */
-    public /*out*/ readonly ipamPoolId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamPoolId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the scope this pool is a part of.
      */
-    public /*out*/ readonly ipamScopeArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamScopeArn: pulumi.Output<string>;
     /**
      * The Id of the scope this pool is a part of.
      */
-    public readonly ipamScopeId!: pulumi.Output<string>;
+    declare public readonly ipamScopeId: pulumi.Output<string>;
     /**
      * Determines whether this scope contains publicly routable space or space for a private network
      */
-    public /*out*/ readonly ipamScopeType!: pulumi.Output<enums.ec2.IpamPoolIpamScopeType>;
+    declare public /*out*/ readonly ipamScopeType: pulumi.Output<enums.ec2.IpamPoolIpamScopeType>;
     /**
      * The region of this pool. If not set, this will default to "None" which will disable non-custom allocations. If the locale has been specified for the source pool, this value must match.
      */
-    public readonly locale!: pulumi.Output<string | undefined>;
+    declare public readonly locale: pulumi.Output<string | undefined>;
     /**
      * The depth of this pool in the source pool hierarchy.
      */
-    public /*out*/ readonly poolDepth!: pulumi.Output<number>;
+    declare public /*out*/ readonly poolDepth: pulumi.Output<number>;
     /**
      * A list of cidrs representing the address space available for allocation in this pool.
      */
-    public readonly provisionedCidrs!: pulumi.Output<outputs.ec2.IpamPoolProvisionedCidr[] | undefined>;
+    declare public readonly provisionedCidrs: pulumi.Output<outputs.ec2.IpamPoolProvisionedCidr[] | undefined>;
     /**
      * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
      */
-    public readonly publicIpSource!: pulumi.Output<enums.ec2.IpamPoolPublicIpSource | undefined>;
+    declare public readonly publicIpSource: pulumi.Output<enums.ec2.IpamPoolPublicIpSource | undefined>;
     /**
      * Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
      */
-    public readonly publiclyAdvertisable!: pulumi.Output<boolean | undefined>;
+    declare public readonly publiclyAdvertisable: pulumi.Output<boolean | undefined>;
     /**
      * The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
      */
-    public readonly sourceIpamPoolId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceIpamPoolId: pulumi.Output<string | undefined>;
     /**
      * The resource used to provision CIDRs to a resource planning pool.
      */
-    public readonly sourceResource!: pulumi.Output<outputs.ec2.IpamPoolSourceResource | undefined>;
+    declare public readonly sourceResource: pulumi.Output<outputs.ec2.IpamPoolSourceResource | undefined>;
     /**
      * The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
      */
-    public /*out*/ readonly state!: pulumi.Output<enums.ec2.IpamPoolState>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.ec2.IpamPoolState>;
     /**
      * An explanation of how the pool arrived at it current state.
      */
-    public /*out*/ readonly stateMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly stateMessage: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a IpamPool resource with the given unique name, arguments, and options.
@@ -145,28 +145,28 @@ export class IpamPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addressFamily === undefined) && !opts.urn) {
+            if (args?.addressFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            if ((!args || args.ipamScopeId === undefined) && !opts.urn) {
+            if (args?.ipamScopeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipamScopeId'");
             }
-            resourceInputs["addressFamily"] = args ? args.addressFamily : undefined;
-            resourceInputs["allocationDefaultNetmaskLength"] = args ? args.allocationDefaultNetmaskLength : undefined;
-            resourceInputs["allocationMaxNetmaskLength"] = args ? args.allocationMaxNetmaskLength : undefined;
-            resourceInputs["allocationMinNetmaskLength"] = args ? args.allocationMinNetmaskLength : undefined;
-            resourceInputs["allocationResourceTags"] = args ? args.allocationResourceTags : undefined;
-            resourceInputs["autoImport"] = args ? args.autoImport : undefined;
-            resourceInputs["awsService"] = args ? args.awsService : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ipamScopeId"] = args ? args.ipamScopeId : undefined;
-            resourceInputs["locale"] = args ? args.locale : undefined;
-            resourceInputs["provisionedCidrs"] = args ? args.provisionedCidrs : undefined;
-            resourceInputs["publicIpSource"] = args ? args.publicIpSource : undefined;
-            resourceInputs["publiclyAdvertisable"] = args ? args.publiclyAdvertisable : undefined;
-            resourceInputs["sourceIpamPoolId"] = args ? args.sourceIpamPoolId : undefined;
-            resourceInputs["sourceResource"] = args ? args.sourceResource : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addressFamily"] = args?.addressFamily;
+            resourceInputs["allocationDefaultNetmaskLength"] = args?.allocationDefaultNetmaskLength;
+            resourceInputs["allocationMaxNetmaskLength"] = args?.allocationMaxNetmaskLength;
+            resourceInputs["allocationMinNetmaskLength"] = args?.allocationMinNetmaskLength;
+            resourceInputs["allocationResourceTags"] = args?.allocationResourceTags;
+            resourceInputs["autoImport"] = args?.autoImport;
+            resourceInputs["awsService"] = args?.awsService;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ipamScopeId"] = args?.ipamScopeId;
+            resourceInputs["locale"] = args?.locale;
+            resourceInputs["provisionedCidrs"] = args?.provisionedCidrs;
+            resourceInputs["publicIpSource"] = args?.publicIpSource;
+            resourceInputs["publiclyAdvertisable"] = args?.publiclyAdvertisable;
+            resourceInputs["sourceIpamPoolId"] = args?.sourceIpamPoolId;
+            resourceInputs["sourceResource"] = args?.sourceResource;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ipamArn"] = undefined /*out*/;
             resourceInputs["ipamPoolId"] = undefined /*out*/;

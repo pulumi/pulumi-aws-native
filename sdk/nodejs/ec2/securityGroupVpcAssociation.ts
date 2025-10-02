@@ -40,23 +40,23 @@ export class SecurityGroupVpcAssociation extends pulumi.CustomResource {
     /**
      * The group ID of the specified security group.
      */
-    public readonly groupId!: pulumi.Output<string>;
+    declare public readonly groupId: pulumi.Output<string>;
     /**
      * The state of the security group vpc association.
      */
-    public /*out*/ readonly state!: pulumi.Output<enums.ec2.SecurityGroupVpcAssociationState>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.ec2.SecurityGroupVpcAssociationState>;
     /**
      * The reason for the state of the security group vpc association.
      */
-    public /*out*/ readonly stateReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly stateReason: pulumi.Output<string>;
     /**
      * The ID of the VPC in the security group vpc association.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
     /**
      * The owner of the VPC in the security group vpc association.
      */
-    public /*out*/ readonly vpcOwnerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcOwnerId: pulumi.Output<string>;
 
     /**
      * Create a SecurityGroupVpcAssociation resource with the given unique name, arguments, and options.
@@ -69,14 +69,14 @@ export class SecurityGroupVpcAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["stateReason"] = undefined /*out*/;
             resourceInputs["vpcOwnerId"] = undefined /*out*/;

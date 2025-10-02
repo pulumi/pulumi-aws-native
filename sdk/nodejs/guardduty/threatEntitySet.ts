@@ -40,57 +40,57 @@ export class ThreatEntitySet extends pulumi.CustomResource {
     /**
      * A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to consider the entries in this list and generate findings based on associated activity, this list must be active.
      */
-    public readonly activate!: pulumi.Output<boolean | undefined>;
+    declare public readonly activate: pulumi.Output<boolean | undefined>;
     /**
      * Returns the unique ID associated with the newly created threat entity set.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The timestamp when the threat entity set was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The unique regional detector ID of the GuardDuty account for which you want to create a threat entity set.
      *
      * To find the `detectorId` in the current Region, see the Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
      */
-    public readonly detectorId!: pulumi.Output<string | undefined>;
+    declare public readonly detectorId: pulumi.Output<string | undefined>;
     /**
      * The details associated with the *Error* status of your threat entity list.
      */
-    public /*out*/ readonly errorDetails!: pulumi.Output<string>;
+    declare public /*out*/ readonly errorDetails: pulumi.Output<string>;
     /**
      * The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
      *
      * Whether or not you provide the account ID for this optional field, GuardDuty validates that the account ID associated with the `DetectorId` owns the S3 bucket in the `Location` field. If GuardDuty finds that this S3 bucket doesn't belong to the specified account ID, you will get an error at the time of activating this list.
      */
-    public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
+    declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
     /**
      * The format of the file that contains the threat entity set. For information about supported formats, see [List formats](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#prepare_list) in the *Amazon GuardDuty User Guide* .
      */
-    public readonly format!: pulumi.Output<string>;
+    declare public readonly format: pulumi.Output<string>;
     /**
      * The URI of the file that contains the threat entity set.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The user-friendly name to identify the threat entity set. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The status of your `ThreatEntitySet` . For information about valid status values, see [Understanding list statuses](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#guardduty-entity-list-statuses) in the *Amazon GuardDuty User Guide* .
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.guardduty.ThreatEntitySetStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.guardduty.ThreatEntitySetStatus>;
     /**
      * The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The timestamp when the threat entity set was updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a ThreatEntitySet resource with the given unique name, arguments, and options.
@@ -103,19 +103,19 @@ export class ThreatEntitySet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.format === undefined) && !opts.urn) {
+            if (args?.format === undefined && !opts.urn) {
                 throw new Error("Missing required property 'format'");
             }
-            if ((!args || args.location === undefined) && !opts.urn) {
+            if (args?.location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            resourceInputs["activate"] = args ? args.activate : undefined;
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
-            resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["activate"] = args?.activate;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["expectedBucketOwner"] = args?.expectedBucketOwner;
+            resourceInputs["format"] = args?.format;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["errorDetails"] = undefined /*out*/;

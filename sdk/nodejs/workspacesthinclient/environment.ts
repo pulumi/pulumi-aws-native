@@ -40,83 +40,83 @@ export class Environment extends pulumi.CustomResource {
     /**
      * Activation code for devices associated with environment.
      */
-    public /*out*/ readonly activationCode!: pulumi.Output<string>;
+    declare public /*out*/ readonly activationCode: pulumi.Output<string>;
     /**
      * The environment ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Unique identifier of the environment.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The timestamp in unix epoch format when environment was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The ID of the software set to apply.
      */
-    public readonly desiredSoftwareSetId!: pulumi.Output<string | undefined>;
+    declare public readonly desiredSoftwareSetId: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Web, or AppStream 2.0.
      */
-    public readonly desktopArn!: pulumi.Output<string>;
+    declare public readonly desktopArn: pulumi.Output<string>;
     /**
      * The URL for the identity provider login (only for environments that use AppStream 2.0).
      */
-    public readonly desktopEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly desktopEndpoint: pulumi.Output<string | undefined>;
     /**
      * The type of VDI.
      */
-    public /*out*/ readonly desktopType!: pulumi.Output<enums.workspacesthinclient.EnvironmentDesktopType>;
+    declare public /*out*/ readonly desktopType: pulumi.Output<enums.workspacesthinclient.EnvironmentDesktopType>;
     /**
      * An array of key-value pairs to apply to the newly created devices for this environment.
      */
-    public readonly deviceCreationTags!: pulumi.Output<outputs.workspacesthinclient.EnvironmentTag[] | undefined>;
+    declare public readonly deviceCreationTags: pulumi.Output<outputs.workspacesthinclient.EnvironmentTag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * A specification for a time window to apply software updates.
      */
-    public readonly maintenanceWindow!: pulumi.Output<outputs.workspacesthinclient.EnvironmentMaintenanceWindow | undefined>;
+    declare public readonly maintenanceWindow: pulumi.Output<outputs.workspacesthinclient.EnvironmentMaintenanceWindow | undefined>;
     /**
      * The name of the environment.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The ID of the software set that is pending to be installed.
      */
-    public /*out*/ readonly pendingSoftwareSetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly pendingSoftwareSetId: pulumi.Output<string>;
     /**
      * The version of the software set that is pending to be installed.
      */
-    public /*out*/ readonly pendingSoftwareSetVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly pendingSoftwareSetVersion: pulumi.Output<string>;
     /**
      * Number of devices registered to the environment.
      */
-    public /*out*/ readonly registeredDevicesCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly registeredDevicesCount: pulumi.Output<number>;
     /**
      * Describes if the software currently installed on all devices in the environment is a supported version.
      */
-    public /*out*/ readonly softwareSetComplianceStatus!: pulumi.Output<enums.workspacesthinclient.EnvironmentSoftwareSetComplianceStatus>;
+    declare public /*out*/ readonly softwareSetComplianceStatus: pulumi.Output<enums.workspacesthinclient.EnvironmentSoftwareSetComplianceStatus>;
     /**
      * An option to define which software updates to apply.
      */
-    public readonly softwareSetUpdateMode!: pulumi.Output<enums.workspacesthinclient.EnvironmentSoftwareSetUpdateMode | undefined>;
+    declare public readonly softwareSetUpdateMode: pulumi.Output<enums.workspacesthinclient.EnvironmentSoftwareSetUpdateMode | undefined>;
     /**
      * An option to define if software updates should be applied within a maintenance window.
      */
-    public readonly softwareSetUpdateSchedule!: pulumi.Output<enums.workspacesthinclient.EnvironmentSoftwareSetUpdateSchedule | undefined>;
+    declare public readonly softwareSetUpdateSchedule: pulumi.Output<enums.workspacesthinclient.EnvironmentSoftwareSetUpdateSchedule | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The timestamp in unix epoch format when environment was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -129,19 +129,19 @@ export class Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.desktopArn === undefined) && !opts.urn) {
+            if (args?.desktopArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'desktopArn'");
             }
-            resourceInputs["desiredSoftwareSetId"] = args ? args.desiredSoftwareSetId : undefined;
-            resourceInputs["desktopArn"] = args ? args.desktopArn : undefined;
-            resourceInputs["desktopEndpoint"] = args ? args.desktopEndpoint : undefined;
-            resourceInputs["deviceCreationTags"] = args ? args.deviceCreationTags : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["softwareSetUpdateMode"] = args ? args.softwareSetUpdateMode : undefined;
-            resourceInputs["softwareSetUpdateSchedule"] = args ? args.softwareSetUpdateSchedule : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["desiredSoftwareSetId"] = args?.desiredSoftwareSetId;
+            resourceInputs["desktopArn"] = args?.desktopArn;
+            resourceInputs["desktopEndpoint"] = args?.desktopEndpoint;
+            resourceInputs["deviceCreationTags"] = args?.deviceCreationTags;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["softwareSetUpdateMode"] = args?.softwareSetUpdateMode;
+            resourceInputs["softwareSetUpdateSchedule"] = args?.softwareSetUpdateSchedule;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["activationCode"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;

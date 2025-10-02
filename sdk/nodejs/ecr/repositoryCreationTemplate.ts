@@ -40,51 +40,51 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
     /**
      * A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
      */
-    public readonly appliedFor!: pulumi.Output<enums.ecr.RepositoryCreationTemplateAppliedForItem[]>;
+    declare public readonly appliedFor: pulumi.Output<enums.ecr.RepositoryCreationTemplateAppliedForItem[]>;
     /**
      * The date and time, in JavaScript date format, when the repository creation template was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
      */
-    public readonly customRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly customRoleArn: pulumi.Output<string | undefined>;
     /**
      * The description associated with the repository creation template.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The encryption configuration associated with the repository creation template.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<outputs.ecr.RepositoryCreationTemplateEncryptionConfiguration | undefined>;
+    declare public readonly encryptionConfiguration: pulumi.Output<outputs.ecr.RepositoryCreationTemplateEncryptionConfiguration | undefined>;
     /**
      * The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
      */
-    public readonly imageTagMutability!: pulumi.Output<enums.ecr.RepositoryCreationTemplateImageTagMutability | undefined>;
+    declare public readonly imageTagMutability: pulumi.Output<enums.ecr.RepositoryCreationTemplateImageTagMutability | undefined>;
     /**
      * Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.
      */
-    public readonly imageTagMutabilityExclusionFilters!: pulumi.Output<outputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilter[] | undefined>;
+    declare public readonly imageTagMutabilityExclusionFilters: pulumi.Output<outputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilter[] | undefined>;
     /**
      * The lifecycle policy to use for repositories created using the template.
      */
-    public readonly lifecyclePolicy!: pulumi.Output<string | undefined>;
+    declare public readonly lifecyclePolicy: pulumi.Output<string | undefined>;
     /**
      * The repository namespace prefix associated with the repository creation template.
      */
-    public readonly prefix!: pulumi.Output<string>;
+    declare public readonly prefix: pulumi.Output<string>;
     /**
      * The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
      */
-    public readonly repositoryPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly repositoryPolicy: pulumi.Output<string | undefined>;
     /**
      * The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
      */
-    public readonly resourceTags!: pulumi.Output<outputs.ecr.RepositoryCreationTemplateTag[] | undefined>;
+    declare public readonly resourceTags: pulumi.Output<outputs.ecr.RepositoryCreationTemplateTag[] | undefined>;
     /**
      * The date and time, in JavaScript date format, when the repository creation template was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a RepositoryCreationTemplate resource with the given unique name, arguments, and options.
@@ -97,22 +97,22 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appliedFor === undefined) && !opts.urn) {
+            if (args?.appliedFor === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appliedFor'");
             }
-            if ((!args || args.prefix === undefined) && !opts.urn) {
+            if (args?.prefix === undefined && !opts.urn) {
                 throw new Error("Missing required property 'prefix'");
             }
-            resourceInputs["appliedFor"] = args ? args.appliedFor : undefined;
-            resourceInputs["customRoleArn"] = args ? args.customRoleArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            resourceInputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
-            resourceInputs["imageTagMutabilityExclusionFilters"] = args ? args.imageTagMutabilityExclusionFilters : undefined;
-            resourceInputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
-            resourceInputs["prefix"] = args ? args.prefix : undefined;
-            resourceInputs["repositoryPolicy"] = args ? args.repositoryPolicy : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
+            resourceInputs["appliedFor"] = args?.appliedFor;
+            resourceInputs["customRoleArn"] = args?.customRoleArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["imageTagMutability"] = args?.imageTagMutability;
+            resourceInputs["imageTagMutabilityExclusionFilters"] = args?.imageTagMutabilityExclusionFilters;
+            resourceInputs["lifecyclePolicy"] = args?.lifecyclePolicy;
+            resourceInputs["prefix"] = args?.prefix;
+            resourceInputs["repositoryPolicy"] = args?.repositoryPolicy;
+            resourceInputs["resourceTags"] = args?.resourceTags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {

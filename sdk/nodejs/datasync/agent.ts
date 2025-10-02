@@ -66,35 +66,35 @@ export class Agent extends pulumi.CustomResource {
     /**
      * Activation key of the Agent.
      */
-    public readonly activationKey!: pulumi.Output<string | undefined>;
+    declare public readonly activationKey: pulumi.Output<string | undefined>;
     /**
      * The DataSync Agent ARN.
      */
-    public /*out*/ readonly agentArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentArn: pulumi.Output<string>;
     /**
      * The name configured for the agent. Text reference used to identify the agent in the console.
      */
-    public readonly agentName!: pulumi.Output<string | undefined>;
+    declare public readonly agentName: pulumi.Output<string | undefined>;
     /**
      * The service endpoints that the agent will connect to.
      */
-    public /*out*/ readonly endpointType!: pulumi.Output<enums.datasync.AgentEndpointType>;
+    declare public /*out*/ readonly endpointType: pulumi.Output<enums.datasync.AgentEndpointType>;
     /**
      * The ARNs of the security group used to protect your data transfer task subnets.
      */
-    public readonly securityGroupArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupArns: pulumi.Output<string[] | undefined>;
     /**
      * The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      */
-    public readonly subnetArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly subnetArns: pulumi.Output<string[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the VPC endpoint that the agent has access to.
      */
-    public readonly vpcEndpointId!: pulumi.Output<string | undefined>;
+    declare public readonly vpcEndpointId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Agent resource with the given unique name, arguments, and options.
@@ -107,12 +107,12 @@ export class Agent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["activationKey"] = args ? args.activationKey : undefined;
-            resourceInputs["agentName"] = args ? args.agentName : undefined;
-            resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
-            resourceInputs["subnetArns"] = args ? args.subnetArns : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+            resourceInputs["activationKey"] = args?.activationKey;
+            resourceInputs["agentName"] = args?.agentName;
+            resourceInputs["securityGroupArns"] = args?.securityGroupArns;
+            resourceInputs["subnetArns"] = args?.subnetArns;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcEndpointId"] = args?.vpcEndpointId;
             resourceInputs["agentArn"] = undefined /*out*/;
             resourceInputs["endpointType"] = undefined /*out*/;
         } else {

@@ -40,27 +40,27 @@ export class ComponentVersion extends pulumi.CustomResource {
     /**
      * The ARN of the component version.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the component.
      */
-    public /*out*/ readonly componentName!: pulumi.Output<string>;
+    declare public /*out*/ readonly componentName: pulumi.Output<string>;
     /**
      * The version of the component.
      */
-    public /*out*/ readonly componentVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly componentVersion: pulumi.Output<string>;
     /**
      * The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
      *
      * You must specify either `InlineRecipe` or `LambdaFunction` .
      */
-    public readonly inlineRecipe!: pulumi.Output<string | undefined>;
+    declare public readonly inlineRecipe: pulumi.Output<string | undefined>;
     /**
      * The parameters to create a component from a Lambda function.
      *
      * You must specify either `InlineRecipe` or `LambdaFunction` .
      */
-    public readonly lambdaFunction!: pulumi.Output<outputs.greengrassv2.ComponentVersionLambdaFunctionRecipeSource | undefined>;
+    declare public readonly lambdaFunction: pulumi.Output<outputs.greengrassv2.ComponentVersionLambdaFunctionRecipeSource | undefined>;
     /**
      * Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
      *
@@ -71,7 +71,7 @@ export class ComponentVersion extends pulumi.CustomResource {
      * }
      * ```
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ComponentVersion resource with the given unique name, arguments, and options.
@@ -84,9 +84,9 @@ export class ComponentVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["inlineRecipe"] = args ? args.inlineRecipe : undefined;
-            resourceInputs["lambdaFunction"] = args ? args.lambdaFunction : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["inlineRecipe"] = args?.inlineRecipe;
+            resourceInputs["lambdaFunction"] = args?.lambdaFunction;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["componentName"] = undefined /*out*/;
             resourceInputs["componentVersion"] = undefined /*out*/;

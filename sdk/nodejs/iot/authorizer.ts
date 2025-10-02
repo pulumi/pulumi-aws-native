@@ -40,29 +40,29 @@ export class Authorizer extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the authorizer.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The authorizer's Lambda function ARN.
      */
-    public readonly authorizerFunctionArn!: pulumi.Output<string>;
+    declare public readonly authorizerFunctionArn: pulumi.Output<string>;
     /**
      * The authorizer name.
      */
-    public readonly authorizerName!: pulumi.Output<string | undefined>;
+    declare public readonly authorizerName: pulumi.Output<string | undefined>;
     /**
      * When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
      */
-    public readonly enableCachingForHttp!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableCachingForHttp: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether AWS IoT validates the token signature in an authorization request.
      */
-    public readonly signingDisabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly signingDisabled: pulumi.Output<boolean | undefined>;
     /**
      * The status of the authorizer.
      *
      * Valid values: `ACTIVE` | `INACTIVE`
      */
-    public readonly status!: pulumi.Output<enums.iot.AuthorizerStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.iot.AuthorizerStatus | undefined>;
     /**
      * Metadata which can be used to manage the custom authorizer.
      *
@@ -72,15 +72,15 @@ export class Authorizer extends pulumi.CustomResource {
      * > 
      * > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The key used to extract the token from the HTTP headers.
      */
-    public readonly tokenKeyName!: pulumi.Output<string | undefined>;
+    declare public readonly tokenKeyName: pulumi.Output<string | undefined>;
     /**
      * The public keys used to validate the token signature returned by your custom authentication service.
      */
-    public readonly tokenSigningPublicKeys!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tokenSigningPublicKeys: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Authorizer resource with the given unique name, arguments, and options.
@@ -93,17 +93,17 @@ export class Authorizer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authorizerFunctionArn === undefined) && !opts.urn) {
+            if (args?.authorizerFunctionArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizerFunctionArn'");
             }
-            resourceInputs["authorizerFunctionArn"] = args ? args.authorizerFunctionArn : undefined;
-            resourceInputs["authorizerName"] = args ? args.authorizerName : undefined;
-            resourceInputs["enableCachingForHttp"] = args ? args.enableCachingForHttp : undefined;
-            resourceInputs["signingDisabled"] = args ? args.signingDisabled : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tokenKeyName"] = args ? args.tokenKeyName : undefined;
-            resourceInputs["tokenSigningPublicKeys"] = args ? args.tokenSigningPublicKeys : undefined;
+            resourceInputs["authorizerFunctionArn"] = args?.authorizerFunctionArn;
+            resourceInputs["authorizerName"] = args?.authorizerName;
+            resourceInputs["enableCachingForHttp"] = args?.enableCachingForHttp;
+            resourceInputs["signingDisabled"] = args?.signingDisabled;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tokenKeyName"] = args?.tokenKeyName;
+            resourceInputs["tokenSigningPublicKeys"] = args?.tokenSigningPublicKeys;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

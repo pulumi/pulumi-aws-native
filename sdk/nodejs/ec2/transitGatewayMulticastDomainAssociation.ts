@@ -37,27 +37,27 @@ export class TransitGatewayMulticastDomainAssociation extends pulumi.CustomResou
     /**
      * The ID of the resource.
      */
-    public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceId: pulumi.Output<string>;
     /**
      * The type of resource, for example a VPC attachment.
      */
-    public /*out*/ readonly resourceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceType: pulumi.Output<string>;
     /**
      * The state of the subnet association.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The IDs of the subnets to associate with the transit gateway multicast domain.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * The ID of the transit gateway attachment.
      */
-    public readonly transitGatewayAttachmentId!: pulumi.Output<string>;
+    declare public readonly transitGatewayAttachmentId: pulumi.Output<string>;
     /**
      * The ID of the transit gateway multicast domain.
      */
-    public readonly transitGatewayMulticastDomainId!: pulumi.Output<string>;
+    declare public readonly transitGatewayMulticastDomainId: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayMulticastDomainAssociation resource with the given unique name, arguments, and options.
@@ -70,18 +70,18 @@ export class TransitGatewayMulticastDomainAssociation extends pulumi.CustomResou
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if ((!args || args.transitGatewayAttachmentId === undefined) && !opts.urn) {
+            if (args?.transitGatewayAttachmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
-            if ((!args || args.transitGatewayMulticastDomainId === undefined) && !opts.urn) {
+            if (args?.transitGatewayMulticastDomainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayMulticastDomainId'");
             }
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
-            resourceInputs["transitGatewayMulticastDomainId"] = args ? args.transitGatewayMulticastDomainId : undefined;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["transitGatewayAttachmentId"] = args?.transitGatewayAttachmentId;
+            resourceInputs["transitGatewayMulticastDomainId"] = args?.transitGatewayMulticastDomainId;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

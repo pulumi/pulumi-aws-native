@@ -109,49 +109,49 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The ARN of the endpoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A description for the endpoint.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the endpoint.
      */
-    public /*out*/ readonly endpointId!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpointId: pulumi.Output<string>;
     /**
      * The URL of the endpoint.
      */
-    public /*out*/ readonly endpointUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpointUrl: pulumi.Output<string>;
     /**
      * The event buses being used by the endpoint.
      *
      * *Exactly* : `2`
      */
-    public readonly eventBuses!: pulumi.Output<outputs.events.EndpointEventBus[]>;
+    declare public readonly eventBuses: pulumi.Output<outputs.events.EndpointEventBus[]>;
     /**
      * The name of the endpoint.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
      */
-    public readonly replicationConfig!: pulumi.Output<outputs.events.EndpointReplicationConfig | undefined>;
+    declare public readonly replicationConfig: pulumi.Output<outputs.events.EndpointReplicationConfig | undefined>;
     /**
      * The ARN of the role used by event replication for the endpoint.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * The routing configuration of the endpoint.
      */
-    public readonly routingConfig!: pulumi.Output<outputs.events.EndpointRoutingConfig>;
+    declare public readonly routingConfig: pulumi.Output<outputs.events.EndpointRoutingConfig>;
     /**
      * The main Region of the endpoint.
      */
-    public /*out*/ readonly state!: pulumi.Output<enums.events.EndpointState>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.events.EndpointState>;
     /**
      * The reason the endpoint is in its current state.
      */
-    public /*out*/ readonly stateReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly stateReason: pulumi.Output<string>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -164,18 +164,18 @@ export class Endpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.eventBuses === undefined) && !opts.urn) {
+            if (args?.eventBuses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventBuses'");
             }
-            if ((!args || args.routingConfig === undefined) && !opts.urn) {
+            if (args?.routingConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routingConfig'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventBuses"] = args ? args.eventBuses : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["replicationConfig"] = args ? args.replicationConfig : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["routingConfig"] = args ? args.routingConfig : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventBuses"] = args?.eventBuses;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["replicationConfig"] = args?.replicationConfig;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["routingConfig"] = args?.routingConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpointId"] = undefined /*out*/;
             resourceInputs["endpointUrl"] = undefined /*out*/;

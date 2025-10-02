@@ -40,40 +40,40 @@ export class AiAgent extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the AI agent.
      */
-    public /*out*/ readonly aiAgentArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly aiAgentArn: pulumi.Output<string>;
     /**
      * The identifier of the AI Agent.
      */
-    public /*out*/ readonly aiAgentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly aiAgentId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
      */
-    public /*out*/ readonly assistantArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly assistantArn: pulumi.Output<string>;
     /**
      * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
      */
-    public readonly assistantId!: pulumi.Output<string>;
+    declare public readonly assistantId: pulumi.Output<string>;
     /**
      * Configuration for the AI Agent.
      */
-    public readonly configuration!: pulumi.Output<outputs.wisdom.AiAgentAiAgentConfiguration0Properties | outputs.wisdom.AiAgentAiAgentConfiguration1Properties | outputs.wisdom.AiAgentAiAgentConfiguration2Properties>;
+    declare public readonly configuration: pulumi.Output<outputs.wisdom.AiAgentAiAgentConfiguration0Properties | outputs.wisdom.AiAgentAiAgentConfiguration1Properties | outputs.wisdom.AiAgentAiAgentConfiguration2Properties>;
     /**
      * The description of the AI Agent.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly modifiedTimeSeconds!: pulumi.Output<number>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly modifiedTimeSeconds: pulumi.Output<number>;
     /**
      * The name of the AI Agent.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the AI Agent.
      */
-    public readonly type!: pulumi.Output<enums.wisdom.AiAgentAiAgentType>;
+    declare public readonly type: pulumi.Output<enums.wisdom.AiAgentAiAgentType>;
 
     /**
      * Create a AiAgent resource with the given unique name, arguments, and options.
@@ -86,21 +86,21 @@ export class AiAgent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.assistantId === undefined) && !opts.urn) {
+            if (args?.assistantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assistantId'");
             }
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["assistantId"] = args ? args.assistantId : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["assistantId"] = args?.assistantId;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["aiAgentArn"] = undefined /*out*/;
             resourceInputs["aiAgentId"] = undefined /*out*/;
             resourceInputs["assistantArn"] = undefined /*out*/;

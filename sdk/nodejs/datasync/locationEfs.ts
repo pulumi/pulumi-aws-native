@@ -40,39 +40,39 @@ export class LocationEfs extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
      */
-    public readonly accessPointArn!: pulumi.Output<string | undefined>;
+    declare public readonly accessPointArn: pulumi.Output<string | undefined>;
     /**
      * Specifies the subnet and security groups DataSync uses to connect to one of your Amazon EFS file system's [mount targets](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html) .
      */
-    public readonly ec2Config!: pulumi.Output<outputs.datasync.LocationEfsEc2Config>;
+    declare public readonly ec2Config: pulumi.Output<outputs.datasync.LocationEfsEc2Config>;
     /**
      * The Amazon Resource Name (ARN) for the Amazon EFS file system.
      */
-    public readonly efsFilesystemArn!: pulumi.Output<string | undefined>;
+    declare public readonly efsFilesystemArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
      */
-    public readonly fileSystemAccessRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly fileSystemAccessRoleArn: pulumi.Output<string | undefined>;
     /**
      * Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
      */
-    public readonly inTransitEncryption!: pulumi.Output<enums.datasync.LocationEfsInTransitEncryption | undefined>;
+    declare public readonly inTransitEncryption: pulumi.Output<enums.datasync.LocationEfsInTransitEncryption | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
      */
-    public /*out*/ readonly locationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationArn: pulumi.Output<string>;
     /**
      * The URL of the EFS location that was described.
      */
-    public /*out*/ readonly locationUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationUri: pulumi.Output<string>;
     /**
      * A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
      */
-    public readonly subdirectory!: pulumi.Output<string | undefined>;
+    declare public readonly subdirectory: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LocationEfs resource with the given unique name, arguments, and options.
@@ -85,16 +85,16 @@ export class LocationEfs extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ec2Config === undefined) && !opts.urn) {
+            if (args?.ec2Config === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ec2Config'");
             }
-            resourceInputs["accessPointArn"] = args ? args.accessPointArn : undefined;
-            resourceInputs["ec2Config"] = args ? args.ec2Config : undefined;
-            resourceInputs["efsFilesystemArn"] = args ? args.efsFilesystemArn : undefined;
-            resourceInputs["fileSystemAccessRoleArn"] = args ? args.fileSystemAccessRoleArn : undefined;
-            resourceInputs["inTransitEncryption"] = args ? args.inTransitEncryption : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessPointArn"] = args?.accessPointArn;
+            resourceInputs["ec2Config"] = args?.ec2Config;
+            resourceInputs["efsFilesystemArn"] = args?.efsFilesystemArn;
+            resourceInputs["fileSystemAccessRoleArn"] = args?.fileSystemAccessRoleArn;
+            resourceInputs["inTransitEncryption"] = args?.inTransitEncryption;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
         } else {

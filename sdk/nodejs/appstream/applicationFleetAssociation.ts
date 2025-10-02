@@ -37,11 +37,11 @@ export class ApplicationFleetAssociation extends pulumi.CustomResource {
     /**
      * The ARN of the application.
      */
-    public readonly applicationArn!: pulumi.Output<string>;
+    declare public readonly applicationArn: pulumi.Output<string>;
     /**
      * The name of the fleet.
      */
-    public readonly fleetName!: pulumi.Output<string>;
+    declare public readonly fleetName: pulumi.Output<string>;
 
     /**
      * Create a ApplicationFleetAssociation resource with the given unique name, arguments, and options.
@@ -54,14 +54,14 @@ export class ApplicationFleetAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationArn === undefined) && !opts.urn) {
+            if (args?.applicationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationArn'");
             }
-            if ((!args || args.fleetName === undefined) && !opts.urn) {
+            if (args?.fleetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetName'");
             }
-            resourceInputs["applicationArn"] = args ? args.applicationArn : undefined;
-            resourceInputs["fleetName"] = args ? args.fleetName : undefined;
+            resourceInputs["applicationArn"] = args?.applicationArn;
+            resourceInputs["fleetName"] = args?.fleetName;
         } else {
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["fleetName"] = undefined /*out*/;

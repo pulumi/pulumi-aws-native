@@ -40,71 +40,71 @@ export class Component extends pulumi.CustomResource {
     /**
      * The unique ID of the Amplify app associated with the component.
      */
-    public readonly appId!: pulumi.Output<string | undefined>;
+    declare public readonly appId: pulumi.Output<string | undefined>;
     /**
      * The unique ID of the component.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
      */
-    public readonly bindingProperties!: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.ComponentBindingPropertiesValue} | undefined>;
+    declare public readonly bindingProperties: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.ComponentBindingPropertiesValue} | undefined>;
     /**
      * A list of the component's `ComponentChild` instances.
      */
-    public readonly children!: pulumi.Output<outputs.amplifyuibuilder.ComponentChild[] | undefined>;
+    declare public readonly children: pulumi.Output<outputs.amplifyuibuilder.ComponentChild[] | undefined>;
     /**
      * The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
      */
-    public readonly collectionProperties!: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.ComponentDataConfiguration} | undefined>;
+    declare public readonly collectionProperties: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.ComponentDataConfiguration} | undefined>;
     /**
      * The type of the component. This can be an Amplify custom UI component or another custom component.
      */
-    public readonly componentType!: pulumi.Output<string | undefined>;
+    declare public readonly componentType: pulumi.Output<string | undefined>;
     /**
      * The time that the component was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The name of the backend environment that is a part of the Amplify app.
      */
-    public readonly environmentName!: pulumi.Output<string | undefined>;
+    declare public readonly environmentName: pulumi.Output<string | undefined>;
     /**
      * Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
      */
-    public readonly events!: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.ComponentEvent} | undefined>;
+    declare public readonly events: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.ComponentEvent} | undefined>;
     /**
      * The time that the component was modified.
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     /**
      * The name of the component.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
      */
-    public readonly overrides!: pulumi.Output<{[key: string]: any} | undefined>;
+    declare public readonly overrides: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
      */
-    public readonly properties!: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.ComponentProperty} | undefined>;
+    declare public readonly properties: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.ComponentProperty} | undefined>;
     /**
      * The schema version of the component when it was imported.
      */
-    public readonly schemaVersion!: pulumi.Output<string | undefined>;
+    declare public readonly schemaVersion: pulumi.Output<string | undefined>;
     /**
      * The unique ID of the component in its original source system, such as Figma.
      */
-    public readonly sourceId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceId: pulumi.Output<string | undefined>;
     /**
      * One or more key-value pairs to use when tagging the component.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of the component's variants. A variant is a unique style configuration of a main component.
      */
-    public readonly variants!: pulumi.Output<outputs.amplifyuibuilder.ComponentVariant[] | undefined>;
+    declare public readonly variants: pulumi.Output<outputs.amplifyuibuilder.ComponentVariant[] | undefined>;
 
     /**
      * Create a Component resource with the given unique name, arguments, and options.
@@ -117,20 +117,20 @@ export class Component extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["bindingProperties"] = args ? args.bindingProperties : undefined;
-            resourceInputs["children"] = args ? args.children : undefined;
-            resourceInputs["collectionProperties"] = args ? args.collectionProperties : undefined;
-            resourceInputs["componentType"] = args ? args.componentType : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["events"] = args ? args.events : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["overrides"] = args ? args.overrides : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["schemaVersion"] = args ? args.schemaVersion : undefined;
-            resourceInputs["sourceId"] = args ? args.sourceId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["variants"] = args ? args.variants : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["bindingProperties"] = args?.bindingProperties;
+            resourceInputs["children"] = args?.children;
+            resourceInputs["collectionProperties"] = args?.collectionProperties;
+            resourceInputs["componentType"] = args?.componentType;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["events"] = args?.events;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["overrides"] = args?.overrides;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["schemaVersion"] = args?.schemaVersion;
+            resourceInputs["sourceId"] = args?.sourceId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["variants"] = args?.variants;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;

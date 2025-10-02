@@ -51,38 +51,38 @@ export class Key extends pulumi.CustomResource {
      *
      * For information about the key ARN of a KMS key, see [Key ARN](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN) in the *AWS Key Management Service Developer Guide* .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Skips ("bypasses") the key policy lockout safety check. The default value is false.
      *   Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
      *  For more information, see [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key) in the *Developer Guide*.
      *   Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) request on the KMS key.
      */
-    public readonly bypassPolicyLockoutSafetyCheck!: pulumi.Output<boolean | undefined>;
+    declare public readonly bypassPolicyLockoutSafetyCheck: pulumi.Output<boolean | undefined>;
     /**
      * A description of the KMS key. Use a description that helps you to distinguish this KMS key from others in the account, such as its intended use.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Enables automatic rotation of the key material for the specified KMS key. By default, automatic key rotation is not enabled.
      *  KMS supports automatic rotation only for symmetric encryption KMS keys (``KeySpec`` = ``SYMMETRIC_DEFAULT``). For asymmetric KMS keys, HMAC KMS keys, and KMS keys with Origin ``EXTERNAL``, omit the ``EnableKeyRotation`` property or set it to ``false``.
      *  To enable automatic key rotation of the key material for a multi-Region KMS key, set ``EnableKeyRotation`` to ``true`` on the primary key (created by using ``AWS::KMS::Key``). KMS copies the rotation status to all replica keys. For details, see [Rotating multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate) in the *Developer Guide*.
      *  When you enable automatic rotation, KMS automatically creates new key material for the KMS key one year after the enable date and every year thereafter. KMS retains all key material until you delete the KMS key. For detailed information about automatic key rotation, see [Rotating KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *Developer Guide*.
      */
-    public readonly enableKeyRotation!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableKeyRotation: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the KMS key is enabled. Disabled KMS keys cannot be used in cryptographic operations.
      *  When ``Enabled`` is ``true``, the *key state* of the KMS key is ``Enabled``. When ``Enabled`` is ``false``, the key state of the KMS key is ``Disabled``. The default value is ``true``.
      *  The actual key state of the KMS key might be affected by actions taken outside of CloudFormation, such as running the [EnableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html), [DisableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html), or [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operations.
      *  For information about the key states of a KMS key, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Developer Guide*.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
      *
      * For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
      */
-    public /*out*/ readonly keyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyId: pulumi.Output<string>;
     /**
      * The key policy to attach to the KMS key.
      *  If you provide a key policy, it must meet the following criteria:
@@ -100,7 +100,7 @@ export class Key extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::Key` for more information about the expected schema for this property.
      */
-    public readonly keyPolicy!: pulumi.Output<any | undefined>;
+    declare public readonly keyPolicy: pulumi.Output<any | undefined>;
     /**
      * Specifies the type of KMS key to create. The default value, ``SYMMETRIC_DEFAULT``, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, ``SYMMETRIC_DEFAULT`` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the ``KeySpec`` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*.
      *  The ``KeySpec`` property determines the type of key material in the KMS key and the algorithms that the KMS key supports. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) in the *Developer Guide*.
@@ -137,7 +137,7 @@ export class Key extends pulumi.CustomResource {
      *   +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)
      *   +  ``SM2`` (China Regions only)
      */
-    public readonly keySpec!: pulumi.Output<enums.kms.KeySpec | undefined>;
+    declare public readonly keySpec: pulumi.Output<enums.kms.KeySpec | undefined>;
     /**
      * Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is ``ENCRYPT_DECRYPT``. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the ``KeyUsage`` value after the KMS key is created.
      *   If you change the value of the ``KeyUsage`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.
@@ -150,7 +150,7 @@ export class Key extends pulumi.CustomResource {
      *   +  For asymmetric KMS keys with ML-DSA key pairs, specify ``SIGN_VERIFY``.
      *   +  For asymmetric KMS keys with SM2 key pairs (China Regions only), specify ``ENCRYPT_DECRYPT``, ``SIGN_VERIFY``, or ``KEY_AGREEMENT``.
      */
-    public readonly keyUsage!: pulumi.Output<enums.kms.KeyUsage | undefined>;
+    declare public readonly keyUsage: pulumi.Output<enums.kms.KeyUsage | undefined>;
     /**
      * Creates a multi-Region primary key that you can replicate in other AWS-Regions. You can't change the ``MultiRegion`` value after the KMS key is created.
      *  For a list of AWS-Regions in which multi-Region keys are supported, see [Multi-Region keys in](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the **.
@@ -160,7 +160,7 @@ export class Key extends pulumi.CustomResource {
      *  You can create a symmetric encryption, HMAC, or asymmetric multi-Region KMS key, and you can create a multi-Region key with imported key material. However, you cannot create a multi-Region key in a custom key store.
      *  To create a replica of this primary key in a different AWS-Region , create an [AWS::KMS::ReplicaKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html) resource in a CloudFormation stack in the replica Region. Specify the key ARN of this primary key.
      */
-    public readonly multiRegion!: pulumi.Output<boolean | undefined>;
+    declare public readonly multiRegion: pulumi.Output<boolean | undefined>;
     /**
      * The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is ``AWS_KMS``, which means that KMS creates the key material.
      *  To [create a KMS key with no key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html) (for imported key material), set this value to ``EXTERNAL``. For more information about importing key material into KMS, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *Developer Guide*.
@@ -168,7 +168,7 @@ export class Key extends pulumi.CustomResource {
      *    +  CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
      *   +  ``EXTERNAL`` is not supported for ML-DSA keys.
      */
-    public readonly origin!: pulumi.Output<enums.kms.KeyOrigin | undefined>;
+    declare public readonly origin: pulumi.Output<enums.kms.KeyOrigin | undefined>;
     /**
      * Specifies the number of days in the waiting period before KMS deletes a KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
      *  When you remove a KMS key from a CloudFormation stack, KMS schedules the KMS key for deletion and starts the mandatory waiting period. The ``PendingWindowInDays`` property determines the length of waiting period. During the waiting period, the key state of KMS key is ``Pending Deletion`` or ``Pending Replica Deletion``, which prevents the KMS key from being used in cryptographic operations. When the waiting period expires, KMS permanently deletes the KMS key.
@@ -176,20 +176,20 @@ export class Key extends pulumi.CustomResource {
      *  You cannot use a CloudFormation template to cancel deletion of the KMS key after you remove it from the stack, regardless of the waiting period. If you specify a KMS key in your template, even one with the same name, CloudFormation creates a new KMS key. To cancel deletion of a KMS key, use the KMS console or the [CancelKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_CancelKeyDeletion.html) operation.
      *  For information about the ``Pending Deletion`` and ``Pending Replica Deletion`` key states, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Developer Guide*. For more information about deleting KMS keys, see the [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operation in the *API Reference* and [Deleting KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html) in the *Developer Guide*.
      */
-    public readonly pendingWindowInDays!: pulumi.Output<number | undefined>;
+    declare public readonly pendingWindowInDays: pulumi.Output<number | undefined>;
     /**
      * Specifies a custom period of time between each rotation date. If no value is specified, the default value is 365 days.
      *  The rotation period defines the number of days after you enable automatic key rotation that KMS will rotate your key material, and the number of days between each automatic rotation thereafter.
      *  You can use the [kms:RotationPeriodInDays](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-rotation-period-in-days) condition key to further constrain the values that principals can specify in the ``RotationPeriodInDays`` parameter.
      *  For more information about rotating KMS keys and automatic rotation, see [Rotating keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *Developer Guide*.
      */
-    public readonly rotationPeriodInDays!: pulumi.Output<number | undefined>;
+    declare public readonly rotationPeriodInDays: pulumi.Output<number | undefined>;
     /**
      * Assigns one or more tags to the replica key.
      *   Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see [ABAC for](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the *Developer Guide*.
      *   For information about tags in KMS, see [Tagging keys](https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html) in the *Developer Guide*. For information about tags in CloudFormation, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Key resource with the given unique name, arguments, and options.
@@ -202,18 +202,18 @@ export class Key extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enableKeyRotation"] = args ? args.enableKeyRotation : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["keyPolicy"] = args ? args.keyPolicy : undefined;
-            resourceInputs["keySpec"] = args ? args.keySpec : undefined;
-            resourceInputs["keyUsage"] = args ? args.keyUsage : undefined;
-            resourceInputs["multiRegion"] = args ? args.multiRegion : undefined;
-            resourceInputs["origin"] = args ? args.origin : undefined;
-            resourceInputs["pendingWindowInDays"] = args ? args.pendingWindowInDays : undefined;
-            resourceInputs["rotationPeriodInDays"] = args ? args.rotationPeriodInDays : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args?.bypassPolicyLockoutSafetyCheck;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enableKeyRotation"] = args?.enableKeyRotation;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["keyPolicy"] = args?.keyPolicy;
+            resourceInputs["keySpec"] = args?.keySpec;
+            resourceInputs["keyUsage"] = args?.keyUsage;
+            resourceInputs["multiRegion"] = args?.multiRegion;
+            resourceInputs["origin"] = args?.origin;
+            resourceInputs["pendingWindowInDays"] = args?.pendingWindowInDays;
+            resourceInputs["rotationPeriodInDays"] = args?.rotationPeriodInDays;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["keyId"] = undefined /*out*/;
         } else {

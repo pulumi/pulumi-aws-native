@@ -40,23 +40,23 @@ export class DomainNameAccessAssociation extends pulumi.CustomResource {
     /**
      * The source of the domain name access association resource.
      */
-    public readonly accessAssociationSource!: pulumi.Output<string>;
+    declare public readonly accessAssociationSource: pulumi.Output<string>;
     /**
      * The source type of the domain name access association resource.
      */
-    public readonly accessAssociationSourceType!: pulumi.Output<enums.apigateway.DomainNameAccessAssociationAccessAssociationSourceType>;
+    declare public readonly accessAssociationSourceType: pulumi.Output<enums.apigateway.DomainNameAccessAssociationAccessAssociationSourceType>;
     /**
      * The amazon resource name (ARN) of the domain name access association resource.
      */
-    public /*out*/ readonly domainNameAccessAssociationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainNameAccessAssociationArn: pulumi.Output<string>;
     /**
      * The amazon resource name (ARN) of the domain name resource.
      */
-    public readonly domainNameArn!: pulumi.Output<string>;
+    declare public readonly domainNameArn: pulumi.Output<string>;
     /**
      * An array of arbitrary tags (key-value pairs) to associate with the domainname access association.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a DomainNameAccessAssociation resource with the given unique name, arguments, and options.
@@ -69,19 +69,19 @@ export class DomainNameAccessAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessAssociationSource === undefined) && !opts.urn) {
+            if (args?.accessAssociationSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessAssociationSource'");
             }
-            if ((!args || args.accessAssociationSourceType === undefined) && !opts.urn) {
+            if (args?.accessAssociationSourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessAssociationSourceType'");
             }
-            if ((!args || args.domainNameArn === undefined) && !opts.urn) {
+            if (args?.domainNameArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainNameArn'");
             }
-            resourceInputs["accessAssociationSource"] = args ? args.accessAssociationSource : undefined;
-            resourceInputs["accessAssociationSourceType"] = args ? args.accessAssociationSourceType : undefined;
-            resourceInputs["domainNameArn"] = args ? args.domainNameArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessAssociationSource"] = args?.accessAssociationSource;
+            resourceInputs["accessAssociationSourceType"] = args?.accessAssociationSourceType;
+            resourceInputs["domainNameArn"] = args?.domainNameArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["domainNameAccessAssociationArn"] = undefined /*out*/;
         } else {
             resourceInputs["accessAssociationSource"] = undefined /*out*/;

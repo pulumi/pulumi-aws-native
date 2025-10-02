@@ -40,35 +40,35 @@ export class LocalGatewayRouteTable extends pulumi.CustomResource {
     /**
      * The ID of the local gateway.
      */
-    public readonly localGatewayId!: pulumi.Output<string>;
+    declare public readonly localGatewayId: pulumi.Output<string>;
     /**
      * The ARN of the local gateway route table.
      */
-    public /*out*/ readonly localGatewayRouteTableArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly localGatewayRouteTableArn: pulumi.Output<string>;
     /**
      * The ID of the local gateway route table.
      */
-    public /*out*/ readonly localGatewayRouteTableId!: pulumi.Output<string>;
+    declare public /*out*/ readonly localGatewayRouteTableId: pulumi.Output<string>;
     /**
      * The mode of the local gateway route table.
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    declare public readonly mode: pulumi.Output<string | undefined>;
     /**
      * The ARN of the outpost.
      */
-    public /*out*/ readonly outpostArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly outpostArn: pulumi.Output<string>;
     /**
      * The owner of the local gateway route table.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * The state of the local gateway route table.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The tags for the local gateway route table.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LocalGatewayRouteTable resource with the given unique name, arguments, and options.
@@ -81,12 +81,12 @@ export class LocalGatewayRouteTable extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.localGatewayId === undefined) && !opts.urn) {
+            if (args?.localGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayId'");
             }
-            resourceInputs["localGatewayId"] = args ? args.localGatewayId : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["localGatewayId"] = args?.localGatewayId;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["localGatewayRouteTableArn"] = undefined /*out*/;
             resourceInputs["localGatewayRouteTableId"] = undefined /*out*/;
             resourceInputs["outpostArn"] = undefined /*out*/;

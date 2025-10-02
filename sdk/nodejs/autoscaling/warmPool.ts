@@ -40,11 +40,11 @@ export class WarmPool extends pulumi.CustomResource {
     /**
      * The name of the Auto Scaling group.
      */
-    public readonly autoScalingGroupName!: pulumi.Output<string>;
+    declare public readonly autoScalingGroupName: pulumi.Output<string>;
     /**
      * Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
      */
-    public readonly instanceReusePolicy!: pulumi.Output<outputs.autoscaling.WarmPoolInstanceReusePolicy | undefined>;
+    declare public readonly instanceReusePolicy: pulumi.Output<outputs.autoscaling.WarmPoolInstanceReusePolicy | undefined>;
     /**
      * Specifies the maximum number of instances that are allowed to be in the warm pool or in any state except `Terminated` for the Auto Scaling group. This is an optional property. Specify it only if you do not want the warm pool size to be determined by the difference between the group's maximum capacity and its desired capacity.
      *
@@ -54,15 +54,15 @@ export class WarmPool extends pulumi.CustomResource {
      *
      * If the desired capacity of the Auto Scaling group is higher than the `MaxGroupPreparedCapacity` , the capacity of the warm pool is 0, unless you specify a value for `MinSize` . To remove a value that you previously set, include the property but specify -1 for the value.
      */
-    public readonly maxGroupPreparedCapacity!: pulumi.Output<number | undefined>;
+    declare public readonly maxGroupPreparedCapacity: pulumi.Output<number | undefined>;
     /**
      * Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
      */
-    public readonly minSize!: pulumi.Output<number | undefined>;
+    declare public readonly minSize: pulumi.Output<number | undefined>;
     /**
      * Sets the instance state to transition to after the lifecycle actions are complete. Default is `Stopped` .
      */
-    public readonly poolState!: pulumi.Output<string | undefined>;
+    declare public readonly poolState: pulumi.Output<string | undefined>;
 
     /**
      * Create a WarmPool resource with the given unique name, arguments, and options.
@@ -75,14 +75,14 @@ export class WarmPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoScalingGroupName === undefined) && !opts.urn) {
+            if (args?.autoScalingGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingGroupName'");
             }
-            resourceInputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
-            resourceInputs["instanceReusePolicy"] = args ? args.instanceReusePolicy : undefined;
-            resourceInputs["maxGroupPreparedCapacity"] = args ? args.maxGroupPreparedCapacity : undefined;
-            resourceInputs["minSize"] = args ? args.minSize : undefined;
-            resourceInputs["poolState"] = args ? args.poolState : undefined;
+            resourceInputs["autoScalingGroupName"] = args?.autoScalingGroupName;
+            resourceInputs["instanceReusePolicy"] = args?.instanceReusePolicy;
+            resourceInputs["maxGroupPreparedCapacity"] = args?.maxGroupPreparedCapacity;
+            resourceInputs["minSize"] = args?.minSize;
+            resourceInputs["poolState"] = args?.poolState;
         } else {
             resourceInputs["autoScalingGroupName"] = undefined /*out*/;
             resourceInputs["instanceReusePolicy"] = undefined /*out*/;

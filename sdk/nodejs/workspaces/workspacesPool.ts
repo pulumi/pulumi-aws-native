@@ -40,48 +40,48 @@ export class WorkspacesPool extends pulumi.CustomResource {
     /**
      * The persistent application settings for users of the pool.
      */
-    public readonly applicationSettings!: pulumi.Output<outputs.workspaces.WorkspacesPoolApplicationSettings | undefined>;
+    declare public readonly applicationSettings: pulumi.Output<outputs.workspaces.WorkspacesPoolApplicationSettings | undefined>;
     /**
      * The identifier of the bundle used by the pool.
      */
-    public readonly bundleId!: pulumi.Output<string>;
+    declare public readonly bundleId: pulumi.Output<string>;
     /**
      * Describes the user capacity for the pool.
      */
-    public readonly capacity!: pulumi.Output<outputs.workspaces.WorkspacesPoolCapacity>;
+    declare public readonly capacity: pulumi.Output<outputs.workspaces.WorkspacesPoolCapacity>;
     /**
      * The time the pool was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the pool.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The identifier of the directory used by the pool.
      */
-    public readonly directoryId!: pulumi.Output<string>;
+    declare public readonly directoryId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the pool.
      */
-    public /*out*/ readonly poolArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly poolArn: pulumi.Output<string>;
     /**
      * The identifier of the pool.
      */
-    public /*out*/ readonly poolId!: pulumi.Output<string>;
+    declare public /*out*/ readonly poolId: pulumi.Output<string>;
     /**
      * The name of the pool.
      */
-    public readonly poolName!: pulumi.Output<string>;
+    declare public readonly poolName: pulumi.Output<string>;
     /**
      * The running mode of the pool.
      */
-    public readonly runningMode!: pulumi.Output<enums.workspaces.WorkspacesPoolRunningMode | undefined>;
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly runningMode: pulumi.Output<enums.workspaces.WorkspacesPoolRunningMode | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
      */
-    public readonly timeoutSettings!: pulumi.Output<outputs.workspaces.WorkspacesPoolTimeoutSettings | undefined>;
+    declare public readonly timeoutSettings: pulumi.Output<outputs.workspaces.WorkspacesPoolTimeoutSettings | undefined>;
 
     /**
      * Create a WorkspacesPool resource with the given unique name, arguments, and options.
@@ -94,24 +94,24 @@ export class WorkspacesPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bundleId === undefined) && !opts.urn) {
+            if (args?.bundleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            if ((!args || args.capacity === undefined) && !opts.urn) {
+            if (args?.capacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacity'");
             }
-            if ((!args || args.directoryId === undefined) && !opts.urn) {
+            if (args?.directoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            resourceInputs["applicationSettings"] = args ? args.applicationSettings : undefined;
-            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
-            resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["runningMode"] = args ? args.runningMode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeoutSettings"] = args ? args.timeoutSettings : undefined;
+            resourceInputs["applicationSettings"] = args?.applicationSettings;
+            resourceInputs["bundleId"] = args?.bundleId;
+            resourceInputs["capacity"] = args?.capacity;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["directoryId"] = args?.directoryId;
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["runningMode"] = args?.runningMode;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeoutSettings"] = args?.timeoutSettings;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["poolArn"] = undefined /*out*/;
             resourceInputs["poolId"] = undefined /*out*/;
