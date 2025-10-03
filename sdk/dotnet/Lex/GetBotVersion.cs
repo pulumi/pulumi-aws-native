@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Lex
     public static class GetBotVersion
     {
         /// <summary>
-        /// A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
+        /// Resource Type definition for bot versions, a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
         /// </summary>
         public static Task<GetBotVersionResult> InvokeAsync(GetBotVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotVersionResult>("aws-native:lex:getBotVersion", args ?? new GetBotVersionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
+        /// Resource Type definition for bot versions, a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
         /// </summary>
         public static Output<GetBotVersionResult> Invoke(GetBotVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotVersionResult>("aws-native:lex:getBotVersion", args ?? new GetBotVersionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
+        /// Resource Type definition for bot versions, a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
         /// </summary>
         public static Output<GetBotVersionResult> Invoke(GetBotVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotVersionResult>("aws-native:lex:getBotVersion", args ?? new GetBotVersionInvokeArgs(), options.WithDefaults());

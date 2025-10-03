@@ -48,6 +48,8 @@ type LookupImagePipelineResult struct {
 	ImageTestsConfiguration *ImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
 	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
+	// The logging configuration settings for the image pipeline.
+	LoggingConfiguration *ImagePipelinePipelineLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// The schedule of the image pipeline.
 	Schedule *ImagePipelineSchedule `pulumi:"schedule"`
 	// The status of the image pipeline.
@@ -142,6 +144,13 @@ func (o LookupImagePipelineResultOutput) ImageTestsConfiguration() ImagePipeline
 // The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
 func (o LookupImagePipelineResultOutput) InfrastructureConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.InfrastructureConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
+// The logging configuration settings for the image pipeline.
+func (o LookupImagePipelineResultOutput) LoggingConfiguration() ImagePipelinePipelineLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *ImagePipelinePipelineLoggingConfiguration {
+		return v.LoggingConfiguration
+	}).(ImagePipelinePipelineLoggingConfigurationPtrOutput)
 }
 
 // The schedule of the image pipeline.

@@ -104,6 +104,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly string? InfrastructureConfigurationArn;
         /// <summary>
+        /// The logging configuration settings for the image pipeline.
+        /// </summary>
+        public readonly Outputs.ImagePipelinePipelineLoggingConfiguration? LoggingConfiguration;
+        /// <summary>
         /// The schedule of the image pipeline.
         /// </summary>
         public readonly Outputs.ImagePipelineSchedule? Schedule;
@@ -142,6 +146,8 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             string? infrastructureConfigurationArn,
 
+            Outputs.ImagePipelinePipelineLoggingConfiguration? loggingConfiguration,
+
             Outputs.ImagePipelineSchedule? schedule,
 
             Pulumi.AwsNative.ImageBuilder.ImagePipelineStatus? status,
@@ -160,6 +166,7 @@ namespace Pulumi.AwsNative.ImageBuilder
             ImageScanningConfiguration = imageScanningConfiguration;
             ImageTestsConfiguration = imageTestsConfiguration;
             InfrastructureConfigurationArn = infrastructureConfigurationArn;
+            LoggingConfiguration = loggingConfiguration;
             Schedule = schedule;
             Status = status;
             Tags = tags;

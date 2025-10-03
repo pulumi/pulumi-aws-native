@@ -8877,6 +8877,10 @@
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the infrastructure configuration."
       },
+      "loggingConfiguration": {
+        "$ref": "#/types/aws-native:imagebuilder:ImageLoggingConfiguration",
+        "description": "The logging configuration settings for the image."
+      },
       "tags": {
         "type": "object",
         "additionalProperties": {

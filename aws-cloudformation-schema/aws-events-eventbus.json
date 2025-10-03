@@ -79,13 +79,13 @@
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "events:CreateEventBus", "events:DescribeEventBus", "events:PutPermission", "events:ListTagsForResource", "events:TagResource", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "events:CreateEventBus", "events:DescribeEventBus", "events:PutPermission", "events:ListTagsForResource", "events:TagResource", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt", "kms:GenerateDataKeyWithoutPlaintext", "kms:ReEncrypt", "kms:ReEncryptFrom", "kms:ReEncryptTo", "kms:Encrypt" ]
     },
     "read" : {
       "permissions" : [ "events:DescribeEventBus", "events:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "events:TagResource", "events:UntagResource", "events:PutPermission", "events:DescribeEventBus", "events:UpdateEventBus", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "events:TagResource", "events:UntagResource", "events:PutPermission", "events:DescribeEventBus", "events:UpdateEventBus", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt", "kms:GenerateDataKeyWithoutPlaintext", "kms:ReEncrypt", "kms:ReEncryptFrom", "kms:ReEncryptTo", "kms:Encrypt" ]
     },
     "delete" : {
       "permissions" : [ "events:DescribeEventBus", "events:UpdateEventBus", "events:ListTagsForResource", "events:UntagResource", "events:RemovePermission", "events:DeleteEventBus" ]

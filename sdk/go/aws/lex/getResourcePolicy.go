@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+// Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
 func LookupResourcePolicy(ctx *pulumi.Context, args *LookupResourcePolicyArgs, opts ...pulumi.InvokeOption) (*LookupResourcePolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourcePolicyResult
@@ -32,8 +32,6 @@ type LookupResourcePolicyResult struct {
 	Id *string `pulumi:"id"`
 	// A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
 	Policy *ResourcePolicyPolicy `pulumi:"policy"`
-	// The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
-	ResourceArn *string `pulumi:"resourceArn"`
 	// Specifies the current revision of a resource policy.
 	RevisionId *string `pulumi:"revisionId"`
 }
@@ -78,11 +76,6 @@ func (o LookupResourcePolicyResultOutput) Id() pulumi.StringPtrOutput {
 // A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
 func (o LookupResourcePolicyResultOutput) Policy() ResourcePolicyPolicyPtrOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) *ResourcePolicyPolicy { return v.Policy }).(ResourcePolicyPolicyPtrOutput)
-}
-
-// The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
-func (o LookupResourcePolicyResultOutput) ResourceArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupResourcePolicyResult) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the current revision of a resource policy.
