@@ -15,7 +15,7 @@
     },
     "BrowserNetworkMode" : {
       "type" : "string",
-      "enum" : [ "PUBLIC" ],
+      "enum" : [ "PUBLIC", "VPC" ],
       "description" : "Network modes supported by browser"
     },
     "BrowserNetworkConfiguration" : {
@@ -24,6 +24,9 @@
         "NetworkMode" : {
           "$ref" : "#/definitions/BrowserNetworkMode",
           "default" : "PUBLIC"
+        },
+        "VpcConfig" : {
+          "$ref" : "#/definitions/VpcConfig"
         }
       },
       "required" : [ "NetworkMode" ],
@@ -59,6 +62,50 @@
       "required" : [ "Bucket", "Prefix" ],
       "additionalProperties" : false,
       "description" : "S3 Location Configuration"
+    },
+    "VpcConfig" : {
+      "type" : "object",
+      "description" : "Network mode configuration for VPC",
+      "properties" : {
+        "SecurityGroups" : {
+          "$ref" : "#/definitions/SecurityGroups"
+        },
+        "Subnets" : {
+          "$ref" : "#/definitions/Subnets"
+        }
+      },
+      "required" : [ "SecurityGroups", "Subnets" ],
+      "additionalProperties" : false
+    },
+    "SecurityGroups" : {
+      "type" : "array",
+      "description" : "Security groups for VPC",
+      "minItems" : 1,
+      "maxItems" : 16,
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/SecurityGroupId"
+      }
+    },
+    "SecurityGroupId" : {
+      "type" : "string",
+      "description" : "Security group id",
+      "pattern" : "^sg-[0-9a-zA-Z]{8,17}$"
+    },
+    "Subnets" : {
+      "type" : "array",
+      "description" : "Subnets for VPC",
+      "minItems" : 1,
+      "maxItems" : 16,
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/SubnetId"
+      }
+    },
+    "SubnetId" : {
+      "type" : "string",
+      "description" : "Subnet id",
+      "pattern" : "^subnet-[0-9a-zA-Z]{8,17}$"
     },
     "BrowserStatus" : {
       "type" : "string",
@@ -156,6 +203,10 @@
       "$ref" : "#/definitions/BrowserStatus",
       "description" : "Status of browser."
     },
+    "FailureReason" : {
+      "type" : "string",
+      "description" : "The reason for failure if the browser creation or operation failed."
+    },
     "CreatedAt" : {
       "type" : "string",
       "format" : "date-time",
@@ -172,13 +223,13 @@
   },
   "additionalProperties" : false,
   "required" : [ "Name", "NetworkConfiguration" ],
-  "readOnlyProperties" : [ "/properties/BrowserId", "/properties/BrowserArn", "/properties/Status", "/properties/CreatedAt", "/properties/LastUpdatedAt" ],
+  "readOnlyProperties" : [ "/properties/BrowserId", "/properties/BrowserArn", "/properties/Status", "/properties/FailureReason", "/properties/CreatedAt", "/properties/LastUpdatedAt" ],
   "primaryIdentifier" : [ "/properties/BrowserId" ],
   "additionalIdentifiers" : [ [ "/properties/BrowserArn" ] ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/Description", "/properties/NetworkConfiguration", "/properties/RecordingConfig", "/properties/ExecutionRoleArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "bedrock-agentcore:CreateBrowser", "bedrock-agentcore:GetBrowser", "bedrock-agentcore:TagResource", "bedrock-agentcore:ListTagsForResource", "iam:PassRole" ]
+      "permissions" : [ "bedrock-agentcore:CreateBrowser", "bedrock-agentcore:GetBrowser", "bedrock-agentcore:TagResource", "bedrock-agentcore:ListTagsForResource", "iam:CreateServiceLinkedRole", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "bedrock-agentcore:GetBrowser", "bedrock-agentcore:ListTagsForResource" ]
