@@ -16,3 +16,7 @@ package version
 
 // Version is initialized by the Go linker to contain the semver of this build.
 var Version string
+
+// The AWS Marketplace code is initialized by the Go linker.
+// TODO Move this value to .goreleaser.yml through ci-mgmt pipeline.
+var PulumiAWSMarketplaceCode string = "c7qiae2l6usvzoynupds6v7hf"

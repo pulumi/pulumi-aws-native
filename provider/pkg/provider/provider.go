@@ -24,7 +24,6 @@ import (
 	"os"
 	"os/user"
 	"path/filepath"
-	"regexp"
 	"runtime"
 	"strconv"
 	"strings"
@@ -1269,18 +1268,11 @@ var pulumiUserAgentMiddleware = middleware.BuildMiddlewareFunc("PulumiUserAgent"
 
 	const userAgentKey = "User-Agent"
 
-	value := request.Header.Get(userAgentKey)
+	previousValue := request.Header.Get(userAgentKey)
+	newValue := fmt.Sprintf("APN/1.1 (%s)", version.PulumiAWSMarketplaceCode)
 
-	re := regexp.MustCompile(`([0-9]+.[0-9]+)`) // Ignore subminor version for APN string.
-	vMajorMinor := re.FindString(version.Version)
-	agent := fmt.Sprintf("APN/1.0 Pulumi/1.0 PulumiAwsNative/%s,", vMajorMinor)
-	if len(value) > 0 {
-		value = agent + " " + value
-	} else {
-		value = agent
-	}
-
-	request.Header.Set(userAgentKey, value)
+	glog.V(4).Infof("Replacing User-Agent existing user-agent: %q with %q", previousValue, newValue)
+	request.Header.Set(userAgentKey, newValue)
 
 	return next.HandleBuild(ctx, input)
 })
