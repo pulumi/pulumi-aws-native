@@ -78,6 +78,10 @@ export class ImagePipeline extends pulumi.CustomResource {
      */
     public readonly infrastructureConfigurationArn!: pulumi.Output<string | undefined>;
     /**
+     * The logging configuration settings for the image pipeline.
+     */
+    public readonly loggingConfiguration!: pulumi.Output<outputs.imagebuilder.ImagePipelinePipelineLoggingConfiguration | undefined>;
+    /**
      * The name of the image pipeline.
      */
     public readonly name!: pulumi.Output<string | undefined>;
@@ -118,6 +122,7 @@ export class ImagePipeline extends pulumi.CustomResource {
             resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
             resourceInputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
             resourceInputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
+            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
@@ -135,6 +140,7 @@ export class ImagePipeline extends pulumi.CustomResource {
             resourceInputs["imageScanningConfiguration"] = undefined /*out*/;
             resourceInputs["imageTestsConfiguration"] = undefined /*out*/;
             resourceInputs["infrastructureConfigurationArn"] = undefined /*out*/;
+            resourceInputs["loggingConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["schedule"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -188,6 +194,10 @@ export interface ImagePipelineArgs {
      * The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
      */
     infrastructureConfigurationArn?: pulumi.Input<string>;
+    /**
+     * The logging configuration settings for the image pipeline.
+     */
+    loggingConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelinePipelineLoggingConfigurationArgs>;
     /**
      * The name of the image pipeline.
      */

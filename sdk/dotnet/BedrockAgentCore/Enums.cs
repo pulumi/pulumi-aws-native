@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         }
 
         public static BrowserCustomBrowserNetworkMode Public { get; } = new BrowserCustomBrowserNetworkMode("PUBLIC");
+        public static BrowserCustomBrowserNetworkMode Vpc { get; } = new BrowserCustomBrowserNetworkMode("VPC");
 
         public static bool operator ==(BrowserCustomBrowserNetworkMode left, BrowserCustomBrowserNetworkMode right) => left.Equals(right);
         public static bool operator !=(BrowserCustomBrowserNetworkMode left, BrowserCustomBrowserNetworkMode right) => !left.Equals(right);
@@ -87,6 +88,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         public static CodeInterpreterCustomCodeInterpreterNetworkMode Public { get; } = new CodeInterpreterCustomCodeInterpreterNetworkMode("PUBLIC");
         public static CodeInterpreterCustomCodeInterpreterNetworkMode Sandbox { get; } = new CodeInterpreterCustomCodeInterpreterNetworkMode("SANDBOX");
+        public static CodeInterpreterCustomCodeInterpreterNetworkMode Vpc { get; } = new CodeInterpreterCustomCodeInterpreterNetworkMode("VPC");
 
         public static bool operator ==(CodeInterpreterCustomCodeInterpreterNetworkMode left, CodeInterpreterCustomCodeInterpreterNetworkMode right) => left.Equals(right);
         public static bool operator !=(CodeInterpreterCustomCodeInterpreterNetworkMode left, CodeInterpreterCustomCodeInterpreterNetworkMode right) => !left.Equals(right);
@@ -478,6 +480,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         }
 
         public static RuntimeNetworkMode Public { get; } = new RuntimeNetworkMode("PUBLIC");
+        public static RuntimeNetworkMode Vpc { get; } = new RuntimeNetworkMode("VPC");
 
         public static bool operator ==(RuntimeNetworkMode left, RuntimeNetworkMode right) => left.Equals(right);
         public static bool operator !=(RuntimeNetworkMode left, RuntimeNetworkMode right) => !left.Equals(right);

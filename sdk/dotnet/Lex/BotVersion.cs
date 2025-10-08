@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex
 {
     /// <summary>
-    /// A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
+    /// Resource Type definition for bot versions, a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
     /// </summary>
     [AwsNativeResourceType("aws-native:lex:BotVersion")]
     public partial class BotVersion : global::Pulumi.CustomResource

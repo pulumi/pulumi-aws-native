@@ -17,6 +17,7 @@ var _ = internal.GetEnvOrDefault
 type BrowserCustomBrowserNetworkConfiguration struct {
 	// The network mode.
 	NetworkMode BrowserCustomBrowserNetworkMode `pulumi:"networkMode"`
+	VpcConfig   *BrowserCustomVpcConfig         `pulumi:"vpcConfig"`
 }
 
 // BrowserCustomBrowserNetworkConfigurationInput is an input type that accepts BrowserCustomBrowserNetworkConfigurationArgs and BrowserCustomBrowserNetworkConfigurationOutput values.
@@ -34,6 +35,7 @@ type BrowserCustomBrowserNetworkConfigurationInput interface {
 type BrowserCustomBrowserNetworkConfigurationArgs struct {
 	// The network mode.
 	NetworkMode BrowserCustomBrowserNetworkModeInput `pulumi:"networkMode"`
+	VpcConfig   BrowserCustomVpcConfigPtrInput       `pulumi:"vpcConfig"`
 }
 
 func (BrowserCustomBrowserNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -66,6 +68,10 @@ func (o BrowserCustomBrowserNetworkConfigurationOutput) ToBrowserCustomBrowserNe
 // The network mode.
 func (o BrowserCustomBrowserNetworkConfigurationOutput) NetworkMode() BrowserCustomBrowserNetworkModeOutput {
 	return o.ApplyT(func(v BrowserCustomBrowserNetworkConfiguration) BrowserCustomBrowserNetworkMode { return v.NetworkMode }).(BrowserCustomBrowserNetworkModeOutput)
+}
+
+func (o BrowserCustomBrowserNetworkConfigurationOutput) VpcConfig() BrowserCustomVpcConfigPtrOutput {
+	return o.ApplyT(func(v BrowserCustomBrowserNetworkConfiguration) *BrowserCustomVpcConfig { return v.VpcConfig }).(BrowserCustomVpcConfigPtrOutput)
 }
 
 // Recording configuration for browser
@@ -386,10 +392,162 @@ func (o BrowserCustomS3LocationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Network mode configuration for VPC
+type BrowserCustomVpcConfig struct {
+	SecurityGroups []string `pulumi:"securityGroups"`
+	Subnets        []string `pulumi:"subnets"`
+}
+
+// BrowserCustomVpcConfigInput is an input type that accepts BrowserCustomVpcConfigArgs and BrowserCustomVpcConfigOutput values.
+// You can construct a concrete instance of `BrowserCustomVpcConfigInput` via:
+//
+//	BrowserCustomVpcConfigArgs{...}
+type BrowserCustomVpcConfigInput interface {
+	pulumi.Input
+
+	ToBrowserCustomVpcConfigOutput() BrowserCustomVpcConfigOutput
+	ToBrowserCustomVpcConfigOutputWithContext(context.Context) BrowserCustomVpcConfigOutput
+}
+
+// Network mode configuration for VPC
+type BrowserCustomVpcConfigArgs struct {
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	Subnets        pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (BrowserCustomVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserCustomVpcConfig)(nil)).Elem()
+}
+
+func (i BrowserCustomVpcConfigArgs) ToBrowserCustomVpcConfigOutput() BrowserCustomVpcConfigOutput {
+	return i.ToBrowserCustomVpcConfigOutputWithContext(context.Background())
+}
+
+func (i BrowserCustomVpcConfigArgs) ToBrowserCustomVpcConfigOutputWithContext(ctx context.Context) BrowserCustomVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrowserCustomVpcConfigOutput)
+}
+
+func (i BrowserCustomVpcConfigArgs) ToBrowserCustomVpcConfigPtrOutput() BrowserCustomVpcConfigPtrOutput {
+	return i.ToBrowserCustomVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i BrowserCustomVpcConfigArgs) ToBrowserCustomVpcConfigPtrOutputWithContext(ctx context.Context) BrowserCustomVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrowserCustomVpcConfigOutput).ToBrowserCustomVpcConfigPtrOutputWithContext(ctx)
+}
+
+// BrowserCustomVpcConfigPtrInput is an input type that accepts BrowserCustomVpcConfigArgs, BrowserCustomVpcConfigPtr and BrowserCustomVpcConfigPtrOutput values.
+// You can construct a concrete instance of `BrowserCustomVpcConfigPtrInput` via:
+//
+//	        BrowserCustomVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type BrowserCustomVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToBrowserCustomVpcConfigPtrOutput() BrowserCustomVpcConfigPtrOutput
+	ToBrowserCustomVpcConfigPtrOutputWithContext(context.Context) BrowserCustomVpcConfigPtrOutput
+}
+
+type browserCustomVpcConfigPtrType BrowserCustomVpcConfigArgs
+
+func BrowserCustomVpcConfigPtr(v *BrowserCustomVpcConfigArgs) BrowserCustomVpcConfigPtrInput {
+	return (*browserCustomVpcConfigPtrType)(v)
+}
+
+func (*browserCustomVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BrowserCustomVpcConfig)(nil)).Elem()
+}
+
+func (i *browserCustomVpcConfigPtrType) ToBrowserCustomVpcConfigPtrOutput() BrowserCustomVpcConfigPtrOutput {
+	return i.ToBrowserCustomVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *browserCustomVpcConfigPtrType) ToBrowserCustomVpcConfigPtrOutputWithContext(ctx context.Context) BrowserCustomVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrowserCustomVpcConfigPtrOutput)
+}
+
+// Network mode configuration for VPC
+type BrowserCustomVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (BrowserCustomVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserCustomVpcConfig)(nil)).Elem()
+}
+
+func (o BrowserCustomVpcConfigOutput) ToBrowserCustomVpcConfigOutput() BrowserCustomVpcConfigOutput {
+	return o
+}
+
+func (o BrowserCustomVpcConfigOutput) ToBrowserCustomVpcConfigOutputWithContext(ctx context.Context) BrowserCustomVpcConfigOutput {
+	return o
+}
+
+func (o BrowserCustomVpcConfigOutput) ToBrowserCustomVpcConfigPtrOutput() BrowserCustomVpcConfigPtrOutput {
+	return o.ToBrowserCustomVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o BrowserCustomVpcConfigOutput) ToBrowserCustomVpcConfigPtrOutputWithContext(ctx context.Context) BrowserCustomVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BrowserCustomVpcConfig) *BrowserCustomVpcConfig {
+		return &v
+	}).(BrowserCustomVpcConfigPtrOutput)
+}
+
+func (o BrowserCustomVpcConfigOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BrowserCustomVpcConfig) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o BrowserCustomVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BrowserCustomVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type BrowserCustomVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (BrowserCustomVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BrowserCustomVpcConfig)(nil)).Elem()
+}
+
+func (o BrowserCustomVpcConfigPtrOutput) ToBrowserCustomVpcConfigPtrOutput() BrowserCustomVpcConfigPtrOutput {
+	return o
+}
+
+func (o BrowserCustomVpcConfigPtrOutput) ToBrowserCustomVpcConfigPtrOutputWithContext(ctx context.Context) BrowserCustomVpcConfigPtrOutput {
+	return o
+}
+
+func (o BrowserCustomVpcConfigPtrOutput) Elem() BrowserCustomVpcConfigOutput {
+	return o.ApplyT(func(v *BrowserCustomVpcConfig) BrowserCustomVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret BrowserCustomVpcConfig
+		return ret
+	}).(BrowserCustomVpcConfigOutput)
+}
+
+func (o BrowserCustomVpcConfigPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BrowserCustomVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o BrowserCustomVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BrowserCustomVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
 // Network configuration for code interpreter
 type CodeInterpreterCustomCodeInterpreterNetworkConfiguration struct {
 	// The network mode.
 	NetworkMode CodeInterpreterCustomCodeInterpreterNetworkMode `pulumi:"networkMode"`
+	VpcConfig   *CodeInterpreterCustomVpcConfig                 `pulumi:"vpcConfig"`
 }
 
 // CodeInterpreterCustomCodeInterpreterNetworkConfigurationInput is an input type that accepts CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs and CodeInterpreterCustomCodeInterpreterNetworkConfigurationOutput values.
@@ -407,6 +565,7 @@ type CodeInterpreterCustomCodeInterpreterNetworkConfigurationInput interface {
 type CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs struct {
 	// The network mode.
 	NetworkMode CodeInterpreterCustomCodeInterpreterNetworkModeInput `pulumi:"networkMode"`
+	VpcConfig   CodeInterpreterCustomVpcConfigPtrInput               `pulumi:"vpcConfig"`
 }
 
 func (CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -441,6 +600,163 @@ func (o CodeInterpreterCustomCodeInterpreterNetworkConfigurationOutput) NetworkM
 	return o.ApplyT(func(v CodeInterpreterCustomCodeInterpreterNetworkConfiguration) CodeInterpreterCustomCodeInterpreterNetworkMode {
 		return v.NetworkMode
 	}).(CodeInterpreterCustomCodeInterpreterNetworkModeOutput)
+}
+
+func (o CodeInterpreterCustomCodeInterpreterNetworkConfigurationOutput) VpcConfig() CodeInterpreterCustomVpcConfigPtrOutput {
+	return o.ApplyT(func(v CodeInterpreterCustomCodeInterpreterNetworkConfiguration) *CodeInterpreterCustomVpcConfig {
+		return v.VpcConfig
+	}).(CodeInterpreterCustomVpcConfigPtrOutput)
+}
+
+// Network mode configuration for VPC
+type CodeInterpreterCustomVpcConfig struct {
+	SecurityGroups []string `pulumi:"securityGroups"`
+	Subnets        []string `pulumi:"subnets"`
+}
+
+// CodeInterpreterCustomVpcConfigInput is an input type that accepts CodeInterpreterCustomVpcConfigArgs and CodeInterpreterCustomVpcConfigOutput values.
+// You can construct a concrete instance of `CodeInterpreterCustomVpcConfigInput` via:
+//
+//	CodeInterpreterCustomVpcConfigArgs{...}
+type CodeInterpreterCustomVpcConfigInput interface {
+	pulumi.Input
+
+	ToCodeInterpreterCustomVpcConfigOutput() CodeInterpreterCustomVpcConfigOutput
+	ToCodeInterpreterCustomVpcConfigOutputWithContext(context.Context) CodeInterpreterCustomVpcConfigOutput
+}
+
+// Network mode configuration for VPC
+type CodeInterpreterCustomVpcConfigArgs struct {
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	Subnets        pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (CodeInterpreterCustomVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeInterpreterCustomVpcConfig)(nil)).Elem()
+}
+
+func (i CodeInterpreterCustomVpcConfigArgs) ToCodeInterpreterCustomVpcConfigOutput() CodeInterpreterCustomVpcConfigOutput {
+	return i.ToCodeInterpreterCustomVpcConfigOutputWithContext(context.Background())
+}
+
+func (i CodeInterpreterCustomVpcConfigArgs) ToCodeInterpreterCustomVpcConfigOutputWithContext(ctx context.Context) CodeInterpreterCustomVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeInterpreterCustomVpcConfigOutput)
+}
+
+func (i CodeInterpreterCustomVpcConfigArgs) ToCodeInterpreterCustomVpcConfigPtrOutput() CodeInterpreterCustomVpcConfigPtrOutput {
+	return i.ToCodeInterpreterCustomVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CodeInterpreterCustomVpcConfigArgs) ToCodeInterpreterCustomVpcConfigPtrOutputWithContext(ctx context.Context) CodeInterpreterCustomVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeInterpreterCustomVpcConfigOutput).ToCodeInterpreterCustomVpcConfigPtrOutputWithContext(ctx)
+}
+
+// CodeInterpreterCustomVpcConfigPtrInput is an input type that accepts CodeInterpreterCustomVpcConfigArgs, CodeInterpreterCustomVpcConfigPtr and CodeInterpreterCustomVpcConfigPtrOutput values.
+// You can construct a concrete instance of `CodeInterpreterCustomVpcConfigPtrInput` via:
+//
+//	        CodeInterpreterCustomVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CodeInterpreterCustomVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToCodeInterpreterCustomVpcConfigPtrOutput() CodeInterpreterCustomVpcConfigPtrOutput
+	ToCodeInterpreterCustomVpcConfigPtrOutputWithContext(context.Context) CodeInterpreterCustomVpcConfigPtrOutput
+}
+
+type codeInterpreterCustomVpcConfigPtrType CodeInterpreterCustomVpcConfigArgs
+
+func CodeInterpreterCustomVpcConfigPtr(v *CodeInterpreterCustomVpcConfigArgs) CodeInterpreterCustomVpcConfigPtrInput {
+	return (*codeInterpreterCustomVpcConfigPtrType)(v)
+}
+
+func (*codeInterpreterCustomVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeInterpreterCustomVpcConfig)(nil)).Elem()
+}
+
+func (i *codeInterpreterCustomVpcConfigPtrType) ToCodeInterpreterCustomVpcConfigPtrOutput() CodeInterpreterCustomVpcConfigPtrOutput {
+	return i.ToCodeInterpreterCustomVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *codeInterpreterCustomVpcConfigPtrType) ToCodeInterpreterCustomVpcConfigPtrOutputWithContext(ctx context.Context) CodeInterpreterCustomVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeInterpreterCustomVpcConfigPtrOutput)
+}
+
+// Network mode configuration for VPC
+type CodeInterpreterCustomVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (CodeInterpreterCustomVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeInterpreterCustomVpcConfig)(nil)).Elem()
+}
+
+func (o CodeInterpreterCustomVpcConfigOutput) ToCodeInterpreterCustomVpcConfigOutput() CodeInterpreterCustomVpcConfigOutput {
+	return o
+}
+
+func (o CodeInterpreterCustomVpcConfigOutput) ToCodeInterpreterCustomVpcConfigOutputWithContext(ctx context.Context) CodeInterpreterCustomVpcConfigOutput {
+	return o
+}
+
+func (o CodeInterpreterCustomVpcConfigOutput) ToCodeInterpreterCustomVpcConfigPtrOutput() CodeInterpreterCustomVpcConfigPtrOutput {
+	return o.ToCodeInterpreterCustomVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CodeInterpreterCustomVpcConfigOutput) ToCodeInterpreterCustomVpcConfigPtrOutputWithContext(ctx context.Context) CodeInterpreterCustomVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeInterpreterCustomVpcConfig) *CodeInterpreterCustomVpcConfig {
+		return &v
+	}).(CodeInterpreterCustomVpcConfigPtrOutput)
+}
+
+func (o CodeInterpreterCustomVpcConfigOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CodeInterpreterCustomVpcConfig) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o CodeInterpreterCustomVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CodeInterpreterCustomVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type CodeInterpreterCustomVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeInterpreterCustomVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeInterpreterCustomVpcConfig)(nil)).Elem()
+}
+
+func (o CodeInterpreterCustomVpcConfigPtrOutput) ToCodeInterpreterCustomVpcConfigPtrOutput() CodeInterpreterCustomVpcConfigPtrOutput {
+	return o
+}
+
+func (o CodeInterpreterCustomVpcConfigPtrOutput) ToCodeInterpreterCustomVpcConfigPtrOutputWithContext(ctx context.Context) CodeInterpreterCustomVpcConfigPtrOutput {
+	return o
+}
+
+func (o CodeInterpreterCustomVpcConfigPtrOutput) Elem() CodeInterpreterCustomVpcConfigOutput {
+	return o.ApplyT(func(v *CodeInterpreterCustomVpcConfig) CodeInterpreterCustomVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CodeInterpreterCustomVpcConfig
+		return ret
+	}).(CodeInterpreterCustomVpcConfigOutput)
+}
+
+func (o CodeInterpreterCustomVpcConfigPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CodeInterpreterCustomVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o CodeInterpreterCustomVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CodeInterpreterCustomVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
 }
 
 type GatewayAuthorizerConfiguration0Properties struct {
@@ -1660,7 +1976,9 @@ func (o GatewayTargetCredentialProvider1PropertiesPtrOutput) ApiKeyCredentialPro
 }
 
 type GatewayTargetCredentialProviderConfiguration struct {
-	CredentialProvider     interface{}                         `pulumi:"credentialProvider"`
+	// The credential provider for the gateway target.
+	CredentialProvider interface{} `pulumi:"credentialProvider"`
+	// The credential provider type for the gateway target.
 	CredentialProviderType GatewayTargetCredentialProviderType `pulumi:"credentialProviderType"`
 }
 
@@ -1676,7 +1994,9 @@ type GatewayTargetCredentialProviderConfigurationInput interface {
 }
 
 type GatewayTargetCredentialProviderConfigurationArgs struct {
-	CredentialProvider     pulumi.Input                             `pulumi:"credentialProvider"`
+	// The credential provider for the gateway target.
+	CredentialProvider pulumi.Input `pulumi:"credentialProvider"`
+	// The credential provider type for the gateway target.
 	CredentialProviderType GatewayTargetCredentialProviderTypeInput `pulumi:"credentialProviderType"`
 }
 
@@ -1731,10 +2051,12 @@ func (o GatewayTargetCredentialProviderConfigurationOutput) ToGatewayTargetCrede
 	return o
 }
 
+// The credential provider for the gateway target.
 func (o GatewayTargetCredentialProviderConfigurationOutput) CredentialProvider() pulumi.AnyOutput {
 	return o.ApplyT(func(v GatewayTargetCredentialProviderConfiguration) interface{} { return v.CredentialProvider }).(pulumi.AnyOutput)
 }
 
+// The credential provider type for the gateway target.
 func (o GatewayTargetCredentialProviderConfigurationOutput) CredentialProviderType() GatewayTargetCredentialProviderTypeOutput {
 	return o.ApplyT(func(v GatewayTargetCredentialProviderConfiguration) GatewayTargetCredentialProviderType {
 		return v.CredentialProviderType
@@ -3566,7 +3888,8 @@ func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) DiscoveryUrl() pulumi.
 
 type RuntimeNetworkConfiguration struct {
 	// The network mode.
-	NetworkMode RuntimeNetworkMode `pulumi:"networkMode"`
+	NetworkMode       RuntimeNetworkMode `pulumi:"networkMode"`
+	NetworkModeConfig *RuntimeVpcConfig  `pulumi:"networkModeConfig"`
 }
 
 // RuntimeNetworkConfigurationInput is an input type that accepts RuntimeNetworkConfigurationArgs and RuntimeNetworkConfigurationOutput values.
@@ -3582,7 +3905,8 @@ type RuntimeNetworkConfigurationInput interface {
 
 type RuntimeNetworkConfigurationArgs struct {
 	// The network mode.
-	NetworkMode RuntimeNetworkModeInput `pulumi:"networkMode"`
+	NetworkMode       RuntimeNetworkModeInput  `pulumi:"networkMode"`
+	NetworkModeConfig RuntimeVpcConfigPtrInput `pulumi:"networkModeConfig"`
 }
 
 func (RuntimeNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -3614,6 +3938,10 @@ func (o RuntimeNetworkConfigurationOutput) ToRuntimeNetworkConfigurationOutputWi
 // The network mode.
 func (o RuntimeNetworkConfigurationOutput) NetworkMode() RuntimeNetworkModeOutput {
 	return o.ApplyT(func(v RuntimeNetworkConfiguration) RuntimeNetworkMode { return v.NetworkMode }).(RuntimeNetworkModeOutput)
+}
+
+func (o RuntimeNetworkConfigurationOutput) NetworkModeConfig() RuntimeVpcConfigPtrOutput {
+	return o.ApplyT(func(v RuntimeNetworkConfiguration) *RuntimeVpcConfig { return v.NetworkModeConfig }).(RuntimeVpcConfigPtrOutput)
 }
 
 type RuntimeNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -3648,6 +3976,166 @@ func (o RuntimeNetworkConfigurationPtrOutput) NetworkMode() RuntimeNetworkModePt
 		}
 		return &v.NetworkMode
 	}).(RuntimeNetworkModePtrOutput)
+}
+
+func (o RuntimeNetworkConfigurationPtrOutput) NetworkModeConfig() RuntimeVpcConfigPtrOutput {
+	return o.ApplyT(func(v *RuntimeNetworkConfiguration) *RuntimeVpcConfig {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkModeConfig
+	}).(RuntimeVpcConfigPtrOutput)
+}
+
+// Network mode configuration for VPC
+type RuntimeVpcConfig struct {
+	SecurityGroups []string `pulumi:"securityGroups"`
+	Subnets        []string `pulumi:"subnets"`
+}
+
+// RuntimeVpcConfigInput is an input type that accepts RuntimeVpcConfigArgs and RuntimeVpcConfigOutput values.
+// You can construct a concrete instance of `RuntimeVpcConfigInput` via:
+//
+//	RuntimeVpcConfigArgs{...}
+type RuntimeVpcConfigInput interface {
+	pulumi.Input
+
+	ToRuntimeVpcConfigOutput() RuntimeVpcConfigOutput
+	ToRuntimeVpcConfigOutputWithContext(context.Context) RuntimeVpcConfigOutput
+}
+
+// Network mode configuration for VPC
+type RuntimeVpcConfigArgs struct {
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	Subnets        pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (RuntimeVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeVpcConfig)(nil)).Elem()
+}
+
+func (i RuntimeVpcConfigArgs) ToRuntimeVpcConfigOutput() RuntimeVpcConfigOutput {
+	return i.ToRuntimeVpcConfigOutputWithContext(context.Background())
+}
+
+func (i RuntimeVpcConfigArgs) ToRuntimeVpcConfigOutputWithContext(ctx context.Context) RuntimeVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeVpcConfigOutput)
+}
+
+func (i RuntimeVpcConfigArgs) ToRuntimeVpcConfigPtrOutput() RuntimeVpcConfigPtrOutput {
+	return i.ToRuntimeVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeVpcConfigArgs) ToRuntimeVpcConfigPtrOutputWithContext(ctx context.Context) RuntimeVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeVpcConfigOutput).ToRuntimeVpcConfigPtrOutputWithContext(ctx)
+}
+
+// RuntimeVpcConfigPtrInput is an input type that accepts RuntimeVpcConfigArgs, RuntimeVpcConfigPtr and RuntimeVpcConfigPtrOutput values.
+// You can construct a concrete instance of `RuntimeVpcConfigPtrInput` via:
+//
+//	        RuntimeVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToRuntimeVpcConfigPtrOutput() RuntimeVpcConfigPtrOutput
+	ToRuntimeVpcConfigPtrOutputWithContext(context.Context) RuntimeVpcConfigPtrOutput
+}
+
+type runtimeVpcConfigPtrType RuntimeVpcConfigArgs
+
+func RuntimeVpcConfigPtr(v *RuntimeVpcConfigArgs) RuntimeVpcConfigPtrInput {
+	return (*runtimeVpcConfigPtrType)(v)
+}
+
+func (*runtimeVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeVpcConfig)(nil)).Elem()
+}
+
+func (i *runtimeVpcConfigPtrType) ToRuntimeVpcConfigPtrOutput() RuntimeVpcConfigPtrOutput {
+	return i.ToRuntimeVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeVpcConfigPtrType) ToRuntimeVpcConfigPtrOutputWithContext(ctx context.Context) RuntimeVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeVpcConfigPtrOutput)
+}
+
+// Network mode configuration for VPC
+type RuntimeVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (RuntimeVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeVpcConfig)(nil)).Elem()
+}
+
+func (o RuntimeVpcConfigOutput) ToRuntimeVpcConfigOutput() RuntimeVpcConfigOutput {
+	return o
+}
+
+func (o RuntimeVpcConfigOutput) ToRuntimeVpcConfigOutputWithContext(ctx context.Context) RuntimeVpcConfigOutput {
+	return o
+}
+
+func (o RuntimeVpcConfigOutput) ToRuntimeVpcConfigPtrOutput() RuntimeVpcConfigPtrOutput {
+	return o.ToRuntimeVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeVpcConfigOutput) ToRuntimeVpcConfigPtrOutputWithContext(ctx context.Context) RuntimeVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeVpcConfig) *RuntimeVpcConfig {
+		return &v
+	}).(RuntimeVpcConfigPtrOutput)
+}
+
+func (o RuntimeVpcConfigOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuntimeVpcConfig) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o RuntimeVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuntimeVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type RuntimeVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeVpcConfig)(nil)).Elem()
+}
+
+func (o RuntimeVpcConfigPtrOutput) ToRuntimeVpcConfigPtrOutput() RuntimeVpcConfigPtrOutput {
+	return o
+}
+
+func (o RuntimeVpcConfigPtrOutput) ToRuntimeVpcConfigPtrOutputWithContext(ctx context.Context) RuntimeVpcConfigPtrOutput {
+	return o
+}
+
+func (o RuntimeVpcConfigPtrOutput) Elem() RuntimeVpcConfigOutput {
+	return o.ApplyT(func(v *RuntimeVpcConfig) RuntimeVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeVpcConfig
+		return ret
+	}).(RuntimeVpcConfigOutput)
+}
+
+func (o RuntimeVpcConfigPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuntimeVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RuntimeVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuntimeVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
 }
 
 // Configuration for workload identity
@@ -3716,7 +4204,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomRecordingConfigPtrInput)(nil)).Elem(), BrowserCustomRecordingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomS3LocationInput)(nil)).Elem(), BrowserCustomS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomS3LocationPtrInput)(nil)).Elem(), BrowserCustomS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomVpcConfigInput)(nil)).Elem(), BrowserCustomVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomVpcConfigPtrInput)(nil)).Elem(), BrowserCustomVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCodeInterpreterNetworkConfigurationInput)(nil)).Elem(), CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomVpcConfigInput)(nil)).Elem(), CodeInterpreterCustomVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomVpcConfigPtrInput)(nil)).Elem(), CodeInterpreterCustomVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerConfigurationPropertiesInput)(nil)).Elem(), GatewayAuthorizerConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerConfigurationPropertiesPtrInput)(nil)).Elem(), GatewayAuthorizerConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCustomJwtAuthorizerConfigurationInput)(nil)).Elem(), GatewayCustomJwtAuthorizerConfigurationArgs{})
@@ -3758,12 +4250,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomJwtAuthorizerConfigurationInput)(nil)).Elem(), RuntimeCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomJwtAuthorizerConfigurationPtrInput)(nil)).Elem(), RuntimeCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkConfigurationInput)(nil)).Elem(), RuntimeNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeVpcConfigInput)(nil)).Elem(), RuntimeVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeVpcConfigPtrInput)(nil)).Elem(), RuntimeVpcConfigArgs{})
 	pulumi.RegisterOutputType(BrowserCustomBrowserNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(BrowserCustomRecordingConfigOutput{})
 	pulumi.RegisterOutputType(BrowserCustomRecordingConfigPtrOutput{})
 	pulumi.RegisterOutputType(BrowserCustomS3LocationOutput{})
 	pulumi.RegisterOutputType(BrowserCustomS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(BrowserCustomVpcConfigOutput{})
+	pulumi.RegisterOutputType(BrowserCustomVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(CodeInterpreterCustomVpcConfigOutput{})
+	pulumi.RegisterOutputType(CodeInterpreterCustomVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizerConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizerConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayCustomJwtAuthorizerConfigurationOutput{})
@@ -3819,6 +4317,8 @@ func init() {
 	pulumi.RegisterOutputType(RuntimeCustomJwtAuthorizerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeVpcConfigOutput{})
+	pulumi.RegisterOutputType(RuntimeVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeWorkloadIdentityDetailsOutput{})
 	pulumi.RegisterOutputType(RuntimeWorkloadIdentityDetailsPtrOutput{})
 }

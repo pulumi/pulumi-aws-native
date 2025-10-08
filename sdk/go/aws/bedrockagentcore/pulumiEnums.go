@@ -15,6 +15,7 @@ type BrowserCustomBrowserNetworkMode string
 
 const (
 	BrowserCustomBrowserNetworkModePublic = BrowserCustomBrowserNetworkMode("PUBLIC")
+	BrowserCustomBrowserNetworkModeVpc    = BrowserCustomBrowserNetworkMode("VPC")
 )
 
 func (BrowserCustomBrowserNetworkMode) ElementType() reflect.Type {
@@ -140,6 +141,7 @@ func (o BrowserCustomBrowserNetworkModePtrOutput) ToStringPtrOutputWithContext(c
 // A concrete instance of `BrowserCustomBrowserNetworkModeInput` can be one of the following:
 //
 //	BrowserCustomBrowserNetworkModePublic
+//	BrowserCustomBrowserNetworkModeVpc
 type BrowserCustomBrowserNetworkModeInput interface {
 	pulumi.Input
 
@@ -275,6 +277,7 @@ type CodeInterpreterCustomCodeInterpreterNetworkMode string
 const (
 	CodeInterpreterCustomCodeInterpreterNetworkModePublic  = CodeInterpreterCustomCodeInterpreterNetworkMode("PUBLIC")
 	CodeInterpreterCustomCodeInterpreterNetworkModeSandbox = CodeInterpreterCustomCodeInterpreterNetworkMode("SANDBOX")
+	CodeInterpreterCustomCodeInterpreterNetworkModeVpc     = CodeInterpreterCustomCodeInterpreterNetworkMode("VPC")
 )
 
 func (CodeInterpreterCustomCodeInterpreterNetworkMode) ElementType() reflect.Type {
@@ -401,6 +404,7 @@ func (o CodeInterpreterCustomCodeInterpreterNetworkModePtrOutput) ToStringPtrOut
 //
 //	CodeInterpreterCustomCodeInterpreterNetworkModePublic
 //	CodeInterpreterCustomCodeInterpreterNetworkModeSandbox
+//	CodeInterpreterCustomCodeInterpreterNetworkModeVpc
 type CodeInterpreterCustomCodeInterpreterNetworkModeInput interface {
 	pulumi.Input
 
@@ -2070,6 +2074,7 @@ type RuntimeNetworkMode string
 
 const (
 	RuntimeNetworkModePublic = RuntimeNetworkMode("PUBLIC")
+	RuntimeNetworkModeVpc    = RuntimeNetworkMode("VPC")
 )
 
 func (RuntimeNetworkMode) ElementType() reflect.Type {
@@ -2195,6 +2200,7 @@ func (o RuntimeNetworkModePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // A concrete instance of `RuntimeNetworkModeInput` can be one of the following:
 //
 //	RuntimeNetworkModePublic
+//	RuntimeNetworkModeVpc
 type RuntimeNetworkModeInput interface {
 	pulumi.Input
 

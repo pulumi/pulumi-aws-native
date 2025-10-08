@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+ * Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
  */
 export class ResourcePolicy extends pulumi.CustomResource {
     /**
@@ -82,6 +82,8 @@ export class ResourcePolicy extends pulumi.CustomResource {
             resourceInputs["revisionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["resourceArn"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResourcePolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

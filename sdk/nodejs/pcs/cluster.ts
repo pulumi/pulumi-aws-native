@@ -127,7 +127,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name", "networking", "scheduler", "size", "slurmConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["name", "networking", "scheduler", "size"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

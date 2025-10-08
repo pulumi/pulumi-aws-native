@@ -21,7 +21,9 @@ __all__ = [
     'BrowserCustomBrowserNetworkConfiguration',
     'BrowserCustomRecordingConfig',
     'BrowserCustomS3Location',
+    'BrowserCustomVpcConfig',
     'CodeInterpreterCustomCodeInterpreterNetworkConfiguration',
+    'CodeInterpreterCustomVpcConfig',
     'GatewayAuthorizerConfigurationProperties',
     'GatewayCustomJwtAuthorizerConfiguration',
     'GatewayMcpGatewayConfiguration',
@@ -49,6 +51,7 @@ __all__ = [
     'RuntimeContainerConfiguration',
     'RuntimeCustomJwtAuthorizerConfiguration',
     'RuntimeNetworkConfiguration',
+    'RuntimeVpcConfig',
     'RuntimeWorkloadIdentityDetails',
 ]
 
@@ -62,6 +65,8 @@ class BrowserCustomBrowserNetworkConfiguration(dict):
         suggest = None
         if key == "networkMode":
             suggest = "network_mode"
+        elif key == "vpcConfig":
+            suggest = "vpc_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BrowserCustomBrowserNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -75,12 +80,15 @@ class BrowserCustomBrowserNetworkConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 network_mode: 'BrowserCustomBrowserNetworkMode'):
+                 network_mode: 'BrowserCustomBrowserNetworkMode',
+                 vpc_config: Optional['outputs.BrowserCustomVpcConfig'] = None):
         """
         Network configuration for browser
         :param 'BrowserCustomBrowserNetworkMode' network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="networkMode")
@@ -89,6 +97,11 @@ class BrowserCustomBrowserNetworkConfiguration(dict):
         The network mode.
         """
         return pulumi.get(self, "network_mode")
+
+    @property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional['outputs.BrowserCustomVpcConfig']:
+        return pulumi.get(self, "vpc_config")
 
 
 @pulumi.output_type
@@ -177,6 +190,48 @@ class BrowserCustomS3Location(dict):
 
 
 @pulumi.output_type
+class BrowserCustomVpcConfig(dict):
+    """
+    Network mode configuration for VPC
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BrowserCustomVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BrowserCustomVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BrowserCustomVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_groups: Sequence[builtins.str],
+                 subnets: Sequence[builtins.str]):
+        """
+        Network mode configuration for VPC
+        """
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "security_groups")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
 class CodeInterpreterCustomCodeInterpreterNetworkConfiguration(dict):
     """
     Network configuration for code interpreter
@@ -186,6 +241,8 @@ class CodeInterpreterCustomCodeInterpreterNetworkConfiguration(dict):
         suggest = None
         if key == "networkMode":
             suggest = "network_mode"
+        elif key == "vpcConfig":
+            suggest = "vpc_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CodeInterpreterCustomCodeInterpreterNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -199,12 +256,15 @@ class CodeInterpreterCustomCodeInterpreterNetworkConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 network_mode: 'CodeInterpreterCustomCodeInterpreterNetworkMode'):
+                 network_mode: 'CodeInterpreterCustomCodeInterpreterNetworkMode',
+                 vpc_config: Optional['outputs.CodeInterpreterCustomVpcConfig'] = None):
         """
         Network configuration for code interpreter
         :param 'CodeInterpreterCustomCodeInterpreterNetworkMode' network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="networkMode")
@@ -213,6 +273,53 @@ class CodeInterpreterCustomCodeInterpreterNetworkConfiguration(dict):
         The network mode.
         """
         return pulumi.get(self, "network_mode")
+
+    @property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional['outputs.CodeInterpreterCustomVpcConfig']:
+        return pulumi.get(self, "vpc_config")
+
+
+@pulumi.output_type
+class CodeInterpreterCustomVpcConfig(dict):
+    """
+    Network mode configuration for VPC
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeInterpreterCustomVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeInterpreterCustomVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeInterpreterCustomVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_groups: Sequence[builtins.str],
+                 subnets: Sequence[builtins.str]):
+        """
+        Network mode configuration for VPC
+        """
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "security_groups")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "subnets")
 
 
 @pulumi.output_type
@@ -535,6 +642,10 @@ class GatewayTargetCredentialProviderConfiguration(dict):
     def __init__(__self__, *,
                  credential_provider_type: 'GatewayTargetCredentialProviderType',
                  credential_provider: Optional[Any] = None):
+        """
+        :param 'GatewayTargetCredentialProviderType' credential_provider_type: The credential provider type for the gateway target.
+        :param Union['GatewayTargetCredentialProvider0Properties', 'GatewayTargetCredentialProvider1Properties'] credential_provider: The credential provider for the gateway target.
+        """
         pulumi.set(__self__, "credential_provider_type", credential_provider_type)
         if credential_provider is not None:
             pulumi.set(__self__, "credential_provider", credential_provider)
@@ -542,11 +653,17 @@ class GatewayTargetCredentialProviderConfiguration(dict):
     @property
     @pulumi.getter(name="credentialProviderType")
     def credential_provider_type(self) -> 'GatewayTargetCredentialProviderType':
+        """
+        The credential provider type for the gateway target.
+        """
         return pulumi.get(self, "credential_provider_type")
 
     @property
     @pulumi.getter(name="credentialProvider")
     def credential_provider(self) -> Optional[Any]:
+        """
+        The credential provider for the gateway target.
+        """
         return pulumi.get(self, "credential_provider")
 
 
@@ -1123,6 +1240,8 @@ class RuntimeNetworkConfiguration(dict):
         suggest = None
         if key == "networkMode":
             suggest = "network_mode"
+        elif key == "networkModeConfig":
+            suggest = "network_mode_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuntimeNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -1136,11 +1255,14 @@ class RuntimeNetworkConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 network_mode: 'RuntimeNetworkMode'):
+                 network_mode: 'RuntimeNetworkMode',
+                 network_mode_config: Optional['outputs.RuntimeVpcConfig'] = None):
         """
         :param 'RuntimeNetworkMode' network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
+        if network_mode_config is not None:
+            pulumi.set(__self__, "network_mode_config", network_mode_config)
 
     @property
     @pulumi.getter(name="networkMode")
@@ -1149,6 +1271,53 @@ class RuntimeNetworkConfiguration(dict):
         The network mode.
         """
         return pulumi.get(self, "network_mode")
+
+    @property
+    @pulumi.getter(name="networkModeConfig")
+    def network_mode_config(self) -> Optional['outputs.RuntimeVpcConfig']:
+        return pulumi.get(self, "network_mode_config")
+
+
+@pulumi.output_type
+class RuntimeVpcConfig(dict):
+    """
+    Network mode configuration for VPC
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_groups: Sequence[builtins.str],
+                 subnets: Sequence[builtins.str]):
+        """
+        Network mode configuration for VPC
+        """
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "security_groups")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "subnets")
 
 
 @pulumi.output_type

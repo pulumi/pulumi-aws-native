@@ -42,6 +42,10 @@ export interface GetClusterResult {
      */
     readonly id?: string;
     /**
+     * Additional options related to the Slurm scheduler.
+     */
+    readonly slurmConfiguration?: outputs.pcs.SlurmConfigurationProperties;
+    /**
      * The provisioning status of the cluster. The provisioning status doesn't indicate the overall health of the cluster.
      */
     readonly status?: enums.pcs.ClusterStatus;

@@ -42,6 +42,10 @@ export interface GetQueueResult {
      */
     readonly id?: string;
     /**
+     * The Slurm configuration for the queue.
+     */
+    readonly slurmConfiguration?: outputs.pcs.SlurmConfigurationProperties;
+    /**
      * The provisioning status of the queue. The provisioning status doesn't indicate the overall health of the queue.
      */
     readonly status?: enums.pcs.QueueStatus;

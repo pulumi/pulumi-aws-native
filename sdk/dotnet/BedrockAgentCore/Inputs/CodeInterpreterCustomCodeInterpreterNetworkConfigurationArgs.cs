@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("networkMode", required: true)]
         public Input<Pulumi.AwsNative.BedrockAgentCore.CodeInterpreterCustomCodeInterpreterNetworkMode> NetworkMode { get; set; } = null!;
 
+        [Input("vpcConfig")]
+        public Input<Inputs.CodeInterpreterCustomVpcConfigArgs>? VpcConfig { get; set; }
+
         public CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs()
         {
         }

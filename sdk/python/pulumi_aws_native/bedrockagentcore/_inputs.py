@@ -23,8 +23,12 @@ __all__ = [
     'BrowserCustomRecordingConfigArgsDict',
     'BrowserCustomS3LocationArgs',
     'BrowserCustomS3LocationArgsDict',
+    'BrowserCustomVpcConfigArgs',
+    'BrowserCustomVpcConfigArgsDict',
     'CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs',
     'CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict',
+    'CodeInterpreterCustomVpcConfigArgs',
+    'CodeInterpreterCustomVpcConfigArgsDict',
     'GatewayAuthorizerConfigurationPropertiesArgs',
     'GatewayAuthorizerConfigurationPropertiesArgsDict',
     'GatewayCustomJwtAuthorizerConfigurationArgs',
@@ -77,6 +81,8 @@ __all__ = [
     'RuntimeCustomJwtAuthorizerConfigurationArgsDict',
     'RuntimeNetworkConfigurationArgs',
     'RuntimeNetworkConfigurationArgsDict',
+    'RuntimeVpcConfigArgs',
+    'RuntimeVpcConfigArgsDict',
 ]
 
 MYPY = False
@@ -90,18 +96,22 @@ if not MYPY:
         """
         The network mode.
         """
+        vpc_config: NotRequired[pulumi.Input['BrowserCustomVpcConfigArgsDict']]
 elif False:
     BrowserCustomBrowserNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BrowserCustomBrowserNetworkConfigurationArgs:
     def __init__(__self__, *,
-                 network_mode: pulumi.Input['BrowserCustomBrowserNetworkMode']):
+                 network_mode: pulumi.Input['BrowserCustomBrowserNetworkMode'],
+                 vpc_config: Optional[pulumi.Input['BrowserCustomVpcConfigArgs']] = None):
         """
         Network configuration for browser
         :param pulumi.Input['BrowserCustomBrowserNetworkMode'] network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="networkMode")
@@ -114,6 +124,15 @@ class BrowserCustomBrowserNetworkConfigurationArgs:
     @network_mode.setter
     def network_mode(self, value: pulumi.Input['BrowserCustomBrowserNetworkMode']):
         pulumi.set(self, "network_mode", value)
+
+    @property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional[pulumi.Input['BrowserCustomVpcConfigArgs']]:
+        return pulumi.get(self, "vpc_config")
+
+    @vpc_config.setter
+    def vpc_config(self, value: Optional[pulumi.Input['BrowserCustomVpcConfigArgs']]):
+        pulumi.set(self, "vpc_config", value)
 
 
 if not MYPY:
@@ -227,6 +246,46 @@ class BrowserCustomS3LocationArgs:
 
 
 if not MYPY:
+    class BrowserCustomVpcConfigArgsDict(TypedDict):
+        """
+        Network mode configuration for VPC
+        """
+        security_groups: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        subnets: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+elif False:
+    BrowserCustomVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BrowserCustomVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_groups: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        """
+        Network mode configuration for VPC
+        """
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "subnets", value)
+
+
+if not MYPY:
     class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict(TypedDict):
         """
         Network configuration for code interpreter
@@ -235,18 +294,22 @@ if not MYPY:
         """
         The network mode.
         """
+        vpc_config: NotRequired[pulumi.Input['CodeInterpreterCustomVpcConfigArgsDict']]
 elif False:
     CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs:
     def __init__(__self__, *,
-                 network_mode: pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkMode']):
+                 network_mode: pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkMode'],
+                 vpc_config: Optional[pulumi.Input['CodeInterpreterCustomVpcConfigArgs']] = None):
         """
         Network configuration for code interpreter
         :param pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkMode'] network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="networkMode")
@@ -259,6 +322,55 @@ class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs:
     @network_mode.setter
     def network_mode(self, value: pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkMode']):
         pulumi.set(self, "network_mode", value)
+
+    @property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional[pulumi.Input['CodeInterpreterCustomVpcConfigArgs']]:
+        return pulumi.get(self, "vpc_config")
+
+    @vpc_config.setter
+    def vpc_config(self, value: Optional[pulumi.Input['CodeInterpreterCustomVpcConfigArgs']]):
+        pulumi.set(self, "vpc_config", value)
+
+
+if not MYPY:
+    class CodeInterpreterCustomVpcConfigArgsDict(TypedDict):
+        """
+        Network mode configuration for VPC
+        """
+        security_groups: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        subnets: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+elif False:
+    CodeInterpreterCustomVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CodeInterpreterCustomVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_groups: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        """
+        Network mode configuration for VPC
+        """
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "subnets", value)
 
 
 if not MYPY:
@@ -554,7 +666,13 @@ class GatewayTargetCredentialProvider1PropertiesArgs:
 if not MYPY:
     class GatewayTargetCredentialProviderConfigurationArgsDict(TypedDict):
         credential_provider_type: pulumi.Input['GatewayTargetCredentialProviderType']
+        """
+        The credential provider type for the gateway target.
+        """
         credential_provider: NotRequired[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgsDict', 'GatewayTargetCredentialProvider1PropertiesArgsDict']]]
+        """
+        The credential provider for the gateway target.
+        """
 elif False:
     GatewayTargetCredentialProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -563,6 +681,10 @@ class GatewayTargetCredentialProviderConfigurationArgs:
     def __init__(__self__, *,
                  credential_provider_type: pulumi.Input['GatewayTargetCredentialProviderType'],
                  credential_provider: Optional[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs']]] = None):
+        """
+        :param pulumi.Input['GatewayTargetCredentialProviderType'] credential_provider_type: The credential provider type for the gateway target.
+        :param pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs']] credential_provider: The credential provider for the gateway target.
+        """
         pulumi.set(__self__, "credential_provider_type", credential_provider_type)
         if credential_provider is not None:
             pulumi.set(__self__, "credential_provider", credential_provider)
@@ -570,6 +692,9 @@ class GatewayTargetCredentialProviderConfigurationArgs:
     @property
     @pulumi.getter(name="credentialProviderType")
     def credential_provider_type(self) -> pulumi.Input['GatewayTargetCredentialProviderType']:
+        """
+        The credential provider type for the gateway target.
+        """
         return pulumi.get(self, "credential_provider_type")
 
     @credential_provider_type.setter
@@ -579,6 +704,9 @@ class GatewayTargetCredentialProviderConfigurationArgs:
     @property
     @pulumi.getter(name="credentialProvider")
     def credential_provider(self) -> Optional[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs']]]:
+        """
+        The credential provider for the gateway target.
+        """
         return pulumi.get(self, "credential_provider")
 
     @credential_provider.setter
@@ -1148,17 +1276,21 @@ if not MYPY:
         """
         The network mode.
         """
+        network_mode_config: NotRequired[pulumi.Input['RuntimeVpcConfigArgsDict']]
 elif False:
     RuntimeNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuntimeNetworkConfigurationArgs:
     def __init__(__self__, *,
-                 network_mode: pulumi.Input['RuntimeNetworkMode']):
+                 network_mode: pulumi.Input['RuntimeNetworkMode'],
+                 network_mode_config: Optional[pulumi.Input['RuntimeVpcConfigArgs']] = None):
         """
         :param pulumi.Input['RuntimeNetworkMode'] network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
+        if network_mode_config is not None:
+            pulumi.set(__self__, "network_mode_config", network_mode_config)
 
     @property
     @pulumi.getter(name="networkMode")
@@ -1171,5 +1303,54 @@ class RuntimeNetworkConfigurationArgs:
     @network_mode.setter
     def network_mode(self, value: pulumi.Input['RuntimeNetworkMode']):
         pulumi.set(self, "network_mode", value)
+
+    @property
+    @pulumi.getter(name="networkModeConfig")
+    def network_mode_config(self) -> Optional[pulumi.Input['RuntimeVpcConfigArgs']]:
+        return pulumi.get(self, "network_mode_config")
+
+    @network_mode_config.setter
+    def network_mode_config(self, value: Optional[pulumi.Input['RuntimeVpcConfigArgs']]):
+        pulumi.set(self, "network_mode_config", value)
+
+
+if not MYPY:
+    class RuntimeVpcConfigArgsDict(TypedDict):
+        """
+        Network mode configuration for VPC
+        """
+        security_groups: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        subnets: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+elif False:
+    RuntimeVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuntimeVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_groups: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        """
+        Network mode configuration for VPC
+        """
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "subnets", value)
 
 

@@ -52,6 +52,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// Determines if hidden fields are exported with a dashboard.
         /// </summary>
         public readonly Outputs.DashboardExportWithHiddenFieldsOption? ExportWithHiddenFieldsOption;
+        public readonly Outputs.DashboardQuickSuiteActionsOption? QuickSuiteActionsOption;
         /// <summary>
         /// Sheet controls option.
         /// </summary>
@@ -93,6 +94,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardExportWithHiddenFieldsOption? exportWithHiddenFieldsOption,
 
+            Outputs.DashboardQuickSuiteActionsOption? quickSuiteActionsOption,
+
             Outputs.DashboardSheetControlsOption? sheetControlsOption,
 
             Outputs.DashboardSheetLayoutElementMaximizationOption? sheetLayoutElementMaximizationOption,
@@ -112,6 +115,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ExecutiveSummaryOption = executiveSummaryOption;
             ExportToCsvOption = exportToCsvOption;
             ExportWithHiddenFieldsOption = exportWithHiddenFieldsOption;
+            QuickSuiteActionsOption = quickSuiteActionsOption;
             SheetControlsOption = sheetControlsOption;
             SheetLayoutElementMaximizationOption = sheetLayoutElementMaximizationOption;
             VisualAxisSortOption = visualAxisSortOption;

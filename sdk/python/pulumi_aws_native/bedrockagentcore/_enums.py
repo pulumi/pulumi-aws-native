@@ -33,6 +33,7 @@ class BrowserCustomBrowserNetworkMode(builtins.str, Enum):
     Network modes supported by browser
     """
     PUBLIC = "PUBLIC"
+    VPC = "VPC"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:BrowserCustomBrowserStatus")
@@ -55,6 +56,7 @@ class CodeInterpreterCustomCodeInterpreterNetworkMode(builtins.str, Enum):
     """
     PUBLIC = "PUBLIC"
     SANDBOX = "SANDBOX"
+    VPC = "VPC"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:CodeInterpreterCustomCodeInterpreterStatus")
@@ -160,6 +162,7 @@ class RuntimeNetworkMode(builtins.str, Enum):
     Network mode configuration type
     """
     PUBLIC = "PUBLIC"
+    VPC = "VPC"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:RuntimeProtocolConfiguration")

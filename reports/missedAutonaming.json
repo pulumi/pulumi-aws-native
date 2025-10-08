@@ -1054,6 +1054,18 @@
     "cfTypeName": "AWS::ApplicationSignals::Discovery",
     "properties": {}
   },
+  "aws-native:applicationsignals:GroupingConfiguration": {
+    "cfTypeName": "AWS::ApplicationSignals::GroupingConfiguration",
+    "properties": {
+      "groupingAttributeDefinitions": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:applicationsignals:GroupingConfigurationGroupingAttributeDefinition"
+        },
+        "description": "An array of grouping attribute definitions that specify how services should be grouped based on various attributes and source keys."
+      }
+    }
+  },
   "aws-native:appstream:ApplicationEntitlementAssociation": {
     "cfTypeName": "AWS::AppStream::ApplicationEntitlementAssociation",
     "properties": {
@@ -8877,6 +8889,10 @@
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the infrastructure configuration."
       },
+      "loggingConfiguration": {
+        "$ref": "#/types/aws-native:imagebuilder:ImageLoggingConfiguration",
+        "description": "The logging configuration settings for the image."
+      },
       "tags": {
         "type": "object",
         "additionalProperties": {
@@ -14158,6 +14174,31 @@
       "shareTagOptions": {
         "type": "boolean",
         "description": "Enables or disables TagOptions sharing when creating the portfolio share."
+      }
+    }
+  },
+  "aws-native:servicecatalog:ResourceUpdateConstraint": {
+    "cfTypeName": "AWS::ServiceCatalog::ResourceUpdateConstraint",
+    "properties": {
+      "acceptLanguage": {
+        "type": "string",
+        "description": "The language code"
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the constraint"
+      },
+      "portfolioId": {
+        "type": "string",
+        "description": "The portfolio identifier"
+      },
+      "productId": {
+        "type": "string",
+        "description": "The product identifier"
+      },
+      "tagUpdateOnProvisionedProduct": {
+        "type": "string",
+        "description": "ALLOWED or NOT_ALLOWED, to permit or prevent changes to the tags on provisioned instances of the specified portfolio / product combination"
       }
     }
   },

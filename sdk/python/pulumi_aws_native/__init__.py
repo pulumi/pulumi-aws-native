@@ -892,6 +892,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.applicationsignals",
   "classes": {
    "aws-native:applicationsignals:Discovery": "Discovery",
+   "aws-native:applicationsignals:GroupingConfiguration": "GroupingConfiguration",
    "aws-native:applicationsignals:ServiceLevelObjective": "ServiceLevelObjective"
   }
  },
@@ -2408,6 +2409,7 @@ _utilities.register(
    "aws-native:lightsail:Container": "Container",
    "aws-native:lightsail:Database": "Database",
    "aws-native:lightsail:Disk": "Disk",
+   "aws-native:lightsail:DiskSnapshot": "DiskSnapshot",
    "aws-native:lightsail:Instance": "Instance",
    "aws-native:lightsail:InstanceSnapshot": "InstanceSnapshot",
    "aws-native:lightsail:LoadBalancer": "LoadBalancer",
@@ -2603,7 +2605,8 @@ _utilities.register(
    "aws-native:neptune:DbClusterParameterGroup": "DbClusterParameterGroup",
    "aws-native:neptune:DbInstance": "DbInstance",
    "aws-native:neptune:DbParameterGroup": "DbParameterGroup",
-   "aws-native:neptune:DbSubnetGroup": "DbSubnetGroup"
+   "aws-native:neptune:DbSubnetGroup": "DbSubnetGroup",
+   "aws-native:neptune:EventSubscription": "EventSubscription"
   }
  },
  {
@@ -2675,6 +2678,7 @@ _utilities.register(
   "mod": "observabilityadmin",
   "fqn": "pulumi_aws_native.observabilityadmin",
   "classes": {
+   "aws-native:observabilityadmin:OrganizationCentralizationRule": "OrganizationCentralizationRule",
    "aws-native:observabilityadmin:OrganizationTelemetryRule": "OrganizationTelemetryRule",
    "aws-native:observabilityadmin:TelemetryRule": "TelemetryRule"
   }
@@ -3244,6 +3248,7 @@ _utilities.register(
    "aws-native:servicecatalog:LaunchTemplateConstraint": "LaunchTemplateConstraint",
    "aws-native:servicecatalog:PortfolioProductAssociation": "PortfolioProductAssociation",
    "aws-native:servicecatalog:PortfolioShare": "PortfolioShare",
+   "aws-native:servicecatalog:ResourceUpdateConstraint": "ResourceUpdateConstraint",
    "aws-native:servicecatalog:ServiceAction": "ServiceAction",
    "aws-native:servicecatalog:ServiceActionAssociation": "ServiceActionAssociation",
    "aws-native:servicecatalog:TagOption": "TagOption"

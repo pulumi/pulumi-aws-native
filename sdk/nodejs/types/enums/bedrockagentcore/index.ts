@@ -4,6 +4,7 @@
 
 export const BrowserCustomBrowserNetworkMode = {
     Public: "PUBLIC",
+    Vpc: "VPC",
 } as const;
 
 /**
@@ -28,6 +29,7 @@ export type BrowserCustomBrowserStatus = (typeof BrowserCustomBrowserStatus)[key
 export const CodeInterpreterCustomCodeInterpreterNetworkMode = {
     Public: "PUBLIC",
     Sandbox: "SANDBOX",
+    Vpc: "VPC",
 } as const;
 
 /**
@@ -146,6 +148,7 @@ export type RuntimeEndpointAgentRuntimeEndpointStatus = (typeof RuntimeEndpointA
 
 export const RuntimeNetworkMode = {
     Public: "PUBLIC",
+    Vpc: "VPC",
 } as const;
 
 /**

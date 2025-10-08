@@ -13,6 +13,257 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateLineChartVisual struct {
+	// The list of custom actions that are configured for a visual.
+	Actions []TemplateVisualCustomAction `pulumi:"actions"`
+	// The configuration of a line chart.
+	ChartConfiguration *TemplateLineChartConfiguration `pulumi:"chartConfiguration"`
+	// The column hierarchy that is used during drill-downs and drill-ups.
+	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
+	// The subtitle that is displayed on the visual.
+	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
+	// The title that is displayed on the visual.
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+	VisualId string `pulumi:"visualId"`
+}
+
+// TemplateLineChartVisualInput is an input type that accepts TemplateLineChartVisualArgs and TemplateLineChartVisualOutput values.
+// You can construct a concrete instance of `TemplateLineChartVisualInput` via:
+//
+//	TemplateLineChartVisualArgs{...}
+type TemplateLineChartVisualInput interface {
+	pulumi.Input
+
+	ToTemplateLineChartVisualOutput() TemplateLineChartVisualOutput
+	ToTemplateLineChartVisualOutputWithContext(context.Context) TemplateLineChartVisualOutput
+}
+
+type TemplateLineChartVisualArgs struct {
+	// The list of custom actions that are configured for a visual.
+	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
+	// The configuration of a line chart.
+	ChartConfiguration TemplateLineChartConfigurationPtrInput `pulumi:"chartConfiguration"`
+	// The column hierarchy that is used during drill-downs and drill-ups.
+	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
+	// The subtitle that is displayed on the visual.
+	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
+	// The title that is displayed on the visual.
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+	VisualId pulumi.StringInput `pulumi:"visualId"`
+}
+
+func (TemplateLineChartVisualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateLineChartVisual)(nil)).Elem()
+}
+
+func (i TemplateLineChartVisualArgs) ToTemplateLineChartVisualOutput() TemplateLineChartVisualOutput {
+	return i.ToTemplateLineChartVisualOutputWithContext(context.Background())
+}
+
+func (i TemplateLineChartVisualArgs) ToTemplateLineChartVisualOutputWithContext(ctx context.Context) TemplateLineChartVisualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLineChartVisualOutput)
+}
+
+func (i TemplateLineChartVisualArgs) ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput {
+	return i.ToTemplateLineChartVisualPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateLineChartVisualArgs) ToTemplateLineChartVisualPtrOutputWithContext(ctx context.Context) TemplateLineChartVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLineChartVisualOutput).ToTemplateLineChartVisualPtrOutputWithContext(ctx)
+}
+
+// TemplateLineChartVisualPtrInput is an input type that accepts TemplateLineChartVisualArgs, TemplateLineChartVisualPtr and TemplateLineChartVisualPtrOutput values.
+// You can construct a concrete instance of `TemplateLineChartVisualPtrInput` via:
+//
+//	        TemplateLineChartVisualArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateLineChartVisualPtrInput interface {
+	pulumi.Input
+
+	ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput
+	ToTemplateLineChartVisualPtrOutputWithContext(context.Context) TemplateLineChartVisualPtrOutput
+}
+
+type templateLineChartVisualPtrType TemplateLineChartVisualArgs
+
+func TemplateLineChartVisualPtr(v *TemplateLineChartVisualArgs) TemplateLineChartVisualPtrInput {
+	return (*templateLineChartVisualPtrType)(v)
+}
+
+func (*templateLineChartVisualPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateLineChartVisual)(nil)).Elem()
+}
+
+func (i *templateLineChartVisualPtrType) ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput {
+	return i.ToTemplateLineChartVisualPtrOutputWithContext(context.Background())
+}
+
+func (i *templateLineChartVisualPtrType) ToTemplateLineChartVisualPtrOutputWithContext(ctx context.Context) TemplateLineChartVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLineChartVisualPtrOutput)
+}
+
+type TemplateLineChartVisualOutput struct{ *pulumi.OutputState }
+
+func (TemplateLineChartVisualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateLineChartVisual)(nil)).Elem()
+}
+
+func (o TemplateLineChartVisualOutput) ToTemplateLineChartVisualOutput() TemplateLineChartVisualOutput {
+	return o
+}
+
+func (o TemplateLineChartVisualOutput) ToTemplateLineChartVisualOutputWithContext(ctx context.Context) TemplateLineChartVisualOutput {
+	return o
+}
+
+func (o TemplateLineChartVisualOutput) ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput {
+	return o.ToTemplateLineChartVisualPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateLineChartVisualOutput) ToTemplateLineChartVisualPtrOutputWithContext(ctx context.Context) TemplateLineChartVisualPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLineChartVisual) *TemplateLineChartVisual {
+		return &v
+	}).(TemplateLineChartVisualPtrOutput)
+}
+
+// The list of custom actions that are configured for a visual.
+func (o TemplateLineChartVisualOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v TemplateLineChartVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
+}
+
+// The configuration of a line chart.
+func (o TemplateLineChartVisualOutput) ChartConfiguration() TemplateLineChartConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateLineChartVisual) *TemplateLineChartConfiguration { return v.ChartConfiguration }).(TemplateLineChartConfigurationPtrOutput)
+}
+
+// The column hierarchy that is used during drill-downs and drill-ups.
+func (o TemplateLineChartVisualOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v TemplateLineChartVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
+}
+
+// The subtitle that is displayed on the visual.
+func (o TemplateLineChartVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateLineChartVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+// The title that is displayed on the visual.
+func (o TemplateLineChartVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateLineChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+// The alt text for the visual.
+func (o TemplateLineChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateLineChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+func (o TemplateLineChartVisualOutput) VisualId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateLineChartVisual) string { return v.VisualId }).(pulumi.StringOutput)
+}
+
+type TemplateLineChartVisualPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateLineChartVisualPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateLineChartVisual)(nil)).Elem()
+}
+
+func (o TemplateLineChartVisualPtrOutput) ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput {
+	return o
+}
+
+func (o TemplateLineChartVisualPtrOutput) ToTemplateLineChartVisualPtrOutputWithContext(ctx context.Context) TemplateLineChartVisualPtrOutput {
+	return o
+}
+
+func (o TemplateLineChartVisualPtrOutput) Elem() TemplateLineChartVisualOutput {
+	return o.ApplyT(func(v *TemplateLineChartVisual) TemplateLineChartVisual {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateLineChartVisual
+		return ret
+	}).(TemplateLineChartVisualOutput)
+}
+
+// The list of custom actions that are configured for a visual.
+func (o TemplateLineChartVisualPtrOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v *TemplateLineChartVisual) []TemplateVisualCustomAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(TemplateVisualCustomActionArrayOutput)
+}
+
+// The configuration of a line chart.
+func (o TemplateLineChartVisualPtrOutput) ChartConfiguration() TemplateLineChartConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateLineChartVisual) *TemplateLineChartConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ChartConfiguration
+	}).(TemplateLineChartConfigurationPtrOutput)
+}
+
+// The column hierarchy that is used during drill-downs and drill-ups.
+func (o TemplateLineChartVisualPtrOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v *TemplateLineChartVisual) []TemplateColumnHierarchy {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnHierarchies
+	}).(TemplateColumnHierarchyArrayOutput)
+}
+
+// The subtitle that is displayed on the visual.
+func (o TemplateLineChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateLineChartVisual) *TemplateVisualSubtitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Subtitle
+	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+// The title that is displayed on the visual.
+func (o TemplateLineChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateLineChartVisual) *TemplateVisualTitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+// The alt text for the visual.
+func (o TemplateLineChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateLineChartVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VisualContentAltText
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+func (o TemplateLineChartVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateLineChartVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VisualId
+	}).(pulumi.StringPtrOutput)
+}
+
 type TemplateLineSeriesAxisDisplayOptions struct {
 	// The options that determine the presentation of the line series axis.
 	AxisOptions *TemplateAxisDisplayOptions `pulumi:"axisOptions"`
@@ -49865,6 +50116,8 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineChartVisualInput)(nil)).Elem(), TemplateLineChartVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineChartVisualPtrInput)(nil)).Elem(), TemplateLineChartVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineSeriesAxisDisplayOptionsInput)(nil)).Elem(), TemplateLineSeriesAxisDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineSeriesAxisDisplayOptionsPtrInput)(nil)).Elem(), TemplateLineSeriesAxisDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlDisplayOptionsInput)(nil)).Elem(), TemplateListControlDisplayOptionsArgs{})
@@ -50421,6 +50674,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateLineChartVisualOutput{})
+	pulumi.RegisterOutputType(TemplateLineChartVisualPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLineSeriesAxisDisplayOptionsOutput{})
 	pulumi.RegisterOutputType(TemplateLineSeriesAxisDisplayOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateListControlDisplayOptionsOutput{})

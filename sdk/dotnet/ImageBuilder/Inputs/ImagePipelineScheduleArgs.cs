@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         /// The auto-disable policy for the image pipeline.
         /// </summary>
         [Input("autoDisablePolicy")]
-        public Input<object>? AutoDisablePolicy { get; set; }
+        public Input<Inputs.ImagePipelineAutoDisablePolicyArgs>? AutoDisablePolicy { get; set; }
 
         /// <summary>
         /// The condition configures when the pipeline should trigger a new image build.

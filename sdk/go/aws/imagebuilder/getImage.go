@@ -36,6 +36,8 @@ type LookupImageResult struct {
 	ImageId *string `pulumi:"imageId"`
 	// URI for containers created in current Region with default ECR image tag
 	ImageUri *string `pulumi:"imageUri"`
+	// The logging configuration settings for the image.
+	LoggingConfiguration *ImageLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// The name of the image.
 	Name *string `pulumi:"name"`
 	// The tags associated with the image.
@@ -92,6 +94,11 @@ func (o LookupImageResultOutput) ImageId() pulumi.StringPtrOutput {
 // URI for containers created in current Region with default ECR image tag
 func (o LookupImageResultOutput) ImageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageResult) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
+}
+
+// The logging configuration settings for the image.
+func (o LookupImageResultOutput) LoggingConfiguration() ImageLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *ImageLoggingConfiguration { return v.LoggingConfiguration }).(ImageLoggingConfigurationPtrOutput)
 }
 
 // The name of the image.
