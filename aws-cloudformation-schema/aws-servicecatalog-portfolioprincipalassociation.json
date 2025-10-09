@@ -3,24 +3,24 @@
   "description" : "Resource Type definition for AWS::ServiceCatalog::PortfolioPrincipalAssociation",
   "additionalProperties" : false,
   "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "PrincipalARN" : {
+      "type" : "string"
+    },
     "AcceptLanguage" : {
       "type" : "string"
     },
     "PortfolioId" : {
       "type" : "string"
     },
-    "PrincipalARN" : {
-      "type" : "string"
-    },
-    "Id" : {
-      "type" : "string"
-    },
     "PrincipalType" : {
       "type" : "string"
     }
   },
-  "required" : [ "PrincipalARN", "PortfolioId", "PrincipalType" ],
-  "createOnlyProperties" : [ "/properties/AcceptLanguage", "/properties/PortfolioId", "/properties/PrincipalARN", "/properties/PrincipalType" ],
+  "required" : [ "PortfolioId", "PrincipalType", "PrincipalARN" ],
+  "createOnlyProperties" : [ "/properties/PortfolioId", "/properties/AcceptLanguage", "/properties/PrincipalARN", "/properties/PrincipalType" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

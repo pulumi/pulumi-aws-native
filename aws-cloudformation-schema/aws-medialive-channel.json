@@ -256,6 +256,9 @@
         "QualityLevel" : {
           "type" : "string"
         },
+        "MinBitrate" : {
+          "type" : "integer"
+        },
         "MinIInterval" : {
           "type" : "integer"
         },
@@ -2791,6 +2794,9 @@
         "MvTemporalPredictor" : {
           "type" : "string"
         },
+        "MinBitrate" : {
+          "type" : "integer"
+        },
         "MinIInterval" : {
           "type" : "integer"
         },
@@ -2866,6 +2872,9 @@
         "LookAheadRateControl" : {
           "type" : "string"
         },
+        "GopBReference" : {
+          "type" : "string"
+        },
         "Level" : {
           "type" : "string"
         },
@@ -2874,6 +2883,12 @@
         },
         "TreeblockSize" : {
           "type" : "string"
+        },
+        "SubgopLength" : {
+          "type" : "string"
+        },
+        "GopNumBFrames" : {
+          "type" : "integer"
         }
       }
     },
@@ -3268,6 +3283,9 @@
           "type" : "string"
         },
         "BufSize" : {
+          "type" : "integer"
+        },
+        "MinBitrate" : {
           "type" : "integer"
         },
         "MinIInterval" : {
