@@ -194,55 +194,55 @@ export class Broker extends pulumi.CustomResource {
      *
      * `amqp+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:5671`
      */
-    public /*out*/ readonly amqpEndpoints!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly amqpEndpoints: pulumi.Output<string[]>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon MQ broker.
      *
      * `arn:aws:mq:us-east-2:123456789012:broker:MyBroker:b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
      */
-    public readonly authenticationStrategy!: pulumi.Output<enums.amazonmq.BrokerAuthenticationStrategy | string | undefined>;
+    declare public readonly authenticationStrategy: pulumi.Output<enums.amazonmq.BrokerAuthenticationStrategy | string | undefined>;
     /**
      * Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
      */
-    public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoMinorVersionUpgrade: pulumi.Output<boolean | undefined>;
     /**
      * Required. The unique ID that Amazon MQ generates for the configuration.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The name of the broker. This value must be unique in your AWS account , 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.
      *
      * > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker names. Broker names are accessible to other AWS services, including C CloudWatch Logs . Broker names are not intended to be used for private or sensitive data.
      */
-    public readonly brokerName!: pulumi.Output<string>;
+    declare public readonly brokerName: pulumi.Output<string>;
     /**
      * The intended configuration (ID and revision) to be set when creating or updating.
      * This property is write-only so that applications of a ConfigurationAssociation do not cause drift.
      */
-    public readonly configuration!: pulumi.Output<outputs.amazonmq.BrokerConfigurationId | undefined>;
+    declare public readonly configuration: pulumi.Output<outputs.amazonmq.BrokerConfigurationId | undefined>;
     /**
      * The ID of the current actual configuration.
      */
-    public /*out*/ readonly configurationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationId: pulumi.Output<string>;
     /**
      * The revision of the current actual configuration.
      */
-    public /*out*/ readonly configurationRevision!: pulumi.Output<string>;
-    public /*out*/ readonly consoleUrls!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly configurationRevision: pulumi.Output<string>;
+    declare public /*out*/ readonly consoleUrls: pulumi.Output<string[]>;
     /**
      * Defines whether this broker is a part of a data replication pair.
      */
-    public readonly dataReplicationMode!: pulumi.Output<enums.amazonmq.BrokerDataReplicationMode | string | undefined>;
+    declare public readonly dataReplicationMode: pulumi.Output<enums.amazonmq.BrokerDataReplicationMode | string | undefined>;
     /**
      * The ARN of the primary broker that is used to replicate data from in a data replication pair when creating a replica.
      * This field is only used at creation-time. Changes to it subsequently are ignored by CloudFormation.
      * Information on the current primary is available on the DataReplicationMetadata object returned by the API.
      */
-    public readonly dataReplicationPrimaryBrokerArn!: pulumi.Output<string | undefined>;
+    declare public readonly dataReplicationPrimaryBrokerArn: pulumi.Output<string | undefined>;
     /**
      * The deployment mode of the broker. Available values:
      *
@@ -250,98 +250,98 @@ export class Broker extends pulumi.CustomResource {
      * - `ACTIVE_STANDBY_MULTI_AZ`
      * - `CLUSTER_MULTI_AZ`
      */
-    public readonly deploymentMode!: pulumi.Output<enums.amazonmq.BrokerDeploymentMode | string>;
+    declare public readonly deploymentMode: pulumi.Output<enums.amazonmq.BrokerDeploymentMode | string>;
     /**
      * Encryption options for the broker. Does not apply to RabbitMQ brokers.
      */
-    public readonly encryptionOptions!: pulumi.Output<outputs.amazonmq.BrokerEncryptionOptions | undefined>;
+    declare public readonly encryptionOptions: pulumi.Output<outputs.amazonmq.BrokerEncryptionOptions | undefined>;
     /**
      * The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
      */
-    public readonly engineType!: pulumi.Output<enums.amazonmq.BrokerEngineType | string>;
+    declare public readonly engineType: pulumi.Output<enums.amazonmq.BrokerEngineType | string>;
     /**
      * The version specified to use. See also EngineVersionCurrent.
      */
-    public readonly engineVersion!: pulumi.Output<string | undefined>;
+    declare public readonly engineVersion: pulumi.Output<string | undefined>;
     /**
      * The version in use. This may have more precision than the specified EngineVersion.
      */
-    public /*out*/ readonly engineVersionCurrent!: pulumi.Output<string>;
+    declare public /*out*/ readonly engineVersionCurrent: pulumi.Output<string>;
     /**
      * The broker's instance type.
      */
-    public readonly hostInstanceType!: pulumi.Output<string>;
+    declare public readonly hostInstanceType: pulumi.Output<string>;
     /**
      * The IP addresses of each broker instance as a list of strings. Does not apply to RabbitMQ brokers.
      *
      * `['198.51.100.2', '203.0.113.9']`
      */
-    public /*out*/ readonly ipAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly ipAddresses: pulumi.Output<string[]>;
     /**
      * Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker. Does not apply to RabbitMQ brokers.
      */
-    public readonly ldapServerMetadata!: pulumi.Output<outputs.amazonmq.BrokerLdapServerMetadata | undefined>;
+    declare public readonly ldapServerMetadata: pulumi.Output<outputs.amazonmq.BrokerLdapServerMetadata | undefined>;
     /**
      * Enables Amazon CloudWatch logging for brokers.
      */
-    public readonly logs!: pulumi.Output<outputs.amazonmq.BrokerLogList | undefined>;
+    declare public readonly logs: pulumi.Output<outputs.amazonmq.BrokerLogList | undefined>;
     /**
      * The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.
      */
-    public readonly maintenanceWindowStartTime!: pulumi.Output<outputs.amazonmq.BrokerMaintenanceWindow | undefined>;
+    declare public readonly maintenanceWindowStartTime: pulumi.Output<outputs.amazonmq.BrokerMaintenanceWindow | undefined>;
     /**
      * The MQTT endpoints of each broker instance as a list of strings.
      *
      * `mqtt+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:8883`
      */
-    public /*out*/ readonly mqttEndpoints!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly mqttEndpoints: pulumi.Output<string[]>;
     /**
      * The OpenWire endpoints of each broker instance as a list of strings.
      *
      * `ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61617`
      */
-    public /*out*/ readonly openWireEndpoints!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly openWireEndpoints: pulumi.Output<string[]>;
     /**
      * Enables connections from applications outside of the VPC that hosts the broker's subnets.
      */
-    public readonly publiclyAccessible!: pulumi.Output<boolean>;
+    declare public readonly publiclyAccessible: pulumi.Output<boolean>;
     /**
      * The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
      */
-    public readonly securityGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroups: pulumi.Output<string[] | undefined>;
     /**
      * The STOMP endpoints of each broker instance as a list of strings.
      *
      * `stomp+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61614`
      */
-    public /*out*/ readonly stompEndpoints!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly stompEndpoints: pulumi.Output<string[]>;
     /**
      * The broker's storage type.
      */
-    public readonly storageType!: pulumi.Output<enums.amazonmq.BrokerStorageType | string | undefined>;
+    declare public readonly storageType: pulumi.Output<enums.amazonmq.BrokerStorageType | string | undefined>;
     /**
      * The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
      *
      * > If you specify subnets in a shared VPC for a RabbitMQ broker, the associated VPC to which the specified subnets belong must be owned by your AWS account . Amazon MQ will not be able to create VPC enpoints in VPCs that are not owned by your AWS account .
      */
-    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly subnetIds: pulumi.Output<string[] | undefined>;
     /**
      * An array of key-value pairs. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Billing and Cost Management User Guide* .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Users to configure on the broker. 
      * For RabbitMQ, this should be one user, created when the broker is created, and changes thereafter are ignored.
      * For ActiveMQ, changes to anything but Password are detected and will trigger an update,
      * but changes to Password cannot be detected so updates to Password may not take effect unless there is some other change.
      */
-    public readonly users!: pulumi.Output<outputs.amazonmq.BrokerUser[] | undefined>;
+    declare public readonly users: pulumi.Output<outputs.amazonmq.BrokerUser[] | undefined>;
     /**
      * The WSS endpoints of each broker instance as a list of strings.
      *
      * `wss://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61619`
      */
-    public /*out*/ readonly wssEndpoints!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly wssEndpoints: pulumi.Output<string[]>;
 
     /**
      * Create a Broker resource with the given unique name, arguments, and options.
@@ -354,38 +354,38 @@ export class Broker extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deploymentMode === undefined) && !opts.urn) {
+            if (args?.deploymentMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deploymentMode'");
             }
-            if ((!args || args.engineType === undefined) && !opts.urn) {
+            if (args?.engineType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engineType'");
             }
-            if ((!args || args.hostInstanceType === undefined) && !opts.urn) {
+            if (args?.hostInstanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostInstanceType'");
             }
-            if ((!args || args.publiclyAccessible === undefined) && !opts.urn) {
+            if (args?.publiclyAccessible === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publiclyAccessible'");
             }
-            resourceInputs["authenticationStrategy"] = args ? args.authenticationStrategy : undefined;
-            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            resourceInputs["brokerName"] = args ? args.brokerName : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["dataReplicationMode"] = args ? args.dataReplicationMode : undefined;
-            resourceInputs["dataReplicationPrimaryBrokerArn"] = args ? args.dataReplicationPrimaryBrokerArn : undefined;
-            resourceInputs["deploymentMode"] = args ? args.deploymentMode : undefined;
-            resourceInputs["encryptionOptions"] = args ? args.encryptionOptions : undefined;
-            resourceInputs["engineType"] = args ? args.engineType : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["hostInstanceType"] = args ? args.hostInstanceType : undefined;
-            resourceInputs["ldapServerMetadata"] = args ? args.ldapServerMetadata : undefined;
-            resourceInputs["logs"] = args ? args.logs : undefined;
-            resourceInputs["maintenanceWindowStartTime"] = args ? args.maintenanceWindowStartTime : undefined;
-            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
-            resourceInputs["storageType"] = args ? args.storageType : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
+            resourceInputs["authenticationStrategy"] = args?.authenticationStrategy;
+            resourceInputs["autoMinorVersionUpgrade"] = args?.autoMinorVersionUpgrade;
+            resourceInputs["brokerName"] = args?.brokerName;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["dataReplicationMode"] = args?.dataReplicationMode;
+            resourceInputs["dataReplicationPrimaryBrokerArn"] = args?.dataReplicationPrimaryBrokerArn;
+            resourceInputs["deploymentMode"] = args?.deploymentMode;
+            resourceInputs["encryptionOptions"] = args?.encryptionOptions;
+            resourceInputs["engineType"] = args?.engineType;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["hostInstanceType"] = args?.hostInstanceType;
+            resourceInputs["ldapServerMetadata"] = args?.ldapServerMetadata;
+            resourceInputs["logs"] = args?.logs;
+            resourceInputs["maintenanceWindowStartTime"] = args?.maintenanceWindowStartTime;
+            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
+            resourceInputs["securityGroups"] = args?.securityGroups;
+            resourceInputs["storageType"] = args?.storageType;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["users"] = args?.users;
             resourceInputs["amqpEndpoints"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;

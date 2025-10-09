@@ -40,23 +40,23 @@ export class DatasetGroup extends pulumi.CustomResource {
     /**
      * An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group.
      */
-    public readonly datasetArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly datasetArns: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the dataset group to delete.
      */
-    public /*out*/ readonly datasetGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly datasetGroupArn: pulumi.Output<string>;
     /**
      * A name for the dataset group.
      */
-    public readonly datasetGroupName!: pulumi.Output<string>;
+    declare public readonly datasetGroupName: pulumi.Output<string>;
     /**
      * The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match.
      */
-    public readonly domain!: pulumi.Output<enums.forecast.DatasetGroupDomain>;
+    declare public readonly domain: pulumi.Output<enums.forecast.DatasetGroupDomain>;
     /**
      * The tags of Application Insights application.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DatasetGroup resource with the given unique name, arguments, and options.
@@ -69,13 +69,13 @@ export class DatasetGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domain === undefined) && !opts.urn) {
+            if (args?.domain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            resourceInputs["datasetArns"] = args ? args.datasetArns : undefined;
-            resourceInputs["datasetGroupName"] = args ? args.datasetGroupName : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["datasetArns"] = args?.datasetArns;
+            resourceInputs["datasetGroupName"] = args?.datasetGroupName;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["datasetGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["datasetArns"] = undefined /*out*/;

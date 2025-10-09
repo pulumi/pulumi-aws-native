@@ -40,48 +40,48 @@ export class IdNamespaceAssociation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the ID namespace association.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the collaboration that contains this ID namespace association.
      */
-    public /*out*/ readonly collaborationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly collaborationArn: pulumi.Output<string>;
     /**
      * The unique identifier of the collaboration that contains this ID namespace association.
      */
-    public /*out*/ readonly collaborationIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly collaborationIdentifier: pulumi.Output<string>;
     /**
      * The description of the ID namespace association.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The configuration settings for the ID mapping table.
      */
-    public readonly idMappingConfig!: pulumi.Output<outputs.cleanrooms.IdNamespaceAssociationIdMappingConfig | undefined>;
+    declare public readonly idMappingConfig: pulumi.Output<outputs.cleanrooms.IdNamespaceAssociationIdMappingConfig | undefined>;
     /**
      * The unique identifier of the ID namespace association that you want to retrieve.
      */
-    public /*out*/ readonly idNamespaceAssociationIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly idNamespaceAssociationIdentifier: pulumi.Output<string>;
     /**
      * The input reference configuration for the ID namespace association.
      */
-    public readonly inputReferenceConfig!: pulumi.Output<outputs.cleanrooms.IdNamespaceAssociationInputReferenceConfig>;
-    public /*out*/ readonly inputReferenceProperties!: pulumi.Output<outputs.cleanrooms.IdNamespaceAssociationInputReferenceProperties>;
+    declare public readonly inputReferenceConfig: pulumi.Output<outputs.cleanrooms.IdNamespaceAssociationInputReferenceConfig>;
+    declare public /*out*/ readonly inputReferenceProperties: pulumi.Output<outputs.cleanrooms.IdNamespaceAssociationInputReferenceProperties>;
     /**
      * The Amazon Resource Name (ARN) of the membership resource for this ID namespace association.
      */
-    public /*out*/ readonly membershipArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly membershipArn: pulumi.Output<string>;
     /**
      * The unique identifier of the membership that contains the ID namespace association.
      */
-    public readonly membershipIdentifier!: pulumi.Output<string>;
+    declare public readonly membershipIdentifier: pulumi.Output<string>;
     /**
      * The name of this ID namespace association.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a IdNamespaceAssociation resource with the given unique name, arguments, and options.
@@ -94,18 +94,18 @@ export class IdNamespaceAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.inputReferenceConfig === undefined) && !opts.urn) {
+            if (args?.inputReferenceConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputReferenceConfig'");
             }
-            if ((!args || args.membershipIdentifier === undefined) && !opts.urn) {
+            if (args?.membershipIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'membershipIdentifier'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["idMappingConfig"] = args ? args.idMappingConfig : undefined;
-            resourceInputs["inputReferenceConfig"] = args ? args.inputReferenceConfig : undefined;
-            resourceInputs["membershipIdentifier"] = args ? args.membershipIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["idMappingConfig"] = args?.idMappingConfig;
+            resourceInputs["inputReferenceConfig"] = args?.inputReferenceConfig;
+            resourceInputs["membershipIdentifier"] = args?.membershipIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationArn"] = undefined /*out*/;
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;

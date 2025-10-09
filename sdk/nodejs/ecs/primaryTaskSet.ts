@@ -37,15 +37,15 @@ export class PrimaryTaskSet extends pulumi.CustomResource {
     /**
      * The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
      */
-    public readonly cluster!: pulumi.Output<string>;
+    declare public readonly cluster: pulumi.Output<string>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
      */
-    public readonly service!: pulumi.Output<string>;
+    declare public readonly service: pulumi.Output<string>;
     /**
      * The ID or full Amazon Resource Name (ARN) of the task set.
      */
-    public readonly taskSetId!: pulumi.Output<string>;
+    declare public readonly taskSetId: pulumi.Output<string>;
 
     /**
      * Create a PrimaryTaskSet resource with the given unique name, arguments, and options.
@@ -58,18 +58,18 @@ export class PrimaryTaskSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cluster === undefined) && !opts.urn) {
+            if (args?.cluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cluster'");
             }
-            if ((!args || args.service === undefined) && !opts.urn) {
+            if (args?.service === undefined && !opts.urn) {
                 throw new Error("Missing required property 'service'");
             }
-            if ((!args || args.taskSetId === undefined) && !opts.urn) {
+            if (args?.taskSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'taskSetId'");
             }
-            resourceInputs["cluster"] = args ? args.cluster : undefined;
-            resourceInputs["service"] = args ? args.service : undefined;
-            resourceInputs["taskSetId"] = args ? args.taskSetId : undefined;
+            resourceInputs["cluster"] = args?.cluster;
+            resourceInputs["service"] = args?.service;
+            resourceInputs["taskSetId"] = args?.taskSetId;
         } else {
             resourceInputs["cluster"] = undefined /*out*/;
             resourceInputs["service"] = undefined /*out*/;

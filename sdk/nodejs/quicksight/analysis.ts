@@ -40,73 +40,73 @@ export class Analysis extends pulumi.CustomResource {
     /**
      * The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
      */
-    public readonly analysisId!: pulumi.Output<string>;
+    declare public readonly analysisId: pulumi.Output<string>;
     /**
      * <p>The Amazon Resource Name (ARN) of the analysis.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the AWS account where you are creating an analysis.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * <p>The time that the analysis was created.</p>
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * <p>The ARNs of the datasets of the analysis.</p>
      */
-    public /*out*/ readonly dataSetArns!: pulumi.Output<string[]>;
-    public readonly definition!: pulumi.Output<outputs.quicksight.AnalysisDefinition | undefined>;
+    declare public /*out*/ readonly dataSetArns: pulumi.Output<string[]>;
+    declare public readonly definition: pulumi.Output<outputs.quicksight.AnalysisDefinition | undefined>;
     /**
      * <p>Errors associated with the analysis.</p>
      */
-    public readonly errors!: pulumi.Output<outputs.quicksight.AnalysisError[] | undefined>;
-    public readonly folderArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly errors: pulumi.Output<outputs.quicksight.AnalysisError[] | undefined>;
+    declare public readonly folderArns: pulumi.Output<string[] | undefined>;
     /**
      * <p>The time that the analysis was last updated.</p>
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * <p>The descriptive name of the analysis.</p>
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
      */
-    public readonly parameters!: pulumi.Output<outputs.quicksight.AnalysisParameters | undefined>;
+    declare public readonly parameters: pulumi.Output<outputs.quicksight.AnalysisParameters | undefined>;
     /**
      * A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
      *
      * To specify no permissions, omit `Permissions` .
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.AnalysisResourcePermission[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.quicksight.AnalysisResourcePermission[] | undefined>;
     /**
      * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
      */
-    public readonly sheets!: pulumi.Output<outputs.quicksight.AnalysisSheet[] | undefined>;
+    declare public readonly sheets: pulumi.Output<outputs.quicksight.AnalysisSheet[] | undefined>;
     /**
      * A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
      *
      * Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
      */
-    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisSourceEntity | undefined>;
+    declare public readonly sourceEntity: pulumi.Output<outputs.quicksight.AnalysisSourceEntity | undefined>;
     /**
      * Status associated with the analysis.
      */
-    public readonly status!: pulumi.Output<enums.quicksight.AnalysisResourceStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.quicksight.AnalysisResourceStatus | undefined>;
     /**
      * Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * <p>The ARN of the theme of the analysis.</p>
      */
-    public readonly themeArn!: pulumi.Output<string | undefined>;
+    declare public readonly themeArn: pulumi.Output<string | undefined>;
     /**
      * The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
      */
-    public readonly validationStrategy!: pulumi.Output<outputs.quicksight.AnalysisValidationStrategy | undefined>;
+    declare public readonly validationStrategy: pulumi.Output<outputs.quicksight.AnalysisValidationStrategy | undefined>;
 
     /**
      * Create a Analysis resource with the given unique name, arguments, and options.
@@ -119,26 +119,26 @@ export class Analysis extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.analysisId === undefined) && !opts.urn) {
+            if (args?.analysisId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'analysisId'");
             }
-            if ((!args || args.awsAccountId === undefined) && !opts.urn) {
+            if (args?.awsAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
             }
-            resourceInputs["analysisId"] = args ? args.analysisId : undefined;
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["errors"] = args ? args.errors : undefined;
-            resourceInputs["folderArns"] = args ? args.folderArns : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["sheets"] = args ? args.sheets : undefined;
-            resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["themeArn"] = args ? args.themeArn : undefined;
-            resourceInputs["validationStrategy"] = args ? args.validationStrategy : undefined;
+            resourceInputs["analysisId"] = args?.analysisId;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["errors"] = args?.errors;
+            resourceInputs["folderArns"] = args?.folderArns;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["sheets"] = args?.sheets;
+            resourceInputs["sourceEntity"] = args?.sourceEntity;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["themeArn"] = args?.themeArn;
+            resourceInputs["validationStrategy"] = args?.validationStrategy;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["dataSetArns"] = undefined /*out*/;

@@ -40,55 +40,55 @@ export class FirewallRuleGroup extends pulumi.CustomResource {
     /**
      * Arn
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * ResourceId
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Rfc3339TimeString
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The id of the creator request.
      */
-    public /*out*/ readonly creatorRequestId!: pulumi.Output<string>;
+    declare public /*out*/ readonly creatorRequestId: pulumi.Output<string>;
     /**
      * FirewallRules
      */
-    public readonly firewallRules!: pulumi.Output<outputs.route53resolver.FirewallRuleGroupFirewallRule[] | undefined>;
+    declare public readonly firewallRules: pulumi.Output<outputs.route53resolver.FirewallRuleGroupFirewallRule[] | undefined>;
     /**
      * Rfc3339TimeString
      */
-    public /*out*/ readonly modificationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly modificationTime: pulumi.Output<string>;
     /**
      * FirewallRuleGroupName
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * AccountId
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * Count
      */
-    public /*out*/ readonly ruleCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly ruleCount: pulumi.Output<number>;
     /**
      * ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
      */
-    public /*out*/ readonly shareStatus!: pulumi.Output<enums.route53resolver.FirewallRuleGroupShareStatus>;
+    declare public /*out*/ readonly shareStatus: pulumi.Output<enums.route53resolver.FirewallRuleGroupShareStatus>;
     /**
      * ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.route53resolver.FirewallRuleGroupStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.route53resolver.FirewallRuleGroupStatus>;
     /**
      * FirewallRuleGroupStatus
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
     /**
      * Tags
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FirewallRuleGroup resource with the given unique name, arguments, and options.
@@ -101,9 +101,9 @@ export class FirewallRuleGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["firewallRules"] = args ? args.firewallRules : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["firewallRules"] = args?.firewallRules;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

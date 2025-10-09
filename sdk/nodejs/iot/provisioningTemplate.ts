@@ -40,39 +40,39 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
     /**
      * The description of the fleet provisioning template.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * True to enable the fleet provisioning template, otherwise false.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Creates a pre-provisioning hook template.
      */
-    public readonly preProvisioningHook!: pulumi.Output<outputs.iot.ProvisioningTemplateProvisioningHook | undefined>;
+    declare public readonly preProvisioningHook: pulumi.Output<outputs.iot.ProvisioningTemplateProvisioningHook | undefined>;
     /**
      * The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
      */
-    public readonly provisioningRoleArn!: pulumi.Output<string>;
+    declare public readonly provisioningRoleArn: pulumi.Output<string>;
     /**
      * Metadata that can be used to manage the fleet provisioning template.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN that identifies the provisioning template.
      */
-    public /*out*/ readonly templateArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly templateArn: pulumi.Output<string>;
     /**
      * The JSON formatted contents of the fleet provisioning template version.
      */
-    public readonly templateBody!: pulumi.Output<string>;
+    declare public readonly templateBody: pulumi.Output<string>;
     /**
      * The name of the fleet provisioning template.
      */
-    public readonly templateName!: pulumi.Output<string | undefined>;
+    declare public readonly templateName: pulumi.Output<string | undefined>;
     /**
      * The type of the provisioning template.
      */
-    public readonly templateType!: pulumi.Output<enums.iot.ProvisioningTemplateTemplateType | undefined>;
+    declare public readonly templateType: pulumi.Output<enums.iot.ProvisioningTemplateTemplateType | undefined>;
 
     /**
      * Create a ProvisioningTemplate resource with the given unique name, arguments, and options.
@@ -85,20 +85,20 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.provisioningRoleArn === undefined) && !opts.urn) {
+            if (args?.provisioningRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'provisioningRoleArn'");
             }
-            if ((!args || args.templateBody === undefined) && !opts.urn) {
+            if (args?.templateBody === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateBody'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["preProvisioningHook"] = args ? args.preProvisioningHook : undefined;
-            resourceInputs["provisioningRoleArn"] = args ? args.provisioningRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
-            resourceInputs["templateName"] = args ? args.templateName : undefined;
-            resourceInputs["templateType"] = args ? args.templateType : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["preProvisioningHook"] = args?.preProvisioningHook;
+            resourceInputs["provisioningRoleArn"] = args?.provisioningRoleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateBody"] = args?.templateBody;
+            resourceInputs["templateName"] = args?.templateName;
+            resourceInputs["templateType"] = args?.templateType;
             resourceInputs["templateArn"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

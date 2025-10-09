@@ -40,33 +40,33 @@ export class LocationNfs extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the NFS location.
      */
-    public /*out*/ readonly locationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationArn: pulumi.Output<string>;
     /**
      * The URL of the NFS location that was described.
      */
-    public /*out*/ readonly locationUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationUri: pulumi.Output<string>;
     /**
      * Specifies the options that DataSync can use to mount your NFS file server.
      */
-    public readonly mountOptions!: pulumi.Output<outputs.datasync.LocationNfsMountOptions | undefined>;
+    declare public readonly mountOptions: pulumi.Output<outputs.datasync.LocationNfsMountOptions | undefined>;
     /**
      * Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.
      *
      * You can specify more than one agent. For more information, see [Using multiple DataSync agents](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents) .
      */
-    public readonly onPremConfig!: pulumi.Output<outputs.datasync.LocationNfsOnPremConfig>;
+    declare public readonly onPremConfig: pulumi.Output<outputs.datasync.LocationNfsOnPremConfig>;
     /**
      * The name of the NFS server. This value is the IP address or DNS name of the NFS server.
      */
-    public readonly serverHostname!: pulumi.Output<string | undefined>;
+    declare public readonly serverHostname: pulumi.Output<string | undefined>;
     /**
      * The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
      */
-    public readonly subdirectory!: pulumi.Output<string | undefined>;
+    declare public readonly subdirectory: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LocationNfs resource with the given unique name, arguments, and options.
@@ -79,14 +79,14 @@ export class LocationNfs extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.onPremConfig === undefined) && !opts.urn) {
+            if (args?.onPremConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'onPremConfig'");
             }
-            resourceInputs["mountOptions"] = args ? args.mountOptions : undefined;
-            resourceInputs["onPremConfig"] = args ? args.onPremConfig : undefined;
-            resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["mountOptions"] = args?.mountOptions;
+            resourceInputs["onPremConfig"] = args?.onPremConfig;
+            resourceInputs["serverHostname"] = args?.serverHostname;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
         } else {

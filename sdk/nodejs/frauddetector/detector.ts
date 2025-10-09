@@ -40,39 +40,39 @@ export class Detector extends pulumi.CustomResource {
     /**
      * The ARN of the detector.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The models to associate with this detector.
      */
-    public readonly associatedModels!: pulumi.Output<outputs.frauddetector.DetectorModel[] | undefined>;
+    declare public readonly associatedModels: pulumi.Output<outputs.frauddetector.DetectorModel[] | undefined>;
     /**
      * The time when the detector was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The description of the detector.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the detector
      */
-    public readonly detectorId!: pulumi.Output<string>;
+    declare public readonly detectorId: pulumi.Output<string>;
     /**
      * The active version ID of the detector
      */
-    public /*out*/ readonly detectorVersionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly detectorVersionId: pulumi.Output<string>;
     /**
      * The desired detector version status for the detector
      */
-    public readonly detectorVersionStatus!: pulumi.Output<enums.frauddetector.DetectorVersionStatus | undefined>;
+    declare public readonly detectorVersionStatus: pulumi.Output<enums.frauddetector.DetectorVersionStatus | undefined>;
     /**
      * The event type to associate this detector with.
      */
-    public readonly eventType!: pulumi.Output<outputs.frauddetector.DetectorEventType>;
+    declare public readonly eventType: pulumi.Output<outputs.frauddetector.DetectorEventType>;
     /**
      * The time when the detector was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * The rule execution mode for the rules included in the detector version.
      *
@@ -84,15 +84,15 @@ export class Detector extends pulumi.CustomResource {
      *
      * If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
      */
-    public readonly ruleExecutionMode!: pulumi.Output<enums.frauddetector.DetectorRuleExecutionMode | undefined>;
+    declare public readonly ruleExecutionMode: pulumi.Output<enums.frauddetector.DetectorRuleExecutionMode | undefined>;
     /**
      * The rules to include in the detector version.
      */
-    public readonly rules!: pulumi.Output<outputs.frauddetector.DetectorRule[]>;
+    declare public readonly rules: pulumi.Output<outputs.frauddetector.DetectorRule[]>;
     /**
      * Tags associated with this detector.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Detector resource with the given unique name, arguments, and options.
@@ -105,23 +105,23 @@ export class Detector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
+            if (args?.detectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if ((!args || args.eventType === undefined) && !opts.urn) {
+            if (args?.eventType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventType'");
             }
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            resourceInputs["associatedModels"] = args ? args.associatedModels : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["detectorVersionStatus"] = args ? args.detectorVersionStatus : undefined;
-            resourceInputs["eventType"] = args ? args.eventType : undefined;
-            resourceInputs["ruleExecutionMode"] = args ? args.ruleExecutionMode : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associatedModels"] = args?.associatedModels;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["detectorVersionStatus"] = args?.detectorVersionStatus;
+            resourceInputs["eventType"] = args?.eventType;
+            resourceInputs["ruleExecutionMode"] = args?.ruleExecutionMode;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["detectorVersionId"] = undefined /*out*/;

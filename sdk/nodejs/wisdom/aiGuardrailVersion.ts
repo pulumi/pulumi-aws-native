@@ -37,31 +37,31 @@ export class AiGuardrailVersion extends pulumi.CustomResource {
     /**
      * The ARN of the AI guardrail version.
      */
-    public /*out*/ readonly aiGuardrailArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly aiGuardrailArn: pulumi.Output<string>;
     /**
      * The ID of the AI guardrail version.
      */
-    public readonly aiGuardrailId!: pulumi.Output<string>;
+    declare public readonly aiGuardrailId: pulumi.Output<string>;
     /**
      * The ID of the AI guardrail version.
      */
-    public /*out*/ readonly aiGuardrailVersionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly aiGuardrailVersionId: pulumi.Output<string>;
     /**
      * The ARN of the AI guardrail version assistant.
      */
-    public /*out*/ readonly assistantArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly assistantArn: pulumi.Output<string>;
     /**
      * The ID of the AI guardrail version assistant.
      */
-    public readonly assistantId!: pulumi.Output<string>;
+    declare public readonly assistantId: pulumi.Output<string>;
     /**
      * The modified time of the AI guardrail version in seconds.
      */
-    public readonly modifiedTimeSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly modifiedTimeSeconds: pulumi.Output<number | undefined>;
     /**
      * The version number for this AI Guardrail version.
      */
-    public /*out*/ readonly versionNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly versionNumber: pulumi.Output<number>;
 
     /**
      * Create a AiGuardrailVersion resource with the given unique name, arguments, and options.
@@ -74,15 +74,15 @@ export class AiGuardrailVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.aiGuardrailId === undefined) && !opts.urn) {
+            if (args?.aiGuardrailId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'aiGuardrailId'");
             }
-            if ((!args || args.assistantId === undefined) && !opts.urn) {
+            if (args?.assistantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assistantId'");
             }
-            resourceInputs["aiGuardrailId"] = args ? args.aiGuardrailId : undefined;
-            resourceInputs["assistantId"] = args ? args.assistantId : undefined;
-            resourceInputs["modifiedTimeSeconds"] = args ? args.modifiedTimeSeconds : undefined;
+            resourceInputs["aiGuardrailId"] = args?.aiGuardrailId;
+            resourceInputs["assistantId"] = args?.assistantId;
+            resourceInputs["modifiedTimeSeconds"] = args?.modifiedTimeSeconds;
             resourceInputs["aiGuardrailArn"] = undefined /*out*/;
             resourceInputs["aiGuardrailVersionId"] = undefined /*out*/;
             resourceInputs["assistantArn"] = undefined /*out*/;

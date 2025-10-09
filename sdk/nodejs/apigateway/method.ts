@@ -40,56 +40,56 @@ export class Method extends pulumi.CustomResource {
     /**
      * A boolean flag specifying whether a valid ApiKey is required to invoke this method.
      */
-    public readonly apiKeyRequired!: pulumi.Output<boolean | undefined>;
+    declare public readonly apiKeyRequired: pulumi.Output<boolean | undefined>;
     /**
      * A list of authorization scopes configured on the method. The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
      */
-    public readonly authorizationScopes!: pulumi.Output<string[] | undefined>;
+    declare public readonly authorizationScopes: pulumi.Output<string[] | undefined>;
     /**
      * The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
      *   If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
      */
-    public readonly authorizationType!: pulumi.Output<string | undefined>;
+    declare public readonly authorizationType: pulumi.Output<string | undefined>;
     /**
      * The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
      */
-    public readonly authorizerId!: pulumi.Output<string | undefined>;
+    declare public readonly authorizerId: pulumi.Output<string | undefined>;
     /**
      * The method's HTTP verb.
      */
-    public readonly httpMethod!: pulumi.Output<string>;
+    declare public readonly httpMethod: pulumi.Output<string>;
     /**
      * Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
      */
-    public readonly integration!: pulumi.Output<outputs.apigateway.MethodIntegration | undefined>;
+    declare public readonly integration: pulumi.Output<outputs.apigateway.MethodIntegration | undefined>;
     /**
      * Gets a method response associated with a given HTTP status code.
      */
-    public readonly methodResponses!: pulumi.Output<outputs.apigateway.MethodResponse[] | undefined>;
+    declare public readonly methodResponses: pulumi.Output<outputs.apigateway.MethodResponse[] | undefined>;
     /**
      * A human-friendly operation identifier for the method. For example, you can assign the `operationName` of `ListPets` for the `GET /pets` method in the `PetStore` example.
      */
-    public readonly operationName!: pulumi.Output<string | undefined>;
+    declare public readonly operationName: pulumi.Output<string | undefined>;
     /**
      * A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
      */
-    public readonly requestModels!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly requestModels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
      */
-    public readonly requestParameters!: pulumi.Output<{[key: string]: boolean | string} | undefined>;
+    declare public readonly requestParameters: pulumi.Output<{[key: string]: boolean | string} | undefined>;
     /**
      * The identifier of a RequestValidator for request validation.
      */
-    public readonly requestValidatorId!: pulumi.Output<string | undefined>;
+    declare public readonly requestValidatorId: pulumi.Output<string | undefined>;
     /**
      * The Resource identifier for the MethodResponse resource.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * The string identifier of the associated RestApi.
      */
-    public readonly restApiId!: pulumi.Output<string>;
+    declare public readonly restApiId: pulumi.Output<string>;
 
     /**
      * Create a Method resource with the given unique name, arguments, and options.
@@ -102,28 +102,28 @@ export class Method extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.httpMethod === undefined) && !opts.urn) {
+            if (args?.httpMethod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["apiKeyRequired"] = args ? args.apiKeyRequired : undefined;
-            resourceInputs["authorizationScopes"] = args ? args.authorizationScopes : undefined;
-            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
-            resourceInputs["authorizerId"] = args ? args.authorizerId : undefined;
-            resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
-            resourceInputs["integration"] = args ? args.integration : undefined;
-            resourceInputs["methodResponses"] = args ? args.methodResponses : undefined;
-            resourceInputs["operationName"] = args ? args.operationName : undefined;
-            resourceInputs["requestModels"] = args ? args.requestModels : undefined;
-            resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
-            resourceInputs["requestValidatorId"] = args ? args.requestValidatorId : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["apiKeyRequired"] = args?.apiKeyRequired;
+            resourceInputs["authorizationScopes"] = args?.authorizationScopes;
+            resourceInputs["authorizationType"] = args?.authorizationType;
+            resourceInputs["authorizerId"] = args?.authorizerId;
+            resourceInputs["httpMethod"] = args?.httpMethod;
+            resourceInputs["integration"] = args?.integration;
+            resourceInputs["methodResponses"] = args?.methodResponses;
+            resourceInputs["operationName"] = args?.operationName;
+            resourceInputs["requestModels"] = args?.requestModels;
+            resourceInputs["requestParameters"] = args?.requestParameters;
+            resourceInputs["requestValidatorId"] = args?.requestValidatorId;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["restApiId"] = args?.restApiId;
         } else {
             resourceInputs["apiKeyRequired"] = undefined /*out*/;
             resourceInputs["authorizationScopes"] = undefined /*out*/;

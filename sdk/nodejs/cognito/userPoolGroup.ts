@@ -37,11 +37,11 @@ export class UserPoolGroup extends pulumi.CustomResource {
     /**
      * A description of the group that you're creating.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A name for the group. This name must be unique in your user pool.
      */
-    public readonly groupName!: pulumi.Output<string | undefined>;
+    declare public readonly groupName: pulumi.Output<string | undefined>;
     /**
      * A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
      *
@@ -49,15 +49,15 @@ export class UserPoolGroup extends pulumi.CustomResource {
      *
      * The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
      */
-    public readonly precedence!: pulumi.Output<number | undefined>;
+    declare public readonly precedence: pulumi.Output<number | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group. A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a `cognito:preferred_role` claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a `cognito:groups` claim that list all the groups that a user is a member of.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * The ID of the user pool where you want to create a user group.
      */
-    public readonly userPoolId!: pulumi.Output<string>;
+    declare public readonly userPoolId: pulumi.Output<string>;
 
     /**
      * Create a UserPoolGroup resource with the given unique name, arguments, and options.
@@ -70,14 +70,14 @@ export class UserPoolGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["precedence"] = args ? args.precedence : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["precedence"] = args?.precedence;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["userPoolId"] = args?.userPoolId;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["groupName"] = undefined /*out*/;

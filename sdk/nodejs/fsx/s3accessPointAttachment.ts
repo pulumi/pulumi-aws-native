@@ -40,19 +40,19 @@ export class S3AccessPointAttachment extends pulumi.CustomResource {
     /**
      * The Name of the S3AccessPointAttachment
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The OpenZFSConfiguration of the S3 access point attachment.
      */
-    public readonly openZfsConfiguration!: pulumi.Output<outputs.fsx.S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration>;
+    declare public readonly openZfsConfiguration: pulumi.Output<outputs.fsx.S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration>;
     /**
      * The S3 access point configuration of the S3 access point attachment.
      */
-    public readonly s3AccessPoint!: pulumi.Output<outputs.fsx.S3AccessPointAttachmentS3AccessPoint | undefined>;
+    declare public readonly s3AccessPoint: pulumi.Output<outputs.fsx.S3AccessPointAttachmentS3AccessPoint | undefined>;
     /**
      * The type of Amazon FSx volume that the S3 access point is attached to.
      */
-    public readonly type!: pulumi.Output<enums.fsx.S3AccessPointAttachmentType>;
+    declare public readonly type: pulumi.Output<enums.fsx.S3AccessPointAttachmentType>;
 
     /**
      * Create a S3AccessPointAttachment resource with the given unique name, arguments, and options.
@@ -65,16 +65,16 @@ export class S3AccessPointAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.openZfsConfiguration === undefined) && !opts.urn) {
+            if (args?.openZfsConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'openZfsConfiguration'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["openZfsConfiguration"] = args ? args.openZfsConfiguration : undefined;
-            resourceInputs["s3AccessPoint"] = args ? args.s3AccessPoint : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["openZfsConfiguration"] = args?.openZfsConfiguration;
+            resourceInputs["s3AccessPoint"] = args?.s3AccessPoint;
+            resourceInputs["type"] = args?.type;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["openZfsConfiguration"] = undefined /*out*/;

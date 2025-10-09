@@ -40,27 +40,27 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
     /**
      * The name of the identity provider configuration.
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * The ARN of the configuration.
      */
-    public /*out*/ readonly identityProviderConfigArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly identityProviderConfigArn: pulumi.Output<string>;
     /**
      * The name of the OIDC provider configuration.
      */
-    public readonly identityProviderConfigName!: pulumi.Output<string | undefined>;
+    declare public readonly identityProviderConfigName: pulumi.Output<string | undefined>;
     /**
      * An object representing an OpenID Connect (OIDC) identity provider configuration.
      */
-    public readonly oidc!: pulumi.Output<outputs.eks.IdentityProviderConfigOidcIdentityProviderConfig | undefined>;
+    declare public readonly oidc: pulumi.Output<outputs.eks.IdentityProviderConfigOidcIdentityProviderConfig | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the identity provider configuration.
      */
-    public readonly type!: pulumi.Output<enums.eks.IdentityProviderConfigType>;
+    declare public readonly type: pulumi.Output<enums.eks.IdentityProviderConfigType>;
 
     /**
      * Create a IdentityProviderConfig resource with the given unique name, arguments, and options.
@@ -73,17 +73,17 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["identityProviderConfigName"] = args ? args.identityProviderConfigName : undefined;
-            resourceInputs["oidc"] = args ? args.oidc : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["identityProviderConfigName"] = args?.identityProviderConfigName;
+            resourceInputs["oidc"] = args?.oidc;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["identityProviderConfigArn"] = undefined /*out*/;
         } else {
             resourceInputs["clusterName"] = undefined /*out*/;

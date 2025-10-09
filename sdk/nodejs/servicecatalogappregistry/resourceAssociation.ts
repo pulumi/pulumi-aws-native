@@ -40,23 +40,23 @@ export class ResourceAssociation extends pulumi.CustomResource {
     /**
      * The name or the Id of the Application.
      */
-    public readonly application!: pulumi.Output<string>;
+    declare public readonly application: pulumi.Output<string>;
     /**
      * The Amazon resource name (ARN) that specifies the application.
      */
-    public /*out*/ readonly applicationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationArn: pulumi.Output<string>;
     /**
      * The name or the Id of the Resource.
      */
-    public readonly resource!: pulumi.Output<string>;
+    declare public readonly resource: pulumi.Output<string>;
     /**
      * The Amazon resource name (ARN) that specifies the resource.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
      * The type of the CFN Resource for now it's enum CFN_STACK.
      */
-    public readonly resourceType!: pulumi.Output<enums.servicecatalogappregistry.ResourceAssociationResourceType>;
+    declare public readonly resourceType: pulumi.Output<enums.servicecatalogappregistry.ResourceAssociationResourceType>;
 
     /**
      * Create a ResourceAssociation resource with the given unique name, arguments, and options.
@@ -69,18 +69,18 @@ export class ResourceAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.application === undefined) && !opts.urn) {
+            if (args?.application === undefined && !opts.urn) {
                 throw new Error("Missing required property 'application'");
             }
-            if ((!args || args.resource === undefined) && !opts.urn) {
+            if (args?.resource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            resourceInputs["application"] = args ? args.application : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["application"] = args?.application;
+            resourceInputs["resource"] = args?.resource;
+            resourceInputs["resourceType"] = args?.resourceType;
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
         } else {

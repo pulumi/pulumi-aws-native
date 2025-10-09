@@ -44,33 +44,33 @@ export class DetectorModel extends pulumi.CustomResource {
     /**
      * Information that defines how a detector operates.
      */
-    public readonly detectorModelDefinition!: pulumi.Output<outputs.iotevents.DetectorModelDefinition>;
+    declare public readonly detectorModelDefinition: pulumi.Output<outputs.iotevents.DetectorModelDefinition>;
     /**
      * A brief description of the detector model.
      */
-    public readonly detectorModelDescription!: pulumi.Output<string | undefined>;
+    declare public readonly detectorModelDescription: pulumi.Output<string | undefined>;
     /**
      * The name of the detector model.
      */
-    public readonly detectorModelName!: pulumi.Output<string | undefined>;
+    declare public readonly detectorModelName: pulumi.Output<string | undefined>;
     /**
      * Information about the order in which events are evaluated and how actions are executed.
      */
-    public readonly evaluationMethod!: pulumi.Output<enums.iotevents.DetectorModelEvaluationMethod | undefined>;
+    declare public readonly evaluationMethod: pulumi.Output<enums.iotevents.DetectorModelEvaluationMethod | undefined>;
     /**
      * The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. ITE can continue to route input to its corresponding detector instance based on this identifying information. 
      *  This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct detector instance, the device must send a message payload that contains the same attribute-value.
      */
-    public readonly key!: pulumi.Output<string | undefined>;
+    declare public readonly key: pulumi.Output<string | undefined>;
     /**
      * The ARN of the role that grants permission to ITE to perform its operations.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DetectorModel resource with the given unique name, arguments, and options.
@@ -83,19 +83,19 @@ export class DetectorModel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.detectorModelDefinition === undefined) && !opts.urn) {
+            if (args?.detectorModelDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorModelDefinition'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["detectorModelDefinition"] = args ? args.detectorModelDefinition : undefined;
-            resourceInputs["detectorModelDescription"] = args ? args.detectorModelDescription : undefined;
-            resourceInputs["detectorModelName"] = args ? args.detectorModelName : undefined;
-            resourceInputs["evaluationMethod"] = args ? args.evaluationMethod : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["detectorModelDefinition"] = args?.detectorModelDefinition;
+            resourceInputs["detectorModelDescription"] = args?.detectorModelDescription;
+            resourceInputs["detectorModelName"] = args?.detectorModelName;
+            resourceInputs["evaluationMethod"] = args?.evaluationMethod;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["detectorModelDefinition"] = undefined /*out*/;
             resourceInputs["detectorModelDescription"] = undefined /*out*/;

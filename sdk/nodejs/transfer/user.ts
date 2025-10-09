@@ -42,7 +42,7 @@ export class User extends pulumi.CustomResource {
      *
      * An example of a user ARN is: `arn:aws:transfer:us-east-1:123456789012:user/user1` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The landing directory (folder) for a user when they log in to the server using the client.
      *
@@ -50,7 +50,7 @@ export class User extends pulumi.CustomResource {
      *
      * > You can use the `HomeDirectory` parameter for `HomeDirectoryType` when it is set to either `PATH` or `LOGICAL` .
      */
-    public readonly homeDirectory!: pulumi.Output<string | undefined>;
+    declare public readonly homeDirectory: pulumi.Output<string | undefined>;
     /**
      * Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should be visible to your user and how you want to make them visible. You must specify the `Entry` and `Target` pair, where `Entry` shows how the path is made visible and `Target` is the actual Amazon S3 or Amazon EFS path. If you only specify a target, it is displayed as is. You also must ensure that your AWS Identity and Access Management (IAM) role provides access to paths in `Target` . This value can be set only when `HomeDirectoryType` is set to *LOGICAL* .
      *
@@ -64,13 +64,13 @@ export class User extends pulumi.CustomResource {
      *
      * `[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]`
      */
-    public readonly homeDirectoryMappings!: pulumi.Output<outputs.transfer.UserHomeDirectoryMapEntry[] | undefined>;
+    declare public readonly homeDirectoryMappings: pulumi.Output<outputs.transfer.UserHomeDirectoryMapEntry[] | undefined>;
     /**
      * The type of landing directory (folder) that you want your users' home directory to be when they log in to the server. If you set it to `PATH` , the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer protocol clients. If you set it to `LOGICAL` , you need to provide mappings in the `HomeDirectoryMappings` for how you want to make Amazon S3 or Amazon EFS paths visible to your users.
      *
      * > If `HomeDirectoryType` is `LOGICAL` , you must provide mappings, using the `HomeDirectoryMappings` parameter. If, on the other hand, `HomeDirectoryType` is `PATH` , you provide an absolute path using the `HomeDirectory` parameter. You cannot have both `HomeDirectory` and `HomeDirectoryMappings` in your template.
      */
-    public readonly homeDirectoryType!: pulumi.Output<enums.transfer.UserHomeDirectoryType | undefined>;
+    declare public readonly homeDirectoryType: pulumi.Output<enums.transfer.UserHomeDirectoryType | undefined>;
     /**
      * A session policy for your user so you can use the same IAM role across multiple users. This policy restricts user access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include `${Transfer:UserName}` , `${Transfer:HomeDirectory}` , and `${Transfer:HomeBucket}` .
      *
@@ -80,31 +80,31 @@ export class User extends pulumi.CustomResource {
      * > 
      * > For more information, see [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) in the *AWS Security Token Service API Reference* .
      */
-    public readonly policy!: pulumi.Output<string | undefined>;
+    declare public readonly policy: pulumi.Output<string | undefined>;
     /**
      * Specifies the full POSIX identity, including user ID ( `Uid` ), group ID ( `Gid` ), and any secondary groups IDs ( `SecondaryGids` ), that controls your users' access to your Amazon Elastic File System (Amazon EFS) file systems. The POSIX permissions that are set on files and directories in your file system determine the level of access your users get when transferring files into and out of your Amazon EFS file systems.
      */
-    public readonly posixProfile!: pulumi.Output<outputs.transfer.UserPosixProfile | undefined>;
+    declare public readonly posixProfile: pulumi.Output<outputs.transfer.UserPosixProfile | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that controls your users' access to your Amazon S3 bucket or Amazon EFS file system. The policies attached to this role determine the level of access that you want to provide your users when transferring files into and out of your Amazon S3 bucket or Amazon EFS file system. The IAM role should also contain a trust relationship that allows the server to access your resources when servicing your users' transfer requests.
      */
-    public readonly role!: pulumi.Output<string>;
+    declare public readonly role: pulumi.Output<string>;
     /**
      * A system-assigned unique identifier for a server instance. This is the specific server that you added your user to.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
     /**
      * This represents the SSH User Public Keys for CloudFormation resource
      */
-    public readonly sshPublicKeys!: pulumi.Output<string[] | undefined>;
+    declare public readonly sshPublicKeys: pulumi.Output<string[] | undefined>;
     /**
      * Key-value pairs that can be used to group and search for users. Tags are metadata attached to users for any purpose.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A unique string that identifies a user and is associated with a `ServerId` . This user name must be a minimum of 3 and a maximum of 100 characters long. The following are valid characters: a-z, A-Z, 0-9, underscore '_', hyphen '-', period '.', and at sign '@'. The user name can't start with a hyphen, period, or at sign.
      */
-    public readonly userName!: pulumi.Output<string>;
+    declare public readonly userName: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -117,22 +117,22 @@ export class User extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            resourceInputs["homeDirectory"] = args ? args.homeDirectory : undefined;
-            resourceInputs["homeDirectoryMappings"] = args ? args.homeDirectoryMappings : undefined;
-            resourceInputs["homeDirectoryType"] = args ? args.homeDirectoryType : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["posixProfile"] = args ? args.posixProfile : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["sshPublicKeys"] = args ? args.sshPublicKeys : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["homeDirectory"] = args?.homeDirectory;
+            resourceInputs["homeDirectoryMappings"] = args?.homeDirectoryMappings;
+            resourceInputs["homeDirectoryType"] = args?.homeDirectoryType;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["posixProfile"] = args?.posixProfile;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["sshPublicKeys"] = args?.sshPublicKeys;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

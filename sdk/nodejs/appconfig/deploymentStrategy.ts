@@ -63,23 +63,23 @@ export class DeploymentStrategy extends pulumi.CustomResource {
     /**
      * The deployment strategy ID.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Total amount of time for a deployment to last.
      */
-    public readonly deploymentDurationInMinutes!: pulumi.Output<number>;
+    declare public readonly deploymentDurationInMinutes: pulumi.Output<number>;
     /**
      * A description of the deployment strategy.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the amount of time AWS AppConfig monitors for Amazon CloudWatch alarms after the configuration has been deployed to 100% of its targets, before considering the deployment to be complete. If an alarm is triggered during this time, AWS AppConfig rolls back the deployment. You must configure permissions for AWS AppConfig to roll back based on CloudWatch alarms. For more information, see Configuring permissions for rollback based on Amazon CloudWatch alarms in the AWS AppConfig User Guide.
      */
-    public readonly finalBakeTimeInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly finalBakeTimeInMinutes: pulumi.Output<number | undefined>;
     /**
      * The percentage of targets to receive a deployed configuration during each interval.
      */
-    public readonly growthFactor!: pulumi.Output<number>;
+    declare public readonly growthFactor: pulumi.Output<number>;
     /**
      * The algorithm used to define how percentage grows over time. AWS AppConfig supports the following growth types:
      *
@@ -95,19 +95,19 @@ export class DeploymentStrategy extends pulumi.CustomResource {
      *
      * Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4% of the targets, 8% of the targets, and continues until the configuration has been deployed to all targets.
      */
-    public readonly growthType!: pulumi.Output<enums.appconfig.DeploymentStrategyGrowthType | undefined>;
+    declare public readonly growthType: pulumi.Output<enums.appconfig.DeploymentStrategyGrowthType | undefined>;
     /**
      * A name for the deployment strategy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Save the deployment strategy to a Systems Manager (SSM) document.
      */
-    public readonly replicateTo!: pulumi.Output<enums.appconfig.DeploymentStrategyReplicateTo>;
+    declare public readonly replicateTo: pulumi.Output<enums.appconfig.DeploymentStrategyReplicateTo>;
     /**
      * Assigns metadata to an AWS AppConfig resource. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define. You can specify a maximum of 50 tags for a resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DeploymentStrategy resource with the given unique name, arguments, and options.
@@ -120,23 +120,23 @@ export class DeploymentStrategy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deploymentDurationInMinutes === undefined) && !opts.urn) {
+            if (args?.deploymentDurationInMinutes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deploymentDurationInMinutes'");
             }
-            if ((!args || args.growthFactor === undefined) && !opts.urn) {
+            if (args?.growthFactor === undefined && !opts.urn) {
                 throw new Error("Missing required property 'growthFactor'");
             }
-            if ((!args || args.replicateTo === undefined) && !opts.urn) {
+            if (args?.replicateTo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicateTo'");
             }
-            resourceInputs["deploymentDurationInMinutes"] = args ? args.deploymentDurationInMinutes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["finalBakeTimeInMinutes"] = args ? args.finalBakeTimeInMinutes : undefined;
-            resourceInputs["growthFactor"] = args ? args.growthFactor : undefined;
-            resourceInputs["growthType"] = args ? args.growthType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["replicateTo"] = args ? args.replicateTo : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deploymentDurationInMinutes"] = args?.deploymentDurationInMinutes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["finalBakeTimeInMinutes"] = args?.finalBakeTimeInMinutes;
+            resourceInputs["growthFactor"] = args?.growthFactor;
+            resourceInputs["growthType"] = args?.growthType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["replicateTo"] = args?.replicateTo;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

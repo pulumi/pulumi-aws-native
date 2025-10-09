@@ -40,27 +40,27 @@ export class RotationSchedule extends pulumi.CustomResource {
     /**
      * The ARN of the secret.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Creates a new Lambda rotation function based on one of the Secrets Manager rotation function templates. To use a rotation function that already exists, specify RotationLambdaARN instead.
      */
-    public readonly hostedRotationLambda!: pulumi.Output<outputs.secretsmanager.RotationScheduleHostedRotationLambda | undefined>;
+    declare public readonly hostedRotationLambda: pulumi.Output<outputs.secretsmanager.RotationScheduleHostedRotationLambda | undefined>;
     /**
      * Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
      */
-    public readonly rotateImmediatelyOnUpdate!: pulumi.Output<boolean | undefined>;
+    declare public readonly rotateImmediatelyOnUpdate: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of an existing Lambda rotation function. To specify a rotation function that is also defined in this template, use the Ref function.
      */
-    public readonly rotationLambdaArn!: pulumi.Output<string | undefined>;
+    declare public readonly rotationLambdaArn: pulumi.Output<string | undefined>;
     /**
      * A structure that defines the rotation configuration for this secret.
      */
-    public readonly rotationRules!: pulumi.Output<outputs.secretsmanager.RotationScheduleRotationRules | undefined>;
+    declare public readonly rotationRules: pulumi.Output<outputs.secretsmanager.RotationScheduleRotationRules | undefined>;
     /**
      * The ARN or name of the secret to rotate.
      */
-    public readonly secretId!: pulumi.Output<string>;
+    declare public readonly secretId: pulumi.Output<string>;
 
     /**
      * Create a RotationSchedule resource with the given unique name, arguments, and options.
@@ -73,14 +73,14 @@ export class RotationSchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.secretId === undefined) && !opts.urn) {
+            if (args?.secretId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
-            resourceInputs["hostedRotationLambda"] = args ? args.hostedRotationLambda : undefined;
-            resourceInputs["rotateImmediatelyOnUpdate"] = args ? args.rotateImmediatelyOnUpdate : undefined;
-            resourceInputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
-            resourceInputs["rotationRules"] = args ? args.rotationRules : undefined;
-            resourceInputs["secretId"] = args ? args.secretId : undefined;
+            resourceInputs["hostedRotationLambda"] = args?.hostedRotationLambda;
+            resourceInputs["rotateImmediatelyOnUpdate"] = args?.rotateImmediatelyOnUpdate;
+            resourceInputs["rotationLambdaArn"] = args?.rotationLambdaArn;
+            resourceInputs["rotationRules"] = args?.rotationRules;
+            resourceInputs["secretId"] = args?.secretId;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

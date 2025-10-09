@@ -67,78 +67,78 @@ export class Resolver extends pulumi.CustomResource {
     /**
      * The APSYlong GraphQL API to which you want to attach this resolver.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * The caching configuration for the resolver.
      */
-    public readonly cachingConfig!: pulumi.Output<outputs.appsync.ResolverCachingConfig | undefined>;
+    declare public readonly cachingConfig: pulumi.Output<outputs.appsync.ResolverCachingConfig | undefined>;
     /**
      * The ``resolver`` code that contains the request and response functions. When code is used, the ``runtime`` is required. The runtime value must be ``APPSYNC_JS``.
      */
-    public readonly code!: pulumi.Output<string | undefined>;
+    declare public readonly code: pulumi.Output<string | undefined>;
     /**
      * The Amazon S3 endpoint.
      */
-    public readonly codeS3Location!: pulumi.Output<string | undefined>;
+    declare public readonly codeS3Location: pulumi.Output<string | undefined>;
     /**
      * The resolver data source name.
      */
-    public readonly dataSourceName!: pulumi.Output<string | undefined>;
+    declare public readonly dataSourceName: pulumi.Output<string | undefined>;
     /**
      * The GraphQL field on a type that invokes the resolver.
      */
-    public readonly fieldName!: pulumi.Output<string>;
+    declare public readonly fieldName: pulumi.Output<string>;
     /**
      * The resolver type.
      *   +  *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
      *   +  *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
      */
-    public readonly maxBatchSize!: pulumi.Output<number | undefined>;
+    declare public readonly maxBatchSize: pulumi.Output<number | undefined>;
     /**
      * Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
      */
-    public readonly metricsConfig!: pulumi.Output<enums.appsync.ResolverMetricsConfig | undefined>;
+    declare public readonly metricsConfig: pulumi.Output<enums.appsync.ResolverMetricsConfig | undefined>;
     /**
      * Functions linked with the pipeline resolver.
      */
-    public readonly pipelineConfig!: pulumi.Output<outputs.appsync.ResolverPipelineConfig | undefined>;
+    declare public readonly pipelineConfig: pulumi.Output<outputs.appsync.ResolverPipelineConfig | undefined>;
     /**
      * The request mapping template.
      *  Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
      */
-    public readonly requestMappingTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly requestMappingTemplate: pulumi.Output<string | undefined>;
     /**
      * The location of a request mapping template in an S3 bucket. Use this if you want to provision with a template file in S3 rather than embedding it in your CFNshort template.
      */
-    public readonly requestMappingTemplateS3Location!: pulumi.Output<string | undefined>;
+    declare public readonly requestMappingTemplateS3Location: pulumi.Output<string | undefined>;
     /**
      * ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
      */
-    public /*out*/ readonly resolverArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resolverArn: pulumi.Output<string>;
     /**
      * The response mapping template.
      */
-    public readonly responseMappingTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly responseMappingTemplate: pulumi.Output<string | undefined>;
     /**
      * The location of a response mapping template in an S3 bucket. Use this if you want to provision with a template file in S3 rather than embedding it in your CFNshort template.
      */
-    public readonly responseMappingTemplateS3Location!: pulumi.Output<string | undefined>;
+    declare public readonly responseMappingTemplateS3Location: pulumi.Output<string | undefined>;
     /**
      * Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
      */
-    public readonly runtime!: pulumi.Output<outputs.appsync.ResolverAppSyncRuntime | undefined>;
+    declare public readonly runtime: pulumi.Output<outputs.appsync.ResolverAppSyncRuntime | undefined>;
     /**
      * The ``SyncConfig`` for a resolver attached to a versioned data source.
      */
-    public readonly syncConfig!: pulumi.Output<outputs.appsync.ResolverSyncConfig | undefined>;
+    declare public readonly syncConfig: pulumi.Output<outputs.appsync.ResolverSyncConfig | undefined>;
     /**
      * The GraphQL type that invokes this resolver.
      */
-    public readonly typeName!: pulumi.Output<string>;
+    declare public readonly typeName: pulumi.Output<string>;
 
     /**
      * Create a Resolver resource with the given unique name, arguments, and options.
@@ -151,32 +151,32 @@ export class Resolver extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.fieldName === undefined) && !opts.urn) {
+            if (args?.fieldName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fieldName'");
             }
-            if ((!args || args.typeName === undefined) && !opts.urn) {
+            if (args?.typeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'typeName'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["cachingConfig"] = args ? args.cachingConfig : undefined;
-            resourceInputs["code"] = args ? args.code : undefined;
-            resourceInputs["codeS3Location"] = args ? args.codeS3Location : undefined;
-            resourceInputs["dataSourceName"] = args ? args.dataSourceName : undefined;
-            resourceInputs["fieldName"] = args ? args.fieldName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
-            resourceInputs["metricsConfig"] = args ? args.metricsConfig : undefined;
-            resourceInputs["pipelineConfig"] = args ? args.pipelineConfig : undefined;
-            resourceInputs["requestMappingTemplate"] = args ? args.requestMappingTemplate : undefined;
-            resourceInputs["requestMappingTemplateS3Location"] = args ? args.requestMappingTemplateS3Location : undefined;
-            resourceInputs["responseMappingTemplate"] = args ? args.responseMappingTemplate : undefined;
-            resourceInputs["responseMappingTemplateS3Location"] = args ? args.responseMappingTemplateS3Location : undefined;
-            resourceInputs["runtime"] = args ? args.runtime : undefined;
-            resourceInputs["syncConfig"] = args ? args.syncConfig : undefined;
-            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["cachingConfig"] = args?.cachingConfig;
+            resourceInputs["code"] = args?.code;
+            resourceInputs["codeS3Location"] = args?.codeS3Location;
+            resourceInputs["dataSourceName"] = args?.dataSourceName;
+            resourceInputs["fieldName"] = args?.fieldName;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["maxBatchSize"] = args?.maxBatchSize;
+            resourceInputs["metricsConfig"] = args?.metricsConfig;
+            resourceInputs["pipelineConfig"] = args?.pipelineConfig;
+            resourceInputs["requestMappingTemplate"] = args?.requestMappingTemplate;
+            resourceInputs["requestMappingTemplateS3Location"] = args?.requestMappingTemplateS3Location;
+            resourceInputs["responseMappingTemplate"] = args?.responseMappingTemplate;
+            resourceInputs["responseMappingTemplateS3Location"] = args?.responseMappingTemplateS3Location;
+            resourceInputs["runtime"] = args?.runtime;
+            resourceInputs["syncConfig"] = args?.syncConfig;
+            resourceInputs["typeName"] = args?.typeName;
             resourceInputs["resolverArn"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

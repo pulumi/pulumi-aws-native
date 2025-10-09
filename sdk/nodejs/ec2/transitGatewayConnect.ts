@@ -40,31 +40,31 @@ export class TransitGatewayConnect extends pulumi.CustomResource {
     /**
      * The creation time.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The Connect attachment options.
      */
-    public readonly options!: pulumi.Output<outputs.ec2.TransitGatewayConnectOptions>;
+    declare public readonly options: pulumi.Output<outputs.ec2.TransitGatewayConnectOptions>;
     /**
      * The state of the attachment.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The tags for the attachment.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the Connect attachment.
      */
-    public /*out*/ readonly transitGatewayAttachmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly transitGatewayAttachmentId: pulumi.Output<string>;
     /**
      * The ID of the transit gateway.
      */
-    public /*out*/ readonly transitGatewayId!: pulumi.Output<string>;
+    declare public /*out*/ readonly transitGatewayId: pulumi.Output<string>;
     /**
      * The ID of the attachment from which the Connect attachment was created.
      */
-    public readonly transportTransitGatewayAttachmentId!: pulumi.Output<string>;
+    declare public readonly transportTransitGatewayAttachmentId: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayConnect resource with the given unique name, arguments, and options.
@@ -77,15 +77,15 @@ export class TransitGatewayConnect extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.options === undefined) && !opts.urn) {
+            if (args?.options === undefined && !opts.urn) {
                 throw new Error("Missing required property 'options'");
             }
-            if ((!args || args.transportTransitGatewayAttachmentId === undefined) && !opts.urn) {
+            if (args?.transportTransitGatewayAttachmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transportTransitGatewayAttachmentId'");
             }
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transportTransitGatewayAttachmentId"] = args ? args.transportTransitGatewayAttachmentId : undefined;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transportTransitGatewayAttachmentId"] = args?.transportTransitGatewayAttachmentId;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;

@@ -40,23 +40,23 @@ export class RoutingControl extends pulumi.CustomResource {
     /**
      * Arn associated with Control Panel
      */
-    public readonly clusterArn!: pulumi.Output<string | undefined>;
+    declare public readonly clusterArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the control panel.
      */
-    public readonly controlPanelArn!: pulumi.Output<string | undefined>;
+    declare public readonly controlPanelArn: pulumi.Output<string | undefined>;
     /**
      * The name of the routing control. You can use any non-white space character in the name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the routing control.
      */
-    public /*out*/ readonly routingControlArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly routingControlArn: pulumi.Output<string>;
     /**
      * The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.route53recoverycontrol.RoutingControlStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.route53recoverycontrol.RoutingControlStatus>;
 
     /**
      * Create a RoutingControl resource with the given unique name, arguments, and options.
@@ -69,9 +69,9 @@ export class RoutingControl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["clusterArn"] = args ? args.clusterArn : undefined;
-            resourceInputs["controlPanelArn"] = args ? args.controlPanelArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["clusterArn"] = args?.clusterArn;
+            resourceInputs["controlPanelArn"] = args?.controlPanelArn;
+            resourceInputs["name"] = args?.name;
             resourceInputs["routingControlArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

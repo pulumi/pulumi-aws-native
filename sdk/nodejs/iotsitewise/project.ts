@@ -40,31 +40,31 @@ export class Project extends pulumi.CustomResource {
     /**
      * The IDs of the assets to be associated to the project.
      */
-    public readonly assetIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly assetIds: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the portal in which to create the project.
      */
-    public readonly portalId!: pulumi.Output<string>;
+    declare public readonly portalId: pulumi.Output<string>;
     /**
      * The ARN of the project.
      */
-    public /*out*/ readonly projectArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly projectArn: pulumi.Output<string>;
     /**
      * A description for the project.
      */
-    public readonly projectDescription!: pulumi.Output<string | undefined>;
+    declare public readonly projectDescription: pulumi.Output<string | undefined>;
     /**
      * The ID of the project.
      */
-    public /*out*/ readonly projectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly projectId: pulumi.Output<string>;
     /**
      * A friendly name for the project.
      */
-    public readonly projectName!: pulumi.Output<string>;
+    declare public readonly projectName: pulumi.Output<string>;
     /**
      * A list of key-value pairs that contain metadata for the project.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -77,14 +77,14 @@ export class Project extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.portalId === undefined) && !opts.urn) {
+            if (args?.portalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portalId'");
             }
-            resourceInputs["assetIds"] = args ? args.assetIds : undefined;
-            resourceInputs["portalId"] = args ? args.portalId : undefined;
-            resourceInputs["projectDescription"] = args ? args.projectDescription : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assetIds"] = args?.assetIds;
+            resourceInputs["portalId"] = args?.portalId;
+            resourceInputs["projectDescription"] = args?.projectDescription;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["projectArn"] = undefined /*out*/;
             resourceInputs["projectId"] = undefined /*out*/;
         } else {

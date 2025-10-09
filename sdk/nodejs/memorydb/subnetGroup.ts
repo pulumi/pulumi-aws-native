@@ -40,27 +40,27 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the subnet group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An optional description of the subnet group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
      */
-    public readonly subnetGroupName!: pulumi.Output<string>;
+    declare public readonly subnetGroupName: pulumi.Output<string>;
     /**
      * A list of VPC subnet IDs for the subnet group.
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
      * Supported network types would be a list of network types supported by subnet group and can be either [ipv4] or [ipv4, dual_stack] or [ipv6].
      */
-    public /*out*/ readonly supportedNetworkTypes!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly supportedNetworkTypes: pulumi.Output<string[]>;
     /**
      * An array of key-value pairs to apply to this subnet group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.
@@ -73,13 +73,13 @@ export class SubnetGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+            if (args?.subnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["subnetGroupName"] = args?.subnetGroupName;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["supportedNetworkTypes"] = undefined /*out*/;
         } else {

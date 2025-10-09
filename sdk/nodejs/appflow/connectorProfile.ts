@@ -40,35 +40,35 @@ export class ConnectorProfile extends pulumi.CustomResource {
     /**
      * Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
      */
-    public readonly connectionMode!: pulumi.Output<enums.appflow.ConnectorProfileConnectionMode>;
+    declare public readonly connectionMode: pulumi.Output<enums.appflow.ConnectorProfileConnectionMode>;
     /**
      * The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.
      */
-    public readonly connectorLabel!: pulumi.Output<string | undefined>;
+    declare public readonly connectorLabel: pulumi.Output<string | undefined>;
     /**
      * Unique identifier for connector profile resources
      */
-    public /*out*/ readonly connectorProfileArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectorProfileArn: pulumi.Output<string>;
     /**
      * Connector specific configurations needed to create connector profile
      */
-    public readonly connectorProfileConfig!: pulumi.Output<outputs.appflow.ConnectorProfileConfig | undefined>;
+    declare public readonly connectorProfileConfig: pulumi.Output<outputs.appflow.ConnectorProfileConfig | undefined>;
     /**
      * The maximum number of items to retrieve in a single batch.
      */
-    public readonly connectorProfileName!: pulumi.Output<string>;
+    declare public readonly connectorProfileName: pulumi.Output<string>;
     /**
      * List of Saas providers that need connector profile to be created
      */
-    public readonly connectorType!: pulumi.Output<enums.appflow.ConnectorProfileConnectorType>;
+    declare public readonly connectorType: pulumi.Output<enums.appflow.ConnectorProfileConnectorType>;
     /**
      * A unique Arn for Connector-Profile resource
      */
-    public /*out*/ readonly credentialsArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly credentialsArn: pulumi.Output<string>;
     /**
      * The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
      */
-    public readonly kmsArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a ConnectorProfile resource with the given unique name, arguments, and options.
@@ -81,18 +81,18 @@ export class ConnectorProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectionMode === undefined) && !opts.urn) {
+            if (args?.connectionMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionMode'");
             }
-            if ((!args || args.connectorType === undefined) && !opts.urn) {
+            if (args?.connectorType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorType'");
             }
-            resourceInputs["connectionMode"] = args ? args.connectionMode : undefined;
-            resourceInputs["connectorLabel"] = args ? args.connectorLabel : undefined;
-            resourceInputs["connectorProfileConfig"] = args ? args.connectorProfileConfig : undefined;
-            resourceInputs["connectorProfileName"] = args ? args.connectorProfileName : undefined;
-            resourceInputs["connectorType"] = args ? args.connectorType : undefined;
-            resourceInputs["kmsArn"] = args ? args.kmsArn : undefined;
+            resourceInputs["connectionMode"] = args?.connectionMode;
+            resourceInputs["connectorLabel"] = args?.connectorLabel;
+            resourceInputs["connectorProfileConfig"] = args?.connectorProfileConfig;
+            resourceInputs["connectorProfileName"] = args?.connectorProfileName;
+            resourceInputs["connectorType"] = args?.connectorType;
+            resourceInputs["kmsArn"] = args?.kmsArn;
             resourceInputs["connectorProfileArn"] = undefined /*out*/;
             resourceInputs["credentialsArn"] = undefined /*out*/;
         } else {

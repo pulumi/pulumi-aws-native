@@ -40,47 +40,47 @@ export class IntelligentPromptRouter extends pulumi.CustomResource {
     /**
      * Time Stamp
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Description of the Prompt Router.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The default model to use when the routing criteria is not met.
      */
-    public readonly fallbackModel!: pulumi.Output<outputs.bedrock.IntelligentPromptRouterPromptRouterTargetModel>;
+    declare public readonly fallbackModel: pulumi.Output<outputs.bedrock.IntelligentPromptRouterPromptRouterTargetModel>;
     /**
      * List of model configuration
      */
-    public readonly models!: pulumi.Output<outputs.bedrock.IntelligentPromptRouterPromptRouterTargetModel[]>;
+    declare public readonly models: pulumi.Output<outputs.bedrock.IntelligentPromptRouterPromptRouterTargetModel[]>;
     /**
      * Arn of the Prompt Router.
      */
-    public /*out*/ readonly promptRouterArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly promptRouterArn: pulumi.Output<string>;
     /**
      * Name of the Prompt Router.
      */
-    public readonly promptRouterName!: pulumi.Output<string>;
+    declare public readonly promptRouterName: pulumi.Output<string>;
     /**
      * Routing criteria for a prompt router.
      */
-    public readonly routingCriteria!: pulumi.Output<outputs.bedrock.IntelligentPromptRouterRoutingCriteria>;
+    declare public readonly routingCriteria: pulumi.Output<outputs.bedrock.IntelligentPromptRouterRoutingCriteria>;
     /**
      * The router's status.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.bedrock.IntelligentPromptRouterPromptRouterStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.bedrock.IntelligentPromptRouterPromptRouterStatus>;
     /**
      * List of Tags
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The router's type.
      */
-    public /*out*/ readonly type!: pulumi.Output<enums.bedrock.IntelligentPromptRouterPromptRouterType>;
+    declare public /*out*/ readonly type: pulumi.Output<enums.bedrock.IntelligentPromptRouterPromptRouterType>;
     /**
      * Time Stamp
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a IntelligentPromptRouter resource with the given unique name, arguments, and options.
@@ -93,21 +93,21 @@ export class IntelligentPromptRouter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fallbackModel === undefined) && !opts.urn) {
+            if (args?.fallbackModel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fallbackModel'");
             }
-            if ((!args || args.models === undefined) && !opts.urn) {
+            if (args?.models === undefined && !opts.urn) {
                 throw new Error("Missing required property 'models'");
             }
-            if ((!args || args.routingCriteria === undefined) && !opts.urn) {
+            if (args?.routingCriteria === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routingCriteria'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fallbackModel"] = args ? args.fallbackModel : undefined;
-            resourceInputs["models"] = args ? args.models : undefined;
-            resourceInputs["promptRouterName"] = args ? args.promptRouterName : undefined;
-            resourceInputs["routingCriteria"] = args ? args.routingCriteria : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fallbackModel"] = args?.fallbackModel;
+            resourceInputs["models"] = args?.models;
+            resourceInputs["promptRouterName"] = args?.promptRouterName;
+            resourceInputs["routingCriteria"] = args?.routingCriteria;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["promptRouterArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

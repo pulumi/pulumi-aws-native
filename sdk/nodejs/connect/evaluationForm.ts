@@ -37,43 +37,43 @@ export class EvaluationForm extends pulumi.CustomResource {
         return obj['__pulumiType'] === EvaluationForm.__pulumiType;
     }
 
-    public readonly autoEvaluationConfiguration!: pulumi.Output<outputs.connect.EvaluationFormAutoEvaluationConfiguration | undefined>;
+    declare public readonly autoEvaluationConfiguration: pulumi.Output<outputs.connect.EvaluationFormAutoEvaluationConfiguration | undefined>;
     /**
      * The description of the evaluation form.
      *  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the evaluation form.
      */
-    public /*out*/ readonly evaluationFormArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly evaluationFormArn: pulumi.Output<string>;
     /**
      * The identifier of the Amazon Connect instance.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
      *  *Minimum size*: 1
      *  *Maximum size*: 100
      */
-    public readonly items!: pulumi.Output<outputs.connect.EvaluationFormBaseItem[]>;
+    declare public readonly items: pulumi.Output<outputs.connect.EvaluationFormBaseItem[]>;
     /**
      * A scoring strategy of the evaluation form.
      */
-    public readonly scoringStrategy!: pulumi.Output<outputs.connect.EvaluationFormScoringStrategy | undefined>;
+    declare public readonly scoringStrategy: pulumi.Output<outputs.connect.EvaluationFormScoringStrategy | undefined>;
     /**
      * The status of the evaluation form.
      *  *Allowed values*: ``DRAFT`` | ``ACTIVE``
      */
-    public readonly status!: pulumi.Output<enums.connect.EvaluationFormStatus>;
+    declare public readonly status: pulumi.Output<enums.connect.EvaluationFormStatus>;
     /**
      * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A title of the evaluation form.
      */
-    public readonly title!: pulumi.Output<string>;
+    declare public readonly title: pulumi.Output<string>;
 
     /**
      * Create a EvaluationForm resource with the given unique name, arguments, and options.
@@ -86,26 +86,26 @@ export class EvaluationForm extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.items === undefined) && !opts.urn) {
+            if (args?.items === undefined && !opts.urn) {
                 throw new Error("Missing required property 'items'");
             }
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            if ((!args || args.title === undefined) && !opts.urn) {
+            if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            resourceInputs["autoEvaluationConfiguration"] = args ? args.autoEvaluationConfiguration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["items"] = args ? args.items : undefined;
-            resourceInputs["scoringStrategy"] = args ? args.scoringStrategy : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["autoEvaluationConfiguration"] = args?.autoEvaluationConfiguration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["items"] = args?.items;
+            resourceInputs["scoringStrategy"] = args?.scoringStrategy;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["title"] = args?.title;
             resourceInputs["evaluationFormArn"] = undefined /*out*/;
         } else {
             resourceInputs["autoEvaluationConfiguration"] = undefined /*out*/;

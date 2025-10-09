@@ -40,27 +40,27 @@ export class Package extends pulumi.CustomResource {
     /**
      * The package's ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * When the package was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<number>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<number>;
     /**
      * The package's ID.
      */
-    public /*out*/ readonly packageId!: pulumi.Output<string>;
+    declare public /*out*/ readonly packageId: pulumi.Output<string>;
     /**
      * A name for the package.
      */
-    public readonly packageName!: pulumi.Output<string>;
+    declare public readonly packageName: pulumi.Output<string>;
     /**
      * A storage location.
      */
-    public readonly storageLocation!: pulumi.Output<outputs.panorama.PackageStorageLocation | undefined>;
+    declare public readonly storageLocation: pulumi.Output<outputs.panorama.PackageStorageLocation | undefined>;
     /**
      * Tags for the package.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Package resource with the given unique name, arguments, and options.
@@ -73,9 +73,9 @@ export class Package extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["packageName"] = args ? args.packageName : undefined;
-            resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["packageName"] = args?.packageName;
+            resourceInputs["storageLocation"] = args?.storageLocation;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["packageId"] = undefined /*out*/;

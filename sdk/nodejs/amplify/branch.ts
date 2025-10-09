@@ -40,47 +40,47 @@ export class Branch extends pulumi.CustomResource {
     /**
      * The unique ID for an Amplify app.
      */
-    public readonly appId!: pulumi.Output<string>;
+    declare public readonly appId: pulumi.Output<string>;
     /**
      * ARN for a branch, part of an Amplify App.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
      *
      * This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
      */
-    public readonly backend!: pulumi.Output<outputs.amplify.BranchBackend | undefined>;
+    declare public readonly backend: pulumi.Output<outputs.amplify.BranchBackend | undefined>;
     /**
      * The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
      */
-    public readonly basicAuthConfig!: pulumi.Output<outputs.amplify.BranchBasicAuthConfig | undefined>;
+    declare public readonly basicAuthConfig: pulumi.Output<outputs.amplify.BranchBasicAuthConfig | undefined>;
     /**
      * The name for the branch.
      */
-    public readonly branchName!: pulumi.Output<string>;
+    declare public readonly branchName: pulumi.Output<string>;
     /**
      * The build specification (build spec) for the branch.
      */
-    public readonly buildSpec!: pulumi.Output<string | undefined>;
+    declare public readonly buildSpec: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
      */
-    public readonly computeRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly computeRoleArn: pulumi.Output<string | undefined>;
     /**
      * The description for the branch that is part of an Amplify app.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Enables auto building for the branch.
      */
-    public readonly enableAutoBuild!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableAutoBuild: pulumi.Output<boolean | undefined>;
     /**
      * Enables performance mode for the branch.
      *
      * Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
      */
-    public readonly enablePerformanceMode!: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePerformanceMode: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether Amplify Hosting creates a preview for each pull request that is made for this branch. If this property is enabled, Amplify deploys your app to a unique preview URL after each pull request is opened. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
      *
@@ -88,21 +88,21 @@ export class Branch extends pulumi.CustomResource {
      *
      * For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
      */
-    public readonly enablePullRequestPreview!: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePullRequestPreview: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the skew protection feature is enabled for the branch.
      *
      * Deployment skew protection is available to Amplify applications to eliminate version skew issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see [Skew protection for Amplify deployments](https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html) in the *Amplify User Guide* .
      */
-    public readonly enableSkewProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableSkewProtection: pulumi.Output<boolean | undefined>;
     /**
      * The environment variables for the branch.
      */
-    public readonly environmentVariables!: pulumi.Output<outputs.amplify.BranchEnvironmentVariable[] | undefined>;
+    declare public readonly environmentVariables: pulumi.Output<outputs.amplify.BranchEnvironmentVariable[] | undefined>;
     /**
      * The framework for the branch.
      */
-    public readonly framework!: pulumi.Output<string | undefined>;
+    declare public readonly framework: pulumi.Output<string | undefined>;
     /**
      * If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.
      *
@@ -112,15 +112,15 @@ export class Branch extends pulumi.CustomResource {
      *
      * For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
      */
-    public readonly pullRequestEnvironmentName!: pulumi.Output<string | undefined>;
+    declare public readonly pullRequestEnvironmentName: pulumi.Output<string | undefined>;
     /**
      * Describes the current stage for the branch.
      */
-    public readonly stage!: pulumi.Output<enums.amplify.BranchStage | undefined>;
+    declare public readonly stage: pulumi.Output<enums.amplify.BranchStage | undefined>;
     /**
      * The tag for the branch.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Branch resource with the given unique name, arguments, and options.
@@ -133,25 +133,25 @@ export class Branch extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appId === undefined) && !opts.urn) {
+            if (args?.appId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["backend"] = args ? args.backend : undefined;
-            resourceInputs["basicAuthConfig"] = args ? args.basicAuthConfig : undefined;
-            resourceInputs["branchName"] = args ? args.branchName : undefined;
-            resourceInputs["buildSpec"] = args ? args.buildSpec : undefined;
-            resourceInputs["computeRoleArn"] = args ? args.computeRoleArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enableAutoBuild"] = args ? args.enableAutoBuild : undefined;
-            resourceInputs["enablePerformanceMode"] = args ? args.enablePerformanceMode : undefined;
-            resourceInputs["enablePullRequestPreview"] = args ? args.enablePullRequestPreview : undefined;
-            resourceInputs["enableSkewProtection"] = args ? args.enableSkewProtection : undefined;
-            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            resourceInputs["framework"] = args ? args.framework : undefined;
-            resourceInputs["pullRequestEnvironmentName"] = args ? args.pullRequestEnvironmentName : undefined;
-            resourceInputs["stage"] = args ? args.stage : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["backend"] = args?.backend;
+            resourceInputs["basicAuthConfig"] = args?.basicAuthConfig;
+            resourceInputs["branchName"] = args?.branchName;
+            resourceInputs["buildSpec"] = args?.buildSpec;
+            resourceInputs["computeRoleArn"] = args?.computeRoleArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enableAutoBuild"] = args?.enableAutoBuild;
+            resourceInputs["enablePerformanceMode"] = args?.enablePerformanceMode;
+            resourceInputs["enablePullRequestPreview"] = args?.enablePullRequestPreview;
+            resourceInputs["enableSkewProtection"] = args?.enableSkewProtection;
+            resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["framework"] = args?.framework;
+            resourceInputs["pullRequestEnvironmentName"] = args?.pullRequestEnvironmentName;
+            resourceInputs["stage"] = args?.stage;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["appId"] = undefined /*out*/;

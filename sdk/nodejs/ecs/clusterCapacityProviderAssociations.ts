@@ -100,15 +100,15 @@ export class ClusterCapacityProviderAssociations extends pulumi.CustomResource {
     /**
      * The capacity providers to associate with the cluster.
      */
-    public readonly capacityProviders!: pulumi.Output<(enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string)[]>;
+    declare public readonly capacityProviders: pulumi.Output<(enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string)[]>;
     /**
      * The cluster the capacity provider association is the target of.
      */
-    public readonly cluster!: pulumi.Output<string>;
+    declare public readonly cluster: pulumi.Output<string>;
     /**
      * The default capacity provider strategy to associate with the cluster.
      */
-    public readonly defaultCapacityProviderStrategy!: pulumi.Output<outputs.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategy[]>;
+    declare public readonly defaultCapacityProviderStrategy: pulumi.Output<outputs.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategy[]>;
 
     /**
      * Create a ClusterCapacityProviderAssociations resource with the given unique name, arguments, and options.
@@ -121,18 +121,18 @@ export class ClusterCapacityProviderAssociations extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.capacityProviders === undefined) && !opts.urn) {
+            if (args?.capacityProviders === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacityProviders'");
             }
-            if ((!args || args.cluster === undefined) && !opts.urn) {
+            if (args?.cluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cluster'");
             }
-            if ((!args || args.defaultCapacityProviderStrategy === undefined) && !opts.urn) {
+            if (args?.defaultCapacityProviderStrategy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultCapacityProviderStrategy'");
             }
-            resourceInputs["capacityProviders"] = args ? args.capacityProviders : undefined;
-            resourceInputs["cluster"] = args ? args.cluster : undefined;
-            resourceInputs["defaultCapacityProviderStrategy"] = args ? args.defaultCapacityProviderStrategy : undefined;
+            resourceInputs["capacityProviders"] = args?.capacityProviders;
+            resourceInputs["cluster"] = args?.cluster;
+            resourceInputs["defaultCapacityProviderStrategy"] = args?.defaultCapacityProviderStrategy;
         } else {
             resourceInputs["capacityProviders"] = undefined /*out*/;
             resourceInputs["cluster"] = undefined /*out*/;

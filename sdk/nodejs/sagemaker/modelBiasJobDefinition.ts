@@ -40,52 +40,52 @@ export class ModelBiasJobDefinition extends pulumi.CustomResource {
     /**
      * The time at which the job definition was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
-    public readonly endpointName!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
+    declare public readonly endpointName: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of job definition.
      */
-    public /*out*/ readonly jobDefinitionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly jobDefinitionArn: pulumi.Output<string>;
     /**
      * The name of the bias job definition. The name must be unique within an AWS Region in the AWS account.
      */
-    public readonly jobDefinitionName!: pulumi.Output<string | undefined>;
+    declare public readonly jobDefinitionName: pulumi.Output<string | undefined>;
     /**
      * Identifies the resources to deploy for a monitoring job.
      */
-    public readonly jobResources!: pulumi.Output<outputs.sagemaker.ModelBiasJobDefinitionMonitoringResources>;
+    declare public readonly jobResources: pulumi.Output<outputs.sagemaker.ModelBiasJobDefinitionMonitoringResources>;
     /**
      * Configures the model bias job to run a specified Docker container image.
      */
-    public readonly modelBiasAppSpecification!: pulumi.Output<outputs.sagemaker.ModelBiasJobDefinitionModelBiasAppSpecification>;
+    declare public readonly modelBiasAppSpecification: pulumi.Output<outputs.sagemaker.ModelBiasJobDefinitionModelBiasAppSpecification>;
     /**
      * The baseline configuration for a model bias job.
      */
-    public readonly modelBiasBaselineConfig!: pulumi.Output<outputs.sagemaker.ModelBiasJobDefinitionModelBiasBaselineConfig | undefined>;
+    declare public readonly modelBiasBaselineConfig: pulumi.Output<outputs.sagemaker.ModelBiasJobDefinitionModelBiasBaselineConfig | undefined>;
     /**
      * Inputs for the model bias job.
      */
-    public readonly modelBiasJobInput!: pulumi.Output<outputs.sagemaker.ModelBiasJobDefinitionModelBiasJobInput>;
+    declare public readonly modelBiasJobInput: pulumi.Output<outputs.sagemaker.ModelBiasJobDefinitionModelBiasJobInput>;
     /**
      * The output configuration for monitoring jobs.
      */
-    public readonly modelBiasJobOutputConfig!: pulumi.Output<outputs.sagemaker.ModelBiasJobDefinitionMonitoringOutputConfig>;
+    declare public readonly modelBiasJobOutputConfig: pulumi.Output<outputs.sagemaker.ModelBiasJobDefinitionMonitoringOutputConfig>;
     /**
      * Networking options for a model bias job.
      */
-    public readonly networkConfig!: pulumi.Output<outputs.sagemaker.ModelBiasJobDefinitionNetworkConfig | undefined>;
+    declare public readonly networkConfig: pulumi.Output<outputs.sagemaker.ModelBiasJobDefinitionNetworkConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * A time limit for how long the monitoring job is allowed to run before stopping.
      */
-    public readonly stoppingCondition!: pulumi.Output<outputs.sagemaker.ModelBiasJobDefinitionStoppingCondition | undefined>;
+    declare public readonly stoppingCondition: pulumi.Output<outputs.sagemaker.ModelBiasJobDefinitionStoppingCondition | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a ModelBiasJobDefinition resource with the given unique name, arguments, and options.
@@ -98,32 +98,32 @@ export class ModelBiasJobDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.jobResources === undefined) && !opts.urn) {
+            if (args?.jobResources === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobResources'");
             }
-            if ((!args || args.modelBiasAppSpecification === undefined) && !opts.urn) {
+            if (args?.modelBiasAppSpecification === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelBiasAppSpecification'");
             }
-            if ((!args || args.modelBiasJobInput === undefined) && !opts.urn) {
+            if (args?.modelBiasJobInput === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelBiasJobInput'");
             }
-            if ((!args || args.modelBiasJobOutputConfig === undefined) && !opts.urn) {
+            if (args?.modelBiasJobOutputConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelBiasJobOutputConfig'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
-            resourceInputs["jobResources"] = args ? args.jobResources : undefined;
-            resourceInputs["modelBiasAppSpecification"] = args ? args.modelBiasAppSpecification : undefined;
-            resourceInputs["modelBiasBaselineConfig"] = args ? args.modelBiasBaselineConfig : undefined;
-            resourceInputs["modelBiasJobInput"] = args ? args.modelBiasJobInput : undefined;
-            resourceInputs["modelBiasJobOutputConfig"] = args ? args.modelBiasJobOutputConfig : undefined;
-            resourceInputs["networkConfig"] = args ? args.networkConfig : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["stoppingCondition"] = args ? args.stoppingCondition : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["jobDefinitionName"] = args?.jobDefinitionName;
+            resourceInputs["jobResources"] = args?.jobResources;
+            resourceInputs["modelBiasAppSpecification"] = args?.modelBiasAppSpecification;
+            resourceInputs["modelBiasBaselineConfig"] = args?.modelBiasBaselineConfig;
+            resourceInputs["modelBiasJobInput"] = args?.modelBiasJobInput;
+            resourceInputs["modelBiasJobOutputConfig"] = args?.modelBiasJobOutputConfig;
+            resourceInputs["networkConfig"] = args?.networkConfig;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["stoppingCondition"] = args?.stoppingCondition;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["jobDefinitionArn"] = undefined /*out*/;
         } else {

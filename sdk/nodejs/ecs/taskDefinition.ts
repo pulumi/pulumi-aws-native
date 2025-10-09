@@ -222,32 +222,32 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * A list of container definitions in JSON format that describe the different containers that make up your task. For more information about container definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
-    public readonly containerDefinitions!: pulumi.Output<outputs.ecs.TaskDefinitionContainerDefinition[] | undefined>;
+    declare public readonly containerDefinitions: pulumi.Output<outputs.ecs.TaskDefinitionContainerDefinition[] | undefined>;
     /**
      * The number of ``cpu`` units used by the task. If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the ``memory`` parameter.
      *  If you're using the EC2 launch type or the external launch type, this field is optional. Supported values are between ``128`` CPU units (``0.125`` vCPUs) and ``196608`` CPU units (``192`` vCPUs). 
      *  This field is required for Fargate. For information about the valid values, see [Task size](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_size) in the *Amazon Elastic Container Service Developer Guide*.
      */
-    public readonly cpu!: pulumi.Output<string | undefined>;
+    declare public readonly cpu: pulumi.Output<string | undefined>;
     /**
      * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is ``false``.
      */
-    public readonly enableFaultInjection!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableFaultInjection: pulumi.Output<boolean | undefined>;
     /**
      * The ephemeral storage settings to use for tasks run with the task definition.
      */
-    public readonly ephemeralStorage!: pulumi.Output<outputs.ecs.TaskDefinitionEphemeralStorage | undefined>;
+    declare public readonly ephemeralStorage: pulumi.Output<outputs.ecs.TaskDefinitionEphemeralStorage | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf. For informationabout the required IAM roles for Amazon ECS, see [IAM roles for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security-ecs-iam-role-overview.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
-    public readonly executionRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
     /**
      * The name of a family that this task definition is registered to. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
      *  A family groups multiple versions of a task definition. Amazon ECS gives the first task definition that you registered to a family a revision number of 1. Amazon ECS gives sequential revision numbers to each task definition that you add.
      *   To use revision numbers when you update a task definition, specify this property. If you don't specify a value, CFNlong generates a new task definition each time that you update it.
      */
-    public readonly family!: pulumi.Output<string | undefined>;
-    public readonly inferenceAccelerators!: pulumi.Output<outputs.ecs.TaskDefinitionInferenceAccelerator[] | undefined>;
+    declare public readonly family: pulumi.Output<string | undefined>;
+    declare public readonly inferenceAccelerators: pulumi.Output<outputs.ecs.TaskDefinitionInferenceAccelerator[] | undefined>;
     /**
      * The IPC resource namespace to use for the containers in the task. The valid values are ``host``, ``task``, or ``none``. If ``host`` is specified, then all containers within the tasks that specified the ``host`` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same IPC resources. If ``none`` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance.
      *  If the ``host`` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose.
@@ -257,7 +257,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      *   
      *   This parameter is not supported for Windows containers or tasks run on FARGATElong.
      */
-    public readonly ipcMode!: pulumi.Output<string | undefined>;
+    declare public readonly ipcMode: pulumi.Output<string | undefined>;
     /**
      * The amount (in MiB) of memory used by the task.
      *  If your tasks runs on Amazon EC2 instances, you must specify either a task-level memory value or a container-level memory value. This field is optional and any value can be used. If a task-level memory value is specified, the container-level memory value is optional. For more information regarding container-level memory and memory reservation, see [ContainerDefinition](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html).
@@ -272,7 +272,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      *   +  Between 32GB and 120 GB in 8 GB increments - Available ``cpu`` values: 16384 (16 vCPU)
      *  This option requires Linux platform ``1.4.0`` or later.
      */
-    public readonly memory!: pulumi.Output<string | undefined>;
+    declare public readonly memory: pulumi.Output<string | undefined>;
     /**
      * The Docker networking mode to use for the containers in the task. The valid values are ``none``, ``bridge``, ``awsvpc``, and ``host``. If no network mode is specified, the default is ``bridge``.
      *  For Amazon ECS tasks on Fargate, the ``awsvpc`` network mode is required. For Amazon ECS tasks on Amazon EC2 Linux instances, any network mode can be used. For Amazon ECS tasks on Amazon EC2 Windows instances, ``<default>`` or ``awsvpc`` can be used. If the network mode is set to ``none``, you cannot specify port mappings in your container definitions, and the tasks containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode.
@@ -281,7 +281,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      *   If the network mode is ``awsvpc``, the task is allocated an elastic network interface, and you must specify a [NetworkConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_NetworkConfiguration.html) value when you create a service or run a task with the task definition. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
      *  If the network mode is ``host``, you cannot run multiple instantiations of the same task on a single container instance when port mappings are used.
      */
-    public readonly networkMode!: pulumi.Output<string | undefined>;
+    declare public readonly networkMode: pulumi.Output<string | undefined>;
     /**
      * The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task.
      *  If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
@@ -291,25 +291,25 @@ export class TaskDefinition extends pulumi.CustomResource {
      *   This parameter is not supported for Windows containers.
      *    This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
      */
-    public readonly pidMode!: pulumi.Output<string | undefined>;
+    declare public readonly pidMode: pulumi.Output<string | undefined>;
     /**
      * An array of placement constraint objects to use for tasks.
      *   This parameter isn't supported for tasks run on FARGATElong.
      */
-    public readonly placementConstraints!: pulumi.Output<outputs.ecs.TaskDefinitionPlacementConstraint[] | undefined>;
+    declare public readonly placementConstraints: pulumi.Output<outputs.ecs.TaskDefinitionPlacementConstraint[] | undefined>;
     /**
      * The configuration details for the App Mesh proxy.
      *  Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
-    public readonly proxyConfiguration!: pulumi.Output<outputs.ecs.TaskDefinitionProxyConfiguration | undefined>;
+    declare public readonly proxyConfiguration: pulumi.Output<outputs.ecs.TaskDefinitionProxyConfiguration | undefined>;
     /**
      * The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
-    public readonly requiresCompatibilities!: pulumi.Output<string[] | undefined>;
+    declare public readonly requiresCompatibilities: pulumi.Output<string[] | undefined>;
     /**
      * The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
      */
-    public readonly runtimePlatform!: pulumi.Output<outputs.ecs.TaskDefinitionRuntimePlatform | undefined>;
+    declare public readonly runtimePlatform: pulumi.Output<outputs.ecs.TaskDefinitionRuntimePlatform | undefined>;
     /**
      * The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
      *  The following basic restrictions apply to tags:
@@ -321,22 +321,22 @@ export class TaskDefinition extends pulumi.CustomResource {
      *   +  Tag keys and values are case-sensitive.
      *   +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the task definition.
      */
-    public /*out*/ readonly taskDefinitionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly taskDefinitionArn: pulumi.Output<string>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the IAMlong role that grants containers in the task permission to call AWS APIs on your behalf. For more information, see [Amazon ECS Task Role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide*.
      *  IAM roles for tasks on Windows require that the ``-EnableTaskIAMRole`` option is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some configuration code to use the feature. For more information, see [Windows IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html) in the *Amazon Elastic Container Service Developer Guide*.
      *   String validation is done on the ECS side. If an invalid string value is given for ``TaskRoleArn``, it may cause the Cloudformation job to hang.
      */
-    public readonly taskRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly taskRoleArn: pulumi.Output<string | undefined>;
     /**
      * The list of data volume definitions for the task. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
      *   The ``host`` and ``sourcePath`` parameters aren't supported for tasks run on FARGATElong.
      */
-    public readonly volumes!: pulumi.Output<outputs.ecs.TaskDefinitionVolume[] | undefined>;
+    declare public readonly volumes: pulumi.Output<outputs.ecs.TaskDefinitionVolume[] | undefined>;
 
     /**
      * Create a TaskDefinition resource with the given unique name, arguments, and options.
@@ -349,24 +349,24 @@ export class TaskDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["containerDefinitions"] = args ? args.containerDefinitions : undefined;
-            resourceInputs["cpu"] = args ? args.cpu : undefined;
-            resourceInputs["enableFaultInjection"] = args ? args.enableFaultInjection : undefined;
-            resourceInputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["family"] = args ? args.family : undefined;
-            resourceInputs["inferenceAccelerators"] = args ? args.inferenceAccelerators : undefined;
-            resourceInputs["ipcMode"] = args ? args.ipcMode : undefined;
-            resourceInputs["memory"] = args ? args.memory : undefined;
-            resourceInputs["networkMode"] = args ? args.networkMode : undefined;
-            resourceInputs["pidMode"] = args ? args.pidMode : undefined;
-            resourceInputs["placementConstraints"] = args ? args.placementConstraints : undefined;
-            resourceInputs["proxyConfiguration"] = args ? args.proxyConfiguration : undefined;
-            resourceInputs["requiresCompatibilities"] = args ? args.requiresCompatibilities : undefined;
-            resourceInputs["runtimePlatform"] = args ? args.runtimePlatform : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taskRoleArn"] = args ? args.taskRoleArn : undefined;
-            resourceInputs["volumes"] = args ? args.volumes : undefined;
+            resourceInputs["containerDefinitions"] = args?.containerDefinitions;
+            resourceInputs["cpu"] = args?.cpu;
+            resourceInputs["enableFaultInjection"] = args?.enableFaultInjection;
+            resourceInputs["ephemeralStorage"] = args?.ephemeralStorage;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["family"] = args?.family;
+            resourceInputs["inferenceAccelerators"] = args?.inferenceAccelerators;
+            resourceInputs["ipcMode"] = args?.ipcMode;
+            resourceInputs["memory"] = args?.memory;
+            resourceInputs["networkMode"] = args?.networkMode;
+            resourceInputs["pidMode"] = args?.pidMode;
+            resourceInputs["placementConstraints"] = args?.placementConstraints;
+            resourceInputs["proxyConfiguration"] = args?.proxyConfiguration;
+            resourceInputs["requiresCompatibilities"] = args?.requiresCompatibilities;
+            resourceInputs["runtimePlatform"] = args?.runtimePlatform;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taskRoleArn"] = args?.taskRoleArn;
+            resourceInputs["volumes"] = args?.volumes;
             resourceInputs["taskDefinitionArn"] = undefined /*out*/;
         } else {
             resourceInputs["containerDefinitions"] = undefined /*out*/;

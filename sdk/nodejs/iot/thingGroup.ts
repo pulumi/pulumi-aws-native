@@ -40,35 +40,35 @@ export class ThingGroup extends pulumi.CustomResource {
     /**
      * The thing group ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The thing group ID.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The parent thing group name.
      *
      * A Dynamic Thing Group does not have `parentGroupName` defined.
      */
-    public readonly parentGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly parentGroupName: pulumi.Output<string | undefined>;
     /**
      * The dynamic thing group search query string.
      *
      * The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
      */
-    public readonly queryString!: pulumi.Output<string | undefined>;
+    declare public readonly queryString: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The thing group name.
      */
-    public readonly thingGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly thingGroupName: pulumi.Output<string | undefined>;
     /**
      * Thing group properties.
      */
-    public readonly thingGroupProperties!: pulumi.Output<outputs.iot.ThingGroupPropertiesProperties | undefined>;
+    declare public readonly thingGroupProperties: pulumi.Output<outputs.iot.ThingGroupPropertiesProperties | undefined>;
 
     /**
      * Create a ThingGroup resource with the given unique name, arguments, and options.
@@ -81,11 +81,11 @@ export class ThingGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["parentGroupName"] = args ? args.parentGroupName : undefined;
-            resourceInputs["queryString"] = args ? args.queryString : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["thingGroupName"] = args ? args.thingGroupName : undefined;
-            resourceInputs["thingGroupProperties"] = args ? args.thingGroupProperties : undefined;
+            resourceInputs["parentGroupName"] = args?.parentGroupName;
+            resourceInputs["queryString"] = args?.queryString;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["thingGroupName"] = args?.thingGroupName;
+            resourceInputs["thingGroupProperties"] = args?.thingGroupProperties;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

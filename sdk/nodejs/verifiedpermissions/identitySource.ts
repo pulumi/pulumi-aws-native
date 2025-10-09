@@ -66,20 +66,20 @@ export class IdentitySource extends pulumi.CustomResource {
     /**
      * Contains configuration information used when creating a new identity source.
      */
-    public readonly configuration!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceConfiguration0Properties | outputs.verifiedpermissions.IdentitySourceConfiguration1Properties>;
-    public /*out*/ readonly details!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceDetails>;
+    declare public readonly configuration: pulumi.Output<outputs.verifiedpermissions.IdentitySourceConfiguration0Properties | outputs.verifiedpermissions.IdentitySourceConfiguration1Properties>;
+    declare public /*out*/ readonly details: pulumi.Output<outputs.verifiedpermissions.IdentitySourceDetails>;
     /**
      * The unique ID of the new or updated identity store.
      */
-    public /*out*/ readonly identitySourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly identitySourceId: pulumi.Output<string>;
     /**
      * Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
      */
-    public readonly policyStoreId!: pulumi.Output<string>;
+    declare public readonly policyStoreId: pulumi.Output<string>;
     /**
      * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
      */
-    public readonly principalEntityType!: pulumi.Output<string | undefined>;
+    declare public readonly principalEntityType: pulumi.Output<string | undefined>;
 
     /**
      * Create a IdentitySource resource with the given unique name, arguments, and options.
@@ -92,15 +92,15 @@ export class IdentitySource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.policyStoreId === undefined) && !opts.urn) {
+            if (args?.policyStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyStoreId'");
             }
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["policyStoreId"] = args ? args.policyStoreId : undefined;
-            resourceInputs["principalEntityType"] = args ? args.principalEntityType : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["policyStoreId"] = args?.policyStoreId;
+            resourceInputs["principalEntityType"] = args?.principalEntityType;
             resourceInputs["details"] = undefined /*out*/;
             resourceInputs["identitySourceId"] = undefined /*out*/;
         } else {

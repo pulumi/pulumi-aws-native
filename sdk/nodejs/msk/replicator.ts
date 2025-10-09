@@ -40,35 +40,35 @@ export class Replicator extends pulumi.CustomResource {
     /**
      * The current version of the MSK replicator.
      */
-    public /*out*/ readonly currentVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly currentVersion: pulumi.Output<string>;
     /**
      * A summary description of the replicator.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies a list of Kafka clusters which are targets of the replicator.
      */
-    public readonly kafkaClusters!: pulumi.Output<outputs.msk.ReplicatorKafkaCluster[]>;
+    declare public readonly kafkaClusters: pulumi.Output<outputs.msk.ReplicatorKafkaCluster[]>;
     /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      */
-    public readonly replicationInfoList!: pulumi.Output<outputs.msk.ReplicatorReplicationInfo[]>;
+    declare public readonly replicationInfoList: pulumi.Output<outputs.msk.ReplicatorReplicationInfo[]>;
     /**
      * Amazon Resource Name for the created replicator.
      */
-    public /*out*/ readonly replicatorArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly replicatorArn: pulumi.Output<string>;
     /**
      * The name of the replicator.
      */
-    public readonly replicatorName!: pulumi.Output<string>;
+    declare public readonly replicatorName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role used by the replicator to access external resources.
      */
-    public readonly serviceExecutionRoleArn!: pulumi.Output<string>;
+    declare public readonly serviceExecutionRoleArn: pulumi.Output<string>;
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Replicator resource with the given unique name, arguments, and options.
@@ -81,21 +81,21 @@ export class Replicator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kafkaClusters === undefined) && !opts.urn) {
+            if (args?.kafkaClusters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaClusters'");
             }
-            if ((!args || args.replicationInfoList === undefined) && !opts.urn) {
+            if (args?.replicationInfoList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicationInfoList'");
             }
-            if ((!args || args.serviceExecutionRoleArn === undefined) && !opts.urn) {
+            if (args?.serviceExecutionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceExecutionRoleArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kafkaClusters"] = args ? args.kafkaClusters : undefined;
-            resourceInputs["replicationInfoList"] = args ? args.replicationInfoList : undefined;
-            resourceInputs["replicatorName"] = args ? args.replicatorName : undefined;
-            resourceInputs["serviceExecutionRoleArn"] = args ? args.serviceExecutionRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kafkaClusters"] = args?.kafkaClusters;
+            resourceInputs["replicationInfoList"] = args?.replicationInfoList;
+            resourceInputs["replicatorName"] = args?.replicatorName;
+            resourceInputs["serviceExecutionRoleArn"] = args?.serviceExecutionRoleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["currentVersion"] = undefined /*out*/;
             resourceInputs["replicatorArn"] = undefined /*out*/;
         } else {

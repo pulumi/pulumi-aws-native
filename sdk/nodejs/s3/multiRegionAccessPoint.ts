@@ -40,23 +40,23 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
     /**
      * The alias is a unique identifier to, and is part of the public DNS name for this Multi Region Access Point
      */
-    public /*out*/ readonly alias!: pulumi.Output<string>;
+    declare public /*out*/ readonly alias: pulumi.Output<string>;
     /**
      * The timestamp of the when the Multi Region Access Point is created
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The name you want to assign to this Multi Region Access Point.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The PublicAccessBlock configuration that you want to apply to this Multi Region Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
      */
-    public readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.s3.MultiRegionAccessPointPublicAccessBlockConfiguration | undefined>;
+    declare public readonly publicAccessBlockConfiguration: pulumi.Output<outputs.s3.MultiRegionAccessPointPublicAccessBlockConfiguration | undefined>;
     /**
      * The list of buckets that you want to associate this Multi Region Access Point with.
      */
-    public readonly regions!: pulumi.Output<outputs.s3.MultiRegionAccessPointRegion[]>;
+    declare public readonly regions: pulumi.Output<outputs.s3.MultiRegionAccessPointRegion[]>;
 
     /**
      * Create a MultiRegionAccessPoint resource with the given unique name, arguments, and options.
@@ -69,12 +69,12 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.regions === undefined) && !opts.urn) {
+            if (args?.regions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'regions'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
-            resourceInputs["regions"] = args ? args.regions : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicAccessBlockConfiguration"] = args?.publicAccessBlockConfiguration;
+            resourceInputs["regions"] = args?.regions;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
         } else {

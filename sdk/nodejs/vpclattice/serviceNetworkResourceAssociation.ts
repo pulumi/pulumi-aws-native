@@ -40,23 +40,23 @@ export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the association.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the association between the service network and resource configuration.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The ID of the resource configuration associated with the service network.
      */
-    public readonly resourceConfigurationId!: pulumi.Output<string | undefined>;
+    declare public readonly resourceConfigurationId: pulumi.Output<string | undefined>;
     /**
      * The ID of the service network associated with the resource configuration.
      */
-    public readonly serviceNetworkId!: pulumi.Output<string | undefined>;
+    declare public readonly serviceNetworkId: pulumi.Output<string | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ServiceNetworkResourceAssociation resource with the given unique name, arguments, and options.
@@ -69,9 +69,9 @@ export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["resourceConfigurationId"] = args ? args.resourceConfigurationId : undefined;
-            resourceInputs["serviceNetworkId"] = args ? args.serviceNetworkId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["resourceConfigurationId"] = args?.resourceConfigurationId;
+            resourceInputs["serviceNetworkId"] = args?.serviceNetworkId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

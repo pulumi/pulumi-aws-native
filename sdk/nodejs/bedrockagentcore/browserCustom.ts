@@ -40,47 +40,47 @@ export class BrowserCustom extends pulumi.CustomResource {
     /**
      * The ARN of a Browser resource.
      */
-    public /*out*/ readonly browserArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly browserArn: pulumi.Output<string>;
     /**
      * The id of the browser.
      */
-    public /*out*/ readonly browserId!: pulumi.Output<string>;
+    declare public /*out*/ readonly browserId: pulumi.Output<string>;
     /**
      * Timestamp when the browser was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the browser.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
      */
-    public readonly executionRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
     /**
      * Timestamp when the browser was last updated.
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * The name of the browser.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Network configuration for browser.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.bedrockagentcore.BrowserCustomBrowserNetworkConfiguration>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.bedrockagentcore.BrowserCustomBrowserNetworkConfiguration>;
     /**
      * Recording configuration for browser.
      */
-    public readonly recordingConfig!: pulumi.Output<outputs.bedrockagentcore.BrowserCustomRecordingConfig | undefined>;
+    declare public readonly recordingConfig: pulumi.Output<outputs.bedrockagentcore.BrowserCustomRecordingConfig | undefined>;
     /**
      * Status of browser.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.bedrockagentcore.BrowserCustomBrowserStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.bedrockagentcore.BrowserCustomBrowserStatus>;
     /**
      * The tags for the custom browser.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a BrowserCustom resource with the given unique name, arguments, and options.
@@ -93,15 +93,15 @@ export class BrowserCustom extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkConfiguration === undefined) && !opts.urn) {
+            if (args?.networkConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConfiguration'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["recordingConfig"] = args ? args.recordingConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["recordingConfig"] = args?.recordingConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["browserArn"] = undefined /*out*/;
             resourceInputs["browserId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

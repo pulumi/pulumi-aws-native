@@ -100,11 +100,11 @@ export class ResourceCollection extends pulumi.CustomResource {
     /**
      * Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
      */
-    public readonly resourceCollectionFilter!: pulumi.Output<outputs.devopsguru.ResourceCollectionFilter>;
+    declare public readonly resourceCollectionFilter: pulumi.Output<outputs.devopsguru.ResourceCollectionFilter>;
     /**
      * The type of ResourceCollection
      */
-    public /*out*/ readonly resourceCollectionType!: pulumi.Output<enums.devopsguru.ResourceCollectionType>;
+    declare public /*out*/ readonly resourceCollectionType: pulumi.Output<enums.devopsguru.ResourceCollectionType>;
 
     /**
      * Create a ResourceCollection resource with the given unique name, arguments, and options.
@@ -117,10 +117,10 @@ export class ResourceCollection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceCollectionFilter === undefined) && !opts.urn) {
+            if (args?.resourceCollectionFilter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceCollectionFilter'");
             }
-            resourceInputs["resourceCollectionFilter"] = args ? args.resourceCollectionFilter : undefined;
+            resourceInputs["resourceCollectionFilter"] = args?.resourceCollectionFilter;
             resourceInputs["resourceCollectionType"] = undefined /*out*/;
         } else {
             resourceInputs["resourceCollectionFilter"] = undefined /*out*/;

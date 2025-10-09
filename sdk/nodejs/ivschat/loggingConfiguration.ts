@@ -40,27 +40,27 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     /**
      * LoggingConfiguration ARN is automatically generated on creation and assigned as the unique identifier.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The system-generated ID of the logging configuration.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
      */
-    public readonly destinationConfiguration!: pulumi.Output<outputs.ivschat.LoggingConfigurationDestinationConfiguration>;
+    declare public readonly destinationConfiguration: pulumi.Output<outputs.ivschat.LoggingConfigurationDestinationConfiguration>;
     /**
      * The name of the logging configuration. The value does not need to be unique.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The state of the logging configuration. When the state is ACTIVE, the configuration is ready to log chat content.
      */
-    public /*out*/ readonly state!: pulumi.Output<enums.ivschat.LoggingConfigurationState>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.ivschat.LoggingConfigurationState>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LoggingConfiguration resource with the given unique name, arguments, and options.
@@ -73,12 +73,12 @@ export class LoggingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationConfiguration === undefined) && !opts.urn) {
+            if (args?.destinationConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationConfiguration'");
             }
-            resourceInputs["destinationConfiguration"] = args ? args.destinationConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["destinationConfiguration"] = args?.destinationConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

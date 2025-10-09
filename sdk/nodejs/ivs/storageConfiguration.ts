@@ -40,19 +40,19 @@ export class StorageConfiguration extends pulumi.CustomResource {
     /**
      * Storage Configuration ARN is automatically generated on creation and assigned as the unique identifier.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Storage Configuration Name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * An S3 storage configuration contains information about where recorded video will be stored. See the [S3StorageConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html) property type for more information.
      */
-    public readonly s3!: pulumi.Output<outputs.ivs.StorageConfigurationS3StorageConfiguration>;
+    declare public readonly s3: pulumi.Output<outputs.ivs.StorageConfigurationS3StorageConfiguration>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a StorageConfiguration resource with the given unique name, arguments, and options.
@@ -65,12 +65,12 @@ export class StorageConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.s3 === undefined) && !opts.urn) {
+            if (args?.s3 === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["s3"] = args ? args.s3 : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["s3"] = args?.s3;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

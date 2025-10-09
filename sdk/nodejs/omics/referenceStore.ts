@@ -40,31 +40,31 @@ export class ReferenceStore extends pulumi.CustomResource {
     /**
      * The store's ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * When the store was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * A description for the store.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A name for the store.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The store's ID.
      */
-    public /*out*/ readonly referenceStoreId!: pulumi.Output<string>;
+    declare public /*out*/ readonly referenceStoreId: pulumi.Output<string>;
     /**
      * Server-side encryption (SSE) settings for the store.
      */
-    public readonly sseConfig!: pulumi.Output<outputs.omics.ReferenceStoreSseConfig | undefined>;
+    declare public readonly sseConfig: pulumi.Output<outputs.omics.ReferenceStoreSseConfig | undefined>;
     /**
      * Tags for the store.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ReferenceStore resource with the given unique name, arguments, and options.
@@ -77,10 +77,10 @@ export class ReferenceStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sseConfig"] = args ? args.sseConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sseConfig"] = args?.sseConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["referenceStoreId"] = undefined /*out*/;

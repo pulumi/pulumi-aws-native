@@ -42,39 +42,39 @@ export class ReplicaKey extends pulumi.CustomResource {
      *
      * The key ARNs of related multi-Region keys differ only in the Region value. For information about the key ARNs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The key ID of the replica key, such as `mrk-1234abcd12ab34cd56ef1234567890ab` .
      *
      * Related multi-Region keys have the same key ID. For information about the key IDs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
      */
-    public /*out*/ readonly keyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyId: pulumi.Output<string>;
     /**
      * The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
      */
-    public readonly keyPolicy!: pulumi.Output<any>;
+    declare public readonly keyPolicy: pulumi.Output<any>;
     /**
      * Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
      */
-    public readonly pendingWindowInDays!: pulumi.Output<number | undefined>;
+    declare public readonly pendingWindowInDays: pulumi.Output<number | undefined>;
     /**
      * Identifies the primary AWS KMS key to create a replica of. Specify the Amazon Resource Name (ARN) of the AWS KMS key. You cannot specify an alias or key ID. For help finding the ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
      */
-    public readonly primaryKeyArn!: pulumi.Output<string>;
+    declare public readonly primaryKeyArn: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ReplicaKey resource with the given unique name, arguments, and options.
@@ -87,18 +87,18 @@ export class ReplicaKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keyPolicy === undefined) && !opts.urn) {
+            if (args?.keyPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyPolicy'");
             }
-            if ((!args || args.primaryKeyArn === undefined) && !opts.urn) {
+            if (args?.primaryKeyArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'primaryKeyArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["keyPolicy"] = args ? args.keyPolicy : undefined;
-            resourceInputs["pendingWindowInDays"] = args ? args.pendingWindowInDays : undefined;
-            resourceInputs["primaryKeyArn"] = args ? args.primaryKeyArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["keyPolicy"] = args?.keyPolicy;
+            resourceInputs["pendingWindowInDays"] = args?.pendingWindowInDays;
+            resourceInputs["primaryKeyArn"] = args?.primaryKeyArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["keyId"] = undefined /*out*/;
         } else {

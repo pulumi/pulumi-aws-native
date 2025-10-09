@@ -107,19 +107,19 @@ export class Datastore extends pulumi.CustomResource {
         return obj['__pulumiType'] === Datastore.__pulumiType;
     }
 
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The name of the data store.
      */
-    public readonly datastoreName!: pulumi.Output<string | undefined>;
+    declare public readonly datastoreName: pulumi.Output<string | undefined>;
     /**
      * Information about the partition dimensions in a data store.
      */
-    public readonly datastorePartitions!: pulumi.Output<outputs.iotanalytics.DatastorePartitions | undefined>;
+    declare public readonly datastorePartitions: pulumi.Output<outputs.iotanalytics.DatastorePartitions | undefined>;
     /**
      * Where data store data is stored.
      */
-    public readonly datastoreStorage!: pulumi.Output<outputs.iotanalytics.DatastoreStorage | undefined>;
+    declare public readonly datastoreStorage: pulumi.Output<outputs.iotanalytics.DatastoreStorage | undefined>;
     /**
      * Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
      *
@@ -127,17 +127,17 @@ export class Datastore extends pulumi.CustomResource {
      *
      * You can't change the file format after you create the data store.
      */
-    public readonly fileFormatConfiguration!: pulumi.Output<outputs.iotanalytics.DatastoreFileFormatConfiguration | undefined>;
+    declare public readonly fileFormatConfiguration: pulumi.Output<outputs.iotanalytics.DatastoreFileFormatConfiguration | undefined>;
     /**
      * How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
      */
-    public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.DatastoreRetentionPeriod | undefined>;
+    declare public readonly retentionPeriod: pulumi.Output<outputs.iotanalytics.DatastoreRetentionPeriod | undefined>;
     /**
      * Metadata which can be used to manage the data store.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Datastore resource with the given unique name, arguments, and options.
@@ -150,12 +150,12 @@ export class Datastore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["datastoreName"] = args ? args.datastoreName : undefined;
-            resourceInputs["datastorePartitions"] = args ? args.datastorePartitions : undefined;
-            resourceInputs["datastoreStorage"] = args ? args.datastoreStorage : undefined;
-            resourceInputs["fileFormatConfiguration"] = args ? args.fileFormatConfiguration : undefined;
-            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["datastoreName"] = args?.datastoreName;
+            resourceInputs["datastorePartitions"] = args?.datastorePartitions;
+            resourceInputs["datastoreStorage"] = args?.datastoreStorage;
+            resourceInputs["fileFormatConfiguration"] = args?.fileFormatConfiguration;
+            resourceInputs["retentionPeriod"] = args?.retentionPeriod;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

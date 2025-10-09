@@ -42,13 +42,13 @@ export class GeofenceCollection extends pulumi.CustomResource {
      *
      * - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Synonym for `Arn` . The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
      *
      * - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
      */
-    public /*out*/ readonly collectionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly collectionArn: pulumi.Output<string>;
     /**
      * A custom name for the geofence collection.
      *
@@ -58,32 +58,32 @@ export class GeofenceCollection extends pulumi.CustomResource {
      * - Must be a unique geofence collection name.
      * - No spaces allowed. For example, `ExampleGeofenceCollection` .
      */
-    public readonly collectionName!: pulumi.Output<string>;
+    declare public readonly collectionName: pulumi.Output<string>;
     /**
      * The timestamp for when the geofence collection resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
      * An optional description for the geofence collection.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
-    public readonly pricingPlan!: pulumi.Output<enums.location.GeofenceCollectionPricingPlan | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    declare public readonly pricingPlan: pulumi.Output<enums.location.GeofenceCollectionPricingPlan | undefined>;
     /**
      * This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
      */
-    public readonly pricingPlanDataSource!: pulumi.Output<string | undefined>;
+    declare public readonly pricingPlanDataSource: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The timestamp for when the geofence collection resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly updateTime: pulumi.Output<string>;
 
     /**
      * Create a GeofenceCollection resource with the given unique name, arguments, and options.
@@ -96,12 +96,12 @@ export class GeofenceCollection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["collectionName"] = args ? args.collectionName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
-            resourceInputs["pricingPlanDataSource"] = args ? args.pricingPlanDataSource : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["collectionName"] = args?.collectionName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["pricingPlan"] = args?.pricingPlan;
+            resourceInputs["pricingPlanDataSource"] = args?.pricingPlanDataSource;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collectionArn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;

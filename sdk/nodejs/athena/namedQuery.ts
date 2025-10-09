@@ -67,27 +67,27 @@ export class NamedQuery extends pulumi.CustomResource {
     /**
      * The database to which the query belongs.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * The query description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The query name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The unique ID of the query.
      */
-    public /*out*/ readonly namedQueryId!: pulumi.Output<string>;
+    declare public /*out*/ readonly namedQueryId: pulumi.Output<string>;
     /**
      * The contents of the query with all query statements.
      */
-    public readonly queryString!: pulumi.Output<string>;
+    declare public readonly queryString: pulumi.Output<string>;
     /**
      * The name of the workgroup that contains the named query.
      */
-    public readonly workGroup!: pulumi.Output<string | undefined>;
+    declare public readonly workGroup: pulumi.Output<string | undefined>;
 
     /**
      * Create a NamedQuery resource with the given unique name, arguments, and options.
@@ -100,17 +100,17 @@ export class NamedQuery extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.queryString === undefined) && !opts.urn) {
+            if (args?.queryString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryString'");
             }
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queryString"] = args ? args.queryString : undefined;
-            resourceInputs["workGroup"] = args ? args.workGroup : undefined;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queryString"] = args?.queryString;
+            resourceInputs["workGroup"] = args?.workGroup;
             resourceInputs["namedQueryId"] = undefined /*out*/;
         } else {
             resourceInputs["database"] = undefined /*out*/;

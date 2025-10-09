@@ -40,91 +40,91 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The AWS account in which the Amazon DataZone environment is created.
      */
-    public /*out*/ readonly awsAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsAccountId: pulumi.Output<string>;
     /**
      * The AWS region in which the Amazon DataZone environment is created.
      */
-    public /*out*/ readonly awsAccountRegion!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsAccountRegion: pulumi.Output<string>;
     /**
      * The ID of the Amazon DataZone environment.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The timestamp of when the environment was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The Amazon DataZone user who created the environment.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * The description of the Amazon DataZone environment.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The identifier of the Amazon DataZone domain in which the environment is created.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * The identifier of the Amazon DataZone domain in which the environment would be created.
      */
-    public readonly domainIdentifier!: pulumi.Output<string>;
+    declare public readonly domainIdentifier: pulumi.Output<string>;
     /**
      * The AWS account in which the Amazon DataZone environment is created.
      */
-    public readonly environmentAccountIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly environmentAccountIdentifier: pulumi.Output<string | undefined>;
     /**
      * The AWS region in which the Amazon DataZone environment is created.
      */
-    public readonly environmentAccountRegion!: pulumi.Output<string | undefined>;
+    declare public readonly environmentAccountRegion: pulumi.Output<string | undefined>;
     /**
      * The ID of the blueprint with which the Amazon DataZone environment was created.
      */
-    public /*out*/ readonly environmentBlueprintId!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentBlueprintId: pulumi.Output<string>;
     /**
      * The ID of the environment profile with which the Amazon DataZone environment was created.
      */
-    public /*out*/ readonly environmentProfileId!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentProfileId: pulumi.Output<string>;
     /**
      * The ID of the environment profile with which the Amazon DataZone environment would be created.
      */
-    public readonly environmentProfileIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly environmentProfileIdentifier: pulumi.Output<string | undefined>;
     /**
      * Environment role arn for custom aws environment permissions
      */
-    public readonly environmentRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly environmentRoleArn: pulumi.Output<string | undefined>;
     /**
      * The glossary terms that can be used in the Amazon DataZone environment.
      */
-    public readonly glossaryTerms!: pulumi.Output<string[] | undefined>;
+    declare public readonly glossaryTerms: pulumi.Output<string[] | undefined>;
     /**
      * The name of the environment.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Amazon DataZone project in which the environment is created.
      */
-    public /*out*/ readonly projectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly projectId: pulumi.Output<string>;
     /**
      * The ID of the Amazon DataZone project in which the environment would be created.
      */
-    public readonly projectIdentifier!: pulumi.Output<string>;
+    declare public readonly projectIdentifier: pulumi.Output<string>;
     /**
      * The provider of the Amazon DataZone environment.
      */
-    public /*out*/ readonly provider!: pulumi.Output<string>;
+    declare public /*out*/ readonly provider: pulumi.Output<string>;
     /**
      * The status of the Amazon DataZone environment.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.datazone.EnvironmentStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.datazone.EnvironmentStatus>;
     /**
      * The timestamp of when the environment was updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * The user parameters of the Amazon DataZone environment.
      */
-    public readonly userParameters!: pulumi.Output<outputs.datazone.EnvironmentParameter[] | undefined>;
+    declare public readonly userParameters: pulumi.Output<outputs.datazone.EnvironmentParameter[] | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -137,22 +137,22 @@ export class Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.projectIdentifier === undefined) && !opts.urn) {
+            if (args?.projectIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectIdentifier'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["environmentAccountIdentifier"] = args ? args.environmentAccountIdentifier : undefined;
-            resourceInputs["environmentAccountRegion"] = args ? args.environmentAccountRegion : undefined;
-            resourceInputs["environmentProfileIdentifier"] = args ? args.environmentProfileIdentifier : undefined;
-            resourceInputs["environmentRoleArn"] = args ? args.environmentRoleArn : undefined;
-            resourceInputs["glossaryTerms"] = args ? args.glossaryTerms : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectIdentifier"] = args ? args.projectIdentifier : undefined;
-            resourceInputs["userParameters"] = args ? args.userParameters : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["environmentAccountIdentifier"] = args?.environmentAccountIdentifier;
+            resourceInputs["environmentAccountRegion"] = args?.environmentAccountRegion;
+            resourceInputs["environmentProfileIdentifier"] = args?.environmentProfileIdentifier;
+            resourceInputs["environmentRoleArn"] = args?.environmentRoleArn;
+            resourceInputs["glossaryTerms"] = args?.glossaryTerms;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectIdentifier"] = args?.projectIdentifier;
+            resourceInputs["userParameters"] = args?.userParameters;
             resourceInputs["awsAccountId"] = undefined /*out*/;
             resourceInputs["awsAccountRegion"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;

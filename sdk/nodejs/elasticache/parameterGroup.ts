@@ -40,23 +40,23 @@ export class ParameterGroup extends pulumi.CustomResource {
     /**
      * The name of the cache parameter group family that this cache parameter group is compatible with.
      */
-    public readonly cacheParameterGroupFamily!: pulumi.Output<string>;
+    declare public readonly cacheParameterGroupFamily: pulumi.Output<string>;
     /**
      * The name of the Cache Parameter Group.
      */
-    public /*out*/ readonly cacheParameterGroupName!: pulumi.Output<string>;
+    declare public /*out*/ readonly cacheParameterGroupName: pulumi.Output<string>;
     /**
      * The description for this cache parameter group.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * A comma-delimited list of parameter name/value pairs. For more information see ModifyCacheParameterGroup in the Amazon ElastiCache API Reference Guide.
      */
-    public readonly properties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly properties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ParameterGroup resource with the given unique name, arguments, and options.
@@ -69,16 +69,16 @@ export class ParameterGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cacheParameterGroupFamily === undefined) && !opts.urn) {
+            if (args?.cacheParameterGroupFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cacheParameterGroupFamily'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            resourceInputs["cacheParameterGroupFamily"] = args ? args.cacheParameterGroupFamily : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cacheParameterGroupFamily"] = args?.cacheParameterGroupFamily;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["cacheParameterGroupName"] = undefined /*out*/;
         } else {
             resourceInputs["cacheParameterGroupFamily"] = undefined /*out*/;

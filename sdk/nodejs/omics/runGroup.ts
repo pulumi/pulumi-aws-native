@@ -37,39 +37,39 @@ export class RunGroup extends pulumi.CustomResource {
     /**
      * The run group's ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The run group's ID.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * When the run group was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The group's maximum CPU count setting.
      */
-    public readonly maxCpus!: pulumi.Output<number | undefined>;
+    declare public readonly maxCpus: pulumi.Output<number | undefined>;
     /**
      * The group's maximum duration setting in minutes.
      */
-    public readonly maxDuration!: pulumi.Output<number | undefined>;
+    declare public readonly maxDuration: pulumi.Output<number | undefined>;
     /**
      * The maximum GPUs that can be used by a run group.
      */
-    public readonly maxGpus!: pulumi.Output<number | undefined>;
+    declare public readonly maxGpus: pulumi.Output<number | undefined>;
     /**
      * The group's maximum concurrent run setting.
      */
-    public readonly maxRuns!: pulumi.Output<number | undefined>;
+    declare public readonly maxRuns: pulumi.Output<number | undefined>;
     /**
      * The group's name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Tags for the group.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a RunGroup resource with the given unique name, arguments, and options.
@@ -82,12 +82,12 @@ export class RunGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["maxCpus"] = args ? args.maxCpus : undefined;
-            resourceInputs["maxDuration"] = args ? args.maxDuration : undefined;
-            resourceInputs["maxGpus"] = args ? args.maxGpus : undefined;
-            resourceInputs["maxRuns"] = args ? args.maxRuns : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["maxCpus"] = args?.maxCpus;
+            resourceInputs["maxDuration"] = args?.maxDuration;
+            resourceInputs["maxGpus"] = args?.maxGpus;
+            resourceInputs["maxRuns"] = args?.maxRuns;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

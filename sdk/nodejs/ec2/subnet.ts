@@ -43,73 +43,73 @@ export class Subnet extends pulumi.CustomResource {
      * Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is ``false``.
      *  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
      */
-    public readonly assignIpv6AddressOnCreation!: pulumi.Output<boolean | undefined>;
+    declare public readonly assignIpv6AddressOnCreation: pulumi.Output<boolean | undefined>;
     /**
      * The Availability Zone of the subnet.
      *  If you update this property, you must also update the ``CidrBlock`` property.
      */
-    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZone: pulumi.Output<string | undefined>;
     /**
      * The AZ ID of the subnet.
      */
-    public readonly availabilityZoneId!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly blockPublicAccessStates!: pulumi.Output<outputs.ec2.BlockPublicAccessStatesProperties>;
+    declare public readonly availabilityZoneId: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly blockPublicAccessStates: pulumi.Output<outputs.ec2.BlockPublicAccessStatesProperties>;
     /**
      * The IPv4 CIDR block assigned to the subnet.
      *  If you update this property, we create a new subnet, and then delete the existing one.
      */
-    public readonly cidrBlock!: pulumi.Output<string | undefined>;
+    declare public readonly cidrBlock: pulumi.Output<string | undefined>;
     /**
      * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
      *   You must first configure a NAT gateway in a public subnet (separate from the subnet containing the IPv6-only workloads). For example, the subnet containing the NAT gateway should have a ``0.0.0.0/0`` route pointing to the internet gateway. For more information, see [Configure DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough) in the *User Guide*.
      */
-    public readonly enableDns64!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableDns64: pulumi.Output<boolean | undefined>;
     /**
      * Indicates the device position for local network interfaces in this subnet. For example, ``1`` indicates local network interfaces in this subnet are the secondary network interface (eth1).
      */
-    public readonly enableLniAtDeviceIndex!: pulumi.Output<number | undefined>;
+    declare public readonly enableLniAtDeviceIndex: pulumi.Output<number | undefined>;
     /**
      * An IPv4 IPAM pool ID for the subnet.
      */
-    public readonly ipv4IpamPoolId!: pulumi.Output<string | undefined>;
+    declare public readonly ipv4IpamPoolId: pulumi.Output<string | undefined>;
     /**
      * An IPv4 netmask length for the subnet.
      */
-    public readonly ipv4NetmaskLength!: pulumi.Output<number | undefined>;
+    declare public readonly ipv4NetmaskLength: pulumi.Output<number | undefined>;
     /**
      * The IPv6 CIDR block.
      *  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
      */
-    public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
+    declare public readonly ipv6CidrBlock: pulumi.Output<string | undefined>;
     /**
      * The IPv6 CIDR blocks that are associated with the subnet.
      */
-    public /*out*/ readonly ipv6CidrBlocks!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly ipv6CidrBlocks: pulumi.Output<string[]>;
     /**
      * An IPv6 IPAM pool ID for the subnet.
      */
-    public readonly ipv6IpamPoolId!: pulumi.Output<string | undefined>;
+    declare public readonly ipv6IpamPoolId: pulumi.Output<string | undefined>;
     /**
      * Indicates whether this is an IPv6 only subnet. For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.
      */
-    public readonly ipv6Native!: pulumi.Output<boolean | undefined>;
+    declare public readonly ipv6Native: pulumi.Output<boolean | undefined>;
     /**
      * An IPv6 netmask length for the subnet.
      */
-    public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
+    declare public readonly ipv6NetmaskLength: pulumi.Output<number | undefined>;
     /**
      * Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
      *  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
      */
-    public readonly mapPublicIpOnLaunch!: pulumi.Output<boolean | undefined>;
+    declare public readonly mapPublicIpOnLaunch: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the network ACL that is associated with the subnet's VPC, such as `acl-5fb85d36` .
      */
-    public /*out*/ readonly networkAclAssociationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkAclAssociationId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Outpost.
      */
-    public readonly outpostArn!: pulumi.Output<string | undefined>;
+    declare public readonly outpostArn: pulumi.Output<string | undefined>;
     /**
      * The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
      *  Available options:
@@ -117,20 +117,20 @@ export class Subnet extends pulumi.CustomResource {
      *   +  EnableResourceNameDnsARecord (true | false)
      *   +  HostnameType (ip-name | resource-name)
      */
-    public readonly privateDnsNameOptionsOnLaunch!: pulumi.Output<outputs.ec2.PrivateDnsNameOptionsOnLaunchProperties | undefined>;
+    declare public readonly privateDnsNameOptionsOnLaunch: pulumi.Output<outputs.ec2.PrivateDnsNameOptionsOnLaunchProperties | undefined>;
     /**
      * The ID of the subnet.
      */
-    public /*out*/ readonly subnetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly subnetId: pulumi.Output<string>;
     /**
      * Any tags assigned to the subnet.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the VPC the subnet is in.
      *  If you update this property, you must also update the ``CidrBlock`` property.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a Subnet resource with the given unique name, arguments, and options.
@@ -143,26 +143,26 @@ export class Subnet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["assignIpv6AddressOnCreation"] = args ? args.assignIpv6AddressOnCreation : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
-            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            resourceInputs["enableDns64"] = args ? args.enableDns64 : undefined;
-            resourceInputs["enableLniAtDeviceIndex"] = args ? args.enableLniAtDeviceIndex : undefined;
-            resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
-            resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
-            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
-            resourceInputs["ipv6Native"] = args ? args.ipv6Native : undefined;
-            resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
-            resourceInputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
-            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
-            resourceInputs["privateDnsNameOptionsOnLaunch"] = args ? args.privateDnsNameOptionsOnLaunch : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["assignIpv6AddressOnCreation"] = args?.assignIpv6AddressOnCreation;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["availabilityZoneId"] = args?.availabilityZoneId;
+            resourceInputs["cidrBlock"] = args?.cidrBlock;
+            resourceInputs["enableDns64"] = args?.enableDns64;
+            resourceInputs["enableLniAtDeviceIndex"] = args?.enableLniAtDeviceIndex;
+            resourceInputs["ipv4IpamPoolId"] = args?.ipv4IpamPoolId;
+            resourceInputs["ipv4NetmaskLength"] = args?.ipv4NetmaskLength;
+            resourceInputs["ipv6CidrBlock"] = args?.ipv6CidrBlock;
+            resourceInputs["ipv6IpamPoolId"] = args?.ipv6IpamPoolId;
+            resourceInputs["ipv6Native"] = args?.ipv6Native;
+            resourceInputs["ipv6NetmaskLength"] = args?.ipv6NetmaskLength;
+            resourceInputs["mapPublicIpOnLaunch"] = args?.mapPublicIpOnLaunch;
+            resourceInputs["outpostArn"] = args?.outpostArn;
+            resourceInputs["privateDnsNameOptionsOnLaunch"] = args?.privateDnsNameOptionsOnLaunch;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["blockPublicAccessStates"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlocks"] = undefined /*out*/;
             resourceInputs["networkAclAssociationId"] = undefined /*out*/;

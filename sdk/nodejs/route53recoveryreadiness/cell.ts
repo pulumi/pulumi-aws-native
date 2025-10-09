@@ -40,23 +40,23 @@ export class Cell extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the cell.
      */
-    public /*out*/ readonly cellArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly cellArn: pulumi.Output<string>;
     /**
      * The name of the cell to create.
      */
-    public readonly cellName!: pulumi.Output<string | undefined>;
+    declare public readonly cellName: pulumi.Output<string | undefined>;
     /**
      * A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
      */
-    public readonly cells!: pulumi.Output<string[] | undefined>;
+    declare public readonly cells: pulumi.Output<string[] | undefined>;
     /**
      * The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.
      */
-    public /*out*/ readonly parentReadinessScopes!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly parentReadinessScopes: pulumi.Output<string[]>;
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Cell resource with the given unique name, arguments, and options.
@@ -69,9 +69,9 @@ export class Cell extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["cellName"] = args ? args.cellName : undefined;
-            resourceInputs["cells"] = args ? args.cells : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cellName"] = args?.cellName;
+            resourceInputs["cells"] = args?.cells;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["cellArn"] = undefined /*out*/;
             resourceInputs["parentReadinessScopes"] = undefined /*out*/;
         } else {

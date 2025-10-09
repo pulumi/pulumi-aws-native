@@ -37,59 +37,59 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * Arn of the subscription
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The delivery policy JSON assigned to the subscription. Enables the subscriber to define the message delivery retry strategy in the case of an HTTP/S endpoint subscribed to the topic.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
      */
-    public readonly deliveryPolicy!: pulumi.Output<any | undefined>;
+    declare public readonly deliveryPolicy: pulumi.Output<any | undefined>;
     /**
      * The subscription's endpoint. The endpoint value depends on the protocol that you specify. 
      */
-    public readonly endpoint!: pulumi.Output<string | undefined>;
+    declare public readonly endpoint: pulumi.Output<string | undefined>;
     /**
      * The filter policy JSON assigned to the subscription. Enables the subscriber to filter out unwanted messages.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
      */
-    public readonly filterPolicy!: pulumi.Output<any | undefined>;
+    declare public readonly filterPolicy: pulumi.Output<any | undefined>;
     /**
      * This attribute lets you choose the filtering scope by using one of the following string value types: MessageAttributes (default) and MessageBody.
      */
-    public readonly filterPolicyScope!: pulumi.Output<string | undefined>;
+    declare public readonly filterPolicyScope: pulumi.Output<string | undefined>;
     /**
      * The subscription's protocol.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string>;
     /**
      * When set to true, enables raw message delivery. Raw messages don't contain any JSON formatting and can be sent to Amazon SQS and HTTP/S endpoints.
      */
-    public readonly rawMessageDelivery!: pulumi.Output<boolean | undefined>;
+    declare public readonly rawMessageDelivery: pulumi.Output<boolean | undefined>;
     /**
      * When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors are held in the dead-letter queue for further analysis or reprocessing.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
      */
-    public readonly redrivePolicy!: pulumi.Output<any | undefined>;
+    declare public readonly redrivePolicy: pulumi.Output<any | undefined>;
     /**
      * For cross-region subscriptions, the region in which the topic resides.If no region is specified, AWS CloudFormation uses the region of the caller as the default.
      */
-    public readonly region!: pulumi.Output<string | undefined>;
+    declare public readonly region: pulumi.Output<string | undefined>;
     /**
      * Specifies whether Amazon SNS resends the notification to the subscription when a message's attribute changes.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
      */
-    public readonly replayPolicy!: pulumi.Output<any | undefined>;
+    declare public readonly replayPolicy: pulumi.Output<any | undefined>;
     /**
      * This property applies only to Amazon Data Firehose delivery stream subscriptions.
      */
-    public readonly subscriptionRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly subscriptionRoleArn: pulumi.Output<string | undefined>;
     /**
      * The ARN of the topic to subscribe to.
      */
-    public readonly topicArn!: pulumi.Output<string>;
+    declare public readonly topicArn: pulumi.Output<string>;
 
     /**
      * Create a Subscription resource with the given unique name, arguments, and options.
@@ -102,23 +102,23 @@ export class Subscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.topicArn === undefined) && !opts.urn) {
+            if (args?.topicArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topicArn'");
             }
-            resourceInputs["deliveryPolicy"] = args ? args.deliveryPolicy : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["filterPolicy"] = args ? args.filterPolicy : undefined;
-            resourceInputs["filterPolicyScope"] = args ? args.filterPolicyScope : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["rawMessageDelivery"] = args ? args.rawMessageDelivery : undefined;
-            resourceInputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["replayPolicy"] = args ? args.replayPolicy : undefined;
-            resourceInputs["subscriptionRoleArn"] = args ? args.subscriptionRoleArn : undefined;
-            resourceInputs["topicArn"] = args ? args.topicArn : undefined;
+            resourceInputs["deliveryPolicy"] = args?.deliveryPolicy;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["filterPolicy"] = args?.filterPolicy;
+            resourceInputs["filterPolicyScope"] = args?.filterPolicyScope;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["rawMessageDelivery"] = args?.rawMessageDelivery;
+            resourceInputs["redrivePolicy"] = args?.redrivePolicy;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["replayPolicy"] = args?.replayPolicy;
+            resourceInputs["subscriptionRoleArn"] = args?.subscriptionRoleArn;
+            resourceInputs["topicArn"] = args?.topicArn;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -40,35 +40,35 @@ export class AutoScalingConfiguration extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of this auto scaling configuration.
      */
-    public /*out*/ readonly autoScalingConfigurationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly autoScalingConfigurationArn: pulumi.Output<string>;
     /**
      * The customer-provided auto scaling configuration name.  When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration. The auto scaling configuration name can be used in multiple revisions of a configuration.
      */
-    public readonly autoScalingConfigurationName!: pulumi.Output<string | undefined>;
+    declare public readonly autoScalingConfigurationName: pulumi.Output<string | undefined>;
     /**
      * The revision of this auto scaling configuration. It's unique among all the active configurations ("Status": "ACTIVE") that share the same AutoScalingConfigurationName.
      */
-    public /*out*/ readonly autoScalingConfigurationRevision!: pulumi.Output<number>;
+    declare public /*out*/ readonly autoScalingConfigurationRevision: pulumi.Output<number>;
     /**
      * It's set to true for the configuration with the highest Revision among all configurations that share the same AutoScalingConfigurationName. It's set to false otherwise. App Runner temporarily doubles the number of provisioned instances during deployments, to maintain the same capacity for both old and new code.
      */
-    public /*out*/ readonly latest!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly latest: pulumi.Output<boolean>;
     /**
      * The maximum number of concurrent requests that an instance processes. If the number of concurrent requests exceeds this limit, App Runner scales the service up to use more instances to process the requests.
      */
-    public readonly maxConcurrency!: pulumi.Output<number | undefined>;
+    declare public readonly maxConcurrency: pulumi.Output<number | undefined>;
     /**
      * The maximum number of instances that an App Runner service scales up to. At most MaxSize instances actively serve traffic for your service.
      */
-    public readonly maxSize!: pulumi.Output<number | undefined>;
+    declare public readonly maxSize: pulumi.Output<number | undefined>;
     /**
      * The minimum number of instances that App Runner provisions for a service. The service always has at least MinSize provisioned instances. Some of them actively serve traffic. The rest of them (provisioned and inactive instances) are a cost-effective compute capacity reserve and are ready to be quickly activated. You pay for memory usage of all the provisioned instances. You pay for CPU usage of only the active subset.
      */
-    public readonly minSize!: pulumi.Output<number | undefined>;
+    declare public readonly minSize: pulumi.Output<number | undefined>;
     /**
      * A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a AutoScalingConfiguration resource with the given unique name, arguments, and options.
@@ -81,11 +81,11 @@ export class AutoScalingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["autoScalingConfigurationName"] = args ? args.autoScalingConfigurationName : undefined;
-            resourceInputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
-            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
-            resourceInputs["minSize"] = args ? args.minSize : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoScalingConfigurationName"] = args?.autoScalingConfigurationName;
+            resourceInputs["maxConcurrency"] = args?.maxConcurrency;
+            resourceInputs["maxSize"] = args?.maxSize;
+            resourceInputs["minSize"] = args?.minSize;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["autoScalingConfigurationArn"] = undefined /*out*/;
             resourceInputs["autoScalingConfigurationRevision"] = undefined /*out*/;
             resourceInputs["latest"] = undefined /*out*/;

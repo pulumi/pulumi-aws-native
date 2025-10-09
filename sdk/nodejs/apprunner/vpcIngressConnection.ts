@@ -40,31 +40,31 @@ export class VpcIngressConnection extends pulumi.CustomResource {
     /**
      * The Domain name associated with the VPC Ingress Connection.
      */
-    public /*out*/ readonly domainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainName: pulumi.Output<string>;
     /**
      * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource.
      */
-    public readonly ingressVpcConfiguration!: pulumi.Output<outputs.apprunner.VpcIngressConnectionIngressVpcConfiguration>;
+    declare public readonly ingressVpcConfiguration: pulumi.Output<outputs.apprunner.VpcIngressConnectionIngressVpcConfiguration>;
     /**
      * The Amazon Resource Name (ARN) of the service.
      */
-    public readonly serviceArn!: pulumi.Output<string>;
+    declare public readonly serviceArn: pulumi.Output<string>;
     /**
      * The current status of the VpcIngressConnection.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.apprunner.VpcIngressConnectionStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.apprunner.VpcIngressConnectionStatus>;
     /**
      * An optional list of metadata items that you can associate with the VPC Ingress Connection resource. A tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the VpcIngressConnection.
      */
-    public /*out*/ readonly vpcIngressConnectionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcIngressConnectionArn: pulumi.Output<string>;
     /**
      * The customer-provided Vpc Ingress Connection name.
      */
-    public readonly vpcIngressConnectionName!: pulumi.Output<string | undefined>;
+    declare public readonly vpcIngressConnectionName: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpcIngressConnection resource with the given unique name, arguments, and options.
@@ -77,16 +77,16 @@ export class VpcIngressConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ingressVpcConfiguration === undefined) && !opts.urn) {
+            if (args?.ingressVpcConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ingressVpcConfiguration'");
             }
-            if ((!args || args.serviceArn === undefined) && !opts.urn) {
+            if (args?.serviceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceArn'");
             }
-            resourceInputs["ingressVpcConfiguration"] = args ? args.ingressVpcConfiguration : undefined;
-            resourceInputs["serviceArn"] = args ? args.serviceArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcIngressConnectionName"] = args ? args.vpcIngressConnectionName : undefined;
+            resourceInputs["ingressVpcConfiguration"] = args?.ingressVpcConfiguration;
+            resourceInputs["serviceArn"] = args?.serviceArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcIngressConnectionName"] = args?.vpcIngressConnectionName;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["vpcIngressConnectionArn"] = undefined /*out*/;

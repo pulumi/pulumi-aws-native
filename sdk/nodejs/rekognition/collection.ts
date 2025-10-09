@@ -40,15 +40,15 @@ export class Collection extends pulumi.CustomResource {
     /**
      * Returns the Amazon Resource Name of the collection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * ID for the collection that you are creating.
      */
-    public readonly collectionId!: pulumi.Output<string>;
+    declare public readonly collectionId: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Collection resource with the given unique name, arguments, and options.
@@ -61,11 +61,11 @@ export class Collection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.collectionId === undefined) && !opts.urn) {
+            if (args?.collectionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'collectionId'");
             }
-            resourceInputs["collectionId"] = args ? args.collectionId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["collectionId"] = args?.collectionId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

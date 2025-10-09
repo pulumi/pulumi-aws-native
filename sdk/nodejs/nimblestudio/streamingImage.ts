@@ -37,18 +37,18 @@ export class StreamingImage extends pulumi.CustomResource {
         return obj['__pulumiType'] === StreamingImage.__pulumiType;
     }
 
-    public readonly description!: pulumi.Output<string | undefined>;
-    public readonly ec2ImageId!: pulumi.Output<string>;
-    public /*out*/ readonly encryptionConfiguration!: pulumi.Output<outputs.nimblestudio.StreamingImageEncryptionConfiguration>;
-    public readonly encryptionConfigurationKeyArn!: pulumi.Output<string | undefined>;
-    public readonly encryptionConfigurationKeyType!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly eulaIds!: pulumi.Output<string[]>;
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly owner!: pulumi.Output<string>;
-    public /*out*/ readonly platform!: pulumi.Output<string>;
-    public /*out*/ readonly streamingImageId!: pulumi.Output<string>;
-    public readonly studioId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly ec2ImageId: pulumi.Output<string>;
+    declare public /*out*/ readonly encryptionConfiguration: pulumi.Output<outputs.nimblestudio.StreamingImageEncryptionConfiguration>;
+    declare public readonly encryptionConfigurationKeyArn: pulumi.Output<string | undefined>;
+    declare public readonly encryptionConfigurationKeyType: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly eulaIds: pulumi.Output<string[]>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly owner: pulumi.Output<string>;
+    declare public /*out*/ readonly platform: pulumi.Output<string>;
+    declare public /*out*/ readonly streamingImageId: pulumi.Output<string>;
+    declare public readonly studioId: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a StreamingImage resource with the given unique name, arguments, and options.
@@ -61,19 +61,19 @@ export class StreamingImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ec2ImageId === undefined) && !opts.urn) {
+            if (args?.ec2ImageId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ec2ImageId'");
             }
-            if ((!args || args.studioId === undefined) && !opts.urn) {
+            if (args?.studioId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'studioId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ec2ImageId"] = args ? args.ec2ImageId : undefined;
-            resourceInputs["encryptionConfigurationKeyArn"] = args ? args.encryptionConfigurationKeyArn : undefined;
-            resourceInputs["encryptionConfigurationKeyType"] = args ? args.encryptionConfigurationKeyType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["studioId"] = args ? args.studioId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ec2ImageId"] = args?.ec2ImageId;
+            resourceInputs["encryptionConfigurationKeyArn"] = args?.encryptionConfigurationKeyArn;
+            resourceInputs["encryptionConfigurationKeyType"] = args?.encryptionConfigurationKeyType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["studioId"] = args?.studioId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
             resourceInputs["eulaIds"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;

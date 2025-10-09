@@ -40,19 +40,19 @@ export class StreamKey extends pulumi.CustomResource {
     /**
      * Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Channel ARN for the stream.
      */
-    public readonly channelArn!: pulumi.Output<string>;
+    declare public readonly channelArn: pulumi.Output<string>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Stream-key value.
      */
-    public /*out*/ readonly value!: pulumi.Output<string>;
+    declare public /*out*/ readonly value: pulumi.Output<string>;
 
     /**
      * Create a StreamKey resource with the given unique name, arguments, and options.
@@ -65,11 +65,11 @@ export class StreamKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelArn === undefined) && !opts.urn) {
+            if (args?.channelArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelArn'");
             }
-            resourceInputs["channelArn"] = args ? args.channelArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channelArn"] = args?.channelArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["value"] = undefined /*out*/;
         } else {

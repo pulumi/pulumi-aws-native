@@ -40,76 +40,76 @@ export class LocationSmb extends pulumi.CustomResource {
     /**
      * The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
      */
-    public readonly agentArns!: pulumi.Output<string[]>;
+    declare public readonly agentArns: pulumi.Output<string[]>;
     /**
      * The authentication mode used to determine identity of user.
      */
-    public readonly authenticationType!: pulumi.Output<enums.datasync.LocationSmbAuthenticationType | undefined>;
+    declare public readonly authenticationType: pulumi.Output<enums.datasync.LocationSmbAuthenticationType | undefined>;
     /**
      * Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
      *
      * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
      */
-    public readonly cmkSecretConfig!: pulumi.Output<outputs.datasync.LocationSmbCmkSecretConfig | undefined>;
+    declare public readonly cmkSecretConfig: pulumi.Output<outputs.datasync.LocationSmbCmkSecretConfig | undefined>;
     /**
      * Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
      *
      * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
      */
-    public readonly customSecretConfig!: pulumi.Output<outputs.datasync.LocationSmbCustomSecretConfig | undefined>;
+    declare public readonly customSecretConfig: pulumi.Output<outputs.datasync.LocationSmbCustomSecretConfig | undefined>;
     /**
      * Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
      */
-    public readonly dnsIpAddresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsIpAddresses: pulumi.Output<string[] | undefined>;
     /**
      * The name of the Windows domain that the SMB server belongs to.
      */
-    public readonly domain!: pulumi.Output<string | undefined>;
+    declare public readonly domain: pulumi.Output<string | undefined>;
     /**
      * The Base64 string representation of the Keytab file. Specifies your Kerberos key table (keytab) file, which includes mappings between your service principal name (SPN) and encryption keys. To avoid task execution errors, make sure that the SPN in the keytab file matches exactly what you specify for KerberosPrincipal and in your krb5.conf file.
      */
-    public readonly kerberosKeytab!: pulumi.Output<string | undefined>;
+    declare public readonly kerberosKeytab: pulumi.Output<string | undefined>;
     /**
      * The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket. Specifies a Kerberos configuration file (krb5.conf) that defines your Kerberos realm configuration. To avoid task execution errors, make sure that the service principal name (SPN) in the krb5.conf file matches exactly what you specify for KerberosPrincipal and in your keytab file.
      */
-    public readonly kerberosKrb5Conf!: pulumi.Output<string | undefined>;
+    declare public readonly kerberosKrb5Conf: pulumi.Output<string | undefined>;
     /**
      * Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
      */
-    public readonly kerberosPrincipal!: pulumi.Output<string | undefined>;
+    declare public readonly kerberosPrincipal: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the SMB location that is created.
      */
-    public /*out*/ readonly locationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationArn: pulumi.Output<string>;
     /**
      * The URL of the SMB location that was described.
      */
-    public /*out*/ readonly locationUri!: pulumi.Output<string>;
-    public /*out*/ readonly managedSecretConfig!: pulumi.Output<outputs.datasync.LocationSmbManagedSecretConfig>;
+    declare public /*out*/ readonly locationUri: pulumi.Output<string>;
+    declare public /*out*/ readonly managedSecretConfig: pulumi.Output<outputs.datasync.LocationSmbManagedSecretConfig>;
     /**
      * Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
      */
-    public readonly mountOptions!: pulumi.Output<outputs.datasync.LocationSmbMountOptions | undefined>;
+    declare public readonly mountOptions: pulumi.Output<outputs.datasync.LocationSmbMountOptions | undefined>;
     /**
      * The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
      */
-    public readonly serverHostname!: pulumi.Output<string | undefined>;
+    declare public readonly serverHostname: pulumi.Output<string | undefined>;
     /**
      * The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
      */
-    public readonly subdirectory!: pulumi.Output<string | undefined>;
+    declare public readonly subdirectory: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The user who can mount the share, has the permissions to access files and folders in the SMB share.
      */
-    public readonly user!: pulumi.Output<string | undefined>;
+    declare public readonly user: pulumi.Output<string | undefined>;
 
     /**
      * Create a LocationSmb resource with the given unique name, arguments, and options.
@@ -122,24 +122,24 @@ export class LocationSmb extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agentArns === undefined) && !opts.urn) {
+            if (args?.agentArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentArns'");
             }
-            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
-            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
-            resourceInputs["cmkSecretConfig"] = args ? args.cmkSecretConfig : undefined;
-            resourceInputs["customSecretConfig"] = args ? args.customSecretConfig : undefined;
-            resourceInputs["dnsIpAddresses"] = args ? args.dnsIpAddresses : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["kerberosKeytab"] = args ? args.kerberosKeytab : undefined;
-            resourceInputs["kerberosKrb5Conf"] = args ? args.kerberosKrb5Conf : undefined;
-            resourceInputs["kerberosPrincipal"] = args ? args.kerberosPrincipal : undefined;
-            resourceInputs["mountOptions"] = args ? args.mountOptions : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["user"] = args ? args.user : undefined;
+            resourceInputs["agentArns"] = args?.agentArns;
+            resourceInputs["authenticationType"] = args?.authenticationType;
+            resourceInputs["cmkSecretConfig"] = args?.cmkSecretConfig;
+            resourceInputs["customSecretConfig"] = args?.customSecretConfig;
+            resourceInputs["dnsIpAddresses"] = args?.dnsIpAddresses;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["kerberosKeytab"] = args?.kerberosKeytab;
+            resourceInputs["kerberosKrb5Conf"] = args?.kerberosKrb5Conf;
+            resourceInputs["kerberosPrincipal"] = args?.kerberosPrincipal;
+            resourceInputs["mountOptions"] = args?.mountOptions;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["serverHostname"] = args?.serverHostname;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["user"] = args?.user;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
             resourceInputs["managedSecretConfig"] = undefined /*out*/;

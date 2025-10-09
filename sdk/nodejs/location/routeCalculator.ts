@@ -42,13 +42,13 @@ export class RouteCalculator extends pulumi.CustomResource {
      *
      * - Format example: `arn:aws:geo:region:account-id:route-calculator/ExampleCalculator`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Synonym for `Arn` . The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you specify a resource across all AWS .
      *
      * - Format example: `arn:aws:geo:region:account-id:route-calculator/ExampleCalculator`
      */
-    public /*out*/ readonly calculatorArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly calculatorArn: pulumi.Output<string>;
     /**
      * The name of the route calculator resource.
      *
@@ -58,11 +58,11 @@ export class RouteCalculator extends pulumi.CustomResource {
      * - Must be a unique Route calculator resource name.
      * - No spaces allowed. For example, `ExampleRouteCalculator` .
      */
-    public readonly calculatorName!: pulumi.Output<string>;
+    declare public readonly calculatorName: pulumi.Output<string>;
     /**
      * The timestamp for when the route calculator resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
      * Specifies the data provider of traffic and road network data.
      *
@@ -78,25 +78,25 @@ export class RouteCalculator extends pulumi.CustomResource {
      *
      * For additional information , see [Data providers](https://docs.aws.amazon.com/location/previous/developerguide/what-is-data-provider.html) on the *Amazon Location Service Developer Guide* .
      */
-    public readonly dataSource!: pulumi.Output<string>;
+    declare public readonly dataSource: pulumi.Output<string>;
     /**
      * The optional description for the route calculator resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * No longer used. If included, the only allowed value is `RequestBasedUsage` .
      *
      * *Allowed Values* : `RequestBasedUsage`
      */
-    public readonly pricingPlan!: pulumi.Output<enums.location.RouteCalculatorPricingPlan | undefined>;
+    declare public readonly pricingPlan: pulumi.Output<enums.location.RouteCalculatorPricingPlan | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The timestamp for when the route calculator resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly updateTime: pulumi.Output<string>;
 
     /**
      * Create a RouteCalculator resource with the given unique name, arguments, and options.
@@ -109,14 +109,14 @@ export class RouteCalculator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataSource === undefined) && !opts.urn) {
+            if (args?.dataSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSource'");
             }
-            resourceInputs["calculatorName"] = args ? args.calculatorName : undefined;
-            resourceInputs["dataSource"] = args ? args.dataSource : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["calculatorName"] = args?.calculatorName;
+            resourceInputs["dataSource"] = args?.dataSource;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["pricingPlan"] = args?.pricingPlan;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["calculatorArn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;

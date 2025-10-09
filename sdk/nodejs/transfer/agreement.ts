@@ -40,55 +40,55 @@ export class Agreement extends pulumi.CustomResource {
     /**
      * Specifies the access role for the agreement.
      */
-    public readonly accessRole!: pulumi.Output<string>;
+    declare public readonly accessRole: pulumi.Output<string>;
     /**
      * A unique identifier for the agreement.
      */
-    public /*out*/ readonly agreementId!: pulumi.Output<string>;
+    declare public /*out*/ readonly agreementId: pulumi.Output<string>;
     /**
      * Specifies the unique Amazon Resource Name (ARN) for the agreement.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies the base directory for the agreement.
      */
-    public readonly baseDirectory!: pulumi.Output<string | undefined>;
+    declare public readonly baseDirectory: pulumi.Output<string | undefined>;
     /**
      * Specifies a separate directory for each type of file to store for an AS2 message.
      */
-    public readonly customDirectories!: pulumi.Output<outputs.transfer.CustomDirectoriesProperties | undefined>;
+    declare public readonly customDirectories: pulumi.Output<outputs.transfer.CustomDirectoriesProperties | undefined>;
     /**
      * A textual description for the agreement.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies whether to enforce an AS2 message is signed for this agreement.
      */
-    public readonly enforceMessageSigning!: pulumi.Output<enums.transfer.AgreementEnforceMessageSigning | undefined>;
+    declare public readonly enforceMessageSigning: pulumi.Output<enums.transfer.AgreementEnforceMessageSigning | undefined>;
     /**
      * A unique identifier for the local profile.
      */
-    public readonly localProfileId!: pulumi.Output<string>;
+    declare public readonly localProfileId: pulumi.Output<string>;
     /**
      * A unique identifier for the partner profile.
      */
-    public readonly partnerProfileId!: pulumi.Output<string>;
+    declare public readonly partnerProfileId: pulumi.Output<string>;
     /**
      * Specifies whether to preserve the filename received for this agreement.
      */
-    public readonly preserveFilename!: pulumi.Output<enums.transfer.AgreementPreserveFilename | undefined>;
+    declare public readonly preserveFilename: pulumi.Output<enums.transfer.AgreementPreserveFilename | undefined>;
     /**
      * A unique identifier for the server.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
     /**
      * Specifies the status of the agreement.
      */
-    public readonly status!: pulumi.Output<enums.transfer.AgreementStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.transfer.AgreementStatus | undefined>;
     /**
      * Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Agreement resource with the given unique name, arguments, and options.
@@ -101,29 +101,29 @@ export class Agreement extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessRole === undefined) && !opts.urn) {
+            if (args?.accessRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessRole'");
             }
-            if ((!args || args.localProfileId === undefined) && !opts.urn) {
+            if (args?.localProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localProfileId'");
             }
-            if ((!args || args.partnerProfileId === undefined) && !opts.urn) {
+            if (args?.partnerProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partnerProfileId'");
             }
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            resourceInputs["accessRole"] = args ? args.accessRole : undefined;
-            resourceInputs["baseDirectory"] = args ? args.baseDirectory : undefined;
-            resourceInputs["customDirectories"] = args ? args.customDirectories : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enforceMessageSigning"] = args ? args.enforceMessageSigning : undefined;
-            resourceInputs["localProfileId"] = args ? args.localProfileId : undefined;
-            resourceInputs["partnerProfileId"] = args ? args.partnerProfileId : undefined;
-            resourceInputs["preserveFilename"] = args ? args.preserveFilename : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessRole"] = args?.accessRole;
+            resourceInputs["baseDirectory"] = args?.baseDirectory;
+            resourceInputs["customDirectories"] = args?.customDirectories;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enforceMessageSigning"] = args?.enforceMessageSigning;
+            resourceInputs["localProfileId"] = args?.localProfileId;
+            resourceInputs["partnerProfileId"] = args?.partnerProfileId;
+            resourceInputs["preserveFilename"] = args?.preserveFilename;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["agreementId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         } else {

@@ -37,23 +37,23 @@ export class MemberInvitation extends pulumi.CustomResource {
     /**
      * When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
      */
-    public readonly disableEmailNotification!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableEmailNotification: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the graph to which the member account will be invited
      */
-    public readonly graphArn!: pulumi.Output<string>;
+    declare public readonly graphArn: pulumi.Output<string>;
     /**
      * The root email address for the account to be invited, for validation. Updating this field has no effect.
      */
-    public readonly memberEmailAddress!: pulumi.Output<string>;
+    declare public readonly memberEmailAddress: pulumi.Output<string>;
     /**
      * The AWS account ID to be invited to join the graph as a member
      */
-    public readonly memberId!: pulumi.Output<string>;
+    declare public readonly memberId: pulumi.Output<string>;
     /**
      * A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
      */
-    public readonly message!: pulumi.Output<string | undefined>;
+    declare public readonly message: pulumi.Output<string | undefined>;
 
     /**
      * Create a MemberInvitation resource with the given unique name, arguments, and options.
@@ -66,20 +66,20 @@ export class MemberInvitation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.graphArn === undefined) && !opts.urn) {
+            if (args?.graphArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'graphArn'");
             }
-            if ((!args || args.memberEmailAddress === undefined) && !opts.urn) {
+            if (args?.memberEmailAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'memberEmailAddress'");
             }
-            if ((!args || args.memberId === undefined) && !opts.urn) {
+            if (args?.memberId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'memberId'");
             }
-            resourceInputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
-            resourceInputs["graphArn"] = args ? args.graphArn : undefined;
-            resourceInputs["memberEmailAddress"] = args ? args.memberEmailAddress : undefined;
-            resourceInputs["memberId"] = args ? args.memberId : undefined;
-            resourceInputs["message"] = args ? args.message : undefined;
+            resourceInputs["disableEmailNotification"] = args?.disableEmailNotification;
+            resourceInputs["graphArn"] = args?.graphArn;
+            resourceInputs["memberEmailAddress"] = args?.memberEmailAddress;
+            resourceInputs["memberId"] = args?.memberId;
+            resourceInputs["message"] = args?.message;
         } else {
             resourceInputs["disableEmailNotification"] = undefined /*out*/;
             resourceInputs["graphArn"] = undefined /*out*/;

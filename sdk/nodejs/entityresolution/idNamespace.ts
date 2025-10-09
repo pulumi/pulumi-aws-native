@@ -40,35 +40,35 @@ export class IdNamespace extends pulumi.CustomResource {
     /**
      * The date and time when the IdNamespace was created
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the ID namespace.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
      */
-    public readonly idMappingWorkflowProperties!: pulumi.Output<outputs.entityresolution.IdNamespaceIdMappingWorkflowProperties[] | undefined>;
+    declare public readonly idMappingWorkflowProperties: pulumi.Output<outputs.entityresolution.IdNamespaceIdMappingWorkflowProperties[] | undefined>;
     /**
      * The arn associated with the IdNamespace
      */
-    public /*out*/ readonly idNamespaceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly idNamespaceArn: pulumi.Output<string>;
     /**
      * The name of the ID namespace.
      */
-    public readonly idNamespaceName!: pulumi.Output<string>;
+    declare public readonly idNamespaceName: pulumi.Output<string>;
     /**
      * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
      */
-    public readonly inputSourceConfig!: pulumi.Output<outputs.entityresolution.IdNamespaceInputSource[] | undefined>;
+    declare public readonly inputSourceConfig: pulumi.Output<outputs.entityresolution.IdNamespaceInputSource[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
      *
@@ -76,11 +76,11 @@ export class IdNamespace extends pulumi.CustomResource {
      *
      * The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
      */
-    public readonly type!: pulumi.Output<enums.entityresolution.IdNamespaceType>;
+    declare public readonly type: pulumi.Output<enums.entityresolution.IdNamespaceType>;
     /**
      * The date and time when the IdNamespace was updated
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a IdNamespace resource with the given unique name, arguments, and options.
@@ -93,16 +93,16 @@ export class IdNamespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["idMappingWorkflowProperties"] = args ? args.idMappingWorkflowProperties : undefined;
-            resourceInputs["idNamespaceName"] = args ? args.idNamespaceName : undefined;
-            resourceInputs["inputSourceConfig"] = args ? args.inputSourceConfig : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["idMappingWorkflowProperties"] = args?.idMappingWorkflowProperties;
+            resourceInputs["idNamespaceName"] = args?.idNamespaceName;
+            resourceInputs["inputSourceConfig"] = args?.inputSourceConfig;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["idNamespaceArn"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;

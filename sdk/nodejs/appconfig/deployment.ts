@@ -40,47 +40,47 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * The application ID.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * The configuration profile ID.
      */
-    public readonly configurationProfileId!: pulumi.Output<string>;
+    declare public readonly configurationProfileId: pulumi.Output<string>;
     /**
      * The configuration version to deploy. If deploying an AWS AppConfig hosted configuration version, you can specify either the version number or version label. For all other configurations, you must specify the version number.
      */
-    public readonly configurationVersion!: pulumi.Output<string>;
+    declare public readonly configurationVersion: pulumi.Output<string>;
     /**
      * The sequence number of the deployment.
      */
-    public /*out*/ readonly deploymentNumber!: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentNumber: pulumi.Output<string>;
     /**
      * The deployment strategy ID.
      */
-    public readonly deploymentStrategyId!: pulumi.Output<string>;
+    declare public readonly deploymentStrategyId: pulumi.Output<string>;
     /**
      * A description of the deployment.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A map of dynamic extension parameter names to values to pass to associated extensions with `PRE_START_DEPLOYMENT` actions.
      */
-    public readonly dynamicExtensionParameters!: pulumi.Output<outputs.appconfig.DeploymentDynamicExtensionParameters[] | undefined>;
+    declare public readonly dynamicExtensionParameters: pulumi.Output<outputs.appconfig.DeploymentDynamicExtensionParameters[] | undefined>;
     /**
      * The environment ID.
      */
-    public readonly environmentId!: pulumi.Output<string>;
+    declare public readonly environmentId: pulumi.Output<string>;
     /**
      * The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
      */
-    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
      * The state of the deployment.
      */
-    public /*out*/ readonly state!: pulumi.Output<enums.appconfig.DeploymentState>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.appconfig.DeploymentState>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -93,30 +93,30 @@ export class Deployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.configurationProfileId === undefined) && !opts.urn) {
+            if (args?.configurationProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationProfileId'");
             }
-            if ((!args || args.configurationVersion === undefined) && !opts.urn) {
+            if (args?.configurationVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationVersion'");
             }
-            if ((!args || args.deploymentStrategyId === undefined) && !opts.urn) {
+            if (args?.deploymentStrategyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deploymentStrategyId'");
             }
-            if ((!args || args.environmentId === undefined) && !opts.urn) {
+            if (args?.environmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["configurationProfileId"] = args ? args.configurationProfileId : undefined;
-            resourceInputs["configurationVersion"] = args ? args.configurationVersion : undefined;
-            resourceInputs["deploymentStrategyId"] = args ? args.deploymentStrategyId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dynamicExtensionParameters"] = args ? args.dynamicExtensionParameters : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["configurationProfileId"] = args?.configurationProfileId;
+            resourceInputs["configurationVersion"] = args?.configurationVersion;
+            resourceInputs["deploymentStrategyId"] = args?.deploymentStrategyId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dynamicExtensionParameters"] = args?.dynamicExtensionParameters;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["deploymentNumber"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {

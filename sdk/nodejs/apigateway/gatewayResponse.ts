@@ -37,27 +37,27 @@ export class GatewayResponse extends pulumi.CustomResource {
     /**
      * The ID for the gateway response. For example: `abc123` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
      */
-    public readonly responseParameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly responseParameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
      */
-    public readonly responseTemplates!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly responseTemplates: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The response type of the associated GatewayResponse.
      */
-    public readonly responseType!: pulumi.Output<string>;
+    declare public readonly responseType: pulumi.Output<string>;
     /**
      * The string identifier of the associated RestApi.
      */
-    public readonly restApiId!: pulumi.Output<string>;
+    declare public readonly restApiId: pulumi.Output<string>;
     /**
      * The HTTP status code for this GatewayResponse.
      */
-    public readonly statusCode!: pulumi.Output<string | undefined>;
+    declare public readonly statusCode: pulumi.Output<string | undefined>;
 
     /**
      * Create a GatewayResponse resource with the given unique name, arguments, and options.
@@ -70,17 +70,17 @@ export class GatewayResponse extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.responseType === undefined) && !opts.urn) {
+            if (args?.responseType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'responseType'");
             }
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
-            resourceInputs["responseTemplates"] = args ? args.responseTemplates : undefined;
-            resourceInputs["responseType"] = args ? args.responseType : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
-            resourceInputs["statusCode"] = args ? args.statusCode : undefined;
+            resourceInputs["responseParameters"] = args?.responseParameters;
+            resourceInputs["responseTemplates"] = args?.responseTemplates;
+            resourceInputs["responseType"] = args?.responseType;
+            resourceInputs["restApiId"] = args?.restApiId;
+            resourceInputs["statusCode"] = args?.statusCode;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

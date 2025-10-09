@@ -40,35 +40,35 @@ export class RepositoryLink extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the CodeStarConnection. The ARN is used as the connection reference when the connection is shared between AWS services.
      */
-    public readonly connectionArn!: pulumi.Output<string>;
+    declare public readonly connectionArn: pulumi.Output<string>;
     /**
      * The ARN of the KMS key that the customer can optionally specify to use to encrypt RepositoryLink properties. If not specified, a default key will be used.
      */
-    public readonly encryptionKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly encryptionKeyArn: pulumi.Output<string | undefined>;
     /**
      * the ID of the entity that owns the repository.
      */
-    public readonly ownerId!: pulumi.Output<string>;
+    declare public readonly ownerId: pulumi.Output<string>;
     /**
      * The name of the external provider where your third-party code repository is configured.
      */
-    public /*out*/ readonly providerType!: pulumi.Output<enums.codestarconnections.RepositoryLinkProviderType>;
+    declare public /*out*/ readonly providerType: pulumi.Output<enums.codestarconnections.RepositoryLinkProviderType>;
     /**
      * A unique Amazon Resource Name (ARN) to designate the repository link.
      */
-    public /*out*/ readonly repositoryLinkArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly repositoryLinkArn: pulumi.Output<string>;
     /**
      * A UUID that uniquely identifies the RepositoryLink.
      */
-    public /*out*/ readonly repositoryLinkId!: pulumi.Output<string>;
+    declare public /*out*/ readonly repositoryLinkId: pulumi.Output<string>;
     /**
      * The repository for which the link is being created.
      */
-    public readonly repositoryName!: pulumi.Output<string>;
+    declare public readonly repositoryName: pulumi.Output<string>;
     /**
      * Specifies the tags applied to a RepositoryLink.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a RepositoryLink resource with the given unique name, arguments, and options.
@@ -81,20 +81,20 @@ export class RepositoryLink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectionArn === undefined) && !opts.urn) {
+            if (args?.connectionArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionArn'");
             }
-            if ((!args || args.ownerId === undefined) && !opts.urn) {
+            if (args?.ownerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ownerId'");
             }
-            if ((!args || args.repositoryName === undefined) && !opts.urn) {
+            if (args?.repositoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repositoryName'");
             }
-            resourceInputs["connectionArn"] = args ? args.connectionArn : undefined;
-            resourceInputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
-            resourceInputs["ownerId"] = args ? args.ownerId : undefined;
-            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectionArn"] = args?.connectionArn;
+            resourceInputs["encryptionKeyArn"] = args?.encryptionKeyArn;
+            resourceInputs["ownerId"] = args?.ownerId;
+            resourceInputs["repositoryName"] = args?.repositoryName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["providerType"] = undefined /*out*/;
             resourceInputs["repositoryLinkArn"] = undefined /*out*/;
             resourceInputs["repositoryLinkId"] = undefined /*out*/;
