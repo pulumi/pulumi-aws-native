@@ -235,47 +235,47 @@ export class CertificateAuthority extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the certificate authority.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The base64 PEM-encoded certificate signing request (CSR) for your certificate authority certificate.
      */
-    public /*out*/ readonly certificateSigningRequest!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateSigningRequest: pulumi.Output<string>;
     /**
      * Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
      */
-    public readonly csrExtensions!: pulumi.Output<outputs.acmpca.CertificateAuthorityCsrExtensions | undefined>;
+    declare public readonly csrExtensions: pulumi.Output<outputs.acmpca.CertificateAuthorityCsrExtensions | undefined>;
     /**
      * Public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
      */
-    public readonly keyAlgorithm!: pulumi.Output<string>;
+    declare public readonly keyAlgorithm: pulumi.Output<string>;
     /**
      * KeyStorageSecurityStadard defines a cryptographic key management compliance standard used for handling CA keys.
      */
-    public readonly keyStorageSecurityStandard!: pulumi.Output<string | undefined>;
+    declare public readonly keyStorageSecurityStandard: pulumi.Output<string | undefined>;
     /**
      * Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
      */
-    public readonly revocationConfiguration!: pulumi.Output<outputs.acmpca.CertificateAuthorityRevocationConfiguration | undefined>;
+    declare public readonly revocationConfiguration: pulumi.Output<outputs.acmpca.CertificateAuthorityRevocationConfiguration | undefined>;
     /**
      * Algorithm your CA uses to sign certificate requests.
      */
-    public readonly signingAlgorithm!: pulumi.Output<string>;
+    declare public readonly signingAlgorithm: pulumi.Output<string>;
     /**
      * Structure that contains X.500 distinguished name information for your CA.
      */
-    public readonly subject!: pulumi.Output<outputs.acmpca.CertificateAuthoritySubject>;
+    declare public readonly subject: pulumi.Output<outputs.acmpca.CertificateAuthoritySubject>;
     /**
      * Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the certificate authority.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Usage mode of the ceritificate authority.
      */
-    public readonly usageMode!: pulumi.Output<string | undefined>;
+    declare public readonly usageMode: pulumi.Output<string | undefined>;
 
     /**
      * Create a CertificateAuthority resource with the given unique name, arguments, and options.
@@ -288,27 +288,27 @@ export class CertificateAuthority extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keyAlgorithm === undefined) && !opts.urn) {
+            if (args?.keyAlgorithm === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyAlgorithm'");
             }
-            if ((!args || args.signingAlgorithm === undefined) && !opts.urn) {
+            if (args?.signingAlgorithm === undefined && !opts.urn) {
                 throw new Error("Missing required property 'signingAlgorithm'");
             }
-            if ((!args || args.subject === undefined) && !opts.urn) {
+            if (args?.subject === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subject'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["csrExtensions"] = args ? args.csrExtensions : undefined;
-            resourceInputs["keyAlgorithm"] = args ? args.keyAlgorithm : undefined;
-            resourceInputs["keyStorageSecurityStandard"] = args ? args.keyStorageSecurityStandard : undefined;
-            resourceInputs["revocationConfiguration"] = args ? args.revocationConfiguration : undefined;
-            resourceInputs["signingAlgorithm"] = args ? args.signingAlgorithm : undefined;
-            resourceInputs["subject"] = args ? args.subject : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["usageMode"] = args ? args.usageMode : undefined;
+            resourceInputs["csrExtensions"] = args?.csrExtensions;
+            resourceInputs["keyAlgorithm"] = args?.keyAlgorithm;
+            resourceInputs["keyStorageSecurityStandard"] = args?.keyStorageSecurityStandard;
+            resourceInputs["revocationConfiguration"] = args?.revocationConfiguration;
+            resourceInputs["signingAlgorithm"] = args?.signingAlgorithm;
+            resourceInputs["subject"] = args?.subject;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["usageMode"] = args?.usageMode;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificateSigningRequest"] = undefined /*out*/;
         } else {

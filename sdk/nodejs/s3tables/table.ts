@@ -40,47 +40,47 @@ export class Table extends pulumi.CustomResource {
     /**
      * Contains details about the compaction settings for an Iceberg table.
      */
-    public readonly compaction!: pulumi.Output<outputs.s3tables.TableCompaction | undefined>;
+    declare public readonly compaction: pulumi.Output<outputs.s3tables.TableCompaction | undefined>;
     /**
      * Contains details about the metadata for an Iceberg table.
      */
-    public readonly icebergMetadata!: pulumi.Output<outputs.s3tables.TableIcebergMetadata | undefined>;
+    declare public readonly icebergMetadata: pulumi.Output<outputs.s3tables.TableIcebergMetadata | undefined>;
     /**
      * The name of the namespace.
      */
-    public readonly namespace!: pulumi.Output<string>;
+    declare public readonly namespace: pulumi.Output<string>;
     /**
      * The format of the table.
      */
-    public readonly openTableFormat!: pulumi.Output<enums.s3tables.TableOpenTableFormat>;
+    declare public readonly openTableFormat: pulumi.Output<enums.s3tables.TableOpenTableFormat>;
     /**
      * Contains details about the Iceberg snapshot management settings for the table.
      */
-    public readonly snapshotManagement!: pulumi.Output<outputs.s3tables.TableSnapshotManagement | undefined>;
+    declare public readonly snapshotManagement: pulumi.Output<outputs.s3tables.TableSnapshotManagement | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the table.
      */
-    public /*out*/ readonly tableArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly tableArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the table bucket to create the table in.
      */
-    public readonly tableBucketArn!: pulumi.Output<string>;
+    declare public readonly tableBucketArn: pulumi.Output<string>;
     /**
      * The name for the table.
      */
-    public readonly tableName!: pulumi.Output<string>;
+    declare public readonly tableName: pulumi.Output<string>;
     /**
      * The version token of the table.
      */
-    public /*out*/ readonly versionToken!: pulumi.Output<string>;
+    declare public /*out*/ readonly versionToken: pulumi.Output<string>;
     /**
      * The warehouse location of the table.
      */
-    public /*out*/ readonly warehouseLocation!: pulumi.Output<string>;
+    declare public /*out*/ readonly warehouseLocation: pulumi.Output<string>;
     /**
      * Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
      */
-    public readonly withoutMetadata!: pulumi.Output<enums.s3tables.TableWithoutMetadata | undefined>;
+    declare public readonly withoutMetadata: pulumi.Output<enums.s3tables.TableWithoutMetadata | undefined>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -93,23 +93,23 @@ export class Table extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespace === undefined) && !opts.urn) {
+            if (args?.namespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            if ((!args || args.openTableFormat === undefined) && !opts.urn) {
+            if (args?.openTableFormat === undefined && !opts.urn) {
                 throw new Error("Missing required property 'openTableFormat'");
             }
-            if ((!args || args.tableBucketArn === undefined) && !opts.urn) {
+            if (args?.tableBucketArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableBucketArn'");
             }
-            resourceInputs["compaction"] = args ? args.compaction : undefined;
-            resourceInputs["icebergMetadata"] = args ? args.icebergMetadata : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["openTableFormat"] = args ? args.openTableFormat : undefined;
-            resourceInputs["snapshotManagement"] = args ? args.snapshotManagement : undefined;
-            resourceInputs["tableBucketArn"] = args ? args.tableBucketArn : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["withoutMetadata"] = args ? args.withoutMetadata : undefined;
+            resourceInputs["compaction"] = args?.compaction;
+            resourceInputs["icebergMetadata"] = args?.icebergMetadata;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["openTableFormat"] = args?.openTableFormat;
+            resourceInputs["snapshotManagement"] = args?.snapshotManagement;
+            resourceInputs["tableBucketArn"] = args?.tableBucketArn;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["withoutMetadata"] = args?.withoutMetadata;
             resourceInputs["tableArn"] = undefined /*out*/;
             resourceInputs["versionToken"] = undefined /*out*/;
             resourceInputs["warehouseLocation"] = undefined /*out*/;

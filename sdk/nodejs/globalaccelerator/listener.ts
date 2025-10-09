@@ -40,23 +40,23 @@ export class Listener extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the accelerator.
      */
-    public readonly acceleratorArn!: pulumi.Output<string>;
+    declare public readonly acceleratorArn: pulumi.Output<string>;
     /**
      * Client affinity lets you direct all requests from a user to the same endpoint.
      */
-    public readonly clientAffinity!: pulumi.Output<enums.globalaccelerator.ListenerClientAffinity | undefined>;
+    declare public readonly clientAffinity: pulumi.Output<enums.globalaccelerator.ListenerClientAffinity | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the listener.
      */
-    public /*out*/ readonly listenerArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly listenerArn: pulumi.Output<string>;
     /**
      * The list of port ranges for the connections from clients to the accelerator.
      */
-    public readonly portRanges!: pulumi.Output<outputs.globalaccelerator.ListenerPortRange[]>;
+    declare public readonly portRanges: pulumi.Output<outputs.globalaccelerator.ListenerPortRange[]>;
     /**
      * The protocol for the listener.
      */
-    public readonly protocol!: pulumi.Output<enums.globalaccelerator.ListenerProtocol>;
+    declare public readonly protocol: pulumi.Output<enums.globalaccelerator.ListenerProtocol>;
 
     /**
      * Create a Listener resource with the given unique name, arguments, and options.
@@ -69,19 +69,19 @@ export class Listener extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.acceleratorArn === undefined) && !opts.urn) {
+            if (args?.acceleratorArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'acceleratorArn'");
             }
-            if ((!args || args.portRanges === undefined) && !opts.urn) {
+            if (args?.portRanges === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portRanges'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            resourceInputs["acceleratorArn"] = args ? args.acceleratorArn : undefined;
-            resourceInputs["clientAffinity"] = args ? args.clientAffinity : undefined;
-            resourceInputs["portRanges"] = args ? args.portRanges : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["acceleratorArn"] = args?.acceleratorArn;
+            resourceInputs["clientAffinity"] = args?.clientAffinity;
+            resourceInputs["portRanges"] = args?.portRanges;
+            resourceInputs["protocol"] = args?.protocol;
             resourceInputs["listenerArn"] = undefined /*out*/;
         } else {
             resourceInputs["acceleratorArn"] = undefined /*out*/;

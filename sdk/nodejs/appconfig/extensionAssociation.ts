@@ -40,39 +40,39 @@ export class ExtensionAssociation extends pulumi.CustomResource {
     /**
      * The ARN of the extension defined in the association.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The system-generated ID for the association.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The ARN of the extension defined in the association.
      */
-    public /*out*/ readonly extensionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly extensionArn: pulumi.Output<string>;
     /**
      * The name, the ID, or the Amazon Resource Name (ARN) of the extension.
      */
-    public readonly extensionIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly extensionIdentifier: pulumi.Output<string | undefined>;
     /**
      * The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
      */
-    public readonly extensionVersionNumber!: pulumi.Output<number | undefined>;
+    declare public readonly extensionVersionNumber: pulumi.Output<number | undefined>;
     /**
      * The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ARNs of applications, configuration profiles, or environments defined in the association.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
      * The ARN of an application, configuration profile, or environment.
      */
-    public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly resourceIdentifier: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ExtensionAssociation resource with the given unique name, arguments, and options.
@@ -85,11 +85,11 @@ export class ExtensionAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["extensionIdentifier"] = args ? args.extensionIdentifier : undefined;
-            resourceInputs["extensionVersionNumber"] = args ? args.extensionVersionNumber : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["extensionIdentifier"] = args?.extensionIdentifier;
+            resourceInputs["extensionVersionNumber"] = args?.extensionVersionNumber;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceIdentifier"] = args?.resourceIdentifier;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["extensionArn"] = undefined /*out*/;

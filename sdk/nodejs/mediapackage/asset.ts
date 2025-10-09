@@ -40,39 +40,39 @@ export class Asset extends pulumi.CustomResource {
     /**
      * The ARN of the Asset.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The unique identifier for the Asset.
      */
-    public readonly awsId!: pulumi.Output<string>;
+    declare public readonly awsId: pulumi.Output<string>;
     /**
      * The time the Asset was initially submitted for Ingest.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The list of egress endpoints available for the Asset.
      */
-    public readonly egressEndpoints!: pulumi.Output<outputs.mediapackage.AssetEgressEndpoint[] | undefined>;
+    declare public readonly egressEndpoints: pulumi.Output<outputs.mediapackage.AssetEgressEndpoint[] | undefined>;
     /**
      * The ID of the PackagingGroup for the Asset.
      */
-    public readonly packagingGroupId!: pulumi.Output<string>;
+    declare public readonly packagingGroupId: pulumi.Output<string>;
     /**
      * The resource ID to include in SPEKE key requests.
      */
-    public readonly resourceId!: pulumi.Output<string | undefined>;
+    declare public readonly resourceId: pulumi.Output<string | undefined>;
     /**
      * ARN of the source object in S3.
      */
-    public readonly sourceArn!: pulumi.Output<string>;
+    declare public readonly sourceArn: pulumi.Output<string>;
     /**
      * The IAM role_arn used to access the source S3 bucket.
      */
-    public readonly sourceRoleArn!: pulumi.Output<string>;
+    declare public readonly sourceRoleArn: pulumi.Output<string>;
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a Asset resource with the given unique name, arguments, and options.
@@ -85,25 +85,25 @@ export class Asset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsId === undefined) && !opts.urn) {
+            if (args?.awsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsId'");
             }
-            if ((!args || args.packagingGroupId === undefined) && !opts.urn) {
+            if (args?.packagingGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packagingGroupId'");
             }
-            if ((!args || args.sourceArn === undefined) && !opts.urn) {
+            if (args?.sourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
-            if ((!args || args.sourceRoleArn === undefined) && !opts.urn) {
+            if (args?.sourceRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceRoleArn'");
             }
-            resourceInputs["awsId"] = args ? args.awsId : undefined;
-            resourceInputs["egressEndpoints"] = args ? args.egressEndpoints : undefined;
-            resourceInputs["packagingGroupId"] = args ? args.packagingGroupId : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
-            resourceInputs["sourceRoleArn"] = args ? args.sourceRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = args?.awsId;
+            resourceInputs["egressEndpoints"] = args?.egressEndpoints;
+            resourceInputs["packagingGroupId"] = args?.packagingGroupId;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["sourceArn"] = args?.sourceArn;
+            resourceInputs["sourceRoleArn"] = args?.sourceRoleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
         } else {

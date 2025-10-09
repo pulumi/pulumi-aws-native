@@ -81,21 +81,21 @@ export class HookDefaultVersion extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a HookDefaultVersion
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the type being registered.
      *
      * We recommend that type names adhere to the following pattern: company_or_organization::service::type.
      */
-    public readonly typeName!: pulumi.Output<string | undefined>;
+    declare public readonly typeName: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the type version.
      */
-    public readonly typeVersionArn!: pulumi.Output<string | undefined>;
+    declare public readonly typeVersionArn: pulumi.Output<string | undefined>;
     /**
      * The ID of an existing version of the hook to set as the default.
      */
-    public readonly versionId!: pulumi.Output<string | undefined>;
+    declare public readonly versionId: pulumi.Output<string | undefined>;
 
     /**
      * Create a HookDefaultVersion resource with the given unique name, arguments, and options.
@@ -108,9 +108,9 @@ export class HookDefaultVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["typeName"] = args ? args.typeName : undefined;
-            resourceInputs["typeVersionArn"] = args ? args.typeVersionArn : undefined;
-            resourceInputs["versionId"] = args ? args.versionId : undefined;
+            resourceInputs["typeName"] = args?.typeName;
+            resourceInputs["typeVersionArn"] = args?.typeVersionArn;
+            resourceInputs["versionId"] = args?.versionId;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

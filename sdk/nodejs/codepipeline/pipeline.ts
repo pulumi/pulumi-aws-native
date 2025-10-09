@@ -40,55 +40,55 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The S3 bucket where artifacts for the pipeline are stored.
      */
-    public readonly artifactStore!: pulumi.Output<outputs.codepipeline.PipelineArtifactStore | undefined>;
+    declare public readonly artifactStore: pulumi.Output<outputs.codepipeline.PipelineArtifactStore | undefined>;
     /**
      * A mapping of artifactStore objects and their corresponding AWS Regions. There must be an artifact store for the pipeline Region and for each cross-region action in the pipeline.
      */
-    public readonly artifactStores!: pulumi.Output<outputs.codepipeline.PipelineArtifactStoreMap[] | undefined>;
+    declare public readonly artifactStores: pulumi.Output<outputs.codepipeline.PipelineArtifactStoreMap[] | undefined>;
     /**
      * Represents the input of a DisableStageTransition action.
      */
-    public readonly disableInboundStageTransitions!: pulumi.Output<outputs.codepipeline.PipelineStageTransition[] | undefined>;
+    declare public readonly disableInboundStageTransitions: pulumi.Output<outputs.codepipeline.PipelineStageTransition[] | undefined>;
     /**
      * The method that the pipeline will use to handle multiple executions. The default mode is SUPERSEDED.
      */
-    public readonly executionMode!: pulumi.Output<enums.codepipeline.PipelineExecutionMode | undefined>;
+    declare public readonly executionMode: pulumi.Output<enums.codepipeline.PipelineExecutionMode | undefined>;
     /**
      * The name of the pipeline.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * CodePipeline provides the following pipeline types, which differ in characteristics and price, so that you can tailor your pipeline features and cost to the needs of your applications.
      */
-    public readonly pipelineType!: pulumi.Output<enums.codepipeline.PipelineType | undefined>;
+    declare public readonly pipelineType: pulumi.Output<enums.codepipeline.PipelineType | undefined>;
     /**
      * Indicates whether to rerun the CodePipeline pipeline after you update it.
      */
-    public readonly restartExecutionOnUpdate!: pulumi.Output<boolean | undefined>;
+    declare public readonly restartExecutionOnUpdate: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) for CodePipeline to use to either perform actions with no actionRoleArn, or to use to assume roles for actions with an actionRoleArn
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Represents information about a stage and its definition.
      */
-    public readonly stages!: pulumi.Output<outputs.codepipeline.PipelineStageDeclaration[]>;
+    declare public readonly stages: pulumi.Output<outputs.codepipeline.PipelineStageDeclaration[]>;
     /**
      * Specifies the tags applied to the pipeline.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The trigger configuration specifying a type of event, such as Git tags, that starts the pipeline.
      */
-    public readonly triggers!: pulumi.Output<outputs.codepipeline.PipelineTriggerDeclaration[] | undefined>;
+    declare public readonly triggers: pulumi.Output<outputs.codepipeline.PipelineTriggerDeclaration[] | undefined>;
     /**
      * A list that defines the pipeline variables for a pipeline resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9@\-_]+.
      */
-    public readonly variables!: pulumi.Output<outputs.codepipeline.PipelineVariableDeclaration[] | undefined>;
+    declare public readonly variables: pulumi.Output<outputs.codepipeline.PipelineVariableDeclaration[] | undefined>;
     /**
      * The version of the pipeline.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -101,24 +101,24 @@ export class Pipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.stages === undefined) && !opts.urn) {
+            if (args?.stages === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stages'");
             }
-            resourceInputs["artifactStore"] = args ? args.artifactStore : undefined;
-            resourceInputs["artifactStores"] = args ? args.artifactStores : undefined;
-            resourceInputs["disableInboundStageTransitions"] = args ? args.disableInboundStageTransitions : undefined;
-            resourceInputs["executionMode"] = args ? args.executionMode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pipelineType"] = args ? args.pipelineType : undefined;
-            resourceInputs["restartExecutionOnUpdate"] = args ? args.restartExecutionOnUpdate : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["stages"] = args ? args.stages : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["triggers"] = args ? args.triggers : undefined;
-            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["artifactStore"] = args?.artifactStore;
+            resourceInputs["artifactStores"] = args?.artifactStores;
+            resourceInputs["disableInboundStageTransitions"] = args?.disableInboundStageTransitions;
+            resourceInputs["executionMode"] = args?.executionMode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pipelineType"] = args?.pipelineType;
+            resourceInputs["restartExecutionOnUpdate"] = args?.restartExecutionOnUpdate;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["stages"] = args?.stages;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["triggers"] = args?.triggers;
+            resourceInputs["variables"] = args?.variables;
             resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["artifactStore"] = undefined /*out*/;

@@ -37,19 +37,19 @@ export class TagOption extends pulumi.CustomResource {
     /**
      * The TagOption active state.
      */
-    public readonly active!: pulumi.Output<boolean | undefined>;
+    declare public readonly active: pulumi.Output<boolean | undefined>;
     /**
      * The TagOption identifier.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The TagOption key.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * The TagOption value.
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a TagOption resource with the given unique name, arguments, and options.
@@ -62,15 +62,15 @@ export class TagOption extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["active"] = args?.active;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["value"] = args?.value;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["active"] = undefined /*out*/;

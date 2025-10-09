@@ -105,37 +105,37 @@ export class Secret extends pulumi.CustomResource {
     /**
      * The ARN of the secret.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The description of the secret.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A structure that specifies how to generate a password to encrypt and store in the secret. To include a specific string in the secret, use ``SecretString`` instead. If you omit both ``GenerateSecretString`` and ``SecretString``, you create an empty secret. When you make a change to this property, a new secret version is created.
      *  We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
      */
-    public readonly generateSecretString!: pulumi.Output<outputs.secretsmanager.SecretGenerateSecretString | undefined>;
+    declare public readonly generateSecretString: pulumi.Output<outputs.secretsmanager.SecretGenerateSecretString | undefined>;
     /**
      * The ARN, key ID, or alias of the KMS key that Secrets Manager uses to encrypt the secret value in the secret. An alias is always prefixed by ``alias/``, for example ``alias/aws/secretsmanager``. For more information, see [About aliases](https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html).
      *  To use a KMS key in a different account, use the key ARN or the alias ARN.
      *  If you don't specify this value, then Secrets Manager uses the key ``aws/secretsmanager``. If that key doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
      *  If the secret is in a different AWS account from the credentials calling the API, then you can't use ``aws/secretsmanager`` to encrypt the secret, and you must create and use a customer managed KMS key.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The name of the new secret.
      *  The secret name can contain ASCII letters, numbers, and the following characters: /_+=.@-
      *  Do not end your secret name with a hyphen followed by six characters. If you do so, you risk confusion and unexpected results when searching for a secret by partial ARN. Secrets Manager automatically adds a hyphen and six random characters after the secret name at the end of the ARN.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * A custom type that specifies a ``Region`` and the ``KmsKeyId`` for a replica secret.
      */
-    public readonly replicaRegions!: pulumi.Output<outputs.secretsmanager.SecretReplicaRegion[] | undefined>;
+    declare public readonly replicaRegions: pulumi.Output<outputs.secretsmanager.SecretReplicaRegion[] | undefined>;
     /**
      * The text to encrypt and store in the secret. We recommend you use a JSON structure of key/value pairs for your secret value. To generate a random password, use ``GenerateSecretString`` instead. If you omit both ``GenerateSecretString`` and ``SecretString``, you create an empty secret. When you make a change to this property, a new secret version is created.
      */
-    public readonly secretString!: pulumi.Output<string | undefined>;
+    declare public readonly secretString: pulumi.Output<string | undefined>;
     /**
      * A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string, for example:
      *   ``[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]`` 
@@ -151,7 +151,7 @@ export class Secret extends pulumi.CustomResource {
      *   +  Do not use the ``aws:`` prefix in your tag names or values because AWS reserves it for AWS use. You can't edit or delete tag names or values with this prefix. Tags with this prefix do not count against your tags per secret limit.
      *   +  If you use your tagging schema across multiple services and resources, other services might have restrictions on allowed characters. Generally allowed characters: letters, spaces, and numbers representable in UTF-8, plus the following special characters: + - = . _ : / @.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Secret resource with the given unique name, arguments, and options.
@@ -164,13 +164,13 @@ export class Secret extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["generateSecretString"] = args ? args.generateSecretString : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["replicaRegions"] = args ? args.replicaRegions : undefined;
-            resourceInputs["secretString"] = args ? args.secretString : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["generateSecretString"] = args?.generateSecretString;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["replicaRegions"] = args?.replicaRegions;
+            resourceInputs["secretString"] = args?.secretString;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

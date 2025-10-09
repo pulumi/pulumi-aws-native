@@ -99,31 +99,31 @@ export class ProtectionGroup extends pulumi.CustomResource {
      * * Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.
      * * Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include Amazon CloudFront and origin resources for CloudFront distributions.
      */
-    public readonly aggregation!: pulumi.Output<enums.shield.ProtectionGroupAggregation>;
+    declare public readonly aggregation: pulumi.Output<enums.shield.ProtectionGroupAggregation>;
     /**
      * The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `Pattern` to `ARBITRARY` and you must not set it for any other `Pattern` setting.
      */
-    public readonly members!: pulumi.Output<string[] | undefined>;
+    declare public readonly members: pulumi.Output<string[] | undefined>;
     /**
      * The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.
      */
-    public readonly pattern!: pulumi.Output<enums.shield.ProtectionGroupPattern>;
+    declare public readonly pattern: pulumi.Output<enums.shield.ProtectionGroupPattern>;
     /**
      * The ARN (Amazon Resource Name) of the protection group.
      */
-    public /*out*/ readonly protectionGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly protectionGroupArn: pulumi.Output<string>;
     /**
      * The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
      */
-    public readonly protectionGroupId!: pulumi.Output<string>;
+    declare public readonly protectionGroupId: pulumi.Output<string>;
     /**
      * The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. You must set this when you set `Pattern` to `BY_RESOURCE_TYPE` and you must not set it for any other `Pattern` setting.
      */
-    public readonly resourceType!: pulumi.Output<enums.shield.ProtectionGroupResourceType | undefined>;
+    declare public readonly resourceType: pulumi.Output<enums.shield.ProtectionGroupResourceType | undefined>;
     /**
      * One or more tag key-value pairs for the Protection object.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ProtectionGroup resource with the given unique name, arguments, and options.
@@ -136,21 +136,21 @@ export class ProtectionGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.aggregation === undefined) && !opts.urn) {
+            if (args?.aggregation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'aggregation'");
             }
-            if ((!args || args.pattern === undefined) && !opts.urn) {
+            if (args?.pattern === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pattern'");
             }
-            if ((!args || args.protectionGroupId === undefined) && !opts.urn) {
+            if (args?.protectionGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protectionGroupId'");
             }
-            resourceInputs["aggregation"] = args ? args.aggregation : undefined;
-            resourceInputs["members"] = args ? args.members : undefined;
-            resourceInputs["pattern"] = args ? args.pattern : undefined;
-            resourceInputs["protectionGroupId"] = args ? args.protectionGroupId : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["aggregation"] = args?.aggregation;
+            resourceInputs["members"] = args?.members;
+            resourceInputs["pattern"] = args?.pattern;
+            resourceInputs["protectionGroupId"] = args?.protectionGroupId;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["protectionGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["aggregation"] = undefined /*out*/;

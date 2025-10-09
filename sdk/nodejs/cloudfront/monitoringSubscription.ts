@@ -40,11 +40,11 @@ export class MonitoringSubscription extends pulumi.CustomResource {
     /**
      * The ID of the distribution that you are enabling metrics for.
      */
-    public readonly distributionId!: pulumi.Output<string>;
+    declare public readonly distributionId: pulumi.Output<string>;
     /**
      * A subscription configuration for additional CloudWatch metrics.
      */
-    public readonly monitoringSubscription!: pulumi.Output<outputs.cloudfront.MonitoringSubscription>;
+    declare public readonly monitoringSubscription: pulumi.Output<outputs.cloudfront.MonitoringSubscription>;
 
     /**
      * Create a MonitoringSubscription resource with the given unique name, arguments, and options.
@@ -57,14 +57,14 @@ export class MonitoringSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.distributionId === undefined) && !opts.urn) {
+            if (args?.distributionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'distributionId'");
             }
-            if ((!args || args.monitoringSubscription === undefined) && !opts.urn) {
+            if (args?.monitoringSubscription === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitoringSubscription'");
             }
-            resourceInputs["distributionId"] = args ? args.distributionId : undefined;
-            resourceInputs["monitoringSubscription"] = args ? args.monitoringSubscription : undefined;
+            resourceInputs["distributionId"] = args?.distributionId;
+            resourceInputs["monitoringSubscription"] = args?.monitoringSubscription;
         } else {
             resourceInputs["distributionId"] = undefined /*out*/;
             resourceInputs["monitoringSubscription"] = undefined /*out*/;

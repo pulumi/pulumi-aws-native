@@ -37,29 +37,29 @@ export class AttributeGroup extends pulumi.CustomResource {
     /**
      * The Amazon resource name (ARN) that specifies the attribute group across services.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
      */
-    public readonly attributes!: pulumi.Output<any>;
+    declare public readonly attributes: pulumi.Output<any>;
     /**
      * The globally unique attribute group identifier of the attribute group.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The description of the attribute group. 
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the attribute group. 
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Key-value pairs you can use to associate with the attribute group.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a AttributeGroup resource with the given unique name, arguments, and options.
@@ -72,13 +72,13 @@ export class AttributeGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.attributes === undefined) && !opts.urn) {
+            if (args?.attributes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'attributes'");
             }
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

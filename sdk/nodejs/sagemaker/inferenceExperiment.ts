@@ -40,74 +40,74 @@ export class InferenceExperiment extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the inference experiment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The timestamp at which you created the inference experiment.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The Amazon S3 location and configuration for storing inference request and response data.
      */
-    public readonly dataStorageConfig!: pulumi.Output<outputs.sagemaker.InferenceExperimentDataStorageConfig | undefined>;
+    declare public readonly dataStorageConfig: pulumi.Output<outputs.sagemaker.InferenceExperimentDataStorageConfig | undefined>;
     /**
      * The description of the inference experiment.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The desired state of the experiment after starting or stopping operation.
      */
-    public readonly desiredState!: pulumi.Output<enums.sagemaker.InferenceExperimentDesiredState | undefined>;
-    public /*out*/ readonly endpointMetadata!: pulumi.Output<outputs.sagemaker.InferenceExperimentEndpointMetadata>;
+    declare public readonly desiredState: pulumi.Output<enums.sagemaker.InferenceExperimentDesiredState | undefined>;
+    declare public /*out*/ readonly endpointMetadata: pulumi.Output<outputs.sagemaker.InferenceExperimentEndpointMetadata>;
     /**
      * The name of the endpoint.
      */
-    public readonly endpointName!: pulumi.Output<string>;
+    declare public readonly endpointName: pulumi.Output<string>;
     /**
      * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */
-    public readonly kmsKey!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKey: pulumi.Output<string | undefined>;
     /**
      * The timestamp at which you last modified the inference experiment.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * An array of ModelVariantConfig objects. Each ModelVariantConfig object in the array describes the infrastructure configuration for the corresponding variant.
      */
-    public readonly modelVariants!: pulumi.Output<outputs.sagemaker.InferenceExperimentModelVariantConfig[]>;
+    declare public readonly modelVariants: pulumi.Output<outputs.sagemaker.InferenceExperimentModelVariantConfig[]>;
     /**
      * The name for the inference experiment.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage Amazon SageMaker Inference endpoints for model deployment.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The duration for which the inference experiment ran or will run.
      *
      * The maximum duration that you can set for an inference experiment is 30 days.
      */
-    public readonly schedule!: pulumi.Output<outputs.sagemaker.InferenceExperimentSchedule | undefined>;
+    declare public readonly schedule: pulumi.Output<outputs.sagemaker.InferenceExperimentSchedule | undefined>;
     /**
      * The configuration of `ShadowMode` inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
      */
-    public readonly shadowModeConfig!: pulumi.Output<outputs.sagemaker.InferenceExperimentShadowModeConfig | undefined>;
+    declare public readonly shadowModeConfig: pulumi.Output<outputs.sagemaker.InferenceExperimentShadowModeConfig | undefined>;
     /**
      * The status of the inference experiment.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.sagemaker.InferenceExperimentStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.sagemaker.InferenceExperimentStatus>;
     /**
      * The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
      */
-    public readonly statusReason!: pulumi.Output<string | undefined>;
+    declare public readonly statusReason: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the inference experiment that you want to run.
      */
-    public readonly type!: pulumi.Output<enums.sagemaker.InferenceExperimentType>;
+    declare public readonly type: pulumi.Output<enums.sagemaker.InferenceExperimentType>;
 
     /**
      * Create a InferenceExperiment resource with the given unique name, arguments, and options.
@@ -120,31 +120,31 @@ export class InferenceExperiment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointName === undefined) && !opts.urn) {
+            if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.modelVariants === undefined) && !opts.urn) {
+            if (args?.modelVariants === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelVariants'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["dataStorageConfig"] = args ? args.dataStorageConfig : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["desiredState"] = args ? args.desiredState : undefined;
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
-            resourceInputs["modelVariants"] = args ? args.modelVariants : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["shadowModeConfig"] = args ? args.shadowModeConfig : undefined;
-            resourceInputs["statusReason"] = args ? args.statusReason : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["dataStorageConfig"] = args?.dataStorageConfig;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["desiredState"] = args?.desiredState;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["kmsKey"] = args?.kmsKey;
+            resourceInputs["modelVariants"] = args?.modelVariants;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["shadowModeConfig"] = args?.shadowModeConfig;
+            resourceInputs["statusReason"] = args?.statusReason;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["endpointMetadata"] = undefined /*out*/;

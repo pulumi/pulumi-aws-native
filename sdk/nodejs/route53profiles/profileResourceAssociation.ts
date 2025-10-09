@@ -37,27 +37,27 @@ export class ProfileResourceAssociation extends pulumi.CustomResource {
     /**
      * Primary Identifier for  Profile Resource Association
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The name of an association between the  Profile and resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the  profile that you associated the resource to that is specified by ResourceArn.
      */
-    public readonly profileId!: pulumi.Output<string>;
+    declare public readonly profileId: pulumi.Output<string>;
     /**
      * The arn of the resource that you associated to the  Profile.
      */
-    public readonly resourceArn!: pulumi.Output<string>;
+    declare public readonly resourceArn: pulumi.Output<string>;
     /**
      * A JSON-formatted string with key-value pairs specifying the properties of the associated resource.
      */
-    public readonly resourceProperties!: pulumi.Output<string | undefined>;
+    declare public readonly resourceProperties: pulumi.Output<string | undefined>;
     /**
      * The type of the resource associated to the  Profile.
      */
-    public /*out*/ readonly resourceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceType: pulumi.Output<string>;
 
     /**
      * Create a ProfileResourceAssociation resource with the given unique name, arguments, and options.
@@ -70,16 +70,16 @@ export class ProfileResourceAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.profileId === undefined) && !opts.urn) {
+            if (args?.profileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileId'");
             }
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["profileId"] = args ? args.profileId : undefined;
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
-            resourceInputs["resourceProperties"] = args ? args.resourceProperties : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["profileId"] = args?.profileId;
+            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["resourceProperties"] = args?.resourceProperties;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;
         } else {

@@ -40,11 +40,11 @@ export class User extends pulumi.CustomResource {
     /**
      * Access permissions string used for this user account.
      */
-    public readonly accessString!: pulumi.Output<string | undefined>;
+    declare public readonly accessString: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the user account.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Denotes whether the user requires a password to authenticate.
      *
@@ -52,19 +52,19 @@ export class User extends pulumi.CustomResource {
      *
      * `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
      */
-    public readonly authenticationMode!: pulumi.Output<outputs.memorydb.AuthenticationModeProperties | undefined>;
+    declare public readonly authenticationMode: pulumi.Output<outputs.memorydb.AuthenticationModeProperties | undefined>;
     /**
      * Indicates the user status. Can be "active", "modifying" or "deleting".
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this user.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The name of the user.
      */
-    public readonly userName!: pulumi.Output<string>;
+    declare public readonly userName: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -77,10 +77,10 @@ export class User extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["accessString"] = args ? args.accessString : undefined;
-            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["accessString"] = args?.accessString;
+            resourceInputs["authenticationMode"] = args?.authenticationMode;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

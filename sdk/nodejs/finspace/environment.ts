@@ -68,63 +68,63 @@ export class Environment extends pulumi.CustomResource {
     /**
      * AWS account ID associated with the Environment
      */
-    public /*out*/ readonly awsAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsAccountId: pulumi.Output<string>;
     /**
      * ARNs of FinSpace Data Bundles to install
      */
-    public readonly dataBundles!: pulumi.Output<string[] | undefined>;
+    declare public readonly dataBundles: pulumi.Output<string[] | undefined>;
     /**
      * ID for FinSpace created account used to store Environment artifacts
      */
-    public /*out*/ readonly dedicatedServiceAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dedicatedServiceAccountId: pulumi.Output<string>;
     /**
      * Description of the Environment
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * ARN of the Environment
      */
-    public /*out*/ readonly environmentArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentArn: pulumi.Output<string>;
     /**
      * Unique identifier for representing FinSpace Environment
      */
-    public /*out*/ readonly environmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentId: pulumi.Output<string>;
     /**
      * URL used to login to the Environment
      */
-    public /*out*/ readonly environmentUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentUrl: pulumi.Output<string>;
     /**
      * Federation mode used with the Environment
      */
-    public readonly federationMode!: pulumi.Output<enums.finspace.EnvironmentFederationMode | undefined>;
+    declare public readonly federationMode: pulumi.Output<enums.finspace.EnvironmentFederationMode | undefined>;
     /**
      * Configuration information when authentication mode is FEDERATED.
      */
-    public readonly federationParameters!: pulumi.Output<outputs.finspace.EnvironmentFederationParameters | undefined>;
+    declare public readonly federationParameters: pulumi.Output<outputs.finspace.EnvironmentFederationParameters | undefined>;
     /**
      * KMS key used to encrypt customer data within FinSpace Environment infrastructure
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Name of the Environment
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * SageMaker Studio Domain URL associated with the Environment
      */
-    public /*out*/ readonly sageMakerStudioDomainUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly sageMakerStudioDomainUrl: pulumi.Output<string>;
     /**
      * State of the Environment
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.finspace.EnvironmentStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.finspace.EnvironmentStatus>;
     /**
      * Configuration information for the superuser.
      */
-    public readonly superuserParameters!: pulumi.Output<outputs.finspace.EnvironmentSuperuserParameters | undefined>;
+    declare public readonly superuserParameters: pulumi.Output<outputs.finspace.EnvironmentSuperuserParameters | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -137,14 +137,14 @@ export class Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["dataBundles"] = args ? args.dataBundles : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["federationMode"] = args ? args.federationMode : undefined;
-            resourceInputs["federationParameters"] = args ? args.federationParameters : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["superuserParameters"] = args ? args.superuserParameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataBundles"] = args?.dataBundles;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["federationMode"] = args?.federationMode;
+            resourceInputs["federationParameters"] = args?.federationParameters;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["superuserParameters"] = args?.superuserParameters;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsAccountId"] = undefined /*out*/;
             resourceInputs["dedicatedServiceAccountId"] = undefined /*out*/;
             resourceInputs["environmentArn"] = undefined /*out*/;

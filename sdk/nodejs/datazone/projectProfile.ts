@@ -40,55 +40,55 @@ export class ProjectProfile extends pulumi.CustomResource {
     /**
      * The ID of the project profile.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The timestamp of when the project profile was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The user who created the project profile.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * The description of the project profile.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The domain ID of the project profile.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * A domain ID of the project profile.
      */
-    public readonly domainIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly domainIdentifier: pulumi.Output<string | undefined>;
     /**
      * The domain unit ID of the project profile.
      */
-    public /*out*/ readonly domainUnitId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainUnitId: pulumi.Output<string>;
     /**
      * A domain unit ID of the project profile.
      */
-    public readonly domainUnitIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly domainUnitIdentifier: pulumi.Output<string | undefined>;
     /**
      * Environment configurations of a project profile.
      */
-    public readonly environmentConfigurations!: pulumi.Output<outputs.datazone.ProjectProfileEnvironmentConfiguration[] | undefined>;
+    declare public readonly environmentConfigurations: pulumi.Output<outputs.datazone.ProjectProfileEnvironmentConfiguration[] | undefined>;
     /**
      * Project profile ID.
      */
-    public /*out*/ readonly identifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly identifier: pulumi.Output<string>;
     /**
      * The timestamp at which a project profile was last updated.
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * The name of a project profile.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The status of a project profile.
      */
-    public readonly status!: pulumi.Output<enums.datazone.ProjectProfileStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.datazone.ProjectProfileStatus | undefined>;
 
     /**
      * Create a ProjectProfile resource with the given unique name, arguments, and options.
@@ -101,12 +101,12 @@ export class ProjectProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["domainUnitIdentifier"] = args ? args.domainUnitIdentifier : undefined;
-            resourceInputs["environmentConfigurations"] = args ? args.environmentConfigurations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["domainUnitIdentifier"] = args?.domainUnitIdentifier;
+            resourceInputs["environmentConfigurations"] = args?.environmentConfigurations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["status"] = args?.status;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;

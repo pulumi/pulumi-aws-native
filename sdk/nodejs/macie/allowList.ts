@@ -40,31 +40,31 @@ export class AllowList extends pulumi.CustomResource {
     /**
      * AllowList ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * AllowList ID.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * AllowList criteria.
      */
-    public readonly criteria!: pulumi.Output<outputs.macie.AllowListCriteria>;
+    declare public readonly criteria: pulumi.Output<outputs.macie.AllowListCriteria>;
     /**
      * Description of AllowList.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of AllowList.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * AllowList status.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.macie.AllowListStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.macie.AllowListStatus>;
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a AllowList resource with the given unique name, arguments, and options.
@@ -77,13 +77,13 @@ export class AllowList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.criteria === undefined) && !opts.urn) {
+            if (args?.criteria === undefined && !opts.urn) {
                 throw new Error("Missing required property 'criteria'");
             }
-            resourceInputs["criteria"] = args ? args.criteria : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["criteria"] = args?.criteria;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

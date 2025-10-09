@@ -40,35 +40,35 @@ export class OdbPeeringConnection extends pulumi.CustomResource {
     /**
      * The name of the ODB peering connection.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the ODB network.
      */
-    public /*out*/ readonly odbNetworkArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly odbNetworkArn: pulumi.Output<string>;
     /**
      * The unique identifier of the ODB network.
      */
-    public readonly odbNetworkId!: pulumi.Output<string | undefined>;
+    declare public readonly odbNetworkId: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the ODB peering connection.
      */
-    public /*out*/ readonly odbPeeringConnectionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly odbPeeringConnectionArn: pulumi.Output<string>;
     /**
      * The unique identifier of the ODB peering connection.
      */
-    public /*out*/ readonly odbPeeringConnectionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly odbPeeringConnectionId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the peer network.
      */
-    public /*out*/ readonly peerNetworkArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly peerNetworkArn: pulumi.Output<string>;
     /**
      * The unique identifier of the peer network.
      */
-    public readonly peerNetworkId!: pulumi.Output<string | undefined>;
+    declare public readonly peerNetworkId: pulumi.Output<string | undefined>;
     /**
      * Tags to assign to the Odb peering connection.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a OdbPeeringConnection resource with the given unique name, arguments, and options.
@@ -81,10 +81,10 @@ export class OdbPeeringConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["odbNetworkId"] = args ? args.odbNetworkId : undefined;
-            resourceInputs["peerNetworkId"] = args ? args.peerNetworkId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["odbNetworkId"] = args?.odbNetworkId;
+            resourceInputs["peerNetworkId"] = args?.peerNetworkId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["odbNetworkArn"] = undefined /*out*/;
             resourceInputs["odbPeeringConnectionArn"] = undefined /*out*/;
             resourceInputs["odbPeeringConnectionId"] = undefined /*out*/;

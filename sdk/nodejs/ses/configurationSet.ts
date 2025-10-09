@@ -158,35 +158,35 @@ export class ConfigurationSet extends pulumi.CustomResource {
     /**
      * Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
      */
-    public readonly deliveryOptions!: pulumi.Output<outputs.ses.ConfigurationSetDeliveryOptions | undefined>;
+    declare public readonly deliveryOptions: pulumi.Output<outputs.ses.ConfigurationSetDeliveryOptions | undefined>;
     /**
      * The name of the configuration set.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
      */
-    public readonly reputationOptions!: pulumi.Output<outputs.ses.ConfigurationSetReputationOptions | undefined>;
+    declare public readonly reputationOptions: pulumi.Output<outputs.ses.ConfigurationSetReputationOptions | undefined>;
     /**
      * An object that defines whether or not Amazon SES can send email that you send using the configuration set.
      */
-    public readonly sendingOptions!: pulumi.Output<outputs.ses.ConfigurationSetSendingOptions | undefined>;
+    declare public readonly sendingOptions: pulumi.Output<outputs.ses.ConfigurationSetSendingOptions | undefined>;
     /**
      * An object that contains information about the suppression list preferences for your account.
      */
-    public readonly suppressionOptions!: pulumi.Output<outputs.ses.ConfigurationSetSuppressionOptions | undefined>;
+    declare public readonly suppressionOptions: pulumi.Output<outputs.ses.ConfigurationSetSuppressionOptions | undefined>;
     /**
      * The tags (keys and values) associated with the contact list.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * An object that defines the open and click tracking options for emails that you send using the configuration set.
      */
-    public readonly trackingOptions!: pulumi.Output<outputs.ses.ConfigurationSetTrackingOptions | undefined>;
+    declare public readonly trackingOptions: pulumi.Output<outputs.ses.ConfigurationSetTrackingOptions | undefined>;
     /**
      * The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
      */
-    public readonly vdmOptions!: pulumi.Output<outputs.ses.ConfigurationSetVdmOptions | undefined>;
+    declare public readonly vdmOptions: pulumi.Output<outputs.ses.ConfigurationSetVdmOptions | undefined>;
 
     /**
      * Create a ConfigurationSet resource with the given unique name, arguments, and options.
@@ -199,14 +199,14 @@ export class ConfigurationSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["reputationOptions"] = args ? args.reputationOptions : undefined;
-            resourceInputs["sendingOptions"] = args ? args.sendingOptions : undefined;
-            resourceInputs["suppressionOptions"] = args ? args.suppressionOptions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trackingOptions"] = args ? args.trackingOptions : undefined;
-            resourceInputs["vdmOptions"] = args ? args.vdmOptions : undefined;
+            resourceInputs["deliveryOptions"] = args?.deliveryOptions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["reputationOptions"] = args?.reputationOptions;
+            resourceInputs["sendingOptions"] = args?.sendingOptions;
+            resourceInputs["suppressionOptions"] = args?.suppressionOptions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trackingOptions"] = args?.trackingOptions;
+            resourceInputs["vdmOptions"] = args?.vdmOptions;
         } else {
             resourceInputs["deliveryOptions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

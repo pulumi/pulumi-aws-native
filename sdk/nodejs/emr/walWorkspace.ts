@@ -40,11 +40,11 @@ export class WalWorkspace extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The name of the emrwal container
      */
-    public readonly walWorkspaceName!: pulumi.Output<string | undefined>;
+    declare public readonly walWorkspaceName: pulumi.Output<string | undefined>;
 
     /**
      * Create a WalWorkspace resource with the given unique name, arguments, and options.
@@ -57,8 +57,8 @@ export class WalWorkspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["walWorkspaceName"] = args ? args.walWorkspaceName : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["walWorkspaceName"] = args?.walWorkspaceName;
         } else {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["walWorkspaceName"] = undefined /*out*/;

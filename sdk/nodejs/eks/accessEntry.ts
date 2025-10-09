@@ -40,35 +40,35 @@ export class AccessEntry extends pulumi.CustomResource {
     /**
      * The ARN of the access entry.
      */
-    public /*out*/ readonly accessEntryArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessEntryArn: pulumi.Output<string>;
     /**
      * An array of access policies that are associated with the access entry.
      */
-    public readonly accessPolicies!: pulumi.Output<outputs.eks.AccessEntryAccessPolicy[] | undefined>;
+    declare public readonly accessPolicies: pulumi.Output<outputs.eks.AccessEntryAccessPolicy[] | undefined>;
     /**
      * The cluster that the access entry is created for.
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * The Kubernetes groups that the access entry is associated with.
      */
-    public readonly kubernetesGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly kubernetesGroups: pulumi.Output<string[] | undefined>;
     /**
      * The principal ARN that the access entry is created for.
      */
-    public readonly principalArn!: pulumi.Output<string>;
+    declare public readonly principalArn: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The node type to associate with the access entry.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * The Kubernetes user that the access entry is associated with.
      */
-    public readonly username!: pulumi.Output<string | undefined>;
+    declare public readonly username: pulumi.Output<string | undefined>;
 
     /**
      * Create a AccessEntry resource with the given unique name, arguments, and options.
@@ -81,19 +81,19 @@ export class AccessEntry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.principalArn === undefined) && !opts.urn) {
+            if (args?.principalArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalArn'");
             }
-            resourceInputs["accessPolicies"] = args ? args.accessPolicies : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["kubernetesGroups"] = args ? args.kubernetesGroups : undefined;
-            resourceInputs["principalArn"] = args ? args.principalArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["accessPolicies"] = args?.accessPolicies;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["kubernetesGroups"] = args?.kubernetesGroups;
+            resourceInputs["principalArn"] = args?.principalArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["username"] = args?.username;
             resourceInputs["accessEntryArn"] = undefined /*out*/;
         } else {
             resourceInputs["accessEntryArn"] = undefined /*out*/;

@@ -42,21 +42,21 @@ export class Tracker extends pulumi.CustomResource {
      *
      * - Format example: `arn:aws:geo:region:account-id:tracker/ExampleTracker`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The timestamp for when the tracker resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
      * An optional description for the tracker resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public readonly eventBridgeEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly kmsKeyEnableGeospatialQueries!: pulumi.Output<boolean | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly eventBridgeEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly kmsKeyEnableGeospatialQueries: pulumi.Output<boolean | undefined>;
     /**
      * A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Specifies the position filtering for the tracker resource.
      *
@@ -68,22 +68,22 @@ export class Tracker extends pulumi.CustomResource {
      *
      * This field is optional. If not specified, the default value is `TimeBased` .
      */
-    public readonly positionFiltering!: pulumi.Output<enums.location.TrackerPositionFiltering | undefined>;
-    public readonly pricingPlan!: pulumi.Output<enums.location.TrackerPricingPlan | undefined>;
+    declare public readonly positionFiltering: pulumi.Output<enums.location.TrackerPositionFiltering | undefined>;
+    declare public readonly pricingPlan: pulumi.Output<enums.location.TrackerPricingPlan | undefined>;
     /**
      * This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
      */
-    public readonly pricingPlanDataSource!: pulumi.Output<string | undefined>;
+    declare public readonly pricingPlanDataSource: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Synonym for `Arn` . The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS .
      *
      * - Format example: `arn:aws:geo:region:account-id:tracker/ExampleTracker`
      */
-    public /*out*/ readonly trackerArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly trackerArn: pulumi.Output<string>;
     /**
      * The name for the tracker resource.
      *
@@ -93,11 +93,11 @@ export class Tracker extends pulumi.CustomResource {
      * - Must be a unique tracker resource name.
      * - No spaces allowed. For example, `ExampleTracker` .
      */
-    public readonly trackerName!: pulumi.Output<string>;
+    declare public readonly trackerName: pulumi.Output<string>;
     /**
      * The timestamp for when the tracker resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly updateTime: pulumi.Output<string>;
 
     /**
      * Create a Tracker resource with the given unique name, arguments, and options.
@@ -110,15 +110,15 @@ export class Tracker extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventBridgeEnabled"] = args ? args.eventBridgeEnabled : undefined;
-            resourceInputs["kmsKeyEnableGeospatialQueries"] = args ? args.kmsKeyEnableGeospatialQueries : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["positionFiltering"] = args ? args.positionFiltering : undefined;
-            resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
-            resourceInputs["pricingPlanDataSource"] = args ? args.pricingPlanDataSource : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trackerName"] = args ? args.trackerName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventBridgeEnabled"] = args?.eventBridgeEnabled;
+            resourceInputs["kmsKeyEnableGeospatialQueries"] = args?.kmsKeyEnableGeospatialQueries;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["positionFiltering"] = args?.positionFiltering;
+            resourceInputs["pricingPlan"] = args?.pricingPlan;
+            resourceInputs["pricingPlanDataSource"] = args?.pricingPlanDataSource;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trackerName"] = args?.trackerName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["trackerArn"] = undefined /*out*/;

@@ -106,23 +106,23 @@ export class OrganizationalUnit extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of this OU.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The unique identifier (ID) associated with this OU.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The friendly name of this OU.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The unique identifier (ID) of the parent root or OU that you want to create the new OU in.
      */
-    public readonly parentId!: pulumi.Output<string>;
+    declare public readonly parentId: pulumi.Output<string>;
     /**
      * A list of tags that you want to attach to the newly created OU.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a OrganizationalUnit resource with the given unique name, arguments, and options.
@@ -135,12 +135,12 @@ export class OrganizationalUnit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.parentId === undefined) && !opts.urn) {
+            if (args?.parentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentId"] = args ? args.parentId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentId"] = args?.parentId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

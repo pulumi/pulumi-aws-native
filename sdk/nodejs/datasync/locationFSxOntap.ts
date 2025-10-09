@@ -40,35 +40,35 @@ export class LocationFSxOntap extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the FSx ONAP file system.
      */
-    public /*out*/ readonly fsxFilesystemArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fsxFilesystemArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon FSx ONTAP file system location that is created.
      */
-    public /*out*/ readonly locationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationArn: pulumi.Output<string>;
     /**
      * The URL of the FSx ONTAP file system that was described.
      */
-    public /*out*/ readonly locationUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationUri: pulumi.Output<string>;
     /**
      * Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
      */
-    public readonly protocol!: pulumi.Output<outputs.datasync.LocationFSxOntapProtocol | undefined>;
+    declare public readonly protocol: pulumi.Output<outputs.datasync.LocationFSxOntapProtocol | undefined>;
     /**
      * The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
      */
-    public readonly securityGroupArns!: pulumi.Output<string[]>;
+    declare public readonly securityGroupArns: pulumi.Output<string[]>;
     /**
      * The Amazon Resource Name (ARN) for the FSx ONTAP SVM.
      */
-    public readonly storageVirtualMachineArn!: pulumi.Output<string>;
+    declare public readonly storageVirtualMachineArn: pulumi.Output<string>;
     /**
      * A subdirectory in the location's path.
      */
-    public readonly subdirectory!: pulumi.Output<string | undefined>;
+    declare public readonly subdirectory: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LocationFSxOntap resource with the given unique name, arguments, and options.
@@ -81,17 +81,17 @@ export class LocationFSxOntap extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.securityGroupArns === undefined) && !opts.urn) {
+            if (args?.securityGroupArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupArns'");
             }
-            if ((!args || args.storageVirtualMachineArn === undefined) && !opts.urn) {
+            if (args?.storageVirtualMachineArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageVirtualMachineArn'");
             }
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
-            resourceInputs["storageVirtualMachineArn"] = args ? args.storageVirtualMachineArn : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["securityGroupArns"] = args?.securityGroupArns;
+            resourceInputs["storageVirtualMachineArn"] = args?.storageVirtualMachineArn;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["fsxFilesystemArn"] = undefined /*out*/;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;

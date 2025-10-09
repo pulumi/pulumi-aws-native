@@ -40,31 +40,31 @@ export class Version extends pulumi.CustomResource {
     /**
      * Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
      */
-    public readonly codeSha256!: pulumi.Output<string | undefined>;
+    declare public readonly codeSha256: pulumi.Output<string | undefined>;
     /**
      * A description for the version to override the description in the function configuration. Updates are not supported for this property.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ARN of the version.
      */
-    public /*out*/ readonly functionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly functionArn: pulumi.Output<string>;
     /**
      * The name of the Lambda function.
      */
-    public readonly functionName!: pulumi.Output<string>;
+    declare public readonly functionName: pulumi.Output<string>;
     /**
      * Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
      */
-    public readonly provisionedConcurrencyConfig!: pulumi.Output<outputs.lambda.VersionProvisionedConcurrencyConfiguration | undefined>;
+    declare public readonly provisionedConcurrencyConfig: pulumi.Output<outputs.lambda.VersionProvisionedConcurrencyConfiguration | undefined>;
     /**
      * Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
      */
-    public readonly runtimePolicy!: pulumi.Output<outputs.lambda.VersionRuntimePolicy | undefined>;
+    declare public readonly runtimePolicy: pulumi.Output<outputs.lambda.VersionRuntimePolicy | undefined>;
     /**
      * The version number.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a Version resource with the given unique name, arguments, and options.
@@ -77,14 +77,14 @@ export class Version extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.functionName === undefined) && !opts.urn) {
+            if (args?.functionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            resourceInputs["codeSha256"] = args ? args.codeSha256 : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["functionName"] = args ? args.functionName : undefined;
-            resourceInputs["provisionedConcurrencyConfig"] = args ? args.provisionedConcurrencyConfig : undefined;
-            resourceInputs["runtimePolicy"] = args ? args.runtimePolicy : undefined;
+            resourceInputs["codeSha256"] = args?.codeSha256;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["provisionedConcurrencyConfig"] = args?.provisionedConcurrencyConfig;
+            resourceInputs["runtimePolicy"] = args?.runtimePolicy;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {

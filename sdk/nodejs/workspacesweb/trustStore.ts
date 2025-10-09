@@ -40,19 +40,19 @@ export class TrustStore extends pulumi.CustomResource {
     /**
      * A list of web portal ARNs that this trust store is associated with.
      */
-    public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
     /**
      * A list of CA certificates to be added to the trust store.
      */
-    public readonly certificateList!: pulumi.Output<string[]>;
+    declare public readonly certificateList: pulumi.Output<string[]>;
     /**
      * The tags to add to the trust store. A tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the trust store.
      */
-    public /*out*/ readonly trustStoreArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly trustStoreArn: pulumi.Output<string>;
 
     /**
      * Create a TrustStore resource with the given unique name, arguments, and options.
@@ -65,11 +65,11 @@ export class TrustStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificateList === undefined) && !opts.urn) {
+            if (args?.certificateList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateList'");
             }
-            resourceInputs["certificateList"] = args ? args.certificateList : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificateList"] = args?.certificateList;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["trustStoreArn"] = undefined /*out*/;
         } else {

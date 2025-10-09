@@ -40,43 +40,43 @@ export class Campaign extends pulumi.CustomResource {
     /**
      * Amazon Connect Campaign Arn
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Contains channel subtype configuration for an outbound campaign.
      */
-    public readonly channelSubtypeConfig!: pulumi.Output<outputs.connectcampaignsv2.CampaignChannelSubtypeConfig>;
+    declare public readonly channelSubtypeConfig: pulumi.Output<outputs.connectcampaignsv2.CampaignChannelSubtypeConfig>;
     /**
      * Communication limits configuration for an outbound campaign.
      */
-    public readonly communicationLimitsOverride!: pulumi.Output<outputs.connectcampaignsv2.CampaignCommunicationLimitsConfig | undefined>;
+    declare public readonly communicationLimitsOverride: pulumi.Output<outputs.connectcampaignsv2.CampaignCommunicationLimitsConfig | undefined>;
     /**
      * Contains communication time configuration for an outbound campaign.
      */
-    public readonly communicationTimeConfig!: pulumi.Output<outputs.connectcampaignsv2.CampaignCommunicationTimeConfig | undefined>;
+    declare public readonly communicationTimeConfig: pulumi.Output<outputs.connectcampaignsv2.CampaignCommunicationTimeConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
      */
-    public readonly connectCampaignFlowArn!: pulumi.Output<string | undefined>;
+    declare public readonly connectCampaignFlowArn: pulumi.Output<string | undefined>;
     /**
      * The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
      */
-    public readonly connectInstanceId!: pulumi.Output<string>;
+    declare public readonly connectInstanceId: pulumi.Output<string>;
     /**
      * The name of the outbound campaign.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Contains the schedule configuration.
      */
-    public readonly schedule!: pulumi.Output<outputs.connectcampaignsv2.CampaignSchedule | undefined>;
+    declare public readonly schedule: pulumi.Output<outputs.connectcampaignsv2.CampaignSchedule | undefined>;
     /**
      * Contains source configuration.
      */
-    public readonly source!: pulumi.Output<outputs.connectcampaignsv2.CampaignSource | undefined>;
+    declare public readonly source: pulumi.Output<outputs.connectcampaignsv2.CampaignSource | undefined>;
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Campaign resource with the given unique name, arguments, and options.
@@ -89,21 +89,21 @@ export class Campaign extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelSubtypeConfig === undefined) && !opts.urn) {
+            if (args?.channelSubtypeConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelSubtypeConfig'");
             }
-            if ((!args || args.connectInstanceId === undefined) && !opts.urn) {
+            if (args?.connectInstanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectInstanceId'");
             }
-            resourceInputs["channelSubtypeConfig"] = args ? args.channelSubtypeConfig : undefined;
-            resourceInputs["communicationLimitsOverride"] = args ? args.communicationLimitsOverride : undefined;
-            resourceInputs["communicationTimeConfig"] = args ? args.communicationTimeConfig : undefined;
-            resourceInputs["connectCampaignFlowArn"] = args ? args.connectCampaignFlowArn : undefined;
-            resourceInputs["connectInstanceId"] = args ? args.connectInstanceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channelSubtypeConfig"] = args?.channelSubtypeConfig;
+            resourceInputs["communicationLimitsOverride"] = args?.communicationLimitsOverride;
+            resourceInputs["communicationTimeConfig"] = args?.communicationTimeConfig;
+            resourceInputs["connectCampaignFlowArn"] = args?.connectCampaignFlowArn;
+            resourceInputs["connectInstanceId"] = args?.connectInstanceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

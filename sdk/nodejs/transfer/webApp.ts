@@ -40,39 +40,39 @@ export class WebApp extends pulumi.CustomResource {
     /**
      * The AccessEndpoint is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value.
      */
-    public readonly accessEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly accessEndpoint: pulumi.Output<string | undefined>;
     /**
      * Specifies the unique Amazon Resource Name (ARN) for the web app.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * You can provide a structure that contains the details for the identity provider to use with your web app.
      *
      * For more details about this parameter, see [Configure your identity provider for Transfer Family web apps](https://docs.aws.amazon.com//transfer/latest/userguide/webapp-identity-center.html) .
      */
-    public readonly identityProviderDetails!: pulumi.Output<outputs.transfer.WebAppIdentityProviderDetails>;
+    declare public readonly identityProviderDetails: pulumi.Output<outputs.transfer.WebAppIdentityProviderDetails>;
     /**
      * Key-value pairs that can be used to group and search for web apps.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
      */
-    public readonly webAppCustomization!: pulumi.Output<outputs.transfer.WebAppCustomization | undefined>;
+    declare public readonly webAppCustomization: pulumi.Output<outputs.transfer.WebAppCustomization | undefined>;
     /**
      * Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
      *
      * If your web app was created in an AWS GovCloud (US) Region , the value of this parameter can be `FIPS` , which indicates the web app endpoint is FIPS-compliant.
      */
-    public readonly webAppEndpointPolicy!: pulumi.Output<enums.transfer.WebAppEndpointPolicy | undefined>;
+    declare public readonly webAppEndpointPolicy: pulumi.Output<enums.transfer.WebAppEndpointPolicy | undefined>;
     /**
      * A unique identifier for the web app.
      */
-    public /*out*/ readonly webAppId!: pulumi.Output<string>;
+    declare public /*out*/ readonly webAppId: pulumi.Output<string>;
     /**
      * A union that contains the value for number of concurrent connections or the user sessions on your web app.
      */
-    public readonly webAppUnits!: pulumi.Output<outputs.transfer.WebAppUnitsProperties | undefined>;
+    declare public readonly webAppUnits: pulumi.Output<outputs.transfer.WebAppUnitsProperties | undefined>;
 
     /**
      * Create a WebApp resource with the given unique name, arguments, and options.
@@ -85,15 +85,15 @@ export class WebApp extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.identityProviderDetails === undefined) && !opts.urn) {
+            if (args?.identityProviderDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityProviderDetails'");
             }
-            resourceInputs["accessEndpoint"] = args ? args.accessEndpoint : undefined;
-            resourceInputs["identityProviderDetails"] = args ? args.identityProviderDetails : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["webAppCustomization"] = args ? args.webAppCustomization : undefined;
-            resourceInputs["webAppEndpointPolicy"] = args ? args.webAppEndpointPolicy : undefined;
-            resourceInputs["webAppUnits"] = args ? args.webAppUnits : undefined;
+            resourceInputs["accessEndpoint"] = args?.accessEndpoint;
+            resourceInputs["identityProviderDetails"] = args?.identityProviderDetails;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["webAppCustomization"] = args?.webAppCustomization;
+            resourceInputs["webAppEndpointPolicy"] = args?.webAppEndpointPolicy;
+            resourceInputs["webAppUnits"] = args?.webAppUnits;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["webAppId"] = undefined /*out*/;
         } else {

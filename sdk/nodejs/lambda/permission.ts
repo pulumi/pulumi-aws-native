@@ -43,12 +43,12 @@ export class Permission extends pulumi.CustomResource {
     /**
      * The action that the principal can use on the function. For example, ``lambda:InvokeFunction`` or ``lambda:GetFunction``.
      */
-    public readonly action!: pulumi.Output<string>;
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public readonly action: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * For Alexa Smart Home functions, a token that the invoker must supply.
      */
-    public readonly eventSourceToken!: pulumi.Output<string | undefined>;
+    declare public readonly eventSourceToken: pulumi.Output<string | undefined>;
     /**
      * The name or ARN of the Lambda function, version, or alias.
      *   **Name formats**
@@ -58,29 +58,29 @@ export class Permission extends pulumi.CustomResource {
      *   
      *  You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
      */
-    public readonly functionName!: pulumi.Output<string>;
+    declare public readonly functionName: pulumi.Output<string>;
     /**
      * The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
      */
-    public readonly functionUrlAuthType!: pulumi.Output<enums.lambda.PermissionFunctionUrlAuthType | undefined>;
-    public readonly invokedViaFunctionUrl!: pulumi.Output<boolean | undefined>;
+    declare public readonly functionUrlAuthType: pulumi.Output<enums.lambda.PermissionFunctionUrlAuthType | undefined>;
+    declare public readonly invokedViaFunctionUrl: pulumi.Output<boolean | undefined>;
     /**
      * The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
      */
-    public readonly principal!: pulumi.Output<string>;
+    declare public readonly principal: pulumi.Output<string>;
     /**
      * The identifier for your organization in AOlong. Use this to grant permissions to all the AWS-accounts under this organization.
      */
-    public readonly principalOrgId!: pulumi.Output<string | undefined>;
+    declare public readonly principalOrgId: pulumi.Output<string | undefined>;
     /**
      * For AWS-service, the ID of the AWS-account that owns the resource. Use this together with ``SourceArn`` to ensure that the specified account owns the resource. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
      */
-    public readonly sourceAccount!: pulumi.Output<string | undefined>;
+    declare public readonly sourceAccount: pulumi.Output<string | undefined>;
     /**
      * For AWS-services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
      *  Note that Lambda configures the comparison using the ``StringLike`` operator.
      */
-    public readonly sourceArn!: pulumi.Output<string | undefined>;
+    declare public readonly sourceArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a Permission resource with the given unique name, arguments, and options.
@@ -93,24 +93,24 @@ export class Permission extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.functionName === undefined) && !opts.urn) {
+            if (args?.functionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["eventSourceToken"] = args ? args.eventSourceToken : undefined;
-            resourceInputs["functionName"] = args ? args.functionName : undefined;
-            resourceInputs["functionUrlAuthType"] = args ? args.functionUrlAuthType : undefined;
-            resourceInputs["invokedViaFunctionUrl"] = args ? args.invokedViaFunctionUrl : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["principalOrgId"] = args ? args.principalOrgId : undefined;
-            resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
-            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["eventSourceToken"] = args?.eventSourceToken;
+            resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["functionUrlAuthType"] = args?.functionUrlAuthType;
+            resourceInputs["invokedViaFunctionUrl"] = args?.invokedViaFunctionUrl;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["principalOrgId"] = args?.principalOrgId;
+            resourceInputs["sourceAccount"] = args?.sourceAccount;
+            resourceInputs["sourceArn"] = args?.sourceArn;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;

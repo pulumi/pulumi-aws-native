@@ -40,29 +40,29 @@ export class ParameterGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the parameter group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A description of the parameter group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the parameter group family that this parameter group is compatible with.
      */
-    public readonly family!: pulumi.Output<string>;
+    declare public readonly family: pulumi.Output<string>;
     /**
      * The name of the parameter group.
      */
-    public readonly parameterGroupName!: pulumi.Output<string>;
+    declare public readonly parameterGroupName: pulumi.Output<string>;
     /**
      * An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MemoryDB::ParameterGroup` for more information about the expected schema for this property.
      */
-    public readonly parameters!: pulumi.Output<any | undefined>;
+    declare public readonly parameters: pulumi.Output<any | undefined>;
     /**
      * An array of key-value pairs to apply to this parameter group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ParameterGroup resource with the given unique name, arguments, and options.
@@ -75,14 +75,14 @@ export class ParameterGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.family === undefined) && !opts.urn) {
+            if (args?.family === undefined && !opts.urn) {
                 throw new Error("Missing required property 'family'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["family"] = args ? args.family : undefined;
-            resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["family"] = args?.family;
+            resourceInputs["parameterGroupName"] = args?.parameterGroupName;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

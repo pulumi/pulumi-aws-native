@@ -96,55 +96,55 @@ export class Channel extends pulumi.CustomResource {
     /**
      * Channel ARN is automatically generated on creation and assigned as the unique identifier.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Whether the channel is authorized.
      */
-    public readonly authorized!: pulumi.Output<boolean | undefined>;
+    declare public readonly authorized: pulumi.Output<boolean | undefined>;
     /**
      * Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
      */
-    public readonly containerFormat!: pulumi.Output<enums.ivs.ChannelContainerFormat | undefined>;
+    declare public readonly containerFormat: pulumi.Output<enums.ivs.ChannelContainerFormat | undefined>;
     /**
      * Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
      */
-    public /*out*/ readonly ingestEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly ingestEndpoint: pulumi.Output<string>;
     /**
      * Whether the channel allows insecure ingest.
      */
-    public readonly insecureIngest!: pulumi.Output<boolean | undefined>;
+    declare public readonly insecureIngest: pulumi.Output<boolean | undefined>;
     /**
      * Channel latency mode.
      */
-    public readonly latencyMode!: pulumi.Output<enums.ivs.ChannelLatencyMode | undefined>;
+    declare public readonly latencyMode: pulumi.Output<enums.ivs.ChannelLatencyMode | undefined>;
     /**
      * Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
      */
-    public readonly multitrackInputConfiguration!: pulumi.Output<outputs.ivs.ChannelMultitrackInputConfiguration | undefined>;
+    declare public readonly multitrackInputConfiguration: pulumi.Output<outputs.ivs.ChannelMultitrackInputConfiguration | undefined>;
     /**
      * Channel
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Channel Playback URL.
      */
-    public /*out*/ readonly playbackUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly playbackUrl: pulumi.Output<string>;
     /**
      * Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
      */
-    public readonly preset!: pulumi.Output<enums.ivs.ChannelPreset | undefined>;
+    declare public readonly preset: pulumi.Output<enums.ivs.ChannelPreset | undefined>;
     /**
      * Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
      */
-    public readonly recordingConfigurationArn!: pulumi.Output<string | undefined>;
+    declare public readonly recordingConfigurationArn: pulumi.Output<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
      */
-    public readonly type!: pulumi.Output<enums.ivs.ChannelType | undefined>;
+    declare public readonly type: pulumi.Output<enums.ivs.ChannelType | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -157,16 +157,16 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["authorized"] = args ? args.authorized : undefined;
-            resourceInputs["containerFormat"] = args ? args.containerFormat : undefined;
-            resourceInputs["insecureIngest"] = args ? args.insecureIngest : undefined;
-            resourceInputs["latencyMode"] = args ? args.latencyMode : undefined;
-            resourceInputs["multitrackInputConfiguration"] = args ? args.multitrackInputConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["preset"] = args ? args.preset : undefined;
-            resourceInputs["recordingConfigurationArn"] = args ? args.recordingConfigurationArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["authorized"] = args?.authorized;
+            resourceInputs["containerFormat"] = args?.containerFormat;
+            resourceInputs["insecureIngest"] = args?.insecureIngest;
+            resourceInputs["latencyMode"] = args?.latencyMode;
+            resourceInputs["multitrackInputConfiguration"] = args?.multitrackInputConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["preset"] = args?.preset;
+            resourceInputs["recordingConfigurationArn"] = args?.recordingConfigurationArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ingestEndpoint"] = undefined /*out*/;
             resourceInputs["playbackUrl"] = undefined /*out*/;

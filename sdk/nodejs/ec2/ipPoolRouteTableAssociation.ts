@@ -37,15 +37,15 @@ export class IpPoolRouteTableAssociation extends pulumi.CustomResource {
     /**
      * The route table association ID.
      */
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly associationId: pulumi.Output<string>;
     /**
      * The ID of the public IPv4 pool.
      */
-    public readonly publicIpv4Pool!: pulumi.Output<string>;
+    declare public readonly publicIpv4Pool: pulumi.Output<string>;
     /**
      * The ID of the route table.
      */
-    public readonly routeTableId!: pulumi.Output<string>;
+    declare public readonly routeTableId: pulumi.Output<string>;
 
     /**
      * Create a IpPoolRouteTableAssociation resource with the given unique name, arguments, and options.
@@ -58,14 +58,14 @@ export class IpPoolRouteTableAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.publicIpv4Pool === undefined) && !opts.urn) {
+            if (args?.publicIpv4Pool === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publicIpv4Pool'");
             }
-            if ((!args || args.routeTableId === undefined) && !opts.urn) {
+            if (args?.routeTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            resourceInputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
-            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
+            resourceInputs["publicIpv4Pool"] = args?.publicIpv4Pool;
+            resourceInputs["routeTableId"] = args?.routeTableId;
             resourceInputs["associationId"] = undefined /*out*/;
         } else {
             resourceInputs["associationId"] = undefined /*out*/;

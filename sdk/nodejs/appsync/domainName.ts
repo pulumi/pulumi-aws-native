@@ -40,31 +40,31 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * The domain name provided by AWS AppSync .
      */
-    public /*out*/ readonly appSyncDomainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly appSyncDomainName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate.
      */
-    public readonly certificateArn!: pulumi.Output<string>;
+    declare public readonly certificateArn: pulumi.Output<string>;
     /**
      * The decription for your domain name.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The domain name.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the Domain Name.
      */
-    public /*out*/ readonly domainNameArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainNameArn: pulumi.Output<string>;
     /**
      * The ID of your Amazon Route 53 hosted zone.
      */
-    public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostedZoneId: pulumi.Output<string>;
     /**
      * A set of tags (key-value pairs) for this domain name.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -77,16 +77,16 @@ export class DomainName extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificateArn === undefined) && !opts.urn) {
+            if (args?.certificateArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateArn'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificateArn"] = args?.certificateArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["appSyncDomainName"] = undefined /*out*/;
             resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;

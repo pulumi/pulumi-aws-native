@@ -40,43 +40,43 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
     /**
      * The ARN of the pod identity association.
      */
-    public /*out*/ readonly associationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly associationArn: pulumi.Output<string>;
     /**
      * The ID of the pod identity association.
      */
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly associationId: pulumi.Output<string>;
     /**
      * The cluster that the pod identity association is created for.
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * The Disable Session Tags of the pod identity association.
      */
-    public readonly disableSessionTags!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableSessionTags: pulumi.Output<boolean | undefined>;
     /**
      * The External Id of the pod identity association.
      */
-    public /*out*/ readonly externalId!: pulumi.Output<string>;
+    declare public /*out*/ readonly externalId: pulumi.Output<string>;
     /**
      * The Kubernetes namespace that the pod identity association is created for.
      */
-    public readonly namespace!: pulumi.Output<string>;
+    declare public readonly namespace: pulumi.Output<string>;
     /**
      * The IAM role ARN that the pod identity association is created for.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The Kubernetes service account that the pod identity association is created for.
      */
-    public readonly serviceAccount!: pulumi.Output<string>;
+    declare public readonly serviceAccount: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Target Role Arn of the pod identity association.
      */
-    public readonly targetRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly targetRoleArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a PodIdentityAssociation resource with the given unique name, arguments, and options.
@@ -89,25 +89,25 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.namespace === undefined) && !opts.urn) {
+            if (args?.namespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.serviceAccount === undefined) && !opts.urn) {
+            if (args?.serviceAccount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccount'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["disableSessionTags"] = args ? args.disableSessionTags : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["serviceAccount"] = args ? args.serviceAccount : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetRoleArn"] = args ? args.targetRoleArn : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["disableSessionTags"] = args?.disableSessionTags;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["serviceAccount"] = args?.serviceAccount;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetRoleArn"] = args?.targetRoleArn;
             resourceInputs["associationArn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["externalId"] = undefined /*out*/;

@@ -40,39 +40,39 @@ export class WirelessGateway extends pulumi.CustomResource {
     /**
      * Arn for Wireless Gateway. Returned upon successful create.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Id for Wireless Gateway. Returned upon successful create.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Description of Wireless Gateway.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The date and time when the most recent uplink was received.
      */
-    public readonly lastUplinkReceivedAt!: pulumi.Output<string | undefined>;
+    declare public readonly lastUplinkReceivedAt: pulumi.Output<string | undefined>;
     /**
      * The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
      */
-    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.WirelessGatewayLoRaWanGateway>;
+    declare public readonly loRaWan: pulumi.Output<outputs.iotwireless.WirelessGatewayLoRaWanGateway>;
     /**
      * Name of Wireless Gateway.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
      */
-    public readonly thingArn!: pulumi.Output<string | undefined>;
+    declare public readonly thingArn: pulumi.Output<string | undefined>;
     /**
      * Thing Name. If there is a Thing created, this can be returned with a Get call.
      */
-    public readonly thingName!: pulumi.Output<string | undefined>;
+    declare public readonly thingName: pulumi.Output<string | undefined>;
 
     /**
      * Create a WirelessGateway resource with the given unique name, arguments, and options.
@@ -85,16 +85,16 @@ export class WirelessGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.loRaWan === undefined) && !opts.urn) {
+            if (args?.loRaWan === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loRaWan'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["lastUplinkReceivedAt"] = args ? args.lastUplinkReceivedAt : undefined;
-            resourceInputs["loRaWan"] = args ? args.loRaWan : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["thingArn"] = args ? args.thingArn : undefined;
-            resourceInputs["thingName"] = args ? args.thingName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["lastUplinkReceivedAt"] = args?.lastUplinkReceivedAt;
+            resourceInputs["loRaWan"] = args?.loRaWan;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["thingArn"] = args?.thingArn;
+            resourceInputs["thingName"] = args?.thingName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

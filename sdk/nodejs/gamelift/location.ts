@@ -40,15 +40,15 @@ export class Location extends pulumi.CustomResource {
     /**
      * A unique identifier for the custom location. For example, `arn:aws:gamelift:[region]::location/location-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912` .
      */
-    public /*out*/ readonly locationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationArn: pulumi.Output<string>;
     /**
      * A descriptive name for the custom location.
      */
-    public readonly locationName!: pulumi.Output<string>;
+    declare public readonly locationName: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Location resource with the given unique name, arguments, and options.
@@ -61,8 +61,8 @@ export class Location extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["locationName"] = args ? args.locationName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["locationName"] = args?.locationName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["locationArn"] = undefined /*out*/;
         } else {
             resourceInputs["locationArn"] = undefined /*out*/;

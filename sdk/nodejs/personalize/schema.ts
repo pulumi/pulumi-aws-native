@@ -66,19 +66,19 @@ export class Schema extends pulumi.CustomResource {
     /**
      * The domain of a Domain dataset group.
      */
-    public readonly domain!: pulumi.Output<enums.personalize.SchemaDomain | undefined>;
+    declare public readonly domain: pulumi.Output<enums.personalize.SchemaDomain | undefined>;
     /**
      * Name for the schema.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A schema in Avro JSON format.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Arn for the schema.
      */
-    public /*out*/ readonly schemaArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly schemaArn: pulumi.Output<string>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.
@@ -91,12 +91,12 @@ export class Schema extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schema"] = args?.schema;
             resourceInputs["schemaArn"] = undefined /*out*/;
         } else {
             resourceInputs["domain"] = undefined /*out*/;

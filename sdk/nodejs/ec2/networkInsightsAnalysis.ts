@@ -40,67 +40,67 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     /**
      * The member accounts that contain resources that the path can traverse.
      */
-    public readonly additionalAccounts!: pulumi.Output<string[] | undefined>;
+    declare public readonly additionalAccounts: pulumi.Output<string[] | undefined>;
     /**
      * Potential intermediate components.
      */
-    public /*out*/ readonly alternatePathHints!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisAlternatePathHint[]>;
+    declare public /*out*/ readonly alternatePathHints: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisAlternatePathHint[]>;
     /**
      * The explanations. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
      */
-    public /*out*/ readonly explanations!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisExplanation[]>;
+    declare public /*out*/ readonly explanations: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisExplanation[]>;
     /**
      * The Amazon Resource Names (ARN) of the resources that the path must traverse.
      */
-    public readonly filterInArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly filterInArns: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Names (ARN) of the resources that the path must ignore.
      */
-    public readonly filterOutArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly filterOutArns: pulumi.Output<string[] | undefined>;
     /**
      * The components in the path from source to destination.
      */
-    public /*out*/ readonly forwardPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisPathComponent[]>;
+    declare public /*out*/ readonly forwardPathComponents: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisPathComponent[]>;
     /**
      * The Amazon Resource Name (ARN) of the network insights analysis.
      */
-    public /*out*/ readonly networkInsightsAnalysisArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkInsightsAnalysisArn: pulumi.Output<string>;
     /**
      * The ID of the network insights analysis.
      */
-    public /*out*/ readonly networkInsightsAnalysisId!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkInsightsAnalysisId: pulumi.Output<string>;
     /**
      * The ID of the path.
      */
-    public readonly networkInsightsPathId!: pulumi.Output<string>;
+    declare public readonly networkInsightsPathId: pulumi.Output<string>;
     /**
      * Indicates whether the destination is reachable from the source.
      */
-    public /*out*/ readonly networkPathFound!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly networkPathFound: pulumi.Output<boolean>;
     /**
      * The components in the path from destination to source.
      */
-    public /*out*/ readonly returnPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisPathComponent[]>;
+    declare public /*out*/ readonly returnPathComponents: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisPathComponent[]>;
     /**
      * The time the analysis started.
      */
-    public /*out*/ readonly startDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly startDate: pulumi.Output<string>;
     /**
      * The status of the network insights analysis.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.ec2.NetworkInsightsAnalysisStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.ec2.NetworkInsightsAnalysisStatus>;
     /**
      * The status message, if the status is `failed` .
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
     /**
      * The IDs of potential intermediate accounts.
      */
-    public /*out*/ readonly suggestedAccounts!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly suggestedAccounts: pulumi.Output<string[]>;
     /**
      * The tags to apply.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a NetworkInsightsAnalysis resource with the given unique name, arguments, and options.
@@ -113,14 +113,14 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkInsightsPathId === undefined) && !opts.urn) {
+            if (args?.networkInsightsPathId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInsightsPathId'");
             }
-            resourceInputs["additionalAccounts"] = args ? args.additionalAccounts : undefined;
-            resourceInputs["filterInArns"] = args ? args.filterInArns : undefined;
-            resourceInputs["filterOutArns"] = args ? args.filterOutArns : undefined;
-            resourceInputs["networkInsightsPathId"] = args ? args.networkInsightsPathId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["additionalAccounts"] = args?.additionalAccounts;
+            resourceInputs["filterInArns"] = args?.filterInArns;
+            resourceInputs["filterOutArns"] = args?.filterOutArns;
+            resourceInputs["networkInsightsPathId"] = args?.networkInsightsPathId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["alternatePathHints"] = undefined /*out*/;
             resourceInputs["explanations"] = undefined /*out*/;
             resourceInputs["forwardPathComponents"] = undefined /*out*/;

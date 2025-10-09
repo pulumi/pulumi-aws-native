@@ -40,7 +40,7 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the web ACL.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies custom configurations for the associations between the web ACL and protected resources.
      *
@@ -50,25 +50,25 @@ export class WebAcl extends pulumi.CustomResource {
      *
      * For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
      */
-    public readonly associationConfig!: pulumi.Output<outputs.wafv2.WebAclAssociationConfig | undefined>;
+    declare public readonly associationConfig: pulumi.Output<outputs.wafv2.WebAclAssociationConfig | undefined>;
     /**
      * The ID of the web ACL.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The web ACL capacity units (WCUs) currently being used by this web ACL.
      *
      * AWS WAF uses WCUs to calculate and control the operating resources that are used to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently for each rule type, to reflect the relative cost of each rule. Simple rules that cost little to run use fewer WCUs than more complex rules that use more processing power. Rule group capacity is fixed at creation, which helps users plan their web ACL WCU usage when they use a rule group. The WCU limit for web ACLs is 1,500.
      */
-    public /*out*/ readonly capacity!: pulumi.Output<number>;
+    declare public /*out*/ readonly capacity: pulumi.Output<number>;
     /**
      * Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings. If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
      */
-    public readonly captchaConfig!: pulumi.Output<outputs.wafv2.WebAclCaptchaConfig | undefined>;
+    declare public readonly captchaConfig: pulumi.Output<outputs.wafv2.WebAclCaptchaConfig | undefined>;
     /**
      * Specifies how AWS WAF should handle challenge evaluations for rules that don't have their own `ChallengeConfig` settings. If you don't specify this, AWS WAF uses its default settings for `ChallengeConfig` .
      */
-    public readonly challengeConfig!: pulumi.Output<outputs.wafv2.WebAclChallengeConfig | undefined>;
+    declare public readonly challengeConfig: pulumi.Output<outputs.wafv2.WebAclChallengeConfig | undefined>;
     /**
      * A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL.
      *
@@ -76,19 +76,19 @@ export class WebAcl extends pulumi.CustomResource {
      *
      * For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
      */
-    public readonly customResponseBodies!: pulumi.Output<{[key: string]: outputs.wafv2.WebAclCustomResponseBody} | undefined>;
+    declare public readonly customResponseBodies: pulumi.Output<{[key: string]: outputs.wafv2.WebAclCustomResponseBody} | undefined>;
     /**
      * Collection of dataProtects.
      */
-    public readonly dataProtectionConfig!: pulumi.Output<outputs.wafv2.WebAclDataProtectionConfig | undefined>;
+    declare public readonly dataProtectionConfig: pulumi.Output<outputs.wafv2.WebAclDataProtectionConfig | undefined>;
     /**
      * The action to perform if none of the `Rules` contained in the `WebACL` match.
      */
-    public readonly defaultAction!: pulumi.Output<outputs.wafv2.WebAclDefaultAction>;
+    declare public readonly defaultAction: pulumi.Output<outputs.wafv2.WebAclDefaultAction>;
     /**
      * A description of the web ACL that helps with identification.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The label namespace prefix for this web ACL. All labels added by rules in this web ACL have this prefix.
      *
@@ -96,19 +96,19 @@ export class WebAcl extends pulumi.CustomResource {
      *
      * When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
      */
-    public /*out*/ readonly labelNamespace!: pulumi.Output<string>;
+    declare public /*out*/ readonly labelNamespace: pulumi.Output<string>;
     /**
      * The name of the web ACL. You cannot change the name of a web ACL after you create it.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
      */
-    public readonly onSourceDDoSProtectionConfig!: pulumi.Output<outputs.wafv2.WebAclOnSourceDDoSProtectionConfig | undefined>;
+    declare public readonly onSourceDDoSProtectionConfig: pulumi.Output<outputs.wafv2.WebAclOnSourceDDoSProtectionConfig | undefined>;
     /**
      * Collection of Rules.
      */
-    public readonly rules!: pulumi.Output<outputs.wafv2.WebAclRule[] | undefined>;
+    declare public readonly rules: pulumi.Output<outputs.wafv2.WebAclRule[] | undefined>;
     /**
      * Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
      *
@@ -116,21 +116,21 @@ export class WebAcl extends pulumi.CustomResource {
      *
      * For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
      */
-    public readonly scope!: pulumi.Output<enums.wafv2.WebAclScope>;
+    declare public readonly scope: pulumi.Output<enums.wafv2.WebAclScope>;
     /**
      * Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
      *
      * > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
      */
-    public readonly tokenDomains!: pulumi.Output<string[] | undefined>;
+    declare public readonly tokenDomains: pulumi.Output<string[] | undefined>;
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection.
      */
-    public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.WebAclVisibilityConfig>;
+    declare public readonly visibilityConfig: pulumi.Output<outputs.wafv2.WebAclVisibilityConfig>;
 
     /**
      * Create a WebAcl resource with the given unique name, arguments, and options.
@@ -143,29 +143,29 @@ export class WebAcl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultAction === undefined) && !opts.urn) {
+            if (args?.defaultAction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
+            if (args?.visibilityConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
-            resourceInputs["associationConfig"] = args ? args.associationConfig : undefined;
-            resourceInputs["captchaConfig"] = args ? args.captchaConfig : undefined;
-            resourceInputs["challengeConfig"] = args ? args.challengeConfig : undefined;
-            resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
-            resourceInputs["dataProtectionConfig"] = args ? args.dataProtectionConfig : undefined;
-            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["onSourceDDoSProtectionConfig"] = args ? args.onSourceDDoSProtectionConfig : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tokenDomains"] = args ? args.tokenDomains : undefined;
-            resourceInputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
+            resourceInputs["associationConfig"] = args?.associationConfig;
+            resourceInputs["captchaConfig"] = args?.captchaConfig;
+            resourceInputs["challengeConfig"] = args?.challengeConfig;
+            resourceInputs["customResponseBodies"] = args?.customResponseBodies;
+            resourceInputs["dataProtectionConfig"] = args?.dataProtectionConfig;
+            resourceInputs["defaultAction"] = args?.defaultAction;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["onSourceDDoSProtectionConfig"] = args?.onSourceDDoSProtectionConfig;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tokenDomains"] = args?.tokenDomains;
+            resourceInputs["visibilityConfig"] = args?.visibilityConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["capacity"] = undefined /*out*/;

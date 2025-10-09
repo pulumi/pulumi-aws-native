@@ -55,23 +55,23 @@ export class CustomMetric extends pulumi.CustomResource {
     /**
      * Field represents a friendly name in the console for the custom metric; it doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated once defined.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Number (ARN) of the custom metric.
      */
-    public /*out*/ readonly metricArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly metricArn: pulumi.Output<string>;
     /**
      * The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
      */
-    public readonly metricName!: pulumi.Output<string | undefined>;
+    declare public readonly metricName: pulumi.Output<string | undefined>;
     /**
      * The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
      */
-    public readonly metricType!: pulumi.Output<enums.iot.CustomMetricMetricType>;
+    declare public readonly metricType: pulumi.Output<enums.iot.CustomMetricMetricType>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CustomMetric resource with the given unique name, arguments, and options.
@@ -84,13 +84,13 @@ export class CustomMetric extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.metricType === undefined) && !opts.urn) {
+            if (args?.metricType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricType'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["metricName"] = args ? args.metricName : undefined;
-            resourceInputs["metricType"] = args ? args.metricType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["metricName"] = args?.metricName;
+            resourceInputs["metricType"] = args?.metricType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["metricArn"] = undefined /*out*/;
         } else {
             resourceInputs["displayName"] = undefined /*out*/;

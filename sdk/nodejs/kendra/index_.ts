@@ -40,43 +40,43 @@ export class Index extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the index. For example: `arn:aws:kendra:us-west-2:111122223333:index/0123456789abcdef` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Capacity units
      */
-    public readonly capacityUnits!: pulumi.Output<outputs.kendra.IndexCapacityUnitsConfiguration | undefined>;
+    declare public readonly capacityUnits: pulumi.Output<outputs.kendra.IndexCapacityUnitsConfiguration | undefined>;
     /**
      * A description for the index
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Document metadata configurations
      */
-    public readonly documentMetadataConfigurations!: pulumi.Output<outputs.kendra.IndexDocumentMetadataConfiguration[] | undefined>;
+    declare public readonly documentMetadataConfigurations: pulumi.Output<outputs.kendra.IndexDocumentMetadataConfiguration[] | undefined>;
     /**
      * Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
      */
-    public readonly edition!: pulumi.Output<enums.kendra.IndexEdition>;
+    declare public readonly edition: pulumi.Output<enums.kendra.IndexEdition>;
     /**
      * The name of the index.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Server side encryption configuration
      */
-    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.kendra.IndexServerSideEncryptionConfiguration | undefined>;
+    declare public readonly serverSideEncryptionConfiguration: pulumi.Output<outputs.kendra.IndexServerSideEncryptionConfiguration | undefined>;
     /**
      * Tags for labeling the index
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The user context policy.
      *
@@ -88,11 +88,11 @@ export class Index extends pulumi.CustomResource {
      *
      * - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
      */
-    public readonly userContextPolicy!: pulumi.Output<enums.kendra.IndexUserContextPolicy | undefined>;
+    declare public readonly userContextPolicy: pulumi.Output<enums.kendra.IndexUserContextPolicy | undefined>;
     /**
      * Defines the type of user token used for the index.
      */
-    public readonly userTokenConfigurations!: pulumi.Output<outputs.kendra.IndexUserTokenConfiguration[] | undefined>;
+    declare public readonly userTokenConfigurations: pulumi.Output<outputs.kendra.IndexUserTokenConfiguration[] | undefined>;
 
     /**
      * Create a Index resource with the given unique name, arguments, and options.
@@ -105,22 +105,22 @@ export class Index extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.edition === undefined) && !opts.urn) {
+            if (args?.edition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'edition'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["capacityUnits"] = args ? args.capacityUnits : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["documentMetadataConfigurations"] = args ? args.documentMetadataConfigurations : undefined;
-            resourceInputs["edition"] = args ? args.edition : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userContextPolicy"] = args ? args.userContextPolicy : undefined;
-            resourceInputs["userTokenConfigurations"] = args ? args.userTokenConfigurations : undefined;
+            resourceInputs["capacityUnits"] = args?.capacityUnits;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["documentMetadataConfigurations"] = args?.documentMetadataConfigurations;
+            resourceInputs["edition"] = args?.edition;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["serverSideEncryptionConfiguration"] = args?.serverSideEncryptionConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userContextPolicy"] = args?.userContextPolicy;
+            resourceInputs["userTokenConfigurations"] = args?.userTokenConfigurations;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

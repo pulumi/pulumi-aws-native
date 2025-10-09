@@ -40,31 +40,31 @@ export class SourceLocation extends pulumi.CustomResource {
     /**
      * The access configuration for the source location.
      */
-    public readonly accessConfiguration!: pulumi.Output<outputs.mediatailor.SourceLocationAccessConfiguration | undefined>;
+    declare public readonly accessConfiguration: pulumi.Output<outputs.mediatailor.SourceLocationAccessConfiguration | undefined>;
     /**
      * <p>The ARN of the source location.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The default segment delivery configuration.
      */
-    public readonly defaultSegmentDeliveryConfiguration!: pulumi.Output<outputs.mediatailor.SourceLocationDefaultSegmentDeliveryConfiguration | undefined>;
+    declare public readonly defaultSegmentDeliveryConfiguration: pulumi.Output<outputs.mediatailor.SourceLocationDefaultSegmentDeliveryConfiguration | undefined>;
     /**
      * The HTTP configuration for the source location.
      */
-    public readonly httpConfiguration!: pulumi.Output<outputs.mediatailor.SourceLocationHttpConfiguration>;
+    declare public readonly httpConfiguration: pulumi.Output<outputs.mediatailor.SourceLocationHttpConfiguration>;
     /**
      * <p>A list of the segment delivery configurations associated with this resource.</p>
      */
-    public readonly segmentDeliveryConfigurations!: pulumi.Output<outputs.mediatailor.SourceLocationSegmentDeliveryConfiguration[] | undefined>;
+    declare public readonly segmentDeliveryConfigurations: pulumi.Output<outputs.mediatailor.SourceLocationSegmentDeliveryConfiguration[] | undefined>;
     /**
      * The name of the source location.
      */
-    public readonly sourceLocationName!: pulumi.Output<string>;
+    declare public readonly sourceLocationName: pulumi.Output<string>;
     /**
      * The tags to assign to the source location.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SourceLocation resource with the given unique name, arguments, and options.
@@ -77,15 +77,15 @@ export class SourceLocation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.httpConfiguration === undefined) && !opts.urn) {
+            if (args?.httpConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'httpConfiguration'");
             }
-            resourceInputs["accessConfiguration"] = args ? args.accessConfiguration : undefined;
-            resourceInputs["defaultSegmentDeliveryConfiguration"] = args ? args.defaultSegmentDeliveryConfiguration : undefined;
-            resourceInputs["httpConfiguration"] = args ? args.httpConfiguration : undefined;
-            resourceInputs["segmentDeliveryConfigurations"] = args ? args.segmentDeliveryConfigurations : undefined;
-            resourceInputs["sourceLocationName"] = args ? args.sourceLocationName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessConfiguration"] = args?.accessConfiguration;
+            resourceInputs["defaultSegmentDeliveryConfiguration"] = args?.defaultSegmentDeliveryConfiguration;
+            resourceInputs["httpConfiguration"] = args?.httpConfiguration;
+            resourceInputs["segmentDeliveryConfigurations"] = args?.segmentDeliveryConfigurations;
+            resourceInputs["sourceLocationName"] = args?.sourceLocationName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["accessConfiguration"] = undefined /*out*/;

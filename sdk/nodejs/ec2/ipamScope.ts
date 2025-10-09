@@ -40,39 +40,39 @@ export class IpamScope extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the IPAM scope.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The description of the scope.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IPAM this scope is a part of.
      */
-    public /*out*/ readonly ipamArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamArn: pulumi.Output<string>;
     /**
      * The Id of the IPAM this scope is a part of.
      */
-    public readonly ipamId!: pulumi.Output<string>;
+    declare public readonly ipamId: pulumi.Output<string>;
     /**
      * Id of the IPAM scope.
      */
-    public /*out*/ readonly ipamScopeId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamScopeId: pulumi.Output<string>;
     /**
      * Determines whether this scope contains publicly routable space or space for a private network
      */
-    public /*out*/ readonly ipamScopeType!: pulumi.Output<enums.ec2.IpamScopeType>;
+    declare public /*out*/ readonly ipamScopeType: pulumi.Output<enums.ec2.IpamScopeType>;
     /**
      * Is this one of the default scopes created with the IPAM.
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
      * The number of pools that currently exist in this scope.
      */
-    public /*out*/ readonly poolCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly poolCount: pulumi.Output<number>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a IpamScope resource with the given unique name, arguments, and options.
@@ -85,12 +85,12 @@ export class IpamScope extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ipamId === undefined) && !opts.urn) {
+            if (args?.ipamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipamId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ipamId"] = args ? args.ipamId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ipamId"] = args?.ipamId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ipamArn"] = undefined /*out*/;
             resourceInputs["ipamScopeId"] = undefined /*out*/;

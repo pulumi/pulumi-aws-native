@@ -40,67 +40,67 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the container recipe.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Components for build and test that are included in the container recipe.
      */
-    public readonly components!: pulumi.Output<outputs.imagebuilder.ContainerRecipeComponentConfiguration[] | undefined>;
+    declare public readonly components: pulumi.Output<outputs.imagebuilder.ContainerRecipeComponentConfiguration[] | undefined>;
     /**
      * Specifies the type of container, such as Docker.
      */
-    public readonly containerType!: pulumi.Output<enums.imagebuilder.ContainerRecipeContainerType | undefined>;
+    declare public readonly containerType: pulumi.Output<enums.imagebuilder.ContainerRecipeContainerType | undefined>;
     /**
      * The description of the container recipe.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
      */
-    public readonly dockerfileTemplateData!: pulumi.Output<string | undefined>;
+    declare public readonly dockerfileTemplateData: pulumi.Output<string | undefined>;
     /**
      * The S3 URI for the Dockerfile that will be used to build your container image.
      */
-    public readonly dockerfileTemplateUri!: pulumi.Output<string | undefined>;
+    declare public readonly dockerfileTemplateUri: pulumi.Output<string | undefined>;
     /**
      * Specifies the operating system version for the source image.
      */
-    public readonly imageOsVersionOverride!: pulumi.Output<string | undefined>;
+    declare public readonly imageOsVersionOverride: pulumi.Output<string | undefined>;
     /**
      * A group of options that can be used to configure an instance for building and testing container images.
      */
-    public readonly instanceConfiguration!: pulumi.Output<outputs.imagebuilder.ContainerRecipeInstanceConfiguration | undefined>;
+    declare public readonly instanceConfiguration: pulumi.Output<outputs.imagebuilder.ContainerRecipeInstanceConfiguration | undefined>;
     /**
      * Identifies which KMS key is used to encrypt the container image.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The name of the container recipe.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The source image for the container recipe.
      */
-    public readonly parentImage!: pulumi.Output<string | undefined>;
+    declare public readonly parentImage: pulumi.Output<string | undefined>;
     /**
      * Specifies the operating system platform when you use a custom source image.
      */
-    public readonly platformOverride!: pulumi.Output<enums.imagebuilder.ContainerRecipePlatformOverride | undefined>;
+    declare public readonly platformOverride: pulumi.Output<enums.imagebuilder.ContainerRecipePlatformOverride | undefined>;
     /**
      * Tags that are attached to the container recipe.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The destination repository for the container image.
      */
-    public readonly targetRepository!: pulumi.Output<outputs.imagebuilder.ContainerRecipeTargetContainerRepository | undefined>;
+    declare public readonly targetRepository: pulumi.Output<outputs.imagebuilder.ContainerRecipeTargetContainerRepository | undefined>;
     /**
      * The semantic version of the container recipe (<major>.<minor>.<patch>).
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
     /**
      * The working directory to be used during build and test workflows.
      */
-    public readonly workingDirectory!: pulumi.Output<string | undefined>;
+    declare public readonly workingDirectory: pulumi.Output<string | undefined>;
 
     /**
      * Create a ContainerRecipe resource with the given unique name, arguments, and options.
@@ -113,21 +113,21 @@ export class ContainerRecipe extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["components"] = args ? args.components : undefined;
-            resourceInputs["containerType"] = args ? args.containerType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dockerfileTemplateData"] = args ? args.dockerfileTemplateData : undefined;
-            resourceInputs["dockerfileTemplateUri"] = args ? args.dockerfileTemplateUri : undefined;
-            resourceInputs["imageOsVersionOverride"] = args ? args.imageOsVersionOverride : undefined;
-            resourceInputs["instanceConfiguration"] = args ? args.instanceConfiguration : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentImage"] = args ? args.parentImage : undefined;
-            resourceInputs["platformOverride"] = args ? args.platformOverride : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetRepository"] = args ? args.targetRepository : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["workingDirectory"] = args ? args.workingDirectory : undefined;
+            resourceInputs["components"] = args?.components;
+            resourceInputs["containerType"] = args?.containerType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dockerfileTemplateData"] = args?.dockerfileTemplateData;
+            resourceInputs["dockerfileTemplateUri"] = args?.dockerfileTemplateUri;
+            resourceInputs["imageOsVersionOverride"] = args?.imageOsVersionOverride;
+            resourceInputs["instanceConfiguration"] = args?.instanceConfiguration;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentImage"] = args?.parentImage;
+            resourceInputs["platformOverride"] = args?.platformOverride;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetRepository"] = args?.targetRepository;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["workingDirectory"] = args?.workingDirectory;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

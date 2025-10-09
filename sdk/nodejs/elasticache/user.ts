@@ -40,11 +40,11 @@ export class User extends pulumi.CustomResource {
     /**
      * Access permissions string used for this user account.
      */
-    public readonly accessString!: pulumi.Output<string | undefined>;
+    declare public readonly accessString: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the user account.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies the authentication mode to use. Below is an example of the possible JSON values:
      *
@@ -53,35 +53,35 @@ export class User extends pulumi.CustomResource {
      * }
      * ```
      */
-    public readonly authenticationMode!: pulumi.Output<outputs.elasticache.AuthenticationModeProperties | undefined>;
+    declare public readonly authenticationMode: pulumi.Output<outputs.elasticache.AuthenticationModeProperties | undefined>;
     /**
      * The target cache engine for the user.
      */
-    public readonly engine!: pulumi.Output<enums.elasticache.UserEngine>;
+    declare public readonly engine: pulumi.Output<enums.elasticache.UserEngine>;
     /**
      * Indicates a password is not required for this user account.
      */
-    public readonly noPasswordRequired!: pulumi.Output<boolean | undefined>;
+    declare public readonly noPasswordRequired: pulumi.Output<boolean | undefined>;
     /**
      * Passwords used for this user account. You can create up to two passwords for each user.
      */
-    public readonly passwords!: pulumi.Output<string[] | undefined>;
+    declare public readonly passwords: pulumi.Output<string[] | undefined>;
     /**
      * Indicates the user status. Can be "active", "modifying" or "deleting".
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this user.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the user.
      */
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly userId: pulumi.Output<string>;
     /**
      * The username of the user.
      */
-    public readonly userName!: pulumi.Output<string>;
+    declare public readonly userName: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -94,20 +94,20 @@ export class User extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engine === undefined) && !opts.urn) {
+            if (args?.engine === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
-            if ((!args || args.userId === undefined) && !opts.urn) {
+            if (args?.userId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["accessString"] = args ? args.accessString : undefined;
-            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["noPasswordRequired"] = args ? args.noPasswordRequired : undefined;
-            resourceInputs["passwords"] = args ? args.passwords : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["accessString"] = args?.accessString;
+            resourceInputs["authenticationMode"] = args?.authenticationMode;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["noPasswordRequired"] = args?.noPasswordRequired;
+            resourceInputs["passwords"] = args?.passwords;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userId"] = args?.userId;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

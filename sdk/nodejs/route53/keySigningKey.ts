@@ -40,19 +40,19 @@ export class KeySigningKey extends pulumi.CustomResource {
     /**
      * The unique string (ID) used to identify a hosted zone.
      */
-    public readonly hostedZoneId!: pulumi.Output<string>;
+    declare public readonly hostedZoneId: pulumi.Output<string>;
     /**
      * The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management Service (KMS). The KeyManagementServiceArn must be unique for each key signing key (KSK) in a single hosted zone.
      */
-    public readonly keyManagementServiceArn!: pulumi.Output<string>;
+    declare public readonly keyManagementServiceArn: pulumi.Output<string>;
     /**
      * An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
      */
-    public readonly status!: pulumi.Output<enums.route53.KeySigningKeyStatus>;
+    declare public readonly status: pulumi.Output<enums.route53.KeySigningKeyStatus>;
 
     /**
      * Create a KeySigningKey resource with the given unique name, arguments, and options.
@@ -65,19 +65,19 @@ export class KeySigningKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hostedZoneId === undefined) && !opts.urn) {
+            if (args?.hostedZoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostedZoneId'");
             }
-            if ((!args || args.keyManagementServiceArn === undefined) && !opts.urn) {
+            if (args?.keyManagementServiceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyManagementServiceArn'");
             }
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
-            resourceInputs["keyManagementServiceArn"] = args ? args.keyManagementServiceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["hostedZoneId"] = args?.hostedZoneId;
+            resourceInputs["keyManagementServiceArn"] = args?.keyManagementServiceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["status"] = args?.status;
         } else {
             resourceInputs["hostedZoneId"] = undefined /*out*/;
             resourceInputs["keyManagementServiceArn"] = undefined /*out*/;

@@ -40,31 +40,31 @@ export class VpcOrigin extends pulumi.CustomResource {
     /**
      * The VPC origin ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The VPC origin ID.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The VPC origin created time.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The VPC origin last modified time.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * The VPC origin status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * A complex type that contains zero or more ``Tag`` elements.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The VPC origin endpoint configuration.
      */
-    public readonly vpcOriginEndpointConfig!: pulumi.Output<outputs.cloudfront.VpcOriginEndpointConfig>;
+    declare public readonly vpcOriginEndpointConfig: pulumi.Output<outputs.cloudfront.VpcOriginEndpointConfig>;
 
     /**
      * Create a VpcOrigin resource with the given unique name, arguments, and options.
@@ -77,11 +77,11 @@ export class VpcOrigin extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.vpcOriginEndpointConfig === undefined) && !opts.urn) {
+            if (args?.vpcOriginEndpointConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcOriginEndpointConfig'");
             }
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcOriginEndpointConfig"] = args ? args.vpcOriginEndpointConfig : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcOriginEndpointConfig"] = args?.vpcOriginEndpointConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;

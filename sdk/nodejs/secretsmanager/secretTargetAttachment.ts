@@ -34,15 +34,15 @@ export class SecretTargetAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecretTargetAttachment.__pulumiType;
     }
 
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The ARN or name of the secret. To reference a secret also created in this template, use the see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID. This field is unique for each target attachment definition.
      */
-    public readonly secretId!: pulumi.Output<string>;
+    declare public readonly secretId: pulumi.Output<string>;
     /**
      * The ID of the database or cluster.
      */
-    public readonly targetId!: pulumi.Output<string>;
+    declare public readonly targetId: pulumi.Output<string>;
     /**
      * A string that defines the type of service or database associated with the secret. This value instructs Secrets Manager how to update the secret with the details of the service or database. This value must be one of the following:
      *
@@ -54,7 +54,7 @@ export class SecretTargetAttachment extends pulumi.CustomResource {
      * - AWS::DocDB::DBCluster
      * - AWS::DocDBElastic::Cluster
      */
-    public readonly targetType!: pulumi.Output<string>;
+    declare public readonly targetType: pulumi.Output<string>;
 
     /**
      * Create a SecretTargetAttachment resource with the given unique name, arguments, and options.
@@ -67,18 +67,18 @@ export class SecretTargetAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.secretId === undefined) && !opts.urn) {
+            if (args?.secretId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
-            if ((!args || args.targetId === undefined) && !opts.urn) {
+            if (args?.targetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
-            if ((!args || args.targetType === undefined) && !opts.urn) {
+            if (args?.targetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            resourceInputs["secretId"] = args ? args.secretId : undefined;
-            resourceInputs["targetId"] = args ? args.targetId : undefined;
-            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["secretId"] = args?.secretId;
+            resourceInputs["targetId"] = args?.targetId;
+            resourceInputs["targetType"] = args?.targetType;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

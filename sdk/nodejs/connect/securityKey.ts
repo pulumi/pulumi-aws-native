@@ -51,7 +51,7 @@ export class SecurityKey extends pulumi.CustomResource {
     /**
      * An `AssociationId` is automatically generated when a storage config is associated with an instance.
      */
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly associationId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the instance.
      *
@@ -59,7 +59,7 @@ export class SecurityKey extends pulumi.CustomResource {
      *
      * *Maximum* : `100`
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    declare public readonly instanceId: pulumi.Output<string>;
     /**
      * A valid security key in PEM format. For example:
      *
@@ -69,7 +69,7 @@ export class SecurityKey extends pulumi.CustomResource {
      *
      * *Maximum* : `1024`
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
 
     /**
      * Create a SecurityKey resource with the given unique name, arguments, and options.
@@ -82,14 +82,14 @@ export class SecurityKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["key"] = args?.key;
             resourceInputs["associationId"] = undefined /*out*/;
         } else {
             resourceInputs["associationId"] = undefined /*out*/;

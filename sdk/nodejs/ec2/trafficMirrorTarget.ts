@@ -37,27 +37,27 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrafficMirrorTarget.__pulumiType;
     }
 
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The description of the Traffic Mirror target.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the Gateway Load Balancer endpoint.
      */
-    public readonly gatewayLoadBalancerEndpointId!: pulumi.Output<string | undefined>;
+    declare public readonly gatewayLoadBalancerEndpointId: pulumi.Output<string | undefined>;
     /**
      * The network interface ID that is associated with the target.
      */
-    public readonly networkInterfaceId!: pulumi.Output<string | undefined>;
+    declare public readonly networkInterfaceId: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
      */
-    public readonly networkLoadBalancerArn!: pulumi.Output<string | undefined>;
+    declare public readonly networkLoadBalancerArn: pulumi.Output<string | undefined>;
     /**
      *  The tags to assign to the Traffic Mirror target.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a TrafficMirrorTarget resource with the given unique name, arguments, and options.
@@ -70,11 +70,11 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["gatewayLoadBalancerEndpointId"] = args ? args.gatewayLoadBalancerEndpointId : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            resourceInputs["networkLoadBalancerArn"] = args ? args.networkLoadBalancerArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["gatewayLoadBalancerEndpointId"] = args?.gatewayLoadBalancerEndpointId;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
+            resourceInputs["networkLoadBalancerArn"] = args?.networkLoadBalancerArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

@@ -40,41 +40,41 @@ export class Policy extends pulumi.CustomResource {
     /**
      * ARN of the Policy
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Id of the Policy
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A boolean value that indicates whether the specified policy is an AWS managed policy. If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it.
      */
-    public /*out*/ readonly awsManaged!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly awsManaged: pulumi.Output<boolean>;
     /**
      * The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::Policy` for more information about the expected schema for this property.
      */
-    public readonly content!: pulumi.Output<any>;
+    declare public readonly content: pulumi.Output<any>;
     /**
      * Human readable description of the policy
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the Policy
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to
      */
-    public readonly targetIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly targetIds: pulumi.Output<string[] | undefined>;
     /**
      * The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2, SECURITYHUB_POLICY
      */
-    public readonly type!: pulumi.Output<enums.organizations.PolicyType>;
+    declare public readonly type: pulumi.Output<enums.organizations.PolicyType>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -87,18 +87,18 @@ export class Policy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetIds"] = args ? args.targetIds : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetIds"] = args?.targetIds;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["awsManaged"] = undefined /*out*/;

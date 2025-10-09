@@ -40,19 +40,19 @@ export class VolumeAssociation extends pulumi.CustomResource {
     /**
      * The device name for the volume attachment
      */
-    public readonly device!: pulumi.Output<string>;
+    declare public readonly device: pulumi.Output<string>;
     /**
      * Mode to use when disassociating the volume
      */
-    public readonly disassociateMode!: pulumi.Output<enums.workspacesinstances.VolumeAssociationDisassociateMode | undefined>;
+    declare public readonly disassociateMode: pulumi.Output<enums.workspacesinstances.VolumeAssociationDisassociateMode | undefined>;
     /**
      * ID of the volume to attach to the workspace instance
      */
-    public readonly volumeId!: pulumi.Output<string>;
+    declare public readonly volumeId: pulumi.Output<string>;
     /**
      * ID of the workspace instance to associate with the volume
      */
-    public readonly workspaceInstanceId!: pulumi.Output<string>;
+    declare public readonly workspaceInstanceId: pulumi.Output<string>;
 
     /**
      * Create a VolumeAssociation resource with the given unique name, arguments, and options.
@@ -65,19 +65,19 @@ export class VolumeAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.device === undefined) && !opts.urn) {
+            if (args?.device === undefined && !opts.urn) {
                 throw new Error("Missing required property 'device'");
             }
-            if ((!args || args.volumeId === undefined) && !opts.urn) {
+            if (args?.volumeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeId'");
             }
-            if ((!args || args.workspaceInstanceId === undefined) && !opts.urn) {
+            if (args?.workspaceInstanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceInstanceId'");
             }
-            resourceInputs["device"] = args ? args.device : undefined;
-            resourceInputs["disassociateMode"] = args ? args.disassociateMode : undefined;
-            resourceInputs["volumeId"] = args ? args.volumeId : undefined;
-            resourceInputs["workspaceInstanceId"] = args ? args.workspaceInstanceId : undefined;
+            resourceInputs["device"] = args?.device;
+            resourceInputs["disassociateMode"] = args?.disassociateMode;
+            resourceInputs["volumeId"] = args?.volumeId;
+            resourceInputs["workspaceInstanceId"] = args?.workspaceInstanceId;
         } else {
             resourceInputs["device"] = undefined /*out*/;
             resourceInputs["disassociateMode"] = undefined /*out*/;

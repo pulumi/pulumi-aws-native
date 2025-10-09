@@ -40,23 +40,23 @@ export class SignalingChannel extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Kinesis Video Signaling Channel.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The period of time a signaling channel retains undelivered messages before they are discarded.
      */
-    public readonly messageTtlSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly messageTtlSeconds: pulumi.Output<number | undefined>;
     /**
      * The name of the Kinesis Video Signaling Channel.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type.
      */
-    public readonly type!: pulumi.Output<enums.kinesisvideo.SignalingChannelType | undefined>;
+    declare public readonly type: pulumi.Output<enums.kinesisvideo.SignalingChannelType | undefined>;
 
     /**
      * Create a SignalingChannel resource with the given unique name, arguments, and options.
@@ -69,10 +69,10 @@ export class SignalingChannel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["messageTtlSeconds"] = args ? args.messageTtlSeconds : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["messageTtlSeconds"] = args?.messageTtlSeconds;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

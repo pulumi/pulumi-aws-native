@@ -232,11 +232,11 @@ export class Server extends pulumi.CustomResource {
     /**
      * Specifies the unique Amazon Resource Name (ARN) of the server.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The list of egress IP addresses of this server. These IP addresses are only relevant for servers that use the AS2 protocol. They are used for sending asynchronous MDNs. These IP addresses are assigned automatically when you create an AS2 server. Additionally, if you update an existing server and add the AS2 protocol, static IP addresses are assigned as well.
      */
-    public /*out*/ readonly as2ServiceManagedEgressIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly as2ServiceManagedEgressIpAddresses: pulumi.Output<string[]>;
     /**
      * The Amazon Resource Name (ARN) of the Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS` .
      *
@@ -256,15 +256,15 @@ export class Server extends pulumi.CustomResource {
      *
      * > The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP address specified and information about the issuer.
      */
-    public readonly certificate!: pulumi.Output<string | undefined>;
+    declare public readonly certificate: pulumi.Output<string | undefined>;
     /**
      * Specifies the domain of the storage system that is used for file transfers. There are two domains available: Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS). The default value is S3.
      */
-    public readonly domain!: pulumi.Output<enums.transfer.ServerDomain | undefined>;
+    declare public readonly domain: pulumi.Output<enums.transfer.ServerDomain | undefined>;
     /**
      * The virtual private cloud (VPC) endpoint settings that are configured for your server. When you host your endpoint within your VPC, you can make your endpoint accessible only to resources within your VPC, or you can attach Elastic IP addresses and make your endpoint accessible to clients over the internet. Your VPC's default security groups are automatically assigned to your endpoint.
      */
-    public readonly endpointDetails!: pulumi.Output<outputs.transfer.ServerEndpointDetails | undefined>;
+    declare public readonly endpointDetails: pulumi.Output<outputs.transfer.ServerEndpointDetails | undefined>;
     /**
      * The type of endpoint that you want your server to use. You can choose to make your server's endpoint publicly accessible (PUBLIC) or host it inside your VPC. With an endpoint that is hosted in a VPC, you can restrict access to your server and resources only within your VPC or choose to make it internet facing by attaching Elastic IP addresses directly to it.
      *
@@ -274,11 +274,11 @@ export class Server extends pulumi.CustomResource {
      * > 
      * > It is recommended that you use `VPC` as the `EndpointType` . With this endpoint type, you have the option to directly associate up to three Elastic IPv4 addresses (BYO IP included) with your server's endpoint and use VPC security groups to restrict traffic by the client's public IP address. This is not possible with `EndpointType` set to `VPC_ENDPOINT` .
      */
-    public readonly endpointType!: pulumi.Output<enums.transfer.ServerEndpointType | undefined>;
+    declare public readonly endpointType: pulumi.Output<enums.transfer.ServerEndpointType | undefined>;
     /**
      * Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` , `AWS _LAMBDA` or `API_GATEWAY` . Accepts an array containing all of the information required to use a directory in `AWS_DIRECTORY_SERVICE` or invoke a customer-supplied authentication API, including the API Gateway URL. Cannot be specified when `IdentityProviderType` is set to `SERVICE_MANAGED` .
      */
-    public readonly identityProviderDetails!: pulumi.Output<outputs.transfer.ServerIdentityProviderDetails | undefined>;
+    declare public readonly identityProviderDetails: pulumi.Output<outputs.transfer.ServerIdentityProviderDetails | undefined>;
     /**
      * The mode of authentication for a server. The default value is `SERVICE_MANAGED` , which allows you to store and access user credentials within the AWS Transfer Family service.
      *
@@ -288,7 +288,7 @@ export class Server extends pulumi.CustomResource {
      *
      * Use the `AWS_LAMBDA` value to directly use an AWS Lambda function as your identity provider. If you choose this value, you must specify the ARN for the Lambda function in the `Function` parameter for the `IdentityProviderDetails` data type.
      */
-    public readonly identityProviderType!: pulumi.Output<enums.transfer.ServerIdentityProviderType | undefined>;
+    declare public readonly identityProviderType: pulumi.Output<enums.transfer.ServerIdentityProviderType | undefined>;
     /**
      * Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .
      *
@@ -297,23 +297,23 @@ export class Server extends pulumi.CustomResource {
      * > - It cannot be changed while the server is online. You must stop the server before modifying this parameter.
      * > - It cannot be updated to `DUALSTACK` if the server has `AddressAllocationIds` specified. > When using `DUALSTACK` as the `IpAddressType` , you cannot set the `AddressAllocationIds` parameter for the [EndpointDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_EndpointDetails.html) for the server.
      */
-    public readonly ipAddressType!: pulumi.Output<enums.transfer.ServerIpAddressType | undefined>;
+    declare public readonly ipAddressType: pulumi.Output<enums.transfer.ServerIpAddressType | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
      */
-    public readonly loggingRole!: pulumi.Output<string | undefined>;
+    declare public readonly loggingRole: pulumi.Output<string | undefined>;
     /**
      * Specifies a string to display when users connect to a server. This string is displayed after the user authenticates.
      *
      * > The SFTP protocol does not support post-authentication display banners.
      */
-    public readonly postAuthenticationLoginBanner!: pulumi.Output<string | undefined>;
+    declare public readonly postAuthenticationLoginBanner: pulumi.Output<string | undefined>;
     /**
      * Specifies a string to display when users connect to a server. This string is displayed before the user authenticates. For example, the following banner displays details about using the system:
      *
      * `This system is for the use of authorized users only. Individuals using this computer system without authority, or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by system personnel.`
      */
-    public readonly preAuthenticationLoginBanner!: pulumi.Output<string | undefined>;
+    declare public readonly preAuthenticationLoginBanner: pulumi.Output<string | undefined>;
     /**
      * The protocol settings that are configured for your server.
      *
@@ -326,7 +326,7 @@ export class Server extends pulumi.CustomResource {
      *
      * *Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`
      */
-    public readonly protocolDetails!: pulumi.Output<outputs.transfer.ServerProtocolDetails | undefined>;
+    declare public readonly protocolDetails: pulumi.Output<outputs.transfer.ServerProtocolDetails | undefined>;
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. The available protocols are:
      *
@@ -345,7 +345,7 @@ export class Server extends pulumi.CustomResource {
      *
      * *Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`
      */
-    public readonly protocols!: pulumi.Output<enums.transfer.ServerProtocol[] | undefined>;
+    declare public readonly protocols: pulumi.Output<enums.transfer.ServerProtocol[] | undefined>;
     /**
      * Specifies whether or not performance for your Amazon S3 directories is optimized.
      *
@@ -354,21 +354,21 @@ export class Server extends pulumi.CustomResource {
      *
      * By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
      */
-    public readonly s3StorageOptions!: pulumi.Output<outputs.transfer.ServerS3StorageOptions | undefined>;
+    declare public readonly s3StorageOptions: pulumi.Output<outputs.transfer.ServerS3StorageOptions | undefined>;
     /**
      * Specifies the name of the security policy for the server.
      */
-    public readonly securityPolicyName!: pulumi.Output<string | undefined>;
+    declare public readonly securityPolicyName: pulumi.Output<string | undefined>;
     /**
      * Specifies the unique system-assigned identifier for a server that you instantiate.
      */
-    public /*out*/ readonly serverId!: pulumi.Output<string>;
+    declare public /*out*/ readonly serverId: pulumi.Output<string>;
     /**
      * The condition of the server that was described. A value of `ONLINE` indicates that the server can accept jobs and transfer files. A `State` value of `OFFLINE` means that the server cannot perform file transfer operations.
      *
      * The states of `STARTING` and `STOPPING` indicate that the server is in an intermediate state, either not fully able to respond, or not fully offline. The values of `START_FAILED` or `STOP_FAILED` can indicate an error condition.
      */
-    public /*out*/ readonly state!: pulumi.Output<enums.transfer.ServerState>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.transfer.ServerState>;
     /**
      * Specifies the log groups to which your server logs are sent.
      *
@@ -382,17 +382,17 @@ export class Server extends pulumi.CustomResource {
      *
      * `update-server --server-id s-1234567890abcdef0 --structured-log-destinations`
      */
-    public readonly structuredLogDestinations!: pulumi.Output<string[] | undefined>;
+    declare public readonly structuredLogDestinations: pulumi.Output<string[] | undefined>;
     /**
      * Key-value pairs that can be used to group and search for servers.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.
      *
      * In addition to a workflow to execute when a file is uploaded completely, `WorkflowDetails` can also contain a workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when the session disconnects.
      */
-    public readonly workflowDetails!: pulumi.Output<outputs.transfer.ServerWorkflowDetails | undefined>;
+    declare public readonly workflowDetails: pulumi.Output<outputs.transfer.ServerWorkflowDetails | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -405,23 +405,23 @@ export class Server extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["certificate"] = args ? args.certificate : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["endpointDetails"] = args ? args.endpointDetails : undefined;
-            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
-            resourceInputs["identityProviderDetails"] = args ? args.identityProviderDetails : undefined;
-            resourceInputs["identityProviderType"] = args ? args.identityProviderType : undefined;
-            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            resourceInputs["loggingRole"] = args ? args.loggingRole : undefined;
-            resourceInputs["postAuthenticationLoginBanner"] = args ? args.postAuthenticationLoginBanner : undefined;
-            resourceInputs["preAuthenticationLoginBanner"] = args ? args.preAuthenticationLoginBanner : undefined;
-            resourceInputs["protocolDetails"] = args ? args.protocolDetails : undefined;
-            resourceInputs["protocols"] = args ? args.protocols : undefined;
-            resourceInputs["s3StorageOptions"] = args ? args.s3StorageOptions : undefined;
-            resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
-            resourceInputs["structuredLogDestinations"] = args ? args.structuredLogDestinations : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workflowDetails"] = args ? args.workflowDetails : undefined;
+            resourceInputs["certificate"] = args?.certificate;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["endpointDetails"] = args?.endpointDetails;
+            resourceInputs["endpointType"] = args?.endpointType;
+            resourceInputs["identityProviderDetails"] = args?.identityProviderDetails;
+            resourceInputs["identityProviderType"] = args?.identityProviderType;
+            resourceInputs["ipAddressType"] = args?.ipAddressType;
+            resourceInputs["loggingRole"] = args?.loggingRole;
+            resourceInputs["postAuthenticationLoginBanner"] = args?.postAuthenticationLoginBanner;
+            resourceInputs["preAuthenticationLoginBanner"] = args?.preAuthenticationLoginBanner;
+            resourceInputs["protocolDetails"] = args?.protocolDetails;
+            resourceInputs["protocols"] = args?.protocols;
+            resourceInputs["s3StorageOptions"] = args?.s3StorageOptions;
+            resourceInputs["securityPolicyName"] = args?.securityPolicyName;
+            resourceInputs["structuredLogDestinations"] = args?.structuredLogDestinations;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workflowDetails"] = args?.workflowDetails;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["as2ServiceManagedEgressIpAddresses"] = undefined /*out*/;
             resourceInputs["serverId"] = undefined /*out*/;

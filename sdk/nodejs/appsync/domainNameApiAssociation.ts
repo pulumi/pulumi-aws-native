@@ -34,15 +34,15 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainNameApiAssociation.__pulumiType;
     }
 
-    public /*out*/ readonly apiAssociationIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiAssociationIdentifier: pulumi.Output<string>;
     /**
      * The API ID.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * The domain name.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
 
     /**
      * Create a DomainNameApiAssociation resource with the given unique name, arguments, and options.
@@ -55,14 +55,14 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["domainName"] = args?.domainName;
             resourceInputs["apiAssociationIdentifier"] = undefined /*out*/;
         } else {
             resourceInputs["apiAssociationIdentifier"] = undefined /*out*/;

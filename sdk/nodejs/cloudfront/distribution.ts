@@ -40,19 +40,19 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * The distribution's identifier. For example: `E1U5RQF7T870K0` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The distribution's configuration.
      */
-    public readonly distributionConfig!: pulumi.Output<outputs.cloudfront.DistributionConfig>;
+    declare public readonly distributionConfig: pulumi.Output<outputs.cloudfront.DistributionConfig>;
     /**
      * The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
      */
-    public /*out*/ readonly domainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainName: pulumi.Output<string>;
     /**
      * A complex type that contains zero or more ``Tag`` elements.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Distribution resource with the given unique name, arguments, and options.
@@ -65,11 +65,11 @@ export class Distribution extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.distributionConfig === undefined) && !opts.urn) {
+            if (args?.distributionConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'distributionConfig'");
             }
-            resourceInputs["distributionConfig"] = args ? args.distributionConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["distributionConfig"] = args?.distributionConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
         } else {

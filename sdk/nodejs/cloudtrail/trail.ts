@@ -40,71 +40,71 @@ export class Trail extends pulumi.CustomResource {
     /**
      * The advanced event selectors that were used to select events for the data store.
      */
-    public readonly advancedEventSelectors!: pulumi.Output<outputs.cloudtrail.TrailAdvancedEventSelector[] | undefined>;
+    declare public readonly advancedEventSelectors: pulumi.Output<outputs.cloudtrail.TrailAdvancedEventSelector[] | undefined>;
     /**
      * `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
      */
-    public readonly cloudWatchLogsLogGroupArn!: pulumi.Output<string | undefined>;
+    declare public readonly cloudWatchLogsLogGroupArn: pulumi.Output<string | undefined>;
     /**
      * Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
      */
-    public readonly cloudWatchLogsRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly cloudWatchLogsRoleArn: pulumi.Output<string | undefined>;
     /**
      * Specifies whether log file validation is enabled. The default is false.
      */
-    public readonly enableLogFileValidation!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableLogFileValidation: pulumi.Output<boolean | undefined>;
     /**
      * Use event selectors to further specify the management and data event settings for your trail. By default, trails created without specific event selectors will be configured to log all read and write management events, and no data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event. You can configure up to five event selectors for a trail.
      */
-    public readonly eventSelectors!: pulumi.Output<outputs.cloudtrail.TrailEventSelector[] | undefined>;
+    declare public readonly eventSelectors: pulumi.Output<outputs.cloudtrail.TrailEventSelector[] | undefined>;
     /**
      * Specifies whether the trail is publishing events from global services such as IAM to the log files.
      */
-    public readonly includeGlobalServiceEvents!: pulumi.Output<boolean | undefined>;
+    declare public readonly includeGlobalServiceEvents: pulumi.Output<boolean | undefined>;
     /**
      * Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing trail.
      */
-    public readonly insightSelectors!: pulumi.Output<outputs.cloudtrail.TrailInsightSelector[] | undefined>;
+    declare public readonly insightSelectors: pulumi.Output<outputs.cloudtrail.TrailInsightSelector[] | undefined>;
     /**
      * Whether the CloudTrail is currently logging AWS API calls.
      */
-    public readonly isLogging!: pulumi.Output<boolean>;
+    declare public readonly isLogging: pulumi.Output<boolean>;
     /**
      * Specifies whether the trail applies only to the current region or to all regions. The default is false. If the trail exists only in the current region and this value is set to true, shadow trails (replications of the trail) will be created in the other regions. If the trail exists in all regions and this value is set to false, the trail will remain in the region where it was created, and its shadow trails in other regions will be deleted. As a best practice, consider using trails that log events in all regions.
      */
-    public readonly isMultiRegionTrail!: pulumi.Output<boolean | undefined>;
+    declare public readonly isMultiRegionTrail: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the trail is created for all accounts in an organization in AWS Organizations, or only for the current AWS account. The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the master account for an organization in AWS Organizations.
      */
-    public readonly isOrganizationTrail!: pulumi.Output<boolean | undefined>;
+    declare public readonly isOrganizationTrail: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
      */
-    public readonly s3BucketName!: pulumi.Output<string>;
+    declare public readonly s3BucketName: pulumi.Output<string>;
     /**
      * Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
      */
-    public readonly s3KeyPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly s3KeyPrefix: pulumi.Output<string | undefined>;
     /**
      * `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
      */
-    public /*out*/ readonly snsTopicArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly snsTopicArn: pulumi.Output<string>;
     /**
      * Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
      */
-    public readonly snsTopicName!: pulumi.Output<string | undefined>;
+    declare public readonly snsTopicName: pulumi.Output<string | undefined>;
     /**
      * A custom set of tags (key-value pairs) for this trail.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Specifies the name of the trail. The name must meet the following requirements:
      *
@@ -114,7 +114,7 @@ export class Trail extends pulumi.CustomResource {
      * - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
      * - Not be in IP address format (for example, 192.168.5.4)
      */
-    public readonly trailName!: pulumi.Output<string | undefined>;
+    declare public readonly trailName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Trail resource with the given unique name, arguments, and options.
@@ -127,28 +127,28 @@ export class Trail extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.isLogging === undefined) && !opts.urn) {
+            if (args?.isLogging === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isLogging'");
             }
-            if ((!args || args.s3BucketName === undefined) && !opts.urn) {
+            if (args?.s3BucketName === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3BucketName'");
             }
-            resourceInputs["advancedEventSelectors"] = args ? args.advancedEventSelectors : undefined;
-            resourceInputs["cloudWatchLogsLogGroupArn"] = args ? args.cloudWatchLogsLogGroupArn : undefined;
-            resourceInputs["cloudWatchLogsRoleArn"] = args ? args.cloudWatchLogsRoleArn : undefined;
-            resourceInputs["enableLogFileValidation"] = args ? args.enableLogFileValidation : undefined;
-            resourceInputs["eventSelectors"] = args ? args.eventSelectors : undefined;
-            resourceInputs["includeGlobalServiceEvents"] = args ? args.includeGlobalServiceEvents : undefined;
-            resourceInputs["insightSelectors"] = args ? args.insightSelectors : undefined;
-            resourceInputs["isLogging"] = args ? args.isLogging : undefined;
-            resourceInputs["isMultiRegionTrail"] = args ? args.isMultiRegionTrail : undefined;
-            resourceInputs["isOrganizationTrail"] = args ? args.isOrganizationTrail : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["s3BucketName"] = args ? args.s3BucketName : undefined;
-            resourceInputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
-            resourceInputs["snsTopicName"] = args ? args.snsTopicName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trailName"] = args ? args.trailName : undefined;
+            resourceInputs["advancedEventSelectors"] = args?.advancedEventSelectors;
+            resourceInputs["cloudWatchLogsLogGroupArn"] = args?.cloudWatchLogsLogGroupArn;
+            resourceInputs["cloudWatchLogsRoleArn"] = args?.cloudWatchLogsRoleArn;
+            resourceInputs["enableLogFileValidation"] = args?.enableLogFileValidation;
+            resourceInputs["eventSelectors"] = args?.eventSelectors;
+            resourceInputs["includeGlobalServiceEvents"] = args?.includeGlobalServiceEvents;
+            resourceInputs["insightSelectors"] = args?.insightSelectors;
+            resourceInputs["isLogging"] = args?.isLogging;
+            resourceInputs["isMultiRegionTrail"] = args?.isMultiRegionTrail;
+            resourceInputs["isOrganizationTrail"] = args?.isOrganizationTrail;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["s3BucketName"] = args?.s3BucketName;
+            resourceInputs["s3KeyPrefix"] = args?.s3KeyPrefix;
+            resourceInputs["snsTopicName"] = args?.snsTopicName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trailName"] = args?.trailName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["snsTopicArn"] = undefined /*out*/;
         } else {

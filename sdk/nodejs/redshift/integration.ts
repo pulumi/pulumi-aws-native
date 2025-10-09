@@ -40,35 +40,35 @@ export class Integration extends pulumi.CustomResource {
     /**
      * The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/) in the *AWS Key Management Service Developer Guide* .
      */
-    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The time (UTC) when the integration was created.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the integration.
      */
-    public /*out*/ readonly integrationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly integrationArn: pulumi.Output<string>;
     /**
      * The name of the integration.
      */
-    public readonly integrationName!: pulumi.Output<string | undefined>;
+    declare public readonly integrationName: pulumi.Output<string | undefined>;
     /**
      * An KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, the default AWS owned KMS key is used.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the database to use as the source for replication
      */
-    public readonly sourceArn!: pulumi.Output<string>;
+    declare public readonly sourceArn: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication
      */
-    public readonly targetArn!: pulumi.Output<string>;
+    declare public readonly targetArn: pulumi.Output<string>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -81,18 +81,18 @@ export class Integration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sourceArn === undefined) && !opts.urn) {
+            if (args?.sourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
-            if ((!args || args.targetArn === undefined) && !opts.urn) {
+            if (args?.targetArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
-            resourceInputs["integrationName"] = args ? args.integrationName : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetArn"] = args ? args.targetArn : undefined;
+            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
+            resourceInputs["integrationName"] = args?.integrationName;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["sourceArn"] = args?.sourceArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetArn"] = args?.targetArn;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["integrationArn"] = undefined /*out*/;
         } else {

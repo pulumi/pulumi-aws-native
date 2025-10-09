@@ -84,27 +84,27 @@ export class Dataset extends pulumi.CustomResource {
     /**
      * The ARN of the dataset
      */
-    public /*out*/ readonly datasetArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly datasetArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the dataset group to add the dataset to
      */
-    public readonly datasetGroupArn!: pulumi.Output<string>;
+    declare public readonly datasetGroupArn: pulumi.Output<string>;
     /**
      * Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset. If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
      */
-    public readonly datasetImportJob!: pulumi.Output<outputs.personalize.DatasetImportJob | undefined>;
+    declare public readonly datasetImportJob: pulumi.Output<outputs.personalize.DatasetImportJob | undefined>;
     /**
      * The type of dataset
      */
-    public readonly datasetType!: pulumi.Output<enums.personalize.DatasetType>;
+    declare public readonly datasetType: pulumi.Output<enums.personalize.DatasetType>;
     /**
      * The name for the dataset
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ARN of the schema to associate with the dataset. The schema defines the dataset fields.
      */
-    public readonly schemaArn!: pulumi.Output<string>;
+    declare public readonly schemaArn: pulumi.Output<string>;
 
     /**
      * Create a Dataset resource with the given unique name, arguments, and options.
@@ -117,20 +117,20 @@ export class Dataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.datasetGroupArn === undefined) && !opts.urn) {
+            if (args?.datasetGroupArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datasetGroupArn'");
             }
-            if ((!args || args.datasetType === undefined) && !opts.urn) {
+            if (args?.datasetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datasetType'");
             }
-            if ((!args || args.schemaArn === undefined) && !opts.urn) {
+            if (args?.schemaArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaArn'");
             }
-            resourceInputs["datasetGroupArn"] = args ? args.datasetGroupArn : undefined;
-            resourceInputs["datasetImportJob"] = args ? args.datasetImportJob : undefined;
-            resourceInputs["datasetType"] = args ? args.datasetType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schemaArn"] = args ? args.schemaArn : undefined;
+            resourceInputs["datasetGroupArn"] = args?.datasetGroupArn;
+            resourceInputs["datasetImportJob"] = args?.datasetImportJob;
+            resourceInputs["datasetType"] = args?.datasetType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schemaArn"] = args?.schemaArn;
             resourceInputs["datasetArn"] = undefined /*out*/;
         } else {
             resourceInputs["datasetArn"] = undefined /*out*/;

@@ -237,7 +237,7 @@ export class Pipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === Pipeline.__pulumiType;
     }
 
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
      *
@@ -245,17 +245,17 @@ export class Pipeline extends pulumi.CustomResource {
      *
      * `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
      */
-    public readonly pipelineActivities!: pulumi.Output<outputs.iotanalytics.PipelineActivity[]>;
+    declare public readonly pipelineActivities: pulumi.Output<outputs.iotanalytics.PipelineActivity[]>;
     /**
      * The name of the pipeline.
      */
-    public readonly pipelineName!: pulumi.Output<string | undefined>;
+    declare public readonly pipelineName: pulumi.Output<string | undefined>;
     /**
      * Metadata which can be used to manage the pipeline.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -268,12 +268,12 @@ export class Pipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.pipelineActivities === undefined) && !opts.urn) {
+            if (args?.pipelineActivities === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pipelineActivities'");
             }
-            resourceInputs["pipelineActivities"] = args ? args.pipelineActivities : undefined;
-            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["pipelineActivities"] = args?.pipelineActivities;
+            resourceInputs["pipelineName"] = args?.pipelineName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

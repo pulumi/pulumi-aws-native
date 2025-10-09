@@ -40,32 +40,32 @@ export class UserProfile extends pulumi.CustomResource {
     /**
      * The ID of the Amazon DataZone user profile.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
-    public /*out*/ readonly details!: pulumi.Output<outputs.datazone.UserProfileDetails0Properties | outputs.datazone.UserProfileDetails1Properties>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
+    declare public /*out*/ readonly details: pulumi.Output<outputs.datazone.UserProfileDetails0Properties | outputs.datazone.UserProfileDetails1Properties>;
     /**
      * The identifier of the Amazon DataZone domain in which the user profile is created.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * The identifier of the Amazon DataZone domain in which the user profile would be created.
      */
-    public readonly domainIdentifier!: pulumi.Output<string>;
+    declare public readonly domainIdentifier: pulumi.Output<string>;
     /**
      * The status of the user profile.
      */
-    public readonly status!: pulumi.Output<enums.datazone.UserProfileStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.datazone.UserProfileStatus | undefined>;
     /**
      * The type of the user profile.
      */
-    public /*out*/ readonly type!: pulumi.Output<enums.datazone.UserProfileType>;
+    declare public /*out*/ readonly type: pulumi.Output<enums.datazone.UserProfileType>;
     /**
      * The ID of the user.
      */
-    public readonly userIdentifier!: pulumi.Output<string>;
+    declare public readonly userIdentifier: pulumi.Output<string>;
     /**
      * The user type of the user for which the user profile is created.
      */
-    public readonly userType!: pulumi.Output<enums.datazone.UserProfileUserType | undefined>;
+    declare public readonly userType: pulumi.Output<enums.datazone.UserProfileUserType | undefined>;
 
     /**
      * Create a UserProfile resource with the given unique name, arguments, and options.
@@ -78,16 +78,16 @@ export class UserProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.userIdentifier === undefined) && !opts.urn) {
+            if (args?.userIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userIdentifier'");
             }
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["userIdentifier"] = args ? args.userIdentifier : undefined;
-            resourceInputs["userType"] = args ? args.userType : undefined;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["userIdentifier"] = args?.userIdentifier;
+            resourceInputs["userType"] = args?.userType;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["details"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;

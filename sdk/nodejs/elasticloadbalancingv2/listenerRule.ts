@@ -42,29 +42,29 @@ export class ListenerRule extends pulumi.CustomResource {
      * The actions.
      *  The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
      */
-    public readonly actions!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerRuleAction[]>;
+    declare public readonly actions: pulumi.Output<outputs.elasticloadbalancingv2.ListenerRuleAction[]>;
     /**
      * The conditions.
      *  The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
      */
-    public readonly conditions!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerRuleRuleCondition[]>;
+    declare public readonly conditions: pulumi.Output<outputs.elasticloadbalancingv2.ListenerRuleRuleCondition[]>;
     /**
      * Indicates whether this is the default rule.
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the listener.
      */
-    public readonly listenerArn!: pulumi.Output<string | undefined>;
+    declare public readonly listenerArn: pulumi.Output<string | undefined>;
     /**
      * The rule priority. A listener can't have multiple rules with the same priority.
      *  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * The Amazon Resource Name (ARN) of the rule.
      */
-    public /*out*/ readonly ruleArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly ruleArn: pulumi.Output<string>;
 
     /**
      * Create a ListenerRule resource with the given unique name, arguments, and options.
@@ -77,19 +77,19 @@ export class ListenerRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.conditions === undefined) && !opts.urn) {
+            if (args?.conditions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'conditions'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["listenerArn"] = args ? args.listenerArn : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["conditions"] = args?.conditions;
+            resourceInputs["listenerArn"] = args?.listenerArn;
+            resourceInputs["priority"] = args?.priority;
             resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["ruleArn"] = undefined /*out*/;
         } else {

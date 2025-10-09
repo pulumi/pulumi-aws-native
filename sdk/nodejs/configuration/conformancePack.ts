@@ -68,31 +68,31 @@ export class ConformancePack extends pulumi.CustomResource {
     /**
      * A list of ConformancePackInputParameter objects.
      */
-    public readonly conformancePackInputParameters!: pulumi.Output<outputs.configuration.ConformancePackInputParameter[] | undefined>;
+    declare public readonly conformancePackInputParameters: pulumi.Output<outputs.configuration.ConformancePackInputParameter[] | undefined>;
     /**
      * Name of the conformance pack which will be assigned as the unique identifier.
      */
-    public readonly conformancePackName!: pulumi.Output<string>;
+    declare public readonly conformancePackName: pulumi.Output<string>;
     /**
      * AWS Config stores intermediate files while processing conformance pack template.
      */
-    public readonly deliveryS3Bucket!: pulumi.Output<string | undefined>;
+    declare public readonly deliveryS3Bucket: pulumi.Output<string | undefined>;
     /**
      * The prefix for delivery S3 bucket.
      */
-    public readonly deliveryS3KeyPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly deliveryS3KeyPrefix: pulumi.Output<string | undefined>;
     /**
      * A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
      */
-    public readonly templateBody!: pulumi.Output<string | undefined>;
+    declare public readonly templateBody: pulumi.Output<string | undefined>;
     /**
      * Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
      */
-    public readonly templateS3Uri!: pulumi.Output<string | undefined>;
+    declare public readonly templateS3Uri: pulumi.Output<string | undefined>;
     /**
      * The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
      */
-    public readonly templateSsmDocumentDetails!: pulumi.Output<outputs.configuration.TemplateSsmDocumentDetailsProperties | undefined>;
+    declare public readonly templateSsmDocumentDetails: pulumi.Output<outputs.configuration.TemplateSsmDocumentDetailsProperties | undefined>;
 
     /**
      * Create a ConformancePack resource with the given unique name, arguments, and options.
@@ -105,13 +105,13 @@ export class ConformancePack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["conformancePackInputParameters"] = args ? args.conformancePackInputParameters : undefined;
-            resourceInputs["conformancePackName"] = args ? args.conformancePackName : undefined;
-            resourceInputs["deliveryS3Bucket"] = args ? args.deliveryS3Bucket : undefined;
-            resourceInputs["deliveryS3KeyPrefix"] = args ? args.deliveryS3KeyPrefix : undefined;
-            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
-            resourceInputs["templateS3Uri"] = args ? args.templateS3Uri : undefined;
-            resourceInputs["templateSsmDocumentDetails"] = args ? args.templateSsmDocumentDetails : undefined;
+            resourceInputs["conformancePackInputParameters"] = args?.conformancePackInputParameters;
+            resourceInputs["conformancePackName"] = args?.conformancePackName;
+            resourceInputs["deliveryS3Bucket"] = args?.deliveryS3Bucket;
+            resourceInputs["deliveryS3KeyPrefix"] = args?.deliveryS3KeyPrefix;
+            resourceInputs["templateBody"] = args?.templateBody;
+            resourceInputs["templateS3Uri"] = args?.templateS3Uri;
+            resourceInputs["templateSsmDocumentDetails"] = args?.templateSsmDocumentDetails;
         } else {
             resourceInputs["conformancePackInputParameters"] = undefined /*out*/;
             resourceInputs["conformancePackName"] = undefined /*out*/;

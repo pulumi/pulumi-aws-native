@@ -40,43 +40,43 @@ export class NetworkInsightsAccessScopeAnalysis extends pulumi.CustomResource {
     /**
      * The number of network interfaces analyzed.
      */
-    public /*out*/ readonly analyzedEniCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly analyzedEniCount: pulumi.Output<number>;
     /**
      * The end date of the analysis.
      */
-    public /*out*/ readonly endDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly endDate: pulumi.Output<string>;
     /**
      * Indicates whether there are findings (true | false | unknown).
      */
-    public /*out*/ readonly findingsFound!: pulumi.Output<enums.ec2.NetworkInsightsAccessScopeAnalysisFindingsFound>;
+    declare public /*out*/ readonly findingsFound: pulumi.Output<enums.ec2.NetworkInsightsAccessScopeAnalysisFindingsFound>;
     /**
      * The ARN of the Network Access Scope analysis.
      */
-    public /*out*/ readonly networkInsightsAccessScopeAnalysisArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkInsightsAccessScopeAnalysisArn: pulumi.Output<string>;
     /**
      * The ID of the Network Access Scope analysis.
      */
-    public /*out*/ readonly networkInsightsAccessScopeAnalysisId!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkInsightsAccessScopeAnalysisId: pulumi.Output<string>;
     /**
      * The ID of the Network Access Scope.
      */
-    public readonly networkInsightsAccessScopeId!: pulumi.Output<string>;
+    declare public readonly networkInsightsAccessScopeId: pulumi.Output<string>;
     /**
      * The start date of the analysis.
      */
-    public /*out*/ readonly startDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly startDate: pulumi.Output<string>;
     /**
      * The status of the analysis (running | succeeded | failed).
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.ec2.NetworkInsightsAccessScopeAnalysisStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.ec2.NetworkInsightsAccessScopeAnalysisStatus>;
     /**
      * The status message.
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
     /**
      * The tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a NetworkInsightsAccessScopeAnalysis resource with the given unique name, arguments, and options.
@@ -89,11 +89,11 @@ export class NetworkInsightsAccessScopeAnalysis extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkInsightsAccessScopeId === undefined) && !opts.urn) {
+            if (args?.networkInsightsAccessScopeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInsightsAccessScopeId'");
             }
-            resourceInputs["networkInsightsAccessScopeId"] = args ? args.networkInsightsAccessScopeId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["networkInsightsAccessScopeId"] = args?.networkInsightsAccessScopeId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["analyzedEniCount"] = undefined /*out*/;
             resourceInputs["endDate"] = undefined /*out*/;
             resourceInputs["findingsFound"] = undefined /*out*/;

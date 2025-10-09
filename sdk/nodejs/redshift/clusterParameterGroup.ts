@@ -40,23 +40,23 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     /**
      * A description of the parameter group.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
      */
-    public readonly parameterGroupFamily!: pulumi.Output<string>;
+    declare public readonly parameterGroupFamily: pulumi.Output<string>;
     /**
      * The name of the cluster parameter group.
      */
-    public readonly parameterGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly parameterGroupName: pulumi.Output<string | undefined>;
     /**
      * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
      */
-    public readonly parameters!: pulumi.Output<outputs.redshift.ClusterParameterGroupParameter[] | undefined>;
+    declare public readonly parameters: pulumi.Output<outputs.redshift.ClusterParameterGroupParameter[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ClusterParameterGroup resource with the given unique name, arguments, and options.
@@ -69,17 +69,17 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.parameterGroupFamily === undefined) && !opts.urn) {
+            if (args?.parameterGroupFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parameterGroupFamily'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["parameterGroupFamily"] = args ? args.parameterGroupFamily : undefined;
-            resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["parameterGroupFamily"] = args?.parameterGroupFamily;
+            resourceInputs["parameterGroupName"] = args?.parameterGroupName;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["parameterGroupFamily"] = undefined /*out*/;

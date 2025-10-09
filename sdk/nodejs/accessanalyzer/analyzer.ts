@@ -77,27 +77,27 @@ export class Analyzer extends pulumi.CustomResource {
     /**
      * The configuration for the analyzer
      */
-    public readonly analyzerConfiguration!: pulumi.Output<outputs.accessanalyzer.AnalyzerConfigurationProperties | undefined>;
+    declare public readonly analyzerConfiguration: pulumi.Output<outputs.accessanalyzer.AnalyzerConfigurationProperties | undefined>;
     /**
      * Analyzer name
      */
-    public readonly analyzerName!: pulumi.Output<string | undefined>;
+    declare public readonly analyzerName: pulumi.Output<string | undefined>;
     /**
      * Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
      */
-    public readonly archiveRules!: pulumi.Output<outputs.accessanalyzer.AnalyzerArchiveRule[] | undefined>;
+    declare public readonly archiveRules: pulumi.Output<outputs.accessanalyzer.AnalyzerArchiveRule[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of the analyzer
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_INTERNAL_ACCESS, ORGANIZATION_INTERNAL_ACCESS, ACCOUNT_UNUSED_ACCESS and ORGANIZATION_UNUSED_ACCESS
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a Analyzer resource with the given unique name, arguments, and options.
@@ -110,14 +110,14 @@ export class Analyzer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["analyzerConfiguration"] = args ? args.analyzerConfiguration : undefined;
-            resourceInputs["analyzerName"] = args ? args.analyzerName : undefined;
-            resourceInputs["archiveRules"] = args ? args.archiveRules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["analyzerConfiguration"] = args?.analyzerConfiguration;
+            resourceInputs["analyzerName"] = args?.analyzerName;
+            resourceInputs["archiveRules"] = args?.archiveRules;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["analyzerConfiguration"] = undefined /*out*/;

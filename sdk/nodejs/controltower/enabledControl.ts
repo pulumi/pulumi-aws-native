@@ -66,19 +66,19 @@ export class EnabledControl extends pulumi.CustomResource {
     /**
      * Arn of the control.
      */
-    public readonly controlIdentifier!: pulumi.Output<string>;
+    declare public readonly controlIdentifier: pulumi.Output<string>;
     /**
      * Parameters to configure the enabled control behavior.
      */
-    public readonly parameters!: pulumi.Output<outputs.controltower.EnabledControlParameter[] | undefined>;
+    declare public readonly parameters: pulumi.Output<outputs.controltower.EnabledControlParameter[] | undefined>;
     /**
      * A set of tags to assign to the enabled control.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Arn for Organizational unit to which the control needs to be applied
      */
-    public readonly targetIdentifier!: pulumi.Output<string>;
+    declare public readonly targetIdentifier: pulumi.Output<string>;
 
     /**
      * Create a EnabledControl resource with the given unique name, arguments, and options.
@@ -91,16 +91,16 @@ export class EnabledControl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.controlIdentifier === undefined) && !opts.urn) {
+            if (args?.controlIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'controlIdentifier'");
             }
-            if ((!args || args.targetIdentifier === undefined) && !opts.urn) {
+            if (args?.targetIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetIdentifier'");
             }
-            resourceInputs["controlIdentifier"] = args ? args.controlIdentifier : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetIdentifier"] = args ? args.targetIdentifier : undefined;
+            resourceInputs["controlIdentifier"] = args?.controlIdentifier;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetIdentifier"] = args?.targetIdentifier;
         } else {
             resourceInputs["controlIdentifier"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;

@@ -40,43 +40,43 @@ export class Variable extends pulumi.CustomResource {
     /**
      * The ARN of the variable.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The time when the variable was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The source of the data.
      */
-    public readonly dataSource!: pulumi.Output<enums.frauddetector.VariableDataSource>;
+    declare public readonly dataSource: pulumi.Output<enums.frauddetector.VariableDataSource>;
     /**
      * The data type.
      */
-    public readonly dataType!: pulumi.Output<enums.frauddetector.VariableDataType>;
+    declare public readonly dataType: pulumi.Output<enums.frauddetector.VariableDataType>;
     /**
      * The default value for the variable when no value is received.
      */
-    public readonly defaultValue!: pulumi.Output<string>;
+    declare public readonly defaultValue: pulumi.Output<string>;
     /**
      * The description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The time when the variable was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * The name of the variable.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Tags associated with this variable.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
      */
-    public readonly variableType!: pulumi.Output<enums.frauddetector.VariableType | undefined>;
+    declare public readonly variableType: pulumi.Output<enums.frauddetector.VariableType | undefined>;
 
     /**
      * Create a Variable resource with the given unique name, arguments, and options.
@@ -89,22 +89,22 @@ export class Variable extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataSource === undefined) && !opts.urn) {
+            if (args?.dataSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSource'");
             }
-            if ((!args || args.dataType === undefined) && !opts.urn) {
+            if (args?.dataType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataType'");
             }
-            if ((!args || args.defaultValue === undefined) && !opts.urn) {
+            if (args?.defaultValue === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultValue'");
             }
-            resourceInputs["dataSource"] = args ? args.dataSource : undefined;
-            resourceInputs["dataType"] = args ? args.dataType : undefined;
-            resourceInputs["defaultValue"] = args ? args.defaultValue : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["variableType"] = args ? args.variableType : undefined;
+            resourceInputs["dataSource"] = args?.dataSource;
+            resourceInputs["dataType"] = args?.dataType;
+            resourceInputs["defaultValue"] = args?.defaultValue;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["variableType"] = args?.variableType;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

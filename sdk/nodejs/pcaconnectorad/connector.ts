@@ -40,23 +40,23 @@ export class Connector extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the certificate authority being used.
      */
-    public readonly certificateAuthorityArn!: pulumi.Output<string>;
+    declare public readonly certificateAuthorityArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
      */
-    public /*out*/ readonly connectorArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectorArn: pulumi.Output<string>;
     /**
      * The identifier of the Active Directory.
      */
-    public readonly directoryId!: pulumi.Output<string>;
+    declare public readonly directoryId: pulumi.Output<string>;
     /**
      * Metadata assigned to a connector consisting of a key-value pair.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Information of the VPC and security group(s) used with the connector.
      */
-    public readonly vpcInformation!: pulumi.Output<outputs.pcaconnectorad.ConnectorVpcInformation>;
+    declare public readonly vpcInformation: pulumi.Output<outputs.pcaconnectorad.ConnectorVpcInformation>;
 
     /**
      * Create a Connector resource with the given unique name, arguments, and options.
@@ -69,19 +69,19 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificateAuthorityArn === undefined) && !opts.urn) {
+            if (args?.certificateAuthorityArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthorityArn'");
             }
-            if ((!args || args.directoryId === undefined) && !opts.urn) {
+            if (args?.directoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            if ((!args || args.vpcInformation === undefined) && !opts.urn) {
+            if (args?.vpcInformation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcInformation'");
             }
-            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcInformation"] = args ? args.vpcInformation : undefined;
+            resourceInputs["certificateAuthorityArn"] = args?.certificateAuthorityArn;
+            resourceInputs["directoryId"] = args?.directoryId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcInformation"] = args?.vpcInformation;
             resourceInputs["connectorArn"] = undefined /*out*/;
         } else {
             resourceInputs["certificateAuthorityArn"] = undefined /*out*/;

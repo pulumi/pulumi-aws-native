@@ -73,43 +73,43 @@ export class Stack extends pulumi.CustomResource {
      *
      * For more information, see [Perform custom processing on CloudFormation templates with template macros](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html) in the *AWS CloudFormation User Guide* .
      */
-    public readonly capabilities!: pulumi.Output<enums.cloudformation.StackCapabilitiesItem[] | undefined>;
+    declare public readonly capabilities: pulumi.Output<enums.cloudformation.StackCapabilitiesItem[] | undefined>;
     /**
      * The unique ID of the change set.
      */
-    public /*out*/ readonly changeSetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly changeSetId: pulumi.Output<string>;
     /**
      * The time at which the stack was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * A user-defined description associated with the stack.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Set to `true` to disable rollback of the stack if stack creation failed. You can specify either `DisableRollback` or `OnFailure` , but not both.
      *
      * Default: `false`
      */
-    public readonly disableRollback!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableRollback: pulumi.Output<boolean | undefined>;
     /**
      * Whether to enable termination protection on the specified stack. If a user attempts to delete a stack with termination protection enabled, the operation fails and the stack remains unchanged. For more information, see [Protect CloudFormation stacks from being deleted](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html) in the *AWS CloudFormation User Guide* . Termination protection is deactivated on stacks by default.
      *
      * For nested stacks, termination protection is set on the root stack and can't be changed directly on the nested stack.
      */
-    public readonly enableTerminationProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableTerminationProtection: pulumi.Output<boolean | undefined>;
     /**
      * The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
      */
-    public /*out*/ readonly lastUpdateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdateTime: pulumi.Output<string>;
     /**
      * The Amazon SNS topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
      */
-    public readonly notificationArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly notificationArns: pulumi.Output<string[] | undefined>;
     /**
      * A list of output structures.
      */
-    public /*out*/ readonly outputs!: pulumi.Output<outputs.cloudformation.StackOutput[]>;
+    declare public /*out*/ readonly outputs: pulumi.Output<outputs.cloudformation.StackOutput[]>;
     /**
      * The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created. Each parameter has a name corresponding to a parameter defined in the embedded template and a value representing the value that you want to set for the parameter.
      *
@@ -119,57 +119,57 @@ export class Stack extends pulumi.CustomResource {
      *
      * Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * For nested stacks, the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
      *
      * For more information, see [Nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
      */
-    public /*out*/ readonly parentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly parentId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes to create the stack. CloudFormation uses the role's credentials to make calls on your behalf. CloudFormation always uses this role for all future operations on the stack. Provided that users have permission to operate on the stack, CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege.
      *
      * If you don't specify a value, CloudFormation uses the role that was previously associated with the stack. If no role is available, CloudFormation uses a temporary session that's generated from your user credentials.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * For nested stacks, the stack ID of the top-level stack to which the nested stack ultimately belongs.
      *
      * For more information, see [Nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
      */
-    public /*out*/ readonly rootId!: pulumi.Output<string>;
+    declare public /*out*/ readonly rootId: pulumi.Output<string>;
     /**
      * Unique identifier of the stack.
      */
-    public /*out*/ readonly stackId!: pulumi.Output<string>;
+    declare public /*out*/ readonly stackId: pulumi.Output<string>;
     /**
      * The name that's associated with the stack. The name must be unique in the Region in which you are creating the stack.
      *
      * > A stack name can contain only alphanumeric characters (case sensitive) and hyphens. It must start with an alphabetical character and can't be longer than 128 characters.
      */
-    public readonly stackName!: pulumi.Output<string>;
+    declare public readonly stackName: pulumi.Output<string>;
     /**
      * Structure that contains the stack policy body. For more information, see [Prevent updates to stack resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html) in the *AWS CloudFormation User Guide* . You can specify either the `StackPolicyBody` or the `StackPolicyURL` parameter, but not both.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
      */
-    public readonly stackPolicyBody!: pulumi.Output<any | undefined>;
+    declare public readonly stackPolicyBody: pulumi.Output<any | undefined>;
     /**
      * Location of a file that contains the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same Region as the stack. You can specify either the `StackPolicyBody` or the `StackPolicyURL` parameter, but not both.
      */
-    public readonly stackPolicyUrl!: pulumi.Output<string | undefined>;
+    declare public readonly stackPolicyUrl: pulumi.Output<string | undefined>;
     /**
      * Current status of the stack.
      */
-    public /*out*/ readonly stackStatus!: pulumi.Output<enums.cloudformation.StackStatus>;
+    declare public /*out*/ readonly stackStatus: pulumi.Output<enums.cloudformation.StackStatus>;
     /**
      * Success/failure message associated with the stack status.
      */
-    public readonly stackStatusReason!: pulumi.Output<string | undefined>;
+    declare public readonly stackStatusReason: pulumi.Output<string | undefined>;
     /**
      * Key-value pairs to associate with this stack. CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Structure that contains the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
      *
@@ -177,19 +177,19 @@ export class Stack extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
      */
-    public readonly templateBody!: pulumi.Output<any | undefined>;
+    declare public readonly templateBody: pulumi.Output<any | undefined>;
     /**
      * The URL of a file that contains the template body. The URL must point to a template (max size: 1 MB) that's located in an Amazon S3 bucket. The location for an Amazon S3 bucket must start with `https://` .
      *
      * Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
      */
-    public readonly templateUrl!: pulumi.Output<string | undefined>;
+    declare public readonly templateUrl: pulumi.Output<string | undefined>;
     /**
      * The length of time, in minutes, that CloudFormation waits for the nested stack to reach the `CREATE_COMPLETE` state. The default is no timeout. When CloudFormation detects that the nested stack has reached the `CREATE_COMPLETE` state, it marks the nested stack resource as `CREATE_COMPLETE` in the parent stack and resumes creating the parent stack. If the timeout period expires before the nested stack reaches `CREATE_COMPLETE` , CloudFormation marks the nested stack as failed and rolls back both the nested stack and parent stack.
      *
      * Updates aren't supported.
      */
-    public readonly timeoutInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly timeoutInMinutes: pulumi.Output<number | undefined>;
 
     /**
      * Create a Stack resource with the given unique name, arguments, and options.
@@ -202,21 +202,21 @@ export class Stack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disableRollback"] = args ? args.disableRollback : undefined;
-            resourceInputs["enableTerminationProtection"] = args ? args.enableTerminationProtection : undefined;
-            resourceInputs["notificationArns"] = args ? args.notificationArns : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["stackName"] = args ? args.stackName : undefined;
-            resourceInputs["stackPolicyBody"] = args ? args.stackPolicyBody : undefined;
-            resourceInputs["stackPolicyUrl"] = args ? args.stackPolicyUrl : undefined;
-            resourceInputs["stackStatusReason"] = args ? args.stackStatusReason : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
-            resourceInputs["templateUrl"] = args ? args.templateUrl : undefined;
-            resourceInputs["timeoutInMinutes"] = args ? args.timeoutInMinutes : undefined;
+            resourceInputs["capabilities"] = args?.capabilities;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disableRollback"] = args?.disableRollback;
+            resourceInputs["enableTerminationProtection"] = args?.enableTerminationProtection;
+            resourceInputs["notificationArns"] = args?.notificationArns;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["stackName"] = args?.stackName;
+            resourceInputs["stackPolicyBody"] = args?.stackPolicyBody;
+            resourceInputs["stackPolicyUrl"] = args?.stackPolicyUrl;
+            resourceInputs["stackStatusReason"] = args?.stackStatusReason;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateBody"] = args?.templateBody;
+            resourceInputs["templateUrl"] = args?.templateUrl;
+            resourceInputs["timeoutInMinutes"] = args?.timeoutInMinutes;
             resourceInputs["changeSetId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastUpdateTime"] = undefined /*out*/;

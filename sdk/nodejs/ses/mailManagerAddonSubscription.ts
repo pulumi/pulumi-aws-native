@@ -42,19 +42,19 @@ export class MailManagerAddonSubscription extends pulumi.CustomResource {
      *
      * Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE | VADE_ADVANCED_EMAIL_SECURITY`
      */
-    public readonly addonName!: pulumi.Output<string>;
+    declare public readonly addonName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Add On subscription.
      */
-    public /*out*/ readonly addonSubscriptionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly addonSubscriptionArn: pulumi.Output<string>;
     /**
      * The unique ID of the Add On subscription.
      */
-    public /*out*/ readonly addonSubscriptionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly addonSubscriptionId: pulumi.Output<string>;
     /**
      * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MailManagerAddonSubscription resource with the given unique name, arguments, and options.
@@ -67,11 +67,11 @@ export class MailManagerAddonSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addonName === undefined) && !opts.urn) {
+            if (args?.addonName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addonName'");
             }
-            resourceInputs["addonName"] = args ? args.addonName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addonName"] = args?.addonName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["addonSubscriptionArn"] = undefined /*out*/;
             resourceInputs["addonSubscriptionId"] = undefined /*out*/;
         } else {

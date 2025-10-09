@@ -40,31 +40,31 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the  connection. The ARN is used as the connection reference when the connection is shared between AWS services.
      */
-    public /*out*/ readonly connectionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionArn: pulumi.Output<string>;
     /**
      * The name of the connection. Connection names must be unique in an AWS user account.
      */
-    public readonly connectionName!: pulumi.Output<string>;
+    declare public readonly connectionName: pulumi.Output<string>;
     /**
      * The current status of the connection.
      */
-    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionStatus: pulumi.Output<string>;
     /**
      * The host arn configured to represent the infrastructure where your third-party provider is installed. You must specify either a ProviderType or a HostArn.
      */
-    public readonly hostArn!: pulumi.Output<string | undefined>;
+    declare public readonly hostArn: pulumi.Output<string | undefined>;
     /**
      * The name of the external provider where your third-party code repository is configured. For Bitbucket, this is the account ID of the owner of the Bitbucket repository.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
      * The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
      */
-    public readonly providerType!: pulumi.Output<string | undefined>;
+    declare public readonly providerType: pulumi.Output<string | undefined>;
     /**
      * Specifies the tags applied to a connection.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -77,10 +77,10 @@ export class Connection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["connectionName"] = args ? args.connectionName : undefined;
-            resourceInputs["hostArn"] = args ? args.hostArn : undefined;
-            resourceInputs["providerType"] = args ? args.providerType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectionName"] = args?.connectionName;
+            resourceInputs["hostArn"] = args?.hostArn;
+            resourceInputs["providerType"] = args?.providerType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["connectionArn"] = undefined /*out*/;
             resourceInputs["connectionStatus"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;

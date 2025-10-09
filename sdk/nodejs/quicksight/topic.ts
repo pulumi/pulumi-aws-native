@@ -40,38 +40,38 @@ export class Topic extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the topic.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the AWS account that you want to create a topic in.
      */
-    public readonly awsAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly awsAccountId: pulumi.Output<string | undefined>;
     /**
      * Configuration options for a `Topic` .
      */
-    public readonly configOptions!: pulumi.Output<outputs.quicksight.TopicConfigOptions | undefined>;
-    public readonly customInstructions!: pulumi.Output<outputs.quicksight.TopicCustomInstructions | undefined>;
+    declare public readonly configOptions: pulumi.Output<outputs.quicksight.TopicConfigOptions | undefined>;
+    declare public readonly customInstructions: pulumi.Output<outputs.quicksight.TopicCustomInstructions | undefined>;
     /**
      * The data sets that the topic is associated with.
      */
-    public readonly dataSets!: pulumi.Output<outputs.quicksight.TopicDatasetMetadata[] | undefined>;
+    declare public readonly dataSets: pulumi.Output<outputs.quicksight.TopicDatasetMetadata[] | undefined>;
     /**
      * The description of the topic.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public readonly folderArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly folderArns: pulumi.Output<string[] | undefined>;
     /**
      * The name of the topic.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The ID for the topic. This ID is unique per AWS Region for each AWS account.
      */
-    public readonly topicId!: pulumi.Output<string | undefined>;
+    declare public readonly topicId: pulumi.Output<string | undefined>;
     /**
      * The user experience version of the topic.
      */
-    public readonly userExperienceVersion!: pulumi.Output<enums.quicksight.TopicUserExperienceVersion | undefined>;
+    declare public readonly userExperienceVersion: pulumi.Output<enums.quicksight.TopicUserExperienceVersion | undefined>;
 
     /**
      * Create a Topic resource with the given unique name, arguments, and options.
@@ -84,16 +84,16 @@ export class Topic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["configOptions"] = args ? args.configOptions : undefined;
-            resourceInputs["customInstructions"] = args ? args.customInstructions : undefined;
-            resourceInputs["dataSets"] = args ? args.dataSets : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["folderArns"] = args ? args.folderArns : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicId"] = args ? args.topicId : undefined;
-            resourceInputs["userExperienceVersion"] = args ? args.userExperienceVersion : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["configOptions"] = args?.configOptions;
+            resourceInputs["customInstructions"] = args?.customInstructions;
+            resourceInputs["dataSets"] = args?.dataSets;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["folderArns"] = args?.folderArns;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicId"] = args?.topicId;
+            resourceInputs["userExperienceVersion"] = args?.userExperienceVersion;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -40,38 +40,38 @@ export class ConsumableResource extends pulumi.CustomResource {
     /**
      * Available Quantity of ConsumableResource.
      */
-    public /*out*/ readonly availableQuantity!: pulumi.Output<number>;
+    declare public /*out*/ readonly availableQuantity: pulumi.Output<number>;
     /**
      * The Amazon Resource Name (ARN) of the consumable resource.
      */
-    public /*out*/ readonly consumableResourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly consumableResourceArn: pulumi.Output<string>;
     /**
      * Name of ConsumableResource.
      */
-    public readonly consumableResourceName!: pulumi.Output<string | undefined>;
+    declare public readonly consumableResourceName: pulumi.Output<string | undefined>;
     /**
      * The Unix timestamp (in milliseconds) for when the consumable resource was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<number>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<number>;
     /**
      * In-use Quantity of ConsumableResource.
      */
-    public /*out*/ readonly inUseQuantity!: pulumi.Output<number>;
+    declare public /*out*/ readonly inUseQuantity: pulumi.Output<number>;
     /**
      * Indicates whether the resource is available to be re-used after a job completes. Can be one of:
      *
      * - `REPLENISHABLE`
      * - `NON_REPLENISHABLE`
      */
-    public readonly resourceType!: pulumi.Output<enums.batch.ConsumableResourceResourceType>;
+    declare public readonly resourceType: pulumi.Output<enums.batch.ConsumableResourceResourceType>;
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Total Quantity of ConsumableResource.
      */
-    public readonly totalQuantity!: pulumi.Output<number>;
+    declare public readonly totalQuantity: pulumi.Output<number>;
 
     /**
      * Create a ConsumableResource resource with the given unique name, arguments, and options.
@@ -84,16 +84,16 @@ export class ConsumableResource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if ((!args || args.totalQuantity === undefined) && !opts.urn) {
+            if (args?.totalQuantity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'totalQuantity'");
             }
-            resourceInputs["consumableResourceName"] = args ? args.consumableResourceName : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["totalQuantity"] = args ? args.totalQuantity : undefined;
+            resourceInputs["consumableResourceName"] = args?.consumableResourceName;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["totalQuantity"] = args?.totalQuantity;
             resourceInputs["availableQuantity"] = undefined /*out*/;
             resourceInputs["consumableResourceArn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

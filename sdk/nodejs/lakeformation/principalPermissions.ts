@@ -40,31 +40,31 @@ export class PrincipalPermissions extends pulumi.CustomResource {
     /**
      * The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      */
-    public readonly catalog!: pulumi.Output<string | undefined>;
+    declare public readonly catalog: pulumi.Output<string | undefined>;
     /**
      * The permissions granted or revoked.
      */
-    public readonly permissions!: pulumi.Output<enums.lakeformation.PrincipalPermissionsPermission[]>;
+    declare public readonly permissions: pulumi.Output<enums.lakeformation.PrincipalPermissionsPermission[]>;
     /**
      * Indicates the ability to grant permissions (as a subset of permissions granted).
      */
-    public readonly permissionsWithGrantOption!: pulumi.Output<enums.lakeformation.PrincipalPermissionsPermission[]>;
+    declare public readonly permissionsWithGrantOption: pulumi.Output<enums.lakeformation.PrincipalPermissionsPermission[]>;
     /**
      * The principal to be granted a permission.
      */
-    public readonly principal!: pulumi.Output<outputs.lakeformation.PrincipalPermissionsDataLakePrincipal>;
+    declare public readonly principal: pulumi.Output<outputs.lakeformation.PrincipalPermissionsDataLakePrincipal>;
     /**
      * Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
      */
-    public /*out*/ readonly principalIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly principalIdentifier: pulumi.Output<string>;
     /**
      * The resource to be granted or revoked permissions.
      */
-    public readonly resource!: pulumi.Output<outputs.lakeformation.PrincipalPermissionsResource>;
+    declare public readonly resource: pulumi.Output<outputs.lakeformation.PrincipalPermissionsResource>;
     /**
      * Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
      */
-    public /*out*/ readonly resourceIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceIdentifier: pulumi.Output<string>;
 
     /**
      * Create a PrincipalPermissions resource with the given unique name, arguments, and options.
@@ -77,23 +77,23 @@ export class PrincipalPermissions extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.permissions === undefined) && !opts.urn) {
+            if (args?.permissions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissions'");
             }
-            if ((!args || args.permissionsWithGrantOption === undefined) && !opts.urn) {
+            if (args?.permissionsWithGrantOption === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissionsWithGrantOption'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.resource === undefined) && !opts.urn) {
+            if (args?.resource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            resourceInputs["catalog"] = args ? args.catalog : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["permissionsWithGrantOption"] = args ? args.permissionsWithGrantOption : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["catalog"] = args?.catalog;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["permissionsWithGrantOption"] = args?.permissionsWithGrantOption;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["resource"] = args?.resource;
             resourceInputs["principalIdentifier"] = undefined /*out*/;
             resourceInputs["resourceIdentifier"] = undefined /*out*/;
         } else {

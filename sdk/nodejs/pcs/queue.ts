@@ -40,35 +40,35 @@ export class Queue extends pulumi.CustomResource {
     /**
      * The unique Amazon Resource Name (ARN) of the queue.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The generated unique ID of the queue.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The ID of the cluster of the queue.
      */
-    public readonly clusterId!: pulumi.Output<string>;
+    declare public readonly clusterId: pulumi.Output<string>;
     /**
      * The list of compute node group configurations associated with the queue. Queues assign jobs to associated compute node groups.
      */
-    public readonly computeNodeGroupConfigurations!: pulumi.Output<outputs.pcs.QueueComputeNodeGroupConfiguration[] | undefined>;
+    declare public readonly computeNodeGroupConfigurations: pulumi.Output<outputs.pcs.QueueComputeNodeGroupConfiguration[] | undefined>;
     /**
      * The list of errors that occurred during queue provisioning.
      */
-    public /*out*/ readonly errorInfo!: pulumi.Output<outputs.pcs.QueueErrorInfo[]>;
+    declare public /*out*/ readonly errorInfo: pulumi.Output<outputs.pcs.QueueErrorInfo[]>;
     /**
      * The name that identifies the queue.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The provisioning status of the queue. The provisioning status doesn't indicate the overall health of the queue.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.pcs.QueueStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.pcs.QueueStatus>;
     /**
      * 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Queue resource with the given unique name, arguments, and options.
@@ -81,13 +81,13 @@ export class Queue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterId === undefined) && !opts.urn) {
+            if (args?.clusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["computeNodeGroupConfigurations"] = args ? args.computeNodeGroupConfigurations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["computeNodeGroupConfigurations"] = args?.computeNodeGroupConfigurations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["errorInfo"] = undefined /*out*/;

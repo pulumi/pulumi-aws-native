@@ -74,35 +74,35 @@ export class Solution extends pulumi.CustomResource {
     /**
      * The ARN of the dataset group that provides the training data.
      */
-    public readonly datasetGroupArn!: pulumi.Output<string>;
+    declare public readonly datasetGroupArn: pulumi.Output<string>;
     /**
      * When your have multiple event types (using an EVENT_TYPE schema field), this parameter specifies which event type (for example, 'click' or 'like') is used for training the model. If you do not provide an eventType, Amazon Personalize will use all interactions for training with equal weight regardless of type.
      */
-    public readonly eventType!: pulumi.Output<string | undefined>;
+    declare public readonly eventType: pulumi.Output<string | undefined>;
     /**
      * The name for the solution
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
      */
-    public readonly performAutoMl!: pulumi.Output<boolean | undefined>;
+    declare public readonly performAutoMl: pulumi.Output<boolean | undefined>;
     /**
      * Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
      */
-    public readonly performHpo!: pulumi.Output<boolean | undefined>;
+    declare public readonly performHpo: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the recipe to use for model training. Only specified when performAutoML is false.
      */
-    public readonly recipeArn!: pulumi.Output<string | undefined>;
+    declare public readonly recipeArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the solution.
      */
-    public /*out*/ readonly solutionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly solutionArn: pulumi.Output<string>;
     /**
      * Describes the configuration properties for the solution.
      */
-    public readonly solutionConfig!: pulumi.Output<outputs.personalize.SolutionConfig | undefined>;
+    declare public readonly solutionConfig: pulumi.Output<outputs.personalize.SolutionConfig | undefined>;
 
     /**
      * Create a Solution resource with the given unique name, arguments, and options.
@@ -115,16 +115,16 @@ export class Solution extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.datasetGroupArn === undefined) && !opts.urn) {
+            if (args?.datasetGroupArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datasetGroupArn'");
             }
-            resourceInputs["datasetGroupArn"] = args ? args.datasetGroupArn : undefined;
-            resourceInputs["eventType"] = args ? args.eventType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["performAutoMl"] = args ? args.performAutoMl : undefined;
-            resourceInputs["performHpo"] = args ? args.performHpo : undefined;
-            resourceInputs["recipeArn"] = args ? args.recipeArn : undefined;
-            resourceInputs["solutionConfig"] = args ? args.solutionConfig : undefined;
+            resourceInputs["datasetGroupArn"] = args?.datasetGroupArn;
+            resourceInputs["eventType"] = args?.eventType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["performAutoMl"] = args?.performAutoMl;
+            resourceInputs["performHpo"] = args?.performHpo;
+            resourceInputs["recipeArn"] = args?.recipeArn;
+            resourceInputs["solutionConfig"] = args?.solutionConfig;
             resourceInputs["solutionArn"] = undefined /*out*/;
         } else {
             resourceInputs["datasetGroupArn"] = undefined /*out*/;

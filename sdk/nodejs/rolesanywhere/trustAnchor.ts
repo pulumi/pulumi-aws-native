@@ -40,31 +40,31 @@ export class TrustAnchor extends pulumi.CustomResource {
     /**
      * Indicates whether the trust anchor is enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the trust anchor.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of notification settings to be associated to the trust anchor.
      */
-    public readonly notificationSettings!: pulumi.Output<outputs.rolesanywhere.TrustAnchorNotificationSetting[] | undefined>;
+    declare public readonly notificationSettings: pulumi.Output<outputs.rolesanywhere.TrustAnchorNotificationSetting[] | undefined>;
     /**
      * The trust anchor type and its related certificate data.
      */
-    public readonly source!: pulumi.Output<outputs.rolesanywhere.TrustAnchorSource>;
+    declare public readonly source: pulumi.Output<outputs.rolesanywhere.TrustAnchorSource>;
     /**
      * The tags to attach to the trust anchor.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the trust anchor.
      */
-    public /*out*/ readonly trustAnchorArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly trustAnchorArn: pulumi.Output<string>;
     /**
      * The unique identifier of the trust anchor.
      */
-    public /*out*/ readonly trustAnchorId!: pulumi.Output<string>;
+    declare public /*out*/ readonly trustAnchorId: pulumi.Output<string>;
 
     /**
      * Create a TrustAnchor resource with the given unique name, arguments, and options.
@@ -77,14 +77,14 @@ export class TrustAnchor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationSettings"] = args ? args.notificationSettings : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationSettings"] = args?.notificationSettings;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["trustAnchorArn"] = undefined /*out*/;
             resourceInputs["trustAnchorId"] = undefined /*out*/;
         } else {

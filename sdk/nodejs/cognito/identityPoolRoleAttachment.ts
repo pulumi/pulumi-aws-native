@@ -40,11 +40,11 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     /**
      * The resource ID.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * An identity pool ID in the format `REGION:GUID` .
      */
-    public readonly identityPoolId!: pulumi.Output<string>;
+    declare public readonly identityPoolId: pulumi.Output<string>;
     /**
      * How users for a specific identity provider are mapped to roles. This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
      *
@@ -52,11 +52,11 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
      *
      * For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
      */
-    public readonly roleMappings!: pulumi.Output<{[key: string]: outputs.cognito.IdentityPoolRoleAttachmentRoleMapping} | undefined>;
+    declare public readonly roleMappings: pulumi.Output<{[key: string]: outputs.cognito.IdentityPoolRoleAttachmentRoleMapping} | undefined>;
     /**
      * The map of the roles associated with this pool. For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
      */
-    public readonly roles!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly roles: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a IdentityPoolRoleAttachment resource with the given unique name, arguments, and options.
@@ -69,12 +69,12 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.identityPoolId === undefined) && !opts.urn) {
+            if (args?.identityPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityPoolId'");
             }
-            resourceInputs["identityPoolId"] = args ? args.identityPoolId : undefined;
-            resourceInputs["roleMappings"] = args ? args.roleMappings : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["identityPoolId"] = args?.identityPoolId;
+            resourceInputs["roleMappings"] = args?.roleMappings;
+            resourceInputs["roles"] = args?.roles;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

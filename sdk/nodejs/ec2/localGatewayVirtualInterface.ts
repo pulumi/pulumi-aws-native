@@ -40,55 +40,55 @@ export class LocalGatewayVirtualInterface extends pulumi.CustomResource {
     /**
      * The current state of the local gateway virtual interface
      */
-    public /*out*/ readonly configurationState!: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationState: pulumi.Output<string>;
     /**
      * The local address.
      */
-    public readonly localAddress!: pulumi.Output<string>;
+    declare public readonly localAddress: pulumi.Output<string>;
     /**
      * The Autonomous System Number(ASN) for the local Border Gateway Protocol (BGP)
      */
-    public /*out*/ readonly localBgpAsn!: pulumi.Output<number>;
+    declare public /*out*/ readonly localBgpAsn: pulumi.Output<number>;
     /**
      * The ID of the local gateway
      */
-    public /*out*/ readonly localGatewayId!: pulumi.Output<string>;
+    declare public /*out*/ readonly localGatewayId: pulumi.Output<string>;
     /**
      * The ID of the virtual interface group
      */
-    public readonly localGatewayVirtualInterfaceGroupId!: pulumi.Output<string>;
+    declare public readonly localGatewayVirtualInterfaceGroupId: pulumi.Output<string>;
     /**
      * The ID of the virtual interface
      */
-    public /*out*/ readonly localGatewayVirtualInterfaceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly localGatewayVirtualInterfaceId: pulumi.Output<string>;
     /**
      * The Outpost LAG ID.
      */
-    public readonly outpostLagId!: pulumi.Output<string>;
+    declare public readonly outpostLagId: pulumi.Output<string>;
     /**
      * The ID of the Amazon Web Services account that owns the local gateway virtual interface group
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * The peer address.
      */
-    public readonly peerAddress!: pulumi.Output<string>;
+    declare public readonly peerAddress: pulumi.Output<string>;
     /**
      * The peer BGP ASN.
      */
-    public readonly peerBgpAsn!: pulumi.Output<number | undefined>;
+    declare public readonly peerBgpAsn: pulumi.Output<number | undefined>;
     /**
      * The extended 32-bit ASN of the BGP peer for use with larger ASN values.
      */
-    public readonly peerBgpAsnExtended!: pulumi.Output<number | undefined>;
+    declare public readonly peerBgpAsnExtended: pulumi.Output<number | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the VLAN.
      */
-    public readonly vlan!: pulumi.Output<number>;
+    declare public readonly vlan: pulumi.Output<number>;
 
     /**
      * Create a LocalGatewayVirtualInterface resource with the given unique name, arguments, and options.
@@ -101,29 +101,29 @@ export class LocalGatewayVirtualInterface extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.localAddress === undefined) && !opts.urn) {
+            if (args?.localAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localAddress'");
             }
-            if ((!args || args.localGatewayVirtualInterfaceGroupId === undefined) && !opts.urn) {
+            if (args?.localGatewayVirtualInterfaceGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayVirtualInterfaceGroupId'");
             }
-            if ((!args || args.outpostLagId === undefined) && !opts.urn) {
+            if (args?.outpostLagId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outpostLagId'");
             }
-            if ((!args || args.peerAddress === undefined) && !opts.urn) {
+            if (args?.peerAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerAddress'");
             }
-            if ((!args || args.vlan === undefined) && !opts.urn) {
+            if (args?.vlan === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vlan'");
             }
-            resourceInputs["localAddress"] = args ? args.localAddress : undefined;
-            resourceInputs["localGatewayVirtualInterfaceGroupId"] = args ? args.localGatewayVirtualInterfaceGroupId : undefined;
-            resourceInputs["outpostLagId"] = args ? args.outpostLagId : undefined;
-            resourceInputs["peerAddress"] = args ? args.peerAddress : undefined;
-            resourceInputs["peerBgpAsn"] = args ? args.peerBgpAsn : undefined;
-            resourceInputs["peerBgpAsnExtended"] = args ? args.peerBgpAsnExtended : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vlan"] = args ? args.vlan : undefined;
+            resourceInputs["localAddress"] = args?.localAddress;
+            resourceInputs["localGatewayVirtualInterfaceGroupId"] = args?.localGatewayVirtualInterfaceGroupId;
+            resourceInputs["outpostLagId"] = args?.outpostLagId;
+            resourceInputs["peerAddress"] = args?.peerAddress;
+            resourceInputs["peerBgpAsn"] = args?.peerBgpAsn;
+            resourceInputs["peerBgpAsnExtended"] = args?.peerBgpAsnExtended;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vlan"] = args?.vlan;
             resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["localBgpAsn"] = undefined /*out*/;
             resourceInputs["localGatewayId"] = undefined /*out*/;

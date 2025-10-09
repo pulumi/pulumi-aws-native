@@ -176,35 +176,35 @@ export class WorkGroup extends pulumi.CustomResource {
     /**
      * The date and time the workgroup was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The workgroup description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The workGroup name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
      */
-    public readonly recursiveDeleteOption!: pulumi.Output<boolean | undefined>;
+    declare public readonly recursiveDeleteOption: pulumi.Output<boolean | undefined>;
     /**
      * The state of the workgroup: ENABLED or DISABLED.
      */
-    public readonly state!: pulumi.Output<enums.athena.WorkGroupState | undefined>;
+    declare public readonly state: pulumi.Output<enums.athena.WorkGroupState | undefined>;
     /**
      * One or more tags, separated by commas, that you want to attach to the workgroup as you create it
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The workgroup configuration
      */
-    public readonly workGroupConfiguration!: pulumi.Output<outputs.athena.WorkGroupConfiguration | undefined>;
+    declare public readonly workGroupConfiguration: pulumi.Output<outputs.athena.WorkGroupConfiguration | undefined>;
     /**
      * The workgroup configuration update object
      */
-    public readonly workGroupConfigurationUpdates!: pulumi.Output<outputs.athena.WorkGroupConfigurationUpdates | undefined>;
+    declare public readonly workGroupConfigurationUpdates: pulumi.Output<outputs.athena.WorkGroupConfigurationUpdates | undefined>;
 
     /**
      * Create a WorkGroup resource with the given unique name, arguments, and options.
@@ -217,13 +217,13 @@ export class WorkGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recursiveDeleteOption"] = args ? args.recursiveDeleteOption : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workGroupConfiguration"] = args ? args.workGroupConfiguration : undefined;
-            resourceInputs["workGroupConfigurationUpdates"] = args ? args.workGroupConfigurationUpdates : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recursiveDeleteOption"] = args?.recursiveDeleteOption;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workGroupConfiguration"] = args?.workGroupConfiguration;
+            resourceInputs["workGroupConfigurationUpdates"] = args?.workGroupConfigurationUpdates;
             resourceInputs["creationTime"] = undefined /*out*/;
         } else {
             resourceInputs["creationTime"] = undefined /*out*/;

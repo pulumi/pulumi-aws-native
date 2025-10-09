@@ -40,27 +40,27 @@ export class Framework extends pulumi.CustomResource {
     /**
      * The date and time that a framework is created, in ISO 8601 representation. The value of CreationTime is accurate to milliseconds. For example, 2020-07-10T15:00:00.000-08:00 represents the 10th of July 2020 at 3:00 PM 8 hours behind UTC.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS | UPDATE_IN_PROGRESS | DELETE_IN_PROGRESS | COMPLETED | FAILED`
      */
-    public /*out*/ readonly deploymentStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentStatus: pulumi.Output<string>;
     /**
      * An Amazon Resource Name (ARN) that uniquely identifies Framework as a resource
      */
-    public /*out*/ readonly frameworkArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly frameworkArn: pulumi.Output<string>;
     /**
      * Contains detailed information about all of the controls of a framework. Each framework must contain at least one control.
      */
-    public readonly frameworkControls!: pulumi.Output<outputs.backup.FrameworkControl[]>;
+    declare public readonly frameworkControls: pulumi.Output<outputs.backup.FrameworkControl[]>;
     /**
      * An optional description of the framework with a maximum 1,024 characters.
      */
-    public readonly frameworkDescription!: pulumi.Output<string | undefined>;
+    declare public readonly frameworkDescription: pulumi.Output<string | undefined>;
     /**
      * The unique name of a framework. This name is between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
      */
-    public readonly frameworkName!: pulumi.Output<string | undefined>;
+    declare public readonly frameworkName: pulumi.Output<string | undefined>;
     /**
      * A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are:
      *
@@ -72,11 +72,11 @@ export class Framework extends pulumi.CustomResource {
      *
      * `UNAVAILABLE` when AWS Backup is unable to validate recording status at this time.
      */
-    public /*out*/ readonly frameworkStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly frameworkStatus: pulumi.Output<string>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    public readonly frameworkTags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly frameworkTags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Framework resource with the given unique name, arguments, and options.
@@ -89,13 +89,13 @@ export class Framework extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.frameworkControls === undefined) && !opts.urn) {
+            if (args?.frameworkControls === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frameworkControls'");
             }
-            resourceInputs["frameworkControls"] = args ? args.frameworkControls : undefined;
-            resourceInputs["frameworkDescription"] = args ? args.frameworkDescription : undefined;
-            resourceInputs["frameworkName"] = args ? args.frameworkName : undefined;
-            resourceInputs["frameworkTags"] = args ? args.frameworkTags : undefined;
+            resourceInputs["frameworkControls"] = args?.frameworkControls;
+            resourceInputs["frameworkDescription"] = args?.frameworkDescription;
+            resourceInputs["frameworkName"] = args?.frameworkName;
+            resourceInputs["frameworkTags"] = args?.frameworkTags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["frameworkArn"] = undefined /*out*/;

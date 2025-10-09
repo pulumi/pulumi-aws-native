@@ -40,27 +40,27 @@ export class EventIntegration extends pulumi.CustomResource {
     /**
      * The event integration description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon Eventbridge bus for the event integration.
      */
-    public readonly eventBridgeBus!: pulumi.Output<string>;
+    declare public readonly eventBridgeBus: pulumi.Output<string>;
     /**
      * The EventFilter (source) associated with the event integration.
      */
-    public readonly eventFilter!: pulumi.Output<outputs.appintegrations.EventIntegrationEventFilter>;
+    declare public readonly eventFilter: pulumi.Output<outputs.appintegrations.EventIntegrationEventFilter>;
     /**
      * The Amazon Resource Name (ARN) of the event integration.
      */
-    public /*out*/ readonly eventIntegrationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly eventIntegrationArn: pulumi.Output<string>;
     /**
      * The name of the event integration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The tags (keys and values) associated with the event integration.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EventIntegration resource with the given unique name, arguments, and options.
@@ -73,17 +73,17 @@ export class EventIntegration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.eventBridgeBus === undefined) && !opts.urn) {
+            if (args?.eventBridgeBus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventBridgeBus'");
             }
-            if ((!args || args.eventFilter === undefined) && !opts.urn) {
+            if (args?.eventFilter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventFilter'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventBridgeBus"] = args ? args.eventBridgeBus : undefined;
-            resourceInputs["eventFilter"] = args ? args.eventFilter : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventBridgeBus"] = args?.eventBridgeBus;
+            resourceInputs["eventFilter"] = args?.eventFilter;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["eventIntegrationArn"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

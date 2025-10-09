@@ -40,37 +40,37 @@ export class Dataset extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the dataset.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Frequency of data collection. This parameter is required for RELATED_TIME_SERIES
      */
-    public readonly dataFrequency!: pulumi.Output<string | undefined>;
+    declare public readonly dataFrequency: pulumi.Output<string | undefined>;
     /**
      * A name for the dataset
      */
-    public readonly datasetName!: pulumi.Output<string>;
+    declare public readonly datasetName: pulumi.Output<string>;
     /**
      * The dataset type
      */
-    public readonly datasetType!: pulumi.Output<enums.forecast.DatasetType>;
+    declare public readonly datasetType: pulumi.Output<enums.forecast.DatasetType>;
     /**
      * The domain associated with the dataset
      */
-    public readonly domain!: pulumi.Output<enums.forecast.DatasetDomain>;
+    declare public readonly domain: pulumi.Output<enums.forecast.DatasetDomain>;
     /**
      * A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
      */
-    public readonly encryptionConfig!: pulumi.Output<outputs.forecast.EncryptionConfigProperties | undefined>;
+    declare public readonly encryptionConfig: pulumi.Output<outputs.forecast.EncryptionConfigProperties | undefined>;
     /**
      * The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
      */
-    public readonly schema!: pulumi.Output<outputs.forecast.SchemaProperties>;
+    declare public readonly schema: pulumi.Output<outputs.forecast.SchemaProperties>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Dataset resource with the given unique name, arguments, and options.
@@ -83,22 +83,22 @@ export class Dataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.datasetType === undefined) && !opts.urn) {
+            if (args?.datasetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datasetType'");
             }
-            if ((!args || args.domain === undefined) && !opts.urn) {
+            if (args?.domain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["dataFrequency"] = args ? args.dataFrequency : undefined;
-            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
-            resourceInputs["datasetType"] = args ? args.datasetType : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataFrequency"] = args?.dataFrequency;
+            resourceInputs["datasetName"] = args?.datasetName;
+            resourceInputs["datasetType"] = args?.datasetType;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["encryptionConfig"] = args?.encryptionConfig;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

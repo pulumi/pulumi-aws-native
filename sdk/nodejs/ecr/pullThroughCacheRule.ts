@@ -63,27 +63,27 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
     /**
      * The ARN of the Secrets Manager secret associated with the pull through cache rule.
      */
-    public readonly credentialArn!: pulumi.Output<string | undefined>;
+    declare public readonly credentialArn: pulumi.Output<string | undefined>;
     /**
      * The ARN of the IAM role associated with the pull through cache rule.
      */
-    public readonly customRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly customRoleArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon ECR repository prefix associated with the pull through cache rule.
      */
-    public readonly ecrRepositoryPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly ecrRepositoryPrefix: pulumi.Output<string | undefined>;
     /**
      * The name of the upstream source registry associated with the pull through cache rule.
      */
-    public readonly upstreamRegistry!: pulumi.Output<string | undefined>;
+    declare public readonly upstreamRegistry: pulumi.Output<string | undefined>;
     /**
      * The upstream registry URL associated with the pull through cache rule.
      */
-    public readonly upstreamRegistryUrl!: pulumi.Output<string | undefined>;
+    declare public readonly upstreamRegistryUrl: pulumi.Output<string | undefined>;
     /**
      * The upstream repository prefix associated with the pull through cache rule.
      */
-    public readonly upstreamRepositoryPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly upstreamRepositoryPrefix: pulumi.Output<string | undefined>;
 
     /**
      * Create a PullThroughCacheRule resource with the given unique name, arguments, and options.
@@ -96,12 +96,12 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["credentialArn"] = args ? args.credentialArn : undefined;
-            resourceInputs["customRoleArn"] = args ? args.customRoleArn : undefined;
-            resourceInputs["ecrRepositoryPrefix"] = args ? args.ecrRepositoryPrefix : undefined;
-            resourceInputs["upstreamRegistry"] = args ? args.upstreamRegistry : undefined;
-            resourceInputs["upstreamRegistryUrl"] = args ? args.upstreamRegistryUrl : undefined;
-            resourceInputs["upstreamRepositoryPrefix"] = args ? args.upstreamRepositoryPrefix : undefined;
+            resourceInputs["credentialArn"] = args?.credentialArn;
+            resourceInputs["customRoleArn"] = args?.customRoleArn;
+            resourceInputs["ecrRepositoryPrefix"] = args?.ecrRepositoryPrefix;
+            resourceInputs["upstreamRegistry"] = args?.upstreamRegistry;
+            resourceInputs["upstreamRegistryUrl"] = args?.upstreamRegistryUrl;
+            resourceInputs["upstreamRepositoryPrefix"] = args?.upstreamRepositoryPrefix;
         } else {
             resourceInputs["credentialArn"] = undefined /*out*/;
             resourceInputs["customRoleArn"] = undefined /*out*/;

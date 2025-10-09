@@ -40,27 +40,27 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * A list of gateway capability summaries that each contain a namespace and status.
      */
-    public readonly gatewayCapabilitySummaries!: pulumi.Output<outputs.iotsitewise.GatewayCapabilitySummary[] | undefined>;
+    declare public readonly gatewayCapabilitySummaries: pulumi.Output<outputs.iotsitewise.GatewayCapabilitySummary[] | undefined>;
     /**
      * The ID of the gateway device.
      */
-    public /*out*/ readonly gatewayId!: pulumi.Output<string>;
+    declare public /*out*/ readonly gatewayId: pulumi.Output<string>;
     /**
      * A unique, friendly name for the gateway.
      */
-    public readonly gatewayName!: pulumi.Output<string>;
+    declare public readonly gatewayName: pulumi.Output<string>;
     /**
      * The gateway's platform. You can only specify one platform in a gateway.
      */
-    public readonly gatewayPlatform!: pulumi.Output<outputs.iotsitewise.GatewayPlatform>;
+    declare public readonly gatewayPlatform: pulumi.Output<outputs.iotsitewise.GatewayPlatform>;
     /**
      * The version of the gateway you want to create.
      */
-    public readonly gatewayVersion!: pulumi.Output<string | undefined>;
+    declare public readonly gatewayVersion: pulumi.Output<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -73,14 +73,14 @@ export class Gateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.gatewayPlatform === undefined) && !opts.urn) {
+            if (args?.gatewayPlatform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayPlatform'");
             }
-            resourceInputs["gatewayCapabilitySummaries"] = args ? args.gatewayCapabilitySummaries : undefined;
-            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
-            resourceInputs["gatewayPlatform"] = args ? args.gatewayPlatform : undefined;
-            resourceInputs["gatewayVersion"] = args ? args.gatewayVersion : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["gatewayCapabilitySummaries"] = args?.gatewayCapabilitySummaries;
+            resourceInputs["gatewayName"] = args?.gatewayName;
+            resourceInputs["gatewayPlatform"] = args?.gatewayPlatform;
+            resourceInputs["gatewayVersion"] = args?.gatewayVersion;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["gatewayId"] = undefined /*out*/;
         } else {
             resourceInputs["gatewayCapabilitySummaries"] = undefined /*out*/;

@@ -40,27 +40,27 @@ export class CisScanConfiguration extends pulumi.CustomResource {
     /**
      * CIS Scan configuration unique identifier
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Name of the scan
      */
-    public readonly scanName!: pulumi.Output<string>;
+    declare public readonly scanName: pulumi.Output<string>;
     /**
      * The CIS scan configuration's schedule.
      */
-    public readonly schedule!: pulumi.Output<outputs.inspectorv2.CisScanConfigurationSchedule>;
+    declare public readonly schedule: pulumi.Output<outputs.inspectorv2.CisScanConfigurationSchedule>;
     /**
      * The CIS scan configuration's CIS Benchmark level.
      */
-    public readonly securityLevel!: pulumi.Output<enums.inspectorv2.CisScanConfigurationCisSecurityLevel>;
+    declare public readonly securityLevel: pulumi.Output<enums.inspectorv2.CisScanConfigurationCisSecurityLevel>;
     /**
      * The CIS scan configuration's tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The CIS scan configuration's targets.
      */
-    public readonly targets!: pulumi.Output<outputs.inspectorv2.CisScanConfigurationCisTargets>;
+    declare public readonly targets: pulumi.Output<outputs.inspectorv2.CisScanConfigurationCisTargets>;
 
     /**
      * Create a CisScanConfiguration resource with the given unique name, arguments, and options.
@@ -73,23 +73,23 @@ export class CisScanConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scanName === undefined) && !opts.urn) {
+            if (args?.scanName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scanName'");
             }
-            if ((!args || args.schedule === undefined) && !opts.urn) {
+            if (args?.schedule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            if ((!args || args.securityLevel === undefined) && !opts.urn) {
+            if (args?.securityLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityLevel'");
             }
-            if ((!args || args.targets === undefined) && !opts.urn) {
+            if (args?.targets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targets'");
             }
-            resourceInputs["scanName"] = args ? args.scanName : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["securityLevel"] = args ? args.securityLevel : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["scanName"] = args?.scanName;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["securityLevel"] = args?.securityLevel;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targets"] = args?.targets;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

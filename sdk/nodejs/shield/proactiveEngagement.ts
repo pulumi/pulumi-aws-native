@@ -40,17 +40,17 @@ export class ProactiveEngagement extends pulumi.CustomResource {
     /**
      * The ID of the account that submitted the template.
      */
-    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
     /**
      * A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support.
      * To enable proactive engagement, the contact list must include at least one phone number.
      */
-    public readonly emergencyContactList!: pulumi.Output<outputs.shield.ProactiveEngagementEmergencyContact[]>;
+    declare public readonly emergencyContactList: pulumi.Output<outputs.shield.ProactiveEngagementEmergencyContact[]>;
     /**
      * If `ENABLED`, the Shield Response Team (SRT) will use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
      * If `DISABLED`, the SRT will not proactively notify contacts about escalations or to initiate proactive customer support.
      */
-    public readonly proactiveEngagementStatus!: pulumi.Output<enums.shield.ProactiveEngagementStatus>;
+    declare public readonly proactiveEngagementStatus: pulumi.Output<enums.shield.ProactiveEngagementStatus>;
 
     /**
      * Create a ProactiveEngagement resource with the given unique name, arguments, and options.
@@ -63,14 +63,14 @@ export class ProactiveEngagement extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.emergencyContactList === undefined) && !opts.urn) {
+            if (args?.emergencyContactList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emergencyContactList'");
             }
-            if ((!args || args.proactiveEngagementStatus === undefined) && !opts.urn) {
+            if (args?.proactiveEngagementStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'proactiveEngagementStatus'");
             }
-            resourceInputs["emergencyContactList"] = args ? args.emergencyContactList : undefined;
-            resourceInputs["proactiveEngagementStatus"] = args ? args.proactiveEngagementStatus : undefined;
+            resourceInputs["emergencyContactList"] = args?.emergencyContactList;
+            resourceInputs["proactiveEngagementStatus"] = args?.proactiveEngagementStatus;
             resourceInputs["accountId"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;

@@ -188,55 +188,55 @@ export class Component extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the component.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The change description of the component.
      */
-    public readonly changeDescription!: pulumi.Output<string | undefined>;
+    declare public readonly changeDescription: pulumi.Output<string | undefined>;
     /**
      * The data of the component.
      */
-    public readonly data!: pulumi.Output<string | undefined>;
+    declare public readonly data: pulumi.Output<string | undefined>;
     /**
      * The description of the component.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The encryption status of the component.
      */
-    public /*out*/ readonly encrypted!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly encrypted: pulumi.Output<boolean>;
     /**
      * The KMS key identifier used to encrypt the component.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The name of the component.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The platform of the component.
      */
-    public readonly platform!: pulumi.Output<enums.imagebuilder.ComponentPlatform>;
+    declare public readonly platform: pulumi.Output<enums.imagebuilder.ComponentPlatform>;
     /**
      * The operating system (OS) version supported by the component.
      */
-    public readonly supportedOsVersions!: pulumi.Output<string[] | undefined>;
+    declare public readonly supportedOsVersions: pulumi.Output<string[] | undefined>;
     /**
      * The tags associated with the component.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the component denotes whether the component is used to build the image or only to test it. 
      */
-    public /*out*/ readonly type!: pulumi.Output<enums.imagebuilder.ComponentType>;
+    declare public /*out*/ readonly type: pulumi.Output<enums.imagebuilder.ComponentType>;
     /**
      * The uri of the component.
      */
-    public readonly uri!: pulumi.Output<string | undefined>;
+    declare public readonly uri: pulumi.Output<string | undefined>;
     /**
      * The version of the component.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a Component resource with the given unique name, arguments, and options.
@@ -249,22 +249,22 @@ export class Component extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.platform === undefined) && !opts.urn) {
+            if (args?.platform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'platform'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["changeDescription"] = args ? args.changeDescription : undefined;
-            resourceInputs["data"] = args ? args.data : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["platform"] = args ? args.platform : undefined;
-            resourceInputs["supportedOsVersions"] = args ? args.supportedOsVersions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["changeDescription"] = args?.changeDescription;
+            resourceInputs["data"] = args?.data;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["platform"] = args?.platform;
+            resourceInputs["supportedOsVersions"] = args?.supportedOsVersions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["uri"] = args?.uri;
+            resourceInputs["version"] = args?.version;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["encrypted"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

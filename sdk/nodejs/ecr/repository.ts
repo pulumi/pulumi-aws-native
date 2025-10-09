@@ -82,51 +82,51 @@ export class Repository extends pulumi.CustomResource {
     /**
      * Returns the Amazon Resource Name (ARN) for the specified `AWS::ECR::Repository` resource. For example, `arn:aws:ecr: *eu-west-1* : *123456789012* :repository/ *test-repository*` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it.
      */
-    public readonly emptyOnDelete!: pulumi.Output<boolean | undefined>;
+    declare public readonly emptyOnDelete: pulumi.Output<boolean | undefined>;
     /**
      * The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<outputs.ecr.RepositoryEncryptionConfiguration | undefined>;
+    declare public readonly encryptionConfiguration: pulumi.Output<outputs.ecr.RepositoryEncryptionConfiguration | undefined>;
     /**
      * The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
      */
-    public readonly imageScanningConfiguration!: pulumi.Output<outputs.ecr.RepositoryImageScanningConfiguration | undefined>;
+    declare public readonly imageScanningConfiguration: pulumi.Output<outputs.ecr.RepositoryImageScanningConfiguration | undefined>;
     /**
      * The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
      */
-    public readonly imageTagMutability!: pulumi.Output<enums.ecr.RepositoryImageTagMutability | undefined>;
+    declare public readonly imageTagMutability: pulumi.Output<enums.ecr.RepositoryImageTagMutability | undefined>;
     /**
      * The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
      */
-    public readonly imageTagMutabilityExclusionFilters!: pulumi.Output<outputs.ecr.RepositoryImageTagMutabilityExclusionFilter[] | undefined>;
+    declare public readonly imageTagMutabilityExclusionFilters: pulumi.Output<outputs.ecr.RepositoryImageTagMutabilityExclusionFilter[] | undefined>;
     /**
      * Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
      */
-    public readonly lifecyclePolicy!: pulumi.Output<outputs.ecr.RepositoryLifecyclePolicy | undefined>;
+    declare public readonly lifecyclePolicy: pulumi.Output<outputs.ecr.RepositoryLifecyclePolicy | undefined>;
     /**
      * The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
      *  The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
      *   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
-    public readonly repositoryName!: pulumi.Output<string | undefined>;
+    declare public readonly repositoryName: pulumi.Output<string | undefined>;
     /**
      * The JSON repository policy text to apply to the repository. For more information, see [Amazon ECR repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html) in the *Amazon Elastic Container Registry User Guide*.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
      */
-    public readonly repositoryPolicyText!: pulumi.Output<any | undefined>;
+    declare public readonly repositoryPolicyText: pulumi.Output<any | undefined>;
     /**
      * Returns the URI for the specified `AWS::ECR::Repository` resource. For example, `*123456789012* .dkr.ecr. *us-west-2* .amazonaws.com/repository` .
      */
-    public /*out*/ readonly repositoryUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly repositoryUri: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -139,15 +139,15 @@ export class Repository extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["emptyOnDelete"] = args ? args.emptyOnDelete : undefined;
-            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
-            resourceInputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
-            resourceInputs["imageTagMutabilityExclusionFilters"] = args ? args.imageTagMutabilityExclusionFilters : undefined;
-            resourceInputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
-            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
-            resourceInputs["repositoryPolicyText"] = args ? args.repositoryPolicyText : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["emptyOnDelete"] = args?.emptyOnDelete;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["imageScanningConfiguration"] = args?.imageScanningConfiguration;
+            resourceInputs["imageTagMutability"] = args?.imageTagMutability;
+            resourceInputs["imageTagMutabilityExclusionFilters"] = args?.imageTagMutabilityExclusionFilters;
+            resourceInputs["lifecyclePolicy"] = args?.lifecyclePolicy;
+            resourceInputs["repositoryName"] = args?.repositoryName;
+            resourceInputs["repositoryPolicyText"] = args?.repositoryPolicyText;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["repositoryUri"] = undefined /*out*/;
         } else {

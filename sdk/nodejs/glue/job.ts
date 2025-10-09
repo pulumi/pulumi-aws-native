@@ -40,101 +40,101 @@ export class Job extends pulumi.CustomResource {
     /**
      * The number of capacity units that are allocated to this job.
      */
-    public readonly allocatedCapacity!: pulumi.Output<number | undefined>;
+    declare public readonly allocatedCapacity: pulumi.Output<number | undefined>;
     /**
      * The code that executes a job.
      */
-    public readonly command!: pulumi.Output<outputs.glue.JobCommand>;
+    declare public readonly command: pulumi.Output<outputs.glue.JobCommand>;
     /**
      * Specifies the connections used by a job
      */
-    public readonly connections!: pulumi.Output<outputs.glue.JobConnectionsList | undefined>;
+    declare public readonly connections: pulumi.Output<outputs.glue.JobConnectionsList | undefined>;
     /**
      * The default arguments for this job, specified as name-value pairs.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
      */
-    public readonly defaultArguments!: pulumi.Output<any | undefined>;
+    declare public readonly defaultArguments: pulumi.Output<any | undefined>;
     /**
      * A description of the job.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the job is run with a standard or flexible execution class.
      */
-    public readonly executionClass!: pulumi.Output<string | undefined>;
+    declare public readonly executionClass: pulumi.Output<string | undefined>;
     /**
      * The maximum number of concurrent runs that are allowed for this job.
      */
-    public readonly executionProperty!: pulumi.Output<outputs.glue.JobExecutionProperty | undefined>;
+    declare public readonly executionProperty: pulumi.Output<outputs.glue.JobExecutionProperty | undefined>;
     /**
      * Glue version determines the versions of Apache Spark and Python that AWS Glue supports.
      */
-    public readonly glueVersion!: pulumi.Output<string | undefined>;
+    declare public readonly glueVersion: pulumi.Output<string | undefined>;
     /**
      * Property description not available.
      */
-    public readonly jobMode!: pulumi.Output<string | undefined>;
+    declare public readonly jobMode: pulumi.Output<string | undefined>;
     /**
      * Property description not available.
      */
-    public readonly jobRunQueuingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly jobRunQueuingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * This field is reserved for future use.
      */
-    public readonly logUri!: pulumi.Output<string | undefined>;
+    declare public readonly logUri: pulumi.Output<string | undefined>;
     /**
      * Property description not available.
      */
-    public readonly maintenanceWindow!: pulumi.Output<string | undefined>;
+    declare public readonly maintenanceWindow: pulumi.Output<string | undefined>;
     /**
      * The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
      */
-    public readonly maxCapacity!: pulumi.Output<number | undefined>;
+    declare public readonly maxCapacity: pulumi.Output<number | undefined>;
     /**
      * The maximum number of times to retry this job after a JobRun fails
      */
-    public readonly maxRetries!: pulumi.Output<number | undefined>;
+    declare public readonly maxRetries: pulumi.Output<number | undefined>;
     /**
      * The name you assign to the job definition
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Non-overridable arguments for this job, specified as name-value pairs.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
      */
-    public readonly nonOverridableArguments!: pulumi.Output<any | undefined>;
+    declare public readonly nonOverridableArguments: pulumi.Output<any | undefined>;
     /**
      * Specifies configuration properties of a notification.
      */
-    public readonly notificationProperty!: pulumi.Output<outputs.glue.JobNotificationProperty | undefined>;
+    declare public readonly notificationProperty: pulumi.Output<outputs.glue.JobNotificationProperty | undefined>;
     /**
      * The number of workers of a defined workerType that are allocated when a job runs.
      */
-    public readonly numberOfWorkers!: pulumi.Output<number | undefined>;
+    declare public readonly numberOfWorkers: pulumi.Output<number | undefined>;
     /**
      * The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
      */
-    public readonly role!: pulumi.Output<string>;
+    declare public readonly role: pulumi.Output<string>;
     /**
      * The name of the SecurityConfiguration structure to be used with this job.
      */
-    public readonly securityConfiguration!: pulumi.Output<string | undefined>;
+    declare public readonly securityConfiguration: pulumi.Output<string | undefined>;
     /**
      * The tags to use with this job.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    declare public readonly tags: pulumi.Output<any | undefined>;
     /**
      * The maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status.
      */
-    public readonly timeout!: pulumi.Output<number | undefined>;
+    declare public readonly timeout: pulumi.Output<number | undefined>;
     /**
      * TThe type of predefined worker that is allocated when a job runs.
      */
-    public readonly workerType!: pulumi.Output<enums.glue.JobWorkerType | undefined>;
+    declare public readonly workerType: pulumi.Output<enums.glue.JobWorkerType | undefined>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -147,35 +147,35 @@ export class Job extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.command === undefined) && !opts.urn) {
+            if (args?.command === undefined && !opts.urn) {
                 throw new Error("Missing required property 'command'");
             }
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            resourceInputs["allocatedCapacity"] = args ? args.allocatedCapacity : undefined;
-            resourceInputs["command"] = args ? args.command : undefined;
-            resourceInputs["connections"] = args ? args.connections : undefined;
-            resourceInputs["defaultArguments"] = args ? args.defaultArguments : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executionClass"] = args ? args.executionClass : undefined;
-            resourceInputs["executionProperty"] = args ? args.executionProperty : undefined;
-            resourceInputs["glueVersion"] = args ? args.glueVersion : undefined;
-            resourceInputs["jobMode"] = args ? args.jobMode : undefined;
-            resourceInputs["jobRunQueuingEnabled"] = args ? args.jobRunQueuingEnabled : undefined;
-            resourceInputs["logUri"] = args ? args.logUri : undefined;
-            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            resourceInputs["maxRetries"] = args ? args.maxRetries : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nonOverridableArguments"] = args ? args.nonOverridableArguments : undefined;
-            resourceInputs["notificationProperty"] = args ? args.notificationProperty : undefined;
-            resourceInputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
-            resourceInputs["workerType"] = args ? args.workerType : undefined;
+            resourceInputs["allocatedCapacity"] = args?.allocatedCapacity;
+            resourceInputs["command"] = args?.command;
+            resourceInputs["connections"] = args?.connections;
+            resourceInputs["defaultArguments"] = args?.defaultArguments;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executionClass"] = args?.executionClass;
+            resourceInputs["executionProperty"] = args?.executionProperty;
+            resourceInputs["glueVersion"] = args?.glueVersion;
+            resourceInputs["jobMode"] = args?.jobMode;
+            resourceInputs["jobRunQueuingEnabled"] = args?.jobRunQueuingEnabled;
+            resourceInputs["logUri"] = args?.logUri;
+            resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
+            resourceInputs["maxCapacity"] = args?.maxCapacity;
+            resourceInputs["maxRetries"] = args?.maxRetries;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nonOverridableArguments"] = args?.nonOverridableArguments;
+            resourceInputs["notificationProperty"] = args?.notificationProperty;
+            resourceInputs["numberOfWorkers"] = args?.numberOfWorkers;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["securityConfiguration"] = args?.securityConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeout"] = args?.timeout;
+            resourceInputs["workerType"] = args?.workerType;
         } else {
             resourceInputs["allocatedCapacity"] = undefined /*out*/;
             resourceInputs["command"] = undefined /*out*/;

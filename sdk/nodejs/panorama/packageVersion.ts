@@ -40,51 +40,51 @@ export class PackageVersion extends pulumi.CustomResource {
     /**
      * Whether the package version is the latest version.
      */
-    public /*out*/ readonly isLatestPatch!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isLatestPatch: pulumi.Output<boolean>;
     /**
      * Whether to mark the new version as the latest version.
      */
-    public readonly markLatest!: pulumi.Output<boolean | undefined>;
+    declare public readonly markLatest: pulumi.Output<boolean | undefined>;
     /**
      * An owner account.
      */
-    public readonly ownerAccount!: pulumi.Output<string | undefined>;
+    declare public readonly ownerAccount: pulumi.Output<string | undefined>;
     /**
      * The package version's ARN.
      */
-    public /*out*/ readonly packageArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly packageArn: pulumi.Output<string>;
     /**
      * A package ID.
      */
-    public readonly packageId!: pulumi.Output<string>;
+    declare public readonly packageId: pulumi.Output<string>;
     /**
      * The package version's name.
      */
-    public /*out*/ readonly packageName!: pulumi.Output<string>;
+    declare public /*out*/ readonly packageName: pulumi.Output<string>;
     /**
      * A package version.
      */
-    public readonly packageVersion!: pulumi.Output<string>;
+    declare public readonly packageVersion: pulumi.Output<string>;
     /**
      * A patch version.
      */
-    public readonly patchVersion!: pulumi.Output<string>;
+    declare public readonly patchVersion: pulumi.Output<string>;
     /**
      * The package version's registered time.
      */
-    public /*out*/ readonly registeredTime!: pulumi.Output<number>;
+    declare public /*out*/ readonly registeredTime: pulumi.Output<number>;
     /**
      * The package version's status.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.panorama.PackageVersionStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.panorama.PackageVersionStatus>;
     /**
      * The package version's status description.
      */
-    public /*out*/ readonly statusDescription!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusDescription: pulumi.Output<string>;
     /**
      * If the version was marked latest, the new version to maker as latest.
      */
-    public readonly updatedLatestPatchVersion!: pulumi.Output<string | undefined>;
+    declare public readonly updatedLatestPatchVersion: pulumi.Output<string | undefined>;
 
     /**
      * Create a PackageVersion resource with the given unique name, arguments, and options.
@@ -97,21 +97,21 @@ export class PackageVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.packageId === undefined) && !opts.urn) {
+            if (args?.packageId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packageId'");
             }
-            if ((!args || args.packageVersion === undefined) && !opts.urn) {
+            if (args?.packageVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packageVersion'");
             }
-            if ((!args || args.patchVersion === undefined) && !opts.urn) {
+            if (args?.patchVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'patchVersion'");
             }
-            resourceInputs["markLatest"] = args ? args.markLatest : undefined;
-            resourceInputs["ownerAccount"] = args ? args.ownerAccount : undefined;
-            resourceInputs["packageId"] = args ? args.packageId : undefined;
-            resourceInputs["packageVersion"] = args ? args.packageVersion : undefined;
-            resourceInputs["patchVersion"] = args ? args.patchVersion : undefined;
-            resourceInputs["updatedLatestPatchVersion"] = args ? args.updatedLatestPatchVersion : undefined;
+            resourceInputs["markLatest"] = args?.markLatest;
+            resourceInputs["ownerAccount"] = args?.ownerAccount;
+            resourceInputs["packageId"] = args?.packageId;
+            resourceInputs["packageVersion"] = args?.packageVersion;
+            resourceInputs["patchVersion"] = args?.patchVersion;
+            resourceInputs["updatedLatestPatchVersion"] = args?.updatedLatestPatchVersion;
             resourceInputs["isLatestPatch"] = undefined /*out*/;
             resourceInputs["packageArn"] = undefined /*out*/;
             resourceInputs["packageName"] = undefined /*out*/;

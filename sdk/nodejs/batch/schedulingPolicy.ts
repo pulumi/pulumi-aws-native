@@ -40,19 +40,19 @@ export class SchedulingPolicy extends pulumi.CustomResource {
     /**
      * Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The fair-share scheduling policy details.
      */
-    public readonly fairsharePolicy!: pulumi.Output<outputs.batch.SchedulingPolicyFairsharePolicy | undefined>;
+    declare public readonly fairsharePolicy: pulumi.Output<outputs.batch.SchedulingPolicyFairsharePolicy | undefined>;
     /**
      * Name of Scheduling Policy.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SchedulingPolicy resource with the given unique name, arguments, and options.
@@ -65,9 +65,9 @@ export class SchedulingPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["fairsharePolicy"] = args ? args.fairsharePolicy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["fairsharePolicy"] = args?.fairsharePolicy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

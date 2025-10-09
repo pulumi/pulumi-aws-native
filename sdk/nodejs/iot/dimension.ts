@@ -59,23 +59,23 @@ export class Dimension extends pulumi.CustomResource {
     /**
      * The ARN (Amazon resource name) of the created dimension.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A unique identifier for the dimension.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Specifies the value or list of values for the dimension.
      */
-    public readonly stringValues!: pulumi.Output<string[]>;
+    declare public readonly stringValues: pulumi.Output<string[]>;
     /**
      * Metadata that can be used to manage the dimension.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Specifies the type of the dimension.
      */
-    public readonly type!: pulumi.Output<enums.iot.DimensionType>;
+    declare public readonly type: pulumi.Output<enums.iot.DimensionType>;
 
     /**
      * Create a Dimension resource with the given unique name, arguments, and options.
@@ -88,16 +88,16 @@ export class Dimension extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.stringValues === undefined) && !opts.urn) {
+            if (args?.stringValues === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stringValues'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["stringValues"] = args ? args.stringValues : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["stringValues"] = args?.stringValues;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

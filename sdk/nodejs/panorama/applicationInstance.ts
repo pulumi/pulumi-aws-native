@@ -40,67 +40,67 @@ export class ApplicationInstance extends pulumi.CustomResource {
     /**
      * The application instance's ID.
      */
-    public /*out*/ readonly applicationInstanceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationInstanceId: pulumi.Output<string>;
     /**
      * The ID of an application instance to replace with the new instance.
      */
-    public readonly applicationInstanceIdToReplace!: pulumi.Output<string | undefined>;
+    declare public readonly applicationInstanceIdToReplace: pulumi.Output<string | undefined>;
     /**
      * The application instance's ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The application instance's created time.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<number>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<number>;
     /**
      * The device's ID.
      */
-    public readonly defaultRuntimeContextDevice!: pulumi.Output<string>;
+    declare public readonly defaultRuntimeContextDevice: pulumi.Output<string>;
     /**
      * The application instance's default runtime context device name.
      */
-    public /*out*/ readonly defaultRuntimeContextDeviceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultRuntimeContextDeviceName: pulumi.Output<string>;
     /**
      * A description for the application instance.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The application instance's health status.
      */
-    public /*out*/ readonly healthStatus!: pulumi.Output<enums.panorama.ApplicationInstanceHealthStatus>;
+    declare public /*out*/ readonly healthStatus: pulumi.Output<enums.panorama.ApplicationInstanceHealthStatus>;
     /**
      * The application instance's last updated time.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<number>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<number>;
     /**
      * Setting overrides for the application manifest.
      */
-    public readonly manifestOverridesPayload!: pulumi.Output<outputs.panorama.ApplicationInstanceManifestOverridesPayload | undefined>;
+    declare public readonly manifestOverridesPayload: pulumi.Output<outputs.panorama.ApplicationInstanceManifestOverridesPayload | undefined>;
     /**
      * The application's manifest document.
      */
-    public readonly manifestPayload!: pulumi.Output<outputs.panorama.ApplicationInstanceManifestPayload>;
+    declare public readonly manifestPayload: pulumi.Output<outputs.panorama.ApplicationInstanceManifestPayload>;
     /**
      * A name for the application instance.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The ARN of a runtime role for the application instance.
      */
-    public readonly runtimeRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly runtimeRoleArn: pulumi.Output<string | undefined>;
     /**
      * The application instance's status.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.panorama.ApplicationInstanceStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.panorama.ApplicationInstanceStatus>;
     /**
      * The application instance's status description.
      */
-    public /*out*/ readonly statusDescription!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusDescription: pulumi.Output<string>;
     /**
      * Tags for the application instance.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ApplicationInstance resource with the given unique name, arguments, and options.
@@ -113,20 +113,20 @@ export class ApplicationInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultRuntimeContextDevice === undefined) && !opts.urn) {
+            if (args?.defaultRuntimeContextDevice === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultRuntimeContextDevice'");
             }
-            if ((!args || args.manifestPayload === undefined) && !opts.urn) {
+            if (args?.manifestPayload === undefined && !opts.urn) {
                 throw new Error("Missing required property 'manifestPayload'");
             }
-            resourceInputs["applicationInstanceIdToReplace"] = args ? args.applicationInstanceIdToReplace : undefined;
-            resourceInputs["defaultRuntimeContextDevice"] = args ? args.defaultRuntimeContextDevice : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["manifestOverridesPayload"] = args ? args.manifestOverridesPayload : undefined;
-            resourceInputs["manifestPayload"] = args ? args.manifestPayload : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["runtimeRoleArn"] = args ? args.runtimeRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationInstanceIdToReplace"] = args?.applicationInstanceIdToReplace;
+            resourceInputs["defaultRuntimeContextDevice"] = args?.defaultRuntimeContextDevice;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["manifestOverridesPayload"] = args?.manifestOverridesPayload;
+            resourceInputs["manifestPayload"] = args?.manifestPayload;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["runtimeRoleArn"] = args?.runtimeRoleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationInstanceId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;

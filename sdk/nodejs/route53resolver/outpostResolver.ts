@@ -40,51 +40,51 @@ export class OutpostResolver extends pulumi.CustomResource {
     /**
      * The OutpostResolver ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Id
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The OutpostResolver creation time
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The id of the creator request.
      */
-    public /*out*/ readonly creatorRequestId!: pulumi.Output<string>;
+    declare public /*out*/ readonly creatorRequestId: pulumi.Output<string>;
     /**
      * The number of OutpostResolvers.
      */
-    public readonly instanceCount!: pulumi.Output<number | undefined>;
+    declare public readonly instanceCount: pulumi.Output<number | undefined>;
     /**
      * The OutpostResolver last modified time
      */
-    public /*out*/ readonly modificationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly modificationTime: pulumi.Output<string>;
     /**
      * The OutpostResolver name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Outpost ARN.
      */
-    public readonly outpostArn!: pulumi.Output<string>;
+    declare public readonly outpostArn: pulumi.Output<string>;
     /**
      * The OutpostResolver instance type.
      */
-    public readonly preferredInstanceType!: pulumi.Output<string>;
+    declare public readonly preferredInstanceType: pulumi.Output<string>;
     /**
      * The OutpostResolver status, possible values are CREATING, OPERATIONAL, UPDATING, DELETING, ACTION_NEEDED, FAILED_CREATION and FAILED_DELETION.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.route53resolver.OutpostResolverStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.route53resolver.OutpostResolverStatus>;
     /**
      * The OutpostResolver status message.
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a OutpostResolver resource with the given unique name, arguments, and options.
@@ -97,17 +97,17 @@ export class OutpostResolver extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.outpostArn === undefined) && !opts.urn) {
+            if (args?.outpostArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outpostArn'");
             }
-            if ((!args || args.preferredInstanceType === undefined) && !opts.urn) {
+            if (args?.preferredInstanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'preferredInstanceType'");
             }
-            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
-            resourceInputs["preferredInstanceType"] = args ? args.preferredInstanceType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["instanceCount"] = args?.instanceCount;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outpostArn"] = args?.outpostArn;
+            resourceInputs["preferredInstanceType"] = args?.preferredInstanceType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

@@ -40,83 +40,83 @@ export class VpcAttachment extends pulumi.CustomResource {
     /**
      * Id of the attachment.
      */
-    public /*out*/ readonly attachmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentId: pulumi.Output<string>;
     /**
      * The policy rule number associated with the attachment.
      */
-    public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly attachmentPolicyRuleNumber: pulumi.Output<number>;
     /**
      * Attachment type.
      */
-    public /*out*/ readonly attachmentType!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentType: pulumi.Output<string>;
     /**
      * The ARN of a core network for the VPC attachment.
      */
-    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly coreNetworkArn: pulumi.Output<string>;
     /**
      * The ID of a core network for the VPC attachment.
      */
-    public readonly coreNetworkId!: pulumi.Output<string>;
+    declare public readonly coreNetworkId: pulumi.Output<string>;
     /**
      * Creation time of the attachment.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The Region where the edge is located.
      */
-    public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
+    declare public /*out*/ readonly edgeLocation: pulumi.Output<string>;
     /**
      * Errors from the last modification of the attachment.
      */
-    public /*out*/ readonly lastModificationErrors!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly lastModificationErrors: pulumi.Output<string[]>;
     /**
      * The name of the network function group attachment.
      */
-    public /*out*/ readonly networkFunctionGroupName!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkFunctionGroupName: pulumi.Output<string>;
     /**
      * Vpc options of the attachment.
      */
-    public readonly options!: pulumi.Output<outputs.networkmanager.VpcAttachmentVpcOptions | undefined>;
+    declare public readonly options: pulumi.Output<outputs.networkmanager.VpcAttachmentVpcOptions | undefined>;
     /**
      * Owner account of the attachment.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
      * The attachment to move from one network function group to another.
      */
-    public readonly proposedNetworkFunctionGroupChange!: pulumi.Output<outputs.networkmanager.VpcAttachmentProposedNetworkFunctionGroupChange | undefined>;
+    declare public readonly proposedNetworkFunctionGroupChange: pulumi.Output<outputs.networkmanager.VpcAttachmentProposedNetworkFunctionGroupChange | undefined>;
     /**
      * The attachment to move from one segment to another.
      */
-    public readonly proposedSegmentChange!: pulumi.Output<outputs.networkmanager.VpcAttachmentProposedSegmentChange | undefined>;
+    declare public readonly proposedSegmentChange: pulumi.Output<outputs.networkmanager.VpcAttachmentProposedSegmentChange | undefined>;
     /**
      * The ARN of the Resource.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
      * The name of the segment attachment..
      */
-    public /*out*/ readonly segmentName!: pulumi.Output<string>;
+    declare public /*out*/ readonly segmentName: pulumi.Output<string>;
     /**
      * State of the attachment.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Subnet Arn list
      */
-    public readonly subnetArns!: pulumi.Output<string[]>;
+    declare public readonly subnetArns: pulumi.Output<string[]>;
     /**
      * Tags for the attachment.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Last update time of the attachment.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * The ARN of the VPC.
      */
-    public readonly vpcArn!: pulumi.Output<string>;
+    declare public readonly vpcArn: pulumi.Output<string>;
 
     /**
      * Create a VpcAttachment resource with the given unique name, arguments, and options.
@@ -129,22 +129,22 @@ export class VpcAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
+            if (args?.coreNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'coreNetworkId'");
             }
-            if ((!args || args.subnetArns === undefined) && !opts.urn) {
+            if (args?.subnetArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetArns'");
             }
-            if ((!args || args.vpcArn === undefined) && !opts.urn) {
+            if (args?.vpcArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcArn'");
             }
-            resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["proposedNetworkFunctionGroupChange"] = args ? args.proposedNetworkFunctionGroupChange : undefined;
-            resourceInputs["proposedSegmentChange"] = args ? args.proposedSegmentChange : undefined;
-            resourceInputs["subnetArns"] = args ? args.subnetArns : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcArn"] = args ? args.vpcArn : undefined;
+            resourceInputs["coreNetworkId"] = args?.coreNetworkId;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
+            resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
+            resourceInputs["subnetArns"] = args?.subnetArns;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcArn"] = args?.vpcArn;
             resourceInputs["attachmentId"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;
             resourceInputs["attachmentType"] = undefined /*out*/;

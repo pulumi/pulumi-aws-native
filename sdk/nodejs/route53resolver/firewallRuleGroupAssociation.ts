@@ -40,59 +40,59 @@ export class FirewallRuleGroupAssociation extends pulumi.CustomResource {
     /**
      * Arn
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Id
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Rfc3339TimeString
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The id of the creator request.
      */
-    public /*out*/ readonly creatorRequestId!: pulumi.Output<string>;
+    declare public /*out*/ readonly creatorRequestId: pulumi.Output<string>;
     /**
      * FirewallRuleGroupId
      */
-    public readonly firewallRuleGroupId!: pulumi.Output<string>;
+    declare public readonly firewallRuleGroupId: pulumi.Output<string>;
     /**
      * ServicePrincipal
      */
-    public /*out*/ readonly managedOwnerName!: pulumi.Output<string>;
+    declare public /*out*/ readonly managedOwnerName: pulumi.Output<string>;
     /**
      * Rfc3339TimeString
      */
-    public /*out*/ readonly modificationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly modificationTime: pulumi.Output<string>;
     /**
      * MutationProtectionStatus
      */
-    public readonly mutationProtection!: pulumi.Output<enums.route53resolver.FirewallRuleGroupAssociationMutationProtection | undefined>;
+    declare public readonly mutationProtection: pulumi.Output<enums.route53resolver.FirewallRuleGroupAssociationMutationProtection | undefined>;
     /**
      * FirewallRuleGroupAssociationName
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Priority
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.route53resolver.FirewallRuleGroupAssociationStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.route53resolver.FirewallRuleGroupAssociationStatus>;
     /**
      * FirewallDomainListAssociationStatus
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
     /**
      * Tags
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * VpcId
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a FirewallRuleGroupAssociation resource with the given unique name, arguments, and options.
@@ -105,21 +105,21 @@ export class FirewallRuleGroupAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.firewallRuleGroupId === undefined) && !opts.urn) {
+            if (args?.firewallRuleGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallRuleGroupId'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["firewallRuleGroupId"] = args ? args.firewallRuleGroupId : undefined;
-            resourceInputs["mutationProtection"] = args ? args.mutationProtection : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["firewallRuleGroupId"] = args?.firewallRuleGroupId;
+            resourceInputs["mutationProtection"] = args?.mutationProtection;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

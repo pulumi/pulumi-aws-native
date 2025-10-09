@@ -40,79 +40,79 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
      */
-    public readonly appNetworkAccessType!: pulumi.Output<enums.sagemaker.DomainAppNetworkAccessType | undefined>;
+    declare public readonly appNetworkAccessType: pulumi.Output<enums.sagemaker.DomainAppNetworkAccessType | undefined>;
     /**
      * The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
      */
-    public readonly appSecurityGroupManagement!: pulumi.Output<enums.sagemaker.DomainAppSecurityGroupManagement | undefined>;
+    declare public readonly appSecurityGroupManagement: pulumi.Output<enums.sagemaker.DomainAppSecurityGroupManagement | undefined>;
     /**
      * The mode of authentication that members use to access the domain.
      */
-    public readonly authMode!: pulumi.Output<enums.sagemaker.DomainAuthMode>;
+    declare public readonly authMode: pulumi.Output<enums.sagemaker.DomainAuthMode>;
     /**
      * The default space settings.
      */
-    public readonly defaultSpaceSettings!: pulumi.Output<outputs.sagemaker.DomainDefaultSpaceSettings | undefined>;
+    declare public readonly defaultSpaceSettings: pulumi.Output<outputs.sagemaker.DomainDefaultSpaceSettings | undefined>;
     /**
      * The default user settings.
      */
-    public readonly defaultUserSettings!: pulumi.Output<outputs.sagemaker.DomainUserSettings>;
+    declare public readonly defaultUserSettings: pulumi.Output<outputs.sagemaker.DomainUserSettings>;
     /**
      * The Amazon Resource Name (ARN) of the created domain.
      */
-    public /*out*/ readonly domainArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainArn: pulumi.Output<string>;
     /**
      * The domain name.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * A name for the domain.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
      */
-    public readonly domainSettings!: pulumi.Output<outputs.sagemaker.DomainSettings | undefined>;
+    declare public readonly domainSettings: pulumi.Output<outputs.sagemaker.DomainSettings | undefined>;
     /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      */
-    public /*out*/ readonly homeEfsFileSystemId!: pulumi.Output<string>;
+    declare public /*out*/ readonly homeEfsFileSystemId: pulumi.Output<string>;
     /**
      * SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
      */
-    public /*out*/ readonly securityGroupIdForDomainBoundary!: pulumi.Output<string>;
+    declare public /*out*/ readonly securityGroupIdForDomainBoundary: pulumi.Output<string>;
     /**
      * The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after October 1, 2023.
      */
-    public /*out*/ readonly singleSignOnApplicationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly singleSignOnApplicationArn: pulumi.Output<string>;
     /**
      * The SSO managed application instance ID.
      */
-    public /*out*/ readonly singleSignOnManagedApplicationInstanceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly singleSignOnManagedApplicationInstanceId: pulumi.Output<string>;
     /**
      * The VPC subnets that Studio uses for communication.
      */
-    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly subnetIds: pulumi.Output<string[] | undefined>;
     /**
      * Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
      */
-    public readonly tagPropagation!: pulumi.Output<enums.sagemaker.DomainTagPropagation | undefined>;
+    declare public readonly tagPropagation: pulumi.Output<enums.sagemaker.DomainTagPropagation | undefined>;
     /**
      * A list of tags to apply to the user profile.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The URL to the created domain.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
      */
-    public readonly vpcId!: pulumi.Output<string | undefined>;
+    declare public readonly vpcId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -125,24 +125,24 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authMode === undefined) && !opts.urn) {
+            if (args?.authMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authMode'");
             }
-            if ((!args || args.defaultUserSettings === undefined) && !opts.urn) {
+            if (args?.defaultUserSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultUserSettings'");
             }
-            resourceInputs["appNetworkAccessType"] = args ? args.appNetworkAccessType : undefined;
-            resourceInputs["appSecurityGroupManagement"] = args ? args.appSecurityGroupManagement : undefined;
-            resourceInputs["authMode"] = args ? args.authMode : undefined;
-            resourceInputs["defaultSpaceSettings"] = args ? args.defaultSpaceSettings : undefined;
-            resourceInputs["defaultUserSettings"] = args ? args.defaultUserSettings : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["domainSettings"] = args ? args.domainSettings : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tagPropagation"] = args ? args.tagPropagation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["appNetworkAccessType"] = args?.appNetworkAccessType;
+            resourceInputs["appSecurityGroupManagement"] = args?.appSecurityGroupManagement;
+            resourceInputs["authMode"] = args?.authMode;
+            resourceInputs["defaultSpaceSettings"] = args?.defaultSpaceSettings;
+            resourceInputs["defaultUserSettings"] = args?.defaultUserSettings;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["domainSettings"] = args?.domainSettings;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tagPropagation"] = args?.tagPropagation;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["domainArn"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["homeEfsFileSystemId"] = undefined /*out*/;
