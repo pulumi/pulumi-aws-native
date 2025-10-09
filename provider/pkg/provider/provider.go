@@ -56,7 +56,6 @@ import (
 	pOutputs "github.com/pulumi/pulumi-aws-native/provider/pkg/outputs"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 	"github.com/pulumi/pulumi-go-provider/resourcex"
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
@@ -1255,23 +1254,22 @@ func (p *cfnProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, e
 }
 
 // pulumiUserAgentMiddleware adds a Pulumi-specific user-agent to the request middleware.
-// Example: APN/1.0 Pulumi/1.0 PulumiAwsNative/1.12,
+// Example: APN/1.1 (marketplace-identifier)
 var pulumiUserAgentMiddleware = middleware.BuildMiddlewareFunc("PulumiUserAgent", func(
 	ctx context.Context, input middleware.BuildInput, next middleware.BuildHandler,
 ) (
-	out middleware.BuildOutput, metadata middleware.Metadata, err error,
+	out middleware.BuildOutput, middlewareMetadata middleware.Metadata, err error,
 ) {
 	request, ok := input.Request.(*smithyhttp.Request)
 	if !ok {
-		return out, metadata, fmt.Errorf("unknown transport type %T", input.Request)
+		return out, middlewareMetadata, fmt.Errorf("unknown transport type %T", input.Request)
 	}
 
 	const userAgentKey = "User-Agent"
 
-	previousValue := request.Header.Get(userAgentKey)
-	newValue := fmt.Sprintf("APN/1.1 (%s)", version.PulumiAWSMarketplaceCode)
+	// Replace the whole user-agent string to include only the marketplace identifier
+	newValue := fmt.Sprintf("APN/1.1 (%s)", metadata.PulumiAWSMarketplaceCode)
 
-	glog.V(4).Infof("Replacing User-Agent existing user-agent: %q with %q", previousValue, newValue)
 	request.Header.Set(userAgentKey, newValue)
 
 	return next.HandleBuild(ctx, input)
