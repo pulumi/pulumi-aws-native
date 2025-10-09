@@ -17,23 +17,36 @@ type Gateway struct {
 	pulumi.CustomResourceState
 
 	AuthorizerConfiguration GatewayAuthorizerConfigurationPropertiesPtrOutput `pulumi:"authorizerConfiguration"`
-	AuthorizerType          GatewayAuthorizerTypeOutput                       `pulumi:"authorizerType"`
-	CreatedAt               pulumi.StringOutput                               `pulumi:"createdAt"`
-	Description             pulumi.StringPtrOutput                            `pulumi:"description"`
-	ExceptionLevel          GatewayExceptionLevelPtrOutput                    `pulumi:"exceptionLevel"`
-	GatewayArn              pulumi.StringOutput                               `pulumi:"gatewayArn"`
-	GatewayIdentifier       pulumi.StringOutput                               `pulumi:"gatewayIdentifier"`
-	GatewayUrl              pulumi.StringOutput                               `pulumi:"gatewayUrl"`
-	KmsKeyArn               pulumi.StringPtrOutput                            `pulumi:"kmsKeyArn"`
-	Name                    pulumi.StringOutput                               `pulumi:"name"`
-	ProtocolConfiguration   GatewayProtocolConfigurationPropertiesPtrOutput   `pulumi:"protocolConfiguration"`
-	ProtocolType            GatewayProtocolTypeOutput                         `pulumi:"protocolType"`
-	RoleArn                 pulumi.StringOutput                               `pulumi:"roleArn"`
-	Status                  GatewayStatusOutput                               `pulumi:"status"`
-	StatusReasons           pulumi.StringArrayOutput                          `pulumi:"statusReasons"`
-	Tags                    pulumi.StringMapOutput                            `pulumi:"tags"`
-	UpdatedAt               pulumi.StringOutput                               `pulumi:"updatedAt"`
-	WorkloadIdentityDetails GatewayWorkloadIdentityDetailsOutput              `pulumi:"workloadIdentityDetails"`
+	// The authorizer type for the gateway.
+	AuthorizerType GatewayAuthorizerTypeOutput `pulumi:"authorizerType"`
+	// The date and time at which the gateway was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The description for the gateway.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The exception level for the gateway.
+	ExceptionLevel GatewayExceptionLevelPtrOutput `pulumi:"exceptionLevel"`
+	// The ARN for the gateway.
+	GatewayArn        pulumi.StringOutput `pulumi:"gatewayArn"`
+	GatewayIdentifier pulumi.StringOutput `pulumi:"gatewayIdentifier"`
+	// The gateway URL for the gateway.
+	GatewayUrl pulumi.StringOutput `pulumi:"gatewayUrl"`
+	// The KMS key ARN for the gateway.
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
+	// The name for the gateway.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The protocol configuration for the gateway target.
+	ProtocolConfiguration GatewayProtocolConfigurationPropertiesPtrOutput `pulumi:"protocolConfiguration"`
+	// The protocol type for the gateway target.
+	ProtocolType GatewayProtocolTypeOutput `pulumi:"protocolType"`
+	RoleArn      pulumi.StringOutput       `pulumi:"roleArn"`
+	// The status for the gateway.
+	Status GatewayStatusOutput `pulumi:"status"`
+	// The status reasons for the gateway.
+	StatusReasons pulumi.StringArrayOutput `pulumi:"statusReasons"`
+	// The tags for the gateway.
+	Tags                    pulumi.StringMapOutput               `pulumi:"tags"`
+	UpdatedAt               pulumi.StringOutput                  `pulumi:"updatedAt"`
+	WorkloadIdentityDetails GatewayWorkloadIdentityDetailsOutput `pulumi:"workloadIdentityDetails"`
 }
 
 // NewGateway registers a new resource with the given unique name, arguments, and options.
@@ -86,29 +99,45 @@ func (GatewayState) ElementType() reflect.Type {
 
 type gatewayArgs struct {
 	AuthorizerConfiguration *GatewayAuthorizerConfigurationProperties `pulumi:"authorizerConfiguration"`
-	AuthorizerType          GatewayAuthorizerType                     `pulumi:"authorizerType"`
-	Description             *string                                   `pulumi:"description"`
-	ExceptionLevel          *GatewayExceptionLevel                    `pulumi:"exceptionLevel"`
-	KmsKeyArn               *string                                   `pulumi:"kmsKeyArn"`
-	Name                    *string                                   `pulumi:"name"`
-	ProtocolConfiguration   *GatewayProtocolConfigurationProperties   `pulumi:"protocolConfiguration"`
-	ProtocolType            GatewayProtocolType                       `pulumi:"protocolType"`
-	RoleArn                 string                                    `pulumi:"roleArn"`
-	Tags                    map[string]string                         `pulumi:"tags"`
+	// The authorizer type for the gateway.
+	AuthorizerType GatewayAuthorizerType `pulumi:"authorizerType"`
+	// The description for the gateway.
+	Description *string `pulumi:"description"`
+	// The exception level for the gateway.
+	ExceptionLevel *GatewayExceptionLevel `pulumi:"exceptionLevel"`
+	// The KMS key ARN for the gateway.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The name for the gateway.
+	Name *string `pulumi:"name"`
+	// The protocol configuration for the gateway target.
+	ProtocolConfiguration *GatewayProtocolConfigurationProperties `pulumi:"protocolConfiguration"`
+	// The protocol type for the gateway target.
+	ProtocolType GatewayProtocolType `pulumi:"protocolType"`
+	RoleArn      string              `pulumi:"roleArn"`
+	// The tags for the gateway.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Gateway resource.
 type GatewayArgs struct {
 	AuthorizerConfiguration GatewayAuthorizerConfigurationPropertiesPtrInput
-	AuthorizerType          GatewayAuthorizerTypeInput
-	Description             pulumi.StringPtrInput
-	ExceptionLevel          GatewayExceptionLevelPtrInput
-	KmsKeyArn               pulumi.StringPtrInput
-	Name                    pulumi.StringPtrInput
-	ProtocolConfiguration   GatewayProtocolConfigurationPropertiesPtrInput
-	ProtocolType            GatewayProtocolTypeInput
-	RoleArn                 pulumi.StringInput
-	Tags                    pulumi.StringMapInput
+	// The authorizer type for the gateway.
+	AuthorizerType GatewayAuthorizerTypeInput
+	// The description for the gateway.
+	Description pulumi.StringPtrInput
+	// The exception level for the gateway.
+	ExceptionLevel GatewayExceptionLevelPtrInput
+	// The KMS key ARN for the gateway.
+	KmsKeyArn pulumi.StringPtrInput
+	// The name for the gateway.
+	Name pulumi.StringPtrInput
+	// The protocol configuration for the gateway target.
+	ProtocolConfiguration GatewayProtocolConfigurationPropertiesPtrInput
+	// The protocol type for the gateway target.
+	ProtocolType GatewayProtocolTypeInput
+	RoleArn      pulumi.StringInput
+	// The tags for the gateway.
+	Tags pulumi.StringMapInput
 }
 
 func (GatewayArgs) ElementType() reflect.Type {
@@ -152,22 +181,27 @@ func (o GatewayOutput) AuthorizerConfiguration() GatewayAuthorizerConfigurationP
 	return o.ApplyT(func(v *Gateway) GatewayAuthorizerConfigurationPropertiesPtrOutput { return v.AuthorizerConfiguration }).(GatewayAuthorizerConfigurationPropertiesPtrOutput)
 }
 
+// The authorizer type for the gateway.
 func (o GatewayOutput) AuthorizerType() GatewayAuthorizerTypeOutput {
 	return o.ApplyT(func(v *Gateway) GatewayAuthorizerTypeOutput { return v.AuthorizerType }).(GatewayAuthorizerTypeOutput)
 }
 
+// The date and time at which the gateway was created.
 func (o GatewayOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The description for the gateway.
 func (o GatewayOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The exception level for the gateway.
 func (o GatewayOutput) ExceptionLevel() GatewayExceptionLevelPtrOutput {
 	return o.ApplyT(func(v *Gateway) GatewayExceptionLevelPtrOutput { return v.ExceptionLevel }).(GatewayExceptionLevelPtrOutput)
 }
 
+// The ARN for the gateway.
 func (o GatewayOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
 }
@@ -176,22 +210,27 @@ func (o GatewayOutput) GatewayIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.GatewayIdentifier }).(pulumi.StringOutput)
 }
 
+// The gateway URL for the gateway.
 func (o GatewayOutput) GatewayUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.GatewayUrl }).(pulumi.StringOutput)
 }
 
+// The KMS key ARN for the gateway.
 func (o GatewayOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The name for the gateway.
 func (o GatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The protocol configuration for the gateway target.
 func (o GatewayOutput) ProtocolConfiguration() GatewayProtocolConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v *Gateway) GatewayProtocolConfigurationPropertiesPtrOutput { return v.ProtocolConfiguration }).(GatewayProtocolConfigurationPropertiesPtrOutput)
 }
 
+// The protocol type for the gateway target.
 func (o GatewayOutput) ProtocolType() GatewayProtocolTypeOutput {
 	return o.ApplyT(func(v *Gateway) GatewayProtocolTypeOutput { return v.ProtocolType }).(GatewayProtocolTypeOutput)
 }
@@ -200,14 +239,17 @@ func (o GatewayOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The status for the gateway.
 func (o GatewayOutput) Status() GatewayStatusOutput {
 	return o.ApplyT(func(v *Gateway) GatewayStatusOutput { return v.Status }).(GatewayStatusOutput)
 }
 
+// The status reasons for the gateway.
 func (o GatewayOutput) StatusReasons() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringArrayOutput { return v.StatusReasons }).(pulumi.StringArrayOutput)
 }
 
+// The tags for the gateway.
 func (o GatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

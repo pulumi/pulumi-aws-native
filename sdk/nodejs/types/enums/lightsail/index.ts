@@ -17,6 +17,27 @@ export const DiskAddOnStatus = {
  */
 export type DiskAddOnStatus = (typeof DiskAddOnStatus)[keyof typeof DiskAddOnStatus];
 
+export const DiskSnapshotResourceType = {
+    DiskSnapshot: "DiskSnapshot",
+} as const;
+
+/**
+ * The Lightsail resource type (DiskSnapshot).
+ */
+export type DiskSnapshotResourceType = (typeof DiskSnapshotResourceType)[keyof typeof DiskSnapshotResourceType];
+
+export const DiskSnapshotState = {
+    Pending: "pending",
+    Completed: "completed",
+    Error: "error",
+    Unknown: "unknown",
+} as const;
+
+/**
+ * The status of the disk snapshot operation.
+ */
+export type DiskSnapshotState = (typeof DiskSnapshotState)[keyof typeof DiskSnapshotState];
+
 export const InstanceAddOnStatus = {
     Enabling: "Enabling",
     Disabling: "Disabling",

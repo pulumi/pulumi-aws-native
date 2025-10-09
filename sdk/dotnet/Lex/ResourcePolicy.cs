@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex
 {
     /// <summary>
-    /// A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+    /// Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
     /// </summary>
     [AwsNativeResourceType("aws-native:lex:ResourcePolicy")]
     public partial class ResourcePolicy : global::Pulumi.CustomResource
@@ -62,6 +62,10 @@ namespace Pulumi.AwsNative.Lex
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "resourceArn",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

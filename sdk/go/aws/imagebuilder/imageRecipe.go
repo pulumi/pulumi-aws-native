@@ -18,6 +18,8 @@ type ImageRecipe struct {
 
 	// Specify additional settings and launch scripts for your build instances.
 	AdditionalInstanceConfiguration ImageRecipeAdditionalInstanceConfigurationPtrOutput `pulumi:"additionalInstanceConfiguration"`
+	// The tags to apply to the AMI created by this image recipe.
+	AmiTags pulumi.StringMapOutput `pulumi:"amiTags"`
 	// The Amazon Resource Name (ARN) of the image recipe.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The block device mappings to apply when creating images from this recipe.
@@ -99,6 +101,8 @@ func (ImageRecipeState) ElementType() reflect.Type {
 type imageRecipeArgs struct {
 	// Specify additional settings and launch scripts for your build instances.
 	AdditionalInstanceConfiguration *ImageRecipeAdditionalInstanceConfiguration `pulumi:"additionalInstanceConfiguration"`
+	// The tags to apply to the AMI created by this image recipe.
+	AmiTags map[string]string `pulumi:"amiTags"`
 	// The block device mappings to apply when creating images from this recipe.
 	BlockDeviceMappings []ImageRecipeInstanceBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// The components of the image recipe.
@@ -121,6 +125,8 @@ type imageRecipeArgs struct {
 type ImageRecipeArgs struct {
 	// Specify additional settings and launch scripts for your build instances.
 	AdditionalInstanceConfiguration ImageRecipeAdditionalInstanceConfigurationPtrInput
+	// The tags to apply to the AMI created by this image recipe.
+	AmiTags pulumi.StringMapInput
 	// The block device mappings to apply when creating images from this recipe.
 	BlockDeviceMappings ImageRecipeInstanceBlockDeviceMappingArrayInput
 	// The components of the image recipe.
@@ -181,6 +187,11 @@ func (o ImageRecipeOutput) AdditionalInstanceConfiguration() ImageRecipeAddition
 	return o.ApplyT(func(v *ImageRecipe) ImageRecipeAdditionalInstanceConfigurationPtrOutput {
 		return v.AdditionalInstanceConfiguration
 	}).(ImageRecipeAdditionalInstanceConfigurationPtrOutput)
+}
+
+// The tags to apply to the AMI created by this image recipe.
+func (o ImageRecipeOutput) AmiTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringMapOutput { return v.AmiTags }).(pulumi.StringMapOutput)
 }
 
 // The Amazon Resource Name (ARN) of the image recipe.

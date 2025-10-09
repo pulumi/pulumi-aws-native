@@ -51,12 +51,18 @@ __all__ = [
     'DistributionConfigurationTargetContainerRepositoryArgsDict',
     'ImageEcrConfigurationArgs',
     'ImageEcrConfigurationArgsDict',
+    'ImageLoggingConfigurationArgs',
+    'ImageLoggingConfigurationArgsDict',
+    'ImagePipelineAutoDisablePolicyArgs',
+    'ImagePipelineAutoDisablePolicyArgsDict',
     'ImagePipelineEcrConfigurationArgs',
     'ImagePipelineEcrConfigurationArgsDict',
     'ImagePipelineImageScanningConfigurationArgs',
     'ImagePipelineImageScanningConfigurationArgsDict',
     'ImagePipelineImageTestsConfigurationArgs',
     'ImagePipelineImageTestsConfigurationArgsDict',
+    'ImagePipelinePipelineLoggingConfigurationArgs',
+    'ImagePipelinePipelineLoggingConfigurationArgsDict',
     'ImagePipelineScheduleArgs',
     'ImagePipelineScheduleArgsDict',
     'ImagePipelineWorkflowConfigurationArgs',
@@ -1562,6 +1568,77 @@ class ImageEcrConfigurationArgs:
 
 
 if not MYPY:
+    class ImageLoggingConfigurationArgsDict(TypedDict):
+        """
+        The logging configuration settings for the image.
+        """
+        log_group_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The name of the log group for image build logs.
+        """
+elif False:
+    ImageLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ImageLoggingConfigurationArgs:
+    def __init__(__self__, *,
+                 log_group_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        The logging configuration settings for the image.
+        :param pulumi.Input[builtins.str] log_group_name: The name of the log group for image build logs.
+        """
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the log group for image build logs.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "log_group_name", value)
+
+
+if not MYPY:
+    class ImagePipelineAutoDisablePolicyArgsDict(TypedDict):
+        """
+        The auto-disable policy configuration for the image pipeline.
+        """
+        failure_count: pulumi.Input[builtins.int]
+        """
+        The number of consecutive failures after which the pipeline should be automatically disabled.
+        """
+elif False:
+    ImagePipelineAutoDisablePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ImagePipelineAutoDisablePolicyArgs:
+    def __init__(__self__, *,
+                 failure_count: pulumi.Input[builtins.int]):
+        """
+        The auto-disable policy configuration for the image pipeline.
+        :param pulumi.Input[builtins.int] failure_count: The number of consecutive failures after which the pipeline should be automatically disabled.
+        """
+        pulumi.set(__self__, "failure_count", failure_count)
+
+    @property
+    @pulumi.getter(name="failureCount")
+    def failure_count(self) -> pulumi.Input[builtins.int]:
+        """
+        The number of consecutive failures after which the pipeline should be automatically disabled.
+        """
+        return pulumi.get(self, "failure_count")
+
+    @failure_count.setter
+    def failure_count(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "failure_count", value)
+
+
+if not MYPY:
     class ImagePipelineEcrConfigurationArgsDict(TypedDict):
         """
         Settings for Image Builder to configure the ECR repository and output container images that are scanned.
@@ -1730,11 +1807,67 @@ class ImagePipelineImageTestsConfigurationArgs:
 
 
 if not MYPY:
+    class ImagePipelinePipelineLoggingConfigurationArgsDict(TypedDict):
+        """
+        The logging configuration settings for the image pipeline.
+        """
+        image_log_group_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The name of the log group for image build logs.
+        """
+        pipeline_log_group_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The name of the log group for pipeline execution logs.
+        """
+elif False:
+    ImagePipelinePipelineLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ImagePipelinePipelineLoggingConfigurationArgs:
+    def __init__(__self__, *,
+                 image_log_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 pipeline_log_group_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        The logging configuration settings for the image pipeline.
+        :param pulumi.Input[builtins.str] image_log_group_name: The name of the log group for image build logs.
+        :param pulumi.Input[builtins.str] pipeline_log_group_name: The name of the log group for pipeline execution logs.
+        """
+        if image_log_group_name is not None:
+            pulumi.set(__self__, "image_log_group_name", image_log_group_name)
+        if pipeline_log_group_name is not None:
+            pulumi.set(__self__, "pipeline_log_group_name", pipeline_log_group_name)
+
+    @property
+    @pulumi.getter(name="imageLogGroupName")
+    def image_log_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the log group for image build logs.
+        """
+        return pulumi.get(self, "image_log_group_name")
+
+    @image_log_group_name.setter
+    def image_log_group_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "image_log_group_name", value)
+
+    @property
+    @pulumi.getter(name="pipelineLogGroupName")
+    def pipeline_log_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the log group for pipeline execution logs.
+        """
+        return pulumi.get(self, "pipeline_log_group_name")
+
+    @pipeline_log_group_name.setter
+    def pipeline_log_group_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "pipeline_log_group_name", value)
+
+
+if not MYPY:
     class ImagePipelineScheduleArgsDict(TypedDict):
         """
         The schedule of the image pipeline.
         """
-        auto_disable_policy: NotRequired[Any]
+        auto_disable_policy: NotRequired[pulumi.Input['ImagePipelineAutoDisablePolicyArgsDict']]
         """
         The auto-disable policy for the image pipeline.
         """
@@ -1752,12 +1885,12 @@ elif False:
 @pulumi.input_type
 class ImagePipelineScheduleArgs:
     def __init__(__self__, *,
-                 auto_disable_policy: Optional[Any] = None,
+                 auto_disable_policy: Optional[pulumi.Input['ImagePipelineAutoDisablePolicyArgs']] = None,
                  pipeline_execution_start_condition: Optional[pulumi.Input['ImagePipelineSchedulePipelineExecutionStartCondition']] = None,
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None):
         """
         The schedule of the image pipeline.
-        :param Any auto_disable_policy: The auto-disable policy for the image pipeline.
+        :param pulumi.Input['ImagePipelineAutoDisablePolicyArgs'] auto_disable_policy: The auto-disable policy for the image pipeline.
         :param pulumi.Input['ImagePipelineSchedulePipelineExecutionStartCondition'] pipeline_execution_start_condition: The condition configures when the pipeline should trigger a new image build.
         :param pulumi.Input[builtins.str] schedule_expression: The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
         """
@@ -1770,14 +1903,14 @@ class ImagePipelineScheduleArgs:
 
     @property
     @pulumi.getter(name="autoDisablePolicy")
-    def auto_disable_policy(self) -> Optional[Any]:
+    def auto_disable_policy(self) -> Optional[pulumi.Input['ImagePipelineAutoDisablePolicyArgs']]:
         """
         The auto-disable policy for the image pipeline.
         """
         return pulumi.get(self, "auto_disable_policy")
 
     @auto_disable_policy.setter
-    def auto_disable_policy(self, value: Optional[Any]):
+    def auto_disable_policy(self, value: Optional[pulumi.Input['ImagePipelineAutoDisablePolicyArgs']]):
         pulumi.set(self, "auto_disable_policy", value)
 
     @property

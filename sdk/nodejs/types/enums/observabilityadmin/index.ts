@@ -2,6 +2,27 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy = {
+    Allow: "ALLOW",
+    Skip: "SKIP",
+} as const;
+
+export type OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy = (typeof OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy)[keyof typeof OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy];
+
+export const OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy = {
+    CustomerManaged: "CUSTOMER_MANAGED",
+    AwsOwned: "AWS_OWNED",
+} as const;
+
+export type OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy = (typeof OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy)[keyof typeof OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy];
+
+export const OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy = {
+    Allow: "ALLOW",
+    Skip: "SKIP",
+} as const;
+
+export type OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy = (typeof OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy)[keyof typeof OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy];
+
 export const OrganizationTelemetryRuleDestinationType = {
     CloudWatchLogs: "cloud-watch-logs",
 } as const;

@@ -57,7 +57,7 @@ type LookupBucketResult struct {
 	DualStackDomainName *string `pulumi:"dualStackDomainName"`
 	// Defines how Amazon S3 handles Intelligent-Tiering storage.
 	IntelligentTieringConfigurations []BucketIntelligentTieringConfiguration `pulumi:"intelligentTieringConfigurations"`
-	// Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+	// Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
 	InventoryConfigurations []BucketInventoryConfiguration `pulumi:"inventoryConfigurations"`
 	// Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
 	LifecycleConfiguration *BucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
@@ -76,6 +76,8 @@ type LookupBucketResult struct {
 	//    +  The ``DefaultRetention`` settings require both a mode and a period.
 	//   +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
 	//   +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
+	//
+	//    You must URL encode any signed header values that contain spaces. For example, if your header value is ``my file.txt``, containing two spaces after ``my``, you must URL encode this value to ``my%20%20file.txt``.
 	ObjectLockConfiguration *BucketObjectLockConfiguration `pulumi:"objectLockConfiguration"`
 	// Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
 	ObjectLockEnabled *bool `pulumi:"objectLockEnabled"`
@@ -188,7 +190,7 @@ func (o LookupBucketResultOutput) IntelligentTieringConfigurations() BucketIntel
 	}).(BucketIntelligentTieringConfigurationArrayOutput)
 }
 
-// Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+// Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
 func (o LookupBucketResultOutput) InventoryConfigurations() BucketInventoryConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupBucketResult) []BucketInventoryConfiguration { return v.InventoryConfigurations }).(BucketInventoryConfigurationArrayOutput)
 }
@@ -229,6 +231,8 @@ func (o LookupBucketResultOutput) NotificationConfiguration() BucketNotification
 //	 +  The ``DefaultRetention`` settings require both a mode and a period.
 //	+  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
 //	+  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
+//
+//	 You must URL encode any signed header values that contain spaces. For example, if your header value is ``my file.txt``, containing two spaces after ``my``, you must URL encode this value to ``my%20%20file.txt``.
 func (o LookupBucketResultOutput) ObjectLockConfiguration() BucketObjectLockConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *BucketObjectLockConfiguration { return v.ObjectLockConfiguration }).(BucketObjectLockConfigurationPtrOutput)
 }

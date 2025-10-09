@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:applicationsignals:Discovery":
 		r = &Discovery{}
+	case "aws-native:applicationsignals:GroupingConfiguration":
+		r = &GroupingConfiguration{}
 	case "aws-native:applicationsignals:ServiceLevelObjective":
 		r = &ServiceLevelObjective{}
 	default:

@@ -38,6 +38,10 @@ export interface GetCodeInterpreterCustomResult {
      */
     readonly createdAt?: string;
     /**
+     * The reason for failure if the code interpreter creation or operation failed.
+     */
+    readonly failureReason?: string;
+    /**
      * Timestamp when the code interpreter was last updated.
      */
     readonly lastUpdatedAt?: string;

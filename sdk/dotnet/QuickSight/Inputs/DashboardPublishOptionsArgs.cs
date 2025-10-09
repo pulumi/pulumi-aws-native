@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("exportWithHiddenFieldsOption")]
         public Input<Inputs.DashboardExportWithHiddenFieldsOptionArgs>? ExportWithHiddenFieldsOption { get; set; }
 
+        [Input("quickSuiteActionsOption")]
+        public Input<Inputs.DashboardQuickSuiteActionsOptionArgs>? QuickSuiteActionsOption { get; set; }
+
         /// <summary>
         /// Sheet controls option.
         /// </summary>

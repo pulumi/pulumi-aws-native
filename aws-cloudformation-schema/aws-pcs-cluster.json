@@ -17,7 +17,7 @@
       "timeoutInMinutes" : 60
     },
     "update" : {
-      "permissions" : [ "pcs:GetCluster", "pcs:ListTagsForResource", "pcs:TagResource", "pcs:UntagResource" ],
+      "permissions" : [ "pcs:GetCluster", "pcs:UpdateCluster", "pcs:ListTagsForResource", "pcs:TagResource", "pcs:UntagResource" ],
       "timeoutInMinutes" : 60
     },
     "list" : {
@@ -31,7 +31,7 @@
   "typeName" : "AWS::PCS::Cluster",
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Endpoints", "/properties/ErrorInfo", "/properties/Id", "/properties/Status" ],
   "description" : "AWS::PCS::Cluster resource creates an AWS PCS cluster.",
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Networking", "/properties/Scheduler", "/properties/Size", "/properties/SlurmConfiguration" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Networking", "/properties/Scheduler", "/properties/Size" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Arn" ],
   "definitions" : {

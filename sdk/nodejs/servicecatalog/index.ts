@@ -25,6 +25,11 @@ export const getPortfolioShare: typeof import("./getPortfolioShare").getPortfoli
 export const getPortfolioShareOutput: typeof import("./getPortfolioShare").getPortfolioShareOutput = null as any;
 utilities.lazyLoad(exports, ["getPortfolioShare","getPortfolioShareOutput"], () => require("./getPortfolioShare"));
 
+export { GetResourceUpdateConstraintArgs, GetResourceUpdateConstraintResult, GetResourceUpdateConstraintOutputArgs } from "./getResourceUpdateConstraint";
+export const getResourceUpdateConstraint: typeof import("./getResourceUpdateConstraint").getResourceUpdateConstraint = null as any;
+export const getResourceUpdateConstraintOutput: typeof import("./getResourceUpdateConstraint").getResourceUpdateConstraintOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceUpdateConstraint","getResourceUpdateConstraintOutput"], () => require("./getResourceUpdateConstraint"));
+
 export { GetServiceActionArgs, GetServiceActionResult, GetServiceActionOutputArgs } from "./getServiceAction";
 export const getServiceAction: typeof import("./getServiceAction").getServiceAction = null as any;
 export const getServiceActionOutput: typeof import("./getServiceAction").getServiceActionOutput = null as any;
@@ -49,6 +54,11 @@ export { PortfolioShareArgs } from "./portfolioShare";
 export type PortfolioShare = import("./portfolioShare").PortfolioShare;
 export const PortfolioShare: typeof import("./portfolioShare").PortfolioShare = null as any;
 utilities.lazyLoad(exports, ["PortfolioShare"], () => require("./portfolioShare"));
+
+export { ResourceUpdateConstraintArgs } from "./resourceUpdateConstraint";
+export type ResourceUpdateConstraint = import("./resourceUpdateConstraint").ResourceUpdateConstraint;
+export const ResourceUpdateConstraint: typeof import("./resourceUpdateConstraint").ResourceUpdateConstraint = null as any;
+utilities.lazyLoad(exports, ["ResourceUpdateConstraint"], () => require("./resourceUpdateConstraint"));
 
 export { ServiceActionArgs } from "./serviceAction";
 export type ServiceAction = import("./serviceAction").ServiceAction;
@@ -81,6 +91,8 @@ const _module = {
                 return new PortfolioProductAssociation(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:PortfolioShare":
                 return new PortfolioShare(name, <any>undefined, { urn })
+            case "aws-native:servicecatalog:ResourceUpdateConstraint":
+                return new ResourceUpdateConstraint(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:ServiceAction":
                 return new ServiceAction(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:ServiceActionAssociation":

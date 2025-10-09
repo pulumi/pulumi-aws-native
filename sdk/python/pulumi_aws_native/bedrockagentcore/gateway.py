@@ -35,6 +35,14 @@ class GatewayArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Gateway resource.
+        :param pulumi.Input['GatewayAuthorizerType'] authorizer_type: The authorizer type for the gateway.
+        :param pulumi.Input['GatewayProtocolType'] protocol_type: The protocol type for the gateway target.
+        :param pulumi.Input[builtins.str] description: The description for the gateway.
+        :param pulumi.Input['GatewayExceptionLevel'] exception_level: The exception level for the gateway.
+        :param pulumi.Input[builtins.str] kms_key_arn: The KMS key ARN for the gateway.
+        :param pulumi.Input[builtins.str] name: The name for the gateway.
+        :param pulumi.Input['GatewayProtocolConfigurationPropertiesArgs'] protocol_configuration: The protocol configuration for the gateway target.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the gateway.
         """
         pulumi.set(__self__, "authorizer_type", authorizer_type)
         pulumi.set(__self__, "protocol_type", protocol_type)
@@ -57,6 +65,9 @@ class GatewayArgs:
     @property
     @pulumi.getter(name="authorizerType")
     def authorizer_type(self) -> pulumi.Input['GatewayAuthorizerType']:
+        """
+        The authorizer type for the gateway.
+        """
         return pulumi.get(self, "authorizer_type")
 
     @authorizer_type.setter
@@ -66,6 +77,9 @@ class GatewayArgs:
     @property
     @pulumi.getter(name="protocolType")
     def protocol_type(self) -> pulumi.Input['GatewayProtocolType']:
+        """
+        The protocol type for the gateway target.
+        """
         return pulumi.get(self, "protocol_type")
 
     @protocol_type.setter
@@ -93,6 +107,9 @@ class GatewayArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The description for the gateway.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -102,6 +119,9 @@ class GatewayArgs:
     @property
     @pulumi.getter(name="exceptionLevel")
     def exception_level(self) -> Optional[pulumi.Input['GatewayExceptionLevel']]:
+        """
+        The exception level for the gateway.
+        """
         return pulumi.get(self, "exception_level")
 
     @exception_level.setter
@@ -111,6 +131,9 @@ class GatewayArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The KMS key ARN for the gateway.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -120,6 +143,9 @@ class GatewayArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name for the gateway.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -129,6 +155,9 @@ class GatewayArgs:
     @property
     @pulumi.getter(name="protocolConfiguration")
     def protocol_configuration(self) -> Optional[pulumi.Input['GatewayProtocolConfigurationPropertiesArgs']]:
+        """
+        The protocol configuration for the gateway target.
+        """
         return pulumi.get(self, "protocol_configuration")
 
     @protocol_configuration.setter
@@ -138,6 +167,9 @@ class GatewayArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        The tags for the gateway.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -167,6 +199,14 @@ class Gateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['GatewayAuthorizerType'] authorizer_type: The authorizer type for the gateway.
+        :param pulumi.Input[builtins.str] description: The description for the gateway.
+        :param pulumi.Input['GatewayExceptionLevel'] exception_level: The exception level for the gateway.
+        :param pulumi.Input[builtins.str] kms_key_arn: The KMS key ARN for the gateway.
+        :param pulumi.Input[builtins.str] name: The name for the gateway.
+        :param pulumi.Input[Union['GatewayProtocolConfigurationPropertiesArgs', 'GatewayProtocolConfigurationPropertiesArgsDict']] protocol_configuration: The protocol configuration for the gateway target.
+        :param pulumi.Input['GatewayProtocolType'] protocol_type: The protocol type for the gateway target.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the gateway.
         """
         ...
     @overload
@@ -285,26 +325,41 @@ class Gateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="authorizerType")
     def authorizer_type(self) -> pulumi.Output['GatewayAuthorizerType']:
+        """
+        The authorizer type for the gateway.
+        """
         return pulumi.get(self, "authorizer_type")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[builtins.str]:
+        """
+        The date and time at which the gateway was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The description for the gateway.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="exceptionLevel")
     def exception_level(self) -> pulumi.Output[Optional['GatewayExceptionLevel']]:
+        """
+        The exception level for the gateway.
+        """
         return pulumi.get(self, "exception_level")
 
     @property
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The ARN for the gateway.
+        """
         return pulumi.get(self, "gateway_arn")
 
     @property
@@ -315,26 +370,41 @@ class Gateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="gatewayUrl")
     def gateway_url(self) -> pulumi.Output[builtins.str]:
+        """
+        The gateway URL for the gateway.
+        """
         return pulumi.get(self, "gateway_url")
 
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The KMS key ARN for the gateway.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
+        """
+        The name for the gateway.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="protocolConfiguration")
     def protocol_configuration(self) -> pulumi.Output[Optional['outputs.GatewayProtocolConfigurationProperties']]:
+        """
+        The protocol configuration for the gateway target.
+        """
         return pulumi.get(self, "protocol_configuration")
 
     @property
     @pulumi.getter(name="protocolType")
     def protocol_type(self) -> pulumi.Output['GatewayProtocolType']:
+        """
+        The protocol type for the gateway target.
+        """
         return pulumi.get(self, "protocol_type")
 
     @property
@@ -345,16 +415,25 @@ class Gateway(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['GatewayStatus']:
+        """
+        The status for the gateway.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusReasons")
     def status_reasons(self) -> pulumi.Output[Sequence[builtins.str]]:
+        """
+        The status reasons for the gateway.
+        """
         return pulumi.get(self, "status_reasons")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        The tags for the gateway.
+        """
         return pulumi.get(self, "tags")
 
     @property

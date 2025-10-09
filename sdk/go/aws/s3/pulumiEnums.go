@@ -2401,7 +2401,7 @@ func (in *bucketInventoryConfigurationScheduleFrequencyPtr) ToBucketInventoryCon
 	return pulumi.ToOutputWithContext(ctx, in).(BucketInventoryConfigurationScheduleFrequencyPtrOutput)
 }
 
-// Specifies whether inventory table configuration is enabled or disabled.
+// The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.
 type BucketInventoryTableConfigurationConfigurationState string
 
 const (
@@ -2739,7 +2739,7 @@ func (in *bucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtr) ToB
 	return pulumi.ToOutputWithContext(ctx, in).(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput)
 }
 
-// The type of the table bucket.
+// The type of the table bucket where the metadata configuration is stored. The “aws“ value indicates an AWS managed table bucket, and the “customer“ value indicates a customer-managed table bucket. V2 metadata configurations are stored in AWS managed table buckets, and V1 metadata configurations are stored in customer-managed table buckets.
 type BucketMetadataDestinationTableBucketType string
 
 const (
@@ -2905,7 +2905,7 @@ func (in *bucketMetadataDestinationTableBucketTypePtr) ToBucketMetadataDestinati
 	return pulumi.ToOutputWithContext(ctx, in).(BucketMetadataDestinationTableBucketTypePtrOutput)
 }
 
-// Specifies the server-side encryption algorithm to use for encrypting tables.
+// The encryption type specified for a metadata table. To specify server-side encryption with KMSlong (KMS) keys (SSE-KMS), use the “aws:kms“ value. To specify server-side encryption with Amazon S3 managed keys (SSE-S3), use the “AES256“ value.
 type BucketMetadataTableEncryptionConfigurationSseAlgorithm string
 
 const (
@@ -3579,7 +3579,7 @@ func (in *bucketOwnershipControlsRuleObjectOwnershipPtr) ToBucketOwnershipContro
 	return pulumi.ToOutputWithContext(ctx, in).(BucketOwnershipControlsRuleObjectOwnershipPtrOutput)
 }
 
-// Specifies whether record expiration is enabled or disabled.
+// Specifies whether journal table record expiration is enabled or disabled.
 type BucketRecordExpirationExpiration string
 
 const (
@@ -4248,6 +4248,7 @@ func (in *bucketReplicaModificationsStatusPtr) ToBucketReplicaModificationsStatu
 // The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 //
 //	For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.
+//	``FSX_OPENZFS`` is not an accepted value when replicating objects.
 type BucketReplicationDestinationStorageClass string
 
 const (

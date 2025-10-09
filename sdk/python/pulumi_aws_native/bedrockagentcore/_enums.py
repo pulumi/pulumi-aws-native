@@ -20,6 +20,15 @@ __all__ = [
     'GatewayTargetCredentialProviderType',
     'GatewayTargetSchemaType',
     'GatewayTargetTargetStatus',
+    'MemoryCustomMemoryStrategyStatus',
+    'MemoryCustomMemoryStrategyType',
+    'MemorySemanticMemoryStrategyStatus',
+    'MemorySemanticMemoryStrategyType',
+    'MemoryStatus',
+    'MemorySummaryMemoryStrategyStatus',
+    'MemorySummaryMemoryStrategyType',
+    'MemoryUserPreferenceMemoryStrategyStatus',
+    'MemoryUserPreferenceMemoryStrategyType',
     'RuntimeAgentStatus',
     'RuntimeEndpointAgentRuntimeEndpointStatus',
     'RuntimeNetworkMode',
@@ -33,6 +42,7 @@ class BrowserCustomBrowserNetworkMode(builtins.str, Enum):
     Network modes supported by browser
     """
     PUBLIC = "PUBLIC"
+    VPC = "VPC"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:BrowserCustomBrowserStatus")
@@ -55,6 +65,7 @@ class CodeInterpreterCustomCodeInterpreterNetworkMode(builtins.str, Enum):
     """
     PUBLIC = "PUBLIC"
     SANDBOX = "SANDBOX"
+    VPC = "VPC"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:CodeInterpreterCustomCodeInterpreterStatus")
@@ -134,6 +145,105 @@ class GatewayTargetTargetStatus(builtins.str, Enum):
     FAILED = "FAILED"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:MemoryCustomMemoryStrategyStatus")
+class MemoryCustomMemoryStrategyStatus(builtins.str, Enum):
+    """
+    Status of the memory strategy
+    """
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:MemoryCustomMemoryStrategyType")
+class MemoryCustomMemoryStrategyType(builtins.str, Enum):
+    """
+    Type of memory strategy
+    """
+    SEMANTIC = "SEMANTIC"
+    SUMMARIZATION = "SUMMARIZATION"
+    USER_PREFERENCE = "USER_PREFERENCE"
+    CUSTOM = "CUSTOM"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:MemorySemanticMemoryStrategyStatus")
+class MemorySemanticMemoryStrategyStatus(builtins.str, Enum):
+    """
+    Status of the memory strategy
+    """
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:MemorySemanticMemoryStrategyType")
+class MemorySemanticMemoryStrategyType(builtins.str, Enum):
+    """
+    Type of memory strategy
+    """
+    SEMANTIC = "SEMANTIC"
+    SUMMARIZATION = "SUMMARIZATION"
+    USER_PREFERENCE = "USER_PREFERENCE"
+    CUSTOM = "CUSTOM"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:MemoryStatus")
+class MemoryStatus(builtins.str, Enum):
+    """
+    Status of the Memory resource
+    """
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    FAILED = "FAILED"
+    DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:MemorySummaryMemoryStrategyStatus")
+class MemorySummaryMemoryStrategyStatus(builtins.str, Enum):
+    """
+    Status of the memory strategy
+    """
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:MemorySummaryMemoryStrategyType")
+class MemorySummaryMemoryStrategyType(builtins.str, Enum):
+    """
+    Type of memory strategy
+    """
+    SEMANTIC = "SEMANTIC"
+    SUMMARIZATION = "SUMMARIZATION"
+    USER_PREFERENCE = "USER_PREFERENCE"
+    CUSTOM = "CUSTOM"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:MemoryUserPreferenceMemoryStrategyStatus")
+class MemoryUserPreferenceMemoryStrategyStatus(builtins.str, Enum):
+    """
+    Status of the memory strategy
+    """
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:MemoryUserPreferenceMemoryStrategyType")
+class MemoryUserPreferenceMemoryStrategyType(builtins.str, Enum):
+    """
+    Type of memory strategy
+    """
+    SEMANTIC = "SEMANTIC"
+    SUMMARIZATION = "SUMMARIZATION"
+    USER_PREFERENCE = "USER_PREFERENCE"
+    CUSTOM = "CUSTOM"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:RuntimeAgentStatus")
 class RuntimeAgentStatus(builtins.str, Enum):
     CREATING = "CREATING"
@@ -160,6 +270,7 @@ class RuntimeNetworkMode(builtins.str, Enum):
     Network mode configuration type
     """
     PUBLIC = "PUBLIC"
+    VPC = "VPC"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:RuntimeProtocolConfiguration")

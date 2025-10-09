@@ -38,6 +38,10 @@ export interface GetBrowserCustomResult {
      */
     readonly createdAt?: string;
     /**
+     * The reason for failure if the browser creation or operation failed.
+     */
+    readonly failureReason?: string;
+    /**
      * Timestamp when the browser was last updated.
      */
     readonly lastUpdatedAt?: string;

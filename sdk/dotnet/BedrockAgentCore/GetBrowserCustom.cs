@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
+        /// The reason for failure if the browser creation or operation failed.
+        /// </summary>
+        public readonly string? FailureReason;
+        /// <summary>
         /// Timestamp when the browser was last updated.
         /// </summary>
         public readonly string? LastUpdatedAt;
@@ -96,6 +100,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? createdAt,
 
+            string? failureReason,
+
             string? lastUpdatedAt,
 
             Pulumi.AwsNative.BedrockAgentCore.BrowserCustomBrowserStatus? status,
@@ -105,6 +111,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             BrowserArn = browserArn;
             BrowserId = browserId;
             CreatedAt = createdAt;
+            FailureReason = failureReason;
             LastUpdatedAt = lastUpdatedAt;
             Status = status;
             Tags = tags;

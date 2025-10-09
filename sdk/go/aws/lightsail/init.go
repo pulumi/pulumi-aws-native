@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Database{}
 	case "aws-native:lightsail:Disk":
 		r = &Disk{}
+	case "aws-native:lightsail:DiskSnapshot":
+		r = &DiskSnapshot{}
 	case "aws-native:lightsail:Instance":
 		r = &Instance{}
 	case "aws-native:lightsail:InstanceSnapshot":

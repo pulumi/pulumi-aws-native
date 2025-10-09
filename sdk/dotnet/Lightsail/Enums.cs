@@ -44,6 +44,69 @@ namespace Pulumi.AwsNative.Lightsail
     }
 
     /// <summary>
+    /// The Lightsail resource type (DiskSnapshot).
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskSnapshotResourceType : IEquatable<DiskSnapshotResourceType>
+    {
+        private readonly string _value;
+
+        private DiskSnapshotResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DiskSnapshotResourceType DiskSnapshot { get; } = new DiskSnapshotResourceType("DiskSnapshot");
+
+        public static bool operator ==(DiskSnapshotResourceType left, DiskSnapshotResourceType right) => left.Equals(right);
+        public static bool operator !=(DiskSnapshotResourceType left, DiskSnapshotResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(DiskSnapshotResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskSnapshotResourceType other && Equals(other);
+        public bool Equals(DiskSnapshotResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the disk snapshot operation.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskSnapshotState : IEquatable<DiskSnapshotState>
+    {
+        private readonly string _value;
+
+        private DiskSnapshotState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DiskSnapshotState Pending { get; } = new DiskSnapshotState("pending");
+        public static DiskSnapshotState Completed { get; } = new DiskSnapshotState("completed");
+        public static DiskSnapshotState Error { get; } = new DiskSnapshotState("error");
+        public static DiskSnapshotState Unknown { get; } = new DiskSnapshotState("unknown");
+
+        public static bool operator ==(DiskSnapshotState left, DiskSnapshotState right) => left.Equals(right);
+        public static bool operator !=(DiskSnapshotState left, DiskSnapshotState right) => !left.Equals(right);
+
+        public static explicit operator string(DiskSnapshotState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskSnapshotState other && Equals(other);
+        public bool Equals(DiskSnapshotState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Status of the Addon
     /// </summary>
     [EnumType]

@@ -186,6 +186,189 @@ func (in *diskAddOnStatusPtr) ToDiskAddOnStatusPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(DiskAddOnStatusPtrOutput)
 }
 
+// The Lightsail resource type (DiskSnapshot).
+type DiskSnapshotResourceType string
+
+const (
+	DiskSnapshotResourceTypeDiskSnapshot = DiskSnapshotResourceType("DiskSnapshot")
+)
+
+type DiskSnapshotResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (DiskSnapshotResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskSnapshotResourceType)(nil)).Elem()
+}
+
+func (o DiskSnapshotResourceTypeOutput) ToDiskSnapshotResourceTypeOutput() DiskSnapshotResourceTypeOutput {
+	return o
+}
+
+func (o DiskSnapshotResourceTypeOutput) ToDiskSnapshotResourceTypeOutputWithContext(ctx context.Context) DiskSnapshotResourceTypeOutput {
+	return o
+}
+
+func (o DiskSnapshotResourceTypeOutput) ToDiskSnapshotResourceTypePtrOutput() DiskSnapshotResourceTypePtrOutput {
+	return o.ToDiskSnapshotResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o DiskSnapshotResourceTypeOutput) ToDiskSnapshotResourceTypePtrOutputWithContext(ctx context.Context) DiskSnapshotResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskSnapshotResourceType) *DiskSnapshotResourceType {
+		return &v
+	}).(DiskSnapshotResourceTypePtrOutput)
+}
+
+func (o DiskSnapshotResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DiskSnapshotResourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DiskSnapshotResourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DiskSnapshotResourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DiskSnapshotResourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DiskSnapshotResourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DiskSnapshotResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DiskSnapshotResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiskSnapshotResourceType)(nil)).Elem()
+}
+
+func (o DiskSnapshotResourceTypePtrOutput) ToDiskSnapshotResourceTypePtrOutput() DiskSnapshotResourceTypePtrOutput {
+	return o
+}
+
+func (o DiskSnapshotResourceTypePtrOutput) ToDiskSnapshotResourceTypePtrOutputWithContext(ctx context.Context) DiskSnapshotResourceTypePtrOutput {
+	return o
+}
+
+func (o DiskSnapshotResourceTypePtrOutput) Elem() DiskSnapshotResourceTypeOutput {
+	return o.ApplyT(func(v *DiskSnapshotResourceType) DiskSnapshotResourceType {
+		if v != nil {
+			return *v
+		}
+		var ret DiskSnapshotResourceType
+		return ret
+	}).(DiskSnapshotResourceTypeOutput)
+}
+
+func (o DiskSnapshotResourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DiskSnapshotResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DiskSnapshotResourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the disk snapshot operation.
+type DiskSnapshotStateEnum string
+
+const (
+	DiskSnapshotStateEnumPending   = DiskSnapshotStateEnum("pending")
+	DiskSnapshotStateEnumCompleted = DiskSnapshotStateEnum("completed")
+	DiskSnapshotStateEnumError     = DiskSnapshotStateEnum("error")
+	DiskSnapshotStateEnumUnknown   = DiskSnapshotStateEnum("unknown")
+)
+
+type DiskSnapshotStateEnumOutput struct{ *pulumi.OutputState }
+
+func (DiskSnapshotStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskSnapshotStateEnum)(nil)).Elem()
+}
+
+func (o DiskSnapshotStateEnumOutput) ToDiskSnapshotStateEnumOutput() DiskSnapshotStateEnumOutput {
+	return o
+}
+
+func (o DiskSnapshotStateEnumOutput) ToDiskSnapshotStateEnumOutputWithContext(ctx context.Context) DiskSnapshotStateEnumOutput {
+	return o
+}
+
+func (o DiskSnapshotStateEnumOutput) ToDiskSnapshotStateEnumPtrOutput() DiskSnapshotStateEnumPtrOutput {
+	return o.ToDiskSnapshotStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o DiskSnapshotStateEnumOutput) ToDiskSnapshotStateEnumPtrOutputWithContext(ctx context.Context) DiskSnapshotStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskSnapshotStateEnum) *DiskSnapshotStateEnum {
+		return &v
+	}).(DiskSnapshotStateEnumPtrOutput)
+}
+
+func (o DiskSnapshotStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DiskSnapshotStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DiskSnapshotStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DiskSnapshotStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DiskSnapshotStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DiskSnapshotStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DiskSnapshotStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (DiskSnapshotStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiskSnapshotStateEnum)(nil)).Elem()
+}
+
+func (o DiskSnapshotStateEnumPtrOutput) ToDiskSnapshotStateEnumPtrOutput() DiskSnapshotStateEnumPtrOutput {
+	return o
+}
+
+func (o DiskSnapshotStateEnumPtrOutput) ToDiskSnapshotStateEnumPtrOutputWithContext(ctx context.Context) DiskSnapshotStateEnumPtrOutput {
+	return o
+}
+
+func (o DiskSnapshotStateEnumPtrOutput) Elem() DiskSnapshotStateEnumOutput {
+	return o.ApplyT(func(v *DiskSnapshotStateEnum) DiskSnapshotStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret DiskSnapshotStateEnum
+		return ret
+	}).(DiskSnapshotStateEnumOutput)
+}
+
+func (o DiskSnapshotStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DiskSnapshotStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DiskSnapshotStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Status of the Addon
 type InstanceAddOnStatus string
 
@@ -369,6 +552,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAddOnStatusPtrInput)(nil)).Elem(), InstanceAddOnStatus("Enabling"))
 	pulumi.RegisterOutputType(DiskAddOnStatusOutput{})
 	pulumi.RegisterOutputType(DiskAddOnStatusPtrOutput{})
+	pulumi.RegisterOutputType(DiskSnapshotResourceTypeOutput{})
+	pulumi.RegisterOutputType(DiskSnapshotResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(DiskSnapshotStateEnumOutput{})
+	pulumi.RegisterOutputType(DiskSnapshotStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(InstanceAddOnStatusOutput{})
 	pulumi.RegisterOutputType(InstanceAddOnStatusPtrOutput{})
 }

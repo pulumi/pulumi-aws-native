@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Lex
     public static class GetResourcePolicy
     {
         /// <summary>
-        /// A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+        /// Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
         /// </summary>
         public static Task<GetResourcePolicyResult> InvokeAsync(GetResourcePolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourcePolicyResult>("aws-native:lex:getResourcePolicy", args ?? new GetResourcePolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+        /// Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
         /// </summary>
         public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:lex:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+        /// Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
         /// </summary>
         public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:lex:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
@@ -72,10 +72,6 @@ namespace Pulumi.AwsNative.Lex
         /// </summary>
         public readonly Outputs.ResourcePolicyPolicy? Policy;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
-        /// </summary>
-        public readonly string? ResourceArn;
-        /// <summary>
         /// Specifies the current revision of a resource policy.
         /// </summary>
         public readonly string? RevisionId;
@@ -86,13 +82,10 @@ namespace Pulumi.AwsNative.Lex
 
             Outputs.ResourcePolicyPolicy? policy,
 
-            string? resourceArn,
-
             string? revisionId)
         {
             Id = id;
             Policy = policy;
-            ResourceArn = resourceArn;
             RevisionId = revisionId;
         }
     }

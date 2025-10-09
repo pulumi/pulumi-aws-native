@@ -13,6 +13,143 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DashboardSectionAfterPageBreak struct {
+	// The option that enables or disables a page break at the end of a section.
+	Status *DashboardSectionPageBreakStatus `pulumi:"status"`
+}
+
+// DashboardSectionAfterPageBreakInput is an input type that accepts DashboardSectionAfterPageBreakArgs and DashboardSectionAfterPageBreakOutput values.
+// You can construct a concrete instance of `DashboardSectionAfterPageBreakInput` via:
+//
+//	DashboardSectionAfterPageBreakArgs{...}
+type DashboardSectionAfterPageBreakInput interface {
+	pulumi.Input
+
+	ToDashboardSectionAfterPageBreakOutput() DashboardSectionAfterPageBreakOutput
+	ToDashboardSectionAfterPageBreakOutputWithContext(context.Context) DashboardSectionAfterPageBreakOutput
+}
+
+type DashboardSectionAfterPageBreakArgs struct {
+	// The option that enables or disables a page break at the end of a section.
+	Status DashboardSectionPageBreakStatusPtrInput `pulumi:"status"`
+}
+
+func (DashboardSectionAfterPageBreakArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSectionAfterPageBreak)(nil)).Elem()
+}
+
+func (i DashboardSectionAfterPageBreakArgs) ToDashboardSectionAfterPageBreakOutput() DashboardSectionAfterPageBreakOutput {
+	return i.ToDashboardSectionAfterPageBreakOutputWithContext(context.Background())
+}
+
+func (i DashboardSectionAfterPageBreakArgs) ToDashboardSectionAfterPageBreakOutputWithContext(ctx context.Context) DashboardSectionAfterPageBreakOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSectionAfterPageBreakOutput)
+}
+
+func (i DashboardSectionAfterPageBreakArgs) ToDashboardSectionAfterPageBreakPtrOutput() DashboardSectionAfterPageBreakPtrOutput {
+	return i.ToDashboardSectionAfterPageBreakPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardSectionAfterPageBreakArgs) ToDashboardSectionAfterPageBreakPtrOutputWithContext(ctx context.Context) DashboardSectionAfterPageBreakPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSectionAfterPageBreakOutput).ToDashboardSectionAfterPageBreakPtrOutputWithContext(ctx)
+}
+
+// DashboardSectionAfterPageBreakPtrInput is an input type that accepts DashboardSectionAfterPageBreakArgs, DashboardSectionAfterPageBreakPtr and DashboardSectionAfterPageBreakPtrOutput values.
+// You can construct a concrete instance of `DashboardSectionAfterPageBreakPtrInput` via:
+//
+//	        DashboardSectionAfterPageBreakArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardSectionAfterPageBreakPtrInput interface {
+	pulumi.Input
+
+	ToDashboardSectionAfterPageBreakPtrOutput() DashboardSectionAfterPageBreakPtrOutput
+	ToDashboardSectionAfterPageBreakPtrOutputWithContext(context.Context) DashboardSectionAfterPageBreakPtrOutput
+}
+
+type dashboardSectionAfterPageBreakPtrType DashboardSectionAfterPageBreakArgs
+
+func DashboardSectionAfterPageBreakPtr(v *DashboardSectionAfterPageBreakArgs) DashboardSectionAfterPageBreakPtrInput {
+	return (*dashboardSectionAfterPageBreakPtrType)(v)
+}
+
+func (*dashboardSectionAfterPageBreakPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSectionAfterPageBreak)(nil)).Elem()
+}
+
+func (i *dashboardSectionAfterPageBreakPtrType) ToDashboardSectionAfterPageBreakPtrOutput() DashboardSectionAfterPageBreakPtrOutput {
+	return i.ToDashboardSectionAfterPageBreakPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardSectionAfterPageBreakPtrType) ToDashboardSectionAfterPageBreakPtrOutputWithContext(ctx context.Context) DashboardSectionAfterPageBreakPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSectionAfterPageBreakPtrOutput)
+}
+
+type DashboardSectionAfterPageBreakOutput struct{ *pulumi.OutputState }
+
+func (DashboardSectionAfterPageBreakOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSectionAfterPageBreak)(nil)).Elem()
+}
+
+func (o DashboardSectionAfterPageBreakOutput) ToDashboardSectionAfterPageBreakOutput() DashboardSectionAfterPageBreakOutput {
+	return o
+}
+
+func (o DashboardSectionAfterPageBreakOutput) ToDashboardSectionAfterPageBreakOutputWithContext(ctx context.Context) DashboardSectionAfterPageBreakOutput {
+	return o
+}
+
+func (o DashboardSectionAfterPageBreakOutput) ToDashboardSectionAfterPageBreakPtrOutput() DashboardSectionAfterPageBreakPtrOutput {
+	return o.ToDashboardSectionAfterPageBreakPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSectionAfterPageBreakOutput) ToDashboardSectionAfterPageBreakPtrOutputWithContext(ctx context.Context) DashboardSectionAfterPageBreakPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardSectionAfterPageBreak) *DashboardSectionAfterPageBreak {
+		return &v
+	}).(DashboardSectionAfterPageBreakPtrOutput)
+}
+
+// The option that enables or disables a page break at the end of a section.
+func (o DashboardSectionAfterPageBreakOutput) Status() DashboardSectionPageBreakStatusPtrOutput {
+	return o.ApplyT(func(v DashboardSectionAfterPageBreak) *DashboardSectionPageBreakStatus { return v.Status }).(DashboardSectionPageBreakStatusPtrOutput)
+}
+
+type DashboardSectionAfterPageBreakPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardSectionAfterPageBreakPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSectionAfterPageBreak)(nil)).Elem()
+}
+
+func (o DashboardSectionAfterPageBreakPtrOutput) ToDashboardSectionAfterPageBreakPtrOutput() DashboardSectionAfterPageBreakPtrOutput {
+	return o
+}
+
+func (o DashboardSectionAfterPageBreakPtrOutput) ToDashboardSectionAfterPageBreakPtrOutputWithContext(ctx context.Context) DashboardSectionAfterPageBreakPtrOutput {
+	return o
+}
+
+func (o DashboardSectionAfterPageBreakPtrOutput) Elem() DashboardSectionAfterPageBreakOutput {
+	return o.ApplyT(func(v *DashboardSectionAfterPageBreak) DashboardSectionAfterPageBreak {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardSectionAfterPageBreak
+		return ret
+	}).(DashboardSectionAfterPageBreakOutput)
+}
+
+// The option that enables or disables a page break at the end of a section.
+func (o DashboardSectionAfterPageBreakPtrOutput) Status() DashboardSectionPageBreakStatusPtrOutput {
+	return o.ApplyT(func(v *DashboardSectionAfterPageBreak) *DashboardSectionPageBreakStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(DashboardSectionPageBreakStatusPtrOutput)
+}
+
 type DashboardSectionBasedLayoutCanvasSizeOptions struct {
 	// The options for a paper canvas of a section-based layout.
 	PaperCanvasSizeOptions *DashboardSectionBasedLayoutPaperCanvasSizeOptions `pulumi:"paperCanvasSizeOptions"`
@@ -85031,258 +85168,9 @@ func (o TemplateLineChartSortConfigurationPtrOutput) SmallMultiplesSort() Templa
 	}).(TemplateFieldSortOptionsArrayOutput)
 }
 
-type TemplateLineChartVisual struct {
-	// The list of custom actions that are configured for a visual.
-	Actions []TemplateVisualCustomAction `pulumi:"actions"`
-	// The configuration of a line chart.
-	ChartConfiguration *TemplateLineChartConfiguration `pulumi:"chartConfiguration"`
-	// The column hierarchy that is used during drill-downs and drill-ups.
-	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
-	// The subtitle that is displayed on the visual.
-	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title that is displayed on the visual.
-	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	// The alt text for the visual.
-	VisualContentAltText *string `pulumi:"visualContentAltText"`
-	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
-	VisualId string `pulumi:"visualId"`
-}
-
-// TemplateLineChartVisualInput is an input type that accepts TemplateLineChartVisualArgs and TemplateLineChartVisualOutput values.
-// You can construct a concrete instance of `TemplateLineChartVisualInput` via:
-//
-//	TemplateLineChartVisualArgs{...}
-type TemplateLineChartVisualInput interface {
-	pulumi.Input
-
-	ToTemplateLineChartVisualOutput() TemplateLineChartVisualOutput
-	ToTemplateLineChartVisualOutputWithContext(context.Context) TemplateLineChartVisualOutput
-}
-
-type TemplateLineChartVisualArgs struct {
-	// The list of custom actions that are configured for a visual.
-	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
-	// The configuration of a line chart.
-	ChartConfiguration TemplateLineChartConfigurationPtrInput `pulumi:"chartConfiguration"`
-	// The column hierarchy that is used during drill-downs and drill-ups.
-	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
-	// The subtitle that is displayed on the visual.
-	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title that is displayed on the visual.
-	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	// The alt text for the visual.
-	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
-	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
-	VisualId pulumi.StringInput `pulumi:"visualId"`
-}
-
-func (TemplateLineChartVisualArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateLineChartVisual)(nil)).Elem()
-}
-
-func (i TemplateLineChartVisualArgs) ToTemplateLineChartVisualOutput() TemplateLineChartVisualOutput {
-	return i.ToTemplateLineChartVisualOutputWithContext(context.Background())
-}
-
-func (i TemplateLineChartVisualArgs) ToTemplateLineChartVisualOutputWithContext(ctx context.Context) TemplateLineChartVisualOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateLineChartVisualOutput)
-}
-
-func (i TemplateLineChartVisualArgs) ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput {
-	return i.ToTemplateLineChartVisualPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateLineChartVisualArgs) ToTemplateLineChartVisualPtrOutputWithContext(ctx context.Context) TemplateLineChartVisualPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateLineChartVisualOutput).ToTemplateLineChartVisualPtrOutputWithContext(ctx)
-}
-
-// TemplateLineChartVisualPtrInput is an input type that accepts TemplateLineChartVisualArgs, TemplateLineChartVisualPtr and TemplateLineChartVisualPtrOutput values.
-// You can construct a concrete instance of `TemplateLineChartVisualPtrInput` via:
-//
-//	        TemplateLineChartVisualArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateLineChartVisualPtrInput interface {
-	pulumi.Input
-
-	ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput
-	ToTemplateLineChartVisualPtrOutputWithContext(context.Context) TemplateLineChartVisualPtrOutput
-}
-
-type templateLineChartVisualPtrType TemplateLineChartVisualArgs
-
-func TemplateLineChartVisualPtr(v *TemplateLineChartVisualArgs) TemplateLineChartVisualPtrInput {
-	return (*templateLineChartVisualPtrType)(v)
-}
-
-func (*templateLineChartVisualPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateLineChartVisual)(nil)).Elem()
-}
-
-func (i *templateLineChartVisualPtrType) ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput {
-	return i.ToTemplateLineChartVisualPtrOutputWithContext(context.Background())
-}
-
-func (i *templateLineChartVisualPtrType) ToTemplateLineChartVisualPtrOutputWithContext(ctx context.Context) TemplateLineChartVisualPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateLineChartVisualPtrOutput)
-}
-
-type TemplateLineChartVisualOutput struct{ *pulumi.OutputState }
-
-func (TemplateLineChartVisualOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateLineChartVisual)(nil)).Elem()
-}
-
-func (o TemplateLineChartVisualOutput) ToTemplateLineChartVisualOutput() TemplateLineChartVisualOutput {
-	return o
-}
-
-func (o TemplateLineChartVisualOutput) ToTemplateLineChartVisualOutputWithContext(ctx context.Context) TemplateLineChartVisualOutput {
-	return o
-}
-
-func (o TemplateLineChartVisualOutput) ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput {
-	return o.ToTemplateLineChartVisualPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateLineChartVisualOutput) ToTemplateLineChartVisualPtrOutputWithContext(ctx context.Context) TemplateLineChartVisualPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLineChartVisual) *TemplateLineChartVisual {
-		return &v
-	}).(TemplateLineChartVisualPtrOutput)
-}
-
-// The list of custom actions that are configured for a visual.
-func (o TemplateLineChartVisualOutput) Actions() TemplateVisualCustomActionArrayOutput {
-	return o.ApplyT(func(v TemplateLineChartVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
-}
-
-// The configuration of a line chart.
-func (o TemplateLineChartVisualOutput) ChartConfiguration() TemplateLineChartConfigurationPtrOutput {
-	return o.ApplyT(func(v TemplateLineChartVisual) *TemplateLineChartConfiguration { return v.ChartConfiguration }).(TemplateLineChartConfigurationPtrOutput)
-}
-
-// The column hierarchy that is used during drill-downs and drill-ups.
-func (o TemplateLineChartVisualOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
-	return o.ApplyT(func(v TemplateLineChartVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
-}
-
-// The subtitle that is displayed on the visual.
-func (o TemplateLineChartVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateLineChartVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
-}
-
-// The title that is displayed on the visual.
-func (o TemplateLineChartVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateLineChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
-}
-
-// The alt text for the visual.
-func (o TemplateLineChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateLineChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
-}
-
-// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
-func (o TemplateLineChartVisualOutput) VisualId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateLineChartVisual) string { return v.VisualId }).(pulumi.StringOutput)
-}
-
-type TemplateLineChartVisualPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateLineChartVisualPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateLineChartVisual)(nil)).Elem()
-}
-
-func (o TemplateLineChartVisualPtrOutput) ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput {
-	return o
-}
-
-func (o TemplateLineChartVisualPtrOutput) ToTemplateLineChartVisualPtrOutputWithContext(ctx context.Context) TemplateLineChartVisualPtrOutput {
-	return o
-}
-
-func (o TemplateLineChartVisualPtrOutput) Elem() TemplateLineChartVisualOutput {
-	return o.ApplyT(func(v *TemplateLineChartVisual) TemplateLineChartVisual {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateLineChartVisual
-		return ret
-	}).(TemplateLineChartVisualOutput)
-}
-
-// The list of custom actions that are configured for a visual.
-func (o TemplateLineChartVisualPtrOutput) Actions() TemplateVisualCustomActionArrayOutput {
-	return o.ApplyT(func(v *TemplateLineChartVisual) []TemplateVisualCustomAction {
-		if v == nil {
-			return nil
-		}
-		return v.Actions
-	}).(TemplateVisualCustomActionArrayOutput)
-}
-
-// The configuration of a line chart.
-func (o TemplateLineChartVisualPtrOutput) ChartConfiguration() TemplateLineChartConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateLineChartVisual) *TemplateLineChartConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ChartConfiguration
-	}).(TemplateLineChartConfigurationPtrOutput)
-}
-
-// The column hierarchy that is used during drill-downs and drill-ups.
-func (o TemplateLineChartVisualPtrOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
-	return o.ApplyT(func(v *TemplateLineChartVisual) []TemplateColumnHierarchy {
-		if v == nil {
-			return nil
-		}
-		return v.ColumnHierarchies
-	}).(TemplateColumnHierarchyArrayOutput)
-}
-
-// The subtitle that is displayed on the visual.
-func (o TemplateLineChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateLineChartVisual) *TemplateVisualSubtitleLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.Subtitle
-	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
-}
-
-// The title that is displayed on the visual.
-func (o TemplateLineChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateLineChartVisual) *TemplateVisualTitleLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(TemplateVisualTitleLabelOptionsPtrOutput)
-}
-
-// The alt text for the visual.
-func (o TemplateLineChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateLineChartVisual) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VisualContentAltText
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
-func (o TemplateLineChartVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateLineChartVisual) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VisualId
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionAfterPageBreakInput)(nil)).Elem(), DashboardSectionAfterPageBreakArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionAfterPageBreakPtrInput)(nil)).Elem(), DashboardSectionAfterPageBreakArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionBasedLayoutCanvasSizeOptionsInput)(nil)).Elem(), DashboardSectionBasedLayoutCanvasSizeOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionBasedLayoutCanvasSizeOptionsPtrInput)(nil)).Elem(), DashboardSectionBasedLayoutCanvasSizeOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionBasedLayoutConfigurationInput)(nil)).Elem(), DashboardSectionBasedLayoutConfigurationArgs{})
@@ -86260,8 +86148,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineChartSeriesSettingsPtrInput)(nil)).Elem(), TemplateLineChartSeriesSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineChartSortConfigurationInput)(nil)).Elem(), TemplateLineChartSortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineChartSortConfigurationPtrInput)(nil)).Elem(), TemplateLineChartSortConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineChartVisualInput)(nil)).Elem(), TemplateLineChartVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineChartVisualPtrInput)(nil)).Elem(), TemplateLineChartVisualArgs{})
+	pulumi.RegisterOutputType(DashboardSectionAfterPageBreakOutput{})
+	pulumi.RegisterOutputType(DashboardSectionAfterPageBreakPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSectionBasedLayoutCanvasSizeOptionsOutput{})
 	pulumi.RegisterOutputType(DashboardSectionBasedLayoutCanvasSizeOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSectionBasedLayoutConfigurationOutput{})
@@ -87249,6 +87137,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateLineChartSeriesSettingsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLineChartSortConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateLineChartSortConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(TemplateLineChartVisualOutput{})
-	pulumi.RegisterOutputType(TemplateLineChartVisualPtrOutput{})
 }
