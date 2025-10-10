@@ -69,6 +69,9 @@ import (
 	"google.golang.org/protobuf/types/known/structpb"
 )
 
+// The APN 1.1 AWS Marketplace identifier to should be used in the User-Agent header.
+var PulumiAWSMarketplaceCode string = "c7qiae2l6usvzoynupds6v7hf"
+
 type cancellationContext struct {
 	context context.Context
 	cancel  context.CancelFunc
