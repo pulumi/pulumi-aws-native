@@ -13,6 +13,112 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GroupingConfigurationGroupingAttributeDefinition struct {
+	DefaultGroupingValue *string  `pulumi:"defaultGroupingValue"`
+	GroupingName         string   `pulumi:"groupingName"`
+	GroupingSourceKeys   []string `pulumi:"groupingSourceKeys"`
+}
+
+// GroupingConfigurationGroupingAttributeDefinitionInput is an input type that accepts GroupingConfigurationGroupingAttributeDefinitionArgs and GroupingConfigurationGroupingAttributeDefinitionOutput values.
+// You can construct a concrete instance of `GroupingConfigurationGroupingAttributeDefinitionInput` via:
+//
+//	GroupingConfigurationGroupingAttributeDefinitionArgs{...}
+type GroupingConfigurationGroupingAttributeDefinitionInput interface {
+	pulumi.Input
+
+	ToGroupingConfigurationGroupingAttributeDefinitionOutput() GroupingConfigurationGroupingAttributeDefinitionOutput
+	ToGroupingConfigurationGroupingAttributeDefinitionOutputWithContext(context.Context) GroupingConfigurationGroupingAttributeDefinitionOutput
+}
+
+type GroupingConfigurationGroupingAttributeDefinitionArgs struct {
+	DefaultGroupingValue pulumi.StringPtrInput   `pulumi:"defaultGroupingValue"`
+	GroupingName         pulumi.StringInput      `pulumi:"groupingName"`
+	GroupingSourceKeys   pulumi.StringArrayInput `pulumi:"groupingSourceKeys"`
+}
+
+func (GroupingConfigurationGroupingAttributeDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupingConfigurationGroupingAttributeDefinition)(nil)).Elem()
+}
+
+func (i GroupingConfigurationGroupingAttributeDefinitionArgs) ToGroupingConfigurationGroupingAttributeDefinitionOutput() GroupingConfigurationGroupingAttributeDefinitionOutput {
+	return i.ToGroupingConfigurationGroupingAttributeDefinitionOutputWithContext(context.Background())
+}
+
+func (i GroupingConfigurationGroupingAttributeDefinitionArgs) ToGroupingConfigurationGroupingAttributeDefinitionOutputWithContext(ctx context.Context) GroupingConfigurationGroupingAttributeDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupingConfigurationGroupingAttributeDefinitionOutput)
+}
+
+// GroupingConfigurationGroupingAttributeDefinitionArrayInput is an input type that accepts GroupingConfigurationGroupingAttributeDefinitionArray and GroupingConfigurationGroupingAttributeDefinitionArrayOutput values.
+// You can construct a concrete instance of `GroupingConfigurationGroupingAttributeDefinitionArrayInput` via:
+//
+//	GroupingConfigurationGroupingAttributeDefinitionArray{ GroupingConfigurationGroupingAttributeDefinitionArgs{...} }
+type GroupingConfigurationGroupingAttributeDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToGroupingConfigurationGroupingAttributeDefinitionArrayOutput() GroupingConfigurationGroupingAttributeDefinitionArrayOutput
+	ToGroupingConfigurationGroupingAttributeDefinitionArrayOutputWithContext(context.Context) GroupingConfigurationGroupingAttributeDefinitionArrayOutput
+}
+
+type GroupingConfigurationGroupingAttributeDefinitionArray []GroupingConfigurationGroupingAttributeDefinitionInput
+
+func (GroupingConfigurationGroupingAttributeDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupingConfigurationGroupingAttributeDefinition)(nil)).Elem()
+}
+
+func (i GroupingConfigurationGroupingAttributeDefinitionArray) ToGroupingConfigurationGroupingAttributeDefinitionArrayOutput() GroupingConfigurationGroupingAttributeDefinitionArrayOutput {
+	return i.ToGroupingConfigurationGroupingAttributeDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i GroupingConfigurationGroupingAttributeDefinitionArray) ToGroupingConfigurationGroupingAttributeDefinitionArrayOutputWithContext(ctx context.Context) GroupingConfigurationGroupingAttributeDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupingConfigurationGroupingAttributeDefinitionArrayOutput)
+}
+
+type GroupingConfigurationGroupingAttributeDefinitionOutput struct{ *pulumi.OutputState }
+
+func (GroupingConfigurationGroupingAttributeDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupingConfigurationGroupingAttributeDefinition)(nil)).Elem()
+}
+
+func (o GroupingConfigurationGroupingAttributeDefinitionOutput) ToGroupingConfigurationGroupingAttributeDefinitionOutput() GroupingConfigurationGroupingAttributeDefinitionOutput {
+	return o
+}
+
+func (o GroupingConfigurationGroupingAttributeDefinitionOutput) ToGroupingConfigurationGroupingAttributeDefinitionOutputWithContext(ctx context.Context) GroupingConfigurationGroupingAttributeDefinitionOutput {
+	return o
+}
+
+func (o GroupingConfigurationGroupingAttributeDefinitionOutput) DefaultGroupingValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupingConfigurationGroupingAttributeDefinition) *string { return v.DefaultGroupingValue }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupingConfigurationGroupingAttributeDefinitionOutput) GroupingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupingConfigurationGroupingAttributeDefinition) string { return v.GroupingName }).(pulumi.StringOutput)
+}
+
+func (o GroupingConfigurationGroupingAttributeDefinitionOutput) GroupingSourceKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupingConfigurationGroupingAttributeDefinition) []string { return v.GroupingSourceKeys }).(pulumi.StringArrayOutput)
+}
+
+type GroupingConfigurationGroupingAttributeDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupingConfigurationGroupingAttributeDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupingConfigurationGroupingAttributeDefinition)(nil)).Elem()
+}
+
+func (o GroupingConfigurationGroupingAttributeDefinitionArrayOutput) ToGroupingConfigurationGroupingAttributeDefinitionArrayOutput() GroupingConfigurationGroupingAttributeDefinitionArrayOutput {
+	return o
+}
+
+func (o GroupingConfigurationGroupingAttributeDefinitionArrayOutput) ToGroupingConfigurationGroupingAttributeDefinitionArrayOutputWithContext(ctx context.Context) GroupingConfigurationGroupingAttributeDefinitionArrayOutput {
+	return o
+}
+
+func (o GroupingConfigurationGroupingAttributeDefinitionArrayOutput) Index(i pulumi.IntInput) GroupingConfigurationGroupingAttributeDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupingConfigurationGroupingAttributeDefinition {
+		return vs[0].([]GroupingConfigurationGroupingAttributeDefinition)[vs[1].(int)]
+	}).(GroupingConfigurationGroupingAttributeDefinitionOutput)
+}
+
 // This object defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO. A burn rate of exactly 1 indicates that the SLO goal will be met exactly.
 // For example, if you specify 60 as the number of minutes in the look-back window, the burn rate is calculated as the following:
 // burn rate = error rate over the look-back window / (1 - attainment goal percentage)
@@ -3031,6 +3137,8 @@ func (o ServiceLevelObjectiveWindowOutput) DurationUnit() ServiceLevelObjectiveD
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupingConfigurationGroupingAttributeDefinitionInput)(nil)).Elem(), GroupingConfigurationGroupingAttributeDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupingConfigurationGroupingAttributeDefinitionArrayInput)(nil)).Elem(), GroupingConfigurationGroupingAttributeDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveBurnRateConfigurationInput)(nil)).Elem(), ServiceLevelObjectiveBurnRateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveBurnRateConfigurationArrayInput)(nil)).Elem(), ServiceLevelObjectiveBurnRateConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveCalendarIntervalInput)(nil)).Elem(), ServiceLevelObjectiveCalendarIntervalArgs{})
@@ -3066,6 +3174,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliMetricInput)(nil)).Elem(), ServiceLevelObjectiveSliMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliMetricPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveWindowInput)(nil)).Elem(), ServiceLevelObjectiveWindowArgs{})
+	pulumi.RegisterOutputType(GroupingConfigurationGroupingAttributeDefinitionOutput{})
+	pulumi.RegisterOutputType(GroupingConfigurationGroupingAttributeDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveBurnRateConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveBurnRateConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveCalendarIntervalOutput{})

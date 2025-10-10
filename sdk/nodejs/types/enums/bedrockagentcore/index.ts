@@ -4,6 +4,7 @@
 
 export const BrowserCustomBrowserNetworkMode = {
     Public: "PUBLIC",
+    Vpc: "VPC",
 } as const;
 
 /**
@@ -28,6 +29,7 @@ export type BrowserCustomBrowserStatus = (typeof BrowserCustomBrowserStatus)[key
 export const CodeInterpreterCustomCodeInterpreterNetworkMode = {
     Public: "PUBLIC",
     Sandbox: "SANDBOX",
+    Vpc: "VPC",
 } as const;
 
 /**
@@ -122,6 +124,114 @@ export const GatewayTargetTargetStatus = {
 
 export type GatewayTargetTargetStatus = (typeof GatewayTargetTargetStatus)[keyof typeof GatewayTargetTargetStatus];
 
+export const MemoryCustomMemoryStrategyStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * Status of the memory strategy
+ */
+export type MemoryCustomMemoryStrategyStatus = (typeof MemoryCustomMemoryStrategyStatus)[keyof typeof MemoryCustomMemoryStrategyStatus];
+
+export const MemoryCustomMemoryStrategyType = {
+    Semantic: "SEMANTIC",
+    Summarization: "SUMMARIZATION",
+    UserPreference: "USER_PREFERENCE",
+    Custom: "CUSTOM",
+} as const;
+
+/**
+ * Type of memory strategy
+ */
+export type MemoryCustomMemoryStrategyType = (typeof MemoryCustomMemoryStrategyType)[keyof typeof MemoryCustomMemoryStrategyType];
+
+export const MemorySemanticMemoryStrategyStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * Status of the memory strategy
+ */
+export type MemorySemanticMemoryStrategyStatus = (typeof MemorySemanticMemoryStrategyStatus)[keyof typeof MemorySemanticMemoryStrategyStatus];
+
+export const MemorySemanticMemoryStrategyType = {
+    Semantic: "SEMANTIC",
+    Summarization: "SUMMARIZATION",
+    UserPreference: "USER_PREFERENCE",
+    Custom: "CUSTOM",
+} as const;
+
+/**
+ * Type of memory strategy
+ */
+export type MemorySemanticMemoryStrategyType = (typeof MemorySemanticMemoryStrategyType)[keyof typeof MemorySemanticMemoryStrategyType];
+
+export const MemoryStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Failed: "FAILED",
+    Deleting: "DELETING",
+} as const;
+
+/**
+ * Status of the Memory resource
+ */
+export type MemoryStatus = (typeof MemoryStatus)[keyof typeof MemoryStatus];
+
+export const MemorySummaryMemoryStrategyStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * Status of the memory strategy
+ */
+export type MemorySummaryMemoryStrategyStatus = (typeof MemorySummaryMemoryStrategyStatus)[keyof typeof MemorySummaryMemoryStrategyStatus];
+
+export const MemorySummaryMemoryStrategyType = {
+    Semantic: "SEMANTIC",
+    Summarization: "SUMMARIZATION",
+    UserPreference: "USER_PREFERENCE",
+    Custom: "CUSTOM",
+} as const;
+
+/**
+ * Type of memory strategy
+ */
+export type MemorySummaryMemoryStrategyType = (typeof MemorySummaryMemoryStrategyType)[keyof typeof MemorySummaryMemoryStrategyType];
+
+export const MemoryUserPreferenceMemoryStrategyStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * Status of the memory strategy
+ */
+export type MemoryUserPreferenceMemoryStrategyStatus = (typeof MemoryUserPreferenceMemoryStrategyStatus)[keyof typeof MemoryUserPreferenceMemoryStrategyStatus];
+
+export const MemoryUserPreferenceMemoryStrategyType = {
+    Semantic: "SEMANTIC",
+    Summarization: "SUMMARIZATION",
+    UserPreference: "USER_PREFERENCE",
+    Custom: "CUSTOM",
+} as const;
+
+/**
+ * Type of memory strategy
+ */
+export type MemoryUserPreferenceMemoryStrategyType = (typeof MemoryUserPreferenceMemoryStrategyType)[keyof typeof MemoryUserPreferenceMemoryStrategyType];
+
 export const RuntimeAgentStatus = {
     Creating: "CREATING",
     CreateFailed: "CREATE_FAILED",
@@ -146,6 +256,7 @@ export type RuntimeEndpointAgentRuntimeEndpointStatus = (typeof RuntimeEndpointA
 
 export const RuntimeNetworkMode = {
     Public: "PUBLIC",
+    Vpc: "VPC",
 } as const;
 
 /**

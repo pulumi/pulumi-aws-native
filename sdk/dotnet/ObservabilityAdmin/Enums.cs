@@ -7,6 +7,90 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.ObservabilityAdmin
 {
+    [EnumType]
+    public readonly struct OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy : IEquatable<OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy>
+    {
+        private readonly string _value;
+
+        private OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy Allow { get; } = new OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy("ALLOW");
+        public static OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy Skip { get; } = new OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy("SKIP");
+
+        public static bool operator ==(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy left, OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy right) => left.Equals(right);
+        public static bool operator !=(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy left, OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy other && Equals(other);
+        public bool Equals(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy : IEquatable<OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy>
+    {
+        private readonly string _value;
+
+        private OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy CustomerManaged { get; } = new OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy("CUSTOMER_MANAGED");
+        public static OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy AwsOwned { get; } = new OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy("AWS_OWNED");
+
+        public static bool operator ==(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy left, OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy right) => left.Equals(right);
+        public static bool operator !=(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy left, OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy other && Equals(other);
+        public bool Equals(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy : IEquatable<OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy>
+    {
+        private readonly string _value;
+
+        private OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy Allow { get; } = new OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy("ALLOW");
+        public static OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy Skip { get; } = new OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy("SKIP");
+
+        public static bool operator ==(OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy left, OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy right) => left.Equals(right);
+        public static bool operator !=(OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy left, OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy other && Equals(other);
+        public bool Equals(OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Type of telemetry destination
     /// </summary>

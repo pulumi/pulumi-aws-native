@@ -30,6 +30,8 @@ type LookupImageRecipeArgs struct {
 type LookupImageRecipeResult struct {
 	// Specify additional settings and launch scripts for your build instances.
 	AdditionalInstanceConfiguration *ImageRecipeAdditionalInstanceConfiguration `pulumi:"additionalInstanceConfiguration"`
+	// The tags to apply to the AMI created by this image recipe.
+	AmiTags map[string]string `pulumi:"amiTags"`
 	// The Amazon Resource Name (ARN) of the image recipe.
 	Arn *string `pulumi:"arn"`
 	// The tags of the image recipe.
@@ -73,6 +75,11 @@ func (o LookupImageRecipeResultOutput) AdditionalInstanceConfiguration() ImageRe
 	return o.ApplyT(func(v LookupImageRecipeResult) *ImageRecipeAdditionalInstanceConfiguration {
 		return v.AdditionalInstanceConfiguration
 	}).(ImageRecipeAdditionalInstanceConfigurationPtrOutput)
+}
+
+// The tags to apply to the AMI created by this image recipe.
+func (o LookupImageRecipeResultOutput) AmiTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) map[string]string { return v.AmiTags }).(pulumi.StringMapOutput)
 }
 
 // The Amazon Resource Name (ARN) of the image recipe.

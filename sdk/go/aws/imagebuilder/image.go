@@ -37,6 +37,8 @@ type Image struct {
 	ImageUri pulumi.StringOutput `pulumi:"imageUri"`
 	// The Amazon Resource Name (ARN) of the infrastructure configuration.
 	InfrastructureConfigurationArn pulumi.StringPtrOutput `pulumi:"infrastructureConfigurationArn"`
+	// The logging configuration settings for the image.
+	LoggingConfiguration ImageLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
 	// The name of the image.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The tags associated with the image.
@@ -112,6 +114,8 @@ type imageArgs struct {
 	ImageTestsConfiguration *ImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// The Amazon Resource Name (ARN) of the infrastructure configuration.
 	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
+	// The logging configuration settings for the image.
+	LoggingConfiguration *ImageLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// The tags associated with the image.
 	Tags map[string]string `pulumi:"tags"`
 	// Workflows to define the image build process
@@ -136,6 +140,8 @@ type ImageArgs struct {
 	ImageTestsConfiguration ImageTestsConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the infrastructure configuration.
 	InfrastructureConfigurationArn pulumi.StringPtrInput
+	// The logging configuration settings for the image.
+	LoggingConfiguration ImageLoggingConfigurationPtrInput
 	// The tags associated with the image.
 	Tags pulumi.StringMapInput
 	// Workflows to define the image build process
@@ -232,6 +238,11 @@ func (o ImageOutput) ImageUri() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) of the infrastructure configuration.
 func (o ImageOutput) InfrastructureConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.InfrastructureConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
+// The logging configuration settings for the image.
+func (o ImageOutput) LoggingConfiguration() ImageLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *Image) ImageLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(ImageLoggingConfigurationPtrOutput)
 }
 
 // The name of the image.

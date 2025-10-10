@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<Outputs.ImageRecipeAdditionalInstanceConfiguration?> AdditionalInstanceConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The tags to apply to the AMI created by this image recipe.
+        /// </summary>
+        [Output("amiTags")]
+        public Output<ImmutableDictionary<string, string>?> AmiTags { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         [Output("arn")]
@@ -135,6 +141,18 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         [Input("additionalInstanceConfiguration")]
         public Input<Inputs.ImageRecipeAdditionalInstanceConfigurationArgs>? AdditionalInstanceConfiguration { get; set; }
+
+        [Input("amiTags")]
+        private InputMap<string>? _amiTags;
+
+        /// <summary>
+        /// The tags to apply to the AMI created by this image recipe.
+        /// </summary>
+        public InputMap<string> AmiTags
+        {
+            get => _amiTags ?? (_amiTags = new InputMap<string>());
+            set => _amiTags = value;
+        }
 
         [Input("blockDeviceMappings")]
         private InputList<Inputs.ImageRecipeInstanceBlockDeviceMappingArgs>? _blockDeviceMappings;

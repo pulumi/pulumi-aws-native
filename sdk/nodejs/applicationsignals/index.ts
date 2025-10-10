@@ -15,10 +15,20 @@ export const getDiscovery: typeof import("./getDiscovery").getDiscovery = null a
 export const getDiscoveryOutput: typeof import("./getDiscovery").getDiscoveryOutput = null as any;
 utilities.lazyLoad(exports, ["getDiscovery","getDiscoveryOutput"], () => require("./getDiscovery"));
 
+export { GetGroupingConfigurationArgs, GetGroupingConfigurationResult, GetGroupingConfigurationOutputArgs } from "./getGroupingConfiguration";
+export const getGroupingConfiguration: typeof import("./getGroupingConfiguration").getGroupingConfiguration = null as any;
+export const getGroupingConfigurationOutput: typeof import("./getGroupingConfiguration").getGroupingConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getGroupingConfiguration","getGroupingConfigurationOutput"], () => require("./getGroupingConfiguration"));
+
 export { GetServiceLevelObjectiveArgs, GetServiceLevelObjectiveResult, GetServiceLevelObjectiveOutputArgs } from "./getServiceLevelObjective";
 export const getServiceLevelObjective: typeof import("./getServiceLevelObjective").getServiceLevelObjective = null as any;
 export const getServiceLevelObjectiveOutput: typeof import("./getServiceLevelObjective").getServiceLevelObjectiveOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceLevelObjective","getServiceLevelObjectiveOutput"], () => require("./getServiceLevelObjective"));
+
+export { GroupingConfigurationArgs } from "./groupingConfiguration";
+export type GroupingConfiguration = import("./groupingConfiguration").GroupingConfiguration;
+export const GroupingConfiguration: typeof import("./groupingConfiguration").GroupingConfiguration = null as any;
+utilities.lazyLoad(exports, ["GroupingConfiguration"], () => require("./groupingConfiguration"));
 
 export { ServiceLevelObjectiveArgs } from "./serviceLevelObjective";
 export type ServiceLevelObjective = import("./serviceLevelObjective").ServiceLevelObjective;
@@ -35,6 +45,8 @@ const _module = {
         switch (type) {
             case "aws-native:applicationsignals:Discovery":
                 return new Discovery(name, <any>undefined, { urn })
+            case "aws-native:applicationsignals:GroupingConfiguration":
+                return new GroupingConfiguration(name, <any>undefined, { urn })
             case "aws-native:applicationsignals:ServiceLevelObjective":
                 return new ServiceLevelObjective(name, <any>undefined, { urn })
             default:

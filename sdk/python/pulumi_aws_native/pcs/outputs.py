@@ -22,11 +22,11 @@ __all__ = [
     'ClusterErrorInfo',
     'ComputeNodeGroupErrorInfo',
     'ComputeNodeGroupInstanceConfig',
-    'ComputeNodeGroupSlurmCustomSetting',
     'CustomLaunchTemplateProperties',
     'NetworkingProperties',
     'QueueComputeNodeGroupConfiguration',
     'QueueErrorInfo',
+    'QueueSlurmCustomSetting',
     'ScalingConfigurationProperties',
     'SchedulerProperties',
     'SlurmConfigurationProperties',
@@ -233,58 +233,6 @@ class ComputeNodeGroupInstanceConfig(dict):
 
 
 @pulumi.output_type
-class ComputeNodeGroupSlurmCustomSetting(dict):
-    """
-    Additional settings that directly map to Slurm settings.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "parameterName":
-            suggest = "parameter_name"
-        elif key == "parameterValue":
-            suggest = "parameter_value"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ComputeNodeGroupSlurmCustomSetting. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ComputeNodeGroupSlurmCustomSetting.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ComputeNodeGroupSlurmCustomSetting.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 parameter_name: builtins.str,
-                 parameter_value: builtins.str):
-        """
-        Additional settings that directly map to Slurm settings.
-        :param builtins.str parameter_name: AWS PCS supports configuration of the following Slurm parameters for compute node groups: Weight and RealMemory.
-        :param builtins.str parameter_value: The value for the configured Slurm setting.
-        """
-        pulumi.set(__self__, "parameter_name", parameter_name)
-        pulumi.set(__self__, "parameter_value", parameter_value)
-
-    @property
-    @pulumi.getter(name="parameterName")
-    def parameter_name(self) -> builtins.str:
-        """
-        AWS PCS supports configuration of the following Slurm parameters for compute node groups: Weight and RealMemory.
-        """
-        return pulumi.get(self, "parameter_name")
-
-    @property
-    @pulumi.getter(name="parameterValue")
-    def parameter_value(self) -> builtins.str:
-        """
-        The value for the configured Slurm setting.
-        """
-        return pulumi.get(self, "parameter_value")
-
-
-@pulumi.output_type
 class CustomLaunchTemplateProperties(dict):
     """
     An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
@@ -479,6 +427,58 @@ class QueueErrorInfo(dict):
 
 
 @pulumi.output_type
+class QueueSlurmCustomSetting(dict):
+    """
+    Additional settings that directly map to Slurm settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "parameterValue":
+            suggest = "parameter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QueueSlurmCustomSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QueueSlurmCustomSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QueueSlurmCustomSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameter_name: builtins.str,
+                 parameter_value: builtins.str):
+        """
+        Additional settings that directly map to Slurm settings.
+        :param builtins.str parameter_name: AWS PCS supports configuration of the Slurm parameters for queues:.
+        :param builtins.str parameter_value: The value for the configured Slurm setting.
+        """
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        pulumi.set(__self__, "parameter_value", parameter_value)
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> builtins.str:
+        """
+        AWS PCS supports configuration of the Slurm parameters for queues:.
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @property
+    @pulumi.getter(name="parameterValue")
+    def parameter_value(self) -> builtins.str:
+        """
+        The value for the configured Slurm setting.
+        """
+        return pulumi.get(self, "parameter_value")
+
+
+@pulumi.output_type
 class ScalingConfigurationProperties(dict):
     """
     Specifies the boundaries of the compute node group auto scaling.
@@ -566,7 +566,7 @@ class SchedulerProperties(dict):
 @pulumi.output_type
 class SlurmConfigurationProperties(dict):
     """
-    Additional options related to the Slurm scheduler.
+    The Slurm configuration for the queue.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -586,19 +586,19 @@ class SlurmConfigurationProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 slurm_custom_settings: Optional[Sequence['outputs.ComputeNodeGroupSlurmCustomSetting']] = None):
+                 slurm_custom_settings: Optional[Sequence['outputs.QueueSlurmCustomSetting']] = None):
         """
-        Additional options related to the Slurm scheduler.
-        :param Sequence['ComputeNodeGroupSlurmCustomSetting'] slurm_custom_settings: Additional Slurm-specific configuration that directly maps to Slurm settings.
+        The Slurm configuration for the queue.
+        :param Sequence['QueueSlurmCustomSetting'] slurm_custom_settings: Custom Slurm parameters that directly map to Slurm configuration settings.
         """
         if slurm_custom_settings is not None:
             pulumi.set(__self__, "slurm_custom_settings", slurm_custom_settings)
 
     @property
     @pulumi.getter(name="slurmCustomSettings")
-    def slurm_custom_settings(self) -> Optional[Sequence['outputs.ComputeNodeGroupSlurmCustomSetting']]:
+    def slurm_custom_settings(self) -> Optional[Sequence['outputs.QueueSlurmCustomSetting']]:
         """
-        Additional Slurm-specific configuration that directly maps to Slurm settings.
+        Custom Slurm parameters that directly map to Slurm configuration settings.
         """
         return pulumi.get(self, "slurm_custom_settings")
 

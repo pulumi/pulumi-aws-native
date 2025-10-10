@@ -10,19 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// Creates a V2 S3 Metadata configuration of a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
+    /// </summary>
     [OutputType]
     public sealed class BucketMetadataConfiguration
     {
         /// <summary>
-        /// The destination information for the metadata configuration.
+        /// The destination information for the S3 Metadata configuration.
         /// </summary>
         public readonly Outputs.BucketMetadataDestination? Destination;
         /// <summary>
-        /// The configuration for the inventory table.
+        /// The inventory table configuration for a metadata configuration.
         /// </summary>
         public readonly Outputs.BucketInventoryTableConfiguration? InventoryTableConfiguration;
         /// <summary>
-        /// The configuration for the journal table.
+        /// The journal table configuration for a metadata configuration.
         /// </summary>
         public readonly Outputs.BucketJournalTableConfiguration JournalTableConfiguration;
 

@@ -45,6 +45,11 @@ export const getGatewayTarget: typeof import("./getGatewayTarget").getGatewayTar
 export const getGatewayTargetOutput: typeof import("./getGatewayTarget").getGatewayTargetOutput = null as any;
 utilities.lazyLoad(exports, ["getGatewayTarget","getGatewayTargetOutput"], () => require("./getGatewayTarget"));
 
+export { GetMemoryArgs, GetMemoryResult, GetMemoryOutputArgs } from "./getMemory";
+export const getMemory: typeof import("./getMemory").getMemory = null as any;
+export const getMemoryOutput: typeof import("./getMemory").getMemoryOutput = null as any;
+utilities.lazyLoad(exports, ["getMemory","getMemoryOutput"], () => require("./getMemory"));
+
 export { GetRuntimeArgs, GetRuntimeResult, GetRuntimeOutputArgs } from "./getRuntime";
 export const getRuntime: typeof import("./getRuntime").getRuntime = null as any;
 export const getRuntimeOutput: typeof import("./getRuntime").getRuntimeOutput = null as any;
@@ -54,6 +59,11 @@ export { GetRuntimeEndpointArgs, GetRuntimeEndpointResult, GetRuntimeEndpointOut
 export const getRuntimeEndpoint: typeof import("./getRuntimeEndpoint").getRuntimeEndpoint = null as any;
 export const getRuntimeEndpointOutput: typeof import("./getRuntimeEndpoint").getRuntimeEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getRuntimeEndpoint","getRuntimeEndpointOutput"], () => require("./getRuntimeEndpoint"));
+
+export { MemoryArgs } from "./memory";
+export type Memory = import("./memory").Memory;
+export const Memory: typeof import("./memory").Memory = null as any;
+utilities.lazyLoad(exports, ["Memory"], () => require("./memory"));
 
 export { RuntimeArgs } from "./runtime";
 export type Runtime = import("./runtime").Runtime;
@@ -81,6 +91,8 @@ const _module = {
                 return new Gateway(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:GatewayTarget":
                 return new GatewayTarget(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:Memory":
+                return new Memory(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Runtime":
                 return new Runtime(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:RuntimeEndpoint":

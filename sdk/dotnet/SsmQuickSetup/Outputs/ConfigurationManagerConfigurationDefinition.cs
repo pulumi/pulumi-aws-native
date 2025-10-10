@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.SsmQuickSetup.Outputs
         /// - `TargetRegions`
         /// 
         /// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
-        /// - **Default Host Management Configuration (Type: AWS QuickSetupType-DHMC)** - - `UpdateSSMAgent`
+        /// - **Default Host Management Configuration (Type: AWS QuickSetupType-DHMC)** - - `UpdateSsmAgent`
         /// 
         /// - Description: (Optional) A boolean value that determines whether the SSM Agent is updated on the target instances every 2 weeks. The default value is " `true` ".
         /// - `TargetOrganizationalUnits`
@@ -176,7 +176,7 @@ namespace Pulumi.AwsNative.SsmQuickSetup.Outputs
         /// - `TargetRegions`
         /// 
         /// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
-        /// - **Host Management (Type: AWS QuickSetupType-SSMHostMgmt)** - - `UpdateSSMAgent`
+        /// - **Host Management (Type: AWS QuickSetupType-SSMHostMgmt)** - - `UpdateSsmAgent`
         /// 
         /// - Description: (Optional) A boolean value that determines whether the SSM Agent is updated on the target instances every 2 weeks. The default value is " `true` ".
         /// - `UpdateEc2LaunchAgent`

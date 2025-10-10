@@ -31,7 +31,7 @@ type Environment struct {
 	//
 	// If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
 	//
-	// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` (latest)
+	// *Allowed Values* : `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` | `2.10.3` | `3.0.6` (latest)
 	AirflowVersion pulumi.StringPtrOutput `pulumi:"airflowVersion"`
 	// The ARN for the Amazon MWAA environment.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -174,7 +174,7 @@ type environmentArgs struct {
 	//
 	// If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
 	//
-	// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` (latest)
+	// *Allowed Values* : `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` | `2.10.3` | `3.0.6` (latest)
 	AirflowVersion *string `pulumi:"airflowVersion"`
 	// The relative path to the DAGs folder on your Amazon S3 bucket. For example, `dags` . To learn more, see [Adding or updating DAGs](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html) .
 	DagS3Path *string `pulumi:"dagS3Path"`
@@ -262,7 +262,7 @@ type EnvironmentArgs struct {
 	//
 	// If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
 	//
-	// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` (latest)
+	// *Allowed Values* : `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` | `2.10.3` | `3.0.6` (latest)
 	AirflowVersion pulumi.StringPtrInput
 	// The relative path to the DAGs folder on your Amazon S3 bucket. For example, `dags` . To learn more, see [Adding or updating DAGs](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html) .
 	DagS3Path pulumi.StringPtrInput
@@ -389,7 +389,7 @@ func (o EnvironmentOutput) AirflowConfigurationOptions() pulumi.AnyOutput {
 //
 // If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
 //
-// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` (latest)
+// *Allowed Values* : `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` | `2.10.3` | `3.0.6` (latest)
 func (o EnvironmentOutput) AirflowVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.AirflowVersion }).(pulumi.StringPtrOutput)
 }

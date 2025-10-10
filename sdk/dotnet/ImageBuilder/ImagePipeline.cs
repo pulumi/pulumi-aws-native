@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<string?> InfrastructureConfigurationArn { get; private set; } = null!;
 
         /// <summary>
+        /// The logging configuration settings for the image pipeline.
+        /// </summary>
+        [Output("loggingConfiguration")]
+        public Output<Outputs.ImagePipelinePipelineLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the image pipeline.
         /// </summary>
         [Output("name")]
@@ -207,6 +213,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         [Input("infrastructureConfigurationArn")]
         public Input<string>? InfrastructureConfigurationArn { get; set; }
+
+        /// <summary>
+        /// The logging configuration settings for the image pipeline.
+        /// </summary>
+        [Input("loggingConfiguration")]
+        public Input<Inputs.ImagePipelinePipelineLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
         /// <summary>
         /// The name of the image pipeline.

@@ -30,6 +30,11 @@ class GatewayTargetArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a GatewayTarget resource.
+        :param pulumi.Input[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]] credential_provider_configurations: The OAuth credential provider configuration.
+        :param pulumi.Input['GatewayTargetTargetConfigurationPropertiesArgs'] target_configuration: The target configuration for the Smithy model target.
+        :param pulumi.Input[builtins.str] description: The description for the gateway target.
+        :param pulumi.Input[builtins.str] gateway_identifier: The gateway ID for the gateway target.
+        :param pulumi.Input[builtins.str] name: The name for the gateway target.
         """
         pulumi.set(__self__, "credential_provider_configurations", credential_provider_configurations)
         pulumi.set(__self__, "target_configuration", target_configuration)
@@ -43,6 +48,9 @@ class GatewayTargetArgs:
     @property
     @pulumi.getter(name="credentialProviderConfigurations")
     def credential_provider_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]]:
+        """
+        The OAuth credential provider configuration.
+        """
         return pulumi.get(self, "credential_provider_configurations")
 
     @credential_provider_configurations.setter
@@ -52,6 +60,9 @@ class GatewayTargetArgs:
     @property
     @pulumi.getter(name="targetConfiguration")
     def target_configuration(self) -> pulumi.Input['GatewayTargetTargetConfigurationPropertiesArgs']:
+        """
+        The target configuration for the Smithy model target.
+        """
         return pulumi.get(self, "target_configuration")
 
     @target_configuration.setter
@@ -61,6 +72,9 @@ class GatewayTargetArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The description for the gateway target.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -70,6 +84,9 @@ class GatewayTargetArgs:
     @property
     @pulumi.getter(name="gatewayIdentifier")
     def gateway_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The gateway ID for the gateway target.
+        """
         return pulumi.get(self, "gateway_identifier")
 
     @gateway_identifier.setter
@@ -79,6 +96,9 @@ class GatewayTargetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name for the gateway target.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -103,6 +123,11 @@ class GatewayTarget(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GatewayTargetCredentialProviderConfigurationArgs', 'GatewayTargetCredentialProviderConfigurationArgsDict']]]] credential_provider_configurations: The OAuth credential provider configuration.
+        :param pulumi.Input[builtins.str] description: The description for the gateway target.
+        :param pulumi.Input[builtins.str] gateway_identifier: The gateway ID for the gateway target.
+        :param pulumi.Input[builtins.str] name: The name for the gateway target.
+        :param pulumi.Input[Union['GatewayTargetTargetConfigurationPropertiesArgs', 'GatewayTargetTargetConfigurationPropertiesArgsDict']] target_configuration: The target configuration for the Smithy model target.
         """
         ...
     @overload
@@ -197,16 +222,25 @@ class GatewayTarget(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[builtins.str]:
+        """
+        The date and time at which the gateway target was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="credentialProviderConfigurations")
     def credential_provider_configurations(self) -> pulumi.Output[Sequence['outputs.GatewayTargetCredentialProviderConfiguration']]:
+        """
+        The OAuth credential provider configuration.
+        """
         return pulumi.get(self, "credential_provider_configurations")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The description for the gateway target.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -217,35 +251,56 @@ class GatewayTarget(pulumi.CustomResource):
     @property
     @pulumi.getter(name="gatewayIdentifier")
     def gateway_identifier(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The gateway ID for the gateway target.
+        """
         return pulumi.get(self, "gateway_identifier")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
+        """
+        The name for the gateway target.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['GatewayTargetTargetStatus']:
+        """
+        The status for the gateway target.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusReasons")
     def status_reasons(self) -> pulumi.Output[Sequence[builtins.str]]:
+        """
+        The status reasons for the gateway target.
+        """
         return pulumi.get(self, "status_reasons")
 
     @property
     @pulumi.getter(name="targetConfiguration")
     def target_configuration(self) -> pulumi.Output['outputs.GatewayTargetTargetConfigurationProperties']:
+        """
+        The target configuration for the Smithy model target.
+        """
         return pulumi.get(self, "target_configuration")
 
     @property
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The target ID for the gateway target.
+        """
         return pulumi.get(self, "target_id")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[builtins.str]:
+        """
+        The time at which the resource was updated.
+        """
         return pulumi.get(self, "updated_at")
 

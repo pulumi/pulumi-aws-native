@@ -13,12 +13,14 @@ from .certificate import *
 from .container import *
 from .database import *
 from .disk import *
+from .disk_snapshot import *
 from .get_alarm import *
 from .get_bucket import *
 from .get_certificate import *
 from .get_container import *
 from .get_database import *
 from .get_disk import *
+from .get_disk_snapshot import *
 from .get_instance import *
 from .get_instance_snapshot import *
 from .get_load_balancer import *

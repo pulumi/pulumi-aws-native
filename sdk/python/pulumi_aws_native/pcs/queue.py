@@ -26,12 +26,14 @@ class QueueArgs:
                  cluster_id: pulumi.Input[builtins.str],
                  compute_node_group_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['QueueComputeNodeGroupConfigurationArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 slurm_configuration: Optional[pulumi.Input['SlurmConfigurationPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Queue resource.
         :param pulumi.Input[builtins.str] cluster_id: The ID of the cluster of the queue.
         :param pulumi.Input[Sequence[pulumi.Input['QueueComputeNodeGroupConfigurationArgs']]] compute_node_group_configurations: The list of compute node group configurations associated with the queue. Queues assign jobs to associated compute node groups.
         :param pulumi.Input[builtins.str] name: The name that identifies the queue.
+        :param pulumi.Input['SlurmConfigurationPropertiesArgs'] slurm_configuration: The Slurm configuration for the queue.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -39,6 +41,8 @@ class QueueArgs:
             pulumi.set(__self__, "compute_node_group_configurations", compute_node_group_configurations)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if slurm_configuration is not None:
+            pulumi.set(__self__, "slurm_configuration", slurm_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -79,6 +83,18 @@ class QueueArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="slurmConfiguration")
+    def slurm_configuration(self) -> Optional[pulumi.Input['SlurmConfigurationPropertiesArgs']]:
+        """
+        The Slurm configuration for the queue.
+        """
+        return pulumi.get(self, "slurm_configuration")
+
+    @slurm_configuration.setter
+    def slurm_configuration(self, value: Optional[pulumi.Input['SlurmConfigurationPropertiesArgs']]):
+        pulumi.set(self, "slurm_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -100,6 +116,7 @@ class Queue(pulumi.CustomResource):
                  cluster_id: Optional[pulumi.Input[builtins.str]] = None,
                  compute_node_group_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QueueComputeNodeGroupConfigurationArgs', 'QueueComputeNodeGroupConfigurationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 slurm_configuration: Optional[pulumi.Input[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -110,6 +127,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cluster_id: The ID of the cluster of the queue.
         :param pulumi.Input[Sequence[pulumi.Input[Union['QueueComputeNodeGroupConfigurationArgs', 'QueueComputeNodeGroupConfigurationArgsDict']]]] compute_node_group_configurations: The list of compute node group configurations associated with the queue. Queues assign jobs to associated compute node groups.
         :param pulumi.Input[builtins.str] name: The name that identifies the queue.
+        :param pulumi.Input[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']] slurm_configuration: The Slurm configuration for the queue.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
         """
         ...
@@ -139,6 +157,7 @@ class Queue(pulumi.CustomResource):
                  cluster_id: Optional[pulumi.Input[builtins.str]] = None,
                  compute_node_group_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QueueComputeNodeGroupConfigurationArgs', 'QueueComputeNodeGroupConfigurationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 slurm_configuration: Optional[pulumi.Input[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -154,6 +173,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["cluster_id"] = cluster_id
             __props__.__dict__["compute_node_group_configurations"] = compute_node_group_configurations
             __props__.__dict__["name"] = name
+            __props__.__dict__["slurm_configuration"] = slurm_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
@@ -189,6 +209,7 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["compute_node_group_configurations"] = None
         __props__.__dict__["error_info"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["slurm_configuration"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         return Queue(resource_name, opts=opts, __props__=__props__)
@@ -240,6 +261,14 @@ class Queue(pulumi.CustomResource):
         The name that identifies the queue.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="slurmConfiguration")
+    def slurm_configuration(self) -> pulumi.Output[Optional['outputs.SlurmConfigurationProperties']]:
+        """
+        The Slurm configuration for the queue.
+        """
+        return pulumi.get(self, "slurm_configuration")
 
     @property
     @pulumi.getter

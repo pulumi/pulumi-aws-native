@@ -9,7 +9,9 @@ import typing
 from ._enums import *
 from .discovery import *
 from .get_discovery import *
+from .get_grouping_configuration import *
 from .get_service_level_objective import *
+from .grouping_configuration import *
 from .service_level_objective import *
 from ._inputs import *
 from . import outputs

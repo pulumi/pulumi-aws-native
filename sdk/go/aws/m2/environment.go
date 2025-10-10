@@ -26,6 +26,8 @@ type Environment struct {
 	EnvironmentArn pulumi.StringOutput `pulumi:"environmentArn"`
 	// The unique identifier of the environment.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
+	// > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) .
+	//
 	// Defines the details of a high availability configuration.
 	HighAvailabilityConfig EnvironmentHighAvailabilityConfigPtrOutput `pulumi:"highAvailabilityConfig"`
 	// The type of instance underlying the environment.
@@ -114,6 +116,8 @@ type environmentArgs struct {
 	EngineType EnvironmentEngineType `pulumi:"engineType"`
 	// The version of the runtime engine for the environment.
 	EngineVersion *string `pulumi:"engineVersion"`
+	// > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) .
+	//
 	// Defines the details of a high availability configuration.
 	HighAvailabilityConfig *EnvironmentHighAvailabilityConfig `pulumi:"highAvailabilityConfig"`
 	// The type of instance underlying the environment.
@@ -146,6 +150,8 @@ type EnvironmentArgs struct {
 	EngineType EnvironmentEngineTypeInput
 	// The version of the runtime engine for the environment.
 	EngineVersion pulumi.StringPtrInput
+	// > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) .
+	//
 	// Defines the details of a high availability configuration.
 	HighAvailabilityConfig EnvironmentHighAvailabilityConfigPtrInput
 	// The type of instance underlying the environment.
@@ -232,6 +238,8 @@ func (o EnvironmentOutput) EnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
 }
 
+// > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) .
+//
 // Defines the details of a high availability configuration.
 func (o EnvironmentOutput) HighAvailabilityConfig() EnvironmentHighAvailabilityConfigPtrOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentHighAvailabilityConfigPtrOutput { return v.HighAvailabilityConfig }).(EnvironmentHighAvailabilityConfigPtrOutput)

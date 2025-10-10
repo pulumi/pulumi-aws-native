@@ -23,12 +23,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:servicecatalog:CloudFormationProvisionedProduct":
 		r = &CloudFormationProvisionedProduct{}
+	case "aws-native:servicecatalog:LaunchNotificationConstraint":
+		r = &LaunchNotificationConstraint{}
 	case "aws-native:servicecatalog:LaunchTemplateConstraint":
 		r = &LaunchTemplateConstraint{}
+	case "aws-native:servicecatalog:PortfolioPrincipalAssociation":
+		r = &PortfolioPrincipalAssociation{}
 	case "aws-native:servicecatalog:PortfolioProductAssociation":
 		r = &PortfolioProductAssociation{}
 	case "aws-native:servicecatalog:PortfolioShare":
 		r = &PortfolioShare{}
+	case "aws-native:servicecatalog:ResourceUpdateConstraint":
+		r = &ResourceUpdateConstraint{}
 	case "aws-native:servicecatalog:ServiceAction":
 		r = &ServiceAction{}
 	case "aws-native:servicecatalog:ServiceActionAssociation":

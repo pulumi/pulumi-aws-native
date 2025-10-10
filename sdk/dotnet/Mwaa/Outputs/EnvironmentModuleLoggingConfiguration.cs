@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Mwaa.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
+        /// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs.
         /// </summary>
         public readonly Pulumi.AwsNative.Mwaa.EnvironmentLoggingLevel? LogLevel;
 

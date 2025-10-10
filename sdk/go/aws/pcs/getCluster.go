@@ -36,6 +36,8 @@ type LookupClusterResult struct {
 	ErrorInfo []ClusterErrorInfo `pulumi:"errorInfo"`
 	// The generated unique ID of the cluster.
 	Id *string `pulumi:"id"`
+	// Additional options related to the Slurm scheduler.
+	SlurmConfiguration *SlurmConfigurationProperties `pulumi:"slurmConfiguration"`
 	// The provisioning status of the cluster. The provisioning status doesn't indicate the overall health of the cluster.
 	Status *ClusterStatus `pulumi:"status"`
 	// 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
@@ -92,6 +94,11 @@ func (o LookupClusterResultOutput) ErrorInfo() ClusterErrorInfoArrayOutput {
 // The generated unique ID of the cluster.
 func (o LookupClusterResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Additional options related to the Slurm scheduler.
+func (o LookupClusterResultOutput) SlurmConfiguration() SlurmConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *SlurmConfigurationProperties { return v.SlurmConfiguration }).(SlurmConfigurationPropertiesPtrOutput)
 }
 
 // The provisioning status of the cluster. The provisioning status doesn't indicate the overall health of the cluster.

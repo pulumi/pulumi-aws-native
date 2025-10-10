@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Gateway{}
 	case "aws-native:bedrockagentcore:GatewayTarget":
 		r = &GatewayTarget{}
+	case "aws-native:bedrockagentcore:Memory":
+		r = &Memory{}
 	case "aws-native:bedrockagentcore:Runtime":
 		r = &Runtime{}
 	case "aws-native:bedrockagentcore:RuntimeEndpoint":

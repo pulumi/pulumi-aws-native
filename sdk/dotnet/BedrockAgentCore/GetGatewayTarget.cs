@@ -33,9 +33,15 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
     public sealed class GetGatewayTargetArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The gateway ID for the gateway target.
+        /// </summary>
         [Input("gatewayIdentifier", required: true)]
         public string GatewayIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The target ID for the gateway target.
+        /// </summary>
         [Input("targetId", required: true)]
         public string TargetId { get; set; } = null!;
 
@@ -47,9 +53,15 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
     public sealed class GetGatewayTargetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The gateway ID for the gateway target.
+        /// </summary>
         [Input("gatewayIdentifier", required: true)]
         public Input<string> GatewayIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The target ID for the gateway target.
+        /// </summary>
         [Input("targetId", required: true)]
         public Input<string> TargetId { get; set; } = null!;
 
@@ -63,15 +75,42 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     [OutputType]
     public sealed class GetGatewayTargetResult
     {
+        /// <summary>
+        /// The date and time at which the gateway target was created.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The OAuth credential provider configuration.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GatewayTargetCredentialProviderConfiguration> CredentialProviderConfigurations;
+        /// <summary>
+        /// The description for the gateway target.
+        /// </summary>
         public readonly string? Description;
         public readonly string? GatewayArn;
+        /// <summary>
+        /// The name for the gateway target.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The status for the gateway target.
+        /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.GatewayTargetTargetStatus? Status;
+        /// <summary>
+        /// The status reasons for the gateway target.
+        /// </summary>
         public readonly ImmutableArray<string> StatusReasons;
+        /// <summary>
+        /// The target configuration for the Smithy model target.
+        /// </summary>
         public readonly Outputs.GatewayTargetTargetConfigurationProperties? TargetConfiguration;
+        /// <summary>
+        /// The target ID for the gateway target.
+        /// </summary>
         public readonly string? TargetId;
+        /// <summary>
+        /// The time at which the resource was updated.
+        /// </summary>
         public readonly string? UpdatedAt;
 
         [OutputConstructor]

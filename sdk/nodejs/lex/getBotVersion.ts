@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
+ * Resource Type definition for bot versions, a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
  */
 export function getBotVersion(args: GetBotVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetBotVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,7 +37,7 @@ export interface GetBotVersionResult {
     readonly description?: string;
 }
 /**
- * A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
+ * Resource Type definition for bot versions, a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
  */
 export function getBotVersionOutput(args: GetBotVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBotVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

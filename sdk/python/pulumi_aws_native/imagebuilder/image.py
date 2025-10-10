@@ -31,6 +31,7 @@ class ImageArgs:
                  image_scanning_configuration: Optional[pulumi.Input['ImageScanningConfigurationArgs']] = None,
                  image_tests_configuration: Optional[pulumi.Input['ImageTestsConfigurationArgs']] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 logging_configuration: Optional[pulumi.Input['ImageLoggingConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input['ImageWorkflowConfigurationArgs']]]] = None):
         """
@@ -43,6 +44,7 @@ class ImageArgs:
         :param pulumi.Input['ImageScanningConfigurationArgs'] image_scanning_configuration: Contains settings for vulnerability scans.
         :param pulumi.Input['ImageTestsConfigurationArgs'] image_tests_configuration: The image tests configuration used when creating this image.
         :param pulumi.Input[builtins.str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration.
+        :param pulumi.Input['ImageLoggingConfigurationArgs'] logging_configuration: The logging configuration settings for the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags associated with the image.
         :param pulumi.Input[Sequence[pulumi.Input['ImageWorkflowConfigurationArgs']]] workflows: Workflows to define the image build process
         """
@@ -62,6 +64,8 @@ class ImageArgs:
             pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
         if infrastructure_configuration_arn is not None:
             pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
+        if logging_configuration is not None:
+            pulumi.set(__self__, "logging_configuration", logging_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if workflows is not None:
@@ -164,6 +168,18 @@ class ImageArgs:
         pulumi.set(self, "infrastructure_configuration_arn", value)
 
     @property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> Optional[pulumi.Input['ImageLoggingConfigurationArgs']]:
+        """
+        The logging configuration settings for the image.
+        """
+        return pulumi.get(self, "logging_configuration")
+
+    @logging_configuration.setter
+    def logging_configuration(self, value: Optional[pulumi.Input['ImageLoggingConfigurationArgs']]):
+        pulumi.set(self, "logging_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -202,6 +218,7 @@ class Image(pulumi.CustomResource):
                  image_scanning_configuration: Optional[pulumi.Input[Union['ImageScanningConfigurationArgs', 'ImageScanningConfigurationArgsDict']]] = None,
                  image_tests_configuration: Optional[pulumi.Input[Union['ImageTestsConfigurationArgs', 'ImageTestsConfigurationArgsDict']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 logging_configuration: Optional[pulumi.Input[Union['ImageLoggingConfigurationArgs', 'ImageLoggingConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageWorkflowConfigurationArgs', 'ImageWorkflowConfigurationArgsDict']]]]] = None,
                  __props__=None):
@@ -218,6 +235,7 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[Union['ImageScanningConfigurationArgs', 'ImageScanningConfigurationArgsDict']] image_scanning_configuration: Contains settings for vulnerability scans.
         :param pulumi.Input[Union['ImageTestsConfigurationArgs', 'ImageTestsConfigurationArgsDict']] image_tests_configuration: The image tests configuration used when creating this image.
         :param pulumi.Input[builtins.str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration.
+        :param pulumi.Input[Union['ImageLoggingConfigurationArgs', 'ImageLoggingConfigurationArgsDict']] logging_configuration: The logging configuration settings for the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags associated with the image.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageWorkflowConfigurationArgs', 'ImageWorkflowConfigurationArgsDict']]]] workflows: Workflows to define the image build process
         """
@@ -253,6 +271,7 @@ class Image(pulumi.CustomResource):
                  image_scanning_configuration: Optional[pulumi.Input[Union['ImageScanningConfigurationArgs', 'ImageScanningConfigurationArgsDict']]] = None,
                  image_tests_configuration: Optional[pulumi.Input[Union['ImageTestsConfigurationArgs', 'ImageTestsConfigurationArgsDict']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 logging_configuration: Optional[pulumi.Input[Union['ImageLoggingConfigurationArgs', 'ImageLoggingConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageWorkflowConfigurationArgs', 'ImageWorkflowConfigurationArgsDict']]]]] = None,
                  __props__=None):
@@ -272,6 +291,7 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
             __props__.__dict__["image_tests_configuration"] = image_tests_configuration
             __props__.__dict__["infrastructure_configuration_arn"] = infrastructure_configuration_arn
+            __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workflows"] = workflows
             __props__.__dict__["arn"] = None
@@ -313,6 +333,7 @@ class Image(pulumi.CustomResource):
         __props__.__dict__["image_tests_configuration"] = None
         __props__.__dict__["image_uri"] = None
         __props__.__dict__["infrastructure_configuration_arn"] = None
+        __props__.__dict__["logging_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["workflows"] = None
@@ -405,6 +426,14 @@ class Image(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the infrastructure configuration.
         """
         return pulumi.get(self, "infrastructure_configuration_arn")
+
+    @property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> pulumi.Output[Optional['outputs.ImageLoggingConfiguration']]:
+        """
+        The logging configuration settings for the image.
+        """
+        return pulumi.get(self, "logging_configuration")
 
     @property
     @pulumi.getter
