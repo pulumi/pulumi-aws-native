@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"github.com/stretchr/testify/assert"
@@ -57,6 +58,34 @@ func TestProviderEndpoints(t *testing.T) {
 		assert.Equal(t, map[string]interface{}{
 			"accountId": "123456789012",
 		}, invokeResponse.Return.AsMap())
+	})
+
+
+	t.Run("configure calls set the APN/1.1 marketplace identifier in the User-Agent header", func(t *testing.T) {
+		t.Parallel()
+		requestCount := 0
+		server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			assert.Equal(t, "APN/1.1 ("+metadata.PulumiAWSMarketplaceCode+")", r.Header.Get("User-Agent"))
+			requestCount++
+			w.Write([]byte(stsGetCallerIdentityResponse))
+		}))
+		t.Cleanup(server.Close)
+
+		provider, err := testProviderServer()
+		require.NoError(t, err)
+		ctx := context.Background()
+		_, err = provider.Configure(ctx, &pulumirpc.ConfigureRequest{
+			Variables: map[string]string{
+				"aws-native:config:region":    "us-west-2",
+				"aws-native:config:endpoints": `{"sts": "` + server.URL + `"}`,
+				// Set fake credentials to avoid making real requests and override any local credentials.
+				"aws-native:config:accessKey": "fake",
+				"aws-native:config:secretKey": "fake",
+				"aws-native:config:token":     "fake",
+			},
+		})
+		require.NoError(t, err)
+		assert.Equal(t, 1, requestCount)
 	})
 
 	t.Run("skipping credentials doesn't break getAccountId", func(t *testing.T) {
