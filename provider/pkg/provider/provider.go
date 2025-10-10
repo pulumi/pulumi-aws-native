@@ -70,7 +70,7 @@ import (
 )
 
 // The APN 1.1 AWS Marketplace identifier to should be used in the User-Agent header.
-var PulumiAWSMarketplaceCode string = "c7qiae2l6usvzoynupds6v7hf"
+var pulumiAWSMarketplaceCode string = "c7qiae2l6usvzoynupds6v7hf"
 
 type cancellationContext struct {
 	context context.Context
@@ -1271,7 +1271,7 @@ var pulumiUserAgentMiddleware = middleware.BuildMiddlewareFunc("PulumiUserAgent"
 	const userAgentKey = "User-Agent"
 
 	// Replace the whole user-agent string to include only the marketplace identifier
-	newValue := fmt.Sprintf("APN/1.1 (%s)", metadata.PulumiAWSMarketplaceCode)
+	newValue := fmt.Sprintf("APN/1.1 (%s)", pulumiAWSMarketplaceCode)
 
 	request.Header.Set(userAgentKey, newValue)
 
