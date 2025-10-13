@@ -93,6 +93,7 @@ AWS::ApplicationAutoScaling::ScalableTarget
 AWS::ApplicationAutoScaling::ScalingPolicy
 AWS::ApplicationInsights::Application
 AWS::ApplicationSignals::Discovery
+AWS::ApplicationSignals::GroupingConfiguration
 AWS::ApplicationSignals::ServiceLevelObjective
 AWS::Athena::CapacityReservation
 AWS::Athena::DataCatalog
@@ -146,6 +147,7 @@ AWS::BedrockAgentCore::BrowserCustom
 AWS::BedrockAgentCore::CodeInterpreterCustom
 AWS::BedrockAgentCore::Gateway
 AWS::BedrockAgentCore::GatewayTarget
+AWS::BedrockAgentCore::Memory
 AWS::BedrockAgentCore::Runtime
 AWS::BedrockAgentCore::RuntimeEndpoint
 AWS::Billing::BillingView
@@ -733,6 +735,7 @@ AWS::Lightsail::Certificate
 AWS::Lightsail::Container
 AWS::Lightsail::Database
 AWS::Lightsail::Disk
+AWS::Lightsail::DiskSnapshot
 AWS::Lightsail::Instance
 AWS::Lightsail::InstanceSnapshot
 AWS::Lightsail::LoadBalancer
@@ -824,6 +827,7 @@ AWS::Neptune::DBClusterParameterGroup
 AWS::Neptune::DBInstance
 AWS::Neptune::DBParameterGroup
 AWS::Neptune::DBSubnetGroup
+AWS::Neptune::EventSubscription
 AWS::NeptuneGraph::Graph
 AWS::NeptuneGraph::PrivateGraphEndpoint
 AWS::NetworkFirewall::Firewall
@@ -859,6 +863,7 @@ AWS::ODB::OdbPeeringConnection
 AWS::OSIS::Pipeline
 AWS::Oam::Link
 AWS::Oam::Sink
+AWS::ObservabilityAdmin::OrganizationCentralizationRule
 AWS::ObservabilityAdmin::OrganizationTelemetryRule
 AWS::ObservabilityAdmin::TelemetryRule
 AWS::Omics::AnnotationStore
@@ -1131,9 +1136,12 @@ AWS::SecurityLake::DataLake
 AWS::SecurityLake::Subscriber
 AWS::SecurityLake::SubscriberNotification
 AWS::ServiceCatalog::CloudFormationProvisionedProduct
+AWS::ServiceCatalog::LaunchNotificationConstraint
 AWS::ServiceCatalog::LaunchTemplateConstraint
+AWS::ServiceCatalog::PortfolioPrincipalAssociation
 AWS::ServiceCatalog::PortfolioProductAssociation
 AWS::ServiceCatalog::PortfolioShare
+AWS::ServiceCatalog::ResourceUpdateConstraint
 AWS::ServiceCatalog::ServiceAction
 AWS::ServiceCatalog::ServiceActionAssociation
 AWS::ServiceCatalog::TagOption
