@@ -37,47 +37,47 @@ export class SoftwarePackageVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === SoftwarePackageVersion.__pulumiType;
     }
 
-    public readonly artifact!: pulumi.Output<outputs.iot.SoftwarePackageVersionPackageVersionArtifact | undefined>;
+    declare public readonly artifact: pulumi.Output<outputs.iot.SoftwarePackageVersionPackageVersionArtifact | undefined>;
     /**
      * Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
      *
      * The combined size of all the attributes on a package version is limited to 3KB.
      */
-    public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly attributes: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A summary of the package version being created. This can be used to outline the package's contents or purpose.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Error reason for a package version failure during creation or update.
      */
-    public /*out*/ readonly errorReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly errorReason: pulumi.Output<string>;
     /**
      * The name of the associated software package.
      */
-    public readonly packageName!: pulumi.Output<string>;
+    declare public readonly packageName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the package.
      */
-    public /*out*/ readonly packageVersionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly packageVersionArn: pulumi.Output<string>;
     /**
      * The inline json job document associated with a software package version
      */
-    public readonly recipe!: pulumi.Output<string | undefined>;
-    public readonly sbom!: pulumi.Output<outputs.iot.SoftwarePackageVersionSbom | undefined>;
-    public /*out*/ readonly sbomValidationStatus!: pulumi.Output<enums.iot.SoftwarePackageVersionSbomValidationStatus>;
+    declare public readonly recipe: pulumi.Output<string | undefined>;
+    declare public readonly sbom: pulumi.Output<outputs.iot.SoftwarePackageVersionSbom | undefined>;
+    declare public /*out*/ readonly sbomValidationStatus: pulumi.Output<enums.iot.SoftwarePackageVersionSbomValidationStatus>;
     /**
      * The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.iot.SoftwarePackageVersionPackageVersionStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.iot.SoftwarePackageVersionPackageVersionStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The name of the new package version.
      */
-    public readonly versionName!: pulumi.Output<string | undefined>;
+    declare public readonly versionName: pulumi.Output<string | undefined>;
 
     /**
      * Create a SoftwarePackageVersion resource with the given unique name, arguments, and options.
@@ -90,17 +90,17 @@ export class SoftwarePackageVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.packageName === undefined) && !opts.urn) {
+            if (args?.packageName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packageName'");
             }
-            resourceInputs["artifact"] = args ? args.artifact : undefined;
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["packageName"] = args ? args.packageName : undefined;
-            resourceInputs["recipe"] = args ? args.recipe : undefined;
-            resourceInputs["sbom"] = args ? args.sbom : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["versionName"] = args ? args.versionName : undefined;
+            resourceInputs["artifact"] = args?.artifact;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["packageName"] = args?.packageName;
+            resourceInputs["recipe"] = args?.recipe;
+            resourceInputs["sbom"] = args?.sbom;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["versionName"] = args?.versionName;
             resourceInputs["errorReason"] = undefined /*out*/;
             resourceInputs["packageVersionArn"] = undefined /*out*/;
             resourceInputs["sbomValidationStatus"] = undefined /*out*/;

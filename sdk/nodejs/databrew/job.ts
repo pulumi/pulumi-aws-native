@@ -67,83 +67,83 @@ export class Job extends pulumi.CustomResource {
     /**
      * One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
      */
-    public readonly dataCatalogOutputs!: pulumi.Output<outputs.databrew.JobDataCatalogOutput[] | undefined>;
+    declare public readonly dataCatalogOutputs: pulumi.Output<outputs.databrew.JobDataCatalogOutput[] | undefined>;
     /**
      * Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
      */
-    public readonly databaseOutputs!: pulumi.Output<outputs.databrew.JobDatabaseOutput[] | undefined>;
+    declare public readonly databaseOutputs: pulumi.Output<outputs.databrew.JobDatabaseOutput[] | undefined>;
     /**
      * Dataset name
      */
-    public readonly datasetName!: pulumi.Output<string | undefined>;
+    declare public readonly datasetName: pulumi.Output<string | undefined>;
     /**
      * Encryption Key Arn
      */
-    public readonly encryptionKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly encryptionKeyArn: pulumi.Output<string | undefined>;
     /**
      * Encryption mode
      */
-    public readonly encryptionMode!: pulumi.Output<enums.databrew.JobEncryptionMode | undefined>;
+    declare public readonly encryptionMode: pulumi.Output<enums.databrew.JobEncryptionMode | undefined>;
     /**
      * Job Sample
      */
-    public readonly jobSample!: pulumi.Output<outputs.databrew.JobSample | undefined>;
+    declare public readonly jobSample: pulumi.Output<outputs.databrew.JobSample | undefined>;
     /**
      * Log subscription
      */
-    public readonly logSubscription!: pulumi.Output<enums.databrew.JobLogSubscription | undefined>;
+    declare public readonly logSubscription: pulumi.Output<enums.databrew.JobLogSubscription | undefined>;
     /**
      * Max capacity
      */
-    public readonly maxCapacity!: pulumi.Output<number | undefined>;
+    declare public readonly maxCapacity: pulumi.Output<number | undefined>;
     /**
      * Max retries
      */
-    public readonly maxRetries!: pulumi.Output<number | undefined>;
+    declare public readonly maxRetries: pulumi.Output<number | undefined>;
     /**
      * Job name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Output location
      */
-    public readonly outputLocation!: pulumi.Output<outputs.databrew.JobOutputLocation | undefined>;
+    declare public readonly outputLocation: pulumi.Output<outputs.databrew.JobOutputLocation | undefined>;
     /**
      * One or more artifacts that represent output from running the job.
      */
-    public readonly outputs!: pulumi.Output<outputs.databrew.JobOutput[] | undefined>;
+    declare public readonly outputs: pulumi.Output<outputs.databrew.JobOutput[] | undefined>;
     /**
      * Profile Job configuration
      */
-    public readonly profileConfiguration!: pulumi.Output<outputs.databrew.JobProfileConfiguration | undefined>;
+    declare public readonly profileConfiguration: pulumi.Output<outputs.databrew.JobProfileConfiguration | undefined>;
     /**
      * Project name
      */
-    public readonly projectName!: pulumi.Output<string | undefined>;
+    declare public readonly projectName: pulumi.Output<string | undefined>;
     /**
      * A series of data transformation steps that the job runs.
      */
-    public readonly recipe!: pulumi.Output<outputs.databrew.JobRecipe | undefined>;
+    declare public readonly recipe: pulumi.Output<outputs.databrew.JobRecipe | undefined>;
     /**
      * Role arn
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Metadata tags that have been applied to the job.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Timeout
      */
-    public readonly timeout!: pulumi.Output<number | undefined>;
+    declare public readonly timeout: pulumi.Output<number | undefined>;
     /**
      * Job type
      */
-    public readonly type!: pulumi.Output<enums.databrew.JobType>;
+    declare public readonly type: pulumi.Output<enums.databrew.JobType>;
     /**
      * Data quality rules configuration
      */
-    public readonly validationConfigurations!: pulumi.Output<outputs.databrew.JobValidationConfiguration[] | undefined>;
+    declare public readonly validationConfigurations: pulumi.Output<outputs.databrew.JobValidationConfiguration[] | undefined>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -156,32 +156,32 @@ export class Job extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["dataCatalogOutputs"] = args ? args.dataCatalogOutputs : undefined;
-            resourceInputs["databaseOutputs"] = args ? args.databaseOutputs : undefined;
-            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
-            resourceInputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
-            resourceInputs["encryptionMode"] = args ? args.encryptionMode : undefined;
-            resourceInputs["jobSample"] = args ? args.jobSample : undefined;
-            resourceInputs["logSubscription"] = args ? args.logSubscription : undefined;
-            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            resourceInputs["maxRetries"] = args ? args.maxRetries : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputLocation"] = args ? args.outputLocation : undefined;
-            resourceInputs["outputs"] = args ? args.outputs : undefined;
-            resourceInputs["profileConfiguration"] = args ? args.profileConfiguration : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["recipe"] = args ? args.recipe : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["validationConfigurations"] = args ? args.validationConfigurations : undefined;
+            resourceInputs["dataCatalogOutputs"] = args?.dataCatalogOutputs;
+            resourceInputs["databaseOutputs"] = args?.databaseOutputs;
+            resourceInputs["datasetName"] = args?.datasetName;
+            resourceInputs["encryptionKeyArn"] = args?.encryptionKeyArn;
+            resourceInputs["encryptionMode"] = args?.encryptionMode;
+            resourceInputs["jobSample"] = args?.jobSample;
+            resourceInputs["logSubscription"] = args?.logSubscription;
+            resourceInputs["maxCapacity"] = args?.maxCapacity;
+            resourceInputs["maxRetries"] = args?.maxRetries;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputLocation"] = args?.outputLocation;
+            resourceInputs["outputs"] = args?.outputs;
+            resourceInputs["profileConfiguration"] = args?.profileConfiguration;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["recipe"] = args?.recipe;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeout"] = args?.timeout;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["validationConfigurations"] = args?.validationConfigurations;
         } else {
             resourceInputs["dataCatalogOutputs"] = undefined /*out*/;
             resourceInputs["databaseOutputs"] = undefined /*out*/;

@@ -40,43 +40,43 @@ export class RoutingProfile extends pulumi.CustomResource {
     /**
      * Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
      */
-    public readonly agentAvailabilityTimer!: pulumi.Output<enums.connect.RoutingProfileAgentAvailabilityTimer | undefined>;
+    declare public readonly agentAvailabilityTimer: pulumi.Output<enums.connect.RoutingProfileAgentAvailabilityTimer | undefined>;
     /**
      * The identifier of the default outbound queue for this routing profile.
      */
-    public readonly defaultOutboundQueueArn!: pulumi.Output<string>;
+    declare public readonly defaultOutboundQueueArn: pulumi.Output<string>;
     /**
      * The description of the routing profile.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The identifier of the Amazon Connect instance.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The manual assignment queues to associate with this routing profile.
      */
-    public readonly manualAssignmentQueueConfigs!: pulumi.Output<outputs.connect.RoutingProfileManualAssignmentQueueConfig[] | undefined>;
+    declare public readonly manualAssignmentQueueConfigs: pulumi.Output<outputs.connect.RoutingProfileManualAssignmentQueueConfig[] | undefined>;
     /**
      * The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
      */
-    public readonly mediaConcurrencies!: pulumi.Output<outputs.connect.RoutingProfileMediaConcurrency[]>;
+    declare public readonly mediaConcurrencies: pulumi.Output<outputs.connect.RoutingProfileMediaConcurrency[]>;
     /**
      * The name of the routing profile.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The queues to associate with this routing profile.
      */
-    public readonly queueConfigs!: pulumi.Output<outputs.connect.RoutingProfileQueueConfig[] | undefined>;
+    declare public readonly queueConfigs: pulumi.Output<outputs.connect.RoutingProfileQueueConfig[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the routing profile.
      */
-    public /*out*/ readonly routingProfileArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly routingProfileArn: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a RoutingProfile resource with the given unique name, arguments, and options.
@@ -89,27 +89,27 @@ export class RoutingProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultOutboundQueueArn === undefined) && !opts.urn) {
+            if (args?.defaultOutboundQueueArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultOutboundQueueArn'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.mediaConcurrencies === undefined) && !opts.urn) {
+            if (args?.mediaConcurrencies === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mediaConcurrencies'");
             }
-            resourceInputs["agentAvailabilityTimer"] = args ? args.agentAvailabilityTimer : undefined;
-            resourceInputs["defaultOutboundQueueArn"] = args ? args.defaultOutboundQueueArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["manualAssignmentQueueConfigs"] = args ? args.manualAssignmentQueueConfigs : undefined;
-            resourceInputs["mediaConcurrencies"] = args ? args.mediaConcurrencies : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queueConfigs"] = args ? args.queueConfigs : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentAvailabilityTimer"] = args?.agentAvailabilityTimer;
+            resourceInputs["defaultOutboundQueueArn"] = args?.defaultOutboundQueueArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["manualAssignmentQueueConfigs"] = args?.manualAssignmentQueueConfigs;
+            resourceInputs["mediaConcurrencies"] = args?.mediaConcurrencies;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queueConfigs"] = args?.queueConfigs;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["routingProfileArn"] = undefined /*out*/;
         } else {
             resourceInputs["agentAvailabilityTimer"] = undefined /*out*/;

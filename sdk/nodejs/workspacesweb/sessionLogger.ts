@@ -40,36 +40,36 @@ export class SessionLogger extends pulumi.CustomResource {
     /**
      * The additional encryption context of the session logger.
      */
-    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The associated portal ARN.
      */
-    public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
     /**
      * The date the session logger resource was created.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * The custom managed key of the session logger.
      */
-    public readonly customerManagedKey!: pulumi.Output<string | undefined>;
+    declare public readonly customerManagedKey: pulumi.Output<string | undefined>;
     /**
      * The human-readable display name.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The filter that specifies which events to monitor.
      */
-    public readonly eventFilter!: pulumi.Output<outputs.workspacesweb.SessionLoggerEventFilter0Properties | outputs.workspacesweb.SessionLoggerEventFilter1Properties>;
+    declare public readonly eventFilter: pulumi.Output<outputs.workspacesweb.SessionLoggerEventFilter0Properties | outputs.workspacesweb.SessionLoggerEventFilter1Properties>;
     /**
      * The configuration that specifies where logs are fowarded.
      */
-    public readonly logConfiguration!: pulumi.Output<outputs.workspacesweb.SessionLoggerLogConfiguration>;
+    declare public readonly logConfiguration: pulumi.Output<outputs.workspacesweb.SessionLoggerLogConfiguration>;
     /**
      * The ARN of the session logger resource.
      */
-    public /*out*/ readonly sessionLoggerArn!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public /*out*/ readonly sessionLoggerArn: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SessionLogger resource with the given unique name, arguments, and options.
@@ -82,18 +82,18 @@ export class SessionLogger extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.eventFilter === undefined) && !opts.urn) {
+            if (args?.eventFilter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventFilter'");
             }
-            if ((!args || args.logConfiguration === undefined) && !opts.urn) {
+            if (args?.logConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logConfiguration'");
             }
-            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["eventFilter"] = args ? args.eventFilter : undefined;
-            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["eventFilter"] = args?.eventFilter;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["sessionLoggerArn"] = undefined /*out*/;

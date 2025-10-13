@@ -40,7 +40,7 @@ export class AccountAuditConfiguration extends pulumi.CustomResource {
     /**
      * Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * Specifies which audit checks are enabled and disabled for this account.
      *
@@ -52,15 +52,15 @@ export class AccountAuditConfiguration extends pulumi.CustomResource {
      *
      * For more information on available audit checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
      */
-    public readonly auditCheckConfigurations!: pulumi.Output<outputs.iot.AccountAuditConfigurationAuditCheckConfigurations>;
+    declare public readonly auditCheckConfigurations: pulumi.Output<outputs.iot.AccountAuditConfigurationAuditCheckConfigurations>;
     /**
      * Information about the targets to which audit notifications are sent.
      */
-    public readonly auditNotificationTargetConfigurations!: pulumi.Output<outputs.iot.AccountAuditConfigurationAuditNotificationTargetConfigurations | undefined>;
+    declare public readonly auditNotificationTargetConfigurations: pulumi.Output<outputs.iot.AccountAuditConfigurationAuditNotificationTargetConfigurations | undefined>;
     /**
      * The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
 
     /**
      * Create a AccountAuditConfiguration resource with the given unique name, arguments, and options.
@@ -73,19 +73,19 @@ export class AccountAuditConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.auditCheckConfigurations === undefined) && !opts.urn) {
+            if (args?.auditCheckConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'auditCheckConfigurations'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["auditCheckConfigurations"] = args ? args.auditCheckConfigurations : undefined;
-            resourceInputs["auditNotificationTargetConfigurations"] = args ? args.auditNotificationTargetConfigurations : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["auditCheckConfigurations"] = args?.auditCheckConfigurations;
+            resourceInputs["auditNotificationTargetConfigurations"] = args?.auditNotificationTargetConfigurations;
+            resourceInputs["roleArn"] = args?.roleArn;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["auditCheckConfigurations"] = undefined /*out*/;

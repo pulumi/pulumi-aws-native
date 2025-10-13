@@ -40,67 +40,67 @@ export class Runtime extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name(ARN) that uniquely identifies the Agent
      */
-    public /*out*/ readonly agentRuntimeArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentRuntimeArn: pulumi.Output<string>;
     /**
      * The artifact of the agent
      */
-    public readonly agentRuntimeArtifact!: pulumi.Output<outputs.bedrockagentcore.RuntimeAgentRuntimeArtifact>;
+    declare public readonly agentRuntimeArtifact: pulumi.Output<outputs.bedrockagentcore.RuntimeAgentRuntimeArtifact>;
     /**
      * Identifier for a resource
      */
-    public /*out*/ readonly agentRuntimeId!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentRuntimeId: pulumi.Output<string>;
     /**
      * Name for a resource
      */
-    public readonly agentRuntimeName!: pulumi.Output<string>;
+    declare public readonly agentRuntimeName: pulumi.Output<string>;
     /**
      * Version of the Agent
      */
-    public /*out*/ readonly agentRuntimeVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentRuntimeVersion: pulumi.Output<string>;
     /**
      * Authorizer configuration for the agent runtime
      */
-    public readonly authorizerConfiguration!: pulumi.Output<outputs.bedrockagentcore.RuntimeAuthorizerConfiguration | undefined>;
+    declare public readonly authorizerConfiguration: pulumi.Output<outputs.bedrockagentcore.RuntimeAuthorizerConfiguration | undefined>;
     /**
      * Timestamp when the Agent was created
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Description of the resource
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Environment variables for the agent runtime
      */
-    public readonly environmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly environmentVariables: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * When resource was last updated
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * Network access configuration for the Agent
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.bedrockagentcore.RuntimeNetworkConfiguration>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.bedrockagentcore.RuntimeNetworkConfiguration>;
     /**
      * Protocol configuration for the agent runtime
      */
-    public readonly protocolConfiguration!: pulumi.Output<enums.bedrockagentcore.RuntimeProtocolConfiguration | undefined>;
+    declare public readonly protocolConfiguration: pulumi.Output<enums.bedrockagentcore.RuntimeProtocolConfiguration | undefined>;
     /**
      * Amazon Resource Name (ARN) of an IAM role
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Current status of the agent
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.bedrockagentcore.RuntimeAgentStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.bedrockagentcore.RuntimeAgentStatus>;
     /**
      * The tags for the agent.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Workload identity details for the agent
      */
-    public /*out*/ readonly workloadIdentityDetails!: pulumi.Output<outputs.bedrockagentcore.RuntimeWorkloadIdentityDetails>;
+    declare public /*out*/ readonly workloadIdentityDetails: pulumi.Output<outputs.bedrockagentcore.RuntimeWorkloadIdentityDetails>;
 
     /**
      * Create a Runtime resource with the given unique name, arguments, and options.
@@ -113,27 +113,27 @@ export class Runtime extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agentRuntimeArtifact === undefined) && !opts.urn) {
+            if (args?.agentRuntimeArtifact === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentRuntimeArtifact'");
             }
-            if ((!args || args.agentRuntimeName === undefined) && !opts.urn) {
+            if (args?.agentRuntimeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentRuntimeName'");
             }
-            if ((!args || args.networkConfiguration === undefined) && !opts.urn) {
+            if (args?.networkConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConfiguration'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["agentRuntimeArtifact"] = args ? args.agentRuntimeArtifact : undefined;
-            resourceInputs["agentRuntimeName"] = args ? args.agentRuntimeName : undefined;
-            resourceInputs["authorizerConfiguration"] = args ? args.authorizerConfiguration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["protocolConfiguration"] = args ? args.protocolConfiguration : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentRuntimeArtifact"] = args?.agentRuntimeArtifact;
+            resourceInputs["agentRuntimeName"] = args?.agentRuntimeName;
+            resourceInputs["authorizerConfiguration"] = args?.authorizerConfiguration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["protocolConfiguration"] = args?.protocolConfiguration;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["agentRuntimeArn"] = undefined /*out*/;
             resourceInputs["agentRuntimeId"] = undefined /*out*/;
             resourceInputs["agentRuntimeVersion"] = undefined /*out*/;

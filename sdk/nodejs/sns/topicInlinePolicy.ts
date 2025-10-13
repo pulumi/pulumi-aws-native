@@ -39,11 +39,11 @@ export class TopicInlinePolicy extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicInlinePolicy` for more information about the expected schema for this property.
      */
-    public readonly policyDocument!: pulumi.Output<any>;
+    declare public readonly policyDocument: pulumi.Output<any>;
     /**
      * The Amazon Resource Name (ARN) of the topic to which you want to add the policy.
      */
-    public readonly topicArn!: pulumi.Output<string>;
+    declare public readonly topicArn: pulumi.Output<string>;
 
     /**
      * Create a TopicInlinePolicy resource with the given unique name, arguments, and options.
@@ -56,14 +56,14 @@ export class TopicInlinePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyDocument === undefined) && !opts.urn) {
+            if (args?.policyDocument === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if ((!args || args.topicArn === undefined) && !opts.urn) {
+            if (args?.topicArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topicArn'");
             }
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["topicArn"] = args ? args.topicArn : undefined;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["topicArn"] = args?.topicArn;
         } else {
             resourceInputs["policyDocument"] = undefined /*out*/;
             resourceInputs["topicArn"] = undefined /*out*/;

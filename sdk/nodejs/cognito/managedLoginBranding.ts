@@ -40,19 +40,19 @@ export class ManagedLoginBranding extends pulumi.CustomResource {
     /**
      * An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
      */
-    public readonly assets!: pulumi.Output<outputs.cognito.ManagedLoginBrandingAssetType[] | undefined>;
+    declare public readonly assets: pulumi.Output<outputs.cognito.ManagedLoginBrandingAssetType[] | undefined>;
     /**
      * The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
      */
-    public readonly clientId!: pulumi.Output<string | undefined>;
+    declare public readonly clientId: pulumi.Output<string | undefined>;
     /**
      * The ID of the managed login branding style.
      */
-    public /*out*/ readonly managedLoginBrandingId!: pulumi.Output<string>;
+    declare public /*out*/ readonly managedLoginBrandingId: pulumi.Output<string>;
     /**
      * When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
      */
-    public readonly returnMergedResources!: pulumi.Output<boolean | undefined>;
+    declare public readonly returnMergedResources: pulumi.Output<boolean | undefined>;
     /**
      * A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
      *
@@ -65,17 +65,17 @@ export class ManagedLoginBranding extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
      */
-    public readonly settings!: pulumi.Output<any | undefined>;
+    declare public readonly settings: pulumi.Output<any | undefined>;
     /**
      * When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding editor.
      *
      * When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
      */
-    public readonly useCognitoProvidedValues!: pulumi.Output<boolean | undefined>;
+    declare public readonly useCognitoProvidedValues: pulumi.Output<boolean | undefined>;
     /**
      * The user pool where the branding style is assigned.
      */
-    public readonly userPoolId!: pulumi.Output<string>;
+    declare public readonly userPoolId: pulumi.Output<string>;
 
     /**
      * Create a ManagedLoginBranding resource with the given unique name, arguments, and options.
@@ -88,15 +88,15 @@ export class ManagedLoginBranding extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["assets"] = args ? args.assets : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["returnMergedResources"] = args ? args.returnMergedResources : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
-            resourceInputs["useCognitoProvidedValues"] = args ? args.useCognitoProvidedValues : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["assets"] = args?.assets;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["returnMergedResources"] = args?.returnMergedResources;
+            resourceInputs["settings"] = args?.settings;
+            resourceInputs["useCognitoProvidedValues"] = args?.useCognitoProvidedValues;
+            resourceInputs["userPoolId"] = args?.userPoolId;
             resourceInputs["managedLoginBrandingId"] = undefined /*out*/;
         } else {
             resourceInputs["assets"] = undefined /*out*/;

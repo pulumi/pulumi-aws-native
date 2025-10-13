@@ -86,61 +86,61 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
      */
-    public readonly certificateArn!: pulumi.Output<string | undefined>;
+    declare public readonly certificateArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon CloudFront distribution domain name that's mapped to the custom domain name. This is only applicable for endpoints whose type is `EDGE` .
      *
      * Example: `d111111abcdef8.cloudfront.net`
      */
-    public /*out*/ readonly distributionDomainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly distributionDomainName: pulumi.Output<string>;
     /**
      * The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The only valid value is `Z2FDTNDATAQYW2` for all regions.
      */
-    public /*out*/ readonly distributionHostedZoneId!: pulumi.Output<string>;
+    declare public /*out*/ readonly distributionHostedZoneId: pulumi.Output<string>;
     /**
      * The custom domain name as an API host name, for example, `my-api.example.com` .
      */
-    public readonly domainName!: pulumi.Output<string | undefined>;
+    declare public readonly domainName: pulumi.Output<string | undefined>;
     /**
      * The ARN of the domain name.
      */
-    public /*out*/ readonly domainNameArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainNameArn: pulumi.Output<string>;
     /**
      * The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
      */
-    public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration | undefined>;
+    declare public readonly endpointConfiguration: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration | undefined>;
     /**
      * The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
      */
-    public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigateway.DomainNameMutualTlsAuthentication | undefined>;
+    declare public readonly mutualTlsAuthentication: pulumi.Output<outputs.apigateway.DomainNameMutualTlsAuthentication | undefined>;
     /**
      * The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
      */
-    public readonly ownershipVerificationCertificateArn!: pulumi.Output<string | undefined>;
+    declare public readonly ownershipVerificationCertificateArn: pulumi.Output<string | undefined>;
     /**
      * The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
      */
-    public readonly regionalCertificateArn!: pulumi.Output<string | undefined>;
+    declare public readonly regionalCertificateArn: pulumi.Output<string | undefined>;
     /**
      * The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
      */
-    public /*out*/ readonly regionalDomainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly regionalDomainName: pulumi.Output<string>;
     /**
      * The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
      */
-    public /*out*/ readonly regionalHostedZoneId!: pulumi.Output<string>;
+    declare public /*out*/ readonly regionalHostedZoneId: pulumi.Output<string>;
     /**
      * The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
      */
-    public readonly routingMode!: pulumi.Output<enums.apigateway.DomainNameRoutingMode | undefined>;
+    declare public readonly routingMode: pulumi.Output<enums.apigateway.DomainNameRoutingMode | undefined>;
     /**
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
      */
-    public readonly securityPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly securityPolicy: pulumi.Output<string | undefined>;
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -153,15 +153,15 @@ export class DomainName extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
-            resourceInputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
-            resourceInputs["ownershipVerificationCertificateArn"] = args ? args.ownershipVerificationCertificateArn : undefined;
-            resourceInputs["regionalCertificateArn"] = args ? args.regionalCertificateArn : undefined;
-            resourceInputs["routingMode"] = args ? args.routingMode : undefined;
-            resourceInputs["securityPolicy"] = args ? args.securityPolicy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificateArn"] = args?.certificateArn;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["endpointConfiguration"] = args?.endpointConfiguration;
+            resourceInputs["mutualTlsAuthentication"] = args?.mutualTlsAuthentication;
+            resourceInputs["ownershipVerificationCertificateArn"] = args?.ownershipVerificationCertificateArn;
+            resourceInputs["regionalCertificateArn"] = args?.regionalCertificateArn;
+            resourceInputs["routingMode"] = args?.routingMode;
+            resourceInputs["securityPolicy"] = args?.securityPolicy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["distributionDomainName"] = undefined /*out*/;
             resourceInputs["distributionHostedZoneId"] = undefined /*out*/;
             resourceInputs["domainNameArn"] = undefined /*out*/;

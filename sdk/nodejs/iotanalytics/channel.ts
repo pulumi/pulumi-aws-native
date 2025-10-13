@@ -107,25 +107,25 @@ export class Channel extends pulumi.CustomResource {
         return obj['__pulumiType'] === Channel.__pulumiType;
     }
 
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The name of the channel.
      */
-    public readonly channelName!: pulumi.Output<string | undefined>;
+    declare public readonly channelName: pulumi.Output<string | undefined>;
     /**
      * Where channel data is stored.
      */
-    public readonly channelStorage!: pulumi.Output<outputs.iotanalytics.ChannelStorage | undefined>;
+    declare public readonly channelStorage: pulumi.Output<outputs.iotanalytics.ChannelStorage | undefined>;
     /**
      * How long, in days, message data is kept for the channel.
      */
-    public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.ChannelRetentionPeriod | undefined>;
+    declare public readonly retentionPeriod: pulumi.Output<outputs.iotanalytics.ChannelRetentionPeriod | undefined>;
     /**
      * Metadata which can be used to manage the channel.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -138,10 +138,10 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["channelStorage"] = args ? args.channelStorage : undefined;
-            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["channelStorage"] = args?.channelStorage;
+            resourceInputs["retentionPeriod"] = args?.retentionPeriod;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

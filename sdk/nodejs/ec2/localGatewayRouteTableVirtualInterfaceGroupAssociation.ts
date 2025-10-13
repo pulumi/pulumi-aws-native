@@ -40,35 +40,35 @@ export class LocalGatewayRouteTableVirtualInterfaceGroupAssociation extends pulu
     /**
      * The ID of the local gateway.
      */
-    public /*out*/ readonly localGatewayId!: pulumi.Output<string>;
+    declare public /*out*/ readonly localGatewayId: pulumi.Output<string>;
     /**
      * The ARN of the local gateway route table.
      */
-    public /*out*/ readonly localGatewayRouteTableArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly localGatewayRouteTableArn: pulumi.Output<string>;
     /**
      * The ID of the local gateway route table.
      */
-    public readonly localGatewayRouteTableId!: pulumi.Output<string>;
+    declare public readonly localGatewayRouteTableId: pulumi.Output<string>;
     /**
      * The ID of the local gateway route table virtual interface group association.
      */
-    public /*out*/ readonly localGatewayRouteTableVirtualInterfaceGroupAssociationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly localGatewayRouteTableVirtualInterfaceGroupAssociationId: pulumi.Output<string>;
     /**
      * The ID of the local gateway route table virtual interface group.
      */
-    public readonly localGatewayVirtualInterfaceGroupId!: pulumi.Output<string>;
+    declare public readonly localGatewayVirtualInterfaceGroupId: pulumi.Output<string>;
     /**
      * The owner of the local gateway route table virtual interface group association.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * The state of the local gateway route table virtual interface group association.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The tags for the local gateway route table virtual interface group association.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LocalGatewayRouteTableVirtualInterfaceGroupAssociation resource with the given unique name, arguments, and options.
@@ -81,15 +81,15 @@ export class LocalGatewayRouteTableVirtualInterfaceGroupAssociation extends pulu
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.localGatewayRouteTableId === undefined) && !opts.urn) {
+            if (args?.localGatewayRouteTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayRouteTableId'");
             }
-            if ((!args || args.localGatewayVirtualInterfaceGroupId === undefined) && !opts.urn) {
+            if (args?.localGatewayVirtualInterfaceGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayVirtualInterfaceGroupId'");
             }
-            resourceInputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
-            resourceInputs["localGatewayVirtualInterfaceGroupId"] = args ? args.localGatewayVirtualInterfaceGroupId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["localGatewayRouteTableId"] = args?.localGatewayRouteTableId;
+            resourceInputs["localGatewayVirtualInterfaceGroupId"] = args?.localGatewayVirtualInterfaceGroupId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["localGatewayId"] = undefined /*out*/;
             resourceInputs["localGatewayRouteTableArn"] = undefined /*out*/;
             resourceInputs["localGatewayRouteTableVirtualInterfaceGroupAssociationId"] = undefined /*out*/;

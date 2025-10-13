@@ -40,45 +40,45 @@ export class Listener extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the listener.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the listener.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
      */
-    public readonly defaultAction!: pulumi.Output<outputs.vpclattice.ListenerDefaultAction>;
+    declare public readonly defaultAction: pulumi.Output<outputs.vpclattice.ListenerDefaultAction>;
     /**
      * The name of the listener. A listener name must be unique within a service. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      *
      * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The listener port. You can specify a value from 1 to 65535. For HTTP, the default is 80. For HTTPS, the default is 443.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * The listener protocol.
      */
-    public readonly protocol!: pulumi.Output<enums.vpclattice.ListenerProtocol>;
+    declare public readonly protocol: pulumi.Output<enums.vpclattice.ListenerProtocol>;
     /**
      * The Amazon Resource Name (ARN) of the service.
      */
-    public /*out*/ readonly serviceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceArn: pulumi.Output<string>;
     /**
      * The ID of the service.
      */
-    public /*out*/ readonly serviceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceId: pulumi.Output<string>;
     /**
      * The ID or ARN of the service.
      */
-    public readonly serviceIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly serviceIdentifier: pulumi.Output<string | undefined>;
     /**
      * The tags for the listener.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Listener resource with the given unique name, arguments, and options.
@@ -91,18 +91,18 @@ export class Listener extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultAction === undefined) && !opts.urn) {
+            if (args?.defaultAction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["serviceIdentifier"] = args ? args.serviceIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["defaultAction"] = args?.defaultAction;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["serviceIdentifier"] = args?.serviceIdentifier;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["serviceArn"] = undefined /*out*/;

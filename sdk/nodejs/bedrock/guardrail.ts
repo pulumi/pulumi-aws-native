@@ -40,86 +40,86 @@ export class Guardrail extends pulumi.CustomResource {
     /**
      * Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.
      */
-    public readonly automatedReasoningPolicyConfig!: pulumi.Output<outputs.bedrock.GuardrailAutomatedReasoningPolicyConfig | undefined>;
+    declare public readonly automatedReasoningPolicyConfig: pulumi.Output<outputs.bedrock.GuardrailAutomatedReasoningPolicyConfig | undefined>;
     /**
      * Messaging for when violations are detected in text
      */
-    public readonly blockedInputMessaging!: pulumi.Output<string>;
+    declare public readonly blockedInputMessaging: pulumi.Output<string>;
     /**
      * Messaging for when violations are detected in text
      */
-    public readonly blockedOutputsMessaging!: pulumi.Output<string>;
+    declare public readonly blockedOutputsMessaging: pulumi.Output<string>;
     /**
      * The content filter policies to configure for the guardrail.
      */
-    public readonly contentPolicyConfig!: pulumi.Output<outputs.bedrock.GuardrailContentPolicyConfig | undefined>;
-    public readonly contextualGroundingPolicyConfig!: pulumi.Output<outputs.bedrock.GuardrailContextualGroundingPolicyConfig | undefined>;
+    declare public readonly contentPolicyConfig: pulumi.Output<outputs.bedrock.GuardrailContentPolicyConfig | undefined>;
+    declare public readonly contextualGroundingPolicyConfig: pulumi.Output<outputs.bedrock.GuardrailContextualGroundingPolicyConfig | undefined>;
     /**
      * Time Stamp
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination AWS Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
      *
      * For more information, see the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) .
      */
-    public readonly crossRegionConfig!: pulumi.Output<outputs.bedrock.GuardrailCrossRegionConfig | undefined>;
+    declare public readonly crossRegionConfig: pulumi.Output<outputs.bedrock.GuardrailCrossRegionConfig | undefined>;
     /**
      * Description of the guardrail or its version
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * List of failure recommendations
      */
-    public /*out*/ readonly failureRecommendations!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly failureRecommendations: pulumi.Output<string[]>;
     /**
      * Arn representation for the guardrail
      */
-    public /*out*/ readonly guardrailArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly guardrailArn: pulumi.Output<string>;
     /**
      * Unique id for the guardrail
      */
-    public /*out*/ readonly guardrailId!: pulumi.Output<string>;
+    declare public /*out*/ readonly guardrailId: pulumi.Output<string>;
     /**
      * The KMS key with which the guardrail was encrypted at rest
      */
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * Name of the guardrail
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The sensitive information policy to configure for the guardrail.
      */
-    public readonly sensitiveInformationPolicyConfig!: pulumi.Output<outputs.bedrock.GuardrailSensitiveInformationPolicyConfig | undefined>;
+    declare public readonly sensitiveInformationPolicyConfig: pulumi.Output<outputs.bedrock.GuardrailSensitiveInformationPolicyConfig | undefined>;
     /**
      * The status of the guardrail.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.bedrock.GuardrailStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.bedrock.GuardrailStatus>;
     /**
      * List of status reasons
      */
-    public /*out*/ readonly statusReasons!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly statusReasons: pulumi.Output<string[]>;
     /**
      * List of Tags
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The topic policies to configure for the guardrail.
      */
-    public readonly topicPolicyConfig!: pulumi.Output<outputs.bedrock.GuardrailTopicPolicyConfig | undefined>;
+    declare public readonly topicPolicyConfig: pulumi.Output<outputs.bedrock.GuardrailTopicPolicyConfig | undefined>;
     /**
      * Time Stamp
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * Guardrail version
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
     /**
      * The word policy you configure for the guardrail.
      */
-    public readonly wordPolicyConfig!: pulumi.Output<outputs.bedrock.GuardrailWordPolicyConfig | undefined>;
+    declare public readonly wordPolicyConfig: pulumi.Output<outputs.bedrock.GuardrailWordPolicyConfig | undefined>;
 
     /**
      * Create a Guardrail resource with the given unique name, arguments, and options.
@@ -132,25 +132,25 @@ export class Guardrail extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.blockedInputMessaging === undefined) && !opts.urn) {
+            if (args?.blockedInputMessaging === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blockedInputMessaging'");
             }
-            if ((!args || args.blockedOutputsMessaging === undefined) && !opts.urn) {
+            if (args?.blockedOutputsMessaging === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blockedOutputsMessaging'");
             }
-            resourceInputs["automatedReasoningPolicyConfig"] = args ? args.automatedReasoningPolicyConfig : undefined;
-            resourceInputs["blockedInputMessaging"] = args ? args.blockedInputMessaging : undefined;
-            resourceInputs["blockedOutputsMessaging"] = args ? args.blockedOutputsMessaging : undefined;
-            resourceInputs["contentPolicyConfig"] = args ? args.contentPolicyConfig : undefined;
-            resourceInputs["contextualGroundingPolicyConfig"] = args ? args.contextualGroundingPolicyConfig : undefined;
-            resourceInputs["crossRegionConfig"] = args ? args.crossRegionConfig : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sensitiveInformationPolicyConfig"] = args ? args.sensitiveInformationPolicyConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicPolicyConfig"] = args ? args.topicPolicyConfig : undefined;
-            resourceInputs["wordPolicyConfig"] = args ? args.wordPolicyConfig : undefined;
+            resourceInputs["automatedReasoningPolicyConfig"] = args?.automatedReasoningPolicyConfig;
+            resourceInputs["blockedInputMessaging"] = args?.blockedInputMessaging;
+            resourceInputs["blockedOutputsMessaging"] = args?.blockedOutputsMessaging;
+            resourceInputs["contentPolicyConfig"] = args?.contentPolicyConfig;
+            resourceInputs["contextualGroundingPolicyConfig"] = args?.contextualGroundingPolicyConfig;
+            resourceInputs["crossRegionConfig"] = args?.crossRegionConfig;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sensitiveInformationPolicyConfig"] = args?.sensitiveInformationPolicyConfig;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicPolicyConfig"] = args?.topicPolicyConfig;
+            resourceInputs["wordPolicyConfig"] = args?.wordPolicyConfig;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["failureRecommendations"] = undefined /*out*/;
             resourceInputs["guardrailArn"] = undefined /*out*/;

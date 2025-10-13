@@ -40,59 +40,59 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
     /**
      * The time stamp when the path was created.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
      */
-    public readonly destination!: pulumi.Output<string | undefined>;
+    declare public readonly destination: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the destination.
      */
-    public /*out*/ readonly destinationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly destinationArn: pulumi.Output<string>;
     /**
      * The IP address of the destination.
      */
-    public readonly destinationIp!: pulumi.Output<string | undefined>;
+    declare public readonly destinationIp: pulumi.Output<string | undefined>;
     /**
      * The destination port.
      */
-    public readonly destinationPort!: pulumi.Output<number | undefined>;
+    declare public readonly destinationPort: pulumi.Output<number | undefined>;
     /**
      * Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify the parameter for the destination IP address.
      */
-    public readonly filterAtDestination!: pulumi.Output<outputs.ec2.NetworkInsightsPathPathFilter | undefined>;
+    declare public readonly filterAtDestination: pulumi.Output<outputs.ec2.NetworkInsightsPathPathFilter | undefined>;
     /**
      * Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.
      */
-    public readonly filterAtSource!: pulumi.Output<outputs.ec2.NetworkInsightsPathPathFilter | undefined>;
+    declare public readonly filterAtSource: pulumi.Output<outputs.ec2.NetworkInsightsPathPathFilter | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the path.
      */
-    public /*out*/ readonly networkInsightsPathArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkInsightsPathArn: pulumi.Output<string>;
     /**
      * The ID of the path.
      */
-    public /*out*/ readonly networkInsightsPathId!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkInsightsPathId: pulumi.Output<string>;
     /**
      * The protocol.
      */
-    public readonly protocol!: pulumi.Output<enums.ec2.NetworkInsightsPathProtocol>;
+    declare public readonly protocol: pulumi.Output<enums.ec2.NetworkInsightsPathProtocol>;
     /**
      * The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
      */
-    public readonly source!: pulumi.Output<string>;
+    declare public readonly source: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the source.
      */
-    public /*out*/ readonly sourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly sourceArn: pulumi.Output<string>;
     /**
      * The IP address of the source.
      */
-    public readonly sourceIp!: pulumi.Output<string | undefined>;
+    declare public readonly sourceIp: pulumi.Output<string | undefined>;
     /**
      * The tags to add to the path.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a NetworkInsightsPath resource with the given unique name, arguments, and options.
@@ -105,21 +105,21 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["destinationIp"] = args ? args.destinationIp : undefined;
-            resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
-            resourceInputs["filterAtDestination"] = args ? args.filterAtDestination : undefined;
-            resourceInputs["filterAtSource"] = args ? args.filterAtSource : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["sourceIp"] = args ? args.sourceIp : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["destinationIp"] = args?.destinationIp;
+            resourceInputs["destinationPort"] = args?.destinationPort;
+            resourceInputs["filterAtDestination"] = args?.filterAtDestination;
+            resourceInputs["filterAtSource"] = args?.filterAtSource;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["sourceIp"] = args?.sourceIp;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["destinationArn"] = undefined /*out*/;
             resourceInputs["networkInsightsPathArn"] = undefined /*out*/;

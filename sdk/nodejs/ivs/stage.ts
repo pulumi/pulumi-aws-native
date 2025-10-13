@@ -40,23 +40,23 @@ export class Stage extends pulumi.CustomResource {
     /**
      * ID of the active session within the stage.
      */
-    public /*out*/ readonly activeSessionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly activeSessionId: pulumi.Output<string>;
     /**
      * Stage ARN is automatically generated on creation and assigned as the unique identifier.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Configuration object for individual participant recording.
      */
-    public readonly autoParticipantRecordingConfiguration!: pulumi.Output<outputs.ivs.StageAutoParticipantRecordingConfiguration | undefined>;
+    declare public readonly autoParticipantRecordingConfiguration: pulumi.Output<outputs.ivs.StageAutoParticipantRecordingConfiguration | undefined>;
     /**
      * Stage name
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Stage resource with the given unique name, arguments, and options.
@@ -69,9 +69,9 @@ export class Stage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["autoParticipantRecordingConfiguration"] = args ? args.autoParticipantRecordingConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoParticipantRecordingConfiguration"] = args?.autoParticipantRecordingConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["activeSessionId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         } else {

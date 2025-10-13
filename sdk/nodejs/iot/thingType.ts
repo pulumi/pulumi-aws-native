@@ -40,29 +40,29 @@ export class ThingType extends pulumi.CustomResource {
     /**
      * The thing type arn.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The thing type id.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Deprecates a thing type. You can not associate new things with deprecated thing type.
      *
      * Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
      */
-    public readonly deprecateThingType!: pulumi.Output<boolean | undefined>;
+    declare public readonly deprecateThingType: pulumi.Output<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The name of the thing type.
      */
-    public readonly thingTypeName!: pulumi.Output<string | undefined>;
+    declare public readonly thingTypeName: pulumi.Output<string | undefined>;
     /**
      * The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
      */
-    public readonly thingTypeProperties!: pulumi.Output<outputs.iot.ThingTypePropertiesProperties | undefined>;
+    declare public readonly thingTypeProperties: pulumi.Output<outputs.iot.ThingTypePropertiesProperties | undefined>;
 
     /**
      * Create a ThingType resource with the given unique name, arguments, and options.
@@ -75,10 +75,10 @@ export class ThingType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["deprecateThingType"] = args ? args.deprecateThingType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["thingTypeName"] = args ? args.thingTypeName : undefined;
-            resourceInputs["thingTypeProperties"] = args ? args.thingTypeProperties : undefined;
+            resourceInputs["deprecateThingType"] = args?.deprecateThingType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["thingTypeName"] = args?.thingTypeName;
+            resourceInputs["thingTypeProperties"] = args?.thingTypeProperties;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

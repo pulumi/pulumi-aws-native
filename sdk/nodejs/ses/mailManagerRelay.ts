@@ -40,31 +40,31 @@ export class MailManagerRelay extends pulumi.CustomResource {
     /**
      * Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored.
      */
-    public readonly authentication!: pulumi.Output<outputs.ses.MailManagerRelayRelayAuthentication0Properties | outputs.ses.MailManagerRelayRelayAuthentication1Properties>;
+    declare public readonly authentication: pulumi.Output<outputs.ses.MailManagerRelayRelayAuthentication0Properties | outputs.ses.MailManagerRelayRelayAuthentication1Properties>;
     /**
      * The Amazon Resource Name (ARN) of the relay.
      */
-    public /*out*/ readonly relayArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly relayArn: pulumi.Output<string>;
     /**
      * The unique relay identifier.
      */
-    public /*out*/ readonly relayId!: pulumi.Output<string>;
+    declare public /*out*/ readonly relayId: pulumi.Output<string>;
     /**
      * The unique relay name.
      */
-    public readonly relayName!: pulumi.Output<string | undefined>;
+    declare public readonly relayName: pulumi.Output<string | undefined>;
     /**
      * The destination relay server address.
      */
-    public readonly serverName!: pulumi.Output<string>;
+    declare public readonly serverName: pulumi.Output<string>;
     /**
      * The destination relay server port.
      */
-    public readonly serverPort!: pulumi.Output<number>;
+    declare public readonly serverPort: pulumi.Output<number>;
     /**
      * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MailManagerRelay resource with the given unique name, arguments, and options.
@@ -77,20 +77,20 @@ export class MailManagerRelay extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authentication === undefined) && !opts.urn) {
+            if (args?.authentication === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authentication'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.serverPort === undefined) && !opts.urn) {
+            if (args?.serverPort === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverPort'");
             }
-            resourceInputs["authentication"] = args ? args.authentication : undefined;
-            resourceInputs["relayName"] = args ? args.relayName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["serverPort"] = args ? args.serverPort : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authentication"] = args?.authentication;
+            resourceInputs["relayName"] = args?.relayName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["serverPort"] = args?.serverPort;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["relayArn"] = undefined /*out*/;
             resourceInputs["relayId"] = undefined /*out*/;
         } else {

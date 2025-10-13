@@ -40,23 +40,23 @@ export class ServerlessCluster extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the MSK cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Includes all client authentication related information.
      */
-    public readonly clientAuthentication!: pulumi.Output<outputs.msk.ServerlessClusterClientAuthentication>;
+    declare public readonly clientAuthentication: pulumi.Output<outputs.msk.ServerlessClusterClientAuthentication>;
     /**
      * The name of the cluster.
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * VPC configuration information for the serverless cluster.
      */
-    public readonly vpcConfigs!: pulumi.Output<outputs.msk.ServerlessClusterVpcConfig[]>;
+    declare public readonly vpcConfigs: pulumi.Output<outputs.msk.ServerlessClusterVpcConfig[]>;
 
     /**
      * Create a ServerlessCluster resource with the given unique name, arguments, and options.
@@ -69,16 +69,16 @@ export class ServerlessCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clientAuthentication === undefined) && !opts.urn) {
+            if (args?.clientAuthentication === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientAuthentication'");
             }
-            if ((!args || args.vpcConfigs === undefined) && !opts.urn) {
+            if (args?.vpcConfigs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfigs'");
             }
-            resourceInputs["clientAuthentication"] = args ? args.clientAuthentication : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConfigs"] = args ? args.vpcConfigs : undefined;
+            resourceInputs["clientAuthentication"] = args?.clientAuthentication;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConfigs"] = args?.vpcConfigs;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

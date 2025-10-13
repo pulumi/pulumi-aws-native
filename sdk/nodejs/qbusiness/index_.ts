@@ -40,54 +40,54 @@ export class Index extends pulumi.CustomResource {
     /**
      * The identifier of the Amazon Q Business application using the index.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
      */
-    public readonly capacityConfiguration!: pulumi.Output<outputs.qbusiness.IndexCapacityConfiguration | undefined>;
+    declare public readonly capacityConfiguration: pulumi.Output<outputs.qbusiness.IndexCapacityConfiguration | undefined>;
     /**
      * The Unix timestamp when the index was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * A description for the Amazon Q Business index.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the index.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
      *
      * For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
      */
-    public readonly documentAttributeConfigurations!: pulumi.Output<outputs.qbusiness.IndexDocumentAttributeConfiguration[] | undefined>;
+    declare public readonly documentAttributeConfigurations: pulumi.Output<outputs.qbusiness.IndexDocumentAttributeConfiguration[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an Amazon Q Business index.
      */
-    public /*out*/ readonly indexArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly indexArn: pulumi.Output<string>;
     /**
      * The identifier for the index.
      */
-    public /*out*/ readonly indexId!: pulumi.Output<string>;
-    public /*out*/ readonly indexStatistics!: pulumi.Output<outputs.qbusiness.IndexStatistics>;
+    declare public /*out*/ readonly indexId: pulumi.Output<string>;
+    declare public /*out*/ readonly indexStatistics: pulumi.Output<outputs.qbusiness.IndexStatistics>;
     /**
      * The current status of the index. When the status is `ACTIVE` , the index is ready.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.qbusiness.IndexStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.qbusiness.IndexStatus>;
     /**
      * A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The index type that's suitable for your needs. For more information on what's included in each type of index, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers) .
      */
-    public readonly type!: pulumi.Output<enums.qbusiness.IndexType | undefined>;
+    declare public readonly type: pulumi.Output<enums.qbusiness.IndexType | undefined>;
     /**
      * The Unix timestamp when the index was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a Index resource with the given unique name, arguments, and options.
@@ -100,19 +100,19 @@ export class Index extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["capacityConfiguration"] = args ? args.capacityConfiguration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["documentAttributeConfigurations"] = args ? args.documentAttributeConfigurations : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["capacityConfiguration"] = args?.capacityConfiguration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["documentAttributeConfigurations"] = args?.documentAttributeConfigurations;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["indexArn"] = undefined /*out*/;
             resourceInputs["indexId"] = undefined /*out*/;

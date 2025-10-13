@@ -37,15 +37,15 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationSetEventDestination.__pulumiType;
     }
 
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The name of the configuration set that contains the event destination.
      */
-    public readonly configurationSetName!: pulumi.Output<string>;
+    declare public readonly configurationSetName: pulumi.Output<string>;
     /**
      * The event destination object.
      */
-    public readonly eventDestination!: pulumi.Output<outputs.ses.ConfigurationSetEventDestinationEventDestination>;
+    declare public readonly eventDestination: pulumi.Output<outputs.ses.ConfigurationSetEventDestinationEventDestination>;
 
     /**
      * Create a ConfigurationSetEventDestination resource with the given unique name, arguments, and options.
@@ -58,14 +58,14 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationSetName === undefined) && !opts.urn) {
+            if (args?.configurationSetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationSetName'");
             }
-            if ((!args || args.eventDestination === undefined) && !opts.urn) {
+            if (args?.eventDestination === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventDestination'");
             }
-            resourceInputs["configurationSetName"] = args ? args.configurationSetName : undefined;
-            resourceInputs["eventDestination"] = args ? args.eventDestination : undefined;
+            resourceInputs["configurationSetName"] = args?.configurationSetName;
+            resourceInputs["eventDestination"] = args?.eventDestination;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

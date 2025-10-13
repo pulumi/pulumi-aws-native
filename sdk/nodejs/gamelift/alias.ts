@@ -74,27 +74,27 @@ export class Alias extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Alias ARN, the resource ID matches the AliasId value.
      */
-    public /*out*/ readonly aliasArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly aliasArn: pulumi.Output<string>;
     /**
      * Unique alias ID
      */
-    public /*out*/ readonly aliasId!: pulumi.Output<string>;
+    declare public /*out*/ readonly aliasId: pulumi.Output<string>;
     /**
      * A human-readable description of the alias.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A descriptive label that is associated with an alias. Alias names do not need to be unique.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
      */
-    public readonly routingStrategy!: pulumi.Output<outputs.gamelift.AliasRoutingStrategy>;
+    declare public readonly routingStrategy: pulumi.Output<outputs.gamelift.AliasRoutingStrategy>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -107,13 +107,13 @@ export class Alias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.routingStrategy === undefined) && !opts.urn) {
+            if (args?.routingStrategy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routingStrategy'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["routingStrategy"] = args ? args.routingStrategy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["routingStrategy"] = args?.routingStrategy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["aliasArn"] = undefined /*out*/;
             resourceInputs["aliasId"] = undefined /*out*/;
         } else {

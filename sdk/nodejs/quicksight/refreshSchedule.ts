@@ -40,19 +40,19 @@ export class RefreshSchedule extends pulumi.CustomResource {
     /**
      * <p>The Amazon Resource Name (ARN) of the data source.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The AWS account ID of the account that you are creating a schedule in.
      */
-    public readonly awsAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly awsAccountId: pulumi.Output<string | undefined>;
     /**
      * The ID of the dataset that you are creating a refresh schedule for.
      */
-    public readonly dataSetId!: pulumi.Output<string | undefined>;
+    declare public readonly dataSetId: pulumi.Output<string | undefined>;
     /**
      * The refresh schedule of a dataset.
      */
-    public readonly schedule!: pulumi.Output<outputs.quicksight.RefreshScheduleMap | undefined>;
+    declare public readonly schedule: pulumi.Output<outputs.quicksight.RefreshScheduleMap | undefined>;
 
     /**
      * Create a RefreshSchedule resource with the given unique name, arguments, and options.
@@ -65,9 +65,9 @@ export class RefreshSchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["dataSetId"] = args?.dataSetId;
+            resourceInputs["schedule"] = args?.schedule;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -40,35 +40,35 @@ export class DevicePool extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The device pool's description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
      *
      * By specifying the maximum number of devices, you can control the costs that you incur by running tests.
      */
-    public readonly maxDevices!: pulumi.Output<number | undefined>;
+    declare public readonly maxDevices: pulumi.Output<number | undefined>;
     /**
      * The device pool's name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ARN of the project for the device pool.
      */
-    public readonly projectArn!: pulumi.Output<string>;
+    declare public readonly projectArn: pulumi.Output<string>;
     /**
      * The device pool's rules.
      */
-    public readonly rules!: pulumi.Output<outputs.devicefarm.DevicePoolRule[]>;
+    declare public readonly rules: pulumi.Output<outputs.devicefarm.DevicePoolRule[]>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DevicePool resource with the given unique name, arguments, and options.
@@ -81,18 +81,18 @@ export class DevicePool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.projectArn === undefined) && !opts.urn) {
+            if (args?.projectArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectArn'");
             }
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["maxDevices"] = args ? args.maxDevices : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectArn"] = args ? args.projectArn : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["maxDevices"] = args?.maxDevices;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectArn"] = args?.projectArn;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

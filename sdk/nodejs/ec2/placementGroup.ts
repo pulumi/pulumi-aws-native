@@ -40,23 +40,23 @@ export class PlacementGroup extends pulumi.CustomResource {
     /**
      * The Group Name of Placement Group.
      */
-    public /*out*/ readonly groupName!: pulumi.Output<string>;
+    declare public /*out*/ readonly groupName: pulumi.Output<string>;
     /**
      * The number of partitions. Valid only when **Strategy** is set to `partition`
      */
-    public readonly partitionCount!: pulumi.Output<number | undefined>;
+    declare public readonly partitionCount: pulumi.Output<number | undefined>;
     /**
      * The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
      */
-    public readonly spreadLevel!: pulumi.Output<string | undefined>;
+    declare public readonly spreadLevel: pulumi.Output<string | undefined>;
     /**
      * The placement strategy.
      */
-    public readonly strategy!: pulumi.Output<string | undefined>;
+    declare public readonly strategy: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a PlacementGroup resource with the given unique name, arguments, and options.
@@ -69,10 +69,10 @@ export class PlacementGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
-            resourceInputs["spreadLevel"] = args ? args.spreadLevel : undefined;
-            resourceInputs["strategy"] = args ? args.strategy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["partitionCount"] = args?.partitionCount;
+            resourceInputs["spreadLevel"] = args?.spreadLevel;
+            resourceInputs["strategy"] = args?.strategy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["groupName"] = undefined /*out*/;
         } else {
             resourceInputs["groupName"] = undefined /*out*/;

@@ -140,35 +140,35 @@ export class StateMachine extends pulumi.CustomResource {
     /**
      * Returns the ARN of the resource.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
      */
-    public readonly definition!: pulumi.Output<outputs.stepfunctions.StateMachineDefinition | undefined>;
+    declare public readonly definition: pulumi.Output<outputs.stepfunctions.StateMachineDefinition | undefined>;
     /**
      * The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
      */
-    public readonly definitionS3Location!: pulumi.Output<outputs.stepfunctions.StateMachineS3Location | undefined>;
+    declare public readonly definitionS3Location: pulumi.Output<outputs.stepfunctions.StateMachineS3Location | undefined>;
     /**
      * The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
      */
-    public readonly definitionString!: pulumi.Output<string | undefined>;
+    declare public readonly definitionString: pulumi.Output<string | undefined>;
     /**
      * A map (string to string) that specifies the mappings for placeholder variables in the state machine definition. This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.
      *
      * Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
      */
-    public readonly definitionSubstitutions!: pulumi.Output<{[key: string]: string | number | boolean} | undefined>;
+    declare public readonly definitionSubstitutions: pulumi.Output<{[key: string]: string | number | boolean} | undefined>;
     /**
      * Encryption configuration for the state machine.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<outputs.stepfunctions.StateMachineEncryptionConfiguration | undefined>;
+    declare public readonly encryptionConfiguration: pulumi.Output<outputs.stepfunctions.StateMachineEncryptionConfiguration | undefined>;
     /**
      * Defines what execution history events are logged and where they are logged.
      *
      * > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      */
-    public readonly loggingConfiguration!: pulumi.Output<outputs.stepfunctions.StateMachineLoggingConfiguration | undefined>;
+    declare public readonly loggingConfiguration: pulumi.Output<outputs.stepfunctions.StateMachineLoggingConfiguration | undefined>;
     /**
      * Returns the name of the state machine. For example:
      *
@@ -184,11 +184,11 @@ export class StateMachine extends pulumi.CustomResource {
      *
      * For more information about using `Fn::GetAtt` , see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) .
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The name of the state machine.
      *
@@ -202,25 +202,25 @@ export class StateMachine extends pulumi.CustomResource {
      *
      * > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
-    public readonly stateMachineName!: pulumi.Output<string | undefined>;
+    declare public readonly stateMachineName: pulumi.Output<string | undefined>;
     /**
      * Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
      */
-    public /*out*/ readonly stateMachineRevisionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly stateMachineRevisionId: pulumi.Output<string>;
     /**
      * Determines whether a `STANDARD` or `EXPRESS` state machine is created. The default is `STANDARD` . You cannot update the `type` of a state machine once it has been created. For more information on `STANDARD` and `EXPRESS` workflows, see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
      */
-    public readonly stateMachineType!: pulumi.Output<enums.stepfunctions.StateMachineType | undefined>;
+    declare public readonly stateMachineType: pulumi.Output<enums.stepfunctions.StateMachineType | undefined>;
     /**
      * The list of tags to add to a resource.
      *
      * Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Selects whether or not the state machine's AWS X-Ray tracing is enabled.
      */
-    public readonly tracingConfiguration!: pulumi.Output<outputs.stepfunctions.StateMachineTracingConfiguration | undefined>;
+    declare public readonly tracingConfiguration: pulumi.Output<outputs.stepfunctions.StateMachineTracingConfiguration | undefined>;
 
     /**
      * Create a StateMachine resource with the given unique name, arguments, and options.
@@ -233,20 +233,20 @@ export class StateMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["definitionS3Location"] = args ? args.definitionS3Location : undefined;
-            resourceInputs["definitionString"] = args ? args.definitionString : undefined;
-            resourceInputs["definitionSubstitutions"] = args ? args.definitionSubstitutions : undefined;
-            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["stateMachineName"] = args ? args.stateMachineName : undefined;
-            resourceInputs["stateMachineType"] = args ? args.stateMachineType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tracingConfiguration"] = args ? args.tracingConfiguration : undefined;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["definitionS3Location"] = args?.definitionS3Location;
+            resourceInputs["definitionString"] = args?.definitionString;
+            resourceInputs["definitionSubstitutions"] = args?.definitionSubstitutions;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["stateMachineName"] = args?.stateMachineName;
+            resourceInputs["stateMachineType"] = args?.stateMachineType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tracingConfiguration"] = args?.tracingConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["stateMachineRevisionId"] = undefined /*out*/;

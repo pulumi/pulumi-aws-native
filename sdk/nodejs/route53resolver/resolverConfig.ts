@@ -40,23 +40,23 @@ export class ResolverConfig extends pulumi.CustomResource {
     /**
      * ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
      */
-    public /*out*/ readonly autodefinedReverse!: pulumi.Output<enums.route53resolver.ResolverConfigAutodefinedReverse>;
+    declare public /*out*/ readonly autodefinedReverse: pulumi.Output<enums.route53resolver.ResolverConfigAutodefinedReverse>;
     /**
      * Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
      */
-    public readonly autodefinedReverseFlag!: pulumi.Output<enums.route53resolver.ResolverConfigAutodefinedReverseFlag>;
+    declare public readonly autodefinedReverseFlag: pulumi.Output<enums.route53resolver.ResolverConfigAutodefinedReverseFlag>;
     /**
      * Id
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * AccountId
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * ResourceId
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
 
     /**
      * Create a ResolverConfig resource with the given unique name, arguments, and options.
@@ -69,14 +69,14 @@ export class ResolverConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autodefinedReverseFlag === undefined) && !opts.urn) {
+            if (args?.autodefinedReverseFlag === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autodefinedReverseFlag'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["autodefinedReverseFlag"] = args ? args.autodefinedReverseFlag : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["autodefinedReverseFlag"] = args?.autodefinedReverseFlag;
+            resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["autodefinedReverse"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;

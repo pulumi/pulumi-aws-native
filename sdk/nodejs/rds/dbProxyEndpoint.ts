@@ -40,47 +40,47 @@ export class DbProxyEndpoint extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the DB proxy endpoint.
      */
-    public /*out*/ readonly dbProxyEndpointArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dbProxyEndpointArn: pulumi.Output<string>;
     /**
      * The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
      */
-    public readonly dbProxyEndpointName!: pulumi.Output<string>;
+    declare public readonly dbProxyEndpointName: pulumi.Output<string>;
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
-    public readonly dbProxyName!: pulumi.Output<string>;
+    declare public readonly dbProxyName: pulumi.Output<string>;
     /**
      * The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
      */
-    public readonly endpointNetworkType!: pulumi.Output<enums.rds.DbProxyEndpointEndpointNetworkType | undefined>;
+    declare public readonly endpointNetworkType: pulumi.Output<enums.rds.DbProxyEndpointEndpointNetworkType | undefined>;
     /**
      * A value that indicates whether this endpoint is the default endpoint for the associated DB proxy. Default DB proxy endpoints always have read/write capability. Other endpoints that you associate with the DB proxy can be either read/write or read-only.
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
      */
-    public readonly targetRole!: pulumi.Output<enums.rds.DbProxyEndpointTargetRole | undefined>;
+    declare public readonly targetRole: pulumi.Output<enums.rds.DbProxyEndpointTargetRole | undefined>;
     /**
      * VPC ID to associate with the new DB proxy endpoint.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
     /**
      * VPC security group IDs to associate with the new DB proxy endpoint.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * VPC subnet IDs to associate with the new DB proxy endpoint.
      */
-    public readonly vpcSubnetIds!: pulumi.Output<string[]>;
+    declare public readonly vpcSubnetIds: pulumi.Output<string[]>;
 
     /**
      * Create a DbProxyEndpoint resource with the given unique name, arguments, and options.
@@ -93,19 +93,19 @@ export class DbProxyEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dbProxyName === undefined) && !opts.urn) {
+            if (args?.dbProxyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbProxyName'");
             }
-            if ((!args || args.vpcSubnetIds === undefined) && !opts.urn) {
+            if (args?.vpcSubnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcSubnetIds'");
             }
-            resourceInputs["dbProxyEndpointName"] = args ? args.dbProxyEndpointName : undefined;
-            resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
-            resourceInputs["endpointNetworkType"] = args ? args.endpointNetworkType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetRole"] = args ? args.targetRole : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            resourceInputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
+            resourceInputs["dbProxyEndpointName"] = args?.dbProxyEndpointName;
+            resourceInputs["dbProxyName"] = args?.dbProxyName;
+            resourceInputs["endpointNetworkType"] = args?.endpointNetworkType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetRole"] = args?.targetRole;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
+            resourceInputs["vpcSubnetIds"] = args?.vpcSubnetIds;
             resourceInputs["dbProxyEndpointArn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["isDefault"] = undefined /*out*/;

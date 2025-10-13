@@ -40,11 +40,11 @@ export class Application extends pulumi.CustomResource {
     /**
      * An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Required if you specify one or more `ApplicationLogPaths` .
      */
-    public readonly applicationLogOutputUri!: pulumi.Output<string | undefined>;
+    declare public readonly applicationLogOutputUri: pulumi.Output<string | undefined>;
     /**
      * Locations of log files that your content generates during a stream session. Enter path values that are relative to the `ApplicationSourceUri` location. You can specify up to 10 log paths. Amazon GameLift Streams uploads designated log files to the Amazon S3 bucket that you specify in `ApplicationLogOutputUri` at the end of a stream session. To retrieve stored log files, call [GetStreamSession](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html) and get the `LogFileLocationUri` .
      */
-    public readonly applicationLogPaths!: pulumi.Output<string[] | undefined>;
+    declare public readonly applicationLogPaths: pulumi.Output<string[] | undefined>;
     /**
      * The location of the content that you want to stream. Enter an Amazon S3 URI to a bucket that contains your game or other application. The location can have a multi-level prefix structure, but it must include all the files needed to run the content. Amazon GameLift Streams copies everything under the specified location.
      *
@@ -52,33 +52,33 @@ export class Application extends pulumi.CustomResource {
      *
      * > The Amazon S3 bucket and the Amazon GameLift Streams application must be in the same AWS Region.
      */
-    public readonly applicationSourceUri!: pulumi.Output<string>;
+    declare public readonly applicationSourceUri: pulumi.Output<string>;
     /**
      * An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource across all AWS Regions. For example:
      *
      * `arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An ID that uniquely identifies the application resource. For example: `a-9ZY8X7Wv6` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A human-readable label for the application. You can update this value later.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The path and file name of the executable file that launches the content for streaming. Enter a path value that is relative to the location set in `ApplicationSourceUri` .
      */
-    public readonly executablePath!: pulumi.Output<string>;
+    declare public readonly executablePath: pulumi.Output<string>;
     /**
      * A set of configuration settings to run the application on a stream group. This configures the operating system, and can include compatibility layers and other drivers.
      */
-    public readonly runtimeEnvironment!: pulumi.Output<outputs.gameliftstreams.ApplicationRuntimeEnvironment>;
+    declare public readonly runtimeEnvironment: pulumi.Output<outputs.gameliftstreams.ApplicationRuntimeEnvironment>;
     /**
      * A list of labels to assign to the new application resource. Tags are developer-defined key-value pairs. Tagging AWS resources is useful for resource management, access management and cost allocation. See [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* .
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -91,25 +91,25 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationSourceUri === undefined) && !opts.urn) {
+            if (args?.applicationSourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationSourceUri'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.executablePath === undefined) && !opts.urn) {
+            if (args?.executablePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executablePath'");
             }
-            if ((!args || args.runtimeEnvironment === undefined) && !opts.urn) {
+            if (args?.runtimeEnvironment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runtimeEnvironment'");
             }
-            resourceInputs["applicationLogOutputUri"] = args ? args.applicationLogOutputUri : undefined;
-            resourceInputs["applicationLogPaths"] = args ? args.applicationLogPaths : undefined;
-            resourceInputs["applicationSourceUri"] = args ? args.applicationSourceUri : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executablePath"] = args ? args.executablePath : undefined;
-            resourceInputs["runtimeEnvironment"] = args ? args.runtimeEnvironment : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationLogOutputUri"] = args?.applicationLogOutputUri;
+            resourceInputs["applicationLogPaths"] = args?.applicationLogPaths;
+            resourceInputs["applicationSourceUri"] = args?.applicationSourceUri;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executablePath"] = args?.executablePath;
+            resourceInputs["runtimeEnvironment"] = args?.runtimeEnvironment;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

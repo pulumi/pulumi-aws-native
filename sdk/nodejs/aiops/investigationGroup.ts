@@ -40,63 +40,63 @@ export class InvestigationGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the investigation group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An array of key-value pairs of notification channels to apply to this resource.
      */
-    public readonly chatbotNotificationChannels!: pulumi.Output<outputs.aiops.InvestigationGroupChatbotNotificationChannel[] | undefined>;
+    declare public readonly chatbotNotificationChannels: pulumi.Output<outputs.aiops.InvestigationGroupChatbotNotificationChannel[] | undefined>;
     /**
      * The date and time that the investigation group was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The name of the user who created the investigation group.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * An array of cross account configurations.
      */
-    public readonly crossAccountConfigurations!: pulumi.Output<outputs.aiops.InvestigationGroupCrossAccountConfiguration[] | undefined>;
+    declare public readonly crossAccountConfigurations: pulumi.Output<outputs.aiops.InvestigationGroupCrossAccountConfiguration[] | undefined>;
     /**
      * Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
      */
-    public readonly encryptionConfig!: pulumi.Output<outputs.aiops.InvestigationGroupEncryptionConfigMap | undefined>;
+    declare public readonly encryptionConfig: pulumi.Output<outputs.aiops.InvestigationGroupEncryptionConfigMap | undefined>;
     /**
      * Investigation Group policy
      */
-    public readonly investigationGroupPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly investigationGroupPolicy: pulumi.Output<string | undefined>;
     /**
      * Flag to enable cloud trail history
      */
-    public readonly isCloudTrailEventHistoryEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isCloudTrailEventHistoryEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The date and time that the investigation group was most recently modified.
      */
-    public /*out*/ readonly lastModifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedAt: pulumi.Output<string>;
     /**
      * The name of the user who created the investigation group.
      */
-    public /*out*/ readonly lastModifiedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedBy: pulumi.Output<string>;
     /**
      * Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The number of days to retain the investigation group
      */
-    public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionInDays: pulumi.Output<number | undefined>;
     /**
      * The ARN of the IAM role that the investigation group uses for permissions to gather data.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
      */
-    public readonly tagKeyBoundaries!: pulumi.Output<string[] | undefined>;
+    declare public readonly tagKeyBoundaries: pulumi.Output<string[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a InvestigationGroup resource with the given unique name, arguments, and options.
@@ -109,16 +109,16 @@ export class InvestigationGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["chatbotNotificationChannels"] = args ? args.chatbotNotificationChannels : undefined;
-            resourceInputs["crossAccountConfigurations"] = args ? args.crossAccountConfigurations : undefined;
-            resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
-            resourceInputs["investigationGroupPolicy"] = args ? args.investigationGroupPolicy : undefined;
-            resourceInputs["isCloudTrailEventHistoryEnabled"] = args ? args.isCloudTrailEventHistoryEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tagKeyBoundaries"] = args ? args.tagKeyBoundaries : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["chatbotNotificationChannels"] = args?.chatbotNotificationChannels;
+            resourceInputs["crossAccountConfigurations"] = args?.crossAccountConfigurations;
+            resourceInputs["encryptionConfig"] = args?.encryptionConfig;
+            resourceInputs["investigationGroupPolicy"] = args?.investigationGroupPolicy;
+            resourceInputs["isCloudTrailEventHistoryEnabled"] = args?.isCloudTrailEventHistoryEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["retentionInDays"] = args?.retentionInDays;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tagKeyBoundaries"] = args?.tagKeyBoundaries;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;

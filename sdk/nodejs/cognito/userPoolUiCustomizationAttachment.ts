@@ -37,15 +37,15 @@ export class UserPoolUiCustomizationAttachment extends pulumi.CustomResource {
     /**
      * The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
      */
-    public readonly clientId!: pulumi.Output<string>;
+    declare public readonly clientId: pulumi.Output<string>;
     /**
      * A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
      */
-    public readonly css!: pulumi.Output<string | undefined>;
+    declare public readonly css: pulumi.Output<string | undefined>;
     /**
      * The ID of the user pool where you want to apply branding to the classic hosted UI.
      */
-    public readonly userPoolId!: pulumi.Output<string>;
+    declare public readonly userPoolId: pulumi.Output<string>;
 
     /**
      * Create a UserPoolUiCustomizationAttachment resource with the given unique name, arguments, and options.
@@ -58,15 +58,15 @@ export class UserPoolUiCustomizationAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["css"] = args ? args.css : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["css"] = args?.css;
+            resourceInputs["userPoolId"] = args?.userPoolId;
         } else {
             resourceInputs["clientId"] = undefined /*out*/;
             resourceInputs["css"] = undefined /*out*/;

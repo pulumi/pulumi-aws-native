@@ -40,23 +40,23 @@ export class ServiceProfile extends pulumi.CustomResource {
     /**
      * Service profile Arn. Returned after successful create.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Service profile Id. Returned after successful create.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
      */
-    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.ServiceProfileLoRaWanServiceProfile | undefined>;
+    declare public readonly loRaWan: pulumi.Output<outputs.iotwireless.ServiceProfileLoRaWanServiceProfile | undefined>;
     /**
      * Name of service profile
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the service profile.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ServiceProfile resource with the given unique name, arguments, and options.
@@ -69,9 +69,9 @@ export class ServiceProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["loRaWan"] = args ? args.loRaWan : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["loRaWan"] = args?.loRaWan;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

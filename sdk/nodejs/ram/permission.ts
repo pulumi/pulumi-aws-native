@@ -40,40 +40,40 @@ export class Permission extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the new permission.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Set to true to use this as the default permission.
      */
-    public /*out*/ readonly isResourceTypeDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isResourceTypeDefault: pulumi.Output<boolean>;
     /**
      * The name of the permission.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The type of managed permission. This can be one of the following values:
      *
      * - *AWS_MANAGED_PERMISSION* – AWS created and manages this managed permission. You can associate it with your resource shares, but you can't modify it.
      * - *CUSTOMER_MANAGED_PERMISSION* – You, or another principal in your account created this managed permission. You can associate it with your resource shares and create new versions that have different permissions.
      */
-    public /*out*/ readonly permissionType!: pulumi.Output<string>;
+    declare public /*out*/ readonly permissionType: pulumi.Output<string>;
     /**
      * Policy template for the permission.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
      */
-    public readonly policyTemplate!: pulumi.Output<any>;
+    declare public readonly policyTemplate: pulumi.Output<any>;
     /**
      * The resource type this permission can be used with.
      */
-    public readonly resourceType!: pulumi.Output<string>;
+    declare public readonly resourceType: pulumi.Output<string>;
     /**
      * Specifies a list of one or more tag key and value pairs to attach to the permission.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Version of the permission.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a Permission resource with the given unique name, arguments, and options.
@@ -86,16 +86,16 @@ export class Permission extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyTemplate === undefined) && !opts.urn) {
+            if (args?.policyTemplate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyTemplate'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyTemplate"] = args ? args.policyTemplate : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyTemplate"] = args?.policyTemplate;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["isResourceTypeDefault"] = undefined /*out*/;
             resourceInputs["permissionType"] = undefined /*out*/;

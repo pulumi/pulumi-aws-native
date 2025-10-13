@@ -40,35 +40,35 @@ export class PackagingConfiguration extends pulumi.CustomResource {
     /**
      * The ARN of the PackagingConfiguration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the PackagingConfiguration.
      */
-    public readonly awsId!: pulumi.Output<string>;
+    declare public readonly awsId: pulumi.Output<string>;
     /**
      * A CMAF packaging configuration.
      */
-    public readonly cmafPackage!: pulumi.Output<outputs.mediapackage.PackagingConfigurationCmafPackage | undefined>;
+    declare public readonly cmafPackage: pulumi.Output<outputs.mediapackage.PackagingConfigurationCmafPackage | undefined>;
     /**
      * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
      */
-    public readonly dashPackage!: pulumi.Output<outputs.mediapackage.PackagingConfigurationDashPackage | undefined>;
+    declare public readonly dashPackage: pulumi.Output<outputs.mediapackage.PackagingConfigurationDashPackage | undefined>;
     /**
      * An HTTP Live Streaming (HLS) packaging configuration.
      */
-    public readonly hlsPackage!: pulumi.Output<outputs.mediapackage.PackagingConfigurationHlsPackage | undefined>;
+    declare public readonly hlsPackage: pulumi.Output<outputs.mediapackage.PackagingConfigurationHlsPackage | undefined>;
     /**
      * A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
      */
-    public readonly mssPackage!: pulumi.Output<outputs.mediapackage.PackagingConfigurationMssPackage | undefined>;
+    declare public readonly mssPackage: pulumi.Output<outputs.mediapackage.PackagingConfigurationMssPackage | undefined>;
     /**
      * The ID of a PackagingGroup.
      */
-    public readonly packagingGroupId!: pulumi.Output<string>;
+    declare public readonly packagingGroupId: pulumi.Output<string>;
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PackagingConfiguration resource with the given unique name, arguments, and options.
@@ -81,19 +81,19 @@ export class PackagingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsId === undefined) && !opts.urn) {
+            if (args?.awsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsId'");
             }
-            if ((!args || args.packagingGroupId === undefined) && !opts.urn) {
+            if (args?.packagingGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packagingGroupId'");
             }
-            resourceInputs["awsId"] = args ? args.awsId : undefined;
-            resourceInputs["cmafPackage"] = args ? args.cmafPackage : undefined;
-            resourceInputs["dashPackage"] = args ? args.dashPackage : undefined;
-            resourceInputs["hlsPackage"] = args ? args.hlsPackage : undefined;
-            resourceInputs["mssPackage"] = args ? args.mssPackage : undefined;
-            resourceInputs["packagingGroupId"] = args ? args.packagingGroupId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = args?.awsId;
+            resourceInputs["cmafPackage"] = args?.cmafPackage;
+            resourceInputs["dashPackage"] = args?.dashPackage;
+            resourceInputs["hlsPackage"] = args?.hlsPackage;
+            resourceInputs["mssPackage"] = args?.mssPackage;
+            resourceInputs["packagingGroupId"] = args?.packagingGroupId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

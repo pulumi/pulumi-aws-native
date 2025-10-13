@@ -47,31 +47,31 @@ export class SubscriptionFilter extends pulumi.CustomResource {
      * This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
      *  If this value is ``true``, the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
      */
-    public readonly applyOnTransformedLogs!: pulumi.Output<boolean | undefined>;
+    declare public readonly applyOnTransformedLogs: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the destination.
      */
-    public readonly destinationArn!: pulumi.Output<string>;
+    declare public readonly destinationArn: pulumi.Output<string>;
     /**
      * The method used to distribute log data to the destination, which can be either random or grouped by log stream.
      */
-    public readonly distribution!: pulumi.Output<enums.logs.SubscriptionFilterDistribution | undefined>;
+    declare public readonly distribution: pulumi.Output<enums.logs.SubscriptionFilterDistribution | undefined>;
     /**
      * The name of the subscription filter.
      */
-    public readonly filterName!: pulumi.Output<string | undefined>;
+    declare public readonly filterName: pulumi.Output<string | undefined>;
     /**
      * The filtering expressions that restrict what gets delivered to the destination AWS resource. For more information about the filter pattern syntax, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      */
-    public readonly filterPattern!: pulumi.Output<string>;
+    declare public readonly filterPattern: pulumi.Output<string>;
     /**
      * The log group to associate with the subscription filter. All log events that are uploaded to this log group are filtered and delivered to the specified AWS resource if the filter pattern matches the log events.
      */
-    public readonly logGroupName!: pulumi.Output<string>;
+    declare public readonly logGroupName: pulumi.Output<string>;
     /**
      * The ARN of an IAM role that grants CWL permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a SubscriptionFilter resource with the given unique name, arguments, and options.
@@ -84,22 +84,22 @@ export class SubscriptionFilter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationArn === undefined) && !opts.urn) {
+            if (args?.destinationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationArn'");
             }
-            if ((!args || args.filterPattern === undefined) && !opts.urn) {
+            if (args?.filterPattern === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filterPattern'");
             }
-            if ((!args || args.logGroupName === undefined) && !opts.urn) {
+            if (args?.logGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logGroupName'");
             }
-            resourceInputs["applyOnTransformedLogs"] = args ? args.applyOnTransformedLogs : undefined;
-            resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
-            resourceInputs["distribution"] = args ? args.distribution : undefined;
-            resourceInputs["filterName"] = args ? args.filterName : undefined;
-            resourceInputs["filterPattern"] = args ? args.filterPattern : undefined;
-            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["applyOnTransformedLogs"] = args?.applyOnTransformedLogs;
+            resourceInputs["destinationArn"] = args?.destinationArn;
+            resourceInputs["distribution"] = args?.distribution;
+            resourceInputs["filterName"] = args?.filterName;
+            resourceInputs["filterPattern"] = args?.filterPattern;
+            resourceInputs["logGroupName"] = args?.logGroupName;
+            resourceInputs["roleArn"] = args?.roleArn;
         } else {
             resourceInputs["applyOnTransformedLogs"] = undefined /*out*/;
             resourceInputs["destinationArn"] = undefined /*out*/;

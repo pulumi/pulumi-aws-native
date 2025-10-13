@@ -40,19 +40,19 @@ export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * The identifier of the resource policy.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
      */
-    public readonly policy!: pulumi.Output<outputs.lex.ResourcePolicyPolicy>;
+    declare public readonly policy: pulumi.Output<outputs.lex.ResourcePolicyPolicy>;
     /**
      * The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
      */
-    public readonly resourceArn!: pulumi.Output<string>;
+    declare public readonly resourceArn: pulumi.Output<string>;
     /**
      * Specifies the current revision of a resource policy.
      */
-    public /*out*/ readonly revisionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly revisionId: pulumi.Output<string>;
 
     /**
      * Create a ResourcePolicy resource with the given unique name, arguments, and options.
@@ -65,14 +65,14 @@ export class ResourcePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["resourceArn"] = args?.resourceArn;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["revisionId"] = undefined /*out*/;
         } else {

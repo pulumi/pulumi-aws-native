@@ -40,30 +40,30 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The ARN of the Cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The unique ID of the Cluster.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The MediaLive Channels that are currently running on Nodes in this Cluster.
      */
-    public /*out*/ readonly channelIds!: pulumi.Output<string[]>;
-    public readonly clusterType!: pulumi.Output<enums.medialive.ClusterType | undefined>;
+    declare public /*out*/ readonly channelIds: pulumi.Output<string[]>;
+    declare public readonly clusterType: pulumi.Output<enums.medialive.ClusterType | undefined>;
     /**
      * The IAM role your nodes will use.
      */
-    public readonly instanceRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly instanceRoleArn: pulumi.Output<string | undefined>;
     /**
      * The user-specified name of the Cluster to be created.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
-    public readonly networkSettings!: pulumi.Output<outputs.medialive.ClusterNetworkSettings | undefined>;
-    public /*out*/ readonly state!: pulumi.Output<enums.medialive.ClusterState>;
+    declare public readonly name: pulumi.Output<string | undefined>;
+    declare public readonly networkSettings: pulumi.Output<outputs.medialive.ClusterNetworkSettings | undefined>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.medialive.ClusterState>;
     /**
      * A collection of key-value pairs.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -76,11 +76,11 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["clusterType"] = args ? args.clusterType : undefined;
-            resourceInputs["instanceRoleArn"] = args ? args.instanceRoleArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkSettings"] = args ? args.networkSettings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterType"] = args?.clusterType;
+            resourceInputs["instanceRoleArn"] = args?.instanceRoleArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkSettings"] = args?.networkSettings;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["channelIds"] = undefined /*out*/;

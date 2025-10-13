@@ -40,38 +40,38 @@ export class Filter extends pulumi.CustomResource {
     /**
      * Specifies the action that is to be applied to the findings that match the filter.
      */
-    public readonly action!: pulumi.Output<string | undefined>;
+    declare public readonly action: pulumi.Output<string | undefined>;
     /**
      * The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The detector ID associated with the GuardDuty account for which you want to create a filter.
      *
      * To find the `detectorId` in the current Region, see the
      * Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
      */
-    public readonly detectorId!: pulumi.Output<string>;
+    declare public readonly detectorId: pulumi.Output<string>;
     /**
      * Represents the criteria to be used in the filter for querying findings.
      */
-    public readonly findingCriteria!: pulumi.Output<outputs.guardduty.FilterFindingCriteria>;
+    declare public readonly findingCriteria: pulumi.Output<outputs.guardduty.FilterFindingCriteria>;
     /**
      * The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
      *
      * By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
      */
-    public readonly rank!: pulumi.Output<number | undefined>;
+    declare public readonly rank: pulumi.Output<number | undefined>;
     /**
      * The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Filter resource with the given unique name, arguments, and options.
@@ -84,19 +84,19 @@ export class Filter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
+            if (args?.detectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if ((!args || args.findingCriteria === undefined) && !opts.urn) {
+            if (args?.findingCriteria === undefined && !opts.urn) {
                 throw new Error("Missing required property 'findingCriteria'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["findingCriteria"] = args ? args.findingCriteria : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rank"] = args ? args.rank : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["findingCriteria"] = args?.findingCriteria;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rank"] = args?.rank;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["action"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

@@ -68,31 +68,31 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The arn of the connection resource.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The arn of the connection resource to be used in IAM policies.
      */
-    public /*out*/ readonly arnForPolicy!: pulumi.Output<string>;
+    declare public /*out*/ readonly arnForPolicy: pulumi.Output<string>;
     /**
      * The authorization parameters to use to authorize with the endpoint.
      *
      * You must include only authorization parameters for the `AuthorizationType` you specify.
      */
-    public readonly authParameters!: pulumi.Output<outputs.events.ConnectionAuthParameters | undefined>;
+    declare public readonly authParameters: pulumi.Output<outputs.events.ConnectionAuthParameters | undefined>;
     /**
      * The type of authorization to use for the connection.
      *
      * > OAUTH tokens are refreshed when a 401 or 407 response is returned.
      */
-    public readonly authorizationType!: pulumi.Output<enums.events.ConnectionAuthorizationType | undefined>;
+    declare public readonly authorizationType: pulumi.Output<enums.events.ConnectionAuthorizationType | undefined>;
     /**
      * Description of the connection.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The private resource the HTTP request will be sent to.
      */
-    public readonly invocationConnectivityParameters!: pulumi.Output<outputs.events.InvocationConnectivityParametersProperties | undefined>;
+    declare public readonly invocationConnectivityParameters: pulumi.Output<outputs.events.InvocationConnectivityParametersProperties | undefined>;
     /**
      * The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      *
@@ -100,15 +100,15 @@ export class Connection extends pulumi.CustomResource {
      *
      * For more information, see [Identify and view keys](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html) in the *AWS Key Management Service Developer Guide* .
      */
-    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
      * Name of the connection.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The arn of the secrets manager secret created in the customer account.
      */
-    public /*out*/ readonly secretArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly secretArn: pulumi.Output<string>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -121,12 +121,12 @@ export class Connection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["authParameters"] = args ? args.authParameters : undefined;
-            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["invocationConnectivityParameters"] = args ? args.invocationConnectivityParameters : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["authParameters"] = args?.authParameters;
+            resourceInputs["authorizationType"] = args?.authorizationType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["invocationConnectivityParameters"] = args?.invocationConnectivityParameters;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["name"] = args?.name;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["arnForPolicy"] = undefined /*out*/;
             resourceInputs["secretArn"] = undefined /*out*/;

@@ -40,15 +40,15 @@ export class UserHierarchyStructure extends pulumi.CustomResource {
     /**
      * The identifier of the Amazon Connect instance.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * Information about the hierarchy structure.
      */
-    public readonly userHierarchyStructure!: pulumi.Output<outputs.connect.UserHierarchyStructureProperties | undefined>;
+    declare public readonly userHierarchyStructure: pulumi.Output<outputs.connect.UserHierarchyStructureProperties | undefined>;
     /**
      * The identifier of the User Hierarchy Structure.
      */
-    public /*out*/ readonly userHierarchyStructureArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly userHierarchyStructureArn: pulumi.Output<string>;
 
     /**
      * Create a UserHierarchyStructure resource with the given unique name, arguments, and options.
@@ -61,11 +61,11 @@ export class UserHierarchyStructure extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["userHierarchyStructure"] = args ? args.userHierarchyStructure : undefined;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["userHierarchyStructure"] = args?.userHierarchyStructure;
             resourceInputs["userHierarchyStructureArn"] = undefined /*out*/;
         } else {
             resourceInputs["instanceArn"] = undefined /*out*/;

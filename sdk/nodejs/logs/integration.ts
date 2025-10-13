@@ -40,19 +40,19 @@ export class Integration extends pulumi.CustomResource {
     /**
      * User provided identifier for integration, unique to the user account.
      */
-    public readonly integrationName!: pulumi.Output<string>;
+    declare public readonly integrationName: pulumi.Output<string>;
     /**
      * Status of creation for the Integration and its resources
      */
-    public /*out*/ readonly integrationStatus!: pulumi.Output<enums.logs.IntegrationStatus>;
+    declare public /*out*/ readonly integrationStatus: pulumi.Output<enums.logs.IntegrationStatus>;
     /**
      * The type of the Integration.
      */
-    public readonly integrationType!: pulumi.Output<enums.logs.IntegrationType>;
+    declare public readonly integrationType: pulumi.Output<enums.logs.IntegrationType>;
     /**
      * OpenSearchResourceConfig for the given Integration
      */
-    public readonly resourceConfig!: pulumi.Output<outputs.logs.ResourceConfigProperties>;
+    declare public readonly resourceConfig: pulumi.Output<outputs.logs.ResourceConfigProperties>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -65,15 +65,15 @@ export class Integration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.integrationType === undefined) && !opts.urn) {
+            if (args?.integrationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationType'");
             }
-            if ((!args || args.resourceConfig === undefined) && !opts.urn) {
+            if (args?.resourceConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceConfig'");
             }
-            resourceInputs["integrationName"] = args ? args.integrationName : undefined;
-            resourceInputs["integrationType"] = args ? args.integrationType : undefined;
-            resourceInputs["resourceConfig"] = args ? args.resourceConfig : undefined;
+            resourceInputs["integrationName"] = args?.integrationName;
+            resourceInputs["integrationType"] = args?.integrationType;
+            resourceInputs["resourceConfig"] = args?.resourceConfig;
             resourceInputs["integrationStatus"] = undefined /*out*/;
         } else {
             resourceInputs["integrationName"] = undefined /*out*/;

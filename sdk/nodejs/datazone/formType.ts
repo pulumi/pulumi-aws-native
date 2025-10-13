@@ -40,51 +40,51 @@ export class FormType extends pulumi.CustomResource {
     /**
      * The timestamp of when this Amazon DataZone metadata form type was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The user who created this Amazon DataZone metadata form type.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * The description of this Amazon DataZone metadata form type.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the Amazon DataZone domain in which this metadata form type is created.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * The ID of the Amazon DataZone domain in which this metadata form type is created.
      */
-    public readonly domainIdentifier!: pulumi.Output<string>;
+    declare public readonly domainIdentifier: pulumi.Output<string>;
     /**
      * The ID of this Amazon DataZone metadata form type.
      */
-    public /*out*/ readonly formTypeIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly formTypeIdentifier: pulumi.Output<string>;
     /**
      * The model of this Amazon DataZone metadata form type.
      */
-    public readonly model!: pulumi.Output<outputs.datazone.FormTypeModel>;
+    declare public readonly model: pulumi.Output<outputs.datazone.FormTypeModel>;
     /**
      * The name of this Amazon DataZone metadata form type.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the project that owns this Amazon DataZone metadata form type.
      */
-    public /*out*/ readonly owningProjectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly owningProjectId: pulumi.Output<string>;
     /**
      * The ID of the Amazon DataZone project that owns this metadata form type.
      */
-    public readonly owningProjectIdentifier!: pulumi.Output<string>;
+    declare public readonly owningProjectIdentifier: pulumi.Output<string>;
     /**
      * The revision of this Amazon DataZone metadata form type.
      */
-    public /*out*/ readonly revision!: pulumi.Output<string>;
+    declare public /*out*/ readonly revision: pulumi.Output<string>;
     /**
      * The status of this Amazon DataZone metadata form type.
      */
-    public readonly status!: pulumi.Output<enums.datazone.FormTypeStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.datazone.FormTypeStatus | undefined>;
 
     /**
      * Create a FormType resource with the given unique name, arguments, and options.
@@ -97,21 +97,21 @@ export class FormType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.model === undefined) && !opts.urn) {
+            if (args?.model === undefined && !opts.urn) {
                 throw new Error("Missing required property 'model'");
             }
-            if ((!args || args.owningProjectIdentifier === undefined) && !opts.urn) {
+            if (args?.owningProjectIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'owningProjectIdentifier'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["model"] = args ? args.model : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["owningProjectIdentifier"] = args ? args.owningProjectIdentifier : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["model"] = args?.model;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["owningProjectIdentifier"] = args?.owningProjectIdentifier;
+            resourceInputs["status"] = args?.status;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;

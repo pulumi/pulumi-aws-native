@@ -40,55 +40,55 @@ export class License extends pulumi.CustomResource {
     /**
      * Beneficiary of the license.
      */
-    public readonly beneficiary!: pulumi.Output<string | undefined>;
+    declare public readonly beneficiary: pulumi.Output<string | undefined>;
     /**
      * Configuration for consumption of the license.
      */
-    public readonly consumptionConfiguration!: pulumi.Output<outputs.licensemanager.LicenseConsumptionConfiguration>;
+    declare public readonly consumptionConfiguration: pulumi.Output<outputs.licensemanager.LicenseConsumptionConfiguration>;
     /**
      * License entitlements.
      */
-    public readonly entitlements!: pulumi.Output<outputs.licensemanager.LicenseEntitlement[]>;
+    declare public readonly entitlements: pulumi.Output<outputs.licensemanager.LicenseEntitlement[]>;
     /**
      * Home region for the created license.
      */
-    public readonly homeRegion!: pulumi.Output<string>;
+    declare public readonly homeRegion: pulumi.Output<string>;
     /**
      * License issuer.
      */
-    public readonly issuer!: pulumi.Output<outputs.licensemanager.LicenseIssuerData>;
+    declare public readonly issuer: pulumi.Output<outputs.licensemanager.LicenseIssuerData>;
     /**
      * Amazon Resource Name is a unique name for each resource.
      */
-    public /*out*/ readonly licenseArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly licenseArn: pulumi.Output<string>;
     /**
      * License metadata.
      */
-    public readonly licenseMetadata!: pulumi.Output<outputs.licensemanager.LicenseMetadata[] | undefined>;
+    declare public readonly licenseMetadata: pulumi.Output<outputs.licensemanager.LicenseMetadata[] | undefined>;
     /**
      * Name for the created license.
      */
-    public readonly licenseName!: pulumi.Output<string>;
+    declare public readonly licenseName: pulumi.Output<string>;
     /**
      * Product name for the created license.
      */
-    public readonly productName!: pulumi.Output<string>;
+    declare public readonly productName: pulumi.Output<string>;
     /**
      * ProductSKU of the license.
      */
-    public readonly productSku!: pulumi.Output<string | undefined>;
+    declare public readonly productSku: pulumi.Output<string | undefined>;
     /**
      * License status.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Date and time range during which the license is valid, in ISO8601-UTC format.
      */
-    public readonly validity!: pulumi.Output<outputs.licensemanager.LicenseValidityDateFormat>;
+    declare public readonly validity: pulumi.Output<outputs.licensemanager.LicenseValidityDateFormat>;
     /**
      * The version of the license.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a License resource with the given unique name, arguments, and options.
@@ -101,35 +101,35 @@ export class License extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.consumptionConfiguration === undefined) && !opts.urn) {
+            if (args?.consumptionConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'consumptionConfiguration'");
             }
-            if ((!args || args.entitlements === undefined) && !opts.urn) {
+            if (args?.entitlements === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entitlements'");
             }
-            if ((!args || args.homeRegion === undefined) && !opts.urn) {
+            if (args?.homeRegion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'homeRegion'");
             }
-            if ((!args || args.issuer === undefined) && !opts.urn) {
+            if (args?.issuer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'issuer'");
             }
-            if ((!args || args.productName === undefined) && !opts.urn) {
+            if (args?.productName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productName'");
             }
-            if ((!args || args.validity === undefined) && !opts.urn) {
+            if (args?.validity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'validity'");
             }
-            resourceInputs["beneficiary"] = args ? args.beneficiary : undefined;
-            resourceInputs["consumptionConfiguration"] = args ? args.consumptionConfiguration : undefined;
-            resourceInputs["entitlements"] = args ? args.entitlements : undefined;
-            resourceInputs["homeRegion"] = args ? args.homeRegion : undefined;
-            resourceInputs["issuer"] = args ? args.issuer : undefined;
-            resourceInputs["licenseMetadata"] = args ? args.licenseMetadata : undefined;
-            resourceInputs["licenseName"] = args ? args.licenseName : undefined;
-            resourceInputs["productName"] = args ? args.productName : undefined;
-            resourceInputs["productSku"] = args ? args.productSku : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["validity"] = args ? args.validity : undefined;
+            resourceInputs["beneficiary"] = args?.beneficiary;
+            resourceInputs["consumptionConfiguration"] = args?.consumptionConfiguration;
+            resourceInputs["entitlements"] = args?.entitlements;
+            resourceInputs["homeRegion"] = args?.homeRegion;
+            resourceInputs["issuer"] = args?.issuer;
+            resourceInputs["licenseMetadata"] = args?.licenseMetadata;
+            resourceInputs["licenseName"] = args?.licenseName;
+            resourceInputs["productName"] = args?.productName;
+            resourceInputs["productSku"] = args?.productSku;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["validity"] = args?.validity;
             resourceInputs["licenseArn"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {

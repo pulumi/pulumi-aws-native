@@ -40,15 +40,15 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * The ARN of the compute fleet.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
      */
-    public readonly baseCapacity!: pulumi.Output<number | undefined>;
+    declare public readonly baseCapacity: pulumi.Output<number | undefined>;
     /**
      * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
      */
-    public readonly computeConfiguration!: pulumi.Output<outputs.codebuild.FleetComputeConfiguration | undefined>;
+    declare public readonly computeConfiguration: pulumi.Output<outputs.codebuild.FleetComputeConfiguration | undefined>;
     /**
      * Information about the compute resources the compute fleet uses. Available values include:
      *
@@ -80,7 +80,7 @@ export class Fleet extends pulumi.CustomResource {
      *
      * For more information, see [On-demand environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) in the *AWS CodeBuild User Guide.*
      */
-    public readonly computeType!: pulumi.Output<enums.codebuild.FleetComputeType | undefined>;
+    declare public readonly computeType: pulumi.Output<enums.codebuild.FleetComputeType | undefined>;
     /**
      * The environment type of the compute fleet.
      *
@@ -96,27 +96,27 @@ export class Fleet extends pulumi.CustomResource {
      *
      * For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
      */
-    public readonly environmentType!: pulumi.Output<enums.codebuild.FleetEnvironmentType | undefined>;
+    declare public readonly environmentType: pulumi.Output<enums.codebuild.FleetEnvironmentType | undefined>;
     /**
      * Information about the proxy configurations that apply network access control to your reserved capacity instances.
      */
-    public readonly fleetProxyConfiguration!: pulumi.Output<outputs.codebuild.FleetProxyConfiguration | undefined>;
+    declare public readonly fleetProxyConfiguration: pulumi.Output<outputs.codebuild.FleetProxyConfiguration | undefined>;
     /**
      * The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
      */
-    public readonly fleetServiceRole!: pulumi.Output<string | undefined>;
+    declare public readonly fleetServiceRole: pulumi.Output<string | undefined>;
     /**
      * Information about the VPC configuration that AWS CodeBuild accesses.
      */
-    public readonly fleetVpcConfig!: pulumi.Output<outputs.codebuild.FleetVpcConfig | undefined>;
+    declare public readonly fleetVpcConfig: pulumi.Output<outputs.codebuild.FleetVpcConfig | undefined>;
     /**
      * The Amazon Machine Image (AMI) of the compute fleet.
      */
-    public readonly imageId!: pulumi.Output<string | undefined>;
+    declare public readonly imageId: pulumi.Output<string | undefined>;
     /**
      * The name of the compute fleet.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The compute fleet overflow behavior.
      *
@@ -125,17 +125,17 @@ export class Fleet extends pulumi.CustomResource {
      *
      * > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
      */
-    public readonly overflowBehavior!: pulumi.Output<enums.codebuild.FleetOverflowBehavior | undefined>;
+    declare public readonly overflowBehavior: pulumi.Output<enums.codebuild.FleetOverflowBehavior | undefined>;
     /**
      * The scaling configuration of the compute fleet.
      */
-    public readonly scalingConfiguration!: pulumi.Output<outputs.codebuild.FleetScalingConfigurationInput | undefined>;
+    declare public readonly scalingConfiguration: pulumi.Output<outputs.codebuild.FleetScalingConfigurationInput | undefined>;
     /**
      * A list of tag key and value pairs associated with this compute fleet.
      *
      * These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -148,18 +148,18 @@ export class Fleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["baseCapacity"] = args ? args.baseCapacity : undefined;
-            resourceInputs["computeConfiguration"] = args ? args.computeConfiguration : undefined;
-            resourceInputs["computeType"] = args ? args.computeType : undefined;
-            resourceInputs["environmentType"] = args ? args.environmentType : undefined;
-            resourceInputs["fleetProxyConfiguration"] = args ? args.fleetProxyConfiguration : undefined;
-            resourceInputs["fleetServiceRole"] = args ? args.fleetServiceRole : undefined;
-            resourceInputs["fleetVpcConfig"] = args ? args.fleetVpcConfig : undefined;
-            resourceInputs["imageId"] = args ? args.imageId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["overflowBehavior"] = args ? args.overflowBehavior : undefined;
-            resourceInputs["scalingConfiguration"] = args ? args.scalingConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["baseCapacity"] = args?.baseCapacity;
+            resourceInputs["computeConfiguration"] = args?.computeConfiguration;
+            resourceInputs["computeType"] = args?.computeType;
+            resourceInputs["environmentType"] = args?.environmentType;
+            resourceInputs["fleetProxyConfiguration"] = args?.fleetProxyConfiguration;
+            resourceInputs["fleetServiceRole"] = args?.fleetServiceRole;
+            resourceInputs["fleetVpcConfig"] = args?.fleetVpcConfig;
+            resourceInputs["imageId"] = args?.imageId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["overflowBehavior"] = args?.overflowBehavior;
+            resourceInputs["scalingConfiguration"] = args?.scalingConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

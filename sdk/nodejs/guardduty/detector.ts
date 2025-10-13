@@ -40,23 +40,23 @@ export class Detector extends pulumi.CustomResource {
     /**
      * The unique ID of the detector.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Describes which data sources will be enabled for the detector.
      */
-    public readonly dataSources!: pulumi.Output<outputs.guardduty.DetectorCfnDataSourceConfigurations | undefined>;
+    declare public readonly dataSources: pulumi.Output<outputs.guardduty.DetectorCfnDataSourceConfigurations | undefined>;
     /**
      * Specifies whether the detector is to be enabled on creation.
      */
-    public readonly enable!: pulumi.Output<boolean>;
+    declare public readonly enable: pulumi.Output<boolean>;
     /**
      * A list of features that will be configured for the detector.
      */
-    public readonly features!: pulumi.Output<outputs.guardduty.DetectorCfnFeatureConfiguration[] | undefined>;
+    declare public readonly features: pulumi.Output<outputs.guardduty.DetectorCfnFeatureConfiguration[] | undefined>;
     /**
      * Specifies how frequently updated findings are exported.
      */
-    public readonly findingPublishingFrequency!: pulumi.Output<string | undefined>;
+    declare public readonly findingPublishingFrequency: pulumi.Output<string | undefined>;
     /**
      * Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
      *
@@ -64,7 +64,7 @@ export class Detector extends pulumi.CustomResource {
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Detector resource with the given unique name, arguments, and options.
@@ -77,14 +77,14 @@ export class Detector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.enable === undefined) && !opts.urn) {
+            if (args?.enable === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enable'");
             }
-            resourceInputs["dataSources"] = args ? args.dataSources : undefined;
-            resourceInputs["enable"] = args ? args.enable : undefined;
-            resourceInputs["features"] = args ? args.features : undefined;
-            resourceInputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataSources"] = args?.dataSources;
+            resourceInputs["enable"] = args?.enable;
+            resourceInputs["features"] = args?.features;
+            resourceInputs["findingPublishingFrequency"] = args?.findingPublishingFrequency;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

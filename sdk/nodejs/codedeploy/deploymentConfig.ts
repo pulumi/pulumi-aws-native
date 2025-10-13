@@ -40,23 +40,23 @@ export class DeploymentConfig extends pulumi.CustomResource {
     /**
      * The destination platform type for the deployment (Lambda, Server, or ECS).
      */
-    public readonly computePlatform!: pulumi.Output<string | undefined>;
+    declare public readonly computePlatform: pulumi.Output<string | undefined>;
     /**
      * A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.
      */
-    public readonly deploymentConfigName!: pulumi.Output<string | undefined>;
+    declare public readonly deploymentConfigName: pulumi.Output<string | undefined>;
     /**
      * The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
      */
-    public readonly minimumHealthyHosts!: pulumi.Output<outputs.codedeploy.DeploymentConfigMinimumHealthyHosts | undefined>;
+    declare public readonly minimumHealthyHosts: pulumi.Output<outputs.codedeploy.DeploymentConfigMinimumHealthyHosts | undefined>;
     /**
      * The configuration that specifies how the deployment traffic is routed.
      */
-    public readonly trafficRoutingConfig!: pulumi.Output<outputs.codedeploy.DeploymentConfigTrafficRoutingConfig | undefined>;
+    declare public readonly trafficRoutingConfig: pulumi.Output<outputs.codedeploy.DeploymentConfigTrafficRoutingConfig | undefined>;
     /**
      * The zonal deployment config that specifies how the zonal deployment behaves
      */
-    public readonly zonalConfig!: pulumi.Output<outputs.codedeploy.DeploymentConfigZonalConfig | undefined>;
+    declare public readonly zonalConfig: pulumi.Output<outputs.codedeploy.DeploymentConfigZonalConfig | undefined>;
 
     /**
      * Create a DeploymentConfig resource with the given unique name, arguments, and options.
@@ -69,11 +69,11 @@ export class DeploymentConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["computePlatform"] = args ? args.computePlatform : undefined;
-            resourceInputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
-            resourceInputs["minimumHealthyHosts"] = args ? args.minimumHealthyHosts : undefined;
-            resourceInputs["trafficRoutingConfig"] = args ? args.trafficRoutingConfig : undefined;
-            resourceInputs["zonalConfig"] = args ? args.zonalConfig : undefined;
+            resourceInputs["computePlatform"] = args?.computePlatform;
+            resourceInputs["deploymentConfigName"] = args?.deploymentConfigName;
+            resourceInputs["minimumHealthyHosts"] = args?.minimumHealthyHosts;
+            resourceInputs["trafficRoutingConfig"] = args?.trafficRoutingConfig;
+            resourceInputs["zonalConfig"] = args?.zonalConfig;
         } else {
             resourceInputs["computePlatform"] = undefined /*out*/;
             resourceInputs["deploymentConfigName"] = undefined /*out*/;

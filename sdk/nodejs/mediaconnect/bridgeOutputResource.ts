@@ -40,15 +40,15 @@ export class BridgeOutputResource extends pulumi.CustomResource {
     /**
      * The Amazon Resource Number (ARN) of the bridge.
      */
-    public readonly bridgeArn!: pulumi.Output<string>;
+    declare public readonly bridgeArn: pulumi.Output<string>;
     /**
      * The network output name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The output of the bridge.
      */
-    public readonly networkOutput!: pulumi.Output<outputs.mediaconnect.BridgeOutputResourceBridgeNetworkOutput>;
+    declare public readonly networkOutput: pulumi.Output<outputs.mediaconnect.BridgeOutputResourceBridgeNetworkOutput>;
 
     /**
      * Create a BridgeOutputResource resource with the given unique name, arguments, and options.
@@ -61,15 +61,15 @@ export class BridgeOutputResource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bridgeArn === undefined) && !opts.urn) {
+            if (args?.bridgeArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bridgeArn'");
             }
-            if ((!args || args.networkOutput === undefined) && !opts.urn) {
+            if (args?.networkOutput === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkOutput'");
             }
-            resourceInputs["bridgeArn"] = args ? args.bridgeArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkOutput"] = args ? args.networkOutput : undefined;
+            resourceInputs["bridgeArn"] = args?.bridgeArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkOutput"] = args?.networkOutput;
         } else {
             resourceInputs["bridgeArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

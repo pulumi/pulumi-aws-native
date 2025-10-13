@@ -40,41 +40,41 @@ export class View extends pulumi.CustomResource {
     /**
      * The actions of the view in an array.
      */
-    public readonly actions!: pulumi.Output<string[]>;
+    declare public readonly actions: pulumi.Output<string[]>;
     /**
      * The description of the view.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the instance.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The name of the view.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The template of the view as JSON.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Connect::View` for more information about the expected schema for this property.
      */
-    public readonly template!: pulumi.Output<any>;
+    declare public readonly template: pulumi.Output<any>;
     /**
      * The Amazon Resource Name (ARN) of the view.
      */
-    public /*out*/ readonly viewArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly viewArn: pulumi.Output<string>;
     /**
      * The view content hash.
      */
-    public /*out*/ readonly viewContentSha256!: pulumi.Output<string>;
+    declare public /*out*/ readonly viewContentSha256: pulumi.Output<string>;
     /**
      * The view id of the view.
      */
-    public /*out*/ readonly viewId!: pulumi.Output<string>;
+    declare public /*out*/ readonly viewId: pulumi.Output<string>;
 
     /**
      * Create a View resource with the given unique name, arguments, and options.
@@ -87,21 +87,21 @@ export class View extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.template === undefined) && !opts.urn) {
+            if (args?.template === undefined && !opts.urn) {
                 throw new Error("Missing required property 'template'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["template"] = args?.template;
             resourceInputs["viewArn"] = undefined /*out*/;
             resourceInputs["viewContentSha256"] = undefined /*out*/;
             resourceInputs["viewId"] = undefined /*out*/;

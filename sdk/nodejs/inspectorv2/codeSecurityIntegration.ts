@@ -40,47 +40,47 @@ export class CodeSecurityIntegration extends pulumi.CustomResource {
     /**
      * Code Security Integration ARN
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Authorization URL for OAuth flow
      */
-    public /*out*/ readonly authorizationUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly authorizationUrl: pulumi.Output<string>;
     /**
      * Create Integration Details
      */
-    public readonly createIntegrationDetails!: pulumi.Output<outputs.inspectorv2.CodeSecurityIntegrationCreateDetails | undefined>;
+    declare public readonly createIntegrationDetails: pulumi.Output<outputs.inspectorv2.CodeSecurityIntegrationCreateDetails | undefined>;
     /**
      * Creation timestamp
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Last update timestamp
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * Code Security Integration name
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Integration Status
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.inspectorv2.CodeSecurityIntegrationIntegrationStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.inspectorv2.CodeSecurityIntegrationIntegrationStatus>;
     /**
      * Reason for the current status
      */
-    public /*out*/ readonly statusReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusReason: pulumi.Output<string>;
     /**
      * The tags to apply to the code security integration.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Integration Type
      */
-    public readonly type!: pulumi.Output<enums.inspectorv2.CodeSecurityIntegrationIntegrationType | undefined>;
+    declare public readonly type: pulumi.Output<enums.inspectorv2.CodeSecurityIntegrationIntegrationType | undefined>;
     /**
      * Update Integration Details
      */
-    public readonly updateIntegrationDetails!: pulumi.Output<outputs.inspectorv2.CodeSecurityIntegrationUpdateDetails | undefined>;
+    declare public readonly updateIntegrationDetails: pulumi.Output<outputs.inspectorv2.CodeSecurityIntegrationUpdateDetails | undefined>;
 
     /**
      * Create a CodeSecurityIntegration resource with the given unique name, arguments, and options.
@@ -93,11 +93,11 @@ export class CodeSecurityIntegration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["createIntegrationDetails"] = args ? args.createIntegrationDetails : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["updateIntegrationDetails"] = args ? args.updateIntegrationDetails : undefined;
+            resourceInputs["createIntegrationDetails"] = args?.createIntegrationDetails;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["updateIntegrationDetails"] = args?.updateIntegrationDetails;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["authorizationUrl"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

@@ -40,73 +40,73 @@ export class CloudWatchAlarmTemplate extends pulumi.CustomResource {
     /**
      * A cloudwatch alarm template's ARN (Amazon Resource Name)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A cloudwatch alarm template's id. AWS provided templates have ids that start with `aws-`
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The comparison operator used to compare the specified statistic and the threshold.
      */
-    public readonly comparisonOperator!: pulumi.Output<enums.medialive.CloudWatchAlarmTemplateComparisonOperator>;
+    declare public readonly comparisonOperator: pulumi.Output<enums.medialive.CloudWatchAlarmTemplateComparisonOperator>;
     /**
      * The date and time of resource creation.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
      */
-    public readonly datapointsToAlarm!: pulumi.Output<number | undefined>;
+    declare public readonly datapointsToAlarm: pulumi.Output<number | undefined>;
     /**
      * A resource's optional description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The number of periods over which data is compared to the specified threshold.
      */
-    public readonly evaluationPeriods!: pulumi.Output<number>;
+    declare public readonly evaluationPeriods: pulumi.Output<number>;
     /**
      * A cloudwatch alarm template group's id. AWS provided template groups have ids that start with `aws-`
      */
-    public /*out*/ readonly groupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly groupId: pulumi.Output<string>;
     /**
      * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
      */
-    public readonly groupIdentifier!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly identifier!: pulumi.Output<string>;
+    declare public readonly groupIdentifier: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly identifier: pulumi.Output<string>;
     /**
      * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
      */
-    public readonly metricName!: pulumi.Output<string>;
+    declare public readonly metricName: pulumi.Output<string>;
     /**
      * The date and time of latest resource modification.
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     /**
      * A resource's name. Names must be unique within the scope of a resource type in a specific region.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The period, in seconds, over which the specified statistic is applied.
      */
-    public readonly period!: pulumi.Output<number>;
+    declare public readonly period: pulumi.Output<number>;
     /**
      * The statistic to apply to the alarm's metric data.
      */
-    public readonly statistic!: pulumi.Output<enums.medialive.CloudWatchAlarmTemplateStatistic>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly statistic: pulumi.Output<enums.medialive.CloudWatchAlarmTemplateStatistic>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The resource type this template should dynamically generate CloudWatch metric alarms for.
      */
-    public readonly targetResourceType!: pulumi.Output<enums.medialive.CloudWatchAlarmTemplateTargetResourceType>;
+    declare public readonly targetResourceType: pulumi.Output<enums.medialive.CloudWatchAlarmTemplateTargetResourceType>;
     /**
      * The threshold value to compare with the specified statistic.
      */
-    public readonly threshold!: pulumi.Output<number>;
+    declare public readonly threshold: pulumi.Output<number>;
     /**
      * Specifies how missing data points are treated when evaluating the alarm's condition.
      */
-    public readonly treatMissingData!: pulumi.Output<enums.medialive.CloudWatchAlarmTemplateTreatMissingData>;
+    declare public readonly treatMissingData: pulumi.Output<enums.medialive.CloudWatchAlarmTemplateTreatMissingData>;
 
     /**
      * Create a CloudWatchAlarmTemplate resource with the given unique name, arguments, and options.
@@ -119,43 +119,43 @@ export class CloudWatchAlarmTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.comparisonOperator === undefined) && !opts.urn) {
+            if (args?.comparisonOperator === undefined && !opts.urn) {
                 throw new Error("Missing required property 'comparisonOperator'");
             }
-            if ((!args || args.evaluationPeriods === undefined) && !opts.urn) {
+            if (args?.evaluationPeriods === undefined && !opts.urn) {
                 throw new Error("Missing required property 'evaluationPeriods'");
             }
-            if ((!args || args.metricName === undefined) && !opts.urn) {
+            if (args?.metricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            if ((!args || args.period === undefined) && !opts.urn) {
+            if (args?.period === undefined && !opts.urn) {
                 throw new Error("Missing required property 'period'");
             }
-            if ((!args || args.statistic === undefined) && !opts.urn) {
+            if (args?.statistic === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statistic'");
             }
-            if ((!args || args.targetResourceType === undefined) && !opts.urn) {
+            if (args?.targetResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceType'");
             }
-            if ((!args || args.threshold === undefined) && !opts.urn) {
+            if (args?.threshold === undefined && !opts.urn) {
                 throw new Error("Missing required property 'threshold'");
             }
-            if ((!args || args.treatMissingData === undefined) && !opts.urn) {
+            if (args?.treatMissingData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'treatMissingData'");
             }
-            resourceInputs["comparisonOperator"] = args ? args.comparisonOperator : undefined;
-            resourceInputs["datapointsToAlarm"] = args ? args.datapointsToAlarm : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["evaluationPeriods"] = args ? args.evaluationPeriods : undefined;
-            resourceInputs["groupIdentifier"] = args ? args.groupIdentifier : undefined;
-            resourceInputs["metricName"] = args ? args.metricName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["period"] = args ? args.period : undefined;
-            resourceInputs["statistic"] = args ? args.statistic : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
-            resourceInputs["threshold"] = args ? args.threshold : undefined;
-            resourceInputs["treatMissingData"] = args ? args.treatMissingData : undefined;
+            resourceInputs["comparisonOperator"] = args?.comparisonOperator;
+            resourceInputs["datapointsToAlarm"] = args?.datapointsToAlarm;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["evaluationPeriods"] = args?.evaluationPeriods;
+            resourceInputs["groupIdentifier"] = args?.groupIdentifier;
+            resourceInputs["metricName"] = args?.metricName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["period"] = args?.period;
+            resourceInputs["statistic"] = args?.statistic;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetResourceType"] = args?.targetResourceType;
+            resourceInputs["threshold"] = args?.threshold;
+            resourceInputs["treatMissingData"] = args?.treatMissingData;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

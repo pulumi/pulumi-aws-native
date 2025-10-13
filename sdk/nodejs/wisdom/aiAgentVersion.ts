@@ -34,22 +34,22 @@ export class AiAgentVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === AiAgentVersion.__pulumiType;
     }
 
-    public /*out*/ readonly aiAgentArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly aiAgentArn: pulumi.Output<string>;
     /**
      * The identifier of the AI Agent.
      */
-    public readonly aiAgentId!: pulumi.Output<string>;
-    public /*out*/ readonly aiAgentVersionId!: pulumi.Output<string>;
-    public /*out*/ readonly assistantArn!: pulumi.Output<string>;
-    public readonly assistantId!: pulumi.Output<string>;
+    declare public readonly aiAgentId: pulumi.Output<string>;
+    declare public /*out*/ readonly aiAgentVersionId: pulumi.Output<string>;
+    declare public /*out*/ readonly assistantArn: pulumi.Output<string>;
+    declare public readonly assistantId: pulumi.Output<string>;
     /**
      * The time the AI Agent version was last modified in seconds.
      */
-    public readonly modifiedTimeSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly modifiedTimeSeconds: pulumi.Output<number | undefined>;
     /**
      * The version number for this AI Agent version.
      */
-    public /*out*/ readonly versionNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly versionNumber: pulumi.Output<number>;
 
     /**
      * Create a AiAgentVersion resource with the given unique name, arguments, and options.
@@ -62,15 +62,15 @@ export class AiAgentVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.aiAgentId === undefined) && !opts.urn) {
+            if (args?.aiAgentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'aiAgentId'");
             }
-            if ((!args || args.assistantId === undefined) && !opts.urn) {
+            if (args?.assistantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assistantId'");
             }
-            resourceInputs["aiAgentId"] = args ? args.aiAgentId : undefined;
-            resourceInputs["assistantId"] = args ? args.assistantId : undefined;
-            resourceInputs["modifiedTimeSeconds"] = args ? args.modifiedTimeSeconds : undefined;
+            resourceInputs["aiAgentId"] = args?.aiAgentId;
+            resourceInputs["assistantId"] = args?.assistantId;
+            resourceInputs["modifiedTimeSeconds"] = args?.modifiedTimeSeconds;
             resourceInputs["aiAgentArn"] = undefined /*out*/;
             resourceInputs["aiAgentVersionId"] = undefined /*out*/;
             resourceInputs["assistantArn"] = undefined /*out*/;

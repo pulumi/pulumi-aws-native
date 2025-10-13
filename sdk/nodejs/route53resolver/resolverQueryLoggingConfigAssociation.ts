@@ -40,31 +40,31 @@ export class ResolverQueryLoggingConfigAssociation extends pulumi.CustomResource
     /**
      * Id
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Rfc3339TimeString
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * ResolverQueryLogConfigAssociationError
      */
-    public /*out*/ readonly error!: pulumi.Output<enums.route53resolver.ResolverQueryLoggingConfigAssociationError>;
+    declare public /*out*/ readonly error: pulumi.Output<enums.route53resolver.ResolverQueryLoggingConfigAssociationError>;
     /**
      * ResolverQueryLogConfigAssociationErrorMessage
      */
-    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly errorMessage: pulumi.Output<string>;
     /**
      * ResolverQueryLogConfigId
      */
-    public readonly resolverQueryLogConfigId!: pulumi.Output<string | undefined>;
+    declare public readonly resolverQueryLogConfigId: pulumi.Output<string | undefined>;
     /**
      * ResourceId
      */
-    public readonly resourceId!: pulumi.Output<string | undefined>;
+    declare public readonly resourceId: pulumi.Output<string | undefined>;
     /**
      * ResolverQueryLogConfigAssociationStatus
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.route53resolver.ResolverQueryLoggingConfigAssociationStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.route53resolver.ResolverQueryLoggingConfigAssociationStatus>;
 
     /**
      * Create a ResolverQueryLoggingConfigAssociation resource with the given unique name, arguments, and options.
@@ -77,8 +77,8 @@ export class ResolverQueryLoggingConfigAssociation extends pulumi.CustomResource
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["resolverQueryLogConfigId"] = args ? args.resolverQueryLogConfigId : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["resolverQueryLogConfigId"] = args?.resolverQueryLogConfigId;
+            resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["error"] = undefined /*out*/;

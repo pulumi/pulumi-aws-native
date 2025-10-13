@@ -40,26 +40,26 @@ export class SdiSource extends pulumi.CustomResource {
     /**
      * The unique arn of the SdiSource.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The unique identifier of the SdiSource.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The list of inputs currently using this SDI source.
      */
-    public /*out*/ readonly inputs!: pulumi.Output<string[]>;
-    public readonly mode!: pulumi.Output<enums.medialive.SdiSourceMode | undefined>;
+    declare public /*out*/ readonly inputs: pulumi.Output<string[]>;
+    declare public readonly mode: pulumi.Output<enums.medialive.SdiSourceMode | undefined>;
     /**
      * The name of the SdiSource.
      */
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly state!: pulumi.Output<enums.medialive.SdiSourceState>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.medialive.SdiSourceState>;
     /**
      * A collection of key-value pairs.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    public readonly type!: pulumi.Output<enums.medialive.SdiSourceType>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly type: pulumi.Output<enums.medialive.SdiSourceType>;
 
     /**
      * Create a SdiSource resource with the given unique name, arguments, and options.
@@ -72,13 +72,13 @@ export class SdiSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["inputs"] = undefined /*out*/;

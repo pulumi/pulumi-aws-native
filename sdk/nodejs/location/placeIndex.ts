@@ -42,11 +42,11 @@ export class PlaceIndex extends pulumi.CustomResource {
      *
      * - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The timestamp for when the place index resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
      * Specifies the geospatial data provider for the new place index.
      *
@@ -62,21 +62,21 @@ export class PlaceIndex extends pulumi.CustomResource {
      *
      * For additional information , see [Data providers](https://docs.aws.amazon.com/location/previous/developerguide/what-is-data-provider.html) on the *Amazon Location Service developer guide* .
      */
-    public readonly dataSource!: pulumi.Output<string>;
+    declare public readonly dataSource: pulumi.Output<string>;
     /**
      * Specifies the data storage option requesting Places.
      */
-    public readonly dataSourceConfiguration!: pulumi.Output<outputs.location.PlaceIndexDataSourceConfiguration | undefined>;
+    declare public readonly dataSourceConfiguration: pulumi.Output<outputs.location.PlaceIndexDataSourceConfiguration | undefined>;
     /**
      * The optional description for the place index resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Synonym for `Arn` . The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
      *
      * - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
      */
-    public /*out*/ readonly indexArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly indexArn: pulumi.Output<string>;
     /**
      * The name of the place index resource.
      *
@@ -86,21 +86,21 @@ export class PlaceIndex extends pulumi.CustomResource {
      * - Must be a unique place index resource name.
      * - No spaces allowed. For example, `ExamplePlaceIndex` .
      */
-    public readonly indexName!: pulumi.Output<string>;
+    declare public readonly indexName: pulumi.Output<string>;
     /**
      * No longer used. If included, the only allowed value is `RequestBasedUsage` .
      *
      * *Allowed Values* : `RequestBasedUsage`
      */
-    public readonly pricingPlan!: pulumi.Output<enums.location.PlaceIndexPricingPlan | undefined>;
+    declare public readonly pricingPlan: pulumi.Output<enums.location.PlaceIndexPricingPlan | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The timestamp for when the place index resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly updateTime: pulumi.Output<string>;
 
     /**
      * Create a PlaceIndex resource with the given unique name, arguments, and options.
@@ -113,15 +113,15 @@ export class PlaceIndex extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataSource === undefined) && !opts.urn) {
+            if (args?.dataSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSource'");
             }
-            resourceInputs["dataSource"] = args ? args.dataSource : undefined;
-            resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["indexName"] = args ? args.indexName : undefined;
-            resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataSource"] = args?.dataSource;
+            resourceInputs["dataSourceConfiguration"] = args?.dataSourceConfiguration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["indexName"] = args?.indexName;
+            resourceInputs["pricingPlan"] = args?.pricingPlan;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["indexArn"] = undefined /*out*/;

@@ -40,55 +40,55 @@ export class FirewallDomainList extends pulumi.CustomResource {
     /**
      * Arn
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * ResourceId
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Rfc3339TimeString
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The id of the creator request.
      */
-    public /*out*/ readonly creatorRequestId!: pulumi.Output<string>;
+    declare public /*out*/ readonly creatorRequestId: pulumi.Output<string>;
     /**
      * Count
      */
-    public /*out*/ readonly domainCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly domainCount: pulumi.Output<number>;
     /**
      * S3 URL to import domains from.
      */
-    public readonly domainFileUrl!: pulumi.Output<string | undefined>;
+    declare public readonly domainFileUrl: pulumi.Output<string | undefined>;
     /**
      * A list of the domain lists that you have defined.
      */
-    public readonly domains!: pulumi.Output<string[] | undefined>;
+    declare public readonly domains: pulumi.Output<string[] | undefined>;
     /**
      * ServicePrincipal
      */
-    public /*out*/ readonly managedOwnerName!: pulumi.Output<string>;
+    declare public /*out*/ readonly managedOwnerName: pulumi.Output<string>;
     /**
      * Rfc3339TimeString
      */
-    public /*out*/ readonly modificationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly modificationTime: pulumi.Output<string>;
     /**
      * FirewallDomainListName
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * ResolverFirewallDomainList, possible values are COMPLETE, DELETING, UPDATING, COMPLETE_IMPORT_FAILED, IMPORTING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.route53resolver.FirewallDomainListStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.route53resolver.FirewallDomainListStatus>;
     /**
      * FirewallDomainListAssociationStatus
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
     /**
      * Tags
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FirewallDomainList resource with the given unique name, arguments, and options.
@@ -101,10 +101,10 @@ export class FirewallDomainList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["domainFileUrl"] = args ? args.domainFileUrl : undefined;
-            resourceInputs["domains"] = args ? args.domains : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainFileUrl"] = args?.domainFileUrl;
+            resourceInputs["domains"] = args?.domains;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

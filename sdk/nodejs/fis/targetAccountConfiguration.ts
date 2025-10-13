@@ -37,19 +37,19 @@ export class TargetAccountConfiguration extends pulumi.CustomResource {
     /**
      * The AWS account ID of the target account.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The description of the target account.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the experiment template.
      */
-    public readonly experimentTemplateId!: pulumi.Output<string>;
+    declare public readonly experimentTemplateId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role for the target account.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
 
     /**
      * Create a TargetAccountConfiguration resource with the given unique name, arguments, and options.
@@ -62,19 +62,19 @@ export class TargetAccountConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.experimentTemplateId === undefined) && !opts.urn) {
+            if (args?.experimentTemplateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'experimentTemplateId'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["experimentTemplateId"] = args ? args.experimentTemplateId : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["experimentTemplateId"] = args?.experimentTemplateId;
+            resourceInputs["roleArn"] = args?.roleArn;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

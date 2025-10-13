@@ -40,43 +40,43 @@ export class DataIntegration extends pulumi.CustomResource {
     /**
      * The unique identifer of the data integration.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the data integration.
      */
-    public /*out*/ readonly dataIntegrationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataIntegrationArn: pulumi.Output<string>;
     /**
      * The data integration description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The configuration for what files should be pulled from the source.
      */
-    public readonly fileConfiguration!: pulumi.Output<outputs.appintegrations.DataIntegrationFileConfiguration | undefined>;
+    declare public readonly fileConfiguration: pulumi.Output<outputs.appintegrations.DataIntegrationFileConfiguration | undefined>;
     /**
      * The KMS key of the data integration.
      */
-    public readonly kmsKey!: pulumi.Output<string>;
+    declare public readonly kmsKey: pulumi.Output<string>;
     /**
      * The name of the data integration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The configuration for what data should be pulled from the source.
      */
-    public readonly objectConfiguration!: pulumi.Output<{[key: string]: any} | undefined>;
+    declare public readonly objectConfiguration: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The name of the data and how often it should be pulled from the source.
      */
-    public readonly scheduleConfig!: pulumi.Output<outputs.appintegrations.DataIntegrationScheduleConfig | undefined>;
+    declare public readonly scheduleConfig: pulumi.Output<outputs.appintegrations.DataIntegrationScheduleConfig | undefined>;
     /**
      * The URI of the data source.
      */
-    public readonly sourceUri!: pulumi.Output<string>;
+    declare public readonly sourceUri: pulumi.Output<string>;
     /**
      * The tags (keys and values) associated with the data integration.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DataIntegration resource with the given unique name, arguments, and options.
@@ -89,20 +89,20 @@ export class DataIntegration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kmsKey === undefined) && !opts.urn) {
+            if (args?.kmsKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kmsKey'");
             }
-            if ((!args || args.sourceUri === undefined) && !opts.urn) {
+            if (args?.sourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceUri'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fileConfiguration"] = args ? args.fileConfiguration : undefined;
-            resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["objectConfiguration"] = args ? args.objectConfiguration : undefined;
-            resourceInputs["scheduleConfig"] = args ? args.scheduleConfig : undefined;
-            resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fileConfiguration"] = args?.fileConfiguration;
+            resourceInputs["kmsKey"] = args?.kmsKey;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["objectConfiguration"] = args?.objectConfiguration;
+            resourceInputs["scheduleConfig"] = args?.scheduleConfig;
+            resourceInputs["sourceUri"] = args?.sourceUri;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dataIntegrationArn"] = undefined /*out*/;
         } else {

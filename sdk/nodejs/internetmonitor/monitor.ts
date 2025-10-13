@@ -40,7 +40,7 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * The time when the monitor was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * A complex type with the configuration information that determines the threshold and other conditions for when Internet Monitor creates a health event for an overall performance or availability issue, across an application's geographies.
      *
@@ -54,51 +54,51 @@ export class Monitor extends pulumi.CustomResource {
      *
      * For more information, see [Change health event thresholds](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-overview.html#IMUpdateThresholdFromOverview) in the Internet Monitor section of the *CloudWatch User Guide* .
      */
-    public readonly healthEventsConfig!: pulumi.Output<outputs.internetmonitor.MonitorHealthEventsConfig | undefined>;
+    declare public readonly healthEventsConfig: pulumi.Output<outputs.internetmonitor.MonitorHealthEventsConfig | undefined>;
     /**
      * A boolean option that you can set to `TRUE` to include monitors for linked accounts in a list of monitors, when you've set up cross-account sharing in Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see [Internet Monitor cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html) in the Amazon CloudWatch User Guide.
      */
-    public readonly includeLinkedAccounts!: pulumi.Output<boolean | undefined>;
+    declare public readonly includeLinkedAccounts: pulumi.Output<boolean | undefined>;
     /**
      * Publish internet measurements for a monitor for all city-networks (up to the 500,000 service limit) to another location, such as an Amazon S3 bucket. Measurements are also published to Amazon CloudWatch Logs for the first 500 (by traffic volume) city-networks (client locations and ASNs, typically internet service providers or ISPs).
      */
-    public readonly internetMeasurementsLogDelivery!: pulumi.Output<outputs.internetmonitor.MonitorInternetMeasurementsLogDelivery | undefined>;
+    declare public readonly internetMeasurementsLogDelivery: pulumi.Output<outputs.internetmonitor.MonitorInternetMeasurementsLogDelivery | undefined>;
     /**
      * The account ID for an account that you've set up cross-account sharing for in Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see [Internet Monitor cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html) in the Amazon CloudWatch User Guide.
      */
-    public readonly linkedAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly linkedAccountId: pulumi.Output<string | undefined>;
     /**
      * The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.
      *
      * For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html) in *Using Amazon CloudWatch Internet Monitor* .
      */
-    public readonly maxCityNetworksToMonitor!: pulumi.Output<number | undefined>;
+    declare public readonly maxCityNetworksToMonitor: pulumi.Output<number | undefined>;
     /**
      * The last time that the monitor was modified.
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the monitor.
      */
-    public /*out*/ readonly monitorArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly monitorArn: pulumi.Output<string>;
     /**
      * The name of the monitor. A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
      */
-    public readonly monitorName!: pulumi.Output<string>;
+    declare public readonly monitorName: pulumi.Output<string>;
     /**
      * The health of data processing for the monitor. For more information, see `ProcessingStatus` under [MonitorListMember](https://docs.aws.amazon.com/internet-monitor/latest/api/API_MonitorListMember.html) in the *Amazon CloudWatch Internet Monitor API Reference* .
      */
-    public /*out*/ readonly processingStatus!: pulumi.Output<enums.internetmonitor.MonitorProcessingStatusCode>;
+    declare public /*out*/ readonly processingStatus: pulumi.Output<enums.internetmonitor.MonitorProcessingStatusCode>;
     /**
      * Additional information about the health of the data processing for the monitor.
      */
-    public /*out*/ readonly processingStatusInfo!: pulumi.Output<string>;
+    declare public /*out*/ readonly processingStatusInfo: pulumi.Output<string>;
     /**
      * The resources that have been added for the monitor, listed by their Amazon Resource Names (ARNs). Use this option to add or remove resources when making an update.
      *
      * > Be aware that if you include content in the `Resources` field when you update a monitor, the `ResourcesToAdd` and `ResourcesToRemove` fields must be empty.
      */
-    public readonly resources!: pulumi.Output<string[] | undefined>;
+    declare public readonly resources: pulumi.Output<string[] | undefined>;
     /**
      * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs). Resources can be Amazon Virtual Private Cloud VPCs, Network Load Balancers (NLBs), Amazon CloudFront distributions, or Amazon WorkSpaces directories.
      *
@@ -108,25 +108,25 @@ export class Monitor extends pulumi.CustomResource {
      *
      * > You can specify this field for a monitor update only if the `Resources` field is empty.
      */
-    public readonly resourcesToAdd!: pulumi.Output<string[] | undefined>;
+    declare public readonly resourcesToAdd: pulumi.Output<string[] | undefined>;
     /**
      * The resources to remove from a monitor, which you provide as a set of Amazon Resource Names (ARNs)
      *
      * > You can specify this field for a monitor update only if the `Resources` field is empty.
      */
-    public readonly resourcesToRemove!: pulumi.Output<string[] | undefined>;
+    declare public readonly resourcesToRemove: pulumi.Output<string[] | undefined>;
     /**
      * The status of a monitor. The accepted values that you can specify for `Status` are `ACTIVE` and `INACTIVE` .
      */
-    public readonly status!: pulumi.Output<enums.internetmonitor.MonitorConfigState | undefined>;
+    declare public readonly status: pulumi.Output<enums.internetmonitor.MonitorConfigState | undefined>;
     /**
      * The tags for a monitor, listed as a set of *key:value* pairs.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The percentage of the internet-facing traffic for your application that you want to monitor. You can also, optionally, set a limit for the number of city-networks (client locations and ASNs, typically internet service providers) that Internet Monitor will monitor traffic for. The city-networks maximum limit caps the number of city-networks that Internet Monitor monitors for your application, regardless of the percentage of traffic that you choose to monitor.
      */
-    public readonly trafficPercentageToMonitor!: pulumi.Output<number | undefined>;
+    declare public readonly trafficPercentageToMonitor: pulumi.Output<number | undefined>;
 
     /**
      * Create a Monitor resource with the given unique name, arguments, and options.
@@ -139,18 +139,18 @@ export class Monitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["healthEventsConfig"] = args ? args.healthEventsConfig : undefined;
-            resourceInputs["includeLinkedAccounts"] = args ? args.includeLinkedAccounts : undefined;
-            resourceInputs["internetMeasurementsLogDelivery"] = args ? args.internetMeasurementsLogDelivery : undefined;
-            resourceInputs["linkedAccountId"] = args ? args.linkedAccountId : undefined;
-            resourceInputs["maxCityNetworksToMonitor"] = args ? args.maxCityNetworksToMonitor : undefined;
-            resourceInputs["monitorName"] = args ? args.monitorName : undefined;
-            resourceInputs["resources"] = args ? args.resources : undefined;
-            resourceInputs["resourcesToAdd"] = args ? args.resourcesToAdd : undefined;
-            resourceInputs["resourcesToRemove"] = args ? args.resourcesToRemove : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficPercentageToMonitor"] = args ? args.trafficPercentageToMonitor : undefined;
+            resourceInputs["healthEventsConfig"] = args?.healthEventsConfig;
+            resourceInputs["includeLinkedAccounts"] = args?.includeLinkedAccounts;
+            resourceInputs["internetMeasurementsLogDelivery"] = args?.internetMeasurementsLogDelivery;
+            resourceInputs["linkedAccountId"] = args?.linkedAccountId;
+            resourceInputs["maxCityNetworksToMonitor"] = args?.maxCityNetworksToMonitor;
+            resourceInputs["monitorName"] = args?.monitorName;
+            resourceInputs["resources"] = args?.resources;
+            resourceInputs["resourcesToAdd"] = args?.resourcesToAdd;
+            resourceInputs["resourcesToRemove"] = args?.resourcesToRemove;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficPercentageToMonitor"] = args?.trafficPercentageToMonitor;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["monitorArn"] = undefined /*out*/;

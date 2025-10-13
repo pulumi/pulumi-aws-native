@@ -40,66 +40,66 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned to the fleet.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly capabilities!: pulumi.Output<outputs.deadline.FleetCapabilities>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public /*out*/ readonly capabilities: pulumi.Output<outputs.deadline.FleetCapabilities>;
     /**
      * The configuration details for the fleet.
      */
-    public readonly configuration!: pulumi.Output<outputs.deadline.FleetConfiguration0Properties | outputs.deadline.FleetConfiguration1Properties>;
+    declare public readonly configuration: pulumi.Output<outputs.deadline.FleetConfiguration0Properties | outputs.deadline.FleetConfiguration1Properties>;
     /**
      * A description that helps identify what the fleet is used for.
      *
      * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the fleet summary to update.
      *
      * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The farm ID.
      */
-    public readonly farmId!: pulumi.Output<string>;
+    declare public readonly farmId: pulumi.Output<string>;
     /**
      * The fleet ID.
      */
-    public /*out*/ readonly fleetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly fleetId: pulumi.Output<string>;
     /**
      * Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
      *
      * To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
      */
-    public readonly hostConfiguration!: pulumi.Output<outputs.deadline.FleetHostConfiguration | undefined>;
+    declare public readonly hostConfiguration: pulumi.Output<outputs.deadline.FleetHostConfiguration | undefined>;
     /**
      * The maximum number of workers specified in the fleet.
      */
-    public readonly maxWorkerCount!: pulumi.Output<number>;
+    declare public readonly maxWorkerCount: pulumi.Output<number>;
     /**
      * The minimum number of workers in the fleet.
      */
-    public readonly minWorkerCount!: pulumi.Output<number | undefined>;
+    declare public readonly minWorkerCount: pulumi.Output<number | undefined>;
     /**
      * The IAM role that workers in the fleet use when processing jobs.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The status of the fleet.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.deadline.FleetStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.deadline.FleetStatus>;
     /**
      * A message that communicates a suspended status of the fleet.
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The number of workers in the fleet summary.
      */
-    public /*out*/ readonly workerCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly workerCount: pulumi.Output<number>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -112,30 +112,30 @@ export class Fleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.farmId === undefined) && !opts.urn) {
+            if (args?.farmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'farmId'");
             }
-            if ((!args || args.maxWorkerCount === undefined) && !opts.urn) {
+            if (args?.maxWorkerCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxWorkerCount'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["farmId"] = args ? args.farmId : undefined;
-            resourceInputs["hostConfiguration"] = args ? args.hostConfiguration : undefined;
-            resourceInputs["maxWorkerCount"] = args ? args.maxWorkerCount : undefined;
-            resourceInputs["minWorkerCount"] = args ? args.minWorkerCount : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["farmId"] = args?.farmId;
+            resourceInputs["hostConfiguration"] = args?.hostConfiguration;
+            resourceInputs["maxWorkerCount"] = args?.maxWorkerCount;
+            resourceInputs["minWorkerCount"] = args?.minWorkerCount;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["capabilities"] = undefined /*out*/;
             resourceInputs["fleetId"] = undefined /*out*/;

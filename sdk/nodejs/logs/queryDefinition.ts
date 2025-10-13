@@ -40,23 +40,23 @@ export class QueryDefinition extends pulumi.CustomResource {
     /**
      * Optionally define specific log groups as part of your query definition
      */
-    public readonly logGroupNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly logGroupNames: pulumi.Output<string[] | undefined>;
     /**
      * A name for the saved query definition
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Unique identifier of a query definition
      */
-    public /*out*/ readonly queryDefinitionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly queryDefinitionId: pulumi.Output<string>;
     /**
      * Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
      */
-    public readonly queryLanguage!: pulumi.Output<enums.logs.QueryDefinitionQueryLanguage | undefined>;
+    declare public readonly queryLanguage: pulumi.Output<enums.logs.QueryDefinitionQueryLanguage | undefined>;
     /**
      * The query string to use for this definition
      */
-    public readonly queryString!: pulumi.Output<string>;
+    declare public readonly queryString: pulumi.Output<string>;
 
     /**
      * Create a QueryDefinition resource with the given unique name, arguments, and options.
@@ -69,13 +69,13 @@ export class QueryDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.queryString === undefined) && !opts.urn) {
+            if (args?.queryString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryString'");
             }
-            resourceInputs["logGroupNames"] = args ? args.logGroupNames : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queryLanguage"] = args ? args.queryLanguage : undefined;
-            resourceInputs["queryString"] = args ? args.queryString : undefined;
+            resourceInputs["logGroupNames"] = args?.logGroupNames;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queryLanguage"] = args?.queryLanguage;
+            resourceInputs["queryString"] = args?.queryString;
             resourceInputs["queryDefinitionId"] = undefined /*out*/;
         } else {
             resourceInputs["logGroupNames"] = undefined /*out*/;

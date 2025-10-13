@@ -37,21 +37,21 @@ export class IdentityPoolPrincipalTag extends pulumi.CustomResource {
     /**
      * The identity pool that you want to associate with this principal tag map.
      */
-    public readonly identityPoolId!: pulumi.Output<string>;
+    declare public readonly identityPoolId: pulumi.Output<string>;
     /**
      * The identity pool identity provider (IdP) that you want to associate with this principal tag map.
      */
-    public readonly identityProviderName!: pulumi.Output<string>;
+    declare public readonly identityProviderName: pulumi.Output<string>;
     /**
      * A JSON-formatted list of user claims and the principal tags that you want to associate with them. When Amazon Cognito requests credentials, it sets the value of the principal tag to the value of the user's claim.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
      */
-    public readonly principalTags!: pulumi.Output<any | undefined>;
+    declare public readonly principalTags: pulumi.Output<any | undefined>;
     /**
      * Use a default set of mappings between claims and tags for this provider, instead of a custom map.
      */
-    public readonly useDefaults!: pulumi.Output<boolean | undefined>;
+    declare public readonly useDefaults: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a IdentityPoolPrincipalTag resource with the given unique name, arguments, and options.
@@ -64,16 +64,16 @@ export class IdentityPoolPrincipalTag extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.identityPoolId === undefined) && !opts.urn) {
+            if (args?.identityPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityPoolId'");
             }
-            if ((!args || args.identityProviderName === undefined) && !opts.urn) {
+            if (args?.identityProviderName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityProviderName'");
             }
-            resourceInputs["identityPoolId"] = args ? args.identityPoolId : undefined;
-            resourceInputs["identityProviderName"] = args ? args.identityProviderName : undefined;
-            resourceInputs["principalTags"] = args ? args.principalTags : undefined;
-            resourceInputs["useDefaults"] = args ? args.useDefaults : undefined;
+            resourceInputs["identityPoolId"] = args?.identityPoolId;
+            resourceInputs["identityProviderName"] = args?.identityProviderName;
+            resourceInputs["principalTags"] = args?.principalTags;
+            resourceInputs["useDefaults"] = args?.useDefaults;
         } else {
             resourceInputs["identityPoolId"] = undefined /*out*/;
             resourceInputs["identityProviderName"] = undefined /*out*/;

@@ -40,55 +40,55 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The location where the connection is created.
      */
-    public readonly awsLocation!: pulumi.Output<outputs.datazone.ConnectionAwsLocation | undefined>;
+    declare public readonly awsLocation: pulumi.Output<outputs.datazone.ConnectionAwsLocation | undefined>;
     /**
      * The ID of the connection.
      */
-    public /*out*/ readonly connectionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionId: pulumi.Output<string>;
     /**
      * The description of the connection.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the domain in which the connection is created.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * The identifier of the domain in which the connection is created.
      */
-    public readonly domainIdentifier!: pulumi.Output<string>;
+    declare public readonly domainIdentifier: pulumi.Output<string>;
     /**
      * The ID of the domain unit in which the connection is created.
      */
-    public /*out*/ readonly domainUnitId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainUnitId: pulumi.Output<string>;
     /**
      * The ID of the environment in which the connection is created.
      */
-    public /*out*/ readonly environmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentId: pulumi.Output<string>;
     /**
      * The identifier of the environment in which the connection is created.
      */
-    public readonly environmentIdentifier!: pulumi.Output<string>;
+    declare public readonly environmentIdentifier: pulumi.Output<string>;
     /**
      * The role of the user in the environment.
      */
-    public /*out*/ readonly environmentUserRole!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentUserRole: pulumi.Output<string>;
     /**
      * The name of the connection.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the project in which the connection is created.
      */
-    public /*out*/ readonly projectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly projectId: pulumi.Output<string>;
     /**
      * Connection props.
      */
-    public readonly props!: pulumi.Output<outputs.datazone.ConnectionPropertiesInput0Properties | outputs.datazone.ConnectionPropertiesInput1Properties | outputs.datazone.ConnectionPropertiesInput2Properties | outputs.datazone.ConnectionPropertiesInput3Properties | outputs.datazone.ConnectionPropertiesInput4Properties | outputs.datazone.ConnectionPropertiesInput5Properties | outputs.datazone.ConnectionPropertiesInput6Properties | undefined>;
+    declare public readonly props: pulumi.Output<outputs.datazone.ConnectionPropertiesInput0Properties | outputs.datazone.ConnectionPropertiesInput1Properties | outputs.datazone.ConnectionPropertiesInput2Properties | outputs.datazone.ConnectionPropertiesInput3Properties | outputs.datazone.ConnectionPropertiesInput4Properties | outputs.datazone.ConnectionPropertiesInput5Properties | outputs.datazone.ConnectionPropertiesInput6Properties | undefined>;
     /**
      * The type of the connection.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -101,18 +101,18 @@ export class Connection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.environmentIdentifier === undefined) && !opts.urn) {
+            if (args?.environmentIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentIdentifier'");
             }
-            resourceInputs["awsLocation"] = args ? args.awsLocation : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["props"] = args ? args.props : undefined;
+            resourceInputs["awsLocation"] = args?.awsLocation;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["environmentIdentifier"] = args?.environmentIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["props"] = args?.props;
             resourceInputs["connectionId"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["domainUnitId"] = undefined /*out*/;

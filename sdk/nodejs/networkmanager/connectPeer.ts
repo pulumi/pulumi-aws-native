@@ -40,59 +40,59 @@ export class ConnectPeer extends pulumi.CustomResource {
     /**
      * Bgp options for connect peer.
      */
-    public readonly bgpOptions!: pulumi.Output<outputs.networkmanager.ConnectPeerBgpOptions | undefined>;
+    declare public readonly bgpOptions: pulumi.Output<outputs.networkmanager.ConnectPeerBgpOptions | undefined>;
     /**
      * Configuration of the connect peer.
      */
-    public /*out*/ readonly configuration!: pulumi.Output<outputs.networkmanager.ConnectPeerConfiguration>;
+    declare public /*out*/ readonly configuration: pulumi.Output<outputs.networkmanager.ConnectPeerConfiguration>;
     /**
      * The ID of the attachment to connect.
      */
-    public readonly connectAttachmentId!: pulumi.Output<string>;
+    declare public readonly connectAttachmentId: pulumi.Output<string>;
     /**
      * The ID of the Connect peer.
      */
-    public /*out*/ readonly connectPeerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectPeerId: pulumi.Output<string>;
     /**
      * The IP address of a core network.
      */
-    public readonly coreNetworkAddress!: pulumi.Output<string | undefined>;
+    declare public readonly coreNetworkAddress: pulumi.Output<string | undefined>;
     /**
      * The ID of the core network.
      */
-    public /*out*/ readonly coreNetworkId!: pulumi.Output<string>;
+    declare public /*out*/ readonly coreNetworkId: pulumi.Output<string>;
     /**
      * Connect peer creation time.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The Connect peer Regions where edges are located.
      */
-    public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
+    declare public /*out*/ readonly edgeLocation: pulumi.Output<string>;
     /**
      * The inside IP addresses used for a Connect peer configuration.
      */
-    public readonly insideCidrBlocks!: pulumi.Output<string[] | undefined>;
+    declare public readonly insideCidrBlocks: pulumi.Output<string[] | undefined>;
     /**
      * Errors from the last modification of the connect peer.
      */
-    public /*out*/ readonly lastModificationErrors!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly lastModificationErrors: pulumi.Output<string[]>;
     /**
      * The IP address of the Connect peer.
      */
-    public readonly peerAddress!: pulumi.Output<string>;
+    declare public readonly peerAddress: pulumi.Output<string>;
     /**
      * State of the connect peer.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The subnet ARN for the connect peer.
      */
-    public readonly subnetArn!: pulumi.Output<string | undefined>;
+    declare public readonly subnetArn: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ConnectPeer resource with the given unique name, arguments, and options.
@@ -105,19 +105,19 @@ export class ConnectPeer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectAttachmentId === undefined) && !opts.urn) {
+            if (args?.connectAttachmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectAttachmentId'");
             }
-            if ((!args || args.peerAddress === undefined) && !opts.urn) {
+            if (args?.peerAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerAddress'");
             }
-            resourceInputs["bgpOptions"] = args ? args.bgpOptions : undefined;
-            resourceInputs["connectAttachmentId"] = args ? args.connectAttachmentId : undefined;
-            resourceInputs["coreNetworkAddress"] = args ? args.coreNetworkAddress : undefined;
-            resourceInputs["insideCidrBlocks"] = args ? args.insideCidrBlocks : undefined;
-            resourceInputs["peerAddress"] = args ? args.peerAddress : undefined;
-            resourceInputs["subnetArn"] = args ? args.subnetArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bgpOptions"] = args?.bgpOptions;
+            resourceInputs["connectAttachmentId"] = args?.connectAttachmentId;
+            resourceInputs["coreNetworkAddress"] = args?.coreNetworkAddress;
+            resourceInputs["insideCidrBlocks"] = args?.insideCidrBlocks;
+            resourceInputs["peerAddress"] = args?.peerAddress;
+            resourceInputs["subnetArn"] = args?.subnetArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["connectPeerId"] = undefined /*out*/;
             resourceInputs["coreNetworkId"] = undefined /*out*/;
