@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider"
 
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"github.com/stretchr/testify/assert"
@@ -65,7 +65,7 @@ func TestProviderEndpoints(t *testing.T) {
 		t.Parallel()
 		requestCount := 0
 		server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			assert.Equal(t, "APN/1.1 ("+metadata.PulumiAWSMarketplaceCode+")", r.Header.Get("User-Agent"))
+			assert.Equal(t, "APN/1.1 ("+provider.PulumiAWSMarketplaceCode+")", r.Header.Get("User-Agent"))
 			requestCount++
 			w.Write([]byte(stsGetCallerIdentityResponse))
 		}))
