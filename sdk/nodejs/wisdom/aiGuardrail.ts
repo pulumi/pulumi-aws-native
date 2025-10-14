@@ -40,59 +40,59 @@ export class AiGuardrail extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the AI Guardrail.
      */
-    public /*out*/ readonly aiGuardrailArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly aiGuardrailArn: pulumi.Output<string>;
     /**
      * The identifier of the Amazon Q in Connect AI Guardrail.
      */
-    public /*out*/ readonly aiGuardrailId!: pulumi.Output<string>;
+    declare public /*out*/ readonly aiGuardrailId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
      */
-    public /*out*/ readonly assistantArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly assistantArn: pulumi.Output<string>;
     /**
      * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
      */
-    public readonly assistantId!: pulumi.Output<string>;
+    declare public readonly assistantId: pulumi.Output<string>;
     /**
      * Messaging for when violations are detected in text
      */
-    public readonly blockedInputMessaging!: pulumi.Output<string>;
+    declare public readonly blockedInputMessaging: pulumi.Output<string>;
     /**
      * Messaging for when violations are detected in text
      */
-    public readonly blockedOutputsMessaging!: pulumi.Output<string>;
+    declare public readonly blockedOutputsMessaging: pulumi.Output<string>;
     /**
      * Contains details about how to handle harmful content.
      */
-    public readonly contentPolicyConfig!: pulumi.Output<outputs.wisdom.AiGuardrailAiGuardrailContentPolicyConfig | undefined>;
+    declare public readonly contentPolicyConfig: pulumi.Output<outputs.wisdom.AiGuardrailAiGuardrailContentPolicyConfig | undefined>;
     /**
      * The policy configuration details for the AI Guardrail's contextual grounding policy.
      */
-    public readonly contextualGroundingPolicyConfig!: pulumi.Output<outputs.wisdom.AiGuardrailAiGuardrailContextualGroundingPolicyConfig | undefined>;
+    declare public readonly contextualGroundingPolicyConfig: pulumi.Output<outputs.wisdom.AiGuardrailAiGuardrailContextualGroundingPolicyConfig | undefined>;
     /**
      * Description of the guardrail or its version
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the AI Guardrail.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Contains details about PII entities and regular expressions to configure for the AI Guardrail.
      */
-    public readonly sensitiveInformationPolicyConfig!: pulumi.Output<outputs.wisdom.AiGuardrailAiGuardrailSensitiveInformationPolicyConfig | undefined>;
+    declare public readonly sensitiveInformationPolicyConfig: pulumi.Output<outputs.wisdom.AiGuardrailAiGuardrailSensitiveInformationPolicyConfig | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Contains details about topics that the AI Guardrail should identify and deny.
      */
-    public readonly topicPolicyConfig!: pulumi.Output<outputs.wisdom.AiGuardrailAiGuardrailTopicPolicyConfig | undefined>;
+    declare public readonly topicPolicyConfig: pulumi.Output<outputs.wisdom.AiGuardrailAiGuardrailTopicPolicyConfig | undefined>;
     /**
      * Contains details about the word policy to configured for the AI Guardrail.
      */
-    public readonly wordPolicyConfig!: pulumi.Output<outputs.wisdom.AiGuardrailAiGuardrailWordPolicyConfig | undefined>;
+    declare public readonly wordPolicyConfig: pulumi.Output<outputs.wisdom.AiGuardrailAiGuardrailWordPolicyConfig | undefined>;
 
     /**
      * Create a AiGuardrail resource with the given unique name, arguments, and options.
@@ -105,26 +105,26 @@ export class AiGuardrail extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.assistantId === undefined) && !opts.urn) {
+            if (args?.assistantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assistantId'");
             }
-            if ((!args || args.blockedInputMessaging === undefined) && !opts.urn) {
+            if (args?.blockedInputMessaging === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blockedInputMessaging'");
             }
-            if ((!args || args.blockedOutputsMessaging === undefined) && !opts.urn) {
+            if (args?.blockedOutputsMessaging === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blockedOutputsMessaging'");
             }
-            resourceInputs["assistantId"] = args ? args.assistantId : undefined;
-            resourceInputs["blockedInputMessaging"] = args ? args.blockedInputMessaging : undefined;
-            resourceInputs["blockedOutputsMessaging"] = args ? args.blockedOutputsMessaging : undefined;
-            resourceInputs["contentPolicyConfig"] = args ? args.contentPolicyConfig : undefined;
-            resourceInputs["contextualGroundingPolicyConfig"] = args ? args.contextualGroundingPolicyConfig : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sensitiveInformationPolicyConfig"] = args ? args.sensitiveInformationPolicyConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicPolicyConfig"] = args ? args.topicPolicyConfig : undefined;
-            resourceInputs["wordPolicyConfig"] = args ? args.wordPolicyConfig : undefined;
+            resourceInputs["assistantId"] = args?.assistantId;
+            resourceInputs["blockedInputMessaging"] = args?.blockedInputMessaging;
+            resourceInputs["blockedOutputsMessaging"] = args?.blockedOutputsMessaging;
+            resourceInputs["contentPolicyConfig"] = args?.contentPolicyConfig;
+            resourceInputs["contextualGroundingPolicyConfig"] = args?.contextualGroundingPolicyConfig;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sensitiveInformationPolicyConfig"] = args?.sensitiveInformationPolicyConfig;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicPolicyConfig"] = args?.topicPolicyConfig;
+            resourceInputs["wordPolicyConfig"] = args?.wordPolicyConfig;
             resourceInputs["aiGuardrailArn"] = undefined /*out*/;
             resourceInputs["aiGuardrailId"] = undefined /*out*/;
             resourceInputs["assistantArn"] = undefined /*out*/;

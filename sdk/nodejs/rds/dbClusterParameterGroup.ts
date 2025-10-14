@@ -47,11 +47,11 @@ export class DbClusterParameterGroup extends pulumi.CustomResource {
      *   
      *   This value is stored as a lowercase string.
      */
-    public readonly dbClusterParameterGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly dbClusterParameterGroupName: pulumi.Output<string | undefined>;
     /**
      * The description for the DB cluster parameter group.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
      *   *Aurora MySQL* 
@@ -73,17 +73,17 @@ export class DbClusterParameterGroup extends pulumi.CustomResource {
      *   +   ``mysql`` 
      *   +   ``postgres``
      */
-    public readonly family!: pulumi.Output<string>;
+    declare public readonly family: pulumi.Output<string>;
     /**
      * Provides a list of parameters for the DB cluster parameter group.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
      */
-    public readonly parameters!: pulumi.Output<any>;
+    declare public readonly parameters: pulumi.Output<any>;
     /**
      * Tags to assign to the DB cluster parameter group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DbClusterParameterGroup resource with the given unique name, arguments, and options.
@@ -96,20 +96,20 @@ export class DbClusterParameterGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.family === undefined) && !opts.urn) {
+            if (args?.family === undefined && !opts.urn) {
                 throw new Error("Missing required property 'family'");
             }
-            if ((!args || args.parameters === undefined) && !opts.urn) {
+            if (args?.parameters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            resourceInputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["family"] = args ? args.family : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dbClusterParameterGroupName"] = args?.dbClusterParameterGroupName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["family"] = args?.family;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["dbClusterParameterGroupName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

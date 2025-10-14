@@ -40,39 +40,39 @@ export class EnvironmentActions extends pulumi.CustomResource {
     /**
      * The ID of the Amazon DataZone environment action.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The description of the Amazon DataZone environment action.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The identifier of the Amazon DataZone domain in which the environment is created.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * The identifier of the Amazon DataZone domain in which the environment would be created.
      */
-    public readonly domainIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly domainIdentifier: pulumi.Output<string | undefined>;
     /**
      * The identifier of the Amazon DataZone environment in which the action is taking place
      */
-    public /*out*/ readonly environmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentId: pulumi.Output<string>;
     /**
      * The identifier of the Amazon DataZone environment in which the action is taking place
      */
-    public readonly environmentIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly environmentIdentifier: pulumi.Output<string | undefined>;
     /**
      * The ID of the Amazon DataZone environment action.
      */
-    public readonly identifier!: pulumi.Output<string | undefined>;
+    declare public readonly identifier: pulumi.Output<string | undefined>;
     /**
      * The name of the environment action.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The parameters of the environment action.
      */
-    public readonly parameters!: pulumi.Output<outputs.datazone.EnvironmentActionsAwsConsoleLinkParameters | undefined>;
+    declare public readonly parameters: pulumi.Output<outputs.datazone.EnvironmentActionsAwsConsoleLinkParameters | undefined>;
 
     /**
      * Create a EnvironmentActions resource with the given unique name, arguments, and options.
@@ -85,12 +85,12 @@ export class EnvironmentActions extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
-            resourceInputs["identifier"] = args ? args.identifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["environmentIdentifier"] = args?.environmentIdentifier;
+            resourceInputs["identifier"] = args?.identifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["environmentId"] = undefined /*out*/;

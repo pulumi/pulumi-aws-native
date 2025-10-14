@@ -40,79 +40,79 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     /**
      * For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
      */
-    public readonly associatePublicIpAddress!: pulumi.Output<boolean | undefined>;
+    declare public readonly associatePublicIpAddress: pulumi.Output<boolean | undefined>;
     /**
      * Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
      */
-    public readonly blockDeviceMappings!: pulumi.Output<outputs.autoscaling.LaunchConfigurationBlockDeviceMapping[] | undefined>;
+    declare public readonly blockDeviceMappings: pulumi.Output<outputs.autoscaling.LaunchConfigurationBlockDeviceMapping[] | undefined>;
     /**
      * The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
      */
-    public readonly classicLinkVpcId!: pulumi.Output<string | undefined>;
+    declare public readonly classicLinkVpcId: pulumi.Output<string | undefined>;
     /**
      * The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
      */
-    public readonly classicLinkVpcSecurityGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly classicLinkVpcSecurityGroups: pulumi.Output<string[] | undefined>;
     /**
      * Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
      */
-    public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
+    declare public readonly ebsOptimized: pulumi.Output<boolean | undefined>;
     /**
      * Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
      */
-    public readonly iamInstanceProfile!: pulumi.Output<string | undefined>;
+    declare public readonly iamInstanceProfile: pulumi.Output<string | undefined>;
     /**
      * Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration.
      */
-    public readonly imageId!: pulumi.Output<string>;
+    declare public readonly imageId: pulumi.Output<string>;
     /**
      * The ID of the Amazon EC2 instance you want to use to create the launch configuration.
      */
-    public readonly instanceId!: pulumi.Output<string | undefined>;
+    declare public readonly instanceId: pulumi.Output<string | undefined>;
     /**
      * Controls whether instances in this group are launched with detailed (true) or basic (false) monitoring.
      */
-    public readonly instanceMonitoring!: pulumi.Output<boolean | undefined>;
+    declare public readonly instanceMonitoring: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the instance type of the EC2 instance.
      */
-    public readonly instanceType!: pulumi.Output<string>;
+    declare public readonly instanceType: pulumi.Output<string>;
     /**
      * Provides the ID of the kernel associated with the EC2 AMI.
      */
-    public readonly kernelId!: pulumi.Output<string | undefined>;
+    declare public readonly kernelId: pulumi.Output<string | undefined>;
     /**
      * Provides the name of the EC2 key pair.
      */
-    public readonly keyName!: pulumi.Output<string | undefined>;
+    declare public readonly keyName: pulumi.Output<string | undefined>;
     /**
      * The name of the launch configuration. This name must be unique per Region per account.
      */
-    public readonly launchConfigurationName!: pulumi.Output<string | undefined>;
+    declare public readonly launchConfigurationName: pulumi.Output<string | undefined>;
     /**
      * The metadata options for the instances.
      */
-    public readonly metadataOptions!: pulumi.Output<outputs.autoscaling.LaunchConfigurationMetadataOptions | undefined>;
+    declare public readonly metadataOptions: pulumi.Output<outputs.autoscaling.LaunchConfigurationMetadataOptions | undefined>;
     /**
      * The tenancy of the instance, either default or dedicated.
      */
-    public readonly placementTenancy!: pulumi.Output<string | undefined>;
+    declare public readonly placementTenancy: pulumi.Output<string | undefined>;
     /**
      * The ID of the RAM disk to select.
      */
-    public readonly ramDiskId!: pulumi.Output<string | undefined>;
+    declare public readonly ramDiskId: pulumi.Output<string | undefined>;
     /**
      * A list that contains the security groups to assign to the instances in the Auto Scaling group.
      */
-    public readonly securityGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroups: pulumi.Output<string[] | undefined>;
     /**
      * The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request.
      */
-    public readonly spotPrice!: pulumi.Output<string | undefined>;
+    declare public readonly spotPrice: pulumi.Output<string | undefined>;
     /**
      * The Base64-encoded user data to make available to the launched EC2 instances.
      */
-    public readonly userData!: pulumi.Output<string | undefined>;
+    declare public readonly userData: pulumi.Output<string | undefined>;
 
     /**
      * Create a LaunchConfiguration resource with the given unique name, arguments, and options.
@@ -125,31 +125,31 @@ export class LaunchConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.imageId === undefined) && !opts.urn) {
+            if (args?.imageId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'imageId'");
             }
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
+            if (args?.instanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            resourceInputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
-            resourceInputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
-            resourceInputs["classicLinkVpcId"] = args ? args.classicLinkVpcId : undefined;
-            resourceInputs["classicLinkVpcSecurityGroups"] = args ? args.classicLinkVpcSecurityGroups : undefined;
-            resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            resourceInputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
-            resourceInputs["imageId"] = args ? args.imageId : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["instanceMonitoring"] = args ? args.instanceMonitoring : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["kernelId"] = args ? args.kernelId : undefined;
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
-            resourceInputs["launchConfigurationName"] = args ? args.launchConfigurationName : undefined;
-            resourceInputs["metadataOptions"] = args ? args.metadataOptions : undefined;
-            resourceInputs["placementTenancy"] = args ? args.placementTenancy : undefined;
-            resourceInputs["ramDiskId"] = args ? args.ramDiskId : undefined;
-            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
-            resourceInputs["spotPrice"] = args ? args.spotPrice : undefined;
-            resourceInputs["userData"] = args ? args.userData : undefined;
+            resourceInputs["associatePublicIpAddress"] = args?.associatePublicIpAddress;
+            resourceInputs["blockDeviceMappings"] = args?.blockDeviceMappings;
+            resourceInputs["classicLinkVpcId"] = args?.classicLinkVpcId;
+            resourceInputs["classicLinkVpcSecurityGroups"] = args?.classicLinkVpcSecurityGroups;
+            resourceInputs["ebsOptimized"] = args?.ebsOptimized;
+            resourceInputs["iamInstanceProfile"] = args?.iamInstanceProfile;
+            resourceInputs["imageId"] = args?.imageId;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["instanceMonitoring"] = args?.instanceMonitoring;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["kernelId"] = args?.kernelId;
+            resourceInputs["keyName"] = args?.keyName;
+            resourceInputs["launchConfigurationName"] = args?.launchConfigurationName;
+            resourceInputs["metadataOptions"] = args?.metadataOptions;
+            resourceInputs["placementTenancy"] = args?.placementTenancy;
+            resourceInputs["ramDiskId"] = args?.ramDiskId;
+            resourceInputs["securityGroups"] = args?.securityGroups;
+            resourceInputs["spotPrice"] = args?.spotPrice;
+            resourceInputs["userData"] = args?.userData;
         } else {
             resourceInputs["associatePublicIpAddress"] = undefined /*out*/;
             resourceInputs["blockDeviceMappings"] = undefined /*out*/;

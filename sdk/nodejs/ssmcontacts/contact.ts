@@ -40,24 +40,24 @@ export class Contact extends pulumi.CustomResource {
     /**
      * Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
      */
-    public readonly alias!: pulumi.Output<string>;
+    declare public readonly alias: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the contact.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The stages that an escalation plan or engagement plan engages contacts and contact methods in.
      */
-    public readonly plan!: pulumi.Output<outputs.ssmcontacts.ContactStage[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.ssmcontacts.ContactStage[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
      */
-    public readonly type!: pulumi.Output<enums.ssmcontacts.ContactType>;
+    declare public readonly type: pulumi.Output<enums.ssmcontacts.ContactType>;
 
     /**
      * Create a Contact resource with the given unique name, arguments, and options.
@@ -70,20 +70,20 @@ export class Contact extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.alias === undefined) && !opts.urn) {
+            if (args?.alias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alias'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["alias"] = undefined /*out*/;

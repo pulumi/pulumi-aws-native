@@ -73,39 +73,39 @@ export class Extension extends pulumi.CustomResource {
     /**
      * The actions defined in the extension.
      */
-    public readonly actions!: pulumi.Output<{[key: string]: outputs.appconfig.ExtensionAction[]}>;
+    declare public readonly actions: pulumi.Output<{[key: string]: outputs.appconfig.ExtensionAction[]}>;
     /**
      * The system-generated Amazon Resource Name (ARN) for the extension.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The system-generated ID of the extension.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Description of the extension.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.
      */
-    public readonly latestVersionNumber!: pulumi.Output<number | undefined>;
+    declare public readonly latestVersionNumber: pulumi.Output<number | undefined>;
     /**
      * Name of the extension.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.appconfig.ExtensionParameter} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: outputs.appconfig.ExtensionParameter} | undefined>;
     /**
      * An array of key-value tags to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The extension version number.
      */
-    public /*out*/ readonly versionNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly versionNumber: pulumi.Output<number>;
 
     /**
      * Create a Extension resource with the given unique name, arguments, and options.
@@ -118,15 +118,15 @@ export class Extension extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["latestVersionNumber"] = args ? args.latestVersionNumber : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["latestVersionNumber"] = args?.latestVersionNumber;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["versionNumber"] = undefined /*out*/;

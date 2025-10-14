@@ -40,23 +40,23 @@ export class AggregatorV2 extends pulumi.CustomResource {
     /**
      * The aggregation Region of the AggregatorV2
      */
-    public /*out*/ readonly aggregationRegion!: pulumi.Output<string>;
+    declare public /*out*/ readonly aggregationRegion: pulumi.Output<string>;
     /**
      * The ARN of the AggregatorV2 being created and assigned as the unique identifier
      */
-    public /*out*/ readonly aggregatorV2Arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly aggregatorV2Arn: pulumi.Output<string>;
     /**
      * The list of included Regions
      */
-    public readonly linkedRegions!: pulumi.Output<string[]>;
+    declare public readonly linkedRegions: pulumi.Output<string[]>;
     /**
      * Indicates to link a list of included Regions
      */
-    public readonly regionLinkingMode!: pulumi.Output<enums.securityhub.AggregatorV2RegionLinkingMode>;
+    declare public readonly regionLinkingMode: pulumi.Output<enums.securityhub.AggregatorV2RegionLinkingMode>;
     /**
      * A list of key-value pairs to be applied to the AggregatorV2.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a AggregatorV2 resource with the given unique name, arguments, and options.
@@ -69,15 +69,15 @@ export class AggregatorV2 extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.linkedRegions === undefined) && !opts.urn) {
+            if (args?.linkedRegions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedRegions'");
             }
-            if ((!args || args.regionLinkingMode === undefined) && !opts.urn) {
+            if (args?.regionLinkingMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'regionLinkingMode'");
             }
-            resourceInputs["linkedRegions"] = args ? args.linkedRegions : undefined;
-            resourceInputs["regionLinkingMode"] = args ? args.regionLinkingMode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["linkedRegions"] = args?.linkedRegions;
+            resourceInputs["regionLinkingMode"] = args?.regionLinkingMode;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["aggregationRegion"] = undefined /*out*/;
             resourceInputs["aggregatorV2Arn"] = undefined /*out*/;
         } else {

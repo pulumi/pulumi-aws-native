@@ -40,51 +40,51 @@ export class Queue extends pulumi.CustomResource {
     /**
      * The description of the queue.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The identifier for the hours of operation.
      */
-    public readonly hoursOfOperationArn!: pulumi.Output<string>;
+    declare public readonly hoursOfOperationArn: pulumi.Output<string>;
     /**
      * The identifier of the Amazon Connect instance.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The maximum number of contacts that can be in the queue before it is considered full.
      */
-    public readonly maxContacts!: pulumi.Output<number | undefined>;
+    declare public readonly maxContacts: pulumi.Output<number | undefined>;
     /**
      * The name of the queue.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The outbound caller ID name, number, and outbound whisper flow.
      */
-    public readonly outboundCallerConfig!: pulumi.Output<outputs.connect.QueueOutboundCallerConfig | undefined>;
+    declare public readonly outboundCallerConfig: pulumi.Output<outputs.connect.QueueOutboundCallerConfig | undefined>;
     /**
      * The outbound email address ID.
      */
-    public readonly outboundEmailConfig!: pulumi.Output<outputs.connect.QueueOutboundEmailConfig | undefined>;
+    declare public readonly outboundEmailConfig: pulumi.Output<outputs.connect.QueueOutboundEmailConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the queue.
      */
-    public /*out*/ readonly queueArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly queueArn: pulumi.Output<string>;
     /**
      * The quick connects available to agents who are working the queue.
      */
-    public readonly quickConnectArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly quickConnectArns: pulumi.Output<string[] | undefined>;
     /**
      * The status of the queue.
      */
-    public readonly status!: pulumi.Output<enums.connect.QueueStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.connect.QueueStatus | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of queue.
      */
-    public /*out*/ readonly type!: pulumi.Output<enums.connect.QueueType>;
+    declare public /*out*/ readonly type: pulumi.Output<enums.connect.QueueType>;
 
     /**
      * Create a Queue resource with the given unique name, arguments, and options.
@@ -97,22 +97,22 @@ export class Queue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hoursOfOperationArn === undefined) && !opts.urn) {
+            if (args?.hoursOfOperationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hoursOfOperationArn'");
             }
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["hoursOfOperationArn"] = args ? args.hoursOfOperationArn : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["maxContacts"] = args ? args.maxContacts : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outboundCallerConfig"] = args ? args.outboundCallerConfig : undefined;
-            resourceInputs["outboundEmailConfig"] = args ? args.outboundEmailConfig : undefined;
-            resourceInputs["quickConnectArns"] = args ? args.quickConnectArns : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["hoursOfOperationArn"] = args?.hoursOfOperationArn;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["maxContacts"] = args?.maxContacts;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outboundCallerConfig"] = args?.outboundCallerConfig;
+            resourceInputs["outboundEmailConfig"] = args?.outboundEmailConfig;
+            resourceInputs["quickConnectArns"] = args?.quickConnectArns;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["queueArn"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

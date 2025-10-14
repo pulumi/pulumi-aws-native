@@ -89,23 +89,23 @@ export class Server extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the server, such as `arn:aws:OpsWorksCM:us-east-1:123456789012:server/server-a1bzhi` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Associate a public IP address with a server that you are launching. Valid values are `true` or `false` . The default value is `true` .
      */
-    public readonly associatePublicIpAddress!: pulumi.Output<boolean | undefined>;
+    declare public readonly associatePublicIpAddress: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the server.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
      */
-    public readonly backupId!: pulumi.Output<string | undefined>;
+    declare public readonly backupId: pulumi.Output<string | undefined>;
     /**
      * The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded. The default value is `1` .
      */
-    public readonly backupRetentionCount!: pulumi.Output<number | undefined>;
+    declare public readonly backupRetentionCount: pulumi.Output<number | undefined>;
     /**
      * Supported on servers running Chef Automate 2.0 only. A PEM-formatted HTTPS certificate. The value can be be a single, self-signed certificate, or a certificate chain. If you specify a custom certificate, you must also specify values for `CustomDomain` and `CustomPrivateKey` . The following are requirements for the `CustomCertificate` value:
      *
@@ -115,27 +115,27 @@ export class Server extends pulumi.CustomResource {
      * - The certificate’s common name or subject alternative names (SANs), if present, must match the value of `CustomDomain` .
      * - The certificate must match the value of `CustomPrivateKey` .
      */
-    public readonly customCertificate!: pulumi.Output<string | undefined>;
+    declare public readonly customCertificate: pulumi.Output<string | undefined>;
     /**
      * Supported on servers running Chef Automate 2.0 only. An optional public endpoint of a server, such as `https://aws.my-company.com` . To access the server, create a CNAME DNS record in your preferred DNS service that points the custom domain to the endpoint that is generated when the server is created (the value of the CreateServer Endpoint attribute). You cannot access the server by using the generated `Endpoint` value if the server is using a custom domain. If you specify a custom domain, you must also specify values for `CustomCertificate` and `CustomPrivateKey` .
      */
-    public readonly customDomain!: pulumi.Output<string | undefined>;
+    declare public readonly customDomain: pulumi.Output<string | undefined>;
     /**
      * Supported on servers running Chef Automate 2.0 only. A private key in PEM format for connecting to the server by using HTTPS. The private key must not be encrypted; it cannot be protected by a password or passphrase. If you specify a custom private key, you must also specify values for `CustomDomain` and `CustomCertificate` .
      */
-    public readonly customPrivateKey!: pulumi.Output<string | undefined>;
+    declare public readonly customPrivateKey: pulumi.Output<string | undefined>;
     /**
      * Enable or disable scheduled backups. Valid values are `true` or `false` . The default value is `true` .
      */
-    public readonly disableAutomatedBackup!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableAutomatedBackup: pulumi.Output<boolean | undefined>;
     /**
      * A DNS name that can be used to access the engine. Example: `myserver-asdfghjkl.us-east-1.opsworks.io` .
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * The configuration management engine to use. Valid values include `ChefAutomate` and `Puppet` .
      */
-    public readonly engine!: pulumi.Output<string | undefined>;
+    declare public readonly engine: pulumi.Output<string | undefined>;
     /**
      * Optional engine attributes on a specified server.
      *
@@ -146,27 +146,27 @@ export class Server extends pulumi.CustomResource {
      * - `PUPPET_R10K_REMOTE` : The r10k remote is the URL of your control repository (for example, ssh://git@your.git-repo.com:user/control-repo.git). Specifying an r10k remote opens TCP port 8170.
      * - `PUPPET_R10K_PRIVATE_KEY` : If you are using a private Git repository, add PUPPET_R10K_PRIVATE_KEY to specify a PEM-encoded private SSH key.
      */
-    public readonly engineAttributes!: pulumi.Output<outputs.opsworkscm.ServerEngineAttribute[] | undefined>;
+    declare public readonly engineAttributes: pulumi.Output<outputs.opsworkscm.ServerEngineAttribute[] | undefined>;
     /**
      * The engine model of the server. Valid values in this release include `Monolithic` for Puppet and `Single` for Chef.
      */
-    public readonly engineModel!: pulumi.Output<string | undefined>;
+    declare public readonly engineModel: pulumi.Output<string | undefined>;
     /**
      * The major release version of the engine that you want to use. For a Chef server, the valid value for EngineVersion is currently `2` . For a Puppet server, valid values are `2019` or `2017` .
      */
-    public readonly engineVersion!: pulumi.Output<string | undefined>;
+    declare public readonly engineVersion: pulumi.Output<string | undefined>;
     /**
      * The ARN of the instance profile that your Amazon EC2 instances use.
      */
-    public readonly instanceProfileArn!: pulumi.Output<string>;
+    declare public readonly instanceProfileArn: pulumi.Output<string>;
     /**
      * The Amazon EC2 instance type to use. For example, `m5.large` .
      */
-    public readonly instanceType!: pulumi.Output<string>;
+    declare public readonly instanceType: pulumi.Output<string>;
     /**
      * The Amazon EC2 key pair to set for the instance. This parameter is optional; if desired, you may specify this parameter to connect to your instances by using SSH.
      */
-    public readonly keyPair!: pulumi.Output<string | undefined>;
+    declare public readonly keyPair: pulumi.Output<string | undefined>;
     /**
      * The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server if automated backups are enabled. Valid values must be specified in one of the following formats:
      *
@@ -179,27 +179,27 @@ export class Server extends pulumi.CustomResource {
      *
      * *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
      */
-    public readonly preferredBackupWindow!: pulumi.Output<string | undefined>;
+    declare public readonly preferredBackupWindow: pulumi.Output<string | undefined>;
     /**
      * The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance. Valid values must be specified in the following format: `DDD:HH:MM` . `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See `TimeWindowDefinition` for more information.
      *
      * *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
      */
-    public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
+    declare public readonly preferredMaintenanceWindow: pulumi.Output<string | undefined>;
     /**
      * A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups must be within the VPC that is specified by `SubnetIds` .
      *
      * If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
      */
-    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
      */
-    public readonly serverName!: pulumi.Output<string | undefined>;
+    declare public readonly serverName: pulumi.Output<string | undefined>;
     /**
      * The service role that the AWS OpsWorks CM service backend uses to work with your account.
      */
-    public readonly serviceRoleArn!: pulumi.Output<string>;
+    declare public readonly serviceRoleArn: pulumi.Output<string>;
     /**
      * The IDs of subnets in which to launch the server EC2 instance.
      *
@@ -209,7 +209,7 @@ export class Server extends pulumi.CustomResource {
      *
      * For more information about supported Amazon EC2 platforms, see [Supported Platforms](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html) .
      */
-    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly subnetIds: pulumi.Output<string[] | undefined>;
     /**
      * A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server.
      *
@@ -219,7 +219,7 @@ export class Server extends pulumi.CustomResource {
      * - Leading and trailing spaces are trimmed from both the key and value.
      * - A maximum of 50 user-applied tags is allowed for any AWS OpsWorks CM server.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -232,36 +232,36 @@ export class Server extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceProfileArn === undefined) && !opts.urn) {
+            if (args?.instanceProfileArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceProfileArn'");
             }
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
+            if (args?.instanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            if ((!args || args.serviceRoleArn === undefined) && !opts.urn) {
+            if (args?.serviceRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
-            resourceInputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
-            resourceInputs["backupId"] = args ? args.backupId : undefined;
-            resourceInputs["backupRetentionCount"] = args ? args.backupRetentionCount : undefined;
-            resourceInputs["customCertificate"] = args ? args.customCertificate : undefined;
-            resourceInputs["customDomain"] = args ? args.customDomain : undefined;
-            resourceInputs["customPrivateKey"] = args ? args.customPrivateKey : undefined;
-            resourceInputs["disableAutomatedBackup"] = args ? args.disableAutomatedBackup : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["engineAttributes"] = args ? args.engineAttributes : undefined;
-            resourceInputs["engineModel"] = args ? args.engineModel : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["instanceProfileArn"] = args ? args.instanceProfileArn : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["keyPair"] = args ? args.keyPair : undefined;
-            resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associatePublicIpAddress"] = args?.associatePublicIpAddress;
+            resourceInputs["backupId"] = args?.backupId;
+            resourceInputs["backupRetentionCount"] = args?.backupRetentionCount;
+            resourceInputs["customCertificate"] = args?.customCertificate;
+            resourceInputs["customDomain"] = args?.customDomain;
+            resourceInputs["customPrivateKey"] = args?.customPrivateKey;
+            resourceInputs["disableAutomatedBackup"] = args?.disableAutomatedBackup;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["engineAttributes"] = args?.engineAttributes;
+            resourceInputs["engineModel"] = args?.engineModel;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["instanceProfileArn"] = args?.instanceProfileArn;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["keyPair"] = args?.keyPair;
+            resourceInputs["preferredBackupWindow"] = args?.preferredBackupWindow;
+            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["serviceRoleArn"] = args?.serviceRoleArn;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;

@@ -40,27 +40,27 @@ export class TransitGatewayConnectPeer extends pulumi.CustomResource {
     /**
      * The Connect peer details.
      */
-    public readonly connectPeerConfiguration!: pulumi.Output<outputs.ec2.TransitGatewayConnectPeerConfiguration>;
+    declare public readonly connectPeerConfiguration: pulumi.Output<outputs.ec2.TransitGatewayConnectPeerConfiguration>;
     /**
      * The creation time.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The state of the Connect peer.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The tags for the Connect Peer.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the Connect attachment.
      */
-    public readonly transitGatewayAttachmentId!: pulumi.Output<string>;
+    declare public readonly transitGatewayAttachmentId: pulumi.Output<string>;
     /**
      * The ID of the Connect peer.
      */
-    public /*out*/ readonly transitGatewayConnectPeerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly transitGatewayConnectPeerId: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayConnectPeer resource with the given unique name, arguments, and options.
@@ -73,15 +73,15 @@ export class TransitGatewayConnectPeer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectPeerConfiguration === undefined) && !opts.urn) {
+            if (args?.connectPeerConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectPeerConfiguration'");
             }
-            if ((!args || args.transitGatewayAttachmentId === undefined) && !opts.urn) {
+            if (args?.transitGatewayAttachmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
-            resourceInputs["connectPeerConfiguration"] = args ? args.connectPeerConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
+            resourceInputs["connectPeerConfiguration"] = args?.connectPeerConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayAttachmentId"] = args?.transitGatewayAttachmentId;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["transitGatewayConnectPeerId"] = undefined /*out*/;

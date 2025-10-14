@@ -40,39 +40,39 @@ export class LocalGatewayVirtualInterfaceGroup extends pulumi.CustomResource {
     /**
      * The current state of the local gateway virtual interface group
      */
-    public /*out*/ readonly configurationState!: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationState: pulumi.Output<string>;
     /**
      * The Autonomous System Number(ASN) for the local Border Gateway Protocol (BGP)
      */
-    public readonly localBgpAsn!: pulumi.Output<number | undefined>;
+    declare public readonly localBgpAsn: pulumi.Output<number | undefined>;
     /**
      * The extended 32-bit ASN for the local BGP configuration
      */
-    public readonly localBgpAsnExtended!: pulumi.Output<number | undefined>;
+    declare public readonly localBgpAsnExtended: pulumi.Output<number | undefined>;
     /**
      * The ID of the local gateway
      */
-    public readonly localGatewayId!: pulumi.Output<string>;
+    declare public readonly localGatewayId: pulumi.Output<string>;
     /**
      * The Amazon Resource Number (ARN) of the local gateway virtual interface group
      */
-    public /*out*/ readonly localGatewayVirtualInterfaceGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly localGatewayVirtualInterfaceGroupArn: pulumi.Output<string>;
     /**
      * The ID of the virtual interface group
      */
-    public /*out*/ readonly localGatewayVirtualInterfaceGroupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly localGatewayVirtualInterfaceGroupId: pulumi.Output<string>;
     /**
      * The IDs of the virtual interfaces
      */
-    public /*out*/ readonly localGatewayVirtualInterfaceIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly localGatewayVirtualInterfaceIds: pulumi.Output<string[]>;
     /**
      * The ID of the Amazon Web Services account that owns the local gateway virtual interface group
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * The tags assigned to the virtual interface group
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LocalGatewayVirtualInterfaceGroup resource with the given unique name, arguments, and options.
@@ -85,13 +85,13 @@ export class LocalGatewayVirtualInterfaceGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.localGatewayId === undefined) && !opts.urn) {
+            if (args?.localGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayId'");
             }
-            resourceInputs["localBgpAsn"] = args ? args.localBgpAsn : undefined;
-            resourceInputs["localBgpAsnExtended"] = args ? args.localBgpAsnExtended : undefined;
-            resourceInputs["localGatewayId"] = args ? args.localGatewayId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["localBgpAsn"] = args?.localBgpAsn;
+            resourceInputs["localBgpAsnExtended"] = args?.localBgpAsnExtended;
+            resourceInputs["localGatewayId"] = args?.localGatewayId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["localGatewayVirtualInterfaceGroupArn"] = undefined /*out*/;
             resourceInputs["localGatewayVirtualInterfaceGroupId"] = undefined /*out*/;

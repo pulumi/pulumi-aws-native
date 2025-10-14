@@ -40,35 +40,35 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Specifies deployment configuration for updating the SageMaker endpoint. Includes rollback and update policies.
      */
-    public readonly deploymentConfig!: pulumi.Output<outputs.sagemaker.EndpointDeploymentConfig | undefined>;
+    declare public readonly deploymentConfig: pulumi.Output<outputs.sagemaker.EndpointDeploymentConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the endpoint.
      */
-    public /*out*/ readonly endpointArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpointArn: pulumi.Output<string>;
     /**
      * The name of the endpoint configuration for the SageMaker endpoint. This is a required property.
      */
-    public readonly endpointConfigName!: pulumi.Output<string>;
+    declare public readonly endpointConfigName: pulumi.Output<string>;
     /**
      * The name of the SageMaker endpoint. This name must be unique within an AWS Region.
      */
-    public readonly endpointName!: pulumi.Output<string>;
+    declare public readonly endpointName: pulumi.Output<string>;
     /**
      * Specifies a list of variant properties that you want to exclude when updating an endpoint.
      */
-    public readonly excludeRetainedVariantProperties!: pulumi.Output<outputs.sagemaker.EndpointVariantProperty[] | undefined>;
+    declare public readonly excludeRetainedVariantProperties: pulumi.Output<outputs.sagemaker.EndpointVariantProperty[] | undefined>;
     /**
      * When set to true, retains all variant properties for an endpoint when it is updated.
      */
-    public readonly retainAllVariantProperties!: pulumi.Output<boolean | undefined>;
+    declare public readonly retainAllVariantProperties: pulumi.Output<boolean | undefined>;
     /**
      * When set to true, retains the deployment configuration during endpoint updates.
      */
-    public readonly retainDeploymentConfig!: pulumi.Output<boolean | undefined>;
+    declare public readonly retainDeploymentConfig: pulumi.Output<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -81,16 +81,16 @@ export class Endpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointConfigName === undefined) && !opts.urn) {
+            if (args?.endpointConfigName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointConfigName'");
             }
-            resourceInputs["deploymentConfig"] = args ? args.deploymentConfig : undefined;
-            resourceInputs["endpointConfigName"] = args ? args.endpointConfigName : undefined;
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["excludeRetainedVariantProperties"] = args ? args.excludeRetainedVariantProperties : undefined;
-            resourceInputs["retainAllVariantProperties"] = args ? args.retainAllVariantProperties : undefined;
-            resourceInputs["retainDeploymentConfig"] = args ? args.retainDeploymentConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deploymentConfig"] = args?.deploymentConfig;
+            resourceInputs["endpointConfigName"] = args?.endpointConfigName;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["excludeRetainedVariantProperties"] = args?.excludeRetainedVariantProperties;
+            resourceInputs["retainAllVariantProperties"] = args?.retainAllVariantProperties;
+            resourceInputs["retainDeploymentConfig"] = args?.retainDeploymentConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["endpointArn"] = undefined /*out*/;
         } else {
             resourceInputs["deploymentConfig"] = undefined /*out*/;

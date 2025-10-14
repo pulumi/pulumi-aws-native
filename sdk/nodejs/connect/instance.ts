@@ -40,43 +40,43 @@ export class Instance extends pulumi.CustomResource {
     /**
      * An instanceArn is automatically generated on creation based on instanceId.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The attributes for the instance.
      */
-    public readonly attributes!: pulumi.Output<outputs.connect.InstanceAttributes>;
+    declare public readonly attributes: pulumi.Output<outputs.connect.InstanceAttributes>;
     /**
      * An instanceId is automatically generated on creation and assigned as the unique identifier.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Timestamp of instance creation logged as part of instance creation.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * Existing directoryId user wants to map to the new Connect instance.
      */
-    public readonly directoryId!: pulumi.Output<string | undefined>;
+    declare public readonly directoryId: pulumi.Output<string | undefined>;
     /**
      * Specifies the type of directory integration for new instance.
      */
-    public readonly identityManagementType!: pulumi.Output<enums.connect.InstanceIdentityManagementType>;
+    declare public readonly identityManagementType: pulumi.Output<enums.connect.InstanceIdentityManagementType>;
     /**
      * Alias of the new directory created as part of new instance creation.
      */
-    public readonly instanceAlias!: pulumi.Output<string | undefined>;
+    declare public readonly instanceAlias: pulumi.Output<string | undefined>;
     /**
      * Specifies the creation status of new instance.
      */
-    public /*out*/ readonly instanceStatus!: pulumi.Output<enums.connect.InstanceStatus>;
+    declare public /*out*/ readonly instanceStatus: pulumi.Output<enums.connect.InstanceStatus>;
     /**
      * Service linked role created as part of instance creation.
      */
-    public /*out*/ readonly serviceRole!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceRole: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.
@@ -89,17 +89,17 @@ export class Instance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.attributes === undefined) && !opts.urn) {
+            if (args?.attributes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'attributes'");
             }
-            if ((!args || args.identityManagementType === undefined) && !opts.urn) {
+            if (args?.identityManagementType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityManagementType'");
             }
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
-            resourceInputs["identityManagementType"] = args ? args.identityManagementType : undefined;
-            resourceInputs["instanceAlias"] = args ? args.instanceAlias : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["directoryId"] = args?.directoryId;
+            resourceInputs["identityManagementType"] = args?.identityManagementType;
+            resourceInputs["instanceAlias"] = args?.instanceAlias;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;

@@ -37,17 +37,17 @@ export class GatewayTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === GatewayTarget.__pulumiType;
     }
 
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    public readonly credentialProviderConfigurations!: pulumi.Output<outputs.bedrockagentcore.GatewayTargetCredentialProviderConfiguration[]>;
-    public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly gatewayArn!: pulumi.Output<string>;
-    public readonly gatewayIdentifier!: pulumi.Output<string | undefined>;
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly status!: pulumi.Output<enums.bedrockagentcore.GatewayTargetTargetStatus>;
-    public /*out*/ readonly statusReasons!: pulumi.Output<string[]>;
-    public readonly targetConfiguration!: pulumi.Output<outputs.bedrockagentcore.GatewayTargetTargetConfigurationProperties>;
-    public /*out*/ readonly targetId!: pulumi.Output<string>;
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    declare public readonly credentialProviderConfigurations: pulumi.Output<outputs.bedrockagentcore.GatewayTargetCredentialProviderConfiguration[]>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly gatewayArn: pulumi.Output<string>;
+    declare public readonly gatewayIdentifier: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.bedrockagentcore.GatewayTargetTargetStatus>;
+    declare public /*out*/ readonly statusReasons: pulumi.Output<string[]>;
+    declare public readonly targetConfiguration: pulumi.Output<outputs.bedrockagentcore.GatewayTargetTargetConfigurationProperties>;
+    declare public /*out*/ readonly targetId: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a GatewayTarget resource with the given unique name, arguments, and options.
@@ -60,17 +60,17 @@ export class GatewayTarget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.credentialProviderConfigurations === undefined) && !opts.urn) {
+            if (args?.credentialProviderConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'credentialProviderConfigurations'");
             }
-            if ((!args || args.targetConfiguration === undefined) && !opts.urn) {
+            if (args?.targetConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetConfiguration'");
             }
-            resourceInputs["credentialProviderConfigurations"] = args ? args.credentialProviderConfigurations : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["gatewayIdentifier"] = args ? args.gatewayIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["targetConfiguration"] = args ? args.targetConfiguration : undefined;
+            resourceInputs["credentialProviderConfigurations"] = args?.credentialProviderConfigurations;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["gatewayIdentifier"] = args?.gatewayIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["targetConfiguration"] = args?.targetConfiguration;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["gatewayArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

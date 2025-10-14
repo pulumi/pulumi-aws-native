@@ -37,19 +37,19 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * The API identifier.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * The deployment ID.
      */
-    public /*out*/ readonly deploymentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentId: pulumi.Output<string>;
     /**
      * The description for the deployment resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of an existing stage to associate with the deployment.
      */
-    public readonly stageName!: pulumi.Output<string | undefined>;
+    declare public readonly stageName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -62,12 +62,12 @@ export class Deployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["stageName"] = args ? args.stageName : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["stageName"] = args?.stageName;
             resourceInputs["deploymentId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

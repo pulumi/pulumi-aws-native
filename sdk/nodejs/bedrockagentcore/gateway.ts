@@ -37,24 +37,24 @@ export class Gateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === Gateway.__pulumiType;
     }
 
-    public readonly authorizerConfiguration!: pulumi.Output<outputs.bedrockagentcore.GatewayAuthorizerConfigurationProperties | undefined>;
-    public readonly authorizerType!: pulumi.Output<enums.bedrockagentcore.GatewayAuthorizerType>;
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    public readonly description!: pulumi.Output<string | undefined>;
-    public readonly exceptionLevel!: pulumi.Output<enums.bedrockagentcore.GatewayExceptionLevel | undefined>;
-    public /*out*/ readonly gatewayArn!: pulumi.Output<string>;
-    public /*out*/ readonly gatewayIdentifier!: pulumi.Output<string>;
-    public /*out*/ readonly gatewayUrl!: pulumi.Output<string>;
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
-    public readonly name!: pulumi.Output<string>;
-    public readonly protocolConfiguration!: pulumi.Output<outputs.bedrockagentcore.GatewayProtocolConfigurationProperties | undefined>;
-    public readonly protocolType!: pulumi.Output<enums.bedrockagentcore.GatewayProtocolType>;
-    public readonly roleArn!: pulumi.Output<string>;
-    public /*out*/ readonly status!: pulumi.Output<enums.bedrockagentcore.GatewayStatus>;
-    public /*out*/ readonly statusReasons!: pulumi.Output<string[]>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
-    public /*out*/ readonly workloadIdentityDetails!: pulumi.Output<outputs.bedrockagentcore.GatewayWorkloadIdentityDetails>;
+    declare public readonly authorizerConfiguration: pulumi.Output<outputs.bedrockagentcore.GatewayAuthorizerConfigurationProperties | undefined>;
+    declare public readonly authorizerType: pulumi.Output<enums.bedrockagentcore.GatewayAuthorizerType>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly exceptionLevel: pulumi.Output<enums.bedrockagentcore.GatewayExceptionLevel | undefined>;
+    declare public /*out*/ readonly gatewayArn: pulumi.Output<string>;
+    declare public /*out*/ readonly gatewayIdentifier: pulumi.Output<string>;
+    declare public /*out*/ readonly gatewayUrl: pulumi.Output<string>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly protocolConfiguration: pulumi.Output<outputs.bedrockagentcore.GatewayProtocolConfigurationProperties | undefined>;
+    declare public readonly protocolType: pulumi.Output<enums.bedrockagentcore.GatewayProtocolType>;
+    declare public readonly roleArn: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.bedrockagentcore.GatewayStatus>;
+    declare public /*out*/ readonly statusReasons: pulumi.Output<string[]>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
+    declare public /*out*/ readonly workloadIdentityDetails: pulumi.Output<outputs.bedrockagentcore.GatewayWorkloadIdentityDetails>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -67,25 +67,25 @@ export class Gateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authorizerType === undefined) && !opts.urn) {
+            if (args?.authorizerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizerType'");
             }
-            if ((!args || args.protocolType === undefined) && !opts.urn) {
+            if (args?.protocolType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocolType'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["authorizerConfiguration"] = args ? args.authorizerConfiguration : undefined;
-            resourceInputs["authorizerType"] = args ? args.authorizerType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["exceptionLevel"] = args ? args.exceptionLevel : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["protocolConfiguration"] = args ? args.protocolConfiguration : undefined;
-            resourceInputs["protocolType"] = args ? args.protocolType : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authorizerConfiguration"] = args?.authorizerConfiguration;
+            resourceInputs["authorizerType"] = args?.authorizerType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["exceptionLevel"] = args?.exceptionLevel;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["protocolConfiguration"] = args?.protocolConfiguration;
+            resourceInputs["protocolType"] = args?.protocolType;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["gatewayArn"] = undefined /*out*/;
             resourceInputs["gatewayIdentifier"] = undefined /*out*/;

@@ -40,35 +40,35 @@ export class TrustStore extends pulumi.CustomResource {
     /**
      * The name of the S3 bucket to fetch the CA certificate bundle from.
      */
-    public readonly caCertificatesBundleS3Bucket!: pulumi.Output<string | undefined>;
+    declare public readonly caCertificatesBundleS3Bucket: pulumi.Output<string | undefined>;
     /**
      * The name of the S3 object to fetch the CA certificate bundle from.
      */
-    public readonly caCertificatesBundleS3Key!: pulumi.Output<string | undefined>;
+    declare public readonly caCertificatesBundleS3Key: pulumi.Output<string | undefined>;
     /**
      * The version of the S3 bucket that contains the CA certificate bundle.
      */
-    public readonly caCertificatesBundleS3ObjectVersion!: pulumi.Output<string | undefined>;
+    declare public readonly caCertificatesBundleS3ObjectVersion: pulumi.Output<string | undefined>;
     /**
      * The name of the trust store.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The number of certificates associated with the trust store.
      */
-    public /*out*/ readonly numberOfCaCertificates!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfCaCertificates: pulumi.Output<number>;
     /**
      * The status of the trust store, could be either of ACTIVE or CREATING.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The tags to assign to the trust store.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the trust store.
      */
-    public /*out*/ readonly trustStoreArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly trustStoreArn: pulumi.Output<string>;
 
     /**
      * Create a TrustStore resource with the given unique name, arguments, and options.
@@ -81,11 +81,11 @@ export class TrustStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["caCertificatesBundleS3Bucket"] = args ? args.caCertificatesBundleS3Bucket : undefined;
-            resourceInputs["caCertificatesBundleS3Key"] = args ? args.caCertificatesBundleS3Key : undefined;
-            resourceInputs["caCertificatesBundleS3ObjectVersion"] = args ? args.caCertificatesBundleS3ObjectVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["caCertificatesBundleS3Bucket"] = args?.caCertificatesBundleS3Bucket;
+            resourceInputs["caCertificatesBundleS3Key"] = args?.caCertificatesBundleS3Key;
+            resourceInputs["caCertificatesBundleS3ObjectVersion"] = args?.caCertificatesBundleS3ObjectVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["numberOfCaCertificates"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["trustStoreArn"] = undefined /*out*/;

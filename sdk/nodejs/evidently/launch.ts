@@ -40,43 +40,43 @@ export class Launch extends pulumi.CustomResource {
     /**
      * The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An optional description for the launch.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Start or Stop Launch Launch. Default is not started.
      */
-    public readonly executionStatus!: pulumi.Output<outputs.evidently.LaunchExecutionStatusObject | undefined>;
+    declare public readonly executionStatus: pulumi.Output<outputs.evidently.LaunchExecutionStatusObject | undefined>;
     /**
      * An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
      */
-    public readonly groups!: pulumi.Output<outputs.evidently.LaunchGroupObject[]>;
+    declare public readonly groups: pulumi.Output<outputs.evidently.LaunchGroupObject[]>;
     /**
      * An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
      */
-    public readonly metricMonitors!: pulumi.Output<outputs.evidently.LaunchMetricDefinitionObject[] | undefined>;
+    declare public readonly metricMonitors: pulumi.Output<outputs.evidently.LaunchMetricDefinitionObject[] | undefined>;
     /**
      * The name for the launch. It can include up to 127 characters.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name or ARN of the project that you want to create the launch in.
      */
-    public readonly project!: pulumi.Output<string>;
+    declare public readonly project: pulumi.Output<string>;
     /**
      * When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
      */
-    public readonly randomizationSalt!: pulumi.Output<string | undefined>;
+    declare public readonly randomizationSalt: pulumi.Output<string | undefined>;
     /**
      * An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
      */
-    public readonly scheduledSplitsConfig!: pulumi.Output<outputs.evidently.LaunchStepConfig[]>;
+    declare public readonly scheduledSplitsConfig: pulumi.Output<outputs.evidently.LaunchStepConfig[]>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Launch resource with the given unique name, arguments, and options.
@@ -89,24 +89,24 @@ export class Launch extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groups === undefined) && !opts.urn) {
+            if (args?.groups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groups'");
             }
-            if ((!args || args.project === undefined) && !opts.urn) {
+            if (args?.project === undefined && !opts.urn) {
                 throw new Error("Missing required property 'project'");
             }
-            if ((!args || args.scheduledSplitsConfig === undefined) && !opts.urn) {
+            if (args?.scheduledSplitsConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduledSplitsConfig'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executionStatus"] = args ? args.executionStatus : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["metricMonitors"] = args ? args.metricMonitors : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["project"] = args ? args.project : undefined;
-            resourceInputs["randomizationSalt"] = args ? args.randomizationSalt : undefined;
-            resourceInputs["scheduledSplitsConfig"] = args ? args.scheduledSplitsConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executionStatus"] = args?.executionStatus;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["metricMonitors"] = args?.metricMonitors;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["project"] = args?.project;
+            resourceInputs["randomizationSalt"] = args?.randomizationSalt;
+            resourceInputs["scheduledSplitsConfig"] = args?.scheduledSplitsConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

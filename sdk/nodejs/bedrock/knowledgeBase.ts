@@ -40,54 +40,54 @@ export class KnowledgeBase extends pulumi.CustomResource {
     /**
      * The time at which the knowledge base was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Description of the Resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A list of reasons that the API operation on the knowledge base failed.
      */
-    public /*out*/ readonly failureReasons!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly failureReasons: pulumi.Output<string[]>;
     /**
      * The ARN of the knowledge base.
      */
-    public /*out*/ readonly knowledgeBaseArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly knowledgeBaseArn: pulumi.Output<string>;
     /**
      * Contains details about the embeddings configuration of the knowledge base.
      */
-    public readonly knowledgeBaseConfiguration!: pulumi.Output<outputs.bedrock.KnowledgeBaseConfiguration>;
+    declare public readonly knowledgeBaseConfiguration: pulumi.Output<outputs.bedrock.KnowledgeBaseConfiguration>;
     /**
      * The unique identifier of the knowledge base.
      */
-    public /*out*/ readonly knowledgeBaseId!: pulumi.Output<string>;
+    declare public /*out*/ readonly knowledgeBaseId: pulumi.Output<string>;
     /**
      * The name of the knowledge base.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The status of the knowledge base.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.bedrock.KnowledgeBaseStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.bedrock.KnowledgeBaseStatus>;
     /**
      * Contains details about the storage configuration of the knowledge base.
      */
-    public readonly storageConfiguration!: pulumi.Output<outputs.bedrock.KnowledgeBaseStorageConfiguration | undefined>;
+    declare public readonly storageConfiguration: pulumi.Output<outputs.bedrock.KnowledgeBaseStorageConfiguration | undefined>;
     /**
      * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
      *
      * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
      * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The time at which the knowledge base was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a KnowledgeBase resource with the given unique name, arguments, and options.
@@ -100,18 +100,18 @@ export class KnowledgeBase extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.knowledgeBaseConfiguration === undefined) && !opts.urn) {
+            if (args?.knowledgeBaseConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'knowledgeBaseConfiguration'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["knowledgeBaseConfiguration"] = args ? args.knowledgeBaseConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["knowledgeBaseConfiguration"] = args?.knowledgeBaseConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["storageConfiguration"] = args?.storageConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["failureReasons"] = undefined /*out*/;
             resourceInputs["knowledgeBaseArn"] = undefined /*out*/;

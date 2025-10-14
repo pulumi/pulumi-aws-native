@@ -40,19 +40,19 @@ export class MailManagerAddressList extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the address list.
      */
-    public /*out*/ readonly addressListArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly addressListArn: pulumi.Output<string>;
     /**
      * The identifier of the address list.
      */
-    public /*out*/ readonly addressListId!: pulumi.Output<string>;
+    declare public /*out*/ readonly addressListId: pulumi.Output<string>;
     /**
      * A user-friendly name for the address list.
      */
-    public readonly addressListName!: pulumi.Output<string | undefined>;
+    declare public readonly addressListName: pulumi.Output<string | undefined>;
     /**
      * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MailManagerAddressList resource with the given unique name, arguments, and options.
@@ -65,8 +65,8 @@ export class MailManagerAddressList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["addressListName"] = args ? args.addressListName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addressListName"] = args?.addressListName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["addressListArn"] = undefined /*out*/;
             resourceInputs["addressListId"] = undefined /*out*/;
         } else {

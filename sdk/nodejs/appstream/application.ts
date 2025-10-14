@@ -40,65 +40,65 @@ export class Application extends pulumi.CustomResource {
     /**
      * The app block ARN with which the application should be associated.
      */
-    public readonly appBlockArn!: pulumi.Output<string>;
+    declare public readonly appBlockArn: pulumi.Output<string>;
     /**
      * The ARN of the application.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A list of attributes to delete from an application.
      */
-    public readonly attributesToDelete!: pulumi.Output<string[] | undefined>;
+    declare public readonly attributesToDelete: pulumi.Output<string[] | undefined>;
     /**
      * The time when the application was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The description of the application.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the application. This name is visible to users in the application catalog.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The icon S3 location of the application.
      */
-    public readonly iconS3Location!: pulumi.Output<outputs.appstream.ApplicationS3Location>;
+    declare public readonly iconS3Location: pulumi.Output<outputs.appstream.ApplicationS3Location>;
     /**
      * The instance families the application supports.
      *
      * *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
      */
-    public readonly instanceFamilies!: pulumi.Output<string[]>;
+    declare public readonly instanceFamilies: pulumi.Output<string[]>;
     /**
      * The launch parameters of the application.
      */
-    public readonly launchParameters!: pulumi.Output<string | undefined>;
+    declare public readonly launchParameters: pulumi.Output<string | undefined>;
     /**
      * The launch path of the application.
      */
-    public readonly launchPath!: pulumi.Output<string>;
+    declare public readonly launchPath: pulumi.Output<string>;
     /**
      * The name of the application. This name is visible to users when a name is not specified in the DisplayName property.
      *
      * *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The platforms the application supports.
      *
      * *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
      */
-    public readonly platforms!: pulumi.Output<string[]>;
+    declare public readonly platforms: pulumi.Output<string[]>;
     /**
      * The tags of the application.
      */
-    public readonly tags!: pulumi.Output<(outputs.appstream.ApplicationTag0Properties | outputs.appstream.ApplicationTag1Properties)[] | undefined>;
+    declare public readonly tags: pulumi.Output<(outputs.appstream.ApplicationTag0Properties | outputs.appstream.ApplicationTag1Properties)[] | undefined>;
     /**
      * The working directory of the application.
      */
-    public readonly workingDirectory!: pulumi.Output<string | undefined>;
+    declare public readonly workingDirectory: pulumi.Output<string | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -111,33 +111,33 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appBlockArn === undefined) && !opts.urn) {
+            if (args?.appBlockArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appBlockArn'");
             }
-            if ((!args || args.iconS3Location === undefined) && !opts.urn) {
+            if (args?.iconS3Location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iconS3Location'");
             }
-            if ((!args || args.instanceFamilies === undefined) && !opts.urn) {
+            if (args?.instanceFamilies === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceFamilies'");
             }
-            if ((!args || args.launchPath === undefined) && !opts.urn) {
+            if (args?.launchPath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'launchPath'");
             }
-            if ((!args || args.platforms === undefined) && !opts.urn) {
+            if (args?.platforms === undefined && !opts.urn) {
                 throw new Error("Missing required property 'platforms'");
             }
-            resourceInputs["appBlockArn"] = args ? args.appBlockArn : undefined;
-            resourceInputs["attributesToDelete"] = args ? args.attributesToDelete : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["iconS3Location"] = args ? args.iconS3Location : undefined;
-            resourceInputs["instanceFamilies"] = args ? args.instanceFamilies : undefined;
-            resourceInputs["launchParameters"] = args ? args.launchParameters : undefined;
-            resourceInputs["launchPath"] = args ? args.launchPath : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["platforms"] = args ? args.platforms : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workingDirectory"] = args ? args.workingDirectory : undefined;
+            resourceInputs["appBlockArn"] = args?.appBlockArn;
+            resourceInputs["attributesToDelete"] = args?.attributesToDelete;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["iconS3Location"] = args?.iconS3Location;
+            resourceInputs["instanceFamilies"] = args?.instanceFamilies;
+            resourceInputs["launchParameters"] = args?.launchParameters;
+            resourceInputs["launchPath"] = args?.launchPath;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["platforms"] = args?.platforms;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workingDirectory"] = args?.workingDirectory;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
         } else {

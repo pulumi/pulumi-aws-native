@@ -40,27 +40,27 @@ export class WorkerConfiguration extends pulumi.CustomResource {
     /**
      * A summary description of the worker configuration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the worker configuration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Base64 encoded contents of connect-distributed.properties file.
      */
-    public readonly propertiesFileContent!: pulumi.Output<string>;
+    declare public readonly propertiesFileContent: pulumi.Output<string>;
     /**
      * The description of a revision of the worker configuration.
      */
-    public /*out*/ readonly revision!: pulumi.Output<number>;
+    declare public /*out*/ readonly revision: pulumi.Output<number>;
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the custom configuration.
      */
-    public /*out*/ readonly workerConfigurationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly workerConfigurationArn: pulumi.Output<string>;
 
     /**
      * Create a WorkerConfiguration resource with the given unique name, arguments, and options.
@@ -73,13 +73,13 @@ export class WorkerConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.propertiesFileContent === undefined) && !opts.urn) {
+            if (args?.propertiesFileContent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'propertiesFileContent'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["propertiesFileContent"] = args ? args.propertiesFileContent : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["propertiesFileContent"] = args?.propertiesFileContent;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["revision"] = undefined /*out*/;
             resourceInputs["workerConfigurationArn"] = undefined /*out*/;
         } else {

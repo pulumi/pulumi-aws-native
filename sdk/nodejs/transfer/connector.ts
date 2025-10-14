@@ -40,43 +40,43 @@ export class Connector extends pulumi.CustomResource {
     /**
      * Specifies the access role for the connector.
      */
-    public readonly accessRole!: pulumi.Output<string>;
+    declare public readonly accessRole: pulumi.Output<string>;
     /**
      * Specifies the unique Amazon Resource Name (ARN) for the connector.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Configuration for an AS2 connector.
      */
-    public readonly as2Config!: pulumi.Output<outputs.transfer.As2ConfigProperties | undefined>;
+    declare public readonly as2Config: pulumi.Output<outputs.transfer.As2ConfigProperties | undefined>;
     /**
      * A unique identifier for the connector.
      */
-    public /*out*/ readonly connectorId!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectorId: pulumi.Output<string>;
     /**
      * Specifies the logging role for the connector.
      */
-    public readonly loggingRole!: pulumi.Output<string | undefined>;
+    declare public readonly loggingRole: pulumi.Output<string | undefined>;
     /**
      * Security policy for SFTP Connector
      */
-    public readonly securityPolicyName!: pulumi.Output<string | undefined>;
+    declare public readonly securityPolicyName: pulumi.Output<string | undefined>;
     /**
      * The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.
      */
-    public /*out*/ readonly serviceManagedEgressIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly serviceManagedEgressIpAddresses: pulumi.Output<string[]>;
     /**
      * Configuration for an SFTP connector.
      */
-    public readonly sftpConfig!: pulumi.Output<outputs.transfer.SftpConfigProperties | undefined>;
+    declare public readonly sftpConfig: pulumi.Output<outputs.transfer.SftpConfigProperties | undefined>;
     /**
      * Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * URL for Connector
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
 
     /**
      * Create a Connector resource with the given unique name, arguments, and options.
@@ -89,19 +89,19 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessRole === undefined) && !opts.urn) {
+            if (args?.accessRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessRole'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
+            if (args?.url === undefined && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            resourceInputs["accessRole"] = args ? args.accessRole : undefined;
-            resourceInputs["as2Config"] = args ? args.as2Config : undefined;
-            resourceInputs["loggingRole"] = args ? args.loggingRole : undefined;
-            resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
-            resourceInputs["sftpConfig"] = args ? args.sftpConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["accessRole"] = args?.accessRole;
+            resourceInputs["as2Config"] = args?.as2Config;
+            resourceInputs["loggingRole"] = args?.loggingRole;
+            resourceInputs["securityPolicyName"] = args?.securityPolicyName;
+            resourceInputs["sftpConfig"] = args?.sftpConfig;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["url"] = args?.url;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["connectorId"] = undefined /*out*/;
             resourceInputs["serviceManagedEgressIpAddresses"] = undefined /*out*/;

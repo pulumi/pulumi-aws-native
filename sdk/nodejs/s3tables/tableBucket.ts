@@ -40,19 +40,19 @@ export class TableBucket extends pulumi.CustomResource {
     /**
      * Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<outputs.s3tables.TableBucketEncryptionConfiguration | undefined>;
+    declare public readonly encryptionConfiguration: pulumi.Output<outputs.s3tables.TableBucketEncryptionConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the table bucket.
      */
-    public /*out*/ readonly tableBucketArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly tableBucketArn: pulumi.Output<string>;
     /**
      * The name for the table bucket.
      */
-    public readonly tableBucketName!: pulumi.Output<string>;
+    declare public readonly tableBucketName: pulumi.Output<string>;
     /**
      * The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
      */
-    public readonly unreferencedFileRemoval!: pulumi.Output<outputs.s3tables.TableBucketUnreferencedFileRemoval | undefined>;
+    declare public readonly unreferencedFileRemoval: pulumi.Output<outputs.s3tables.TableBucketUnreferencedFileRemoval | undefined>;
 
     /**
      * Create a TableBucket resource with the given unique name, arguments, and options.
@@ -65,9 +65,9 @@ export class TableBucket extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            resourceInputs["tableBucketName"] = args ? args.tableBucketName : undefined;
-            resourceInputs["unreferencedFileRemoval"] = args ? args.unreferencedFileRemoval : undefined;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["tableBucketName"] = args?.tableBucketName;
+            resourceInputs["unreferencedFileRemoval"] = args?.unreferencedFileRemoval;
             resourceInputs["tableBucketArn"] = undefined /*out*/;
         } else {
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;

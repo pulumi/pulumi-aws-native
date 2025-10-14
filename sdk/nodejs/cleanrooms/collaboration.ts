@@ -42,73 +42,73 @@ export class Collaboration extends pulumi.CustomResource {
      *
      * > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
      */
-    public readonly analyticsEngine!: pulumi.Output<enums.cleanrooms.CollaborationAnalyticsEngine | undefined>;
+    declare public readonly analyticsEngine: pulumi.Output<enums.cleanrooms.CollaborationAnalyticsEngine | undefined>;
     /**
      * Returns the Amazon Resource Name (ARN) of the specified collaboration.
      *
      * Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The types of change requests that are automatically approved for this collaboration.
      */
-    public readonly autoApprovedChangeTypes!: pulumi.Output<enums.cleanrooms.CollaborationAutoApprovedChangeType[] | undefined>;
+    declare public readonly autoApprovedChangeTypes: pulumi.Output<enums.cleanrooms.CollaborationAutoApprovedChangeType[] | undefined>;
     /**
      * Returns the unique identifier of the specified collaboration.
      *
      * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
      */
-    public /*out*/ readonly collaborationIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly collaborationIdentifier: pulumi.Output<string>;
     /**
      * A display name of the collaboration creator.
      */
-    public readonly creatorDisplayName!: pulumi.Output<string>;
+    declare public readonly creatorDisplayName: pulumi.Output<string>;
     /**
      * The abilities granted to the collaboration creator.
      *
      * *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
      */
-    public readonly creatorMemberAbilities!: pulumi.Output<enums.cleanrooms.CollaborationMemberAbility[] | undefined>;
+    declare public readonly creatorMemberAbilities: pulumi.Output<enums.cleanrooms.CollaborationMemberAbility[] | undefined>;
     /**
      * The ML member abilities for a collaboration member.
      */
-    public readonly creatorMlMemberAbilities!: pulumi.Output<outputs.cleanrooms.CollaborationMlMemberAbilities | undefined>;
+    declare public readonly creatorMlMemberAbilities: pulumi.Output<outputs.cleanrooms.CollaborationMlMemberAbilities | undefined>;
     /**
      * An object representing the collaboration member's payment responsibilities set by the collaboration creator.
      */
-    public readonly creatorPaymentConfiguration!: pulumi.Output<outputs.cleanrooms.CollaborationPaymentConfiguration | undefined>;
+    declare public readonly creatorPaymentConfiguration: pulumi.Output<outputs.cleanrooms.CollaborationPaymentConfiguration | undefined>;
     /**
      * The settings for client-side encryption for cryptographic computing.
      */
-    public readonly dataEncryptionMetadata!: pulumi.Output<outputs.cleanrooms.CollaborationDataEncryptionMetadata | undefined>;
+    declare public readonly dataEncryptionMetadata: pulumi.Output<outputs.cleanrooms.CollaborationDataEncryptionMetadata | undefined>;
     /**
      * A description of the collaboration provided by the collaboration owner.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * An indicator as to whether job logging has been enabled or disabled for the collaboration.
      *
      * When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
      */
-    public readonly jobLogStatus!: pulumi.Output<enums.cleanrooms.CollaborationJobLogStatus | undefined>;
+    declare public readonly jobLogStatus: pulumi.Output<enums.cleanrooms.CollaborationJobLogStatus | undefined>;
     /**
      * A list of initial members, not including the creator. This list is immutable.
      */
-    public readonly members!: pulumi.Output<outputs.cleanrooms.CollaborationMemberSpecification[] | undefined>;
+    declare public readonly members: pulumi.Output<outputs.cleanrooms.CollaborationMemberSpecification[] | undefined>;
     /**
      * A human-readable identifier provided by the collaboration owner. Display names are not unique.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An indicator as to whether query logging has been enabled or disabled for the collaboration.
      *
      * When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
      */
-    public readonly queryLogStatus!: pulumi.Output<enums.cleanrooms.CollaborationQueryLogStatus>;
+    declare public readonly queryLogStatus: pulumi.Output<enums.cleanrooms.CollaborationQueryLogStatus>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Collaboration resource with the given unique name, arguments, and options.
@@ -121,28 +121,28 @@ export class Collaboration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.creatorDisplayName === undefined) && !opts.urn) {
+            if (args?.creatorDisplayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'creatorDisplayName'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.queryLogStatus === undefined) && !opts.urn) {
+            if (args?.queryLogStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryLogStatus'");
             }
-            resourceInputs["analyticsEngine"] = args ? args.analyticsEngine : undefined;
-            resourceInputs["autoApprovedChangeTypes"] = args ? args.autoApprovedChangeTypes : undefined;
-            resourceInputs["creatorDisplayName"] = args ? args.creatorDisplayName : undefined;
-            resourceInputs["creatorMemberAbilities"] = args ? args.creatorMemberAbilities : undefined;
-            resourceInputs["creatorMlMemberAbilities"] = args ? args.creatorMlMemberAbilities : undefined;
-            resourceInputs["creatorPaymentConfiguration"] = args ? args.creatorPaymentConfiguration : undefined;
-            resourceInputs["dataEncryptionMetadata"] = args ? args.dataEncryptionMetadata : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["jobLogStatus"] = args ? args.jobLogStatus : undefined;
-            resourceInputs["members"] = args ? args.members : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queryLogStatus"] = args ? args.queryLogStatus : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["analyticsEngine"] = args?.analyticsEngine;
+            resourceInputs["autoApprovedChangeTypes"] = args?.autoApprovedChangeTypes;
+            resourceInputs["creatorDisplayName"] = args?.creatorDisplayName;
+            resourceInputs["creatorMemberAbilities"] = args?.creatorMemberAbilities;
+            resourceInputs["creatorMlMemberAbilities"] = args?.creatorMlMemberAbilities;
+            resourceInputs["creatorPaymentConfiguration"] = args?.creatorPaymentConfiguration;
+            resourceInputs["dataEncryptionMetadata"] = args?.dataEncryptionMetadata;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["jobLogStatus"] = args?.jobLogStatus;
+            resourceInputs["members"] = args?.members;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queryLogStatus"] = args?.queryLogStatus;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;
         } else {

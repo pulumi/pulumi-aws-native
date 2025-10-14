@@ -40,19 +40,19 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * The name for the cache subnet group. This value is stored as a lowercase string.
      */
-    public readonly cacheSubnetGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly cacheSubnetGroupName: pulumi.Output<string | undefined>;
     /**
      * The description for the cache subnet group.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The EC2 subnet IDs for the cache subnet group.
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
      * A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.
@@ -65,16 +65,16 @@ export class SubnetGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+            if (args?.subnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            resourceInputs["cacheSubnetGroupName"] = args ? args.cacheSubnetGroupName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cacheSubnetGroupName"] = args?.cacheSubnetGroupName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["cacheSubnetGroupName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

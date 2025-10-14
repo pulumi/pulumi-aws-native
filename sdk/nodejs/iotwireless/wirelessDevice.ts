@@ -40,51 +40,51 @@ export class WirelessDevice extends pulumi.CustomResource {
     /**
      * Wireless device arn. Returned after successful create.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Wireless device Id. Returned after successful create.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Wireless device description
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Wireless device destination name
      */
-    public readonly destinationName!: pulumi.Output<string>;
+    declare public readonly destinationName: pulumi.Output<string>;
     /**
      * The date and time when the most recent uplink was received.
      */
-    public readonly lastUplinkReceivedAt!: pulumi.Output<string | undefined>;
+    declare public readonly lastUplinkReceivedAt: pulumi.Output<string | undefined>;
     /**
      * The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
      */
-    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.WirelessDeviceLoRaWanDevice | undefined>;
+    declare public readonly loRaWan: pulumi.Output<outputs.iotwireless.WirelessDeviceLoRaWanDevice | undefined>;
     /**
      * Wireless device name
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
      */
-    public readonly positioning!: pulumi.Output<enums.iotwireless.WirelessDevicePositioning | undefined>;
+    declare public readonly positioning: pulumi.Output<enums.iotwireless.WirelessDevicePositioning | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Thing arn. Passed into update to associate Thing with Wireless device.
      */
-    public readonly thingArn!: pulumi.Output<string | undefined>;
+    declare public readonly thingArn: pulumi.Output<string | undefined>;
     /**
      * Thing Arn. If there is a Thing created, this can be returned with a Get call.
      */
-    public /*out*/ readonly thingName!: pulumi.Output<string>;
+    declare public /*out*/ readonly thingName: pulumi.Output<string>;
     /**
      * Wireless device type, currently only Sidewalk and LoRa
      */
-    public readonly type!: pulumi.Output<enums.iotwireless.WirelessDeviceType>;
+    declare public readonly type: pulumi.Output<enums.iotwireless.WirelessDeviceType>;
 
     /**
      * Create a WirelessDevice resource with the given unique name, arguments, and options.
@@ -97,21 +97,21 @@ export class WirelessDevice extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationName === undefined) && !opts.urn) {
+            if (args?.destinationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinationName"] = args ? args.destinationName : undefined;
-            resourceInputs["lastUplinkReceivedAt"] = args ? args.lastUplinkReceivedAt : undefined;
-            resourceInputs["loRaWan"] = args ? args.loRaWan : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["positioning"] = args ? args.positioning : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["thingArn"] = args ? args.thingArn : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinationName"] = args?.destinationName;
+            resourceInputs["lastUplinkReceivedAt"] = args?.lastUplinkReceivedAt;
+            resourceInputs["loRaWan"] = args?.loRaWan;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["positioning"] = args?.positioning;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["thingArn"] = args?.thingArn;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["thingName"] = undefined /*out*/;

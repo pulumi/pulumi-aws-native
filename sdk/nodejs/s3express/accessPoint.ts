@@ -40,45 +40,45 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the specified accesspoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the bucket that you want to associate this Access Point with.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * The AWS account ID associated with the S3 bucket associated with this access point.
      */
-    public readonly bucketAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly bucketAccountId: pulumi.Output<string | undefined>;
     /**
      * The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name. For directory buckets, the access point name must consist of a base name that you provide and suﬃx that includes the ZoneID (AWS Availability Zone or Local Zone) of your bucket location, followed by --xa-s3.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
      */
-    public /*out*/ readonly networkOrigin!: pulumi.Output<enums.s3express.AccessPointNetworkOrigin>;
+    declare public /*out*/ readonly networkOrigin: pulumi.Output<enums.s3express.AccessPointNetworkOrigin>;
     /**
      * The Access Point Policy you want to apply to this access point.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::AccessPoint` for more information about the expected schema for this property.
      */
-    public readonly policy!: pulumi.Output<any | undefined>;
+    declare public readonly policy: pulumi.Output<any | undefined>;
     /**
      * The PublicAccessBlock configuration that you want to apply to this Access Point.
      */
-    public readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.s3express.AccessPointPublicAccessBlockConfiguration | undefined>;
+    declare public readonly publicAccessBlockConfiguration: pulumi.Output<outputs.s3express.AccessPointPublicAccessBlockConfiguration | undefined>;
     /**
      * For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
      */
-    public readonly scope!: pulumi.Output<outputs.s3express.AccessPointScope | undefined>;
+    declare public readonly scope: pulumi.Output<outputs.s3express.AccessPointScope | undefined>;
     /**
      * An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
      */
-    public readonly vpcConfiguration!: pulumi.Output<outputs.s3express.AccessPointVpcConfiguration | undefined>;
+    declare public readonly vpcConfiguration: pulumi.Output<outputs.s3express.AccessPointVpcConfiguration | undefined>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -91,17 +91,17 @@ export class AccessPoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bucket === undefined) && !opts.urn) {
+            if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["bucketAccountId"] = args ? args.bucketAccountId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["bucketAccountId"] = args?.bucketAccountId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["publicAccessBlockConfiguration"] = args?.publicAccessBlockConfiguration;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConfiguration"] = args?.vpcConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["networkOrigin"] = undefined /*out*/;
         } else {

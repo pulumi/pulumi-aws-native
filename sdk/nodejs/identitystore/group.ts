@@ -37,19 +37,19 @@ export class Group extends pulumi.CustomResource {
     /**
      * A string containing the description of the group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A string containing the name of the group. This value is commonly displayed when the group is referenced.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The unique identifier for a group in the identity store.
      */
-    public /*out*/ readonly groupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly groupId: pulumi.Output<string>;
     /**
      * The globally unique identifier for the identity store.
      */
-    public readonly identityStoreId!: pulumi.Output<string>;
+    declare public readonly identityStoreId: pulumi.Output<string>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -62,15 +62,15 @@ export class Group extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.identityStoreId === undefined) && !opts.urn) {
+            if (args?.identityStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityStoreId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["identityStoreId"] = args ? args.identityStoreId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["identityStoreId"] = args?.identityStoreId;
             resourceInputs["groupId"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

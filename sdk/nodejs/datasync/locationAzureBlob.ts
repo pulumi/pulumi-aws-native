@@ -40,58 +40,58 @@ export class LocationAzureBlob extends pulumi.CustomResource {
     /**
      * Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
      */
-    public readonly agentArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly agentArns: pulumi.Output<string[] | undefined>;
     /**
      * Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
      */
-    public readonly azureAccessTier!: pulumi.Output<enums.datasync.LocationAzureBlobAzureAccessTier | undefined>;
+    declare public readonly azureAccessTier: pulumi.Output<enums.datasync.LocationAzureBlobAzureAccessTier | undefined>;
     /**
      * The specific authentication type that you want DataSync to use to access your Azure Blob Container.
      */
-    public readonly azureBlobAuthenticationType!: pulumi.Output<enums.datasync.LocationAzureBlobAzureBlobAuthenticationType>;
+    declare public readonly azureBlobAuthenticationType: pulumi.Output<enums.datasync.LocationAzureBlobAzureBlobAuthenticationType>;
     /**
      * The URL of the Azure Blob container that was described.
      */
-    public readonly azureBlobContainerUrl!: pulumi.Output<string | undefined>;
+    declare public readonly azureBlobContainerUrl: pulumi.Output<string | undefined>;
     /**
      * Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
      *
      * > If you provide an authentication token using `SasConfiguration` , but do not provide secret configuration details using `CmkSecretConfig` or `CustomSecretConfig` , then DataSync stores the token using your AWS account's secrets manager secret.
      */
-    public readonly azureBlobSasConfiguration!: pulumi.Output<outputs.datasync.LocationAzureBlobAzureBlobSasConfiguration | undefined>;
+    declare public readonly azureBlobSasConfiguration: pulumi.Output<outputs.datasync.LocationAzureBlobAzureBlobSasConfiguration | undefined>;
     /**
      * Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
      */
-    public readonly azureBlobType!: pulumi.Output<enums.datasync.LocationAzureBlobAzureBlobType | undefined>;
+    declare public readonly azureBlobType: pulumi.Output<enums.datasync.LocationAzureBlobAzureBlobType | undefined>;
     /**
      * Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
      *
      * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
      */
-    public readonly cmkSecretConfig!: pulumi.Output<outputs.datasync.LocationAzureBlobCmkSecretConfig | undefined>;
+    declare public readonly cmkSecretConfig: pulumi.Output<outputs.datasync.LocationAzureBlobCmkSecretConfig | undefined>;
     /**
      * Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
      *
      * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
      */
-    public readonly customSecretConfig!: pulumi.Output<outputs.datasync.LocationAzureBlobCustomSecretConfig | undefined>;
+    declare public readonly customSecretConfig: pulumi.Output<outputs.datasync.LocationAzureBlobCustomSecretConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
      */
-    public /*out*/ readonly locationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly locationArn: pulumi.Output<string>;
     /**
      * The URL of the Azure Blob Location that was described.
      */
-    public /*out*/ readonly locationUri!: pulumi.Output<string>;
-    public /*out*/ readonly managedSecretConfig!: pulumi.Output<outputs.datasync.LocationAzureBlobManagedSecretConfig>;
+    declare public /*out*/ readonly locationUri: pulumi.Output<string>;
+    declare public /*out*/ readonly managedSecretConfig: pulumi.Output<outputs.datasync.LocationAzureBlobManagedSecretConfig>;
     /**
      * The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
      */
-    public readonly subdirectory!: pulumi.Output<string | undefined>;
+    declare public readonly subdirectory: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a LocationAzureBlob resource with the given unique name, arguments, and options.
@@ -104,19 +104,19 @@ export class LocationAzureBlob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.azureBlobAuthenticationType === undefined) && !opts.urn) {
+            if (args?.azureBlobAuthenticationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureBlobAuthenticationType'");
             }
-            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
-            resourceInputs["azureAccessTier"] = args ? args.azureAccessTier : undefined;
-            resourceInputs["azureBlobAuthenticationType"] = args ? args.azureBlobAuthenticationType : undefined;
-            resourceInputs["azureBlobContainerUrl"] = args ? args.azureBlobContainerUrl : undefined;
-            resourceInputs["azureBlobSasConfiguration"] = args ? args.azureBlobSasConfiguration : undefined;
-            resourceInputs["azureBlobType"] = args ? args.azureBlobType : undefined;
-            resourceInputs["cmkSecretConfig"] = args ? args.cmkSecretConfig : undefined;
-            resourceInputs["customSecretConfig"] = args ? args.customSecretConfig : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentArns"] = args?.agentArns;
+            resourceInputs["azureAccessTier"] = args?.azureAccessTier;
+            resourceInputs["azureBlobAuthenticationType"] = args?.azureBlobAuthenticationType;
+            resourceInputs["azureBlobContainerUrl"] = args?.azureBlobContainerUrl;
+            resourceInputs["azureBlobSasConfiguration"] = args?.azureBlobSasConfiguration;
+            resourceInputs["azureBlobType"] = args?.azureBlobType;
+            resourceInputs["cmkSecretConfig"] = args?.cmkSecretConfig;
+            resourceInputs["customSecretConfig"] = args?.customSecretConfig;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
             resourceInputs["managedSecretConfig"] = undefined /*out*/;

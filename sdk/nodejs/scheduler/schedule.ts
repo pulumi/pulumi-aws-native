@@ -40,53 +40,53 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the schedule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The description of the schedule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the EndDate you specify.
      */
-    public readonly endDate!: pulumi.Output<string | undefined>;
+    declare public readonly endDate: pulumi.Output<string | undefined>;
     /**
      * Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
      */
-    public readonly flexibleTimeWindow!: pulumi.Output<outputs.scheduler.ScheduleFlexibleTimeWindow>;
+    declare public readonly flexibleTimeWindow: pulumi.Output<outputs.scheduler.ScheduleFlexibleTimeWindow>;
     /**
      * The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.
      */
-    public readonly groupName!: pulumi.Output<string | undefined>;
+    declare public readonly groupName: pulumi.Output<string | undefined>;
     /**
      * The ARN for a KMS Key that will be used to encrypt customer data.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * The name of the schedule.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The scheduling expression.
      */
-    public readonly scheduleExpression!: pulumi.Output<string>;
+    declare public readonly scheduleExpression: pulumi.Output<string>;
     /**
      * The timezone in which the scheduling expression is evaluated.
      */
-    public readonly scheduleExpressionTimezone!: pulumi.Output<string | undefined>;
+    declare public readonly scheduleExpressionTimezone: pulumi.Output<string | undefined>;
     /**
      * The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the StartDate you specify.
      */
-    public readonly startDate!: pulumi.Output<string | undefined>;
+    declare public readonly startDate: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the schedule is enabled or disabled.
      *
      * *Allowed Values* : `ENABLED` | `DISABLED`
      */
-    public readonly state!: pulumi.Output<enums.scheduler.ScheduleState | undefined>;
+    declare public readonly state: pulumi.Output<enums.scheduler.ScheduleState | undefined>;
     /**
      * The schedule's target details.
      */
-    public readonly target!: pulumi.Output<outputs.scheduler.ScheduleTarget>;
+    declare public readonly target: pulumi.Output<outputs.scheduler.ScheduleTarget>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -99,26 +99,26 @@ export class Schedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.flexibleTimeWindow === undefined) && !opts.urn) {
+            if (args?.flexibleTimeWindow === undefined && !opts.urn) {
                 throw new Error("Missing required property 'flexibleTimeWindow'");
             }
-            if ((!args || args.scheduleExpression === undefined) && !opts.urn) {
+            if (args?.scheduleExpression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleExpression'");
             }
-            if ((!args || args.target === undefined) && !opts.urn) {
+            if (args?.target === undefined && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["endDate"] = args ? args.endDate : undefined;
-            resourceInputs["flexibleTimeWindow"] = args ? args.flexibleTimeWindow : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
-            resourceInputs["scheduleExpressionTimezone"] = args ? args.scheduleExpressionTimezone : undefined;
-            resourceInputs["startDate"] = args ? args.startDate : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["endDate"] = args?.endDate;
+            resourceInputs["flexibleTimeWindow"] = args?.flexibleTimeWindow;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["scheduleExpression"] = args?.scheduleExpression;
+            resourceInputs["scheduleExpressionTimezone"] = args?.scheduleExpressionTimezone;
+            resourceInputs["startDate"] = args?.startDate;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["target"] = args?.target;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

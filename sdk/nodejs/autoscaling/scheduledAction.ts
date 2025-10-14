@@ -37,39 +37,39 @@ export class ScheduledAction extends pulumi.CustomResource {
     /**
      * The name of the Auto Scaling group.
      */
-    public readonly autoScalingGroupName!: pulumi.Output<string>;
+    declare public readonly autoScalingGroupName: pulumi.Output<string>;
     /**
      * The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
      */
-    public readonly desiredCapacity!: pulumi.Output<number | undefined>;
+    declare public readonly desiredCapacity: pulumi.Output<number | undefined>;
     /**
      * The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
      */
-    public readonly endTime!: pulumi.Output<string | undefined>;
+    declare public readonly endTime: pulumi.Output<string | undefined>;
     /**
      * The minimum size of the Auto Scaling group.
      */
-    public readonly maxSize!: pulumi.Output<number | undefined>;
+    declare public readonly maxSize: pulumi.Output<number | undefined>;
     /**
      * The minimum size of the Auto Scaling group.
      */
-    public readonly minSize!: pulumi.Output<number | undefined>;
+    declare public readonly minSize: pulumi.Output<number | undefined>;
     /**
      * The recurring schedule for the action, in Unix cron syntax format. When StartTime and EndTime are specified with Recurrence , they form the boundaries of when the recurring action starts and stops.
      */
-    public readonly recurrence!: pulumi.Output<string | undefined>;
+    declare public readonly recurrence: pulumi.Output<string | undefined>;
     /**
      * Auto-generated unique identifier
      */
-    public /*out*/ readonly scheduledActionName!: pulumi.Output<string>;
+    declare public /*out*/ readonly scheduledActionName: pulumi.Output<string>;
     /**
      * The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
      */
-    public readonly startTime!: pulumi.Output<string | undefined>;
+    declare public readonly startTime: pulumi.Output<string | undefined>;
     /**
      * The time zone for the cron expression.
      */
-    public readonly timeZone!: pulumi.Output<string | undefined>;
+    declare public readonly timeZone: pulumi.Output<string | undefined>;
 
     /**
      * Create a ScheduledAction resource with the given unique name, arguments, and options.
@@ -82,17 +82,17 @@ export class ScheduledAction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoScalingGroupName === undefined) && !opts.urn) {
+            if (args?.autoScalingGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingGroupName'");
             }
-            resourceInputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
-            resourceInputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
-            resourceInputs["endTime"] = args ? args.endTime : undefined;
-            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
-            resourceInputs["minSize"] = args ? args.minSize : undefined;
-            resourceInputs["recurrence"] = args ? args.recurrence : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["autoScalingGroupName"] = args?.autoScalingGroupName;
+            resourceInputs["desiredCapacity"] = args?.desiredCapacity;
+            resourceInputs["endTime"] = args?.endTime;
+            resourceInputs["maxSize"] = args?.maxSize;
+            resourceInputs["minSize"] = args?.minSize;
+            resourceInputs["recurrence"] = args?.recurrence;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["timeZone"] = args?.timeZone;
             resourceInputs["scheduledActionName"] = undefined /*out*/;
         } else {
             resourceInputs["autoScalingGroupName"] = undefined /*out*/;

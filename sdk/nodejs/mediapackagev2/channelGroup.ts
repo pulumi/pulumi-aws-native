@@ -40,31 +40,31 @@ export class ChannelGroup extends pulumi.CustomResource {
     /**
      * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the channel group.
      */
-    public readonly channelGroupName!: pulumi.Output<string>;
+    declare public readonly channelGroupName: pulumi.Output<string>;
     /**
      * <p>The date and time the channel group was created.</p>
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * <p>Enter any descriptive text that helps you to identify the channel group.</p>
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * <p>The output domain where the source stream should be sent. Integrate the domain with a downstream CDN (such as Amazon CloudFront) or playback device.</p>
      */
-    public /*out*/ readonly egressDomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly egressDomain: pulumi.Output<string>;
     /**
      * <p>The date and time the channel group was modified.</p>
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     /**
      * The tags associated with the channel group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ChannelGroup resource with the given unique name, arguments, and options.
@@ -77,9 +77,9 @@ export class ChannelGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["channelGroupName"] = args ? args.channelGroupName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channelGroupName"] = args?.channelGroupName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["egressDomain"] = undefined /*out*/;

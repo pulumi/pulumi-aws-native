@@ -40,43 +40,43 @@ export class IpamResourceDiscovery extends pulumi.CustomResource {
     /**
      * The resource discovery description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (Arn) for the Resource Discovery.
      */
-    public /*out*/ readonly ipamResourceDiscoveryArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamResourceDiscoveryArn: pulumi.Output<string>;
     /**
      * Id of the IPAM Pool.
      */
-    public /*out*/ readonly ipamResourceDiscoveryId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamResourceDiscoveryId: pulumi.Output<string>;
     /**
      * The region the resource discovery is setup in. 
      */
-    public /*out*/ readonly ipamResourceDiscoveryRegion!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamResourceDiscoveryRegion: pulumi.Output<string>;
     /**
      * Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
      * The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
      */
-    public readonly operatingRegions!: pulumi.Output<outputs.ec2.IpamResourceDiscoveryIpamOperatingRegion[] | undefined>;
+    declare public readonly operatingRegions: pulumi.Output<outputs.ec2.IpamResourceDiscoveryIpamOperatingRegion[] | undefined>;
     /**
      * A set of organizational unit (OU) exclusions for this resource.
      */
-    public readonly organizationalUnitExclusions!: pulumi.Output<outputs.ec2.IpamResourceDiscoveryOrganizationalUnitExclusion[] | undefined>;
+    declare public readonly organizationalUnitExclusions: pulumi.Output<outputs.ec2.IpamResourceDiscoveryOrganizationalUnitExclusion[] | undefined>;
     /**
      * Owner Account ID of the Resource Discovery
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * The state of this Resource Discovery.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a IpamResourceDiscovery resource with the given unique name, arguments, and options.
@@ -89,10 +89,10 @@ export class IpamResourceDiscovery extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
-            resourceInputs["organizationalUnitExclusions"] = args ? args.organizationalUnitExclusions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["operatingRegions"] = args?.operatingRegions;
+            resourceInputs["organizationalUnitExclusions"] = args?.organizationalUnitExclusions;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ipamResourceDiscoveryArn"] = undefined /*out*/;
             resourceInputs["ipamResourceDiscoveryId"] = undefined /*out*/;
             resourceInputs["ipamResourceDiscoveryRegion"] = undefined /*out*/;

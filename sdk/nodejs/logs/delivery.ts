@@ -44,43 +44,43 @@ export class Delivery extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that uniquely identifies this delivery.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ARN of the delivery destination that is associated with this delivery.
      */
-    public readonly deliveryDestinationArn!: pulumi.Output<string>;
+    declare public readonly deliveryDestinationArn: pulumi.Output<string>;
     /**
      * Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
      */
-    public /*out*/ readonly deliveryDestinationType!: pulumi.Output<string>;
+    declare public /*out*/ readonly deliveryDestinationType: pulumi.Output<string>;
     /**
      * The unique ID that identifies this delivery in your account.
      */
-    public /*out*/ readonly deliveryId!: pulumi.Output<string>;
+    declare public /*out*/ readonly deliveryId: pulumi.Output<string>;
     /**
      * The name of the delivery source that is associated with this delivery.
      */
-    public readonly deliverySourceName!: pulumi.Output<string>;
+    declare public readonly deliverySourceName: pulumi.Output<string>;
     /**
      * The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
      */
-    public readonly fieldDelimiter!: pulumi.Output<string | undefined>;
+    declare public readonly fieldDelimiter: pulumi.Output<string | undefined>;
     /**
      * The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
      */
-    public readonly recordFields!: pulumi.Output<string[] | undefined>;
+    declare public readonly recordFields: pulumi.Output<string[] | undefined>;
     /**
      * This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
      */
-    public readonly s3EnableHiveCompatiblePath!: pulumi.Output<boolean | undefined>;
+    declare public readonly s3EnableHiveCompatiblePath: pulumi.Output<boolean | undefined>;
     /**
      * This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
      */
-    public readonly s3SuffixPath!: pulumi.Output<string | undefined>;
+    declare public readonly s3SuffixPath: pulumi.Output<string | undefined>;
     /**
      * The tags that have been assigned to this delivery.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Delivery resource with the given unique name, arguments, and options.
@@ -93,19 +93,19 @@ export class Delivery extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deliveryDestinationArn === undefined) && !opts.urn) {
+            if (args?.deliveryDestinationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deliveryDestinationArn'");
             }
-            if ((!args || args.deliverySourceName === undefined) && !opts.urn) {
+            if (args?.deliverySourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deliverySourceName'");
             }
-            resourceInputs["deliveryDestinationArn"] = args ? args.deliveryDestinationArn : undefined;
-            resourceInputs["deliverySourceName"] = args ? args.deliverySourceName : undefined;
-            resourceInputs["fieldDelimiter"] = args ? args.fieldDelimiter : undefined;
-            resourceInputs["recordFields"] = args ? args.recordFields : undefined;
-            resourceInputs["s3EnableHiveCompatiblePath"] = args ? args.s3EnableHiveCompatiblePath : undefined;
-            resourceInputs["s3SuffixPath"] = args ? args.s3SuffixPath : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deliveryDestinationArn"] = args?.deliveryDestinationArn;
+            resourceInputs["deliverySourceName"] = args?.deliverySourceName;
+            resourceInputs["fieldDelimiter"] = args?.fieldDelimiter;
+            resourceInputs["recordFields"] = args?.recordFields;
+            resourceInputs["s3EnableHiveCompatiblePath"] = args?.s3EnableHiveCompatiblePath;
+            resourceInputs["s3SuffixPath"] = args?.s3SuffixPath;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deliveryDestinationType"] = undefined /*out*/;
             resourceInputs["deliveryId"] = undefined /*out*/;

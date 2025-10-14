@@ -40,27 +40,27 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * The sso instance that the permission set is owned.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The permission set that the assignemt will be assigned
      */
-    public readonly permissionSetArn!: pulumi.Output<string>;
+    declare public readonly permissionSetArn: pulumi.Output<string>;
     /**
      * The assignee's identifier, user id/group id
      */
-    public readonly principalId!: pulumi.Output<string>;
+    declare public readonly principalId: pulumi.Output<string>;
     /**
      * The assignee's type, user/group
      */
-    public readonly principalType!: pulumi.Output<enums.sso.AssignmentPrincipalType>;
+    declare public readonly principalType: pulumi.Output<enums.sso.AssignmentPrincipalType>;
     /**
      * The account id to be provisioned.
      */
-    public readonly targetId!: pulumi.Output<string>;
+    declare public readonly targetId: pulumi.Output<string>;
     /**
      * The type of resource to be provsioned to, only aws account now
      */
-    public readonly targetType!: pulumi.Output<enums.sso.AssignmentTargetType>;
+    declare public readonly targetType: pulumi.Output<enums.sso.AssignmentTargetType>;
 
     /**
      * Create a Assignment resource with the given unique name, arguments, and options.
@@ -73,30 +73,30 @@ export class Assignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.permissionSetArn === undefined) && !opts.urn) {
+            if (args?.permissionSetArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissionSetArn'");
             }
-            if ((!args || args.principalId === undefined) && !opts.urn) {
+            if (args?.principalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.principalType === undefined) && !opts.urn) {
+            if (args?.principalType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalType'");
             }
-            if ((!args || args.targetId === undefined) && !opts.urn) {
+            if (args?.targetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
-            if ((!args || args.targetType === undefined) && !opts.urn) {
+            if (args?.targetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
-            resourceInputs["principalId"] = args ? args.principalId : undefined;
-            resourceInputs["principalType"] = args ? args.principalType : undefined;
-            resourceInputs["targetId"] = args ? args.targetId : undefined;
-            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["permissionSetArn"] = args?.permissionSetArn;
+            resourceInputs["principalId"] = args?.principalId;
+            resourceInputs["principalType"] = args?.principalType;
+            resourceInputs["targetId"] = args?.targetId;
+            resourceInputs["targetType"] = args?.targetType;
         } else {
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["permissionSetArn"] = undefined /*out*/;

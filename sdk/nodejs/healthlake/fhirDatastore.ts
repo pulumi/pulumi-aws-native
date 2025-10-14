@@ -37,49 +37,49 @@ export class FhirDatastore extends pulumi.CustomResource {
         return obj['__pulumiType'] === FhirDatastore.__pulumiType;
     }
 
-    public /*out*/ readonly createdAt!: pulumi.Output<outputs.healthlake.FhirDatastoreCreatedAt>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<outputs.healthlake.FhirDatastoreCreatedAt>;
     /**
      * The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
      */
-    public /*out*/ readonly datastoreArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly datastoreArn: pulumi.Output<string>;
     /**
      * The endpoint for the created Data Store.
      */
-    public /*out*/ readonly datastoreEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly datastoreEndpoint: pulumi.Output<string>;
     /**
      * The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
      */
-    public /*out*/ readonly datastoreId!: pulumi.Output<string>;
+    declare public /*out*/ readonly datastoreId: pulumi.Output<string>;
     /**
      * The data store name (user-generated).
      */
-    public readonly datastoreName!: pulumi.Output<string | undefined>;
+    declare public readonly datastoreName: pulumi.Output<string | undefined>;
     /**
      * The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
      */
-    public /*out*/ readonly datastoreStatus!: pulumi.Output<enums.healthlake.FhirDatastoreDatastoreStatus>;
+    declare public /*out*/ readonly datastoreStatus: pulumi.Output<enums.healthlake.FhirDatastoreDatastoreStatus>;
     /**
      * The FHIR release version supported by the data store. Current support is for version `R4` .
      */
-    public readonly datastoreTypeVersion!: pulumi.Output<enums.healthlake.FhirDatastoreDatastoreTypeVersion>;
+    declare public readonly datastoreTypeVersion: pulumi.Output<enums.healthlake.FhirDatastoreDatastoreTypeVersion>;
     /**
      * The identity provider configuration selected when the data store was created.
      */
-    public readonly identityProviderConfiguration!: pulumi.Output<outputs.healthlake.FhirDatastoreIdentityProviderConfiguration | undefined>;
+    declare public readonly identityProviderConfiguration: pulumi.Output<outputs.healthlake.FhirDatastoreIdentityProviderConfiguration | undefined>;
     /**
      * The preloaded Synthea data configuration for the data store.
      */
-    public readonly preloadDataConfig!: pulumi.Output<outputs.healthlake.FhirDatastorePreloadDataConfig | undefined>;
+    declare public readonly preloadDataConfig: pulumi.Output<outputs.healthlake.FhirDatastorePreloadDataConfig | undefined>;
     /**
      * The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
      */
-    public readonly sseConfiguration!: pulumi.Output<outputs.healthlake.FhirDatastoreSseConfiguration | undefined>;
+    declare public readonly sseConfiguration: pulumi.Output<outputs.healthlake.FhirDatastoreSseConfiguration | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FhirDatastore resource with the given unique name, arguments, and options.
@@ -92,15 +92,15 @@ export class FhirDatastore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.datastoreTypeVersion === undefined) && !opts.urn) {
+            if (args?.datastoreTypeVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datastoreTypeVersion'");
             }
-            resourceInputs["datastoreName"] = args ? args.datastoreName : undefined;
-            resourceInputs["datastoreTypeVersion"] = args ? args.datastoreTypeVersion : undefined;
-            resourceInputs["identityProviderConfiguration"] = args ? args.identityProviderConfiguration : undefined;
-            resourceInputs["preloadDataConfig"] = args ? args.preloadDataConfig : undefined;
-            resourceInputs["sseConfiguration"] = args ? args.sseConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["datastoreName"] = args?.datastoreName;
+            resourceInputs["datastoreTypeVersion"] = args?.datastoreTypeVersion;
+            resourceInputs["identityProviderConfiguration"] = args?.identityProviderConfiguration;
+            resourceInputs["preloadDataConfig"] = args?.preloadDataConfig;
+            resourceInputs["sseConfiguration"] = args?.sseConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["datastoreArn"] = undefined /*out*/;
             resourceInputs["datastoreEndpoint"] = undefined /*out*/;

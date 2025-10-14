@@ -37,15 +37,15 @@ export class SubnetNetworkAclAssociation extends pulumi.CustomResource {
     /**
      * Returns the value of this object's AssociationId property.
      */
-    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly associationId: pulumi.Output<string>;
     /**
      * The ID of the network ACL
      */
-    public readonly networkAclId!: pulumi.Output<string>;
+    declare public readonly networkAclId: pulumi.Output<string>;
     /**
      * The ID of the subnet
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
 
     /**
      * Create a SubnetNetworkAclAssociation resource with the given unique name, arguments, and options.
@@ -58,14 +58,14 @@ export class SubnetNetworkAclAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkAclId === undefined) && !opts.urn) {
+            if (args?.networkAclId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkAclId'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["networkAclId"] = args ? args.networkAclId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["networkAclId"] = args?.networkAclId;
+            resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["associationId"] = undefined /*out*/;
         } else {
             resourceInputs["associationId"] = undefined /*out*/;

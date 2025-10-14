@@ -40,39 +40,39 @@ export class VpcEndpointService extends pulumi.CustomResource {
     /**
      * Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
      */
-    public readonly acceptanceRequired!: pulumi.Output<boolean | undefined>;
+    declare public readonly acceptanceRequired: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink .
      */
-    public readonly contributorInsightsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly contributorInsightsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
      */
-    public readonly gatewayLoadBalancerArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly gatewayLoadBalancerArns: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Names (ARNs) of the Network Load Balancers.
      */
-    public readonly networkLoadBalancerArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly networkLoadBalancerArns: pulumi.Output<string[] | undefined>;
     /**
      * The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
      */
-    public readonly payerResponsibility!: pulumi.Output<string | undefined>;
+    declare public readonly payerResponsibility: pulumi.Output<string | undefined>;
     /**
      * The ID of the endpoint service.
      */
-    public /*out*/ readonly serviceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceId: pulumi.Output<string>;
     /**
      * Specify which Ip Address types are supported for VPC endpoint service.
      */
-    public readonly supportedIpAddressTypes!: pulumi.Output<enums.ec2.VpcEndpointServiceIpAddressType[] | undefined>;
+    declare public readonly supportedIpAddressTypes: pulumi.Output<enums.ec2.VpcEndpointServiceIpAddressType[] | undefined>;
     /**
      * The Regions from which service consumers can access the service.
      */
-    public readonly supportedRegions!: pulumi.Output<string[] | undefined>;
+    declare public readonly supportedRegions: pulumi.Output<string[] | undefined>;
     /**
      * The tags to add to the VPC endpoint service.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a VpcEndpointService resource with the given unique name, arguments, and options.
@@ -85,14 +85,14 @@ export class VpcEndpointService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["acceptanceRequired"] = args ? args.acceptanceRequired : undefined;
-            resourceInputs["contributorInsightsEnabled"] = args ? args.contributorInsightsEnabled : undefined;
-            resourceInputs["gatewayLoadBalancerArns"] = args ? args.gatewayLoadBalancerArns : undefined;
-            resourceInputs["networkLoadBalancerArns"] = args ? args.networkLoadBalancerArns : undefined;
-            resourceInputs["payerResponsibility"] = args ? args.payerResponsibility : undefined;
-            resourceInputs["supportedIpAddressTypes"] = args ? args.supportedIpAddressTypes : undefined;
-            resourceInputs["supportedRegions"] = args ? args.supportedRegions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["acceptanceRequired"] = args?.acceptanceRequired;
+            resourceInputs["contributorInsightsEnabled"] = args?.contributorInsightsEnabled;
+            resourceInputs["gatewayLoadBalancerArns"] = args?.gatewayLoadBalancerArns;
+            resourceInputs["networkLoadBalancerArns"] = args?.networkLoadBalancerArns;
+            resourceInputs["payerResponsibility"] = args?.payerResponsibility;
+            resourceInputs["supportedIpAddressTypes"] = args?.supportedIpAddressTypes;
+            resourceInputs["supportedRegions"] = args?.supportedRegions;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["serviceId"] = undefined /*out*/;
         } else {
             resourceInputs["acceptanceRequired"] = undefined /*out*/;

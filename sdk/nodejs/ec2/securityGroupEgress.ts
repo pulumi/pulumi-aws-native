@@ -38,51 +38,51 @@ export class SecurityGroupEgress extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityGroupEgress.__pulumiType;
     }
 
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The IPv4 address range, in CIDR format.
      *  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
      *  For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
      */
-    public readonly cidrIp!: pulumi.Output<string | undefined>;
+    declare public readonly cidrIp: pulumi.Output<string | undefined>;
     /**
      * The IPv6 address range, in CIDR format.
      *  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
      *  For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
      */
-    public readonly cidrIpv6!: pulumi.Output<string | undefined>;
+    declare public readonly cidrIpv6: pulumi.Output<string | undefined>;
     /**
      * The description of an egress (outbound) security group rule.
      *  Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The prefix list IDs for an AWS service. This is the AWS service to access through a VPC endpoint from instances associated with the security group.
      *  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
      */
-    public readonly destinationPrefixListId!: pulumi.Output<string | undefined>;
+    declare public readonly destinationPrefixListId: pulumi.Output<string | undefined>;
     /**
      * The ID of the security group.
      *  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
      */
-    public readonly destinationSecurityGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly destinationSecurityGroupId: pulumi.Output<string | undefined>;
     /**
      * If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
      */
-    public readonly fromPort!: pulumi.Output<number | undefined>;
+    declare public readonly fromPort: pulumi.Output<number | undefined>;
     /**
      * The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
      */
-    public readonly groupId!: pulumi.Output<string>;
+    declare public readonly groupId: pulumi.Output<string>;
     /**
      * The IP protocol name (``tcp``, ``udp``, ``icmp``, ``icmpv6``) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)).
      *  Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp``, ``udp``, ``icmp``, or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp``, ``udp``, and ``icmp``, you must specify a port range. For ``icmpv6``, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
      */
-    public readonly ipProtocol!: pulumi.Output<string>;
+    declare public readonly ipProtocol: pulumi.Output<string>;
     /**
      * If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).
      */
-    public readonly toPort!: pulumi.Output<number | undefined>;
+    declare public readonly toPort: pulumi.Output<number | undefined>;
 
     /**
      * Create a SecurityGroupEgress resource with the given unique name, arguments, and options.
@@ -95,21 +95,21 @@ export class SecurityGroupEgress extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            if ((!args || args.ipProtocol === undefined) && !opts.urn) {
+            if (args?.ipProtocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipProtocol'");
             }
-            resourceInputs["cidrIp"] = args ? args.cidrIp : undefined;
-            resourceInputs["cidrIpv6"] = args ? args.cidrIpv6 : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinationPrefixListId"] = args ? args.destinationPrefixListId : undefined;
-            resourceInputs["destinationSecurityGroupId"] = args ? args.destinationSecurityGroupId : undefined;
-            resourceInputs["fromPort"] = args ? args.fromPort : undefined;
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["ipProtocol"] = args ? args.ipProtocol : undefined;
-            resourceInputs["toPort"] = args ? args.toPort : undefined;
+            resourceInputs["cidrIp"] = args?.cidrIp;
+            resourceInputs["cidrIpv6"] = args?.cidrIpv6;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinationPrefixListId"] = args?.destinationPrefixListId;
+            resourceInputs["destinationSecurityGroupId"] = args?.destinationSecurityGroupId;
+            resourceInputs["fromPort"] = args?.fromPort;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["ipProtocol"] = args?.ipProtocol;
+            resourceInputs["toPort"] = args?.toPort;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

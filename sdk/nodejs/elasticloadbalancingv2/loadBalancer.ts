@@ -40,68 +40,68 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * The ID of the Amazon Route 53 hosted zone associated with the load balancer. For example, `Z2P70J7EXAMPLE` .
      */
-    public /*out*/ readonly canonicalHostedZoneId!: pulumi.Output<string>;
+    declare public /*out*/ readonly canonicalHostedZoneId: pulumi.Output<string>;
     /**
      * The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
-    public readonly enableCapacityReservationProvisionStabilize!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly dnsName: pulumi.Output<string>;
+    declare public readonly enableCapacityReservationProvisionStabilize: pulumi.Output<boolean | undefined>;
     /**
      * [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
      */
-    public readonly enablePrefixForIpv6SourceNat!: pulumi.Output<string | undefined>;
+    declare public readonly enablePrefixForIpv6SourceNat: pulumi.Output<string | undefined>;
     /**
      * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
      *  You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.
      */
-    public readonly enforceSecurityGroupInboundRulesOnPrivateLinkTraffic!: pulumi.Output<string | undefined>;
+    declare public readonly enforceSecurityGroupInboundRulesOnPrivateLinkTraffic: pulumi.Output<string | undefined>;
     /**
      * The IP address type. Internal load balancers must use ``ipv4``.
      *  [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
      *  Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
      *  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
      */
-    public readonly ipAddressType!: pulumi.Output<string | undefined>;
+    declare public readonly ipAddressType: pulumi.Output<string | undefined>;
     /**
      * The ID of the IPv4 IPAM pool.
      */
-    public readonly ipv4IpamPoolId!: pulumi.Output<string | undefined>;
+    declare public readonly ipv4IpamPoolId: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the load balancer.
      */
-    public /*out*/ readonly loadBalancerArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly loadBalancerArn: pulumi.Output<string>;
     /**
      * The load balancer attributes. Attributes that you do not modify retain their current values.
      */
-    public readonly loadBalancerAttributes!: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerAttribute[] | undefined>;
+    declare public readonly loadBalancerAttributes: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerAttribute[] | undefined>;
     /**
      * The full name of the load balancer. For example, `app/my-load-balancer/50dc6c495c0c9188` .
      */
-    public /*out*/ readonly loadBalancerFullName!: pulumi.Output<string>;
+    declare public /*out*/ readonly loadBalancerFullName: pulumi.Output<string>;
     /**
      * The name of the load balancer. For example, `my-load-balancer` .
      */
-    public /*out*/ readonly loadBalancerName!: pulumi.Output<string>;
+    declare public /*out*/ readonly loadBalancerName: pulumi.Output<string>;
     /**
      * The minimum capacity for a load balancer.
      */
-    public readonly minimumLoadBalancerCapacity!: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerMinimumLoadBalancerCapacity | undefined>;
+    declare public readonly minimumLoadBalancerCapacity: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerMinimumLoadBalancerCapacity | undefined>;
     /**
      * The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
      *  If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
      *  The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
      *  The default is an Internet-facing load balancer.
      *  You can't specify a scheme for a Gateway Load Balancer.
      */
-    public readonly scheme!: pulumi.Output<string | undefined>;
+    declare public readonly scheme: pulumi.Output<string | undefined>;
     /**
      * [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
      */
-    public readonly securityGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroups: pulumi.Output<string[] | undefined>;
     /**
      * The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
      *  [Application Load Balancers] You must specify subnets from at least two Availability Zones. You can't specify Elastic IP addresses for your subnets.
@@ -110,7 +110,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      *  [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
      *  [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You can't specify Elastic IP addresses for your subnets.
      */
-    public readonly subnetMappings!: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerSubnetMapping[] | undefined>;
+    declare public readonly subnetMappings: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerSubnetMapping[] | undefined>;
     /**
      * The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
      *  [Application Load Balancers] You must specify subnets from at least two Availability Zones.
@@ -118,15 +118,15 @@ export class LoadBalancer extends pulumi.CustomResource {
      *  [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
      *  [Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
      */
-    public readonly subnets!: pulumi.Output<string[] | undefined>;
+    declare public readonly subnets: pulumi.Output<string[] | undefined>;
     /**
      * The tags to assign to the load balancer.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of load balancer. The default is ``application``.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a LoadBalancer resource with the given unique name, arguments, and options.
@@ -139,20 +139,20 @@ export class LoadBalancer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["enableCapacityReservationProvisionStabilize"] = args ? args.enableCapacityReservationProvisionStabilize : undefined;
-            resourceInputs["enablePrefixForIpv6SourceNat"] = args ? args.enablePrefixForIpv6SourceNat : undefined;
-            resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = args ? args.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic : undefined;
-            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
-            resourceInputs["loadBalancerAttributes"] = args ? args.loadBalancerAttributes : undefined;
-            resourceInputs["minimumLoadBalancerCapacity"] = args ? args.minimumLoadBalancerCapacity : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scheme"] = args ? args.scheme : undefined;
-            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
-            resourceInputs["subnetMappings"] = args ? args.subnetMappings : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["enableCapacityReservationProvisionStabilize"] = args?.enableCapacityReservationProvisionStabilize;
+            resourceInputs["enablePrefixForIpv6SourceNat"] = args?.enablePrefixForIpv6SourceNat;
+            resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = args?.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+            resourceInputs["ipAddressType"] = args?.ipAddressType;
+            resourceInputs["ipv4IpamPoolId"] = args?.ipv4IpamPoolId;
+            resourceInputs["loadBalancerAttributes"] = args?.loadBalancerAttributes;
+            resourceInputs["minimumLoadBalancerCapacity"] = args?.minimumLoadBalancerCapacity;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["scheme"] = args?.scheme;
+            resourceInputs["securityGroups"] = args?.securityGroups;
+            resourceInputs["subnetMappings"] = args?.subnetMappings;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["canonicalHostedZoneId"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["loadBalancerArn"] = undefined /*out*/;

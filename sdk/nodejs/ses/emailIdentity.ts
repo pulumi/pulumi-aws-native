@@ -40,57 +40,57 @@ export class EmailIdentity extends pulumi.CustomResource {
     /**
      * Used to associate a configuration set with an email identity.
      */
-    public readonly configurationSetAttributes!: pulumi.Output<outputs.ses.EmailIdentityConfigurationSetAttributes | undefined>;
+    declare public readonly configurationSetAttributes: pulumi.Output<outputs.ses.EmailIdentityConfigurationSetAttributes | undefined>;
     /**
      * An object that contains information about the DKIM attributes for the identity.
      */
-    public readonly dkimAttributes!: pulumi.Output<outputs.ses.EmailIdentityDkimAttributes | undefined>;
+    declare public readonly dkimAttributes: pulumi.Output<outputs.ses.EmailIdentityDkimAttributes | undefined>;
     /**
      * The host name for the first token that you have to add to the DNS configuration for your domain.
      */
-    public /*out*/ readonly dkimDnsTokenName1!: pulumi.Output<string>;
+    declare public /*out*/ readonly dkimDnsTokenName1: pulumi.Output<string>;
     /**
      * The host name for the second token that you have to add to the DNS configuration for your domain.
      */
-    public /*out*/ readonly dkimDnsTokenName2!: pulumi.Output<string>;
+    declare public /*out*/ readonly dkimDnsTokenName2: pulumi.Output<string>;
     /**
      * The host name for the third token that you have to add to the DNS configuration for your domain.
      */
-    public /*out*/ readonly dkimDnsTokenName3!: pulumi.Output<string>;
+    declare public /*out*/ readonly dkimDnsTokenName3: pulumi.Output<string>;
     /**
      * The record value for the first token that you have to add to the DNS configuration for your domain.
      */
-    public /*out*/ readonly dkimDnsTokenValue1!: pulumi.Output<string>;
+    declare public /*out*/ readonly dkimDnsTokenValue1: pulumi.Output<string>;
     /**
      * The record value for the second token that you have to add to the DNS configuration for your domain.
      */
-    public /*out*/ readonly dkimDnsTokenValue2!: pulumi.Output<string>;
+    declare public /*out*/ readonly dkimDnsTokenValue2: pulumi.Output<string>;
     /**
      * The record value for the third token that you have to add to the DNS configuration for your domain.
      */
-    public /*out*/ readonly dkimDnsTokenValue3!: pulumi.Output<string>;
+    declare public /*out*/ readonly dkimDnsTokenValue3: pulumi.Output<string>;
     /**
      * If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html) .
      *
      * You can only specify this object if the email identity is a domain, as opposed to an address.
      */
-    public readonly dkimSigningAttributes!: pulumi.Output<outputs.ses.EmailIdentityDkimSigningAttributes | undefined>;
+    declare public readonly dkimSigningAttributes: pulumi.Output<outputs.ses.EmailIdentityDkimSigningAttributes | undefined>;
     /**
      * The email address or domain to verify.
      */
-    public readonly emailIdentity!: pulumi.Output<string>;
+    declare public readonly emailIdentity: pulumi.Output<string>;
     /**
      * Used to enable or disable feedback forwarding for an identity.
      */
-    public readonly feedbackAttributes!: pulumi.Output<outputs.ses.EmailIdentityFeedbackAttributes | undefined>;
+    declare public readonly feedbackAttributes: pulumi.Output<outputs.ses.EmailIdentityFeedbackAttributes | undefined>;
     /**
      * Used to enable or disable the custom Mail-From domain configuration for an email identity.
      */
-    public readonly mailFromAttributes!: pulumi.Output<outputs.ses.EmailIdentityMailFromAttributes | undefined>;
+    declare public readonly mailFromAttributes: pulumi.Output<outputs.ses.EmailIdentityMailFromAttributes | undefined>;
     /**
      * The tags (keys and values) associated with the email identity.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EmailIdentity resource with the given unique name, arguments, and options.
@@ -103,16 +103,16 @@ export class EmailIdentity extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.emailIdentity === undefined) && !opts.urn) {
+            if (args?.emailIdentity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailIdentity'");
             }
-            resourceInputs["configurationSetAttributes"] = args ? args.configurationSetAttributes : undefined;
-            resourceInputs["dkimAttributes"] = args ? args.dkimAttributes : undefined;
-            resourceInputs["dkimSigningAttributes"] = args ? args.dkimSigningAttributes : undefined;
-            resourceInputs["emailIdentity"] = args ? args.emailIdentity : undefined;
-            resourceInputs["feedbackAttributes"] = args ? args.feedbackAttributes : undefined;
-            resourceInputs["mailFromAttributes"] = args ? args.mailFromAttributes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configurationSetAttributes"] = args?.configurationSetAttributes;
+            resourceInputs["dkimAttributes"] = args?.dkimAttributes;
+            resourceInputs["dkimSigningAttributes"] = args?.dkimSigningAttributes;
+            resourceInputs["emailIdentity"] = args?.emailIdentity;
+            resourceInputs["feedbackAttributes"] = args?.feedbackAttributes;
+            resourceInputs["mailFromAttributes"] = args?.mailFromAttributes;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["dkimDnsTokenName1"] = undefined /*out*/;
             resourceInputs["dkimDnsTokenName2"] = undefined /*out*/;
             resourceInputs["dkimDnsTokenName3"] = undefined /*out*/;

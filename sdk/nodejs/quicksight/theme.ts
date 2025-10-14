@@ -40,52 +40,52 @@ export class Theme extends pulumi.CustomResource {
     /**
      * <p>The Amazon Resource Name (ARN) of the theme.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the AWS account where you want to store the new theme.
      */
-    public readonly awsAccountId!: pulumi.Output<string>;
+    declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
      */
-    public readonly baseThemeId!: pulumi.Output<string>;
+    declare public readonly baseThemeId: pulumi.Output<string>;
     /**
      * The theme configuration, which contains the theme display properties.
      */
-    public readonly configuration!: pulumi.Output<outputs.quicksight.ThemeConfiguration>;
+    declare public readonly configuration: pulumi.Output<outputs.quicksight.ThemeConfiguration>;
     /**
      * <p>The date and time that the theme was created.</p>
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * <p>The date and time that the theme was last updated.</p>
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * A display name for the theme.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A valid grouping of resource permissions to apply to the new theme.
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.ThemeResourcePermission[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.quicksight.ThemeResourcePermission[] | undefined>;
     /**
      * A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * An ID for the theme that you want to create. The theme ID is unique per AWS Region in each AWS account.
      */
-    public readonly themeId!: pulumi.Output<string>;
+    declare public readonly themeId: pulumi.Output<string>;
     /**
      * Theme type.
      */
-    public /*out*/ readonly type!: pulumi.Output<enums.quicksight.ThemeType>;
-    public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.ThemeVersion>;
+    declare public /*out*/ readonly type: pulumi.Output<enums.quicksight.ThemeType>;
+    declare public /*out*/ readonly version: pulumi.Output<outputs.quicksight.ThemeVersion>;
     /**
      * A description of the first version of the theme that you're creating. Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
      */
-    public readonly versionDescription!: pulumi.Output<string | undefined>;
+    declare public readonly versionDescription: pulumi.Output<string | undefined>;
 
     /**
      * Create a Theme resource with the given unique name, arguments, and options.
@@ -98,26 +98,26 @@ export class Theme extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsAccountId === undefined) && !opts.urn) {
+            if (args?.awsAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
             }
-            if ((!args || args.baseThemeId === undefined) && !opts.urn) {
+            if (args?.baseThemeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'baseThemeId'");
             }
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.themeId === undefined) && !opts.urn) {
+            if (args?.themeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'themeId'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["baseThemeId"] = args ? args.baseThemeId : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["themeId"] = args ? args.themeId : undefined;
-            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["baseThemeId"] = args?.baseThemeId;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["themeId"] = args?.themeId;
+            resourceInputs["versionDescription"] = args?.versionDescription;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

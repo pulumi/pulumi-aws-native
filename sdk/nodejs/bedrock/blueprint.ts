@@ -40,45 +40,45 @@ export class Blueprint extends pulumi.CustomResource {
     /**
      * ARN of a Blueprint
      */
-    public /*out*/ readonly blueprintArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly blueprintArn: pulumi.Output<string>;
     /**
      * Name of the Blueprint
      */
-    public readonly blueprintName!: pulumi.Output<string>;
+    declare public readonly blueprintName: pulumi.Output<string>;
     /**
      * Stage of the Blueprint
      */
-    public /*out*/ readonly blueprintStage!: pulumi.Output<enums.bedrock.BlueprintStage>;
+    declare public /*out*/ readonly blueprintStage: pulumi.Output<enums.bedrock.BlueprintStage>;
     /**
      * Creation timestamp
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * KMS encryption context
      */
-    public readonly kmsEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly kmsEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * KMS key identifier
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Last modified timestamp
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * Schema of the blueprint
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Bedrock::Blueprint` for more information about the expected schema for this property.
      */
-    public readonly schema!: pulumi.Output<any>;
+    declare public readonly schema: pulumi.Output<any>;
     /**
      * List of Tags
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Modality Type
      */
-    public readonly type!: pulumi.Output<enums.bedrock.BlueprintType>;
+    declare public readonly type: pulumi.Output<enums.bedrock.BlueprintType>;
 
     /**
      * Create a Blueprint resource with the given unique name, arguments, and options.
@@ -91,18 +91,18 @@ export class Blueprint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["blueprintName"] = args ? args.blueprintName : undefined;
-            resourceInputs["kmsEncryptionContext"] = args ? args.kmsEncryptionContext : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["blueprintName"] = args?.blueprintName;
+            resourceInputs["kmsEncryptionContext"] = args?.kmsEncryptionContext;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["blueprintArn"] = undefined /*out*/;
             resourceInputs["blueprintStage"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
