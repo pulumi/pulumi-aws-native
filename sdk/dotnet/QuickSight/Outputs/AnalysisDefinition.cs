@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Filter definitions for an analysis.
         /// 
-        /// For more information, see [Filtering Data in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html) in the *Amazon QuickSight User Guide* .
+        /// For more information, see [Filtering Data in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html) in the *Amazon Quick Suite User Guide* .
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFilterGroup> FilterGroups;
         /// <summary>
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// 
         /// Parameters are named variables that can transfer a value for use by an action or an object.
         /// 
-        /// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+        /// For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisParameterDeclaration> ParameterDeclarations;
         public readonly Outputs.AnalysisQueryExecutionOptions? QueryExecutionOptions;

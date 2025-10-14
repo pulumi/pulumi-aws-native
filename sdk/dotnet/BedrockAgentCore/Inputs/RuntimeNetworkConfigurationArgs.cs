@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("networkMode", required: true)]
         public Input<Pulumi.AwsNative.BedrockAgentCore.RuntimeNetworkMode> NetworkMode { get; set; } = null!;
 
+        [Input("networkModeConfig")]
+        public Input<Inputs.RuntimeVpcConfigArgs>? NetworkModeConfig { get; set; }
+
         public RuntimeNetworkConfigurationArgs()
         {
         }

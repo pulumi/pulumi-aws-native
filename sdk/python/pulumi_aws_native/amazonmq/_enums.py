@@ -7,8 +7,6 @@ import pulumi
 from enum import Enum
 
 __all__ = [
-    'BrokerAuthenticationStrategy',
-    'BrokerAuthenticationStrategy0',
     'BrokerDataReplicationMode',
     'BrokerDataReplicationMode0',
     'BrokerDeploymentMode',
@@ -20,24 +18,6 @@ __all__ = [
     'BrokerStorageType',
     'BrokerStorageType0',
 ]
-
-
-@pulumi.type_token("aws-native:amazonmq:BrokerAuthenticationStrategy")
-class BrokerAuthenticationStrategy(_builtins.str, Enum):
-    """
-    Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
-    """
-    SIMPLE = "SIMPLE"
-    LDAP = "LDAP"
-
-
-@pulumi.type_token("aws-native:amazonmq:BrokerAuthenticationStrategy0")
-class BrokerAuthenticationStrategy0(_builtins.str, Enum):
-    """
-    Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
-    """
-    SIMPLE = "SIMPLE"
-    LDAP = "LDAP"
 
 
 @pulumi.type_token("aws-native:amazonmq:BrokerDataReplicationMode")

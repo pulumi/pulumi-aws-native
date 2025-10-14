@@ -24,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetImageRecipeResult:
-    def __init__(__self__, additional_instance_configuration=None, arn=None, tags=None):
+    def __init__(__self__, additional_instance_configuration=None, ami_tags=None, arn=None, tags=None):
         if additional_instance_configuration and not isinstance(additional_instance_configuration, dict):
             raise TypeError("Expected argument 'additional_instance_configuration' to be a dict")
         pulumi.set(__self__, "additional_instance_configuration", additional_instance_configuration)
+        if ami_tags and not isinstance(ami_tags, dict):
+            raise TypeError("Expected argument 'ami_tags' to be a dict")
+        pulumi.set(__self__, "ami_tags", ami_tags)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +45,14 @@ class GetImageRecipeResult:
         Specify additional settings and launch scripts for your build instances.
         """
         return pulumi.get(self, "additional_instance_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="amiTags")
+    def ami_tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The tags to apply to the AMI created by this image recipe.
+        """
+        return pulumi.get(self, "ami_tags")
 
     @_builtins.property
     @pulumi.getter
@@ -67,6 +78,7 @@ class AwaitableGetImageRecipeResult(GetImageRecipeResult):
             yield self
         return GetImageRecipeResult(
             additional_instance_configuration=self.additional_instance_configuration,
+            ami_tags=self.ami_tags,
             arn=self.arn,
             tags=self.tags)
 
@@ -86,6 +98,7 @@ def get_image_recipe(arn: Optional[_builtins.str] = None,
 
     return AwaitableGetImageRecipeResult(
         additional_instance_configuration=pulumi.get(__ret__, 'additional_instance_configuration'),
+        ami_tags=pulumi.get(__ret__, 'ami_tags'),
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_image_recipe_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -102,5 +115,6 @@ def get_image_recipe_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:imagebuilder:getImageRecipe', __args__, opts=opts, typ=GetImageRecipeResult)
     return __ret__.apply(lambda __response__: GetImageRecipeResult(
         additional_instance_configuration=pulumi.get(__response__, 'additional_instance_configuration'),
+        ami_tags=pulumi.get(__response__, 'ami_tags'),
         arn=pulumi.get(__response__, 'arn'),
         tags=pulumi.get(__response__, 'tags')))

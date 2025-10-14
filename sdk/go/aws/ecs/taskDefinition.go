@@ -346,7 +346,7 @@ type TaskDefinition struct {
 	// The configuration details for the App Mesh proxy.
 	//  Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
 	ProxyConfiguration TaskDefinitionProxyConfigurationPtrOutput `pulumi:"proxyConfiguration"`
-	// The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+	// The task launch types the task definition was validated against. The valid values are ``MANAGED_INSTANCES``, ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
 	RequiresCompatibilities pulumi.StringArrayOutput `pulumi:"requiresCompatibilities"`
 	// The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
 	RuntimePlatform TaskDefinitionRuntimePlatformPtrOutput `pulumi:"runtimePlatform"`
@@ -490,7 +490,7 @@ type taskDefinitionArgs struct {
 	// The configuration details for the App Mesh proxy.
 	//  Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
 	ProxyConfiguration *TaskDefinitionProxyConfiguration `pulumi:"proxyConfiguration"`
-	// The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+	// The task launch types the task definition was validated against. The valid values are ``MANAGED_INSTANCES``, ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
 	// The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
 	RuntimePlatform *TaskDefinitionRuntimePlatform `pulumi:"runtimePlatform"`
@@ -574,7 +574,7 @@ type TaskDefinitionArgs struct {
 	// The configuration details for the App Mesh proxy.
 	//  Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
 	ProxyConfiguration TaskDefinitionProxyConfigurationPtrInput
-	// The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+	// The task launch types the task definition was validated against. The valid values are ``MANAGED_INSTANCES``, ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
 	RequiresCompatibilities pulumi.StringArrayInput
 	// The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
 	RuntimePlatform TaskDefinitionRuntimePlatformPtrInput
@@ -740,7 +740,7 @@ func (o TaskDefinitionOutput) ProxyConfiguration() TaskDefinitionProxyConfigurat
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionProxyConfigurationPtrOutput { return v.ProxyConfiguration }).(TaskDefinitionProxyConfigurationPtrOutput)
 }
 
-// The task launch types the task definition was validated against. The valid values are “EC2“, “FARGATE“, and “EXTERNAL“. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+// The task launch types the task definition was validated against. The valid values are “MANAGED_INSTANCES“, “EC2“, “FARGATE“, and “EXTERNAL“. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o TaskDefinitionOutput) RequiresCompatibilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringArrayOutput { return v.RequiresCompatibilities }).(pulumi.StringArrayOutput)
 }

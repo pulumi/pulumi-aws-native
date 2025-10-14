@@ -8,6 +8,8 @@ from enum import Enum
 
 __all__ = [
     'DiskAddOnStatus',
+    'DiskSnapshotResourceType',
+    'DiskSnapshotState',
     'InstanceAddOnStatus',
 ]
 
@@ -24,6 +26,25 @@ class DiskAddOnStatus(_builtins.str, Enum):
     TERMINATED = "Terminated"
     DISABLED = "Disabled"
     FAILED = "Failed"
+
+
+@pulumi.type_token("aws-native:lightsail:DiskSnapshotResourceType")
+class DiskSnapshotResourceType(_builtins.str, Enum):
+    """
+    The Lightsail resource type (DiskSnapshot).
+    """
+    DISK_SNAPSHOT = "DiskSnapshot"
+
+
+@pulumi.type_token("aws-native:lightsail:DiskSnapshotState")
+class DiskSnapshotState(_builtins.str, Enum):
+    """
+    The status of the disk snapshot operation.
+    """
+    PENDING = "pending"
+    COMPLETED = "completed"
+    ERROR = "error"
+    UNKNOWN = "unknown"
 
 
 @pulumi.type_token("aws-native:lightsail:InstanceAddOnStatus")

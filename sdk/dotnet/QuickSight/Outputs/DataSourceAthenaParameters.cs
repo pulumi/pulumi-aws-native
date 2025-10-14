@@ -17,9 +17,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DataSourceAthenaParameters
     {
         /// <summary>
-        /// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your workgroup.
+        /// An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your workgroup.
         /// 
-        /// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
+        /// This parameter can only be specified if your Quick Sight account is configured with IAM Identity Center.
         /// </summary>
         public readonly Outputs.DataSourceIdentityCenterConfiguration? IdentityCenterConfiguration;
         /// <summary>

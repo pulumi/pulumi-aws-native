@@ -40,10 +40,6 @@ export interface GetDeliveryDestinationResult {
      */
     readonly deliveryDestinationPolicy?: outputs.logs.DeliveryDestinationDestinationPolicy;
     /**
-     * Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
-     */
-    readonly deliveryDestinationType?: string;
-    /**
      * The tags that have been assigned to this delivery destination.
      */
     readonly tags?: outputs.Tag[];

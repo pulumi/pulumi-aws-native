@@ -26,6 +26,8 @@ type CodeInterpreterCustom struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ARN of the IAM role that the code interpreter uses to access resources.
 	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
+	// The reason for failure if the code interpreter creation or operation failed.
+	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
 	// Timestamp when the code interpreter was last updated.
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
 	// The name of the code interpreter.
@@ -174,6 +176,11 @@ func (o CodeInterpreterCustomOutput) Description() pulumi.StringPtrOutput {
 // The ARN of the IAM role that the code interpreter uses to access resources.
 func (o CodeInterpreterCustomOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeInterpreterCustom) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The reason for failure if the code interpreter creation or operation failed.
+func (o CodeInterpreterCustomOutput) FailureReason() pulumi.StringOutput {
+	return o.ApplyT(func(v *CodeInterpreterCustom) pulumi.StringOutput { return v.FailureReason }).(pulumi.StringOutput)
 }
 
 // Timestamp when the code interpreter was last updated.

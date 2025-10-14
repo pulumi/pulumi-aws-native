@@ -24,7 +24,7 @@ func LookupTemplate(ctx *pulumi.Context, args *LookupTemplateArgs, opts ...pulum
 }
 
 type LookupTemplateArgs struct {
-	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
 	AwsAccountId string `pulumi:"awsAccountId"`
 	// An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
 	TemplateId string `pulumi:"templateId"`
@@ -56,7 +56,7 @@ func LookupTemplateOutput(ctx *pulumi.Context, args LookupTemplateOutputArgs, op
 }
 
 type LookupTemplateOutputArgs struct {
-	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
 	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
 	// An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
 	TemplateId pulumi.StringInput `pulumi:"templateId"`

@@ -30,6 +30,11 @@ export type DbSubnetGroup = import("./dbSubnetGroup").DbSubnetGroup;
 export const DbSubnetGroup: typeof import("./dbSubnetGroup").DbSubnetGroup = null as any;
 utilities.lazyLoad(exports, ["DbSubnetGroup"], () => require("./dbSubnetGroup"));
 
+export { EventSubscriptionArgs } from "./eventSubscription";
+export type EventSubscription = import("./eventSubscription").EventSubscription;
+export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
+utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
+
 export { GetDbClusterArgs, GetDbClusterResult, GetDbClusterOutputArgs } from "./getDbCluster";
 export const getDbCluster: typeof import("./getDbCluster").getDbCluster = null as any;
 export const getDbClusterOutput: typeof import("./getDbCluster").getDbClusterOutput = null as any;
@@ -55,6 +60,11 @@ export const getDbSubnetGroup: typeof import("./getDbSubnetGroup").getDbSubnetGr
 export const getDbSubnetGroupOutput: typeof import("./getDbSubnetGroup").getDbSubnetGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getDbSubnetGroup","getDbSubnetGroupOutput"], () => require("./getDbSubnetGroup"));
 
+export { GetEventSubscriptionArgs, GetEventSubscriptionResult, GetEventSubscriptionOutputArgs } from "./getEventSubscription";
+export const getEventSubscription: typeof import("./getEventSubscription").getEventSubscription = null as any;
+export const getEventSubscriptionOutput: typeof import("./getEventSubscription").getEventSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getEventSubscription","getEventSubscriptionOutput"], () => require("./getEventSubscription"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -70,6 +80,8 @@ const _module = {
                 return new DbParameterGroup(name, <any>undefined, { urn })
             case "aws-native:neptune:DbSubnetGroup":
                 return new DbSubnetGroup(name, <any>undefined, { urn })
+            case "aws-native:neptune:EventSubscription":
+                return new EventSubscription(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

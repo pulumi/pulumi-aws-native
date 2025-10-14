@@ -52,9 +52,9 @@ export class DeliveryDestination extends pulumi.CustomResource {
      */
     declare public readonly deliveryDestinationPolicy: pulumi.Output<outputs.logs.DeliveryDestinationDestinationPolicy | undefined>;
     /**
-     * Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+     * Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Kinesis Data Firehose, or XRay.
      */
-    declare public /*out*/ readonly deliveryDestinationType: pulumi.Output<string>;
+    declare public readonly deliveryDestinationType: pulumi.Output<string | undefined>;
     /**
      * The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
      */
@@ -84,12 +84,12 @@ export class DeliveryDestination extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["deliveryDestinationPolicy"] = args?.deliveryDestinationPolicy;
+            resourceInputs["deliveryDestinationType"] = args?.deliveryDestinationType;
             resourceInputs["destinationResourceArn"] = args?.destinationResourceArn;
             resourceInputs["name"] = args?.name;
             resourceInputs["outputFormat"] = args?.outputFormat;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["deliveryDestinationType"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deliveryDestinationPolicy"] = undefined /*out*/;
@@ -100,7 +100,7 @@ export class DeliveryDestination extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["destinationResourceArn", "name", "outputFormat"] };
+        const replaceOnChanges = { replaceOnChanges: ["deliveryDestinationType", "destinationResourceArn", "name", "outputFormat"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeliveryDestination.__pulumiType, name, resourceInputs, opts);
     }
@@ -118,6 +118,10 @@ export interface DeliveryDestinationArgs {
      * Length Constraints: Maximum length of 51200
      */
     deliveryDestinationPolicy?: pulumi.Input<inputs.logs.DeliveryDestinationDestinationPolicyArgs>;
+    /**
+     * Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Kinesis Data Firehose, or XRay.
+     */
+    deliveryDestinationType?: pulumi.Input<string>;
     /**
      * The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
      */

@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
+        /// The credentials Amazon Quick Sight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
         /// </summary>
         [Output("credentials")]
         public Output<Outputs.DataSourceCredentials?> Credentials { get; private set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string?> DataSourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The parameters that Amazon QuickSight uses to connect to your underlying source.
+        /// The parameters that Amazon Quick Sight uses to connect to your underlying source.
         /// </summary>
         [Output("dataSourceParameters")]
         public Output<Outputs.DataSourceParameters?> DataSourceParameters { get; private set; } = null!;
@@ -93,7 +93,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<ImmutableArray<Outputs.DataSourceResourcePermission>> Permissions { get; private set; } = null!;
 
         /// <summary>
-        /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+        /// Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
         /// </summary>
         [Output("sslProperties")]
         public Output<Outputs.DataSourceSslProperties?> SslProperties { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<Pulumi.AwsNative.QuickSight.DataSourceType> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+        /// Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
         /// </summary>
         [Output("vpcConnectionProperties")]
         public Output<Outputs.DataSourceVpcConnectionProperties?> VpcConnectionProperties { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
+        /// The credentials Amazon Quick Sight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.DataSourceCredentialsArgs>? Credentials { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<string>? DataSourceId { get; set; }
 
         /// <summary>
-        /// The parameters that Amazon QuickSight uses to connect to your underlying source.
+        /// The parameters that Amazon Quick Sight uses to connect to your underlying source.
         /// </summary>
         [Input("dataSourceParameters")]
         public Input<Inputs.DataSourceParametersArgs>? DataSourceParameters { get; set; }
@@ -252,7 +252,7 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         /// <summary>
-        /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+        /// Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
         /// </summary>
         [Input("sslProperties")]
         public Input<Inputs.DataSourceSslPropertiesArgs>? SslProperties { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<Pulumi.AwsNative.QuickSight.DataSourceType> Type { get; set; } = null!;
 
         /// <summary>
-        /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+        /// Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
         /// </summary>
         [Input("vpcConnectionProperties")]
         public Input<Inputs.DataSourceVpcConnectionPropertiesArgs>? VpcConnectionProperties { get; set; }

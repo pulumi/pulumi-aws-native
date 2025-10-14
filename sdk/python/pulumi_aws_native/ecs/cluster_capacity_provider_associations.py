@@ -22,30 +22,19 @@ __all__ = ['ClusterCapacityProviderAssociationsArgs', 'ClusterCapacityProviderAs
 @pulumi.input_type
 class ClusterCapacityProviderAssociationsArgs:
     def __init__(__self__, *,
-                 capacity_providers: pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', _builtins.str]]]],
                  cluster: pulumi.Input[_builtins.str],
-                 default_capacity_provider_strategy: pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]]):
+                 default_capacity_provider_strategy: pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]],
+                 capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', _builtins.str]]]]] = None):
         """
         The set of arguments for constructing a ClusterCapacityProviderAssociations resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', _builtins.str]]]] capacity_providers: The capacity providers to associate with the cluster.
         :param pulumi.Input[_builtins.str] cluster: The cluster the capacity provider association is the target of.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]] default_capacity_provider_strategy: The default capacity provider strategy to associate with the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', _builtins.str]]]] capacity_providers: The capacity providers to associate with the cluster.
         """
-        pulumi.set(__self__, "capacity_providers", capacity_providers)
         pulumi.set(__self__, "cluster", cluster)
         pulumi.set(__self__, "default_capacity_provider_strategy", default_capacity_provider_strategy)
-
-    @_builtins.property
-    @pulumi.getter(name="capacityProviders")
-    def capacity_providers(self) -> pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', _builtins.str]]]]:
-        """
-        The capacity providers to associate with the cluster.
-        """
-        return pulumi.get(self, "capacity_providers")
-
-    @capacity_providers.setter
-    def capacity_providers(self, value: pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', _builtins.str]]]]):
-        pulumi.set(self, "capacity_providers", value)
+        if capacity_providers is not None:
+            pulumi.set(__self__, "capacity_providers", capacity_providers)
 
     @_builtins.property
     @pulumi.getter
@@ -70,6 +59,18 @@ class ClusterCapacityProviderAssociationsArgs:
     @default_capacity_provider_strategy.setter
     def default_capacity_provider_strategy(self, value: pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]]):
         pulumi.set(self, "default_capacity_provider_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviders")
+    def capacity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', _builtins.str]]]]]:
+        """
+        The capacity providers to associate with the cluster.
+        """
+        return pulumi.get(self, "capacity_providers")
+
+    @capacity_providers.setter
+    def capacity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', _builtins.str]]]]]):
+        pulumi.set(self, "capacity_providers", value)
 
 
 @pulumi.type_token("aws-native:ecs:ClusterCapacityProviderAssociations")
@@ -243,8 +244,6 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterCapacityProviderAssociationsArgs.__new__(ClusterCapacityProviderAssociationsArgs)
 
-            if capacity_providers is None and not opts.urn:
-                raise TypeError("Missing required property 'capacity_providers'")
             __props__.__dict__["capacity_providers"] = capacity_providers
             if cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster'")
@@ -283,7 +282,7 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="capacityProviders")
-    def capacity_providers(self) -> pulumi.Output[Sequence[_builtins.str]]:
+    def capacity_providers(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         The capacity providers to associate with the cluster.
         """

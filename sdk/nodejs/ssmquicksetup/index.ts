@@ -15,6 +15,16 @@ export const getConfigurationManager: typeof import("./getConfigurationManager")
 export const getConfigurationManagerOutput: typeof import("./getConfigurationManager").getConfigurationManagerOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationManager","getConfigurationManagerOutput"], () => require("./getConfigurationManager"));
 
+export { GetLifecycleAutomationArgs, GetLifecycleAutomationResult, GetLifecycleAutomationOutputArgs } from "./getLifecycleAutomation";
+export const getLifecycleAutomation: typeof import("./getLifecycleAutomation").getLifecycleAutomation = null as any;
+export const getLifecycleAutomationOutput: typeof import("./getLifecycleAutomation").getLifecycleAutomationOutput = null as any;
+utilities.lazyLoad(exports, ["getLifecycleAutomation","getLifecycleAutomationOutput"], () => require("./getLifecycleAutomation"));
+
+export { LifecycleAutomationArgs } from "./lifecycleAutomation";
+export type LifecycleAutomation = import("./lifecycleAutomation").LifecycleAutomation;
+export const LifecycleAutomation: typeof import("./lifecycleAutomation").LifecycleAutomation = null as any;
+utilities.lazyLoad(exports, ["LifecycleAutomation"], () => require("./lifecycleAutomation"));
+
 
 // Export enums:
 export * from "../types/enums/ssmquicksetup";
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "aws-native:ssmquicksetup:ConfigurationManager":
                 return new ConfigurationManager(name, <any>undefined, { urn })
+            case "aws-native:ssmquicksetup:LifecycleAutomation":
+                return new LifecycleAutomation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

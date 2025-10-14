@@ -90,7 +90,7 @@ class TaskDefinitionArgs:
                  This parameter isn't supported for tasks run on FARGATElong.
         :param pulumi.Input['TaskDefinitionProxyConfigurationArgs'] proxy_configuration: The configuration details for the App Mesh proxy.
                 Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires_compatibilities: The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires_compatibilities: The task launch types the task definition was validated against. The valid values are ``MANAGED_INSTANCES``, ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input['TaskDefinitionRuntimePlatformArgs'] runtime_platform: The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
                 The following basic restrictions apply to tags:
@@ -335,7 +335,7 @@ class TaskDefinitionArgs:
     @pulumi.getter(name="requiresCompatibilities")
     def requires_compatibilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+        The task launch types the task definition was validated against. The valid values are ``MANAGED_INSTANCES``, ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
         return pulumi.get(self, "requires_compatibilities")
 
@@ -657,7 +657,7 @@ class TaskDefinition(pulumi.CustomResource):
                  This parameter isn't supported for tasks run on FARGATElong.
         :param pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']] proxy_configuration: The configuration details for the App Mesh proxy.
                 Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires_compatibilities: The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires_compatibilities: The task launch types the task definition was validated against. The valid values are ``MANAGED_INSTANCES``, ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']] runtime_platform: The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
                 The following basic restrictions apply to tags:
@@ -1106,7 +1106,7 @@ class TaskDefinition(pulumi.CustomResource):
     @pulumi.getter(name="requiresCompatibilities")
     def requires_compatibilities(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+        The task launch types the task definition was validated against. The valid values are ``MANAGED_INSTANCES``, ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
         return pulumi.get(self, "requires_compatibilities")
 

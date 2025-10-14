@@ -177,6 +177,7 @@ class CodeInterpreterCustom(pulumi.CustomResource):
             __props__.__dict__["code_interpreter_arn"] = None
             __props__.__dict__["code_interpreter_id"] = None
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["failure_reason"] = None
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["status"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "executionRoleArn", "name", "networkConfiguration"])
@@ -208,6 +209,7 @@ class CodeInterpreterCustom(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["execution_role_arn"] = None
+        __props__.__dict__["failure_reason"] = None
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_configuration"] = None
@@ -254,6 +256,14 @@ class CodeInterpreterCustom(pulumi.CustomResource):
         The ARN of the IAM role that the code interpreter uses to access resources.
         """
         return pulumi.get(self, "execution_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> pulumi.Output[_builtins.str]:
+        """
+        The reason for failure if the code interpreter creation or operation failed.
+        """
+        return pulumi.get(self, "failure_reason")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")

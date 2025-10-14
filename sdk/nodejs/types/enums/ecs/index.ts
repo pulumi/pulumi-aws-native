@@ -195,6 +195,8 @@ export type ServiceAwsVpcConfigurationAssignPublicIp = (typeof ServiceAwsVpcConf
 export const ServiceDeploymentConfigurationStrategy = {
     Rolling: "ROLLING",
     BlueGreen: "BLUE_GREEN",
+    Linear: "LINEAR",
+    Canary: "CANARY",
 } as const;
 
 /**

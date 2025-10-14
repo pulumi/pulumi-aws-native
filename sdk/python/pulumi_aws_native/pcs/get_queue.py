@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetQueueResult:
-    def __init__(__self__, arn=None, compute_node_group_configurations=None, error_info=None, id=None, status=None, tags=None):
+    def __init__(__self__, arn=None, compute_node_group_configurations=None, error_info=None, id=None, slurm_configuration=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -38,6 +38,9 @@ class GetQueueResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if slurm_configuration and not isinstance(slurm_configuration, dict):
+            raise TypeError("Expected argument 'slurm_configuration' to be a dict")
+        pulumi.set(__self__, "slurm_configuration", slurm_configuration)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -78,6 +81,14 @@ class GetQueueResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="slurmConfiguration")
+    def slurm_configuration(self) -> Optional['outputs.SlurmConfigurationProperties']:
+        """
+        The Slurm configuration for the queue.
+        """
+        return pulumi.get(self, "slurm_configuration")
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional['QueueStatus']:
         """
@@ -104,6 +115,7 @@ class AwaitableGetQueueResult(GetQueueResult):
             compute_node_group_configurations=self.compute_node_group_configurations,
             error_info=self.error_info,
             id=self.id,
+            slurm_configuration=self.slurm_configuration,
             status=self.status,
             tags=self.tags)
 
@@ -126,6 +138,7 @@ def get_queue(arn: Optional[_builtins.str] = None,
         compute_node_group_configurations=pulumi.get(__ret__, 'compute_node_group_configurations'),
         error_info=pulumi.get(__ret__, 'error_info'),
         id=pulumi.get(__ret__, 'id'),
+        slurm_configuration=pulumi.get(__ret__, 'slurm_configuration'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_queue_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -145,5 +158,6 @@ def get_queue_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
         compute_node_group_configurations=pulumi.get(__response__, 'compute_node_group_configurations'),
         error_info=pulumi.get(__response__, 'error_info'),
         id=pulumi.get(__response__, 'id'),
+        slurm_configuration=pulumi.get(__response__, 'slurm_configuration'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

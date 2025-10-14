@@ -46,7 +46,7 @@ export class Theme extends pulumi.CustomResource {
      */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
-     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
      */
     declare public readonly baseThemeId: pulumi.Output<string>;
     /**
@@ -154,7 +154,7 @@ export interface ThemeArgs {
      */
     awsAccountId: pulumi.Input<string>;
     /**
-     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
      */
     baseThemeId: pulumi.Input<string>;
     /**

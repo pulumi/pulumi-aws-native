@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+        /// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
         /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<ImmutableArray<Outputs.TemplateResourcePermission>> Permissions { get; private set; } = null!;
 
         /// <summary>
-        /// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+        /// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Quick Sight-supported AWS Region .
         /// 
         /// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
         /// 
@@ -142,7 +142,7 @@ namespace Pulumi.AwsNative.QuickSight
     public sealed class TemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+        /// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
         /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         /// <summary>
-        /// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+        /// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Quick Sight-supported AWS Region .
         /// 
         /// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
         /// 

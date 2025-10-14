@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardDataPointTooltipOption? DataPointTooltipOption;
         /// <summary>
-        /// Adds Q&amp;A capabilities to an Amazon QuickSight dashboard. If no topic is linked, Dashboard Q&amp;A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&amp;A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&amp;A is used.
+        /// Adds Q&amp;A capabilities to an Quick Sight dashboard. If no topic is linked, Dashboard Q&amp;A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&amp;A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&amp;A is used.
         /// </summary>
         public readonly Outputs.DashboardDataQaEnabledOption? DataQaEnabledOption;
         /// <summary>
@@ -52,6 +52,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// Determines if hidden fields are exported with a dashboard.
         /// </summary>
         public readonly Outputs.DashboardExportWithHiddenFieldsOption? ExportWithHiddenFieldsOption;
+        /// <summary>
+        /// Determines if Actions in Amazon Quick Suite are enabled in a dashboard.
+        /// </summary>
+        public readonly Outputs.DashboardQuickSuiteActionsOption? QuickSuiteActionsOption;
         /// <summary>
         /// Sheet controls option.
         /// </summary>
@@ -93,6 +97,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardExportWithHiddenFieldsOption? exportWithHiddenFieldsOption,
 
+            Outputs.DashboardQuickSuiteActionsOption? quickSuiteActionsOption,
+
             Outputs.DashboardSheetControlsOption? sheetControlsOption,
 
             Outputs.DashboardSheetLayoutElementMaximizationOption? sheetLayoutElementMaximizationOption,
@@ -112,6 +118,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ExecutiveSummaryOption = executiveSummaryOption;
             ExportToCsvOption = exportToCsvOption;
             ExportWithHiddenFieldsOption = exportWithHiddenFieldsOption;
+            QuickSuiteActionsOption = quickSuiteActionsOption;
             SheetControlsOption = sheetControlsOption;
             SheetLayoutElementMaximizationOption = sheetLayoutElementMaximizationOption;
             VisualAxisSortOption = visualAxisSortOption;

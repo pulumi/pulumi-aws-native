@@ -15,6 +15,11 @@ export const getCloudFormationProvisionedProduct: typeof import("./getCloudForma
 export const getCloudFormationProvisionedProductOutput: typeof import("./getCloudFormationProvisionedProduct").getCloudFormationProvisionedProductOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudFormationProvisionedProduct","getCloudFormationProvisionedProductOutput"], () => require("./getCloudFormationProvisionedProduct"));
 
+export { GetLaunchNotificationConstraintArgs, GetLaunchNotificationConstraintResult, GetLaunchNotificationConstraintOutputArgs } from "./getLaunchNotificationConstraint";
+export const getLaunchNotificationConstraint: typeof import("./getLaunchNotificationConstraint").getLaunchNotificationConstraint = null as any;
+export const getLaunchNotificationConstraintOutput: typeof import("./getLaunchNotificationConstraint").getLaunchNotificationConstraintOutput = null as any;
+utilities.lazyLoad(exports, ["getLaunchNotificationConstraint","getLaunchNotificationConstraintOutput"], () => require("./getLaunchNotificationConstraint"));
+
 export { GetLaunchTemplateConstraintArgs, GetLaunchTemplateConstraintResult, GetLaunchTemplateConstraintOutputArgs } from "./getLaunchTemplateConstraint";
 export const getLaunchTemplateConstraint: typeof import("./getLaunchTemplateConstraint").getLaunchTemplateConstraint = null as any;
 export const getLaunchTemplateConstraintOutput: typeof import("./getLaunchTemplateConstraint").getLaunchTemplateConstraintOutput = null as any;
@@ -24,6 +29,11 @@ export { GetPortfolioShareArgs, GetPortfolioShareResult, GetPortfolioShareOutput
 export const getPortfolioShare: typeof import("./getPortfolioShare").getPortfolioShare = null as any;
 export const getPortfolioShareOutput: typeof import("./getPortfolioShare").getPortfolioShareOutput = null as any;
 utilities.lazyLoad(exports, ["getPortfolioShare","getPortfolioShareOutput"], () => require("./getPortfolioShare"));
+
+export { GetResourceUpdateConstraintArgs, GetResourceUpdateConstraintResult, GetResourceUpdateConstraintOutputArgs } from "./getResourceUpdateConstraint";
+export const getResourceUpdateConstraint: typeof import("./getResourceUpdateConstraint").getResourceUpdateConstraint = null as any;
+export const getResourceUpdateConstraintOutput: typeof import("./getResourceUpdateConstraint").getResourceUpdateConstraintOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceUpdateConstraint","getResourceUpdateConstraintOutput"], () => require("./getResourceUpdateConstraint"));
 
 export { GetServiceActionArgs, GetServiceActionResult, GetServiceActionOutputArgs } from "./getServiceAction";
 export const getServiceAction: typeof import("./getServiceAction").getServiceAction = null as any;
@@ -35,10 +45,20 @@ export const getTagOption: typeof import("./getTagOption").getTagOption = null a
 export const getTagOptionOutput: typeof import("./getTagOption").getTagOptionOutput = null as any;
 utilities.lazyLoad(exports, ["getTagOption","getTagOptionOutput"], () => require("./getTagOption"));
 
+export { LaunchNotificationConstraintArgs } from "./launchNotificationConstraint";
+export type LaunchNotificationConstraint = import("./launchNotificationConstraint").LaunchNotificationConstraint;
+export const LaunchNotificationConstraint: typeof import("./launchNotificationConstraint").LaunchNotificationConstraint = null as any;
+utilities.lazyLoad(exports, ["LaunchNotificationConstraint"], () => require("./launchNotificationConstraint"));
+
 export { LaunchTemplateConstraintArgs } from "./launchTemplateConstraint";
 export type LaunchTemplateConstraint = import("./launchTemplateConstraint").LaunchTemplateConstraint;
 export const LaunchTemplateConstraint: typeof import("./launchTemplateConstraint").LaunchTemplateConstraint = null as any;
 utilities.lazyLoad(exports, ["LaunchTemplateConstraint"], () => require("./launchTemplateConstraint"));
+
+export { PortfolioPrincipalAssociationArgs } from "./portfolioPrincipalAssociation";
+export type PortfolioPrincipalAssociation = import("./portfolioPrincipalAssociation").PortfolioPrincipalAssociation;
+export const PortfolioPrincipalAssociation: typeof import("./portfolioPrincipalAssociation").PortfolioPrincipalAssociation = null as any;
+utilities.lazyLoad(exports, ["PortfolioPrincipalAssociation"], () => require("./portfolioPrincipalAssociation"));
 
 export { PortfolioProductAssociationArgs } from "./portfolioProductAssociation";
 export type PortfolioProductAssociation = import("./portfolioProductAssociation").PortfolioProductAssociation;
@@ -49,6 +69,11 @@ export { PortfolioShareArgs } from "./portfolioShare";
 export type PortfolioShare = import("./portfolioShare").PortfolioShare;
 export const PortfolioShare: typeof import("./portfolioShare").PortfolioShare = null as any;
 utilities.lazyLoad(exports, ["PortfolioShare"], () => require("./portfolioShare"));
+
+export { ResourceUpdateConstraintArgs } from "./resourceUpdateConstraint";
+export type ResourceUpdateConstraint = import("./resourceUpdateConstraint").ResourceUpdateConstraint;
+export const ResourceUpdateConstraint: typeof import("./resourceUpdateConstraint").ResourceUpdateConstraint = null as any;
+utilities.lazyLoad(exports, ["ResourceUpdateConstraint"], () => require("./resourceUpdateConstraint"));
 
 export { ServiceActionArgs } from "./serviceAction";
 export type ServiceAction = import("./serviceAction").ServiceAction;
@@ -65,6 +90,11 @@ export type TagOption = import("./tagOption").TagOption;
 export const TagOption: typeof import("./tagOption").TagOption = null as any;
 utilities.lazyLoad(exports, ["TagOption"], () => require("./tagOption"));
 
+export { TagOptionAssociationArgs } from "./tagOptionAssociation";
+export type TagOptionAssociation = import("./tagOptionAssociation").TagOptionAssociation;
+export const TagOptionAssociation: typeof import("./tagOptionAssociation").TagOptionAssociation = null as any;
+utilities.lazyLoad(exports, ["TagOptionAssociation"], () => require("./tagOptionAssociation"));
+
 
 // Export enums:
 export * from "../types/enums/servicecatalog";
@@ -75,18 +105,26 @@ const _module = {
         switch (type) {
             case "aws-native:servicecatalog:CloudFormationProvisionedProduct":
                 return new CloudFormationProvisionedProduct(name, <any>undefined, { urn })
+            case "aws-native:servicecatalog:LaunchNotificationConstraint":
+                return new LaunchNotificationConstraint(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:LaunchTemplateConstraint":
                 return new LaunchTemplateConstraint(name, <any>undefined, { urn })
+            case "aws-native:servicecatalog:PortfolioPrincipalAssociation":
+                return new PortfolioPrincipalAssociation(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:PortfolioProductAssociation":
                 return new PortfolioProductAssociation(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:PortfolioShare":
                 return new PortfolioShare(name, <any>undefined, { urn })
+            case "aws-native:servicecatalog:ResourceUpdateConstraint":
+                return new ResourceUpdateConstraint(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:ServiceAction":
                 return new ServiceAction(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:ServiceActionAssociation":
                 return new ServiceActionAssociation(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:TagOption":
                 return new TagOption(name, <any>undefined, { urn })
+            case "aws-native:servicecatalog:TagOptionAssociation":
+                return new TagOptionAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

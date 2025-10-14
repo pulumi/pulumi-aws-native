@@ -83,7 +83,7 @@ class BotVersion(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
+        Resource Type definition for bot versions, a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -98,7 +98,7 @@ class BotVersion(pulumi.CustomResource):
                  args: BotVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
+        Resource Type definition for bot versions, a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
 
         :param str resource_name: The name of the resource.
         :param BotVersionArgs args: The arguments to use to populate this resource's properties.

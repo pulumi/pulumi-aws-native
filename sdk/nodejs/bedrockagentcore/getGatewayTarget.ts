@@ -19,20 +19,53 @@ export function getGatewayTarget(args: GetGatewayTargetArgs, opts?: pulumi.Invok
 }
 
 export interface GetGatewayTargetArgs {
+    /**
+     * The gateway ID for the gateway target.
+     */
     gatewayIdentifier: string;
+    /**
+     * The target ID for the gateway target.
+     */
     targetId: string;
 }
 
 export interface GetGatewayTargetResult {
+    /**
+     * The date and time at which the gateway target was created.
+     */
     readonly createdAt?: string;
+    /**
+     * The OAuth credential provider configuration.
+     */
     readonly credentialProviderConfigurations?: outputs.bedrockagentcore.GatewayTargetCredentialProviderConfiguration[];
+    /**
+     * The description for the gateway target.
+     */
     readonly description?: string;
     readonly gatewayArn?: string;
+    /**
+     * The name for the gateway target.
+     */
     readonly name?: string;
+    /**
+     * The status for the gateway target.
+     */
     readonly status?: enums.bedrockagentcore.GatewayTargetTargetStatus;
+    /**
+     * The status reasons for the gateway target.
+     */
     readonly statusReasons?: string[];
+    /**
+     * The target configuration for the Smithy model target.
+     */
     readonly targetConfiguration?: outputs.bedrockagentcore.GatewayTargetTargetConfigurationProperties;
+    /**
+     * The target ID for the gateway target.
+     */
     readonly targetId?: string;
+    /**
+     * The time at which the resource was updated.
+     */
     readonly updatedAt?: string;
 }
 /**
@@ -47,6 +80,12 @@ export function getGatewayTargetOutput(args: GetGatewayTargetOutputArgs, opts?: 
 }
 
 export interface GetGatewayTargetOutputArgs {
+    /**
+     * The gateway ID for the gateway target.
+     */
     gatewayIdentifier: pulumi.Input<string>;
+    /**
+     * The target ID for the gateway target.
+     */
     targetId: pulumi.Input<string>;
 }

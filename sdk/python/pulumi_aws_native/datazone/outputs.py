@@ -3905,6 +3905,8 @@ class ProjectProfileEnvironmentConfiguration(dict):
             suggest = "deployment_mode"
         elif key == "deploymentOrder":
             suggest = "deployment_order"
+        elif key == "environmentConfigurationId":
+            suggest = "environment_configuration_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ProjectProfileEnvironmentConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -3926,7 +3928,7 @@ class ProjectProfileEnvironmentConfiguration(dict):
                  deployment_mode: Optional['ProjectProfileDeploymentMode'] = None,
                  deployment_order: Optional[_builtins.float] = None,
                  description: Optional[_builtins.str] = None,
-                 id: Optional[_builtins.str] = None):
+                 environment_configuration_id: Optional[_builtins.str] = None):
         """
         :param 'ProjectProfileRegion' aws_region: The AWS Region of the environment.
         :param _builtins.str environment_blueprint_id: The environment blueprint ID.
@@ -3936,7 +3938,6 @@ class ProjectProfileEnvironmentConfiguration(dict):
         :param 'ProjectProfileDeploymentMode' deployment_mode: The deployment mode of the environment.
         :param _builtins.float deployment_order: The deployment order of the environment.
         :param _builtins.str description: The environment description.
-        :param _builtins.str id: The environment ID.
         """
         pulumi.set(__self__, "aws_region", aws_region)
         pulumi.set(__self__, "environment_blueprint_id", environment_blueprint_id)
@@ -3951,8 +3952,8 @@ class ProjectProfileEnvironmentConfiguration(dict):
             pulumi.set(__self__, "deployment_order", deployment_order)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
+        if environment_configuration_id is not None:
+            pulumi.set(__self__, "environment_configuration_id", environment_configuration_id)
 
     @_builtins.property
     @pulumi.getter(name="awsRegion")
@@ -4019,12 +4020,9 @@ class ProjectProfileEnvironmentConfiguration(dict):
         return pulumi.get(self, "description")
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
-        """
-        The environment ID.
-        """
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="environmentConfigurationId")
+    def environment_configuration_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "environment_configuration_id")
 
 
 @pulumi.output_type

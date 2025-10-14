@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> Host { get; set; } = null!;
 
         /// <summary>
-        /// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Starburst.
+        /// An object that contains information needed to create a data source connection between an Quick Sight account and Starburst.
         /// </summary>
         [Input("oAuthParameters")]
         public Input<Inputs.DataSourceOAuthParametersArgs>? OAuthParameters { get; set; }

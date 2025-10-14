@@ -11,19 +11,19 @@ namespace Pulumi.AwsNative.Pcs.Inputs
 {
 
     /// <summary>
-    /// Additional options related to the Slurm scheduler.
+    /// The Slurm configuration for the queue.
     /// </summary>
     public sealed class SlurmConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("slurmCustomSettings")]
-        private InputList<Inputs.ComputeNodeGroupSlurmCustomSettingArgs>? _slurmCustomSettings;
+        private InputList<Inputs.QueueSlurmCustomSettingArgs>? _slurmCustomSettings;
 
         /// <summary>
-        /// Additional Slurm-specific configuration that directly maps to Slurm settings.
+        /// Custom Slurm parameters that directly map to Slurm configuration settings.
         /// </summary>
-        public InputList<Inputs.ComputeNodeGroupSlurmCustomSettingArgs> SlurmCustomSettings
+        public InputList<Inputs.QueueSlurmCustomSettingArgs> SlurmCustomSettings
         {
-            get => _slurmCustomSettings ?? (_slurmCustomSettings = new InputList<Inputs.ComputeNodeGroupSlurmCustomSettingArgs>());
+            get => _slurmCustomSettings ?? (_slurmCustomSettings = new InputList<Inputs.QueueSlurmCustomSettingArgs>());
             set => _slurmCustomSettings = value;
         }
 

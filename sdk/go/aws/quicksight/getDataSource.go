@@ -45,7 +45,7 @@ type LookupDataSourceResult struct {
 	Arn *string `pulumi:"arn"`
 	// <p>The time that this data source was created.</p>
 	CreatedTime *string `pulumi:"createdTime"`
-	// The parameters that Amazon QuickSight uses to connect to your underlying source.
+	// The parameters that Amazon Quick Sight uses to connect to your underlying source.
 	DataSourceParameters *DataSourceParameters `pulumi:"dataSourceParameters"`
 	// Error information from the last update or the creation of the data source.
 	ErrorInfo *DataSourceErrorInfo `pulumi:"errorInfo"`
@@ -55,13 +55,13 @@ type LookupDataSourceResult struct {
 	Name *string `pulumi:"name"`
 	// A list of resource permissions on the data source.
 	Permissions []DataSourceResourcePermission `pulumi:"permissions"`
-	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+	// Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
 	SslProperties *DataSourceSslProperties `pulumi:"sslProperties"`
 	// The HTTP status of the request.
 	Status *DataSourceResourceStatus `pulumi:"status"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
 	Tags []aws.Tag `pulumi:"tags"`
-	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+	// Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
 	VpcConnectionProperties *DataSourceVpcConnectionProperties `pulumi:"vpcConnectionProperties"`
 }
 
@@ -123,7 +123,7 @@ func (o LookupDataSourceResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// The parameters that Amazon QuickSight uses to connect to your underlying source.
+// The parameters that Amazon Quick Sight uses to connect to your underlying source.
 func (o LookupDataSourceResultOutput) DataSourceParameters() DataSourceParametersPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceParameters { return v.DataSourceParameters }).(DataSourceParametersPtrOutput)
 }
@@ -148,7 +148,7 @@ func (o LookupDataSourceResultOutput) Permissions() DataSourceResourcePermission
 	return o.ApplyT(func(v LookupDataSourceResult) []DataSourceResourcePermission { return v.Permissions }).(DataSourceResourcePermissionArrayOutput)
 }
 
-// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+// Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
 func (o LookupDataSourceResultOutput) SslProperties() DataSourceSslPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceSslProperties { return v.SslProperties }).(DataSourceSslPropertiesPtrOutput)
 }
@@ -163,7 +163,7 @@ func (o LookupDataSourceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+// Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
 func (o LookupDataSourceResultOutput) VpcConnectionProperties() DataSourceVpcConnectionPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceVpcConnectionProperties { return v.VpcConnectionProperties }).(DataSourceVpcConnectionPropertiesPtrOutput)
 }

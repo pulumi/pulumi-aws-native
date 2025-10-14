@@ -13,6 +13,257 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateLineChartVisual struct {
+	// The list of custom actions that are configured for a visual.
+	Actions []TemplateVisualCustomAction `pulumi:"actions"`
+	// The configuration of a line chart.
+	ChartConfiguration *TemplateLineChartConfiguration `pulumi:"chartConfiguration"`
+	// The column hierarchy that is used during drill-downs and drill-ups.
+	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
+	// The subtitle that is displayed on the visual.
+	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
+	// The title that is displayed on the visual.
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+	VisualId string `pulumi:"visualId"`
+}
+
+// TemplateLineChartVisualInput is an input type that accepts TemplateLineChartVisualArgs and TemplateLineChartVisualOutput values.
+// You can construct a concrete instance of `TemplateLineChartVisualInput` via:
+//
+//	TemplateLineChartVisualArgs{...}
+type TemplateLineChartVisualInput interface {
+	pulumi.Input
+
+	ToTemplateLineChartVisualOutput() TemplateLineChartVisualOutput
+	ToTemplateLineChartVisualOutputWithContext(context.Context) TemplateLineChartVisualOutput
+}
+
+type TemplateLineChartVisualArgs struct {
+	// The list of custom actions that are configured for a visual.
+	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
+	// The configuration of a line chart.
+	ChartConfiguration TemplateLineChartConfigurationPtrInput `pulumi:"chartConfiguration"`
+	// The column hierarchy that is used during drill-downs and drill-ups.
+	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
+	// The subtitle that is displayed on the visual.
+	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
+	// The title that is displayed on the visual.
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+	VisualId pulumi.StringInput `pulumi:"visualId"`
+}
+
+func (TemplateLineChartVisualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateLineChartVisual)(nil)).Elem()
+}
+
+func (i TemplateLineChartVisualArgs) ToTemplateLineChartVisualOutput() TemplateLineChartVisualOutput {
+	return i.ToTemplateLineChartVisualOutputWithContext(context.Background())
+}
+
+func (i TemplateLineChartVisualArgs) ToTemplateLineChartVisualOutputWithContext(ctx context.Context) TemplateLineChartVisualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLineChartVisualOutput)
+}
+
+func (i TemplateLineChartVisualArgs) ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput {
+	return i.ToTemplateLineChartVisualPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateLineChartVisualArgs) ToTemplateLineChartVisualPtrOutputWithContext(ctx context.Context) TemplateLineChartVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLineChartVisualOutput).ToTemplateLineChartVisualPtrOutputWithContext(ctx)
+}
+
+// TemplateLineChartVisualPtrInput is an input type that accepts TemplateLineChartVisualArgs, TemplateLineChartVisualPtr and TemplateLineChartVisualPtrOutput values.
+// You can construct a concrete instance of `TemplateLineChartVisualPtrInput` via:
+//
+//	        TemplateLineChartVisualArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateLineChartVisualPtrInput interface {
+	pulumi.Input
+
+	ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput
+	ToTemplateLineChartVisualPtrOutputWithContext(context.Context) TemplateLineChartVisualPtrOutput
+}
+
+type templateLineChartVisualPtrType TemplateLineChartVisualArgs
+
+func TemplateLineChartVisualPtr(v *TemplateLineChartVisualArgs) TemplateLineChartVisualPtrInput {
+	return (*templateLineChartVisualPtrType)(v)
+}
+
+func (*templateLineChartVisualPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateLineChartVisual)(nil)).Elem()
+}
+
+func (i *templateLineChartVisualPtrType) ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput {
+	return i.ToTemplateLineChartVisualPtrOutputWithContext(context.Background())
+}
+
+func (i *templateLineChartVisualPtrType) ToTemplateLineChartVisualPtrOutputWithContext(ctx context.Context) TemplateLineChartVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLineChartVisualPtrOutput)
+}
+
+type TemplateLineChartVisualOutput struct{ *pulumi.OutputState }
+
+func (TemplateLineChartVisualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateLineChartVisual)(nil)).Elem()
+}
+
+func (o TemplateLineChartVisualOutput) ToTemplateLineChartVisualOutput() TemplateLineChartVisualOutput {
+	return o
+}
+
+func (o TemplateLineChartVisualOutput) ToTemplateLineChartVisualOutputWithContext(ctx context.Context) TemplateLineChartVisualOutput {
+	return o
+}
+
+func (o TemplateLineChartVisualOutput) ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput {
+	return o.ToTemplateLineChartVisualPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateLineChartVisualOutput) ToTemplateLineChartVisualPtrOutputWithContext(ctx context.Context) TemplateLineChartVisualPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLineChartVisual) *TemplateLineChartVisual {
+		return &v
+	}).(TemplateLineChartVisualPtrOutput)
+}
+
+// The list of custom actions that are configured for a visual.
+func (o TemplateLineChartVisualOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v TemplateLineChartVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
+}
+
+// The configuration of a line chart.
+func (o TemplateLineChartVisualOutput) ChartConfiguration() TemplateLineChartConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateLineChartVisual) *TemplateLineChartConfiguration { return v.ChartConfiguration }).(TemplateLineChartConfigurationPtrOutput)
+}
+
+// The column hierarchy that is used during drill-downs and drill-ups.
+func (o TemplateLineChartVisualOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v TemplateLineChartVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
+}
+
+// The subtitle that is displayed on the visual.
+func (o TemplateLineChartVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateLineChartVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+// The title that is displayed on the visual.
+func (o TemplateLineChartVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateLineChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+// The alt text for the visual.
+func (o TemplateLineChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateLineChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+func (o TemplateLineChartVisualOutput) VisualId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateLineChartVisual) string { return v.VisualId }).(pulumi.StringOutput)
+}
+
+type TemplateLineChartVisualPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateLineChartVisualPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateLineChartVisual)(nil)).Elem()
+}
+
+func (o TemplateLineChartVisualPtrOutput) ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput {
+	return o
+}
+
+func (o TemplateLineChartVisualPtrOutput) ToTemplateLineChartVisualPtrOutputWithContext(ctx context.Context) TemplateLineChartVisualPtrOutput {
+	return o
+}
+
+func (o TemplateLineChartVisualPtrOutput) Elem() TemplateLineChartVisualOutput {
+	return o.ApplyT(func(v *TemplateLineChartVisual) TemplateLineChartVisual {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateLineChartVisual
+		return ret
+	}).(TemplateLineChartVisualOutput)
+}
+
+// The list of custom actions that are configured for a visual.
+func (o TemplateLineChartVisualPtrOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v *TemplateLineChartVisual) []TemplateVisualCustomAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(TemplateVisualCustomActionArrayOutput)
+}
+
+// The configuration of a line chart.
+func (o TemplateLineChartVisualPtrOutput) ChartConfiguration() TemplateLineChartConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateLineChartVisual) *TemplateLineChartConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ChartConfiguration
+	}).(TemplateLineChartConfigurationPtrOutput)
+}
+
+// The column hierarchy that is used during drill-downs and drill-ups.
+func (o TemplateLineChartVisualPtrOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v *TemplateLineChartVisual) []TemplateColumnHierarchy {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnHierarchies
+	}).(TemplateColumnHierarchyArrayOutput)
+}
+
+// The subtitle that is displayed on the visual.
+func (o TemplateLineChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateLineChartVisual) *TemplateVisualSubtitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Subtitle
+	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+// The title that is displayed on the visual.
+func (o TemplateLineChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateLineChartVisual) *TemplateVisualTitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+// The alt text for the visual.
+func (o TemplateLineChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateLineChartVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VisualContentAltText
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+func (o TemplateLineChartVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateLineChartVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VisualId
+	}).(pulumi.StringPtrOutput)
+}
+
 type TemplateLineSeriesAxisDisplayOptions struct {
 	// The options that determine the presentation of the line series axis.
 	AxisOptions *TemplateAxisDisplayOptions `pulumi:"axisOptions"`
@@ -23527,19 +23778,19 @@ type TemplateSheetDefinition struct {
 	Description *string `pulumi:"description"`
 	// The list of filter controls that are on a sheet.
 	//
-	// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon Quick Suite User Guide* .
 	FilterControls []TemplateFilterControl `pulumi:"filterControls"`
 	// A list of images on a sheet.
 	Images []TemplateSheetImage `pulumi:"images"`
 	// Layouts define how the components of a sheet are arranged.
 	//
-	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon Quick Suite User Guide* .
 	Layouts []TemplateLayout `pulumi:"layouts"`
 	// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
 	Name *string `pulumi:"name"`
 	// The list of parameter controls that are on a sheet.
 	//
-	// For more information, see [Using a Control with a Parameter in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using a Control with a Parameter in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon Quick Suite User Guide* .
 	ParameterControls []TemplateParameterControl `pulumi:"parameterControls"`
 	// The control layouts of the sheet.
 	SheetControlLayouts []TemplateSheetControlLayout `pulumi:"sheetControlLayouts"`
@@ -23574,19 +23825,19 @@ type TemplateSheetDefinitionArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The list of filter controls that are on a sheet.
 	//
-	// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon Quick Suite User Guide* .
 	FilterControls TemplateFilterControlArrayInput `pulumi:"filterControls"`
 	// A list of images on a sheet.
 	Images TemplateSheetImageArrayInput `pulumi:"images"`
 	// Layouts define how the components of a sheet are arranged.
 	//
-	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon Quick Suite User Guide* .
 	Layouts TemplateLayoutArrayInput `pulumi:"layouts"`
 	// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The list of parameter controls that are on a sheet.
 	//
-	// For more information, see [Using a Control with a Parameter in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using a Control with a Parameter in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon Quick Suite User Guide* .
 	ParameterControls TemplateParameterControlArrayInput `pulumi:"parameterControls"`
 	// The control layouts of the sheet.
 	SheetControlLayouts TemplateSheetControlLayoutArrayInput `pulumi:"sheetControlLayouts"`
@@ -23666,7 +23917,7 @@ func (o TemplateSheetDefinitionOutput) Description() pulumi.StringPtrOutput {
 
 // The list of filter controls that are on a sheet.
 //
-// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateSheetDefinitionOutput) FilterControls() TemplateFilterControlArrayOutput {
 	return o.ApplyT(func(v TemplateSheetDefinition) []TemplateFilterControl { return v.FilterControls }).(TemplateFilterControlArrayOutput)
 }
@@ -23678,7 +23929,7 @@ func (o TemplateSheetDefinitionOutput) Images() TemplateSheetImageArrayOutput {
 
 // Layouts define how the components of a sheet are arranged.
 //
-// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateSheetDefinitionOutput) Layouts() TemplateLayoutArrayOutput {
 	return o.ApplyT(func(v TemplateSheetDefinition) []TemplateLayout { return v.Layouts }).(TemplateLayoutArrayOutput)
 }
@@ -23690,7 +23941,7 @@ func (o TemplateSheetDefinitionOutput) Name() pulumi.StringPtrOutput {
 
 // The list of parameter controls that are on a sheet.
 //
-// For more information, see [Using a Control with a Parameter in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using a Control with a Parameter in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateSheetDefinitionOutput) ParameterControls() TemplateParameterControlArrayOutput {
 	return o.ApplyT(func(v TemplateSheetDefinition) []TemplateParameterControl { return v.ParameterControls }).(TemplateParameterControlArrayOutput)
 }
@@ -37649,7 +37900,7 @@ type TemplateVersionDefinition struct {
 	DataSetConfigurations []TemplateDataSetConfiguration `pulumi:"dataSetConfigurations"`
 	// Filter definitions for a template.
 	//
-	// For more information, see [Filtering Data](https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Filtering Data](https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html) in the *Amazon Quick Suite User Guide* .
 	FilterGroups []TemplateFilterGroup `pulumi:"filterGroups"`
 	// An array of option definitions for a template.
 	Options *TemplateAssetOptions `pulumi:"options"`
@@ -37657,7 +37908,7 @@ type TemplateVersionDefinition struct {
 	//
 	// *Parameters* are named variables that can transfer a value for use by an action or an object.
 	//
-	// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
 	ParameterDeclarations []TemplateParameterDeclaration `pulumi:"parameterDeclarations"`
 	QueryExecutionOptions *TemplateQueryExecutionOptions `pulumi:"queryExecutionOptions"`
 	// An array of sheet definitions for a template.
@@ -37685,7 +37936,7 @@ type TemplateVersionDefinitionArgs struct {
 	DataSetConfigurations TemplateDataSetConfigurationArrayInput `pulumi:"dataSetConfigurations"`
 	// Filter definitions for a template.
 	//
-	// For more information, see [Filtering Data](https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Filtering Data](https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html) in the *Amazon Quick Suite User Guide* .
 	FilterGroups TemplateFilterGroupArrayInput `pulumi:"filterGroups"`
 	// An array of option definitions for a template.
 	Options TemplateAssetOptionsPtrInput `pulumi:"options"`
@@ -37693,7 +37944,7 @@ type TemplateVersionDefinitionArgs struct {
 	//
 	// *Parameters* are named variables that can transfer a value for use by an action or an object.
 	//
-	// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
 	ParameterDeclarations TemplateParameterDeclarationArrayInput `pulumi:"parameterDeclarations"`
 	QueryExecutionOptions TemplateQueryExecutionOptionsPtrInput  `pulumi:"queryExecutionOptions"`
 	// An array of sheet definitions for a template.
@@ -37798,7 +38049,7 @@ func (o TemplateVersionDefinitionOutput) DataSetConfigurations() TemplateDataSet
 
 // Filter definitions for a template.
 //
-// For more information, see [Filtering Data](https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Filtering Data](https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVersionDefinitionOutput) FilterGroups() TemplateFilterGroupArrayOutput {
 	return o.ApplyT(func(v TemplateVersionDefinition) []TemplateFilterGroup { return v.FilterGroups }).(TemplateFilterGroupArrayOutput)
 }
@@ -37812,7 +38063,7 @@ func (o TemplateVersionDefinitionOutput) Options() TemplateAssetOptionsPtrOutput
 //
 // *Parameters* are named variables that can transfer a value for use by an action or an object.
 //
-// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVersionDefinitionOutput) ParameterDeclarations() TemplateParameterDeclarationArrayOutput {
 	return o.ApplyT(func(v TemplateVersionDefinition) []TemplateParameterDeclaration { return v.ParameterDeclarations }).(TemplateParameterDeclarationArrayOutput)
 }
@@ -37891,7 +38142,7 @@ func (o TemplateVersionDefinitionPtrOutput) DataSetConfigurations() TemplateData
 
 // Filter definitions for a template.
 //
-// For more information, see [Filtering Data](https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Filtering Data](https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVersionDefinitionPtrOutput) FilterGroups() TemplateFilterGroupArrayOutput {
 	return o.ApplyT(func(v *TemplateVersionDefinition) []TemplateFilterGroup {
 		if v == nil {
@@ -37915,7 +38166,7 @@ func (o TemplateVersionDefinitionPtrOutput) Options() TemplateAssetOptionsPtrOut
 //
 // *Parameters* are named variables that can transfer a value for use by an action or an object.
 //
-// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVersionDefinitionPtrOutput) ParameterDeclarations() TemplateParameterDeclarationArrayOutput {
 	return o.ApplyT(func(v *TemplateVersionDefinition) []TemplateParameterDeclaration {
 		if v == nil {
@@ -38084,95 +38335,95 @@ func (o TemplateVisibleRangeOptionsPtrOutput) PercentRange() TemplatePercentVisi
 type TemplateVisual struct {
 	// A bar chart.
 	//
-	// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon Quick Suite User Guide* .
 	BarChartVisual *TemplateBarChartVisual `pulumi:"barChartVisual"`
 	// A box plot.
 	//
-	// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon Quick Suite User Guide* .
 	BoxPlotVisual *TemplateBoxPlotVisual `pulumi:"boxPlotVisual"`
 	// A combo chart.
 	//
-	// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon Quick Suite User Guide* .
 	ComboChartVisual *TemplateComboChartVisual `pulumi:"comboChartVisual"`
 	// A visual that contains custom content.
 	//
-	// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon Quick Suite User Guide* .
 	CustomContentVisual *TemplateCustomContentVisual `pulumi:"customContentVisual"`
 	// An empty visual.
 	EmptyVisual *TemplateEmptyVisual `pulumi:"emptyVisual"`
 	// A filled map.
 	//
-	// For more information, see [Creating filled maps](https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Creating filled maps](https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html) in the *Amazon Quick Suite User Guide* .
 	FilledMapVisual *TemplateFilledMapVisual `pulumi:"filledMapVisual"`
 	// A funnel chart.
 	//
-	// For more information, see [Using funnel charts](https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using funnel charts](https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html) in the *Amazon Quick Suite User Guide* .
 	FunnelChartVisual *TemplateFunnelChartVisual `pulumi:"funnelChartVisual"`
 	// A gauge chart.
 	//
-	// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon Quick Suite User Guide* .
 	GaugeChartVisual *TemplateGaugeChartVisual `pulumi:"gaugeChartVisual"`
 	// A geospatial map or a points on map visual.
 	//
-	// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon Quick Suite User Guide* .
 	GeospatialMapVisual *TemplateGeospatialMapVisual `pulumi:"geospatialMapVisual"`
 	// A heat map.
 	//
-	// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon Quick Suite User Guide* .
 	HeatMapVisual *TemplateHeatMapVisual `pulumi:"heatMapVisual"`
 	// A histogram.
 	//
-	// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon Quick Suite User Guide* .
 	HistogramVisual *TemplateHistogramVisual `pulumi:"histogramVisual"`
 	// An insight visual.
 	//
-	// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon Quick Suite User Guide* .
 	InsightVisual *TemplateInsightVisual `pulumi:"insightVisual"`
 	// A key performance indicator (KPI).
 	//
-	// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon Quick Suite User Guide* .
 	KpiVisual *TemplateKpiVisual `pulumi:"kpiVisual"`
 	// A line chart.
 	//
-	// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon Quick Suite User Guide* .
 	LineChartVisual *TemplateLineChartVisual `pulumi:"lineChartVisual"`
 	// A pie or donut chart.
 	//
-	// For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the *Amazon Quick Suite User Guide* .
 	PieChartVisual *TemplatePieChartVisual `pulumi:"pieChartVisual"`
 	// A pivot table.
 	//
-	// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon Quick Suite User Guide* .
 	PivotTableVisual *TemplatePivotTableVisual `pulumi:"pivotTableVisual"`
 	// The custom plugin visual type.
 	PluginVisual *TemplatePluginVisual `pulumi:"pluginVisual"`
 	// A radar chart visual.
 	//
-	// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon Quick Suite User Guide* .
 	RadarChartVisual *TemplateRadarChartVisual `pulumi:"radarChartVisual"`
 	// A sankey diagram.
 	//
-	// For more information, see [Using Sankey diagrams](https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using Sankey diagrams](https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html) in the *Amazon Quick Suite User Guide* .
 	SankeyDiagramVisual *TemplateSankeyDiagramVisual `pulumi:"sankeyDiagramVisual"`
 	// A scatter plot.
 	//
-	// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon Quick Suite User Guide* .
 	ScatterPlotVisual *TemplateScatterPlotVisual `pulumi:"scatterPlotVisual"`
 	// A table visual.
 	//
-	// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon Quick Suite User Guide* .
 	TableVisual *TemplateTableVisual `pulumi:"tableVisual"`
 	// A tree map.
 	//
-	// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon Quick Suite User Guide* .
 	TreeMapVisual *TemplateTreeMapVisual `pulumi:"treeMapVisual"`
 	// A waterfall chart.
 	//
-	// For more information, see [Using waterfall charts](https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using waterfall charts](https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html) in the *Amazon Quick Suite User Guide* .
 	WaterfallVisual *TemplateWaterfallVisual `pulumi:"waterfallVisual"`
 	// A word cloud.
 	//
-	// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon Quick Suite User Guide* .
 	WordCloudVisual *TemplateWordCloudVisual `pulumi:"wordCloudVisual"`
 }
 
@@ -38190,95 +38441,95 @@ type TemplateVisualInput interface {
 type TemplateVisualArgs struct {
 	// A bar chart.
 	//
-	// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon Quick Suite User Guide* .
 	BarChartVisual TemplateBarChartVisualPtrInput `pulumi:"barChartVisual"`
 	// A box plot.
 	//
-	// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon Quick Suite User Guide* .
 	BoxPlotVisual TemplateBoxPlotVisualPtrInput `pulumi:"boxPlotVisual"`
 	// A combo chart.
 	//
-	// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon Quick Suite User Guide* .
 	ComboChartVisual TemplateComboChartVisualPtrInput `pulumi:"comboChartVisual"`
 	// A visual that contains custom content.
 	//
-	// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon Quick Suite User Guide* .
 	CustomContentVisual TemplateCustomContentVisualPtrInput `pulumi:"customContentVisual"`
 	// An empty visual.
 	EmptyVisual TemplateEmptyVisualPtrInput `pulumi:"emptyVisual"`
 	// A filled map.
 	//
-	// For more information, see [Creating filled maps](https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Creating filled maps](https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html) in the *Amazon Quick Suite User Guide* .
 	FilledMapVisual TemplateFilledMapVisualPtrInput `pulumi:"filledMapVisual"`
 	// A funnel chart.
 	//
-	// For more information, see [Using funnel charts](https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using funnel charts](https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html) in the *Amazon Quick Suite User Guide* .
 	FunnelChartVisual TemplateFunnelChartVisualPtrInput `pulumi:"funnelChartVisual"`
 	// A gauge chart.
 	//
-	// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon Quick Suite User Guide* .
 	GaugeChartVisual TemplateGaugeChartVisualPtrInput `pulumi:"gaugeChartVisual"`
 	// A geospatial map or a points on map visual.
 	//
-	// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon Quick Suite User Guide* .
 	GeospatialMapVisual TemplateGeospatialMapVisualPtrInput `pulumi:"geospatialMapVisual"`
 	// A heat map.
 	//
-	// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon Quick Suite User Guide* .
 	HeatMapVisual TemplateHeatMapVisualPtrInput `pulumi:"heatMapVisual"`
 	// A histogram.
 	//
-	// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon Quick Suite User Guide* .
 	HistogramVisual TemplateHistogramVisualPtrInput `pulumi:"histogramVisual"`
 	// An insight visual.
 	//
-	// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon Quick Suite User Guide* .
 	InsightVisual TemplateInsightVisualPtrInput `pulumi:"insightVisual"`
 	// A key performance indicator (KPI).
 	//
-	// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon Quick Suite User Guide* .
 	KpiVisual TemplateKpiVisualPtrInput `pulumi:"kpiVisual"`
 	// A line chart.
 	//
-	// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon Quick Suite User Guide* .
 	LineChartVisual TemplateLineChartVisualPtrInput `pulumi:"lineChartVisual"`
 	// A pie or donut chart.
 	//
-	// For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the *Amazon Quick Suite User Guide* .
 	PieChartVisual TemplatePieChartVisualPtrInput `pulumi:"pieChartVisual"`
 	// A pivot table.
 	//
-	// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon Quick Suite User Guide* .
 	PivotTableVisual TemplatePivotTableVisualPtrInput `pulumi:"pivotTableVisual"`
 	// The custom plugin visual type.
 	PluginVisual TemplatePluginVisualPtrInput `pulumi:"pluginVisual"`
 	// A radar chart visual.
 	//
-	// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon Quick Suite User Guide* .
 	RadarChartVisual TemplateRadarChartVisualPtrInput `pulumi:"radarChartVisual"`
 	// A sankey diagram.
 	//
-	// For more information, see [Using Sankey diagrams](https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using Sankey diagrams](https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html) in the *Amazon Quick Suite User Guide* .
 	SankeyDiagramVisual TemplateSankeyDiagramVisualPtrInput `pulumi:"sankeyDiagramVisual"`
 	// A scatter plot.
 	//
-	// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon Quick Suite User Guide* .
 	ScatterPlotVisual TemplateScatterPlotVisualPtrInput `pulumi:"scatterPlotVisual"`
 	// A table visual.
 	//
-	// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon Quick Suite User Guide* .
 	TableVisual TemplateTableVisualPtrInput `pulumi:"tableVisual"`
 	// A tree map.
 	//
-	// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon Quick Suite User Guide* .
 	TreeMapVisual TemplateTreeMapVisualPtrInput `pulumi:"treeMapVisual"`
 	// A waterfall chart.
 	//
-	// For more information, see [Using waterfall charts](https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using waterfall charts](https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html) in the *Amazon Quick Suite User Guide* .
 	WaterfallVisual TemplateWaterfallVisualPtrInput `pulumi:"waterfallVisual"`
 	// A word cloud.
 	//
-	// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon Quick Suite User Guide* .
 	WordCloudVisual TemplateWordCloudVisualPtrInput `pulumi:"wordCloudVisual"`
 }
 
@@ -38335,28 +38586,28 @@ func (o TemplateVisualOutput) ToTemplateVisualOutputWithContext(ctx context.Cont
 
 // A bar chart.
 //
-// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) BarChartVisual() TemplateBarChartVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateBarChartVisual { return v.BarChartVisual }).(TemplateBarChartVisualPtrOutput)
 }
 
 // A box plot.
 //
-// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) BoxPlotVisual() TemplateBoxPlotVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateBoxPlotVisual { return v.BoxPlotVisual }).(TemplateBoxPlotVisualPtrOutput)
 }
 
 // A combo chart.
 //
-// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) ComboChartVisual() TemplateComboChartVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateComboChartVisual { return v.ComboChartVisual }).(TemplateComboChartVisualPtrOutput)
 }
 
 // A visual that contains custom content.
 //
-// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) CustomContentVisual() TemplateCustomContentVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateCustomContentVisual { return v.CustomContentVisual }).(TemplateCustomContentVisualPtrOutput)
 }
@@ -38368,77 +38619,77 @@ func (o TemplateVisualOutput) EmptyVisual() TemplateEmptyVisualPtrOutput {
 
 // A filled map.
 //
-// For more information, see [Creating filled maps](https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Creating filled maps](https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) FilledMapVisual() TemplateFilledMapVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateFilledMapVisual { return v.FilledMapVisual }).(TemplateFilledMapVisualPtrOutput)
 }
 
 // A funnel chart.
 //
-// For more information, see [Using funnel charts](https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using funnel charts](https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) FunnelChartVisual() TemplateFunnelChartVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateFunnelChartVisual { return v.FunnelChartVisual }).(TemplateFunnelChartVisualPtrOutput)
 }
 
 // A gauge chart.
 //
-// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) GaugeChartVisual() TemplateGaugeChartVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateGaugeChartVisual { return v.GaugeChartVisual }).(TemplateGaugeChartVisualPtrOutput)
 }
 
 // A geospatial map or a points on map visual.
 //
-// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) GeospatialMapVisual() TemplateGeospatialMapVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateGeospatialMapVisual { return v.GeospatialMapVisual }).(TemplateGeospatialMapVisualPtrOutput)
 }
 
 // A heat map.
 //
-// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) HeatMapVisual() TemplateHeatMapVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateHeatMapVisual { return v.HeatMapVisual }).(TemplateHeatMapVisualPtrOutput)
 }
 
 // A histogram.
 //
-// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) HistogramVisual() TemplateHistogramVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateHistogramVisual { return v.HistogramVisual }).(TemplateHistogramVisualPtrOutput)
 }
 
 // An insight visual.
 //
-// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) InsightVisual() TemplateInsightVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateInsightVisual { return v.InsightVisual }).(TemplateInsightVisualPtrOutput)
 }
 
 // A key performance indicator (KPI).
 //
-// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) KpiVisual() TemplateKpiVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateKpiVisual { return v.KpiVisual }).(TemplateKpiVisualPtrOutput)
 }
 
 // A line chart.
 //
-// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) LineChartVisual() TemplateLineChartVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateLineChartVisual { return v.LineChartVisual }).(TemplateLineChartVisualPtrOutput)
 }
 
 // A pie or donut chart.
 //
-// For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) PieChartVisual() TemplatePieChartVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplatePieChartVisual { return v.PieChartVisual }).(TemplatePieChartVisualPtrOutput)
 }
 
 // A pivot table.
 //
-// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) PivotTableVisual() TemplatePivotTableVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplatePivotTableVisual { return v.PivotTableVisual }).(TemplatePivotTableVisualPtrOutput)
 }
@@ -38450,49 +38701,49 @@ func (o TemplateVisualOutput) PluginVisual() TemplatePluginVisualPtrOutput {
 
 // A radar chart visual.
 //
-// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) RadarChartVisual() TemplateRadarChartVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateRadarChartVisual { return v.RadarChartVisual }).(TemplateRadarChartVisualPtrOutput)
 }
 
 // A sankey diagram.
 //
-// For more information, see [Using Sankey diagrams](https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using Sankey diagrams](https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) SankeyDiagramVisual() TemplateSankeyDiagramVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateSankeyDiagramVisual { return v.SankeyDiagramVisual }).(TemplateSankeyDiagramVisualPtrOutput)
 }
 
 // A scatter plot.
 //
-// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) ScatterPlotVisual() TemplateScatterPlotVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateScatterPlotVisual { return v.ScatterPlotVisual }).(TemplateScatterPlotVisualPtrOutput)
 }
 
 // A table visual.
 //
-// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) TableVisual() TemplateTableVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateTableVisual { return v.TableVisual }).(TemplateTableVisualPtrOutput)
 }
 
 // A tree map.
 //
-// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) TreeMapVisual() TemplateTreeMapVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateTreeMapVisual { return v.TreeMapVisual }).(TemplateTreeMapVisualPtrOutput)
 }
 
 // A waterfall chart.
 //
-// For more information, see [Using waterfall charts](https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using waterfall charts](https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) WaterfallVisual() TemplateWaterfallVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateWaterfallVisual { return v.WaterfallVisual }).(TemplateWaterfallVisualPtrOutput)
 }
 
 // A word cloud.
 //
-// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateVisualOutput) WordCloudVisual() TemplateWordCloudVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateWordCloudVisual { return v.WordCloudVisual }).(TemplateWordCloudVisualPtrOutput)
 }
@@ -49865,6 +50116,8 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineChartVisualInput)(nil)).Elem(), TemplateLineChartVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineChartVisualPtrInput)(nil)).Elem(), TemplateLineChartVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineSeriesAxisDisplayOptionsInput)(nil)).Elem(), TemplateLineSeriesAxisDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineSeriesAxisDisplayOptionsPtrInput)(nil)).Elem(), TemplateLineSeriesAxisDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlDisplayOptionsInput)(nil)).Elem(), TemplateListControlDisplayOptionsArgs{})
@@ -50421,6 +50674,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateLineChartVisualOutput{})
+	pulumi.RegisterOutputType(TemplateLineChartVisualPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLineSeriesAxisDisplayOptionsOutput{})
 	pulumi.RegisterOutputType(TemplateLineSeriesAxisDisplayOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateListControlDisplayOptionsOutput{})

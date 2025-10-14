@@ -16,17 +16,27 @@ import (
 type GatewayTarget struct {
 	pulumi.CustomResourceState
 
-	CreatedAt                        pulumi.StringOutput                                     `pulumi:"createdAt"`
+	// The date and time at which the gateway target was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The OAuth credential provider configuration.
 	CredentialProviderConfigurations GatewayTargetCredentialProviderConfigurationArrayOutput `pulumi:"credentialProviderConfigurations"`
-	Description                      pulumi.StringPtrOutput                                  `pulumi:"description"`
-	GatewayArn                       pulumi.StringOutput                                     `pulumi:"gatewayArn"`
-	GatewayIdentifier                pulumi.StringPtrOutput                                  `pulumi:"gatewayIdentifier"`
-	Name                             pulumi.StringOutput                                     `pulumi:"name"`
-	Status                           GatewayTargetTargetStatusOutput                         `pulumi:"status"`
-	StatusReasons                    pulumi.StringArrayOutput                                `pulumi:"statusReasons"`
-	TargetConfiguration              GatewayTargetTargetConfigurationPropertiesOutput        `pulumi:"targetConfiguration"`
-	TargetId                         pulumi.StringOutput                                     `pulumi:"targetId"`
-	UpdatedAt                        pulumi.StringOutput                                     `pulumi:"updatedAt"`
+	// The description for the gateway target.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	GatewayArn  pulumi.StringOutput    `pulumi:"gatewayArn"`
+	// The gateway ID for the gateway target.
+	GatewayIdentifier pulumi.StringPtrOutput `pulumi:"gatewayIdentifier"`
+	// The name for the gateway target.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The status for the gateway target.
+	Status GatewayTargetTargetStatusOutput `pulumi:"status"`
+	// The status reasons for the gateway target.
+	StatusReasons pulumi.StringArrayOutput `pulumi:"statusReasons"`
+	// The target configuration for the Smithy model target.
+	TargetConfiguration GatewayTargetTargetConfigurationPropertiesOutput `pulumi:"targetConfiguration"`
+	// The target ID for the gateway target.
+	TargetId pulumi.StringOutput `pulumi:"targetId"`
+	// The time at which the resource was updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewGatewayTarget registers a new resource with the given unique name, arguments, and options.
@@ -79,20 +89,30 @@ func (GatewayTargetState) ElementType() reflect.Type {
 }
 
 type gatewayTargetArgs struct {
+	// The OAuth credential provider configuration.
 	CredentialProviderConfigurations []GatewayTargetCredentialProviderConfiguration `pulumi:"credentialProviderConfigurations"`
-	Description                      *string                                        `pulumi:"description"`
-	GatewayIdentifier                *string                                        `pulumi:"gatewayIdentifier"`
-	Name                             *string                                        `pulumi:"name"`
-	TargetConfiguration              GatewayTargetTargetConfigurationProperties     `pulumi:"targetConfiguration"`
+	// The description for the gateway target.
+	Description *string `pulumi:"description"`
+	// The gateway ID for the gateway target.
+	GatewayIdentifier *string `pulumi:"gatewayIdentifier"`
+	// The name for the gateway target.
+	Name *string `pulumi:"name"`
+	// The target configuration for the Smithy model target.
+	TargetConfiguration GatewayTargetTargetConfigurationProperties `pulumi:"targetConfiguration"`
 }
 
 // The set of arguments for constructing a GatewayTarget resource.
 type GatewayTargetArgs struct {
+	// The OAuth credential provider configuration.
 	CredentialProviderConfigurations GatewayTargetCredentialProviderConfigurationArrayInput
-	Description                      pulumi.StringPtrInput
-	GatewayIdentifier                pulumi.StringPtrInput
-	Name                             pulumi.StringPtrInput
-	TargetConfiguration              GatewayTargetTargetConfigurationPropertiesInput
+	// The description for the gateway target.
+	Description pulumi.StringPtrInput
+	// The gateway ID for the gateway target.
+	GatewayIdentifier pulumi.StringPtrInput
+	// The name for the gateway target.
+	Name pulumi.StringPtrInput
+	// The target configuration for the Smithy model target.
+	TargetConfiguration GatewayTargetTargetConfigurationPropertiesInput
 }
 
 func (GatewayTargetArgs) ElementType() reflect.Type {
@@ -132,16 +152,19 @@ func (o GatewayTargetOutput) ToGatewayTargetOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The date and time at which the gateway target was created.
 func (o GatewayTargetOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayTarget) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The OAuth credential provider configuration.
 func (o GatewayTargetOutput) CredentialProviderConfigurations() GatewayTargetCredentialProviderConfigurationArrayOutput {
 	return o.ApplyT(func(v *GatewayTarget) GatewayTargetCredentialProviderConfigurationArrayOutput {
 		return v.CredentialProviderConfigurations
 	}).(GatewayTargetCredentialProviderConfigurationArrayOutput)
 }
 
+// The description for the gateway target.
 func (o GatewayTargetOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayTarget) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -150,30 +173,37 @@ func (o GatewayTargetOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayTarget) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
 }
 
+// The gateway ID for the gateway target.
 func (o GatewayTargetOutput) GatewayIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayTarget) pulumi.StringPtrOutput { return v.GatewayIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The name for the gateway target.
 func (o GatewayTargetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The status for the gateway target.
 func (o GatewayTargetOutput) Status() GatewayTargetTargetStatusOutput {
 	return o.ApplyT(func(v *GatewayTarget) GatewayTargetTargetStatusOutput { return v.Status }).(GatewayTargetTargetStatusOutput)
 }
 
+// The status reasons for the gateway target.
 func (o GatewayTargetOutput) StatusReasons() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GatewayTarget) pulumi.StringArrayOutput { return v.StatusReasons }).(pulumi.StringArrayOutput)
 }
 
+// The target configuration for the Smithy model target.
 func (o GatewayTargetOutput) TargetConfiguration() GatewayTargetTargetConfigurationPropertiesOutput {
 	return o.ApplyT(func(v *GatewayTarget) GatewayTargetTargetConfigurationPropertiesOutput { return v.TargetConfiguration }).(GatewayTargetTargetConfigurationPropertiesOutput)
 }
 
+// The target ID for the gateway target.
 func (o GatewayTargetOutput) TargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayTarget) pulumi.StringOutput { return v.TargetId }).(pulumi.StringOutput)
 }
 
+// The time at which the resource was updated.
 func (o GatewayTargetOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayTarget) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

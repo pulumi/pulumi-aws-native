@@ -181,6 +181,11 @@ export class CapacityProvider extends pulumi.CustomResource {
      * The Auto Scaling group settings for the capacity provider.
      */
     declare public readonly autoScalingGroupProvider: pulumi.Output<outputs.ecs.CapacityProviderAutoScalingGroupProvider | undefined>;
+    /**
+     * The cluster that this capacity provider is associated with. Managed instances capacity providers are cluster-scoped, meaning they can only be used within their associated cluster.
+     *
+     * This is required for Managed instances.
+     */
     declare public readonly clusterName: pulumi.Output<string | undefined>;
     /**
      * The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.
@@ -243,6 +248,11 @@ export interface CapacityProviderArgs {
      * The Auto Scaling group settings for the capacity provider.
      */
     autoScalingGroupProvider?: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProviderArgs>;
+    /**
+     * The cluster that this capacity provider is associated with. Managed instances capacity providers are cluster-scoped, meaning they can only be used within their associated cluster.
+     *
+     * This is required for Managed instances.
+     */
     clusterName?: pulumi.Input<string>;
     /**
      * The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.

@@ -15,6 +15,7 @@ type BrowserCustomBrowserNetworkMode string
 
 const (
 	BrowserCustomBrowserNetworkModePublic = BrowserCustomBrowserNetworkMode("PUBLIC")
+	BrowserCustomBrowserNetworkModeVpc    = BrowserCustomBrowserNetworkMode("VPC")
 )
 
 func (BrowserCustomBrowserNetworkMode) ElementType() reflect.Type {
@@ -140,6 +141,7 @@ func (o BrowserCustomBrowserNetworkModePtrOutput) ToStringPtrOutputWithContext(c
 // A concrete instance of `BrowserCustomBrowserNetworkModeInput` can be one of the following:
 //
 //	BrowserCustomBrowserNetworkModePublic
+//	BrowserCustomBrowserNetworkModeVpc
 type BrowserCustomBrowserNetworkModeInput interface {
 	pulumi.Input
 
@@ -275,6 +277,7 @@ type CodeInterpreterCustomCodeInterpreterNetworkMode string
 const (
 	CodeInterpreterCustomCodeInterpreterNetworkModePublic  = CodeInterpreterCustomCodeInterpreterNetworkMode("PUBLIC")
 	CodeInterpreterCustomCodeInterpreterNetworkModeSandbox = CodeInterpreterCustomCodeInterpreterNetworkMode("SANDBOX")
+	CodeInterpreterCustomCodeInterpreterNetworkModeVpc     = CodeInterpreterCustomCodeInterpreterNetworkMode("VPC")
 )
 
 func (CodeInterpreterCustomCodeInterpreterNetworkMode) ElementType() reflect.Type {
@@ -401,6 +404,7 @@ func (o CodeInterpreterCustomCodeInterpreterNetworkModePtrOutput) ToStringPtrOut
 //
 //	CodeInterpreterCustomCodeInterpreterNetworkModePublic
 //	CodeInterpreterCustomCodeInterpreterNetworkModeSandbox
+//	CodeInterpreterCustomCodeInterpreterNetworkModeVpc
 type CodeInterpreterCustomCodeInterpreterNetworkModeInput interface {
 	pulumi.Input
 
@@ -1877,6 +1881,1459 @@ func (o GatewayTargetTargetStatusPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
+// Status of the memory strategy
+type MemoryCustomMemoryStrategyStatus string
+
+const (
+	MemoryCustomMemoryStrategyStatusCreating = MemoryCustomMemoryStrategyStatus("CREATING")
+	MemoryCustomMemoryStrategyStatusActive   = MemoryCustomMemoryStrategyStatus("ACTIVE")
+	MemoryCustomMemoryStrategyStatusDeleting = MemoryCustomMemoryStrategyStatus("DELETING")
+	MemoryCustomMemoryStrategyStatusFailed   = MemoryCustomMemoryStrategyStatus("FAILED")
+)
+
+func (MemoryCustomMemoryStrategyStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryCustomMemoryStrategyStatus)(nil)).Elem()
+}
+
+func (e MemoryCustomMemoryStrategyStatus) ToMemoryCustomMemoryStrategyStatusOutput() MemoryCustomMemoryStrategyStatusOutput {
+	return pulumi.ToOutput(e).(MemoryCustomMemoryStrategyStatusOutput)
+}
+
+func (e MemoryCustomMemoryStrategyStatus) ToMemoryCustomMemoryStrategyStatusOutputWithContext(ctx context.Context) MemoryCustomMemoryStrategyStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MemoryCustomMemoryStrategyStatusOutput)
+}
+
+func (e MemoryCustomMemoryStrategyStatus) ToMemoryCustomMemoryStrategyStatusPtrOutput() MemoryCustomMemoryStrategyStatusPtrOutput {
+	return e.ToMemoryCustomMemoryStrategyStatusPtrOutputWithContext(context.Background())
+}
+
+func (e MemoryCustomMemoryStrategyStatus) ToMemoryCustomMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemoryCustomMemoryStrategyStatusPtrOutput {
+	return MemoryCustomMemoryStrategyStatus(e).ToMemoryCustomMemoryStrategyStatusOutputWithContext(ctx).ToMemoryCustomMemoryStrategyStatusPtrOutputWithContext(ctx)
+}
+
+func (e MemoryCustomMemoryStrategyStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryCustomMemoryStrategyStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryCustomMemoryStrategyStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MemoryCustomMemoryStrategyStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MemoryCustomMemoryStrategyStatusOutput struct{ *pulumi.OutputState }
+
+func (MemoryCustomMemoryStrategyStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryCustomMemoryStrategyStatus)(nil)).Elem()
+}
+
+func (o MemoryCustomMemoryStrategyStatusOutput) ToMemoryCustomMemoryStrategyStatusOutput() MemoryCustomMemoryStrategyStatusOutput {
+	return o
+}
+
+func (o MemoryCustomMemoryStrategyStatusOutput) ToMemoryCustomMemoryStrategyStatusOutputWithContext(ctx context.Context) MemoryCustomMemoryStrategyStatusOutput {
+	return o
+}
+
+func (o MemoryCustomMemoryStrategyStatusOutput) ToMemoryCustomMemoryStrategyStatusPtrOutput() MemoryCustomMemoryStrategyStatusPtrOutput {
+	return o.ToMemoryCustomMemoryStrategyStatusPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryCustomMemoryStrategyStatusOutput) ToMemoryCustomMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemoryCustomMemoryStrategyStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryCustomMemoryStrategyStatus) *MemoryCustomMemoryStrategyStatus {
+		return &v
+	}).(MemoryCustomMemoryStrategyStatusPtrOutput)
+}
+
+func (o MemoryCustomMemoryStrategyStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MemoryCustomMemoryStrategyStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryCustomMemoryStrategyStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MemoryCustomMemoryStrategyStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryCustomMemoryStrategyStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryCustomMemoryStrategyStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemoryCustomMemoryStrategyStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryCustomMemoryStrategyStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryCustomMemoryStrategyStatus)(nil)).Elem()
+}
+
+func (o MemoryCustomMemoryStrategyStatusPtrOutput) ToMemoryCustomMemoryStrategyStatusPtrOutput() MemoryCustomMemoryStrategyStatusPtrOutput {
+	return o
+}
+
+func (o MemoryCustomMemoryStrategyStatusPtrOutput) ToMemoryCustomMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemoryCustomMemoryStrategyStatusPtrOutput {
+	return o
+}
+
+func (o MemoryCustomMemoryStrategyStatusPtrOutput) Elem() MemoryCustomMemoryStrategyStatusOutput {
+	return o.ApplyT(func(v *MemoryCustomMemoryStrategyStatus) MemoryCustomMemoryStrategyStatus {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryCustomMemoryStrategyStatus
+		return ret
+	}).(MemoryCustomMemoryStrategyStatusOutput)
+}
+
+func (o MemoryCustomMemoryStrategyStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryCustomMemoryStrategyStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MemoryCustomMemoryStrategyStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MemoryCustomMemoryStrategyStatusInput is an input type that accepts values of the MemoryCustomMemoryStrategyStatus enum
+// A concrete instance of `MemoryCustomMemoryStrategyStatusInput` can be one of the following:
+//
+//	MemoryCustomMemoryStrategyStatusCreating
+//	MemoryCustomMemoryStrategyStatusActive
+//	MemoryCustomMemoryStrategyStatusDeleting
+//	MemoryCustomMemoryStrategyStatusFailed
+type MemoryCustomMemoryStrategyStatusInput interface {
+	pulumi.Input
+
+	ToMemoryCustomMemoryStrategyStatusOutput() MemoryCustomMemoryStrategyStatusOutput
+	ToMemoryCustomMemoryStrategyStatusOutputWithContext(context.Context) MemoryCustomMemoryStrategyStatusOutput
+}
+
+var memoryCustomMemoryStrategyStatusPtrType = reflect.TypeOf((**MemoryCustomMemoryStrategyStatus)(nil)).Elem()
+
+type MemoryCustomMemoryStrategyStatusPtrInput interface {
+	pulumi.Input
+
+	ToMemoryCustomMemoryStrategyStatusPtrOutput() MemoryCustomMemoryStrategyStatusPtrOutput
+	ToMemoryCustomMemoryStrategyStatusPtrOutputWithContext(context.Context) MemoryCustomMemoryStrategyStatusPtrOutput
+}
+
+type memoryCustomMemoryStrategyStatusPtr string
+
+func MemoryCustomMemoryStrategyStatusPtr(v string) MemoryCustomMemoryStrategyStatusPtrInput {
+	return (*memoryCustomMemoryStrategyStatusPtr)(&v)
+}
+
+func (*memoryCustomMemoryStrategyStatusPtr) ElementType() reflect.Type {
+	return memoryCustomMemoryStrategyStatusPtrType
+}
+
+func (in *memoryCustomMemoryStrategyStatusPtr) ToMemoryCustomMemoryStrategyStatusPtrOutput() MemoryCustomMemoryStrategyStatusPtrOutput {
+	return pulumi.ToOutput(in).(MemoryCustomMemoryStrategyStatusPtrOutput)
+}
+
+func (in *memoryCustomMemoryStrategyStatusPtr) ToMemoryCustomMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemoryCustomMemoryStrategyStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MemoryCustomMemoryStrategyStatusPtrOutput)
+}
+
+// Type of memory strategy
+type MemoryCustomMemoryStrategyType string
+
+const (
+	MemoryCustomMemoryStrategyTypeSemantic       = MemoryCustomMemoryStrategyType("SEMANTIC")
+	MemoryCustomMemoryStrategyTypeSummarization  = MemoryCustomMemoryStrategyType("SUMMARIZATION")
+	MemoryCustomMemoryStrategyTypeUserPreference = MemoryCustomMemoryStrategyType("USER_PREFERENCE")
+	MemoryCustomMemoryStrategyTypeCustom         = MemoryCustomMemoryStrategyType("CUSTOM")
+)
+
+func (MemoryCustomMemoryStrategyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryCustomMemoryStrategyType)(nil)).Elem()
+}
+
+func (e MemoryCustomMemoryStrategyType) ToMemoryCustomMemoryStrategyTypeOutput() MemoryCustomMemoryStrategyTypeOutput {
+	return pulumi.ToOutput(e).(MemoryCustomMemoryStrategyTypeOutput)
+}
+
+func (e MemoryCustomMemoryStrategyType) ToMemoryCustomMemoryStrategyTypeOutputWithContext(ctx context.Context) MemoryCustomMemoryStrategyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MemoryCustomMemoryStrategyTypeOutput)
+}
+
+func (e MemoryCustomMemoryStrategyType) ToMemoryCustomMemoryStrategyTypePtrOutput() MemoryCustomMemoryStrategyTypePtrOutput {
+	return e.ToMemoryCustomMemoryStrategyTypePtrOutputWithContext(context.Background())
+}
+
+func (e MemoryCustomMemoryStrategyType) ToMemoryCustomMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemoryCustomMemoryStrategyTypePtrOutput {
+	return MemoryCustomMemoryStrategyType(e).ToMemoryCustomMemoryStrategyTypeOutputWithContext(ctx).ToMemoryCustomMemoryStrategyTypePtrOutputWithContext(ctx)
+}
+
+func (e MemoryCustomMemoryStrategyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryCustomMemoryStrategyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryCustomMemoryStrategyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MemoryCustomMemoryStrategyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MemoryCustomMemoryStrategyTypeOutput struct{ *pulumi.OutputState }
+
+func (MemoryCustomMemoryStrategyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryCustomMemoryStrategyType)(nil)).Elem()
+}
+
+func (o MemoryCustomMemoryStrategyTypeOutput) ToMemoryCustomMemoryStrategyTypeOutput() MemoryCustomMemoryStrategyTypeOutput {
+	return o
+}
+
+func (o MemoryCustomMemoryStrategyTypeOutput) ToMemoryCustomMemoryStrategyTypeOutputWithContext(ctx context.Context) MemoryCustomMemoryStrategyTypeOutput {
+	return o
+}
+
+func (o MemoryCustomMemoryStrategyTypeOutput) ToMemoryCustomMemoryStrategyTypePtrOutput() MemoryCustomMemoryStrategyTypePtrOutput {
+	return o.ToMemoryCustomMemoryStrategyTypePtrOutputWithContext(context.Background())
+}
+
+func (o MemoryCustomMemoryStrategyTypeOutput) ToMemoryCustomMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemoryCustomMemoryStrategyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryCustomMemoryStrategyType) *MemoryCustomMemoryStrategyType {
+		return &v
+	}).(MemoryCustomMemoryStrategyTypePtrOutput)
+}
+
+func (o MemoryCustomMemoryStrategyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MemoryCustomMemoryStrategyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryCustomMemoryStrategyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MemoryCustomMemoryStrategyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryCustomMemoryStrategyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryCustomMemoryStrategyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemoryCustomMemoryStrategyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryCustomMemoryStrategyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryCustomMemoryStrategyType)(nil)).Elem()
+}
+
+func (o MemoryCustomMemoryStrategyTypePtrOutput) ToMemoryCustomMemoryStrategyTypePtrOutput() MemoryCustomMemoryStrategyTypePtrOutput {
+	return o
+}
+
+func (o MemoryCustomMemoryStrategyTypePtrOutput) ToMemoryCustomMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemoryCustomMemoryStrategyTypePtrOutput {
+	return o
+}
+
+func (o MemoryCustomMemoryStrategyTypePtrOutput) Elem() MemoryCustomMemoryStrategyTypeOutput {
+	return o.ApplyT(func(v *MemoryCustomMemoryStrategyType) MemoryCustomMemoryStrategyType {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryCustomMemoryStrategyType
+		return ret
+	}).(MemoryCustomMemoryStrategyTypeOutput)
+}
+
+func (o MemoryCustomMemoryStrategyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryCustomMemoryStrategyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MemoryCustomMemoryStrategyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MemoryCustomMemoryStrategyTypeInput is an input type that accepts values of the MemoryCustomMemoryStrategyType enum
+// A concrete instance of `MemoryCustomMemoryStrategyTypeInput` can be one of the following:
+//
+//	MemoryCustomMemoryStrategyTypeSemantic
+//	MemoryCustomMemoryStrategyTypeSummarization
+//	MemoryCustomMemoryStrategyTypeUserPreference
+//	MemoryCustomMemoryStrategyTypeCustom
+type MemoryCustomMemoryStrategyTypeInput interface {
+	pulumi.Input
+
+	ToMemoryCustomMemoryStrategyTypeOutput() MemoryCustomMemoryStrategyTypeOutput
+	ToMemoryCustomMemoryStrategyTypeOutputWithContext(context.Context) MemoryCustomMemoryStrategyTypeOutput
+}
+
+var memoryCustomMemoryStrategyTypePtrType = reflect.TypeOf((**MemoryCustomMemoryStrategyType)(nil)).Elem()
+
+type MemoryCustomMemoryStrategyTypePtrInput interface {
+	pulumi.Input
+
+	ToMemoryCustomMemoryStrategyTypePtrOutput() MemoryCustomMemoryStrategyTypePtrOutput
+	ToMemoryCustomMemoryStrategyTypePtrOutputWithContext(context.Context) MemoryCustomMemoryStrategyTypePtrOutput
+}
+
+type memoryCustomMemoryStrategyTypePtr string
+
+func MemoryCustomMemoryStrategyTypePtr(v string) MemoryCustomMemoryStrategyTypePtrInput {
+	return (*memoryCustomMemoryStrategyTypePtr)(&v)
+}
+
+func (*memoryCustomMemoryStrategyTypePtr) ElementType() reflect.Type {
+	return memoryCustomMemoryStrategyTypePtrType
+}
+
+func (in *memoryCustomMemoryStrategyTypePtr) ToMemoryCustomMemoryStrategyTypePtrOutput() MemoryCustomMemoryStrategyTypePtrOutput {
+	return pulumi.ToOutput(in).(MemoryCustomMemoryStrategyTypePtrOutput)
+}
+
+func (in *memoryCustomMemoryStrategyTypePtr) ToMemoryCustomMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemoryCustomMemoryStrategyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MemoryCustomMemoryStrategyTypePtrOutput)
+}
+
+// Status of the memory strategy
+type MemorySemanticMemoryStrategyStatus string
+
+const (
+	MemorySemanticMemoryStrategyStatusCreating = MemorySemanticMemoryStrategyStatus("CREATING")
+	MemorySemanticMemoryStrategyStatusActive   = MemorySemanticMemoryStrategyStatus("ACTIVE")
+	MemorySemanticMemoryStrategyStatusDeleting = MemorySemanticMemoryStrategyStatus("DELETING")
+	MemorySemanticMemoryStrategyStatusFailed   = MemorySemanticMemoryStrategyStatus("FAILED")
+)
+
+func (MemorySemanticMemoryStrategyStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemorySemanticMemoryStrategyStatus)(nil)).Elem()
+}
+
+func (e MemorySemanticMemoryStrategyStatus) ToMemorySemanticMemoryStrategyStatusOutput() MemorySemanticMemoryStrategyStatusOutput {
+	return pulumi.ToOutput(e).(MemorySemanticMemoryStrategyStatusOutput)
+}
+
+func (e MemorySemanticMemoryStrategyStatus) ToMemorySemanticMemoryStrategyStatusOutputWithContext(ctx context.Context) MemorySemanticMemoryStrategyStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MemorySemanticMemoryStrategyStatusOutput)
+}
+
+func (e MemorySemanticMemoryStrategyStatus) ToMemorySemanticMemoryStrategyStatusPtrOutput() MemorySemanticMemoryStrategyStatusPtrOutput {
+	return e.ToMemorySemanticMemoryStrategyStatusPtrOutputWithContext(context.Background())
+}
+
+func (e MemorySemanticMemoryStrategyStatus) ToMemorySemanticMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemorySemanticMemoryStrategyStatusPtrOutput {
+	return MemorySemanticMemoryStrategyStatus(e).ToMemorySemanticMemoryStrategyStatusOutputWithContext(ctx).ToMemorySemanticMemoryStrategyStatusPtrOutputWithContext(ctx)
+}
+
+func (e MemorySemanticMemoryStrategyStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemorySemanticMemoryStrategyStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemorySemanticMemoryStrategyStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MemorySemanticMemoryStrategyStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MemorySemanticMemoryStrategyStatusOutput struct{ *pulumi.OutputState }
+
+func (MemorySemanticMemoryStrategyStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemorySemanticMemoryStrategyStatus)(nil)).Elem()
+}
+
+func (o MemorySemanticMemoryStrategyStatusOutput) ToMemorySemanticMemoryStrategyStatusOutput() MemorySemanticMemoryStrategyStatusOutput {
+	return o
+}
+
+func (o MemorySemanticMemoryStrategyStatusOutput) ToMemorySemanticMemoryStrategyStatusOutputWithContext(ctx context.Context) MemorySemanticMemoryStrategyStatusOutput {
+	return o
+}
+
+func (o MemorySemanticMemoryStrategyStatusOutput) ToMemorySemanticMemoryStrategyStatusPtrOutput() MemorySemanticMemoryStrategyStatusPtrOutput {
+	return o.ToMemorySemanticMemoryStrategyStatusPtrOutputWithContext(context.Background())
+}
+
+func (o MemorySemanticMemoryStrategyStatusOutput) ToMemorySemanticMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemorySemanticMemoryStrategyStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemorySemanticMemoryStrategyStatus) *MemorySemanticMemoryStrategyStatus {
+		return &v
+	}).(MemorySemanticMemoryStrategyStatusPtrOutput)
+}
+
+func (o MemorySemanticMemoryStrategyStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MemorySemanticMemoryStrategyStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemorySemanticMemoryStrategyStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MemorySemanticMemoryStrategyStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemorySemanticMemoryStrategyStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemorySemanticMemoryStrategyStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemorySemanticMemoryStrategyStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (MemorySemanticMemoryStrategyStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemorySemanticMemoryStrategyStatus)(nil)).Elem()
+}
+
+func (o MemorySemanticMemoryStrategyStatusPtrOutput) ToMemorySemanticMemoryStrategyStatusPtrOutput() MemorySemanticMemoryStrategyStatusPtrOutput {
+	return o
+}
+
+func (o MemorySemanticMemoryStrategyStatusPtrOutput) ToMemorySemanticMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemorySemanticMemoryStrategyStatusPtrOutput {
+	return o
+}
+
+func (o MemorySemanticMemoryStrategyStatusPtrOutput) Elem() MemorySemanticMemoryStrategyStatusOutput {
+	return o.ApplyT(func(v *MemorySemanticMemoryStrategyStatus) MemorySemanticMemoryStrategyStatus {
+		if v != nil {
+			return *v
+		}
+		var ret MemorySemanticMemoryStrategyStatus
+		return ret
+	}).(MemorySemanticMemoryStrategyStatusOutput)
+}
+
+func (o MemorySemanticMemoryStrategyStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemorySemanticMemoryStrategyStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MemorySemanticMemoryStrategyStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MemorySemanticMemoryStrategyStatusInput is an input type that accepts values of the MemorySemanticMemoryStrategyStatus enum
+// A concrete instance of `MemorySemanticMemoryStrategyStatusInput` can be one of the following:
+//
+//	MemorySemanticMemoryStrategyStatusCreating
+//	MemorySemanticMemoryStrategyStatusActive
+//	MemorySemanticMemoryStrategyStatusDeleting
+//	MemorySemanticMemoryStrategyStatusFailed
+type MemorySemanticMemoryStrategyStatusInput interface {
+	pulumi.Input
+
+	ToMemorySemanticMemoryStrategyStatusOutput() MemorySemanticMemoryStrategyStatusOutput
+	ToMemorySemanticMemoryStrategyStatusOutputWithContext(context.Context) MemorySemanticMemoryStrategyStatusOutput
+}
+
+var memorySemanticMemoryStrategyStatusPtrType = reflect.TypeOf((**MemorySemanticMemoryStrategyStatus)(nil)).Elem()
+
+type MemorySemanticMemoryStrategyStatusPtrInput interface {
+	pulumi.Input
+
+	ToMemorySemanticMemoryStrategyStatusPtrOutput() MemorySemanticMemoryStrategyStatusPtrOutput
+	ToMemorySemanticMemoryStrategyStatusPtrOutputWithContext(context.Context) MemorySemanticMemoryStrategyStatusPtrOutput
+}
+
+type memorySemanticMemoryStrategyStatusPtr string
+
+func MemorySemanticMemoryStrategyStatusPtr(v string) MemorySemanticMemoryStrategyStatusPtrInput {
+	return (*memorySemanticMemoryStrategyStatusPtr)(&v)
+}
+
+func (*memorySemanticMemoryStrategyStatusPtr) ElementType() reflect.Type {
+	return memorySemanticMemoryStrategyStatusPtrType
+}
+
+func (in *memorySemanticMemoryStrategyStatusPtr) ToMemorySemanticMemoryStrategyStatusPtrOutput() MemorySemanticMemoryStrategyStatusPtrOutput {
+	return pulumi.ToOutput(in).(MemorySemanticMemoryStrategyStatusPtrOutput)
+}
+
+func (in *memorySemanticMemoryStrategyStatusPtr) ToMemorySemanticMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemorySemanticMemoryStrategyStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MemorySemanticMemoryStrategyStatusPtrOutput)
+}
+
+// Type of memory strategy
+type MemorySemanticMemoryStrategyType string
+
+const (
+	MemorySemanticMemoryStrategyTypeSemantic       = MemorySemanticMemoryStrategyType("SEMANTIC")
+	MemorySemanticMemoryStrategyTypeSummarization  = MemorySemanticMemoryStrategyType("SUMMARIZATION")
+	MemorySemanticMemoryStrategyTypeUserPreference = MemorySemanticMemoryStrategyType("USER_PREFERENCE")
+	MemorySemanticMemoryStrategyTypeCustom         = MemorySemanticMemoryStrategyType("CUSTOM")
+)
+
+func (MemorySemanticMemoryStrategyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemorySemanticMemoryStrategyType)(nil)).Elem()
+}
+
+func (e MemorySemanticMemoryStrategyType) ToMemorySemanticMemoryStrategyTypeOutput() MemorySemanticMemoryStrategyTypeOutput {
+	return pulumi.ToOutput(e).(MemorySemanticMemoryStrategyTypeOutput)
+}
+
+func (e MemorySemanticMemoryStrategyType) ToMemorySemanticMemoryStrategyTypeOutputWithContext(ctx context.Context) MemorySemanticMemoryStrategyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MemorySemanticMemoryStrategyTypeOutput)
+}
+
+func (e MemorySemanticMemoryStrategyType) ToMemorySemanticMemoryStrategyTypePtrOutput() MemorySemanticMemoryStrategyTypePtrOutput {
+	return e.ToMemorySemanticMemoryStrategyTypePtrOutputWithContext(context.Background())
+}
+
+func (e MemorySemanticMemoryStrategyType) ToMemorySemanticMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemorySemanticMemoryStrategyTypePtrOutput {
+	return MemorySemanticMemoryStrategyType(e).ToMemorySemanticMemoryStrategyTypeOutputWithContext(ctx).ToMemorySemanticMemoryStrategyTypePtrOutputWithContext(ctx)
+}
+
+func (e MemorySemanticMemoryStrategyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemorySemanticMemoryStrategyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemorySemanticMemoryStrategyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MemorySemanticMemoryStrategyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MemorySemanticMemoryStrategyTypeOutput struct{ *pulumi.OutputState }
+
+func (MemorySemanticMemoryStrategyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemorySemanticMemoryStrategyType)(nil)).Elem()
+}
+
+func (o MemorySemanticMemoryStrategyTypeOutput) ToMemorySemanticMemoryStrategyTypeOutput() MemorySemanticMemoryStrategyTypeOutput {
+	return o
+}
+
+func (o MemorySemanticMemoryStrategyTypeOutput) ToMemorySemanticMemoryStrategyTypeOutputWithContext(ctx context.Context) MemorySemanticMemoryStrategyTypeOutput {
+	return o
+}
+
+func (o MemorySemanticMemoryStrategyTypeOutput) ToMemorySemanticMemoryStrategyTypePtrOutput() MemorySemanticMemoryStrategyTypePtrOutput {
+	return o.ToMemorySemanticMemoryStrategyTypePtrOutputWithContext(context.Background())
+}
+
+func (o MemorySemanticMemoryStrategyTypeOutput) ToMemorySemanticMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemorySemanticMemoryStrategyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemorySemanticMemoryStrategyType) *MemorySemanticMemoryStrategyType {
+		return &v
+	}).(MemorySemanticMemoryStrategyTypePtrOutput)
+}
+
+func (o MemorySemanticMemoryStrategyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MemorySemanticMemoryStrategyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemorySemanticMemoryStrategyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MemorySemanticMemoryStrategyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemorySemanticMemoryStrategyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemorySemanticMemoryStrategyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemorySemanticMemoryStrategyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (MemorySemanticMemoryStrategyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemorySemanticMemoryStrategyType)(nil)).Elem()
+}
+
+func (o MemorySemanticMemoryStrategyTypePtrOutput) ToMemorySemanticMemoryStrategyTypePtrOutput() MemorySemanticMemoryStrategyTypePtrOutput {
+	return o
+}
+
+func (o MemorySemanticMemoryStrategyTypePtrOutput) ToMemorySemanticMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemorySemanticMemoryStrategyTypePtrOutput {
+	return o
+}
+
+func (o MemorySemanticMemoryStrategyTypePtrOutput) Elem() MemorySemanticMemoryStrategyTypeOutput {
+	return o.ApplyT(func(v *MemorySemanticMemoryStrategyType) MemorySemanticMemoryStrategyType {
+		if v != nil {
+			return *v
+		}
+		var ret MemorySemanticMemoryStrategyType
+		return ret
+	}).(MemorySemanticMemoryStrategyTypeOutput)
+}
+
+func (o MemorySemanticMemoryStrategyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemorySemanticMemoryStrategyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MemorySemanticMemoryStrategyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MemorySemanticMemoryStrategyTypeInput is an input type that accepts values of the MemorySemanticMemoryStrategyType enum
+// A concrete instance of `MemorySemanticMemoryStrategyTypeInput` can be one of the following:
+//
+//	MemorySemanticMemoryStrategyTypeSemantic
+//	MemorySemanticMemoryStrategyTypeSummarization
+//	MemorySemanticMemoryStrategyTypeUserPreference
+//	MemorySemanticMemoryStrategyTypeCustom
+type MemorySemanticMemoryStrategyTypeInput interface {
+	pulumi.Input
+
+	ToMemorySemanticMemoryStrategyTypeOutput() MemorySemanticMemoryStrategyTypeOutput
+	ToMemorySemanticMemoryStrategyTypeOutputWithContext(context.Context) MemorySemanticMemoryStrategyTypeOutput
+}
+
+var memorySemanticMemoryStrategyTypePtrType = reflect.TypeOf((**MemorySemanticMemoryStrategyType)(nil)).Elem()
+
+type MemorySemanticMemoryStrategyTypePtrInput interface {
+	pulumi.Input
+
+	ToMemorySemanticMemoryStrategyTypePtrOutput() MemorySemanticMemoryStrategyTypePtrOutput
+	ToMemorySemanticMemoryStrategyTypePtrOutputWithContext(context.Context) MemorySemanticMemoryStrategyTypePtrOutput
+}
+
+type memorySemanticMemoryStrategyTypePtr string
+
+func MemorySemanticMemoryStrategyTypePtr(v string) MemorySemanticMemoryStrategyTypePtrInput {
+	return (*memorySemanticMemoryStrategyTypePtr)(&v)
+}
+
+func (*memorySemanticMemoryStrategyTypePtr) ElementType() reflect.Type {
+	return memorySemanticMemoryStrategyTypePtrType
+}
+
+func (in *memorySemanticMemoryStrategyTypePtr) ToMemorySemanticMemoryStrategyTypePtrOutput() MemorySemanticMemoryStrategyTypePtrOutput {
+	return pulumi.ToOutput(in).(MemorySemanticMemoryStrategyTypePtrOutput)
+}
+
+func (in *memorySemanticMemoryStrategyTypePtr) ToMemorySemanticMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemorySemanticMemoryStrategyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MemorySemanticMemoryStrategyTypePtrOutput)
+}
+
+// Status of the Memory resource
+type MemoryStatus string
+
+const (
+	MemoryStatusCreating = MemoryStatus("CREATING")
+	MemoryStatusActive   = MemoryStatus("ACTIVE")
+	MemoryStatusFailed   = MemoryStatus("FAILED")
+	MemoryStatusDeleting = MemoryStatus("DELETING")
+)
+
+type MemoryStatusOutput struct{ *pulumi.OutputState }
+
+func (MemoryStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryStatus)(nil)).Elem()
+}
+
+func (o MemoryStatusOutput) ToMemoryStatusOutput() MemoryStatusOutput {
+	return o
+}
+
+func (o MemoryStatusOutput) ToMemoryStatusOutputWithContext(ctx context.Context) MemoryStatusOutput {
+	return o
+}
+
+func (o MemoryStatusOutput) ToMemoryStatusPtrOutput() MemoryStatusPtrOutput {
+	return o.ToMemoryStatusPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryStatusOutput) ToMemoryStatusPtrOutputWithContext(ctx context.Context) MemoryStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryStatus) *MemoryStatus {
+		return &v
+	}).(MemoryStatusPtrOutput)
+}
+
+func (o MemoryStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MemoryStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MemoryStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemoryStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryStatus)(nil)).Elem()
+}
+
+func (o MemoryStatusPtrOutput) ToMemoryStatusPtrOutput() MemoryStatusPtrOutput {
+	return o
+}
+
+func (o MemoryStatusPtrOutput) ToMemoryStatusPtrOutputWithContext(ctx context.Context) MemoryStatusPtrOutput {
+	return o
+}
+
+func (o MemoryStatusPtrOutput) Elem() MemoryStatusOutput {
+	return o.ApplyT(func(v *MemoryStatus) MemoryStatus {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryStatus
+		return ret
+	}).(MemoryStatusOutput)
+}
+
+func (o MemoryStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MemoryStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Status of the memory strategy
+type MemorySummaryMemoryStrategyStatus string
+
+const (
+	MemorySummaryMemoryStrategyStatusCreating = MemorySummaryMemoryStrategyStatus("CREATING")
+	MemorySummaryMemoryStrategyStatusActive   = MemorySummaryMemoryStrategyStatus("ACTIVE")
+	MemorySummaryMemoryStrategyStatusDeleting = MemorySummaryMemoryStrategyStatus("DELETING")
+	MemorySummaryMemoryStrategyStatusFailed   = MemorySummaryMemoryStrategyStatus("FAILED")
+)
+
+func (MemorySummaryMemoryStrategyStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemorySummaryMemoryStrategyStatus)(nil)).Elem()
+}
+
+func (e MemorySummaryMemoryStrategyStatus) ToMemorySummaryMemoryStrategyStatusOutput() MemorySummaryMemoryStrategyStatusOutput {
+	return pulumi.ToOutput(e).(MemorySummaryMemoryStrategyStatusOutput)
+}
+
+func (e MemorySummaryMemoryStrategyStatus) ToMemorySummaryMemoryStrategyStatusOutputWithContext(ctx context.Context) MemorySummaryMemoryStrategyStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MemorySummaryMemoryStrategyStatusOutput)
+}
+
+func (e MemorySummaryMemoryStrategyStatus) ToMemorySummaryMemoryStrategyStatusPtrOutput() MemorySummaryMemoryStrategyStatusPtrOutput {
+	return e.ToMemorySummaryMemoryStrategyStatusPtrOutputWithContext(context.Background())
+}
+
+func (e MemorySummaryMemoryStrategyStatus) ToMemorySummaryMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemorySummaryMemoryStrategyStatusPtrOutput {
+	return MemorySummaryMemoryStrategyStatus(e).ToMemorySummaryMemoryStrategyStatusOutputWithContext(ctx).ToMemorySummaryMemoryStrategyStatusPtrOutputWithContext(ctx)
+}
+
+func (e MemorySummaryMemoryStrategyStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemorySummaryMemoryStrategyStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemorySummaryMemoryStrategyStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MemorySummaryMemoryStrategyStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MemorySummaryMemoryStrategyStatusOutput struct{ *pulumi.OutputState }
+
+func (MemorySummaryMemoryStrategyStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemorySummaryMemoryStrategyStatus)(nil)).Elem()
+}
+
+func (o MemorySummaryMemoryStrategyStatusOutput) ToMemorySummaryMemoryStrategyStatusOutput() MemorySummaryMemoryStrategyStatusOutput {
+	return o
+}
+
+func (o MemorySummaryMemoryStrategyStatusOutput) ToMemorySummaryMemoryStrategyStatusOutputWithContext(ctx context.Context) MemorySummaryMemoryStrategyStatusOutput {
+	return o
+}
+
+func (o MemorySummaryMemoryStrategyStatusOutput) ToMemorySummaryMemoryStrategyStatusPtrOutput() MemorySummaryMemoryStrategyStatusPtrOutput {
+	return o.ToMemorySummaryMemoryStrategyStatusPtrOutputWithContext(context.Background())
+}
+
+func (o MemorySummaryMemoryStrategyStatusOutput) ToMemorySummaryMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemorySummaryMemoryStrategyStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemorySummaryMemoryStrategyStatus) *MemorySummaryMemoryStrategyStatus {
+		return &v
+	}).(MemorySummaryMemoryStrategyStatusPtrOutput)
+}
+
+func (o MemorySummaryMemoryStrategyStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MemorySummaryMemoryStrategyStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemorySummaryMemoryStrategyStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MemorySummaryMemoryStrategyStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemorySummaryMemoryStrategyStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemorySummaryMemoryStrategyStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemorySummaryMemoryStrategyStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (MemorySummaryMemoryStrategyStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemorySummaryMemoryStrategyStatus)(nil)).Elem()
+}
+
+func (o MemorySummaryMemoryStrategyStatusPtrOutput) ToMemorySummaryMemoryStrategyStatusPtrOutput() MemorySummaryMemoryStrategyStatusPtrOutput {
+	return o
+}
+
+func (o MemorySummaryMemoryStrategyStatusPtrOutput) ToMemorySummaryMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemorySummaryMemoryStrategyStatusPtrOutput {
+	return o
+}
+
+func (o MemorySummaryMemoryStrategyStatusPtrOutput) Elem() MemorySummaryMemoryStrategyStatusOutput {
+	return o.ApplyT(func(v *MemorySummaryMemoryStrategyStatus) MemorySummaryMemoryStrategyStatus {
+		if v != nil {
+			return *v
+		}
+		var ret MemorySummaryMemoryStrategyStatus
+		return ret
+	}).(MemorySummaryMemoryStrategyStatusOutput)
+}
+
+func (o MemorySummaryMemoryStrategyStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemorySummaryMemoryStrategyStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MemorySummaryMemoryStrategyStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MemorySummaryMemoryStrategyStatusInput is an input type that accepts values of the MemorySummaryMemoryStrategyStatus enum
+// A concrete instance of `MemorySummaryMemoryStrategyStatusInput` can be one of the following:
+//
+//	MemorySummaryMemoryStrategyStatusCreating
+//	MemorySummaryMemoryStrategyStatusActive
+//	MemorySummaryMemoryStrategyStatusDeleting
+//	MemorySummaryMemoryStrategyStatusFailed
+type MemorySummaryMemoryStrategyStatusInput interface {
+	pulumi.Input
+
+	ToMemorySummaryMemoryStrategyStatusOutput() MemorySummaryMemoryStrategyStatusOutput
+	ToMemorySummaryMemoryStrategyStatusOutputWithContext(context.Context) MemorySummaryMemoryStrategyStatusOutput
+}
+
+var memorySummaryMemoryStrategyStatusPtrType = reflect.TypeOf((**MemorySummaryMemoryStrategyStatus)(nil)).Elem()
+
+type MemorySummaryMemoryStrategyStatusPtrInput interface {
+	pulumi.Input
+
+	ToMemorySummaryMemoryStrategyStatusPtrOutput() MemorySummaryMemoryStrategyStatusPtrOutput
+	ToMemorySummaryMemoryStrategyStatusPtrOutputWithContext(context.Context) MemorySummaryMemoryStrategyStatusPtrOutput
+}
+
+type memorySummaryMemoryStrategyStatusPtr string
+
+func MemorySummaryMemoryStrategyStatusPtr(v string) MemorySummaryMemoryStrategyStatusPtrInput {
+	return (*memorySummaryMemoryStrategyStatusPtr)(&v)
+}
+
+func (*memorySummaryMemoryStrategyStatusPtr) ElementType() reflect.Type {
+	return memorySummaryMemoryStrategyStatusPtrType
+}
+
+func (in *memorySummaryMemoryStrategyStatusPtr) ToMemorySummaryMemoryStrategyStatusPtrOutput() MemorySummaryMemoryStrategyStatusPtrOutput {
+	return pulumi.ToOutput(in).(MemorySummaryMemoryStrategyStatusPtrOutput)
+}
+
+func (in *memorySummaryMemoryStrategyStatusPtr) ToMemorySummaryMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemorySummaryMemoryStrategyStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MemorySummaryMemoryStrategyStatusPtrOutput)
+}
+
+// Type of memory strategy
+type MemorySummaryMemoryStrategyType string
+
+const (
+	MemorySummaryMemoryStrategyTypeSemantic       = MemorySummaryMemoryStrategyType("SEMANTIC")
+	MemorySummaryMemoryStrategyTypeSummarization  = MemorySummaryMemoryStrategyType("SUMMARIZATION")
+	MemorySummaryMemoryStrategyTypeUserPreference = MemorySummaryMemoryStrategyType("USER_PREFERENCE")
+	MemorySummaryMemoryStrategyTypeCustom         = MemorySummaryMemoryStrategyType("CUSTOM")
+)
+
+func (MemorySummaryMemoryStrategyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemorySummaryMemoryStrategyType)(nil)).Elem()
+}
+
+func (e MemorySummaryMemoryStrategyType) ToMemorySummaryMemoryStrategyTypeOutput() MemorySummaryMemoryStrategyTypeOutput {
+	return pulumi.ToOutput(e).(MemorySummaryMemoryStrategyTypeOutput)
+}
+
+func (e MemorySummaryMemoryStrategyType) ToMemorySummaryMemoryStrategyTypeOutputWithContext(ctx context.Context) MemorySummaryMemoryStrategyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MemorySummaryMemoryStrategyTypeOutput)
+}
+
+func (e MemorySummaryMemoryStrategyType) ToMemorySummaryMemoryStrategyTypePtrOutput() MemorySummaryMemoryStrategyTypePtrOutput {
+	return e.ToMemorySummaryMemoryStrategyTypePtrOutputWithContext(context.Background())
+}
+
+func (e MemorySummaryMemoryStrategyType) ToMemorySummaryMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemorySummaryMemoryStrategyTypePtrOutput {
+	return MemorySummaryMemoryStrategyType(e).ToMemorySummaryMemoryStrategyTypeOutputWithContext(ctx).ToMemorySummaryMemoryStrategyTypePtrOutputWithContext(ctx)
+}
+
+func (e MemorySummaryMemoryStrategyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemorySummaryMemoryStrategyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemorySummaryMemoryStrategyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MemorySummaryMemoryStrategyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MemorySummaryMemoryStrategyTypeOutput struct{ *pulumi.OutputState }
+
+func (MemorySummaryMemoryStrategyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemorySummaryMemoryStrategyType)(nil)).Elem()
+}
+
+func (o MemorySummaryMemoryStrategyTypeOutput) ToMemorySummaryMemoryStrategyTypeOutput() MemorySummaryMemoryStrategyTypeOutput {
+	return o
+}
+
+func (o MemorySummaryMemoryStrategyTypeOutput) ToMemorySummaryMemoryStrategyTypeOutputWithContext(ctx context.Context) MemorySummaryMemoryStrategyTypeOutput {
+	return o
+}
+
+func (o MemorySummaryMemoryStrategyTypeOutput) ToMemorySummaryMemoryStrategyTypePtrOutput() MemorySummaryMemoryStrategyTypePtrOutput {
+	return o.ToMemorySummaryMemoryStrategyTypePtrOutputWithContext(context.Background())
+}
+
+func (o MemorySummaryMemoryStrategyTypeOutput) ToMemorySummaryMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemorySummaryMemoryStrategyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemorySummaryMemoryStrategyType) *MemorySummaryMemoryStrategyType {
+		return &v
+	}).(MemorySummaryMemoryStrategyTypePtrOutput)
+}
+
+func (o MemorySummaryMemoryStrategyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MemorySummaryMemoryStrategyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemorySummaryMemoryStrategyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MemorySummaryMemoryStrategyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemorySummaryMemoryStrategyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemorySummaryMemoryStrategyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemorySummaryMemoryStrategyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (MemorySummaryMemoryStrategyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemorySummaryMemoryStrategyType)(nil)).Elem()
+}
+
+func (o MemorySummaryMemoryStrategyTypePtrOutput) ToMemorySummaryMemoryStrategyTypePtrOutput() MemorySummaryMemoryStrategyTypePtrOutput {
+	return o
+}
+
+func (o MemorySummaryMemoryStrategyTypePtrOutput) ToMemorySummaryMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemorySummaryMemoryStrategyTypePtrOutput {
+	return o
+}
+
+func (o MemorySummaryMemoryStrategyTypePtrOutput) Elem() MemorySummaryMemoryStrategyTypeOutput {
+	return o.ApplyT(func(v *MemorySummaryMemoryStrategyType) MemorySummaryMemoryStrategyType {
+		if v != nil {
+			return *v
+		}
+		var ret MemorySummaryMemoryStrategyType
+		return ret
+	}).(MemorySummaryMemoryStrategyTypeOutput)
+}
+
+func (o MemorySummaryMemoryStrategyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemorySummaryMemoryStrategyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MemorySummaryMemoryStrategyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MemorySummaryMemoryStrategyTypeInput is an input type that accepts values of the MemorySummaryMemoryStrategyType enum
+// A concrete instance of `MemorySummaryMemoryStrategyTypeInput` can be one of the following:
+//
+//	MemorySummaryMemoryStrategyTypeSemantic
+//	MemorySummaryMemoryStrategyTypeSummarization
+//	MemorySummaryMemoryStrategyTypeUserPreference
+//	MemorySummaryMemoryStrategyTypeCustom
+type MemorySummaryMemoryStrategyTypeInput interface {
+	pulumi.Input
+
+	ToMemorySummaryMemoryStrategyTypeOutput() MemorySummaryMemoryStrategyTypeOutput
+	ToMemorySummaryMemoryStrategyTypeOutputWithContext(context.Context) MemorySummaryMemoryStrategyTypeOutput
+}
+
+var memorySummaryMemoryStrategyTypePtrType = reflect.TypeOf((**MemorySummaryMemoryStrategyType)(nil)).Elem()
+
+type MemorySummaryMemoryStrategyTypePtrInput interface {
+	pulumi.Input
+
+	ToMemorySummaryMemoryStrategyTypePtrOutput() MemorySummaryMemoryStrategyTypePtrOutput
+	ToMemorySummaryMemoryStrategyTypePtrOutputWithContext(context.Context) MemorySummaryMemoryStrategyTypePtrOutput
+}
+
+type memorySummaryMemoryStrategyTypePtr string
+
+func MemorySummaryMemoryStrategyTypePtr(v string) MemorySummaryMemoryStrategyTypePtrInput {
+	return (*memorySummaryMemoryStrategyTypePtr)(&v)
+}
+
+func (*memorySummaryMemoryStrategyTypePtr) ElementType() reflect.Type {
+	return memorySummaryMemoryStrategyTypePtrType
+}
+
+func (in *memorySummaryMemoryStrategyTypePtr) ToMemorySummaryMemoryStrategyTypePtrOutput() MemorySummaryMemoryStrategyTypePtrOutput {
+	return pulumi.ToOutput(in).(MemorySummaryMemoryStrategyTypePtrOutput)
+}
+
+func (in *memorySummaryMemoryStrategyTypePtr) ToMemorySummaryMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemorySummaryMemoryStrategyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MemorySummaryMemoryStrategyTypePtrOutput)
+}
+
+// Status of the memory strategy
+type MemoryUserPreferenceMemoryStrategyStatus string
+
+const (
+	MemoryUserPreferenceMemoryStrategyStatusCreating = MemoryUserPreferenceMemoryStrategyStatus("CREATING")
+	MemoryUserPreferenceMemoryStrategyStatusActive   = MemoryUserPreferenceMemoryStrategyStatus("ACTIVE")
+	MemoryUserPreferenceMemoryStrategyStatusDeleting = MemoryUserPreferenceMemoryStrategyStatus("DELETING")
+	MemoryUserPreferenceMemoryStrategyStatusFailed   = MemoryUserPreferenceMemoryStrategyStatus("FAILED")
+)
+
+func (MemoryUserPreferenceMemoryStrategyStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyStatus)(nil)).Elem()
+}
+
+func (e MemoryUserPreferenceMemoryStrategyStatus) ToMemoryUserPreferenceMemoryStrategyStatusOutput() MemoryUserPreferenceMemoryStrategyStatusOutput {
+	return pulumi.ToOutput(e).(MemoryUserPreferenceMemoryStrategyStatusOutput)
+}
+
+func (e MemoryUserPreferenceMemoryStrategyStatus) ToMemoryUserPreferenceMemoryStrategyStatusOutputWithContext(ctx context.Context) MemoryUserPreferenceMemoryStrategyStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MemoryUserPreferenceMemoryStrategyStatusOutput)
+}
+
+func (e MemoryUserPreferenceMemoryStrategyStatus) ToMemoryUserPreferenceMemoryStrategyStatusPtrOutput() MemoryUserPreferenceMemoryStrategyStatusPtrOutput {
+	return e.ToMemoryUserPreferenceMemoryStrategyStatusPtrOutputWithContext(context.Background())
+}
+
+func (e MemoryUserPreferenceMemoryStrategyStatus) ToMemoryUserPreferenceMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemoryUserPreferenceMemoryStrategyStatusPtrOutput {
+	return MemoryUserPreferenceMemoryStrategyStatus(e).ToMemoryUserPreferenceMemoryStrategyStatusOutputWithContext(ctx).ToMemoryUserPreferenceMemoryStrategyStatusPtrOutputWithContext(ctx)
+}
+
+func (e MemoryUserPreferenceMemoryStrategyStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryUserPreferenceMemoryStrategyStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryUserPreferenceMemoryStrategyStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MemoryUserPreferenceMemoryStrategyStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MemoryUserPreferenceMemoryStrategyStatusOutput struct{ *pulumi.OutputState }
+
+func (MemoryUserPreferenceMemoryStrategyStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyStatus)(nil)).Elem()
+}
+
+func (o MemoryUserPreferenceMemoryStrategyStatusOutput) ToMemoryUserPreferenceMemoryStrategyStatusOutput() MemoryUserPreferenceMemoryStrategyStatusOutput {
+	return o
+}
+
+func (o MemoryUserPreferenceMemoryStrategyStatusOutput) ToMemoryUserPreferenceMemoryStrategyStatusOutputWithContext(ctx context.Context) MemoryUserPreferenceMemoryStrategyStatusOutput {
+	return o
+}
+
+func (o MemoryUserPreferenceMemoryStrategyStatusOutput) ToMemoryUserPreferenceMemoryStrategyStatusPtrOutput() MemoryUserPreferenceMemoryStrategyStatusPtrOutput {
+	return o.ToMemoryUserPreferenceMemoryStrategyStatusPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryUserPreferenceMemoryStrategyStatusOutput) ToMemoryUserPreferenceMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemoryUserPreferenceMemoryStrategyStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryUserPreferenceMemoryStrategyStatus) *MemoryUserPreferenceMemoryStrategyStatus {
+		return &v
+	}).(MemoryUserPreferenceMemoryStrategyStatusPtrOutput)
+}
+
+func (o MemoryUserPreferenceMemoryStrategyStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MemoryUserPreferenceMemoryStrategyStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryUserPreferenceMemoryStrategyStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MemoryUserPreferenceMemoryStrategyStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryUserPreferenceMemoryStrategyStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryUserPreferenceMemoryStrategyStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemoryUserPreferenceMemoryStrategyStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryUserPreferenceMemoryStrategyStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryUserPreferenceMemoryStrategyStatus)(nil)).Elem()
+}
+
+func (o MemoryUserPreferenceMemoryStrategyStatusPtrOutput) ToMemoryUserPreferenceMemoryStrategyStatusPtrOutput() MemoryUserPreferenceMemoryStrategyStatusPtrOutput {
+	return o
+}
+
+func (o MemoryUserPreferenceMemoryStrategyStatusPtrOutput) ToMemoryUserPreferenceMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemoryUserPreferenceMemoryStrategyStatusPtrOutput {
+	return o
+}
+
+func (o MemoryUserPreferenceMemoryStrategyStatusPtrOutput) Elem() MemoryUserPreferenceMemoryStrategyStatusOutput {
+	return o.ApplyT(func(v *MemoryUserPreferenceMemoryStrategyStatus) MemoryUserPreferenceMemoryStrategyStatus {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryUserPreferenceMemoryStrategyStatus
+		return ret
+	}).(MemoryUserPreferenceMemoryStrategyStatusOutput)
+}
+
+func (o MemoryUserPreferenceMemoryStrategyStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryUserPreferenceMemoryStrategyStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MemoryUserPreferenceMemoryStrategyStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MemoryUserPreferenceMemoryStrategyStatusInput is an input type that accepts values of the MemoryUserPreferenceMemoryStrategyStatus enum
+// A concrete instance of `MemoryUserPreferenceMemoryStrategyStatusInput` can be one of the following:
+//
+//	MemoryUserPreferenceMemoryStrategyStatusCreating
+//	MemoryUserPreferenceMemoryStrategyStatusActive
+//	MemoryUserPreferenceMemoryStrategyStatusDeleting
+//	MemoryUserPreferenceMemoryStrategyStatusFailed
+type MemoryUserPreferenceMemoryStrategyStatusInput interface {
+	pulumi.Input
+
+	ToMemoryUserPreferenceMemoryStrategyStatusOutput() MemoryUserPreferenceMemoryStrategyStatusOutput
+	ToMemoryUserPreferenceMemoryStrategyStatusOutputWithContext(context.Context) MemoryUserPreferenceMemoryStrategyStatusOutput
+}
+
+var memoryUserPreferenceMemoryStrategyStatusPtrType = reflect.TypeOf((**MemoryUserPreferenceMemoryStrategyStatus)(nil)).Elem()
+
+type MemoryUserPreferenceMemoryStrategyStatusPtrInput interface {
+	pulumi.Input
+
+	ToMemoryUserPreferenceMemoryStrategyStatusPtrOutput() MemoryUserPreferenceMemoryStrategyStatusPtrOutput
+	ToMemoryUserPreferenceMemoryStrategyStatusPtrOutputWithContext(context.Context) MemoryUserPreferenceMemoryStrategyStatusPtrOutput
+}
+
+type memoryUserPreferenceMemoryStrategyStatusPtr string
+
+func MemoryUserPreferenceMemoryStrategyStatusPtr(v string) MemoryUserPreferenceMemoryStrategyStatusPtrInput {
+	return (*memoryUserPreferenceMemoryStrategyStatusPtr)(&v)
+}
+
+func (*memoryUserPreferenceMemoryStrategyStatusPtr) ElementType() reflect.Type {
+	return memoryUserPreferenceMemoryStrategyStatusPtrType
+}
+
+func (in *memoryUserPreferenceMemoryStrategyStatusPtr) ToMemoryUserPreferenceMemoryStrategyStatusPtrOutput() MemoryUserPreferenceMemoryStrategyStatusPtrOutput {
+	return pulumi.ToOutput(in).(MemoryUserPreferenceMemoryStrategyStatusPtrOutput)
+}
+
+func (in *memoryUserPreferenceMemoryStrategyStatusPtr) ToMemoryUserPreferenceMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemoryUserPreferenceMemoryStrategyStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MemoryUserPreferenceMemoryStrategyStatusPtrOutput)
+}
+
+// Type of memory strategy
+type MemoryUserPreferenceMemoryStrategyType string
+
+const (
+	MemoryUserPreferenceMemoryStrategyTypeSemantic       = MemoryUserPreferenceMemoryStrategyType("SEMANTIC")
+	MemoryUserPreferenceMemoryStrategyTypeSummarization  = MemoryUserPreferenceMemoryStrategyType("SUMMARIZATION")
+	MemoryUserPreferenceMemoryStrategyTypeUserPreference = MemoryUserPreferenceMemoryStrategyType("USER_PREFERENCE")
+	MemoryUserPreferenceMemoryStrategyTypeCustom         = MemoryUserPreferenceMemoryStrategyType("CUSTOM")
+)
+
+func (MemoryUserPreferenceMemoryStrategyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyType)(nil)).Elem()
+}
+
+func (e MemoryUserPreferenceMemoryStrategyType) ToMemoryUserPreferenceMemoryStrategyTypeOutput() MemoryUserPreferenceMemoryStrategyTypeOutput {
+	return pulumi.ToOutput(e).(MemoryUserPreferenceMemoryStrategyTypeOutput)
+}
+
+func (e MemoryUserPreferenceMemoryStrategyType) ToMemoryUserPreferenceMemoryStrategyTypeOutputWithContext(ctx context.Context) MemoryUserPreferenceMemoryStrategyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MemoryUserPreferenceMemoryStrategyTypeOutput)
+}
+
+func (e MemoryUserPreferenceMemoryStrategyType) ToMemoryUserPreferenceMemoryStrategyTypePtrOutput() MemoryUserPreferenceMemoryStrategyTypePtrOutput {
+	return e.ToMemoryUserPreferenceMemoryStrategyTypePtrOutputWithContext(context.Background())
+}
+
+func (e MemoryUserPreferenceMemoryStrategyType) ToMemoryUserPreferenceMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemoryUserPreferenceMemoryStrategyTypePtrOutput {
+	return MemoryUserPreferenceMemoryStrategyType(e).ToMemoryUserPreferenceMemoryStrategyTypeOutputWithContext(ctx).ToMemoryUserPreferenceMemoryStrategyTypePtrOutputWithContext(ctx)
+}
+
+func (e MemoryUserPreferenceMemoryStrategyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryUserPreferenceMemoryStrategyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryUserPreferenceMemoryStrategyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MemoryUserPreferenceMemoryStrategyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MemoryUserPreferenceMemoryStrategyTypeOutput struct{ *pulumi.OutputState }
+
+func (MemoryUserPreferenceMemoryStrategyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyType)(nil)).Elem()
+}
+
+func (o MemoryUserPreferenceMemoryStrategyTypeOutput) ToMemoryUserPreferenceMemoryStrategyTypeOutput() MemoryUserPreferenceMemoryStrategyTypeOutput {
+	return o
+}
+
+func (o MemoryUserPreferenceMemoryStrategyTypeOutput) ToMemoryUserPreferenceMemoryStrategyTypeOutputWithContext(ctx context.Context) MemoryUserPreferenceMemoryStrategyTypeOutput {
+	return o
+}
+
+func (o MemoryUserPreferenceMemoryStrategyTypeOutput) ToMemoryUserPreferenceMemoryStrategyTypePtrOutput() MemoryUserPreferenceMemoryStrategyTypePtrOutput {
+	return o.ToMemoryUserPreferenceMemoryStrategyTypePtrOutputWithContext(context.Background())
+}
+
+func (o MemoryUserPreferenceMemoryStrategyTypeOutput) ToMemoryUserPreferenceMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemoryUserPreferenceMemoryStrategyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryUserPreferenceMemoryStrategyType) *MemoryUserPreferenceMemoryStrategyType {
+		return &v
+	}).(MemoryUserPreferenceMemoryStrategyTypePtrOutput)
+}
+
+func (o MemoryUserPreferenceMemoryStrategyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MemoryUserPreferenceMemoryStrategyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryUserPreferenceMemoryStrategyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MemoryUserPreferenceMemoryStrategyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryUserPreferenceMemoryStrategyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryUserPreferenceMemoryStrategyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemoryUserPreferenceMemoryStrategyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryUserPreferenceMemoryStrategyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryUserPreferenceMemoryStrategyType)(nil)).Elem()
+}
+
+func (o MemoryUserPreferenceMemoryStrategyTypePtrOutput) ToMemoryUserPreferenceMemoryStrategyTypePtrOutput() MemoryUserPreferenceMemoryStrategyTypePtrOutput {
+	return o
+}
+
+func (o MemoryUserPreferenceMemoryStrategyTypePtrOutput) ToMemoryUserPreferenceMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemoryUserPreferenceMemoryStrategyTypePtrOutput {
+	return o
+}
+
+func (o MemoryUserPreferenceMemoryStrategyTypePtrOutput) Elem() MemoryUserPreferenceMemoryStrategyTypeOutput {
+	return o.ApplyT(func(v *MemoryUserPreferenceMemoryStrategyType) MemoryUserPreferenceMemoryStrategyType {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryUserPreferenceMemoryStrategyType
+		return ret
+	}).(MemoryUserPreferenceMemoryStrategyTypeOutput)
+}
+
+func (o MemoryUserPreferenceMemoryStrategyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryUserPreferenceMemoryStrategyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MemoryUserPreferenceMemoryStrategyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MemoryUserPreferenceMemoryStrategyTypeInput is an input type that accepts values of the MemoryUserPreferenceMemoryStrategyType enum
+// A concrete instance of `MemoryUserPreferenceMemoryStrategyTypeInput` can be one of the following:
+//
+//	MemoryUserPreferenceMemoryStrategyTypeSemantic
+//	MemoryUserPreferenceMemoryStrategyTypeSummarization
+//	MemoryUserPreferenceMemoryStrategyTypeUserPreference
+//	MemoryUserPreferenceMemoryStrategyTypeCustom
+type MemoryUserPreferenceMemoryStrategyTypeInput interface {
+	pulumi.Input
+
+	ToMemoryUserPreferenceMemoryStrategyTypeOutput() MemoryUserPreferenceMemoryStrategyTypeOutput
+	ToMemoryUserPreferenceMemoryStrategyTypeOutputWithContext(context.Context) MemoryUserPreferenceMemoryStrategyTypeOutput
+}
+
+var memoryUserPreferenceMemoryStrategyTypePtrType = reflect.TypeOf((**MemoryUserPreferenceMemoryStrategyType)(nil)).Elem()
+
+type MemoryUserPreferenceMemoryStrategyTypePtrInput interface {
+	pulumi.Input
+
+	ToMemoryUserPreferenceMemoryStrategyTypePtrOutput() MemoryUserPreferenceMemoryStrategyTypePtrOutput
+	ToMemoryUserPreferenceMemoryStrategyTypePtrOutputWithContext(context.Context) MemoryUserPreferenceMemoryStrategyTypePtrOutput
+}
+
+type memoryUserPreferenceMemoryStrategyTypePtr string
+
+func MemoryUserPreferenceMemoryStrategyTypePtr(v string) MemoryUserPreferenceMemoryStrategyTypePtrInput {
+	return (*memoryUserPreferenceMemoryStrategyTypePtr)(&v)
+}
+
+func (*memoryUserPreferenceMemoryStrategyTypePtr) ElementType() reflect.Type {
+	return memoryUserPreferenceMemoryStrategyTypePtrType
+}
+
+func (in *memoryUserPreferenceMemoryStrategyTypePtr) ToMemoryUserPreferenceMemoryStrategyTypePtrOutput() MemoryUserPreferenceMemoryStrategyTypePtrOutput {
+	return pulumi.ToOutput(in).(MemoryUserPreferenceMemoryStrategyTypePtrOutput)
+}
+
+func (in *memoryUserPreferenceMemoryStrategyTypePtr) ToMemoryUserPreferenceMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemoryUserPreferenceMemoryStrategyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MemoryUserPreferenceMemoryStrategyTypePtrOutput)
+}
+
 type RuntimeAgentStatus string
 
 const (
@@ -2070,6 +3527,7 @@ type RuntimeNetworkMode string
 
 const (
 	RuntimeNetworkModePublic = RuntimeNetworkMode("PUBLIC")
+	RuntimeNetworkModeVpc    = RuntimeNetworkMode("VPC")
 )
 
 func (RuntimeNetworkMode) ElementType() reflect.Type {
@@ -2195,6 +3653,7 @@ func (o RuntimeNetworkModePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // A concrete instance of `RuntimeNetworkModeInput` can be one of the following:
 //
 //	RuntimeNetworkModePublic
+//	RuntimeNetworkModeVpc
 type RuntimeNetworkModeInput interface {
 	pulumi.Input
 
@@ -2413,6 +3872,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProviderTypePtrInput)(nil)).Elem(), GatewayTargetCredentialProviderType("GATEWAY_IAM_ROLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaTypeInput)(nil)).Elem(), GatewayTargetSchemaType("string"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaTypePtrInput)(nil)).Elem(), GatewayTargetSchemaType("string"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomMemoryStrategyStatusInput)(nil)).Elem(), MemoryCustomMemoryStrategyStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomMemoryStrategyStatusPtrInput)(nil)).Elem(), MemoryCustomMemoryStrategyStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomMemoryStrategyTypeInput)(nil)).Elem(), MemoryCustomMemoryStrategyType("SEMANTIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomMemoryStrategyTypePtrInput)(nil)).Elem(), MemoryCustomMemoryStrategyType("SEMANTIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemorySemanticMemoryStrategyStatusInput)(nil)).Elem(), MemorySemanticMemoryStrategyStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemorySemanticMemoryStrategyStatusPtrInput)(nil)).Elem(), MemorySemanticMemoryStrategyStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemorySemanticMemoryStrategyTypeInput)(nil)).Elem(), MemorySemanticMemoryStrategyType("SEMANTIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemorySemanticMemoryStrategyTypePtrInput)(nil)).Elem(), MemorySemanticMemoryStrategyType("SEMANTIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemorySummaryMemoryStrategyStatusInput)(nil)).Elem(), MemorySummaryMemoryStrategyStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemorySummaryMemoryStrategyStatusPtrInput)(nil)).Elem(), MemorySummaryMemoryStrategyStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemorySummaryMemoryStrategyTypeInput)(nil)).Elem(), MemorySummaryMemoryStrategyType("SEMANTIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemorySummaryMemoryStrategyTypePtrInput)(nil)).Elem(), MemorySummaryMemoryStrategyType("SEMANTIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyStatusInput)(nil)).Elem(), MemoryUserPreferenceMemoryStrategyStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyStatusPtrInput)(nil)).Elem(), MemoryUserPreferenceMemoryStrategyStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyTypeInput)(nil)).Elem(), MemoryUserPreferenceMemoryStrategyType("SEMANTIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyTypePtrInput)(nil)).Elem(), MemoryUserPreferenceMemoryStrategyType("SEMANTIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkModeInput)(nil)).Elem(), RuntimeNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkModePtrInput)(nil)).Elem(), RuntimeNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeProtocolConfigurationInput)(nil)).Elem(), RuntimeProtocolConfiguration("MCP"))
@@ -2443,6 +3918,24 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetSchemaTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetStatusOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetStatusPtrOutput{})
+	pulumi.RegisterOutputType(MemoryCustomMemoryStrategyStatusOutput{})
+	pulumi.RegisterOutputType(MemoryCustomMemoryStrategyStatusPtrOutput{})
+	pulumi.RegisterOutputType(MemoryCustomMemoryStrategyTypeOutput{})
+	pulumi.RegisterOutputType(MemoryCustomMemoryStrategyTypePtrOutput{})
+	pulumi.RegisterOutputType(MemorySemanticMemoryStrategyStatusOutput{})
+	pulumi.RegisterOutputType(MemorySemanticMemoryStrategyStatusPtrOutput{})
+	pulumi.RegisterOutputType(MemorySemanticMemoryStrategyTypeOutput{})
+	pulumi.RegisterOutputType(MemorySemanticMemoryStrategyTypePtrOutput{})
+	pulumi.RegisterOutputType(MemoryStatusOutput{})
+	pulumi.RegisterOutputType(MemoryStatusPtrOutput{})
+	pulumi.RegisterOutputType(MemorySummaryMemoryStrategyStatusOutput{})
+	pulumi.RegisterOutputType(MemorySummaryMemoryStrategyStatusPtrOutput{})
+	pulumi.RegisterOutputType(MemorySummaryMemoryStrategyTypeOutput{})
+	pulumi.RegisterOutputType(MemorySummaryMemoryStrategyTypePtrOutput{})
+	pulumi.RegisterOutputType(MemoryUserPreferenceMemoryStrategyStatusOutput{})
+	pulumi.RegisterOutputType(MemoryUserPreferenceMemoryStrategyStatusPtrOutput{})
+	pulumi.RegisterOutputType(MemoryUserPreferenceMemoryStrategyTypeOutput{})
+	pulumi.RegisterOutputType(MemoryUserPreferenceMemoryStrategyTypePtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentStatusOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentStatusPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeEndpointAgentRuntimeEndpointStatusOutput{})

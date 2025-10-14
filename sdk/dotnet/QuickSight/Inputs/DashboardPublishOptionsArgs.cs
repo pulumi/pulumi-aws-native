@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DashboardDataPointTooltipOptionArgs>? DataPointTooltipOption { get; set; }
 
         /// <summary>
-        /// Adds Q&amp;A capabilities to an Amazon QuickSight dashboard. If no topic is linked, Dashboard Q&amp;A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&amp;A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&amp;A is used.
+        /// Adds Q&amp;A capabilities to an Quick Sight dashboard. If no topic is linked, Dashboard Q&amp;A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&amp;A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&amp;A is used.
         /// </summary>
         [Input("dataQaEnabledOption")]
         public Input<Inputs.DashboardDataQaEnabledOptionArgs>? DataQaEnabledOption { get; set; }
@@ -68,6 +68,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// </summary>
         [Input("exportWithHiddenFieldsOption")]
         public Input<Inputs.DashboardExportWithHiddenFieldsOptionArgs>? ExportWithHiddenFieldsOption { get; set; }
+
+        /// <summary>
+        /// Determines if Actions in Amazon Quick Suite are enabled in a dashboard.
+        /// </summary>
+        [Input("quickSuiteActionsOption")]
+        public Input<Inputs.DashboardQuickSuiteActionsOptionArgs>? QuickSuiteActionsOption { get; set; }
 
         /// <summary>
         /// Sheet controls option.

@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+        /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
         /// </summary>
         [Output("baseThemeId")]
         public Output<string> BaseThemeId { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<string> AwsAccountId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+        /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
         /// </summary>
         [Input("baseThemeId", required: true)]
         public Input<string> BaseThemeId { get; set; } = null!;

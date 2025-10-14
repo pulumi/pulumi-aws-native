@@ -52,15 +52,15 @@ class DataSourceArgs:
                            the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
                            are automatically allowed.</p>
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID.
-        :param pulumi.Input['DataSourceCredentialsArgs'] credentials: The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
+        :param pulumi.Input['DataSourceCredentialsArgs'] credentials: The credentials Amazon Quick Sight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
         :param pulumi.Input[_builtins.str] data_source_id: An ID for the data source. This ID is unique per AWS Region for each AWS account.
-        :param pulumi.Input['DataSourceParametersArgs'] data_source_parameters: The parameters that Amazon QuickSight uses to connect to your underlying source.
+        :param pulumi.Input['DataSourceParametersArgs'] data_source_parameters: The parameters that Amazon Quick Sight uses to connect to your underlying source.
         :param pulumi.Input['DataSourceErrorInfoArgs'] error_info: Error information from the last update or the creation of the data source.
         :param pulumi.Input[_builtins.str] name: A display name for the data source.
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]] permissions: A list of resource permissions on the data source.
-        :param pulumi.Input['DataSourceSslPropertiesArgs'] ssl_properties: Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+        :param pulumi.Input['DataSourceSslPropertiesArgs'] ssl_properties: Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
-        :param pulumi.Input['DataSourceVpcConnectionPropertiesArgs'] vpc_connection_properties: Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+        :param pulumi.Input['DataSourceVpcConnectionPropertiesArgs'] vpc_connection_properties: Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
         """
         pulumi.set(__self__, "type", type)
         if alternate_data_source_parameters is not None:
@@ -138,7 +138,7 @@ class DataSourceArgs:
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input['DataSourceCredentialsArgs']]:
         """
-        The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
+        The credentials Amazon Quick Sight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
         """
         return pulumi.get(self, "credentials")
 
@@ -162,7 +162,7 @@ class DataSourceArgs:
     @pulumi.getter(name="dataSourceParameters")
     def data_source_parameters(self) -> Optional[pulumi.Input['DataSourceParametersArgs']]:
         """
-        The parameters that Amazon QuickSight uses to connect to your underlying source.
+        The parameters that Amazon Quick Sight uses to connect to your underlying source.
         """
         return pulumi.get(self, "data_source_parameters")
 
@@ -219,7 +219,7 @@ class DataSourceArgs:
     @pulumi.getter(name="sslProperties")
     def ssl_properties(self) -> Optional[pulumi.Input['DataSourceSslPropertiesArgs']]:
         """
-        Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+        Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
         """
         return pulumi.get(self, "ssl_properties")
 
@@ -243,7 +243,7 @@ class DataSourceArgs:
     @pulumi.getter(name="vpcConnectionProperties")
     def vpc_connection_properties(self) -> Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']]:
         """
-        Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+        Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
         """
         return pulumi.get(self, "vpc_connection_properties")
 
@@ -287,18 +287,18 @@ class DataSource(pulumi.CustomResource):
                            the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
                            are automatically allowed.</p>
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID.
-        :param pulumi.Input[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']] credentials: The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
+        :param pulumi.Input[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']] credentials: The credentials Amazon Quick Sight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
         :param pulumi.Input[_builtins.str] data_source_id: An ID for the data source. This ID is unique per AWS Region for each AWS account.
-        :param pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']] data_source_parameters: The parameters that Amazon QuickSight uses to connect to your underlying source.
+        :param pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']] data_source_parameters: The parameters that Amazon Quick Sight uses to connect to your underlying source.
         :param pulumi.Input[Union['DataSourceErrorInfoArgs', 'DataSourceErrorInfoArgsDict']] error_info: Error information from the last update or the creation of the data source.
         :param pulumi.Input[_builtins.str] name: A display name for the data source.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSourceResourcePermissionArgs', 'DataSourceResourcePermissionArgsDict']]]] permissions: A list of resource permissions on the data source.
-        :param pulumi.Input[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict']] ssl_properties: Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+        :param pulumi.Input[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict']] ssl_properties: Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
         :param pulumi.Input['DataSourceType'] type: The type of the data source. To return a list of all data sources, use `ListDataSources` .
                
                Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
-        :param pulumi.Input[Union['DataSourceVpcConnectionPropertiesArgs', 'DataSourceVpcConnectionPropertiesArgsDict']] vpc_connection_properties: Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+        :param pulumi.Input[Union['DataSourceVpcConnectionPropertiesArgs', 'DataSourceVpcConnectionPropertiesArgsDict']] vpc_connection_properties: Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
         """
         ...
     @overload
@@ -452,7 +452,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional['outputs.DataSourceCredentials']]:
         """
-        The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
+        The credentials Amazon Quick Sight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
         """
         return pulumi.get(self, "credentials")
 
@@ -468,7 +468,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="dataSourceParameters")
     def data_source_parameters(self) -> pulumi.Output[Optional['outputs.DataSourceParameters']]:
         """
-        The parameters that Amazon QuickSight uses to connect to your underlying source.
+        The parameters that Amazon Quick Sight uses to connect to your underlying source.
         """
         return pulumi.get(self, "data_source_parameters")
 
@@ -513,7 +513,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="sslProperties")
     def ssl_properties(self) -> pulumi.Output[Optional['outputs.DataSourceSslProperties']]:
         """
-        Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+        Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
         """
         return pulumi.get(self, "ssl_properties")
 
@@ -547,7 +547,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="vpcConnectionProperties")
     def vpc_connection_properties(self) -> pulumi.Output[Optional['outputs.DataSourceVpcConnectionProperties']]:
         """
-        Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+        Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
         """
         return pulumi.get(self, "vpc_connection_properties")
 

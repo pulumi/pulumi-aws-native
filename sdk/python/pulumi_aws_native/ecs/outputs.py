@@ -1670,7 +1670,7 @@ class ClusterSettings(dict):
         The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
          Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up. 
          For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param _builtins.str name: The name of the cluster setting. The value is ``containerInsights`` .
+        :param _builtins.str name: The name of the cluster setting. The value is ``containerInsights``.
         :param _builtins.str value: The value to set for the cluster setting. The supported values are ``enhanced``, ``enabled``, and ``disabled``. 
                 To use Container Insights with enhanced observability, set the ``containerInsights`` account setting to ``enhanced``.
                 To use Container Insights, set the ``containerInsights`` account setting to ``enabled``.
@@ -1685,7 +1685,7 @@ class ClusterSettings(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The name of the cluster setting. The value is ``containerInsights`` .
+        The name of the cluster setting. The value is ``containerInsights``.
         """
         return pulumi.get(self, "name")
 
@@ -2534,10 +2534,14 @@ class ServiceDeploymentConfiguration(dict):
         suggest = None
         if key == "bakeTimeInMinutes":
             suggest = "bake_time_in_minutes"
+        elif key == "canaryConfiguration":
+            suggest = "canary_configuration"
         elif key == "deploymentCircuitBreaker":
             suggest = "deployment_circuit_breaker"
         elif key == "lifecycleHooks":
             suggest = "lifecycle_hooks"
+        elif key == "linearConfiguration":
+            suggest = "linear_configuration"
         elif key == "maximumPercent":
             suggest = "maximum_percent"
         elif key == "minimumHealthyPercent":
@@ -2557,8 +2561,10 @@ class ServiceDeploymentConfiguration(dict):
     def __init__(__self__, *,
                  alarms: Optional['outputs.ServiceDeploymentAlarms'] = None,
                  bake_time_in_minutes: Optional[_builtins.int] = None,
+                 canary_configuration: Optional[Any] = None,
                  deployment_circuit_breaker: Optional['outputs.ServiceDeploymentCircuitBreaker'] = None,
                  lifecycle_hooks: Optional[Sequence['outputs.ServiceDeploymentLifecycleHook']] = None,
+                 linear_configuration: Optional[Any] = None,
                  maximum_percent: Optional[_builtins.int] = None,
                  minimum_healthy_percent: Optional[_builtins.int] = None,
                  strategy: Optional['ServiceDeploymentConfigurationStrategy'] = None):
@@ -2602,10 +2608,14 @@ class ServiceDeploymentConfiguration(dict):
             pulumi.set(__self__, "alarms", alarms)
         if bake_time_in_minutes is not None:
             pulumi.set(__self__, "bake_time_in_minutes", bake_time_in_minutes)
+        if canary_configuration is not None:
+            pulumi.set(__self__, "canary_configuration", canary_configuration)
         if deployment_circuit_breaker is not None:
             pulumi.set(__self__, "deployment_circuit_breaker", deployment_circuit_breaker)
         if lifecycle_hooks is not None:
             pulumi.set(__self__, "lifecycle_hooks", lifecycle_hooks)
+        if linear_configuration is not None:
+            pulumi.set(__self__, "linear_configuration", linear_configuration)
         if maximum_percent is not None:
             pulumi.set(__self__, "maximum_percent", maximum_percent)
         if minimum_healthy_percent is not None:
@@ -2634,6 +2644,11 @@ class ServiceDeploymentConfiguration(dict):
         return pulumi.get(self, "bake_time_in_minutes")
 
     @_builtins.property
+    @pulumi.getter(name="canaryConfiguration")
+    def canary_configuration(self) -> Optional[Any]:
+        return pulumi.get(self, "canary_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="deploymentCircuitBreaker")
     def deployment_circuit_breaker(self) -> Optional['outputs.ServiceDeploymentCircuitBreaker']:
         """
@@ -2649,6 +2664,11 @@ class ServiceDeploymentConfiguration(dict):
         An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
         """
         return pulumi.get(self, "lifecycle_hooks")
+
+    @_builtins.property
+    @pulumi.getter(name="linearConfiguration")
+    def linear_configuration(self) -> Optional[Any]:
+        return pulumi.get(self, "linear_configuration")
 
     @_builtins.property
     @pulumi.getter(name="maximumPercent")

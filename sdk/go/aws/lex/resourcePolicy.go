@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+// Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
@@ -39,6 +39,10 @@ func NewResourcePolicy(ctx *pulumi.Context,
 	if args.ResourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resourceArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourcePolicy
 	err := ctx.RegisterResource("aws-native:lex:ResourcePolicy", name, args, &resource, opts...)

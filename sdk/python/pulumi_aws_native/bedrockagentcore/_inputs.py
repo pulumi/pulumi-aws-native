@@ -22,8 +22,12 @@ __all__ = [
     'BrowserCustomRecordingConfigArgsDict',
     'BrowserCustomS3LocationArgs',
     'BrowserCustomS3LocationArgsDict',
+    'BrowserCustomVpcConfigArgs',
+    'BrowserCustomVpcConfigArgsDict',
     'CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs',
     'CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict',
+    'CodeInterpreterCustomVpcConfigArgs',
+    'CodeInterpreterCustomVpcConfigArgsDict',
     'GatewayAuthorizerConfigurationPropertiesArgs',
     'GatewayAuthorizerConfigurationPropertiesArgsDict',
     'GatewayCustomJwtAuthorizerConfigurationArgs',
@@ -66,6 +70,46 @@ __all__ = [
     'GatewayTargetToolSchema0PropertiesArgsDict',
     'GatewayTargetToolSchema1PropertiesArgs',
     'GatewayTargetToolSchema1PropertiesArgsDict',
+    'MemoryCustomConfigurationInputArgs',
+    'MemoryCustomConfigurationInputArgsDict',
+    'MemoryCustomMemoryStrategyArgs',
+    'MemoryCustomMemoryStrategyArgsDict',
+    'MemoryInvocationConfigurationInputArgs',
+    'MemoryInvocationConfigurationInputArgsDict',
+    'MemoryMessageBasedTriggerInputArgs',
+    'MemoryMessageBasedTriggerInputArgsDict',
+    'MemorySelfManagedConfigurationArgs',
+    'MemorySelfManagedConfigurationArgsDict',
+    'MemorySemanticMemoryStrategyArgs',
+    'MemorySemanticMemoryStrategyArgsDict',
+    'MemorySemanticOverrideConsolidationConfigurationInputArgs',
+    'MemorySemanticOverrideConsolidationConfigurationInputArgsDict',
+    'MemorySemanticOverrideExtractionConfigurationInputArgs',
+    'MemorySemanticOverrideExtractionConfigurationInputArgsDict',
+    'MemorySemanticOverrideArgs',
+    'MemorySemanticOverrideArgsDict',
+    'MemoryStrategyArgs',
+    'MemoryStrategyArgsDict',
+    'MemorySummaryMemoryStrategyArgs',
+    'MemorySummaryMemoryStrategyArgsDict',
+    'MemorySummaryOverrideConsolidationConfigurationInputArgs',
+    'MemorySummaryOverrideConsolidationConfigurationInputArgsDict',
+    'MemorySummaryOverrideArgs',
+    'MemorySummaryOverrideArgsDict',
+    'MemoryTimeBasedTriggerInputArgs',
+    'MemoryTimeBasedTriggerInputArgsDict',
+    'MemoryTokenBasedTriggerInputArgs',
+    'MemoryTokenBasedTriggerInputArgsDict',
+    'MemoryTriggerConditionInputArgs',
+    'MemoryTriggerConditionInputArgsDict',
+    'MemoryUserPreferenceMemoryStrategyArgs',
+    'MemoryUserPreferenceMemoryStrategyArgsDict',
+    'MemoryUserPreferenceOverrideConsolidationConfigurationInputArgs',
+    'MemoryUserPreferenceOverrideConsolidationConfigurationInputArgsDict',
+    'MemoryUserPreferenceOverrideExtractionConfigurationInputArgs',
+    'MemoryUserPreferenceOverrideExtractionConfigurationInputArgsDict',
+    'MemoryUserPreferenceOverrideArgs',
+    'MemoryUserPreferenceOverrideArgsDict',
     'RuntimeAgentRuntimeArtifactArgs',
     'RuntimeAgentRuntimeArtifactArgsDict',
     'RuntimeAuthorizerConfigurationArgs',
@@ -76,6 +120,8 @@ __all__ = [
     'RuntimeCustomJwtAuthorizerConfigurationArgsDict',
     'RuntimeNetworkConfigurationArgs',
     'RuntimeNetworkConfigurationArgsDict',
+    'RuntimeVpcConfigArgs',
+    'RuntimeVpcConfigArgsDict',
 ]
 
 MYPY = False
@@ -89,18 +135,22 @@ if not MYPY:
         """
         The network mode.
         """
+        vpc_config: NotRequired[pulumi.Input['BrowserCustomVpcConfigArgsDict']]
 elif False:
     BrowserCustomBrowserNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BrowserCustomBrowserNetworkConfigurationArgs:
     def __init__(__self__, *,
-                 network_mode: pulumi.Input['BrowserCustomBrowserNetworkMode']):
+                 network_mode: pulumi.Input['BrowserCustomBrowserNetworkMode'],
+                 vpc_config: Optional[pulumi.Input['BrowserCustomVpcConfigArgs']] = None):
         """
         Network configuration for browser
         :param pulumi.Input['BrowserCustomBrowserNetworkMode'] network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
 
     @_builtins.property
     @pulumi.getter(name="networkMode")
@@ -113,6 +163,15 @@ class BrowserCustomBrowserNetworkConfigurationArgs:
     @network_mode.setter
     def network_mode(self, value: pulumi.Input['BrowserCustomBrowserNetworkMode']):
         pulumi.set(self, "network_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional[pulumi.Input['BrowserCustomVpcConfigArgs']]:
+        return pulumi.get(self, "vpc_config")
+
+    @vpc_config.setter
+    def vpc_config(self, value: Optional[pulumi.Input['BrowserCustomVpcConfigArgs']]):
+        pulumi.set(self, "vpc_config", value)
 
 
 if not MYPY:
@@ -226,6 +285,46 @@ class BrowserCustomS3LocationArgs:
 
 
 if not MYPY:
+    class BrowserCustomVpcConfigArgsDict(TypedDict):
+        """
+        Network mode configuration for VPC
+        """
+        security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+elif False:
+    BrowserCustomVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BrowserCustomVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        Network mode configuration for VPC
+        """
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnets", value)
+
+
+if not MYPY:
     class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict(TypedDict):
         """
         Network configuration for code interpreter
@@ -234,18 +333,22 @@ if not MYPY:
         """
         The network mode.
         """
+        vpc_config: NotRequired[pulumi.Input['CodeInterpreterCustomVpcConfigArgsDict']]
 elif False:
     CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs:
     def __init__(__self__, *,
-                 network_mode: pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkMode']):
+                 network_mode: pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkMode'],
+                 vpc_config: Optional[pulumi.Input['CodeInterpreterCustomVpcConfigArgs']] = None):
         """
         Network configuration for code interpreter
         :param pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkMode'] network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
 
     @_builtins.property
     @pulumi.getter(name="networkMode")
@@ -258,6 +361,55 @@ class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs:
     @network_mode.setter
     def network_mode(self, value: pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkMode']):
         pulumi.set(self, "network_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional[pulumi.Input['CodeInterpreterCustomVpcConfigArgs']]:
+        return pulumi.get(self, "vpc_config")
+
+    @vpc_config.setter
+    def vpc_config(self, value: Optional[pulumi.Input['CodeInterpreterCustomVpcConfigArgs']]):
+        pulumi.set(self, "vpc_config", value)
+
+
+if not MYPY:
+    class CodeInterpreterCustomVpcConfigArgsDict(TypedDict):
+        """
+        Network mode configuration for VPC
+        """
+        security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+elif False:
+    CodeInterpreterCustomVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CodeInterpreterCustomVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        Network mode configuration for VPC
+        """
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnets", value)
 
 
 if not MYPY:
@@ -553,7 +705,13 @@ class GatewayTargetCredentialProvider1PropertiesArgs:
 if not MYPY:
     class GatewayTargetCredentialProviderConfigurationArgsDict(TypedDict):
         credential_provider_type: pulumi.Input['GatewayTargetCredentialProviderType']
+        """
+        The credential provider type for the gateway target.
+        """
         credential_provider: NotRequired[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgsDict', 'GatewayTargetCredentialProvider1PropertiesArgsDict']]]
+        """
+        The credential provider for the gateway target.
+        """
 elif False:
     GatewayTargetCredentialProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -562,6 +720,10 @@ class GatewayTargetCredentialProviderConfigurationArgs:
     def __init__(__self__, *,
                  credential_provider_type: pulumi.Input['GatewayTargetCredentialProviderType'],
                  credential_provider: Optional[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs']]] = None):
+        """
+        :param pulumi.Input['GatewayTargetCredentialProviderType'] credential_provider_type: The credential provider type for the gateway target.
+        :param pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs']] credential_provider: The credential provider for the gateway target.
+        """
         pulumi.set(__self__, "credential_provider_type", credential_provider_type)
         if credential_provider is not None:
             pulumi.set(__self__, "credential_provider", credential_provider)
@@ -569,6 +731,9 @@ class GatewayTargetCredentialProviderConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="credentialProviderType")
     def credential_provider_type(self) -> pulumi.Input['GatewayTargetCredentialProviderType']:
+        """
+        The credential provider type for the gateway target.
+        """
         return pulumi.get(self, "credential_provider_type")
 
     @credential_provider_type.setter
@@ -578,6 +743,9 @@ class GatewayTargetCredentialProviderConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="credentialProvider")
     def credential_provider(self) -> Optional[pulumi.Input[Union['GatewayTargetCredentialProvider0PropertiesArgs', 'GatewayTargetCredentialProvider1PropertiesArgs']]]:
+        """
+        The credential provider for the gateway target.
+        """
         return pulumi.get(self, "credential_provider")
 
     @credential_provider.setter
@@ -968,6 +1136,1211 @@ class GatewayTargetToolSchema1PropertiesArgs:
 
 
 if not MYPY:
+    class MemoryCustomConfigurationInputArgsDict(TypedDict):
+        self_managed_configuration: NotRequired[pulumi.Input['MemorySelfManagedConfigurationArgsDict']]
+        semantic_override: NotRequired[pulumi.Input['MemorySemanticOverrideArgsDict']]
+        summary_override: NotRequired[pulumi.Input['MemorySummaryOverrideArgsDict']]
+        user_preference_override: NotRequired[pulumi.Input['MemoryUserPreferenceOverrideArgsDict']]
+elif False:
+    MemoryCustomConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemoryCustomConfigurationInputArgs:
+    def __init__(__self__, *,
+                 self_managed_configuration: Optional[pulumi.Input['MemorySelfManagedConfigurationArgs']] = None,
+                 semantic_override: Optional[pulumi.Input['MemorySemanticOverrideArgs']] = None,
+                 summary_override: Optional[pulumi.Input['MemorySummaryOverrideArgs']] = None,
+                 user_preference_override: Optional[pulumi.Input['MemoryUserPreferenceOverrideArgs']] = None):
+        if self_managed_configuration is not None:
+            pulumi.set(__self__, "self_managed_configuration", self_managed_configuration)
+        if semantic_override is not None:
+            pulumi.set(__self__, "semantic_override", semantic_override)
+        if summary_override is not None:
+            pulumi.set(__self__, "summary_override", summary_override)
+        if user_preference_override is not None:
+            pulumi.set(__self__, "user_preference_override", user_preference_override)
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedConfiguration")
+    def self_managed_configuration(self) -> Optional[pulumi.Input['MemorySelfManagedConfigurationArgs']]:
+        return pulumi.get(self, "self_managed_configuration")
+
+    @self_managed_configuration.setter
+    def self_managed_configuration(self, value: Optional[pulumi.Input['MemorySelfManagedConfigurationArgs']]):
+        pulumi.set(self, "self_managed_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="semanticOverride")
+    def semantic_override(self) -> Optional[pulumi.Input['MemorySemanticOverrideArgs']]:
+        return pulumi.get(self, "semantic_override")
+
+    @semantic_override.setter
+    def semantic_override(self, value: Optional[pulumi.Input['MemorySemanticOverrideArgs']]):
+        pulumi.set(self, "semantic_override", value)
+
+    @_builtins.property
+    @pulumi.getter(name="summaryOverride")
+    def summary_override(self) -> Optional[pulumi.Input['MemorySummaryOverrideArgs']]:
+        return pulumi.get(self, "summary_override")
+
+    @summary_override.setter
+    def summary_override(self, value: Optional[pulumi.Input['MemorySummaryOverrideArgs']]):
+        pulumi.set(self, "summary_override", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userPreferenceOverride")
+    def user_preference_override(self) -> Optional[pulumi.Input['MemoryUserPreferenceOverrideArgs']]:
+        return pulumi.get(self, "user_preference_override")
+
+    @user_preference_override.setter
+    def user_preference_override(self, value: Optional[pulumi.Input['MemoryUserPreferenceOverrideArgs']]):
+        pulumi.set(self, "user_preference_override", value)
+
+
+if not MYPY:
+    class MemoryCustomMemoryStrategyArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        configuration: NotRequired[pulumi.Input['MemoryCustomConfigurationInputArgsDict']]
+        created_at: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Creation timestamp of the memory strategy
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        status: NotRequired[pulumi.Input['MemoryCustomMemoryStrategyStatus']]
+        """
+        Status of the memory strategy
+        """
+        strategy_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Unique identifier for the memory strategy
+        """
+        type: NotRequired[pulumi.Input['MemoryCustomMemoryStrategyType']]
+        """
+        Type of memory strategy
+        """
+        updated_at: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Last update timestamp of the memory strategy
+        """
+elif False:
+    MemoryCustomMemoryStrategyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemoryCustomMemoryStrategyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 configuration: Optional[pulumi.Input['MemoryCustomConfigurationInputArgs']] = None,
+                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: Optional[pulumi.Input['MemoryCustomMemoryStrategyStatus']] = None,
+                 strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input['MemoryCustomMemoryStrategyType']] = None,
+                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] created_at: Creation timestamp of the memory strategy
+        :param pulumi.Input['MemoryCustomMemoryStrategyStatus'] status: Status of the memory strategy
+        :param pulumi.Input[_builtins.str] strategy_id: Unique identifier for the memory strategy
+        :param pulumi.Input['MemoryCustomMemoryStrategyType'] type: Type of memory strategy
+        :param pulumi.Input[_builtins.str] updated_at: Last update timestamp of the memory strategy
+        """
+        pulumi.set(__self__, "name", name)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if namespaces is not None:
+            pulumi.set(__self__, "namespaces", namespaces)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if strategy_id is not None:
+            pulumi.set(__self__, "strategy_id", strategy_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input['MemoryCustomConfigurationInputArgs']]:
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input['MemoryCustomConfigurationInputArgs']]):
+        pulumi.set(self, "configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Creation timestamp of the memory strategy
+        """
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_at", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "namespaces")
+
+    @namespaces.setter
+    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "namespaces", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['MemoryCustomMemoryStrategyStatus']]:
+        """
+        Status of the memory strategy
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['MemoryCustomMemoryStrategyStatus']]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="strategyId")
+    def strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Unique identifier for the memory strategy
+        """
+        return pulumi.get(self, "strategy_id")
+
+    @strategy_id.setter
+    def strategy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "strategy_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['MemoryCustomMemoryStrategyType']]:
+        """
+        Type of memory strategy
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['MemoryCustomMemoryStrategyType']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Last update timestamp of the memory strategy
+        """
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "updated_at", value)
+
+
+if not MYPY:
+    class MemoryInvocationConfigurationInputArgsDict(TypedDict):
+        payload_delivery_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+        topic_arn: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    MemoryInvocationConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemoryInvocationConfigurationInputArgs:
+    def __init__(__self__, *,
+                 payload_delivery_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        if payload_delivery_bucket_name is not None:
+            pulumi.set(__self__, "payload_delivery_bucket_name", payload_delivery_bucket_name)
+        if topic_arn is not None:
+            pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="payloadDeliveryBucketName")
+    def payload_delivery_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "payload_delivery_bucket_name")
+
+    @payload_delivery_bucket_name.setter
+    def payload_delivery_bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "payload_delivery_bucket_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "topic_arn")
+
+    @topic_arn.setter
+    def topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "topic_arn", value)
+
+
+if not MYPY:
+    class MemoryMessageBasedTriggerInputArgsDict(TypedDict):
+        message_count: NotRequired[pulumi.Input[_builtins.int]]
+elif False:
+    MemoryMessageBasedTriggerInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemoryMessageBasedTriggerInputArgs:
+    def __init__(__self__, *,
+                 message_count: Optional[pulumi.Input[_builtins.int]] = None):
+        if message_count is not None:
+            pulumi.set(__self__, "message_count", message_count)
+
+    @_builtins.property
+    @pulumi.getter(name="messageCount")
+    def message_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "message_count")
+
+    @message_count.setter
+    def message_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "message_count", value)
+
+
+if not MYPY:
+    class MemorySelfManagedConfigurationArgsDict(TypedDict):
+        historical_context_window_size: NotRequired[pulumi.Input[_builtins.int]]
+        invocation_configuration: NotRequired[pulumi.Input['MemoryInvocationConfigurationInputArgsDict']]
+        trigger_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MemoryTriggerConditionInputArgsDict']]]]
+elif False:
+    MemorySelfManagedConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemorySelfManagedConfigurationArgs:
+    def __init__(__self__, *,
+                 historical_context_window_size: Optional[pulumi.Input[_builtins.int]] = None,
+                 invocation_configuration: Optional[pulumi.Input['MemoryInvocationConfigurationInputArgs']] = None,
+                 trigger_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['MemoryTriggerConditionInputArgs']]]] = None):
+        if historical_context_window_size is not None:
+            pulumi.set(__self__, "historical_context_window_size", historical_context_window_size)
+        if invocation_configuration is not None:
+            pulumi.set(__self__, "invocation_configuration", invocation_configuration)
+        if trigger_conditions is not None:
+            pulumi.set(__self__, "trigger_conditions", trigger_conditions)
+
+    @_builtins.property
+    @pulumi.getter(name="historicalContextWindowSize")
+    def historical_context_window_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "historical_context_window_size")
+
+    @historical_context_window_size.setter
+    def historical_context_window_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "historical_context_window_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="invocationConfiguration")
+    def invocation_configuration(self) -> Optional[pulumi.Input['MemoryInvocationConfigurationInputArgs']]:
+        return pulumi.get(self, "invocation_configuration")
+
+    @invocation_configuration.setter
+    def invocation_configuration(self, value: Optional[pulumi.Input['MemoryInvocationConfigurationInputArgs']]):
+        pulumi.set(self, "invocation_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="triggerConditions")
+    def trigger_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MemoryTriggerConditionInputArgs']]]]:
+        return pulumi.get(self, "trigger_conditions")
+
+    @trigger_conditions.setter
+    def trigger_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MemoryTriggerConditionInputArgs']]]]):
+        pulumi.set(self, "trigger_conditions", value)
+
+
+if not MYPY:
+    class MemorySemanticMemoryStrategyArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        created_at: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Creation timestamp of the memory strategy
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        status: NotRequired[pulumi.Input['MemorySemanticMemoryStrategyStatus']]
+        """
+        Status of the memory strategy
+        """
+        strategy_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Unique identifier for the memory strategy
+        """
+        type: NotRequired[pulumi.Input['MemorySemanticMemoryStrategyType']]
+        """
+        Type of memory strategy
+        """
+        updated_at: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Last update timestamp of the memory strategy
+        """
+elif False:
+    MemorySemanticMemoryStrategyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemorySemanticMemoryStrategyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: Optional[pulumi.Input['MemorySemanticMemoryStrategyStatus']] = None,
+                 strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input['MemorySemanticMemoryStrategyType']] = None,
+                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] created_at: Creation timestamp of the memory strategy
+        :param pulumi.Input['MemorySemanticMemoryStrategyStatus'] status: Status of the memory strategy
+        :param pulumi.Input[_builtins.str] strategy_id: Unique identifier for the memory strategy
+        :param pulumi.Input['MemorySemanticMemoryStrategyType'] type: Type of memory strategy
+        :param pulumi.Input[_builtins.str] updated_at: Last update timestamp of the memory strategy
+        """
+        pulumi.set(__self__, "name", name)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if namespaces is not None:
+            pulumi.set(__self__, "namespaces", namespaces)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if strategy_id is not None:
+            pulumi.set(__self__, "strategy_id", strategy_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Creation timestamp of the memory strategy
+        """
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_at", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "namespaces")
+
+    @namespaces.setter
+    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "namespaces", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['MemorySemanticMemoryStrategyStatus']]:
+        """
+        Status of the memory strategy
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['MemorySemanticMemoryStrategyStatus']]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="strategyId")
+    def strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Unique identifier for the memory strategy
+        """
+        return pulumi.get(self, "strategy_id")
+
+    @strategy_id.setter
+    def strategy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "strategy_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['MemorySemanticMemoryStrategyType']]:
+        """
+        Type of memory strategy
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['MemorySemanticMemoryStrategyType']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Last update timestamp of the memory strategy
+        """
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "updated_at", value)
+
+
+if not MYPY:
+    class MemorySemanticOverrideConsolidationConfigurationInputArgsDict(TypedDict):
+        append_to_prompt: pulumi.Input[_builtins.str]
+        model_id: pulumi.Input[_builtins.str]
+elif False:
+    MemorySemanticOverrideConsolidationConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemorySemanticOverrideConsolidationConfigurationInputArgs:
+    def __init__(__self__, *,
+                 append_to_prompt: pulumi.Input[_builtins.str],
+                 model_id: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "append_to_prompt", append_to_prompt)
+        pulumi.set(__self__, "model_id", model_id)
+
+    @_builtins.property
+    @pulumi.getter(name="appendToPrompt")
+    def append_to_prompt(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "append_to_prompt")
+
+    @append_to_prompt.setter
+    def append_to_prompt(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "append_to_prompt", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model_id", value)
+
+
+if not MYPY:
+    class MemorySemanticOverrideExtractionConfigurationInputArgsDict(TypedDict):
+        append_to_prompt: pulumi.Input[_builtins.str]
+        model_id: pulumi.Input[_builtins.str]
+elif False:
+    MemorySemanticOverrideExtractionConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemorySemanticOverrideExtractionConfigurationInputArgs:
+    def __init__(__self__, *,
+                 append_to_prompt: pulumi.Input[_builtins.str],
+                 model_id: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "append_to_prompt", append_to_prompt)
+        pulumi.set(__self__, "model_id", model_id)
+
+    @_builtins.property
+    @pulumi.getter(name="appendToPrompt")
+    def append_to_prompt(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "append_to_prompt")
+
+    @append_to_prompt.setter
+    def append_to_prompt(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "append_to_prompt", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model_id", value)
+
+
+if not MYPY:
+    class MemorySemanticOverrideArgsDict(TypedDict):
+        consolidation: NotRequired[pulumi.Input['MemorySemanticOverrideConsolidationConfigurationInputArgsDict']]
+        extraction: NotRequired[pulumi.Input['MemorySemanticOverrideExtractionConfigurationInputArgsDict']]
+elif False:
+    MemorySemanticOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemorySemanticOverrideArgs:
+    def __init__(__self__, *,
+                 consolidation: Optional[pulumi.Input['MemorySemanticOverrideConsolidationConfigurationInputArgs']] = None,
+                 extraction: Optional[pulumi.Input['MemorySemanticOverrideExtractionConfigurationInputArgs']] = None):
+        if consolidation is not None:
+            pulumi.set(__self__, "consolidation", consolidation)
+        if extraction is not None:
+            pulumi.set(__self__, "extraction", extraction)
+
+    @_builtins.property
+    @pulumi.getter
+    def consolidation(self) -> Optional[pulumi.Input['MemorySemanticOverrideConsolidationConfigurationInputArgs']]:
+        return pulumi.get(self, "consolidation")
+
+    @consolidation.setter
+    def consolidation(self, value: Optional[pulumi.Input['MemorySemanticOverrideConsolidationConfigurationInputArgs']]):
+        pulumi.set(self, "consolidation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def extraction(self) -> Optional[pulumi.Input['MemorySemanticOverrideExtractionConfigurationInputArgs']]:
+        return pulumi.get(self, "extraction")
+
+    @extraction.setter
+    def extraction(self, value: Optional[pulumi.Input['MemorySemanticOverrideExtractionConfigurationInputArgs']]):
+        pulumi.set(self, "extraction", value)
+
+
+if not MYPY:
+    class MemoryStrategyArgsDict(TypedDict):
+        custom_memory_strategy: NotRequired[pulumi.Input['MemoryCustomMemoryStrategyArgsDict']]
+        semantic_memory_strategy: NotRequired[pulumi.Input['MemorySemanticMemoryStrategyArgsDict']]
+        summary_memory_strategy: NotRequired[pulumi.Input['MemorySummaryMemoryStrategyArgsDict']]
+        user_preference_memory_strategy: NotRequired[pulumi.Input['MemoryUserPreferenceMemoryStrategyArgsDict']]
+elif False:
+    MemoryStrategyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemoryStrategyArgs:
+    def __init__(__self__, *,
+                 custom_memory_strategy: Optional[pulumi.Input['MemoryCustomMemoryStrategyArgs']] = None,
+                 semantic_memory_strategy: Optional[pulumi.Input['MemorySemanticMemoryStrategyArgs']] = None,
+                 summary_memory_strategy: Optional[pulumi.Input['MemorySummaryMemoryStrategyArgs']] = None,
+                 user_preference_memory_strategy: Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyArgs']] = None):
+        if custom_memory_strategy is not None:
+            pulumi.set(__self__, "custom_memory_strategy", custom_memory_strategy)
+        if semantic_memory_strategy is not None:
+            pulumi.set(__self__, "semantic_memory_strategy", semantic_memory_strategy)
+        if summary_memory_strategy is not None:
+            pulumi.set(__self__, "summary_memory_strategy", summary_memory_strategy)
+        if user_preference_memory_strategy is not None:
+            pulumi.set(__self__, "user_preference_memory_strategy", user_preference_memory_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="customMemoryStrategy")
+    def custom_memory_strategy(self) -> Optional[pulumi.Input['MemoryCustomMemoryStrategyArgs']]:
+        return pulumi.get(self, "custom_memory_strategy")
+
+    @custom_memory_strategy.setter
+    def custom_memory_strategy(self, value: Optional[pulumi.Input['MemoryCustomMemoryStrategyArgs']]):
+        pulumi.set(self, "custom_memory_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="semanticMemoryStrategy")
+    def semantic_memory_strategy(self) -> Optional[pulumi.Input['MemorySemanticMemoryStrategyArgs']]:
+        return pulumi.get(self, "semantic_memory_strategy")
+
+    @semantic_memory_strategy.setter
+    def semantic_memory_strategy(self, value: Optional[pulumi.Input['MemorySemanticMemoryStrategyArgs']]):
+        pulumi.set(self, "semantic_memory_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="summaryMemoryStrategy")
+    def summary_memory_strategy(self) -> Optional[pulumi.Input['MemorySummaryMemoryStrategyArgs']]:
+        return pulumi.get(self, "summary_memory_strategy")
+
+    @summary_memory_strategy.setter
+    def summary_memory_strategy(self, value: Optional[pulumi.Input['MemorySummaryMemoryStrategyArgs']]):
+        pulumi.set(self, "summary_memory_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userPreferenceMemoryStrategy")
+    def user_preference_memory_strategy(self) -> Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyArgs']]:
+        return pulumi.get(self, "user_preference_memory_strategy")
+
+    @user_preference_memory_strategy.setter
+    def user_preference_memory_strategy(self, value: Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyArgs']]):
+        pulumi.set(self, "user_preference_memory_strategy", value)
+
+
+if not MYPY:
+    class MemorySummaryMemoryStrategyArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        created_at: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Creation timestamp of the memory strategy
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        status: NotRequired[pulumi.Input['MemorySummaryMemoryStrategyStatus']]
+        """
+        Status of the memory strategy
+        """
+        strategy_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Unique identifier for the memory strategy
+        """
+        type: NotRequired[pulumi.Input['MemorySummaryMemoryStrategyType']]
+        """
+        Type of memory strategy
+        """
+        updated_at: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Last update timestamp of the memory strategy
+        """
+elif False:
+    MemorySummaryMemoryStrategyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemorySummaryMemoryStrategyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: Optional[pulumi.Input['MemorySummaryMemoryStrategyStatus']] = None,
+                 strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input['MemorySummaryMemoryStrategyType']] = None,
+                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] created_at: Creation timestamp of the memory strategy
+        :param pulumi.Input['MemorySummaryMemoryStrategyStatus'] status: Status of the memory strategy
+        :param pulumi.Input[_builtins.str] strategy_id: Unique identifier for the memory strategy
+        :param pulumi.Input['MemorySummaryMemoryStrategyType'] type: Type of memory strategy
+        :param pulumi.Input[_builtins.str] updated_at: Last update timestamp of the memory strategy
+        """
+        pulumi.set(__self__, "name", name)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if namespaces is not None:
+            pulumi.set(__self__, "namespaces", namespaces)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if strategy_id is not None:
+            pulumi.set(__self__, "strategy_id", strategy_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Creation timestamp of the memory strategy
+        """
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_at", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "namespaces")
+
+    @namespaces.setter
+    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "namespaces", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['MemorySummaryMemoryStrategyStatus']]:
+        """
+        Status of the memory strategy
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['MemorySummaryMemoryStrategyStatus']]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="strategyId")
+    def strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Unique identifier for the memory strategy
+        """
+        return pulumi.get(self, "strategy_id")
+
+    @strategy_id.setter
+    def strategy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "strategy_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['MemorySummaryMemoryStrategyType']]:
+        """
+        Type of memory strategy
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['MemorySummaryMemoryStrategyType']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Last update timestamp of the memory strategy
+        """
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "updated_at", value)
+
+
+if not MYPY:
+    class MemorySummaryOverrideConsolidationConfigurationInputArgsDict(TypedDict):
+        append_to_prompt: pulumi.Input[_builtins.str]
+        model_id: pulumi.Input[_builtins.str]
+elif False:
+    MemorySummaryOverrideConsolidationConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemorySummaryOverrideConsolidationConfigurationInputArgs:
+    def __init__(__self__, *,
+                 append_to_prompt: pulumi.Input[_builtins.str],
+                 model_id: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "append_to_prompt", append_to_prompt)
+        pulumi.set(__self__, "model_id", model_id)
+
+    @_builtins.property
+    @pulumi.getter(name="appendToPrompt")
+    def append_to_prompt(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "append_to_prompt")
+
+    @append_to_prompt.setter
+    def append_to_prompt(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "append_to_prompt", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model_id", value)
+
+
+if not MYPY:
+    class MemorySummaryOverrideArgsDict(TypedDict):
+        consolidation: NotRequired[pulumi.Input['MemorySummaryOverrideConsolidationConfigurationInputArgsDict']]
+elif False:
+    MemorySummaryOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemorySummaryOverrideArgs:
+    def __init__(__self__, *,
+                 consolidation: Optional[pulumi.Input['MemorySummaryOverrideConsolidationConfigurationInputArgs']] = None):
+        if consolidation is not None:
+            pulumi.set(__self__, "consolidation", consolidation)
+
+    @_builtins.property
+    @pulumi.getter
+    def consolidation(self) -> Optional[pulumi.Input['MemorySummaryOverrideConsolidationConfigurationInputArgs']]:
+        return pulumi.get(self, "consolidation")
+
+    @consolidation.setter
+    def consolidation(self, value: Optional[pulumi.Input['MemorySummaryOverrideConsolidationConfigurationInputArgs']]):
+        pulumi.set(self, "consolidation", value)
+
+
+if not MYPY:
+    class MemoryTimeBasedTriggerInputArgsDict(TypedDict):
+        idle_session_timeout: NotRequired[pulumi.Input[_builtins.int]]
+elif False:
+    MemoryTimeBasedTriggerInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemoryTimeBasedTriggerInputArgs:
+    def __init__(__self__, *,
+                 idle_session_timeout: Optional[pulumi.Input[_builtins.int]] = None):
+        if idle_session_timeout is not None:
+            pulumi.set(__self__, "idle_session_timeout", idle_session_timeout)
+
+    @_builtins.property
+    @pulumi.getter(name="idleSessionTimeout")
+    def idle_session_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "idle_session_timeout")
+
+    @idle_session_timeout.setter
+    def idle_session_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "idle_session_timeout", value)
+
+
+if not MYPY:
+    class MemoryTokenBasedTriggerInputArgsDict(TypedDict):
+        token_count: NotRequired[pulumi.Input[_builtins.int]]
+elif False:
+    MemoryTokenBasedTriggerInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemoryTokenBasedTriggerInputArgs:
+    def __init__(__self__, *,
+                 token_count: Optional[pulumi.Input[_builtins.int]] = None):
+        if token_count is not None:
+            pulumi.set(__self__, "token_count", token_count)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenCount")
+    def token_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "token_count")
+
+    @token_count.setter
+    def token_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "token_count", value)
+
+
+if not MYPY:
+    class MemoryTriggerConditionInputArgsDict(TypedDict):
+        message_based_trigger: NotRequired[pulumi.Input['MemoryMessageBasedTriggerInputArgsDict']]
+        time_based_trigger: NotRequired[pulumi.Input['MemoryTimeBasedTriggerInputArgsDict']]
+        token_based_trigger: NotRequired[pulumi.Input['MemoryTokenBasedTriggerInputArgsDict']]
+elif False:
+    MemoryTriggerConditionInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemoryTriggerConditionInputArgs:
+    def __init__(__self__, *,
+                 message_based_trigger: Optional[pulumi.Input['MemoryMessageBasedTriggerInputArgs']] = None,
+                 time_based_trigger: Optional[pulumi.Input['MemoryTimeBasedTriggerInputArgs']] = None,
+                 token_based_trigger: Optional[pulumi.Input['MemoryTokenBasedTriggerInputArgs']] = None):
+        if message_based_trigger is not None:
+            pulumi.set(__self__, "message_based_trigger", message_based_trigger)
+        if time_based_trigger is not None:
+            pulumi.set(__self__, "time_based_trigger", time_based_trigger)
+        if token_based_trigger is not None:
+            pulumi.set(__self__, "token_based_trigger", token_based_trigger)
+
+    @_builtins.property
+    @pulumi.getter(name="messageBasedTrigger")
+    def message_based_trigger(self) -> Optional[pulumi.Input['MemoryMessageBasedTriggerInputArgs']]:
+        return pulumi.get(self, "message_based_trigger")
+
+    @message_based_trigger.setter
+    def message_based_trigger(self, value: Optional[pulumi.Input['MemoryMessageBasedTriggerInputArgs']]):
+        pulumi.set(self, "message_based_trigger", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeBasedTrigger")
+    def time_based_trigger(self) -> Optional[pulumi.Input['MemoryTimeBasedTriggerInputArgs']]:
+        return pulumi.get(self, "time_based_trigger")
+
+    @time_based_trigger.setter
+    def time_based_trigger(self, value: Optional[pulumi.Input['MemoryTimeBasedTriggerInputArgs']]):
+        pulumi.set(self, "time_based_trigger", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenBasedTrigger")
+    def token_based_trigger(self) -> Optional[pulumi.Input['MemoryTokenBasedTriggerInputArgs']]:
+        return pulumi.get(self, "token_based_trigger")
+
+    @token_based_trigger.setter
+    def token_based_trigger(self, value: Optional[pulumi.Input['MemoryTokenBasedTriggerInputArgs']]):
+        pulumi.set(self, "token_based_trigger", value)
+
+
+if not MYPY:
+    class MemoryUserPreferenceMemoryStrategyArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        created_at: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Creation timestamp of the memory strategy
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        status: NotRequired[pulumi.Input['MemoryUserPreferenceMemoryStrategyStatus']]
+        """
+        Status of the memory strategy
+        """
+        strategy_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Unique identifier for the memory strategy
+        """
+        type: NotRequired[pulumi.Input['MemoryUserPreferenceMemoryStrategyType']]
+        """
+        Type of memory strategy
+        """
+        updated_at: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Last update timestamp of the memory strategy
+        """
+elif False:
+    MemoryUserPreferenceMemoryStrategyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemoryUserPreferenceMemoryStrategyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyStatus']] = None,
+                 strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyType']] = None,
+                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] created_at: Creation timestamp of the memory strategy
+        :param pulumi.Input['MemoryUserPreferenceMemoryStrategyStatus'] status: Status of the memory strategy
+        :param pulumi.Input[_builtins.str] strategy_id: Unique identifier for the memory strategy
+        :param pulumi.Input['MemoryUserPreferenceMemoryStrategyType'] type: Type of memory strategy
+        :param pulumi.Input[_builtins.str] updated_at: Last update timestamp of the memory strategy
+        """
+        pulumi.set(__self__, "name", name)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if namespaces is not None:
+            pulumi.set(__self__, "namespaces", namespaces)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if strategy_id is not None:
+            pulumi.set(__self__, "strategy_id", strategy_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Creation timestamp of the memory strategy
+        """
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_at", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "namespaces")
+
+    @namespaces.setter
+    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "namespaces", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyStatus']]:
+        """
+        Status of the memory strategy
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyStatus']]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="strategyId")
+    def strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Unique identifier for the memory strategy
+        """
+        return pulumi.get(self, "strategy_id")
+
+    @strategy_id.setter
+    def strategy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "strategy_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyType']]:
+        """
+        Type of memory strategy
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyType']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Last update timestamp of the memory strategy
+        """
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "updated_at", value)
+
+
+if not MYPY:
+    class MemoryUserPreferenceOverrideConsolidationConfigurationInputArgsDict(TypedDict):
+        append_to_prompt: pulumi.Input[_builtins.str]
+        model_id: pulumi.Input[_builtins.str]
+elif False:
+    MemoryUserPreferenceOverrideConsolidationConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemoryUserPreferenceOverrideConsolidationConfigurationInputArgs:
+    def __init__(__self__, *,
+                 append_to_prompt: pulumi.Input[_builtins.str],
+                 model_id: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "append_to_prompt", append_to_prompt)
+        pulumi.set(__self__, "model_id", model_id)
+
+    @_builtins.property
+    @pulumi.getter(name="appendToPrompt")
+    def append_to_prompt(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "append_to_prompt")
+
+    @append_to_prompt.setter
+    def append_to_prompt(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "append_to_prompt", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model_id", value)
+
+
+if not MYPY:
+    class MemoryUserPreferenceOverrideExtractionConfigurationInputArgsDict(TypedDict):
+        append_to_prompt: pulumi.Input[_builtins.str]
+        model_id: pulumi.Input[_builtins.str]
+elif False:
+    MemoryUserPreferenceOverrideExtractionConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemoryUserPreferenceOverrideExtractionConfigurationInputArgs:
+    def __init__(__self__, *,
+                 append_to_prompt: pulumi.Input[_builtins.str],
+                 model_id: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "append_to_prompt", append_to_prompt)
+        pulumi.set(__self__, "model_id", model_id)
+
+    @_builtins.property
+    @pulumi.getter(name="appendToPrompt")
+    def append_to_prompt(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "append_to_prompt")
+
+    @append_to_prompt.setter
+    def append_to_prompt(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "append_to_prompt", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model_id", value)
+
+
+if not MYPY:
+    class MemoryUserPreferenceOverrideArgsDict(TypedDict):
+        consolidation: NotRequired[pulumi.Input['MemoryUserPreferenceOverrideConsolidationConfigurationInputArgsDict']]
+        extraction: NotRequired[pulumi.Input['MemoryUserPreferenceOverrideExtractionConfigurationInputArgsDict']]
+elif False:
+    MemoryUserPreferenceOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemoryUserPreferenceOverrideArgs:
+    def __init__(__self__, *,
+                 consolidation: Optional[pulumi.Input['MemoryUserPreferenceOverrideConsolidationConfigurationInputArgs']] = None,
+                 extraction: Optional[pulumi.Input['MemoryUserPreferenceOverrideExtractionConfigurationInputArgs']] = None):
+        if consolidation is not None:
+            pulumi.set(__self__, "consolidation", consolidation)
+        if extraction is not None:
+            pulumi.set(__self__, "extraction", extraction)
+
+    @_builtins.property
+    @pulumi.getter
+    def consolidation(self) -> Optional[pulumi.Input['MemoryUserPreferenceOverrideConsolidationConfigurationInputArgs']]:
+        return pulumi.get(self, "consolidation")
+
+    @consolidation.setter
+    def consolidation(self, value: Optional[pulumi.Input['MemoryUserPreferenceOverrideConsolidationConfigurationInputArgs']]):
+        pulumi.set(self, "consolidation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def extraction(self) -> Optional[pulumi.Input['MemoryUserPreferenceOverrideExtractionConfigurationInputArgs']]:
+        return pulumi.get(self, "extraction")
+
+    @extraction.setter
+    def extraction(self, value: Optional[pulumi.Input['MemoryUserPreferenceOverrideExtractionConfigurationInputArgs']]):
+        pulumi.set(self, "extraction", value)
+
+
+if not MYPY:
     class RuntimeAgentRuntimeArtifactArgsDict(TypedDict):
         container_configuration: NotRequired[pulumi.Input['RuntimeContainerConfigurationArgsDict']]
         """
@@ -1147,17 +2520,21 @@ if not MYPY:
         """
         The network mode.
         """
+        network_mode_config: NotRequired[pulumi.Input['RuntimeVpcConfigArgsDict']]
 elif False:
     RuntimeNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuntimeNetworkConfigurationArgs:
     def __init__(__self__, *,
-                 network_mode: pulumi.Input['RuntimeNetworkMode']):
+                 network_mode: pulumi.Input['RuntimeNetworkMode'],
+                 network_mode_config: Optional[pulumi.Input['RuntimeVpcConfigArgs']] = None):
         """
         :param pulumi.Input['RuntimeNetworkMode'] network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
+        if network_mode_config is not None:
+            pulumi.set(__self__, "network_mode_config", network_mode_config)
 
     @_builtins.property
     @pulumi.getter(name="networkMode")
@@ -1170,5 +2547,54 @@ class RuntimeNetworkConfigurationArgs:
     @network_mode.setter
     def network_mode(self, value: pulumi.Input['RuntimeNetworkMode']):
         pulumi.set(self, "network_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkModeConfig")
+    def network_mode_config(self) -> Optional[pulumi.Input['RuntimeVpcConfigArgs']]:
+        return pulumi.get(self, "network_mode_config")
+
+    @network_mode_config.setter
+    def network_mode_config(self, value: Optional[pulumi.Input['RuntimeVpcConfigArgs']]):
+        pulumi.set(self, "network_mode_config", value)
+
+
+if not MYPY:
+    class RuntimeVpcConfigArgsDict(TypedDict):
+        """
+        Network mode configuration for VPC
+        """
+        security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+elif False:
+    RuntimeVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuntimeVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        Network mode configuration for VPC
+        """
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnets", value)
 
 

@@ -84,6 +84,14 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public readonly bool? ApplyOnTransformedLogs;
         /// <summary>
+        /// The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+        /// </summary>
+        public readonly ImmutableArray<string> EmitSystemFieldDimensions;
+        /// <summary>
+        /// The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
+        /// </summary>
+        public readonly string? FieldSelectionCriteria;
+        /// <summary>
         /// A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         /// </summary>
         public readonly string? FilterPattern;
@@ -96,11 +104,17 @@ namespace Pulumi.AwsNative.Logs
         private GetMetricFilterResult(
             bool? applyOnTransformedLogs,
 
+            ImmutableArray<string> emitSystemFieldDimensions,
+
+            string? fieldSelectionCriteria,
+
             string? filterPattern,
 
             ImmutableArray<Outputs.MetricFilterMetricTransformation> metricTransformations)
         {
             ApplyOnTransformedLogs = applyOnTransformedLogs;
+            EmitSystemFieldDimensions = emitSystemFieldDimensions;
+            FieldSelectionCriteria = fieldSelectionCriteria;
             FilterPattern = filterPattern;
             MetricTransformations = metricTransformations;
         }

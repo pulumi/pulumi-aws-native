@@ -592,6 +592,8 @@ namespace Pulumi.AwsNative.Ecs
 
         public static ServiceDeploymentConfigurationStrategy Rolling { get; } = new ServiceDeploymentConfigurationStrategy("ROLLING");
         public static ServiceDeploymentConfigurationStrategy BlueGreen { get; } = new ServiceDeploymentConfigurationStrategy("BLUE_GREEN");
+        public static ServiceDeploymentConfigurationStrategy Linear { get; } = new ServiceDeploymentConfigurationStrategy("LINEAR");
+        public static ServiceDeploymentConfigurationStrategy Canary { get; } = new ServiceDeploymentConfigurationStrategy("CANARY");
 
         public static bool operator ==(ServiceDeploymentConfigurationStrategy left, ServiceDeploymentConfigurationStrategy right) => left.Equals(right);
         public static bool operator !=(ServiceDeploymentConfigurationStrategy left, ServiceDeploymentConfigurationStrategy right) => !left.Equals(right);

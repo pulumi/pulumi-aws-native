@@ -134,7 +134,7 @@
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "medialive:CreateCluster", "medialive:DescribeCluster", "medialive:CreateTags", "ecs:CreateCluster", "ecs:RegisterTaskDefinition", "ecs:TagResource", "ecs:CreateService", "iam:PassRole", "medialive:ListTagsForResource" ]
+      "permissions" : [ "medialive:CreateCluster", "medialive:DescribeCluster", "medialive:CreateTags", "ecs:CreateCluster", "ecs:RegisterTaskDefinition", "ecs:TagResource", "ecs:CreateService", "iam:CreateServiceLinkedRole", "iam:PassRole", "medialive:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "medialive:DescribeCluster", "medialive:ListTagsForResource" ]

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+ * Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
  */
 export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,16 +34,12 @@ export interface GetResourcePolicyResult {
      */
     readonly policy?: outputs.lex.ResourcePolicyPolicy;
     /**
-     * The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
-     */
-    readonly resourceArn?: string;
-    /**
      * Specifies the current revision of a resource policy.
      */
     readonly revisionId?: string;
 }
 /**
- * A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+ * Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
  */
 export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourcePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
+// Resource Type definition for bot versions, a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
 func LookupBotVersion(ctx *pulumi.Context, args *LookupBotVersionArgs, opts ...pulumi.InvokeOption) (*LookupBotVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBotVersionResult

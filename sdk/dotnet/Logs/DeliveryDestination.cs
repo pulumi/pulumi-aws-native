@@ -34,10 +34,10 @@ namespace Pulumi.AwsNative.Logs
         public Output<Outputs.DeliveryDestinationDestinationPolicy?> DeliveryDestinationPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+        /// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Kinesis Data Firehose, or XRay.
         /// </summary>
         [Output("deliveryDestinationType")]
-        public Output<string> DeliveryDestinationType { get; private set; } = null!;
+        public Output<string?> DeliveryDestinationType { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
@@ -88,6 +88,7 @@ namespace Pulumi.AwsNative.Logs
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "deliveryDestinationType",
                     "destinationResourceArn",
                     "name",
                     "outputFormat",
@@ -123,6 +124,12 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         [Input("deliveryDestinationPolicy")]
         public Input<Inputs.DeliveryDestinationDestinationPolicyArgs>? DeliveryDestinationPolicy { get; set; }
+
+        /// <summary>
+        /// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Kinesis Data Firehose, or XRay.
+        /// </summary>
+        [Input("deliveryDestinationType")]
+        public Input<string>? DeliveryDestinationType { get; set; }
 
         /// <summary>
         /// The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.

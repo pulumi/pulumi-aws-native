@@ -60,16 +60,25 @@ class GetGatewayTargetResult:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[_builtins.str]:
+        """
+        The date and time at which the gateway target was created.
+        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="credentialProviderConfigurations")
     def credential_provider_configurations(self) -> Optional[Sequence['outputs.GatewayTargetCredentialProviderConfiguration']]:
+        """
+        The OAuth credential provider configuration.
+        """
         return pulumi.get(self, "credential_provider_configurations")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
+        """
+        The description for the gateway target.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -80,31 +89,49 @@ class GetGatewayTargetResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
+        """
+        The name for the gateway target.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional['GatewayTargetTargetStatus']:
+        """
+        The status for the gateway target.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusReasons")
     def status_reasons(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The status reasons for the gateway target.
+        """
         return pulumi.get(self, "status_reasons")
 
     @_builtins.property
     @pulumi.getter(name="targetConfiguration")
     def target_configuration(self) -> Optional['outputs.GatewayTargetTargetConfigurationProperties']:
+        """
+        The target configuration for the Smithy model target.
+        """
         return pulumi.get(self, "target_configuration")
 
     @_builtins.property
     @pulumi.getter(name="targetId")
     def target_id(self) -> Optional[_builtins.str]:
+        """
+        The target ID for the gateway target.
+        """
         return pulumi.get(self, "target_id")
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[_builtins.str]:
+        """
+        The time at which the resource was updated.
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -131,6 +158,10 @@ def get_gateway_target(gateway_identifier: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayTargetResult:
     """
     Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
+
+
+    :param _builtins.str gateway_identifier: The gateway ID for the gateway target.
+    :param _builtins.str target_id: The target ID for the gateway target.
     """
     __args__ = dict()
     __args__['gatewayIdentifier'] = gateway_identifier
@@ -154,6 +185,10 @@ def get_gateway_target_output(gateway_identifier: Optional[pulumi.Input[_builtin
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayTargetResult]:
     """
     Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
+
+
+    :param _builtins.str gateway_identifier: The gateway ID for the gateway target.
+    :param _builtins.str target_id: The target ID for the gateway target.
     """
     __args__ = dict()
     __args__['gatewayIdentifier'] = gateway_identifier

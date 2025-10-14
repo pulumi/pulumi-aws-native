@@ -26,6 +26,8 @@ class MetricFilterArgs:
                  log_group_name: pulumi.Input[_builtins.str],
                  metric_transformations: pulumi.Input[Sequence[pulumi.Input['MetricFilterMetricTransformationArgs']]],
                  apply_on_transformed_logs: Optional[pulumi.Input[_builtins.bool]] = None,
+                 emit_system_field_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 field_selection_criteria: Optional[pulumi.Input[_builtins.str]] = None,
                  filter_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MetricFilter resource.
@@ -34,6 +36,8 @@ class MetricFilterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MetricFilterMetricTransformationArgs']]] metric_transformations: The metric transformations.
         :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
                 If this value is ``true``, the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emit_system_field_dimensions: The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+        :param pulumi.Input[_builtins.str] field_selection_criteria: The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
         :param pulumi.Input[_builtins.str] filter_name: The name of the metric filter.
         """
         pulumi.set(__self__, "filter_pattern", filter_pattern)
@@ -41,6 +45,10 @@ class MetricFilterArgs:
         pulumi.set(__self__, "metric_transformations", metric_transformations)
         if apply_on_transformed_logs is not None:
             pulumi.set(__self__, "apply_on_transformed_logs", apply_on_transformed_logs)
+        if emit_system_field_dimensions is not None:
+            pulumi.set(__self__, "emit_system_field_dimensions", emit_system_field_dimensions)
+        if field_selection_criteria is not None:
+            pulumi.set(__self__, "field_selection_criteria", field_selection_criteria)
         if filter_name is not None:
             pulumi.set(__self__, "filter_name", filter_name)
 
@@ -94,6 +102,30 @@ class MetricFilterArgs:
         pulumi.set(self, "apply_on_transformed_logs", value)
 
     @_builtins.property
+    @pulumi.getter(name="emitSystemFieldDimensions")
+    def emit_system_field_dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+        """
+        return pulumi.get(self, "emit_system_field_dimensions")
+
+    @emit_system_field_dimensions.setter
+    def emit_system_field_dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "emit_system_field_dimensions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldSelectionCriteria")
+    def field_selection_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
+        """
+        return pulumi.get(self, "field_selection_criteria")
+
+    @field_selection_criteria.setter
+    def field_selection_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "field_selection_criteria", value)
+
+    @_builtins.property
     @pulumi.getter(name="filterName")
     def filter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -113,6 +145,8 @@ class MetricFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apply_on_transformed_logs: Optional[pulumi.Input[_builtins.bool]] = None,
+                 emit_system_field_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 field_selection_criteria: Optional[pulumi.Input[_builtins.str]] = None,
                  filter_name: Optional[pulumi.Input[_builtins.str]] = None,
                  filter_pattern: Optional[pulumi.Input[_builtins.str]] = None,
                  log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -126,6 +160,8 @@ class MetricFilter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
                 If this value is ``true``, the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emit_system_field_dimensions: The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+        :param pulumi.Input[_builtins.str] field_selection_criteria: The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
         :param pulumi.Input[_builtins.str] filter_name: The name of the metric filter.
         :param pulumi.Input[_builtins.str] filter_pattern: A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         :param pulumi.Input[_builtins.str] log_group_name: The name of an existing log group that you want to associate with this metric filter.
@@ -157,6 +193,8 @@ class MetricFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apply_on_transformed_logs: Optional[pulumi.Input[_builtins.bool]] = None,
+                 emit_system_field_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 field_selection_criteria: Optional[pulumi.Input[_builtins.str]] = None,
                  filter_name: Optional[pulumi.Input[_builtins.str]] = None,
                  filter_pattern: Optional[pulumi.Input[_builtins.str]] = None,
                  log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -171,6 +209,8 @@ class MetricFilter(pulumi.CustomResource):
             __props__ = MetricFilterArgs.__new__(MetricFilterArgs)
 
             __props__.__dict__["apply_on_transformed_logs"] = apply_on_transformed_logs
+            __props__.__dict__["emit_system_field_dimensions"] = emit_system_field_dimensions
+            __props__.__dict__["field_selection_criteria"] = field_selection_criteria
             __props__.__dict__["filter_name"] = filter_name
             if filter_pattern is None and not opts.urn:
                 raise TypeError("Missing required property 'filter_pattern'")
@@ -206,6 +246,8 @@ class MetricFilter(pulumi.CustomResource):
         __props__ = MetricFilterArgs.__new__(MetricFilterArgs)
 
         __props__.__dict__["apply_on_transformed_logs"] = None
+        __props__.__dict__["emit_system_field_dimensions"] = None
+        __props__.__dict__["field_selection_criteria"] = None
         __props__.__dict__["filter_name"] = None
         __props__.__dict__["filter_pattern"] = None
         __props__.__dict__["log_group_name"] = None
@@ -220,6 +262,22 @@ class MetricFilter(pulumi.CustomResource):
          If this value is ``true``, the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
         """
         return pulumi.get(self, "apply_on_transformed_logs")
+
+    @_builtins.property
+    @pulumi.getter(name="emitSystemFieldDimensions")
+    def emit_system_field_dimensions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+        """
+        return pulumi.get(self, "emit_system_field_dimensions")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldSelectionCriteria")
+    def field_selection_criteria(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
+        """
+        return pulumi.get(self, "field_selection_criteria")
 
     @_builtins.property
     @pulumi.getter(name="filterName")

@@ -62,6 +62,10 @@ export class Queue extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string | undefined>;
     /**
+     * The Slurm configuration for the queue.
+     */
+    declare public readonly slurmConfiguration: pulumi.Output<outputs.pcs.SlurmConfigurationProperties | undefined>;
+    /**
      * The provisioning status of the queue. The provisioning status doesn't indicate the overall health of the queue.
      */
     declare public /*out*/ readonly status: pulumi.Output<enums.pcs.QueueStatus>;
@@ -87,6 +91,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["clusterId"] = args?.clusterId;
             resourceInputs["computeNodeGroupConfigurations"] = args?.computeNodeGroupConfigurations;
             resourceInputs["name"] = args?.name;
+            resourceInputs["slurmConfiguration"] = args?.slurmConfiguration;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -99,6 +104,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["computeNodeGroupConfigurations"] = undefined /*out*/;
             resourceInputs["errorInfo"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["slurmConfiguration"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -125,6 +131,10 @@ export interface QueueArgs {
      * The name that identifies the queue.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The Slurm configuration for the queue.
+     */
+    slurmConfiguration?: pulumi.Input<inputs.pcs.SlurmConfigurationPropertiesArgs>;
     /**
      * 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
      */

@@ -58,6 +58,10 @@ export class CodeInterpreterCustom extends pulumi.CustomResource {
      */
     declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
     /**
+     * The reason for failure if the code interpreter creation or operation failed.
+     */
+    declare public /*out*/ readonly failureReason: pulumi.Output<string>;
+    /**
      * Timestamp when the code interpreter was last updated.
      */
     declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
@@ -100,6 +104,7 @@ export class CodeInterpreterCustom extends pulumi.CustomResource {
             resourceInputs["codeInterpreterArn"] = undefined /*out*/;
             resourceInputs["codeInterpreterId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["failureReason"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
@@ -108,6 +113,7 @@ export class CodeInterpreterCustom extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;
+            resourceInputs["failureReason"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkConfiguration"] = undefined /*out*/;

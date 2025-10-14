@@ -54,11 +54,8 @@ namespace Pulumi.AwsNative.DataZone.Inputs
         [Input("environmentBlueprintId", required: true)]
         public Input<string> EnvironmentBlueprintId { get; set; } = null!;
 
-        /// <summary>
-        /// The environment ID.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("environmentConfigurationId")]
+        public Input<string>? EnvironmentConfigurationId { get; set; }
 
         /// <summary>
         /// The environment name.

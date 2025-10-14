@@ -44,7 +44,7 @@ export interface GetEnvironmentResult {
      *
      * If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
      *
-     * *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` (latest)
+     * *Allowed Values* : `2.7.2` | `2.8.1` | `2.9.2` | `2.10.1` | `2.10.3` | `3.0.6` (latest)
      */
     readonly airflowVersion?: string;
     /**

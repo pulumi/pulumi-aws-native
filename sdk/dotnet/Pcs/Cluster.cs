@@ -110,7 +110,6 @@ namespace Pulumi.AwsNative.Pcs
                     "networking",
                     "scheduler",
                     "size",
-                    "slurmConfiguration",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -26,6 +26,8 @@ type BrowserCustom struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
 	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
+	// The reason for failure if the browser creation or operation failed.
+	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
 	// Timestamp when the browser was last updated.
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
 	// The name of the browser.
@@ -181,6 +183,11 @@ func (o BrowserCustomOutput) Description() pulumi.StringPtrOutput {
 // The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
 func (o BrowserCustomOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrowserCustom) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The reason for failure if the browser creation or operation failed.
+func (o BrowserCustomOutput) FailureReason() pulumi.StringOutput {
+	return o.ApplyT(func(v *BrowserCustom) pulumi.StringOutput { return v.FailureReason }).(pulumi.StringOutput)
 }
 
 // Timestamp when the browser was last updated.

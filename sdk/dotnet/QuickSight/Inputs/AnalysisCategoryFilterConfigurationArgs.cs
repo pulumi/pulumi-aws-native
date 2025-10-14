@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.AnalysisCustomFilterConfigurationArgs>? CustomFilterConfiguration { get; set; }
 
         /// <summary>
-        /// A list of custom filter values. In the Amazon QuickSight console, this filter type is called a custom filter list.
+        /// A list of custom filter values. In the Quick Sight console, this filter type is called a custom filter list.
         /// </summary>
         [Input("customFilterListConfiguration")]
         public Input<Inputs.AnalysisCustomFilterListConfigurationArgs>? CustomFilterListConfiguration { get; set; }
 
         /// <summary>
-        /// A list of filter configurations. In the Amazon QuickSight console, this filter type is called a filter list.
+        /// A list of filter configurations. In the Quick Sight console, this filter type is called a filter list.
         /// </summary>
         [Input("filterListConfiguration")]
         public Input<Inputs.AnalysisFilterListConfigurationArgs>? FilterListConfiguration { get; set; }

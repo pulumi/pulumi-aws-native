@@ -41,6 +41,18 @@ namespace Pulumi.AwsNative.Logs
         public Output<Pulumi.AwsNative.Logs.SubscriptionFilterDistribution?> Distribution { get; private set; } = null!;
 
         /// <summary>
+        /// The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+        /// </summary>
+        [Output("emitSystemFields")]
+        public Output<ImmutableArray<string>> EmitSystemFields { get; private set; } = null!;
+
+        /// <summary>
+        /// The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+        /// </summary>
+        [Output("fieldSelectionCriteria")]
+        public Output<string?> FieldSelectionCriteria { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the subscription filter.
         /// </summary>
         [Output("filterName")]
@@ -132,6 +144,24 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         [Input("distribution")]
         public Input<Pulumi.AwsNative.Logs.SubscriptionFilterDistribution>? Distribution { get; set; }
+
+        [Input("emitSystemFields")]
+        private InputList<string>? _emitSystemFields;
+
+        /// <summary>
+        /// The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+        /// </summary>
+        public InputList<string> EmitSystemFields
+        {
+            get => _emitSystemFields ?? (_emitSystemFields = new InputList<string>());
+            set => _emitSystemFields = value;
+        }
+
+        /// <summary>
+        /// The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+        /// </summary>
+        [Input("fieldSelectionCriteria")]
+        public Input<string>? FieldSelectionCriteria { get; set; }
 
         /// <summary>
         /// The name of the subscription filter.

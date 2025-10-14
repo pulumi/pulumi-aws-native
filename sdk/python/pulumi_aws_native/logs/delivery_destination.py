@@ -24,6 +24,7 @@ __all__ = ['DeliveryDestinationArgs', 'DeliveryDestination']
 class DeliveryDestinationArgs:
     def __init__(__self__, *,
                  delivery_destination_policy: Optional[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']] = None,
+                 delivery_destination_type: Optional[pulumi.Input[_builtins.str]] = None,
                  destination_resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  output_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -35,6 +36,7 @@ class DeliveryDestinationArgs:
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 51200
+        :param pulumi.Input[_builtins.str] delivery_destination_type: Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Kinesis Data Firehose, or XRay.
         :param pulumi.Input[_builtins.str] destination_resource_arn: The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
         :param pulumi.Input[_builtins.str] name: The name of this delivery destination.
         :param pulumi.Input[_builtins.str] output_format: The format of the logs that are sent to this delivery destination.
@@ -42,6 +44,8 @@ class DeliveryDestinationArgs:
         """
         if delivery_destination_policy is not None:
             pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
+        if delivery_destination_type is not None:
+            pulumi.set(__self__, "delivery_destination_type", delivery_destination_type)
         if destination_resource_arn is not None:
             pulumi.set(__self__, "destination_resource_arn", destination_resource_arn)
         if name is not None:
@@ -66,6 +70,18 @@ class DeliveryDestinationArgs:
     @delivery_destination_policy.setter
     def delivery_destination_policy(self, value: Optional[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']]):
         pulumi.set(self, "delivery_destination_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deliveryDestinationType")
+    def delivery_destination_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Kinesis Data Firehose, or XRay.
+        """
+        return pulumi.get(self, "delivery_destination_type")
+
+    @delivery_destination_type.setter
+    def delivery_destination_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delivery_destination_type", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationResourceArn")
@@ -123,6 +139,7 @@ class DeliveryDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_destination_policy: Optional[pulumi.Input[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']]] = None,
+                 delivery_destination_type: Optional[pulumi.Input[_builtins.str]] = None,
                  destination_resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  output_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -140,6 +157,7 @@ class DeliveryDestination(pulumi.CustomResource):
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 51200
+        :param pulumi.Input[_builtins.str] delivery_destination_type: Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Kinesis Data Firehose, or XRay.
         :param pulumi.Input[_builtins.str] destination_resource_arn: The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
         :param pulumi.Input[_builtins.str] name: The name of this delivery destination.
         :param pulumi.Input[_builtins.str] output_format: The format of the logs that are sent to this delivery destination.
@@ -172,6 +190,7 @@ class DeliveryDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_destination_policy: Optional[pulumi.Input[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']]] = None,
+                 delivery_destination_type: Optional[pulumi.Input[_builtins.str]] = None,
                  destination_resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  output_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -186,13 +205,13 @@ class DeliveryDestination(pulumi.CustomResource):
             __props__ = DeliveryDestinationArgs.__new__(DeliveryDestinationArgs)
 
             __props__.__dict__["delivery_destination_policy"] = delivery_destination_policy
+            __props__.__dict__["delivery_destination_type"] = delivery_destination_type
             __props__.__dict__["destination_resource_arn"] = destination_resource_arn
             __props__.__dict__["name"] = name
             __props__.__dict__["output_format"] = output_format
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-            __props__.__dict__["delivery_destination_type"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destinationResourceArn", "name", "outputFormat"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["deliveryDestinationType", "destinationResourceArn", "name", "outputFormat"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeliveryDestination, __self__).__init__(
             'aws-native:logs:DeliveryDestination',
@@ -247,9 +266,9 @@ class DeliveryDestination(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="deliveryDestinationType")
-    def delivery_destination_type(self) -> pulumi.Output[_builtins.str]:
+    def delivery_destination_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+        Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Kinesis Data Firehose, or XRay.
         """
         return pulumi.get(self, "delivery_destination_type")
 

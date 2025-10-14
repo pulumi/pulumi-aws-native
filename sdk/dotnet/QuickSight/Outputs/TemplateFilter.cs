@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// A `CategoryFilter` filters text values.
         /// 
-        /// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon QuickSight User Guide* .
+        /// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon Quick Suite User Guide* .
         /// </summary>
         public readonly Outputs.TemplateCategoryFilter? CategoryFilter;
         /// <summary>

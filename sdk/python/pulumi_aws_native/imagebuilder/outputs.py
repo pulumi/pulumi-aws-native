@@ -34,9 +34,12 @@ __all__ = [
     'DistributionConfigurationSsmParameterConfiguration',
     'DistributionConfigurationTargetContainerRepository',
     'ImageEcrConfiguration',
+    'ImageLoggingConfiguration',
+    'ImagePipelineAutoDisablePolicy',
     'ImagePipelineEcrConfiguration',
     'ImagePipelineImageScanningConfiguration',
     'ImagePipelineImageTestsConfiguration',
+    'ImagePipelinePipelineLoggingConfiguration',
     'ImagePipelineSchedule',
     'ImagePipelineWorkflowConfiguration',
     'ImagePipelineWorkflowParameter',
@@ -1285,6 +1288,85 @@ class ImageEcrConfiguration(dict):
 
 
 @pulumi.output_type
+class ImageLoggingConfiguration(dict):
+    """
+    The logging configuration settings for the image.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_name: Optional[_builtins.str] = None):
+        """
+        The logging configuration settings for the image.
+        :param _builtins.str log_group_name: The name of the log group for image build logs.
+        """
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the log group for image build logs.
+        """
+        return pulumi.get(self, "log_group_name")
+
+
+@pulumi.output_type
+class ImagePipelineAutoDisablePolicy(dict):
+    """
+    The auto-disable policy configuration for the image pipeline.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureCount":
+            suggest = "failure_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImagePipelineAutoDisablePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImagePipelineAutoDisablePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImagePipelineAutoDisablePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failure_count: _builtins.int):
+        """
+        The auto-disable policy configuration for the image pipeline.
+        :param _builtins.int failure_count: The number of consecutive failures after which the pipeline should be automatically disabled.
+        """
+        pulumi.set(__self__, "failure_count", failure_count)
+
+    @_builtins.property
+    @pulumi.getter(name="failureCount")
+    def failure_count(self) -> _builtins.int:
+        """
+        The number of consecutive failures after which the pipeline should be automatically disabled.
+        """
+        return pulumi.get(self, "failure_count")
+
+
+@pulumi.output_type
 class ImagePipelineEcrConfiguration(dict):
     """
     Settings for Image Builder to configure the ECR repository and output container images that are scanned.
@@ -1447,6 +1529,60 @@ class ImagePipelineImageTestsConfiguration(dict):
 
 
 @pulumi.output_type
+class ImagePipelinePipelineLoggingConfiguration(dict):
+    """
+    The logging configuration settings for the image pipeline.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageLogGroupName":
+            suggest = "image_log_group_name"
+        elif key == "pipelineLogGroupName":
+            suggest = "pipeline_log_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImagePipelinePipelineLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImagePipelinePipelineLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImagePipelinePipelineLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_log_group_name: Optional[_builtins.str] = None,
+                 pipeline_log_group_name: Optional[_builtins.str] = None):
+        """
+        The logging configuration settings for the image pipeline.
+        :param _builtins.str image_log_group_name: The name of the log group for image build logs.
+        :param _builtins.str pipeline_log_group_name: The name of the log group for pipeline execution logs.
+        """
+        if image_log_group_name is not None:
+            pulumi.set(__self__, "image_log_group_name", image_log_group_name)
+        if pipeline_log_group_name is not None:
+            pulumi.set(__self__, "pipeline_log_group_name", pipeline_log_group_name)
+
+    @_builtins.property
+    @pulumi.getter(name="imageLogGroupName")
+    def image_log_group_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the log group for image build logs.
+        """
+        return pulumi.get(self, "image_log_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="pipelineLogGroupName")
+    def pipeline_log_group_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the log group for pipeline execution logs.
+        """
+        return pulumi.get(self, "pipeline_log_group_name")
+
+
+@pulumi.output_type
 class ImagePipelineSchedule(dict):
     """
     The schedule of the image pipeline.
@@ -1473,12 +1609,12 @@ class ImagePipelineSchedule(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 auto_disable_policy: Optional[Any] = None,
+                 auto_disable_policy: Optional['outputs.ImagePipelineAutoDisablePolicy'] = None,
                  pipeline_execution_start_condition: Optional['ImagePipelineSchedulePipelineExecutionStartCondition'] = None,
                  schedule_expression: Optional[_builtins.str] = None):
         """
         The schedule of the image pipeline.
-        :param Any auto_disable_policy: The auto-disable policy for the image pipeline.
+        :param 'ImagePipelineAutoDisablePolicy' auto_disable_policy: The auto-disable policy for the image pipeline.
         :param 'ImagePipelineSchedulePipelineExecutionStartCondition' pipeline_execution_start_condition: The condition configures when the pipeline should trigger a new image build.
         :param _builtins.str schedule_expression: The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
         """
@@ -1491,7 +1627,7 @@ class ImagePipelineSchedule(dict):
 
     @_builtins.property
     @pulumi.getter(name="autoDisablePolicy")
-    def auto_disable_policy(self) -> Optional[Any]:
+    def auto_disable_policy(self) -> Optional['outputs.ImagePipelineAutoDisablePolicy']:
         """
         The auto-disable policy for the image pipeline.
         """

@@ -25,16 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeliveryDestinationResult:
-    def __init__(__self__, arn=None, delivery_destination_policy=None, delivery_destination_type=None, tags=None):
+    def __init__(__self__, arn=None, delivery_destination_policy=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if delivery_destination_policy and not isinstance(delivery_destination_policy, dict):
             raise TypeError("Expected argument 'delivery_destination_policy' to be a dict")
         pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
-        if delivery_destination_type and not isinstance(delivery_destination_type, str):
-            raise TypeError("Expected argument 'delivery_destination_type' to be a str")
-        pulumi.set(__self__, "delivery_destination_type", delivery_destination_type)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -60,14 +57,6 @@ class GetDeliveryDestinationResult:
         return pulumi.get(self, "delivery_destination_policy")
 
     @_builtins.property
-    @pulumi.getter(name="deliveryDestinationType")
-    def delivery_destination_type(self) -> Optional[_builtins.str]:
-        """
-        Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
-        """
-        return pulumi.get(self, "delivery_destination_type")
-
-    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -84,7 +73,6 @@ class AwaitableGetDeliveryDestinationResult(GetDeliveryDestinationResult):
         return GetDeliveryDestinationResult(
             arn=self.arn,
             delivery_destination_policy=self.delivery_destination_policy,
-            delivery_destination_type=self.delivery_destination_type,
             tags=self.tags)
 
 
@@ -106,7 +94,6 @@ def get_delivery_destination(name: Optional[_builtins.str] = None,
     return AwaitableGetDeliveryDestinationResult(
         arn=pulumi.get(__ret__, 'arn'),
         delivery_destination_policy=pulumi.get(__ret__, 'delivery_destination_policy'),
-        delivery_destination_type=pulumi.get(__ret__, 'delivery_destination_type'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_delivery_destination_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeliveryDestinationResult]:
@@ -125,5 +112,4 @@ def get_delivery_destination_output(name: Optional[pulumi.Input[_builtins.str]] 
     return __ret__.apply(lambda __response__: GetDeliveryDestinationResult(
         arn=pulumi.get(__response__, 'arn'),
         delivery_destination_policy=pulumi.get(__response__, 'delivery_destination_policy'),
-        delivery_destination_type=pulumi.get(__response__, 'delivery_destination_type'),
         tags=pulumi.get(__response__, 'tags')))

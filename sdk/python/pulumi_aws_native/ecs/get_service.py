@@ -158,7 +158,7 @@ class GetServiceResult:
     @pulumi.getter(name="healthCheckGracePeriodSeconds")
     def health_check_grace_period_seconds(self) -> Optional[_builtins.int]:
         """
-        The period of time, in seconds, that the Amazon Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
+        The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
          If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
         """
         return pulumi.get(self, "health_check_grace_period_seconds")

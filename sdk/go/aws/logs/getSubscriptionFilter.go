@@ -47,6 +47,10 @@ type LookupSubscriptionFilterResult struct {
 	DestinationArn *string `pulumi:"destinationArn"`
 	// The method used to distribute log data to the destination, which can be either random or grouped by log stream.
 	Distribution *SubscriptionFilterDistribution `pulumi:"distribution"`
+	// The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+	EmitSystemFields []string `pulumi:"emitSystemFields"`
+	// The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+	FieldSelectionCriteria *string `pulumi:"fieldSelectionCriteria"`
 	// The filtering expressions that restrict what gets delivered to the destination AWS resource. For more information about the filter pattern syntax, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern *string `pulumi:"filterPattern"`
 	// The ARN of an IAM role that grants CWL permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
@@ -102,6 +106,16 @@ func (o LookupSubscriptionFilterResultOutput) DestinationArn() pulumi.StringPtrO
 // The method used to distribute log data to the destination, which can be either random or grouped by log stream.
 func (o LookupSubscriptionFilterResultOutput) Distribution() SubscriptionFilterDistributionPtrOutput {
 	return o.ApplyT(func(v LookupSubscriptionFilterResult) *SubscriptionFilterDistribution { return v.Distribution }).(SubscriptionFilterDistributionPtrOutput)
+}
+
+// The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+func (o LookupSubscriptionFilterResultOutput) EmitSystemFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSubscriptionFilterResult) []string { return v.EmitSystemFields }).(pulumi.StringArrayOutput)
+}
+
+// The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+func (o LookupSubscriptionFilterResultOutput) FieldSelectionCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionFilterResult) *string { return v.FieldSelectionCriteria }).(pulumi.StringPtrOutput)
 }
 
 // The filtering expressions that restrict what gets delivered to the destination AWS resource. For more information about the filter pattern syntax, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).

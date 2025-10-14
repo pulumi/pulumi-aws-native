@@ -419,7 +419,7 @@ namespace Pulumi.AwsNative.Ecs
         public Output<Outputs.TaskDefinitionProxyConfiguration?> ProxyConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+        /// The task launch types the task definition was validated against. The valid values are ``MANAGED_INSTANCES``, ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
         /// </summary>
         [Output("requiresCompatibilities")]
         public Output<ImmutableArray<string>> RequiresCompatibilities { get; private set; } = null!;
@@ -660,7 +660,7 @@ namespace Pulumi.AwsNative.Ecs
         private InputList<string>? _requiresCompatibilities;
 
         /// <summary>
-        /// The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+        /// The task launch types the task definition was validated against. The valid values are ``MANAGED_INSTANCES``, ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
         /// </summary>
         public InputList<string> RequiresCompatibilities
         {

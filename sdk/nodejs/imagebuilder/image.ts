@@ -82,6 +82,10 @@ export class Image extends pulumi.CustomResource {
      */
     declare public readonly infrastructureConfigurationArn: pulumi.Output<string | undefined>;
     /**
+     * The logging configuration settings for the image.
+     */
+    declare public readonly loggingConfiguration: pulumi.Output<outputs.imagebuilder.ImageLoggingConfiguration | undefined>;
+    /**
      * The name of the image.
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
@@ -113,6 +117,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["imageScanningConfiguration"] = args?.imageScanningConfiguration;
             resourceInputs["imageTestsConfiguration"] = args?.imageTestsConfiguration;
             resourceInputs["infrastructureConfigurationArn"] = args?.infrastructureConfigurationArn;
+            resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["workflows"] = args?.workflows;
             resourceInputs["arn"] = undefined /*out*/;
@@ -131,6 +136,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["imageTestsConfiguration"] = undefined /*out*/;
             resourceInputs["imageUri"] = undefined /*out*/;
             resourceInputs["infrastructureConfigurationArn"] = undefined /*out*/;
+            resourceInputs["loggingConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["workflows"] = undefined /*out*/;
@@ -178,6 +184,10 @@ export interface ImageArgs {
      * The Amazon Resource Name (ARN) of the infrastructure configuration.
      */
     infrastructureConfigurationArn?: pulumi.Input<string>;
+    /**
+     * The logging configuration settings for the image.
+     */
+    loggingConfiguration?: pulumi.Input<inputs.imagebuilder.ImageLoggingConfigurationArgs>;
     /**
      * The tags associated with the image.
      */

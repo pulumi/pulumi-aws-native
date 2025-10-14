@@ -325,107 +325,6 @@ type ComputeNodeGroupSlurmCustomSetting struct {
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
-// ComputeNodeGroupSlurmCustomSettingInput is an input type that accepts ComputeNodeGroupSlurmCustomSettingArgs and ComputeNodeGroupSlurmCustomSettingOutput values.
-// You can construct a concrete instance of `ComputeNodeGroupSlurmCustomSettingInput` via:
-//
-//	ComputeNodeGroupSlurmCustomSettingArgs{...}
-type ComputeNodeGroupSlurmCustomSettingInput interface {
-	pulumi.Input
-
-	ToComputeNodeGroupSlurmCustomSettingOutput() ComputeNodeGroupSlurmCustomSettingOutput
-	ToComputeNodeGroupSlurmCustomSettingOutputWithContext(context.Context) ComputeNodeGroupSlurmCustomSettingOutput
-}
-
-// Additional settings that directly map to Slurm settings.
-type ComputeNodeGroupSlurmCustomSettingArgs struct {
-	// AWS PCS supports configuration of the following Slurm parameters for compute node groups: Weight and RealMemory.
-	ParameterName pulumi.StringInput `pulumi:"parameterName"`
-	// The value for the configured Slurm setting.
-	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
-}
-
-func (ComputeNodeGroupSlurmCustomSettingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeNodeGroupSlurmCustomSetting)(nil)).Elem()
-}
-
-func (i ComputeNodeGroupSlurmCustomSettingArgs) ToComputeNodeGroupSlurmCustomSettingOutput() ComputeNodeGroupSlurmCustomSettingOutput {
-	return i.ToComputeNodeGroupSlurmCustomSettingOutputWithContext(context.Background())
-}
-
-func (i ComputeNodeGroupSlurmCustomSettingArgs) ToComputeNodeGroupSlurmCustomSettingOutputWithContext(ctx context.Context) ComputeNodeGroupSlurmCustomSettingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeNodeGroupSlurmCustomSettingOutput)
-}
-
-// ComputeNodeGroupSlurmCustomSettingArrayInput is an input type that accepts ComputeNodeGroupSlurmCustomSettingArray and ComputeNodeGroupSlurmCustomSettingArrayOutput values.
-// You can construct a concrete instance of `ComputeNodeGroupSlurmCustomSettingArrayInput` via:
-//
-//	ComputeNodeGroupSlurmCustomSettingArray{ ComputeNodeGroupSlurmCustomSettingArgs{...} }
-type ComputeNodeGroupSlurmCustomSettingArrayInput interface {
-	pulumi.Input
-
-	ToComputeNodeGroupSlurmCustomSettingArrayOutput() ComputeNodeGroupSlurmCustomSettingArrayOutput
-	ToComputeNodeGroupSlurmCustomSettingArrayOutputWithContext(context.Context) ComputeNodeGroupSlurmCustomSettingArrayOutput
-}
-
-type ComputeNodeGroupSlurmCustomSettingArray []ComputeNodeGroupSlurmCustomSettingInput
-
-func (ComputeNodeGroupSlurmCustomSettingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ComputeNodeGroupSlurmCustomSetting)(nil)).Elem()
-}
-
-func (i ComputeNodeGroupSlurmCustomSettingArray) ToComputeNodeGroupSlurmCustomSettingArrayOutput() ComputeNodeGroupSlurmCustomSettingArrayOutput {
-	return i.ToComputeNodeGroupSlurmCustomSettingArrayOutputWithContext(context.Background())
-}
-
-func (i ComputeNodeGroupSlurmCustomSettingArray) ToComputeNodeGroupSlurmCustomSettingArrayOutputWithContext(ctx context.Context) ComputeNodeGroupSlurmCustomSettingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeNodeGroupSlurmCustomSettingArrayOutput)
-}
-
-// Additional settings that directly map to Slurm settings.
-type ComputeNodeGroupSlurmCustomSettingOutput struct{ *pulumi.OutputState }
-
-func (ComputeNodeGroupSlurmCustomSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeNodeGroupSlurmCustomSetting)(nil)).Elem()
-}
-
-func (o ComputeNodeGroupSlurmCustomSettingOutput) ToComputeNodeGroupSlurmCustomSettingOutput() ComputeNodeGroupSlurmCustomSettingOutput {
-	return o
-}
-
-func (o ComputeNodeGroupSlurmCustomSettingOutput) ToComputeNodeGroupSlurmCustomSettingOutputWithContext(ctx context.Context) ComputeNodeGroupSlurmCustomSettingOutput {
-	return o
-}
-
-// AWS PCS supports configuration of the following Slurm parameters for compute node groups: Weight and RealMemory.
-func (o ComputeNodeGroupSlurmCustomSettingOutput) ParameterName() pulumi.StringOutput {
-	return o.ApplyT(func(v ComputeNodeGroupSlurmCustomSetting) string { return v.ParameterName }).(pulumi.StringOutput)
-}
-
-// The value for the configured Slurm setting.
-func (o ComputeNodeGroupSlurmCustomSettingOutput) ParameterValue() pulumi.StringOutput {
-	return o.ApplyT(func(v ComputeNodeGroupSlurmCustomSetting) string { return v.ParameterValue }).(pulumi.StringOutput)
-}
-
-type ComputeNodeGroupSlurmCustomSettingArrayOutput struct{ *pulumi.OutputState }
-
-func (ComputeNodeGroupSlurmCustomSettingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ComputeNodeGroupSlurmCustomSetting)(nil)).Elem()
-}
-
-func (o ComputeNodeGroupSlurmCustomSettingArrayOutput) ToComputeNodeGroupSlurmCustomSettingArrayOutput() ComputeNodeGroupSlurmCustomSettingArrayOutput {
-	return o
-}
-
-func (o ComputeNodeGroupSlurmCustomSettingArrayOutput) ToComputeNodeGroupSlurmCustomSettingArrayOutputWithContext(ctx context.Context) ComputeNodeGroupSlurmCustomSettingArrayOutput {
-	return o
-}
-
-func (o ComputeNodeGroupSlurmCustomSettingArrayOutput) Index(i pulumi.IntInput) ComputeNodeGroupSlurmCustomSettingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComputeNodeGroupSlurmCustomSetting {
-		return vs[0].([]ComputeNodeGroupSlurmCustomSetting)[vs[1].(int)]
-	}).(ComputeNodeGroupSlurmCustomSettingOutput)
-}
-
 // An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
 type CustomLaunchTemplateProperties struct {
 	// The ID of the EC2 launch template to use to provision instances.
@@ -760,6 +659,115 @@ func (o QueueErrorInfoArrayOutput) Index(i pulumi.IntInput) QueueErrorInfoOutput
 	}).(QueueErrorInfoOutput)
 }
 
+// Additional settings that directly map to Slurm settings.
+type QueueSlurmCustomSetting struct {
+	// AWS PCS supports configuration of the Slurm parameters for queues:.
+	ParameterName string `pulumi:"parameterName"`
+	// The value for the configured Slurm setting.
+	ParameterValue string `pulumi:"parameterValue"`
+}
+
+// QueueSlurmCustomSettingInput is an input type that accepts QueueSlurmCustomSettingArgs and QueueSlurmCustomSettingOutput values.
+// You can construct a concrete instance of `QueueSlurmCustomSettingInput` via:
+//
+//	QueueSlurmCustomSettingArgs{...}
+type QueueSlurmCustomSettingInput interface {
+	pulumi.Input
+
+	ToQueueSlurmCustomSettingOutput() QueueSlurmCustomSettingOutput
+	ToQueueSlurmCustomSettingOutputWithContext(context.Context) QueueSlurmCustomSettingOutput
+}
+
+// Additional settings that directly map to Slurm settings.
+type QueueSlurmCustomSettingArgs struct {
+	// AWS PCS supports configuration of the Slurm parameters for queues:.
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// The value for the configured Slurm setting.
+	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
+}
+
+func (QueueSlurmCustomSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueSlurmCustomSetting)(nil)).Elem()
+}
+
+func (i QueueSlurmCustomSettingArgs) ToQueueSlurmCustomSettingOutput() QueueSlurmCustomSettingOutput {
+	return i.ToQueueSlurmCustomSettingOutputWithContext(context.Background())
+}
+
+func (i QueueSlurmCustomSettingArgs) ToQueueSlurmCustomSettingOutputWithContext(ctx context.Context) QueueSlurmCustomSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSlurmCustomSettingOutput)
+}
+
+// QueueSlurmCustomSettingArrayInput is an input type that accepts QueueSlurmCustomSettingArray and QueueSlurmCustomSettingArrayOutput values.
+// You can construct a concrete instance of `QueueSlurmCustomSettingArrayInput` via:
+//
+//	QueueSlurmCustomSettingArray{ QueueSlurmCustomSettingArgs{...} }
+type QueueSlurmCustomSettingArrayInput interface {
+	pulumi.Input
+
+	ToQueueSlurmCustomSettingArrayOutput() QueueSlurmCustomSettingArrayOutput
+	ToQueueSlurmCustomSettingArrayOutputWithContext(context.Context) QueueSlurmCustomSettingArrayOutput
+}
+
+type QueueSlurmCustomSettingArray []QueueSlurmCustomSettingInput
+
+func (QueueSlurmCustomSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueueSlurmCustomSetting)(nil)).Elem()
+}
+
+func (i QueueSlurmCustomSettingArray) ToQueueSlurmCustomSettingArrayOutput() QueueSlurmCustomSettingArrayOutput {
+	return i.ToQueueSlurmCustomSettingArrayOutputWithContext(context.Background())
+}
+
+func (i QueueSlurmCustomSettingArray) ToQueueSlurmCustomSettingArrayOutputWithContext(ctx context.Context) QueueSlurmCustomSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSlurmCustomSettingArrayOutput)
+}
+
+// Additional settings that directly map to Slurm settings.
+type QueueSlurmCustomSettingOutput struct{ *pulumi.OutputState }
+
+func (QueueSlurmCustomSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueSlurmCustomSetting)(nil)).Elem()
+}
+
+func (o QueueSlurmCustomSettingOutput) ToQueueSlurmCustomSettingOutput() QueueSlurmCustomSettingOutput {
+	return o
+}
+
+func (o QueueSlurmCustomSettingOutput) ToQueueSlurmCustomSettingOutputWithContext(ctx context.Context) QueueSlurmCustomSettingOutput {
+	return o
+}
+
+// AWS PCS supports configuration of the Slurm parameters for queues:.
+func (o QueueSlurmCustomSettingOutput) ParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v QueueSlurmCustomSetting) string { return v.ParameterName }).(pulumi.StringOutput)
+}
+
+// The value for the configured Slurm setting.
+func (o QueueSlurmCustomSettingOutput) ParameterValue() pulumi.StringOutput {
+	return o.ApplyT(func(v QueueSlurmCustomSetting) string { return v.ParameterValue }).(pulumi.StringOutput)
+}
+
+type QueueSlurmCustomSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (QueueSlurmCustomSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueueSlurmCustomSetting)(nil)).Elem()
+}
+
+func (o QueueSlurmCustomSettingArrayOutput) ToQueueSlurmCustomSettingArrayOutput() QueueSlurmCustomSettingArrayOutput {
+	return o
+}
+
+func (o QueueSlurmCustomSettingArrayOutput) ToQueueSlurmCustomSettingArrayOutputWithContext(ctx context.Context) QueueSlurmCustomSettingArrayOutput {
+	return o
+}
+
+func (o QueueSlurmCustomSettingArrayOutput) Index(i pulumi.IntInput) QueueSlurmCustomSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QueueSlurmCustomSetting {
+		return vs[0].([]QueueSlurmCustomSetting)[vs[1].(int)]
+	}).(QueueSlurmCustomSettingOutput)
+}
+
 // Specifies the boundaries of the compute node group auto scaling.
 type ScalingConfigurationProperties struct {
 	// The upper bound of the number of instances allowed in the compute fleet.
@@ -932,10 +940,10 @@ func (o SchedulerPropertiesOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v SchedulerProperties) string { return v.Version }).(pulumi.StringOutput)
 }
 
-// Additional options related to the Slurm scheduler.
+// The Slurm configuration for the queue.
 type SlurmConfigurationProperties struct {
-	// Additional Slurm-specific configuration that directly maps to Slurm settings.
-	SlurmCustomSettings []ComputeNodeGroupSlurmCustomSetting `pulumi:"slurmCustomSettings"`
+	// Custom Slurm parameters that directly map to Slurm configuration settings.
+	SlurmCustomSettings []QueueSlurmCustomSetting `pulumi:"slurmCustomSettings"`
 }
 
 // SlurmConfigurationPropertiesInput is an input type that accepts SlurmConfigurationPropertiesArgs and SlurmConfigurationPropertiesOutput values.
@@ -949,10 +957,10 @@ type SlurmConfigurationPropertiesInput interface {
 	ToSlurmConfigurationPropertiesOutputWithContext(context.Context) SlurmConfigurationPropertiesOutput
 }
 
-// Additional options related to the Slurm scheduler.
+// The Slurm configuration for the queue.
 type SlurmConfigurationPropertiesArgs struct {
-	// Additional Slurm-specific configuration that directly maps to Slurm settings.
-	SlurmCustomSettings ComputeNodeGroupSlurmCustomSettingArrayInput `pulumi:"slurmCustomSettings"`
+	// Custom Slurm parameters that directly map to Slurm configuration settings.
+	SlurmCustomSettings QueueSlurmCustomSettingArrayInput `pulumi:"slurmCustomSettings"`
 }
 
 func (SlurmConfigurationPropertiesArgs) ElementType() reflect.Type {
@@ -1008,7 +1016,7 @@ func (i *slurmConfigurationPropertiesPtrType) ToSlurmConfigurationPropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(SlurmConfigurationPropertiesPtrOutput)
 }
 
-// Additional options related to the Slurm scheduler.
+// The Slurm configuration for the queue.
 type SlurmConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SlurmConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -1033,11 +1041,9 @@ func (o SlurmConfigurationPropertiesOutput) ToSlurmConfigurationPropertiesPtrOut
 	}).(SlurmConfigurationPropertiesPtrOutput)
 }
 
-// Additional Slurm-specific configuration that directly maps to Slurm settings.
-func (o SlurmConfigurationPropertiesOutput) SlurmCustomSettings() ComputeNodeGroupSlurmCustomSettingArrayOutput {
-	return o.ApplyT(func(v SlurmConfigurationProperties) []ComputeNodeGroupSlurmCustomSetting {
-		return v.SlurmCustomSettings
-	}).(ComputeNodeGroupSlurmCustomSettingArrayOutput)
+// Custom Slurm parameters that directly map to Slurm configuration settings.
+func (o SlurmConfigurationPropertiesOutput) SlurmCustomSettings() QueueSlurmCustomSettingArrayOutput {
+	return o.ApplyT(func(v SlurmConfigurationProperties) []QueueSlurmCustomSetting { return v.SlurmCustomSettings }).(QueueSlurmCustomSettingArrayOutput)
 }
 
 type SlurmConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -1064,14 +1070,14 @@ func (o SlurmConfigurationPropertiesPtrOutput) Elem() SlurmConfigurationProperti
 	}).(SlurmConfigurationPropertiesOutput)
 }
 
-// Additional Slurm-specific configuration that directly maps to Slurm settings.
-func (o SlurmConfigurationPropertiesPtrOutput) SlurmCustomSettings() ComputeNodeGroupSlurmCustomSettingArrayOutput {
-	return o.ApplyT(func(v *SlurmConfigurationProperties) []ComputeNodeGroupSlurmCustomSetting {
+// Custom Slurm parameters that directly map to Slurm configuration settings.
+func (o SlurmConfigurationPropertiesPtrOutput) SlurmCustomSettings() QueueSlurmCustomSettingArrayOutput {
+	return o.ApplyT(func(v *SlurmConfigurationProperties) []QueueSlurmCustomSetting {
 		if v == nil {
 			return nil
 		}
 		return v.SlurmCustomSettings
-	}).(ComputeNodeGroupSlurmCustomSettingArrayOutput)
+	}).(QueueSlurmCustomSettingArrayOutput)
 }
 
 // Additional configuration when you specify SPOT as the purchase option.
@@ -1219,12 +1225,12 @@ func (o SpotOptionsPropertiesPtrOutput) AllocationStrategy() ComputeNodeGroupSpo
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupInstanceConfigInput)(nil)).Elem(), ComputeNodeGroupInstanceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupInstanceConfigArrayInput)(nil)).Elem(), ComputeNodeGroupInstanceConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupSlurmCustomSettingInput)(nil)).Elem(), ComputeNodeGroupSlurmCustomSettingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupSlurmCustomSettingArrayInput)(nil)).Elem(), ComputeNodeGroupSlurmCustomSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLaunchTemplatePropertiesInput)(nil)).Elem(), CustomLaunchTemplatePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkingPropertiesInput)(nil)).Elem(), NetworkingPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueComputeNodeGroupConfigurationInput)(nil)).Elem(), QueueComputeNodeGroupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueComputeNodeGroupConfigurationArrayInput)(nil)).Elem(), QueueComputeNodeGroupConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueSlurmCustomSettingInput)(nil)).Elem(), QueueSlurmCustomSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueSlurmCustomSettingArrayInput)(nil)).Elem(), QueueSlurmCustomSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingConfigurationPropertiesInput)(nil)).Elem(), ScalingConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulerPropertiesInput)(nil)).Elem(), SchedulerPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlurmConfigurationPropertiesInput)(nil)).Elem(), SlurmConfigurationPropertiesArgs{})
@@ -1239,8 +1245,6 @@ func init() {
 	pulumi.RegisterOutputType(ComputeNodeGroupErrorInfoArrayOutput{})
 	pulumi.RegisterOutputType(ComputeNodeGroupInstanceConfigOutput{})
 	pulumi.RegisterOutputType(ComputeNodeGroupInstanceConfigArrayOutput{})
-	pulumi.RegisterOutputType(ComputeNodeGroupSlurmCustomSettingOutput{})
-	pulumi.RegisterOutputType(ComputeNodeGroupSlurmCustomSettingArrayOutput{})
 	pulumi.RegisterOutputType(CustomLaunchTemplatePropertiesOutput{})
 	pulumi.RegisterOutputType(CustomLaunchTemplatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NetworkingPropertiesOutput{})
@@ -1248,6 +1252,8 @@ func init() {
 	pulumi.RegisterOutputType(QueueComputeNodeGroupConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(QueueErrorInfoOutput{})
 	pulumi.RegisterOutputType(QueueErrorInfoArrayOutput{})
+	pulumi.RegisterOutputType(QueueSlurmCustomSettingOutput{})
+	pulumi.RegisterOutputType(QueueSlurmCustomSettingArrayOutput{})
 	pulumi.RegisterOutputType(ScalingConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(ScalingConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SchedulerPropertiesOutput{})

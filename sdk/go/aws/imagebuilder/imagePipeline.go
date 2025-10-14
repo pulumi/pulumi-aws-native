@@ -35,6 +35,8 @@ type ImagePipeline struct {
 	ImageTestsConfiguration ImagePipelineImageTestsConfigurationPtrOutput `pulumi:"imageTestsConfiguration"`
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
 	InfrastructureConfigurationArn pulumi.StringPtrOutput `pulumi:"infrastructureConfigurationArn"`
+	// The logging configuration settings for the image pipeline.
+	LoggingConfiguration ImagePipelinePipelineLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
 	// The name of the image pipeline.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The schedule of the image pipeline.
@@ -109,6 +111,8 @@ type imagePipelineArgs struct {
 	ImageTestsConfiguration *ImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
 	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
+	// The logging configuration settings for the image pipeline.
+	LoggingConfiguration *ImagePipelinePipelineLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// The name of the image pipeline.
 	Name *string `pulumi:"name"`
 	// The schedule of the image pipeline.
@@ -141,6 +145,8 @@ type ImagePipelineArgs struct {
 	ImageTestsConfiguration ImagePipelineImageTestsConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
 	InfrastructureConfigurationArn pulumi.StringPtrInput
+	// The logging configuration settings for the image pipeline.
+	LoggingConfiguration ImagePipelinePipelineLoggingConfigurationPtrInput
 	// The name of the image pipeline.
 	Name pulumi.StringPtrInput
 	// The schedule of the image pipeline.
@@ -240,6 +246,13 @@ func (o ImagePipelineOutput) ImageTestsConfiguration() ImagePipelineImageTestsCo
 // The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
 func (o ImagePipelineOutput) InfrastructureConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.InfrastructureConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
+// The logging configuration settings for the image pipeline.
+func (o ImagePipelineOutput) LoggingConfiguration() ImagePipelinePipelineLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) ImagePipelinePipelineLoggingConfigurationPtrOutput {
+		return v.LoggingConfiguration
+	}).(ImagePipelinePipelineLoggingConfigurationPtrOutput)
 }
 
 // The name of the image pipeline.

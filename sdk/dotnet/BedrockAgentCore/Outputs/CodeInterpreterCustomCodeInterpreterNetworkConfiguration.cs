@@ -20,11 +20,16 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         /// The network mode.
         /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.CodeInterpreterCustomCodeInterpreterNetworkMode NetworkMode;
+        public readonly Outputs.CodeInterpreterCustomVpcConfig? VpcConfig;
 
         [OutputConstructor]
-        private CodeInterpreterCustomCodeInterpreterNetworkConfiguration(Pulumi.AwsNative.BedrockAgentCore.CodeInterpreterCustomCodeInterpreterNetworkMode networkMode)
+        private CodeInterpreterCustomCodeInterpreterNetworkConfiguration(
+            Pulumi.AwsNative.BedrockAgentCore.CodeInterpreterCustomCodeInterpreterNetworkMode networkMode,
+
+            Outputs.CodeInterpreterCustomVpcConfig? vpcConfig)
         {
             NetworkMode = networkMode;
+            VpcConfig = vpcConfig;
         }
     }
 }

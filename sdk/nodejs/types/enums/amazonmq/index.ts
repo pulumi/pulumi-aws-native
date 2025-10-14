@@ -2,26 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const BrokerAuthenticationStrategy = {
-    Simple: "SIMPLE",
-    Ldap: "LDAP",
-} as const;
-
-/**
- * Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
- */
-export type BrokerAuthenticationStrategy = (typeof BrokerAuthenticationStrategy)[keyof typeof BrokerAuthenticationStrategy];
-
-export const BrokerAuthenticationStrategy0 = {
-    Simple: "SIMPLE",
-    Ldap: "LDAP",
-} as const;
-
-/**
- * Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
- */
-export type BrokerAuthenticationStrategy0 = (typeof BrokerAuthenticationStrategy0)[keyof typeof BrokerAuthenticationStrategy0];
-
 export const BrokerDataReplicationMode = {
     None: "NONE",
     Crdr: "CRDR",

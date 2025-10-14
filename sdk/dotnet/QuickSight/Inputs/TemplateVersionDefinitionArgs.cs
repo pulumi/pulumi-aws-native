@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// <summary>
         /// Filter definitions for a template.
         /// 
-        /// For more information, see [Filtering Data](https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html) in the *Amazon QuickSight User Guide* .
+        /// For more information, see [Filtering Data](https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html) in the *Amazon Quick Suite User Guide* .
         /// </summary>
         public InputList<Inputs.TemplateFilterGroupArgs> FilterGroups
         {
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// 
         /// *Parameters* are named variables that can transfer a value for use by an action or an object.
         /// 
-        /// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+        /// For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
         /// </summary>
         public InputList<Inputs.TemplateParameterDeclarationArgs> ParameterDeclarations
         {

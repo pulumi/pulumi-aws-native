@@ -33,7 +33,7 @@ type LookupThemeArgs struct {
 type LookupThemeResult struct {
 	// <p>The Amazon Resource Name (ARN) of the theme.</p>
 	Arn *string `pulumi:"arn"`
-	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
 	BaseThemeId *string `pulumi:"baseThemeId"`
 	// The theme configuration, which contains the theme display properties.
 	Configuration *ThemeConfiguration `pulumi:"configuration"`
@@ -93,7 +93,7 @@ func (o LookupThemeResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
 func (o LookupThemeResultOutput) BaseThemeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.BaseThemeId }).(pulumi.StringPtrOutput)
 }

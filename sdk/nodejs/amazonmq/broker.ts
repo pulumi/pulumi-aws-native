@@ -204,7 +204,7 @@ export class Broker extends pulumi.CustomResource {
     /**
      * Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
      */
-    declare public readonly authenticationStrategy: pulumi.Output<enums.amazonmq.BrokerAuthenticationStrategy | string | undefined>;
+    declare public readonly authenticationStrategy: pulumi.Output<string | undefined>;
     /**
      * Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
      */
@@ -446,7 +446,7 @@ export interface BrokerArgs {
     /**
      * Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
      */
-    authenticationStrategy?: pulumi.Input<enums.amazonmq.BrokerAuthenticationStrategy | string>;
+    authenticationStrategy?: pulumi.Input<string>;
     /**
      * Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
      */

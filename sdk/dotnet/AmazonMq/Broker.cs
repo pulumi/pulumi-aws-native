@@ -532,7 +532,7 @@ namespace Pulumi.AwsNative.AmazonMq
         /// Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
         /// </summary>
         [Input("authenticationStrategy")]
-        public InputUnion<Pulumi.AwsNative.AmazonMq.BrokerAuthenticationStrategy, string>? AuthenticationStrategy { get; set; }
+        public Input<string>? AuthenticationStrategy { get; set; }
 
         /// <summary>
         /// Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.

@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         }
 
         public static BrowserCustomBrowserNetworkMode Public { get; } = new BrowserCustomBrowserNetworkMode("PUBLIC");
+        public static BrowserCustomBrowserNetworkMode Vpc { get; } = new BrowserCustomBrowserNetworkMode("VPC");
 
         public static bool operator ==(BrowserCustomBrowserNetworkMode left, BrowserCustomBrowserNetworkMode right) => left.Equals(right);
         public static bool operator !=(BrowserCustomBrowserNetworkMode left, BrowserCustomBrowserNetworkMode right) => !left.Equals(right);
@@ -87,6 +88,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         public static CodeInterpreterCustomCodeInterpreterNetworkMode Public { get; } = new CodeInterpreterCustomCodeInterpreterNetworkMode("PUBLIC");
         public static CodeInterpreterCustomCodeInterpreterNetworkMode Sandbox { get; } = new CodeInterpreterCustomCodeInterpreterNetworkMode("SANDBOX");
+        public static CodeInterpreterCustomCodeInterpreterNetworkMode Vpc { get; } = new CodeInterpreterCustomCodeInterpreterNetworkMode("VPC");
 
         public static bool operator ==(CodeInterpreterCustomCodeInterpreterNetworkMode left, CodeInterpreterCustomCodeInterpreterNetworkMode right) => left.Equals(right);
         public static bool operator !=(CodeInterpreterCustomCodeInterpreterNetworkMode left, CodeInterpreterCustomCodeInterpreterNetworkMode right) => !left.Equals(right);
@@ -400,6 +402,303 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Status of the memory strategy
+    /// </summary>
+    [EnumType]
+    public readonly struct MemoryCustomMemoryStrategyStatus : IEquatable<MemoryCustomMemoryStrategyStatus>
+    {
+        private readonly string _value;
+
+        private MemoryCustomMemoryStrategyStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MemoryCustomMemoryStrategyStatus Creating { get; } = new MemoryCustomMemoryStrategyStatus("CREATING");
+        public static MemoryCustomMemoryStrategyStatus Active { get; } = new MemoryCustomMemoryStrategyStatus("ACTIVE");
+        public static MemoryCustomMemoryStrategyStatus Deleting { get; } = new MemoryCustomMemoryStrategyStatus("DELETING");
+        public static MemoryCustomMemoryStrategyStatus Failed { get; } = new MemoryCustomMemoryStrategyStatus("FAILED");
+
+        public static bool operator ==(MemoryCustomMemoryStrategyStatus left, MemoryCustomMemoryStrategyStatus right) => left.Equals(right);
+        public static bool operator !=(MemoryCustomMemoryStrategyStatus left, MemoryCustomMemoryStrategyStatus right) => !left.Equals(right);
+
+        public static explicit operator string(MemoryCustomMemoryStrategyStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MemoryCustomMemoryStrategyStatus other && Equals(other);
+        public bool Equals(MemoryCustomMemoryStrategyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of memory strategy
+    /// </summary>
+    [EnumType]
+    public readonly struct MemoryCustomMemoryStrategyType : IEquatable<MemoryCustomMemoryStrategyType>
+    {
+        private readonly string _value;
+
+        private MemoryCustomMemoryStrategyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MemoryCustomMemoryStrategyType Semantic { get; } = new MemoryCustomMemoryStrategyType("SEMANTIC");
+        public static MemoryCustomMemoryStrategyType Summarization { get; } = new MemoryCustomMemoryStrategyType("SUMMARIZATION");
+        public static MemoryCustomMemoryStrategyType UserPreference { get; } = new MemoryCustomMemoryStrategyType("USER_PREFERENCE");
+        public static MemoryCustomMemoryStrategyType Custom { get; } = new MemoryCustomMemoryStrategyType("CUSTOM");
+
+        public static bool operator ==(MemoryCustomMemoryStrategyType left, MemoryCustomMemoryStrategyType right) => left.Equals(right);
+        public static bool operator !=(MemoryCustomMemoryStrategyType left, MemoryCustomMemoryStrategyType right) => !left.Equals(right);
+
+        public static explicit operator string(MemoryCustomMemoryStrategyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MemoryCustomMemoryStrategyType other && Equals(other);
+        public bool Equals(MemoryCustomMemoryStrategyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of the memory strategy
+    /// </summary>
+    [EnumType]
+    public readonly struct MemorySemanticMemoryStrategyStatus : IEquatable<MemorySemanticMemoryStrategyStatus>
+    {
+        private readonly string _value;
+
+        private MemorySemanticMemoryStrategyStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MemorySemanticMemoryStrategyStatus Creating { get; } = new MemorySemanticMemoryStrategyStatus("CREATING");
+        public static MemorySemanticMemoryStrategyStatus Active { get; } = new MemorySemanticMemoryStrategyStatus("ACTIVE");
+        public static MemorySemanticMemoryStrategyStatus Deleting { get; } = new MemorySemanticMemoryStrategyStatus("DELETING");
+        public static MemorySemanticMemoryStrategyStatus Failed { get; } = new MemorySemanticMemoryStrategyStatus("FAILED");
+
+        public static bool operator ==(MemorySemanticMemoryStrategyStatus left, MemorySemanticMemoryStrategyStatus right) => left.Equals(right);
+        public static bool operator !=(MemorySemanticMemoryStrategyStatus left, MemorySemanticMemoryStrategyStatus right) => !left.Equals(right);
+
+        public static explicit operator string(MemorySemanticMemoryStrategyStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MemorySemanticMemoryStrategyStatus other && Equals(other);
+        public bool Equals(MemorySemanticMemoryStrategyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of memory strategy
+    /// </summary>
+    [EnumType]
+    public readonly struct MemorySemanticMemoryStrategyType : IEquatable<MemorySemanticMemoryStrategyType>
+    {
+        private readonly string _value;
+
+        private MemorySemanticMemoryStrategyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MemorySemanticMemoryStrategyType Semantic { get; } = new MemorySemanticMemoryStrategyType("SEMANTIC");
+        public static MemorySemanticMemoryStrategyType Summarization { get; } = new MemorySemanticMemoryStrategyType("SUMMARIZATION");
+        public static MemorySemanticMemoryStrategyType UserPreference { get; } = new MemorySemanticMemoryStrategyType("USER_PREFERENCE");
+        public static MemorySemanticMemoryStrategyType Custom { get; } = new MemorySemanticMemoryStrategyType("CUSTOM");
+
+        public static bool operator ==(MemorySemanticMemoryStrategyType left, MemorySemanticMemoryStrategyType right) => left.Equals(right);
+        public static bool operator !=(MemorySemanticMemoryStrategyType left, MemorySemanticMemoryStrategyType right) => !left.Equals(right);
+
+        public static explicit operator string(MemorySemanticMemoryStrategyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MemorySemanticMemoryStrategyType other && Equals(other);
+        public bool Equals(MemorySemanticMemoryStrategyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of the Memory resource
+    /// </summary>
+    [EnumType]
+    public readonly struct MemoryStatus : IEquatable<MemoryStatus>
+    {
+        private readonly string _value;
+
+        private MemoryStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MemoryStatus Creating { get; } = new MemoryStatus("CREATING");
+        public static MemoryStatus Active { get; } = new MemoryStatus("ACTIVE");
+        public static MemoryStatus Failed { get; } = new MemoryStatus("FAILED");
+        public static MemoryStatus Deleting { get; } = new MemoryStatus("DELETING");
+
+        public static bool operator ==(MemoryStatus left, MemoryStatus right) => left.Equals(right);
+        public static bool operator !=(MemoryStatus left, MemoryStatus right) => !left.Equals(right);
+
+        public static explicit operator string(MemoryStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MemoryStatus other && Equals(other);
+        public bool Equals(MemoryStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of the memory strategy
+    /// </summary>
+    [EnumType]
+    public readonly struct MemorySummaryMemoryStrategyStatus : IEquatable<MemorySummaryMemoryStrategyStatus>
+    {
+        private readonly string _value;
+
+        private MemorySummaryMemoryStrategyStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MemorySummaryMemoryStrategyStatus Creating { get; } = new MemorySummaryMemoryStrategyStatus("CREATING");
+        public static MemorySummaryMemoryStrategyStatus Active { get; } = new MemorySummaryMemoryStrategyStatus("ACTIVE");
+        public static MemorySummaryMemoryStrategyStatus Deleting { get; } = new MemorySummaryMemoryStrategyStatus("DELETING");
+        public static MemorySummaryMemoryStrategyStatus Failed { get; } = new MemorySummaryMemoryStrategyStatus("FAILED");
+
+        public static bool operator ==(MemorySummaryMemoryStrategyStatus left, MemorySummaryMemoryStrategyStatus right) => left.Equals(right);
+        public static bool operator !=(MemorySummaryMemoryStrategyStatus left, MemorySummaryMemoryStrategyStatus right) => !left.Equals(right);
+
+        public static explicit operator string(MemorySummaryMemoryStrategyStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MemorySummaryMemoryStrategyStatus other && Equals(other);
+        public bool Equals(MemorySummaryMemoryStrategyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of memory strategy
+    /// </summary>
+    [EnumType]
+    public readonly struct MemorySummaryMemoryStrategyType : IEquatable<MemorySummaryMemoryStrategyType>
+    {
+        private readonly string _value;
+
+        private MemorySummaryMemoryStrategyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MemorySummaryMemoryStrategyType Semantic { get; } = new MemorySummaryMemoryStrategyType("SEMANTIC");
+        public static MemorySummaryMemoryStrategyType Summarization { get; } = new MemorySummaryMemoryStrategyType("SUMMARIZATION");
+        public static MemorySummaryMemoryStrategyType UserPreference { get; } = new MemorySummaryMemoryStrategyType("USER_PREFERENCE");
+        public static MemorySummaryMemoryStrategyType Custom { get; } = new MemorySummaryMemoryStrategyType("CUSTOM");
+
+        public static bool operator ==(MemorySummaryMemoryStrategyType left, MemorySummaryMemoryStrategyType right) => left.Equals(right);
+        public static bool operator !=(MemorySummaryMemoryStrategyType left, MemorySummaryMemoryStrategyType right) => !left.Equals(right);
+
+        public static explicit operator string(MemorySummaryMemoryStrategyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MemorySummaryMemoryStrategyType other && Equals(other);
+        public bool Equals(MemorySummaryMemoryStrategyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of the memory strategy
+    /// </summary>
+    [EnumType]
+    public readonly struct MemoryUserPreferenceMemoryStrategyStatus : IEquatable<MemoryUserPreferenceMemoryStrategyStatus>
+    {
+        private readonly string _value;
+
+        private MemoryUserPreferenceMemoryStrategyStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MemoryUserPreferenceMemoryStrategyStatus Creating { get; } = new MemoryUserPreferenceMemoryStrategyStatus("CREATING");
+        public static MemoryUserPreferenceMemoryStrategyStatus Active { get; } = new MemoryUserPreferenceMemoryStrategyStatus("ACTIVE");
+        public static MemoryUserPreferenceMemoryStrategyStatus Deleting { get; } = new MemoryUserPreferenceMemoryStrategyStatus("DELETING");
+        public static MemoryUserPreferenceMemoryStrategyStatus Failed { get; } = new MemoryUserPreferenceMemoryStrategyStatus("FAILED");
+
+        public static bool operator ==(MemoryUserPreferenceMemoryStrategyStatus left, MemoryUserPreferenceMemoryStrategyStatus right) => left.Equals(right);
+        public static bool operator !=(MemoryUserPreferenceMemoryStrategyStatus left, MemoryUserPreferenceMemoryStrategyStatus right) => !left.Equals(right);
+
+        public static explicit operator string(MemoryUserPreferenceMemoryStrategyStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MemoryUserPreferenceMemoryStrategyStatus other && Equals(other);
+        public bool Equals(MemoryUserPreferenceMemoryStrategyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of memory strategy
+    /// </summary>
+    [EnumType]
+    public readonly struct MemoryUserPreferenceMemoryStrategyType : IEquatable<MemoryUserPreferenceMemoryStrategyType>
+    {
+        private readonly string _value;
+
+        private MemoryUserPreferenceMemoryStrategyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MemoryUserPreferenceMemoryStrategyType Semantic { get; } = new MemoryUserPreferenceMemoryStrategyType("SEMANTIC");
+        public static MemoryUserPreferenceMemoryStrategyType Summarization { get; } = new MemoryUserPreferenceMemoryStrategyType("SUMMARIZATION");
+        public static MemoryUserPreferenceMemoryStrategyType UserPreference { get; } = new MemoryUserPreferenceMemoryStrategyType("USER_PREFERENCE");
+        public static MemoryUserPreferenceMemoryStrategyType Custom { get; } = new MemoryUserPreferenceMemoryStrategyType("CUSTOM");
+
+        public static bool operator ==(MemoryUserPreferenceMemoryStrategyType left, MemoryUserPreferenceMemoryStrategyType right) => left.Equals(right);
+        public static bool operator !=(MemoryUserPreferenceMemoryStrategyType left, MemoryUserPreferenceMemoryStrategyType right) => !left.Equals(right);
+
+        public static explicit operator string(MemoryUserPreferenceMemoryStrategyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MemoryUserPreferenceMemoryStrategyType other && Equals(other);
+        public bool Equals(MemoryUserPreferenceMemoryStrategyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct RuntimeAgentStatus : IEquatable<RuntimeAgentStatus>
     {
@@ -478,6 +777,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         }
 
         public static RuntimeNetworkMode Public { get; } = new RuntimeNetworkMode("PUBLIC");
+        public static RuntimeNetworkMode Vpc { get; } = new RuntimeNetworkMode("VPC");
 
         public static bool operator ==(RuntimeNetworkMode left, RuntimeNetworkMode right) => left.Equals(right);
         public static bool operator !=(RuntimeNetworkMode left, RuntimeNetworkMode right) => !left.Equals(right);

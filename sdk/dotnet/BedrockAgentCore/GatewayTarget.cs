@@ -15,36 +15,66 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     [AwsNativeResourceType("aws-native:bedrockagentcore:GatewayTarget")]
     public partial class GatewayTarget : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The date and time at which the gateway target was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The OAuth credential provider configuration.
+        /// </summary>
         [Output("credentialProviderConfigurations")]
         public Output<ImmutableArray<Outputs.GatewayTargetCredentialProviderConfiguration>> CredentialProviderConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// The description for the gateway target.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("gatewayArn")]
         public Output<string> GatewayArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The gateway ID for the gateway target.
+        /// </summary>
         [Output("gatewayIdentifier")]
         public Output<string?> GatewayIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The name for the gateway target.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The status for the gateway target.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.BedrockAgentCore.GatewayTargetTargetStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The status reasons for the gateway target.
+        /// </summary>
         [Output("statusReasons")]
         public Output<ImmutableArray<string>> StatusReasons { get; private set; } = null!;
 
+        /// <summary>
+        /// The target configuration for the Smithy model target.
+        /// </summary>
         [Output("targetConfiguration")]
         public Output<Outputs.GatewayTargetTargetConfigurationProperties> TargetConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The target ID for the gateway target.
+        /// </summary>
         [Output("targetId")]
         public Output<string> TargetId { get; private set; } = null!;
 
+        /// <summary>
+        /// The time at which the resource was updated.
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -99,21 +129,37 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     {
         [Input("credentialProviderConfigurations", required: true)]
         private InputList<Inputs.GatewayTargetCredentialProviderConfigurationArgs>? _credentialProviderConfigurations;
+
+        /// <summary>
+        /// The OAuth credential provider configuration.
+        /// </summary>
         public InputList<Inputs.GatewayTargetCredentialProviderConfigurationArgs> CredentialProviderConfigurations
         {
             get => _credentialProviderConfigurations ?? (_credentialProviderConfigurations = new InputList<Inputs.GatewayTargetCredentialProviderConfigurationArgs>());
             set => _credentialProviderConfigurations = value;
         }
 
+        /// <summary>
+        /// The description for the gateway target.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The gateway ID for the gateway target.
+        /// </summary>
         [Input("gatewayIdentifier")]
         public Input<string>? GatewayIdentifier { get; set; }
 
+        /// <summary>
+        /// The name for the gateway target.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The target configuration for the Smithy model target.
+        /// </summary>
         [Input("targetConfiguration", required: true)]
         public Input<Inputs.GatewayTargetTargetConfigurationPropertiesArgs> TargetConfiguration { get; set; } = null!;
 

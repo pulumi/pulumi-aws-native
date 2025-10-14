@@ -25,10 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetMetricFilterResult:
-    def __init__(__self__, apply_on_transformed_logs=None, filter_pattern=None, metric_transformations=None):
+    def __init__(__self__, apply_on_transformed_logs=None, emit_system_field_dimensions=None, field_selection_criteria=None, filter_pattern=None, metric_transformations=None):
         if apply_on_transformed_logs and not isinstance(apply_on_transformed_logs, bool):
             raise TypeError("Expected argument 'apply_on_transformed_logs' to be a bool")
         pulumi.set(__self__, "apply_on_transformed_logs", apply_on_transformed_logs)
+        if emit_system_field_dimensions and not isinstance(emit_system_field_dimensions, list):
+            raise TypeError("Expected argument 'emit_system_field_dimensions' to be a list")
+        pulumi.set(__self__, "emit_system_field_dimensions", emit_system_field_dimensions)
+        if field_selection_criteria and not isinstance(field_selection_criteria, str):
+            raise TypeError("Expected argument 'field_selection_criteria' to be a str")
+        pulumi.set(__self__, "field_selection_criteria", field_selection_criteria)
         if filter_pattern and not isinstance(filter_pattern, str):
             raise TypeError("Expected argument 'filter_pattern' to be a str")
         pulumi.set(__self__, "filter_pattern", filter_pattern)
@@ -44,6 +50,22 @@ class GetMetricFilterResult:
          If this value is ``true``, the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
         """
         return pulumi.get(self, "apply_on_transformed_logs")
+
+    @_builtins.property
+    @pulumi.getter(name="emitSystemFieldDimensions")
+    def emit_system_field_dimensions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+        """
+        return pulumi.get(self, "emit_system_field_dimensions")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldSelectionCriteria")
+    def field_selection_criteria(self) -> Optional[_builtins.str]:
+        """
+        The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
+        """
+        return pulumi.get(self, "field_selection_criteria")
 
     @_builtins.property
     @pulumi.getter(name="filterPattern")
@@ -69,6 +91,8 @@ class AwaitableGetMetricFilterResult(GetMetricFilterResult):
             yield self
         return GetMetricFilterResult(
             apply_on_transformed_logs=self.apply_on_transformed_logs,
+            emit_system_field_dimensions=self.emit_system_field_dimensions,
+            field_selection_criteria=self.field_selection_criteria,
             filter_pattern=self.filter_pattern,
             metric_transformations=self.metric_transformations)
 
@@ -92,6 +116,8 @@ def get_metric_filter(filter_name: Optional[_builtins.str] = None,
 
     return AwaitableGetMetricFilterResult(
         apply_on_transformed_logs=pulumi.get(__ret__, 'apply_on_transformed_logs'),
+        emit_system_field_dimensions=pulumi.get(__ret__, 'emit_system_field_dimensions'),
+        field_selection_criteria=pulumi.get(__ret__, 'field_selection_criteria'),
         filter_pattern=pulumi.get(__ret__, 'filter_pattern'),
         metric_transformations=pulumi.get(__ret__, 'metric_transformations'))
 def get_metric_filter_output(filter_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -112,5 +138,7 @@ def get_metric_filter_output(filter_name: Optional[pulumi.Input[_builtins.str]] 
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getMetricFilter', __args__, opts=opts, typ=GetMetricFilterResult)
     return __ret__.apply(lambda __response__: GetMetricFilterResult(
         apply_on_transformed_logs=pulumi.get(__response__, 'apply_on_transformed_logs'),
+        emit_system_field_dimensions=pulumi.get(__response__, 'emit_system_field_dimensions'),
+        field_selection_criteria=pulumi.get(__response__, 'field_selection_criteria'),
         filter_pattern=pulumi.get(__response__, 'filter_pattern'),
         metric_transformations=pulumi.get(__response__, 'metric_transformations')))

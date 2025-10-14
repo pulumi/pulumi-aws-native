@@ -26,6 +26,7 @@ class ImageRecipeArgs:
                  parent_image: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
                  additional_instance_configuration: Optional[pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs']] = None,
+                 ami_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -37,6 +38,7 @@ class ImageRecipeArgs:
         :param pulumi.Input[_builtins.str] parent_image: The parent image of the image recipe.
         :param pulumi.Input[_builtins.str] version: The version of the image recipe.
         :param pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs'] additional_instance_configuration: Specify additional settings and launch scripts for your build instances.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: The tags to apply to the AMI created by this image recipe.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]] block_device_mappings: The block device mappings to apply when creating images from this recipe.
         :param pulumi.Input[_builtins.str] description: The description of the image recipe.
         :param pulumi.Input[_builtins.str] name: The name of the image recipe.
@@ -48,6 +50,8 @@ class ImageRecipeArgs:
         pulumi.set(__self__, "version", version)
         if additional_instance_configuration is not None:
             pulumi.set(__self__, "additional_instance_configuration", additional_instance_configuration)
+        if ami_tags is not None:
+            pulumi.set(__self__, "ami_tags", ami_tags)
         if block_device_mappings is not None:
             pulumi.set(__self__, "block_device_mappings", block_device_mappings)
         if description is not None:
@@ -106,6 +110,18 @@ class ImageRecipeArgs:
     @additional_instance_configuration.setter
     def additional_instance_configuration(self, value: Optional[pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs']]):
         pulumi.set(self, "additional_instance_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="amiTags")
+    def ami_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        The tags to apply to the AMI created by this image recipe.
+        """
+        return pulumi.get(self, "ami_tags")
+
+    @ami_tags.setter
+    def ami_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ami_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="blockDeviceMappings")
@@ -175,6 +191,7 @@ class ImageRecipe(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_instance_configuration: Optional[pulumi.Input[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict']]] = None,
+                 ami_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeInstanceBlockDeviceMappingArgs', 'ImageRecipeInstanceBlockDeviceMappingArgsDict']]]]] = None,
                  components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentConfigurationArgs', 'ImageRecipeComponentConfigurationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -190,6 +207,7 @@ class ImageRecipe(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict']] additional_instance_configuration: Specify additional settings and launch scripts for your build instances.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: The tags to apply to the AMI created by this image recipe.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeInstanceBlockDeviceMappingArgs', 'ImageRecipeInstanceBlockDeviceMappingArgsDict']]]] block_device_mappings: The block device mappings to apply when creating images from this recipe.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentConfigurationArgs', 'ImageRecipeComponentConfigurationArgsDict']]]] components: The components of the image recipe.
         :param pulumi.Input[_builtins.str] description: The description of the image recipe.
@@ -224,6 +242,7 @@ class ImageRecipe(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_instance_configuration: Optional[pulumi.Input[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict']]] = None,
+                 ami_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeInstanceBlockDeviceMappingArgs', 'ImageRecipeInstanceBlockDeviceMappingArgsDict']]]]] = None,
                  components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentConfigurationArgs', 'ImageRecipeComponentConfigurationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -242,6 +261,7 @@ class ImageRecipe(pulumi.CustomResource):
             __props__ = ImageRecipeArgs.__new__(ImageRecipeArgs)
 
             __props__.__dict__["additional_instance_configuration"] = additional_instance_configuration
+            __props__.__dict__["ami_tags"] = ami_tags
             __props__.__dict__["block_device_mappings"] = block_device_mappings
             if components is None and not opts.urn:
                 raise TypeError("Missing required property 'components'")
@@ -282,6 +302,7 @@ class ImageRecipe(pulumi.CustomResource):
         __props__ = ImageRecipeArgs.__new__(ImageRecipeArgs)
 
         __props__.__dict__["additional_instance_configuration"] = None
+        __props__.__dict__["ami_tags"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["block_device_mappings"] = None
         __props__.__dict__["components"] = None
@@ -300,6 +321,14 @@ class ImageRecipe(pulumi.CustomResource):
         Specify additional settings and launch scripts for your build instances.
         """
         return pulumi.get(self, "additional_instance_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="amiTags")
+    def ami_tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        The tags to apply to the AMI created by this image recipe.
+        """
+        return pulumi.get(self, "ami_tags")
 
     @_builtins.property
     @pulumi.getter

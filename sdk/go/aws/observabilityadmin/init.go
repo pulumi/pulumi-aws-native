@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:observabilityadmin:OrganizationCentralizationRule":
+		r = &OrganizationCentralizationRule{}
 	case "aws-native:observabilityadmin:OrganizationTelemetryRule":
 		r = &OrganizationTelemetryRule{}
 	case "aws-native:observabilityadmin:TelemetryRule":

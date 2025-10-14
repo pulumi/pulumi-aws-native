@@ -82,10 +82,6 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public readonly Outputs.DeliveryDestinationDestinationPolicy? DeliveryDestinationPolicy;
         /// <summary>
-        /// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
-        /// </summary>
-        public readonly string? DeliveryDestinationType;
-        /// <summary>
         /// The tags that have been assigned to this delivery destination.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -96,13 +92,10 @@ namespace Pulumi.AwsNative.Logs
 
             Outputs.DeliveryDestinationDestinationPolicy? deliveryDestinationPolicy,
 
-            string? deliveryDestinationType,
-
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             DeliveryDestinationPolicy = deliveryDestinationPolicy;
-            DeliveryDestinationType = deliveryDestinationType;
             Tags = tags;
         }
     }

@@ -107,6 +107,14 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public readonly Pulumi.AwsNative.Logs.SubscriptionFilterDistribution? Distribution;
         /// <summary>
+        /// The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+        /// </summary>
+        public readonly ImmutableArray<string> EmitSystemFields;
+        /// <summary>
+        /// The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+        /// </summary>
+        public readonly string? FieldSelectionCriteria;
+        /// <summary>
         /// The filtering expressions that restrict what gets delivered to the destination AWS resource. For more information about the filter pattern syntax, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         /// </summary>
         public readonly string? FilterPattern;
@@ -123,6 +131,10 @@ namespace Pulumi.AwsNative.Logs
 
             Pulumi.AwsNative.Logs.SubscriptionFilterDistribution? distribution,
 
+            ImmutableArray<string> emitSystemFields,
+
+            string? fieldSelectionCriteria,
+
             string? filterPattern,
 
             string? roleArn)
@@ -130,6 +142,8 @@ namespace Pulumi.AwsNative.Logs
             ApplyOnTransformedLogs = applyOnTransformedLogs;
             DestinationArn = destinationArn;
             Distribution = distribution;
+            EmitSystemFields = emitSystemFields;
+            FieldSelectionCriteria = fieldSelectionCriteria;
             FilterPattern = filterPattern;
             RoleArn = roleArn;
         }

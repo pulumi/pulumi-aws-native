@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetOrganizationCentralizationRuleArgs, GetOrganizationCentralizationRuleResult, GetOrganizationCentralizationRuleOutputArgs } from "./getOrganizationCentralizationRule";
+export const getOrganizationCentralizationRule: typeof import("./getOrganizationCentralizationRule").getOrganizationCentralizationRule = null as any;
+export const getOrganizationCentralizationRuleOutput: typeof import("./getOrganizationCentralizationRule").getOrganizationCentralizationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationCentralizationRule","getOrganizationCentralizationRuleOutput"], () => require("./getOrganizationCentralizationRule"));
+
 export { GetOrganizationTelemetryRuleArgs, GetOrganizationTelemetryRuleResult, GetOrganizationTelemetryRuleOutputArgs } from "./getOrganizationTelemetryRule";
 export const getOrganizationTelemetryRule: typeof import("./getOrganizationTelemetryRule").getOrganizationTelemetryRule = null as any;
 export const getOrganizationTelemetryRuleOutput: typeof import("./getOrganizationTelemetryRule").getOrganizationTelemetryRuleOutput = null as any;
@@ -14,6 +19,11 @@ export { GetTelemetryRuleArgs, GetTelemetryRuleResult, GetTelemetryRuleOutputArg
 export const getTelemetryRule: typeof import("./getTelemetryRule").getTelemetryRule = null as any;
 export const getTelemetryRuleOutput: typeof import("./getTelemetryRule").getTelemetryRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getTelemetryRule","getTelemetryRuleOutput"], () => require("./getTelemetryRule"));
+
+export { OrganizationCentralizationRuleArgs } from "./organizationCentralizationRule";
+export type OrganizationCentralizationRule = import("./organizationCentralizationRule").OrganizationCentralizationRule;
+export const OrganizationCentralizationRule: typeof import("./organizationCentralizationRule").OrganizationCentralizationRule = null as any;
+utilities.lazyLoad(exports, ["OrganizationCentralizationRule"], () => require("./organizationCentralizationRule"));
 
 export { OrganizationTelemetryRuleArgs } from "./organizationTelemetryRule";
 export type OrganizationTelemetryRule = import("./organizationTelemetryRule").OrganizationTelemetryRule;
@@ -33,6 +43,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:observabilityadmin:OrganizationCentralizationRule":
+                return new OrganizationCentralizationRule(name, <any>undefined, { urn })
             case "aws-native:observabilityadmin:OrganizationTelemetryRule":
                 return new OrganizationTelemetryRule(name, <any>undefined, { urn })
             case "aws-native:observabilityadmin:TelemetryRule":

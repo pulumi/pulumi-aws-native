@@ -30,6 +30,10 @@ export interface GetImageRecipeResult {
      */
     readonly additionalInstanceConfiguration?: outputs.imagebuilder.ImageRecipeAdditionalInstanceConfiguration;
     /**
+     * The tags to apply to the AMI created by this image recipe.
+     */
+    readonly amiTags?: {[key: string]: string};
+    /**
      * The Amazon Resource Name (ARN) of the image recipe.
      */
     readonly arn?: string;

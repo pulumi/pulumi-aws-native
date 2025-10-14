@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.Pcs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The Slurm configuration for the queue.
+        /// </summary>
+        public readonly Outputs.SlurmConfigurationProperties? SlurmConfiguration;
+        /// <summary>
         /// The provisioning status of the queue. The provisioning status doesn't indicate the overall health of the queue.
         /// </summary>
         public readonly Pulumi.AwsNative.Pcs.QueueStatus? Status;
@@ -98,6 +102,8 @@ namespace Pulumi.AwsNative.Pcs
 
             string? id,
 
+            Outputs.SlurmConfigurationProperties? slurmConfiguration,
+
             Pulumi.AwsNative.Pcs.QueueStatus? status,
 
             ImmutableDictionary<string, string>? tags)
@@ -106,6 +112,7 @@ namespace Pulumi.AwsNative.Pcs
             ComputeNodeGroupConfigurations = computeNodeGroupConfigurations;
             ErrorInfo = errorInfo;
             Id = id;
+            SlurmConfiguration = slurmConfiguration;
             Status = status;
             Tags = tags;
         }

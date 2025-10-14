@@ -18,14 +18,14 @@ from ._enums import *
 __all__ = [
     'ComputeNodeGroupInstanceConfigArgs',
     'ComputeNodeGroupInstanceConfigArgsDict',
-    'ComputeNodeGroupSlurmCustomSettingArgs',
-    'ComputeNodeGroupSlurmCustomSettingArgsDict',
     'CustomLaunchTemplatePropertiesArgs',
     'CustomLaunchTemplatePropertiesArgsDict',
     'NetworkingPropertiesArgs',
     'NetworkingPropertiesArgsDict',
     'QueueComputeNodeGroupConfigurationArgs',
     'QueueComputeNodeGroupConfigurationArgsDict',
+    'QueueSlurmCustomSettingArgs',
+    'QueueSlurmCustomSettingArgsDict',
     'ScalingConfigurationPropertiesArgs',
     'ScalingConfigurationPropertiesArgsDict',
     'SchedulerPropertiesArgs',
@@ -72,60 +72,6 @@ class ComputeNodeGroupInstanceConfigArgs:
     @instance_type.setter
     def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "instance_type", value)
-
-
-if not MYPY:
-    class ComputeNodeGroupSlurmCustomSettingArgsDict(TypedDict):
-        """
-        Additional settings that directly map to Slurm settings.
-        """
-        parameter_name: pulumi.Input[_builtins.str]
-        """
-        AWS PCS supports configuration of the following Slurm parameters for compute node groups: Weight and RealMemory.
-        """
-        parameter_value: pulumi.Input[_builtins.str]
-        """
-        The value for the configured Slurm setting.
-        """
-elif False:
-    ComputeNodeGroupSlurmCustomSettingArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ComputeNodeGroupSlurmCustomSettingArgs:
-    def __init__(__self__, *,
-                 parameter_name: pulumi.Input[_builtins.str],
-                 parameter_value: pulumi.Input[_builtins.str]):
-        """
-        Additional settings that directly map to Slurm settings.
-        :param pulumi.Input[_builtins.str] parameter_name: AWS PCS supports configuration of the following Slurm parameters for compute node groups: Weight and RealMemory.
-        :param pulumi.Input[_builtins.str] parameter_value: The value for the configured Slurm setting.
-        """
-        pulumi.set(__self__, "parameter_name", parameter_name)
-        pulumi.set(__self__, "parameter_value", parameter_value)
-
-    @_builtins.property
-    @pulumi.getter(name="parameterName")
-    def parameter_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        AWS PCS supports configuration of the following Slurm parameters for compute node groups: Weight and RealMemory.
-        """
-        return pulumi.get(self, "parameter_name")
-
-    @parameter_name.setter
-    def parameter_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "parameter_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="parameterValue")
-    def parameter_value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value for the configured Slurm setting.
-        """
-        return pulumi.get(self, "parameter_value")
-
-    @parameter_value.setter
-    def parameter_value(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "parameter_value", value)
 
 
 if not MYPY:
@@ -296,6 +242,60 @@ class QueueComputeNodeGroupConfigurationArgs:
 
 
 if not MYPY:
+    class QueueSlurmCustomSettingArgsDict(TypedDict):
+        """
+        Additional settings that directly map to Slurm settings.
+        """
+        parameter_name: pulumi.Input[_builtins.str]
+        """
+        AWS PCS supports configuration of the Slurm parameters for queues:.
+        """
+        parameter_value: pulumi.Input[_builtins.str]
+        """
+        The value for the configured Slurm setting.
+        """
+elif False:
+    QueueSlurmCustomSettingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class QueueSlurmCustomSettingArgs:
+    def __init__(__self__, *,
+                 parameter_name: pulumi.Input[_builtins.str],
+                 parameter_value: pulumi.Input[_builtins.str]):
+        """
+        Additional settings that directly map to Slurm settings.
+        :param pulumi.Input[_builtins.str] parameter_name: AWS PCS supports configuration of the Slurm parameters for queues:.
+        :param pulumi.Input[_builtins.str] parameter_value: The value for the configured Slurm setting.
+        """
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        pulumi.set(__self__, "parameter_value", parameter_value)
+
+    @_builtins.property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        AWS PCS supports configuration of the Slurm parameters for queues:.
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @parameter_name.setter
+    def parameter_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "parameter_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parameterValue")
+    def parameter_value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The value for the configured Slurm setting.
+        """
+        return pulumi.get(self, "parameter_value")
+
+    @parameter_value.setter
+    def parameter_value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "parameter_value", value)
+
+
+if not MYPY:
     class ScalingConfigurationPropertiesArgsDict(TypedDict):
         """
         Specifies the boundaries of the compute node group auto scaling.
@@ -406,11 +406,11 @@ class SchedulerPropertiesArgs:
 if not MYPY:
     class SlurmConfigurationPropertiesArgsDict(TypedDict):
         """
-        Additional options related to the Slurm scheduler.
+        The Slurm configuration for the queue.
         """
-        slurm_custom_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComputeNodeGroupSlurmCustomSettingArgsDict']]]]
+        slurm_custom_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['QueueSlurmCustomSettingArgsDict']]]]
         """
-        Additional Slurm-specific configuration that directly maps to Slurm settings.
+        Custom Slurm parameters that directly map to Slurm configuration settings.
         """
 elif False:
     SlurmConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -418,24 +418,24 @@ elif False:
 @pulumi.input_type
 class SlurmConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 slurm_custom_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ComputeNodeGroupSlurmCustomSettingArgs']]]] = None):
+                 slurm_custom_settings: Optional[pulumi.Input[Sequence[pulumi.Input['QueueSlurmCustomSettingArgs']]]] = None):
         """
-        Additional options related to the Slurm scheduler.
-        :param pulumi.Input[Sequence[pulumi.Input['ComputeNodeGroupSlurmCustomSettingArgs']]] slurm_custom_settings: Additional Slurm-specific configuration that directly maps to Slurm settings.
+        The Slurm configuration for the queue.
+        :param pulumi.Input[Sequence[pulumi.Input['QueueSlurmCustomSettingArgs']]] slurm_custom_settings: Custom Slurm parameters that directly map to Slurm configuration settings.
         """
         if slurm_custom_settings is not None:
             pulumi.set(__self__, "slurm_custom_settings", slurm_custom_settings)
 
     @_builtins.property
     @pulumi.getter(name="slurmCustomSettings")
-    def slurm_custom_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComputeNodeGroupSlurmCustomSettingArgs']]]]:
+    def slurm_custom_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QueueSlurmCustomSettingArgs']]]]:
         """
-        Additional Slurm-specific configuration that directly maps to Slurm settings.
+        Custom Slurm parameters that directly map to Slurm configuration settings.
         """
         return pulumi.get(self, "slurm_custom_settings")
 
     @slurm_custom_settings.setter
-    def slurm_custom_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComputeNodeGroupSlurmCustomSettingArgs']]]]):
+    def slurm_custom_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QueueSlurmCustomSettingArgs']]]]):
         pulumi.set(self, "slurm_custom_settings", value)
 
 

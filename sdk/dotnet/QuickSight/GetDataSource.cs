@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public readonly string? CreatedTime;
         /// <summary>
-        /// The parameters that Amazon QuickSight uses to connect to your underlying source.
+        /// The parameters that Amazon Quick Sight uses to connect to your underlying source.
         /// </summary>
         public readonly Outputs.DataSourceParameters? DataSourceParameters;
         /// <summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSourceResourcePermission> Permissions;
         /// <summary>
-        /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+        /// Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
         /// </summary>
         public readonly Outputs.DataSourceSslProperties? SslProperties;
         /// <summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
-        /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+        /// Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
         /// </summary>
         public readonly Outputs.DataSourceVpcConnectionProperties? VpcConnectionProperties;
 

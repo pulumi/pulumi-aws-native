@@ -26,8 +26,8 @@ type DeliveryDestination struct {
 	//
 	// Length Constraints: Maximum length of 51200
 	DeliveryDestinationPolicy DeliveryDestinationDestinationPolicyPtrOutput `pulumi:"deliveryDestinationPolicy"`
-	// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
-	DeliveryDestinationType pulumi.StringOutput `pulumi:"deliveryDestinationType"`
+	// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Kinesis Data Firehose, or XRay.
+	DeliveryDestinationType pulumi.StringPtrOutput `pulumi:"deliveryDestinationType"`
 	// The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
 	DestinationResourceArn pulumi.StringPtrOutput `pulumi:"destinationResourceArn"`
 	// The name of this delivery destination.
@@ -46,6 +46,7 @@ func NewDeliveryDestination(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"deliveryDestinationType",
 		"destinationResourceArn",
 		"name",
 		"outputFormat",
@@ -90,6 +91,8 @@ type deliveryDestinationArgs struct {
 	//
 	// Length Constraints: Maximum length of 51200
 	DeliveryDestinationPolicy *DeliveryDestinationDestinationPolicy `pulumi:"deliveryDestinationPolicy"`
+	// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Kinesis Data Firehose, or XRay.
+	DeliveryDestinationType *string `pulumi:"deliveryDestinationType"`
 	// The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
 	DestinationResourceArn *string `pulumi:"destinationResourceArn"`
 	// The name of this delivery destination.
@@ -108,6 +111,8 @@ type DeliveryDestinationArgs struct {
 	//
 	// Length Constraints: Maximum length of 51200
 	DeliveryDestinationPolicy DeliveryDestinationDestinationPolicyPtrInput
+	// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Kinesis Data Firehose, or XRay.
+	DeliveryDestinationType pulumi.StringPtrInput
 	// The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
 	DestinationResourceArn pulumi.StringPtrInput
 	// The name of this delivery destination.
@@ -171,9 +176,9 @@ func (o DeliveryDestinationOutput) DeliveryDestinationPolicy() DeliveryDestinati
 	}).(DeliveryDestinationDestinationPolicyPtrOutput)
 }
 
-// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
-func (o DeliveryDestinationOutput) DeliveryDestinationType() pulumi.StringOutput {
-	return o.ApplyT(func(v *DeliveryDestination) pulumi.StringOutput { return v.DeliveryDestinationType }).(pulumi.StringOutput)
+// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Kinesis Data Firehose, or XRay.
+func (o DeliveryDestinationOutput) DeliveryDestinationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryDestination) pulumi.StringPtrOutput { return v.DeliveryDestinationType }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.

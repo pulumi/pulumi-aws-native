@@ -2262,7 +2262,7 @@ if not MYPY:
         """
         name: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The name of the cluster setting. The value is ``containerInsights`` .
+        The name of the cluster setting. The value is ``containerInsights``.
         """
         value: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -2283,7 +2283,7 @@ class ClusterSettingsArgs:
         The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
          Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up. 
          For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param pulumi.Input[_builtins.str] name: The name of the cluster setting. The value is ``containerInsights`` .
+        :param pulumi.Input[_builtins.str] name: The name of the cluster setting. The value is ``containerInsights``.
         :param pulumi.Input[_builtins.str] value: The value to set for the cluster setting. The supported values are ``enhanced``, ``enabled``, and ``disabled``. 
                 To use Container Insights with enhanced observability, set the ``containerInsights`` account setting to ``enhanced``.
                 To use Container Insights, set the ``containerInsights`` account setting to ``enabled``.
@@ -2298,7 +2298,7 @@ class ClusterSettingsArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the cluster setting. The value is ``containerInsights`` .
+        The name of the cluster setting. The value is ``containerInsights``.
         """
         return pulumi.get(self, "name")
 
@@ -3377,6 +3377,7 @@ if not MYPY:
           +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
           +  For all other cases, the value is set to 36 hours (2160 minutes).
         """
+        canary_configuration: NotRequired[Any]
         deployment_circuit_breaker: NotRequired[pulumi.Input['ServiceDeploymentCircuitBreakerArgsDict']]
         """
         The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
@@ -3386,6 +3387,7 @@ if not MYPY:
         """
         An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
         """
+        linear_configuration: NotRequired[Any]
         maximum_percent: NotRequired[pulumi.Input[_builtins.int]]
         """
         If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
@@ -3427,8 +3429,10 @@ class ServiceDeploymentConfigurationArgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input['ServiceDeploymentAlarmsArgs']] = None,
                  bake_time_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 canary_configuration: Optional[Any] = None,
                  deployment_circuit_breaker: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']] = None,
                  lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentLifecycleHookArgs']]]] = None,
+                 linear_configuration: Optional[Any] = None,
                  maximum_percent: Optional[pulumi.Input[_builtins.int]] = None,
                  minimum_healthy_percent: Optional[pulumi.Input[_builtins.int]] = None,
                  strategy: Optional[pulumi.Input['ServiceDeploymentConfigurationStrategy']] = None):
@@ -3472,10 +3476,14 @@ class ServiceDeploymentConfigurationArgs:
             pulumi.set(__self__, "alarms", alarms)
         if bake_time_in_minutes is not None:
             pulumi.set(__self__, "bake_time_in_minutes", bake_time_in_minutes)
+        if canary_configuration is not None:
+            pulumi.set(__self__, "canary_configuration", canary_configuration)
         if deployment_circuit_breaker is not None:
             pulumi.set(__self__, "deployment_circuit_breaker", deployment_circuit_breaker)
         if lifecycle_hooks is not None:
             pulumi.set(__self__, "lifecycle_hooks", lifecycle_hooks)
+        if linear_configuration is not None:
+            pulumi.set(__self__, "linear_configuration", linear_configuration)
         if maximum_percent is not None:
             pulumi.set(__self__, "maximum_percent", maximum_percent)
         if minimum_healthy_percent is not None:
@@ -3512,6 +3520,15 @@ class ServiceDeploymentConfigurationArgs:
         pulumi.set(self, "bake_time_in_minutes", value)
 
     @_builtins.property
+    @pulumi.getter(name="canaryConfiguration")
+    def canary_configuration(self) -> Optional[Any]:
+        return pulumi.get(self, "canary_configuration")
+
+    @canary_configuration.setter
+    def canary_configuration(self, value: Optional[Any]):
+        pulumi.set(self, "canary_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="deploymentCircuitBreaker")
     def deployment_circuit_breaker(self) -> Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']]:
         """
@@ -3535,6 +3552,15 @@ class ServiceDeploymentConfigurationArgs:
     @lifecycle_hooks.setter
     def lifecycle_hooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentLifecycleHookArgs']]]]):
         pulumi.set(self, "lifecycle_hooks", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linearConfiguration")
+    def linear_configuration(self) -> Optional[Any]:
+        return pulumi.get(self, "linear_configuration")
+
+    @linear_configuration.setter
+    def linear_configuration(self, value: Optional[Any]):
+        pulumi.set(self, "linear_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumPercent")

@@ -17,6 +17,13 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'OrganizationCentralizationRuleCentralizationRule',
+    'OrganizationCentralizationRuleCentralizationRuleDestination',
+    'OrganizationCentralizationRuleCentralizationRuleSource',
+    'OrganizationCentralizationRuleDestinationLogsConfiguration',
+    'OrganizationCentralizationRuleLogsBackupConfiguration',
+    'OrganizationCentralizationRuleLogsEncryptionConfiguration',
+    'OrganizationCentralizationRuleSourceLogsConfiguration',
     'OrganizationTelemetryRuleTelemetryDestinationConfiguration',
     'OrganizationTelemetryRuleTelemetryRule',
     'OrganizationTelemetryRuleVpcFlowLogParameters',
@@ -24,6 +31,279 @@ __all__ = [
     'TelemetryRuleTelemetryDestinationConfiguration',
     'TelemetryRuleVpcFlowLogParameters',
 ]
+
+@pulumi.output_type
+class OrganizationCentralizationRuleCentralizationRule(dict):
+    def __init__(__self__, *,
+                 destination: 'outputs.OrganizationCentralizationRuleCentralizationRuleDestination',
+                 source: 'outputs.OrganizationCentralizationRuleCentralizationRuleSource'):
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> 'outputs.OrganizationCentralizationRuleCentralizationRuleDestination':
+        return pulumi.get(self, "destination")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> 'outputs.OrganizationCentralizationRuleCentralizationRuleSource':
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class OrganizationCentralizationRuleCentralizationRuleDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationLogsConfiguration":
+            suggest = "destination_logs_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationCentralizationRuleCentralizationRuleDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationCentralizationRuleCentralizationRuleDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationCentralizationRuleCentralizationRuleDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: _builtins.str,
+                 account: Optional[_builtins.str] = None,
+                 destination_logs_configuration: Optional['outputs.OrganizationCentralizationRuleDestinationLogsConfiguration'] = None):
+        pulumi.set(__self__, "region", region)
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if destination_logs_configuration is not None:
+            pulumi.set(__self__, "destination_logs_configuration", destination_logs_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "account")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationLogsConfiguration")
+    def destination_logs_configuration(self) -> Optional['outputs.OrganizationCentralizationRuleDestinationLogsConfiguration']:
+        return pulumi.get(self, "destination_logs_configuration")
+
+
+@pulumi.output_type
+class OrganizationCentralizationRuleCentralizationRuleSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceLogsConfiguration":
+            suggest = "source_logs_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationCentralizationRuleCentralizationRuleSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationCentralizationRuleCentralizationRuleSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationCentralizationRuleCentralizationRuleSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 regions: Sequence[_builtins.str],
+                 scope: Optional[_builtins.str] = None,
+                 source_logs_configuration: Optional['outputs.OrganizationCentralizationRuleSourceLogsConfiguration'] = None):
+        pulumi.set(__self__, "regions", regions)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if source_logs_configuration is not None:
+            pulumi.set(__self__, "source_logs_configuration", source_logs_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def regions(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "regions")
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "scope")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceLogsConfiguration")
+    def source_logs_configuration(self) -> Optional['outputs.OrganizationCentralizationRuleSourceLogsConfiguration']:
+        return pulumi.get(self, "source_logs_configuration")
+
+
+@pulumi.output_type
+class OrganizationCentralizationRuleDestinationLogsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupConfiguration":
+            suggest = "backup_configuration"
+        elif key == "logsEncryptionConfiguration":
+            suggest = "logs_encryption_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationCentralizationRuleDestinationLogsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationCentralizationRuleDestinationLogsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationCentralizationRuleDestinationLogsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backup_configuration: Optional['outputs.OrganizationCentralizationRuleLogsBackupConfiguration'] = None,
+                 logs_encryption_configuration: Optional['outputs.OrganizationCentralizationRuleLogsEncryptionConfiguration'] = None):
+        if backup_configuration is not None:
+            pulumi.set(__self__, "backup_configuration", backup_configuration)
+        if logs_encryption_configuration is not None:
+            pulumi.set(__self__, "logs_encryption_configuration", logs_encryption_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="backupConfiguration")
+    def backup_configuration(self) -> Optional['outputs.OrganizationCentralizationRuleLogsBackupConfiguration']:
+        return pulumi.get(self, "backup_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="logsEncryptionConfiguration")
+    def logs_encryption_configuration(self) -> Optional['outputs.OrganizationCentralizationRuleLogsEncryptionConfiguration']:
+        return pulumi.get(self, "logs_encryption_configuration")
+
+
+@pulumi.output_type
+class OrganizationCentralizationRuleLogsBackupConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationCentralizationRuleLogsBackupConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationCentralizationRuleLogsBackupConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationCentralizationRuleLogsBackupConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: _builtins.str,
+                 kms_key_arn: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "region", region)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kms_key_arn")
+
+
+@pulumi.output_type
+class OrganizationCentralizationRuleLogsEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionStrategy":
+            suggest = "encryption_strategy"
+        elif key == "encryptionConflictResolutionStrategy":
+            suggest = "encryption_conflict_resolution_strategy"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationCentralizationRuleLogsEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationCentralizationRuleLogsEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationCentralizationRuleLogsEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_strategy: 'OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy',
+                 encryption_conflict_resolution_strategy: Optional['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy'] = None,
+                 kms_key_arn: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "encryption_strategy", encryption_strategy)
+        if encryption_conflict_resolution_strategy is not None:
+            pulumi.set(__self__, "encryption_conflict_resolution_strategy", encryption_conflict_resolution_strategy)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionStrategy")
+    def encryption_strategy(self) -> 'OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy':
+        return pulumi.get(self, "encryption_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConflictResolutionStrategy")
+    def encryption_conflict_resolution_strategy(self) -> Optional['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy']:
+        return pulumi.get(self, "encryption_conflict_resolution_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kms_key_arn")
+
+
+@pulumi.output_type
+class OrganizationCentralizationRuleSourceLogsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptedLogGroupStrategy":
+            suggest = "encrypted_log_group_strategy"
+        elif key == "logGroupSelectionCriteria":
+            suggest = "log_group_selection_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationCentralizationRuleSourceLogsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationCentralizationRuleSourceLogsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationCentralizationRuleSourceLogsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encrypted_log_group_strategy: 'OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy',
+                 log_group_selection_criteria: _builtins.str):
+        pulumi.set(__self__, "encrypted_log_group_strategy", encrypted_log_group_strategy)
+        pulumi.set(__self__, "log_group_selection_criteria", log_group_selection_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptedLogGroupStrategy")
+    def encrypted_log_group_strategy(self) -> 'OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy':
+        return pulumi.get(self, "encrypted_log_group_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupSelectionCriteria")
+    def log_group_selection_criteria(self) -> _builtins.str:
+        return pulumi.get(self, "log_group_selection_criteria")
+
 
 @pulumi.output_type
 class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):

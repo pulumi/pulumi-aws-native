@@ -235,6 +235,11 @@ namespace Pulumi.AwsNative.Ecs
         [Output("autoScalingGroupProvider")]
         public Output<Outputs.CapacityProviderAutoScalingGroupProvider?> AutoScalingGroupProvider { get; private set; } = null!;
 
+        /// <summary>
+        /// The cluster that this capacity provider is associated with. Managed instances capacity providers are cluster-scoped, meaning they can only be used within their associated cluster.
+        /// 
+        /// This is required for Managed instances.
+        /// </summary>
         [Output("clusterName")]
         public Output<string?> ClusterName { get; private set; } = null!;
 
@@ -323,6 +328,11 @@ namespace Pulumi.AwsNative.Ecs
         [Input("autoScalingGroupProvider")]
         public Input<Inputs.CapacityProviderAutoScalingGroupProviderArgs>? AutoScalingGroupProvider { get; set; }
 
+        /// <summary>
+        /// The cluster that this capacity provider is associated with. Managed instances capacity providers are cluster-scoped, meaning they can only be used within their associated cluster.
+        /// 
+        /// This is required for Managed instances.
+        /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 

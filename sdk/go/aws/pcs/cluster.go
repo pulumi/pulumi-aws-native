@@ -61,7 +61,6 @@ func NewCluster(ctx *pulumi.Context,
 		"networking",
 		"scheduler",
 		"size",
-		"slurmConfiguration",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

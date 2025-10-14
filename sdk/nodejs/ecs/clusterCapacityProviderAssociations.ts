@@ -100,7 +100,7 @@ export class ClusterCapacityProviderAssociations extends pulumi.CustomResource {
     /**
      * The capacity providers to associate with the cluster.
      */
-    declare public readonly capacityProviders: pulumi.Output<(enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string)[]>;
+    declare public readonly capacityProviders: pulumi.Output<(enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string)[] | undefined>;
     /**
      * The cluster the capacity provider association is the target of.
      */
@@ -121,9 +121,6 @@ export class ClusterCapacityProviderAssociations extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.capacityProviders === undefined && !opts.urn) {
-                throw new Error("Missing required property 'capacityProviders'");
-            }
             if (args?.cluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cluster'");
             }
@@ -152,7 +149,7 @@ export interface ClusterCapacityProviderAssociationsArgs {
     /**
      * The capacity providers to associate with the cluster.
      */
-    capacityProviders: pulumi.Input<pulumi.Input<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string>[]>;
+    capacityProviders?: pulumi.Input<pulumi.Input<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string>[]>;
     /**
      * The cluster the capacity provider association is the target of.
      */

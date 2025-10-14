@@ -362,15 +362,12 @@ namespace Pulumi.AwsNative.Rds
 
         /// <summary>
         /// Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.
-        /// 
-        /// You can specify one of the following values:
-        /// 
-        /// - `password` - Use standard database authentication with a password.
-        /// - `iam-db-auth` - Use IAM database authentication for the master user.
-        /// 
-        /// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
-        /// 
-        /// This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+        ///  You can specify one of the following values:
+        ///   +  ``password`` - Use standard database authentication with a password.
+        ///   +  ``iam-db-auth`` - Use IAM database authentication for the master user.
+        ///   
+        ///  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
+        ///  This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
         /// </summary>
         [Output("masterUserAuthenticationType")]
         public Output<string?> MasterUserAuthenticationType { get; private set; } = null!;
@@ -1077,15 +1074,12 @@ namespace Pulumi.AwsNative.Rds
 
         /// <summary>
         /// Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.
-        /// 
-        /// You can specify one of the following values:
-        /// 
-        /// - `password` - Use standard database authentication with a password.
-        /// - `iam-db-auth` - Use IAM database authentication for the master user.
-        /// 
-        /// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
-        /// 
-        /// This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+        ///  You can specify one of the following values:
+        ///   +  ``password`` - Use standard database authentication with a password.
+        ///   +  ``iam-db-auth`` - Use IAM database authentication for the master user.
+        ///   
+        ///  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
+        ///  This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
         /// </summary>
         [Input("masterUserAuthenticationType")]
         public Input<string>? MasterUserAuthenticationType { get; set; }

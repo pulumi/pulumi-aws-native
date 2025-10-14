@@ -225,6 +225,8 @@ class ServiceDeploymentConfigurationStrategy(_builtins.str, Enum):
     """
     ROLLING = "ROLLING"
     BLUE_GREEN = "BLUE_GREEN"
+    LINEAR = "LINEAR"
+    CANARY = "CANARY"
 
 
 @pulumi.type_token("aws-native:ecs:ServiceDeploymentControllerType")

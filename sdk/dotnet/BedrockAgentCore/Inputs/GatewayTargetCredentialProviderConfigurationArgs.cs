@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 
     public sealed class GatewayTargetCredentialProviderConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The credential provider for the gateway target.
+        /// </summary>
         [Input("credentialProvider")]
         public InputUnion<Inputs.GatewayTargetCredentialProvider0PropertiesArgs, Inputs.GatewayTargetCredentialProvider1PropertiesArgs>? CredentialProvider { get; set; }
 
+        /// <summary>
+        /// The credential provider type for the gateway target.
+        /// </summary>
         [Input("credentialProviderType", required: true)]
         public Input<Pulumi.AwsNative.BedrockAgentCore.GatewayTargetCredentialProviderType> CredentialProviderType { get; set; } = null!;
 

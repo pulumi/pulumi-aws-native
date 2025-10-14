@@ -1366,7 +1366,7 @@ class BucketIntelligentTieringConfigurationArgs:
 if not MYPY:
     class BucketInventoryConfigurationArgsDict(TypedDict):
         """
-        Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+        Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
         """
         destination: pulumi.Input['BucketDestinationArgsDict']
         """
@@ -1410,7 +1410,7 @@ class BucketInventoryConfigurationArgs:
                  optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input['BucketInventoryConfigurationOptionalFieldsItem']]]] = None,
                  prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+        Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
         :param pulumi.Input['BucketDestinationArgs'] destination: Contains information about where to publish the inventory results.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the inventory is enabled or disabled. If set to ``True``, an inventory list is generated. If set to ``False``, no inventory list is generated.
         :param pulumi.Input[_builtins.str] id: The ID used to identify the inventory configuration.
@@ -1516,9 +1516,12 @@ class BucketInventoryConfigurationArgs:
 
 if not MYPY:
     class BucketInventoryTableConfigurationArgsDict(TypedDict):
+        """
+        The inventory table configuration for an S3 Metadata configuration.
+        """
         configuration_state: pulumi.Input['BucketInventoryTableConfigurationConfigurationState']
         """
-        Specifies whether inventory table configuration is enabled or disabled.
+        The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.
         """
         encryption_configuration: NotRequired[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgsDict']]
         """
@@ -1526,7 +1529,7 @@ if not MYPY:
         """
         table_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARN of the inventory table.
+        The Amazon Resource Name (ARN) for the inventory table.
         """
         table_name: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -1543,9 +1546,10 @@ class BucketInventoryTableConfigurationArgs:
                  table_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input['BucketInventoryTableConfigurationConfigurationState'] configuration_state: Specifies whether inventory table configuration is enabled or disabled.
+        The inventory table configuration for an S3 Metadata configuration.
+        :param pulumi.Input['BucketInventoryTableConfigurationConfigurationState'] configuration_state: The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.
         :param pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the inventory table.
-        :param pulumi.Input[_builtins.str] table_arn: The ARN of the inventory table.
+        :param pulumi.Input[_builtins.str] table_arn: The Amazon Resource Name (ARN) for the inventory table.
         :param pulumi.Input[_builtins.str] table_name: The name of the inventory table.
         """
         pulumi.set(__self__, "configuration_state", configuration_state)
@@ -1560,7 +1564,7 @@ class BucketInventoryTableConfigurationArgs:
     @pulumi.getter(name="configurationState")
     def configuration_state(self) -> pulumi.Input['BucketInventoryTableConfigurationConfigurationState']:
         """
-        Specifies whether inventory table configuration is enabled or disabled.
+        The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.
         """
         return pulumi.get(self, "configuration_state")
 
@@ -1584,7 +1588,7 @@ class BucketInventoryTableConfigurationArgs:
     @pulumi.getter(name="tableArn")
     def table_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN of the inventory table.
+        The Amazon Resource Name (ARN) for the inventory table.
         """
         return pulumi.get(self, "table_arn")
 
@@ -1607,6 +1611,9 @@ class BucketInventoryTableConfigurationArgs:
 
 if not MYPY:
     class BucketJournalTableConfigurationArgsDict(TypedDict):
+        """
+        The journal table configuration for an S3 Metadata configuration.
+        """
         record_expiration: pulumi.Input['BucketRecordExpirationArgsDict']
         """
         The journal table record expiration settings for the journal table.
@@ -1617,7 +1624,7 @@ if not MYPY:
         """
         table_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARN of the journal table.
+        The Amazon Resource Name (ARN) for the journal table.
         """
         table_name: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -1634,9 +1641,10 @@ class BucketJournalTableConfigurationArgs:
                  table_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        The journal table configuration for an S3 Metadata configuration.
         :param pulumi.Input['BucketRecordExpirationArgs'] record_expiration: The journal table record expiration settings for the journal table.
         :param pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the journal table.
-        :param pulumi.Input[_builtins.str] table_arn: The ARN of the journal table.
+        :param pulumi.Input[_builtins.str] table_arn: The Amazon Resource Name (ARN) for the journal table.
         :param pulumi.Input[_builtins.str] table_name: The name of the journal table.
         """
         pulumi.set(__self__, "record_expiration", record_expiration)
@@ -1675,7 +1683,7 @@ class BucketJournalTableConfigurationArgs:
     @pulumi.getter(name="tableArn")
     def table_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN of the journal table.
+        The Amazon Resource Name (ARN) for the journal table.
         """
         return pulumi.get(self, "table_arn")
 
@@ -1920,17 +1928,20 @@ class BucketLoggingConfigurationArgs:
 
 if not MYPY:
     class BucketMetadataConfigurationArgsDict(TypedDict):
+        """
+        Creates a V2 S3 Metadata configuration of a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
+        """
         journal_table_configuration: pulumi.Input['BucketJournalTableConfigurationArgsDict']
         """
-        The configuration for the journal table.
+        The journal table configuration for a metadata configuration.
         """
         destination: NotRequired[pulumi.Input['BucketMetadataDestinationArgsDict']]
         """
-        The destination information for the metadata configuration.
+        The destination information for the S3 Metadata configuration.
         """
         inventory_table_configuration: NotRequired[pulumi.Input['BucketInventoryTableConfigurationArgsDict']]
         """
-        The configuration for the inventory table.
+        The inventory table configuration for a metadata configuration.
         """
 elif False:
     BucketMetadataConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1942,9 +1953,10 @@ class BucketMetadataConfigurationArgs:
                  destination: Optional[pulumi.Input['BucketMetadataDestinationArgs']] = None,
                  inventory_table_configuration: Optional[pulumi.Input['BucketInventoryTableConfigurationArgs']] = None):
         """
-        :param pulumi.Input['BucketJournalTableConfigurationArgs'] journal_table_configuration: The configuration for the journal table.
-        :param pulumi.Input['BucketMetadataDestinationArgs'] destination: The destination information for the metadata configuration.
-        :param pulumi.Input['BucketInventoryTableConfigurationArgs'] inventory_table_configuration: The configuration for the inventory table.
+        Creates a V2 S3 Metadata configuration of a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
+        :param pulumi.Input['BucketJournalTableConfigurationArgs'] journal_table_configuration: The journal table configuration for a metadata configuration.
+        :param pulumi.Input['BucketMetadataDestinationArgs'] destination: The destination information for the S3 Metadata configuration.
+        :param pulumi.Input['BucketInventoryTableConfigurationArgs'] inventory_table_configuration: The inventory table configuration for a metadata configuration.
         """
         pulumi.set(__self__, "journal_table_configuration", journal_table_configuration)
         if destination is not None:
@@ -1956,7 +1968,7 @@ class BucketMetadataConfigurationArgs:
     @pulumi.getter(name="journalTableConfiguration")
     def journal_table_configuration(self) -> pulumi.Input['BucketJournalTableConfigurationArgs']:
         """
-        The configuration for the journal table.
+        The journal table configuration for a metadata configuration.
         """
         return pulumi.get(self, "journal_table_configuration")
 
@@ -1968,7 +1980,7 @@ class BucketMetadataConfigurationArgs:
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input['BucketMetadataDestinationArgs']]:
         """
-        The destination information for the metadata configuration.
+        The destination information for the S3 Metadata configuration.
         """
         return pulumi.get(self, "destination")
 
@@ -1980,7 +1992,7 @@ class BucketMetadataConfigurationArgs:
     @pulumi.getter(name="inventoryTableConfiguration")
     def inventory_table_configuration(self) -> Optional[pulumi.Input['BucketInventoryTableConfigurationArgs']]:
         """
-        The configuration for the inventory table.
+        The inventory table configuration for a metadata configuration.
         """
         return pulumi.get(self, "inventory_table_configuration")
 
@@ -1991,17 +2003,20 @@ class BucketMetadataConfigurationArgs:
 
 if not MYPY:
     class BucketMetadataDestinationArgsDict(TypedDict):
+        """
+        The destination information for the S3 Metadata configuration.
+        """
         table_bucket_type: pulumi.Input['BucketMetadataDestinationTableBucketType']
         """
-        The type of the table bucket.
+        The type of the table bucket where the metadata configuration is stored. The ``aws`` value indicates an AWS managed table bucket, and the ``customer`` value indicates a customer-managed table bucket. V2 metadata configurations are stored in AWS managed table buckets, and V1 metadata configurations are stored in customer-managed table buckets.
         """
         table_bucket_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARN of the table bucket.
+        The Amazon Resource Name (ARN) of the table bucket where the metadata configuration is stored.
         """
         table_namespace: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The namespace of the table.
+        The namespace in the table bucket where the metadata tables for a metadata configuration are stored.
         """
 elif False:
     BucketMetadataDestinationArgsDict: TypeAlias = Mapping[str, Any]
@@ -2013,9 +2028,10 @@ class BucketMetadataDestinationArgs:
                  table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  table_namespace: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input['BucketMetadataDestinationTableBucketType'] table_bucket_type: The type of the table bucket.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: The ARN of the table bucket.
-        :param pulumi.Input[_builtins.str] table_namespace: The namespace of the table.
+        The destination information for the S3 Metadata configuration.
+        :param pulumi.Input['BucketMetadataDestinationTableBucketType'] table_bucket_type: The type of the table bucket where the metadata configuration is stored. The ``aws`` value indicates an AWS managed table bucket, and the ``customer`` value indicates a customer-managed table bucket. V2 metadata configurations are stored in AWS managed table buckets, and V1 metadata configurations are stored in customer-managed table buckets.
+        :param pulumi.Input[_builtins.str] table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket where the metadata configuration is stored.
+        :param pulumi.Input[_builtins.str] table_namespace: The namespace in the table bucket where the metadata tables for a metadata configuration are stored.
         """
         pulumi.set(__self__, "table_bucket_type", table_bucket_type)
         if table_bucket_arn is not None:
@@ -2027,7 +2043,7 @@ class BucketMetadataDestinationArgs:
     @pulumi.getter(name="tableBucketType")
     def table_bucket_type(self) -> pulumi.Input['BucketMetadataDestinationTableBucketType']:
         """
-        The type of the table bucket.
+        The type of the table bucket where the metadata configuration is stored. The ``aws`` value indicates an AWS managed table bucket, and the ``customer`` value indicates a customer-managed table bucket. V2 metadata configurations are stored in AWS managed table buckets, and V1 metadata configurations are stored in customer-managed table buckets.
         """
         return pulumi.get(self, "table_bucket_type")
 
@@ -2039,7 +2055,7 @@ class BucketMetadataDestinationArgs:
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN of the table bucket.
+        The Amazon Resource Name (ARN) of the table bucket where the metadata configuration is stored.
         """
         return pulumi.get(self, "table_bucket_arn")
 
@@ -2051,7 +2067,7 @@ class BucketMetadataDestinationArgs:
     @pulumi.getter(name="tableNamespace")
     def table_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The namespace of the table.
+        The namespace in the table bucket where the metadata tables for a metadata configuration are stored.
         """
         return pulumi.get(self, "table_namespace")
 
@@ -2063,7 +2079,9 @@ class BucketMetadataDestinationArgs:
 if not MYPY:
     class BucketMetadataTableConfigurationArgsDict(TypedDict):
         """
-        The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
+        We recommend that you create your S3 Metadata configurations by using the V2 [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type. We no longer recommend using the V1 ``MetadataTableConfiguration`` resource type. 
+         If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using the [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type so that you can expire journal table records and create a live inventory table.
+          Creates a V1 S3 Metadata configuration for a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
         """
         s3_tables_destination: pulumi.Input['BucketS3TablesDestinationArgsDict']
         """
@@ -2077,7 +2095,9 @@ class BucketMetadataTableConfigurationArgs:
     def __init__(__self__, *,
                  s3_tables_destination: pulumi.Input['BucketS3TablesDestinationArgs']):
         """
-        The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
+        We recommend that you create your S3 Metadata configurations by using the V2 [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type. We no longer recommend using the V1 ``MetadataTableConfiguration`` resource type. 
+         If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using the [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type so that you can expire journal table records and create a live inventory table.
+          Creates a V1 S3 Metadata configuration for a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input['BucketS3TablesDestinationArgs'] s3_tables_destination: The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
         """
         pulumi.set(__self__, "s3_tables_destination", s3_tables_destination)
@@ -2097,13 +2117,16 @@ class BucketMetadataTableConfigurationArgs:
 
 if not MYPY:
     class BucketMetadataTableEncryptionConfigurationArgsDict(TypedDict):
+        """
+        The encryption settings for an S3 Metadata journal table or inventory table configuration.
+        """
         sse_algorithm: pulumi.Input['BucketMetadataTableEncryptionConfigurationSseAlgorithm']
         """
-        Specifies the server-side encryption algorithm to use for encrypting tables.
+        The encryption type specified for a metadata table. To specify server-side encryption with KMSlong (KMS) keys (SSE-KMS), use the ``aws:kms`` value. To specify server-side encryption with Amazon S3 managed keys (SSE-S3), use the ``AES256`` value.
         """
         kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARN of the KMS key. Required if SseAlgorithm is aws:kms.
+        If server-side encryption with KMSlong (KMS) keys (SSE-KMS) is specified, you must also specify the KMS key Amazon Resource Name (ARN). You must specify a customer-managed KMS key that's located in the same Region as the general purpose bucket that corresponds to the metadata table configuration.
         """
 elif False:
     BucketMetadataTableEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -2114,8 +2137,9 @@ class BucketMetadataTableEncryptionConfigurationArgs:
                  sse_algorithm: pulumi.Input['BucketMetadataTableEncryptionConfigurationSseAlgorithm'],
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input['BucketMetadataTableEncryptionConfigurationSseAlgorithm'] sse_algorithm: Specifies the server-side encryption algorithm to use for encrypting tables.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key. Required if SseAlgorithm is aws:kms.
+        The encryption settings for an S3 Metadata journal table or inventory table configuration.
+        :param pulumi.Input['BucketMetadataTableEncryptionConfigurationSseAlgorithm'] sse_algorithm: The encryption type specified for a metadata table. To specify server-side encryption with KMSlong (KMS) keys (SSE-KMS), use the ``aws:kms`` value. To specify server-side encryption with Amazon S3 managed keys (SSE-S3), use the ``AES256`` value.
+        :param pulumi.Input[_builtins.str] kms_key_arn: If server-side encryption with KMSlong (KMS) keys (SSE-KMS) is specified, you must also specify the KMS key Amazon Resource Name (ARN). You must specify a customer-managed KMS key that's located in the same Region as the general purpose bucket that corresponds to the metadata table configuration.
         """
         pulumi.set(__self__, "sse_algorithm", sse_algorithm)
         if kms_key_arn is not None:
@@ -2125,7 +2149,7 @@ class BucketMetadataTableEncryptionConfigurationArgs:
     @pulumi.getter(name="sseAlgorithm")
     def sse_algorithm(self) -> pulumi.Input['BucketMetadataTableEncryptionConfigurationSseAlgorithm']:
         """
-        Specifies the server-side encryption algorithm to use for encrypting tables.
+        The encryption type specified for a metadata table. To specify server-side encryption with KMSlong (KMS) keys (SSE-KMS), use the ``aws:kms`` value. To specify server-side encryption with Amazon S3 managed keys (SSE-S3), use the ``AES256`` value.
         """
         return pulumi.get(self, "sse_algorithm")
 
@@ -2137,7 +2161,7 @@ class BucketMetadataTableEncryptionConfigurationArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN of the KMS key. Required if SseAlgorithm is aws:kms.
+        If server-side encryption with KMSlong (KMS) keys (SSE-KMS) is specified, you must also specify the KMS key Amazon Resource Name (ARN). You must specify a customer-managed KMS key that's located in the same Region as the general purpose bucket that corresponds to the metadata table configuration.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -2927,13 +2951,16 @@ class BucketQueueConfigurationArgs:
 
 if not MYPY:
     class BucketRecordExpirationArgsDict(TypedDict):
+        """
+        The journal table record expiration settings for a journal table in an S3 Metadata configuration.
+        """
         expiration: pulumi.Input['BucketRecordExpirationExpiration']
         """
-        Specifies whether record expiration is enabled or disabled.
+        Specifies whether journal table record expiration is enabled or disabled.
         """
         days: NotRequired[pulumi.Input[_builtins.int]]
         """
-        The number of days after which records expire. Required if Expiration is ENABLED.
+        If you enable journal table record expiration, you can set the number of days to retain your journal table records. Journal table records must be retained for a minimum of 7 days. To set this value, specify any whole number from ``7`` to ``2147483647``. For example, to retain your journal table records for one year, set this value to ``365``.
         """
 elif False:
     BucketRecordExpirationArgsDict: TypeAlias = Mapping[str, Any]
@@ -2944,8 +2971,9 @@ class BucketRecordExpirationArgs:
                  expiration: pulumi.Input['BucketRecordExpirationExpiration'],
                  days: Optional[pulumi.Input[_builtins.int]] = None):
         """
-        :param pulumi.Input['BucketRecordExpirationExpiration'] expiration: Specifies whether record expiration is enabled or disabled.
-        :param pulumi.Input[_builtins.int] days: The number of days after which records expire. Required if Expiration is ENABLED.
+        The journal table record expiration settings for a journal table in an S3 Metadata configuration.
+        :param pulumi.Input['BucketRecordExpirationExpiration'] expiration: Specifies whether journal table record expiration is enabled or disabled.
+        :param pulumi.Input[_builtins.int] days: If you enable journal table record expiration, you can set the number of days to retain your journal table records. Journal table records must be retained for a minimum of 7 days. To set this value, specify any whole number from ``7`` to ``2147483647``. For example, to retain your journal table records for one year, set this value to ``365``.
         """
         pulumi.set(__self__, "expiration", expiration)
         if days is not None:
@@ -2955,7 +2983,7 @@ class BucketRecordExpirationArgs:
     @pulumi.getter
     def expiration(self) -> pulumi.Input['BucketRecordExpirationExpiration']:
         """
-        Specifies whether record expiration is enabled or disabled.
+        Specifies whether journal table record expiration is enabled or disabled.
         """
         return pulumi.get(self, "expiration")
 
@@ -2967,7 +2995,7 @@ class BucketRecordExpirationArgs:
     @pulumi.getter
     def days(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of days after which records expire. Required if Expiration is ENABLED.
+        If you enable journal table record expiration, you can set the number of days to retain your journal table records. Journal table records must be retained for a minimum of 7 days. To set this value, specify any whole number from ``7`` to ``2147483647``. For example, to retain your journal table records for one year, set this value to ``365``.
         """
         return pulumi.get(self, "days")
 
@@ -3279,6 +3307,7 @@ if not MYPY:
         """
         The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica. 
          For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.
+         ``FSX_OPENZFS`` is not an accepted value when replicating objects.
         """
 elif False:
     BucketReplicationDestinationArgsDict: TypeAlias = Mapping[str, Any]
@@ -3304,6 +3333,7 @@ class BucketReplicationDestinationArgs:
         :param pulumi.Input['BucketReplicationTimeArgs'] replication_time: A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block.
         :param pulumi.Input['BucketReplicationDestinationStorageClass'] storage_class: The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica. 
                 For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.
+                ``FSX_OPENZFS`` is not an accepted value when replicating objects.
         """
         pulumi.set(__self__, "bucket", bucket)
         if access_control_translation is not None:
@@ -3398,6 +3428,7 @@ class BucketReplicationDestinationArgs:
         """
         The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica. 
          For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.
+         ``FSX_OPENZFS`` is not an accepted value when replicating objects.
         """
         return pulumi.get(self, "storage_class")
 
@@ -4334,7 +4365,7 @@ class BucketS3KeyFilterArgs:
 if not MYPY:
     class BucketS3TablesDestinationArgsDict(TypedDict):
         """
-        The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
+        The destination information for a V1 S3 Metadata configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
         """
         table_bucket_arn: pulumi.Input[_builtins.str]
         """
@@ -4363,7 +4394,7 @@ class BucketS3TablesDestinationArgs:
                  table_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  table_namespace: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
+        The destination information for a V1 S3 Metadata configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
         :param pulumi.Input[_builtins.str] table_bucket_arn: The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket.
         :param pulumi.Input[_builtins.str] table_name: The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
         :param pulumi.Input[_builtins.str] table_arn: The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.

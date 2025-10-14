@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.Pcs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Additional options related to the Slurm scheduler.
+        /// </summary>
+        public readonly Outputs.SlurmConfigurationProperties? SlurmConfiguration;
+        /// <summary>
         /// The provisioning status of the cluster. The provisioning status doesn't indicate the overall health of the cluster.
         /// </summary>
         public readonly Pulumi.AwsNative.Pcs.ClusterStatus? Status;
@@ -98,6 +102,8 @@ namespace Pulumi.AwsNative.Pcs
 
             string? id,
 
+            Outputs.SlurmConfigurationProperties? slurmConfiguration,
+
             Pulumi.AwsNative.Pcs.ClusterStatus? status,
 
             ImmutableDictionary<string, string>? tags)
@@ -106,6 +112,7 @@ namespace Pulumi.AwsNative.Pcs
             Endpoints = endpoints;
             ErrorInfo = errorInfo;
             Id = id;
+            SlurmConfiguration = slurmConfiguration;
             Status = status;
             Tags = tags;
         }

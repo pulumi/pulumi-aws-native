@@ -28,6 +28,8 @@ type Queue struct {
 	ErrorInfo QueueErrorInfoArrayOutput `pulumi:"errorInfo"`
 	// The name that identifies the queue.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The Slurm configuration for the queue.
+	SlurmConfiguration SlurmConfigurationPropertiesPtrOutput `pulumi:"slurmConfiguration"`
 	// The provisioning status of the queue. The provisioning status doesn't indicate the overall health of the queue.
 	Status QueueStatusOutput `pulumi:"status"`
 	// 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
@@ -88,6 +90,8 @@ type queueArgs struct {
 	ComputeNodeGroupConfigurations []QueueComputeNodeGroupConfiguration `pulumi:"computeNodeGroupConfigurations"`
 	// The name that identifies the queue.
 	Name *string `pulumi:"name"`
+	// The Slurm configuration for the queue.
+	SlurmConfiguration *SlurmConfigurationProperties `pulumi:"slurmConfiguration"`
 	// 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -100,6 +104,8 @@ type QueueArgs struct {
 	ComputeNodeGroupConfigurations QueueComputeNodeGroupConfigurationArrayInput
 	// The name that identifies the queue.
 	Name pulumi.StringPtrInput
+	// The Slurm configuration for the queue.
+	SlurmConfiguration SlurmConfigurationPropertiesPtrInput
 	// 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
 	Tags pulumi.StringMapInput
 }
@@ -169,6 +175,11 @@ func (o QueueOutput) ErrorInfo() QueueErrorInfoArrayOutput {
 // The name that identifies the queue.
 func (o QueueOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The Slurm configuration for the queue.
+func (o QueueOutput) SlurmConfiguration() SlurmConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *Queue) SlurmConfigurationPropertiesPtrOutput { return v.SlurmConfiguration }).(SlurmConfigurationPropertiesPtrOutput)
 }
 
 // The provisioning status of the queue. The provisioning status doesn't indicate the overall health of the queue.

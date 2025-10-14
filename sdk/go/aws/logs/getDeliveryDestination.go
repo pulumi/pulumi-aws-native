@@ -39,8 +39,6 @@ type LookupDeliveryDestinationResult struct {
 	//
 	// Length Constraints: Maximum length of 51200
 	DeliveryDestinationPolicy *DeliveryDestinationDestinationPolicy `pulumi:"deliveryDestinationPolicy"`
-	// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
-	DeliveryDestinationType *string `pulumi:"deliveryDestinationType"`
 	// The tags that have been assigned to this delivery destination.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -91,11 +89,6 @@ func (o LookupDeliveryDestinationResultOutput) DeliveryDestinationPolicy() Deliv
 	return o.ApplyT(func(v LookupDeliveryDestinationResult) *DeliveryDestinationDestinationPolicy {
 		return v.DeliveryDestinationPolicy
 	}).(DeliveryDestinationDestinationPolicyPtrOutput)
-}
-
-// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
-func (o LookupDeliveryDestinationResultOutput) DeliveryDestinationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDeliveryDestinationResult) *string { return v.DeliveryDestinationType }).(pulumi.StringPtrOutput)
 }
 
 // The tags that have been assigned to this delivery destination.

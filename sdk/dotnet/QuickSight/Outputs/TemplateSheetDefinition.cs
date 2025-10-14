@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The list of filter controls that are on a sheet.
         /// 
-        /// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
+        /// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon Quick Suite User Guide* .
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFilterControl> FilterControls;
         /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Layouts define how the components of a sheet are arranged.
         /// 
-        /// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
+        /// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon Quick Suite User Guide* .
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateLayout> Layouts;
         /// <summary>
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The list of parameter controls that are on a sheet.
         /// 
-        /// For more information, see [Using a Control with a Parameter in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon QuickSight User Guide* .
+        /// For more information, see [Using a Control with a Parameter in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon Quick Suite User Guide* .
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateParameterControl> ParameterControls;
         /// <summary>

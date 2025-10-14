@@ -24,16 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetResourcePolicyResult:
-    def __init__(__self__, id=None, policy=None, resource_arn=None, revision_id=None):
+    def __init__(__self__, id=None, policy=None, revision_id=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if policy and not isinstance(policy, dict):
             raise TypeError("Expected argument 'policy' to be a dict")
         pulumi.set(__self__, "policy", policy)
-        if resource_arn and not isinstance(resource_arn, str):
-            raise TypeError("Expected argument 'resource_arn' to be a str")
-        pulumi.set(__self__, "resource_arn", resource_arn)
         if revision_id and not isinstance(revision_id, str):
             raise TypeError("Expected argument 'revision_id' to be a str")
         pulumi.set(__self__, "revision_id", revision_id)
@@ -55,14 +52,6 @@ class GetResourcePolicyResult:
         return pulumi.get(self, "policy")
 
     @_builtins.property
-    @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
-        """
-        return pulumi.get(self, "resource_arn")
-
-    @_builtins.property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> Optional[_builtins.str]:
         """
@@ -79,14 +68,13 @@ class AwaitableGetResourcePolicyResult(GetResourcePolicyResult):
         return GetResourcePolicyResult(
             id=self.id,
             policy=self.policy,
-            resource_arn=self.resource_arn,
             revision_id=self.revision_id)
 
 
 def get_resource_policy(id: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourcePolicyResult:
     """
-    A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+    Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
 
 
     :param _builtins.str id: The identifier of the resource policy.
@@ -99,12 +87,11 @@ def get_resource_policy(id: Optional[_builtins.str] = None,
     return AwaitableGetResourcePolicyResult(
         id=pulumi.get(__ret__, 'id'),
         policy=pulumi.get(__ret__, 'policy'),
-        resource_arn=pulumi.get(__ret__, 'resource_arn'),
         revision_id=pulumi.get(__ret__, 'revision_id'))
 def get_resource_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
-    A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+    Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
 
 
     :param _builtins.str id: The identifier of the resource policy.
@@ -116,5 +103,4 @@ def get_resource_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetResourcePolicyResult(
         id=pulumi.get(__response__, 'id'),
         policy=pulumi.get(__response__, 'policy'),
-        resource_arn=pulumi.get(__response__, 'resource_arn'),
         revision_id=pulumi.get(__response__, 'revision_id')))

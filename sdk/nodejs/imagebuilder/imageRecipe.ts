@@ -42,6 +42,10 @@ export class ImageRecipe extends pulumi.CustomResource {
      */
     declare public readonly additionalInstanceConfiguration: pulumi.Output<outputs.imagebuilder.ImageRecipeAdditionalInstanceConfiguration | undefined>;
     /**
+     * The tags to apply to the AMI created by this image recipe.
+     */
+    declare public readonly amiTags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The Amazon Resource Name (ARN) of the image recipe.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
@@ -99,6 +103,7 @@ export class ImageRecipe extends pulumi.CustomResource {
                 throw new Error("Missing required property 'version'");
             }
             resourceInputs["additionalInstanceConfiguration"] = args?.additionalInstanceConfiguration;
+            resourceInputs["amiTags"] = args?.amiTags;
             resourceInputs["blockDeviceMappings"] = args?.blockDeviceMappings;
             resourceInputs["components"] = args?.components;
             resourceInputs["description"] = args?.description;
@@ -110,6 +115,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["additionalInstanceConfiguration"] = undefined /*out*/;
+            resourceInputs["amiTags"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["blockDeviceMappings"] = undefined /*out*/;
             resourceInputs["components"] = undefined /*out*/;
@@ -135,6 +141,10 @@ export interface ImageRecipeArgs {
      * Specify additional settings and launch scripts for your build instances.
      */
     additionalInstanceConfiguration?: pulumi.Input<inputs.imagebuilder.ImageRecipeAdditionalInstanceConfigurationArgs>;
+    /**
+     * The tags to apply to the AMI created by this image recipe.
+     */
+    amiTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The block device mappings to apply when creating images from this recipe.
      */

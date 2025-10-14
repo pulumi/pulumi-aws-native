@@ -121,9 +121,6 @@ func NewClusterCapacityProviderAssociations(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CapacityProviders == nil {
-		return nil, errors.New("invalid value for required argument 'CapacityProviders'")
-	}
 	if args.Cluster == nil {
 		return nil, errors.New("invalid value for required argument 'Cluster'")
 	}

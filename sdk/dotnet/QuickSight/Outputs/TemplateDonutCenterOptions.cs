@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateDonutCenterOptions
     {
         /// <summary>
-        /// Determines the visibility of the label in a donut chart. In the Amazon QuickSight console, this option is called `'Show total'` .
+        /// Determines the visibility of the label in a donut chart. In the Quick Sight console, this option is called `'Show total'` .
         /// </summary>
         public readonly object? LabelVisibility;
 

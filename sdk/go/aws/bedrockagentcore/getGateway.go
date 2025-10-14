@@ -28,23 +28,36 @@ type LookupGatewayArgs struct {
 
 type LookupGatewayResult struct {
 	AuthorizerConfiguration *GatewayAuthorizerConfigurationProperties `pulumi:"authorizerConfiguration"`
-	AuthorizerType          *GatewayAuthorizerType                    `pulumi:"authorizerType"`
-	CreatedAt               *string                                   `pulumi:"createdAt"`
-	Description             *string                                   `pulumi:"description"`
-	ExceptionLevel          *GatewayExceptionLevel                    `pulumi:"exceptionLevel"`
-	GatewayArn              *string                                   `pulumi:"gatewayArn"`
-	GatewayIdentifier       *string                                   `pulumi:"gatewayIdentifier"`
-	GatewayUrl              *string                                   `pulumi:"gatewayUrl"`
-	KmsKeyArn               *string                                   `pulumi:"kmsKeyArn"`
-	Name                    *string                                   `pulumi:"name"`
-	ProtocolConfiguration   *GatewayProtocolConfigurationProperties   `pulumi:"protocolConfiguration"`
-	ProtocolType            *GatewayProtocolType                      `pulumi:"protocolType"`
-	RoleArn                 *string                                   `pulumi:"roleArn"`
-	Status                  *GatewayStatus                            `pulumi:"status"`
-	StatusReasons           []string                                  `pulumi:"statusReasons"`
-	Tags                    map[string]string                         `pulumi:"tags"`
-	UpdatedAt               *string                                   `pulumi:"updatedAt"`
-	WorkloadIdentityDetails *GatewayWorkloadIdentityDetails           `pulumi:"workloadIdentityDetails"`
+	// The authorizer type for the gateway.
+	AuthorizerType *GatewayAuthorizerType `pulumi:"authorizerType"`
+	// The date and time at which the gateway was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The description for the gateway.
+	Description *string `pulumi:"description"`
+	// The exception level for the gateway.
+	ExceptionLevel *GatewayExceptionLevel `pulumi:"exceptionLevel"`
+	// The ARN for the gateway.
+	GatewayArn        *string `pulumi:"gatewayArn"`
+	GatewayIdentifier *string `pulumi:"gatewayIdentifier"`
+	// The gateway URL for the gateway.
+	GatewayUrl *string `pulumi:"gatewayUrl"`
+	// The KMS key ARN for the gateway.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The name for the gateway.
+	Name *string `pulumi:"name"`
+	// The protocol configuration for the gateway target.
+	ProtocolConfiguration *GatewayProtocolConfigurationProperties `pulumi:"protocolConfiguration"`
+	// The protocol type for the gateway target.
+	ProtocolType *GatewayProtocolType `pulumi:"protocolType"`
+	RoleArn      *string              `pulumi:"roleArn"`
+	// The status for the gateway.
+	Status *GatewayStatus `pulumi:"status"`
+	// The status reasons for the gateway.
+	StatusReasons []string `pulumi:"statusReasons"`
+	// The tags for the gateway.
+	Tags                    map[string]string               `pulumi:"tags"`
+	UpdatedAt               *string                         `pulumi:"updatedAt"`
+	WorkloadIdentityDetails *GatewayWorkloadIdentityDetails `pulumi:"workloadIdentityDetails"`
 }
 
 func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayResultOutput {
@@ -84,22 +97,27 @@ func (o LookupGatewayResultOutput) AuthorizerConfiguration() GatewayAuthorizerCo
 	}).(GatewayAuthorizerConfigurationPropertiesPtrOutput)
 }
 
+// The authorizer type for the gateway.
 func (o LookupGatewayResultOutput) AuthorizerType() GatewayAuthorizerTypePtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *GatewayAuthorizerType { return v.AuthorizerType }).(GatewayAuthorizerTypePtrOutput)
 }
 
+// The date and time at which the gateway was created.
 func (o LookupGatewayResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The description for the gateway.
 func (o LookupGatewayResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The exception level for the gateway.
 func (o LookupGatewayResultOutput) ExceptionLevel() GatewayExceptionLevelPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *GatewayExceptionLevel { return v.ExceptionLevel }).(GatewayExceptionLevelPtrOutput)
 }
 
+// The ARN for the gateway.
 func (o LookupGatewayResultOutput) GatewayArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *string { return v.GatewayArn }).(pulumi.StringPtrOutput)
 }
@@ -108,22 +126,27 @@ func (o LookupGatewayResultOutput) GatewayIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *string { return v.GatewayIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The gateway URL for the gateway.
 func (o LookupGatewayResultOutput) GatewayUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *string { return v.GatewayUrl }).(pulumi.StringPtrOutput)
 }
 
+// The KMS key ARN for the gateway.
 func (o LookupGatewayResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The name for the gateway.
 func (o LookupGatewayResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The protocol configuration for the gateway target.
 func (o LookupGatewayResultOutput) ProtocolConfiguration() GatewayProtocolConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *GatewayProtocolConfigurationProperties { return v.ProtocolConfiguration }).(GatewayProtocolConfigurationPropertiesPtrOutput)
 }
 
+// The protocol type for the gateway target.
 func (o LookupGatewayResultOutput) ProtocolType() GatewayProtocolTypePtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *GatewayProtocolType { return v.ProtocolType }).(GatewayProtocolTypePtrOutput)
 }
@@ -132,14 +155,17 @@ func (o LookupGatewayResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The status for the gateway.
 func (o LookupGatewayResultOutput) Status() GatewayStatusPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *GatewayStatus { return v.Status }).(GatewayStatusPtrOutput)
 }
 
+// The status reasons for the gateway.
 func (o LookupGatewayResultOutput) StatusReasons() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupGatewayResult) []string { return v.StatusReasons }).(pulumi.StringArrayOutput)
 }
 
+// The tags for the gateway.
 func (o LookupGatewayResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

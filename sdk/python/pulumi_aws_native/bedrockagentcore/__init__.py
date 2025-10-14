@@ -15,8 +15,10 @@ from .get_browser_custom import *
 from .get_code_interpreter_custom import *
 from .get_gateway import *
 from .get_gateway_target import *
+from .get_memory import *
 from .get_runtime import *
 from .get_runtime_endpoint import *
+from .memory import *
 from .runtime import *
 from .runtime_endpoint import *
 from ._inputs import *

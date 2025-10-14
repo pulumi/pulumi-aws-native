@@ -10,180 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
-type BrokerAuthenticationStrategy string
-
-const (
-	BrokerAuthenticationStrategySimple = BrokerAuthenticationStrategy("SIMPLE")
-	BrokerAuthenticationStrategyLdap   = BrokerAuthenticationStrategy("LDAP")
-)
-
-func (BrokerAuthenticationStrategy) ElementType() reflect.Type {
-	return reflect.TypeOf((*BrokerAuthenticationStrategy)(nil)).Elem()
-}
-
-func (e BrokerAuthenticationStrategy) ToBrokerAuthenticationStrategyOutput() BrokerAuthenticationStrategyOutput {
-	return pulumi.ToOutput(e).(BrokerAuthenticationStrategyOutput)
-}
-
-func (e BrokerAuthenticationStrategy) ToBrokerAuthenticationStrategyOutputWithContext(ctx context.Context) BrokerAuthenticationStrategyOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(BrokerAuthenticationStrategyOutput)
-}
-
-func (e BrokerAuthenticationStrategy) ToBrokerAuthenticationStrategyPtrOutput() BrokerAuthenticationStrategyPtrOutput {
-	return e.ToBrokerAuthenticationStrategyPtrOutputWithContext(context.Background())
-}
-
-func (e BrokerAuthenticationStrategy) ToBrokerAuthenticationStrategyPtrOutputWithContext(ctx context.Context) BrokerAuthenticationStrategyPtrOutput {
-	return BrokerAuthenticationStrategy(e).ToBrokerAuthenticationStrategyOutputWithContext(ctx).ToBrokerAuthenticationStrategyPtrOutputWithContext(ctx)
-}
-
-func (e BrokerAuthenticationStrategy) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e BrokerAuthenticationStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e BrokerAuthenticationStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e BrokerAuthenticationStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type BrokerAuthenticationStrategyOutput struct{ *pulumi.OutputState }
-
-func (BrokerAuthenticationStrategyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BrokerAuthenticationStrategy)(nil)).Elem()
-}
-
-func (o BrokerAuthenticationStrategyOutput) ToBrokerAuthenticationStrategyOutput() BrokerAuthenticationStrategyOutput {
-	return o
-}
-
-func (o BrokerAuthenticationStrategyOutput) ToBrokerAuthenticationStrategyOutputWithContext(ctx context.Context) BrokerAuthenticationStrategyOutput {
-	return o
-}
-
-func (o BrokerAuthenticationStrategyOutput) ToBrokerAuthenticationStrategyPtrOutput() BrokerAuthenticationStrategyPtrOutput {
-	return o.ToBrokerAuthenticationStrategyPtrOutputWithContext(context.Background())
-}
-
-func (o BrokerAuthenticationStrategyOutput) ToBrokerAuthenticationStrategyPtrOutputWithContext(ctx context.Context) BrokerAuthenticationStrategyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BrokerAuthenticationStrategy) *BrokerAuthenticationStrategy {
-		return &v
-	}).(BrokerAuthenticationStrategyPtrOutput)
-}
-
-func (o BrokerAuthenticationStrategyOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o BrokerAuthenticationStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e BrokerAuthenticationStrategy) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o BrokerAuthenticationStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o BrokerAuthenticationStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e BrokerAuthenticationStrategy) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type BrokerAuthenticationStrategyPtrOutput struct{ *pulumi.OutputState }
-
-func (BrokerAuthenticationStrategyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BrokerAuthenticationStrategy)(nil)).Elem()
-}
-
-func (o BrokerAuthenticationStrategyPtrOutput) ToBrokerAuthenticationStrategyPtrOutput() BrokerAuthenticationStrategyPtrOutput {
-	return o
-}
-
-func (o BrokerAuthenticationStrategyPtrOutput) ToBrokerAuthenticationStrategyPtrOutputWithContext(ctx context.Context) BrokerAuthenticationStrategyPtrOutput {
-	return o
-}
-
-func (o BrokerAuthenticationStrategyPtrOutput) Elem() BrokerAuthenticationStrategyOutput {
-	return o.ApplyT(func(v *BrokerAuthenticationStrategy) BrokerAuthenticationStrategy {
-		if v != nil {
-			return *v
-		}
-		var ret BrokerAuthenticationStrategy
-		return ret
-	}).(BrokerAuthenticationStrategyOutput)
-}
-
-func (o BrokerAuthenticationStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o BrokerAuthenticationStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BrokerAuthenticationStrategy) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// BrokerAuthenticationStrategyInput is an input type that accepts values of the BrokerAuthenticationStrategy enum
-// A concrete instance of `BrokerAuthenticationStrategyInput` can be one of the following:
-//
-//	BrokerAuthenticationStrategySimple
-//	BrokerAuthenticationStrategyLdap
-type BrokerAuthenticationStrategyInput interface {
-	pulumi.Input
-
-	ToBrokerAuthenticationStrategyOutput() BrokerAuthenticationStrategyOutput
-	ToBrokerAuthenticationStrategyOutputWithContext(context.Context) BrokerAuthenticationStrategyOutput
-}
-
-var brokerAuthenticationStrategyPtrType = reflect.TypeOf((**BrokerAuthenticationStrategy)(nil)).Elem()
-
-type BrokerAuthenticationStrategyPtrInput interface {
-	pulumi.Input
-
-	ToBrokerAuthenticationStrategyPtrOutput() BrokerAuthenticationStrategyPtrOutput
-	ToBrokerAuthenticationStrategyPtrOutputWithContext(context.Context) BrokerAuthenticationStrategyPtrOutput
-}
-
-type brokerAuthenticationStrategyPtr string
-
-func BrokerAuthenticationStrategyPtr(v string) BrokerAuthenticationStrategyPtrInput {
-	return (*brokerAuthenticationStrategyPtr)(&v)
-}
-
-func (*brokerAuthenticationStrategyPtr) ElementType() reflect.Type {
-	return brokerAuthenticationStrategyPtrType
-}
-
-func (in *brokerAuthenticationStrategyPtr) ToBrokerAuthenticationStrategyPtrOutput() BrokerAuthenticationStrategyPtrOutput {
-	return pulumi.ToOutput(in).(BrokerAuthenticationStrategyPtrOutput)
-}
-
-func (in *brokerAuthenticationStrategyPtr) ToBrokerAuthenticationStrategyPtrOutputWithContext(ctx context.Context) BrokerAuthenticationStrategyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(BrokerAuthenticationStrategyPtrOutput)
-}
-
-// Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
-type BrokerAuthenticationStrategy0 string
-
-const (
-	BrokerAuthenticationStrategy0Simple = BrokerAuthenticationStrategy0("SIMPLE")
-	BrokerAuthenticationStrategy0Ldap   = BrokerAuthenticationStrategy0("LDAP")
-)
-
 // Defines whether this broker is a part of a data replication pair.
 type BrokerDataReplicationMode string
 
@@ -1081,8 +907,6 @@ const (
 )
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BrokerAuthenticationStrategyInput)(nil)).Elem(), BrokerAuthenticationStrategy("SIMPLE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*BrokerAuthenticationStrategyPtrInput)(nil)).Elem(), BrokerAuthenticationStrategy("SIMPLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerDataReplicationModeInput)(nil)).Elem(), BrokerDataReplicationMode("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerDataReplicationModePtrInput)(nil)).Elem(), BrokerDataReplicationMode("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerDeploymentModeInput)(nil)).Elem(), BrokerDeploymentMode("SINGLE_INSTANCE"))
@@ -1093,8 +917,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerMaintenanceWindowDayOfWeekPtrInput)(nil)).Elem(), BrokerMaintenanceWindowDayOfWeek("MONDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerStorageTypeInput)(nil)).Elem(), BrokerStorageType("EBS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerStorageTypePtrInput)(nil)).Elem(), BrokerStorageType("EBS"))
-	pulumi.RegisterOutputType(BrokerAuthenticationStrategyOutput{})
-	pulumi.RegisterOutputType(BrokerAuthenticationStrategyPtrOutput{})
 	pulumi.RegisterOutputType(BrokerDataReplicationModeOutput{})
 	pulumi.RegisterOutputType(BrokerDataReplicationModePtrOutput{})
 	pulumi.RegisterOutputType(BrokerDeploymentModeOutput{})

@@ -34,6 +34,8 @@ type LookupEnvironmentResult struct {
 	EnvironmentArn *string `pulumi:"environmentArn"`
 	// The unique identifier of the environment.
 	EnvironmentId *string `pulumi:"environmentId"`
+	// > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) .
+	//
 	// Defines the details of a high availability configuration.
 	HighAvailabilityConfig *EnvironmentHighAvailabilityConfig `pulumi:"highAvailabilityConfig"`
 	// The type of instance underlying the environment.
@@ -91,6 +93,8 @@ func (o LookupEnvironmentResultOutput) EnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.EnvironmentId }).(pulumi.StringPtrOutput)
 }
 
+// > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) .
+//
 // Defines the details of a high availability configuration.
 func (o LookupEnvironmentResultOutput) HighAvailabilityConfig() EnvironmentHighAvailabilityConfigPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *EnvironmentHighAvailabilityConfig { return v.HighAvailabilityConfig }).(EnvironmentHighAvailabilityConfigPtrOutput)

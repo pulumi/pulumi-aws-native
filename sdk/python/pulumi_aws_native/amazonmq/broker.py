@@ -28,7 +28,7 @@ class BrokerArgs:
                  engine_type: pulumi.Input[Union['BrokerEngineType', _builtins.str]],
                  host_instance_type: pulumi.Input[_builtins.str],
                  publicly_accessible: pulumi.Input[_builtins.bool],
-                 authentication_strategy: Optional[pulumi.Input[Union['BrokerAuthenticationStrategy', _builtins.str]]] = None,
+                 authentication_strategy: Optional[pulumi.Input[_builtins.str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
                  broker_name: Optional[pulumi.Input[_builtins.str]] = None,
                  configuration: Optional[pulumi.Input['BrokerConfigurationIdArgs']] = None,
@@ -54,7 +54,7 @@ class BrokerArgs:
         :param pulumi.Input[Union['BrokerEngineType', _builtins.str]] engine_type: The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
         :param pulumi.Input[_builtins.str] host_instance_type: The broker's instance type.
         :param pulumi.Input[_builtins.bool] publicly_accessible: Enables connections from applications outside of the VPC that hosts the broker's subnets.
-        :param pulumi.Input[Union['BrokerAuthenticationStrategy', _builtins.str]] authentication_strategy: Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
+        :param pulumi.Input[_builtins.str] authentication_strategy: Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
         :param pulumi.Input[_builtins.str] broker_name: The name of the broker. This value must be unique in your AWS account , 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.
                
@@ -172,14 +172,14 @@ class BrokerArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationStrategy")
-    def authentication_strategy(self) -> Optional[pulumi.Input[Union['BrokerAuthenticationStrategy', _builtins.str]]]:
+    def authentication_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
         """
         return pulumi.get(self, "authentication_strategy")
 
     @authentication_strategy.setter
-    def authentication_strategy(self, value: Optional[pulumi.Input[Union['BrokerAuthenticationStrategy', _builtins.str]]]):
+    def authentication_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "authentication_strategy", value)
 
     @_builtins.property
@@ -379,7 +379,7 @@ class Broker(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_strategy: Optional[pulumi.Input[Union['BrokerAuthenticationStrategy', _builtins.str]]] = None,
+                 authentication_strategy: Optional[pulumi.Input[_builtins.str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
                  broker_name: Optional[pulumi.Input[_builtins.str]] = None,
                  configuration: Optional[pulumi.Input[Union['BrokerConfigurationIdArgs', 'BrokerConfigurationIdArgsDict']]] = None,
@@ -551,7 +551,7 @@ class Broker(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['BrokerAuthenticationStrategy', _builtins.str]] authentication_strategy: Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
+        :param pulumi.Input[_builtins.str] authentication_strategy: Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
         :param pulumi.Input[_builtins.str] broker_name: The name of the broker. This value must be unique in your AWS account , 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.
                
@@ -756,7 +756,7 @@ class Broker(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_strategy: Optional[pulumi.Input[Union['BrokerAuthenticationStrategy', _builtins.str]]] = None,
+                 authentication_strategy: Optional[pulumi.Input[_builtins.str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
                  broker_name: Optional[pulumi.Input[_builtins.str]] = None,
                  configuration: Optional[pulumi.Input[Union['BrokerConfigurationIdArgs', 'BrokerConfigurationIdArgsDict']]] = None,

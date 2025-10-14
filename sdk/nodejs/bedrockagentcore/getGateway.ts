@@ -23,20 +23,59 @@ export interface GetGatewayArgs {
 
 export interface GetGatewayResult {
     readonly authorizerConfiguration?: outputs.bedrockagentcore.GatewayAuthorizerConfigurationProperties;
+    /**
+     * The authorizer type for the gateway.
+     */
     readonly authorizerType?: enums.bedrockagentcore.GatewayAuthorizerType;
+    /**
+     * The date and time at which the gateway was created.
+     */
     readonly createdAt?: string;
+    /**
+     * The description for the gateway.
+     */
     readonly description?: string;
+    /**
+     * The exception level for the gateway.
+     */
     readonly exceptionLevel?: enums.bedrockagentcore.GatewayExceptionLevel;
+    /**
+     * The ARN for the gateway.
+     */
     readonly gatewayArn?: string;
     readonly gatewayIdentifier?: string;
+    /**
+     * The gateway URL for the gateway.
+     */
     readonly gatewayUrl?: string;
+    /**
+     * The KMS key ARN for the gateway.
+     */
     readonly kmsKeyArn?: string;
+    /**
+     * The name for the gateway.
+     */
     readonly name?: string;
+    /**
+     * The protocol configuration for the gateway target.
+     */
     readonly protocolConfiguration?: outputs.bedrockagentcore.GatewayProtocolConfigurationProperties;
+    /**
+     * The protocol type for the gateway target.
+     */
     readonly protocolType?: enums.bedrockagentcore.GatewayProtocolType;
     readonly roleArn?: string;
+    /**
+     * The status for the gateway.
+     */
     readonly status?: enums.bedrockagentcore.GatewayStatus;
+    /**
+     * The status reasons for the gateway.
+     */
     readonly statusReasons?: string[];
+    /**
+     * The tags for the gateway.
+     */
     readonly tags?: {[key: string]: string};
     readonly updatedAt?: string;
     readonly workloadIdentityDetails?: outputs.bedrockagentcore.GatewayWorkloadIdentityDetails;

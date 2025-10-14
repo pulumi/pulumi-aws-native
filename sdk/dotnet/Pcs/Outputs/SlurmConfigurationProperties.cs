@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.Pcs.Outputs
 {
 
     /// <summary>
-    /// Additional options related to the Slurm scheduler.
+    /// The Slurm configuration for the queue.
     /// </summary>
     [OutputType]
     public sealed class SlurmConfigurationProperties
     {
         /// <summary>
-        /// Additional Slurm-specific configuration that directly maps to Slurm settings.
+        /// Custom Slurm parameters that directly map to Slurm configuration settings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ComputeNodeGroupSlurmCustomSetting> SlurmCustomSettings;
+        public readonly ImmutableArray<Outputs.QueueSlurmCustomSetting> SlurmCustomSettings;
 
         [OutputConstructor]
-        private SlurmConfigurationProperties(ImmutableArray<Outputs.ComputeNodeGroupSlurmCustomSetting> slurmCustomSettings)
+        private SlurmConfigurationProperties(ImmutableArray<Outputs.QueueSlurmCustomSetting> slurmCustomSettings)
         {
             SlurmCustomSettings = slurmCustomSettings;
         }

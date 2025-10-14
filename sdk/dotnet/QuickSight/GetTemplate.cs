@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight
     public sealed class GetTemplateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+        /// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
         /// </summary>
         [Input("awsAccountId", required: true)]
         public string AwsAccountId { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.QuickSight
     public sealed class GetTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+        /// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
         /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;

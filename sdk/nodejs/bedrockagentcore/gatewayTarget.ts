@@ -37,16 +37,46 @@ export class GatewayTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === GatewayTarget.__pulumiType;
     }
 
+    /**
+     * The date and time at which the gateway target was created.
+     */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    /**
+     * The OAuth credential provider configuration.
+     */
     declare public readonly credentialProviderConfigurations: pulumi.Output<outputs.bedrockagentcore.GatewayTargetCredentialProviderConfiguration[]>;
+    /**
+     * The description for the gateway target.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly gatewayArn: pulumi.Output<string>;
+    /**
+     * The gateway ID for the gateway target.
+     */
     declare public readonly gatewayIdentifier: pulumi.Output<string | undefined>;
+    /**
+     * The name for the gateway target.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The status for the gateway target.
+     */
     declare public /*out*/ readonly status: pulumi.Output<enums.bedrockagentcore.GatewayTargetTargetStatus>;
+    /**
+     * The status reasons for the gateway target.
+     */
     declare public /*out*/ readonly statusReasons: pulumi.Output<string[]>;
+    /**
+     * The target configuration for the Smithy model target.
+     */
     declare public readonly targetConfiguration: pulumi.Output<outputs.bedrockagentcore.GatewayTargetTargetConfigurationProperties>;
+    /**
+     * The target ID for the gateway target.
+     */
     declare public /*out*/ readonly targetId: pulumi.Output<string>;
+    /**
+     * The time at which the resource was updated.
+     */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
@@ -101,9 +131,24 @@ export class GatewayTarget extends pulumi.CustomResource {
  * The set of arguments for constructing a GatewayTarget resource.
  */
 export interface GatewayTargetArgs {
+    /**
+     * The OAuth credential provider configuration.
+     */
     credentialProviderConfigurations: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayTargetCredentialProviderConfigurationArgs>[]>;
+    /**
+     * The description for the gateway target.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The gateway ID for the gateway target.
+     */
     gatewayIdentifier?: pulumi.Input<string>;
+    /**
+     * The name for the gateway target.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The target configuration for the Smithy model target.
+     */
     targetConfiguration: pulumi.Input<inputs.bedrockagentcore.GatewayTargetTargetConfigurationPropertiesArgs>;
 }

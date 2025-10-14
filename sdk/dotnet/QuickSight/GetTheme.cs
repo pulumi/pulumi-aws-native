@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+        /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
         /// </summary>
         public readonly string? BaseThemeId;
         /// <summary>

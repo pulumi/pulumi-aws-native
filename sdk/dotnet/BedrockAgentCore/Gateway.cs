@@ -18,48 +18,87 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("authorizerConfiguration")]
         public Output<Outputs.GatewayAuthorizerConfigurationProperties?> AuthorizerConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The authorizer type for the gateway.
+        /// </summary>
         [Output("authorizerType")]
         public Output<Pulumi.AwsNative.BedrockAgentCore.GatewayAuthorizerType> AuthorizerType { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time at which the gateway was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The description for the gateway.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The exception level for the gateway.
+        /// </summary>
         [Output("exceptionLevel")]
         public Output<Pulumi.AwsNative.BedrockAgentCore.GatewayExceptionLevel?> ExceptionLevel { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN for the gateway.
+        /// </summary>
         [Output("gatewayArn")]
         public Output<string> GatewayArn { get; private set; } = null!;
 
         [Output("gatewayIdentifier")]
         public Output<string> GatewayIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The gateway URL for the gateway.
+        /// </summary>
         [Output("gatewayUrl")]
         public Output<string> GatewayUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// The KMS key ARN for the gateway.
+        /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name for the gateway.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The protocol configuration for the gateway target.
+        /// </summary>
         [Output("protocolConfiguration")]
         public Output<Outputs.GatewayProtocolConfigurationProperties?> ProtocolConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The protocol type for the gateway target.
+        /// </summary>
         [Output("protocolType")]
         public Output<Pulumi.AwsNative.BedrockAgentCore.GatewayProtocolType> ProtocolType { get; private set; } = null!;
 
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The status for the gateway.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.BedrockAgentCore.GatewayStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The status reasons for the gateway.
+        /// </summary>
         [Output("statusReasons")]
         public Output<ImmutableArray<string>> StatusReasons { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags for the gateway.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -117,24 +156,45 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Input("authorizerConfiguration")]
         public Input<Inputs.GatewayAuthorizerConfigurationPropertiesArgs>? AuthorizerConfiguration { get; set; }
 
+        /// <summary>
+        /// The authorizer type for the gateway.
+        /// </summary>
         [Input("authorizerType", required: true)]
         public Input<Pulumi.AwsNative.BedrockAgentCore.GatewayAuthorizerType> AuthorizerType { get; set; } = null!;
 
+        /// <summary>
+        /// The description for the gateway.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The exception level for the gateway.
+        /// </summary>
         [Input("exceptionLevel")]
         public Input<Pulumi.AwsNative.BedrockAgentCore.GatewayExceptionLevel>? ExceptionLevel { get; set; }
 
+        /// <summary>
+        /// The KMS key ARN for the gateway.
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
+        /// <summary>
+        /// The name for the gateway.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The protocol configuration for the gateway target.
+        /// </summary>
         [Input("protocolConfiguration")]
         public Input<Inputs.GatewayProtocolConfigurationPropertiesArgs>? ProtocolConfiguration { get; set; }
 
+        /// <summary>
+        /// The protocol type for the gateway target.
+        /// </summary>
         [Input("protocolType", required: true)]
         public Input<Pulumi.AwsNative.BedrockAgentCore.GatewayProtocolType> ProtocolType { get; set; } = null!;
 
@@ -143,6 +203,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags for the gateway.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:ssmquicksetup:ConfigurationManager":
 		r = &ConfigurationManager{}
+	case "aws-native:ssmquicksetup:LifecycleAutomation":
+		r = &LifecycleAutomation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

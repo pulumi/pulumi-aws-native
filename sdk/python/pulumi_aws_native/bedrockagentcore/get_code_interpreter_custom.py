@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCodeInterpreterCustomResult:
-    def __init__(__self__, code_interpreter_arn=None, code_interpreter_id=None, created_at=None, last_updated_at=None, status=None, tags=None):
+    def __init__(__self__, code_interpreter_arn=None, code_interpreter_id=None, created_at=None, failure_reason=None, last_updated_at=None, status=None, tags=None):
         if code_interpreter_arn and not isinstance(code_interpreter_arn, str):
             raise TypeError("Expected argument 'code_interpreter_arn' to be a str")
         pulumi.set(__self__, "code_interpreter_arn", code_interpreter_arn)
@@ -34,6 +34,9 @@ class GetCodeInterpreterCustomResult:
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if failure_reason and not isinstance(failure_reason, str):
+            raise TypeError("Expected argument 'failure_reason' to be a str")
+        pulumi.set(__self__, "failure_reason", failure_reason)
         if last_updated_at and not isinstance(last_updated_at, str):
             raise TypeError("Expected argument 'last_updated_at' to be a str")
         pulumi.set(__self__, "last_updated_at", last_updated_at)
@@ -69,6 +72,14 @@ class GetCodeInterpreterCustomResult:
         return pulumi.get(self, "created_at")
 
     @_builtins.property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> Optional[_builtins.str]:
+        """
+        The reason for failure if the code interpreter creation or operation failed.
+        """
+        return pulumi.get(self, "failure_reason")
+
+    @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> Optional[_builtins.str]:
         """
@@ -102,6 +113,7 @@ class AwaitableGetCodeInterpreterCustomResult(GetCodeInterpreterCustomResult):
             code_interpreter_arn=self.code_interpreter_arn,
             code_interpreter_id=self.code_interpreter_id,
             created_at=self.created_at,
+            failure_reason=self.failure_reason,
             last_updated_at=self.last_updated_at,
             status=self.status,
             tags=self.tags)
@@ -124,6 +136,7 @@ def get_code_interpreter_custom(code_interpreter_id: Optional[_builtins.str] = N
         code_interpreter_arn=pulumi.get(__ret__, 'code_interpreter_arn'),
         code_interpreter_id=pulumi.get(__ret__, 'code_interpreter_id'),
         created_at=pulumi.get(__ret__, 'created_at'),
+        failure_reason=pulumi.get(__ret__, 'failure_reason'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -143,6 +156,7 @@ def get_code_interpreter_custom_output(code_interpreter_id: Optional[pulumi.Inpu
         code_interpreter_arn=pulumi.get(__response__, 'code_interpreter_arn'),
         code_interpreter_id=pulumi.get(__response__, 'code_interpreter_id'),
         created_at=pulumi.get(__response__, 'created_at'),
+        failure_reason=pulumi.get(__response__, 'failure_reason'),
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

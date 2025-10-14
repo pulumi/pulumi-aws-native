@@ -14,7 +14,7 @@
       "permissions" : [ "ecs:DescribeClusters", "ecs:PutClusterCapacityProviders", "ecs:DescribeCapacityProviders" ]
     },
     "update" : {
-      "permissions" : [ "ecs:DescribeClusters", "ecs:PutClusterCapacityProviders" ]
+      "permissions" : [ "ecs:DescribeClusters", "ecs:DescribeCapacityProviders", "ecs:PutClusterCapacityProviders" ]
     },
     "list" : {
       "permissions" : [ "ecs:DescribeClusters", "ecs:ListClusters" ]
@@ -94,5 +94,5 @@
       "$ref" : "#/definitions/Cluster"
     }
   },
-  "required" : [ "CapacityProviders", "Cluster", "DefaultCapacityProviderStrategy" ]
+  "required" : [ "Cluster", "DefaultCapacityProviderStrategy" ]
 }

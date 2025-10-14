@@ -58,6 +58,10 @@ export class BrowserCustom extends pulumi.CustomResource {
      */
     declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
     /**
+     * The reason for failure if the browser creation or operation failed.
+     */
+    declare public /*out*/ readonly failureReason: pulumi.Output<string>;
+    /**
      * Timestamp when the browser was last updated.
      */
     declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
@@ -105,6 +109,7 @@ export class BrowserCustom extends pulumi.CustomResource {
             resourceInputs["browserArn"] = undefined /*out*/;
             resourceInputs["browserId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["failureReason"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
@@ -113,6 +118,7 @@ export class BrowserCustom extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;
+            resourceInputs["failureReason"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkConfiguration"] = undefined /*out*/;

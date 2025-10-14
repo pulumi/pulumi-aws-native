@@ -13,6 +13,143 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DashboardSectionAfterPageBreak struct {
+	// The option that enables or disables a page break at the end of a section.
+	Status *DashboardSectionPageBreakStatus `pulumi:"status"`
+}
+
+// DashboardSectionAfterPageBreakInput is an input type that accepts DashboardSectionAfterPageBreakArgs and DashboardSectionAfterPageBreakOutput values.
+// You can construct a concrete instance of `DashboardSectionAfterPageBreakInput` via:
+//
+//	DashboardSectionAfterPageBreakArgs{...}
+type DashboardSectionAfterPageBreakInput interface {
+	pulumi.Input
+
+	ToDashboardSectionAfterPageBreakOutput() DashboardSectionAfterPageBreakOutput
+	ToDashboardSectionAfterPageBreakOutputWithContext(context.Context) DashboardSectionAfterPageBreakOutput
+}
+
+type DashboardSectionAfterPageBreakArgs struct {
+	// The option that enables or disables a page break at the end of a section.
+	Status DashboardSectionPageBreakStatusPtrInput `pulumi:"status"`
+}
+
+func (DashboardSectionAfterPageBreakArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSectionAfterPageBreak)(nil)).Elem()
+}
+
+func (i DashboardSectionAfterPageBreakArgs) ToDashboardSectionAfterPageBreakOutput() DashboardSectionAfterPageBreakOutput {
+	return i.ToDashboardSectionAfterPageBreakOutputWithContext(context.Background())
+}
+
+func (i DashboardSectionAfterPageBreakArgs) ToDashboardSectionAfterPageBreakOutputWithContext(ctx context.Context) DashboardSectionAfterPageBreakOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSectionAfterPageBreakOutput)
+}
+
+func (i DashboardSectionAfterPageBreakArgs) ToDashboardSectionAfterPageBreakPtrOutput() DashboardSectionAfterPageBreakPtrOutput {
+	return i.ToDashboardSectionAfterPageBreakPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardSectionAfterPageBreakArgs) ToDashboardSectionAfterPageBreakPtrOutputWithContext(ctx context.Context) DashboardSectionAfterPageBreakPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSectionAfterPageBreakOutput).ToDashboardSectionAfterPageBreakPtrOutputWithContext(ctx)
+}
+
+// DashboardSectionAfterPageBreakPtrInput is an input type that accepts DashboardSectionAfterPageBreakArgs, DashboardSectionAfterPageBreakPtr and DashboardSectionAfterPageBreakPtrOutput values.
+// You can construct a concrete instance of `DashboardSectionAfterPageBreakPtrInput` via:
+//
+//	        DashboardSectionAfterPageBreakArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardSectionAfterPageBreakPtrInput interface {
+	pulumi.Input
+
+	ToDashboardSectionAfterPageBreakPtrOutput() DashboardSectionAfterPageBreakPtrOutput
+	ToDashboardSectionAfterPageBreakPtrOutputWithContext(context.Context) DashboardSectionAfterPageBreakPtrOutput
+}
+
+type dashboardSectionAfterPageBreakPtrType DashboardSectionAfterPageBreakArgs
+
+func DashboardSectionAfterPageBreakPtr(v *DashboardSectionAfterPageBreakArgs) DashboardSectionAfterPageBreakPtrInput {
+	return (*dashboardSectionAfterPageBreakPtrType)(v)
+}
+
+func (*dashboardSectionAfterPageBreakPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSectionAfterPageBreak)(nil)).Elem()
+}
+
+func (i *dashboardSectionAfterPageBreakPtrType) ToDashboardSectionAfterPageBreakPtrOutput() DashboardSectionAfterPageBreakPtrOutput {
+	return i.ToDashboardSectionAfterPageBreakPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardSectionAfterPageBreakPtrType) ToDashboardSectionAfterPageBreakPtrOutputWithContext(ctx context.Context) DashboardSectionAfterPageBreakPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSectionAfterPageBreakPtrOutput)
+}
+
+type DashboardSectionAfterPageBreakOutput struct{ *pulumi.OutputState }
+
+func (DashboardSectionAfterPageBreakOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSectionAfterPageBreak)(nil)).Elem()
+}
+
+func (o DashboardSectionAfterPageBreakOutput) ToDashboardSectionAfterPageBreakOutput() DashboardSectionAfterPageBreakOutput {
+	return o
+}
+
+func (o DashboardSectionAfterPageBreakOutput) ToDashboardSectionAfterPageBreakOutputWithContext(ctx context.Context) DashboardSectionAfterPageBreakOutput {
+	return o
+}
+
+func (o DashboardSectionAfterPageBreakOutput) ToDashboardSectionAfterPageBreakPtrOutput() DashboardSectionAfterPageBreakPtrOutput {
+	return o.ToDashboardSectionAfterPageBreakPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSectionAfterPageBreakOutput) ToDashboardSectionAfterPageBreakPtrOutputWithContext(ctx context.Context) DashboardSectionAfterPageBreakPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardSectionAfterPageBreak) *DashboardSectionAfterPageBreak {
+		return &v
+	}).(DashboardSectionAfterPageBreakPtrOutput)
+}
+
+// The option that enables or disables a page break at the end of a section.
+func (o DashboardSectionAfterPageBreakOutput) Status() DashboardSectionPageBreakStatusPtrOutput {
+	return o.ApplyT(func(v DashboardSectionAfterPageBreak) *DashboardSectionPageBreakStatus { return v.Status }).(DashboardSectionPageBreakStatusPtrOutput)
+}
+
+type DashboardSectionAfterPageBreakPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardSectionAfterPageBreakPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSectionAfterPageBreak)(nil)).Elem()
+}
+
+func (o DashboardSectionAfterPageBreakPtrOutput) ToDashboardSectionAfterPageBreakPtrOutput() DashboardSectionAfterPageBreakPtrOutput {
+	return o
+}
+
+func (o DashboardSectionAfterPageBreakPtrOutput) ToDashboardSectionAfterPageBreakPtrOutputWithContext(ctx context.Context) DashboardSectionAfterPageBreakPtrOutput {
+	return o
+}
+
+func (o DashboardSectionAfterPageBreakPtrOutput) Elem() DashboardSectionAfterPageBreakOutput {
+	return o.ApplyT(func(v *DashboardSectionAfterPageBreak) DashboardSectionAfterPageBreak {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardSectionAfterPageBreak
+		return ret
+	}).(DashboardSectionAfterPageBreakOutput)
+}
+
+// The option that enables or disables a page break at the end of a section.
+func (o DashboardSectionAfterPageBreakPtrOutput) Status() DashboardSectionPageBreakStatusPtrOutput {
+	return o.ApplyT(func(v *DashboardSectionAfterPageBreak) *DashboardSectionPageBreakStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(DashboardSectionPageBreakStatusPtrOutput)
+}
+
 type DashboardSectionBasedLayoutCanvasSizeOptions struct {
 	// The options for a paper canvas of a section-based layout.
 	PaperCanvasSizeOptions *DashboardSectionBasedLayoutPaperCanvasSizeOptions `pulumi:"paperCanvasSizeOptions"`
@@ -1993,19 +2130,19 @@ type DashboardSheetDefinition struct {
 	Description *string `pulumi:"description"`
 	// The list of filter controls that are on a sheet.
 	//
-	// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon Quick Suite User Guide* .
 	FilterControls []DashboardFilterControl `pulumi:"filterControls"`
 	// A list of images on a sheet.
 	Images []DashboardSheetImage `pulumi:"images"`
 	// Layouts define how the components of a sheet are arranged.
 	//
-	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon Quick Suite User Guide* .
 	Layouts []DashboardLayout `pulumi:"layouts"`
 	// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
 	Name *string `pulumi:"name"`
 	// The list of parameter controls that are on a sheet.
 	//
-	// For more information, see [Using a Control with a Parameter in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using a Control with a Parameter in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon Quick Suite User Guide* .
 	ParameterControls []DashboardParameterControl `pulumi:"parameterControls"`
 	// The control layouts of the sheet.
 	SheetControlLayouts []DashboardSheetControlLayout `pulumi:"sheetControlLayouts"`
@@ -2040,19 +2177,19 @@ type DashboardSheetDefinitionArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The list of filter controls that are on a sheet.
 	//
-	// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon Quick Suite User Guide* .
 	FilterControls DashboardFilterControlArrayInput `pulumi:"filterControls"`
 	// A list of images on a sheet.
 	Images DashboardSheetImageArrayInput `pulumi:"images"`
 	// Layouts define how the components of a sheet are arranged.
 	//
-	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon Quick Suite User Guide* .
 	Layouts DashboardLayoutArrayInput `pulumi:"layouts"`
 	// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The list of parameter controls that are on a sheet.
 	//
-	// For more information, see [Using a Control with a Parameter in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using a Control with a Parameter in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon Quick Suite User Guide* .
 	ParameterControls DashboardParameterControlArrayInput `pulumi:"parameterControls"`
 	// The control layouts of the sheet.
 	SheetControlLayouts DashboardSheetControlLayoutArrayInput `pulumi:"sheetControlLayouts"`
@@ -2132,7 +2269,7 @@ func (o DashboardSheetDefinitionOutput) Description() pulumi.StringPtrOutput {
 
 // The list of filter controls that are on a sheet.
 //
-// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardSheetDefinitionOutput) FilterControls() DashboardFilterControlArrayOutput {
 	return o.ApplyT(func(v DashboardSheetDefinition) []DashboardFilterControl { return v.FilterControls }).(DashboardFilterControlArrayOutput)
 }
@@ -2144,7 +2281,7 @@ func (o DashboardSheetDefinitionOutput) Images() DashboardSheetImageArrayOutput 
 
 // Layouts define how the components of a sheet are arranged.
 //
-// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardSheetDefinitionOutput) Layouts() DashboardLayoutArrayOutput {
 	return o.ApplyT(func(v DashboardSheetDefinition) []DashboardLayout { return v.Layouts }).(DashboardLayoutArrayOutput)
 }
@@ -2156,7 +2293,7 @@ func (o DashboardSheetDefinitionOutput) Name() pulumi.StringPtrOutput {
 
 // The list of parameter controls that are on a sheet.
 //
-// For more information, see [Using a Control with a Parameter in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using a Control with a Parameter in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardSheetDefinitionOutput) ParameterControls() DashboardParameterControlArrayOutput {
 	return o.ApplyT(func(v DashboardSheetDefinition) []DashboardParameterControl { return v.ParameterControls }).(DashboardParameterControlArrayOutput)
 }
@@ -17029,13 +17166,13 @@ type DashboardVersionDefinition struct {
 	DataSetIdentifierDeclarations []DashboardDataSetIdentifierDeclaration `pulumi:"dataSetIdentifierDeclarations"`
 	// The filter definitions for a dashboard.
 	//
-	// For more information, see [Filtering Data in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Filtering Data in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html) in the *Amazon Quick Suite User Guide* .
 	FilterGroups []DashboardFilterGroup `pulumi:"filterGroups"`
 	// An array of option definitions for a dashboard.
 	Options *DashboardAssetOptions `pulumi:"options"`
 	// The parameter declarations for a dashboard. Parameters are named variables that can transfer a value for use by an action or an object.
 	//
-	// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
 	ParameterDeclarations []DashboardParameterDeclaration `pulumi:"parameterDeclarations"`
 	// An array of sheet definitions for a dashboard.
 	Sheets []DashboardSheetDefinition `pulumi:"sheets"`
@@ -17064,13 +17201,13 @@ type DashboardVersionDefinitionArgs struct {
 	DataSetIdentifierDeclarations DashboardDataSetIdentifierDeclarationArrayInput `pulumi:"dataSetIdentifierDeclarations"`
 	// The filter definitions for a dashboard.
 	//
-	// For more information, see [Filtering Data in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Filtering Data in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html) in the *Amazon Quick Suite User Guide* .
 	FilterGroups DashboardFilterGroupArrayInput `pulumi:"filterGroups"`
 	// An array of option definitions for a dashboard.
 	Options DashboardAssetOptionsPtrInput `pulumi:"options"`
 	// The parameter declarations for a dashboard. Parameters are named variables that can transfer a value for use by an action or an object.
 	//
-	// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
 	ParameterDeclarations DashboardParameterDeclarationArrayInput `pulumi:"parameterDeclarations"`
 	// An array of sheet definitions for a dashboard.
 	Sheets DashboardSheetDefinitionArrayInput `pulumi:"sheets"`
@@ -17178,7 +17315,7 @@ func (o DashboardVersionDefinitionOutput) DataSetIdentifierDeclarations() Dashbo
 
 // The filter definitions for a dashboard.
 //
-// For more information, see [Filtering Data in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Filtering Data in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVersionDefinitionOutput) FilterGroups() DashboardFilterGroupArrayOutput {
 	return o.ApplyT(func(v DashboardVersionDefinition) []DashboardFilterGroup { return v.FilterGroups }).(DashboardFilterGroupArrayOutput)
 }
@@ -17190,7 +17327,7 @@ func (o DashboardVersionDefinitionOutput) Options() DashboardAssetOptionsPtrOutp
 
 // The parameter declarations for a dashboard. Parameters are named variables that can transfer a value for use by an action or an object.
 //
-// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVersionDefinitionOutput) ParameterDeclarations() DashboardParameterDeclarationArrayOutput {
 	return o.ApplyT(func(v DashboardVersionDefinition) []DashboardParameterDeclaration { return v.ParameterDeclarations }).(DashboardParameterDeclarationArrayOutput)
 }
@@ -17270,7 +17407,7 @@ func (o DashboardVersionDefinitionPtrOutput) DataSetIdentifierDeclarations() Das
 
 // The filter definitions for a dashboard.
 //
-// For more information, see [Filtering Data in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Filtering Data in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVersionDefinitionPtrOutput) FilterGroups() DashboardFilterGroupArrayOutput {
 	return o.ApplyT(func(v *DashboardVersionDefinition) []DashboardFilterGroup {
 		if v == nil {
@@ -17292,7 +17429,7 @@ func (o DashboardVersionDefinitionPtrOutput) Options() DashboardAssetOptionsPtrO
 
 // The parameter declarations for a dashboard. Parameters are named variables that can transfer a value for use by an action or an object.
 //
-// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVersionDefinitionPtrOutput) ParameterDeclarations() DashboardParameterDeclarationArrayOutput {
 	return o.ApplyT(func(v *DashboardVersionDefinition) []DashboardParameterDeclaration {
 		if v == nil {
@@ -17462,97 +17599,97 @@ func (o DashboardVisibleRangeOptionsPtrOutput) PercentRange() DashboardPercentVi
 type DashboardVisual struct {
 	// A bar chart.
 	//
-	// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon Quick Suite User Guide* .
 	BarChartVisual *DashboardBarChartVisual `pulumi:"barChartVisual"`
 	// A box plot.
 	//
-	// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon Quick Suite User Guide* .
 	BoxPlotVisual *DashboardBoxPlotVisual `pulumi:"boxPlotVisual"`
 	// A combo chart.
 	//
-	// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon Quick Suite User Guide* .
 	ComboChartVisual *DashboardComboChartVisual `pulumi:"comboChartVisual"`
 	// A visual that contains custom content.
 	//
-	// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon Quick Suite User Guide* .
 	CustomContentVisual *DashboardCustomContentVisual `pulumi:"customContentVisual"`
 	// An empty visual.
 	EmptyVisual *DashboardEmptyVisual `pulumi:"emptyVisual"`
 	// A filled map.
 	//
-	// For more information, see [Creating filled maps](https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Creating filled maps](https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html) in the *Amazon Quick Suite User Guide* .
 	FilledMapVisual *DashboardFilledMapVisual `pulumi:"filledMapVisual"`
 	// A funnel chart.
 	//
-	// For more information, see [Using funnel charts](https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using funnel charts](https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html) in the *Amazon Quick Suite User Guide* .
 	FunnelChartVisual *DashboardFunnelChartVisual `pulumi:"funnelChartVisual"`
 	// A gauge chart.
 	//
-	// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon Quick Suite User Guide* .
 	GaugeChartVisual *DashboardGaugeChartVisual `pulumi:"gaugeChartVisual"`
 	// A geospatial map or a points on map visual.
 	//
-	// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon Quick Suite User Guide* .
 	GeospatialMapVisual *DashboardGeospatialMapVisual `pulumi:"geospatialMapVisual"`
 	// A heat map.
 	//
-	// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon Quick Suite User Guide* .
 	HeatMapVisual *DashboardHeatMapVisual `pulumi:"heatMapVisual"`
 	// A histogram.
 	//
-	// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon Quick Suite User Guide* .
 	HistogramVisual *DashboardHistogramVisual `pulumi:"histogramVisual"`
 	// An insight visual.
 	//
-	// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon Quick Suite User Guide* .
 	InsightVisual *DashboardInsightVisual `pulumi:"insightVisual"`
 	// A key performance indicator (KPI).
 	//
-	// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon Quick Suite User Guide* .
 	KpiVisual *DashboardKpiVisual `pulumi:"kpiVisual"`
 	// The properties for a layer map visual
 	LayerMapVisual *DashboardLayerMapVisual `pulumi:"layerMapVisual"`
 	// A line chart.
 	//
-	// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon Quick Suite User Guide* .
 	LineChartVisual *DashboardLineChartVisual `pulumi:"lineChartVisual"`
 	// A pie or donut chart.
 	//
-	// For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the *Amazon Quick Suite User Guide* .
 	PieChartVisual *DashboardPieChartVisual `pulumi:"pieChartVisual"`
 	// A pivot table.
 	//
-	// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon Quick Suite User Guide* .
 	PivotTableVisual *DashboardPivotTableVisual `pulumi:"pivotTableVisual"`
 	// The custom plugin visual type.
 	PluginVisual *DashboardPluginVisual `pulumi:"pluginVisual"`
 	// A radar chart visual.
 	//
-	// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon Quick Suite User Guide* .
 	RadarChartVisual *DashboardRadarChartVisual `pulumi:"radarChartVisual"`
 	// A sankey diagram.
 	//
-	// For more information, see [Using Sankey diagrams](https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using Sankey diagrams](https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html) in the *Amazon Quick Suite User Guide* .
 	SankeyDiagramVisual *DashboardSankeyDiagramVisual `pulumi:"sankeyDiagramVisual"`
 	// A scatter plot.
 	//
-	// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon Quick Suite User Guide* .
 	ScatterPlotVisual *DashboardScatterPlotVisual `pulumi:"scatterPlotVisual"`
 	// A table visual.
 	//
-	// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon Quick Suite User Guide* .
 	TableVisual *DashboardTableVisual `pulumi:"tableVisual"`
 	// A tree map.
 	//
-	// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon Quick Suite User Guide* .
 	TreeMapVisual *DashboardTreeMapVisual `pulumi:"treeMapVisual"`
 	// A waterfall chart.
 	//
-	// For more information, see [Using waterfall charts](https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using waterfall charts](https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html) in the *Amazon Quick Suite User Guide* .
 	WaterfallVisual *DashboardWaterfallVisual `pulumi:"waterfallVisual"`
 	// A word cloud.
 	//
-	// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon Quick Suite User Guide* .
 	WordCloudVisual *DashboardWordCloudVisual `pulumi:"wordCloudVisual"`
 }
 
@@ -17570,97 +17707,97 @@ type DashboardVisualInput interface {
 type DashboardVisualArgs struct {
 	// A bar chart.
 	//
-	// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon Quick Suite User Guide* .
 	BarChartVisual DashboardBarChartVisualPtrInput `pulumi:"barChartVisual"`
 	// A box plot.
 	//
-	// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon Quick Suite User Guide* .
 	BoxPlotVisual DashboardBoxPlotVisualPtrInput `pulumi:"boxPlotVisual"`
 	// A combo chart.
 	//
-	// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon Quick Suite User Guide* .
 	ComboChartVisual DashboardComboChartVisualPtrInput `pulumi:"comboChartVisual"`
 	// A visual that contains custom content.
 	//
-	// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon Quick Suite User Guide* .
 	CustomContentVisual DashboardCustomContentVisualPtrInput `pulumi:"customContentVisual"`
 	// An empty visual.
 	EmptyVisual DashboardEmptyVisualPtrInput `pulumi:"emptyVisual"`
 	// A filled map.
 	//
-	// For more information, see [Creating filled maps](https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Creating filled maps](https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html) in the *Amazon Quick Suite User Guide* .
 	FilledMapVisual DashboardFilledMapVisualPtrInput `pulumi:"filledMapVisual"`
 	// A funnel chart.
 	//
-	// For more information, see [Using funnel charts](https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using funnel charts](https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html) in the *Amazon Quick Suite User Guide* .
 	FunnelChartVisual DashboardFunnelChartVisualPtrInput `pulumi:"funnelChartVisual"`
 	// A gauge chart.
 	//
-	// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon Quick Suite User Guide* .
 	GaugeChartVisual DashboardGaugeChartVisualPtrInput `pulumi:"gaugeChartVisual"`
 	// A geospatial map or a points on map visual.
 	//
-	// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon Quick Suite User Guide* .
 	GeospatialMapVisual DashboardGeospatialMapVisualPtrInput `pulumi:"geospatialMapVisual"`
 	// A heat map.
 	//
-	// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon Quick Suite User Guide* .
 	HeatMapVisual DashboardHeatMapVisualPtrInput `pulumi:"heatMapVisual"`
 	// A histogram.
 	//
-	// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon Quick Suite User Guide* .
 	HistogramVisual DashboardHistogramVisualPtrInput `pulumi:"histogramVisual"`
 	// An insight visual.
 	//
-	// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon Quick Suite User Guide* .
 	InsightVisual DashboardInsightVisualPtrInput `pulumi:"insightVisual"`
 	// A key performance indicator (KPI).
 	//
-	// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon Quick Suite User Guide* .
 	KpiVisual DashboardKpiVisualPtrInput `pulumi:"kpiVisual"`
 	// The properties for a layer map visual
 	LayerMapVisual DashboardLayerMapVisualPtrInput `pulumi:"layerMapVisual"`
 	// A line chart.
 	//
-	// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon Quick Suite User Guide* .
 	LineChartVisual DashboardLineChartVisualPtrInput `pulumi:"lineChartVisual"`
 	// A pie or donut chart.
 	//
-	// For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the *Amazon Quick Suite User Guide* .
 	PieChartVisual DashboardPieChartVisualPtrInput `pulumi:"pieChartVisual"`
 	// A pivot table.
 	//
-	// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon Quick Suite User Guide* .
 	PivotTableVisual DashboardPivotTableVisualPtrInput `pulumi:"pivotTableVisual"`
 	// The custom plugin visual type.
 	PluginVisual DashboardPluginVisualPtrInput `pulumi:"pluginVisual"`
 	// A radar chart visual.
 	//
-	// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon Quick Suite User Guide* .
 	RadarChartVisual DashboardRadarChartVisualPtrInput `pulumi:"radarChartVisual"`
 	// A sankey diagram.
 	//
-	// For more information, see [Using Sankey diagrams](https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using Sankey diagrams](https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html) in the *Amazon Quick Suite User Guide* .
 	SankeyDiagramVisual DashboardSankeyDiagramVisualPtrInput `pulumi:"sankeyDiagramVisual"`
 	// A scatter plot.
 	//
-	// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon Quick Suite User Guide* .
 	ScatterPlotVisual DashboardScatterPlotVisualPtrInput `pulumi:"scatterPlotVisual"`
 	// A table visual.
 	//
-	// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon Quick Suite User Guide* .
 	TableVisual DashboardTableVisualPtrInput `pulumi:"tableVisual"`
 	// A tree map.
 	//
-	// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon Quick Suite User Guide* .
 	TreeMapVisual DashboardTreeMapVisualPtrInput `pulumi:"treeMapVisual"`
 	// A waterfall chart.
 	//
-	// For more information, see [Using waterfall charts](https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using waterfall charts](https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html) in the *Amazon Quick Suite User Guide* .
 	WaterfallVisual DashboardWaterfallVisualPtrInput `pulumi:"waterfallVisual"`
 	// A word cloud.
 	//
-	// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon Quick Suite User Guide* .
 	WordCloudVisual DashboardWordCloudVisualPtrInput `pulumi:"wordCloudVisual"`
 }
 
@@ -17717,28 +17854,28 @@ func (o DashboardVisualOutput) ToDashboardVisualOutputWithContext(ctx context.Co
 
 // A bar chart.
 //
-// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) BarChartVisual() DashboardBarChartVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardBarChartVisual { return v.BarChartVisual }).(DashboardBarChartVisualPtrOutput)
 }
 
 // A box plot.
 //
-// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using box plots](https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) BoxPlotVisual() DashboardBoxPlotVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardBoxPlotVisual { return v.BoxPlotVisual }).(DashboardBoxPlotVisualPtrOutput)
 }
 
 // A combo chart.
 //
-// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) ComboChartVisual() DashboardComboChartVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardComboChartVisual { return v.ComboChartVisual }).(DashboardComboChartVisualPtrOutput)
 }
 
 // A visual that contains custom content.
 //
-// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using custom visual content](https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) CustomContentVisual() DashboardCustomContentVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardCustomContentVisual { return v.CustomContentVisual }).(DashboardCustomContentVisualPtrOutput)
 }
@@ -17750,56 +17887,56 @@ func (o DashboardVisualOutput) EmptyVisual() DashboardEmptyVisualPtrOutput {
 
 // A filled map.
 //
-// For more information, see [Creating filled maps](https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Creating filled maps](https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) FilledMapVisual() DashboardFilledMapVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardFilledMapVisual { return v.FilledMapVisual }).(DashboardFilledMapVisualPtrOutput)
 }
 
 // A funnel chart.
 //
-// For more information, see [Using funnel charts](https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using funnel charts](https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) FunnelChartVisual() DashboardFunnelChartVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardFunnelChartVisual { return v.FunnelChartVisual }).(DashboardFunnelChartVisualPtrOutput)
 }
 
 // A gauge chart.
 //
-// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using gauge charts](https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) GaugeChartVisual() DashboardGaugeChartVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardGaugeChartVisual { return v.GaugeChartVisual }).(DashboardGaugeChartVisualPtrOutput)
 }
 
 // A geospatial map or a points on map visual.
 //
-// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Creating point maps](https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) GeospatialMapVisual() DashboardGeospatialMapVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardGeospatialMapVisual { return v.GeospatialMapVisual }).(DashboardGeospatialMapVisualPtrOutput)
 }
 
 // A heat map.
 //
-// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using heat maps](https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) HeatMapVisual() DashboardHeatMapVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardHeatMapVisual { return v.HeatMapVisual }).(DashboardHeatMapVisualPtrOutput)
 }
 
 // A histogram.
 //
-// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using histograms](https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) HistogramVisual() DashboardHistogramVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardHistogramVisual { return v.HistogramVisual }).(DashboardHistogramVisualPtrOutput)
 }
 
 // An insight visual.
 //
-// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Working with insights](https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) InsightVisual() DashboardInsightVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardInsightVisual { return v.InsightVisual }).(DashboardInsightVisualPtrOutput)
 }
 
 // A key performance indicator (KPI).
 //
-// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) KpiVisual() DashboardKpiVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardKpiVisual { return v.KpiVisual }).(DashboardKpiVisualPtrOutput)
 }
@@ -17811,21 +17948,21 @@ func (o DashboardVisualOutput) LayerMapVisual() DashboardLayerMapVisualPtrOutput
 
 // A line chart.
 //
-// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) LineChartVisual() DashboardLineChartVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardLineChartVisual { return v.LineChartVisual }).(DashboardLineChartVisualPtrOutput)
 }
 
 // A pie or donut chart.
 //
-// For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) PieChartVisual() DashboardPieChartVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardPieChartVisual { return v.PieChartVisual }).(DashboardPieChartVisualPtrOutput)
 }
 
 // A pivot table.
 //
-// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) PivotTableVisual() DashboardPivotTableVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardPivotTableVisual { return v.PivotTableVisual }).(DashboardPivotTableVisualPtrOutput)
 }
@@ -17837,49 +17974,49 @@ func (o DashboardVisualOutput) PluginVisual() DashboardPluginVisualPtrOutput {
 
 // A radar chart visual.
 //
-// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) RadarChartVisual() DashboardRadarChartVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardRadarChartVisual { return v.RadarChartVisual }).(DashboardRadarChartVisualPtrOutput)
 }
 
 // A sankey diagram.
 //
-// For more information, see [Using Sankey diagrams](https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using Sankey diagrams](https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) SankeyDiagramVisual() DashboardSankeyDiagramVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardSankeyDiagramVisual { return v.SankeyDiagramVisual }).(DashboardSankeyDiagramVisualPtrOutput)
 }
 
 // A scatter plot.
 //
-// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using scatter plots](https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) ScatterPlotVisual() DashboardScatterPlotVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardScatterPlotVisual { return v.ScatterPlotVisual }).(DashboardScatterPlotVisualPtrOutput)
 }
 
 // A table visual.
 //
-// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using tables as visuals](https://docs.aws.amazon.com/quicksight/latest/user/tabular.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) TableVisual() DashboardTableVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardTableVisual { return v.TableVisual }).(DashboardTableVisualPtrOutput)
 }
 
 // A tree map.
 //
-// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using tree maps](https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) TreeMapVisual() DashboardTreeMapVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardTreeMapVisual { return v.TreeMapVisual }).(DashboardTreeMapVisualPtrOutput)
 }
 
 // A waterfall chart.
 //
-// For more information, see [Using waterfall charts](https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using waterfall charts](https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) WaterfallVisual() DashboardWaterfallVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardWaterfallVisual { return v.WaterfallVisual }).(DashboardWaterfallVisualPtrOutput)
 }
 
 // A word cloud.
 //
-// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Using word clouds](https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html) in the *Amazon Quick Suite User Guide* .
 func (o DashboardVisualOutput) WordCloudVisual() DashboardWordCloudVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardWordCloudVisual { return v.WordCloudVisual }).(DashboardWordCloudVisualPtrOutput)
 }
@@ -30757,9 +30894,9 @@ func (o DataSourceAmazonOpenSearchParametersPtrOutput) Domain() pulumi.StringPtr
 
 // <p>Parameters for Amazon Athena.</p>
 type DataSourceAthenaParameters struct {
-	// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your workgroup.
+	// An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your workgroup.
 	//
-	// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
+	// This parameter can only be specified if your Quick Sight account is configured with IAM Identity Center.
 	IdentityCenterConfiguration *DataSourceIdentityCenterConfiguration `pulumi:"identityCenterConfiguration"`
 	// <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>
 	RoleArn *string `pulumi:"roleArn"`
@@ -30780,9 +30917,9 @@ type DataSourceAthenaParametersInput interface {
 
 // <p>Parameters for Amazon Athena.</p>
 type DataSourceAthenaParametersArgs struct {
-	// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your workgroup.
+	// An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your workgroup.
 	//
-	// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
+	// This parameter can only be specified if your Quick Sight account is configured with IAM Identity Center.
 	IdentityCenterConfiguration DataSourceIdentityCenterConfigurationPtrInput `pulumi:"identityCenterConfiguration"`
 	// <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
@@ -30868,9 +31005,9 @@ func (o DataSourceAthenaParametersOutput) ToDataSourceAthenaParametersPtrOutputW
 	}).(DataSourceAthenaParametersPtrOutput)
 }
 
-// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your workgroup.
+// An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your workgroup.
 //
-// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
+// This parameter can only be specified if your Quick Sight account is configured with IAM Identity Center.
 func (o DataSourceAthenaParametersOutput) IdentityCenterConfiguration() DataSourceIdentityCenterConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceAthenaParameters) *DataSourceIdentityCenterConfiguration {
 		return v.IdentityCenterConfiguration
@@ -30911,9 +31048,9 @@ func (o DataSourceAthenaParametersPtrOutput) Elem() DataSourceAthenaParametersOu
 	}).(DataSourceAthenaParametersOutput)
 }
 
-// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your workgroup.
+// An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your workgroup.
 //
-// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
+// This parameter can only be specified if your Quick Sight account is configured with IAM Identity Center.
 func (o DataSourceAthenaParametersPtrOutput) IdentityCenterConfiguration() DataSourceIdentityCenterConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceAthenaParameters) *DataSourceIdentityCenterConfiguration {
 		if v == nil {
@@ -34383,11 +34520,11 @@ type DataSourceRedshiftParameters struct {
 	Database string `pulumi:"database"`
 	// <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
 	Host *string `pulumi:"host"`
-	// An optional parameter that uses IAM authentication to grant Amazon QuickSight access to your cluster. This parameter can be used instead of [DataSourceCredentials](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html) .
+	// An optional parameter that uses IAM authentication to grant Quick Sight access to your cluster. This parameter can be used instead of [DataSourceCredentials](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html) .
 	IamParameters *DataSourceRedshiftIamParameters `pulumi:"iamParameters"`
-	// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
+	// An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your cluster.
 	//
-	// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
+	// This parameter can only be specified if your Quick Sight account is configured with IAM Identity Center.
 	IdentityCenterConfiguration *DataSourceIdentityCenterConfiguration `pulumi:"identityCenterConfiguration"`
 	// <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
 	Port *float64 `pulumi:"port"`
@@ -34415,11 +34552,11 @@ type DataSourceRedshiftParametersArgs struct {
 	Database pulumi.StringInput `pulumi:"database"`
 	// <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	// An optional parameter that uses IAM authentication to grant Amazon QuickSight access to your cluster. This parameter can be used instead of [DataSourceCredentials](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html) .
+	// An optional parameter that uses IAM authentication to grant Quick Sight access to your cluster. This parameter can be used instead of [DataSourceCredentials](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html) .
 	IamParameters DataSourceRedshiftIamParametersPtrInput `pulumi:"iamParameters"`
-	// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
+	// An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your cluster.
 	//
-	// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
+	// This parameter can only be specified if your Quick Sight account is configured with IAM Identity Center.
 	IdentityCenterConfiguration DataSourceIdentityCenterConfigurationPtrInput `pulumi:"identityCenterConfiguration"`
 	// <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
 	Port pulumi.Float64PtrInput `pulumi:"port"`
@@ -34522,14 +34659,14 @@ func (o DataSourceRedshiftParametersOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceRedshiftParameters) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// An optional parameter that uses IAM authentication to grant Amazon QuickSight access to your cluster. This parameter can be used instead of [DataSourceCredentials](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html) .
+// An optional parameter that uses IAM authentication to grant Quick Sight access to your cluster. This parameter can be used instead of [DataSourceCredentials](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html) .
 func (o DataSourceRedshiftParametersOutput) IamParameters() DataSourceRedshiftIamParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceRedshiftParameters) *DataSourceRedshiftIamParameters { return v.IamParameters }).(DataSourceRedshiftIamParametersPtrOutput)
 }
 
-// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
+// An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your cluster.
 //
-// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
+// This parameter can only be specified if your Quick Sight account is configured with IAM Identity Center.
 func (o DataSourceRedshiftParametersOutput) IdentityCenterConfiguration() DataSourceIdentityCenterConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceRedshiftParameters) *DataSourceIdentityCenterConfiguration {
 		return v.IdentityCenterConfiguration
@@ -34597,7 +34734,7 @@ func (o DataSourceRedshiftParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An optional parameter that uses IAM authentication to grant Amazon QuickSight access to your cluster. This parameter can be used instead of [DataSourceCredentials](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html) .
+// An optional parameter that uses IAM authentication to grant Quick Sight access to your cluster. This parameter can be used instead of [DataSourceCredentials](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataSourceCredentials.html) .
 func (o DataSourceRedshiftParametersPtrOutput) IamParameters() DataSourceRedshiftIamParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceRedshiftParameters) *DataSourceRedshiftIamParameters {
 		if v == nil {
@@ -34607,9 +34744,9 @@ func (o DataSourceRedshiftParametersPtrOutput) IamParameters() DataSourceRedshif
 	}).(DataSourceRedshiftIamParametersPtrOutput)
 }
 
-// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
+// An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your cluster.
 //
-// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
+// This parameter can only be specified if your Quick Sight account is configured with IAM Identity Center.
 func (o DataSourceRedshiftParametersPtrOutput) IdentityCenterConfiguration() DataSourceIdentityCenterConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceRedshiftParameters) *DataSourceIdentityCenterConfiguration {
 		if v == nil {
@@ -34789,7 +34926,7 @@ func (o DataSourceResourcePermissionArrayOutput) Index(i pulumi.IntInput) DataSo
 
 // <p>The parameters for S3.</p>
 type DataSourceS3Parameters struct {
-	// Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded into Amazon QuickSight.
+	// Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded into Quick Sight.
 	ManifestFileLocation DataSourceManifestFileLocation `pulumi:"manifestFileLocation"`
 	// <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>
 	RoleArn *string `pulumi:"roleArn"`
@@ -34808,7 +34945,7 @@ type DataSourceS3ParametersInput interface {
 
 // <p>The parameters for S3.</p>
 type DataSourceS3ParametersArgs struct {
-	// Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded into Amazon QuickSight.
+	// Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded into Quick Sight.
 	ManifestFileLocation DataSourceManifestFileLocationInput `pulumi:"manifestFileLocation"`
 	// <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
@@ -34892,7 +35029,7 @@ func (o DataSourceS3ParametersOutput) ToDataSourceS3ParametersPtrOutputWithConte
 	}).(DataSourceS3ParametersPtrOutput)
 }
 
-// Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded into Amazon QuickSight.
+// Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded into Quick Sight.
 func (o DataSourceS3ParametersOutput) ManifestFileLocation() DataSourceManifestFileLocationOutput {
 	return o.ApplyT(func(v DataSourceS3Parameters) DataSourceManifestFileLocation { return v.ManifestFileLocation }).(DataSourceManifestFileLocationOutput)
 }
@@ -34926,7 +35063,7 @@ func (o DataSourceS3ParametersPtrOutput) Elem() DataSourceS3ParametersOutput {
 	}).(DataSourceS3ParametersOutput)
 }
 
-// Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded into Amazon QuickSight.
+// Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded into Quick Sight.
 func (o DataSourceS3ParametersPtrOutput) ManifestFileLocation() DataSourceManifestFileLocationPtrOutput {
 	return o.ApplyT(func(v *DataSourceS3Parameters) *DataSourceManifestFileLocation {
 		if v == nil {
@@ -34956,7 +35093,7 @@ type DataSourceSnowflakeParameters struct {
 	DatabaseAccessControlRole *string `pulumi:"databaseAccessControlRole"`
 	// <p>Host.</p>
 	Host string `pulumi:"host"`
-	// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Snowflake.
+	// An object that contains information needed to create a data source connection between an Quick Sight account and Snowflake.
 	OAuthParameters *DataSourceOAuthParameters `pulumi:"oAuthParameters"`
 	// <p>Warehouse.</p>
 	Warehouse string `pulumi:"warehouse"`
@@ -34983,7 +35120,7 @@ type DataSourceSnowflakeParametersArgs struct {
 	DatabaseAccessControlRole pulumi.StringPtrInput `pulumi:"databaseAccessControlRole"`
 	// <p>Host.</p>
 	Host pulumi.StringInput `pulumi:"host"`
-	// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Snowflake.
+	// An object that contains information needed to create a data source connection between an Quick Sight account and Snowflake.
 	OAuthParameters DataSourceOAuthParametersPtrInput `pulumi:"oAuthParameters"`
 	// <p>Warehouse.</p>
 	Warehouse pulumi.StringInput `pulumi:"warehouse"`
@@ -35087,7 +35224,7 @@ func (o DataSourceSnowflakeParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceSnowflakeParameters) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Snowflake.
+// An object that contains information needed to create a data source connection between an Quick Sight account and Snowflake.
 func (o DataSourceSnowflakeParametersOutput) OAuthParameters() DataSourceOAuthParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceSnowflakeParameters) *DataSourceOAuthParameters { return v.OAuthParameters }).(DataSourceOAuthParametersPtrOutput)
 }
@@ -35161,7 +35298,7 @@ func (o DataSourceSnowflakeParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Snowflake.
+// An object that contains information needed to create a data source connection between an Quick Sight account and Snowflake.
 func (o DataSourceSnowflakeParametersPtrOutput) OAuthParameters() DataSourceOAuthParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceSnowflakeParameters) *DataSourceOAuthParameters {
 		if v == nil {
@@ -35674,7 +35811,7 @@ type DataSourceStarburstParameters struct {
 	DatabaseAccessControlRole *string `pulumi:"databaseAccessControlRole"`
 	// <p>The host name of the Starburst data source.</p>
 	Host string `pulumi:"host"`
-	// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Starburst.
+	// An object that contains information needed to create a data source connection between an Quick Sight account and Starburst.
 	OAuthParameters *DataSourceOAuthParameters `pulumi:"oAuthParameters"`
 	// <p>The port for the Starburst data source.</p>
 	Port float64 `pulumi:"port"`
@@ -35703,7 +35840,7 @@ type DataSourceStarburstParametersArgs struct {
 	DatabaseAccessControlRole pulumi.StringPtrInput `pulumi:"databaseAccessControlRole"`
 	// <p>The host name of the Starburst data source.</p>
 	Host pulumi.StringInput `pulumi:"host"`
-	// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Starburst.
+	// An object that contains information needed to create a data source connection between an Quick Sight account and Starburst.
 	OAuthParameters DataSourceOAuthParametersPtrInput `pulumi:"oAuthParameters"`
 	// <p>The port for the Starburst data source.</p>
 	Port pulumi.Float64Input `pulumi:"port"`
@@ -35809,7 +35946,7 @@ func (o DataSourceStarburstParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceStarburstParameters) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Starburst.
+// An object that contains information needed to create a data source connection between an Quick Sight account and Starburst.
 func (o DataSourceStarburstParametersOutput) OAuthParameters() DataSourceOAuthParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceStarburstParameters) *DataSourceOAuthParameters { return v.OAuthParameters }).(DataSourceOAuthParametersPtrOutput)
 }
@@ -35888,7 +36025,7 @@ func (o DataSourceStarburstParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Starburst.
+// An object that contains information needed to create a data source connection between an Quick Sight account and Starburst.
 func (o DataSourceStarburstParametersPtrOutput) OAuthParameters() DataSourceOAuthParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceStarburstParameters) *DataSourceOAuthParameters {
 		if v == nil {
@@ -45716,9 +45853,9 @@ func (o TemplateCategoryFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
 type TemplateCategoryFilterConfiguration struct {
 	// A custom filter that filters based on a single value. This filter can be partially matched.
 	CustomFilterConfiguration *TemplateCustomFilterConfiguration `pulumi:"customFilterConfiguration"`
-	// A list of custom filter values. In the Amazon QuickSight console, this filter type is called a custom filter list.
+	// A list of custom filter values. In the Quick Sight console, this filter type is called a custom filter list.
 	CustomFilterListConfiguration *TemplateCustomFilterListConfiguration `pulumi:"customFilterListConfiguration"`
-	// A list of filter configurations. In the Amazon QuickSight console, this filter type is called a filter list.
+	// A list of filter configurations. In the Quick Sight console, this filter type is called a filter list.
 	FilterListConfiguration *TemplateFilterListConfiguration `pulumi:"filterListConfiguration"`
 }
 
@@ -45736,9 +45873,9 @@ type TemplateCategoryFilterConfigurationInput interface {
 type TemplateCategoryFilterConfigurationArgs struct {
 	// A custom filter that filters based on a single value. This filter can be partially matched.
 	CustomFilterConfiguration TemplateCustomFilterConfigurationPtrInput `pulumi:"customFilterConfiguration"`
-	// A list of custom filter values. In the Amazon QuickSight console, this filter type is called a custom filter list.
+	// A list of custom filter values. In the Quick Sight console, this filter type is called a custom filter list.
 	CustomFilterListConfiguration TemplateCustomFilterListConfigurationPtrInput `pulumi:"customFilterListConfiguration"`
-	// A list of filter configurations. In the Amazon QuickSight console, this filter type is called a filter list.
+	// A list of filter configurations. In the Quick Sight console, this filter type is called a filter list.
 	FilterListConfiguration TemplateFilterListConfigurationPtrInput `pulumi:"filterListConfiguration"`
 }
 
@@ -45826,14 +45963,14 @@ func (o TemplateCategoryFilterConfigurationOutput) CustomFilterConfiguration() T
 	}).(TemplateCustomFilterConfigurationPtrOutput)
 }
 
-// A list of custom filter values. In the Amazon QuickSight console, this filter type is called a custom filter list.
+// A list of custom filter values. In the Quick Sight console, this filter type is called a custom filter list.
 func (o TemplateCategoryFilterConfigurationOutput) CustomFilterListConfiguration() TemplateCustomFilterListConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateCategoryFilterConfiguration) *TemplateCustomFilterListConfiguration {
 		return v.CustomFilterListConfiguration
 	}).(TemplateCustomFilterListConfigurationPtrOutput)
 }
 
-// A list of filter configurations. In the Amazon QuickSight console, this filter type is called a filter list.
+// A list of filter configurations. In the Quick Sight console, this filter type is called a filter list.
 func (o TemplateCategoryFilterConfigurationOutput) FilterListConfiguration() TemplateFilterListConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateCategoryFilterConfiguration) *TemplateFilterListConfiguration {
 		return v.FilterListConfiguration
@@ -45874,7 +46011,7 @@ func (o TemplateCategoryFilterConfigurationPtrOutput) CustomFilterConfiguration(
 	}).(TemplateCustomFilterConfigurationPtrOutput)
 }
 
-// A list of custom filter values. In the Amazon QuickSight console, this filter type is called a custom filter list.
+// A list of custom filter values. In the Quick Sight console, this filter type is called a custom filter list.
 func (o TemplateCategoryFilterConfigurationPtrOutput) CustomFilterListConfiguration() TemplateCustomFilterListConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateCategoryFilterConfiguration) *TemplateCustomFilterListConfiguration {
 		if v == nil {
@@ -45884,7 +46021,7 @@ func (o TemplateCategoryFilterConfigurationPtrOutput) CustomFilterListConfigurat
 	}).(TemplateCustomFilterListConfigurationPtrOutput)
 }
 
-// A list of filter configurations. In the Amazon QuickSight console, this filter type is called a filter list.
+// A list of filter configurations. In the Quick Sight console, this filter type is called a filter list.
 func (o TemplateCategoryFilterConfigurationPtrOutput) FilterListConfiguration() TemplateFilterListConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateCategoryFilterConfiguration) *TemplateFilterListConfiguration {
 		if v == nil {
@@ -61131,7 +61268,7 @@ func (o TemplateDimensionFieldArrayOutput) Index(i pulumi.IntInput) TemplateDime
 }
 
 type TemplateDonutCenterOptions struct {
-	// Determines the visibility of the label in a donut chart. In the Amazon QuickSight console, this option is called `'Show total'` .
+	// Determines the visibility of the label in a donut chart. In the Quick Sight console, this option is called `'Show total'` .
 	LabelVisibility interface{} `pulumi:"labelVisibility"`
 }
 
@@ -61147,7 +61284,7 @@ type TemplateDonutCenterOptionsInput interface {
 }
 
 type TemplateDonutCenterOptionsArgs struct {
-	// Determines the visibility of the label in a donut chart. In the Amazon QuickSight console, this option is called `'Show total'` .
+	// Determines the visibility of the label in a donut chart. In the Quick Sight console, this option is called `'Show total'` .
 	LabelVisibility pulumi.Input `pulumi:"labelVisibility"`
 }
 
@@ -61228,7 +61365,7 @@ func (o TemplateDonutCenterOptionsOutput) ToTemplateDonutCenterOptionsPtrOutputW
 	}).(TemplateDonutCenterOptionsPtrOutput)
 }
 
-// Determines the visibility of the label in a donut chart. In the Amazon QuickSight console, this option is called `'Show total'` .
+// Determines the visibility of the label in a donut chart. In the Quick Sight console, this option is called `'Show total'` .
 func (o TemplateDonutCenterOptionsOutput) LabelVisibility() pulumi.AnyOutput {
 	return o.ApplyT(func(v TemplateDonutCenterOptions) interface{} { return v.LabelVisibility }).(pulumi.AnyOutput)
 }
@@ -61257,7 +61394,7 @@ func (o TemplateDonutCenterOptionsPtrOutput) Elem() TemplateDonutCenterOptionsOu
 	}).(TemplateDonutCenterOptionsOutput)
 }
 
-// Determines the visibility of the label in a donut chart. In the Amazon QuickSight console, this option is called `'Show total'` .
+// Determines the visibility of the label in a donut chart. In the Quick Sight console, this option is called `'Show total'` .
 func (o TemplateDonutCenterOptionsPtrOutput) LabelVisibility() pulumi.AnyOutput {
 	return o.ApplyT(func(v *TemplateDonutCenterOptions) interface{} {
 		if v == nil {
@@ -64798,7 +64935,7 @@ func (o TemplateFilledMapVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 type TemplateFilter struct {
 	// A `CategoryFilter` filters text values.
 	//
-	// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon Quick Suite User Guide* .
 	CategoryFilter *TemplateCategoryFilter `pulumi:"categoryFilter"`
 	// A `NestedFilter` filters data with a subset of data that is defined by the nested inner filter.
 	NestedFilter *TemplateNestedFilter `pulumi:"nestedFilter"`
@@ -64830,7 +64967,7 @@ type TemplateFilterInput interface {
 type TemplateFilterArgs struct {
 	// A `CategoryFilter` filters text values.
 	//
-	// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon QuickSight User Guide* .
+	// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon Quick Suite User Guide* .
 	CategoryFilter TemplateCategoryFilterPtrInput `pulumi:"categoryFilter"`
 	// A `NestedFilter` filters data with a subset of data that is defined by the nested inner filter.
 	NestedFilter TemplateNestedFilterPtrInput `pulumi:"nestedFilter"`
@@ -64901,7 +65038,7 @@ func (o TemplateFilterOutput) ToTemplateFilterOutputWithContext(ctx context.Cont
 
 // A `CategoryFilter` filters text values.
 //
-// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon QuickSight User Guide* .
+// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon Quick Suite User Guide* .
 func (o TemplateFilterOutput) CategoryFilter() TemplateCategoryFilterPtrOutput {
 	return o.ApplyT(func(v TemplateFilter) *TemplateCategoryFilter { return v.CategoryFilter }).(TemplateCategoryFilterPtrOutput)
 }
@@ -75816,8 +75953,8 @@ type TemplateGridLayoutScreenCanvasSizeOptions struct {
 	OptimizedViewPortWidth *string `pulumi:"optimizedViewPortWidth"`
 	// This value determines the layout behavior when the viewport is resized.
 	//
-	// - `FIXED` : A fixed width will be used when optimizing the layout. In the Amazon QuickSight console, this option is called `Classic` .
-	// - `RESPONSIVE` : The width of the canvas will be responsive and optimized to the view port. In the Amazon QuickSight console, this option is called `Tiled` .
+	// - `FIXED` : A fixed width will be used when optimizing the layout. In the Quick Sight console, this option is called `Classic` .
+	// - `RESPONSIVE` : The width of the canvas will be responsive and optimized to the view port. In the Quick Sight console, this option is called `Tiled` .
 	ResizeOption TemplateResizeOption `pulumi:"resizeOption"`
 }
 
@@ -75837,8 +75974,8 @@ type TemplateGridLayoutScreenCanvasSizeOptionsArgs struct {
 	OptimizedViewPortWidth pulumi.StringPtrInput `pulumi:"optimizedViewPortWidth"`
 	// This value determines the layout behavior when the viewport is resized.
 	//
-	// - `FIXED` : A fixed width will be used when optimizing the layout. In the Amazon QuickSight console, this option is called `Classic` .
-	// - `RESPONSIVE` : The width of the canvas will be responsive and optimized to the view port. In the Amazon QuickSight console, this option is called `Tiled` .
+	// - `FIXED` : A fixed width will be used when optimizing the layout. In the Quick Sight console, this option is called `Classic` .
+	// - `RESPONSIVE` : The width of the canvas will be responsive and optimized to the view port. In the Quick Sight console, this option is called `Tiled` .
 	ResizeOption TemplateResizeOptionInput `pulumi:"resizeOption"`
 }
 
@@ -75926,8 +76063,8 @@ func (o TemplateGridLayoutScreenCanvasSizeOptionsOutput) OptimizedViewPortWidth(
 
 // This value determines the layout behavior when the viewport is resized.
 //
-// - `FIXED` : A fixed width will be used when optimizing the layout. In the Amazon QuickSight console, this option is called `Classic` .
-// - `RESPONSIVE` : The width of the canvas will be responsive and optimized to the view port. In the Amazon QuickSight console, this option is called `Tiled` .
+// - `FIXED` : A fixed width will be used when optimizing the layout. In the Quick Sight console, this option is called `Classic` .
+// - `RESPONSIVE` : The width of the canvas will be responsive and optimized to the view port. In the Quick Sight console, this option is called `Tiled` .
 func (o TemplateGridLayoutScreenCanvasSizeOptionsOutput) ResizeOption() TemplateResizeOptionOutput {
 	return o.ApplyT(func(v TemplateGridLayoutScreenCanvasSizeOptions) TemplateResizeOption { return v.ResizeOption }).(TemplateResizeOptionOutput)
 }
@@ -75968,8 +76105,8 @@ func (o TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput) OptimizedViewPortWid
 
 // This value determines the layout behavior when the viewport is resized.
 //
-// - `FIXED` : A fixed width will be used when optimizing the layout. In the Amazon QuickSight console, this option is called `Classic` .
-// - `RESPONSIVE` : The width of the canvas will be responsive and optimized to the view port. In the Amazon QuickSight console, this option is called `Tiled` .
+// - `FIXED` : A fixed width will be used when optimizing the layout. In the Quick Sight console, this option is called `Classic` .
+// - `RESPONSIVE` : The width of the canvas will be responsive and optimized to the view port. In the Quick Sight console, this option is called `Tiled` .
 func (o TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput) ResizeOption() TemplateResizeOptionPtrOutput {
 	return o.ApplyT(func(v *TemplateGridLayoutScreenCanvasSizeOptions) *TemplateResizeOption {
 		if v == nil {
@@ -85031,258 +85168,9 @@ func (o TemplateLineChartSortConfigurationPtrOutput) SmallMultiplesSort() Templa
 	}).(TemplateFieldSortOptionsArrayOutput)
 }
 
-type TemplateLineChartVisual struct {
-	// The list of custom actions that are configured for a visual.
-	Actions []TemplateVisualCustomAction `pulumi:"actions"`
-	// The configuration of a line chart.
-	ChartConfiguration *TemplateLineChartConfiguration `pulumi:"chartConfiguration"`
-	// The column hierarchy that is used during drill-downs and drill-ups.
-	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
-	// The subtitle that is displayed on the visual.
-	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title that is displayed on the visual.
-	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	// The alt text for the visual.
-	VisualContentAltText *string `pulumi:"visualContentAltText"`
-	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
-	VisualId string `pulumi:"visualId"`
-}
-
-// TemplateLineChartVisualInput is an input type that accepts TemplateLineChartVisualArgs and TemplateLineChartVisualOutput values.
-// You can construct a concrete instance of `TemplateLineChartVisualInput` via:
-//
-//	TemplateLineChartVisualArgs{...}
-type TemplateLineChartVisualInput interface {
-	pulumi.Input
-
-	ToTemplateLineChartVisualOutput() TemplateLineChartVisualOutput
-	ToTemplateLineChartVisualOutputWithContext(context.Context) TemplateLineChartVisualOutput
-}
-
-type TemplateLineChartVisualArgs struct {
-	// The list of custom actions that are configured for a visual.
-	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
-	// The configuration of a line chart.
-	ChartConfiguration TemplateLineChartConfigurationPtrInput `pulumi:"chartConfiguration"`
-	// The column hierarchy that is used during drill-downs and drill-ups.
-	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
-	// The subtitle that is displayed on the visual.
-	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title that is displayed on the visual.
-	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	// The alt text for the visual.
-	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
-	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
-	VisualId pulumi.StringInput `pulumi:"visualId"`
-}
-
-func (TemplateLineChartVisualArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateLineChartVisual)(nil)).Elem()
-}
-
-func (i TemplateLineChartVisualArgs) ToTemplateLineChartVisualOutput() TemplateLineChartVisualOutput {
-	return i.ToTemplateLineChartVisualOutputWithContext(context.Background())
-}
-
-func (i TemplateLineChartVisualArgs) ToTemplateLineChartVisualOutputWithContext(ctx context.Context) TemplateLineChartVisualOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateLineChartVisualOutput)
-}
-
-func (i TemplateLineChartVisualArgs) ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput {
-	return i.ToTemplateLineChartVisualPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateLineChartVisualArgs) ToTemplateLineChartVisualPtrOutputWithContext(ctx context.Context) TemplateLineChartVisualPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateLineChartVisualOutput).ToTemplateLineChartVisualPtrOutputWithContext(ctx)
-}
-
-// TemplateLineChartVisualPtrInput is an input type that accepts TemplateLineChartVisualArgs, TemplateLineChartVisualPtr and TemplateLineChartVisualPtrOutput values.
-// You can construct a concrete instance of `TemplateLineChartVisualPtrInput` via:
-//
-//	        TemplateLineChartVisualArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateLineChartVisualPtrInput interface {
-	pulumi.Input
-
-	ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput
-	ToTemplateLineChartVisualPtrOutputWithContext(context.Context) TemplateLineChartVisualPtrOutput
-}
-
-type templateLineChartVisualPtrType TemplateLineChartVisualArgs
-
-func TemplateLineChartVisualPtr(v *TemplateLineChartVisualArgs) TemplateLineChartVisualPtrInput {
-	return (*templateLineChartVisualPtrType)(v)
-}
-
-func (*templateLineChartVisualPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateLineChartVisual)(nil)).Elem()
-}
-
-func (i *templateLineChartVisualPtrType) ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput {
-	return i.ToTemplateLineChartVisualPtrOutputWithContext(context.Background())
-}
-
-func (i *templateLineChartVisualPtrType) ToTemplateLineChartVisualPtrOutputWithContext(ctx context.Context) TemplateLineChartVisualPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateLineChartVisualPtrOutput)
-}
-
-type TemplateLineChartVisualOutput struct{ *pulumi.OutputState }
-
-func (TemplateLineChartVisualOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateLineChartVisual)(nil)).Elem()
-}
-
-func (o TemplateLineChartVisualOutput) ToTemplateLineChartVisualOutput() TemplateLineChartVisualOutput {
-	return o
-}
-
-func (o TemplateLineChartVisualOutput) ToTemplateLineChartVisualOutputWithContext(ctx context.Context) TemplateLineChartVisualOutput {
-	return o
-}
-
-func (o TemplateLineChartVisualOutput) ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput {
-	return o.ToTemplateLineChartVisualPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateLineChartVisualOutput) ToTemplateLineChartVisualPtrOutputWithContext(ctx context.Context) TemplateLineChartVisualPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLineChartVisual) *TemplateLineChartVisual {
-		return &v
-	}).(TemplateLineChartVisualPtrOutput)
-}
-
-// The list of custom actions that are configured for a visual.
-func (o TemplateLineChartVisualOutput) Actions() TemplateVisualCustomActionArrayOutput {
-	return o.ApplyT(func(v TemplateLineChartVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
-}
-
-// The configuration of a line chart.
-func (o TemplateLineChartVisualOutput) ChartConfiguration() TemplateLineChartConfigurationPtrOutput {
-	return o.ApplyT(func(v TemplateLineChartVisual) *TemplateLineChartConfiguration { return v.ChartConfiguration }).(TemplateLineChartConfigurationPtrOutput)
-}
-
-// The column hierarchy that is used during drill-downs and drill-ups.
-func (o TemplateLineChartVisualOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
-	return o.ApplyT(func(v TemplateLineChartVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
-}
-
-// The subtitle that is displayed on the visual.
-func (o TemplateLineChartVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateLineChartVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
-}
-
-// The title that is displayed on the visual.
-func (o TemplateLineChartVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateLineChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
-}
-
-// The alt text for the visual.
-func (o TemplateLineChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateLineChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
-}
-
-// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
-func (o TemplateLineChartVisualOutput) VisualId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateLineChartVisual) string { return v.VisualId }).(pulumi.StringOutput)
-}
-
-type TemplateLineChartVisualPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateLineChartVisualPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateLineChartVisual)(nil)).Elem()
-}
-
-func (o TemplateLineChartVisualPtrOutput) ToTemplateLineChartVisualPtrOutput() TemplateLineChartVisualPtrOutput {
-	return o
-}
-
-func (o TemplateLineChartVisualPtrOutput) ToTemplateLineChartVisualPtrOutputWithContext(ctx context.Context) TemplateLineChartVisualPtrOutput {
-	return o
-}
-
-func (o TemplateLineChartVisualPtrOutput) Elem() TemplateLineChartVisualOutput {
-	return o.ApplyT(func(v *TemplateLineChartVisual) TemplateLineChartVisual {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateLineChartVisual
-		return ret
-	}).(TemplateLineChartVisualOutput)
-}
-
-// The list of custom actions that are configured for a visual.
-func (o TemplateLineChartVisualPtrOutput) Actions() TemplateVisualCustomActionArrayOutput {
-	return o.ApplyT(func(v *TemplateLineChartVisual) []TemplateVisualCustomAction {
-		if v == nil {
-			return nil
-		}
-		return v.Actions
-	}).(TemplateVisualCustomActionArrayOutput)
-}
-
-// The configuration of a line chart.
-func (o TemplateLineChartVisualPtrOutput) ChartConfiguration() TemplateLineChartConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateLineChartVisual) *TemplateLineChartConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ChartConfiguration
-	}).(TemplateLineChartConfigurationPtrOutput)
-}
-
-// The column hierarchy that is used during drill-downs and drill-ups.
-func (o TemplateLineChartVisualPtrOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
-	return o.ApplyT(func(v *TemplateLineChartVisual) []TemplateColumnHierarchy {
-		if v == nil {
-			return nil
-		}
-		return v.ColumnHierarchies
-	}).(TemplateColumnHierarchyArrayOutput)
-}
-
-// The subtitle that is displayed on the visual.
-func (o TemplateLineChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateLineChartVisual) *TemplateVisualSubtitleLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.Subtitle
-	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
-}
-
-// The title that is displayed on the visual.
-func (o TemplateLineChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateLineChartVisual) *TemplateVisualTitleLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(TemplateVisualTitleLabelOptionsPtrOutput)
-}
-
-// The alt text for the visual.
-func (o TemplateLineChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateLineChartVisual) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VisualContentAltText
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
-func (o TemplateLineChartVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateLineChartVisual) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VisualId
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionAfterPageBreakInput)(nil)).Elem(), DashboardSectionAfterPageBreakArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionAfterPageBreakPtrInput)(nil)).Elem(), DashboardSectionAfterPageBreakArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionBasedLayoutCanvasSizeOptionsInput)(nil)).Elem(), DashboardSectionBasedLayoutCanvasSizeOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionBasedLayoutCanvasSizeOptionsPtrInput)(nil)).Elem(), DashboardSectionBasedLayoutCanvasSizeOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionBasedLayoutConfigurationInput)(nil)).Elem(), DashboardSectionBasedLayoutConfigurationArgs{})
@@ -86260,8 +86148,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineChartSeriesSettingsPtrInput)(nil)).Elem(), TemplateLineChartSeriesSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineChartSortConfigurationInput)(nil)).Elem(), TemplateLineChartSortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineChartSortConfigurationPtrInput)(nil)).Elem(), TemplateLineChartSortConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineChartVisualInput)(nil)).Elem(), TemplateLineChartVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLineChartVisualPtrInput)(nil)).Elem(), TemplateLineChartVisualArgs{})
+	pulumi.RegisterOutputType(DashboardSectionAfterPageBreakOutput{})
+	pulumi.RegisterOutputType(DashboardSectionAfterPageBreakPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSectionBasedLayoutCanvasSizeOptionsOutput{})
 	pulumi.RegisterOutputType(DashboardSectionBasedLayoutCanvasSizeOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSectionBasedLayoutConfigurationOutput{})
@@ -87249,6 +87137,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateLineChartSeriesSettingsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLineChartSortConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateLineChartSortConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(TemplateLineChartVisualOutput{})
-	pulumi.RegisterOutputType(TemplateLineChartVisualPtrOutput{})
 }

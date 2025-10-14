@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.Pcs.Inputs
     /// <summary>
     /// Additional settings that directly map to Slurm settings.
     /// </summary>
-    public sealed class ComputeNodeGroupSlurmCustomSettingArgs : global::Pulumi.ResourceArgs
+    public sealed class QueueSlurmCustomSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AWS PCS supports configuration of the following Slurm parameters for compute node groups: Weight and RealMemory.
+        /// AWS PCS supports configuration of the Slurm parameters for queues:.
         /// </summary>
         [Input("parameterName", required: true)]
         public Input<string> ParameterName { get; set; } = null!;
@@ -27,9 +27,9 @@ namespace Pulumi.AwsNative.Pcs.Inputs
         [Input("parameterValue", required: true)]
         public Input<string> ParameterValue { get; set; } = null!;
 
-        public ComputeNodeGroupSlurmCustomSettingArgs()
+        public QueueSlurmCustomSettingArgs()
         {
         }
-        public static new ComputeNodeGroupSlurmCustomSettingArgs Empty => new ComputeNodeGroupSlurmCustomSettingArgs();
+        public static new QueueSlurmCustomSettingArgs Empty => new QueueSlurmCustomSettingArgs();
     }
 }

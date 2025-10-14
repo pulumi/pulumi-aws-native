@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class GatewayTargetCredentialProviderConfiguration
     {
+        /// <summary>
+        /// The credential provider for the gateway target.
+        /// </summary>
         public readonly Union<Outputs.GatewayTargetCredentialProvider0Properties, Outputs.GatewayTargetCredentialProvider1Properties>? CredentialProvider;
+        /// <summary>
+        /// The credential provider type for the gateway target.
+        /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.GatewayTargetCredentialProviderType CredentialProviderType;
 
         [OutputConstructor]

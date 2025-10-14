@@ -36,6 +36,8 @@ type LookupQueueResult struct {
 	ErrorInfo []QueueErrorInfo `pulumi:"errorInfo"`
 	// The generated unique ID of the queue.
 	Id *string `pulumi:"id"`
+	// The Slurm configuration for the queue.
+	SlurmConfiguration *SlurmConfigurationProperties `pulumi:"slurmConfiguration"`
 	// The provisioning status of the queue. The provisioning status doesn't indicate the overall health of the queue.
 	Status *QueueStatus `pulumi:"status"`
 	// 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
@@ -94,6 +96,11 @@ func (o LookupQueueResultOutput) ErrorInfo() QueueErrorInfoArrayOutput {
 // The generated unique ID of the queue.
 func (o LookupQueueResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The Slurm configuration for the queue.
+func (o LookupQueueResultOutput) SlurmConfiguration() SlurmConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *SlurmConfigurationProperties { return v.SlurmConfiguration }).(SlurmConfigurationPropertiesPtrOutput)
 }
 
 // The provisioning status of the queue. The provisioning status doesn't indicate the overall health of the queue.

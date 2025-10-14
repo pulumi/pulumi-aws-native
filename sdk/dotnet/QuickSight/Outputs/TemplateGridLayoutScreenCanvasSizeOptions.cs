@@ -20,8 +20,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// This value determines the layout behavior when the viewport is resized.
         /// 
-        /// - `FIXED` : A fixed width will be used when optimizing the layout. In the Amazon QuickSight console, this option is called `Classic` .
-        /// - `RESPONSIVE` : The width of the canvas will be responsive and optimized to the view port. In the Amazon QuickSight console, this option is called `Tiled` .
+        /// - `FIXED` : A fixed width will be used when optimizing the layout. In the Quick Sight console, this option is called `Classic` .
+        /// - `RESPONSIVE` : The width of the canvas will be responsive and optimized to the view port. In the Quick Sight console, this option is called `Tiled` .
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateResizeOption ResizeOption;
 

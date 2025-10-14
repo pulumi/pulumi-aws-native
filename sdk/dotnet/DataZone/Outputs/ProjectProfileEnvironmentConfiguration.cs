@@ -41,10 +41,7 @@ namespace Pulumi.AwsNative.DataZone.Outputs
         /// The environment blueprint ID.
         /// </summary>
         public readonly string EnvironmentBlueprintId;
-        /// <summary>
-        /// The environment ID.
-        /// </summary>
-        public readonly string? Id;
+        public readonly string? EnvironmentConfigurationId;
         /// <summary>
         /// The environment name.
         /// </summary>
@@ -66,7 +63,7 @@ namespace Pulumi.AwsNative.DataZone.Outputs
 
             string environmentBlueprintId,
 
-            string? id,
+            string? environmentConfigurationId,
 
             string name)
         {
@@ -77,7 +74,7 @@ namespace Pulumi.AwsNative.DataZone.Outputs
             DeploymentOrder = deploymentOrder;
             Description = description;
             EnvironmentBlueprintId = environmentBlueprintId;
-            Id = id;
+            EnvironmentConfigurationId = environmentConfigurationId;
             Name = name;
         }
     }

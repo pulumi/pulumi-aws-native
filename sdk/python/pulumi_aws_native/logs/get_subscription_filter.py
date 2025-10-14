@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSubscriptionFilterResult:
-    def __init__(__self__, apply_on_transformed_logs=None, destination_arn=None, distribution=None, filter_pattern=None, role_arn=None):
+    def __init__(__self__, apply_on_transformed_logs=None, destination_arn=None, distribution=None, emit_system_fields=None, field_selection_criteria=None, filter_pattern=None, role_arn=None):
         if apply_on_transformed_logs and not isinstance(apply_on_transformed_logs, bool):
             raise TypeError("Expected argument 'apply_on_transformed_logs' to be a bool")
         pulumi.set(__self__, "apply_on_transformed_logs", apply_on_transformed_logs)
@@ -34,6 +34,12 @@ class GetSubscriptionFilterResult:
         if distribution and not isinstance(distribution, str):
             raise TypeError("Expected argument 'distribution' to be a str")
         pulumi.set(__self__, "distribution", distribution)
+        if emit_system_fields and not isinstance(emit_system_fields, list):
+            raise TypeError("Expected argument 'emit_system_fields' to be a list")
+        pulumi.set(__self__, "emit_system_fields", emit_system_fields)
+        if field_selection_criteria and not isinstance(field_selection_criteria, str):
+            raise TypeError("Expected argument 'field_selection_criteria' to be a str")
+        pulumi.set(__self__, "field_selection_criteria", field_selection_criteria)
         if filter_pattern and not isinstance(filter_pattern, str):
             raise TypeError("Expected argument 'filter_pattern' to be a str")
         pulumi.set(__self__, "filter_pattern", filter_pattern)
@@ -67,6 +73,22 @@ class GetSubscriptionFilterResult:
         return pulumi.get(self, "distribution")
 
     @_builtins.property
+    @pulumi.getter(name="emitSystemFields")
+    def emit_system_fields(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+        """
+        return pulumi.get(self, "emit_system_fields")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldSelectionCriteria")
+    def field_selection_criteria(self) -> Optional[_builtins.str]:
+        """
+        The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+        """
+        return pulumi.get(self, "field_selection_criteria")
+
+    @_builtins.property
     @pulumi.getter(name="filterPattern")
     def filter_pattern(self) -> Optional[_builtins.str]:
         """
@@ -92,6 +114,8 @@ class AwaitableGetSubscriptionFilterResult(GetSubscriptionFilterResult):
             apply_on_transformed_logs=self.apply_on_transformed_logs,
             destination_arn=self.destination_arn,
             distribution=self.distribution,
+            emit_system_fields=self.emit_system_fields,
+            field_selection_criteria=self.field_selection_criteria,
             filter_pattern=self.filter_pattern,
             role_arn=self.role_arn)
 
@@ -122,6 +146,8 @@ def get_subscription_filter(filter_name: Optional[_builtins.str] = None,
         apply_on_transformed_logs=pulumi.get(__ret__, 'apply_on_transformed_logs'),
         destination_arn=pulumi.get(__ret__, 'destination_arn'),
         distribution=pulumi.get(__ret__, 'distribution'),
+        emit_system_fields=pulumi.get(__ret__, 'emit_system_fields'),
+        field_selection_criteria=pulumi.get(__ret__, 'field_selection_criteria'),
         filter_pattern=pulumi.get(__ret__, 'filter_pattern'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
 def get_subscription_filter_output(filter_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -149,5 +175,7 @@ def get_subscription_filter_output(filter_name: Optional[pulumi.Input[_builtins.
         apply_on_transformed_logs=pulumi.get(__response__, 'apply_on_transformed_logs'),
         destination_arn=pulumi.get(__response__, 'destination_arn'),
         distribution=pulumi.get(__response__, 'distribution'),
+        emit_system_fields=pulumi.get(__response__, 'emit_system_fields'),
+        field_selection_criteria=pulumi.get(__response__, 'field_selection_criteria'),
         filter_pattern=pulumi.get(__response__, 'filter_pattern'),
         role_arn=pulumi.get(__response__, 'role_arn')))

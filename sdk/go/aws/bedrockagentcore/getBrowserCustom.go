@@ -34,6 +34,8 @@ type LookupBrowserCustomResult struct {
 	BrowserId *string `pulumi:"browserId"`
 	// Timestamp when the browser was created.
 	CreatedAt *string `pulumi:"createdAt"`
+	// The reason for failure if the browser creation or operation failed.
+	FailureReason *string `pulumi:"failureReason"`
 	// Timestamp when the browser was last updated.
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// Status of browser.
@@ -87,6 +89,11 @@ func (o LookupBrowserCustomResultOutput) BrowserId() pulumi.StringPtrOutput {
 // Timestamp when the browser was created.
 func (o LookupBrowserCustomResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBrowserCustomResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The reason for failure if the browser creation or operation failed.
+func (o LookupBrowserCustomResultOutput) FailureReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBrowserCustomResult) *string { return v.FailureReason }).(pulumi.StringPtrOutput)
 }
 
 // Timestamp when the browser was last updated.

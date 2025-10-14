@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'GroupingConfigurationGroupingAttributeDefinitionArgs',
+    'GroupingConfigurationGroupingAttributeDefinitionArgsDict',
     'ServiceLevelObjectiveBurnRateConfigurationArgs',
     'ServiceLevelObjectiveBurnRateConfigurationArgsDict',
     'ServiceLevelObjectiveCalendarIntervalArgs',
@@ -55,6 +57,53 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class GroupingConfigurationGroupingAttributeDefinitionArgsDict(TypedDict):
+        grouping_name: pulumi.Input[_builtins.str]
+        grouping_source_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        default_grouping_value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    GroupingConfigurationGroupingAttributeDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GroupingConfigurationGroupingAttributeDefinitionArgs:
+    def __init__(__self__, *,
+                 grouping_name: pulumi.Input[_builtins.str],
+                 grouping_source_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 default_grouping_value: Optional[pulumi.Input[_builtins.str]] = None):
+        pulumi.set(__self__, "grouping_name", grouping_name)
+        pulumi.set(__self__, "grouping_source_keys", grouping_source_keys)
+        if default_grouping_value is not None:
+            pulumi.set(__self__, "default_grouping_value", default_grouping_value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupingName")
+    def grouping_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "grouping_name")
+
+    @grouping_name.setter
+    def grouping_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "grouping_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupingSourceKeys")
+    def grouping_source_keys(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "grouping_source_keys")
+
+    @grouping_source_keys.setter
+    def grouping_source_keys(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "grouping_source_keys", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultGroupingValue")
+    def default_grouping_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default_grouping_value")
+
+    @default_grouping_value.setter
+    def default_grouping_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_grouping_value", value)
+
 
 if not MYPY:
     class ServiceLevelObjectiveBurnRateConfigurationArgsDict(TypedDict):

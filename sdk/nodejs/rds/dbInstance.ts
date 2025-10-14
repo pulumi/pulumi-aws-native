@@ -569,13 +569,11 @@ export class DbInstance extends pulumi.CustomResource {
     declare public readonly manageMasterUserPassword: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.
-     *
-     * You can specify one of the following values:
-     *
-     * - `password` - Use standard database authentication with a password.
-     * - `iam-db-auth` - Use IAM database authentication for the master user.
-     *
-     * This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+     *  You can specify one of the following values:
+     *   +  ``password`` - Use standard database authentication with a password.
+     *   +  ``iam-db-auth`` - Use IAM database authentication for the master user.
+     *   
+     *  This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
      */
     declare public readonly masterUserAuthenticationType: pulumi.Output<string | undefined>;
     /**
@@ -1598,13 +1596,11 @@ export interface DbInstanceArgs {
     manageMasterUserPassword?: pulumi.Input<boolean>;
     /**
      * Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.
-     *
-     * You can specify one of the following values:
-     *
-     * - `password` - Use standard database authentication with a password.
-     * - `iam-db-auth` - Use IAM database authentication for the master user.
-     *
-     * This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+     *  You can specify one of the following values:
+     *   +  ``password`` - Use standard database authentication with a password.
+     *   +  ``iam-db-auth`` - Use IAM database authentication for the master user.
+     *   
+     *  This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
      */
     masterUserAuthenticationType?: pulumi.Input<string>;
     /**

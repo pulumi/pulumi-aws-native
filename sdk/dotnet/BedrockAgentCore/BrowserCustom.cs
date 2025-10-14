@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<string?> ExecutionRoleArn { get; private set; } = null!;
 
         /// <summary>
+        /// The reason for failure if the browser creation or operation failed.
+        /// </summary>
+        [Output("failureReason")]
+        public Output<string> FailureReason { get; private set; } = null!;
+
+        /// <summary>
         /// Timestamp when the browser was last updated.
         /// </summary>
         [Output("lastUpdatedAt")]

@@ -42,7 +42,9 @@ class EnvironmentArgs:
         :param pulumi.Input[_builtins.str] instance_type: The type of instance underlying the environment.
         :param pulumi.Input[_builtins.str] description: The description of the environment.
         :param pulumi.Input[_builtins.str] engine_version: The version of the runtime engine for the environment.
-        :param pulumi.Input['EnvironmentHighAvailabilityConfigArgs'] high_availability_config: Defines the details of a high availability configuration.
+        :param pulumi.Input['EnvironmentHighAvailabilityConfigArgs'] high_availability_config: > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) . 
+               
+               Defines the details of a high availability configuration.
         :param pulumi.Input[_builtins.str] kms_key_id: The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
         :param pulumi.Input[_builtins.str] name: The name of the environment.
         :param pulumi.Input['EnvironmentNetworkType'] network_type: The network type supported by the runtime environment.
@@ -132,6 +134,8 @@ class EnvironmentArgs:
     @pulumi.getter(name="highAvailabilityConfig")
     def high_availability_config(self) -> Optional[pulumi.Input['EnvironmentHighAvailabilityConfigArgs']]:
         """
+        > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) . 
+
         Defines the details of a high availability configuration.
         """
         return pulumi.get(self, "high_availability_config")
@@ -278,7 +282,9 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the environment.
         :param pulumi.Input['EnvironmentEngineType'] engine_type: The target platform for the runtime environment.
         :param pulumi.Input[_builtins.str] engine_version: The version of the runtime engine for the environment.
-        :param pulumi.Input[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']] high_availability_config: Defines the details of a high availability configuration.
+        :param pulumi.Input[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']] high_availability_config: > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) . 
+               
+               Defines the details of a high availability configuration.
         :param pulumi.Input[_builtins.str] instance_type: The type of instance underlying the environment.
         :param pulumi.Input[_builtins.str] kms_key_id: The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
         :param pulumi.Input[_builtins.str] name: The name of the environment.
@@ -443,6 +449,8 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="highAvailabilityConfig")
     def high_availability_config(self) -> pulumi.Output[Optional['outputs.EnvironmentHighAvailabilityConfig']]:
         """
+        > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) . 
+
         Defines the details of a high availability configuration.
         """
         return pulumi.get(self, "high_availability_config")

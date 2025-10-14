@@ -38,20 +38,59 @@ export class Gateway extends pulumi.CustomResource {
     }
 
     declare public readonly authorizerConfiguration: pulumi.Output<outputs.bedrockagentcore.GatewayAuthorizerConfigurationProperties | undefined>;
+    /**
+     * The authorizer type for the gateway.
+     */
     declare public readonly authorizerType: pulumi.Output<enums.bedrockagentcore.GatewayAuthorizerType>;
+    /**
+     * The date and time at which the gateway was created.
+     */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    /**
+     * The description for the gateway.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * The exception level for the gateway.
+     */
     declare public readonly exceptionLevel: pulumi.Output<enums.bedrockagentcore.GatewayExceptionLevel | undefined>;
+    /**
+     * The ARN for the gateway.
+     */
     declare public /*out*/ readonly gatewayArn: pulumi.Output<string>;
     declare public /*out*/ readonly gatewayIdentifier: pulumi.Output<string>;
+    /**
+     * The gateway URL for the gateway.
+     */
     declare public /*out*/ readonly gatewayUrl: pulumi.Output<string>;
+    /**
+     * The KMS key ARN for the gateway.
+     */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    /**
+     * The name for the gateway.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The protocol configuration for the gateway target.
+     */
     declare public readonly protocolConfiguration: pulumi.Output<outputs.bedrockagentcore.GatewayProtocolConfigurationProperties | undefined>;
+    /**
+     * The protocol type for the gateway target.
+     */
     declare public readonly protocolType: pulumi.Output<enums.bedrockagentcore.GatewayProtocolType>;
     declare public readonly roleArn: pulumi.Output<string>;
+    /**
+     * The status for the gateway.
+     */
     declare public /*out*/ readonly status: pulumi.Output<enums.bedrockagentcore.GatewayStatus>;
+    /**
+     * The status reasons for the gateway.
+     */
     declare public /*out*/ readonly statusReasons: pulumi.Output<string[]>;
+    /**
+     * The tags for the gateway.
+     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     declare public /*out*/ readonly workloadIdentityDetails: pulumi.Output<outputs.bedrockagentcore.GatewayWorkloadIdentityDetails>;
@@ -124,13 +163,37 @@ export class Gateway extends pulumi.CustomResource {
  */
 export interface GatewayArgs {
     authorizerConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewayAuthorizerConfigurationPropertiesArgs>;
+    /**
+     * The authorizer type for the gateway.
+     */
     authorizerType: pulumi.Input<enums.bedrockagentcore.GatewayAuthorizerType>;
+    /**
+     * The description for the gateway.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The exception level for the gateway.
+     */
     exceptionLevel?: pulumi.Input<enums.bedrockagentcore.GatewayExceptionLevel>;
+    /**
+     * The KMS key ARN for the gateway.
+     */
     kmsKeyArn?: pulumi.Input<string>;
+    /**
+     * The name for the gateway.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The protocol configuration for the gateway target.
+     */
     protocolConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewayProtocolConfigurationPropertiesArgs>;
+    /**
+     * The protocol type for the gateway target.
+     */
     protocolType: pulumi.Input<enums.bedrockagentcore.GatewayProtocolType>;
     roleArn: pulumi.Input<string>;
+    /**
+     * The tags for the gateway.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

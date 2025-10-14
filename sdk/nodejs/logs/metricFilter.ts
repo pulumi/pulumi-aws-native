@@ -44,6 +44,14 @@ export class MetricFilter extends pulumi.CustomResource {
      */
     declare public readonly applyOnTransformedLogs: pulumi.Output<boolean | undefined>;
     /**
+     * The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+     */
+    declare public readonly emitSystemFieldDimensions: pulumi.Output<string[] | undefined>;
+    /**
+     * The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
+     */
+    declare public readonly fieldSelectionCriteria: pulumi.Output<string | undefined>;
+    /**
      * The name of the metric filter.
      */
     declare public readonly filterName: pulumi.Output<string | undefined>;
@@ -81,12 +89,16 @@ export class MetricFilter extends pulumi.CustomResource {
                 throw new Error("Missing required property 'metricTransformations'");
             }
             resourceInputs["applyOnTransformedLogs"] = args?.applyOnTransformedLogs;
+            resourceInputs["emitSystemFieldDimensions"] = args?.emitSystemFieldDimensions;
+            resourceInputs["fieldSelectionCriteria"] = args?.fieldSelectionCriteria;
             resourceInputs["filterName"] = args?.filterName;
             resourceInputs["filterPattern"] = args?.filterPattern;
             resourceInputs["logGroupName"] = args?.logGroupName;
             resourceInputs["metricTransformations"] = args?.metricTransformations;
         } else {
             resourceInputs["applyOnTransformedLogs"] = undefined /*out*/;
+            resourceInputs["emitSystemFieldDimensions"] = undefined /*out*/;
+            resourceInputs["fieldSelectionCriteria"] = undefined /*out*/;
             resourceInputs["filterName"] = undefined /*out*/;
             resourceInputs["filterPattern"] = undefined /*out*/;
             resourceInputs["logGroupName"] = undefined /*out*/;
@@ -108,6 +120,14 @@ export interface MetricFilterArgs {
      *  If this value is ``true``, the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
      */
     applyOnTransformedLogs?: pulumi.Input<boolean>;
+    /**
+     * The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+     */
+    emitSystemFieldDimensions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
+     */
+    fieldSelectionCriteria?: pulumi.Input<string>;
     /**
      * The name of the metric filter.
      */

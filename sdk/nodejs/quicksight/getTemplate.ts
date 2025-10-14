@@ -20,7 +20,7 @@ export function getTemplate(args: GetTemplateArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetTemplateArgs {
     /**
-     * The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+     * The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
      */
     awsAccountId: string;
     /**
@@ -69,7 +69,7 @@ export function getTemplateOutput(args: GetTemplateOutputArgs, opts?: pulumi.Inv
 
 export interface GetTemplateOutputArgs {
     /**
-     * The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+     * The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
      */
     awsAccountId: pulumi.Input<string>;
     /**

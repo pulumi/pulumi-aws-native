@@ -2759,6 +2759,286 @@ func (o ImageEcrConfigurationPtrOutput) RepositoryName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The logging configuration settings for the image.
+type ImageLoggingConfiguration struct {
+	// The name of the log group for image build logs.
+	LogGroupName *string `pulumi:"logGroupName"`
+}
+
+// ImageLoggingConfigurationInput is an input type that accepts ImageLoggingConfigurationArgs and ImageLoggingConfigurationOutput values.
+// You can construct a concrete instance of `ImageLoggingConfigurationInput` via:
+//
+//	ImageLoggingConfigurationArgs{...}
+type ImageLoggingConfigurationInput interface {
+	pulumi.Input
+
+	ToImageLoggingConfigurationOutput() ImageLoggingConfigurationOutput
+	ToImageLoggingConfigurationOutputWithContext(context.Context) ImageLoggingConfigurationOutput
+}
+
+// The logging configuration settings for the image.
+type ImageLoggingConfigurationArgs struct {
+	// The name of the log group for image build logs.
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+}
+
+func (ImageLoggingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageLoggingConfiguration)(nil)).Elem()
+}
+
+func (i ImageLoggingConfigurationArgs) ToImageLoggingConfigurationOutput() ImageLoggingConfigurationOutput {
+	return i.ToImageLoggingConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImageLoggingConfigurationArgs) ToImageLoggingConfigurationOutputWithContext(ctx context.Context) ImageLoggingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageLoggingConfigurationOutput)
+}
+
+func (i ImageLoggingConfigurationArgs) ToImageLoggingConfigurationPtrOutput() ImageLoggingConfigurationPtrOutput {
+	return i.ToImageLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ImageLoggingConfigurationArgs) ToImageLoggingConfigurationPtrOutputWithContext(ctx context.Context) ImageLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageLoggingConfigurationOutput).ToImageLoggingConfigurationPtrOutputWithContext(ctx)
+}
+
+// ImageLoggingConfigurationPtrInput is an input type that accepts ImageLoggingConfigurationArgs, ImageLoggingConfigurationPtr and ImageLoggingConfigurationPtrOutput values.
+// You can construct a concrete instance of `ImageLoggingConfigurationPtrInput` via:
+//
+//	        ImageLoggingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImageLoggingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToImageLoggingConfigurationPtrOutput() ImageLoggingConfigurationPtrOutput
+	ToImageLoggingConfigurationPtrOutputWithContext(context.Context) ImageLoggingConfigurationPtrOutput
+}
+
+type imageLoggingConfigurationPtrType ImageLoggingConfigurationArgs
+
+func ImageLoggingConfigurationPtr(v *ImageLoggingConfigurationArgs) ImageLoggingConfigurationPtrInput {
+	return (*imageLoggingConfigurationPtrType)(v)
+}
+
+func (*imageLoggingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageLoggingConfiguration)(nil)).Elem()
+}
+
+func (i *imageLoggingConfigurationPtrType) ToImageLoggingConfigurationPtrOutput() ImageLoggingConfigurationPtrOutput {
+	return i.ToImageLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *imageLoggingConfigurationPtrType) ToImageLoggingConfigurationPtrOutputWithContext(ctx context.Context) ImageLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageLoggingConfigurationPtrOutput)
+}
+
+// The logging configuration settings for the image.
+type ImageLoggingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImageLoggingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageLoggingConfiguration)(nil)).Elem()
+}
+
+func (o ImageLoggingConfigurationOutput) ToImageLoggingConfigurationOutput() ImageLoggingConfigurationOutput {
+	return o
+}
+
+func (o ImageLoggingConfigurationOutput) ToImageLoggingConfigurationOutputWithContext(ctx context.Context) ImageLoggingConfigurationOutput {
+	return o
+}
+
+func (o ImageLoggingConfigurationOutput) ToImageLoggingConfigurationPtrOutput() ImageLoggingConfigurationPtrOutput {
+	return o.ToImageLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ImageLoggingConfigurationOutput) ToImageLoggingConfigurationPtrOutputWithContext(ctx context.Context) ImageLoggingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageLoggingConfiguration) *ImageLoggingConfiguration {
+		return &v
+	}).(ImageLoggingConfigurationPtrOutput)
+}
+
+// The name of the log group for image build logs.
+func (o ImageLoggingConfigurationOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageLoggingConfiguration) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
+}
+
+type ImageLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageLoggingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageLoggingConfiguration)(nil)).Elem()
+}
+
+func (o ImageLoggingConfigurationPtrOutput) ToImageLoggingConfigurationPtrOutput() ImageLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o ImageLoggingConfigurationPtrOutput) ToImageLoggingConfigurationPtrOutputWithContext(ctx context.Context) ImageLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o ImageLoggingConfigurationPtrOutput) Elem() ImageLoggingConfigurationOutput {
+	return o.ApplyT(func(v *ImageLoggingConfiguration) ImageLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ImageLoggingConfiguration
+		return ret
+	}).(ImageLoggingConfigurationOutput)
+}
+
+// The name of the log group for image build logs.
+func (o ImageLoggingConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The auto-disable policy configuration for the image pipeline.
+type ImagePipelineAutoDisablePolicy struct {
+	// The number of consecutive failures after which the pipeline should be automatically disabled.
+	FailureCount int `pulumi:"failureCount"`
+}
+
+// ImagePipelineAutoDisablePolicyInput is an input type that accepts ImagePipelineAutoDisablePolicyArgs and ImagePipelineAutoDisablePolicyOutput values.
+// You can construct a concrete instance of `ImagePipelineAutoDisablePolicyInput` via:
+//
+//	ImagePipelineAutoDisablePolicyArgs{...}
+type ImagePipelineAutoDisablePolicyInput interface {
+	pulumi.Input
+
+	ToImagePipelineAutoDisablePolicyOutput() ImagePipelineAutoDisablePolicyOutput
+	ToImagePipelineAutoDisablePolicyOutputWithContext(context.Context) ImagePipelineAutoDisablePolicyOutput
+}
+
+// The auto-disable policy configuration for the image pipeline.
+type ImagePipelineAutoDisablePolicyArgs struct {
+	// The number of consecutive failures after which the pipeline should be automatically disabled.
+	FailureCount pulumi.IntInput `pulumi:"failureCount"`
+}
+
+func (ImagePipelineAutoDisablePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineAutoDisablePolicy)(nil)).Elem()
+}
+
+func (i ImagePipelineAutoDisablePolicyArgs) ToImagePipelineAutoDisablePolicyOutput() ImagePipelineAutoDisablePolicyOutput {
+	return i.ToImagePipelineAutoDisablePolicyOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineAutoDisablePolicyArgs) ToImagePipelineAutoDisablePolicyOutputWithContext(ctx context.Context) ImagePipelineAutoDisablePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineAutoDisablePolicyOutput)
+}
+
+func (i ImagePipelineAutoDisablePolicyArgs) ToImagePipelineAutoDisablePolicyPtrOutput() ImagePipelineAutoDisablePolicyPtrOutput {
+	return i.ToImagePipelineAutoDisablePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineAutoDisablePolicyArgs) ToImagePipelineAutoDisablePolicyPtrOutputWithContext(ctx context.Context) ImagePipelineAutoDisablePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineAutoDisablePolicyOutput).ToImagePipelineAutoDisablePolicyPtrOutputWithContext(ctx)
+}
+
+// ImagePipelineAutoDisablePolicyPtrInput is an input type that accepts ImagePipelineAutoDisablePolicyArgs, ImagePipelineAutoDisablePolicyPtr and ImagePipelineAutoDisablePolicyPtrOutput values.
+// You can construct a concrete instance of `ImagePipelineAutoDisablePolicyPtrInput` via:
+//
+//	        ImagePipelineAutoDisablePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImagePipelineAutoDisablePolicyPtrInput interface {
+	pulumi.Input
+
+	ToImagePipelineAutoDisablePolicyPtrOutput() ImagePipelineAutoDisablePolicyPtrOutput
+	ToImagePipelineAutoDisablePolicyPtrOutputWithContext(context.Context) ImagePipelineAutoDisablePolicyPtrOutput
+}
+
+type imagePipelineAutoDisablePolicyPtrType ImagePipelineAutoDisablePolicyArgs
+
+func ImagePipelineAutoDisablePolicyPtr(v *ImagePipelineAutoDisablePolicyArgs) ImagePipelineAutoDisablePolicyPtrInput {
+	return (*imagePipelineAutoDisablePolicyPtrType)(v)
+}
+
+func (*imagePipelineAutoDisablePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineAutoDisablePolicy)(nil)).Elem()
+}
+
+func (i *imagePipelineAutoDisablePolicyPtrType) ToImagePipelineAutoDisablePolicyPtrOutput() ImagePipelineAutoDisablePolicyPtrOutput {
+	return i.ToImagePipelineAutoDisablePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *imagePipelineAutoDisablePolicyPtrType) ToImagePipelineAutoDisablePolicyPtrOutputWithContext(ctx context.Context) ImagePipelineAutoDisablePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineAutoDisablePolicyPtrOutput)
+}
+
+// The auto-disable policy configuration for the image pipeline.
+type ImagePipelineAutoDisablePolicyOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineAutoDisablePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineAutoDisablePolicy)(nil)).Elem()
+}
+
+func (o ImagePipelineAutoDisablePolicyOutput) ToImagePipelineAutoDisablePolicyOutput() ImagePipelineAutoDisablePolicyOutput {
+	return o
+}
+
+func (o ImagePipelineAutoDisablePolicyOutput) ToImagePipelineAutoDisablePolicyOutputWithContext(ctx context.Context) ImagePipelineAutoDisablePolicyOutput {
+	return o
+}
+
+func (o ImagePipelineAutoDisablePolicyOutput) ToImagePipelineAutoDisablePolicyPtrOutput() ImagePipelineAutoDisablePolicyPtrOutput {
+	return o.ToImagePipelineAutoDisablePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineAutoDisablePolicyOutput) ToImagePipelineAutoDisablePolicyPtrOutputWithContext(ctx context.Context) ImagePipelineAutoDisablePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineAutoDisablePolicy) *ImagePipelineAutoDisablePolicy {
+		return &v
+	}).(ImagePipelineAutoDisablePolicyPtrOutput)
+}
+
+// The number of consecutive failures after which the pipeline should be automatically disabled.
+func (o ImagePipelineAutoDisablePolicyOutput) FailureCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ImagePipelineAutoDisablePolicy) int { return v.FailureCount }).(pulumi.IntOutput)
+}
+
+type ImagePipelineAutoDisablePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineAutoDisablePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineAutoDisablePolicy)(nil)).Elem()
+}
+
+func (o ImagePipelineAutoDisablePolicyPtrOutput) ToImagePipelineAutoDisablePolicyPtrOutput() ImagePipelineAutoDisablePolicyPtrOutput {
+	return o
+}
+
+func (o ImagePipelineAutoDisablePolicyPtrOutput) ToImagePipelineAutoDisablePolicyPtrOutputWithContext(ctx context.Context) ImagePipelineAutoDisablePolicyPtrOutput {
+	return o
+}
+
+func (o ImagePipelineAutoDisablePolicyPtrOutput) Elem() ImagePipelineAutoDisablePolicyOutput {
+	return o.ApplyT(func(v *ImagePipelineAutoDisablePolicy) ImagePipelineAutoDisablePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipelineAutoDisablePolicy
+		return ret
+	}).(ImagePipelineAutoDisablePolicyOutput)
+}
+
+// The number of consecutive failures after which the pipeline should be automatically disabled.
+func (o ImagePipelineAutoDisablePolicyPtrOutput) FailureCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineAutoDisablePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FailureCount
+	}).(pulumi.IntPtrOutput)
+}
+
 // Settings for Image Builder to configure the ECR repository and output container images that are scanned.
 type ImagePipelineEcrConfiguration struct {
 	// Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
@@ -3238,10 +3518,169 @@ func (o ImagePipelineImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// The logging configuration settings for the image pipeline.
+type ImagePipelinePipelineLoggingConfiguration struct {
+	// The name of the log group for image build logs.
+	ImageLogGroupName *string `pulumi:"imageLogGroupName"`
+	// The name of the log group for pipeline execution logs.
+	PipelineLogGroupName *string `pulumi:"pipelineLogGroupName"`
+}
+
+// ImagePipelinePipelineLoggingConfigurationInput is an input type that accepts ImagePipelinePipelineLoggingConfigurationArgs and ImagePipelinePipelineLoggingConfigurationOutput values.
+// You can construct a concrete instance of `ImagePipelinePipelineLoggingConfigurationInput` via:
+//
+//	ImagePipelinePipelineLoggingConfigurationArgs{...}
+type ImagePipelinePipelineLoggingConfigurationInput interface {
+	pulumi.Input
+
+	ToImagePipelinePipelineLoggingConfigurationOutput() ImagePipelinePipelineLoggingConfigurationOutput
+	ToImagePipelinePipelineLoggingConfigurationOutputWithContext(context.Context) ImagePipelinePipelineLoggingConfigurationOutput
+}
+
+// The logging configuration settings for the image pipeline.
+type ImagePipelinePipelineLoggingConfigurationArgs struct {
+	// The name of the log group for image build logs.
+	ImageLogGroupName pulumi.StringPtrInput `pulumi:"imageLogGroupName"`
+	// The name of the log group for pipeline execution logs.
+	PipelineLogGroupName pulumi.StringPtrInput `pulumi:"pipelineLogGroupName"`
+}
+
+func (ImagePipelinePipelineLoggingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelinePipelineLoggingConfiguration)(nil)).Elem()
+}
+
+func (i ImagePipelinePipelineLoggingConfigurationArgs) ToImagePipelinePipelineLoggingConfigurationOutput() ImagePipelinePipelineLoggingConfigurationOutput {
+	return i.ToImagePipelinePipelineLoggingConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImagePipelinePipelineLoggingConfigurationArgs) ToImagePipelinePipelineLoggingConfigurationOutputWithContext(ctx context.Context) ImagePipelinePipelineLoggingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelinePipelineLoggingConfigurationOutput)
+}
+
+func (i ImagePipelinePipelineLoggingConfigurationArgs) ToImagePipelinePipelineLoggingConfigurationPtrOutput() ImagePipelinePipelineLoggingConfigurationPtrOutput {
+	return i.ToImagePipelinePipelineLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ImagePipelinePipelineLoggingConfigurationArgs) ToImagePipelinePipelineLoggingConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelinePipelineLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelinePipelineLoggingConfigurationOutput).ToImagePipelinePipelineLoggingConfigurationPtrOutputWithContext(ctx)
+}
+
+// ImagePipelinePipelineLoggingConfigurationPtrInput is an input type that accepts ImagePipelinePipelineLoggingConfigurationArgs, ImagePipelinePipelineLoggingConfigurationPtr and ImagePipelinePipelineLoggingConfigurationPtrOutput values.
+// You can construct a concrete instance of `ImagePipelinePipelineLoggingConfigurationPtrInput` via:
+//
+//	        ImagePipelinePipelineLoggingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImagePipelinePipelineLoggingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToImagePipelinePipelineLoggingConfigurationPtrOutput() ImagePipelinePipelineLoggingConfigurationPtrOutput
+	ToImagePipelinePipelineLoggingConfigurationPtrOutputWithContext(context.Context) ImagePipelinePipelineLoggingConfigurationPtrOutput
+}
+
+type imagePipelinePipelineLoggingConfigurationPtrType ImagePipelinePipelineLoggingConfigurationArgs
+
+func ImagePipelinePipelineLoggingConfigurationPtr(v *ImagePipelinePipelineLoggingConfigurationArgs) ImagePipelinePipelineLoggingConfigurationPtrInput {
+	return (*imagePipelinePipelineLoggingConfigurationPtrType)(v)
+}
+
+func (*imagePipelinePipelineLoggingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelinePipelineLoggingConfiguration)(nil)).Elem()
+}
+
+func (i *imagePipelinePipelineLoggingConfigurationPtrType) ToImagePipelinePipelineLoggingConfigurationPtrOutput() ImagePipelinePipelineLoggingConfigurationPtrOutput {
+	return i.ToImagePipelinePipelineLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *imagePipelinePipelineLoggingConfigurationPtrType) ToImagePipelinePipelineLoggingConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelinePipelineLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelinePipelineLoggingConfigurationPtrOutput)
+}
+
+// The logging configuration settings for the image pipeline.
+type ImagePipelinePipelineLoggingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelinePipelineLoggingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelinePipelineLoggingConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelinePipelineLoggingConfigurationOutput) ToImagePipelinePipelineLoggingConfigurationOutput() ImagePipelinePipelineLoggingConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelinePipelineLoggingConfigurationOutput) ToImagePipelinePipelineLoggingConfigurationOutputWithContext(ctx context.Context) ImagePipelinePipelineLoggingConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelinePipelineLoggingConfigurationOutput) ToImagePipelinePipelineLoggingConfigurationPtrOutput() ImagePipelinePipelineLoggingConfigurationPtrOutput {
+	return o.ToImagePipelinePipelineLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelinePipelineLoggingConfigurationOutput) ToImagePipelinePipelineLoggingConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelinePipelineLoggingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelinePipelineLoggingConfiguration) *ImagePipelinePipelineLoggingConfiguration {
+		return &v
+	}).(ImagePipelinePipelineLoggingConfigurationPtrOutput)
+}
+
+// The name of the log group for image build logs.
+func (o ImagePipelinePipelineLoggingConfigurationOutput) ImageLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePipelinePipelineLoggingConfiguration) *string { return v.ImageLogGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the log group for pipeline execution logs.
+func (o ImagePipelinePipelineLoggingConfigurationOutput) PipelineLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePipelinePipelineLoggingConfiguration) *string { return v.PipelineLogGroupName }).(pulumi.StringPtrOutput)
+}
+
+type ImagePipelinePipelineLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelinePipelineLoggingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelinePipelineLoggingConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelinePipelineLoggingConfigurationPtrOutput) ToImagePipelinePipelineLoggingConfigurationPtrOutput() ImagePipelinePipelineLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelinePipelineLoggingConfigurationPtrOutput) ToImagePipelinePipelineLoggingConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelinePipelineLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelinePipelineLoggingConfigurationPtrOutput) Elem() ImagePipelinePipelineLoggingConfigurationOutput {
+	return o.ApplyT(func(v *ImagePipelinePipelineLoggingConfiguration) ImagePipelinePipelineLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipelinePipelineLoggingConfiguration
+		return ret
+	}).(ImagePipelinePipelineLoggingConfigurationOutput)
+}
+
+// The name of the log group for image build logs.
+func (o ImagePipelinePipelineLoggingConfigurationPtrOutput) ImageLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipelinePipelineLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageLogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the log group for pipeline execution logs.
+func (o ImagePipelinePipelineLoggingConfigurationPtrOutput) PipelineLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipelinePipelineLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PipelineLogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The schedule of the image pipeline.
 type ImagePipelineSchedule struct {
 	// The auto-disable policy for the image pipeline.
-	AutoDisablePolicy interface{} `pulumi:"autoDisablePolicy"`
+	AutoDisablePolicy *ImagePipelineAutoDisablePolicy `pulumi:"autoDisablePolicy"`
 	// The condition configures when the pipeline should trigger a new image build.
 	PipelineExecutionStartCondition *ImagePipelineSchedulePipelineExecutionStartCondition `pulumi:"pipelineExecutionStartCondition"`
 	// The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
@@ -3262,7 +3701,7 @@ type ImagePipelineScheduleInput interface {
 // The schedule of the image pipeline.
 type ImagePipelineScheduleArgs struct {
 	// The auto-disable policy for the image pipeline.
-	AutoDisablePolicy pulumi.Input `pulumi:"autoDisablePolicy"`
+	AutoDisablePolicy ImagePipelineAutoDisablePolicyPtrInput `pulumi:"autoDisablePolicy"`
 	// The condition configures when the pipeline should trigger a new image build.
 	PipelineExecutionStartCondition ImagePipelineSchedulePipelineExecutionStartConditionPtrInput `pulumi:"pipelineExecutionStartCondition"`
 	// The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
@@ -3348,8 +3787,8 @@ func (o ImagePipelineScheduleOutput) ToImagePipelineSchedulePtrOutputWithContext
 }
 
 // The auto-disable policy for the image pipeline.
-func (o ImagePipelineScheduleOutput) AutoDisablePolicy() pulumi.AnyOutput {
-	return o.ApplyT(func(v ImagePipelineSchedule) interface{} { return v.AutoDisablePolicy }).(pulumi.AnyOutput)
+func (o ImagePipelineScheduleOutput) AutoDisablePolicy() ImagePipelineAutoDisablePolicyPtrOutput {
+	return o.ApplyT(func(v ImagePipelineSchedule) *ImagePipelineAutoDisablePolicy { return v.AutoDisablePolicy }).(ImagePipelineAutoDisablePolicyPtrOutput)
 }
 
 // The condition configures when the pipeline should trigger a new image build.
@@ -3389,13 +3828,13 @@ func (o ImagePipelineSchedulePtrOutput) Elem() ImagePipelineScheduleOutput {
 }
 
 // The auto-disable policy for the image pipeline.
-func (o ImagePipelineSchedulePtrOutput) AutoDisablePolicy() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ImagePipelineSchedule) interface{} {
+func (o ImagePipelineSchedulePtrOutput) AutoDisablePolicy() ImagePipelineAutoDisablePolicyPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineSchedule) *ImagePipelineAutoDisablePolicy {
 		if v == nil {
 			return nil
 		}
 		return v.AutoDisablePolicy
-	}).(pulumi.AnyOutput)
+	}).(ImagePipelineAutoDisablePolicyPtrOutput)
 }
 
 // The condition configures when the pipeline should trigger a new image build.
@@ -7020,12 +7459,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationTargetContainerRepositoryPtrInput)(nil)).Elem(), DistributionConfigurationTargetContainerRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageEcrConfigurationInput)(nil)).Elem(), ImageEcrConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageEcrConfigurationPtrInput)(nil)).Elem(), ImageEcrConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageLoggingConfigurationInput)(nil)).Elem(), ImageLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageLoggingConfigurationPtrInput)(nil)).Elem(), ImageLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineAutoDisablePolicyInput)(nil)).Elem(), ImagePipelineAutoDisablePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineAutoDisablePolicyPtrInput)(nil)).Elem(), ImagePipelineAutoDisablePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineEcrConfigurationInput)(nil)).Elem(), ImagePipelineEcrConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineEcrConfigurationPtrInput)(nil)).Elem(), ImagePipelineEcrConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelinePipelineLoggingConfigurationInput)(nil)).Elem(), ImagePipelinePipelineLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelinePipelineLoggingConfigurationPtrInput)(nil)).Elem(), ImagePipelinePipelineLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineScheduleInput)(nil)).Elem(), ImagePipelineScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineSchedulePtrInput)(nil)).Elem(), ImagePipelineScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineWorkflowConfigurationInput)(nil)).Elem(), ImagePipelineWorkflowConfigurationArgs{})
@@ -7109,12 +7554,18 @@ func init() {
 	pulumi.RegisterOutputType(DistributionConfigurationTargetContainerRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(ImageEcrConfigurationOutput{})
 	pulumi.RegisterOutputType(ImageEcrConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ImageLoggingConfigurationOutput{})
+	pulumi.RegisterOutputType(ImageLoggingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ImagePipelineAutoDisablePolicyOutput{})
+	pulumi.RegisterOutputType(ImagePipelineAutoDisablePolicyPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineEcrConfigurationOutput{})
 	pulumi.RegisterOutputType(ImagePipelineEcrConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ImagePipelinePipelineLoggingConfigurationOutput{})
+	pulumi.RegisterOutputType(ImagePipelinePipelineLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineScheduleOutput{})
 	pulumi.RegisterOutputType(ImagePipelineSchedulePtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineWorkflowConfigurationOutput{})

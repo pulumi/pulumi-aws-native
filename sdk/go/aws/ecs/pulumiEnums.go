@@ -3162,6 +3162,8 @@ type ServiceDeploymentConfigurationStrategy string
 const (
 	ServiceDeploymentConfigurationStrategyRolling   = ServiceDeploymentConfigurationStrategy("ROLLING")
 	ServiceDeploymentConfigurationStrategyBlueGreen = ServiceDeploymentConfigurationStrategy("BLUE_GREEN")
+	ServiceDeploymentConfigurationStrategyLinear    = ServiceDeploymentConfigurationStrategy("LINEAR")
+	ServiceDeploymentConfigurationStrategyCanary    = ServiceDeploymentConfigurationStrategy("CANARY")
 )
 
 func (ServiceDeploymentConfigurationStrategy) ElementType() reflect.Type {
@@ -3288,6 +3290,8 @@ func (o ServiceDeploymentConfigurationStrategyPtrOutput) ToStringPtrOutputWithCo
 //
 //	ServiceDeploymentConfigurationStrategyRolling
 //	ServiceDeploymentConfigurationStrategyBlueGreen
+//	ServiceDeploymentConfigurationStrategyLinear
+//	ServiceDeploymentConfigurationStrategyCanary
 type ServiceDeploymentConfigurationStrategyInput interface {
 	pulumi.Input
 

@@ -13886,9 +13886,8 @@ type ProjectProfileEnvironmentConfiguration struct {
 	// The environment description.
 	Description *string `pulumi:"description"`
 	// The environment blueprint ID.
-	EnvironmentBlueprintId string `pulumi:"environmentBlueprintId"`
-	// The environment ID.
-	Id *string `pulumi:"id"`
+	EnvironmentBlueprintId     string  `pulumi:"environmentBlueprintId"`
+	EnvironmentConfigurationId *string `pulumi:"environmentConfigurationId"`
 	// The environment name.
 	Name string `pulumi:"name"`
 }
@@ -13918,9 +13917,8 @@ type ProjectProfileEnvironmentConfigurationArgs struct {
 	// The environment description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The environment blueprint ID.
-	EnvironmentBlueprintId pulumi.StringInput `pulumi:"environmentBlueprintId"`
-	// The environment ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	EnvironmentBlueprintId     pulumi.StringInput    `pulumi:"environmentBlueprintId"`
+	EnvironmentConfigurationId pulumi.StringPtrInput `pulumi:"environmentConfigurationId"`
 	// The environment name.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -14013,9 +14011,8 @@ func (o ProjectProfileEnvironmentConfigurationOutput) EnvironmentBlueprintId() p
 	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) string { return v.EnvironmentBlueprintId }).(pulumi.StringOutput)
 }
 
-// The environment ID.
-func (o ProjectProfileEnvironmentConfigurationOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o ProjectProfileEnvironmentConfigurationOutput) EnvironmentConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) *string { return v.EnvironmentConfigurationId }).(pulumi.StringPtrOutput)
 }
 
 // The environment name.

@@ -80,7 +80,7 @@ type LookupServiceResult struct {
 	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
 	// Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
 	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
-	// The period of time, in seconds, that the Amazon Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
+	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
 	//  If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
 	HealthCheckGracePeriodSeconds *int `pulumi:"healthCheckGracePeriodSeconds"`
 	// A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -209,7 +209,7 @@ func (o LookupServiceResultOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *bool { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
 }
 
-// The period of time, in seconds, that the Amazon Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then “healthCheckGracePeriodSeconds“ is unused.
+// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then “healthCheckGracePeriodSeconds“ is unused.
 //
 //	If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
 func (o LookupServiceResultOutput) HealthCheckGracePeriodSeconds() pulumi.IntPtrOutput {

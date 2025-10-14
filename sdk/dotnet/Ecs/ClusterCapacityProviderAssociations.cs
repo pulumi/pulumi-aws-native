@@ -164,7 +164,7 @@ namespace Pulumi.AwsNative.Ecs
 
     public sealed class ClusterCapacityProviderAssociationsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("capacityProviders", required: true)]
+        [Input("capacityProviders")]
         private InputList<Union<Pulumi.AwsNative.Ecs.ClusterCapacityProviderAssociationsCapacityProvider, string>>? _capacityProviders;
 
         /// <summary>

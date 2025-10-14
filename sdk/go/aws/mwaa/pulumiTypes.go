@@ -239,7 +239,7 @@ type EnvironmentModuleLoggingConfiguration struct {
 	CloudWatchLogGroupArn *string `pulumi:"cloudWatchLogGroupArn"`
 	// Indicates whether to enable the Apache Airflow log type (e.g. `DagProcessingLogs` ) in CloudWatch Logs.
 	Enabled *bool `pulumi:"enabled"`
-	// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
+	// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs.
 	LogLevel *EnvironmentLoggingLevel `pulumi:"logLevel"`
 }
 
@@ -262,7 +262,7 @@ type EnvironmentModuleLoggingConfigurationArgs struct {
 	CloudWatchLogGroupArn pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupArn"`
 	// Indicates whether to enable the Apache Airflow log type (e.g. `DagProcessingLogs` ) in CloudWatch Logs.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
+	// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs.
 	LogLevel EnvironmentLoggingLevelPtrInput `pulumi:"logLevel"`
 }
 
@@ -356,7 +356,7 @@ func (o EnvironmentModuleLoggingConfigurationOutput) Enabled() pulumi.BoolPtrOut
 	return o.ApplyT(func(v EnvironmentModuleLoggingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
+// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs.
 func (o EnvironmentModuleLoggingConfigurationOutput) LogLevel() EnvironmentLoggingLevelPtrOutput {
 	return o.ApplyT(func(v EnvironmentModuleLoggingConfiguration) *EnvironmentLoggingLevel { return v.LogLevel }).(EnvironmentLoggingLevelPtrOutput)
 }
@@ -407,7 +407,7 @@ func (o EnvironmentModuleLoggingConfigurationPtrOutput) Enabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
+// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs.
 func (o EnvironmentModuleLoggingConfigurationPtrOutput) LogLevel() EnvironmentLoggingLevelPtrOutput {
 	return o.ApplyT(func(v *EnvironmentModuleLoggingConfiguration) *EnvironmentLoggingLevel {
 		if v == nil {

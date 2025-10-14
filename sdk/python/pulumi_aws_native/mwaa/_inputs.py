@@ -159,7 +159,7 @@ if not MYPY:
         """
         log_level: NotRequired[pulumi.Input['EnvironmentLoggingLevel']]
         """
-        Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
+        Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs.
         """
 elif False:
     EnvironmentModuleLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -176,7 +176,7 @@ class EnvironmentModuleLoggingConfigurationArgs:
                
                > `CloudWatchLogGroupArn` is available only as a return value, accessible when specified as an attribute in the [`Fn:GetAtt`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#aws-resource-mwaa-environment-return-values) intrinsic function. Any value you provide for `CloudWatchLogGroupArn` is discarded by Amazon MWAA.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether to enable the Apache Airflow log type (e.g. `DagProcessingLogs` ) in CloudWatch Logs.
-        :param pulumi.Input['EnvironmentLoggingLevel'] log_level: Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
+        :param pulumi.Input['EnvironmentLoggingLevel'] log_level: Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs.
         """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
@@ -215,7 +215,7 @@ class EnvironmentModuleLoggingConfigurationArgs:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input['EnvironmentLoggingLevel']]:
         """
-        Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
+        Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs.
         """
         return pulumi.get(self, "log_level")
 

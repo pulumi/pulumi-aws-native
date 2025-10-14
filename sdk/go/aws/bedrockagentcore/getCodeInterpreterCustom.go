@@ -34,6 +34,8 @@ type LookupCodeInterpreterCustomResult struct {
 	CodeInterpreterId *string `pulumi:"codeInterpreterId"`
 	// Timestamp when the code interpreter was created.
 	CreatedAt *string `pulumi:"createdAt"`
+	// The reason for failure if the code interpreter creation or operation failed.
+	FailureReason *string `pulumi:"failureReason"`
 	// Timestamp when the code interpreter was last updated.
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// Status of code interpreter.
@@ -87,6 +89,11 @@ func (o LookupCodeInterpreterCustomResultOutput) CodeInterpreterId() pulumi.Stri
 // Timestamp when the code interpreter was created.
 func (o LookupCodeInterpreterCustomResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCodeInterpreterCustomResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The reason for failure if the code interpreter creation or operation failed.
+func (o LookupCodeInterpreterCustomResultOutput) FailureReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCodeInterpreterCustomResult) *string { return v.FailureReason }).(pulumi.StringPtrOutput)
 }
 
 // Timestamp when the code interpreter was last updated.

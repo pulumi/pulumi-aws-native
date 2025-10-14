@@ -8,68 +8,6 @@ using Pulumi;
 namespace Pulumi.AwsNative.AmazonMq
 {
     /// <summary>
-    /// Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
-    /// </summary>
-    [EnumType]
-    public readonly struct BrokerAuthenticationStrategy : IEquatable<BrokerAuthenticationStrategy>
-    {
-        private readonly string _value;
-
-        private BrokerAuthenticationStrategy(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static BrokerAuthenticationStrategy Simple { get; } = new BrokerAuthenticationStrategy("SIMPLE");
-        public static BrokerAuthenticationStrategy Ldap { get; } = new BrokerAuthenticationStrategy("LDAP");
-
-        public static bool operator ==(BrokerAuthenticationStrategy left, BrokerAuthenticationStrategy right) => left.Equals(right);
-        public static bool operator !=(BrokerAuthenticationStrategy left, BrokerAuthenticationStrategy right) => !left.Equals(right);
-
-        public static explicit operator string(BrokerAuthenticationStrategy value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is BrokerAuthenticationStrategy other && Equals(other);
-        public bool Equals(BrokerAuthenticationStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
-    /// </summary>
-    [EnumType]
-    public readonly struct BrokerAuthenticationStrategy0 : IEquatable<BrokerAuthenticationStrategy0>
-    {
-        private readonly string _value;
-
-        private BrokerAuthenticationStrategy0(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static BrokerAuthenticationStrategy0 Simple { get; } = new BrokerAuthenticationStrategy0("SIMPLE");
-        public static BrokerAuthenticationStrategy0 Ldap { get; } = new BrokerAuthenticationStrategy0("LDAP");
-
-        public static bool operator ==(BrokerAuthenticationStrategy0 left, BrokerAuthenticationStrategy0 right) => left.Equals(right);
-        public static bool operator !=(BrokerAuthenticationStrategy0 left, BrokerAuthenticationStrategy0 right) => !left.Equals(right);
-
-        public static explicit operator string(BrokerAuthenticationStrategy0 value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is BrokerAuthenticationStrategy0 other && Equals(other);
-        public bool Equals(BrokerAuthenticationStrategy0 other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Defines whether this broker is a part of a data replication pair.
     /// </summary>
     [EnumType]

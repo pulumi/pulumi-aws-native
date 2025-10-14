@@ -4438,7 +4438,7 @@ func (o ClusterServiceConnectDefaultsPtrOutput) Namespace() pulumi.StringPtrOutp
 //	Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up.
 //	For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ClusterSettings struct {
-	// The name of the cluster setting. The value is ``containerInsights`` .
+	// The name of the cluster setting. The value is ``containerInsights``.
 	Name *string `pulumi:"name"`
 	// The value to set for the cluster setting. The supported values are ``enhanced``, ``enabled``, and ``disabled``.
 	//  To use Container Insights with enhanced observability, set the ``containerInsights`` account setting to ``enhanced``.
@@ -4463,7 +4463,7 @@ type ClusterSettingsInput interface {
 //	Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up.
 //	For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ClusterSettingsArgs struct {
-	// The name of the cluster setting. The value is ``containerInsights`` .
+	// The name of the cluster setting. The value is ``containerInsights``.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The value to set for the cluster setting. The supported values are ``enhanced``, ``enabled``, and ``disabled``.
 	//  To use Container Insights with enhanced observability, set the ``containerInsights`` account setting to ``enhanced``.
@@ -4527,7 +4527,7 @@ func (o ClusterSettingsOutput) ToClusterSettingsOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the cluster setting. The value is “containerInsights“ .
+// The name of the cluster setting. The value is “containerInsights“.
 func (o ClusterSettingsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterSettings) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -6838,12 +6838,14 @@ type ServiceDeploymentConfiguration struct {
 	//   +  For rolling deployments, the value is set to 3 hours (180 minutes).
 	//   +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
 	//   +  For all other cases, the value is set to 36 hours (2160 minutes).
-	BakeTimeInMinutes *int `pulumi:"bakeTimeInMinutes"`
+	BakeTimeInMinutes   *int        `pulumi:"bakeTimeInMinutes"`
+	CanaryConfiguration interface{} `pulumi:"canaryConfiguration"`
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
 	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreaker"`
 	// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
-	LifecycleHooks []ServiceDeploymentLifecycleHook `pulumi:"lifecycleHooks"`
+	LifecycleHooks      []ServiceDeploymentLifecycleHook `pulumi:"lifecycleHooks"`
+	LinearConfiguration interface{}                      `pulumi:"linearConfiguration"`
 	// If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
 	//  The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting replacement tasks first and then stopping the unhealthy tasks, as long as cluster resources for starting replacement tasks are available. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 	//  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and tasks in the service use the EC2 launch type, the *maximum percent* value is set to the default value. The *maximum percent* value is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
@@ -6893,12 +6895,14 @@ type ServiceDeploymentConfigurationArgs struct {
 	//   +  For rolling deployments, the value is set to 3 hours (180 minutes).
 	//   +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
 	//   +  For all other cases, the value is set to 36 hours (2160 minutes).
-	BakeTimeInMinutes pulumi.IntPtrInput `pulumi:"bakeTimeInMinutes"`
+	BakeTimeInMinutes   pulumi.IntPtrInput `pulumi:"bakeTimeInMinutes"`
+	CanaryConfiguration pulumi.Input       `pulumi:"canaryConfiguration"`
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
 	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput `pulumi:"deploymentCircuitBreaker"`
 	// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
-	LifecycleHooks ServiceDeploymentLifecycleHookArrayInput `pulumi:"lifecycleHooks"`
+	LifecycleHooks      ServiceDeploymentLifecycleHookArrayInput `pulumi:"lifecycleHooks"`
+	LinearConfiguration pulumi.Input                             `pulumi:"linearConfiguration"`
 	// If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
 	//  The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting replacement tasks first and then stopping the unhealthy tasks, as long as cluster resources for starting replacement tasks are available. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 	//  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and tasks in the service use the EC2 launch type, the *maximum percent* value is set to the default value. The *maximum percent* value is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
@@ -7021,6 +7025,10 @@ func (o ServiceDeploymentConfigurationOutput) BakeTimeInMinutes() pulumi.IntPtrO
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *int { return v.BakeTimeInMinutes }).(pulumi.IntPtrOutput)
 }
 
+func (o ServiceDeploymentConfigurationOutput) CanaryConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfiguration) interface{} { return v.CanaryConfiguration }).(pulumi.AnyOutput)
+}
+
 // The deployment circuit breaker can only be used for services using the rolling update (“ECS“) deployment type.
 //
 //	The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
@@ -7033,6 +7041,10 @@ func (o ServiceDeploymentConfigurationOutput) DeploymentCircuitBreaker() Service
 // An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
 func (o ServiceDeploymentConfigurationOutput) LifecycleHooks() ServiceDeploymentLifecycleHookArrayOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) []ServiceDeploymentLifecycleHook { return v.LifecycleHooks }).(ServiceDeploymentLifecycleHookArrayOutput)
+}
+
+func (o ServiceDeploymentConfigurationOutput) LinearConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfiguration) interface{} { return v.LinearConfiguration }).(pulumi.AnyOutput)
 }
 
 // If a service is using the rolling update (“ECS“) deployment type, the “maximumPercent“ parameter represents an upper limit on the number of your service's tasks that are allowed in the “RUNNING“ or “PENDING“ state during a deployment, as a percentage of the “desiredCount“ (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the “REPLICA“ service scheduler and has a “desiredCount“ of four tasks and a “maximumPercent“ value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default “maximumPercent“ value for a service using the “REPLICA“ service scheduler is 200%.
@@ -7122,6 +7134,15 @@ func (o ServiceDeploymentConfigurationPtrOutput) BakeTimeInMinutes() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+func (o ServiceDeploymentConfigurationPtrOutput) CanaryConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.CanaryConfiguration
+	}).(pulumi.AnyOutput)
+}
+
 // The deployment circuit breaker can only be used for services using the rolling update (“ECS“) deployment type.
 //
 //	The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
@@ -7142,6 +7163,15 @@ func (o ServiceDeploymentConfigurationPtrOutput) LifecycleHooks() ServiceDeploym
 		}
 		return v.LifecycleHooks
 	}).(ServiceDeploymentLifecycleHookArrayOutput)
+}
+
+func (o ServiceDeploymentConfigurationPtrOutput) LinearConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.LinearConfiguration
+	}).(pulumi.AnyOutput)
 }
 
 // If a service is using the rolling update (“ECS“) deployment type, the “maximumPercent“ parameter represents an upper limit on the number of your service's tasks that are allowed in the “RUNNING“ or “PENDING“ state during a deployment, as a percentage of the “desiredCount“ (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the “REPLICA“ service scheduler and has a “desiredCount“ of four tasks and a “maximumPercent“ value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default “maximumPercent“ value for a service using the “REPLICA“ service scheduler is 200%.

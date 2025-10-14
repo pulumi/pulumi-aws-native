@@ -16,6 +16,20 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'OrganizationCentralizationRuleCentralizationRuleDestinationArgs',
+    'OrganizationCentralizationRuleCentralizationRuleDestinationArgsDict',
+    'OrganizationCentralizationRuleCentralizationRuleSourceArgs',
+    'OrganizationCentralizationRuleCentralizationRuleSourceArgsDict',
+    'OrganizationCentralizationRuleCentralizationRuleArgs',
+    'OrganizationCentralizationRuleCentralizationRuleArgsDict',
+    'OrganizationCentralizationRuleDestinationLogsConfigurationArgs',
+    'OrganizationCentralizationRuleDestinationLogsConfigurationArgsDict',
+    'OrganizationCentralizationRuleLogsBackupConfigurationArgs',
+    'OrganizationCentralizationRuleLogsBackupConfigurationArgsDict',
+    'OrganizationCentralizationRuleLogsEncryptionConfigurationArgs',
+    'OrganizationCentralizationRuleLogsEncryptionConfigurationArgsDict',
+    'OrganizationCentralizationRuleSourceLogsConfigurationArgs',
+    'OrganizationCentralizationRuleSourceLogsConfigurationArgsDict',
     'OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs',
     'OrganizationTelemetryRuleTelemetryDestinationConfigurationArgsDict',
     'OrganizationTelemetryRuleTelemetryRuleArgs',
@@ -31,6 +45,289 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class OrganizationCentralizationRuleCentralizationRuleDestinationArgsDict(TypedDict):
+        region: pulumi.Input[_builtins.str]
+        account: NotRequired[pulumi.Input[_builtins.str]]
+        destination_logs_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleDestinationLogsConfigurationArgsDict']]
+elif False:
+    OrganizationCentralizationRuleCentralizationRuleDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationCentralizationRuleCentralizationRuleDestinationArgs:
+    def __init__(__self__, *,
+                 region: pulumi.Input[_builtins.str],
+                 account: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_logs_configuration: Optional[pulumi.Input['OrganizationCentralizationRuleDestinationLogsConfigurationArgs']] = None):
+        pulumi.set(__self__, "region", region)
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if destination_logs_configuration is not None:
+            pulumi.set(__self__, "destination_logs_configuration", destination_logs_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "account", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationLogsConfiguration")
+    def destination_logs_configuration(self) -> Optional[pulumi.Input['OrganizationCentralizationRuleDestinationLogsConfigurationArgs']]:
+        return pulumi.get(self, "destination_logs_configuration")
+
+    @destination_logs_configuration.setter
+    def destination_logs_configuration(self, value: Optional[pulumi.Input['OrganizationCentralizationRuleDestinationLogsConfigurationArgs']]):
+        pulumi.set(self, "destination_logs_configuration", value)
+
+
+if not MYPY:
+    class OrganizationCentralizationRuleCentralizationRuleSourceArgsDict(TypedDict):
+        regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        scope: NotRequired[pulumi.Input[_builtins.str]]
+        source_logs_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleSourceLogsConfigurationArgsDict']]
+elif False:
+    OrganizationCentralizationRuleCentralizationRuleSourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationCentralizationRuleCentralizationRuleSourceArgs:
+    def __init__(__self__, *,
+                 regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_logs_configuration: Optional[pulumi.Input['OrganizationCentralizationRuleSourceLogsConfigurationArgs']] = None):
+        pulumi.set(__self__, "regions", regions)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if source_logs_configuration is not None:
+            pulumi.set(__self__, "source_logs_configuration", source_logs_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def regions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "regions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "scope", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceLogsConfiguration")
+    def source_logs_configuration(self) -> Optional[pulumi.Input['OrganizationCentralizationRuleSourceLogsConfigurationArgs']]:
+        return pulumi.get(self, "source_logs_configuration")
+
+    @source_logs_configuration.setter
+    def source_logs_configuration(self, value: Optional[pulumi.Input['OrganizationCentralizationRuleSourceLogsConfigurationArgs']]):
+        pulumi.set(self, "source_logs_configuration", value)
+
+
+if not MYPY:
+    class OrganizationCentralizationRuleCentralizationRuleArgsDict(TypedDict):
+        destination: pulumi.Input['OrganizationCentralizationRuleCentralizationRuleDestinationArgsDict']
+        source: pulumi.Input['OrganizationCentralizationRuleCentralizationRuleSourceArgsDict']
+elif False:
+    OrganizationCentralizationRuleCentralizationRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationCentralizationRuleCentralizationRuleArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input['OrganizationCentralizationRuleCentralizationRuleDestinationArgs'],
+                 source: pulumi.Input['OrganizationCentralizationRuleCentralizationRuleSourceArgs']):
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input['OrganizationCentralizationRuleCentralizationRuleDestinationArgs']:
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input['OrganizationCentralizationRuleCentralizationRuleDestinationArgs']):
+        pulumi.set(self, "destination", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['OrganizationCentralizationRuleCentralizationRuleSourceArgs']:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['OrganizationCentralizationRuleCentralizationRuleSourceArgs']):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class OrganizationCentralizationRuleDestinationLogsConfigurationArgsDict(TypedDict):
+        backup_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleLogsBackupConfigurationArgsDict']]
+        logs_encryption_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationArgsDict']]
+elif False:
+    OrganizationCentralizationRuleDestinationLogsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationCentralizationRuleDestinationLogsConfigurationArgs:
+    def __init__(__self__, *,
+                 backup_configuration: Optional[pulumi.Input['OrganizationCentralizationRuleLogsBackupConfigurationArgs']] = None,
+                 logs_encryption_configuration: Optional[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationArgs']] = None):
+        if backup_configuration is not None:
+            pulumi.set(__self__, "backup_configuration", backup_configuration)
+        if logs_encryption_configuration is not None:
+            pulumi.set(__self__, "logs_encryption_configuration", logs_encryption_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="backupConfiguration")
+    def backup_configuration(self) -> Optional[pulumi.Input['OrganizationCentralizationRuleLogsBackupConfigurationArgs']]:
+        return pulumi.get(self, "backup_configuration")
+
+    @backup_configuration.setter
+    def backup_configuration(self, value: Optional[pulumi.Input['OrganizationCentralizationRuleLogsBackupConfigurationArgs']]):
+        pulumi.set(self, "backup_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logsEncryptionConfiguration")
+    def logs_encryption_configuration(self) -> Optional[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationArgs']]:
+        return pulumi.get(self, "logs_encryption_configuration")
+
+    @logs_encryption_configuration.setter
+    def logs_encryption_configuration(self, value: Optional[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationArgs']]):
+        pulumi.set(self, "logs_encryption_configuration", value)
+
+
+if not MYPY:
+    class OrganizationCentralizationRuleLogsBackupConfigurationArgsDict(TypedDict):
+        region: pulumi.Input[_builtins.str]
+        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    OrganizationCentralizationRuleLogsBackupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationCentralizationRuleLogsBackupConfigurationArgs:
+    def __init__(__self__, *,
+                 region: pulumi.Input[_builtins.str],
+                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        pulumi.set(__self__, "region", region)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+
+if not MYPY:
+    class OrganizationCentralizationRuleLogsEncryptionConfigurationArgsDict(TypedDict):
+        encryption_strategy: pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy']
+        encryption_conflict_resolution_strategy: NotRequired[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy']]
+        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    OrganizationCentralizationRuleLogsEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationCentralizationRuleLogsEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 encryption_strategy: pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy'],
+                 encryption_conflict_resolution_strategy: Optional[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy']] = None,
+                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        pulumi.set(__self__, "encryption_strategy", encryption_strategy)
+        if encryption_conflict_resolution_strategy is not None:
+            pulumi.set(__self__, "encryption_conflict_resolution_strategy", encryption_conflict_resolution_strategy)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionStrategy")
+    def encryption_strategy(self) -> pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy']:
+        return pulumi.get(self, "encryption_strategy")
+
+    @encryption_strategy.setter
+    def encryption_strategy(self, value: pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy']):
+        pulumi.set(self, "encryption_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConflictResolutionStrategy")
+    def encryption_conflict_resolution_strategy(self) -> Optional[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy']]:
+        return pulumi.get(self, "encryption_conflict_resolution_strategy")
+
+    @encryption_conflict_resolution_strategy.setter
+    def encryption_conflict_resolution_strategy(self, value: Optional[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy']]):
+        pulumi.set(self, "encryption_conflict_resolution_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+
+if not MYPY:
+    class OrganizationCentralizationRuleSourceLogsConfigurationArgsDict(TypedDict):
+        encrypted_log_group_strategy: pulumi.Input['OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy']
+        log_group_selection_criteria: pulumi.Input[_builtins.str]
+elif False:
+    OrganizationCentralizationRuleSourceLogsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationCentralizationRuleSourceLogsConfigurationArgs:
+    def __init__(__self__, *,
+                 encrypted_log_group_strategy: pulumi.Input['OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy'],
+                 log_group_selection_criteria: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "encrypted_log_group_strategy", encrypted_log_group_strategy)
+        pulumi.set(__self__, "log_group_selection_criteria", log_group_selection_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptedLogGroupStrategy")
+    def encrypted_log_group_strategy(self) -> pulumi.Input['OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy']:
+        return pulumi.get(self, "encrypted_log_group_strategy")
+
+    @encrypted_log_group_strategy.setter
+    def encrypted_log_group_strategy(self, value: pulumi.Input['OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy']):
+        pulumi.set(self, "encrypted_log_group_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupSelectionCriteria")
+    def log_group_selection_criteria(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "log_group_selection_criteria")
+
+    @log_group_selection_criteria.setter
+    def log_group_selection_criteria(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_group_selection_criteria", value)
+
 
 if not MYPY:
     class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgsDict(TypedDict):

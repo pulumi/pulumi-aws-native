@@ -66,7 +66,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+        Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -80,7 +80,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  args: ResourcePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+        Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.
@@ -116,6 +116,8 @@ class ResourcePolicy(pulumi.CustomResource):
             __props__.__dict__["resource_arn"] = resource_arn
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["revision_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceArn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResourcePolicy, __self__).__init__(
             'aws-native:lex:ResourcePolicy',
             resource_name,

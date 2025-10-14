@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.Pcs
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The Slurm configuration for the queue.
+        /// </summary>
+        [Output("slurmConfiguration")]
+        public Output<Outputs.SlurmConfigurationProperties?> SlurmConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The provisioning status of the queue. The provisioning status doesn't indicate the overall health of the queue.
         /// </summary>
         [Output("status")]
@@ -136,6 +142,12 @@ namespace Pulumi.AwsNative.Pcs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The Slurm configuration for the queue.
+        /// </summary>
+        [Input("slurmConfiguration")]
+        public Input<Inputs.SlurmConfigurationPropertiesArgs>? SlurmConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

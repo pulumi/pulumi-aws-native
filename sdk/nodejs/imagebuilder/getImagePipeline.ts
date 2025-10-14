@@ -66,6 +66,10 @@ export interface GetImagePipelineResult {
      */
     readonly infrastructureConfigurationArn?: string;
     /**
+     * The logging configuration settings for the image pipeline.
+     */
+    readonly loggingConfiguration?: outputs.imagebuilder.ImagePipelinePipelineLoggingConfiguration;
+    /**
      * The schedule of the image pipeline.
      */
     readonly schedule?: outputs.imagebuilder.ImagePipelineSchedule;

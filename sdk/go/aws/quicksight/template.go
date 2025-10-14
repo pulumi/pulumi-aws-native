@@ -19,7 +19,7 @@ type Template struct {
 
 	// <p>The Amazon Resource Name (ARN) of the template.</p>
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// <p>Time when this was created.</p>
 	CreatedTime pulumi.StringOutput                `pulumi:"createdTime"`
@@ -30,7 +30,7 @@ type Template struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list of resource permissions to be set on the template.
 	Permissions TemplateResourcePermissionArrayOutput `pulumi:"permissions"`
-	// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+	// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Quick Sight-supported AWS Region .
 	//
 	// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
 	//
@@ -98,14 +98,14 @@ func (TemplateState) ElementType() reflect.Type {
 }
 
 type templateArgs struct {
-	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
 	AwsAccountId string                     `pulumi:"awsAccountId"`
 	Definition   *TemplateVersionDefinition `pulumi:"definition"`
 	// A display name for the template.
 	Name *string `pulumi:"name"`
 	// A list of resource permissions to be set on the template.
 	Permissions []TemplateResourcePermission `pulumi:"permissions"`
-	// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+	// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Quick Sight-supported AWS Region .
 	//
 	// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
 	//
@@ -123,14 +123,14 @@ type templateArgs struct {
 
 // The set of arguments for constructing a Template resource.
 type TemplateArgs struct {
-	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
 	AwsAccountId pulumi.StringInput
 	Definition   TemplateVersionDefinitionPtrInput
 	// A display name for the template.
 	Name pulumi.StringPtrInput
 	// A list of resource permissions to be set on the template.
 	Permissions TemplateResourcePermissionArrayInput
-	// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+	// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Quick Sight-supported AWS Region .
 	//
 	// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
 	//
@@ -188,7 +188,7 @@ func (o TemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
 func (o TemplateOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
@@ -217,7 +217,7 @@ func (o TemplateOutput) Permissions() TemplateResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *Template) TemplateResourcePermissionArrayOutput { return v.Permissions }).(TemplateResourcePermissionArrayOutput)
 }
 
-// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Quick Sight-supported AWS Region .
 //
 // Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
 //

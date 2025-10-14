@@ -35,7 +35,7 @@ class ThemeArgs:
         """
         The set of arguments for constructing a Theme resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The ID of the AWS account where you want to store the new theme.
-        :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+        :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
         :param pulumi.Input['ThemeConfigurationArgs'] configuration: The theme configuration, which contains the theme display properties.
         :param pulumi.Input[_builtins.str] theme_id: An ID for the theme that you want to create. The theme ID is unique per AWS Region in each AWS account.
         :param pulumi.Input[_builtins.str] name: A display name for the theme.
@@ -72,7 +72,7 @@ class ThemeArgs:
     @pulumi.getter(name="baseThemeId")
     def base_theme_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+        The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
         """
         return pulumi.get(self, "base_theme_id")
 
@@ -174,7 +174,7 @@ class Theme(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The ID of the AWS account where you want to store the new theme.
-        :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+        :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
         :param pulumi.Input[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict']] configuration: The theme configuration, which contains the theme display properties.
         :param pulumi.Input[_builtins.str] name: A display name for the theme.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ThemeResourcePermissionArgs', 'ThemeResourcePermissionArgsDict']]]] permissions: A valid grouping of resource permissions to apply to the new theme.
@@ -303,7 +303,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter(name="baseThemeId")
     def base_theme_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+        The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
         """
         return pulumi.get(self, "base_theme_id")
 

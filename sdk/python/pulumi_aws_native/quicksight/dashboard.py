@@ -45,9 +45,10 @@ class DashboardArgs:
         :param pulumi.Input[_builtins.str] dashboard_id: The ID for the dashboard, also added to the IAM policy.
         :param pulumi.Input['DashboardPublishOptionsArgs'] dashboard_publish_options: Options for publishing the dashboard when you create it:
                
-               - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
+               - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon Quick Sight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
                - `AvailabilityStatus` for `ExportToCSVOption` - This status can be either `ENABLED` or `DISABLED` . The visual option to export data to .CSV format isn't enabled when this is set to `DISABLED` . This option is `ENABLED` by default.
                - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
+               - `AvailabilityStatus` for `QuickSuiteActionsOption` - This status can be either `ENABLED` or `DISABLED` . Features related to Actions in Amazon Quick Suite on dashboards are disabled when this is set to `DISABLED` . This option is `DISABLED` by default.
                - `AvailabilityStatus` for `ExecutiveSummaryOption` - This status can be either `ENABLED` or `DISABLED` . The option to build an executive summary is disabled when this is set to `DISABLED` . This option is `ENABLED` by default.
                - `AvailabilityStatus` for `DataStoriesSharingOption` - This status can be either `ENABLED` or `DISABLED` . The option to share a data story is disabled when this is set to `DISABLED` . This option is `ENABLED` by default.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] link_entities: A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
@@ -124,9 +125,10 @@ class DashboardArgs:
         """
         Options for publishing the dashboard when you create it:
 
-        - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
+        - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon Quick Sight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
         - `AvailabilityStatus` for `ExportToCSVOption` - This status can be either `ENABLED` or `DISABLED` . The visual option to export data to .CSV format isn't enabled when this is set to `DISABLED` . This option is `ENABLED` by default.
         - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
+        - `AvailabilityStatus` for `QuickSuiteActionsOption` - This status can be either `ENABLED` or `DISABLED` . Features related to Actions in Amazon Quick Suite on dashboards are disabled when this is set to `DISABLED` . This option is `DISABLED` by default.
         - `AvailabilityStatus` for `ExecutiveSummaryOption` - This status can be either `ENABLED` or `DISABLED` . The option to build an executive summary is disabled when this is set to `DISABLED` . This option is `ENABLED` by default.
         - `AvailabilityStatus` for `DataStoriesSharingOption` - This status can be either `ENABLED` or `DISABLED` . The option to share a data story is disabled when this is set to `DISABLED` . This option is `ENABLED` by default.
         """
@@ -310,9 +312,10 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dashboard_id: The ID for the dashboard, also added to the IAM policy.
         :param pulumi.Input[Union['DashboardPublishOptionsArgs', 'DashboardPublishOptionsArgsDict']] dashboard_publish_options: Options for publishing the dashboard when you create it:
                
-               - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
+               - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon Quick Sight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
                - `AvailabilityStatus` for `ExportToCSVOption` - This status can be either `ENABLED` or `DISABLED` . The visual option to export data to .CSV format isn't enabled when this is set to `DISABLED` . This option is `ENABLED` by default.
                - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
+               - `AvailabilityStatus` for `QuickSuiteActionsOption` - This status can be either `ENABLED` or `DISABLED` . Features related to Actions in Amazon Quick Suite on dashboards are disabled when this is set to `DISABLED` . This option is `DISABLED` by default.
                - `AvailabilityStatus` for `ExecutiveSummaryOption` - This status can be either `ENABLED` or `DISABLED` . The option to build an executive summary is disabled when this is set to `DISABLED` . This option is `ENABLED` by default.
                - `AvailabilityStatus` for `DataStoriesSharingOption` - This status can be either `ENABLED` or `DISABLED` . The option to share a data story is disabled when this is set to `DISABLED` . This option is `ENABLED` by default.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] link_entities: A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
@@ -486,9 +489,10 @@ class Dashboard(pulumi.CustomResource):
         """
         Options for publishing the dashboard when you create it:
 
-        - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
+        - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon Quick Sight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
         - `AvailabilityStatus` for `ExportToCSVOption` - This status can be either `ENABLED` or `DISABLED` . The visual option to export data to .CSV format isn't enabled when this is set to `DISABLED` . This option is `ENABLED` by default.
         - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
+        - `AvailabilityStatus` for `QuickSuiteActionsOption` - This status can be either `ENABLED` or `DISABLED` . Features related to Actions in Amazon Quick Suite on dashboards are disabled when this is set to `DISABLED` . This option is `DISABLED` by default.
         - `AvailabilityStatus` for `ExecutiveSummaryOption` - This status can be either `ENABLED` or `DISABLED` . The option to build an executive summary is disabled when this is set to `DISABLED` . This option is `ENABLED` by default.
         - `AvailabilityStatus` for `DataStoriesSharingOption` - This status can be either `ENABLED` or `DISABLED` . The option to share a data story is disabled when this is set to `DISABLED` . This option is `ENABLED` by default.
         """

@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
+        /// The reason for failure if the code interpreter creation or operation failed.
+        /// </summary>
+        public readonly string? FailureReason;
+        /// <summary>
         /// Timestamp when the code interpreter was last updated.
         /// </summary>
         public readonly string? LastUpdatedAt;
@@ -96,6 +100,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? createdAt,
 
+            string? failureReason,
+
             string? lastUpdatedAt,
 
             Pulumi.AwsNative.BedrockAgentCore.CodeInterpreterCustomCodeInterpreterStatus? status,
@@ -105,6 +111,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             CodeInterpreterArn = codeInterpreterArn;
             CodeInterpreterId = codeInterpreterId;
             CreatedAt = createdAt;
+            FailureReason = failureReason;
             LastUpdatedAt = lastUpdatedAt;
             Status = status;
             Tags = tags;

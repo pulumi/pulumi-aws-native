@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("functionUrlAuthType")]
         public Output<Pulumi.AwsNative.Lambda.PermissionFunctionUrlAuthType?> FunctionUrlAuthType { get; private set; } = null!;
 
+        /// <summary>
+        /// Restricts the `lambda:InvokeFunction` action to calls coming from a function URL. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
+        /// </summary>
         [Output("invokedViaFunctionUrl")]
         public Output<bool?> InvokedViaFunctionUrl { get; private set; } = null!;
 
@@ -166,6 +169,9 @@ namespace Pulumi.AwsNative.Lambda
         [Input("functionUrlAuthType")]
         public Input<Pulumi.AwsNative.Lambda.PermissionFunctionUrlAuthType>? FunctionUrlAuthType { get; set; }
 
+        /// <summary>
+        /// Restricts the `lambda:InvokeFunction` action to calls coming from a function URL. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
+        /// </summary>
         [Input("invokedViaFunctionUrl")]
         public Input<bool>? InvokedViaFunctionUrl { get; set; }
 

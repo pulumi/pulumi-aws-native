@@ -17,11 +17,16 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         /// The network mode.
         /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.RuntimeNetworkMode NetworkMode;
+        public readonly Outputs.RuntimeVpcConfig? NetworkModeConfig;
 
         [OutputConstructor]
-        private RuntimeNetworkConfiguration(Pulumi.AwsNative.BedrockAgentCore.RuntimeNetworkMode networkMode)
+        private RuntimeNetworkConfiguration(
+            Pulumi.AwsNative.BedrockAgentCore.RuntimeNetworkMode networkMode,
+
+            Outputs.RuntimeVpcConfig? networkModeConfig)
         {
             NetworkMode = networkMode;
+            NetworkModeConfig = networkModeConfig;
         }
     }
 }

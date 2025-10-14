@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     public sealed class ClusterSettings
     {
         /// <summary>
-        /// The name of the cluster setting. The value is ``containerInsights`` .
+        /// The name of the cluster setting. The value is ``containerInsights``.
         /// </summary>
         public readonly string? Name;
         /// <summary>

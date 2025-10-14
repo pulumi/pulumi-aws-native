@@ -35,6 +35,11 @@ export type Disk = import("./disk").Disk;
 export const Disk: typeof import("./disk").Disk = null as any;
 utilities.lazyLoad(exports, ["Disk"], () => require("./disk"));
 
+export { DiskSnapshotArgs } from "./diskSnapshot";
+export type DiskSnapshot = import("./diskSnapshot").DiskSnapshot;
+export const DiskSnapshot: typeof import("./diskSnapshot").DiskSnapshot = null as any;
+utilities.lazyLoad(exports, ["DiskSnapshot"], () => require("./diskSnapshot"));
+
 export { GetAlarmArgs, GetAlarmResult, GetAlarmOutputArgs } from "./getAlarm";
 export const getAlarm: typeof import("./getAlarm").getAlarm = null as any;
 export const getAlarmOutput: typeof import("./getAlarm").getAlarmOutput = null as any;
@@ -64,6 +69,11 @@ export { GetDiskArgs, GetDiskResult, GetDiskOutputArgs } from "./getDisk";
 export const getDisk: typeof import("./getDisk").getDisk = null as any;
 export const getDiskOutput: typeof import("./getDisk").getDiskOutput = null as any;
 utilities.lazyLoad(exports, ["getDisk","getDiskOutput"], () => require("./getDisk"));
+
+export { GetDiskSnapshotArgs, GetDiskSnapshotResult, GetDiskSnapshotOutputArgs } from "./getDiskSnapshot";
+export const getDiskSnapshot: typeof import("./getDiskSnapshot").getDiskSnapshot = null as any;
+export const getDiskSnapshotOutput: typeof import("./getDiskSnapshot").getDiskSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getDiskSnapshot","getDiskSnapshotOutput"], () => require("./getDiskSnapshot"));
 
 export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./getInstance";
 export const getInstance: typeof import("./getInstance").getInstance = null as any;
@@ -135,6 +145,8 @@ const _module = {
                 return new Database(name, <any>undefined, { urn })
             case "aws-native:lightsail:Disk":
                 return new Disk(name, <any>undefined, { urn })
+            case "aws-native:lightsail:DiskSnapshot":
+                return new DiskSnapshot(name, <any>undefined, { urn })
             case "aws-native:lightsail:Instance":
                 return new Instance(name, <any>undefined, { urn })
             case "aws-native:lightsail:InstanceSnapshot":

@@ -33,11 +33,11 @@ type DataSource struct {
 	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// <p>The time that this data source was created.</p>
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
+	// The credentials Amazon Quick Sight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
 	Credentials DataSourceCredentialsPtrOutput `pulumi:"credentials"`
 	// An ID for the data source. This ID is unique per AWS Region for each AWS account.
 	DataSourceId pulumi.StringPtrOutput `pulumi:"dataSourceId"`
-	// The parameters that Amazon QuickSight uses to connect to your underlying source.
+	// The parameters that Amazon Quick Sight uses to connect to your underlying source.
 	DataSourceParameters DataSourceParametersPtrOutput `pulumi:"dataSourceParameters"`
 	// Error information from the last update or the creation of the data source.
 	ErrorInfo  DataSourceErrorInfoPtrOutput `pulumi:"errorInfo"`
@@ -48,7 +48,7 @@ type DataSource struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of resource permissions on the data source.
 	Permissions DataSourceResourcePermissionArrayOutput `pulumi:"permissions"`
-	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+	// Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
 	SslProperties DataSourceSslPropertiesPtrOutput `pulumi:"sslProperties"`
 	// The HTTP status of the request.
 	Status DataSourceResourceStatusOutput `pulumi:"status"`
@@ -58,7 +58,7 @@ type DataSource struct {
 	//
 	// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
 	Type DataSourceTypeOutput `pulumi:"type"`
-	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+	// Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
 	VpcConnectionProperties DataSourceVpcConnectionPropertiesPtrOutput `pulumi:"vpcConnectionProperties"`
 }
 
@@ -123,11 +123,11 @@ type dataSourceArgs struct {
 	AlternateDataSourceParameters []DataSourceParameters `pulumi:"alternateDataSourceParameters"`
 	// The AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
+	// The credentials Amazon Quick Sight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
 	Credentials *DataSourceCredentials `pulumi:"credentials"`
 	// An ID for the data source. This ID is unique per AWS Region for each AWS account.
 	DataSourceId *string `pulumi:"dataSourceId"`
-	// The parameters that Amazon QuickSight uses to connect to your underlying source.
+	// The parameters that Amazon Quick Sight uses to connect to your underlying source.
 	DataSourceParameters *DataSourceParameters `pulumi:"dataSourceParameters"`
 	// Error information from the last update or the creation of the data source.
 	ErrorInfo  *DataSourceErrorInfo `pulumi:"errorInfo"`
@@ -136,7 +136,7 @@ type dataSourceArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of resource permissions on the data source.
 	Permissions []DataSourceResourcePermission `pulumi:"permissions"`
-	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+	// Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
 	SslProperties *DataSourceSslProperties `pulumi:"sslProperties"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -144,7 +144,7 @@ type dataSourceArgs struct {
 	//
 	// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
 	Type DataSourceType `pulumi:"type"`
-	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+	// Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
 	VpcConnectionProperties *DataSourceVpcConnectionProperties `pulumi:"vpcConnectionProperties"`
 }
 
@@ -162,11 +162,11 @@ type DataSourceArgs struct {
 	AlternateDataSourceParameters DataSourceParametersArrayInput
 	// The AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
-	// The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
+	// The credentials Amazon Quick Sight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
 	Credentials DataSourceCredentialsPtrInput
 	// An ID for the data source. This ID is unique per AWS Region for each AWS account.
 	DataSourceId pulumi.StringPtrInput
-	// The parameters that Amazon QuickSight uses to connect to your underlying source.
+	// The parameters that Amazon Quick Sight uses to connect to your underlying source.
 	DataSourceParameters DataSourceParametersPtrInput
 	// Error information from the last update or the creation of the data source.
 	ErrorInfo  DataSourceErrorInfoPtrInput
@@ -175,7 +175,7 @@ type DataSourceArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of resource permissions on the data source.
 	Permissions DataSourceResourcePermissionArrayInput
-	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+	// Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
 	SslProperties DataSourceSslPropertiesPtrInput
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
 	Tags aws.TagArrayInput
@@ -183,7 +183,7 @@ type DataSourceArgs struct {
 	//
 	// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
 	Type DataSourceTypeInput
-	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+	// Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
 	VpcConnectionProperties DataSourceVpcConnectionPropertiesPtrInput
 }
 
@@ -253,7 +253,7 @@ func (o DataSourceOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
+// The credentials Amazon Quick Sight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
 func (o DataSourceOutput) Credentials() DataSourceCredentialsPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceCredentialsPtrOutput { return v.Credentials }).(DataSourceCredentialsPtrOutput)
 }
@@ -263,7 +263,7 @@ func (o DataSourceOutput) DataSourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.DataSourceId }).(pulumi.StringPtrOutput)
 }
 
-// The parameters that Amazon QuickSight uses to connect to your underlying source.
+// The parameters that Amazon Quick Sight uses to connect to your underlying source.
 func (o DataSourceOutput) DataSourceParameters() DataSourceParametersPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceParametersPtrOutput { return v.DataSourceParameters }).(DataSourceParametersPtrOutput)
 }
@@ -292,7 +292,7 @@ func (o DataSourceOutput) Permissions() DataSourceResourcePermissionArrayOutput 
 	return o.ApplyT(func(v *DataSource) DataSourceResourcePermissionArrayOutput { return v.Permissions }).(DataSourceResourcePermissionArrayOutput)
 }
 
-// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+// Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
 func (o DataSourceOutput) SslProperties() DataSourceSslPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceSslPropertiesPtrOutput { return v.SslProperties }).(DataSourceSslPropertiesPtrOutput)
 }
@@ -314,7 +314,7 @@ func (o DataSourceOutput) Type() DataSourceTypeOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceTypeOutput { return v.Type }).(DataSourceTypeOutput)
 }
 
-// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+// Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
 func (o DataSourceOutput) VpcConnectionProperties() DataSourceVpcConnectionPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceVpcConnectionPropertiesPtrOutput { return v.VpcConnectionProperties }).(DataSourceVpcConnectionPropertiesPtrOutput)
 }

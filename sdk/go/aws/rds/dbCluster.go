@@ -221,15 +221,12 @@ type DbCluster struct {
 	//   +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
 	ManageMasterUserPassword pulumi.BoolPtrOutput `pulumi:"manageMasterUserPassword"`
 	// Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.
+	//  You can specify one of the following values:
+	//   +  ``password`` - Use standard database authentication with a password.
+	//   +  ``iam-db-auth`` - Use IAM database authentication for the master user.
 	//
-	// You can specify one of the following values:
-	//
-	// - `password` - Use standard database authentication with a password.
-	// - `iam-db-auth` - Use IAM database authentication for the master user.
-	//
-	// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
-	//
-	// This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
+	//  This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
 	MasterUserAuthenticationType pulumi.StringPtrOutput `pulumi:"masterUserAuthenticationType"`
 	// The master password for the DB instance.
 	//   If you specify the ``SourceDBClusterIdentifier``, ``SnapshotIdentifier``, or ``GlobalClusterIdentifier`` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
@@ -664,15 +661,12 @@ type dbClusterArgs struct {
 	//   +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
 	ManageMasterUserPassword *bool `pulumi:"manageMasterUserPassword"`
 	// Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.
+	//  You can specify one of the following values:
+	//   +  ``password`` - Use standard database authentication with a password.
+	//   +  ``iam-db-auth`` - Use IAM database authentication for the master user.
 	//
-	// You can specify one of the following values:
-	//
-	// - `password` - Use standard database authentication with a password.
-	// - `iam-db-auth` - Use IAM database authentication for the master user.
-	//
-	// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
-	//
-	// This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
+	//  This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
 	MasterUserAuthenticationType *string `pulumi:"masterUserAuthenticationType"`
 	// The master password for the DB instance.
 	//   If you specify the ``SourceDBClusterIdentifier``, ``SnapshotIdentifier``, or ``GlobalClusterIdentifier`` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
@@ -1044,15 +1038,12 @@ type DbClusterArgs struct {
 	//   +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
 	ManageMasterUserPassword pulumi.BoolPtrInput
 	// Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.
+	//  You can specify one of the following values:
+	//   +  ``password`` - Use standard database authentication with a password.
+	//   +  ``iam-db-auth`` - Use IAM database authentication for the master user.
 	//
-	// You can specify one of the following values:
-	//
-	// - `password` - Use standard database authentication with a password.
-	// - `iam-db-auth` - Use IAM database authentication for the master user.
-	//
-	// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
-	//
-	// This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
+	//  This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
 	MasterUserAuthenticationType pulumi.StringPtrInput
 	// The master password for the DB instance.
 	//   If you specify the ``SourceDBClusterIdentifier``, ``SnapshotIdentifier``, or ``GlobalClusterIdentifier`` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
@@ -1604,14 +1595,12 @@ func (o DbClusterOutput) ManageMasterUserPassword() pulumi.BoolPtrOutput {
 
 // Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.
 //
-// You can specify one of the following values:
+//	You can specify one of the following values:
+//	 +  ``password`` - Use standard database authentication with a password.
+//	 +  ``iam-db-auth`` - Use IAM database authentication for the master user.
 //
-// - `password` - Use standard database authentication with a password.
-// - `iam-db-auth` - Use IAM database authentication for the master user.
-//
-// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
-//
-// This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+//	Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
+//	This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
 func (o DbClusterOutput) MasterUserAuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.MasterUserAuthenticationType }).(pulumi.StringPtrOutput)
 }

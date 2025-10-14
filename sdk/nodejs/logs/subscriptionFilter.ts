@@ -57,6 +57,14 @@ export class SubscriptionFilter extends pulumi.CustomResource {
      */
     declare public readonly distribution: pulumi.Output<enums.logs.SubscriptionFilterDistribution | undefined>;
     /**
+     * The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+     */
+    declare public readonly emitSystemFields: pulumi.Output<string[] | undefined>;
+    /**
+     * The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+     */
+    declare public readonly fieldSelectionCriteria: pulumi.Output<string | undefined>;
+    /**
      * The name of the subscription filter.
      */
     declare public readonly filterName: pulumi.Output<string | undefined>;
@@ -96,6 +104,8 @@ export class SubscriptionFilter extends pulumi.CustomResource {
             resourceInputs["applyOnTransformedLogs"] = args?.applyOnTransformedLogs;
             resourceInputs["destinationArn"] = args?.destinationArn;
             resourceInputs["distribution"] = args?.distribution;
+            resourceInputs["emitSystemFields"] = args?.emitSystemFields;
+            resourceInputs["fieldSelectionCriteria"] = args?.fieldSelectionCriteria;
             resourceInputs["filterName"] = args?.filterName;
             resourceInputs["filterPattern"] = args?.filterPattern;
             resourceInputs["logGroupName"] = args?.logGroupName;
@@ -104,6 +114,8 @@ export class SubscriptionFilter extends pulumi.CustomResource {
             resourceInputs["applyOnTransformedLogs"] = undefined /*out*/;
             resourceInputs["destinationArn"] = undefined /*out*/;
             resourceInputs["distribution"] = undefined /*out*/;
+            resourceInputs["emitSystemFields"] = undefined /*out*/;
+            resourceInputs["fieldSelectionCriteria"] = undefined /*out*/;
             resourceInputs["filterName"] = undefined /*out*/;
             resourceInputs["filterPattern"] = undefined /*out*/;
             resourceInputs["logGroupName"] = undefined /*out*/;
@@ -133,6 +145,14 @@ export interface SubscriptionFilterArgs {
      * The method used to distribute log data to the destination, which can be either random or grouped by log stream.
      */
     distribution?: pulumi.Input<enums.logs.SubscriptionFilterDistribution>;
+    /**
+     * The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+     */
+    emitSystemFields?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+     */
+    fieldSelectionCriteria?: pulumi.Input<string>;
     /**
      * The name of the subscription filter.
      */

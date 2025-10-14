@@ -100,7 +100,7 @@ class GetDataSourceResult:
     @pulumi.getter(name="dataSourceParameters")
     def data_source_parameters(self) -> Optional['outputs.DataSourceParameters']:
         """
-        The parameters that Amazon QuickSight uses to connect to your underlying source.
+        The parameters that Amazon Quick Sight uses to connect to your underlying source.
         """
         return pulumi.get(self, "data_source_parameters")
 
@@ -140,7 +140,7 @@ class GetDataSourceResult:
     @pulumi.getter(name="sslProperties")
     def ssl_properties(self) -> Optional['outputs.DataSourceSslProperties']:
         """
-        Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+        Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
         """
         return pulumi.get(self, "ssl_properties")
 
@@ -164,7 +164,7 @@ class GetDataSourceResult:
     @pulumi.getter(name="vpcConnectionProperties")
     def vpc_connection_properties(self) -> Optional['outputs.DataSourceVpcConnectionProperties']:
         """
-        Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+        Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
         """
         return pulumi.get(self, "vpc_connection_properties")
 

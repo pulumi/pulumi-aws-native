@@ -4181,10 +4181,7 @@ if not MYPY:
         """
         The environment description.
         """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The environment ID.
-        """
+        environment_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
     ProjectProfileEnvironmentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4199,7 +4196,7 @@ class ProjectProfileEnvironmentConfigurationArgs:
                  deployment_mode: Optional[pulumi.Input['ProjectProfileDeploymentMode']] = None,
                  deployment_order: Optional[pulumi.Input[_builtins.float]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 environment_configuration_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input['ProjectProfileRegionArgs'] aws_region: The AWS Region of the environment.
         :param pulumi.Input[_builtins.str] environment_blueprint_id: The environment blueprint ID.
@@ -4209,7 +4206,6 @@ class ProjectProfileEnvironmentConfigurationArgs:
         :param pulumi.Input['ProjectProfileDeploymentMode'] deployment_mode: The deployment mode of the environment.
         :param pulumi.Input[_builtins.float] deployment_order: The deployment order of the environment.
         :param pulumi.Input[_builtins.str] description: The environment description.
-        :param pulumi.Input[_builtins.str] id: The environment ID.
         """
         pulumi.set(__self__, "aws_region", aws_region)
         pulumi.set(__self__, "environment_blueprint_id", environment_blueprint_id)
@@ -4224,8 +4220,8 @@ class ProjectProfileEnvironmentConfigurationArgs:
             pulumi.set(__self__, "deployment_order", deployment_order)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
+        if environment_configuration_id is not None:
+            pulumi.set(__self__, "environment_configuration_id", environment_configuration_id)
 
     @_builtins.property
     @pulumi.getter(name="awsRegion")
@@ -4324,16 +4320,13 @@ class ProjectProfileEnvironmentConfigurationArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The environment ID.
-        """
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="environmentConfigurationId")
+    def environment_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "environment_configuration_id")
 
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "id", value)
+    @environment_configuration_id.setter
+    def environment_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "environment_configuration_id", value)
 
 
 if not MYPY:

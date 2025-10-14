@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DataSourceS3Parameters
     {
         /// <summary>
-        /// Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded into Amazon QuickSight.
+        /// Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded into Quick Sight.
         /// </summary>
         public readonly Outputs.DataSourceManifestFileLocation ManifestFileLocation;
         /// <summary>

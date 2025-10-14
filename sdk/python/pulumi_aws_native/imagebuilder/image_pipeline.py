@@ -31,6 +31,7 @@ class ImagePipelineArgs:
                  image_scanning_configuration: Optional[pulumi.Input['ImagePipelineImageScanningConfigurationArgs']] = None,
                  image_tests_configuration: Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 logging_configuration: Optional[pulumi.Input['ImagePipelinePipelineLoggingConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule: Optional[pulumi.Input['ImagePipelineScheduleArgs']] = None,
                  status: Optional[pulumi.Input['ImagePipelineStatus']] = None,
@@ -47,6 +48,7 @@ class ImagePipelineArgs:
         :param pulumi.Input['ImagePipelineImageScanningConfigurationArgs'] image_scanning_configuration: Contains settings for vulnerability scans.
         :param pulumi.Input['ImagePipelineImageTestsConfigurationArgs'] image_tests_configuration: The image tests configuration of the image pipeline.
         :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
+        :param pulumi.Input['ImagePipelinePipelineLoggingConfigurationArgs'] logging_configuration: The logging configuration settings for the image pipeline.
         :param pulumi.Input[_builtins.str] name: The name of the image pipeline.
         :param pulumi.Input['ImagePipelineScheduleArgs'] schedule: The schedule of the image pipeline.
         :param pulumi.Input['ImagePipelineStatus'] status: The status of the image pipeline.
@@ -71,6 +73,8 @@ class ImagePipelineArgs:
             pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
         if infrastructure_configuration_arn is not None:
             pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
+        if logging_configuration is not None:
+            pulumi.set(__self__, "logging_configuration", logging_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if schedule is not None:
@@ -191,6 +195,18 @@ class ImagePipelineArgs:
         pulumi.set(self, "infrastructure_configuration_arn", value)
 
     @_builtins.property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> Optional[pulumi.Input['ImagePipelinePipelineLoggingConfigurationArgs']]:
+        """
+        The logging configuration settings for the image pipeline.
+        """
+        return pulumi.get(self, "logging_configuration")
+
+    @logging_configuration.setter
+    def logging_configuration(self, value: Optional[pulumi.Input['ImagePipelinePipelineLoggingConfigurationArgs']]):
+        pulumi.set(self, "logging_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -266,6 +282,7 @@ class ImagePipeline(pulumi.CustomResource):
                  image_scanning_configuration: Optional[pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
                  image_tests_configuration: Optional[pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 logging_configuration: Optional[pulumi.Input[Union['ImagePipelinePipelineLoggingConfigurationArgs', 'ImagePipelinePipelineLoggingConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule: Optional[pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
                  status: Optional[pulumi.Input['ImagePipelineStatus']] = None,
@@ -286,6 +303,7 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']] image_scanning_configuration: Contains settings for vulnerability scans.
         :param pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']] image_tests_configuration: The image tests configuration of the image pipeline.
         :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
+        :param pulumi.Input[Union['ImagePipelinePipelineLoggingConfigurationArgs', 'ImagePipelinePipelineLoggingConfigurationArgsDict']] logging_configuration: The logging configuration settings for the image pipeline.
         :param pulumi.Input[_builtins.str] name: The name of the image pipeline.
         :param pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']] schedule: The schedule of the image pipeline.
         :param pulumi.Input['ImagePipelineStatus'] status: The status of the image pipeline.
@@ -325,6 +343,7 @@ class ImagePipeline(pulumi.CustomResource):
                  image_scanning_configuration: Optional[pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
                  image_tests_configuration: Optional[pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 logging_configuration: Optional[pulumi.Input[Union['ImagePipelinePipelineLoggingConfigurationArgs', 'ImagePipelinePipelineLoggingConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule: Optional[pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
                  status: Optional[pulumi.Input['ImagePipelineStatus']] = None,
@@ -348,6 +367,7 @@ class ImagePipeline(pulumi.CustomResource):
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
             __props__.__dict__["image_tests_configuration"] = image_tests_configuration
             __props__.__dict__["infrastructure_configuration_arn"] = infrastructure_configuration_arn
+            __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["status"] = status
@@ -388,6 +408,7 @@ class ImagePipeline(pulumi.CustomResource):
         __props__.__dict__["image_scanning_configuration"] = None
         __props__.__dict__["image_tests_configuration"] = None
         __props__.__dict__["infrastructure_configuration_arn"] = None
+        __props__.__dict__["logging_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["schedule"] = None
         __props__.__dict__["status"] = None
@@ -474,6 +495,14 @@ class ImagePipeline(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
         """
         return pulumi.get(self, "infrastructure_configuration_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> pulumi.Output[Optional['outputs.ImagePipelinePipelineLoggingConfiguration']]:
+        """
+        The logging configuration settings for the image pipeline.
+        """
+        return pulumi.get(self, "logging_configuration")
 
     @_builtins.property
     @pulumi.getter

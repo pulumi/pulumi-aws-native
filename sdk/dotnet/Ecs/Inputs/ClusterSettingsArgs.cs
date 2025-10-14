@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     public sealed class ClusterSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the cluster setting. The value is ``containerInsights`` .
+        /// The name of the cluster setting. The value is ``containerInsights``.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

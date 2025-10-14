@@ -21,7 +21,7 @@ type Theme struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the AWS account where you want to store the new theme.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
 	BaseThemeId pulumi.StringOutput `pulumi:"baseThemeId"`
 	// The theme configuration, which contains the theme display properties.
 	Configuration ThemeConfigurationOutput `pulumi:"configuration"`
@@ -103,7 +103,7 @@ func (ThemeState) ElementType() reflect.Type {
 type themeArgs struct {
 	// The ID of the AWS account where you want to store the new theme.
 	AwsAccountId string `pulumi:"awsAccountId"`
-	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
 	BaseThemeId string `pulumi:"baseThemeId"`
 	// The theme configuration, which contains the theme display properties.
 	Configuration ThemeConfiguration `pulumi:"configuration"`
@@ -123,7 +123,7 @@ type themeArgs struct {
 type ThemeArgs struct {
 	// The ID of the AWS account where you want to store the new theme.
 	AwsAccountId pulumi.StringInput
-	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
 	BaseThemeId pulumi.StringInput
 	// The theme configuration, which contains the theme display properties.
 	Configuration ThemeConfigurationInput
@@ -186,7 +186,7 @@ func (o ThemeOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
 func (o ThemeOutput) BaseThemeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.BaseThemeId }).(pulumi.StringOutput)
 }

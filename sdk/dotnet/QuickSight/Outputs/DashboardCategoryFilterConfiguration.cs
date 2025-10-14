@@ -18,11 +18,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardCustomFilterConfiguration? CustomFilterConfiguration;
         /// <summary>
-        /// A list of custom filter values. In the Amazon QuickSight console, this filter type is called a custom filter list.
+        /// A list of custom filter values. In the Quick Sight console, this filter type is called a custom filter list.
         /// </summary>
         public readonly Outputs.DashboardCustomFilterListConfiguration? CustomFilterListConfiguration;
         /// <summary>
-        /// A list of filter configurations. In the Amazon QuickSight console, this filter type is called a filter list.
+        /// A list of filter configurations. In the Quick Sight console, this filter type is called a filter list.
         /// </summary>
         public readonly Outputs.DashboardFilterListConfiguration? FilterListConfiguration;
 

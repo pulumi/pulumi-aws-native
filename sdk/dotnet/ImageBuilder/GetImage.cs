@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly string? ImageUri;
         /// <summary>
+        /// The logging configuration settings for the image.
+        /// </summary>
+        public readonly Outputs.ImageLoggingConfiguration? LoggingConfiguration;
+        /// <summary>
         /// The name of the image.
         /// </summary>
         public readonly string? Name;
@@ -98,6 +102,8 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             string? imageUri,
 
+            Outputs.ImageLoggingConfiguration? loggingConfiguration,
+
             string? name,
 
             ImmutableDictionary<string, string>? tags)
@@ -106,6 +112,7 @@ namespace Pulumi.AwsNative.ImageBuilder
             ExecutionRole = executionRole;
             ImageId = imageId;
             ImageUri = imageUri;
+            LoggingConfiguration = loggingConfiguration;
             Name = name;
             Tags = tags;
         }

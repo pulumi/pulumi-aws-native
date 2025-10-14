@@ -9,5 +9,7 @@ import typing
 from ._enums import *
 from .configuration_manager import *
 from .get_configuration_manager import *
+from .get_lifecycle_automation import *
+from .lifecycle_automation import *
 from ._inputs import *
 from . import outputs

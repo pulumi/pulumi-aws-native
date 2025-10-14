@@ -7,6 +7,9 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy',
+    'OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy',
+    'OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy',
     'OrganizationTelemetryRuleDestinationType',
     'OrganizationTelemetryRuleResourceType',
     'OrganizationTelemetryRuleTelemetryType',
@@ -14,6 +17,24 @@ __all__ = [
     'TelemetryRuleResourceType',
     'TelemetryRuleTelemetryType',
 ]
+
+
+@pulumi.type_token("aws-native:observabilityadmin:OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy")
+class OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy(_builtins.str, Enum):
+    ALLOW = "ALLOW"
+    SKIP = "SKIP"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy")
+class OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy(_builtins.str, Enum):
+    CUSTOMER_MANAGED = "CUSTOMER_MANAGED"
+    AWS_OWNED = "AWS_OWNED"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy")
+class OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy(_builtins.str, Enum):
+    ALLOW = "ALLOW"
+    SKIP = "SKIP"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleDestinationType")

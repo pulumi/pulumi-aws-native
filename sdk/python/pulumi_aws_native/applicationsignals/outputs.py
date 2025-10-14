@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'GroupingConfigurationGroupingAttributeDefinition',
     'ServiceLevelObjectiveBurnRateConfiguration',
     'ServiceLevelObjectiveCalendarInterval',
     'ServiceLevelObjectiveDependencyConfig',
@@ -36,6 +37,54 @@ __all__ = [
     'ServiceLevelObjectiveSliMetric',
     'ServiceLevelObjectiveWindow',
 ]
+
+@pulumi.output_type
+class GroupingConfigurationGroupingAttributeDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupingName":
+            suggest = "grouping_name"
+        elif key == "groupingSourceKeys":
+            suggest = "grouping_source_keys"
+        elif key == "defaultGroupingValue":
+            suggest = "default_grouping_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupingConfigurationGroupingAttributeDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupingConfigurationGroupingAttributeDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupingConfigurationGroupingAttributeDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 grouping_name: _builtins.str,
+                 grouping_source_keys: Sequence[_builtins.str],
+                 default_grouping_value: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "grouping_name", grouping_name)
+        pulumi.set(__self__, "grouping_source_keys", grouping_source_keys)
+        if default_grouping_value is not None:
+            pulumi.set(__self__, "default_grouping_value", default_grouping_value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupingName")
+    def grouping_name(self) -> _builtins.str:
+        return pulumi.get(self, "grouping_name")
+
+    @_builtins.property
+    @pulumi.getter(name="groupingSourceKeys")
+    def grouping_source_keys(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "grouping_source_keys")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultGroupingValue")
+    def default_grouping_value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default_grouping_value")
+
 
 @pulumi.output_type
 class ServiceLevelObjectiveBurnRateConfiguration(dict):

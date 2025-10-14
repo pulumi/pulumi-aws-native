@@ -931,7 +931,7 @@ namespace Pulumi.AwsNative.S3
         public Output<ImmutableArray<Outputs.BucketIntelligentTieringConfiguration>> IntelligentTieringConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+        /// Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
         /// </summary>
         [Output("inventoryConfigurations")]
         public Output<ImmutableArray<Outputs.BucketInventoryConfiguration>> InventoryConfigurations { get; private set; } = null!;
@@ -978,6 +978,8 @@ namespace Pulumi.AwsNative.S3
         ///    +  The ``DefaultRetention`` settings require both a mode and a period.
         ///   +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
         ///   +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
+        ///   
+        ///    You must URL encode any signed header values that contain spaces. For example, if your header value is ``my file.txt``, containing two spaces after ``my``, you must URL encode this value to ``my%20%20file.txt``.
         /// </summary>
         [Output("objectLockConfiguration")]
         public Output<Outputs.BucketObjectLockConfiguration?> ObjectLockConfiguration { get; private set; } = null!;
@@ -1156,7 +1158,7 @@ namespace Pulumi.AwsNative.S3
         private InputList<Inputs.BucketInventoryConfigurationArgs>? _inventoryConfigurations;
 
         /// <summary>
-        /// Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+        /// Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
         /// </summary>
         public InputList<Inputs.BucketInventoryConfigurationArgs> InventoryConfigurations
         {
@@ -1212,6 +1214,8 @@ namespace Pulumi.AwsNative.S3
         ///    +  The ``DefaultRetention`` settings require both a mode and a period.
         ///   +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
         ///   +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
+        ///   
+        ///    You must URL encode any signed header values that contain spaces. For example, if your header value is ``my file.txt``, containing two spaces after ``my``, you must URL encode this value to ``my%20%20file.txt``.
         /// </summary>
         [Input("objectLockConfiguration")]
         public Input<Inputs.BucketObjectLockConfigurationArgs>? ObjectLockConfiguration { get; set; }

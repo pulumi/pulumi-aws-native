@@ -58,20 +58,59 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     public sealed class GetGatewayResult
     {
         public readonly Outputs.GatewayAuthorizerConfigurationProperties? AuthorizerConfiguration;
+        /// <summary>
+        /// The authorizer type for the gateway.
+        /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.GatewayAuthorizerType? AuthorizerType;
+        /// <summary>
+        /// The date and time at which the gateway was created.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The description for the gateway.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The exception level for the gateway.
+        /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.GatewayExceptionLevel? ExceptionLevel;
+        /// <summary>
+        /// The ARN for the gateway.
+        /// </summary>
         public readonly string? GatewayArn;
         public readonly string? GatewayIdentifier;
+        /// <summary>
+        /// The gateway URL for the gateway.
+        /// </summary>
         public readonly string? GatewayUrl;
+        /// <summary>
+        /// The KMS key ARN for the gateway.
+        /// </summary>
         public readonly string? KmsKeyArn;
+        /// <summary>
+        /// The name for the gateway.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The protocol configuration for the gateway target.
+        /// </summary>
         public readonly Outputs.GatewayProtocolConfigurationProperties? ProtocolConfiguration;
+        /// <summary>
+        /// The protocol type for the gateway target.
+        /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.GatewayProtocolType? ProtocolType;
         public readonly string? RoleArn;
+        /// <summary>
+        /// The status for the gateway.
+        /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.GatewayStatus? Status;
+        /// <summary>
+        /// The status reasons for the gateway.
+        /// </summary>
         public readonly ImmutableArray<string> StatusReasons;
+        /// <summary>
+        /// The tags for the gateway.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string? UpdatedAt;
         public readonly Outputs.GatewayWorkloadIdentityDetails? WorkloadIdentityDetails;

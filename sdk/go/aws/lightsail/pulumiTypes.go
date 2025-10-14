@@ -2121,6 +2121,14 @@ func (o DiskLocationPtrOutput) RegionName() pulumi.StringPtrOutput {
 }
 
 // A key-value pair to associate with a resource.
+type DiskSnapshotTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
+// A key-value pair to associate with a resource.
 type DiskTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
@@ -3650,6 +3658,83 @@ type LoadBalancerTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// The AWS Region and Availability Zone where the disk snapshot was created.
+type LocationProperties struct {
+	// The Availability Zone where the disk snapshot was created.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The AWS Region where the disk snapshot was created.
+	RegionName *string `pulumi:"regionName"`
+}
+
+// The AWS Region and Availability Zone where the disk snapshot was created.
+type LocationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (LocationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationProperties)(nil)).Elem()
+}
+
+func (o LocationPropertiesOutput) ToLocationPropertiesOutput() LocationPropertiesOutput {
+	return o
+}
+
+func (o LocationPropertiesOutput) ToLocationPropertiesOutputWithContext(ctx context.Context) LocationPropertiesOutput {
+	return o
+}
+
+// The Availability Zone where the disk snapshot was created.
+func (o LocationPropertiesOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationProperties) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region where the disk snapshot was created.
+func (o LocationPropertiesOutput) RegionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationProperties) *string { return v.RegionName }).(pulumi.StringPtrOutput)
+}
+
+type LocationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationProperties)(nil)).Elem()
+}
+
+func (o LocationPropertiesPtrOutput) ToLocationPropertiesPtrOutput() LocationPropertiesPtrOutput {
+	return o
+}
+
+func (o LocationPropertiesPtrOutput) ToLocationPropertiesPtrOutputWithContext(ctx context.Context) LocationPropertiesPtrOutput {
+	return o
+}
+
+func (o LocationPropertiesPtrOutput) Elem() LocationPropertiesOutput {
+	return o.ApplyT(func(v *LocationProperties) LocationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret LocationProperties
+		return ret
+	}).(LocationPropertiesOutput)
+}
+
+// The Availability Zone where the disk snapshot was created.
+func (o LocationPropertiesPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region where the disk snapshot was created.
+func (o LocationPropertiesPtrOutput) RegionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegionName
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccessRulesInput)(nil)).Elem(), BucketAccessRulesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccessRulesPtrInput)(nil)).Elem(), BucketAccessRulesArgs{})
@@ -3745,4 +3830,6 @@ func init() {
 	pulumi.RegisterOutputType(InstanceSnapshotLocationPtrOutput{})
 	pulumi.RegisterOutputType(InstanceStateTypeOutput{})
 	pulumi.RegisterOutputType(InstanceStateTypePtrOutput{})
+	pulumi.RegisterOutputType(LocationPropertiesOutput{})
+	pulumi.RegisterOutputType(LocationPropertiesPtrOutput{})
 }
