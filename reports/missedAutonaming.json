@@ -1054,6 +1054,18 @@
     "cfTypeName": "AWS::ApplicationSignals::Discovery",
     "properties": {}
   },
+  "aws-native:applicationsignals:GroupingConfiguration": {
+    "cfTypeName": "AWS::ApplicationSignals::GroupingConfiguration",
+    "properties": {
+      "groupingAttributeDefinitions": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:applicationsignals:GroupingConfigurationGroupingAttributeDefinition"
+        },
+        "description": "An array of grouping attribute definitions that specify how services should be grouped based on various attributes and source keys."
+      }
+    }
+  },
   "aws-native:appstream:ApplicationEntitlementAssociation": {
     "cfTypeName": "AWS::AppStream::ApplicationEntitlementAssociation",
     "properties": {
@@ -7461,7 +7473,7 @@
         "items": {
           "type": "string"
         },
-        "description": "The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*."
+        "description": "The task launch types the task definition was validated against. The valid values are ``MANAGED_INSTANCES``, ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*."
       },
       "runtimePlatform": {
         "$ref": "#/types/aws-native:ecs:TaskDefinitionRuntimePlatform",
@@ -8877,6 +8889,10 @@
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the infrastructure configuration."
       },
+      "loggingConfiguration": {
+        "$ref": "#/types/aws-native:imagebuilder:ImageLoggingConfiguration",
+        "description": "The logging configuration settings for the image."
+      },
       "tags": {
         "type": "object",
         "additionalProperties": {
@@ -9873,7 +9889,8 @@
         "description": "The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html)."
       },
       "invokedViaFunctionUrl": {
-        "type": "boolean"
+        "type": "boolean",
+        "description": "Restricts the `lambda:InvokeFunction` action to calls coming from a function URL. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) ."
       },
       "principal": {
         "type": "string",
@@ -12366,7 +12383,7 @@
       },
       "masterUserAuthenticationType": {
         "type": "string",
-        "description": "Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.\n\nYou can specify one of the following values:\n\n- `password` - Use standard database authentication with a password.\n- `iam-db-auth` - Use IAM database authentication for the master user.\n\nValid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters\n\nThis option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines."
+        "description": "Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.\n You can specify one of the following values:\n  +  ``password`` - Use standard database authentication with a password.\n  +  ``iam-db-auth`` - Use IAM database authentication for the master user.\n  \n Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters\n This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines."
       },
       "masterUserPassword": {
         "type": "string",
@@ -12685,7 +12702,7 @@
       },
       "masterUserAuthenticationType": {
         "type": "string",
-        "description": "Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.\n\nYou can specify one of the following values:\n\n- `password` - Use standard database authentication with a password.\n- `iam-db-auth` - Use IAM database authentication for the master user.\n\nThis option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines."
+        "description": "Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.\n You can specify one of the following values:\n  +  ``password`` - Use standard database authentication with a password.\n  +  ``iam-db-auth`` - Use IAM database authentication for the master user.\n  \n This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines."
       },
       "masterUserPassword": {
         "type": "string",
@@ -14094,6 +14111,34 @@
       }
     }
   },
+  "aws-native:servicecatalog:LaunchNotificationConstraint": {
+    "cfTypeName": "AWS::ServiceCatalog::LaunchNotificationConstraint",
+    "properties": {
+      "acceptLanguage": {
+        "type": "string",
+        "description": "The language code.\n\n- `jp` - Japanese\n- `zh` - Chinese"
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the constraint."
+      },
+      "notificationArns": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The notification ARNs."
+      },
+      "portfolioId": {
+        "type": "string",
+        "description": "The portfolio identifier."
+      },
+      "productId": {
+        "type": "string",
+        "description": "The product identifier."
+      }
+    }
+  },
   "aws-native:servicecatalog:LaunchTemplateConstraint": {
     "cfTypeName": "AWS::ServiceCatalog::LaunchTemplateConstraint",
     "properties": {
@@ -14116,6 +14161,27 @@
       "rules": {
         "type": "string",
         "description": "A json encoded string of the template constraint rules"
+      }
+    }
+  },
+  "aws-native:servicecatalog:PortfolioPrincipalAssociation": {
+    "cfTypeName": "AWS::ServiceCatalog::PortfolioPrincipalAssociation",
+    "properties": {
+      "acceptLanguage": {
+        "type": "string",
+        "description": "The language code."
+      },
+      "portfolioId": {
+        "type": "string",
+        "description": "The portfolio identifier."
+      },
+      "principalArn": {
+        "type": "string",
+        "description": "The ARN of the principal (user, role, or group)."
+      },
+      "principalType": {
+        "type": "string",
+        "description": "The principal type. The supported value is IAM if you use a fully defined Amazon Resource Name (ARN), or IAM_PATTERN if you use an ARN with no accountID, with or without wildcard characters."
       }
     }
   },
@@ -14161,6 +14227,31 @@
       }
     }
   },
+  "aws-native:servicecatalog:ResourceUpdateConstraint": {
+    "cfTypeName": "AWS::ServiceCatalog::ResourceUpdateConstraint",
+    "properties": {
+      "acceptLanguage": {
+        "type": "string",
+        "description": "The language code"
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the constraint"
+      },
+      "portfolioId": {
+        "type": "string",
+        "description": "The portfolio identifier"
+      },
+      "productId": {
+        "type": "string",
+        "description": "The product identifier"
+      },
+      "tagUpdateOnProvisionedProduct": {
+        "type": "string",
+        "description": "ALLOWED or NOT_ALLOWED, to permit or prevent changes to the tags on provisioned instances of the specified portfolio / product combination"
+      }
+    }
+  },
   "aws-native:servicecatalog:ServiceActionAssociation": {
     "cfTypeName": "AWS::ServiceCatalog::ServiceActionAssociation",
     "properties": {
@@ -14192,6 +14283,19 @@
       "value": {
         "type": "string",
         "description": "The TagOption value."
+      }
+    }
+  },
+  "aws-native:servicecatalog:TagOptionAssociation": {
+    "cfTypeName": "AWS::ServiceCatalog::TagOptionAssociation",
+    "properties": {
+      "resourceId": {
+        "type": "string",
+        "description": "The CloudformationProduct or Portfolio identifier."
+      },
+      "tagOptionId": {
+        "type": "string",
+        "description": "The TagOption identifier."
       }
     }
   },
@@ -14782,6 +14886,31 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags to apply to the replication set."
+      }
+    }
+  },
+  "aws-native:ssmquicksetup:LifecycleAutomation": {
+    "cfTypeName": "AWS::SSMQuickSetup::LifecycleAutomation",
+    "properties": {
+      "automationDocument": {
+        "type": "string",
+        "description": "The name of the Automation document to execute"
+      },
+      "automationParameters": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "pulumi.json#/Any"
+        }
+      },
+      "resourceKey": {
+        "type": "string",
+        "description": "A unique identifier used for generating a unique logical ID for the custom resource"
+      },
+      "tags": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
       }
     }
   },

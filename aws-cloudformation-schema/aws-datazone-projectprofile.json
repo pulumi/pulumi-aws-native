@@ -39,7 +39,7 @@
           "minLength" : 1,
           "pattern" : "^[\\w -]+$"
         },
-        "Id" : {
+        "EnvironmentConfigurationId" : {
           "type" : "string",
           "pattern" : "^[a-zA-Z0-9_-]{1,36}$"
         },
@@ -206,7 +206,7 @@
     }
   },
   "required" : [ "Name" ],
-  "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/CreatedBy", "/properties/DomainId", "/properties/DomainUnitId", "/properties/Id", "/properties/Identifier", "/properties/LastUpdatedAt", "/properties/EnvironmentConfigurations/*/Id", "/properties/EnvironmentConfigurations/*/ConfigurationParameters/ResolvedParameters" ],
+  "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/CreatedBy", "/properties/DomainId", "/properties/DomainUnitId", "/properties/Id", "/properties/Identifier", "/properties/LastUpdatedAt", "/properties/EnvironmentConfigurations/*/EnvironmentConfigurationId", "/properties/EnvironmentConfigurations/*/ConfigurationParameters/ResolvedParameters" ],
   "writeOnlyProperties" : [ "/properties/DomainUnitIdentifier" ],
   "createOnlyProperties" : [ "/properties/DomainIdentifier" ],
   "primaryIdentifier" : [ "/properties/DomainIdentifier", "/properties/Identifier" ],

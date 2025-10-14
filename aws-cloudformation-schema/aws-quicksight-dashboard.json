@@ -2319,6 +2319,9 @@
         "ExportWithHiddenFieldsOption" : {
           "$ref" : "#/definitions/ExportWithHiddenFieldsOption"
         },
+        "QuickSuiteActionsOption" : {
+          "$ref" : "#/definitions/QuickSuiteActionsOption"
+        },
         "ExecutiveSummaryOption" : {
           "$ref" : "#/definitions/ExecutiveSummaryOption"
         },
@@ -8023,6 +8026,15 @@
         }
       },
       "required" : [ "Color", "Expression" ]
+    },
+    "QuickSuiteActionsOption" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "AvailabilityStatus" : {
+          "$ref" : "#/definitions/DashboardBehavior"
+        }
+      }
     },
     "GeospatialCircleRadius" : {
       "additionalProperties" : false,
