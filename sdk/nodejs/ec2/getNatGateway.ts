@@ -28,6 +28,7 @@ export interface GetNatGatewayArgs {
 }
 
 export interface GetNatGatewayResult {
+    readonly eniId?: string;
     /**
      * The ID of the NAT gateway.
      */

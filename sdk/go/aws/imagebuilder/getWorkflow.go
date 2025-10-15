@@ -30,6 +30,8 @@ type LookupWorkflowArgs struct {
 type LookupWorkflowResult struct {
 	// The Amazon Resource Name (ARN) of the workflow.
 	Arn *string `pulumi:"arn"`
+	// The latest version references of the workflow.
+	LatestVersion *WorkflowLatestVersion `pulumi:"latestVersion"`
 	// The tags associated with the workflow.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -69,6 +71,11 @@ func (o LookupWorkflowResultOutput) ToLookupWorkflowResultOutputWithContext(ctx 
 // The Amazon Resource Name (ARN) of the workflow.
 func (o LookupWorkflowResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The latest version references of the workflow.
+func (o LookupWorkflowResultOutput) LatestVersion() WorkflowLatestVersionPtrOutput {
+	return o.ApplyT(func(v LookupWorkflowResult) *WorkflowLatestVersion { return v.LatestVersion }).(WorkflowLatestVersionPtrOutput)
 }
 
 // The tags associated with the workflow.

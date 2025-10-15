@@ -5866,7 +5866,7 @@ func (o RuleSageMakerPipelineParametersPtrOutput) PipelineParameterList() RuleSa
 }
 
 type RuleSqsParameters struct {
-	// The FIFO message group ID to use as the target.
+	// The ID of the message group to use as the target.
 	MessageGroupId string `pulumi:"messageGroupId"`
 }
 
@@ -5882,7 +5882,7 @@ type RuleSqsParametersInput interface {
 }
 
 type RuleSqsParametersArgs struct {
-	// The FIFO message group ID to use as the target.
+	// The ID of the message group to use as the target.
 	MessageGroupId pulumi.StringInput `pulumi:"messageGroupId"`
 }
 
@@ -5963,7 +5963,7 @@ func (o RuleSqsParametersOutput) ToRuleSqsParametersPtrOutputWithContext(ctx con
 	}).(RuleSqsParametersPtrOutput)
 }
 
-// The FIFO message group ID to use as the target.
+// The ID of the message group to use as the target.
 func (o RuleSqsParametersOutput) MessageGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSqsParameters) string { return v.MessageGroupId }).(pulumi.StringOutput)
 }
@@ -5992,7 +5992,7 @@ func (o RuleSqsParametersPtrOutput) Elem() RuleSqsParametersOutput {
 	}).(RuleSqsParametersOutput)
 }
 
-// The FIFO message group ID to use as the target.
+// The ID of the message group to use as the target.
 func (o RuleSqsParametersPtrOutput) MessageGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleSqsParameters) *string {
 		if v == nil {
@@ -6147,9 +6147,9 @@ type RuleTarget struct {
 	//
 	// If you specify a SageMaker AI Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
 	SageMakerPipelineParameters *RuleSageMakerPipelineParameters `pulumi:"sageMakerPipelineParameters"`
-	// Contains the message group ID to use when the target is a FIFO queue.
+	// Contains the message group ID to use when the target is an Amazon SQS fair or FIFO queue.
 	//
-	// If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
+	// If you specify a fair or FIFO queue as a target, the queue must have content-based deduplication enabled.
 	SqsParameters *RuleSqsParameters `pulumi:"sqsParameters"`
 }
 
@@ -6203,9 +6203,9 @@ type RuleTargetArgs struct {
 	//
 	// If you specify a SageMaker AI Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
 	SageMakerPipelineParameters RuleSageMakerPipelineParametersPtrInput `pulumi:"sageMakerPipelineParameters"`
-	// Contains the message group ID to use when the target is a FIFO queue.
+	// Contains the message group ID to use when the target is an Amazon SQS fair or FIFO queue.
 	//
-	// If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
+	// If you specify a fair or FIFO queue as a target, the queue must have content-based deduplication enabled.
 	SqsParameters RuleSqsParametersPtrInput `pulumi:"sqsParameters"`
 }
 
@@ -6346,9 +6346,9 @@ func (o RuleTargetOutput) SageMakerPipelineParameters() RuleSageMakerPipelinePar
 	return o.ApplyT(func(v RuleTarget) *RuleSageMakerPipelineParameters { return v.SageMakerPipelineParameters }).(RuleSageMakerPipelineParametersPtrOutput)
 }
 
-// Contains the message group ID to use when the target is a FIFO queue.
+// Contains the message group ID to use when the target is an Amazon SQS fair or FIFO queue.
 //
-// If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
+// If you specify a fair or FIFO queue as a target, the queue must have content-based deduplication enabled.
 func (o RuleTargetOutput) SqsParameters() RuleSqsParametersPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleSqsParameters { return v.SqsParameters }).(RuleSqsParametersPtrOutput)
 }

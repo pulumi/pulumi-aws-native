@@ -32,6 +32,8 @@ type LookupComponentResult struct {
 	Arn *string `pulumi:"arn"`
 	// The encryption status of the component.
 	Encrypted *bool `pulumi:"encrypted"`
+	// The latest version references of the component.
+	LatestVersion *ComponentLatestVersion `pulumi:"latestVersion"`
 	// The tags associated with the component.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the component denotes whether the component is used to build the image or only to test it.
@@ -78,6 +80,11 @@ func (o LookupComponentResultOutput) Arn() pulumi.StringPtrOutput {
 // The encryption status of the component.
 func (o LookupComponentResultOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupComponentResult) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+// The latest version references of the component.
+func (o LookupComponentResultOutput) LatestVersion() ComponentLatestVersionPtrOutput {
+	return o.ApplyT(func(v LookupComponentResult) *ComponentLatestVersion { return v.LatestVersion }).(ComponentLatestVersionPtrOutput)
 }
 
 // The tags associated with the component.

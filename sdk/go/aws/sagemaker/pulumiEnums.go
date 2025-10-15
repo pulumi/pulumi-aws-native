@@ -29,6 +29,14 @@ const (
 	AppResourceSpecInstanceTypeMlM512xlarge            = AppResourceSpecInstanceType("ml.m5.12xlarge")
 	AppResourceSpecInstanceTypeMlM516xlarge            = AppResourceSpecInstanceType("ml.m5.16xlarge")
 	AppResourceSpecInstanceTypeMlM524xlarge            = AppResourceSpecInstanceType("ml.m5.24xlarge")
+	AppResourceSpecInstanceTypeMlM5dLarge              = AppResourceSpecInstanceType("ml.m5d.large")
+	AppResourceSpecInstanceTypeMlM5dXlarge             = AppResourceSpecInstanceType("ml.m5d.xlarge")
+	AppResourceSpecInstanceTypeMlM5d2xlarge            = AppResourceSpecInstanceType("ml.m5d.2xlarge")
+	AppResourceSpecInstanceTypeMlM5d4xlarge            = AppResourceSpecInstanceType("ml.m5d.4xlarge")
+	AppResourceSpecInstanceTypeMlM5d8xlarge            = AppResourceSpecInstanceType("ml.m5d.8xlarge")
+	AppResourceSpecInstanceTypeMlM5d12xlarge           = AppResourceSpecInstanceType("ml.m5d.12xlarge")
+	AppResourceSpecInstanceTypeMlM5d16xlarge           = AppResourceSpecInstanceType("ml.m5d.16xlarge")
+	AppResourceSpecInstanceTypeMlM5d24xlarge           = AppResourceSpecInstanceType("ml.m5d.24xlarge")
 	AppResourceSpecInstanceTypeMlC5Large               = AppResourceSpecInstanceType("ml.c5.large")
 	AppResourceSpecInstanceTypeMlC5Xlarge              = AppResourceSpecInstanceType("ml.c5.xlarge")
 	AppResourceSpecInstanceTypeMlC52xlarge             = AppResourceSpecInstanceType("ml.c5.2xlarge")
@@ -40,6 +48,7 @@ const (
 	AppResourceSpecInstanceTypeMlP32xlarge             = AppResourceSpecInstanceType("ml.p3.2xlarge")
 	AppResourceSpecInstanceTypeMlP38xlarge             = AppResourceSpecInstanceType("ml.p3.8xlarge")
 	AppResourceSpecInstanceTypeMlP316xlarge            = AppResourceSpecInstanceType("ml.p3.16xlarge")
+	AppResourceSpecInstanceTypeMlP3dn24xlarge          = AppResourceSpecInstanceType("ml.p3dn.24xlarge")
 	AppResourceSpecInstanceTypeMlG4dnXlarge            = AppResourceSpecInstanceType("ml.g4dn.xlarge")
 	AppResourceSpecInstanceTypeMlG4dn2xlarge           = AppResourceSpecInstanceType("ml.g4dn.2xlarge")
 	AppResourceSpecInstanceTypeMlG4dn4xlarge           = AppResourceSpecInstanceType("ml.g4dn.4xlarge")
@@ -54,15 +63,6 @@ const (
 	AppResourceSpecInstanceTypeMlR512xlarge            = AppResourceSpecInstanceType("ml.r5.12xlarge")
 	AppResourceSpecInstanceTypeMlR516xlarge            = AppResourceSpecInstanceType("ml.r5.16xlarge")
 	AppResourceSpecInstanceTypeMlR524xlarge            = AppResourceSpecInstanceType("ml.r5.24xlarge")
-	AppResourceSpecInstanceTypeMlP3dn24xlarge          = AppResourceSpecInstanceType("ml.p3dn.24xlarge")
-	AppResourceSpecInstanceTypeMlM5dLarge              = AppResourceSpecInstanceType("ml.m5d.large")
-	AppResourceSpecInstanceTypeMlM5dXlarge             = AppResourceSpecInstanceType("ml.m5d.xlarge")
-	AppResourceSpecInstanceTypeMlM5d2xlarge            = AppResourceSpecInstanceType("ml.m5d.2xlarge")
-	AppResourceSpecInstanceTypeMlM5d4xlarge            = AppResourceSpecInstanceType("ml.m5d.4xlarge")
-	AppResourceSpecInstanceTypeMlM5d8xlarge            = AppResourceSpecInstanceType("ml.m5d.8xlarge")
-	AppResourceSpecInstanceTypeMlM5d12xlarge           = AppResourceSpecInstanceType("ml.m5d.12xlarge")
-	AppResourceSpecInstanceTypeMlM5d16xlarge           = AppResourceSpecInstanceType("ml.m5d.16xlarge")
-	AppResourceSpecInstanceTypeMlM5d24xlarge           = AppResourceSpecInstanceType("ml.m5d.24xlarge")
 	AppResourceSpecInstanceTypeMlG5Xlarge              = AppResourceSpecInstanceType("ml.g5.xlarge")
 	AppResourceSpecInstanceTypeMlG52xlarge             = AppResourceSpecInstanceType("ml.g5.2xlarge")
 	AppResourceSpecInstanceTypeMlG54xlarge             = AppResourceSpecInstanceType("ml.g5.4xlarge")
@@ -71,12 +71,112 @@ const (
 	AppResourceSpecInstanceTypeMlG516xlarge            = AppResourceSpecInstanceType("ml.g5.16xlarge")
 	AppResourceSpecInstanceTypeMlG524xlarge            = AppResourceSpecInstanceType("ml.g5.24xlarge")
 	AppResourceSpecInstanceTypeMlG548xlarge            = AppResourceSpecInstanceType("ml.g5.48xlarge")
+	AppResourceSpecInstanceTypeMlG6Xlarge              = AppResourceSpecInstanceType("ml.g6.xlarge")
+	AppResourceSpecInstanceTypeMlG62xlarge             = AppResourceSpecInstanceType("ml.g6.2xlarge")
+	AppResourceSpecInstanceTypeMlG64xlarge             = AppResourceSpecInstanceType("ml.g6.4xlarge")
+	AppResourceSpecInstanceTypeMlG68xlarge             = AppResourceSpecInstanceType("ml.g6.8xlarge")
+	AppResourceSpecInstanceTypeMlG612xlarge            = AppResourceSpecInstanceType("ml.g6.12xlarge")
+	AppResourceSpecInstanceTypeMlG616xlarge            = AppResourceSpecInstanceType("ml.g6.16xlarge")
+	AppResourceSpecInstanceTypeMlG624xlarge            = AppResourceSpecInstanceType("ml.g6.24xlarge")
+	AppResourceSpecInstanceTypeMlG648xlarge            = AppResourceSpecInstanceType("ml.g6.48xlarge")
+	AppResourceSpecInstanceTypeMlG6eXlarge             = AppResourceSpecInstanceType("ml.g6e.xlarge")
+	AppResourceSpecInstanceTypeMlG6e2xlarge            = AppResourceSpecInstanceType("ml.g6e.2xlarge")
+	AppResourceSpecInstanceTypeMlG6e4xlarge            = AppResourceSpecInstanceType("ml.g6e.4xlarge")
+	AppResourceSpecInstanceTypeMlG6e8xlarge            = AppResourceSpecInstanceType("ml.g6e.8xlarge")
+	AppResourceSpecInstanceTypeMlG6e12xlarge           = AppResourceSpecInstanceType("ml.g6e.12xlarge")
+	AppResourceSpecInstanceTypeMlG6e16xlarge           = AppResourceSpecInstanceType("ml.g6e.16xlarge")
+	AppResourceSpecInstanceTypeMlG6e24xlarge           = AppResourceSpecInstanceType("ml.g6e.24xlarge")
+	AppResourceSpecInstanceTypeMlG6e48xlarge           = AppResourceSpecInstanceType("ml.g6e.48xlarge")
+	AppResourceSpecInstanceTypeMlGeospatialInteractive = AppResourceSpecInstanceType("ml.geospatial.interactive")
 	AppResourceSpecInstanceTypeMlP4d24xlarge           = AppResourceSpecInstanceType("ml.p4d.24xlarge")
 	AppResourceSpecInstanceTypeMlP4de24xlarge          = AppResourceSpecInstanceType("ml.p4de.24xlarge")
-	AppResourceSpecInstanceTypeMlGeospatialInteractive = AppResourceSpecInstanceType("ml.geospatial.interactive")
 	AppResourceSpecInstanceTypeMlTrn12xlarge           = AppResourceSpecInstanceType("ml.trn1.2xlarge")
 	AppResourceSpecInstanceTypeMlTrn132xlarge          = AppResourceSpecInstanceType("ml.trn1.32xlarge")
 	AppResourceSpecInstanceTypeMlTrn1n32xlarge         = AppResourceSpecInstanceType("ml.trn1n.32xlarge")
+	AppResourceSpecInstanceTypeMlP548xlarge            = AppResourceSpecInstanceType("ml.p5.48xlarge")
+	AppResourceSpecInstanceTypeMlP5e48xlarge           = AppResourceSpecInstanceType("ml.p5e.48xlarge")
+	AppResourceSpecInstanceTypeMlP5en48xlarge          = AppResourceSpecInstanceType("ml.p5en.48xlarge")
+	AppResourceSpecInstanceTypeMlM6iLarge              = AppResourceSpecInstanceType("ml.m6i.large")
+	AppResourceSpecInstanceTypeMlM6iXlarge             = AppResourceSpecInstanceType("ml.m6i.xlarge")
+	AppResourceSpecInstanceTypeMlM6i2xlarge            = AppResourceSpecInstanceType("ml.m6i.2xlarge")
+	AppResourceSpecInstanceTypeMlM6i4xlarge            = AppResourceSpecInstanceType("ml.m6i.4xlarge")
+	AppResourceSpecInstanceTypeMlM6i8xlarge            = AppResourceSpecInstanceType("ml.m6i.8xlarge")
+	AppResourceSpecInstanceTypeMlM6i12xlarge           = AppResourceSpecInstanceType("ml.m6i.12xlarge")
+	AppResourceSpecInstanceTypeMlM6i16xlarge           = AppResourceSpecInstanceType("ml.m6i.16xlarge")
+	AppResourceSpecInstanceTypeMlM6i24xlarge           = AppResourceSpecInstanceType("ml.m6i.24xlarge")
+	AppResourceSpecInstanceTypeMlM6i32xlarge           = AppResourceSpecInstanceType("ml.m6i.32xlarge")
+	AppResourceSpecInstanceTypeMlM7iLarge              = AppResourceSpecInstanceType("ml.m7i.large")
+	AppResourceSpecInstanceTypeMlM7iXlarge             = AppResourceSpecInstanceType("ml.m7i.xlarge")
+	AppResourceSpecInstanceTypeMlM7i2xlarge            = AppResourceSpecInstanceType("ml.m7i.2xlarge")
+	AppResourceSpecInstanceTypeMlM7i4xlarge            = AppResourceSpecInstanceType("ml.m7i.4xlarge")
+	AppResourceSpecInstanceTypeMlM7i8xlarge            = AppResourceSpecInstanceType("ml.m7i.8xlarge")
+	AppResourceSpecInstanceTypeMlM7i12xlarge           = AppResourceSpecInstanceType("ml.m7i.12xlarge")
+	AppResourceSpecInstanceTypeMlM7i16xlarge           = AppResourceSpecInstanceType("ml.m7i.16xlarge")
+	AppResourceSpecInstanceTypeMlM7i24xlarge           = AppResourceSpecInstanceType("ml.m7i.24xlarge")
+	AppResourceSpecInstanceTypeMlM7i48xlarge           = AppResourceSpecInstanceType("ml.m7i.48xlarge")
+	AppResourceSpecInstanceTypeMlC6iLarge              = AppResourceSpecInstanceType("ml.c6i.large")
+	AppResourceSpecInstanceTypeMlC6iXlarge             = AppResourceSpecInstanceType("ml.c6i.xlarge")
+	AppResourceSpecInstanceTypeMlC6i2xlarge            = AppResourceSpecInstanceType("ml.c6i.2xlarge")
+	AppResourceSpecInstanceTypeMlC6i4xlarge            = AppResourceSpecInstanceType("ml.c6i.4xlarge")
+	AppResourceSpecInstanceTypeMlC6i8xlarge            = AppResourceSpecInstanceType("ml.c6i.8xlarge")
+	AppResourceSpecInstanceTypeMlC6i12xlarge           = AppResourceSpecInstanceType("ml.c6i.12xlarge")
+	AppResourceSpecInstanceTypeMlC6i16xlarge           = AppResourceSpecInstanceType("ml.c6i.16xlarge")
+	AppResourceSpecInstanceTypeMlC6i24xlarge           = AppResourceSpecInstanceType("ml.c6i.24xlarge")
+	AppResourceSpecInstanceTypeMlC6i32xlarge           = AppResourceSpecInstanceType("ml.c6i.32xlarge")
+	AppResourceSpecInstanceTypeMlC7iLarge              = AppResourceSpecInstanceType("ml.c7i.large")
+	AppResourceSpecInstanceTypeMlC7iXlarge             = AppResourceSpecInstanceType("ml.c7i.xlarge")
+	AppResourceSpecInstanceTypeMlC7i2xlarge            = AppResourceSpecInstanceType("ml.c7i.2xlarge")
+	AppResourceSpecInstanceTypeMlC7i4xlarge            = AppResourceSpecInstanceType("ml.c7i.4xlarge")
+	AppResourceSpecInstanceTypeMlC7i8xlarge            = AppResourceSpecInstanceType("ml.c7i.8xlarge")
+	AppResourceSpecInstanceTypeMlC7i12xlarge           = AppResourceSpecInstanceType("ml.c7i.12xlarge")
+	AppResourceSpecInstanceTypeMlC7i16xlarge           = AppResourceSpecInstanceType("ml.c7i.16xlarge")
+	AppResourceSpecInstanceTypeMlC7i24xlarge           = AppResourceSpecInstanceType("ml.c7i.24xlarge")
+	AppResourceSpecInstanceTypeMlC7i48xlarge           = AppResourceSpecInstanceType("ml.c7i.48xlarge")
+	AppResourceSpecInstanceTypeMlR6iLarge              = AppResourceSpecInstanceType("ml.r6i.large")
+	AppResourceSpecInstanceTypeMlR6iXlarge             = AppResourceSpecInstanceType("ml.r6i.xlarge")
+	AppResourceSpecInstanceTypeMlR6i2xlarge            = AppResourceSpecInstanceType("ml.r6i.2xlarge")
+	AppResourceSpecInstanceTypeMlR6i4xlarge            = AppResourceSpecInstanceType("ml.r6i.4xlarge")
+	AppResourceSpecInstanceTypeMlR6i8xlarge            = AppResourceSpecInstanceType("ml.r6i.8xlarge")
+	AppResourceSpecInstanceTypeMlR6i12xlarge           = AppResourceSpecInstanceType("ml.r6i.12xlarge")
+	AppResourceSpecInstanceTypeMlR6i16xlarge           = AppResourceSpecInstanceType("ml.r6i.16xlarge")
+	AppResourceSpecInstanceTypeMlR6i24xlarge           = AppResourceSpecInstanceType("ml.r6i.24xlarge")
+	AppResourceSpecInstanceTypeMlR6i32xlarge           = AppResourceSpecInstanceType("ml.r6i.32xlarge")
+	AppResourceSpecInstanceTypeMlR7iLarge              = AppResourceSpecInstanceType("ml.r7i.large")
+	AppResourceSpecInstanceTypeMlR7iXlarge             = AppResourceSpecInstanceType("ml.r7i.xlarge")
+	AppResourceSpecInstanceTypeMlR7i2xlarge            = AppResourceSpecInstanceType("ml.r7i.2xlarge")
+	AppResourceSpecInstanceTypeMlR7i4xlarge            = AppResourceSpecInstanceType("ml.r7i.4xlarge")
+	AppResourceSpecInstanceTypeMlR7i8xlarge            = AppResourceSpecInstanceType("ml.r7i.8xlarge")
+	AppResourceSpecInstanceTypeMlR7i12xlarge           = AppResourceSpecInstanceType("ml.r7i.12xlarge")
+	AppResourceSpecInstanceTypeMlR7i16xlarge           = AppResourceSpecInstanceType("ml.r7i.16xlarge")
+	AppResourceSpecInstanceTypeMlR7i24xlarge           = AppResourceSpecInstanceType("ml.r7i.24xlarge")
+	AppResourceSpecInstanceTypeMlR7i48xlarge           = AppResourceSpecInstanceType("ml.r7i.48xlarge")
+	AppResourceSpecInstanceTypeMlM6idLarge             = AppResourceSpecInstanceType("ml.m6id.large")
+	AppResourceSpecInstanceTypeMlM6idXlarge            = AppResourceSpecInstanceType("ml.m6id.xlarge")
+	AppResourceSpecInstanceTypeMlM6id2xlarge           = AppResourceSpecInstanceType("ml.m6id.2xlarge")
+	AppResourceSpecInstanceTypeMlM6id4xlarge           = AppResourceSpecInstanceType("ml.m6id.4xlarge")
+	AppResourceSpecInstanceTypeMlM6id8xlarge           = AppResourceSpecInstanceType("ml.m6id.8xlarge")
+	AppResourceSpecInstanceTypeMlM6id12xlarge          = AppResourceSpecInstanceType("ml.m6id.12xlarge")
+	AppResourceSpecInstanceTypeMlM6id16xlarge          = AppResourceSpecInstanceType("ml.m6id.16xlarge")
+	AppResourceSpecInstanceTypeMlM6id24xlarge          = AppResourceSpecInstanceType("ml.m6id.24xlarge")
+	AppResourceSpecInstanceTypeMlM6id32xlarge          = AppResourceSpecInstanceType("ml.m6id.32xlarge")
+	AppResourceSpecInstanceTypeMlC6idLarge             = AppResourceSpecInstanceType("ml.c6id.large")
+	AppResourceSpecInstanceTypeMlC6idXlarge            = AppResourceSpecInstanceType("ml.c6id.xlarge")
+	AppResourceSpecInstanceTypeMlC6id2xlarge           = AppResourceSpecInstanceType("ml.c6id.2xlarge")
+	AppResourceSpecInstanceTypeMlC6id4xlarge           = AppResourceSpecInstanceType("ml.c6id.4xlarge")
+	AppResourceSpecInstanceTypeMlC6id8xlarge           = AppResourceSpecInstanceType("ml.c6id.8xlarge")
+	AppResourceSpecInstanceTypeMlC6id12xlarge          = AppResourceSpecInstanceType("ml.c6id.12xlarge")
+	AppResourceSpecInstanceTypeMlC6id16xlarge          = AppResourceSpecInstanceType("ml.c6id.16xlarge")
+	AppResourceSpecInstanceTypeMlC6id24xlarge          = AppResourceSpecInstanceType("ml.c6id.24xlarge")
+	AppResourceSpecInstanceTypeMlC6id32xlarge          = AppResourceSpecInstanceType("ml.c6id.32xlarge")
+	AppResourceSpecInstanceTypeMlR6idLarge             = AppResourceSpecInstanceType("ml.r6id.large")
+	AppResourceSpecInstanceTypeMlR6idXlarge            = AppResourceSpecInstanceType("ml.r6id.xlarge")
+	AppResourceSpecInstanceTypeMlR6id2xlarge           = AppResourceSpecInstanceType("ml.r6id.2xlarge")
+	AppResourceSpecInstanceTypeMlR6id4xlarge           = AppResourceSpecInstanceType("ml.r6id.4xlarge")
+	AppResourceSpecInstanceTypeMlR6id8xlarge           = AppResourceSpecInstanceType("ml.r6id.8xlarge")
+	AppResourceSpecInstanceTypeMlR6id12xlarge          = AppResourceSpecInstanceType("ml.r6id.12xlarge")
+	AppResourceSpecInstanceTypeMlR6id16xlarge          = AppResourceSpecInstanceType("ml.r6id.16xlarge")
+	AppResourceSpecInstanceTypeMlR6id24xlarge          = AppResourceSpecInstanceType("ml.r6id.24xlarge")
+	AppResourceSpecInstanceTypeMlR6id32xlarge          = AppResourceSpecInstanceType("ml.r6id.32xlarge")
 )
 
 func (AppResourceSpecInstanceType) ElementType() reflect.Type {
@@ -216,6 +316,14 @@ func (o AppResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 //	AppResourceSpecInstanceTypeMlM512xlarge
 //	AppResourceSpecInstanceTypeMlM516xlarge
 //	AppResourceSpecInstanceTypeMlM524xlarge
+//	AppResourceSpecInstanceTypeMlM5dLarge
+//	AppResourceSpecInstanceTypeMlM5dXlarge
+//	AppResourceSpecInstanceTypeMlM5d2xlarge
+//	AppResourceSpecInstanceTypeMlM5d4xlarge
+//	AppResourceSpecInstanceTypeMlM5d8xlarge
+//	AppResourceSpecInstanceTypeMlM5d12xlarge
+//	AppResourceSpecInstanceTypeMlM5d16xlarge
+//	AppResourceSpecInstanceTypeMlM5d24xlarge
 //	AppResourceSpecInstanceTypeMlC5Large
 //	AppResourceSpecInstanceTypeMlC5Xlarge
 //	AppResourceSpecInstanceTypeMlC52xlarge
@@ -227,6 +335,7 @@ func (o AppResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 //	AppResourceSpecInstanceTypeMlP32xlarge
 //	AppResourceSpecInstanceTypeMlP38xlarge
 //	AppResourceSpecInstanceTypeMlP316xlarge
+//	AppResourceSpecInstanceTypeMlP3dn24xlarge
 //	AppResourceSpecInstanceTypeMlG4dnXlarge
 //	AppResourceSpecInstanceTypeMlG4dn2xlarge
 //	AppResourceSpecInstanceTypeMlG4dn4xlarge
@@ -241,15 +350,6 @@ func (o AppResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 //	AppResourceSpecInstanceTypeMlR512xlarge
 //	AppResourceSpecInstanceTypeMlR516xlarge
 //	AppResourceSpecInstanceTypeMlR524xlarge
-//	AppResourceSpecInstanceTypeMlP3dn24xlarge
-//	AppResourceSpecInstanceTypeMlM5dLarge
-//	AppResourceSpecInstanceTypeMlM5dXlarge
-//	AppResourceSpecInstanceTypeMlM5d2xlarge
-//	AppResourceSpecInstanceTypeMlM5d4xlarge
-//	AppResourceSpecInstanceTypeMlM5d8xlarge
-//	AppResourceSpecInstanceTypeMlM5d12xlarge
-//	AppResourceSpecInstanceTypeMlM5d16xlarge
-//	AppResourceSpecInstanceTypeMlM5d24xlarge
 //	AppResourceSpecInstanceTypeMlG5Xlarge
 //	AppResourceSpecInstanceTypeMlG52xlarge
 //	AppResourceSpecInstanceTypeMlG54xlarge
@@ -258,12 +358,112 @@ func (o AppResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 //	AppResourceSpecInstanceTypeMlG516xlarge
 //	AppResourceSpecInstanceTypeMlG524xlarge
 //	AppResourceSpecInstanceTypeMlG548xlarge
+//	AppResourceSpecInstanceTypeMlG6Xlarge
+//	AppResourceSpecInstanceTypeMlG62xlarge
+//	AppResourceSpecInstanceTypeMlG64xlarge
+//	AppResourceSpecInstanceTypeMlG68xlarge
+//	AppResourceSpecInstanceTypeMlG612xlarge
+//	AppResourceSpecInstanceTypeMlG616xlarge
+//	AppResourceSpecInstanceTypeMlG624xlarge
+//	AppResourceSpecInstanceTypeMlG648xlarge
+//	AppResourceSpecInstanceTypeMlG6eXlarge
+//	AppResourceSpecInstanceTypeMlG6e2xlarge
+//	AppResourceSpecInstanceTypeMlG6e4xlarge
+//	AppResourceSpecInstanceTypeMlG6e8xlarge
+//	AppResourceSpecInstanceTypeMlG6e12xlarge
+//	AppResourceSpecInstanceTypeMlG6e16xlarge
+//	AppResourceSpecInstanceTypeMlG6e24xlarge
+//	AppResourceSpecInstanceTypeMlG6e48xlarge
+//	AppResourceSpecInstanceTypeMlGeospatialInteractive
 //	AppResourceSpecInstanceTypeMlP4d24xlarge
 //	AppResourceSpecInstanceTypeMlP4de24xlarge
-//	AppResourceSpecInstanceTypeMlGeospatialInteractive
 //	AppResourceSpecInstanceTypeMlTrn12xlarge
 //	AppResourceSpecInstanceTypeMlTrn132xlarge
 //	AppResourceSpecInstanceTypeMlTrn1n32xlarge
+//	AppResourceSpecInstanceTypeMlP548xlarge
+//	AppResourceSpecInstanceTypeMlP5e48xlarge
+//	AppResourceSpecInstanceTypeMlP5en48xlarge
+//	AppResourceSpecInstanceTypeMlM6iLarge
+//	AppResourceSpecInstanceTypeMlM6iXlarge
+//	AppResourceSpecInstanceTypeMlM6i2xlarge
+//	AppResourceSpecInstanceTypeMlM6i4xlarge
+//	AppResourceSpecInstanceTypeMlM6i8xlarge
+//	AppResourceSpecInstanceTypeMlM6i12xlarge
+//	AppResourceSpecInstanceTypeMlM6i16xlarge
+//	AppResourceSpecInstanceTypeMlM6i24xlarge
+//	AppResourceSpecInstanceTypeMlM6i32xlarge
+//	AppResourceSpecInstanceTypeMlM7iLarge
+//	AppResourceSpecInstanceTypeMlM7iXlarge
+//	AppResourceSpecInstanceTypeMlM7i2xlarge
+//	AppResourceSpecInstanceTypeMlM7i4xlarge
+//	AppResourceSpecInstanceTypeMlM7i8xlarge
+//	AppResourceSpecInstanceTypeMlM7i12xlarge
+//	AppResourceSpecInstanceTypeMlM7i16xlarge
+//	AppResourceSpecInstanceTypeMlM7i24xlarge
+//	AppResourceSpecInstanceTypeMlM7i48xlarge
+//	AppResourceSpecInstanceTypeMlC6iLarge
+//	AppResourceSpecInstanceTypeMlC6iXlarge
+//	AppResourceSpecInstanceTypeMlC6i2xlarge
+//	AppResourceSpecInstanceTypeMlC6i4xlarge
+//	AppResourceSpecInstanceTypeMlC6i8xlarge
+//	AppResourceSpecInstanceTypeMlC6i12xlarge
+//	AppResourceSpecInstanceTypeMlC6i16xlarge
+//	AppResourceSpecInstanceTypeMlC6i24xlarge
+//	AppResourceSpecInstanceTypeMlC6i32xlarge
+//	AppResourceSpecInstanceTypeMlC7iLarge
+//	AppResourceSpecInstanceTypeMlC7iXlarge
+//	AppResourceSpecInstanceTypeMlC7i2xlarge
+//	AppResourceSpecInstanceTypeMlC7i4xlarge
+//	AppResourceSpecInstanceTypeMlC7i8xlarge
+//	AppResourceSpecInstanceTypeMlC7i12xlarge
+//	AppResourceSpecInstanceTypeMlC7i16xlarge
+//	AppResourceSpecInstanceTypeMlC7i24xlarge
+//	AppResourceSpecInstanceTypeMlC7i48xlarge
+//	AppResourceSpecInstanceTypeMlR6iLarge
+//	AppResourceSpecInstanceTypeMlR6iXlarge
+//	AppResourceSpecInstanceTypeMlR6i2xlarge
+//	AppResourceSpecInstanceTypeMlR6i4xlarge
+//	AppResourceSpecInstanceTypeMlR6i8xlarge
+//	AppResourceSpecInstanceTypeMlR6i12xlarge
+//	AppResourceSpecInstanceTypeMlR6i16xlarge
+//	AppResourceSpecInstanceTypeMlR6i24xlarge
+//	AppResourceSpecInstanceTypeMlR6i32xlarge
+//	AppResourceSpecInstanceTypeMlR7iLarge
+//	AppResourceSpecInstanceTypeMlR7iXlarge
+//	AppResourceSpecInstanceTypeMlR7i2xlarge
+//	AppResourceSpecInstanceTypeMlR7i4xlarge
+//	AppResourceSpecInstanceTypeMlR7i8xlarge
+//	AppResourceSpecInstanceTypeMlR7i12xlarge
+//	AppResourceSpecInstanceTypeMlR7i16xlarge
+//	AppResourceSpecInstanceTypeMlR7i24xlarge
+//	AppResourceSpecInstanceTypeMlR7i48xlarge
+//	AppResourceSpecInstanceTypeMlM6idLarge
+//	AppResourceSpecInstanceTypeMlM6idXlarge
+//	AppResourceSpecInstanceTypeMlM6id2xlarge
+//	AppResourceSpecInstanceTypeMlM6id4xlarge
+//	AppResourceSpecInstanceTypeMlM6id8xlarge
+//	AppResourceSpecInstanceTypeMlM6id12xlarge
+//	AppResourceSpecInstanceTypeMlM6id16xlarge
+//	AppResourceSpecInstanceTypeMlM6id24xlarge
+//	AppResourceSpecInstanceTypeMlM6id32xlarge
+//	AppResourceSpecInstanceTypeMlC6idLarge
+//	AppResourceSpecInstanceTypeMlC6idXlarge
+//	AppResourceSpecInstanceTypeMlC6id2xlarge
+//	AppResourceSpecInstanceTypeMlC6id4xlarge
+//	AppResourceSpecInstanceTypeMlC6id8xlarge
+//	AppResourceSpecInstanceTypeMlC6id12xlarge
+//	AppResourceSpecInstanceTypeMlC6id16xlarge
+//	AppResourceSpecInstanceTypeMlC6id24xlarge
+//	AppResourceSpecInstanceTypeMlC6id32xlarge
+//	AppResourceSpecInstanceTypeMlR6idLarge
+//	AppResourceSpecInstanceTypeMlR6idXlarge
+//	AppResourceSpecInstanceTypeMlR6id2xlarge
+//	AppResourceSpecInstanceTypeMlR6id4xlarge
+//	AppResourceSpecInstanceTypeMlR6id8xlarge
+//	AppResourceSpecInstanceTypeMlR6id12xlarge
+//	AppResourceSpecInstanceTypeMlR6id16xlarge
+//	AppResourceSpecInstanceTypeMlR6id24xlarge
+//	AppResourceSpecInstanceTypeMlR6id32xlarge
 type AppResourceSpecInstanceTypeInput interface {
 	pulumi.Input
 
@@ -2351,6 +2551,8 @@ const (
 	DomainAppInstanceTypeMlTrn132xlarge          = DomainAppInstanceType("ml.trn1.32xlarge")
 	DomainAppInstanceTypeMlTrn1n32xlarge         = DomainAppInstanceType("ml.trn1n.32xlarge")
 	DomainAppInstanceTypeMlP548xlarge            = DomainAppInstanceType("ml.p5.48xlarge")
+	DomainAppInstanceTypeMlP5e48xlarge           = DomainAppInstanceType("ml.p5e.48xlarge")
+	DomainAppInstanceTypeMlP5en48xlarge          = DomainAppInstanceType("ml.p5en.48xlarge")
 	DomainAppInstanceTypeMlM6iLarge              = DomainAppInstanceType("ml.m6i.large")
 	DomainAppInstanceTypeMlM6iXlarge             = DomainAppInstanceType("ml.m6i.xlarge")
 	DomainAppInstanceTypeMlM6i2xlarge            = DomainAppInstanceType("ml.m6i.2xlarge")
@@ -2636,6 +2838,8 @@ func (o DomainAppInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 //	DomainAppInstanceTypeMlTrn132xlarge
 //	DomainAppInstanceTypeMlTrn1n32xlarge
 //	DomainAppInstanceTypeMlP548xlarge
+//	DomainAppInstanceTypeMlP5e48xlarge
+//	DomainAppInstanceTypeMlP5en48xlarge
 //	DomainAppInstanceTypeMlM6iLarge
 //	DomainAppInstanceTypeMlM6iXlarge
 //	DomainAppInstanceTypeMlM6i2xlarge
@@ -3844,6 +4048,172 @@ func (in *domainHiddenSageMakerImageSageMakerImageNamePtr) ToDomainHiddenSageMak
 	return pulumi.ToOutputWithContext(ctx, in).(DomainHiddenSageMakerImageSageMakerImageNamePtrOutput)
 }
 
+// A setting to indicate if IPv6 routing should be enabled along with IPv4 or not
+type DomainIpAddressType string
+
+const (
+	DomainIpAddressTypeIpv4      = DomainIpAddressType("IPV4")
+	DomainIpAddressTypeDualstack = DomainIpAddressType("DUALSTACK")
+)
+
+func (DomainIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIpAddressType)(nil)).Elem()
+}
+
+func (e DomainIpAddressType) ToDomainIpAddressTypeOutput() DomainIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(DomainIpAddressTypeOutput)
+}
+
+func (e DomainIpAddressType) ToDomainIpAddressTypeOutputWithContext(ctx context.Context) DomainIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainIpAddressTypeOutput)
+}
+
+func (e DomainIpAddressType) ToDomainIpAddressTypePtrOutput() DomainIpAddressTypePtrOutput {
+	return e.ToDomainIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e DomainIpAddressType) ToDomainIpAddressTypePtrOutputWithContext(ctx context.Context) DomainIpAddressTypePtrOutput {
+	return DomainIpAddressType(e).ToDomainIpAddressTypeOutputWithContext(ctx).ToDomainIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e DomainIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (DomainIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIpAddressType)(nil)).Elem()
+}
+
+func (o DomainIpAddressTypeOutput) ToDomainIpAddressTypeOutput() DomainIpAddressTypeOutput {
+	return o
+}
+
+func (o DomainIpAddressTypeOutput) ToDomainIpAddressTypeOutputWithContext(ctx context.Context) DomainIpAddressTypeOutput {
+	return o
+}
+
+func (o DomainIpAddressTypeOutput) ToDomainIpAddressTypePtrOutput() DomainIpAddressTypePtrOutput {
+	return o.ToDomainIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o DomainIpAddressTypeOutput) ToDomainIpAddressTypePtrOutputWithContext(ctx context.Context) DomainIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainIpAddressType) *DomainIpAddressType {
+		return &v
+	}).(DomainIpAddressTypePtrOutput)
+}
+
+func (o DomainIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIpAddressType)(nil)).Elem()
+}
+
+func (o DomainIpAddressTypePtrOutput) ToDomainIpAddressTypePtrOutput() DomainIpAddressTypePtrOutput {
+	return o
+}
+
+func (o DomainIpAddressTypePtrOutput) ToDomainIpAddressTypePtrOutputWithContext(ctx context.Context) DomainIpAddressTypePtrOutput {
+	return o
+}
+
+func (o DomainIpAddressTypePtrOutput) Elem() DomainIpAddressTypeOutput {
+	return o.ApplyT(func(v *DomainIpAddressType) DomainIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret DomainIpAddressType
+		return ret
+	}).(DomainIpAddressTypeOutput)
+}
+
+func (o DomainIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainIpAddressTypeInput is an input type that accepts values of the DomainIpAddressType enum
+// A concrete instance of `DomainIpAddressTypeInput` can be one of the following:
+//
+//	DomainIpAddressTypeIpv4
+//	DomainIpAddressTypeDualstack
+type DomainIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToDomainIpAddressTypeOutput() DomainIpAddressTypeOutput
+	ToDomainIpAddressTypeOutputWithContext(context.Context) DomainIpAddressTypeOutput
+}
+
+var domainIpAddressTypePtrType = reflect.TypeOf((**DomainIpAddressType)(nil)).Elem()
+
+type DomainIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToDomainIpAddressTypePtrOutput() DomainIpAddressTypePtrOutput
+	ToDomainIpAddressTypePtrOutputWithContext(context.Context) DomainIpAddressTypePtrOutput
+}
+
+type domainIpAddressTypePtr string
+
+func DomainIpAddressTypePtr(v string) DomainIpAddressTypePtrInput {
+	return (*domainIpAddressTypePtr)(&v)
+}
+
+func (*domainIpAddressTypePtr) ElementType() reflect.Type {
+	return domainIpAddressTypePtrType
+}
+
+func (in *domainIpAddressTypePtr) ToDomainIpAddressTypePtrOutput() DomainIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(DomainIpAddressTypePtrOutput)
+}
+
+func (in *domainIpAddressTypePtr) ToDomainIpAddressTypePtrOutputWithContext(ctx context.Context) DomainIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainIpAddressTypePtrOutput)
+}
+
 // A flag to enable/disable AppLifecycleManagement settings
 type DomainLifecycleManagement string
 
@@ -4586,294 +4956,6 @@ func (in *domainRStudioServerProAppSettingsUserGroupPtr) ToDomainRStudioServerPr
 
 func (in *domainRStudioServerProAppSettingsUserGroupPtr) ToDomainRStudioServerProAppSettingsUserGroupPtrOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsUserGroupPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DomainRStudioServerProAppSettingsUserGroupPtrOutput)
-}
-
-// The instance type that the image version runs on.
-type DomainResourceSpecInstanceType string
-
-const (
-	DomainResourceSpecInstanceTypeSystem                  = DomainResourceSpecInstanceType("system")
-	DomainResourceSpecInstanceTypeMlT3Micro               = DomainResourceSpecInstanceType("ml.t3.micro")
-	DomainResourceSpecInstanceTypeMlT3Small               = DomainResourceSpecInstanceType("ml.t3.small")
-	DomainResourceSpecInstanceTypeMlT3Medium              = DomainResourceSpecInstanceType("ml.t3.medium")
-	DomainResourceSpecInstanceTypeMlT3Large               = DomainResourceSpecInstanceType("ml.t3.large")
-	DomainResourceSpecInstanceTypeMlT3Xlarge              = DomainResourceSpecInstanceType("ml.t3.xlarge")
-	DomainResourceSpecInstanceTypeMlT32xlarge             = DomainResourceSpecInstanceType("ml.t3.2xlarge")
-	DomainResourceSpecInstanceTypeMlM5Large               = DomainResourceSpecInstanceType("ml.m5.large")
-	DomainResourceSpecInstanceTypeMlM5Xlarge              = DomainResourceSpecInstanceType("ml.m5.xlarge")
-	DomainResourceSpecInstanceTypeMlM52xlarge             = DomainResourceSpecInstanceType("ml.m5.2xlarge")
-	DomainResourceSpecInstanceTypeMlM54xlarge             = DomainResourceSpecInstanceType("ml.m5.4xlarge")
-	DomainResourceSpecInstanceTypeMlM58xlarge             = DomainResourceSpecInstanceType("ml.m5.8xlarge")
-	DomainResourceSpecInstanceTypeMlM512xlarge            = DomainResourceSpecInstanceType("ml.m5.12xlarge")
-	DomainResourceSpecInstanceTypeMlM516xlarge            = DomainResourceSpecInstanceType("ml.m5.16xlarge")
-	DomainResourceSpecInstanceTypeMlM524xlarge            = DomainResourceSpecInstanceType("ml.m5.24xlarge")
-	DomainResourceSpecInstanceTypeMlC5Large               = DomainResourceSpecInstanceType("ml.c5.large")
-	DomainResourceSpecInstanceTypeMlC5Xlarge              = DomainResourceSpecInstanceType("ml.c5.xlarge")
-	DomainResourceSpecInstanceTypeMlC52xlarge             = DomainResourceSpecInstanceType("ml.c5.2xlarge")
-	DomainResourceSpecInstanceTypeMlC54xlarge             = DomainResourceSpecInstanceType("ml.c5.4xlarge")
-	DomainResourceSpecInstanceTypeMlC59xlarge             = DomainResourceSpecInstanceType("ml.c5.9xlarge")
-	DomainResourceSpecInstanceTypeMlC512xlarge            = DomainResourceSpecInstanceType("ml.c5.12xlarge")
-	DomainResourceSpecInstanceTypeMlC518xlarge            = DomainResourceSpecInstanceType("ml.c5.18xlarge")
-	DomainResourceSpecInstanceTypeMlC524xlarge            = DomainResourceSpecInstanceType("ml.c5.24xlarge")
-	DomainResourceSpecInstanceTypeMlP32xlarge             = DomainResourceSpecInstanceType("ml.p3.2xlarge")
-	DomainResourceSpecInstanceTypeMlP38xlarge             = DomainResourceSpecInstanceType("ml.p3.8xlarge")
-	DomainResourceSpecInstanceTypeMlP316xlarge            = DomainResourceSpecInstanceType("ml.p3.16xlarge")
-	DomainResourceSpecInstanceTypeMlG4dnXlarge            = DomainResourceSpecInstanceType("ml.g4dn.xlarge")
-	DomainResourceSpecInstanceTypeMlG4dn2xlarge           = DomainResourceSpecInstanceType("ml.g4dn.2xlarge")
-	DomainResourceSpecInstanceTypeMlG4dn4xlarge           = DomainResourceSpecInstanceType("ml.g4dn.4xlarge")
-	DomainResourceSpecInstanceTypeMlG4dn8xlarge           = DomainResourceSpecInstanceType("ml.g4dn.8xlarge")
-	DomainResourceSpecInstanceTypeMlG4dn12xlarge          = DomainResourceSpecInstanceType("ml.g4dn.12xlarge")
-	DomainResourceSpecInstanceTypeMlG4dn16xlarge          = DomainResourceSpecInstanceType("ml.g4dn.16xlarge")
-	DomainResourceSpecInstanceTypeMlR5Large               = DomainResourceSpecInstanceType("ml.r5.large")
-	DomainResourceSpecInstanceTypeMlR5Xlarge              = DomainResourceSpecInstanceType("ml.r5.xlarge")
-	DomainResourceSpecInstanceTypeMlR52xlarge             = DomainResourceSpecInstanceType("ml.r5.2xlarge")
-	DomainResourceSpecInstanceTypeMlR54xlarge             = DomainResourceSpecInstanceType("ml.r5.4xlarge")
-	DomainResourceSpecInstanceTypeMlR58xlarge             = DomainResourceSpecInstanceType("ml.r5.8xlarge")
-	DomainResourceSpecInstanceTypeMlR512xlarge            = DomainResourceSpecInstanceType("ml.r5.12xlarge")
-	DomainResourceSpecInstanceTypeMlR516xlarge            = DomainResourceSpecInstanceType("ml.r5.16xlarge")
-	DomainResourceSpecInstanceTypeMlR524xlarge            = DomainResourceSpecInstanceType("ml.r5.24xlarge")
-	DomainResourceSpecInstanceTypeMlP3dn24xlarge          = DomainResourceSpecInstanceType("ml.p3dn.24xlarge")
-	DomainResourceSpecInstanceTypeMlM5dLarge              = DomainResourceSpecInstanceType("ml.m5d.large")
-	DomainResourceSpecInstanceTypeMlM5dXlarge             = DomainResourceSpecInstanceType("ml.m5d.xlarge")
-	DomainResourceSpecInstanceTypeMlM5d2xlarge            = DomainResourceSpecInstanceType("ml.m5d.2xlarge")
-	DomainResourceSpecInstanceTypeMlM5d4xlarge            = DomainResourceSpecInstanceType("ml.m5d.4xlarge")
-	DomainResourceSpecInstanceTypeMlM5d8xlarge            = DomainResourceSpecInstanceType("ml.m5d.8xlarge")
-	DomainResourceSpecInstanceTypeMlM5d12xlarge           = DomainResourceSpecInstanceType("ml.m5d.12xlarge")
-	DomainResourceSpecInstanceTypeMlM5d16xlarge           = DomainResourceSpecInstanceType("ml.m5d.16xlarge")
-	DomainResourceSpecInstanceTypeMlM5d24xlarge           = DomainResourceSpecInstanceType("ml.m5d.24xlarge")
-	DomainResourceSpecInstanceTypeMlG5Xlarge              = DomainResourceSpecInstanceType("ml.g5.xlarge")
-	DomainResourceSpecInstanceTypeMlG52xlarge             = DomainResourceSpecInstanceType("ml.g5.2xlarge")
-	DomainResourceSpecInstanceTypeMlG54xlarge             = DomainResourceSpecInstanceType("ml.g5.4xlarge")
-	DomainResourceSpecInstanceTypeMlG58xlarge             = DomainResourceSpecInstanceType("ml.g5.8xlarge")
-	DomainResourceSpecInstanceTypeMlG512xlarge            = DomainResourceSpecInstanceType("ml.g5.12xlarge")
-	DomainResourceSpecInstanceTypeMlG516xlarge            = DomainResourceSpecInstanceType("ml.g5.16xlarge")
-	DomainResourceSpecInstanceTypeMlG524xlarge            = DomainResourceSpecInstanceType("ml.g5.24xlarge")
-	DomainResourceSpecInstanceTypeMlG548xlarge            = DomainResourceSpecInstanceType("ml.g5.48xlarge")
-	DomainResourceSpecInstanceTypeMlP4d24xlarge           = DomainResourceSpecInstanceType("ml.p4d.24xlarge")
-	DomainResourceSpecInstanceTypeMlP4de24xlarge          = DomainResourceSpecInstanceType("ml.p4de.24xlarge")
-	DomainResourceSpecInstanceTypeMlGeospatialInteractive = DomainResourceSpecInstanceType("ml.geospatial.interactive")
-	DomainResourceSpecInstanceTypeMlTrn12xlarge           = DomainResourceSpecInstanceType("ml.trn1.2xlarge")
-	DomainResourceSpecInstanceTypeMlTrn132xlarge          = DomainResourceSpecInstanceType("ml.trn1.32xlarge")
-	DomainResourceSpecInstanceTypeMlTrn1n32xlarge         = DomainResourceSpecInstanceType("ml.trn1n.32xlarge")
-)
-
-func (DomainResourceSpecInstanceType) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainResourceSpecInstanceType)(nil)).Elem()
-}
-
-func (e DomainResourceSpecInstanceType) ToDomainResourceSpecInstanceTypeOutput() DomainResourceSpecInstanceTypeOutput {
-	return pulumi.ToOutput(e).(DomainResourceSpecInstanceTypeOutput)
-}
-
-func (e DomainResourceSpecInstanceType) ToDomainResourceSpecInstanceTypeOutputWithContext(ctx context.Context) DomainResourceSpecInstanceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DomainResourceSpecInstanceTypeOutput)
-}
-
-func (e DomainResourceSpecInstanceType) ToDomainResourceSpecInstanceTypePtrOutput() DomainResourceSpecInstanceTypePtrOutput {
-	return e.ToDomainResourceSpecInstanceTypePtrOutputWithContext(context.Background())
-}
-
-func (e DomainResourceSpecInstanceType) ToDomainResourceSpecInstanceTypePtrOutputWithContext(ctx context.Context) DomainResourceSpecInstanceTypePtrOutput {
-	return DomainResourceSpecInstanceType(e).ToDomainResourceSpecInstanceTypeOutputWithContext(ctx).ToDomainResourceSpecInstanceTypePtrOutputWithContext(ctx)
-}
-
-func (e DomainResourceSpecInstanceType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DomainResourceSpecInstanceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DomainResourceSpecInstanceType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DomainResourceSpecInstanceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type DomainResourceSpecInstanceTypeOutput struct{ *pulumi.OutputState }
-
-func (DomainResourceSpecInstanceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainResourceSpecInstanceType)(nil)).Elem()
-}
-
-func (o DomainResourceSpecInstanceTypeOutput) ToDomainResourceSpecInstanceTypeOutput() DomainResourceSpecInstanceTypeOutput {
-	return o
-}
-
-func (o DomainResourceSpecInstanceTypeOutput) ToDomainResourceSpecInstanceTypeOutputWithContext(ctx context.Context) DomainResourceSpecInstanceTypeOutput {
-	return o
-}
-
-func (o DomainResourceSpecInstanceTypeOutput) ToDomainResourceSpecInstanceTypePtrOutput() DomainResourceSpecInstanceTypePtrOutput {
-	return o.ToDomainResourceSpecInstanceTypePtrOutputWithContext(context.Background())
-}
-
-func (o DomainResourceSpecInstanceTypeOutput) ToDomainResourceSpecInstanceTypePtrOutputWithContext(ctx context.Context) DomainResourceSpecInstanceTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainResourceSpecInstanceType) *DomainResourceSpecInstanceType {
-		return &v
-	}).(DomainResourceSpecInstanceTypePtrOutput)
-}
-
-func (o DomainResourceSpecInstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DomainResourceSpecInstanceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainResourceSpecInstanceType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DomainResourceSpecInstanceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DomainResourceSpecInstanceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainResourceSpecInstanceType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DomainResourceSpecInstanceTypePtrOutput struct{ *pulumi.OutputState }
-
-func (DomainResourceSpecInstanceTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainResourceSpecInstanceType)(nil)).Elem()
-}
-
-func (o DomainResourceSpecInstanceTypePtrOutput) ToDomainResourceSpecInstanceTypePtrOutput() DomainResourceSpecInstanceTypePtrOutput {
-	return o
-}
-
-func (o DomainResourceSpecInstanceTypePtrOutput) ToDomainResourceSpecInstanceTypePtrOutputWithContext(ctx context.Context) DomainResourceSpecInstanceTypePtrOutput {
-	return o
-}
-
-func (o DomainResourceSpecInstanceTypePtrOutput) Elem() DomainResourceSpecInstanceTypeOutput {
-	return o.ApplyT(func(v *DomainResourceSpecInstanceType) DomainResourceSpecInstanceType {
-		if v != nil {
-			return *v
-		}
-		var ret DomainResourceSpecInstanceType
-		return ret
-	}).(DomainResourceSpecInstanceTypeOutput)
-}
-
-func (o DomainResourceSpecInstanceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DomainResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainResourceSpecInstanceType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// DomainResourceSpecInstanceTypeInput is an input type that accepts values of the DomainResourceSpecInstanceType enum
-// A concrete instance of `DomainResourceSpecInstanceTypeInput` can be one of the following:
-//
-//	DomainResourceSpecInstanceTypeSystem
-//	DomainResourceSpecInstanceTypeMlT3Micro
-//	DomainResourceSpecInstanceTypeMlT3Small
-//	DomainResourceSpecInstanceTypeMlT3Medium
-//	DomainResourceSpecInstanceTypeMlT3Large
-//	DomainResourceSpecInstanceTypeMlT3Xlarge
-//	DomainResourceSpecInstanceTypeMlT32xlarge
-//	DomainResourceSpecInstanceTypeMlM5Large
-//	DomainResourceSpecInstanceTypeMlM5Xlarge
-//	DomainResourceSpecInstanceTypeMlM52xlarge
-//	DomainResourceSpecInstanceTypeMlM54xlarge
-//	DomainResourceSpecInstanceTypeMlM58xlarge
-//	DomainResourceSpecInstanceTypeMlM512xlarge
-//	DomainResourceSpecInstanceTypeMlM516xlarge
-//	DomainResourceSpecInstanceTypeMlM524xlarge
-//	DomainResourceSpecInstanceTypeMlC5Large
-//	DomainResourceSpecInstanceTypeMlC5Xlarge
-//	DomainResourceSpecInstanceTypeMlC52xlarge
-//	DomainResourceSpecInstanceTypeMlC54xlarge
-//	DomainResourceSpecInstanceTypeMlC59xlarge
-//	DomainResourceSpecInstanceTypeMlC512xlarge
-//	DomainResourceSpecInstanceTypeMlC518xlarge
-//	DomainResourceSpecInstanceTypeMlC524xlarge
-//	DomainResourceSpecInstanceTypeMlP32xlarge
-//	DomainResourceSpecInstanceTypeMlP38xlarge
-//	DomainResourceSpecInstanceTypeMlP316xlarge
-//	DomainResourceSpecInstanceTypeMlG4dnXlarge
-//	DomainResourceSpecInstanceTypeMlG4dn2xlarge
-//	DomainResourceSpecInstanceTypeMlG4dn4xlarge
-//	DomainResourceSpecInstanceTypeMlG4dn8xlarge
-//	DomainResourceSpecInstanceTypeMlG4dn12xlarge
-//	DomainResourceSpecInstanceTypeMlG4dn16xlarge
-//	DomainResourceSpecInstanceTypeMlR5Large
-//	DomainResourceSpecInstanceTypeMlR5Xlarge
-//	DomainResourceSpecInstanceTypeMlR52xlarge
-//	DomainResourceSpecInstanceTypeMlR54xlarge
-//	DomainResourceSpecInstanceTypeMlR58xlarge
-//	DomainResourceSpecInstanceTypeMlR512xlarge
-//	DomainResourceSpecInstanceTypeMlR516xlarge
-//	DomainResourceSpecInstanceTypeMlR524xlarge
-//	DomainResourceSpecInstanceTypeMlP3dn24xlarge
-//	DomainResourceSpecInstanceTypeMlM5dLarge
-//	DomainResourceSpecInstanceTypeMlM5dXlarge
-//	DomainResourceSpecInstanceTypeMlM5d2xlarge
-//	DomainResourceSpecInstanceTypeMlM5d4xlarge
-//	DomainResourceSpecInstanceTypeMlM5d8xlarge
-//	DomainResourceSpecInstanceTypeMlM5d12xlarge
-//	DomainResourceSpecInstanceTypeMlM5d16xlarge
-//	DomainResourceSpecInstanceTypeMlM5d24xlarge
-//	DomainResourceSpecInstanceTypeMlG5Xlarge
-//	DomainResourceSpecInstanceTypeMlG52xlarge
-//	DomainResourceSpecInstanceTypeMlG54xlarge
-//	DomainResourceSpecInstanceTypeMlG58xlarge
-//	DomainResourceSpecInstanceTypeMlG512xlarge
-//	DomainResourceSpecInstanceTypeMlG516xlarge
-//	DomainResourceSpecInstanceTypeMlG524xlarge
-//	DomainResourceSpecInstanceTypeMlG548xlarge
-//	DomainResourceSpecInstanceTypeMlP4d24xlarge
-//	DomainResourceSpecInstanceTypeMlP4de24xlarge
-//	DomainResourceSpecInstanceTypeMlGeospatialInteractive
-//	DomainResourceSpecInstanceTypeMlTrn12xlarge
-//	DomainResourceSpecInstanceTypeMlTrn132xlarge
-//	DomainResourceSpecInstanceTypeMlTrn1n32xlarge
-type DomainResourceSpecInstanceTypeInput interface {
-	pulumi.Input
-
-	ToDomainResourceSpecInstanceTypeOutput() DomainResourceSpecInstanceTypeOutput
-	ToDomainResourceSpecInstanceTypeOutputWithContext(context.Context) DomainResourceSpecInstanceTypeOutput
-}
-
-var domainResourceSpecInstanceTypePtrType = reflect.TypeOf((**DomainResourceSpecInstanceType)(nil)).Elem()
-
-type DomainResourceSpecInstanceTypePtrInput interface {
-	pulumi.Input
-
-	ToDomainResourceSpecInstanceTypePtrOutput() DomainResourceSpecInstanceTypePtrOutput
-	ToDomainResourceSpecInstanceTypePtrOutputWithContext(context.Context) DomainResourceSpecInstanceTypePtrOutput
-}
-
-type domainResourceSpecInstanceTypePtr string
-
-func DomainResourceSpecInstanceTypePtr(v string) DomainResourceSpecInstanceTypePtrInput {
-	return (*domainResourceSpecInstanceTypePtr)(&v)
-}
-
-func (*domainResourceSpecInstanceTypePtr) ElementType() reflect.Type {
-	return domainResourceSpecInstanceTypePtrType
-}
-
-func (in *domainResourceSpecInstanceTypePtr) ToDomainResourceSpecInstanceTypePtrOutput() DomainResourceSpecInstanceTypePtrOutput {
-	return pulumi.ToOutput(in).(DomainResourceSpecInstanceTypePtrOutput)
-}
-
-func (in *domainResourceSpecInstanceTypePtr) ToDomainResourceSpecInstanceTypePtrOutputWithContext(ctx context.Context) DomainResourceSpecInstanceTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DomainResourceSpecInstanceTypePtrOutput)
 }
 
 // The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
@@ -19248,6 +19330,14 @@ const (
 	SpaceResourceSpecInstanceTypeMlM512xlarge            = SpaceResourceSpecInstanceType("ml.m5.12xlarge")
 	SpaceResourceSpecInstanceTypeMlM516xlarge            = SpaceResourceSpecInstanceType("ml.m5.16xlarge")
 	SpaceResourceSpecInstanceTypeMlM524xlarge            = SpaceResourceSpecInstanceType("ml.m5.24xlarge")
+	SpaceResourceSpecInstanceTypeMlM5dLarge              = SpaceResourceSpecInstanceType("ml.m5d.large")
+	SpaceResourceSpecInstanceTypeMlM5dXlarge             = SpaceResourceSpecInstanceType("ml.m5d.xlarge")
+	SpaceResourceSpecInstanceTypeMlM5d2xlarge            = SpaceResourceSpecInstanceType("ml.m5d.2xlarge")
+	SpaceResourceSpecInstanceTypeMlM5d4xlarge            = SpaceResourceSpecInstanceType("ml.m5d.4xlarge")
+	SpaceResourceSpecInstanceTypeMlM5d8xlarge            = SpaceResourceSpecInstanceType("ml.m5d.8xlarge")
+	SpaceResourceSpecInstanceTypeMlM5d12xlarge           = SpaceResourceSpecInstanceType("ml.m5d.12xlarge")
+	SpaceResourceSpecInstanceTypeMlM5d16xlarge           = SpaceResourceSpecInstanceType("ml.m5d.16xlarge")
+	SpaceResourceSpecInstanceTypeMlM5d24xlarge           = SpaceResourceSpecInstanceType("ml.m5d.24xlarge")
 	SpaceResourceSpecInstanceTypeMlC5Large               = SpaceResourceSpecInstanceType("ml.c5.large")
 	SpaceResourceSpecInstanceTypeMlC5Xlarge              = SpaceResourceSpecInstanceType("ml.c5.xlarge")
 	SpaceResourceSpecInstanceTypeMlC52xlarge             = SpaceResourceSpecInstanceType("ml.c5.2xlarge")
@@ -19259,6 +19349,7 @@ const (
 	SpaceResourceSpecInstanceTypeMlP32xlarge             = SpaceResourceSpecInstanceType("ml.p3.2xlarge")
 	SpaceResourceSpecInstanceTypeMlP38xlarge             = SpaceResourceSpecInstanceType("ml.p3.8xlarge")
 	SpaceResourceSpecInstanceTypeMlP316xlarge            = SpaceResourceSpecInstanceType("ml.p3.16xlarge")
+	SpaceResourceSpecInstanceTypeMlP3dn24xlarge          = SpaceResourceSpecInstanceType("ml.p3dn.24xlarge")
 	SpaceResourceSpecInstanceTypeMlG4dnXlarge            = SpaceResourceSpecInstanceType("ml.g4dn.xlarge")
 	SpaceResourceSpecInstanceTypeMlG4dn2xlarge           = SpaceResourceSpecInstanceType("ml.g4dn.2xlarge")
 	SpaceResourceSpecInstanceTypeMlG4dn4xlarge           = SpaceResourceSpecInstanceType("ml.g4dn.4xlarge")
@@ -19273,15 +19364,6 @@ const (
 	SpaceResourceSpecInstanceTypeMlR512xlarge            = SpaceResourceSpecInstanceType("ml.r5.12xlarge")
 	SpaceResourceSpecInstanceTypeMlR516xlarge            = SpaceResourceSpecInstanceType("ml.r5.16xlarge")
 	SpaceResourceSpecInstanceTypeMlR524xlarge            = SpaceResourceSpecInstanceType("ml.r5.24xlarge")
-	SpaceResourceSpecInstanceTypeMlP3dn24xlarge          = SpaceResourceSpecInstanceType("ml.p3dn.24xlarge")
-	SpaceResourceSpecInstanceTypeMlM5dLarge              = SpaceResourceSpecInstanceType("ml.m5d.large")
-	SpaceResourceSpecInstanceTypeMlM5dXlarge             = SpaceResourceSpecInstanceType("ml.m5d.xlarge")
-	SpaceResourceSpecInstanceTypeMlM5d2xlarge            = SpaceResourceSpecInstanceType("ml.m5d.2xlarge")
-	SpaceResourceSpecInstanceTypeMlM5d4xlarge            = SpaceResourceSpecInstanceType("ml.m5d.4xlarge")
-	SpaceResourceSpecInstanceTypeMlM5d8xlarge            = SpaceResourceSpecInstanceType("ml.m5d.8xlarge")
-	SpaceResourceSpecInstanceTypeMlM5d12xlarge           = SpaceResourceSpecInstanceType("ml.m5d.12xlarge")
-	SpaceResourceSpecInstanceTypeMlM5d16xlarge           = SpaceResourceSpecInstanceType("ml.m5d.16xlarge")
-	SpaceResourceSpecInstanceTypeMlM5d24xlarge           = SpaceResourceSpecInstanceType("ml.m5d.24xlarge")
 	SpaceResourceSpecInstanceTypeMlG5Xlarge              = SpaceResourceSpecInstanceType("ml.g5.xlarge")
 	SpaceResourceSpecInstanceTypeMlG52xlarge             = SpaceResourceSpecInstanceType("ml.g5.2xlarge")
 	SpaceResourceSpecInstanceTypeMlG54xlarge             = SpaceResourceSpecInstanceType("ml.g5.4xlarge")
@@ -19290,12 +19372,112 @@ const (
 	SpaceResourceSpecInstanceTypeMlG516xlarge            = SpaceResourceSpecInstanceType("ml.g5.16xlarge")
 	SpaceResourceSpecInstanceTypeMlG524xlarge            = SpaceResourceSpecInstanceType("ml.g5.24xlarge")
 	SpaceResourceSpecInstanceTypeMlG548xlarge            = SpaceResourceSpecInstanceType("ml.g5.48xlarge")
+	SpaceResourceSpecInstanceTypeMlG6Xlarge              = SpaceResourceSpecInstanceType("ml.g6.xlarge")
+	SpaceResourceSpecInstanceTypeMlG62xlarge             = SpaceResourceSpecInstanceType("ml.g6.2xlarge")
+	SpaceResourceSpecInstanceTypeMlG64xlarge             = SpaceResourceSpecInstanceType("ml.g6.4xlarge")
+	SpaceResourceSpecInstanceTypeMlG68xlarge             = SpaceResourceSpecInstanceType("ml.g6.8xlarge")
+	SpaceResourceSpecInstanceTypeMlG612xlarge            = SpaceResourceSpecInstanceType("ml.g6.12xlarge")
+	SpaceResourceSpecInstanceTypeMlG616xlarge            = SpaceResourceSpecInstanceType("ml.g6.16xlarge")
+	SpaceResourceSpecInstanceTypeMlG624xlarge            = SpaceResourceSpecInstanceType("ml.g6.24xlarge")
+	SpaceResourceSpecInstanceTypeMlG648xlarge            = SpaceResourceSpecInstanceType("ml.g6.48xlarge")
+	SpaceResourceSpecInstanceTypeMlG6eXlarge             = SpaceResourceSpecInstanceType("ml.g6e.xlarge")
+	SpaceResourceSpecInstanceTypeMlG6e2xlarge            = SpaceResourceSpecInstanceType("ml.g6e.2xlarge")
+	SpaceResourceSpecInstanceTypeMlG6e4xlarge            = SpaceResourceSpecInstanceType("ml.g6e.4xlarge")
+	SpaceResourceSpecInstanceTypeMlG6e8xlarge            = SpaceResourceSpecInstanceType("ml.g6e.8xlarge")
+	SpaceResourceSpecInstanceTypeMlG6e12xlarge           = SpaceResourceSpecInstanceType("ml.g6e.12xlarge")
+	SpaceResourceSpecInstanceTypeMlG6e16xlarge           = SpaceResourceSpecInstanceType("ml.g6e.16xlarge")
+	SpaceResourceSpecInstanceTypeMlG6e24xlarge           = SpaceResourceSpecInstanceType("ml.g6e.24xlarge")
+	SpaceResourceSpecInstanceTypeMlG6e48xlarge           = SpaceResourceSpecInstanceType("ml.g6e.48xlarge")
+	SpaceResourceSpecInstanceTypeMlGeospatialInteractive = SpaceResourceSpecInstanceType("ml.geospatial.interactive")
 	SpaceResourceSpecInstanceTypeMlP4d24xlarge           = SpaceResourceSpecInstanceType("ml.p4d.24xlarge")
 	SpaceResourceSpecInstanceTypeMlP4de24xlarge          = SpaceResourceSpecInstanceType("ml.p4de.24xlarge")
-	SpaceResourceSpecInstanceTypeMlGeospatialInteractive = SpaceResourceSpecInstanceType("ml.geospatial.interactive")
 	SpaceResourceSpecInstanceTypeMlTrn12xlarge           = SpaceResourceSpecInstanceType("ml.trn1.2xlarge")
 	SpaceResourceSpecInstanceTypeMlTrn132xlarge          = SpaceResourceSpecInstanceType("ml.trn1.32xlarge")
 	SpaceResourceSpecInstanceTypeMlTrn1n32xlarge         = SpaceResourceSpecInstanceType("ml.trn1n.32xlarge")
+	SpaceResourceSpecInstanceTypeMlP548xlarge            = SpaceResourceSpecInstanceType("ml.p5.48xlarge")
+	SpaceResourceSpecInstanceTypeMlP5e48xlarge           = SpaceResourceSpecInstanceType("ml.p5e.48xlarge")
+	SpaceResourceSpecInstanceTypeMlP5en48xlarge          = SpaceResourceSpecInstanceType("ml.p5en.48xlarge")
+	SpaceResourceSpecInstanceTypeMlM6iLarge              = SpaceResourceSpecInstanceType("ml.m6i.large")
+	SpaceResourceSpecInstanceTypeMlM6iXlarge             = SpaceResourceSpecInstanceType("ml.m6i.xlarge")
+	SpaceResourceSpecInstanceTypeMlM6i2xlarge            = SpaceResourceSpecInstanceType("ml.m6i.2xlarge")
+	SpaceResourceSpecInstanceTypeMlM6i4xlarge            = SpaceResourceSpecInstanceType("ml.m6i.4xlarge")
+	SpaceResourceSpecInstanceTypeMlM6i8xlarge            = SpaceResourceSpecInstanceType("ml.m6i.8xlarge")
+	SpaceResourceSpecInstanceTypeMlM6i12xlarge           = SpaceResourceSpecInstanceType("ml.m6i.12xlarge")
+	SpaceResourceSpecInstanceTypeMlM6i16xlarge           = SpaceResourceSpecInstanceType("ml.m6i.16xlarge")
+	SpaceResourceSpecInstanceTypeMlM6i24xlarge           = SpaceResourceSpecInstanceType("ml.m6i.24xlarge")
+	SpaceResourceSpecInstanceTypeMlM6i32xlarge           = SpaceResourceSpecInstanceType("ml.m6i.32xlarge")
+	SpaceResourceSpecInstanceTypeMlM7iLarge              = SpaceResourceSpecInstanceType("ml.m7i.large")
+	SpaceResourceSpecInstanceTypeMlM7iXlarge             = SpaceResourceSpecInstanceType("ml.m7i.xlarge")
+	SpaceResourceSpecInstanceTypeMlM7i2xlarge            = SpaceResourceSpecInstanceType("ml.m7i.2xlarge")
+	SpaceResourceSpecInstanceTypeMlM7i4xlarge            = SpaceResourceSpecInstanceType("ml.m7i.4xlarge")
+	SpaceResourceSpecInstanceTypeMlM7i8xlarge            = SpaceResourceSpecInstanceType("ml.m7i.8xlarge")
+	SpaceResourceSpecInstanceTypeMlM7i12xlarge           = SpaceResourceSpecInstanceType("ml.m7i.12xlarge")
+	SpaceResourceSpecInstanceTypeMlM7i16xlarge           = SpaceResourceSpecInstanceType("ml.m7i.16xlarge")
+	SpaceResourceSpecInstanceTypeMlM7i24xlarge           = SpaceResourceSpecInstanceType("ml.m7i.24xlarge")
+	SpaceResourceSpecInstanceTypeMlM7i48xlarge           = SpaceResourceSpecInstanceType("ml.m7i.48xlarge")
+	SpaceResourceSpecInstanceTypeMlC6iLarge              = SpaceResourceSpecInstanceType("ml.c6i.large")
+	SpaceResourceSpecInstanceTypeMlC6iXlarge             = SpaceResourceSpecInstanceType("ml.c6i.xlarge")
+	SpaceResourceSpecInstanceTypeMlC6i2xlarge            = SpaceResourceSpecInstanceType("ml.c6i.2xlarge")
+	SpaceResourceSpecInstanceTypeMlC6i4xlarge            = SpaceResourceSpecInstanceType("ml.c6i.4xlarge")
+	SpaceResourceSpecInstanceTypeMlC6i8xlarge            = SpaceResourceSpecInstanceType("ml.c6i.8xlarge")
+	SpaceResourceSpecInstanceTypeMlC6i12xlarge           = SpaceResourceSpecInstanceType("ml.c6i.12xlarge")
+	SpaceResourceSpecInstanceTypeMlC6i16xlarge           = SpaceResourceSpecInstanceType("ml.c6i.16xlarge")
+	SpaceResourceSpecInstanceTypeMlC6i24xlarge           = SpaceResourceSpecInstanceType("ml.c6i.24xlarge")
+	SpaceResourceSpecInstanceTypeMlC6i32xlarge           = SpaceResourceSpecInstanceType("ml.c6i.32xlarge")
+	SpaceResourceSpecInstanceTypeMlC7iLarge              = SpaceResourceSpecInstanceType("ml.c7i.large")
+	SpaceResourceSpecInstanceTypeMlC7iXlarge             = SpaceResourceSpecInstanceType("ml.c7i.xlarge")
+	SpaceResourceSpecInstanceTypeMlC7i2xlarge            = SpaceResourceSpecInstanceType("ml.c7i.2xlarge")
+	SpaceResourceSpecInstanceTypeMlC7i4xlarge            = SpaceResourceSpecInstanceType("ml.c7i.4xlarge")
+	SpaceResourceSpecInstanceTypeMlC7i8xlarge            = SpaceResourceSpecInstanceType("ml.c7i.8xlarge")
+	SpaceResourceSpecInstanceTypeMlC7i12xlarge           = SpaceResourceSpecInstanceType("ml.c7i.12xlarge")
+	SpaceResourceSpecInstanceTypeMlC7i16xlarge           = SpaceResourceSpecInstanceType("ml.c7i.16xlarge")
+	SpaceResourceSpecInstanceTypeMlC7i24xlarge           = SpaceResourceSpecInstanceType("ml.c7i.24xlarge")
+	SpaceResourceSpecInstanceTypeMlC7i48xlarge           = SpaceResourceSpecInstanceType("ml.c7i.48xlarge")
+	SpaceResourceSpecInstanceTypeMlR6iLarge              = SpaceResourceSpecInstanceType("ml.r6i.large")
+	SpaceResourceSpecInstanceTypeMlR6iXlarge             = SpaceResourceSpecInstanceType("ml.r6i.xlarge")
+	SpaceResourceSpecInstanceTypeMlR6i2xlarge            = SpaceResourceSpecInstanceType("ml.r6i.2xlarge")
+	SpaceResourceSpecInstanceTypeMlR6i4xlarge            = SpaceResourceSpecInstanceType("ml.r6i.4xlarge")
+	SpaceResourceSpecInstanceTypeMlR6i8xlarge            = SpaceResourceSpecInstanceType("ml.r6i.8xlarge")
+	SpaceResourceSpecInstanceTypeMlR6i12xlarge           = SpaceResourceSpecInstanceType("ml.r6i.12xlarge")
+	SpaceResourceSpecInstanceTypeMlR6i16xlarge           = SpaceResourceSpecInstanceType("ml.r6i.16xlarge")
+	SpaceResourceSpecInstanceTypeMlR6i24xlarge           = SpaceResourceSpecInstanceType("ml.r6i.24xlarge")
+	SpaceResourceSpecInstanceTypeMlR6i32xlarge           = SpaceResourceSpecInstanceType("ml.r6i.32xlarge")
+	SpaceResourceSpecInstanceTypeMlR7iLarge              = SpaceResourceSpecInstanceType("ml.r7i.large")
+	SpaceResourceSpecInstanceTypeMlR7iXlarge             = SpaceResourceSpecInstanceType("ml.r7i.xlarge")
+	SpaceResourceSpecInstanceTypeMlR7i2xlarge            = SpaceResourceSpecInstanceType("ml.r7i.2xlarge")
+	SpaceResourceSpecInstanceTypeMlR7i4xlarge            = SpaceResourceSpecInstanceType("ml.r7i.4xlarge")
+	SpaceResourceSpecInstanceTypeMlR7i8xlarge            = SpaceResourceSpecInstanceType("ml.r7i.8xlarge")
+	SpaceResourceSpecInstanceTypeMlR7i12xlarge           = SpaceResourceSpecInstanceType("ml.r7i.12xlarge")
+	SpaceResourceSpecInstanceTypeMlR7i16xlarge           = SpaceResourceSpecInstanceType("ml.r7i.16xlarge")
+	SpaceResourceSpecInstanceTypeMlR7i24xlarge           = SpaceResourceSpecInstanceType("ml.r7i.24xlarge")
+	SpaceResourceSpecInstanceTypeMlR7i48xlarge           = SpaceResourceSpecInstanceType("ml.r7i.48xlarge")
+	SpaceResourceSpecInstanceTypeMlM6idLarge             = SpaceResourceSpecInstanceType("ml.m6id.large")
+	SpaceResourceSpecInstanceTypeMlM6idXlarge            = SpaceResourceSpecInstanceType("ml.m6id.xlarge")
+	SpaceResourceSpecInstanceTypeMlM6id2xlarge           = SpaceResourceSpecInstanceType("ml.m6id.2xlarge")
+	SpaceResourceSpecInstanceTypeMlM6id4xlarge           = SpaceResourceSpecInstanceType("ml.m6id.4xlarge")
+	SpaceResourceSpecInstanceTypeMlM6id8xlarge           = SpaceResourceSpecInstanceType("ml.m6id.8xlarge")
+	SpaceResourceSpecInstanceTypeMlM6id12xlarge          = SpaceResourceSpecInstanceType("ml.m6id.12xlarge")
+	SpaceResourceSpecInstanceTypeMlM6id16xlarge          = SpaceResourceSpecInstanceType("ml.m6id.16xlarge")
+	SpaceResourceSpecInstanceTypeMlM6id24xlarge          = SpaceResourceSpecInstanceType("ml.m6id.24xlarge")
+	SpaceResourceSpecInstanceTypeMlM6id32xlarge          = SpaceResourceSpecInstanceType("ml.m6id.32xlarge")
+	SpaceResourceSpecInstanceTypeMlC6idLarge             = SpaceResourceSpecInstanceType("ml.c6id.large")
+	SpaceResourceSpecInstanceTypeMlC6idXlarge            = SpaceResourceSpecInstanceType("ml.c6id.xlarge")
+	SpaceResourceSpecInstanceTypeMlC6id2xlarge           = SpaceResourceSpecInstanceType("ml.c6id.2xlarge")
+	SpaceResourceSpecInstanceTypeMlC6id4xlarge           = SpaceResourceSpecInstanceType("ml.c6id.4xlarge")
+	SpaceResourceSpecInstanceTypeMlC6id8xlarge           = SpaceResourceSpecInstanceType("ml.c6id.8xlarge")
+	SpaceResourceSpecInstanceTypeMlC6id12xlarge          = SpaceResourceSpecInstanceType("ml.c6id.12xlarge")
+	SpaceResourceSpecInstanceTypeMlC6id16xlarge          = SpaceResourceSpecInstanceType("ml.c6id.16xlarge")
+	SpaceResourceSpecInstanceTypeMlC6id24xlarge          = SpaceResourceSpecInstanceType("ml.c6id.24xlarge")
+	SpaceResourceSpecInstanceTypeMlC6id32xlarge          = SpaceResourceSpecInstanceType("ml.c6id.32xlarge")
+	SpaceResourceSpecInstanceTypeMlR6idLarge             = SpaceResourceSpecInstanceType("ml.r6id.large")
+	SpaceResourceSpecInstanceTypeMlR6idXlarge            = SpaceResourceSpecInstanceType("ml.r6id.xlarge")
+	SpaceResourceSpecInstanceTypeMlR6id2xlarge           = SpaceResourceSpecInstanceType("ml.r6id.2xlarge")
+	SpaceResourceSpecInstanceTypeMlR6id4xlarge           = SpaceResourceSpecInstanceType("ml.r6id.4xlarge")
+	SpaceResourceSpecInstanceTypeMlR6id8xlarge           = SpaceResourceSpecInstanceType("ml.r6id.8xlarge")
+	SpaceResourceSpecInstanceTypeMlR6id12xlarge          = SpaceResourceSpecInstanceType("ml.r6id.12xlarge")
+	SpaceResourceSpecInstanceTypeMlR6id16xlarge          = SpaceResourceSpecInstanceType("ml.r6id.16xlarge")
+	SpaceResourceSpecInstanceTypeMlR6id24xlarge          = SpaceResourceSpecInstanceType("ml.r6id.24xlarge")
+	SpaceResourceSpecInstanceTypeMlR6id32xlarge          = SpaceResourceSpecInstanceType("ml.r6id.32xlarge")
 )
 
 func (SpaceResourceSpecInstanceType) ElementType() reflect.Type {
@@ -19435,6 +19617,14 @@ func (o SpaceResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx
 //	SpaceResourceSpecInstanceTypeMlM512xlarge
 //	SpaceResourceSpecInstanceTypeMlM516xlarge
 //	SpaceResourceSpecInstanceTypeMlM524xlarge
+//	SpaceResourceSpecInstanceTypeMlM5dLarge
+//	SpaceResourceSpecInstanceTypeMlM5dXlarge
+//	SpaceResourceSpecInstanceTypeMlM5d2xlarge
+//	SpaceResourceSpecInstanceTypeMlM5d4xlarge
+//	SpaceResourceSpecInstanceTypeMlM5d8xlarge
+//	SpaceResourceSpecInstanceTypeMlM5d12xlarge
+//	SpaceResourceSpecInstanceTypeMlM5d16xlarge
+//	SpaceResourceSpecInstanceTypeMlM5d24xlarge
 //	SpaceResourceSpecInstanceTypeMlC5Large
 //	SpaceResourceSpecInstanceTypeMlC5Xlarge
 //	SpaceResourceSpecInstanceTypeMlC52xlarge
@@ -19446,6 +19636,7 @@ func (o SpaceResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx
 //	SpaceResourceSpecInstanceTypeMlP32xlarge
 //	SpaceResourceSpecInstanceTypeMlP38xlarge
 //	SpaceResourceSpecInstanceTypeMlP316xlarge
+//	SpaceResourceSpecInstanceTypeMlP3dn24xlarge
 //	SpaceResourceSpecInstanceTypeMlG4dnXlarge
 //	SpaceResourceSpecInstanceTypeMlG4dn2xlarge
 //	SpaceResourceSpecInstanceTypeMlG4dn4xlarge
@@ -19460,15 +19651,6 @@ func (o SpaceResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx
 //	SpaceResourceSpecInstanceTypeMlR512xlarge
 //	SpaceResourceSpecInstanceTypeMlR516xlarge
 //	SpaceResourceSpecInstanceTypeMlR524xlarge
-//	SpaceResourceSpecInstanceTypeMlP3dn24xlarge
-//	SpaceResourceSpecInstanceTypeMlM5dLarge
-//	SpaceResourceSpecInstanceTypeMlM5dXlarge
-//	SpaceResourceSpecInstanceTypeMlM5d2xlarge
-//	SpaceResourceSpecInstanceTypeMlM5d4xlarge
-//	SpaceResourceSpecInstanceTypeMlM5d8xlarge
-//	SpaceResourceSpecInstanceTypeMlM5d12xlarge
-//	SpaceResourceSpecInstanceTypeMlM5d16xlarge
-//	SpaceResourceSpecInstanceTypeMlM5d24xlarge
 //	SpaceResourceSpecInstanceTypeMlG5Xlarge
 //	SpaceResourceSpecInstanceTypeMlG52xlarge
 //	SpaceResourceSpecInstanceTypeMlG54xlarge
@@ -19477,12 +19659,112 @@ func (o SpaceResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx
 //	SpaceResourceSpecInstanceTypeMlG516xlarge
 //	SpaceResourceSpecInstanceTypeMlG524xlarge
 //	SpaceResourceSpecInstanceTypeMlG548xlarge
+//	SpaceResourceSpecInstanceTypeMlG6Xlarge
+//	SpaceResourceSpecInstanceTypeMlG62xlarge
+//	SpaceResourceSpecInstanceTypeMlG64xlarge
+//	SpaceResourceSpecInstanceTypeMlG68xlarge
+//	SpaceResourceSpecInstanceTypeMlG612xlarge
+//	SpaceResourceSpecInstanceTypeMlG616xlarge
+//	SpaceResourceSpecInstanceTypeMlG624xlarge
+//	SpaceResourceSpecInstanceTypeMlG648xlarge
+//	SpaceResourceSpecInstanceTypeMlG6eXlarge
+//	SpaceResourceSpecInstanceTypeMlG6e2xlarge
+//	SpaceResourceSpecInstanceTypeMlG6e4xlarge
+//	SpaceResourceSpecInstanceTypeMlG6e8xlarge
+//	SpaceResourceSpecInstanceTypeMlG6e12xlarge
+//	SpaceResourceSpecInstanceTypeMlG6e16xlarge
+//	SpaceResourceSpecInstanceTypeMlG6e24xlarge
+//	SpaceResourceSpecInstanceTypeMlG6e48xlarge
+//	SpaceResourceSpecInstanceTypeMlGeospatialInteractive
 //	SpaceResourceSpecInstanceTypeMlP4d24xlarge
 //	SpaceResourceSpecInstanceTypeMlP4de24xlarge
-//	SpaceResourceSpecInstanceTypeMlGeospatialInteractive
 //	SpaceResourceSpecInstanceTypeMlTrn12xlarge
 //	SpaceResourceSpecInstanceTypeMlTrn132xlarge
 //	SpaceResourceSpecInstanceTypeMlTrn1n32xlarge
+//	SpaceResourceSpecInstanceTypeMlP548xlarge
+//	SpaceResourceSpecInstanceTypeMlP5e48xlarge
+//	SpaceResourceSpecInstanceTypeMlP5en48xlarge
+//	SpaceResourceSpecInstanceTypeMlM6iLarge
+//	SpaceResourceSpecInstanceTypeMlM6iXlarge
+//	SpaceResourceSpecInstanceTypeMlM6i2xlarge
+//	SpaceResourceSpecInstanceTypeMlM6i4xlarge
+//	SpaceResourceSpecInstanceTypeMlM6i8xlarge
+//	SpaceResourceSpecInstanceTypeMlM6i12xlarge
+//	SpaceResourceSpecInstanceTypeMlM6i16xlarge
+//	SpaceResourceSpecInstanceTypeMlM6i24xlarge
+//	SpaceResourceSpecInstanceTypeMlM6i32xlarge
+//	SpaceResourceSpecInstanceTypeMlM7iLarge
+//	SpaceResourceSpecInstanceTypeMlM7iXlarge
+//	SpaceResourceSpecInstanceTypeMlM7i2xlarge
+//	SpaceResourceSpecInstanceTypeMlM7i4xlarge
+//	SpaceResourceSpecInstanceTypeMlM7i8xlarge
+//	SpaceResourceSpecInstanceTypeMlM7i12xlarge
+//	SpaceResourceSpecInstanceTypeMlM7i16xlarge
+//	SpaceResourceSpecInstanceTypeMlM7i24xlarge
+//	SpaceResourceSpecInstanceTypeMlM7i48xlarge
+//	SpaceResourceSpecInstanceTypeMlC6iLarge
+//	SpaceResourceSpecInstanceTypeMlC6iXlarge
+//	SpaceResourceSpecInstanceTypeMlC6i2xlarge
+//	SpaceResourceSpecInstanceTypeMlC6i4xlarge
+//	SpaceResourceSpecInstanceTypeMlC6i8xlarge
+//	SpaceResourceSpecInstanceTypeMlC6i12xlarge
+//	SpaceResourceSpecInstanceTypeMlC6i16xlarge
+//	SpaceResourceSpecInstanceTypeMlC6i24xlarge
+//	SpaceResourceSpecInstanceTypeMlC6i32xlarge
+//	SpaceResourceSpecInstanceTypeMlC7iLarge
+//	SpaceResourceSpecInstanceTypeMlC7iXlarge
+//	SpaceResourceSpecInstanceTypeMlC7i2xlarge
+//	SpaceResourceSpecInstanceTypeMlC7i4xlarge
+//	SpaceResourceSpecInstanceTypeMlC7i8xlarge
+//	SpaceResourceSpecInstanceTypeMlC7i12xlarge
+//	SpaceResourceSpecInstanceTypeMlC7i16xlarge
+//	SpaceResourceSpecInstanceTypeMlC7i24xlarge
+//	SpaceResourceSpecInstanceTypeMlC7i48xlarge
+//	SpaceResourceSpecInstanceTypeMlR6iLarge
+//	SpaceResourceSpecInstanceTypeMlR6iXlarge
+//	SpaceResourceSpecInstanceTypeMlR6i2xlarge
+//	SpaceResourceSpecInstanceTypeMlR6i4xlarge
+//	SpaceResourceSpecInstanceTypeMlR6i8xlarge
+//	SpaceResourceSpecInstanceTypeMlR6i12xlarge
+//	SpaceResourceSpecInstanceTypeMlR6i16xlarge
+//	SpaceResourceSpecInstanceTypeMlR6i24xlarge
+//	SpaceResourceSpecInstanceTypeMlR6i32xlarge
+//	SpaceResourceSpecInstanceTypeMlR7iLarge
+//	SpaceResourceSpecInstanceTypeMlR7iXlarge
+//	SpaceResourceSpecInstanceTypeMlR7i2xlarge
+//	SpaceResourceSpecInstanceTypeMlR7i4xlarge
+//	SpaceResourceSpecInstanceTypeMlR7i8xlarge
+//	SpaceResourceSpecInstanceTypeMlR7i12xlarge
+//	SpaceResourceSpecInstanceTypeMlR7i16xlarge
+//	SpaceResourceSpecInstanceTypeMlR7i24xlarge
+//	SpaceResourceSpecInstanceTypeMlR7i48xlarge
+//	SpaceResourceSpecInstanceTypeMlM6idLarge
+//	SpaceResourceSpecInstanceTypeMlM6idXlarge
+//	SpaceResourceSpecInstanceTypeMlM6id2xlarge
+//	SpaceResourceSpecInstanceTypeMlM6id4xlarge
+//	SpaceResourceSpecInstanceTypeMlM6id8xlarge
+//	SpaceResourceSpecInstanceTypeMlM6id12xlarge
+//	SpaceResourceSpecInstanceTypeMlM6id16xlarge
+//	SpaceResourceSpecInstanceTypeMlM6id24xlarge
+//	SpaceResourceSpecInstanceTypeMlM6id32xlarge
+//	SpaceResourceSpecInstanceTypeMlC6idLarge
+//	SpaceResourceSpecInstanceTypeMlC6idXlarge
+//	SpaceResourceSpecInstanceTypeMlC6id2xlarge
+//	SpaceResourceSpecInstanceTypeMlC6id4xlarge
+//	SpaceResourceSpecInstanceTypeMlC6id8xlarge
+//	SpaceResourceSpecInstanceTypeMlC6id12xlarge
+//	SpaceResourceSpecInstanceTypeMlC6id16xlarge
+//	SpaceResourceSpecInstanceTypeMlC6id24xlarge
+//	SpaceResourceSpecInstanceTypeMlC6id32xlarge
+//	SpaceResourceSpecInstanceTypeMlR6idLarge
+//	SpaceResourceSpecInstanceTypeMlR6idXlarge
+//	SpaceResourceSpecInstanceTypeMlR6id2xlarge
+//	SpaceResourceSpecInstanceTypeMlR6id4xlarge
+//	SpaceResourceSpecInstanceTypeMlR6id8xlarge
+//	SpaceResourceSpecInstanceTypeMlR6id12xlarge
+//	SpaceResourceSpecInstanceTypeMlR6id16xlarge
+//	SpaceResourceSpecInstanceTypeMlR6id24xlarge
+//	SpaceResourceSpecInstanceTypeMlR6id32xlarge
 type SpaceResourceSpecInstanceTypeInput interface {
 	pulumi.Input
 
@@ -21529,6 +21811,14 @@ const (
 	UserProfileResourceSpecInstanceTypeMlM512xlarge            = UserProfileResourceSpecInstanceType("ml.m5.12xlarge")
 	UserProfileResourceSpecInstanceTypeMlM516xlarge            = UserProfileResourceSpecInstanceType("ml.m5.16xlarge")
 	UserProfileResourceSpecInstanceTypeMlM524xlarge            = UserProfileResourceSpecInstanceType("ml.m5.24xlarge")
+	UserProfileResourceSpecInstanceTypeMlM5dLarge              = UserProfileResourceSpecInstanceType("ml.m5d.large")
+	UserProfileResourceSpecInstanceTypeMlM5dXlarge             = UserProfileResourceSpecInstanceType("ml.m5d.xlarge")
+	UserProfileResourceSpecInstanceTypeMlM5d2xlarge            = UserProfileResourceSpecInstanceType("ml.m5d.2xlarge")
+	UserProfileResourceSpecInstanceTypeMlM5d4xlarge            = UserProfileResourceSpecInstanceType("ml.m5d.4xlarge")
+	UserProfileResourceSpecInstanceTypeMlM5d8xlarge            = UserProfileResourceSpecInstanceType("ml.m5d.8xlarge")
+	UserProfileResourceSpecInstanceTypeMlM5d12xlarge           = UserProfileResourceSpecInstanceType("ml.m5d.12xlarge")
+	UserProfileResourceSpecInstanceTypeMlM5d16xlarge           = UserProfileResourceSpecInstanceType("ml.m5d.16xlarge")
+	UserProfileResourceSpecInstanceTypeMlM5d24xlarge           = UserProfileResourceSpecInstanceType("ml.m5d.24xlarge")
 	UserProfileResourceSpecInstanceTypeMlC5Large               = UserProfileResourceSpecInstanceType("ml.c5.large")
 	UserProfileResourceSpecInstanceTypeMlC5Xlarge              = UserProfileResourceSpecInstanceType("ml.c5.xlarge")
 	UserProfileResourceSpecInstanceTypeMlC52xlarge             = UserProfileResourceSpecInstanceType("ml.c5.2xlarge")
@@ -21540,6 +21830,7 @@ const (
 	UserProfileResourceSpecInstanceTypeMlP32xlarge             = UserProfileResourceSpecInstanceType("ml.p3.2xlarge")
 	UserProfileResourceSpecInstanceTypeMlP38xlarge             = UserProfileResourceSpecInstanceType("ml.p3.8xlarge")
 	UserProfileResourceSpecInstanceTypeMlP316xlarge            = UserProfileResourceSpecInstanceType("ml.p3.16xlarge")
+	UserProfileResourceSpecInstanceTypeMlP3dn24xlarge          = UserProfileResourceSpecInstanceType("ml.p3dn.24xlarge")
 	UserProfileResourceSpecInstanceTypeMlG4dnXlarge            = UserProfileResourceSpecInstanceType("ml.g4dn.xlarge")
 	UserProfileResourceSpecInstanceTypeMlG4dn2xlarge           = UserProfileResourceSpecInstanceType("ml.g4dn.2xlarge")
 	UserProfileResourceSpecInstanceTypeMlG4dn4xlarge           = UserProfileResourceSpecInstanceType("ml.g4dn.4xlarge")
@@ -21554,15 +21845,6 @@ const (
 	UserProfileResourceSpecInstanceTypeMlR512xlarge            = UserProfileResourceSpecInstanceType("ml.r5.12xlarge")
 	UserProfileResourceSpecInstanceTypeMlR516xlarge            = UserProfileResourceSpecInstanceType("ml.r5.16xlarge")
 	UserProfileResourceSpecInstanceTypeMlR524xlarge            = UserProfileResourceSpecInstanceType("ml.r5.24xlarge")
-	UserProfileResourceSpecInstanceTypeMlP3dn24xlarge          = UserProfileResourceSpecInstanceType("ml.p3dn.24xlarge")
-	UserProfileResourceSpecInstanceTypeMlM5dLarge              = UserProfileResourceSpecInstanceType("ml.m5d.large")
-	UserProfileResourceSpecInstanceTypeMlM5dXlarge             = UserProfileResourceSpecInstanceType("ml.m5d.xlarge")
-	UserProfileResourceSpecInstanceTypeMlM5d2xlarge            = UserProfileResourceSpecInstanceType("ml.m5d.2xlarge")
-	UserProfileResourceSpecInstanceTypeMlM5d4xlarge            = UserProfileResourceSpecInstanceType("ml.m5d.4xlarge")
-	UserProfileResourceSpecInstanceTypeMlM5d8xlarge            = UserProfileResourceSpecInstanceType("ml.m5d.8xlarge")
-	UserProfileResourceSpecInstanceTypeMlM5d12xlarge           = UserProfileResourceSpecInstanceType("ml.m5d.12xlarge")
-	UserProfileResourceSpecInstanceTypeMlM5d16xlarge           = UserProfileResourceSpecInstanceType("ml.m5d.16xlarge")
-	UserProfileResourceSpecInstanceTypeMlM5d24xlarge           = UserProfileResourceSpecInstanceType("ml.m5d.24xlarge")
 	UserProfileResourceSpecInstanceTypeMlG5Xlarge              = UserProfileResourceSpecInstanceType("ml.g5.xlarge")
 	UserProfileResourceSpecInstanceTypeMlG52xlarge             = UserProfileResourceSpecInstanceType("ml.g5.2xlarge")
 	UserProfileResourceSpecInstanceTypeMlG54xlarge             = UserProfileResourceSpecInstanceType("ml.g5.4xlarge")
@@ -21571,12 +21853,112 @@ const (
 	UserProfileResourceSpecInstanceTypeMlG516xlarge            = UserProfileResourceSpecInstanceType("ml.g5.16xlarge")
 	UserProfileResourceSpecInstanceTypeMlG524xlarge            = UserProfileResourceSpecInstanceType("ml.g5.24xlarge")
 	UserProfileResourceSpecInstanceTypeMlG548xlarge            = UserProfileResourceSpecInstanceType("ml.g5.48xlarge")
+	UserProfileResourceSpecInstanceTypeMlG6Xlarge              = UserProfileResourceSpecInstanceType("ml.g6.xlarge")
+	UserProfileResourceSpecInstanceTypeMlG62xlarge             = UserProfileResourceSpecInstanceType("ml.g6.2xlarge")
+	UserProfileResourceSpecInstanceTypeMlG64xlarge             = UserProfileResourceSpecInstanceType("ml.g6.4xlarge")
+	UserProfileResourceSpecInstanceTypeMlG68xlarge             = UserProfileResourceSpecInstanceType("ml.g6.8xlarge")
+	UserProfileResourceSpecInstanceTypeMlG612xlarge            = UserProfileResourceSpecInstanceType("ml.g6.12xlarge")
+	UserProfileResourceSpecInstanceTypeMlG616xlarge            = UserProfileResourceSpecInstanceType("ml.g6.16xlarge")
+	UserProfileResourceSpecInstanceTypeMlG624xlarge            = UserProfileResourceSpecInstanceType("ml.g6.24xlarge")
+	UserProfileResourceSpecInstanceTypeMlG648xlarge            = UserProfileResourceSpecInstanceType("ml.g6.48xlarge")
+	UserProfileResourceSpecInstanceTypeMlG6eXlarge             = UserProfileResourceSpecInstanceType("ml.g6e.xlarge")
+	UserProfileResourceSpecInstanceTypeMlG6e2xlarge            = UserProfileResourceSpecInstanceType("ml.g6e.2xlarge")
+	UserProfileResourceSpecInstanceTypeMlG6e4xlarge            = UserProfileResourceSpecInstanceType("ml.g6e.4xlarge")
+	UserProfileResourceSpecInstanceTypeMlG6e8xlarge            = UserProfileResourceSpecInstanceType("ml.g6e.8xlarge")
+	UserProfileResourceSpecInstanceTypeMlG6e12xlarge           = UserProfileResourceSpecInstanceType("ml.g6e.12xlarge")
+	UserProfileResourceSpecInstanceTypeMlG6e16xlarge           = UserProfileResourceSpecInstanceType("ml.g6e.16xlarge")
+	UserProfileResourceSpecInstanceTypeMlG6e24xlarge           = UserProfileResourceSpecInstanceType("ml.g6e.24xlarge")
+	UserProfileResourceSpecInstanceTypeMlG6e48xlarge           = UserProfileResourceSpecInstanceType("ml.g6e.48xlarge")
+	UserProfileResourceSpecInstanceTypeMlGeospatialInteractive = UserProfileResourceSpecInstanceType("ml.geospatial.interactive")
 	UserProfileResourceSpecInstanceTypeMlP4d24xlarge           = UserProfileResourceSpecInstanceType("ml.p4d.24xlarge")
 	UserProfileResourceSpecInstanceTypeMlP4de24xlarge          = UserProfileResourceSpecInstanceType("ml.p4de.24xlarge")
-	UserProfileResourceSpecInstanceTypeMlGeospatialInteractive = UserProfileResourceSpecInstanceType("ml.geospatial.interactive")
 	UserProfileResourceSpecInstanceTypeMlTrn12xlarge           = UserProfileResourceSpecInstanceType("ml.trn1.2xlarge")
 	UserProfileResourceSpecInstanceTypeMlTrn132xlarge          = UserProfileResourceSpecInstanceType("ml.trn1.32xlarge")
 	UserProfileResourceSpecInstanceTypeMlTrn1n32xlarge         = UserProfileResourceSpecInstanceType("ml.trn1n.32xlarge")
+	UserProfileResourceSpecInstanceTypeMlP548xlarge            = UserProfileResourceSpecInstanceType("ml.p5.48xlarge")
+	UserProfileResourceSpecInstanceTypeMlP5e48xlarge           = UserProfileResourceSpecInstanceType("ml.p5e.48xlarge")
+	UserProfileResourceSpecInstanceTypeMlP5en48xlarge          = UserProfileResourceSpecInstanceType("ml.p5en.48xlarge")
+	UserProfileResourceSpecInstanceTypeMlM6iLarge              = UserProfileResourceSpecInstanceType("ml.m6i.large")
+	UserProfileResourceSpecInstanceTypeMlM6iXlarge             = UserProfileResourceSpecInstanceType("ml.m6i.xlarge")
+	UserProfileResourceSpecInstanceTypeMlM6i2xlarge            = UserProfileResourceSpecInstanceType("ml.m6i.2xlarge")
+	UserProfileResourceSpecInstanceTypeMlM6i4xlarge            = UserProfileResourceSpecInstanceType("ml.m6i.4xlarge")
+	UserProfileResourceSpecInstanceTypeMlM6i8xlarge            = UserProfileResourceSpecInstanceType("ml.m6i.8xlarge")
+	UserProfileResourceSpecInstanceTypeMlM6i12xlarge           = UserProfileResourceSpecInstanceType("ml.m6i.12xlarge")
+	UserProfileResourceSpecInstanceTypeMlM6i16xlarge           = UserProfileResourceSpecInstanceType("ml.m6i.16xlarge")
+	UserProfileResourceSpecInstanceTypeMlM6i24xlarge           = UserProfileResourceSpecInstanceType("ml.m6i.24xlarge")
+	UserProfileResourceSpecInstanceTypeMlM6i32xlarge           = UserProfileResourceSpecInstanceType("ml.m6i.32xlarge")
+	UserProfileResourceSpecInstanceTypeMlM7iLarge              = UserProfileResourceSpecInstanceType("ml.m7i.large")
+	UserProfileResourceSpecInstanceTypeMlM7iXlarge             = UserProfileResourceSpecInstanceType("ml.m7i.xlarge")
+	UserProfileResourceSpecInstanceTypeMlM7i2xlarge            = UserProfileResourceSpecInstanceType("ml.m7i.2xlarge")
+	UserProfileResourceSpecInstanceTypeMlM7i4xlarge            = UserProfileResourceSpecInstanceType("ml.m7i.4xlarge")
+	UserProfileResourceSpecInstanceTypeMlM7i8xlarge            = UserProfileResourceSpecInstanceType("ml.m7i.8xlarge")
+	UserProfileResourceSpecInstanceTypeMlM7i12xlarge           = UserProfileResourceSpecInstanceType("ml.m7i.12xlarge")
+	UserProfileResourceSpecInstanceTypeMlM7i16xlarge           = UserProfileResourceSpecInstanceType("ml.m7i.16xlarge")
+	UserProfileResourceSpecInstanceTypeMlM7i24xlarge           = UserProfileResourceSpecInstanceType("ml.m7i.24xlarge")
+	UserProfileResourceSpecInstanceTypeMlM7i48xlarge           = UserProfileResourceSpecInstanceType("ml.m7i.48xlarge")
+	UserProfileResourceSpecInstanceTypeMlC6iLarge              = UserProfileResourceSpecInstanceType("ml.c6i.large")
+	UserProfileResourceSpecInstanceTypeMlC6iXlarge             = UserProfileResourceSpecInstanceType("ml.c6i.xlarge")
+	UserProfileResourceSpecInstanceTypeMlC6i2xlarge            = UserProfileResourceSpecInstanceType("ml.c6i.2xlarge")
+	UserProfileResourceSpecInstanceTypeMlC6i4xlarge            = UserProfileResourceSpecInstanceType("ml.c6i.4xlarge")
+	UserProfileResourceSpecInstanceTypeMlC6i8xlarge            = UserProfileResourceSpecInstanceType("ml.c6i.8xlarge")
+	UserProfileResourceSpecInstanceTypeMlC6i12xlarge           = UserProfileResourceSpecInstanceType("ml.c6i.12xlarge")
+	UserProfileResourceSpecInstanceTypeMlC6i16xlarge           = UserProfileResourceSpecInstanceType("ml.c6i.16xlarge")
+	UserProfileResourceSpecInstanceTypeMlC6i24xlarge           = UserProfileResourceSpecInstanceType("ml.c6i.24xlarge")
+	UserProfileResourceSpecInstanceTypeMlC6i32xlarge           = UserProfileResourceSpecInstanceType("ml.c6i.32xlarge")
+	UserProfileResourceSpecInstanceTypeMlC7iLarge              = UserProfileResourceSpecInstanceType("ml.c7i.large")
+	UserProfileResourceSpecInstanceTypeMlC7iXlarge             = UserProfileResourceSpecInstanceType("ml.c7i.xlarge")
+	UserProfileResourceSpecInstanceTypeMlC7i2xlarge            = UserProfileResourceSpecInstanceType("ml.c7i.2xlarge")
+	UserProfileResourceSpecInstanceTypeMlC7i4xlarge            = UserProfileResourceSpecInstanceType("ml.c7i.4xlarge")
+	UserProfileResourceSpecInstanceTypeMlC7i8xlarge            = UserProfileResourceSpecInstanceType("ml.c7i.8xlarge")
+	UserProfileResourceSpecInstanceTypeMlC7i12xlarge           = UserProfileResourceSpecInstanceType("ml.c7i.12xlarge")
+	UserProfileResourceSpecInstanceTypeMlC7i16xlarge           = UserProfileResourceSpecInstanceType("ml.c7i.16xlarge")
+	UserProfileResourceSpecInstanceTypeMlC7i24xlarge           = UserProfileResourceSpecInstanceType("ml.c7i.24xlarge")
+	UserProfileResourceSpecInstanceTypeMlC7i48xlarge           = UserProfileResourceSpecInstanceType("ml.c7i.48xlarge")
+	UserProfileResourceSpecInstanceTypeMlR6iLarge              = UserProfileResourceSpecInstanceType("ml.r6i.large")
+	UserProfileResourceSpecInstanceTypeMlR6iXlarge             = UserProfileResourceSpecInstanceType("ml.r6i.xlarge")
+	UserProfileResourceSpecInstanceTypeMlR6i2xlarge            = UserProfileResourceSpecInstanceType("ml.r6i.2xlarge")
+	UserProfileResourceSpecInstanceTypeMlR6i4xlarge            = UserProfileResourceSpecInstanceType("ml.r6i.4xlarge")
+	UserProfileResourceSpecInstanceTypeMlR6i8xlarge            = UserProfileResourceSpecInstanceType("ml.r6i.8xlarge")
+	UserProfileResourceSpecInstanceTypeMlR6i12xlarge           = UserProfileResourceSpecInstanceType("ml.r6i.12xlarge")
+	UserProfileResourceSpecInstanceTypeMlR6i16xlarge           = UserProfileResourceSpecInstanceType("ml.r6i.16xlarge")
+	UserProfileResourceSpecInstanceTypeMlR6i24xlarge           = UserProfileResourceSpecInstanceType("ml.r6i.24xlarge")
+	UserProfileResourceSpecInstanceTypeMlR6i32xlarge           = UserProfileResourceSpecInstanceType("ml.r6i.32xlarge")
+	UserProfileResourceSpecInstanceTypeMlR7iLarge              = UserProfileResourceSpecInstanceType("ml.r7i.large")
+	UserProfileResourceSpecInstanceTypeMlR7iXlarge             = UserProfileResourceSpecInstanceType("ml.r7i.xlarge")
+	UserProfileResourceSpecInstanceTypeMlR7i2xlarge            = UserProfileResourceSpecInstanceType("ml.r7i.2xlarge")
+	UserProfileResourceSpecInstanceTypeMlR7i4xlarge            = UserProfileResourceSpecInstanceType("ml.r7i.4xlarge")
+	UserProfileResourceSpecInstanceTypeMlR7i8xlarge            = UserProfileResourceSpecInstanceType("ml.r7i.8xlarge")
+	UserProfileResourceSpecInstanceTypeMlR7i12xlarge           = UserProfileResourceSpecInstanceType("ml.r7i.12xlarge")
+	UserProfileResourceSpecInstanceTypeMlR7i16xlarge           = UserProfileResourceSpecInstanceType("ml.r7i.16xlarge")
+	UserProfileResourceSpecInstanceTypeMlR7i24xlarge           = UserProfileResourceSpecInstanceType("ml.r7i.24xlarge")
+	UserProfileResourceSpecInstanceTypeMlR7i48xlarge           = UserProfileResourceSpecInstanceType("ml.r7i.48xlarge")
+	UserProfileResourceSpecInstanceTypeMlM6idLarge             = UserProfileResourceSpecInstanceType("ml.m6id.large")
+	UserProfileResourceSpecInstanceTypeMlM6idXlarge            = UserProfileResourceSpecInstanceType("ml.m6id.xlarge")
+	UserProfileResourceSpecInstanceTypeMlM6id2xlarge           = UserProfileResourceSpecInstanceType("ml.m6id.2xlarge")
+	UserProfileResourceSpecInstanceTypeMlM6id4xlarge           = UserProfileResourceSpecInstanceType("ml.m6id.4xlarge")
+	UserProfileResourceSpecInstanceTypeMlM6id8xlarge           = UserProfileResourceSpecInstanceType("ml.m6id.8xlarge")
+	UserProfileResourceSpecInstanceTypeMlM6id12xlarge          = UserProfileResourceSpecInstanceType("ml.m6id.12xlarge")
+	UserProfileResourceSpecInstanceTypeMlM6id16xlarge          = UserProfileResourceSpecInstanceType("ml.m6id.16xlarge")
+	UserProfileResourceSpecInstanceTypeMlM6id24xlarge          = UserProfileResourceSpecInstanceType("ml.m6id.24xlarge")
+	UserProfileResourceSpecInstanceTypeMlM6id32xlarge          = UserProfileResourceSpecInstanceType("ml.m6id.32xlarge")
+	UserProfileResourceSpecInstanceTypeMlC6idLarge             = UserProfileResourceSpecInstanceType("ml.c6id.large")
+	UserProfileResourceSpecInstanceTypeMlC6idXlarge            = UserProfileResourceSpecInstanceType("ml.c6id.xlarge")
+	UserProfileResourceSpecInstanceTypeMlC6id2xlarge           = UserProfileResourceSpecInstanceType("ml.c6id.2xlarge")
+	UserProfileResourceSpecInstanceTypeMlC6id4xlarge           = UserProfileResourceSpecInstanceType("ml.c6id.4xlarge")
+	UserProfileResourceSpecInstanceTypeMlC6id8xlarge           = UserProfileResourceSpecInstanceType("ml.c6id.8xlarge")
+	UserProfileResourceSpecInstanceTypeMlC6id12xlarge          = UserProfileResourceSpecInstanceType("ml.c6id.12xlarge")
+	UserProfileResourceSpecInstanceTypeMlC6id16xlarge          = UserProfileResourceSpecInstanceType("ml.c6id.16xlarge")
+	UserProfileResourceSpecInstanceTypeMlC6id24xlarge          = UserProfileResourceSpecInstanceType("ml.c6id.24xlarge")
+	UserProfileResourceSpecInstanceTypeMlC6id32xlarge          = UserProfileResourceSpecInstanceType("ml.c6id.32xlarge")
+	UserProfileResourceSpecInstanceTypeMlR6idLarge             = UserProfileResourceSpecInstanceType("ml.r6id.large")
+	UserProfileResourceSpecInstanceTypeMlR6idXlarge            = UserProfileResourceSpecInstanceType("ml.r6id.xlarge")
+	UserProfileResourceSpecInstanceTypeMlR6id2xlarge           = UserProfileResourceSpecInstanceType("ml.r6id.2xlarge")
+	UserProfileResourceSpecInstanceTypeMlR6id4xlarge           = UserProfileResourceSpecInstanceType("ml.r6id.4xlarge")
+	UserProfileResourceSpecInstanceTypeMlR6id8xlarge           = UserProfileResourceSpecInstanceType("ml.r6id.8xlarge")
+	UserProfileResourceSpecInstanceTypeMlR6id12xlarge          = UserProfileResourceSpecInstanceType("ml.r6id.12xlarge")
+	UserProfileResourceSpecInstanceTypeMlR6id16xlarge          = UserProfileResourceSpecInstanceType("ml.r6id.16xlarge")
+	UserProfileResourceSpecInstanceTypeMlR6id24xlarge          = UserProfileResourceSpecInstanceType("ml.r6id.24xlarge")
+	UserProfileResourceSpecInstanceTypeMlR6id32xlarge          = UserProfileResourceSpecInstanceType("ml.r6id.32xlarge")
 )
 
 func (UserProfileResourceSpecInstanceType) ElementType() reflect.Type {
@@ -21716,6 +22098,14 @@ func (o UserProfileResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithConte
 //	UserProfileResourceSpecInstanceTypeMlM512xlarge
 //	UserProfileResourceSpecInstanceTypeMlM516xlarge
 //	UserProfileResourceSpecInstanceTypeMlM524xlarge
+//	UserProfileResourceSpecInstanceTypeMlM5dLarge
+//	UserProfileResourceSpecInstanceTypeMlM5dXlarge
+//	UserProfileResourceSpecInstanceTypeMlM5d2xlarge
+//	UserProfileResourceSpecInstanceTypeMlM5d4xlarge
+//	UserProfileResourceSpecInstanceTypeMlM5d8xlarge
+//	UserProfileResourceSpecInstanceTypeMlM5d12xlarge
+//	UserProfileResourceSpecInstanceTypeMlM5d16xlarge
+//	UserProfileResourceSpecInstanceTypeMlM5d24xlarge
 //	UserProfileResourceSpecInstanceTypeMlC5Large
 //	UserProfileResourceSpecInstanceTypeMlC5Xlarge
 //	UserProfileResourceSpecInstanceTypeMlC52xlarge
@@ -21727,6 +22117,7 @@ func (o UserProfileResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithConte
 //	UserProfileResourceSpecInstanceTypeMlP32xlarge
 //	UserProfileResourceSpecInstanceTypeMlP38xlarge
 //	UserProfileResourceSpecInstanceTypeMlP316xlarge
+//	UserProfileResourceSpecInstanceTypeMlP3dn24xlarge
 //	UserProfileResourceSpecInstanceTypeMlG4dnXlarge
 //	UserProfileResourceSpecInstanceTypeMlG4dn2xlarge
 //	UserProfileResourceSpecInstanceTypeMlG4dn4xlarge
@@ -21741,15 +22132,6 @@ func (o UserProfileResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithConte
 //	UserProfileResourceSpecInstanceTypeMlR512xlarge
 //	UserProfileResourceSpecInstanceTypeMlR516xlarge
 //	UserProfileResourceSpecInstanceTypeMlR524xlarge
-//	UserProfileResourceSpecInstanceTypeMlP3dn24xlarge
-//	UserProfileResourceSpecInstanceTypeMlM5dLarge
-//	UserProfileResourceSpecInstanceTypeMlM5dXlarge
-//	UserProfileResourceSpecInstanceTypeMlM5d2xlarge
-//	UserProfileResourceSpecInstanceTypeMlM5d4xlarge
-//	UserProfileResourceSpecInstanceTypeMlM5d8xlarge
-//	UserProfileResourceSpecInstanceTypeMlM5d12xlarge
-//	UserProfileResourceSpecInstanceTypeMlM5d16xlarge
-//	UserProfileResourceSpecInstanceTypeMlM5d24xlarge
 //	UserProfileResourceSpecInstanceTypeMlG5Xlarge
 //	UserProfileResourceSpecInstanceTypeMlG52xlarge
 //	UserProfileResourceSpecInstanceTypeMlG54xlarge
@@ -21758,12 +22140,112 @@ func (o UserProfileResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithConte
 //	UserProfileResourceSpecInstanceTypeMlG516xlarge
 //	UserProfileResourceSpecInstanceTypeMlG524xlarge
 //	UserProfileResourceSpecInstanceTypeMlG548xlarge
+//	UserProfileResourceSpecInstanceTypeMlG6Xlarge
+//	UserProfileResourceSpecInstanceTypeMlG62xlarge
+//	UserProfileResourceSpecInstanceTypeMlG64xlarge
+//	UserProfileResourceSpecInstanceTypeMlG68xlarge
+//	UserProfileResourceSpecInstanceTypeMlG612xlarge
+//	UserProfileResourceSpecInstanceTypeMlG616xlarge
+//	UserProfileResourceSpecInstanceTypeMlG624xlarge
+//	UserProfileResourceSpecInstanceTypeMlG648xlarge
+//	UserProfileResourceSpecInstanceTypeMlG6eXlarge
+//	UserProfileResourceSpecInstanceTypeMlG6e2xlarge
+//	UserProfileResourceSpecInstanceTypeMlG6e4xlarge
+//	UserProfileResourceSpecInstanceTypeMlG6e8xlarge
+//	UserProfileResourceSpecInstanceTypeMlG6e12xlarge
+//	UserProfileResourceSpecInstanceTypeMlG6e16xlarge
+//	UserProfileResourceSpecInstanceTypeMlG6e24xlarge
+//	UserProfileResourceSpecInstanceTypeMlG6e48xlarge
+//	UserProfileResourceSpecInstanceTypeMlGeospatialInteractive
 //	UserProfileResourceSpecInstanceTypeMlP4d24xlarge
 //	UserProfileResourceSpecInstanceTypeMlP4de24xlarge
-//	UserProfileResourceSpecInstanceTypeMlGeospatialInteractive
 //	UserProfileResourceSpecInstanceTypeMlTrn12xlarge
 //	UserProfileResourceSpecInstanceTypeMlTrn132xlarge
 //	UserProfileResourceSpecInstanceTypeMlTrn1n32xlarge
+//	UserProfileResourceSpecInstanceTypeMlP548xlarge
+//	UserProfileResourceSpecInstanceTypeMlP5e48xlarge
+//	UserProfileResourceSpecInstanceTypeMlP5en48xlarge
+//	UserProfileResourceSpecInstanceTypeMlM6iLarge
+//	UserProfileResourceSpecInstanceTypeMlM6iXlarge
+//	UserProfileResourceSpecInstanceTypeMlM6i2xlarge
+//	UserProfileResourceSpecInstanceTypeMlM6i4xlarge
+//	UserProfileResourceSpecInstanceTypeMlM6i8xlarge
+//	UserProfileResourceSpecInstanceTypeMlM6i12xlarge
+//	UserProfileResourceSpecInstanceTypeMlM6i16xlarge
+//	UserProfileResourceSpecInstanceTypeMlM6i24xlarge
+//	UserProfileResourceSpecInstanceTypeMlM6i32xlarge
+//	UserProfileResourceSpecInstanceTypeMlM7iLarge
+//	UserProfileResourceSpecInstanceTypeMlM7iXlarge
+//	UserProfileResourceSpecInstanceTypeMlM7i2xlarge
+//	UserProfileResourceSpecInstanceTypeMlM7i4xlarge
+//	UserProfileResourceSpecInstanceTypeMlM7i8xlarge
+//	UserProfileResourceSpecInstanceTypeMlM7i12xlarge
+//	UserProfileResourceSpecInstanceTypeMlM7i16xlarge
+//	UserProfileResourceSpecInstanceTypeMlM7i24xlarge
+//	UserProfileResourceSpecInstanceTypeMlM7i48xlarge
+//	UserProfileResourceSpecInstanceTypeMlC6iLarge
+//	UserProfileResourceSpecInstanceTypeMlC6iXlarge
+//	UserProfileResourceSpecInstanceTypeMlC6i2xlarge
+//	UserProfileResourceSpecInstanceTypeMlC6i4xlarge
+//	UserProfileResourceSpecInstanceTypeMlC6i8xlarge
+//	UserProfileResourceSpecInstanceTypeMlC6i12xlarge
+//	UserProfileResourceSpecInstanceTypeMlC6i16xlarge
+//	UserProfileResourceSpecInstanceTypeMlC6i24xlarge
+//	UserProfileResourceSpecInstanceTypeMlC6i32xlarge
+//	UserProfileResourceSpecInstanceTypeMlC7iLarge
+//	UserProfileResourceSpecInstanceTypeMlC7iXlarge
+//	UserProfileResourceSpecInstanceTypeMlC7i2xlarge
+//	UserProfileResourceSpecInstanceTypeMlC7i4xlarge
+//	UserProfileResourceSpecInstanceTypeMlC7i8xlarge
+//	UserProfileResourceSpecInstanceTypeMlC7i12xlarge
+//	UserProfileResourceSpecInstanceTypeMlC7i16xlarge
+//	UserProfileResourceSpecInstanceTypeMlC7i24xlarge
+//	UserProfileResourceSpecInstanceTypeMlC7i48xlarge
+//	UserProfileResourceSpecInstanceTypeMlR6iLarge
+//	UserProfileResourceSpecInstanceTypeMlR6iXlarge
+//	UserProfileResourceSpecInstanceTypeMlR6i2xlarge
+//	UserProfileResourceSpecInstanceTypeMlR6i4xlarge
+//	UserProfileResourceSpecInstanceTypeMlR6i8xlarge
+//	UserProfileResourceSpecInstanceTypeMlR6i12xlarge
+//	UserProfileResourceSpecInstanceTypeMlR6i16xlarge
+//	UserProfileResourceSpecInstanceTypeMlR6i24xlarge
+//	UserProfileResourceSpecInstanceTypeMlR6i32xlarge
+//	UserProfileResourceSpecInstanceTypeMlR7iLarge
+//	UserProfileResourceSpecInstanceTypeMlR7iXlarge
+//	UserProfileResourceSpecInstanceTypeMlR7i2xlarge
+//	UserProfileResourceSpecInstanceTypeMlR7i4xlarge
+//	UserProfileResourceSpecInstanceTypeMlR7i8xlarge
+//	UserProfileResourceSpecInstanceTypeMlR7i12xlarge
+//	UserProfileResourceSpecInstanceTypeMlR7i16xlarge
+//	UserProfileResourceSpecInstanceTypeMlR7i24xlarge
+//	UserProfileResourceSpecInstanceTypeMlR7i48xlarge
+//	UserProfileResourceSpecInstanceTypeMlM6idLarge
+//	UserProfileResourceSpecInstanceTypeMlM6idXlarge
+//	UserProfileResourceSpecInstanceTypeMlM6id2xlarge
+//	UserProfileResourceSpecInstanceTypeMlM6id4xlarge
+//	UserProfileResourceSpecInstanceTypeMlM6id8xlarge
+//	UserProfileResourceSpecInstanceTypeMlM6id12xlarge
+//	UserProfileResourceSpecInstanceTypeMlM6id16xlarge
+//	UserProfileResourceSpecInstanceTypeMlM6id24xlarge
+//	UserProfileResourceSpecInstanceTypeMlM6id32xlarge
+//	UserProfileResourceSpecInstanceTypeMlC6idLarge
+//	UserProfileResourceSpecInstanceTypeMlC6idXlarge
+//	UserProfileResourceSpecInstanceTypeMlC6id2xlarge
+//	UserProfileResourceSpecInstanceTypeMlC6id4xlarge
+//	UserProfileResourceSpecInstanceTypeMlC6id8xlarge
+//	UserProfileResourceSpecInstanceTypeMlC6id12xlarge
+//	UserProfileResourceSpecInstanceTypeMlC6id16xlarge
+//	UserProfileResourceSpecInstanceTypeMlC6id24xlarge
+//	UserProfileResourceSpecInstanceTypeMlC6id32xlarge
+//	UserProfileResourceSpecInstanceTypeMlR6idLarge
+//	UserProfileResourceSpecInstanceTypeMlR6idXlarge
+//	UserProfileResourceSpecInstanceTypeMlR6id2xlarge
+//	UserProfileResourceSpecInstanceTypeMlR6id4xlarge
+//	UserProfileResourceSpecInstanceTypeMlR6id8xlarge
+//	UserProfileResourceSpecInstanceTypeMlR6id12xlarge
+//	UserProfileResourceSpecInstanceTypeMlR6id16xlarge
+//	UserProfileResourceSpecInstanceTypeMlR6id24xlarge
+//	UserProfileResourceSpecInstanceTypeMlR6id32xlarge
 type UserProfileResourceSpecInstanceTypeInput interface {
 	pulumi.Input
 
@@ -22340,6 +22822,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDockerSettingsEnableDockerAccessPtrInput)(nil)).Elem(), DomainDockerSettingsEnableDockerAccess("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainHiddenSageMakerImageSageMakerImageNameInput)(nil)).Elem(), DomainHiddenSageMakerImageSageMakerImageName("sagemaker_distribution"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainHiddenSageMakerImageSageMakerImageNamePtrInput)(nil)).Elem(), DomainHiddenSageMakerImageSageMakerImageName("sagemaker_distribution"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIpAddressTypeInput)(nil)).Elem(), DomainIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIpAddressTypePtrInput)(nil)).Elem(), DomainIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainLifecycleManagementInput)(nil)).Elem(), DomainLifecycleManagement("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainLifecycleManagementPtrInput)(nil)).Elem(), DomainLifecycleManagement("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMlToolsInput)(nil)).Elem(), DomainMlTools("DataWrangler"))
@@ -22349,8 +22833,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsAccessStatusPtrInput)(nil)).Elem(), DomainRStudioServerProAppSettingsAccessStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsUserGroupInput)(nil)).Elem(), DomainRStudioServerProAppSettingsUserGroup("R_STUDIO_ADMIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsUserGroupPtrInput)(nil)).Elem(), DomainRStudioServerProAppSettingsUserGroup("R_STUDIO_ADMIN"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainResourceSpecInstanceTypeInput)(nil)).Elem(), DomainResourceSpecInstanceType("system"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainResourceSpecInstanceTypePtrInput)(nil)).Elem(), DomainResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSettingsExecutionRoleIdentityConfigInput)(nil)).Elem(), DomainSettingsExecutionRoleIdentityConfig("USER_PROFILE_NAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSettingsExecutionRoleIdentityConfigPtrInput)(nil)).Elem(), DomainSettingsExecutionRoleIdentityConfig("USER_PROFILE_NAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsNotebookOutputOptionInput)(nil)).Elem(), DomainSharingSettingsNotebookOutputOption("Allowed"))
@@ -22585,6 +23067,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainDockerSettingsEnableDockerAccessPtrOutput{})
 	pulumi.RegisterOutputType(DomainHiddenSageMakerImageSageMakerImageNameOutput{})
 	pulumi.RegisterOutputType(DomainHiddenSageMakerImageSageMakerImageNamePtrOutput{})
+	pulumi.RegisterOutputType(DomainIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(DomainIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainLifecycleManagementOutput{})
 	pulumi.RegisterOutputType(DomainLifecycleManagementPtrOutput{})
 	pulumi.RegisterOutputType(DomainMlToolsOutput{})
@@ -22594,8 +23078,6 @@ func init() {
 	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsAccessStatusPtrOutput{})
 	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsUserGroupOutput{})
 	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsUserGroupPtrOutput{})
-	pulumi.RegisterOutputType(DomainResourceSpecInstanceTypeOutput{})
-	pulumi.RegisterOutputType(DomainResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainSettingsExecutionRoleIdentityConfigOutput{})
 	pulumi.RegisterOutputType(DomainSettingsExecutionRoleIdentityConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainSharingSettingsNotebookOutputOptionOutput{})

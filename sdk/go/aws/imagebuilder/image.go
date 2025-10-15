@@ -37,6 +37,8 @@ type Image struct {
 	ImageUri pulumi.StringOutput `pulumi:"imageUri"`
 	// The Amazon Resource Name (ARN) of the infrastructure configuration.
 	InfrastructureConfigurationArn pulumi.StringPtrOutput `pulumi:"infrastructureConfigurationArn"`
+	// The latest version references of the image.
+	LatestVersion ImageLatestVersionOutput `pulumi:"latestVersion"`
 	// The logging configuration settings for the image.
 	LoggingConfiguration ImageLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
 	// The name of the image.
@@ -238,6 +240,11 @@ func (o ImageOutput) ImageUri() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) of the infrastructure configuration.
 func (o ImageOutput) InfrastructureConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.InfrastructureConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
+// The latest version references of the image.
+func (o ImageOutput) LatestVersion() ImageLatestVersionOutput {
+	return o.ApplyT(func(v *Image) ImageLatestVersionOutput { return v.LatestVersion }).(ImageLatestVersionOutput)
 }
 
 // The logging configuration settings for the image.

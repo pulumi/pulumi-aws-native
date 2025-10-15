@@ -210,6 +210,10 @@ export class Component extends pulumi.CustomResource {
      */
     declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
+     * The latest version references of the component.
+     */
+    declare public /*out*/ readonly latestVersion: pulumi.Output<outputs.imagebuilder.ComponentLatestVersion>;
+    /**
      * The name of the component.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -267,6 +271,7 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["version"] = args?.version;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["encrypted"] = undefined /*out*/;
+            resourceInputs["latestVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -275,6 +280,7 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["encrypted"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["latestVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["platform"] = undefined /*out*/;
             resourceInputs["supportedOsVersions"] = undefined /*out*/;

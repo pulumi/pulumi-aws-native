@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetNatGatewayResult:
-    def __init__(__self__, nat_gateway_id=None, secondary_allocation_ids=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, tags=None):
+    def __init__(__self__, eni_id=None, nat_gateway_id=None, secondary_allocation_ids=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, tags=None):
+        if eni_id and not isinstance(eni_id, str):
+            raise TypeError("Expected argument 'eni_id' to be a str")
+        pulumi.set(__self__, "eni_id", eni_id)
         if nat_gateway_id and not isinstance(nat_gateway_id, str):
             raise TypeError("Expected argument 'nat_gateway_id' to be a str")
         pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
@@ -40,6 +43,11 @@ class GetNatGatewayResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="eniId")
+    def eni_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "eni_id")
 
     @_builtins.property
     @pulumi.getter(name="natGatewayId")
@@ -90,6 +98,7 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
         if False:
             yield self
         return GetNatGatewayResult(
+            eni_id=self.eni_id,
             nat_gateway_id=self.nat_gateway_id,
             secondary_allocation_ids=self.secondary_allocation_ids,
             secondary_private_ip_address_count=self.secondary_private_ip_address_count,
@@ -114,6 +123,7 @@ def get_nat_gateway(nat_gateway_id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getNatGateway', __args__, opts=opts, typ=GetNatGatewayResult).value
 
     return AwaitableGetNatGatewayResult(
+        eni_id=pulumi.get(__ret__, 'eni_id'),
         nat_gateway_id=pulumi.get(__ret__, 'nat_gateway_id'),
         secondary_allocation_ids=pulumi.get(__ret__, 'secondary_allocation_ids'),
         secondary_private_ip_address_count=pulumi.get(__ret__, 'secondary_private_ip_address_count'),
@@ -135,6 +145,7 @@ def get_nat_gateway_output(nat_gateway_id: Optional[pulumi.Input[_builtins.str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getNatGateway', __args__, opts=opts, typ=GetNatGatewayResult)
     return __ret__.apply(lambda __response__: GetNatGatewayResult(
+        eni_id=pulumi.get(__response__, 'eni_id'),
         nat_gateway_id=pulumi.get(__response__, 'nat_gateway_id'),
         secondary_allocation_ids=pulumi.get(__response__, 'secondary_allocation_ids'),
         secondary_private_ip_address_count=pulumi.get(__response__, 'secondary_private_ip_address_count'),

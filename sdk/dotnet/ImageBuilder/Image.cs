@@ -82,6 +82,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<string?> InfrastructureConfigurationArn { get; private set; } = null!;
 
         /// <summary>
+        /// The latest version references of the image.
+        /// </summary>
+        [Output("latestVersion")]
+        public Output<Outputs.ImageLatestVersion> LatestVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The logging configuration settings for the image.
         /// </summary>
         [Output("loggingConfiguration")]

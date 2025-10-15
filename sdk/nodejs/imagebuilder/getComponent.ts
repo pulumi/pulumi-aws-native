@@ -34,6 +34,10 @@ export interface GetComponentResult {
      */
     readonly encrypted?: boolean;
     /**
+     * The latest version references of the component.
+     */
+    readonly latestVersion?: outputs.imagebuilder.ComponentLatestVersion;
+    /**
      * The tags associated with the component.
      */
     readonly tags?: {[key: string]: string};

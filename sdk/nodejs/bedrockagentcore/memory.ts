@@ -37,10 +37,10 @@ export class Memory extends pulumi.CustomResource {
         return obj['__pulumiType'] === Memory.__pulumiType;
     }
 
-    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * The memory description.
+     * The timestamp when the memory record was created.
      */
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The memory encryption key Amazon Resource Name (ARN).
@@ -131,9 +131,6 @@ export class Memory extends pulumi.CustomResource {
  * The set of arguments for constructing a Memory resource.
  */
 export interface MemoryArgs {
-    /**
-     * The memory description.
-     */
     description?: pulumi.Input<string>;
     /**
      * The memory encryption key Amazon Resource Name (ARN).

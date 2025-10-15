@@ -305,8 +305,7 @@ type Table struct {
 	//  Updates are not supported. The following are exceptions:
 	//   +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
 	//   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
-	GlobalSecondaryIndexes             TableGlobalSecondaryIndexArrayOutput             `pulumi:"globalSecondaryIndexes"`
-	GlobalTableSettingsReplicationMode TableGlobalTableSettingsReplicationModePtrOutput `pulumi:"globalTableSettingsReplicationMode"`
+	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayOutput `pulumi:"globalSecondaryIndexes"`
 	// Specifies the properties of data being imported from the S3 bucket source to the" table.
 	//   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
 	ImportSourceSpecification TableImportSourceSpecificationPtrOutput `pulumi:"importSourceSpecification"`
@@ -420,8 +419,7 @@ type tableArgs struct {
 	//  Updates are not supported. The following are exceptions:
 	//   +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
 	//   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
-	GlobalSecondaryIndexes             []TableGlobalSecondaryIndex              `pulumi:"globalSecondaryIndexes"`
-	GlobalTableSettingsReplicationMode *TableGlobalTableSettingsReplicationMode `pulumi:"globalTableSettingsReplicationMode"`
+	GlobalSecondaryIndexes []TableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
 	// Specifies the properties of data being imported from the S3 bucket source to the" table.
 	//   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
 	ImportSourceSpecification *TableImportSourceSpecification `pulumi:"importSourceSpecification"`
@@ -485,8 +483,7 @@ type TableArgs struct {
 	//  Updates are not supported. The following are exceptions:
 	//   +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
 	//   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
-	GlobalSecondaryIndexes             TableGlobalSecondaryIndexArrayInput
-	GlobalTableSettingsReplicationMode TableGlobalTableSettingsReplicationModePtrInput
+	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayInput
 	// Specifies the properties of data being imported from the S3 bucket source to the" table.
 	//   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
 	ImportSourceSpecification TableImportSourceSpecificationPtrInput
@@ -609,12 +606,6 @@ func (o TableOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutput {
 //	 +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
 func (o TableOutput) GlobalSecondaryIndexes() TableGlobalSecondaryIndexArrayOutput {
 	return o.ApplyT(func(v *Table) TableGlobalSecondaryIndexArrayOutput { return v.GlobalSecondaryIndexes }).(TableGlobalSecondaryIndexArrayOutput)
-}
-
-func (o TableOutput) GlobalTableSettingsReplicationMode() TableGlobalTableSettingsReplicationModePtrOutput {
-	return o.ApplyT(func(v *Table) TableGlobalTableSettingsReplicationModePtrOutput {
-		return v.GlobalTableSettingsReplicationMode
-	}).(TableGlobalTableSettingsReplicationModePtrOutput)
 }
 
 // Specifies the properties of data being imported from the S3 bucket source to the" table.

@@ -58,8 +58,7 @@ type LookupTableResult struct {
 	//  Updates are not supported. The following are exceptions:
 	//   +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
 	//   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
-	GlobalSecondaryIndexes             []TableGlobalSecondaryIndex              `pulumi:"globalSecondaryIndexes"`
-	GlobalTableSettingsReplicationMode *TableGlobalTableSettingsReplicationMode `pulumi:"globalTableSettingsReplicationMode"`
+	GlobalSecondaryIndexes []TableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
 	// Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
 	KeySchema interface{} `pulumi:"keySchema"`
 	// The Kinesis Data Streams configuration for the specified table.
@@ -176,12 +175,6 @@ func (o LookupTableResultOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutpu
 //	 +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
 func (o LookupTableResultOutput) GlobalSecondaryIndexes() TableGlobalSecondaryIndexArrayOutput {
 	return o.ApplyT(func(v LookupTableResult) []TableGlobalSecondaryIndex { return v.GlobalSecondaryIndexes }).(TableGlobalSecondaryIndexArrayOutput)
-}
-
-func (o LookupTableResultOutput) GlobalTableSettingsReplicationMode() TableGlobalTableSettingsReplicationModePtrOutput {
-	return o.ApplyT(func(v LookupTableResult) *TableGlobalTableSettingsReplicationMode {
-		return v.GlobalTableSettingsReplicationMode
-	}).(TableGlobalTableSettingsReplicationModePtrOutput)
 }
 
 // Specifies the attributes that make up the primary key for the table. The attributes in the “KeySchema“ property must also be defined in the “AttributeDefinitions“ property.

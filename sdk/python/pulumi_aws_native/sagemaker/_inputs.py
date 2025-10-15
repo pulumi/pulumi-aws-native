@@ -4791,9 +4791,13 @@ class DomainRStudioServerProDomainSettingsArgs:
 
 if not MYPY:
     class DomainResourceSpecArgsDict(TypedDict):
-        instance_type: NotRequired[pulumi.Input['DomainResourceSpecInstanceType']]
+        instance_type: NotRequired[pulumi.Input['DomainAppInstanceType']]
         """
         The instance type that the image version runs on.
+
+        > *JupyterServer apps* only support the `system` value.
+        > 
+        > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -4813,12 +4817,16 @@ elif False:
 @pulumi.input_type
 class DomainResourceSpecArgs:
     def __init__(__self__, *,
-                 instance_type: Optional[pulumi.Input['DomainResourceSpecInstanceType']] = None,
+                 instance_type: Optional[pulumi.Input['DomainAppInstanceType']] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  sage_maker_image_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  sage_maker_image_version_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input['DomainResourceSpecInstanceType'] instance_type: The instance type that the image version runs on.
+        :param pulumi.Input['DomainAppInstanceType'] instance_type: The instance type that the image version runs on.
+               
+               > *JupyterServer apps* only support the `system` value.
+               > 
+               > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
         :param pulumi.Input[_builtins.str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
         :param pulumi.Input[_builtins.str] sage_maker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image that the image version belongs to.
         :param pulumi.Input[_builtins.str] sage_maker_image_version_arn: The Amazon Resource Name (ARN) of the image version created on the instance.
@@ -4834,14 +4842,18 @@ class DomainResourceSpecArgs:
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[pulumi.Input['DomainResourceSpecInstanceType']]:
+    def instance_type(self) -> Optional[pulumi.Input['DomainAppInstanceType']]:
         """
         The instance type that the image version runs on.
+
+        > *JupyterServer apps* only support the `system` value.
+        > 
+        > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
         """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
-    def instance_type(self, value: Optional[pulumi.Input['DomainResourceSpecInstanceType']]):
+    def instance_type(self, value: Optional[pulumi.Input['DomainAppInstanceType']]):
         pulumi.set(self, "instance_type", value)
 
     @_builtins.property
@@ -4946,6 +4958,7 @@ if not MYPY:
         """
         The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
         """
+        ip_address_type: NotRequired[pulumi.Input['DomainIpAddressType']]
         r_studio_server_pro_domain_settings: NotRequired[pulumi.Input['DomainRStudioServerProDomainSettingsArgsDict']]
         """
         A collection of settings that configure the `RStudioServerPro` Domain-level app.
@@ -4966,6 +4979,7 @@ class DomainSettingsArgs:
     def __init__(__self__, *,
                  docker_settings: Optional[pulumi.Input['DomainDockerSettingsArgs']] = None,
                  execution_role_identity_config: Optional[pulumi.Input['DomainSettingsExecutionRoleIdentityConfig']] = None,
+                 ip_address_type: Optional[pulumi.Input['DomainIpAddressType']] = None,
                  r_studio_server_pro_domain_settings: Optional[pulumi.Input['DomainRStudioServerProDomainSettingsArgs']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  unified_studio_settings: Optional[pulumi.Input['DomainUnifiedStudioSettingsArgs']] = None):
@@ -4981,6 +4995,8 @@ class DomainSettingsArgs:
             pulumi.set(__self__, "docker_settings", docker_settings)
         if execution_role_identity_config is not None:
             pulumi.set(__self__, "execution_role_identity_config", execution_role_identity_config)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if r_studio_server_pro_domain_settings is not None:
             pulumi.set(__self__, "r_studio_server_pro_domain_settings", r_studio_server_pro_domain_settings)
         if security_group_ids is not None:
@@ -5011,6 +5027,15 @@ class DomainSettingsArgs:
     @execution_role_identity_config.setter
     def execution_role_identity_config(self, value: Optional[pulumi.Input['DomainSettingsExecutionRoleIdentityConfig']]):
         pulumi.set(self, "execution_role_identity_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input['DomainIpAddressType']]:
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input['DomainIpAddressType']]):
+        pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="rStudioServerProDomainSettings")

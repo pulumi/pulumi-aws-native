@@ -24,6 +24,10 @@
           "type" : "integer",
           "description" : "The number of IP addresses in the Anycast static IP list."
         },
+        "IpAddressType" : {
+          "$ref" : "#/definitions/IpAddressType",
+          "description" : ""
+        },
         "LastModifiedTime" : {
           "format" : "date-time",
           "type" : "string",
@@ -80,6 +84,10 @@
       },
       "type" : "object",
       "description" : "A complex type that contains zero or more ``Tag`` elements."
+    },
+    "IpAddressType" : {
+      "enum" : [ "ipv4", "dualstack" ],
+      "type" : "string"
     }
   },
   "description" : "An Anycast static IP list. For more information, see [Request Anycast static IPs to use for allowlisting](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/request-static-ips.html) in the *Amazon CloudFront Developer Guide*.",
@@ -89,6 +97,9 @@
     },
     "delete" : {
       "permissions" : [ "cloudfront:DeleteAnycastIpList", "cloudfront:GetAnycastIpList" ]
+    },
+    "update" : {
+      "permissions" : [ "cloudfront:UpdateAnycastIpList", "cloudfront:GetAnycastIpList", "cloudfront:ListTagsForResource", "cloudfront:TagResource", "cloudfront:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "cloudfront:ListAnycastIpLists" ]
@@ -115,6 +126,10 @@
       "type" : "integer",
       "description" : "The number of IP addresses in the Anycast static IP list."
     },
+    "IpAddressType" : {
+      "$ref" : "#/definitions/IpAddressType",
+      "description" : ""
+    },
     "Name" : {
       "maxLength" : 64,
       "minLength" : 1,
@@ -131,7 +146,7 @@
   "required" : [ "IpCount", "Name" ],
   "tagging" : {
     "cloudFormationSystemTags" : false,
-    "permissions" : [ "cloudfront:TagResource", "cloudfront:ListTagsForResource" ],
+    "permissions" : [ "cloudfront:TagResource", "cloudfront:UntagResource", "cloudfront:ListTagsForResource" ],
     "tagOnCreate" : true,
     "tagProperty" : "/properties/Tags",
     "tagUpdatable" : false,

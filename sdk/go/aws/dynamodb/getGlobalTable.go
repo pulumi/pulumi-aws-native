@@ -44,8 +44,7 @@ type LookupGlobalTableResult struct {
 	// Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
 	//
 	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
-	GlobalSecondaryIndexes             []GlobalTableGlobalSecondaryIndex   `pulumi:"globalSecondaryIndexes"`
-	GlobalTableSettingsReplicationMode *GlobalTableSettingsReplicationMode `pulumi:"globalTableSettingsReplicationMode"`
+	GlobalSecondaryIndexes []GlobalTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
 	// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
 	GlobalTableWitnesses []GlobalTableWitness `pulumi:"globalTableWitnesses"`
 	// Specifies the consistency mode for a new global table.
@@ -144,12 +143,6 @@ func (o LookupGlobalTableResultOutput) BillingMode() pulumi.StringPtrOutput {
 // Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
 func (o LookupGlobalTableResultOutput) GlobalSecondaryIndexes() GlobalTableGlobalSecondaryIndexArrayOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableGlobalSecondaryIndex { return v.GlobalSecondaryIndexes }).(GlobalTableGlobalSecondaryIndexArrayOutput)
-}
-
-func (o LookupGlobalTableResultOutput) GlobalTableSettingsReplicationMode() GlobalTableSettingsReplicationModePtrOutput {
-	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableSettingsReplicationMode {
-		return v.GlobalTableSettingsReplicationMode
-	}).(GlobalTableSettingsReplicationModePtrOutput)
 }
 
 // The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.

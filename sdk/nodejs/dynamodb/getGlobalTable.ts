@@ -50,7 +50,6 @@ export interface GetGlobalTableResult {
      * Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
      */
     readonly globalSecondaryIndexes?: outputs.dynamodb.GlobalTableGlobalSecondaryIndex[];
-    readonly globalTableSettingsReplicationMode?: enums.dynamodb.GlobalTableSettingsReplicationMode;
     /**
      * The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
      */

@@ -72,6 +72,7 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetNatGatewayResult
     {
+        public readonly string? EniId;
         /// <summary>
         /// The ID of the NAT gateway.
         /// </summary>
@@ -97,6 +98,8 @@ namespace Pulumi.AwsNative.Ec2
 
         [OutputConstructor]
         private GetNatGatewayResult(
+            string? eniId,
+
             string? natGatewayId,
 
             ImmutableArray<string> secondaryAllocationIds,
@@ -107,6 +110,7 @@ namespace Pulumi.AwsNative.Ec2
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            EniId = eniId;
             NatGatewayId = natGatewayId;
             SecondaryAllocationIds = secondaryAllocationIds;
             SecondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;

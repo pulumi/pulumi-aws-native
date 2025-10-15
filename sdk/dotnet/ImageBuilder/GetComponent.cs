@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly bool? Encrypted;
         /// <summary>
+        /// The latest version references of the component.
+        /// </summary>
+        public readonly Outputs.ComponentLatestVersion? LatestVersion;
+        /// <summary>
         /// The tags associated with the component.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -86,12 +90,15 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             bool? encrypted,
 
+            Outputs.ComponentLatestVersion? latestVersion,
+
             ImmutableDictionary<string, string>? tags,
 
             Pulumi.AwsNative.ImageBuilder.ComponentType? type)
         {
             Arn = arn;
             Encrypted = encrypted;
+            LatestVersion = latestVersion;
             Tags = tags;
             Type = type;
         }

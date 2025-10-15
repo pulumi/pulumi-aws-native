@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is `false` .
+        /// </summary>
         [Output("enableCapacityReservationProvisionStabilize")]
         public Output<bool?> EnableCapacityReservationProvisionStabilize { get; private set; } = null!;
 
@@ -194,6 +197,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class LoadBalancerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is `false` .
+        /// </summary>
         [Input("enableCapacityReservationProvisionStabilize")]
         public Input<bool>? EnableCapacityReservationProvisionStabilize { get; set; }
 

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("executionRoleIdentityConfig")]
         public Input<Pulumi.AwsNative.SageMaker.DomainSettingsExecutionRoleIdentityConfig>? ExecutionRoleIdentityConfig { get; set; }
 
+        [Input("ipAddressType")]
+        public Input<Pulumi.AwsNative.SageMaker.DomainIpAddressType>? IpAddressType { get; set; }
+
         /// <summary>
         /// A collection of settings that configure the `RStudioServerPro` Domain-level app.
         /// </summary>

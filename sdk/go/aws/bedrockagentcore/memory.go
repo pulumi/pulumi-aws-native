@@ -16,8 +16,8 @@ import (
 type Memory struct {
 	pulumi.CustomResourceState
 
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The memory description.
+	// The timestamp when the memory record was created.
+	CreatedAt   pulumi.StringOutput    `pulumi:"createdAt"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The memory encryption key Amazon Resource Name (ARN).
 	EncryptionKeyArn pulumi.StringPtrOutput `pulumi:"encryptionKeyArn"`
@@ -88,7 +88,6 @@ func (MemoryState) ElementType() reflect.Type {
 }
 
 type memoryArgs struct {
-	// The memory description.
 	Description *string `pulumi:"description"`
 	// The memory encryption key Amazon Resource Name (ARN).
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
@@ -106,7 +105,6 @@ type memoryArgs struct {
 
 // The set of arguments for constructing a Memory resource.
 type MemoryArgs struct {
-	// The memory description.
 	Description pulumi.StringPtrInput
 	// The memory encryption key Amazon Resource Name (ARN).
 	EncryptionKeyArn pulumi.StringPtrInput
@@ -159,11 +157,11 @@ func (o MemoryOutput) ToMemoryOutputWithContext(ctx context.Context) MemoryOutpu
 	return o
 }
 
+// The timestamp when the memory record was created.
 func (o MemoryOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Memory) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The memory description.
 func (o MemoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Memory) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

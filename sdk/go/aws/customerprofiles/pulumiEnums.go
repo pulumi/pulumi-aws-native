@@ -4035,14 +4035,23 @@ func (in *objectTypeFieldContentTypePtr) ToObjectTypeFieldContentTypePtrOutputWi
 type ObjectTypeKeyStandardIdentifiersItem string
 
 const (
-	ObjectTypeKeyStandardIdentifiersItemProfile    = ObjectTypeKeyStandardIdentifiersItem("PROFILE")
-	ObjectTypeKeyStandardIdentifiersItemUnique     = ObjectTypeKeyStandardIdentifiersItem("UNIQUE")
-	ObjectTypeKeyStandardIdentifiersItemSecondary  = ObjectTypeKeyStandardIdentifiersItem("SECONDARY")
-	ObjectTypeKeyStandardIdentifiersItemLookupOnly = ObjectTypeKeyStandardIdentifiersItem("LOOKUP_ONLY")
-	ObjectTypeKeyStandardIdentifiersItemNewOnly    = ObjectTypeKeyStandardIdentifiersItem("NEW_ONLY")
-	ObjectTypeKeyStandardIdentifiersItemAsset      = ObjectTypeKeyStandardIdentifiersItem("ASSET")
-	ObjectTypeKeyStandardIdentifiersItemCase       = ObjectTypeKeyStandardIdentifiersItem("CASE")
-	ObjectTypeKeyStandardIdentifiersItemOrder      = ObjectTypeKeyStandardIdentifiersItem("ORDER")
+	ObjectTypeKeyStandardIdentifiersItemProfile            = ObjectTypeKeyStandardIdentifiersItem("PROFILE")
+	ObjectTypeKeyStandardIdentifiersItemUnique             = ObjectTypeKeyStandardIdentifiersItem("UNIQUE")
+	ObjectTypeKeyStandardIdentifiersItemSecondary          = ObjectTypeKeyStandardIdentifiersItem("SECONDARY")
+	ObjectTypeKeyStandardIdentifiersItemLookupOnly         = ObjectTypeKeyStandardIdentifiersItem("LOOKUP_ONLY")
+	ObjectTypeKeyStandardIdentifiersItemNewOnly            = ObjectTypeKeyStandardIdentifiersItem("NEW_ONLY")
+	ObjectTypeKeyStandardIdentifiersItemAsset              = ObjectTypeKeyStandardIdentifiersItem("ASSET")
+	ObjectTypeKeyStandardIdentifiersItemCase               = ObjectTypeKeyStandardIdentifiersItem("CASE")
+	ObjectTypeKeyStandardIdentifiersItemOrder              = ObjectTypeKeyStandardIdentifiersItem("ORDER")
+	ObjectTypeKeyStandardIdentifiersItemAirPreference      = ObjectTypeKeyStandardIdentifiersItem("AIR_PREFERENCE")
+	ObjectTypeKeyStandardIdentifiersItemAirBooking         = ObjectTypeKeyStandardIdentifiersItem("AIR_BOOKING")
+	ObjectTypeKeyStandardIdentifiersItemAirSegment         = ObjectTypeKeyStandardIdentifiersItem("AIR_SEGMENT")
+	ObjectTypeKeyStandardIdentifiersItemHotelPreference    = ObjectTypeKeyStandardIdentifiersItem("HOTEL_PREFERENCE")
+	ObjectTypeKeyStandardIdentifiersItemHotelStayRevenue   = ObjectTypeKeyStandardIdentifiersItem("HOTEL_STAY_REVENUE")
+	ObjectTypeKeyStandardIdentifiersItemHotelReservation   = ObjectTypeKeyStandardIdentifiersItem("HOTEL_RESERVATION")
+	ObjectTypeKeyStandardIdentifiersItemLoyalty            = ObjectTypeKeyStandardIdentifiersItem("LOYALTY")
+	ObjectTypeKeyStandardIdentifiersItemLoyaltyTransaction = ObjectTypeKeyStandardIdentifiersItem("LOYALTY_TRANSACTION")
+	ObjectTypeKeyStandardIdentifiersItemLoyaltyPromotion   = ObjectTypeKeyStandardIdentifiersItem("LOYALTY_PROMOTION")
 )
 
 func (ObjectTypeKeyStandardIdentifiersItem) ElementType() reflect.Type {
@@ -4175,6 +4184,15 @@ func (o ObjectTypeKeyStandardIdentifiersItemPtrOutput) ToStringPtrOutputWithCont
 //	ObjectTypeKeyStandardIdentifiersItemAsset
 //	ObjectTypeKeyStandardIdentifiersItemCase
 //	ObjectTypeKeyStandardIdentifiersItemOrder
+//	ObjectTypeKeyStandardIdentifiersItemAirPreference
+//	ObjectTypeKeyStandardIdentifiersItemAirBooking
+//	ObjectTypeKeyStandardIdentifiersItemAirSegment
+//	ObjectTypeKeyStandardIdentifiersItemHotelPreference
+//	ObjectTypeKeyStandardIdentifiersItemHotelStayRevenue
+//	ObjectTypeKeyStandardIdentifiersItemHotelReservation
+//	ObjectTypeKeyStandardIdentifiersItemLoyalty
+//	ObjectTypeKeyStandardIdentifiersItemLoyaltyTransaction
+//	ObjectTypeKeyStandardIdentifiersItemLoyaltyPromotion
 type ObjectTypeKeyStandardIdentifiersItemInput interface {
 	pulumi.Input
 

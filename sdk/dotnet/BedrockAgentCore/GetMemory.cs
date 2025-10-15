@@ -57,10 +57,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     [OutputType]
     public sealed class GetMemoryResult
     {
-        public readonly string? CreatedAt;
         /// <summary>
-        /// The memory description.
+        /// The timestamp when the memory record was created.
         /// </summary>
+        public readonly string? CreatedAt;
         public readonly string? Description;
         /// <summary>
         /// Duration in days until memory events expire

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Events.Inputs
     public sealed class RuleSqsParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The FIFO message group ID to use as the target.
+        /// The ID of the message group to use as the target.
         /// </summary>
         [Input("messageGroupId", required: true)]
         public Input<string> MessageGroupId { get; set; } = null!;

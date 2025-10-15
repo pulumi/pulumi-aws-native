@@ -242,6 +242,8 @@ type Component struct {
 	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
 	// The KMS key identifier used to encrypt the component.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// The latest version references of the component.
+	LatestVersion ComponentLatestVersionOutput `pulumi:"latestVersion"`
 	// The name of the component.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The platform of the component.
@@ -427,6 +429,11 @@ func (o ComponentOutput) Encrypted() pulumi.BoolOutput {
 // The KMS key identifier used to encrypt the component.
 func (o ComponentOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The latest version references of the component.
+func (o ComponentOutput) LatestVersion() ComponentLatestVersionOutput {
+	return o.ApplyT(func(v *Component) ComponentLatestVersionOutput { return v.LatestVersion }).(ComponentLatestVersionOutput)
 }
 
 // The name of the component.

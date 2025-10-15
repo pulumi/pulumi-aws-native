@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['WorkflowArgs', 'Workflow']
@@ -254,6 +255,7 @@ class Workflow(pulumi.CustomResource):
                 raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
+            __props__.__dict__["latest_version"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["changeDescription", "data", "description", "kmsKeyId", "name", "type", "uri", "version"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workflow, __self__).__init__(
@@ -283,6 +285,7 @@ class Workflow(pulumi.CustomResource):
         __props__.__dict__["data"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["kms_key_id"] = None
+        __props__.__dict__["latest_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -329,6 +332,14 @@ class Workflow(pulumi.CustomResource):
         The KMS key identifier used to encrypt the workflow.
         """
         return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> pulumi.Output['outputs.WorkflowLatestVersion']:
+        """
+        The latest version references of the workflow.
+        """
+        return pulumi.get(self, "latest_version")
 
     @_builtins.property
     @pulumi.getter

@@ -27,8 +27,6 @@ class GlobalTableArgs:
                  replicas: pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaSpecificationArgs']]],
                  billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]]] = None,
-                 global_table_settings_replication_mode: Optional[pulumi.Input['GlobalTableSettingsReplicationMode']] = None,
-                 global_table_source_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  global_table_witnesses: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableWitnessArgs']]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]]] = None,
                  multi_region_consistency: Optional[pulumi.Input['GlobalTableMultiRegionConsistency']] = None,
@@ -86,10 +84,6 @@ class GlobalTableArgs:
             pulumi.set(__self__, "billing_mode", billing_mode)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
-        if global_table_settings_replication_mode is not None:
-            pulumi.set(__self__, "global_table_settings_replication_mode", global_table_settings_replication_mode)
-        if global_table_source_arn is not None:
-            pulumi.set(__self__, "global_table_source_arn", global_table_source_arn)
         if global_table_witnesses is not None:
             pulumi.set(__self__, "global_table_witnesses", global_table_witnesses)
         if local_secondary_indexes is not None:
@@ -183,24 +177,6 @@ class GlobalTableArgs:
     @global_secondary_indexes.setter
     def global_secondary_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]]]):
         pulumi.set(self, "global_secondary_indexes", value)
-
-    @_builtins.property
-    @pulumi.getter(name="globalTableSettingsReplicationMode")
-    def global_table_settings_replication_mode(self) -> Optional[pulumi.Input['GlobalTableSettingsReplicationMode']]:
-        return pulumi.get(self, "global_table_settings_replication_mode")
-
-    @global_table_settings_replication_mode.setter
-    def global_table_settings_replication_mode(self, value: Optional[pulumi.Input['GlobalTableSettingsReplicationMode']]):
-        pulumi.set(self, "global_table_settings_replication_mode", value)
-
-    @_builtins.property
-    @pulumi.getter(name="globalTableSourceArn")
-    def global_table_source_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "global_table_source_arn")
-
-    @global_table_source_arn.setter
-    def global_table_source_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "global_table_source_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="globalTableWitnesses")
@@ -341,8 +317,6 @@ class GlobalTable(pulumi.CustomResource):
                  attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict']]]]] = None,
                  billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]]] = None,
-                 global_table_settings_replication_mode: Optional[pulumi.Input['GlobalTableSettingsReplicationMode']] = None,
-                 global_table_source_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  global_table_witnesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict']]]]] = None,
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]]] = None,
@@ -426,8 +400,6 @@ class GlobalTable(pulumi.CustomResource):
                  attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict']]]]] = None,
                  billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]]] = None,
-                 global_table_settings_replication_mode: Optional[pulumi.Input['GlobalTableSettingsReplicationMode']] = None,
-                 global_table_source_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  global_table_witnesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict']]]]] = None,
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]]] = None,
@@ -454,8 +426,6 @@ class GlobalTable(pulumi.CustomResource):
             __props__.__dict__["attribute_definitions"] = attribute_definitions
             __props__.__dict__["billing_mode"] = billing_mode
             __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
-            __props__.__dict__["global_table_settings_replication_mode"] = global_table_settings_replication_mode
-            __props__.__dict__["global_table_source_arn"] = global_table_source_arn
             __props__.__dict__["global_table_witnesses"] = global_table_witnesses
             if key_schema is None and not opts.urn:
                 raise TypeError("Missing required property 'key_schema'")
@@ -475,7 +445,7 @@ class GlobalTable(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["stream_arn"] = None
             __props__.__dict__["table_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["globalTableSourceArn", "keySchema[*]", "localSecondaryIndexes[*]", "tableName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["keySchema[*]", "localSecondaryIndexes[*]", "tableName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GlobalTable, __self__).__init__(
             'aws-native:dynamodb:GlobalTable',
@@ -503,8 +473,6 @@ class GlobalTable(pulumi.CustomResource):
         __props__.__dict__["attribute_definitions"] = None
         __props__.__dict__["billing_mode"] = None
         __props__.__dict__["global_secondary_indexes"] = None
-        __props__.__dict__["global_table_settings_replication_mode"] = None
-        __props__.__dict__["global_table_source_arn"] = None
         __props__.__dict__["global_table_witnesses"] = None
         __props__.__dict__["key_schema"] = None
         __props__.__dict__["local_secondary_indexes"] = None
@@ -559,16 +527,6 @@ class GlobalTable(pulumi.CustomResource):
         Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
         """
         return pulumi.get(self, "global_secondary_indexes")
-
-    @_builtins.property
-    @pulumi.getter(name="globalTableSettingsReplicationMode")
-    def global_table_settings_replication_mode(self) -> pulumi.Output[Optional['GlobalTableSettingsReplicationMode']]:
-        return pulumi.get(self, "global_table_settings_replication_mode")
-
-    @_builtins.property
-    @pulumi.getter(name="globalTableSourceArn")
-    def global_table_source_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        return pulumi.get(self, "global_table_source_arn")
 
     @_builtins.property
     @pulumi.getter(name="globalTableWitnesses")

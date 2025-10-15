@@ -378,6 +378,15 @@ class ObjectTypeKeyStandardIdentifiersItem(_builtins.str, Enum):
     ASSET = "ASSET"
     CASE = "CASE"
     ORDER = "ORDER"
+    AIR_PREFERENCE = "AIR_PREFERENCE"
+    AIR_BOOKING = "AIR_BOOKING"
+    AIR_SEGMENT = "AIR_SEGMENT"
+    HOTEL_PREFERENCE = "HOTEL_PREFERENCE"
+    HOTEL_STAY_REVENUE = "HOTEL_STAY_REVENUE"
+    HOTEL_RESERVATION = "HOTEL_RESERVATION"
+    LOYALTY = "LOYALTY"
+    LOYALTY_TRANSACTION = "LOYALTY_TRANSACTION"
+    LOYALTY_PROMOTION = "LOYALTY_PROMOTION"
 
 
 @pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionAttributeDimensionType")

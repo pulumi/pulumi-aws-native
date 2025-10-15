@@ -63,14 +63,14 @@ class GetMemoryResult:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp when the memory record was created.
+        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        The memory description.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property

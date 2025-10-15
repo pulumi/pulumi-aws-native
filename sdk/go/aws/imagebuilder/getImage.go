@@ -36,6 +36,8 @@ type LookupImageResult struct {
 	ImageId *string `pulumi:"imageId"`
 	// URI for containers created in current Region with default ECR image tag
 	ImageUri *string `pulumi:"imageUri"`
+	// The latest version references of the image.
+	LatestVersion *ImageLatestVersion `pulumi:"latestVersion"`
 	// The logging configuration settings for the image.
 	LoggingConfiguration *ImageLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// The name of the image.
@@ -94,6 +96,11 @@ func (o LookupImageResultOutput) ImageId() pulumi.StringPtrOutput {
 // URI for containers created in current Region with default ECR image tag
 func (o LookupImageResultOutput) ImageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageResult) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
+}
+
+// The latest version references of the image.
+func (o LookupImageResultOutput) LatestVersion() ImageLatestVersionPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *ImageLatestVersion { return v.LatestVersion }).(ImageLatestVersionPtrOutput)
 }
 
 // The logging configuration settings for the image.

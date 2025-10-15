@@ -48,6 +48,7 @@ export class NatGateway extends pulumi.CustomResource {
      * Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
      */
     declare public readonly connectivityType: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly eniId: pulumi.Output<string>;
     /**
      * The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
      */
@@ -82,6 +83,7 @@ export class NatGateway extends pulumi.CustomResource {
      * The tags for the NAT gateway.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly vpcId: pulumi.Output<string | undefined>;
 
     /**
      * Create a NatGateway resource with the given unique name, arguments, and options.
@@ -103,10 +105,13 @@ export class NatGateway extends pulumi.CustomResource {
             resourceInputs["secondaryPrivateIpAddresses"] = args?.secondaryPrivateIpAddresses;
             resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["eniId"] = undefined /*out*/;
             resourceInputs["natGatewayId"] = undefined /*out*/;
         } else {
             resourceInputs["allocationId"] = undefined /*out*/;
             resourceInputs["connectivityType"] = undefined /*out*/;
+            resourceInputs["eniId"] = undefined /*out*/;
             resourceInputs["maxDrainDurationSeconds"] = undefined /*out*/;
             resourceInputs["natGatewayId"] = undefined /*out*/;
             resourceInputs["privateIpAddress"] = undefined /*out*/;
@@ -115,9 +120,10 @@ export class NatGateway extends pulumi.CustomResource {
             resourceInputs["secondaryPrivateIpAddresses"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["allocationId", "connectivityType", "privateIpAddress", "subnetId"] };
+        const replaceOnChanges = { replaceOnChanges: ["allocationId", "connectivityType", "privateIpAddress", "subnetId", "vpcId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NatGateway.__pulumiType, name, resourceInputs, opts);
     }
@@ -165,4 +171,5 @@ export interface NatGatewayArgs {
      * The tags for the NAT gateway.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    vpcId?: pulumi.Input<string>;
 }

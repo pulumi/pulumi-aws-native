@@ -42,6 +42,10 @@ export interface GetImageResult {
      */
     readonly imageUri?: string;
     /**
+     * The latest version references of the image.
+     */
+    readonly latestVersion?: outputs.imagebuilder.ImageLatestVersion;
+    /**
      * The logging configuration settings for the image.
      */
     readonly loggingConfiguration?: outputs.imagebuilder.ImageLoggingConfiguration;

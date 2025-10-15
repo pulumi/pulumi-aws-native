@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -24,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetComponentResult:
-    def __init__(__self__, arn=None, encrypted=None, tags=None, type=None):
+    def __init__(__self__, arn=None, encrypted=None, latest_version=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if encrypted and not isinstance(encrypted, bool):
             raise TypeError("Expected argument 'encrypted' to be a bool")
         pulumi.set(__self__, "encrypted", encrypted)
+        if latest_version and not isinstance(latest_version, dict):
+            raise TypeError("Expected argument 'latest_version' to be a dict")
+        pulumi.set(__self__, "latest_version", latest_version)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -53,6 +57,14 @@ class GetComponentResult:
         The encryption status of the component.
         """
         return pulumi.get(self, "encrypted")
+
+    @_builtins.property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> Optional['outputs.ComponentLatestVersion']:
+        """
+        The latest version references of the component.
+        """
+        return pulumi.get(self, "latest_version")
 
     @_builtins.property
     @pulumi.getter
@@ -79,6 +91,7 @@ class AwaitableGetComponentResult(GetComponentResult):
         return GetComponentResult(
             arn=self.arn,
             encrypted=self.encrypted,
+            latest_version=self.latest_version,
             tags=self.tags,
             type=self.type)
 
@@ -99,6 +112,7 @@ def get_component(arn: Optional[_builtins.str] = None,
     return AwaitableGetComponentResult(
         arn=pulumi.get(__ret__, 'arn'),
         encrypted=pulumi.get(__ret__, 'encrypted'),
+        latest_version=pulumi.get(__ret__, 'latest_version'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_component_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -116,5 +130,6 @@ def get_component_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetComponentResult(
         arn=pulumi.get(__response__, 'arn'),
         encrypted=pulumi.get(__response__, 'encrypted'),
+        latest_version=pulumi.get(__response__, 'latest_version'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

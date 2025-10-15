@@ -58,6 +58,10 @@ export class Workflow extends pulumi.CustomResource {
      */
     declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
+     * The latest version references of the workflow.
+     */
+    declare public /*out*/ readonly latestVersion: pulumi.Output<outputs.imagebuilder.WorkflowLatestVersion>;
+    /**
      * The name of the workflow.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -105,12 +109,14 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["uri"] = args?.uri;
             resourceInputs["version"] = args?.version;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["latestVersion"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["changeDescription"] = undefined /*out*/;
             resourceInputs["data"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["latestVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

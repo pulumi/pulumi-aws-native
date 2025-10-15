@@ -66,7 +66,6 @@ export interface GetTableResult {
      *   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
      */
     readonly globalSecondaryIndexes?: outputs.dynamodb.TableGlobalSecondaryIndex[];
-    readonly globalTableSettingsReplicationMode?: enums.dynamodb.TableGlobalTableSettingsReplicationMode;
     /**
      * Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
      */

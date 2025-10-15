@@ -113,7 +113,6 @@ namespace Pulumi.AwsNative.DynamoDb
         ///   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
         /// </summary>
         public readonly ImmutableArray<Outputs.TableGlobalSecondaryIndex> GlobalSecondaryIndexes;
-        public readonly Pulumi.AwsNative.DynamoDb.TableGlobalTableSettingsReplicationMode? GlobalTableSettingsReplicationMode;
         /// <summary>
         /// Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
         /// </summary>
@@ -193,8 +192,6 @@ namespace Pulumi.AwsNative.DynamoDb
 
             ImmutableArray<Outputs.TableGlobalSecondaryIndex> globalSecondaryIndexes,
 
-            Pulumi.AwsNative.DynamoDb.TableGlobalTableSettingsReplicationMode? globalTableSettingsReplicationMode,
-
             Union<ImmutableArray<Outputs.TableKeySchema>, object>? keySchema,
 
             Outputs.TableKinesisStreamSpecification? kinesisStreamSpecification,
@@ -229,7 +226,6 @@ namespace Pulumi.AwsNative.DynamoDb
             ContributorInsightsSpecification = contributorInsightsSpecification;
             DeletionProtectionEnabled = deletionProtectionEnabled;
             GlobalSecondaryIndexes = globalSecondaryIndexes;
-            GlobalTableSettingsReplicationMode = globalTableSettingsReplicationMode;
             KeySchema = keySchema;
             KinesisStreamSpecification = kinesisStreamSpecification;
             LocalSecondaryIndexes = localSecondaryIndexes;

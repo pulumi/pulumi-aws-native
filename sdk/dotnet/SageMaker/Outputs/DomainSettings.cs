@@ -24,6 +24,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.DomainSettingsExecutionRoleIdentityConfig? ExecutionRoleIdentityConfig;
+        public readonly Pulumi.AwsNative.SageMaker.DomainIpAddressType? IpAddressType;
         /// <summary>
         /// A collection of settings that configure the `RStudioServerPro` Domain-level app.
         /// </summary>
@@ -43,6 +44,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Pulumi.AwsNative.SageMaker.DomainSettingsExecutionRoleIdentityConfig? executionRoleIdentityConfig,
 
+            Pulumi.AwsNative.SageMaker.DomainIpAddressType? ipAddressType,
+
             Outputs.DomainRStudioServerProDomainSettings? rStudioServerProDomainSettings,
 
             ImmutableArray<string> securityGroupIds,
@@ -51,6 +54,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         {
             DockerSettings = dockerSettings;
             ExecutionRoleIdentityConfig = executionRoleIdentityConfig;
+            IpAddressType = ipAddressType;
             RStudioServerProDomainSettings = rStudioServerProDomainSettings;
             SecurityGroupIds = securityGroupIds;
             UnifiedStudioSettings = unifiedStudioSettings;

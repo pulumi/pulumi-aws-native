@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetImageResult:
-    def __init__(__self__, arn=None, execution_role=None, image_id=None, image_uri=None, logging_configuration=None, name=None, tags=None):
+    def __init__(__self__, arn=None, execution_role=None, image_id=None, image_uri=None, latest_version=None, logging_configuration=None, name=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetImageResult:
         if image_uri and not isinstance(image_uri, str):
             raise TypeError("Expected argument 'image_uri' to be a str")
         pulumi.set(__self__, "image_uri", image_uri)
+        if latest_version and not isinstance(latest_version, dict):
+            raise TypeError("Expected argument 'latest_version' to be a dict")
+        pulumi.set(__self__, "latest_version", latest_version)
         if logging_configuration and not isinstance(logging_configuration, dict):
             raise TypeError("Expected argument 'logging_configuration' to be a dict")
         pulumi.set(__self__, "logging_configuration", logging_configuration)
@@ -80,6 +83,14 @@ class GetImageResult:
         return pulumi.get(self, "image_uri")
 
     @_builtins.property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> Optional['outputs.ImageLatestVersion']:
+        """
+        The latest version references of the image.
+        """
+        return pulumi.get(self, "latest_version")
+
+    @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional['outputs.ImageLoggingConfiguration']:
         """
@@ -114,6 +125,7 @@ class AwaitableGetImageResult(GetImageResult):
             execution_role=self.execution_role,
             image_id=self.image_id,
             image_uri=self.image_uri,
+            latest_version=self.latest_version,
             logging_configuration=self.logging_configuration,
             name=self.name,
             tags=self.tags)
@@ -137,6 +149,7 @@ def get_image(arn: Optional[_builtins.str] = None,
         execution_role=pulumi.get(__ret__, 'execution_role'),
         image_id=pulumi.get(__ret__, 'image_id'),
         image_uri=pulumi.get(__ret__, 'image_uri'),
+        latest_version=pulumi.get(__ret__, 'latest_version'),
         logging_configuration=pulumi.get(__ret__, 'logging_configuration'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -157,6 +170,7 @@ def get_image_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
         execution_role=pulumi.get(__response__, 'execution_role'),
         image_id=pulumi.get(__response__, 'image_id'),
         image_uri=pulumi.get(__response__, 'image_uri'),
+        latest_version=pulumi.get(__response__, 'latest_version'),
         logging_configuration=pulumi.get(__response__, 'logging_configuration'),
         name=pulumi.get(__response__, 'name'),
         tags=pulumi.get(__response__, 'tags')))

@@ -90,7 +90,6 @@ namespace Pulumi.AwsNative.DynamoDb
         /// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
         /// </summary>
         public readonly ImmutableArray<Outputs.GlobalTableGlobalSecondaryIndex> GlobalSecondaryIndexes;
-        public readonly Pulumi.AwsNative.DynamoDb.GlobalTableSettingsReplicationMode? GlobalTableSettingsReplicationMode;
         /// <summary>
         /// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
         /// </summary>
@@ -161,8 +160,6 @@ namespace Pulumi.AwsNative.DynamoDb
 
             ImmutableArray<Outputs.GlobalTableGlobalSecondaryIndex> globalSecondaryIndexes,
 
-            Pulumi.AwsNative.DynamoDb.GlobalTableSettingsReplicationMode? globalTableSettingsReplicationMode,
-
             ImmutableArray<Outputs.GlobalTableWitness> globalTableWitnesses,
 
             Pulumi.AwsNative.DynamoDb.GlobalTableMultiRegionConsistency? multiRegionConsistency,
@@ -189,7 +186,6 @@ namespace Pulumi.AwsNative.DynamoDb
             AttributeDefinitions = attributeDefinitions;
             BillingMode = billingMode;
             GlobalSecondaryIndexes = globalSecondaryIndexes;
-            GlobalTableSettingsReplicationMode = globalTableSettingsReplicationMode;
             GlobalTableWitnesses = globalTableWitnesses;
             MultiRegionConsistency = multiRegionConsistency;
             Replicas = replicas;

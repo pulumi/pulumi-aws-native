@@ -33,6 +33,7 @@ type LookupNatGatewayArgs struct {
 }
 
 type LookupNatGatewayResult struct {
+	EniId *string `pulumi:"eniId"`
 	// The ID of the NAT gateway.
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
@@ -77,6 +78,10 @@ func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutput() LookupNat
 
 func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutputWithContext(ctx context.Context) LookupNatGatewayResultOutput {
 	return o
+}
+
+func (o LookupNatGatewayResultOutput) EniId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.EniId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the NAT gateway.

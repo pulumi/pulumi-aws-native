@@ -30,7 +30,6 @@ class TableArgs:
                  contributor_insights_specification: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]] = None,
-                 global_table_settings_replication_mode: Optional[pulumi.Input['TableGlobalTableSettingsReplicationMode']] = None,
                  import_source_specification: Optional[pulumi.Input['TableImportSourceSpecificationArgs']] = None,
                  kinesis_stream_specification: Optional[pulumi.Input['TableKinesisStreamSpecificationArgs']] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
@@ -99,8 +98,6 @@ class TableArgs:
             pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
-        if global_table_settings_replication_mode is not None:
-            pulumi.set(__self__, "global_table_settings_replication_mode", global_table_settings_replication_mode)
         if import_source_specification is not None:
             pulumi.set(__self__, "import_source_specification", import_source_specification)
         if kinesis_stream_specification is not None:
@@ -213,15 +210,6 @@ class TableArgs:
     @global_secondary_indexes.setter
     def global_secondary_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]]):
         pulumi.set(self, "global_secondary_indexes", value)
-
-    @_builtins.property
-    @pulumi.getter(name="globalTableSettingsReplicationMode")
-    def global_table_settings_replication_mode(self) -> Optional[pulumi.Input['TableGlobalTableSettingsReplicationMode']]:
-        return pulumi.get(self, "global_table_settings_replication_mode")
-
-    @global_table_settings_replication_mode.setter
-    def global_table_settings_replication_mode(self, value: Optional[pulumi.Input['TableGlobalTableSettingsReplicationMode']]):
-        pulumi.set(self, "global_table_settings_replication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="importSourceSpecification")
@@ -411,7 +399,6 @@ class Table(pulumi.CustomResource):
                  contributor_insights_specification: Optional[pulumi.Input[Union['TableContributorInsightsSpecificationArgs', 'TableContributorInsightsSpecificationArgsDict']]] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]]] = None,
-                 global_table_settings_replication_mode: Optional[pulumi.Input['TableGlobalTableSettingsReplicationMode']] = None,
                  import_source_specification: Optional[pulumi.Input[Union['TableImportSourceSpecificationArgs', 'TableImportSourceSpecificationArgsDict']]] = None,
                  key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input[Union['TableKeySchemaArgs', 'TableKeySchemaArgsDict']]], Any]]] = None,
                  kinesis_stream_specification: Optional[pulumi.Input[Union['TableKinesisStreamSpecificationArgs', 'TableKinesisStreamSpecificationArgsDict']]] = None,
@@ -963,7 +950,6 @@ class Table(pulumi.CustomResource):
                  contributor_insights_specification: Optional[pulumi.Input[Union['TableContributorInsightsSpecificationArgs', 'TableContributorInsightsSpecificationArgsDict']]] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableGlobalSecondaryIndexArgs', 'TableGlobalSecondaryIndexArgsDict']]]]] = None,
-                 global_table_settings_replication_mode: Optional[pulumi.Input['TableGlobalTableSettingsReplicationMode']] = None,
                  import_source_specification: Optional[pulumi.Input[Union['TableImportSourceSpecificationArgs', 'TableImportSourceSpecificationArgsDict']]] = None,
                  key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input[Union['TableKeySchemaArgs', 'TableKeySchemaArgsDict']]], Any]]] = None,
                  kinesis_stream_specification: Optional[pulumi.Input[Union['TableKinesisStreamSpecificationArgs', 'TableKinesisStreamSpecificationArgsDict']]] = None,
@@ -993,7 +979,6 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["contributor_insights_specification"] = contributor_insights_specification
             __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
             __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
-            __props__.__dict__["global_table_settings_replication_mode"] = global_table_settings_replication_mode
             __props__.__dict__["import_source_specification"] = import_source_specification
             if key_schema is None and not opts.urn:
                 raise TypeError("Missing required property 'key_schema'")
@@ -1043,7 +1028,6 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["contributor_insights_specification"] = None
         __props__.__dict__["deletion_protection_enabled"] = None
         __props__.__dict__["global_secondary_indexes"] = None
-        __props__.__dict__["global_table_settings_replication_mode"] = None
         __props__.__dict__["import_source_specification"] = None
         __props__.__dict__["key_schema"] = None
         __props__.__dict__["kinesis_stream_specification"] = None
@@ -1121,11 +1105,6 @@ class Table(pulumi.CustomResource):
           +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
         """
         return pulumi.get(self, "global_secondary_indexes")
-
-    @_builtins.property
-    @pulumi.getter(name="globalTableSettingsReplicationMode")
-    def global_table_settings_replication_mode(self) -> pulumi.Output[Optional['TableGlobalTableSettingsReplicationMode']]:
-        return pulumi.get(self, "global_table_settings_replication_mode")
 
     @_builtins.property
     @pulumi.getter(name="importSourceSpecification")

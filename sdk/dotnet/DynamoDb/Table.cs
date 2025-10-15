@@ -375,9 +375,6 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("globalSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.TableGlobalSecondaryIndex>> GlobalSecondaryIndexes { get; private set; } = null!;
 
-        [Output("globalTableSettingsReplicationMode")]
-        public Output<Pulumi.AwsNative.DynamoDb.TableGlobalTableSettingsReplicationMode?> GlobalTableSettingsReplicationMode { get; private set; } = null!;
-
         /// <summary>
         /// Specifies the properties of data being imported from the S3 bucket source to the" table.
         ///   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
@@ -587,9 +584,6 @@ namespace Pulumi.AwsNative.DynamoDb
             get => _globalSecondaryIndexes ?? (_globalSecondaryIndexes = new InputList<Inputs.TableGlobalSecondaryIndexArgs>());
             set => _globalSecondaryIndexes = value;
         }
-
-        [Input("globalTableSettingsReplicationMode")]
-        public Input<Pulumi.AwsNative.DynamoDb.TableGlobalTableSettingsReplicationMode>? GlobalTableSettingsReplicationMode { get; set; }
 
         /// <summary>
         /// Specifies the properties of data being imported from the S3 bucket source to the" table.

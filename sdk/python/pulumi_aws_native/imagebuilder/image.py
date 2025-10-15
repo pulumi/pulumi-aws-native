@@ -296,6 +296,7 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["image_id"] = None
             __props__.__dict__["image_uri"] = None
+            __props__.__dict__["latest_version"] = None
             __props__.__dict__["name"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["containerRecipeArn", "distributionConfigurationArn", "enhancedImageMetadataEnabled", "imageRecipeArn", "imageScanningConfiguration", "imageTestsConfiguration", "infrastructureConfigurationArn", "workflows[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -332,6 +333,7 @@ class Image(pulumi.CustomResource):
         __props__.__dict__["image_tests_configuration"] = None
         __props__.__dict__["image_uri"] = None
         __props__.__dict__["infrastructure_configuration_arn"] = None
+        __props__.__dict__["latest_version"] = None
         __props__.__dict__["logging_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
@@ -425,6 +427,14 @@ class Image(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the infrastructure configuration.
         """
         return pulumi.get(self, "infrastructure_configuration_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> pulumi.Output['outputs.ImageLatestVersion']:
+        """
+        The latest version references of the image.
+        """
+        return pulumi.get(self, "latest_version")
 
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")

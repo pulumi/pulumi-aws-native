@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ComponentLatestVersion',
     'ContainerRecipeComponentConfiguration',
     'ContainerRecipeComponentParameter',
     'ContainerRecipeEbsInstanceBlockDeviceSpecification',
@@ -34,6 +35,7 @@ __all__ = [
     'DistributionConfigurationSsmParameterConfiguration',
     'DistributionConfigurationTargetContainerRepository',
     'ImageEcrConfiguration',
+    'ImageLatestVersion',
     'ImageLoggingConfiguration',
     'ImagePipelineAutoDisablePolicy',
     'ImagePipelineEcrConfiguration',
@@ -66,7 +68,67 @@ __all__ = [
     'LifecyclePolicyPolicyDetail',
     'LifecyclePolicyRecipeSelection',
     'LifecyclePolicyResourceSelection',
+    'WorkflowLatestVersion',
 ]
+
+@pulumi.output_type
+class ComponentLatestVersion(dict):
+    """
+    The latest version references of the component.
+    """
+    def __init__(__self__, *,
+                 arn: Optional[_builtins.str] = None,
+                 major: Optional[_builtins.str] = None,
+                 minor: Optional[_builtins.str] = None,
+                 patch: Optional[_builtins.str] = None):
+        """
+        The latest version references of the component.
+        :param _builtins.str arn: The latest version ARN of the created component.
+        :param _builtins.str major: The latest version ARN of the created component, with the same major version.
+        :param _builtins.str minor: The latest version ARN of the created component, with the same minor version.
+        :param _builtins.str patch: The latest version ARN of the created component, with the same patch version.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if major is not None:
+            pulumi.set(__self__, "major", major)
+        if minor is not None:
+            pulumi.set(__self__, "minor", minor)
+        if patch is not None:
+            pulumi.set(__self__, "patch", patch)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created component.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def major(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created component, with the same major version.
+        """
+        return pulumi.get(self, "major")
+
+    @_builtins.property
+    @pulumi.getter
+    def minor(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created component, with the same minor version.
+        """
+        return pulumi.get(self, "minor")
+
+    @_builtins.property
+    @pulumi.getter
+    def patch(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created component, with the same patch version.
+        """
+        return pulumi.get(self, "patch")
+
 
 @pulumi.output_type
 class ContainerRecipeComponentConfiguration(dict):
@@ -1285,6 +1347,65 @@ class ImageEcrConfiguration(dict):
         The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
         """
         return pulumi.get(self, "repository_name")
+
+
+@pulumi.output_type
+class ImageLatestVersion(dict):
+    """
+    The latest version references of the image.
+    """
+    def __init__(__self__, *,
+                 arn: Optional[_builtins.str] = None,
+                 major: Optional[_builtins.str] = None,
+                 minor: Optional[_builtins.str] = None,
+                 patch: Optional[_builtins.str] = None):
+        """
+        The latest version references of the image.
+        :param _builtins.str arn: The latest version ARN of the created image.
+        :param _builtins.str major: The latest version ARN of the created image, with the same major version.
+        :param _builtins.str minor: The latest version ARN of the created image, with the same minor version.
+        :param _builtins.str patch: The latest version ARN of the created image, with the same patch version.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if major is not None:
+            pulumi.set(__self__, "major", major)
+        if minor is not None:
+            pulumi.set(__self__, "minor", minor)
+        if patch is not None:
+            pulumi.set(__self__, "patch", patch)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created image.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def major(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created image, with the same major version.
+        """
+        return pulumi.get(self, "major")
+
+    @_builtins.property
+    @pulumi.getter
+    def minor(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created image, with the same minor version.
+        """
+        return pulumi.get(self, "minor")
+
+    @_builtins.property
+    @pulumi.getter
+    def patch(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created image, with the same patch version.
+        """
+        return pulumi.get(self, "patch")
 
 
 @pulumi.output_type
@@ -3120,5 +3241,64 @@ class LifecyclePolicyResourceSelection(dict):
         The Image Builder resources to select by tag.
         """
         return pulumi.get(self, "tag_map")
+
+
+@pulumi.output_type
+class WorkflowLatestVersion(dict):
+    """
+    The latest version references of the workflow.
+    """
+    def __init__(__self__, *,
+                 arn: Optional[_builtins.str] = None,
+                 major: Optional[_builtins.str] = None,
+                 minor: Optional[_builtins.str] = None,
+                 patch: Optional[_builtins.str] = None):
+        """
+        The latest version references of the workflow.
+        :param _builtins.str arn: The latest version ARN of the created workflow.
+        :param _builtins.str major: The latest version ARN of the created workflow, with the same major version.
+        :param _builtins.str minor: The latest version ARN of the created workflow, with the same minor version.
+        :param _builtins.str patch: The latest version ARN of the created workflow, with the same patch version.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if major is not None:
+            pulumi.set(__self__, "major", major)
+        if minor is not None:
+            pulumi.set(__self__, "minor", minor)
+        if patch is not None:
+            pulumi.set(__self__, "patch", patch)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created workflow.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def major(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created workflow, with the same major version.
+        """
+        return pulumi.get(self, "major")
+
+    @_builtins.property
+    @pulumi.getter
+    def minor(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created workflow, with the same minor version.
+        """
+        return pulumi.get(self, "minor")
+
+    @_builtins.property
+    @pulumi.getter
+    def patch(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created workflow, with the same patch version.
+        """
+        return pulumi.get(self, "patch")
 
 

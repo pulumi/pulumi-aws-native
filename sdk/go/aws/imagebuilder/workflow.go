@@ -26,6 +26,8 @@ type Workflow struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The KMS key identifier used to encrypt the workflow.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// The latest version references of the workflow.
+	LatestVersion WorkflowLatestVersionOutput `pulumi:"latestVersion"`
 	// The name of the workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The tags associated with the workflow.
@@ -197,6 +199,11 @@ func (o WorkflowOutput) Description() pulumi.StringPtrOutput {
 // The KMS key identifier used to encrypt the workflow.
 func (o WorkflowOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The latest version references of the workflow.
+func (o WorkflowOutput) LatestVersion() WorkflowLatestVersionOutput {
+	return o.ApplyT(func(v *Workflow) WorkflowLatestVersionOutput { return v.LatestVersion }).(WorkflowLatestVersionOutput)
 }
 
 // The name of the workflow.

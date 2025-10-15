@@ -2011,7 +2011,7 @@ class RuleSqsParameters(dict):
     def __init__(__self__, *,
                  message_group_id: _builtins.str):
         """
-        :param _builtins.str message_group_id: The FIFO message group ID to use as the target.
+        :param _builtins.str message_group_id: The ID of the message group to use as the target.
         """
         pulumi.set(__self__, "message_group_id", message_group_id)
 
@@ -2019,7 +2019,7 @@ class RuleSqsParameters(dict):
     @pulumi.getter(name="messageGroupId")
     def message_group_id(self) -> _builtins.str:
         """
-        The FIFO message group ID to use as the target.
+        The ID of the message group to use as the target.
         """
         return pulumi.get(self, "message_group_id")
 
@@ -2141,9 +2141,9 @@ class RuleTarget(dict):
         :param 'RuleSageMakerPipelineParameters' sage_maker_pipeline_parameters: Contains the SageMaker AI Model Building Pipeline parameters to start execution of a SageMaker AI Model Building Pipeline.
                
                If you specify a SageMaker AI Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
-        :param 'RuleSqsParameters' sqs_parameters: Contains the message group ID to use when the target is a FIFO queue.
+        :param 'RuleSqsParameters' sqs_parameters: Contains the message group ID to use when the target is an Amazon SQS fair or FIFO queue.
                
-               If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
+               If you specify a fair or FIFO queue as a target, the queue must have content-based deduplication enabled.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -2316,9 +2316,9 @@ class RuleTarget(dict):
     @pulumi.getter(name="sqsParameters")
     def sqs_parameters(self) -> Optional['outputs.RuleSqsParameters']:
         """
-        Contains the message group ID to use when the target is a FIFO queue.
+        Contains the message group ID to use when the target is an Amazon SQS fair or FIFO queue.
 
-        If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
+        If you specify a fair or FIFO queue as a target, the queue must have content-based deduplication enabled.
         """
         return pulumi.get(self, "sqs_parameters")
 

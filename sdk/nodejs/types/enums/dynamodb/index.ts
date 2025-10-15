@@ -39,13 +39,6 @@ export const GlobalTableMultiRegionConsistency = {
  */
 export type GlobalTableMultiRegionConsistency = (typeof GlobalTableMultiRegionConsistency)[keyof typeof GlobalTableMultiRegionConsistency];
 
-export const GlobalTableSettingsReplicationMode = {
-    Enabled: "ENABLED",
-    Disabled: "DISABLED",
-} as const;
-
-export type GlobalTableSettingsReplicationMode = (typeof GlobalTableSettingsReplicationMode)[keyof typeof GlobalTableSettingsReplicationMode];
-
 export const TableContributorInsightsSpecificationMode = {
     AccessedAndThrottledKeys: "ACCESSED_AND_THROTTLED_KEYS",
     ThrottledKeys: "THROTTLED_KEYS",
@@ -55,13 +48,6 @@ export const TableContributorInsightsSpecificationMode = {
  * Specifies the CloudWatch Contributor Insights mode for a table. Valid values are ``ACCESSED_AND_THROTTLED_KEYS`` (tracks all access and throttled events) or ``THROTTLED_KEYS`` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
  */
 export type TableContributorInsightsSpecificationMode = (typeof TableContributorInsightsSpecificationMode)[keyof typeof TableContributorInsightsSpecificationMode];
-
-export const TableGlobalTableSettingsReplicationMode = {
-    Enabled: "ENABLED",
-    Disabled: "DISABLED",
-} as const;
-
-export type TableGlobalTableSettingsReplicationMode = (typeof TableGlobalTableSettingsReplicationMode)[keyof typeof TableGlobalTableSettingsReplicationMode];
 
 export const TableKinesisStreamSpecificationApproximateCreationDateTimePrecision = {
     Microsecond: "MICROSECOND",

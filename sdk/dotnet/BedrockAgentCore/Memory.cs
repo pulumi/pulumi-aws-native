@@ -15,12 +15,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     [AwsNativeResourceType("aws-native:bedrockagentcore:Memory")]
     public partial class Memory : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The timestamp when the memory record was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// The memory description.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -131,9 +131,6 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
     public sealed class MemoryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The memory description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

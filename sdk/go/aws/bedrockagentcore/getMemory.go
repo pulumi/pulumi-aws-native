@@ -27,8 +27,8 @@ type LookupMemoryArgs struct {
 }
 
 type LookupMemoryResult struct {
-	CreatedAt *string `pulumi:"createdAt"`
-	// The memory description.
+	// The timestamp when the memory record was created.
+	CreatedAt   *string `pulumi:"createdAt"`
 	Description *string `pulumi:"description"`
 	// Duration in days until memory events expire
 	EventExpiryDuration *int    `pulumi:"eventExpiryDuration"`
@@ -78,11 +78,11 @@ func (o LookupMemoryResultOutput) ToLookupMemoryResultOutputWithContext(ctx cont
 	return o
 }
 
+// The timestamp when the memory record was created.
 func (o LookupMemoryResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMemoryResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The memory description.
 func (o LookupMemoryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMemoryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

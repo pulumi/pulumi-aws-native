@@ -19,7 +19,8 @@ type LoadBalancer struct {
 	// The ID of the Amazon Route 53 hosted zone associated with the load balancer. For example, `Z2P70J7EXAMPLE` .
 	CanonicalHostedZoneId pulumi.StringOutput `pulumi:"canonicalHostedZoneId"`
 	// The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
-	DnsName                                     pulumi.StringOutput  `pulumi:"dnsName"`
+	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	// Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is `false` .
 	EnableCapacityReservationProvisionStabilize pulumi.BoolPtrOutput `pulumi:"enableCapacityReservationProvisionStabilize"`
 	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
 	EnablePrefixForIpv6SourceNat pulumi.StringPtrOutput `pulumi:"enablePrefixForIpv6SourceNat"`
@@ -118,6 +119,7 @@ func (LoadBalancerState) ElementType() reflect.Type {
 }
 
 type loadBalancerArgs struct {
+	// Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is `false` .
 	EnableCapacityReservationProvisionStabilize *bool `pulumi:"enableCapacityReservationProvisionStabilize"`
 	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
 	EnablePrefixForIpv6SourceNat *string `pulumi:"enablePrefixForIpv6SourceNat"`
@@ -166,6 +168,7 @@ type loadBalancerArgs struct {
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
+	// Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is `false` .
 	EnableCapacityReservationProvisionStabilize pulumi.BoolPtrInput
 	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
 	EnablePrefixForIpv6SourceNat pulumi.StringPtrInput
@@ -259,6 +262,7 @@ func (o LoadBalancerOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
+// Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is `false` .
 func (o LoadBalancerOutput) EnableCapacityReservationProvisionStabilize() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.EnableCapacityReservationProvisionStabilize }).(pulumi.BoolPtrOutput)
 }

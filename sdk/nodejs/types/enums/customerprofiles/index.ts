@@ -361,6 +361,15 @@ export const ObjectTypeKeyStandardIdentifiersItem = {
     Asset: "ASSET",
     Case: "CASE",
     Order: "ORDER",
+    AirPreference: "AIR_PREFERENCE",
+    AirBooking: "AIR_BOOKING",
+    AirSegment: "AIR_SEGMENT",
+    HotelPreference: "HOTEL_PREFERENCE",
+    HotelStayRevenue: "HOTEL_STAY_REVENUE",
+    HotelReservation: "HOTEL_RESERVATION",
+    Loyalty: "LOYALTY",
+    LoyaltyTransaction: "LOYALTY_TRANSACTION",
+    LoyaltyPromotion: "LOYALTY_PROMOTION",
 } as const;
 
 export type ObjectTypeKeyStandardIdentifiersItem = (typeof ObjectTypeKeyStandardIdentifiersItem)[keyof typeof ObjectTypeKeyStandardIdentifiersItem];

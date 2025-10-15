@@ -545,7 +545,6 @@ namespace Pulumi.AwsNative.Transfer
                 ReplaceOnChanges =
                 {
                     "domain",
-                    "identityProviderType",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

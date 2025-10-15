@@ -22,10 +22,10 @@ export interface GetMemoryArgs {
 }
 
 export interface GetMemoryResult {
-    readonly createdAt?: string;
     /**
-     * The memory description.
+     * The timestamp when the memory record was created.
      */
+    readonly createdAt?: string;
     readonly description?: string;
     /**
      * Duration in days until memory events expire

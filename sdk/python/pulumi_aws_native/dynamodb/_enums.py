@@ -10,9 +10,7 @@ __all__ = [
     'GlobalTableContributorInsightsSpecificationMode',
     'GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision',
     'GlobalTableMultiRegionConsistency',
-    'GlobalTableSettingsReplicationMode',
     'TableContributorInsightsSpecificationMode',
-    'TableGlobalTableSettingsReplicationMode',
     'TableKinesisStreamSpecificationApproximateCreationDateTimePrecision',
 ]
 
@@ -51,12 +49,6 @@ class GlobalTableMultiRegionConsistency(_builtins.str, Enum):
     STRONG = "STRONG"
 
 
-@pulumi.type_token("aws-native:dynamodb:GlobalTableSettingsReplicationMode")
-class GlobalTableSettingsReplicationMode(_builtins.str, Enum):
-    ENABLED = "ENABLED"
-    DISABLED = "DISABLED"
-
-
 @pulumi.type_token("aws-native:dynamodb:TableContributorInsightsSpecificationMode")
 class TableContributorInsightsSpecificationMode(_builtins.str, Enum):
     """
@@ -64,12 +56,6 @@ class TableContributorInsightsSpecificationMode(_builtins.str, Enum):
     """
     ACCESSED_AND_THROTTLED_KEYS = "ACCESSED_AND_THROTTLED_KEYS"
     THROTTLED_KEYS = "THROTTLED_KEYS"
-
-
-@pulumi.type_token("aws-native:dynamodb:TableGlobalTableSettingsReplicationMode")
-class TableGlobalTableSettingsReplicationMode(_builtins.str, Enum):
-    ENABLED = "ENABLED"
-    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:dynamodb:TableKinesisStreamSpecificationApproximateCreationDateTimePrecision")

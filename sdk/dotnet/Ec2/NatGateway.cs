@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("connectivityType")]
         public Output<string?> ConnectivityType { get; private set; } = null!;
 
+        [Output("eniId")]
+        public Output<string> EniId { get; private set; } = null!;
+
         /// <summary>
         /// The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
         /// </summary>
@@ -80,6 +83,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        [Output("vpcId")]
+        public Output<string?> VpcId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a NatGateway resource with the given unique name, arguments, and options.
@@ -109,6 +115,7 @@ namespace Pulumi.AwsNative.Ec2
                     "connectivityType",
                     "privateIpAddress",
                     "subnetId",
+                    "vpcId",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -205,6 +212,9 @@ namespace Pulumi.AwsNative.Ec2
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        [Input("vpcId")]
+        public Input<string>? VpcId { get; set; }
 
         public NatGatewayArgs()
         {

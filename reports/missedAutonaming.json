@@ -5291,6 +5291,9 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags for the NAT gateway."
+      },
+      "vpcId": {
+        "type": "string"
       }
     }
   },

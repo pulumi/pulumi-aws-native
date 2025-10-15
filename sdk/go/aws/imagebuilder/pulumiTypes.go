@@ -13,6 +13,117 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The latest version references of the component.
+type ComponentLatestVersion struct {
+	// The latest version ARN of the created component.
+	Arn *string `pulumi:"arn"`
+	// The latest version ARN of the created component, with the same major version.
+	Major *string `pulumi:"major"`
+	// The latest version ARN of the created component, with the same minor version.
+	Minor *string `pulumi:"minor"`
+	// The latest version ARN of the created component, with the same patch version.
+	Patch *string `pulumi:"patch"`
+}
+
+// The latest version references of the component.
+type ComponentLatestVersionOutput struct{ *pulumi.OutputState }
+
+func (ComponentLatestVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentLatestVersion)(nil)).Elem()
+}
+
+func (o ComponentLatestVersionOutput) ToComponentLatestVersionOutput() ComponentLatestVersionOutput {
+	return o
+}
+
+func (o ComponentLatestVersionOutput) ToComponentLatestVersionOutputWithContext(ctx context.Context) ComponentLatestVersionOutput {
+	return o
+}
+
+// The latest version ARN of the created component.
+func (o ComponentLatestVersionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentLatestVersion) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created component, with the same major version.
+func (o ComponentLatestVersionOutput) Major() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentLatestVersion) *string { return v.Major }).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created component, with the same minor version.
+func (o ComponentLatestVersionOutput) Minor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentLatestVersion) *string { return v.Minor }).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created component, with the same patch version.
+func (o ComponentLatestVersionOutput) Patch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentLatestVersion) *string { return v.Patch }).(pulumi.StringPtrOutput)
+}
+
+type ComponentLatestVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (ComponentLatestVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentLatestVersion)(nil)).Elem()
+}
+
+func (o ComponentLatestVersionPtrOutput) ToComponentLatestVersionPtrOutput() ComponentLatestVersionPtrOutput {
+	return o
+}
+
+func (o ComponentLatestVersionPtrOutput) ToComponentLatestVersionPtrOutputWithContext(ctx context.Context) ComponentLatestVersionPtrOutput {
+	return o
+}
+
+func (o ComponentLatestVersionPtrOutput) Elem() ComponentLatestVersionOutput {
+	return o.ApplyT(func(v *ComponentLatestVersion) ComponentLatestVersion {
+		if v != nil {
+			return *v
+		}
+		var ret ComponentLatestVersion
+		return ret
+	}).(ComponentLatestVersionOutput)
+}
+
+// The latest version ARN of the created component.
+func (o ComponentLatestVersionPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created component, with the same major version.
+func (o ComponentLatestVersionPtrOutput) Major() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Major
+	}).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created component, with the same minor version.
+func (o ComponentLatestVersionPtrOutput) Minor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Minor
+	}).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created component, with the same patch version.
+func (o ComponentLatestVersionPtrOutput) Patch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Patch
+	}).(pulumi.StringPtrOutput)
+}
+
 // Configuration details of the component.
 type ContainerRecipeComponentConfiguration struct {
 	// The Amazon Resource Name (ARN) of the component.
@@ -2756,6 +2867,117 @@ func (o ImageEcrConfigurationPtrOutput) RepositoryName() pulumi.StringPtrOutput 
 			return nil
 		}
 		return v.RepositoryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The latest version references of the image.
+type ImageLatestVersion struct {
+	// The latest version ARN of the created image.
+	Arn *string `pulumi:"arn"`
+	// The latest version ARN of the created image, with the same major version.
+	Major *string `pulumi:"major"`
+	// The latest version ARN of the created image, with the same minor version.
+	Minor *string `pulumi:"minor"`
+	// The latest version ARN of the created image, with the same patch version.
+	Patch *string `pulumi:"patch"`
+}
+
+// The latest version references of the image.
+type ImageLatestVersionOutput struct{ *pulumi.OutputState }
+
+func (ImageLatestVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageLatestVersion)(nil)).Elem()
+}
+
+func (o ImageLatestVersionOutput) ToImageLatestVersionOutput() ImageLatestVersionOutput {
+	return o
+}
+
+func (o ImageLatestVersionOutput) ToImageLatestVersionOutputWithContext(ctx context.Context) ImageLatestVersionOutput {
+	return o
+}
+
+// The latest version ARN of the created image.
+func (o ImageLatestVersionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageLatestVersion) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created image, with the same major version.
+func (o ImageLatestVersionOutput) Major() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageLatestVersion) *string { return v.Major }).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created image, with the same minor version.
+func (o ImageLatestVersionOutput) Minor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageLatestVersion) *string { return v.Minor }).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created image, with the same patch version.
+func (o ImageLatestVersionOutput) Patch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageLatestVersion) *string { return v.Patch }).(pulumi.StringPtrOutput)
+}
+
+type ImageLatestVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageLatestVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageLatestVersion)(nil)).Elem()
+}
+
+func (o ImageLatestVersionPtrOutput) ToImageLatestVersionPtrOutput() ImageLatestVersionPtrOutput {
+	return o
+}
+
+func (o ImageLatestVersionPtrOutput) ToImageLatestVersionPtrOutputWithContext(ctx context.Context) ImageLatestVersionPtrOutput {
+	return o
+}
+
+func (o ImageLatestVersionPtrOutput) Elem() ImageLatestVersionOutput {
+	return o.ApplyT(func(v *ImageLatestVersion) ImageLatestVersion {
+		if v != nil {
+			return *v
+		}
+		var ret ImageLatestVersion
+		return ret
+	}).(ImageLatestVersionOutput)
+}
+
+// The latest version ARN of the created image.
+func (o ImageLatestVersionPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created image, with the same major version.
+func (o ImageLatestVersionPtrOutput) Major() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Major
+	}).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created image, with the same minor version.
+func (o ImageLatestVersionPtrOutput) Minor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Minor
+	}).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created image, with the same patch version.
+func (o ImageLatestVersionPtrOutput) Patch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Patch
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7424,6 +7646,117 @@ func (o LifecyclePolicyResourceSelectionPtrOutput) TagMap() pulumi.StringMapOutp
 	}).(pulumi.StringMapOutput)
 }
 
+// The latest version references of the workflow.
+type WorkflowLatestVersion struct {
+	// The latest version ARN of the created workflow.
+	Arn *string `pulumi:"arn"`
+	// The latest version ARN of the created workflow, with the same major version.
+	Major *string `pulumi:"major"`
+	// The latest version ARN of the created workflow, with the same minor version.
+	Minor *string `pulumi:"minor"`
+	// The latest version ARN of the created workflow, with the same patch version.
+	Patch *string `pulumi:"patch"`
+}
+
+// The latest version references of the workflow.
+type WorkflowLatestVersionOutput struct{ *pulumi.OutputState }
+
+func (WorkflowLatestVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowLatestVersion)(nil)).Elem()
+}
+
+func (o WorkflowLatestVersionOutput) ToWorkflowLatestVersionOutput() WorkflowLatestVersionOutput {
+	return o
+}
+
+func (o WorkflowLatestVersionOutput) ToWorkflowLatestVersionOutputWithContext(ctx context.Context) WorkflowLatestVersionOutput {
+	return o
+}
+
+// The latest version ARN of the created workflow.
+func (o WorkflowLatestVersionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowLatestVersion) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created workflow, with the same major version.
+func (o WorkflowLatestVersionOutput) Major() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowLatestVersion) *string { return v.Major }).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created workflow, with the same minor version.
+func (o WorkflowLatestVersionOutput) Minor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowLatestVersion) *string { return v.Minor }).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created workflow, with the same patch version.
+func (o WorkflowLatestVersionOutput) Patch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowLatestVersion) *string { return v.Patch }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowLatestVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowLatestVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowLatestVersion)(nil)).Elem()
+}
+
+func (o WorkflowLatestVersionPtrOutput) ToWorkflowLatestVersionPtrOutput() WorkflowLatestVersionPtrOutput {
+	return o
+}
+
+func (o WorkflowLatestVersionPtrOutput) ToWorkflowLatestVersionPtrOutputWithContext(ctx context.Context) WorkflowLatestVersionPtrOutput {
+	return o
+}
+
+func (o WorkflowLatestVersionPtrOutput) Elem() WorkflowLatestVersionOutput {
+	return o.ApplyT(func(v *WorkflowLatestVersion) WorkflowLatestVersion {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowLatestVersion
+		return ret
+	}).(WorkflowLatestVersionOutput)
+}
+
+// The latest version ARN of the created workflow.
+func (o WorkflowLatestVersionPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created workflow, with the same major version.
+func (o WorkflowLatestVersionPtrOutput) Major() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Major
+	}).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created workflow, with the same minor version.
+func (o WorkflowLatestVersionPtrOutput) Minor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Minor
+	}).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created workflow, with the same patch version.
+func (o WorkflowLatestVersionPtrOutput) Patch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Patch
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeComponentConfigurationInput)(nil)).Elem(), ContainerRecipeComponentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeComponentConfigurationArrayInput)(nil)).Elem(), ContainerRecipeComponentConfigurationArray{})
@@ -7520,6 +7853,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyRecipeSelectionInput)(nil)).Elem(), LifecyclePolicyRecipeSelectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyRecipeSelectionArrayInput)(nil)).Elem(), LifecyclePolicyRecipeSelectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyResourceSelectionInput)(nil)).Elem(), LifecyclePolicyResourceSelectionArgs{})
+	pulumi.RegisterOutputType(ComponentLatestVersionOutput{})
+	pulumi.RegisterOutputType(ComponentLatestVersionPtrOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeComponentConfigurationOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeComponentConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeComponentParameterOutput{})
@@ -7554,6 +7889,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionConfigurationTargetContainerRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(ImageEcrConfigurationOutput{})
 	pulumi.RegisterOutputType(ImageEcrConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ImageLatestVersionOutput{})
+	pulumi.RegisterOutputType(ImageLatestVersionPtrOutput{})
 	pulumi.RegisterOutputType(ImageLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(ImageLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineAutoDisablePolicyOutput{})
@@ -7616,4 +7953,6 @@ func init() {
 	pulumi.RegisterOutputType(LifecyclePolicyRecipeSelectionArrayOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyResourceSelectionOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyResourceSelectionPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowLatestVersionOutput{})
+	pulumi.RegisterOutputType(WorkflowLatestVersionPtrOutput{})
 }

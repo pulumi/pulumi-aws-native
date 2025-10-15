@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServerResult:
-    def __init__(__self__, arn=None, as2_service_managed_egress_ip_addresses=None, certificate=None, endpoint_details=None, endpoint_type=None, identity_provider_details=None, ip_address_type=None, logging_role=None, post_authentication_login_banner=None, pre_authentication_login_banner=None, protocol_details=None, protocols=None, s3_storage_options=None, security_policy_name=None, server_id=None, state=None, structured_log_destinations=None, tags=None, workflow_details=None):
+    def __init__(__self__, arn=None, as2_service_managed_egress_ip_addresses=None, certificate=None, endpoint_details=None, endpoint_type=None, identity_provider_details=None, identity_provider_type=None, ip_address_type=None, logging_role=None, post_authentication_login_banner=None, pre_authentication_login_banner=None, protocol_details=None, protocols=None, s3_storage_options=None, security_policy_name=None, server_id=None, state=None, structured_log_destinations=None, tags=None, workflow_details=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +45,9 @@ class GetServerResult:
         if identity_provider_details and not isinstance(identity_provider_details, dict):
             raise TypeError("Expected argument 'identity_provider_details' to be a dict")
         pulumi.set(__self__, "identity_provider_details", identity_provider_details)
+        if identity_provider_type and not isinstance(identity_provider_type, str):
+            raise TypeError("Expected argument 'identity_provider_type' to be a str")
+        pulumi.set(__self__, "identity_provider_type", identity_provider_type)
         if ip_address_type and not isinstance(ip_address_type, str):
             raise TypeError("Expected argument 'ip_address_type' to be a str")
         pulumi.set(__self__, "ip_address_type", ip_address_type)
@@ -154,6 +157,20 @@ class GetServerResult:
         Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` , `AWS _LAMBDA` or `API_GATEWAY` . Accepts an array containing all of the information required to use a directory in `AWS_DIRECTORY_SERVICE` or invoke a customer-supplied authentication API, including the API Gateway URL. Cannot be specified when `IdentityProviderType` is set to `SERVICE_MANAGED` .
         """
         return pulumi.get(self, "identity_provider_details")
+
+    @_builtins.property
+    @pulumi.getter(name="identityProviderType")
+    def identity_provider_type(self) -> Optional['ServerIdentityProviderType']:
+        """
+        The mode of authentication for a server. The default value is `SERVICE_MANAGED` , which allows you to store and access user credentials within the AWS Transfer Family service.
+
+        Use `AWS_DIRECTORY_SERVICE` to provide access to Active Directory groups in AWS Directory Service for Microsoft Active Directory or Microsoft Active Directory in your on-premises environment or in AWS using AD Connector. This option also requires you to provide a Directory ID by using the `IdentityProviderDetails` parameter.
+
+        Use the `API_GATEWAY` value to integrate with an identity provider of your choosing. The `API_GATEWAY` setting requires you to provide an Amazon API Gateway endpoint URL to call for authentication by using the `IdentityProviderDetails` parameter.
+
+        Use the `AWS_LAMBDA` value to directly use an AWS Lambda function as your identity provider. If you choose this value, you must specify the ARN for the Lambda function in the `Function` parameter for the `IdentityProviderDetails` data type.
+        """
+        return pulumi.get(self, "identity_provider_type")
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
@@ -324,6 +341,7 @@ class AwaitableGetServerResult(GetServerResult):
             endpoint_details=self.endpoint_details,
             endpoint_type=self.endpoint_type,
             identity_provider_details=self.identity_provider_details,
+            identity_provider_type=self.identity_provider_type,
             ip_address_type=self.ip_address_type,
             logging_role=self.logging_role,
             post_authentication_login_banner=self.post_authentication_login_banner,
@@ -359,6 +377,7 @@ def get_server(arn: Optional[_builtins.str] = None,
         endpoint_details=pulumi.get(__ret__, 'endpoint_details'),
         endpoint_type=pulumi.get(__ret__, 'endpoint_type'),
         identity_provider_details=pulumi.get(__ret__, 'identity_provider_details'),
+        identity_provider_type=pulumi.get(__ret__, 'identity_provider_type'),
         ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
         logging_role=pulumi.get(__ret__, 'logging_role'),
         post_authentication_login_banner=pulumi.get(__ret__, 'post_authentication_login_banner'),
@@ -391,6 +410,7 @@ def get_server_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
         endpoint_details=pulumi.get(__response__, 'endpoint_details'),
         endpoint_type=pulumi.get(__response__, 'endpoint_type'),
         identity_provider_details=pulumi.get(__response__, 'identity_provider_details'),
+        identity_provider_type=pulumi.get(__response__, 'identity_provider_type'),
         ip_address_type=pulumi.get(__response__, 'ip_address_type'),
         logging_role=pulumi.get(__response__, 'logging_role'),
         post_authentication_login_banner=pulumi.get(__response__, 'post_authentication_login_banner'),

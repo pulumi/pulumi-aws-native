@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTableResult:
-    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, contributor_insights_specification=None, deletion_protection_enabled=None, global_secondary_indexes=None, global_table_settings_replication_mode=None, key_schema=None, kinesis_stream_specification=None, local_secondary_indexes=None, on_demand_throughput=None, point_in_time_recovery_specification=None, provisioned_throughput=None, resource_policy=None, sse_specification=None, stream_arn=None, stream_specification=None, table_class=None, tags=None, time_to_live_specification=None, warm_throughput=None):
+    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, contributor_insights_specification=None, deletion_protection_enabled=None, global_secondary_indexes=None, key_schema=None, kinesis_stream_specification=None, local_secondary_indexes=None, on_demand_throughput=None, point_in_time_recovery_specification=None, provisioned_throughput=None, resource_policy=None, sse_specification=None, stream_arn=None, stream_specification=None, table_class=None, tags=None, time_to_live_specification=None, warm_throughput=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,9 +45,6 @@ class GetTableResult:
         if global_secondary_indexes and not isinstance(global_secondary_indexes, list):
             raise TypeError("Expected argument 'global_secondary_indexes' to be a list")
         pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
-        if global_table_settings_replication_mode and not isinstance(global_table_settings_replication_mode, str):
-            raise TypeError("Expected argument 'global_table_settings_replication_mode' to be a str")
-        pulumi.set(__self__, "global_table_settings_replication_mode", global_table_settings_replication_mode)
         if key_schema and not isinstance(key_schema, dict):
             raise TypeError("Expected argument 'key_schema' to be a dict")
         pulumi.set(__self__, "key_schema", key_schema)
@@ -150,11 +147,6 @@ class GetTableResult:
           +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
         """
         return pulumi.get(self, "global_secondary_indexes")
-
-    @_builtins.property
-    @pulumi.getter(name="globalTableSettingsReplicationMode")
-    def global_table_settings_replication_mode(self) -> Optional['TableGlobalTableSettingsReplicationMode']:
-        return pulumi.get(self, "global_table_settings_replication_mode")
 
     @_builtins.property
     @pulumi.getter(name="keySchema")
@@ -289,7 +281,6 @@ class AwaitableGetTableResult(GetTableResult):
             contributor_insights_specification=self.contributor_insights_specification,
             deletion_protection_enabled=self.deletion_protection_enabled,
             global_secondary_indexes=self.global_secondary_indexes,
-            global_table_settings_replication_mode=self.global_table_settings_replication_mode,
             key_schema=self.key_schema,
             kinesis_stream_specification=self.kinesis_stream_specification,
             local_secondary_indexes=self.local_secondary_indexes,
@@ -331,7 +322,6 @@ def get_table(table_name: Optional[_builtins.str] = None,
         contributor_insights_specification=pulumi.get(__ret__, 'contributor_insights_specification'),
         deletion_protection_enabled=pulumi.get(__ret__, 'deletion_protection_enabled'),
         global_secondary_indexes=pulumi.get(__ret__, 'global_secondary_indexes'),
-        global_table_settings_replication_mode=pulumi.get(__ret__, 'global_table_settings_replication_mode'),
         key_schema=pulumi.get(__ret__, 'key_schema'),
         kinesis_stream_specification=pulumi.get(__ret__, 'kinesis_stream_specification'),
         local_secondary_indexes=pulumi.get(__ret__, 'local_secondary_indexes'),
@@ -370,7 +360,6 @@ def get_table_output(table_name: Optional[pulumi.Input[_builtins.str]] = None,
         contributor_insights_specification=pulumi.get(__response__, 'contributor_insights_specification'),
         deletion_protection_enabled=pulumi.get(__response__, 'deletion_protection_enabled'),
         global_secondary_indexes=pulumi.get(__response__, 'global_secondary_indexes'),
-        global_table_settings_replication_mode=pulumi.get(__response__, 'global_table_settings_replication_mode'),
         key_schema=pulumi.get(__response__, 'key_schema'),
         kinesis_stream_specification=pulumi.get(__response__, 'kinesis_stream_specification'),
         local_secondary_indexes=pulumi.get(__response__, 'local_secondary_indexes'),

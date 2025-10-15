@@ -32,7 +32,6 @@ class MemoryArgs:
         """
         The set of arguments for constructing a Memory resource.
         :param pulumi.Input[_builtins.int] event_expiry_duration: Duration in days until memory events expire
-        :param pulumi.Input[_builtins.str] description: The memory description.
         :param pulumi.Input[_builtins.str] encryption_key_arn: The memory encryption key Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] memory_execution_role_arn: The memory role ARN.
         :param pulumi.Input[Sequence[pulumi.Input['MemoryStrategyArgs']]] memory_strategies: The memory strategies.
@@ -68,9 +67,6 @@ class MemoryArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The memory description.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -157,7 +153,6 @@ class Memory(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: The memory description.
         :param pulumi.Input[_builtins.str] encryption_key_arn: The memory encryption key Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.int] event_expiry_duration: Duration in days until memory events expire
         :param pulumi.Input[_builtins.str] memory_execution_role_arn: The memory role ARN.
@@ -262,14 +257,14 @@ class Memory(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
+        """
+        The timestamp when the memory record was created.
+        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The memory description.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property

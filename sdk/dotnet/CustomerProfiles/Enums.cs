@@ -879,6 +879,15 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public static ObjectTypeKeyStandardIdentifiersItem Asset { get; } = new ObjectTypeKeyStandardIdentifiersItem("ASSET");
         public static ObjectTypeKeyStandardIdentifiersItem Case { get; } = new ObjectTypeKeyStandardIdentifiersItem("CASE");
         public static ObjectTypeKeyStandardIdentifiersItem Order { get; } = new ObjectTypeKeyStandardIdentifiersItem("ORDER");
+        public static ObjectTypeKeyStandardIdentifiersItem AirPreference { get; } = new ObjectTypeKeyStandardIdentifiersItem("AIR_PREFERENCE");
+        public static ObjectTypeKeyStandardIdentifiersItem AirBooking { get; } = new ObjectTypeKeyStandardIdentifiersItem("AIR_BOOKING");
+        public static ObjectTypeKeyStandardIdentifiersItem AirSegment { get; } = new ObjectTypeKeyStandardIdentifiersItem("AIR_SEGMENT");
+        public static ObjectTypeKeyStandardIdentifiersItem HotelPreference { get; } = new ObjectTypeKeyStandardIdentifiersItem("HOTEL_PREFERENCE");
+        public static ObjectTypeKeyStandardIdentifiersItem HotelStayRevenue { get; } = new ObjectTypeKeyStandardIdentifiersItem("HOTEL_STAY_REVENUE");
+        public static ObjectTypeKeyStandardIdentifiersItem HotelReservation { get; } = new ObjectTypeKeyStandardIdentifiersItem("HOTEL_RESERVATION");
+        public static ObjectTypeKeyStandardIdentifiersItem Loyalty { get; } = new ObjectTypeKeyStandardIdentifiersItem("LOYALTY");
+        public static ObjectTypeKeyStandardIdentifiersItem LoyaltyTransaction { get; } = new ObjectTypeKeyStandardIdentifiersItem("LOYALTY_TRANSACTION");
+        public static ObjectTypeKeyStandardIdentifiersItem LoyaltyPromotion { get; } = new ObjectTypeKeyStandardIdentifiersItem("LOYALTY_PROMOTION");
 
         public static bool operator ==(ObjectTypeKeyStandardIdentifiersItem left, ObjectTypeKeyStandardIdentifiersItem right) => left.Equals(right);
         public static bool operator !=(ObjectTypeKeyStandardIdentifiersItem left, ObjectTypeKeyStandardIdentifiersItem right) => !left.Equals(right);

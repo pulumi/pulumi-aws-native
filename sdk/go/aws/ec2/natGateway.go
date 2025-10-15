@@ -24,6 +24,7 @@ type NatGateway struct {
 	AllocationId pulumi.StringPtrOutput `pulumi:"allocationId"`
 	// Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
 	ConnectivityType pulumi.StringPtrOutput `pulumi:"connectivityType"`
+	EniId            pulumi.StringOutput    `pulumi:"eniId"`
 	// The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
 	MaxDrainDurationSeconds pulumi.IntPtrOutput `pulumi:"maxDrainDurationSeconds"`
 	// The ID of the NAT gateway.
@@ -41,7 +42,8 @@ type NatGateway struct {
 	// The ID of the subnet in which the NAT gateway is located.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// The tags for the NAT gateway.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags  aws.TagArrayOutput     `pulumi:"tags"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewNatGateway registers a new resource with the given unique name, arguments, and options.
@@ -56,6 +58,7 @@ func NewNatGateway(ctx *pulumi.Context,
 		"connectivityType",
 		"privateIpAddress",
 		"subnetId",
+		"vpcId",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -110,7 +113,8 @@ type natGatewayArgs struct {
 	// The ID of the subnet in which the NAT gateway is located.
 	SubnetId *string `pulumi:"subnetId"`
 	// The tags for the NAT gateway.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags  []aws.Tag `pulumi:"tags"`
+	VpcId *string   `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a NatGateway resource.
@@ -134,7 +138,8 @@ type NatGatewayArgs struct {
 	// The ID of the subnet in which the NAT gateway is located.
 	SubnetId pulumi.StringPtrInput
 	// The tags for the NAT gateway.
-	Tags aws.TagArrayInput
+	Tags  aws.TagArrayInput
+	VpcId pulumi.StringPtrInput
 }
 
 func (NatGatewayArgs) ElementType() reflect.Type {
@@ -184,6 +189,10 @@ func (o NatGatewayOutput) ConnectivityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.ConnectivityType }).(pulumi.StringPtrOutput)
 }
 
+func (o NatGatewayOutput) EniId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.EniId }).(pulumi.StringOutput)
+}
+
 // The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
 func (o NatGatewayOutput) MaxDrainDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.IntPtrOutput { return v.MaxDrainDurationSeconds }).(pulumi.IntPtrOutput)
@@ -226,6 +235,10 @@ func (o NatGatewayOutput) SubnetId() pulumi.StringPtrOutput {
 // The tags for the NAT gateway.
 func (o NatGatewayOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *NatGateway) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o NatGatewayOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

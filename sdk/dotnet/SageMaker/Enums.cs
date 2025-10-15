@@ -35,6 +35,14 @@ namespace Pulumi.AwsNative.SageMaker
         public static AppResourceSpecInstanceType MlM512xlarge { get; } = new AppResourceSpecInstanceType("ml.m5.12xlarge");
         public static AppResourceSpecInstanceType MlM516xlarge { get; } = new AppResourceSpecInstanceType("ml.m5.16xlarge");
         public static AppResourceSpecInstanceType MlM524xlarge { get; } = new AppResourceSpecInstanceType("ml.m5.24xlarge");
+        public static AppResourceSpecInstanceType MlM5dLarge { get; } = new AppResourceSpecInstanceType("ml.m5d.large");
+        public static AppResourceSpecInstanceType MlM5dXlarge { get; } = new AppResourceSpecInstanceType("ml.m5d.xlarge");
+        public static AppResourceSpecInstanceType MlM5d2xlarge { get; } = new AppResourceSpecInstanceType("ml.m5d.2xlarge");
+        public static AppResourceSpecInstanceType MlM5d4xlarge { get; } = new AppResourceSpecInstanceType("ml.m5d.4xlarge");
+        public static AppResourceSpecInstanceType MlM5d8xlarge { get; } = new AppResourceSpecInstanceType("ml.m5d.8xlarge");
+        public static AppResourceSpecInstanceType MlM5d12xlarge { get; } = new AppResourceSpecInstanceType("ml.m5d.12xlarge");
+        public static AppResourceSpecInstanceType MlM5d16xlarge { get; } = new AppResourceSpecInstanceType("ml.m5d.16xlarge");
+        public static AppResourceSpecInstanceType MlM5d24xlarge { get; } = new AppResourceSpecInstanceType("ml.m5d.24xlarge");
         public static AppResourceSpecInstanceType MlC5Large { get; } = new AppResourceSpecInstanceType("ml.c5.large");
         public static AppResourceSpecInstanceType MlC5Xlarge { get; } = new AppResourceSpecInstanceType("ml.c5.xlarge");
         public static AppResourceSpecInstanceType MlC52xlarge { get; } = new AppResourceSpecInstanceType("ml.c5.2xlarge");
@@ -46,6 +54,7 @@ namespace Pulumi.AwsNative.SageMaker
         public static AppResourceSpecInstanceType MlP32xlarge { get; } = new AppResourceSpecInstanceType("ml.p3.2xlarge");
         public static AppResourceSpecInstanceType MlP38xlarge { get; } = new AppResourceSpecInstanceType("ml.p3.8xlarge");
         public static AppResourceSpecInstanceType MlP316xlarge { get; } = new AppResourceSpecInstanceType("ml.p3.16xlarge");
+        public static AppResourceSpecInstanceType MlP3dn24xlarge { get; } = new AppResourceSpecInstanceType("ml.p3dn.24xlarge");
         public static AppResourceSpecInstanceType MlG4dnXlarge { get; } = new AppResourceSpecInstanceType("ml.g4dn.xlarge");
         public static AppResourceSpecInstanceType MlG4dn2xlarge { get; } = new AppResourceSpecInstanceType("ml.g4dn.2xlarge");
         public static AppResourceSpecInstanceType MlG4dn4xlarge { get; } = new AppResourceSpecInstanceType("ml.g4dn.4xlarge");
@@ -60,15 +69,6 @@ namespace Pulumi.AwsNative.SageMaker
         public static AppResourceSpecInstanceType MlR512xlarge { get; } = new AppResourceSpecInstanceType("ml.r5.12xlarge");
         public static AppResourceSpecInstanceType MlR516xlarge { get; } = new AppResourceSpecInstanceType("ml.r5.16xlarge");
         public static AppResourceSpecInstanceType MlR524xlarge { get; } = new AppResourceSpecInstanceType("ml.r5.24xlarge");
-        public static AppResourceSpecInstanceType MlP3dn24xlarge { get; } = new AppResourceSpecInstanceType("ml.p3dn.24xlarge");
-        public static AppResourceSpecInstanceType MlM5dLarge { get; } = new AppResourceSpecInstanceType("ml.m5d.large");
-        public static AppResourceSpecInstanceType MlM5dXlarge { get; } = new AppResourceSpecInstanceType("ml.m5d.xlarge");
-        public static AppResourceSpecInstanceType MlM5d2xlarge { get; } = new AppResourceSpecInstanceType("ml.m5d.2xlarge");
-        public static AppResourceSpecInstanceType MlM5d4xlarge { get; } = new AppResourceSpecInstanceType("ml.m5d.4xlarge");
-        public static AppResourceSpecInstanceType MlM5d8xlarge { get; } = new AppResourceSpecInstanceType("ml.m5d.8xlarge");
-        public static AppResourceSpecInstanceType MlM5d12xlarge { get; } = new AppResourceSpecInstanceType("ml.m5d.12xlarge");
-        public static AppResourceSpecInstanceType MlM5d16xlarge { get; } = new AppResourceSpecInstanceType("ml.m5d.16xlarge");
-        public static AppResourceSpecInstanceType MlM5d24xlarge { get; } = new AppResourceSpecInstanceType("ml.m5d.24xlarge");
         public static AppResourceSpecInstanceType MlG5Xlarge { get; } = new AppResourceSpecInstanceType("ml.g5.xlarge");
         public static AppResourceSpecInstanceType MlG52xlarge { get; } = new AppResourceSpecInstanceType("ml.g5.2xlarge");
         public static AppResourceSpecInstanceType MlG54xlarge { get; } = new AppResourceSpecInstanceType("ml.g5.4xlarge");
@@ -77,12 +77,112 @@ namespace Pulumi.AwsNative.SageMaker
         public static AppResourceSpecInstanceType MlG516xlarge { get; } = new AppResourceSpecInstanceType("ml.g5.16xlarge");
         public static AppResourceSpecInstanceType MlG524xlarge { get; } = new AppResourceSpecInstanceType("ml.g5.24xlarge");
         public static AppResourceSpecInstanceType MlG548xlarge { get; } = new AppResourceSpecInstanceType("ml.g5.48xlarge");
+        public static AppResourceSpecInstanceType MlG6Xlarge { get; } = new AppResourceSpecInstanceType("ml.g6.xlarge");
+        public static AppResourceSpecInstanceType MlG62xlarge { get; } = new AppResourceSpecInstanceType("ml.g6.2xlarge");
+        public static AppResourceSpecInstanceType MlG64xlarge { get; } = new AppResourceSpecInstanceType("ml.g6.4xlarge");
+        public static AppResourceSpecInstanceType MlG68xlarge { get; } = new AppResourceSpecInstanceType("ml.g6.8xlarge");
+        public static AppResourceSpecInstanceType MlG612xlarge { get; } = new AppResourceSpecInstanceType("ml.g6.12xlarge");
+        public static AppResourceSpecInstanceType MlG616xlarge { get; } = new AppResourceSpecInstanceType("ml.g6.16xlarge");
+        public static AppResourceSpecInstanceType MlG624xlarge { get; } = new AppResourceSpecInstanceType("ml.g6.24xlarge");
+        public static AppResourceSpecInstanceType MlG648xlarge { get; } = new AppResourceSpecInstanceType("ml.g6.48xlarge");
+        public static AppResourceSpecInstanceType MlG6eXlarge { get; } = new AppResourceSpecInstanceType("ml.g6e.xlarge");
+        public static AppResourceSpecInstanceType MlG6e2xlarge { get; } = new AppResourceSpecInstanceType("ml.g6e.2xlarge");
+        public static AppResourceSpecInstanceType MlG6e4xlarge { get; } = new AppResourceSpecInstanceType("ml.g6e.4xlarge");
+        public static AppResourceSpecInstanceType MlG6e8xlarge { get; } = new AppResourceSpecInstanceType("ml.g6e.8xlarge");
+        public static AppResourceSpecInstanceType MlG6e12xlarge { get; } = new AppResourceSpecInstanceType("ml.g6e.12xlarge");
+        public static AppResourceSpecInstanceType MlG6e16xlarge { get; } = new AppResourceSpecInstanceType("ml.g6e.16xlarge");
+        public static AppResourceSpecInstanceType MlG6e24xlarge { get; } = new AppResourceSpecInstanceType("ml.g6e.24xlarge");
+        public static AppResourceSpecInstanceType MlG6e48xlarge { get; } = new AppResourceSpecInstanceType("ml.g6e.48xlarge");
+        public static AppResourceSpecInstanceType MlGeospatialInteractive { get; } = new AppResourceSpecInstanceType("ml.geospatial.interactive");
         public static AppResourceSpecInstanceType MlP4d24xlarge { get; } = new AppResourceSpecInstanceType("ml.p4d.24xlarge");
         public static AppResourceSpecInstanceType MlP4de24xlarge { get; } = new AppResourceSpecInstanceType("ml.p4de.24xlarge");
-        public static AppResourceSpecInstanceType MlGeospatialInteractive { get; } = new AppResourceSpecInstanceType("ml.geospatial.interactive");
         public static AppResourceSpecInstanceType MlTrn12xlarge { get; } = new AppResourceSpecInstanceType("ml.trn1.2xlarge");
         public static AppResourceSpecInstanceType MlTrn132xlarge { get; } = new AppResourceSpecInstanceType("ml.trn1.32xlarge");
         public static AppResourceSpecInstanceType MlTrn1n32xlarge { get; } = new AppResourceSpecInstanceType("ml.trn1n.32xlarge");
+        public static AppResourceSpecInstanceType MlP548xlarge { get; } = new AppResourceSpecInstanceType("ml.p5.48xlarge");
+        public static AppResourceSpecInstanceType MlP5e48xlarge { get; } = new AppResourceSpecInstanceType("ml.p5e.48xlarge");
+        public static AppResourceSpecInstanceType MlP5en48xlarge { get; } = new AppResourceSpecInstanceType("ml.p5en.48xlarge");
+        public static AppResourceSpecInstanceType MlM6iLarge { get; } = new AppResourceSpecInstanceType("ml.m6i.large");
+        public static AppResourceSpecInstanceType MlM6iXlarge { get; } = new AppResourceSpecInstanceType("ml.m6i.xlarge");
+        public static AppResourceSpecInstanceType MlM6i2xlarge { get; } = new AppResourceSpecInstanceType("ml.m6i.2xlarge");
+        public static AppResourceSpecInstanceType MlM6i4xlarge { get; } = new AppResourceSpecInstanceType("ml.m6i.4xlarge");
+        public static AppResourceSpecInstanceType MlM6i8xlarge { get; } = new AppResourceSpecInstanceType("ml.m6i.8xlarge");
+        public static AppResourceSpecInstanceType MlM6i12xlarge { get; } = new AppResourceSpecInstanceType("ml.m6i.12xlarge");
+        public static AppResourceSpecInstanceType MlM6i16xlarge { get; } = new AppResourceSpecInstanceType("ml.m6i.16xlarge");
+        public static AppResourceSpecInstanceType MlM6i24xlarge { get; } = new AppResourceSpecInstanceType("ml.m6i.24xlarge");
+        public static AppResourceSpecInstanceType MlM6i32xlarge { get; } = new AppResourceSpecInstanceType("ml.m6i.32xlarge");
+        public static AppResourceSpecInstanceType MlM7iLarge { get; } = new AppResourceSpecInstanceType("ml.m7i.large");
+        public static AppResourceSpecInstanceType MlM7iXlarge { get; } = new AppResourceSpecInstanceType("ml.m7i.xlarge");
+        public static AppResourceSpecInstanceType MlM7i2xlarge { get; } = new AppResourceSpecInstanceType("ml.m7i.2xlarge");
+        public static AppResourceSpecInstanceType MlM7i4xlarge { get; } = new AppResourceSpecInstanceType("ml.m7i.4xlarge");
+        public static AppResourceSpecInstanceType MlM7i8xlarge { get; } = new AppResourceSpecInstanceType("ml.m7i.8xlarge");
+        public static AppResourceSpecInstanceType MlM7i12xlarge { get; } = new AppResourceSpecInstanceType("ml.m7i.12xlarge");
+        public static AppResourceSpecInstanceType MlM7i16xlarge { get; } = new AppResourceSpecInstanceType("ml.m7i.16xlarge");
+        public static AppResourceSpecInstanceType MlM7i24xlarge { get; } = new AppResourceSpecInstanceType("ml.m7i.24xlarge");
+        public static AppResourceSpecInstanceType MlM7i48xlarge { get; } = new AppResourceSpecInstanceType("ml.m7i.48xlarge");
+        public static AppResourceSpecInstanceType MlC6iLarge { get; } = new AppResourceSpecInstanceType("ml.c6i.large");
+        public static AppResourceSpecInstanceType MlC6iXlarge { get; } = new AppResourceSpecInstanceType("ml.c6i.xlarge");
+        public static AppResourceSpecInstanceType MlC6i2xlarge { get; } = new AppResourceSpecInstanceType("ml.c6i.2xlarge");
+        public static AppResourceSpecInstanceType MlC6i4xlarge { get; } = new AppResourceSpecInstanceType("ml.c6i.4xlarge");
+        public static AppResourceSpecInstanceType MlC6i8xlarge { get; } = new AppResourceSpecInstanceType("ml.c6i.8xlarge");
+        public static AppResourceSpecInstanceType MlC6i12xlarge { get; } = new AppResourceSpecInstanceType("ml.c6i.12xlarge");
+        public static AppResourceSpecInstanceType MlC6i16xlarge { get; } = new AppResourceSpecInstanceType("ml.c6i.16xlarge");
+        public static AppResourceSpecInstanceType MlC6i24xlarge { get; } = new AppResourceSpecInstanceType("ml.c6i.24xlarge");
+        public static AppResourceSpecInstanceType MlC6i32xlarge { get; } = new AppResourceSpecInstanceType("ml.c6i.32xlarge");
+        public static AppResourceSpecInstanceType MlC7iLarge { get; } = new AppResourceSpecInstanceType("ml.c7i.large");
+        public static AppResourceSpecInstanceType MlC7iXlarge { get; } = new AppResourceSpecInstanceType("ml.c7i.xlarge");
+        public static AppResourceSpecInstanceType MlC7i2xlarge { get; } = new AppResourceSpecInstanceType("ml.c7i.2xlarge");
+        public static AppResourceSpecInstanceType MlC7i4xlarge { get; } = new AppResourceSpecInstanceType("ml.c7i.4xlarge");
+        public static AppResourceSpecInstanceType MlC7i8xlarge { get; } = new AppResourceSpecInstanceType("ml.c7i.8xlarge");
+        public static AppResourceSpecInstanceType MlC7i12xlarge { get; } = new AppResourceSpecInstanceType("ml.c7i.12xlarge");
+        public static AppResourceSpecInstanceType MlC7i16xlarge { get; } = new AppResourceSpecInstanceType("ml.c7i.16xlarge");
+        public static AppResourceSpecInstanceType MlC7i24xlarge { get; } = new AppResourceSpecInstanceType("ml.c7i.24xlarge");
+        public static AppResourceSpecInstanceType MlC7i48xlarge { get; } = new AppResourceSpecInstanceType("ml.c7i.48xlarge");
+        public static AppResourceSpecInstanceType MlR6iLarge { get; } = new AppResourceSpecInstanceType("ml.r6i.large");
+        public static AppResourceSpecInstanceType MlR6iXlarge { get; } = new AppResourceSpecInstanceType("ml.r6i.xlarge");
+        public static AppResourceSpecInstanceType MlR6i2xlarge { get; } = new AppResourceSpecInstanceType("ml.r6i.2xlarge");
+        public static AppResourceSpecInstanceType MlR6i4xlarge { get; } = new AppResourceSpecInstanceType("ml.r6i.4xlarge");
+        public static AppResourceSpecInstanceType MlR6i8xlarge { get; } = new AppResourceSpecInstanceType("ml.r6i.8xlarge");
+        public static AppResourceSpecInstanceType MlR6i12xlarge { get; } = new AppResourceSpecInstanceType("ml.r6i.12xlarge");
+        public static AppResourceSpecInstanceType MlR6i16xlarge { get; } = new AppResourceSpecInstanceType("ml.r6i.16xlarge");
+        public static AppResourceSpecInstanceType MlR6i24xlarge { get; } = new AppResourceSpecInstanceType("ml.r6i.24xlarge");
+        public static AppResourceSpecInstanceType MlR6i32xlarge { get; } = new AppResourceSpecInstanceType("ml.r6i.32xlarge");
+        public static AppResourceSpecInstanceType MlR7iLarge { get; } = new AppResourceSpecInstanceType("ml.r7i.large");
+        public static AppResourceSpecInstanceType MlR7iXlarge { get; } = new AppResourceSpecInstanceType("ml.r7i.xlarge");
+        public static AppResourceSpecInstanceType MlR7i2xlarge { get; } = new AppResourceSpecInstanceType("ml.r7i.2xlarge");
+        public static AppResourceSpecInstanceType MlR7i4xlarge { get; } = new AppResourceSpecInstanceType("ml.r7i.4xlarge");
+        public static AppResourceSpecInstanceType MlR7i8xlarge { get; } = new AppResourceSpecInstanceType("ml.r7i.8xlarge");
+        public static AppResourceSpecInstanceType MlR7i12xlarge { get; } = new AppResourceSpecInstanceType("ml.r7i.12xlarge");
+        public static AppResourceSpecInstanceType MlR7i16xlarge { get; } = new AppResourceSpecInstanceType("ml.r7i.16xlarge");
+        public static AppResourceSpecInstanceType MlR7i24xlarge { get; } = new AppResourceSpecInstanceType("ml.r7i.24xlarge");
+        public static AppResourceSpecInstanceType MlR7i48xlarge { get; } = new AppResourceSpecInstanceType("ml.r7i.48xlarge");
+        public static AppResourceSpecInstanceType MlM6idLarge { get; } = new AppResourceSpecInstanceType("ml.m6id.large");
+        public static AppResourceSpecInstanceType MlM6idXlarge { get; } = new AppResourceSpecInstanceType("ml.m6id.xlarge");
+        public static AppResourceSpecInstanceType MlM6id2xlarge { get; } = new AppResourceSpecInstanceType("ml.m6id.2xlarge");
+        public static AppResourceSpecInstanceType MlM6id4xlarge { get; } = new AppResourceSpecInstanceType("ml.m6id.4xlarge");
+        public static AppResourceSpecInstanceType MlM6id8xlarge { get; } = new AppResourceSpecInstanceType("ml.m6id.8xlarge");
+        public static AppResourceSpecInstanceType MlM6id12xlarge { get; } = new AppResourceSpecInstanceType("ml.m6id.12xlarge");
+        public static AppResourceSpecInstanceType MlM6id16xlarge { get; } = new AppResourceSpecInstanceType("ml.m6id.16xlarge");
+        public static AppResourceSpecInstanceType MlM6id24xlarge { get; } = new AppResourceSpecInstanceType("ml.m6id.24xlarge");
+        public static AppResourceSpecInstanceType MlM6id32xlarge { get; } = new AppResourceSpecInstanceType("ml.m6id.32xlarge");
+        public static AppResourceSpecInstanceType MlC6idLarge { get; } = new AppResourceSpecInstanceType("ml.c6id.large");
+        public static AppResourceSpecInstanceType MlC6idXlarge { get; } = new AppResourceSpecInstanceType("ml.c6id.xlarge");
+        public static AppResourceSpecInstanceType MlC6id2xlarge { get; } = new AppResourceSpecInstanceType("ml.c6id.2xlarge");
+        public static AppResourceSpecInstanceType MlC6id4xlarge { get; } = new AppResourceSpecInstanceType("ml.c6id.4xlarge");
+        public static AppResourceSpecInstanceType MlC6id8xlarge { get; } = new AppResourceSpecInstanceType("ml.c6id.8xlarge");
+        public static AppResourceSpecInstanceType MlC6id12xlarge { get; } = new AppResourceSpecInstanceType("ml.c6id.12xlarge");
+        public static AppResourceSpecInstanceType MlC6id16xlarge { get; } = new AppResourceSpecInstanceType("ml.c6id.16xlarge");
+        public static AppResourceSpecInstanceType MlC6id24xlarge { get; } = new AppResourceSpecInstanceType("ml.c6id.24xlarge");
+        public static AppResourceSpecInstanceType MlC6id32xlarge { get; } = new AppResourceSpecInstanceType("ml.c6id.32xlarge");
+        public static AppResourceSpecInstanceType MlR6idLarge { get; } = new AppResourceSpecInstanceType("ml.r6id.large");
+        public static AppResourceSpecInstanceType MlR6idXlarge { get; } = new AppResourceSpecInstanceType("ml.r6id.xlarge");
+        public static AppResourceSpecInstanceType MlR6id2xlarge { get; } = new AppResourceSpecInstanceType("ml.r6id.2xlarge");
+        public static AppResourceSpecInstanceType MlR6id4xlarge { get; } = new AppResourceSpecInstanceType("ml.r6id.4xlarge");
+        public static AppResourceSpecInstanceType MlR6id8xlarge { get; } = new AppResourceSpecInstanceType("ml.r6id.8xlarge");
+        public static AppResourceSpecInstanceType MlR6id12xlarge { get; } = new AppResourceSpecInstanceType("ml.r6id.12xlarge");
+        public static AppResourceSpecInstanceType MlR6id16xlarge { get; } = new AppResourceSpecInstanceType("ml.r6id.16xlarge");
+        public static AppResourceSpecInstanceType MlR6id24xlarge { get; } = new AppResourceSpecInstanceType("ml.r6id.24xlarge");
+        public static AppResourceSpecInstanceType MlR6id32xlarge { get; } = new AppResourceSpecInstanceType("ml.r6id.32xlarge");
 
         public static bool operator ==(AppResourceSpecInstanceType left, AppResourceSpecInstanceType right) => left.Equals(right);
         public static bool operator !=(AppResourceSpecInstanceType left, AppResourceSpecInstanceType right) => !left.Equals(right);
@@ -570,6 +670,8 @@ namespace Pulumi.AwsNative.SageMaker
         public static DomainAppInstanceType MlTrn132xlarge { get; } = new DomainAppInstanceType("ml.trn1.32xlarge");
         public static DomainAppInstanceType MlTrn1n32xlarge { get; } = new DomainAppInstanceType("ml.trn1n.32xlarge");
         public static DomainAppInstanceType MlP548xlarge { get; } = new DomainAppInstanceType("ml.p5.48xlarge");
+        public static DomainAppInstanceType MlP5e48xlarge { get; } = new DomainAppInstanceType("ml.p5e.48xlarge");
+        public static DomainAppInstanceType MlP5en48xlarge { get; } = new DomainAppInstanceType("ml.p5en.48xlarge");
         public static DomainAppInstanceType MlM6iLarge { get; } = new DomainAppInstanceType("ml.m6i.large");
         public static DomainAppInstanceType MlM6iXlarge { get; } = new DomainAppInstanceType("ml.m6i.xlarge");
         public static DomainAppInstanceType MlM6i2xlarge { get; } = new DomainAppInstanceType("ml.m6i.2xlarge");
@@ -855,6 +957,37 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// A setting to indicate if IPv6 routing should be enabled along with IPv4 or not
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainIpAddressType : IEquatable<DomainIpAddressType>
+    {
+        private readonly string _value;
+
+        private DomainIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainIpAddressType Ipv4 { get; } = new DomainIpAddressType("IPV4");
+        public static DomainIpAddressType Dualstack { get; } = new DomainIpAddressType("DUALSTACK");
+
+        public static bool operator ==(DomainIpAddressType left, DomainIpAddressType right) => left.Equals(right);
+        public static bool operator !=(DomainIpAddressType left, DomainIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(DomainIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainIpAddressType other && Equals(other);
+        public bool Equals(DomainIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A flag to enable/disable AppLifecycleManagement settings
     /// </summary>
     [EnumType]
@@ -986,98 +1119,6 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DomainRStudioServerProAppSettingsUserGroup other && Equals(other);
         public bool Equals(DomainRStudioServerProAppSettingsUserGroup other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The instance type that the image version runs on.
-    /// </summary>
-    [EnumType]
-    public readonly struct DomainResourceSpecInstanceType : IEquatable<DomainResourceSpecInstanceType>
-    {
-        private readonly string _value;
-
-        private DomainResourceSpecInstanceType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DomainResourceSpecInstanceType System { get; } = new DomainResourceSpecInstanceType("system");
-        public static DomainResourceSpecInstanceType MlT3Micro { get; } = new DomainResourceSpecInstanceType("ml.t3.micro");
-        public static DomainResourceSpecInstanceType MlT3Small { get; } = new DomainResourceSpecInstanceType("ml.t3.small");
-        public static DomainResourceSpecInstanceType MlT3Medium { get; } = new DomainResourceSpecInstanceType("ml.t3.medium");
-        public static DomainResourceSpecInstanceType MlT3Large { get; } = new DomainResourceSpecInstanceType("ml.t3.large");
-        public static DomainResourceSpecInstanceType MlT3Xlarge { get; } = new DomainResourceSpecInstanceType("ml.t3.xlarge");
-        public static DomainResourceSpecInstanceType MlT32xlarge { get; } = new DomainResourceSpecInstanceType("ml.t3.2xlarge");
-        public static DomainResourceSpecInstanceType MlM5Large { get; } = new DomainResourceSpecInstanceType("ml.m5.large");
-        public static DomainResourceSpecInstanceType MlM5Xlarge { get; } = new DomainResourceSpecInstanceType("ml.m5.xlarge");
-        public static DomainResourceSpecInstanceType MlM52xlarge { get; } = new DomainResourceSpecInstanceType("ml.m5.2xlarge");
-        public static DomainResourceSpecInstanceType MlM54xlarge { get; } = new DomainResourceSpecInstanceType("ml.m5.4xlarge");
-        public static DomainResourceSpecInstanceType MlM58xlarge { get; } = new DomainResourceSpecInstanceType("ml.m5.8xlarge");
-        public static DomainResourceSpecInstanceType MlM512xlarge { get; } = new DomainResourceSpecInstanceType("ml.m5.12xlarge");
-        public static DomainResourceSpecInstanceType MlM516xlarge { get; } = new DomainResourceSpecInstanceType("ml.m5.16xlarge");
-        public static DomainResourceSpecInstanceType MlM524xlarge { get; } = new DomainResourceSpecInstanceType("ml.m5.24xlarge");
-        public static DomainResourceSpecInstanceType MlC5Large { get; } = new DomainResourceSpecInstanceType("ml.c5.large");
-        public static DomainResourceSpecInstanceType MlC5Xlarge { get; } = new DomainResourceSpecInstanceType("ml.c5.xlarge");
-        public static DomainResourceSpecInstanceType MlC52xlarge { get; } = new DomainResourceSpecInstanceType("ml.c5.2xlarge");
-        public static DomainResourceSpecInstanceType MlC54xlarge { get; } = new DomainResourceSpecInstanceType("ml.c5.4xlarge");
-        public static DomainResourceSpecInstanceType MlC59xlarge { get; } = new DomainResourceSpecInstanceType("ml.c5.9xlarge");
-        public static DomainResourceSpecInstanceType MlC512xlarge { get; } = new DomainResourceSpecInstanceType("ml.c5.12xlarge");
-        public static DomainResourceSpecInstanceType MlC518xlarge { get; } = new DomainResourceSpecInstanceType("ml.c5.18xlarge");
-        public static DomainResourceSpecInstanceType MlC524xlarge { get; } = new DomainResourceSpecInstanceType("ml.c5.24xlarge");
-        public static DomainResourceSpecInstanceType MlP32xlarge { get; } = new DomainResourceSpecInstanceType("ml.p3.2xlarge");
-        public static DomainResourceSpecInstanceType MlP38xlarge { get; } = new DomainResourceSpecInstanceType("ml.p3.8xlarge");
-        public static DomainResourceSpecInstanceType MlP316xlarge { get; } = new DomainResourceSpecInstanceType("ml.p3.16xlarge");
-        public static DomainResourceSpecInstanceType MlG4dnXlarge { get; } = new DomainResourceSpecInstanceType("ml.g4dn.xlarge");
-        public static DomainResourceSpecInstanceType MlG4dn2xlarge { get; } = new DomainResourceSpecInstanceType("ml.g4dn.2xlarge");
-        public static DomainResourceSpecInstanceType MlG4dn4xlarge { get; } = new DomainResourceSpecInstanceType("ml.g4dn.4xlarge");
-        public static DomainResourceSpecInstanceType MlG4dn8xlarge { get; } = new DomainResourceSpecInstanceType("ml.g4dn.8xlarge");
-        public static DomainResourceSpecInstanceType MlG4dn12xlarge { get; } = new DomainResourceSpecInstanceType("ml.g4dn.12xlarge");
-        public static DomainResourceSpecInstanceType MlG4dn16xlarge { get; } = new DomainResourceSpecInstanceType("ml.g4dn.16xlarge");
-        public static DomainResourceSpecInstanceType MlR5Large { get; } = new DomainResourceSpecInstanceType("ml.r5.large");
-        public static DomainResourceSpecInstanceType MlR5Xlarge { get; } = new DomainResourceSpecInstanceType("ml.r5.xlarge");
-        public static DomainResourceSpecInstanceType MlR52xlarge { get; } = new DomainResourceSpecInstanceType("ml.r5.2xlarge");
-        public static DomainResourceSpecInstanceType MlR54xlarge { get; } = new DomainResourceSpecInstanceType("ml.r5.4xlarge");
-        public static DomainResourceSpecInstanceType MlR58xlarge { get; } = new DomainResourceSpecInstanceType("ml.r5.8xlarge");
-        public static DomainResourceSpecInstanceType MlR512xlarge { get; } = new DomainResourceSpecInstanceType("ml.r5.12xlarge");
-        public static DomainResourceSpecInstanceType MlR516xlarge { get; } = new DomainResourceSpecInstanceType("ml.r5.16xlarge");
-        public static DomainResourceSpecInstanceType MlR524xlarge { get; } = new DomainResourceSpecInstanceType("ml.r5.24xlarge");
-        public static DomainResourceSpecInstanceType MlP3dn24xlarge { get; } = new DomainResourceSpecInstanceType("ml.p3dn.24xlarge");
-        public static DomainResourceSpecInstanceType MlM5dLarge { get; } = new DomainResourceSpecInstanceType("ml.m5d.large");
-        public static DomainResourceSpecInstanceType MlM5dXlarge { get; } = new DomainResourceSpecInstanceType("ml.m5d.xlarge");
-        public static DomainResourceSpecInstanceType MlM5d2xlarge { get; } = new DomainResourceSpecInstanceType("ml.m5d.2xlarge");
-        public static DomainResourceSpecInstanceType MlM5d4xlarge { get; } = new DomainResourceSpecInstanceType("ml.m5d.4xlarge");
-        public static DomainResourceSpecInstanceType MlM5d8xlarge { get; } = new DomainResourceSpecInstanceType("ml.m5d.8xlarge");
-        public static DomainResourceSpecInstanceType MlM5d12xlarge { get; } = new DomainResourceSpecInstanceType("ml.m5d.12xlarge");
-        public static DomainResourceSpecInstanceType MlM5d16xlarge { get; } = new DomainResourceSpecInstanceType("ml.m5d.16xlarge");
-        public static DomainResourceSpecInstanceType MlM5d24xlarge { get; } = new DomainResourceSpecInstanceType("ml.m5d.24xlarge");
-        public static DomainResourceSpecInstanceType MlG5Xlarge { get; } = new DomainResourceSpecInstanceType("ml.g5.xlarge");
-        public static DomainResourceSpecInstanceType MlG52xlarge { get; } = new DomainResourceSpecInstanceType("ml.g5.2xlarge");
-        public static DomainResourceSpecInstanceType MlG54xlarge { get; } = new DomainResourceSpecInstanceType("ml.g5.4xlarge");
-        public static DomainResourceSpecInstanceType MlG58xlarge { get; } = new DomainResourceSpecInstanceType("ml.g5.8xlarge");
-        public static DomainResourceSpecInstanceType MlG512xlarge { get; } = new DomainResourceSpecInstanceType("ml.g5.12xlarge");
-        public static DomainResourceSpecInstanceType MlG516xlarge { get; } = new DomainResourceSpecInstanceType("ml.g5.16xlarge");
-        public static DomainResourceSpecInstanceType MlG524xlarge { get; } = new DomainResourceSpecInstanceType("ml.g5.24xlarge");
-        public static DomainResourceSpecInstanceType MlG548xlarge { get; } = new DomainResourceSpecInstanceType("ml.g5.48xlarge");
-        public static DomainResourceSpecInstanceType MlP4d24xlarge { get; } = new DomainResourceSpecInstanceType("ml.p4d.24xlarge");
-        public static DomainResourceSpecInstanceType MlP4de24xlarge { get; } = new DomainResourceSpecInstanceType("ml.p4de.24xlarge");
-        public static DomainResourceSpecInstanceType MlGeospatialInteractive { get; } = new DomainResourceSpecInstanceType("ml.geospatial.interactive");
-        public static DomainResourceSpecInstanceType MlTrn12xlarge { get; } = new DomainResourceSpecInstanceType("ml.trn1.2xlarge");
-        public static DomainResourceSpecInstanceType MlTrn132xlarge { get; } = new DomainResourceSpecInstanceType("ml.trn1.32xlarge");
-        public static DomainResourceSpecInstanceType MlTrn1n32xlarge { get; } = new DomainResourceSpecInstanceType("ml.trn1n.32xlarge");
-
-        public static bool operator ==(DomainResourceSpecInstanceType left, DomainResourceSpecInstanceType right) => left.Equals(right);
-        public static bool operator !=(DomainResourceSpecInstanceType left, DomainResourceSpecInstanceType right) => !left.Equals(right);
-
-        public static explicit operator string(DomainResourceSpecInstanceType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DomainResourceSpecInstanceType other && Equals(other);
-        public bool Equals(DomainResourceSpecInstanceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -4011,6 +4052,14 @@ namespace Pulumi.AwsNative.SageMaker
         public static SpaceResourceSpecInstanceType MlM512xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5.12xlarge");
         public static SpaceResourceSpecInstanceType MlM516xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5.16xlarge");
         public static SpaceResourceSpecInstanceType MlM524xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5.24xlarge");
+        public static SpaceResourceSpecInstanceType MlM5dLarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.large");
+        public static SpaceResourceSpecInstanceType MlM5dXlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.xlarge");
+        public static SpaceResourceSpecInstanceType MlM5d2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.2xlarge");
+        public static SpaceResourceSpecInstanceType MlM5d4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.4xlarge");
+        public static SpaceResourceSpecInstanceType MlM5d8xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.8xlarge");
+        public static SpaceResourceSpecInstanceType MlM5d12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.12xlarge");
+        public static SpaceResourceSpecInstanceType MlM5d16xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.16xlarge");
+        public static SpaceResourceSpecInstanceType MlM5d24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.24xlarge");
         public static SpaceResourceSpecInstanceType MlC5Large { get; } = new SpaceResourceSpecInstanceType("ml.c5.large");
         public static SpaceResourceSpecInstanceType MlC5Xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c5.xlarge");
         public static SpaceResourceSpecInstanceType MlC52xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c5.2xlarge");
@@ -4022,6 +4071,7 @@ namespace Pulumi.AwsNative.SageMaker
         public static SpaceResourceSpecInstanceType MlP32xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p3.2xlarge");
         public static SpaceResourceSpecInstanceType MlP38xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p3.8xlarge");
         public static SpaceResourceSpecInstanceType MlP316xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p3.16xlarge");
+        public static SpaceResourceSpecInstanceType MlP3dn24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p3dn.24xlarge");
         public static SpaceResourceSpecInstanceType MlG4dnXlarge { get; } = new SpaceResourceSpecInstanceType("ml.g4dn.xlarge");
         public static SpaceResourceSpecInstanceType MlG4dn2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g4dn.2xlarge");
         public static SpaceResourceSpecInstanceType MlG4dn4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g4dn.4xlarge");
@@ -4036,15 +4086,6 @@ namespace Pulumi.AwsNative.SageMaker
         public static SpaceResourceSpecInstanceType MlR512xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r5.12xlarge");
         public static SpaceResourceSpecInstanceType MlR516xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r5.16xlarge");
         public static SpaceResourceSpecInstanceType MlR524xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r5.24xlarge");
-        public static SpaceResourceSpecInstanceType MlP3dn24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p3dn.24xlarge");
-        public static SpaceResourceSpecInstanceType MlM5dLarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.large");
-        public static SpaceResourceSpecInstanceType MlM5dXlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.xlarge");
-        public static SpaceResourceSpecInstanceType MlM5d2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.2xlarge");
-        public static SpaceResourceSpecInstanceType MlM5d4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.4xlarge");
-        public static SpaceResourceSpecInstanceType MlM5d8xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.8xlarge");
-        public static SpaceResourceSpecInstanceType MlM5d12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.12xlarge");
-        public static SpaceResourceSpecInstanceType MlM5d16xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.16xlarge");
-        public static SpaceResourceSpecInstanceType MlM5d24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m5d.24xlarge");
         public static SpaceResourceSpecInstanceType MlG5Xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.xlarge");
         public static SpaceResourceSpecInstanceType MlG52xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.2xlarge");
         public static SpaceResourceSpecInstanceType MlG54xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.4xlarge");
@@ -4053,12 +4094,112 @@ namespace Pulumi.AwsNative.SageMaker
         public static SpaceResourceSpecInstanceType MlG516xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.16xlarge");
         public static SpaceResourceSpecInstanceType MlG524xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.24xlarge");
         public static SpaceResourceSpecInstanceType MlG548xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g5.48xlarge");
+        public static SpaceResourceSpecInstanceType MlG6Xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g6.xlarge");
+        public static SpaceResourceSpecInstanceType MlG62xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g6.2xlarge");
+        public static SpaceResourceSpecInstanceType MlG64xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g6.4xlarge");
+        public static SpaceResourceSpecInstanceType MlG68xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g6.8xlarge");
+        public static SpaceResourceSpecInstanceType MlG612xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g6.12xlarge");
+        public static SpaceResourceSpecInstanceType MlG616xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g6.16xlarge");
+        public static SpaceResourceSpecInstanceType MlG624xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g6.24xlarge");
+        public static SpaceResourceSpecInstanceType MlG648xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g6.48xlarge");
+        public static SpaceResourceSpecInstanceType MlG6eXlarge { get; } = new SpaceResourceSpecInstanceType("ml.g6e.xlarge");
+        public static SpaceResourceSpecInstanceType MlG6e2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g6e.2xlarge");
+        public static SpaceResourceSpecInstanceType MlG6e4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g6e.4xlarge");
+        public static SpaceResourceSpecInstanceType MlG6e8xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g6e.8xlarge");
+        public static SpaceResourceSpecInstanceType MlG6e12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g6e.12xlarge");
+        public static SpaceResourceSpecInstanceType MlG6e16xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g6e.16xlarge");
+        public static SpaceResourceSpecInstanceType MlG6e24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g6e.24xlarge");
+        public static SpaceResourceSpecInstanceType MlG6e48xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g6e.48xlarge");
+        public static SpaceResourceSpecInstanceType MlGeospatialInteractive { get; } = new SpaceResourceSpecInstanceType("ml.geospatial.interactive");
         public static SpaceResourceSpecInstanceType MlP4d24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p4d.24xlarge");
         public static SpaceResourceSpecInstanceType MlP4de24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p4de.24xlarge");
-        public static SpaceResourceSpecInstanceType MlGeospatialInteractive { get; } = new SpaceResourceSpecInstanceType("ml.geospatial.interactive");
         public static SpaceResourceSpecInstanceType MlTrn12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.trn1.2xlarge");
         public static SpaceResourceSpecInstanceType MlTrn132xlarge { get; } = new SpaceResourceSpecInstanceType("ml.trn1.32xlarge");
         public static SpaceResourceSpecInstanceType MlTrn1n32xlarge { get; } = new SpaceResourceSpecInstanceType("ml.trn1n.32xlarge");
+        public static SpaceResourceSpecInstanceType MlP548xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p5.48xlarge");
+        public static SpaceResourceSpecInstanceType MlP5e48xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p5e.48xlarge");
+        public static SpaceResourceSpecInstanceType MlP5en48xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p5en.48xlarge");
+        public static SpaceResourceSpecInstanceType MlM6iLarge { get; } = new SpaceResourceSpecInstanceType("ml.m6i.large");
+        public static SpaceResourceSpecInstanceType MlM6iXlarge { get; } = new SpaceResourceSpecInstanceType("ml.m6i.xlarge");
+        public static SpaceResourceSpecInstanceType MlM6i2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m6i.2xlarge");
+        public static SpaceResourceSpecInstanceType MlM6i4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m6i.4xlarge");
+        public static SpaceResourceSpecInstanceType MlM6i8xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m6i.8xlarge");
+        public static SpaceResourceSpecInstanceType MlM6i12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m6i.12xlarge");
+        public static SpaceResourceSpecInstanceType MlM6i16xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m6i.16xlarge");
+        public static SpaceResourceSpecInstanceType MlM6i24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m6i.24xlarge");
+        public static SpaceResourceSpecInstanceType MlM6i32xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m6i.32xlarge");
+        public static SpaceResourceSpecInstanceType MlM7iLarge { get; } = new SpaceResourceSpecInstanceType("ml.m7i.large");
+        public static SpaceResourceSpecInstanceType MlM7iXlarge { get; } = new SpaceResourceSpecInstanceType("ml.m7i.xlarge");
+        public static SpaceResourceSpecInstanceType MlM7i2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m7i.2xlarge");
+        public static SpaceResourceSpecInstanceType MlM7i4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m7i.4xlarge");
+        public static SpaceResourceSpecInstanceType MlM7i8xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m7i.8xlarge");
+        public static SpaceResourceSpecInstanceType MlM7i12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m7i.12xlarge");
+        public static SpaceResourceSpecInstanceType MlM7i16xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m7i.16xlarge");
+        public static SpaceResourceSpecInstanceType MlM7i24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m7i.24xlarge");
+        public static SpaceResourceSpecInstanceType MlM7i48xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m7i.48xlarge");
+        public static SpaceResourceSpecInstanceType MlC6iLarge { get; } = new SpaceResourceSpecInstanceType("ml.c6i.large");
+        public static SpaceResourceSpecInstanceType MlC6iXlarge { get; } = new SpaceResourceSpecInstanceType("ml.c6i.xlarge");
+        public static SpaceResourceSpecInstanceType MlC6i2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c6i.2xlarge");
+        public static SpaceResourceSpecInstanceType MlC6i4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c6i.4xlarge");
+        public static SpaceResourceSpecInstanceType MlC6i8xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c6i.8xlarge");
+        public static SpaceResourceSpecInstanceType MlC6i12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c6i.12xlarge");
+        public static SpaceResourceSpecInstanceType MlC6i16xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c6i.16xlarge");
+        public static SpaceResourceSpecInstanceType MlC6i24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c6i.24xlarge");
+        public static SpaceResourceSpecInstanceType MlC6i32xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c6i.32xlarge");
+        public static SpaceResourceSpecInstanceType MlC7iLarge { get; } = new SpaceResourceSpecInstanceType("ml.c7i.large");
+        public static SpaceResourceSpecInstanceType MlC7iXlarge { get; } = new SpaceResourceSpecInstanceType("ml.c7i.xlarge");
+        public static SpaceResourceSpecInstanceType MlC7i2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c7i.2xlarge");
+        public static SpaceResourceSpecInstanceType MlC7i4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c7i.4xlarge");
+        public static SpaceResourceSpecInstanceType MlC7i8xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c7i.8xlarge");
+        public static SpaceResourceSpecInstanceType MlC7i12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c7i.12xlarge");
+        public static SpaceResourceSpecInstanceType MlC7i16xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c7i.16xlarge");
+        public static SpaceResourceSpecInstanceType MlC7i24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c7i.24xlarge");
+        public static SpaceResourceSpecInstanceType MlC7i48xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c7i.48xlarge");
+        public static SpaceResourceSpecInstanceType MlR6iLarge { get; } = new SpaceResourceSpecInstanceType("ml.r6i.large");
+        public static SpaceResourceSpecInstanceType MlR6iXlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6i.xlarge");
+        public static SpaceResourceSpecInstanceType MlR6i2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6i.2xlarge");
+        public static SpaceResourceSpecInstanceType MlR6i4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6i.4xlarge");
+        public static SpaceResourceSpecInstanceType MlR6i8xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6i.8xlarge");
+        public static SpaceResourceSpecInstanceType MlR6i12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6i.12xlarge");
+        public static SpaceResourceSpecInstanceType MlR6i16xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6i.16xlarge");
+        public static SpaceResourceSpecInstanceType MlR6i24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6i.24xlarge");
+        public static SpaceResourceSpecInstanceType MlR6i32xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6i.32xlarge");
+        public static SpaceResourceSpecInstanceType MlR7iLarge { get; } = new SpaceResourceSpecInstanceType("ml.r7i.large");
+        public static SpaceResourceSpecInstanceType MlR7iXlarge { get; } = new SpaceResourceSpecInstanceType("ml.r7i.xlarge");
+        public static SpaceResourceSpecInstanceType MlR7i2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r7i.2xlarge");
+        public static SpaceResourceSpecInstanceType MlR7i4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r7i.4xlarge");
+        public static SpaceResourceSpecInstanceType MlR7i8xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r7i.8xlarge");
+        public static SpaceResourceSpecInstanceType MlR7i12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r7i.12xlarge");
+        public static SpaceResourceSpecInstanceType MlR7i16xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r7i.16xlarge");
+        public static SpaceResourceSpecInstanceType MlR7i24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r7i.24xlarge");
+        public static SpaceResourceSpecInstanceType MlR7i48xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r7i.48xlarge");
+        public static SpaceResourceSpecInstanceType MlM6idLarge { get; } = new SpaceResourceSpecInstanceType("ml.m6id.large");
+        public static SpaceResourceSpecInstanceType MlM6idXlarge { get; } = new SpaceResourceSpecInstanceType("ml.m6id.xlarge");
+        public static SpaceResourceSpecInstanceType MlM6id2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m6id.2xlarge");
+        public static SpaceResourceSpecInstanceType MlM6id4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m6id.4xlarge");
+        public static SpaceResourceSpecInstanceType MlM6id8xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m6id.8xlarge");
+        public static SpaceResourceSpecInstanceType MlM6id12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m6id.12xlarge");
+        public static SpaceResourceSpecInstanceType MlM6id16xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m6id.16xlarge");
+        public static SpaceResourceSpecInstanceType MlM6id24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m6id.24xlarge");
+        public static SpaceResourceSpecInstanceType MlM6id32xlarge { get; } = new SpaceResourceSpecInstanceType("ml.m6id.32xlarge");
+        public static SpaceResourceSpecInstanceType MlC6idLarge { get; } = new SpaceResourceSpecInstanceType("ml.c6id.large");
+        public static SpaceResourceSpecInstanceType MlC6idXlarge { get; } = new SpaceResourceSpecInstanceType("ml.c6id.xlarge");
+        public static SpaceResourceSpecInstanceType MlC6id2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c6id.2xlarge");
+        public static SpaceResourceSpecInstanceType MlC6id4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c6id.4xlarge");
+        public static SpaceResourceSpecInstanceType MlC6id8xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c6id.8xlarge");
+        public static SpaceResourceSpecInstanceType MlC6id12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c6id.12xlarge");
+        public static SpaceResourceSpecInstanceType MlC6id16xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c6id.16xlarge");
+        public static SpaceResourceSpecInstanceType MlC6id24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c6id.24xlarge");
+        public static SpaceResourceSpecInstanceType MlC6id32xlarge { get; } = new SpaceResourceSpecInstanceType("ml.c6id.32xlarge");
+        public static SpaceResourceSpecInstanceType MlR6idLarge { get; } = new SpaceResourceSpecInstanceType("ml.r6id.large");
+        public static SpaceResourceSpecInstanceType MlR6idXlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6id.xlarge");
+        public static SpaceResourceSpecInstanceType MlR6id2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6id.2xlarge");
+        public static SpaceResourceSpecInstanceType MlR6id4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6id.4xlarge");
+        public static SpaceResourceSpecInstanceType MlR6id8xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6id.8xlarge");
+        public static SpaceResourceSpecInstanceType MlR6id12xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6id.12xlarge");
+        public static SpaceResourceSpecInstanceType MlR6id16xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6id.16xlarge");
+        public static SpaceResourceSpecInstanceType MlR6id24xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6id.24xlarge");
+        public static SpaceResourceSpecInstanceType MlR6id32xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6id.32xlarge");
 
         public static bool operator ==(SpaceResourceSpecInstanceType left, SpaceResourceSpecInstanceType right) => left.Equals(right);
         public static bool operator !=(SpaceResourceSpecInstanceType left, SpaceResourceSpecInstanceType right) => !left.Equals(right);
@@ -4559,6 +4700,14 @@ namespace Pulumi.AwsNative.SageMaker
         public static UserProfileResourceSpecInstanceType MlM512xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5.12xlarge");
         public static UserProfileResourceSpecInstanceType MlM516xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5.16xlarge");
         public static UserProfileResourceSpecInstanceType MlM524xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5.24xlarge");
+        public static UserProfileResourceSpecInstanceType MlM5dLarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5d.large");
+        public static UserProfileResourceSpecInstanceType MlM5dXlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5d.xlarge");
+        public static UserProfileResourceSpecInstanceType MlM5d2xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5d.2xlarge");
+        public static UserProfileResourceSpecInstanceType MlM5d4xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5d.4xlarge");
+        public static UserProfileResourceSpecInstanceType MlM5d8xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5d.8xlarge");
+        public static UserProfileResourceSpecInstanceType MlM5d12xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5d.12xlarge");
+        public static UserProfileResourceSpecInstanceType MlM5d16xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5d.16xlarge");
+        public static UserProfileResourceSpecInstanceType MlM5d24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5d.24xlarge");
         public static UserProfileResourceSpecInstanceType MlC5Large { get; } = new UserProfileResourceSpecInstanceType("ml.c5.large");
         public static UserProfileResourceSpecInstanceType MlC5Xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c5.xlarge");
         public static UserProfileResourceSpecInstanceType MlC52xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c5.2xlarge");
@@ -4570,6 +4719,7 @@ namespace Pulumi.AwsNative.SageMaker
         public static UserProfileResourceSpecInstanceType MlP32xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.p3.2xlarge");
         public static UserProfileResourceSpecInstanceType MlP38xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.p3.8xlarge");
         public static UserProfileResourceSpecInstanceType MlP316xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.p3.16xlarge");
+        public static UserProfileResourceSpecInstanceType MlP3dn24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.p3dn.24xlarge");
         public static UserProfileResourceSpecInstanceType MlG4dnXlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g4dn.xlarge");
         public static UserProfileResourceSpecInstanceType MlG4dn2xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g4dn.2xlarge");
         public static UserProfileResourceSpecInstanceType MlG4dn4xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g4dn.4xlarge");
@@ -4584,15 +4734,6 @@ namespace Pulumi.AwsNative.SageMaker
         public static UserProfileResourceSpecInstanceType MlR512xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r5.12xlarge");
         public static UserProfileResourceSpecInstanceType MlR516xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r5.16xlarge");
         public static UserProfileResourceSpecInstanceType MlR524xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r5.24xlarge");
-        public static UserProfileResourceSpecInstanceType MlP3dn24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.p3dn.24xlarge");
-        public static UserProfileResourceSpecInstanceType MlM5dLarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5d.large");
-        public static UserProfileResourceSpecInstanceType MlM5dXlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5d.xlarge");
-        public static UserProfileResourceSpecInstanceType MlM5d2xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5d.2xlarge");
-        public static UserProfileResourceSpecInstanceType MlM5d4xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5d.4xlarge");
-        public static UserProfileResourceSpecInstanceType MlM5d8xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5d.8xlarge");
-        public static UserProfileResourceSpecInstanceType MlM5d12xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5d.12xlarge");
-        public static UserProfileResourceSpecInstanceType MlM5d16xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5d.16xlarge");
-        public static UserProfileResourceSpecInstanceType MlM5d24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m5d.24xlarge");
         public static UserProfileResourceSpecInstanceType MlG5Xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g5.xlarge");
         public static UserProfileResourceSpecInstanceType MlG52xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g5.2xlarge");
         public static UserProfileResourceSpecInstanceType MlG54xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g5.4xlarge");
@@ -4601,12 +4742,112 @@ namespace Pulumi.AwsNative.SageMaker
         public static UserProfileResourceSpecInstanceType MlG516xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g5.16xlarge");
         public static UserProfileResourceSpecInstanceType MlG524xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g5.24xlarge");
         public static UserProfileResourceSpecInstanceType MlG548xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g5.48xlarge");
+        public static UserProfileResourceSpecInstanceType MlG6Xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g6.xlarge");
+        public static UserProfileResourceSpecInstanceType MlG62xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g6.2xlarge");
+        public static UserProfileResourceSpecInstanceType MlG64xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g6.4xlarge");
+        public static UserProfileResourceSpecInstanceType MlG68xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g6.8xlarge");
+        public static UserProfileResourceSpecInstanceType MlG612xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g6.12xlarge");
+        public static UserProfileResourceSpecInstanceType MlG616xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g6.16xlarge");
+        public static UserProfileResourceSpecInstanceType MlG624xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g6.24xlarge");
+        public static UserProfileResourceSpecInstanceType MlG648xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g6.48xlarge");
+        public static UserProfileResourceSpecInstanceType MlG6eXlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g6e.xlarge");
+        public static UserProfileResourceSpecInstanceType MlG6e2xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g6e.2xlarge");
+        public static UserProfileResourceSpecInstanceType MlG6e4xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g6e.4xlarge");
+        public static UserProfileResourceSpecInstanceType MlG6e8xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g6e.8xlarge");
+        public static UserProfileResourceSpecInstanceType MlG6e12xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g6e.12xlarge");
+        public static UserProfileResourceSpecInstanceType MlG6e16xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g6e.16xlarge");
+        public static UserProfileResourceSpecInstanceType MlG6e24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g6e.24xlarge");
+        public static UserProfileResourceSpecInstanceType MlG6e48xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.g6e.48xlarge");
+        public static UserProfileResourceSpecInstanceType MlGeospatialInteractive { get; } = new UserProfileResourceSpecInstanceType("ml.geospatial.interactive");
         public static UserProfileResourceSpecInstanceType MlP4d24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.p4d.24xlarge");
         public static UserProfileResourceSpecInstanceType MlP4de24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.p4de.24xlarge");
-        public static UserProfileResourceSpecInstanceType MlGeospatialInteractive { get; } = new UserProfileResourceSpecInstanceType("ml.geospatial.interactive");
         public static UserProfileResourceSpecInstanceType MlTrn12xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.trn1.2xlarge");
         public static UserProfileResourceSpecInstanceType MlTrn132xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.trn1.32xlarge");
         public static UserProfileResourceSpecInstanceType MlTrn1n32xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.trn1n.32xlarge");
+        public static UserProfileResourceSpecInstanceType MlP548xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.p5.48xlarge");
+        public static UserProfileResourceSpecInstanceType MlP5e48xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.p5e.48xlarge");
+        public static UserProfileResourceSpecInstanceType MlP5en48xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.p5en.48xlarge");
+        public static UserProfileResourceSpecInstanceType MlM6iLarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6i.large");
+        public static UserProfileResourceSpecInstanceType MlM6iXlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6i.xlarge");
+        public static UserProfileResourceSpecInstanceType MlM6i2xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6i.2xlarge");
+        public static UserProfileResourceSpecInstanceType MlM6i4xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6i.4xlarge");
+        public static UserProfileResourceSpecInstanceType MlM6i8xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6i.8xlarge");
+        public static UserProfileResourceSpecInstanceType MlM6i12xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6i.12xlarge");
+        public static UserProfileResourceSpecInstanceType MlM6i16xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6i.16xlarge");
+        public static UserProfileResourceSpecInstanceType MlM6i24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6i.24xlarge");
+        public static UserProfileResourceSpecInstanceType MlM6i32xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6i.32xlarge");
+        public static UserProfileResourceSpecInstanceType MlM7iLarge { get; } = new UserProfileResourceSpecInstanceType("ml.m7i.large");
+        public static UserProfileResourceSpecInstanceType MlM7iXlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m7i.xlarge");
+        public static UserProfileResourceSpecInstanceType MlM7i2xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m7i.2xlarge");
+        public static UserProfileResourceSpecInstanceType MlM7i4xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m7i.4xlarge");
+        public static UserProfileResourceSpecInstanceType MlM7i8xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m7i.8xlarge");
+        public static UserProfileResourceSpecInstanceType MlM7i12xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m7i.12xlarge");
+        public static UserProfileResourceSpecInstanceType MlM7i16xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m7i.16xlarge");
+        public static UserProfileResourceSpecInstanceType MlM7i24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m7i.24xlarge");
+        public static UserProfileResourceSpecInstanceType MlM7i48xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m7i.48xlarge");
+        public static UserProfileResourceSpecInstanceType MlC6iLarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6i.large");
+        public static UserProfileResourceSpecInstanceType MlC6iXlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6i.xlarge");
+        public static UserProfileResourceSpecInstanceType MlC6i2xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6i.2xlarge");
+        public static UserProfileResourceSpecInstanceType MlC6i4xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6i.4xlarge");
+        public static UserProfileResourceSpecInstanceType MlC6i8xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6i.8xlarge");
+        public static UserProfileResourceSpecInstanceType MlC6i12xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6i.12xlarge");
+        public static UserProfileResourceSpecInstanceType MlC6i16xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6i.16xlarge");
+        public static UserProfileResourceSpecInstanceType MlC6i24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6i.24xlarge");
+        public static UserProfileResourceSpecInstanceType MlC6i32xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6i.32xlarge");
+        public static UserProfileResourceSpecInstanceType MlC7iLarge { get; } = new UserProfileResourceSpecInstanceType("ml.c7i.large");
+        public static UserProfileResourceSpecInstanceType MlC7iXlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c7i.xlarge");
+        public static UserProfileResourceSpecInstanceType MlC7i2xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c7i.2xlarge");
+        public static UserProfileResourceSpecInstanceType MlC7i4xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c7i.4xlarge");
+        public static UserProfileResourceSpecInstanceType MlC7i8xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c7i.8xlarge");
+        public static UserProfileResourceSpecInstanceType MlC7i12xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c7i.12xlarge");
+        public static UserProfileResourceSpecInstanceType MlC7i16xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c7i.16xlarge");
+        public static UserProfileResourceSpecInstanceType MlC7i24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c7i.24xlarge");
+        public static UserProfileResourceSpecInstanceType MlC7i48xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c7i.48xlarge");
+        public static UserProfileResourceSpecInstanceType MlR6iLarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6i.large");
+        public static UserProfileResourceSpecInstanceType MlR6iXlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6i.xlarge");
+        public static UserProfileResourceSpecInstanceType MlR6i2xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6i.2xlarge");
+        public static UserProfileResourceSpecInstanceType MlR6i4xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6i.4xlarge");
+        public static UserProfileResourceSpecInstanceType MlR6i8xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6i.8xlarge");
+        public static UserProfileResourceSpecInstanceType MlR6i12xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6i.12xlarge");
+        public static UserProfileResourceSpecInstanceType MlR6i16xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6i.16xlarge");
+        public static UserProfileResourceSpecInstanceType MlR6i24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6i.24xlarge");
+        public static UserProfileResourceSpecInstanceType MlR6i32xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6i.32xlarge");
+        public static UserProfileResourceSpecInstanceType MlR7iLarge { get; } = new UserProfileResourceSpecInstanceType("ml.r7i.large");
+        public static UserProfileResourceSpecInstanceType MlR7iXlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r7i.xlarge");
+        public static UserProfileResourceSpecInstanceType MlR7i2xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r7i.2xlarge");
+        public static UserProfileResourceSpecInstanceType MlR7i4xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r7i.4xlarge");
+        public static UserProfileResourceSpecInstanceType MlR7i8xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r7i.8xlarge");
+        public static UserProfileResourceSpecInstanceType MlR7i12xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r7i.12xlarge");
+        public static UserProfileResourceSpecInstanceType MlR7i16xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r7i.16xlarge");
+        public static UserProfileResourceSpecInstanceType MlR7i24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r7i.24xlarge");
+        public static UserProfileResourceSpecInstanceType MlR7i48xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r7i.48xlarge");
+        public static UserProfileResourceSpecInstanceType MlM6idLarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6id.large");
+        public static UserProfileResourceSpecInstanceType MlM6idXlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6id.xlarge");
+        public static UserProfileResourceSpecInstanceType MlM6id2xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6id.2xlarge");
+        public static UserProfileResourceSpecInstanceType MlM6id4xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6id.4xlarge");
+        public static UserProfileResourceSpecInstanceType MlM6id8xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6id.8xlarge");
+        public static UserProfileResourceSpecInstanceType MlM6id12xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6id.12xlarge");
+        public static UserProfileResourceSpecInstanceType MlM6id16xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6id.16xlarge");
+        public static UserProfileResourceSpecInstanceType MlM6id24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6id.24xlarge");
+        public static UserProfileResourceSpecInstanceType MlM6id32xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.m6id.32xlarge");
+        public static UserProfileResourceSpecInstanceType MlC6idLarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6id.large");
+        public static UserProfileResourceSpecInstanceType MlC6idXlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6id.xlarge");
+        public static UserProfileResourceSpecInstanceType MlC6id2xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6id.2xlarge");
+        public static UserProfileResourceSpecInstanceType MlC6id4xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6id.4xlarge");
+        public static UserProfileResourceSpecInstanceType MlC6id8xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6id.8xlarge");
+        public static UserProfileResourceSpecInstanceType MlC6id12xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6id.12xlarge");
+        public static UserProfileResourceSpecInstanceType MlC6id16xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6id.16xlarge");
+        public static UserProfileResourceSpecInstanceType MlC6id24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6id.24xlarge");
+        public static UserProfileResourceSpecInstanceType MlC6id32xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.c6id.32xlarge");
+        public static UserProfileResourceSpecInstanceType MlR6idLarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6id.large");
+        public static UserProfileResourceSpecInstanceType MlR6idXlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6id.xlarge");
+        public static UserProfileResourceSpecInstanceType MlR6id2xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6id.2xlarge");
+        public static UserProfileResourceSpecInstanceType MlR6id4xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6id.4xlarge");
+        public static UserProfileResourceSpecInstanceType MlR6id8xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6id.8xlarge");
+        public static UserProfileResourceSpecInstanceType MlR6id12xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6id.12xlarge");
+        public static UserProfileResourceSpecInstanceType MlR6id16xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6id.16xlarge");
+        public static UserProfileResourceSpecInstanceType MlR6id24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6id.24xlarge");
+        public static UserProfileResourceSpecInstanceType MlR6id32xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.r6id.32xlarge");
 
         public static bool operator ==(UserProfileResourceSpecInstanceType left, UserProfileResourceSpecInstanceType right) => left.Equals(right);
         public static bool operator !=(UserProfileResourceSpecInstanceType left, UserProfileResourceSpecInstanceType right) => !left.Equals(right);

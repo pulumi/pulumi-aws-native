@@ -240,6 +240,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// The latest version references of the component.
+        /// </summary>
+        [Output("latestVersion")]
+        public Output<Outputs.ComponentLatestVersion> LatestVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the component.
         /// </summary>
         [Output("name")]

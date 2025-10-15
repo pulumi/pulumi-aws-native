@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The latest version references of the workflow.
+        /// </summary>
+        public readonly Outputs.WorkflowLatestVersion? LatestVersion;
+        /// <summary>
         /// The tags associated with the workflow.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -76,9 +80,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         private GetWorkflowResult(
             string? arn,
 
+            Outputs.WorkflowLatestVersion? latestVersion,
+
             ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
+            LatestVersion = latestVersion;
             Tags = tags;
         }
     }

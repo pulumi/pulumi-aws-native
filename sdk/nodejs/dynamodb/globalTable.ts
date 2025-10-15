@@ -60,8 +60,6 @@ export class GlobalTable extends pulumi.CustomResource {
      * Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
      */
     declare public readonly globalSecondaryIndexes: pulumi.Output<outputs.dynamodb.GlobalTableGlobalSecondaryIndex[] | undefined>;
-    declare public readonly globalTableSettingsReplicationMode: pulumi.Output<enums.dynamodb.GlobalTableSettingsReplicationMode | undefined>;
-    declare public readonly globalTableSourceArn: pulumi.Output<string | undefined>;
     /**
      * The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
      */
@@ -159,8 +157,6 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["attributeDefinitions"] = args?.attributeDefinitions;
             resourceInputs["billingMode"] = args?.billingMode;
             resourceInputs["globalSecondaryIndexes"] = args?.globalSecondaryIndexes;
-            resourceInputs["globalTableSettingsReplicationMode"] = args?.globalTableSettingsReplicationMode;
-            resourceInputs["globalTableSourceArn"] = args?.globalTableSourceArn;
             resourceInputs["globalTableWitnesses"] = args?.globalTableWitnesses;
             resourceInputs["keySchema"] = args?.keySchema;
             resourceInputs["localSecondaryIndexes"] = args?.localSecondaryIndexes;
@@ -181,8 +177,6 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["attributeDefinitions"] = undefined /*out*/;
             resourceInputs["billingMode"] = undefined /*out*/;
             resourceInputs["globalSecondaryIndexes"] = undefined /*out*/;
-            resourceInputs["globalTableSettingsReplicationMode"] = undefined /*out*/;
-            resourceInputs["globalTableSourceArn"] = undefined /*out*/;
             resourceInputs["globalTableWitnesses"] = undefined /*out*/;
             resourceInputs["keySchema"] = undefined /*out*/;
             resourceInputs["localSecondaryIndexes"] = undefined /*out*/;
@@ -199,7 +193,7 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["writeProvisionedThroughputSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["globalTableSourceArn", "keySchema[*]", "localSecondaryIndexes[*]", "tableName"] };
+        const replaceOnChanges = { replaceOnChanges: ["keySchema[*]", "localSecondaryIndexes[*]", "tableName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(GlobalTable.__pulumiType, name, resourceInputs, opts);
     }
@@ -228,8 +222,6 @@ export interface GlobalTableArgs {
      * Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
      */
     globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableGlobalSecondaryIndexArgs>[]>;
-    globalTableSettingsReplicationMode?: pulumi.Input<enums.dynamodb.GlobalTableSettingsReplicationMode>;
-    globalTableSourceArn?: pulumi.Input<string>;
     /**
      * The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
      */

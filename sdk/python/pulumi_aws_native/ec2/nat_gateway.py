@@ -29,7 +29,8 @@ class NatGatewayArgs:
                  secondary_private_ip_address_count: Optional[pulumi.Input[_builtins.int]] = None,
                  secondary_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NatGateway resource.
         :param pulumi.Input[_builtins.str] allocation_id: [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
@@ -62,6 +63,8 @@ class NatGatewayArgs:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @_builtins.property
     @pulumi.getter(name="allocationId")
@@ -173,6 +176,15 @@ class NatGatewayArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "vpc_id", value)
+
 
 @pulumi.type_token("aws-native:ec2:NatGateway")
 class NatGateway(pulumi.CustomResource):
@@ -189,6 +201,7 @@ class NatGateway(pulumi.CustomResource):
                  secondary_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Specifies a network address translation (NAT) gateway in the specified subnet. You can create either a public NAT gateway or a private NAT gateway. The default is a public NAT gateway. If you create a public NAT gateway, you must specify an elastic IP address.
@@ -246,6 +259,7 @@ class NatGateway(pulumi.CustomResource):
                  secondary_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -264,8 +278,10 @@ class NatGateway(pulumi.CustomResource):
             __props__.__dict__["secondary_private_ip_addresses"] = secondary_private_ip_addresses
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["eni_id"] = None
             __props__.__dict__["nat_gateway_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allocationId", "connectivityType", "privateIpAddress", "subnetId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allocationId", "connectivityType", "privateIpAddress", "subnetId", "vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NatGateway, __self__).__init__(
             'aws-native:ec2:NatGateway',
@@ -291,6 +307,7 @@ class NatGateway(pulumi.CustomResource):
 
         __props__.__dict__["allocation_id"] = None
         __props__.__dict__["connectivity_type"] = None
+        __props__.__dict__["eni_id"] = None
         __props__.__dict__["max_drain_duration_seconds"] = None
         __props__.__dict__["nat_gateway_id"] = None
         __props__.__dict__["private_ip_address"] = None
@@ -299,6 +316,7 @@ class NatGateway(pulumi.CustomResource):
         __props__.__dict__["secondary_private_ip_addresses"] = None
         __props__.__dict__["subnet_id"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["vpc_id"] = None
         return NatGateway(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -316,6 +334,11 @@ class NatGateway(pulumi.CustomResource):
         Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
         """
         return pulumi.get(self, "connectivity_type")
+
+    @_builtins.property
+    @pulumi.getter(name="eniId")
+    def eni_id(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "eni_id")
 
     @_builtins.property
     @pulumi.getter(name="maxDrainDurationSeconds")
@@ -382,4 +405,9 @@ class NatGateway(pulumi.CustomResource):
         The tags for the NAT gateway.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "vpc_id")
 

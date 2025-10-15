@@ -82,6 +82,10 @@ export class Image extends pulumi.CustomResource {
      */
     declare public readonly infrastructureConfigurationArn: pulumi.Output<string | undefined>;
     /**
+     * The latest version references of the image.
+     */
+    declare public /*out*/ readonly latestVersion: pulumi.Output<outputs.imagebuilder.ImageLatestVersion>;
+    /**
      * The logging configuration settings for the image.
      */
     declare public readonly loggingConfiguration: pulumi.Output<outputs.imagebuilder.ImageLoggingConfiguration | undefined>;
@@ -123,6 +127,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["imageId"] = undefined /*out*/;
             resourceInputs["imageUri"] = undefined /*out*/;
+            resourceInputs["latestVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -136,6 +141,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["imageTestsConfiguration"] = undefined /*out*/;
             resourceInputs["imageUri"] = undefined /*out*/;
             resourceInputs["infrastructureConfigurationArn"] = undefined /*out*/;
+            resourceInputs["latestVersion"] = undefined /*out*/;
             resourceInputs["loggingConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

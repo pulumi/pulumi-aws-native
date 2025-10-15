@@ -63,6 +63,14 @@ type LookupServerResult struct {
 	EndpointType *ServerEndpointType `pulumi:"endpointType"`
 	// Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` , `AWS _LAMBDA` or `API_GATEWAY` . Accepts an array containing all of the information required to use a directory in `AWS_DIRECTORY_SERVICE` or invoke a customer-supplied authentication API, including the API Gateway URL. Cannot be specified when `IdentityProviderType` is set to `SERVICE_MANAGED` .
 	IdentityProviderDetails *ServerIdentityProviderDetails `pulumi:"identityProviderDetails"`
+	// The mode of authentication for a server. The default value is `SERVICE_MANAGED` , which allows you to store and access user credentials within the AWS Transfer Family service.
+	//
+	// Use `AWS_DIRECTORY_SERVICE` to provide access to Active Directory groups in AWS Directory Service for Microsoft Active Directory or Microsoft Active Directory in your on-premises environment or in AWS using AD Connector. This option also requires you to provide a Directory ID by using the `IdentityProviderDetails` parameter.
+	//
+	// Use the `API_GATEWAY` value to integrate with an identity provider of your choosing. The `API_GATEWAY` setting requires you to provide an Amazon API Gateway endpoint URL to call for authentication by using the `IdentityProviderDetails` parameter.
+	//
+	// Use the `AWS_LAMBDA` value to directly use an AWS Lambda function as your identity provider. If you choose this value, you must specify the ARN for the Lambda function in the `Function` parameter for the `IdentityProviderDetails` data type.
+	IdentityProviderType *ServerIdentityProviderType `pulumi:"identityProviderType"`
 	// Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .
 	//
 	// > The `IpAddressType` parameter has the following limitations:
@@ -224,6 +232,17 @@ func (o LookupServerResultOutput) EndpointType() ServerEndpointTypePtrOutput {
 // Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` , `AWS _LAMBDA` or `API_GATEWAY` . Accepts an array containing all of the information required to use a directory in `AWS_DIRECTORY_SERVICE` or invoke a customer-supplied authentication API, including the API Gateway URL. Cannot be specified when `IdentityProviderType` is set to `SERVICE_MANAGED` .
 func (o LookupServerResultOutput) IdentityProviderDetails() ServerIdentityProviderDetailsPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *ServerIdentityProviderDetails { return v.IdentityProviderDetails }).(ServerIdentityProviderDetailsPtrOutput)
+}
+
+// The mode of authentication for a server. The default value is `SERVICE_MANAGED` , which allows you to store and access user credentials within the AWS Transfer Family service.
+//
+// Use `AWS_DIRECTORY_SERVICE` to provide access to Active Directory groups in AWS Directory Service for Microsoft Active Directory or Microsoft Active Directory in your on-premises environment or in AWS using AD Connector. This option also requires you to provide a Directory ID by using the `IdentityProviderDetails` parameter.
+//
+// Use the `API_GATEWAY` value to integrate with an identity provider of your choosing. The `API_GATEWAY` setting requires you to provide an Amazon API Gateway endpoint URL to call for authentication by using the `IdentityProviderDetails` parameter.
+//
+// Use the `AWS_LAMBDA` value to directly use an AWS Lambda function as your identity provider. If you choose this value, you must specify the ARN for the Lambda function in the `Function` parameter for the `IdentityProviderDetails` data type.
+func (o LookupServerResultOutput) IdentityProviderType() ServerIdentityProviderTypePtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *ServerIdentityProviderType { return v.IdentityProviderType }).(ServerIdentityProviderTypePtrOutput)
 }
 
 // Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .

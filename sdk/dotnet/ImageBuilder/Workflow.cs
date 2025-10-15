@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// The latest version references of the workflow.
+        /// </summary>
+        [Output("latestVersion")]
+        public Output<Outputs.WorkflowLatestVersion> LatestVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the workflow.
         /// </summary>
         [Output("name")]

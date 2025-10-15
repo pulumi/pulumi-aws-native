@@ -8,7 +8,7 @@
     "cloudFormationSystemTags" : true
   },
   "typeName" : "AWS::ImageBuilder::Image",
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/Name", "/properties/ImageId", "/properties/ImageUri" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Name", "/properties/ImageId", "/properties/ImageUri", "/properties/LatestVersion", "/properties/LatestVersion/Arn", "/properties/LatestVersion/Major", "/properties/LatestVersion/Minor", "/properties/LatestVersion/Patch" ],
   "description" : "Resource schema for AWS::ImageBuilder::Image",
   "createOnlyProperties" : [ "/properties/ImageRecipeArn", "/properties/ContainerRecipeArn", "/properties/InfrastructureConfigurationArn", "/properties/Workflows", "/properties/DistributionConfigurationArn", "/properties/ImageTestsConfiguration", "/properties/ImageScanningConfiguration", "/properties/EnhancedImageMetadataEnabled" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
@@ -122,6 +122,29 @@
         }
       }
     },
+    "LatestVersion" : {
+      "description" : "The latest version references of the image.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Major" : {
+          "description" : "The latest version ARN of the created image, with the same major version.",
+          "type" : "string"
+        },
+        "Minor" : {
+          "description" : "The latest version ARN of the created image, with the same minor version.",
+          "type" : "string"
+        },
+        "Arn" : {
+          "description" : "The latest version ARN of the created image.",
+          "type" : "string"
+        },
+        "Patch" : {
+          "description" : "The latest version ARN of the created image, with the same patch version.",
+          "type" : "string"
+        }
+      }
+    },
     "WorkflowParameterValue" : {
       "description" : "The value associated with the workflow parameter",
       "type" : "string"
@@ -224,6 +247,10 @@
     "DistributionConfigurationArn" : {
       "description" : "The Amazon Resource Name (ARN) of the distribution configuration.",
       "type" : "string"
+    },
+    "LatestVersion" : {
+      "description" : "The latest version references of the image.",
+      "$ref" : "#/definitions/LatestVersion"
     },
     "LoggingConfiguration" : {
       "description" : "The logging configuration settings for the image.",

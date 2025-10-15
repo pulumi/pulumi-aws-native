@@ -9278,7 +9278,11 @@ func (o DomainRStudioServerProDomainSettingsPtrOutput) RStudioPackageManagerUrl(
 
 type DomainResourceSpec struct {
 	// The instance type that the image version runs on.
-	InstanceType *DomainResourceSpecInstanceType `pulumi:"instanceType"`
+	//
+	// > *JupyterServer apps* only support the `system` value.
+	// >
+	// > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
+	InstanceType *DomainAppInstanceType `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The Amazon Resource Name (ARN) of the SageMaker image that the image version belongs to.
@@ -9300,7 +9304,11 @@ type DomainResourceSpecInput interface {
 
 type DomainResourceSpecArgs struct {
 	// The instance type that the image version runs on.
-	InstanceType DomainResourceSpecInstanceTypePtrInput `pulumi:"instanceType"`
+	//
+	// > *JupyterServer apps* only support the `system` value.
+	// >
+	// > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
+	InstanceType DomainAppInstanceTypePtrInput `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The Amazon Resource Name (ARN) of the SageMaker image that the image version belongs to.
@@ -9387,8 +9395,12 @@ func (o DomainResourceSpecOutput) ToDomainResourceSpecPtrOutputWithContext(ctx c
 }
 
 // The instance type that the image version runs on.
-func (o DomainResourceSpecOutput) InstanceType() DomainResourceSpecInstanceTypePtrOutput {
-	return o.ApplyT(func(v DomainResourceSpec) *DomainResourceSpecInstanceType { return v.InstanceType }).(DomainResourceSpecInstanceTypePtrOutput)
+//
+// > *JupyterServer apps* only support the `system` value.
+// >
+// > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
+func (o DomainResourceSpecOutput) InstanceType() DomainAppInstanceTypePtrOutput {
+	return o.ApplyT(func(v DomainResourceSpec) *DomainAppInstanceType { return v.InstanceType }).(DomainAppInstanceTypePtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
@@ -9431,13 +9443,17 @@ func (o DomainResourceSpecPtrOutput) Elem() DomainResourceSpecOutput {
 }
 
 // The instance type that the image version runs on.
-func (o DomainResourceSpecPtrOutput) InstanceType() DomainResourceSpecInstanceTypePtrOutput {
-	return o.ApplyT(func(v *DomainResourceSpec) *DomainResourceSpecInstanceType {
+//
+// > *JupyterServer apps* only support the `system` value.
+// >
+// > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
+func (o DomainResourceSpecPtrOutput) InstanceType() DomainAppInstanceTypePtrOutput {
+	return o.ApplyT(func(v *DomainResourceSpec) *DomainAppInstanceType {
 		if v == nil {
 			return nil
 		}
 		return v.InstanceType
-	}).(DomainResourceSpecInstanceTypePtrOutput)
+	}).(DomainAppInstanceTypePtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
@@ -9632,6 +9648,7 @@ type DomainSettings struct {
 	DockerSettings *DomainDockerSettings `pulumi:"dockerSettings"`
 	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
 	ExecutionRoleIdentityConfig *DomainSettingsExecutionRoleIdentityConfig `pulumi:"executionRoleIdentityConfig"`
+	IpAddressType               *DomainIpAddressType                       `pulumi:"ipAddressType"`
 	// A collection of settings that configure the `RStudioServerPro` Domain-level app.
 	RStudioServerProDomainSettings *DomainRStudioServerProDomainSettings `pulumi:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
@@ -9657,6 +9674,7 @@ type DomainSettingsArgs struct {
 	DockerSettings DomainDockerSettingsPtrInput `pulumi:"dockerSettings"`
 	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
 	ExecutionRoleIdentityConfig DomainSettingsExecutionRoleIdentityConfigPtrInput `pulumi:"executionRoleIdentityConfig"`
+	IpAddressType               DomainIpAddressTypePtrInput                       `pulumi:"ipAddressType"`
 	// A collection of settings that configure the `RStudioServerPro` Domain-level app.
 	RStudioServerProDomainSettings DomainRStudioServerProDomainSettingsPtrInput `pulumi:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
@@ -9755,6 +9773,10 @@ func (o DomainSettingsOutput) ExecutionRoleIdentityConfig() DomainSettingsExecut
 	}).(DomainSettingsExecutionRoleIdentityConfigPtrOutput)
 }
 
+func (o DomainSettingsOutput) IpAddressType() DomainIpAddressTypePtrOutput {
+	return o.ApplyT(func(v DomainSettings) *DomainIpAddressType { return v.IpAddressType }).(DomainIpAddressTypePtrOutput)
+}
+
 // A collection of settings that configure the `RStudioServerPro` Domain-level app.
 func (o DomainSettingsOutput) RStudioServerProDomainSettings() DomainRStudioServerProDomainSettingsPtrOutput {
 	return o.ApplyT(func(v DomainSettings) *DomainRStudioServerProDomainSettings { return v.RStudioServerProDomainSettings }).(DomainRStudioServerProDomainSettingsPtrOutput)
@@ -9812,6 +9834,15 @@ func (o DomainSettingsPtrOutput) ExecutionRoleIdentityConfig() DomainSettingsExe
 		}
 		return v.ExecutionRoleIdentityConfig
 	}).(DomainSettingsExecutionRoleIdentityConfigPtrOutput)
+}
+
+func (o DomainSettingsPtrOutput) IpAddressType() DomainIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *DomainSettings) *DomainIpAddressType {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(DomainIpAddressTypePtrOutput)
 }
 
 // A collection of settings that configure the `RStudioServerPro` Domain-level app.

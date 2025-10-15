@@ -45,6 +45,9 @@ export class LoadBalancer extends pulumi.CustomResource {
      * The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
      */
     declare public /*out*/ readonly dnsName: pulumi.Output<string>;
+    /**
+     * Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is `false` .
+     */
     declare public readonly enableCapacityReservationProvisionStabilize: pulumi.Output<boolean | undefined>;
     /**
      * [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
@@ -190,6 +193,9 @@ export class LoadBalancer extends pulumi.CustomResource {
  * The set of arguments for constructing a LoadBalancer resource.
  */
 export interface LoadBalancerArgs {
+    /**
+     * Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is `false` .
+     */
     enableCapacityReservationProvisionStabilize?: pulumi.Input<boolean>;
     /**
      * [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
