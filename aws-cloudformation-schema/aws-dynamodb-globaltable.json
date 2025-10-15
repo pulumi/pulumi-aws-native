@@ -21,8 +21,8 @@
   "readOnlyProperties" : [ "/properties/Arn", "/properties/StreamArn", "/properties/TableId" ],
   "description" : "Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable",
   "additionalIdentifiers" : [ [ "/properties/Arn" ], [ "/properties/StreamArn" ] ],
-  "writeOnlyProperties" : [ "/properties/Replicas/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity", "/properties/Replicas/*/GlobalSecondaryIndexes/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity", "/properties/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity", "/properties/GlobalSecondaryIndexes/*/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity", "/properties/GlobalTableSourceArn" ],
-  "createOnlyProperties" : [ "/properties/LocalSecondaryIndexes", "/properties/TableName", "/properties/KeySchema", "/properties/GlobalTableSourceArn" ],
+  "writeOnlyProperties" : [ "/properties/Replicas/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity", "/properties/Replicas/*/GlobalSecondaryIndexes/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity", "/properties/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity", "/properties/GlobalSecondaryIndexes/*/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity" ],
+  "createOnlyProperties" : [ "/properties/LocalSecondaryIndexes", "/properties/TableName", "/properties/KeySchema" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/TableName" ],
   "definitions" : {
@@ -462,6 +462,7 @@
       "required" : [ "Enabled" ]
     }
   },
+  "required" : [ "KeySchema", "AttributeDefinitions", "Replicas" ],
   "properties" : {
     "MultiRegionConsistency" : {
       "type" : "string",
@@ -475,10 +476,6 @@
     },
     "StreamSpecification" : {
       "$ref" : "#/definitions/StreamSpecification"
-    },
-    "GlobalTableSettingsReplicationMode" : {
-      "type" : "string",
-      "enum" : [ "ENABLED", "DISABLED" ]
     },
     "WarmThroughput" : {
       "$ref" : "#/definitions/WarmThroughput"
@@ -494,9 +491,6 @@
     },
     "WriteProvisionedThroughputSettings" : {
       "$ref" : "#/definitions/WriteProvisionedThroughputSettings"
-    },
-    "GlobalTableSourceArn" : {
-      "type" : "string"
     },
     "WriteOnDemandThroughputSettings" : {
       "$ref" : "#/definitions/WriteOnDemandThroughputSettings"
@@ -560,6 +554,5 @@
     "TimeToLiveSpecification" : {
       "$ref" : "#/definitions/TimeToLiveSpecification"
     }
-  },
-  "required" : [ "KeySchema", "AttributeDefinitions", "Replicas" ]
+  }
 }

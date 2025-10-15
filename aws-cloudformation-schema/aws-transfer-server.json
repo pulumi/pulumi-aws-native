@@ -327,8 +327,7 @@
     }
   },
   "readOnlyProperties" : [ "/properties/Arn", "/properties/As2ServiceManagedEgressIpAddresses", "/properties/ServerId", "/properties/State" ],
-  "writeOnlyProperties" : [ "/properties/IdentityProviderType" ],
-  "createOnlyProperties" : [ "/properties/Domain", "/properties/IdentityProviderType" ],
+  "createOnlyProperties" : [ "/properties/Domain" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "additionalIdentifiers" : [ [ "/properties/ServerId" ] ],
   "handlers" : {
@@ -339,7 +338,7 @@
       "permissions" : [ "ec2:DescribeVpcEndpoints", "transfer:DescribeServer" ]
     },
     "update" : {
-      "permissions" : [ "apigateway:GET", "ec2:AssociateAddress", "ec2:CreateVpcEndpoint", "ec2:DeleteVpcEndpoints", "ec2:DescribeAddresses", "ec2:DescribeNetworkInterfaces", "ec2:DescribeVpcEndpoints", "ec2:DisassociateAddress", "ec2:ModifyVpcEndpoint", "iam:PassRole", "logs:CreateLogDelivery", "logs:DeleteLogDelivery", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:GetLogDelivery", "logs:ListLogDeliveries", "logs:PutResourcePolicy", "logs:UpdateLogDelivery", "transfer:DescribeServer", "transfer:StartServer", "transfer:StopServer", "transfer:TagResource", "transfer:UnTagResource", "transfer:UpdateServer" ]
+      "permissions" : [ "apigateway:GET", "ds:AuthorizeApplication", "ds:DescribeDirectories", "ds:UnauthorizeApplication", "ec2:AssociateAddress", "ec2:CreateVpcEndpoint", "ec2:DeleteVpcEndpoints", "ec2:DescribeAddresses", "ec2:DescribeNetworkInterfaces", "ec2:DescribeVpcEndpoints", "ec2:DisassociateAddress", "ec2:ModifyVpcEndpoint", "iam:PassRole", "logs:CreateLogDelivery", "logs:DeleteLogDelivery", "logs:DescribeLogGroups", "logs:DescribeResourcePolicies", "logs:GetLogDelivery", "logs:ListLogDeliveries", "logs:PutResourcePolicy", "logs:UpdateLogDelivery", "transfer:DescribeServer", "transfer:StartServer", "transfer:StopServer", "transfer:TagResource", "transfer:UnTagResource", "transfer:UpdateServer" ]
     },
     "delete" : {
       "permissions" : [ "ds:DescribeDirectories", "ds:UnauthorizeApplication", "ec2:DeleteVpcEndpoints", "ec2:DescribeAddresses", "ec2:DescribeNetworkInterfaces", "ec2:DescribeVpcEndpoints", "ec2:DisassociateAddress", "logs:DeleteLogDelivery", "logs:GetLogDelivery", "logs:ListLogDeliveries", "transfer:DeleteServer" ]
