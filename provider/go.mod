@@ -1,8 +1,8 @@
 module github.com/pulumi/pulumi-aws-native/provider
 
-go 1.24
+go 1.24.7
 
-toolchain go1.24.2
+toolchain go1.24.9
 
 require (
 	github.com/apparentlymart/go-cidr v1.1.0
@@ -30,8 +30,8 @@ require (
 	github.com/pulumi/jsschema v0.0.0-20240222154951-2ba83b66ea54
 	github.com/pulumi/providertest v0.3.1
 	github.com/pulumi/pulumi-go-provider v0.26.0
-	github.com/pulumi/pulumi/pkg/v3 v3.198.0
-	github.com/pulumi/pulumi/sdk/v3 v3.198.0
+	github.com/pulumi/pulumi/pkg/v3 v3.203.0
+	github.com/pulumi/pulumi/sdk/v3 v3.203.0
 	github.com/stretchr/testify v1.10.0
 	github.com/wI2L/jsondiff v0.5.1
 	github.com/zclconf/go-cty v1.13.2
@@ -128,12 +128,12 @@ require (
 	github.com/santhosh-tekuri/jsonschema/v5 v5.0.0 // indirect
 	github.com/segmentio/asm v1.1.3 // indirect
 	github.com/segmentio/encoding v0.3.5 // indirect
-	github.com/sergi/go-diff v1.3.2-0.20230802210424-5b0b94c5c0d3 // indirect
+	github.com/sergi/go-diff v1.4.0 // indirect
 	github.com/skeema/knownhosts v1.3.0 // indirect
 	github.com/spf13/afero v1.10.0 // indirect
 	github.com/spf13/cast v1.5.0 // indirect
-	github.com/spf13/cobra v1.8.0 // indirect
-	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/spf13/cobra v1.10.1 // indirect
+	github.com/spf13/pflag v1.0.9 // indirect
 	github.com/texttheater/golang-levenshtein v1.0.1 // indirect
 	github.com/tidwall/gjson v1.17.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
