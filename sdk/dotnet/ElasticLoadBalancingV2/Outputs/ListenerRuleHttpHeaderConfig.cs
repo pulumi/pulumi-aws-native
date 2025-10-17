@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         /// The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
         /// </summary>
         public readonly string? HttpHeaderName;
+        public readonly ImmutableArray<string> RegexValues;
         /// <summary>
         /// The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
         ///  If the same header appears multiple times in the request, we search them in order until a match is found.
@@ -32,9 +33,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         private ListenerRuleHttpHeaderConfig(
             string? httpHeaderName,
 
+            ImmutableArray<string> regexValues,
+
             ImmutableArray<string> values)
         {
             HttpHeaderName = httpHeaderName;
+            RegexValues = regexValues;
             Values = values;
         }
     }

@@ -354,10 +354,11 @@ func (o CanaryBrowserConfigArrayOutput) Index(i pulumi.IntInput) CanaryBrowserCo
 }
 
 type CanaryCode struct {
+	BlueprintTypes []string `pulumi:"blueprintTypes"`
 	// List of Lambda layers to attach to the canary
 	Dependencies []CanaryDependency `pulumi:"dependencies"`
 	// The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
-	Handler string `pulumi:"handler"`
+	Handler *string `pulumi:"handler"`
 	// If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
 	S3Bucket *string `pulumi:"s3Bucket"`
 	// The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
@@ -382,10 +383,11 @@ type CanaryCodeInput interface {
 }
 
 type CanaryCodeArgs struct {
+	BlueprintTypes pulumi.StringArrayInput `pulumi:"blueprintTypes"`
 	// List of Lambda layers to attach to the canary
 	Dependencies CanaryDependencyArrayInput `pulumi:"dependencies"`
 	// The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
-	Handler pulumi.StringInput `pulumi:"handler"`
+	Handler pulumi.StringPtrInput `pulumi:"handler"`
 	// If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
 	S3Bucket pulumi.StringPtrInput `pulumi:"s3Bucket"`
 	// The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
@@ -424,14 +426,18 @@ func (o CanaryCodeOutput) ToCanaryCodeOutputWithContext(ctx context.Context) Can
 	return o
 }
 
+func (o CanaryCodeOutput) BlueprintTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CanaryCode) []string { return v.BlueprintTypes }).(pulumi.StringArrayOutput)
+}
+
 // List of Lambda layers to attach to the canary
 func (o CanaryCodeOutput) Dependencies() CanaryDependencyArrayOutput {
 	return o.ApplyT(func(v CanaryCode) []CanaryDependency { return v.Dependencies }).(CanaryDependencyArrayOutput)
 }
 
 // The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
-func (o CanaryCodeOutput) Handler() pulumi.StringOutput {
-	return o.ApplyT(func(v CanaryCode) string { return v.Handler }).(pulumi.StringOutput)
+func (o CanaryCodeOutput) Handler() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CanaryCode) *string { return v.Handler }).(pulumi.StringPtrOutput)
 }
 
 // If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
@@ -483,6 +489,15 @@ func (o CanaryCodePtrOutput) Elem() CanaryCodeOutput {
 	}).(CanaryCodeOutput)
 }
 
+func (o CanaryCodePtrOutput) BlueprintTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CanaryCode) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlueprintTypes
+	}).(pulumi.StringArrayOutput)
+}
+
 // List of Lambda layers to attach to the canary
 func (o CanaryCodePtrOutput) Dependencies() CanaryDependencyArrayOutput {
 	return o.ApplyT(func(v *CanaryCode) []CanaryDependency {
@@ -499,7 +514,7 @@ func (o CanaryCodePtrOutput) Handler() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Handler
+		return v.Handler
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -9648,7 +9648,8 @@ type DomainSettings struct {
 	DockerSettings *DomainDockerSettings `pulumi:"dockerSettings"`
 	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
 	ExecutionRoleIdentityConfig *DomainSettingsExecutionRoleIdentityConfig `pulumi:"executionRoleIdentityConfig"`
-	IpAddressType               *DomainIpAddressType                       `pulumi:"ipAddressType"`
+	// The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
+	IpAddressType *DomainIpAddressType `pulumi:"ipAddressType"`
 	// A collection of settings that configure the `RStudioServerPro` Domain-level app.
 	RStudioServerProDomainSettings *DomainRStudioServerProDomainSettings `pulumi:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
@@ -9674,7 +9675,8 @@ type DomainSettingsArgs struct {
 	DockerSettings DomainDockerSettingsPtrInput `pulumi:"dockerSettings"`
 	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
 	ExecutionRoleIdentityConfig DomainSettingsExecutionRoleIdentityConfigPtrInput `pulumi:"executionRoleIdentityConfig"`
-	IpAddressType               DomainIpAddressTypePtrInput                       `pulumi:"ipAddressType"`
+	// The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
+	IpAddressType DomainIpAddressTypePtrInput `pulumi:"ipAddressType"`
 	// A collection of settings that configure the `RStudioServerPro` Domain-level app.
 	RStudioServerProDomainSettings DomainRStudioServerProDomainSettingsPtrInput `pulumi:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
@@ -9773,6 +9775,7 @@ func (o DomainSettingsOutput) ExecutionRoleIdentityConfig() DomainSettingsExecut
 	}).(DomainSettingsExecutionRoleIdentityConfigPtrOutput)
 }
 
+// The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
 func (o DomainSettingsOutput) IpAddressType() DomainIpAddressTypePtrOutput {
 	return o.ApplyT(func(v DomainSettings) *DomainIpAddressType { return v.IpAddressType }).(DomainIpAddressTypePtrOutput)
 }
@@ -9836,6 +9839,7 @@ func (o DomainSettingsPtrOutput) ExecutionRoleIdentityConfig() DomainSettingsExe
 	}).(DomainSettingsExecutionRoleIdentityConfigPtrOutput)
 }
 
+// The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
 func (o DomainSettingsPtrOutput) IpAddressType() DomainIpAddressTypePtrOutput {
 	return o.ApplyT(func(v *DomainSettings) *DomainIpAddressType {
 		if v == nil {

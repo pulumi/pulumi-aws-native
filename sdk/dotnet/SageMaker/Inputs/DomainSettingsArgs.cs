@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("executionRoleIdentityConfig")]
         public Input<Pulumi.AwsNative.SageMaker.DomainSettingsExecutionRoleIdentityConfig>? ExecutionRoleIdentityConfig { get; set; }
 
+        /// <summary>
+        /// The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
+        /// </summary>
         [Input("ipAddressType")]
         public Input<Pulumi.AwsNative.SageMaker.DomainIpAddressType>? IpAddressType { get; set; }
 

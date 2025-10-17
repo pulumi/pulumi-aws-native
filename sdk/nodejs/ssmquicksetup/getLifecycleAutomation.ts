@@ -30,7 +30,13 @@ export interface GetLifecycleAutomationResult {
      * The name of the Automation document to execute
      */
     readonly automationDocument?: string;
+    /**
+     * A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
+     */
     readonly automationParameters?: {[key: string]: any};
+    /**
+     * Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**

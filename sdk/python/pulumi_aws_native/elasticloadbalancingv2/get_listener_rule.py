@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetListenerRuleResult:
-    def __init__(__self__, actions=None, conditions=None, is_default=None, priority=None, rule_arn=None):
+    def __init__(__self__, actions=None, conditions=None, is_default=None, priority=None, rule_arn=None, transforms=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -40,6 +40,9 @@ class GetListenerRuleResult:
         if rule_arn and not isinstance(rule_arn, str):
             raise TypeError("Expected argument 'rule_arn' to be a str")
         pulumi.set(__self__, "rule_arn", rule_arn)
+        if transforms and not isinstance(transforms, list):
+            raise TypeError("Expected argument 'transforms' to be a list")
+        pulumi.set(__self__, "transforms", transforms)
 
     @_builtins.property
     @pulumi.getter
@@ -84,6 +87,11 @@ class GetListenerRuleResult:
         """
         return pulumi.get(self, "rule_arn")
 
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence['outputs.ListenerRuleTransform']]:
+        return pulumi.get(self, "transforms")
+
 
 class AwaitableGetListenerRuleResult(GetListenerRuleResult):
     # pylint: disable=using-constant-test
@@ -95,7 +103,8 @@ class AwaitableGetListenerRuleResult(GetListenerRuleResult):
             conditions=self.conditions,
             is_default=self.is_default,
             priority=self.priority,
-            rule_arn=self.rule_arn)
+            rule_arn=self.rule_arn,
+            transforms=self.transforms)
 
 
 def get_listener_rule(rule_arn: Optional[_builtins.str] = None,
@@ -117,7 +126,8 @@ def get_listener_rule(rule_arn: Optional[_builtins.str] = None,
         conditions=pulumi.get(__ret__, 'conditions'),
         is_default=pulumi.get(__ret__, 'is_default'),
         priority=pulumi.get(__ret__, 'priority'),
-        rule_arn=pulumi.get(__ret__, 'rule_arn'))
+        rule_arn=pulumi.get(__ret__, 'rule_arn'),
+        transforms=pulumi.get(__ret__, 'transforms'))
 def get_listener_rule_output(rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerRuleResult]:
     """
@@ -136,4 +146,5 @@ def get_listener_rule_output(rule_arn: Optional[pulumi.Input[_builtins.str]] = N
         conditions=pulumi.get(__response__, 'conditions'),
         is_default=pulumi.get(__response__, 'is_default'),
         priority=pulumi.get(__response__, 'priority'),
-        rule_arn=pulumi.get(__response__, 'rule_arn')))
+        rule_arn=pulumi.get(__response__, 'rule_arn'),
+        transforms=pulumi.get(__response__, 'transforms')))

@@ -4180,6 +4180,7 @@ class DomainSettings(dict):
         A collection of Domain settings.
         :param 'DomainDockerSettings' docker_settings: A collection of settings that configure the domain's Docker interaction.
         :param 'DomainSettingsExecutionRoleIdentityConfig' execution_role_identity_config: The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
+        :param 'DomainIpAddressType' ip_address_type: The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
         :param 'DomainRStudioServerProDomainSettings' r_studio_server_pro_domain_settings: A collection of settings that configure the `RStudioServerPro` Domain-level app.
         :param Sequence[_builtins.str] security_group_ids: The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         :param 'DomainUnifiedStudioSettings' unified_studio_settings: The settings that apply to an SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
@@ -4216,6 +4217,9 @@ class DomainSettings(dict):
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional['DomainIpAddressType']:
+        """
+        The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
+        """
         return pulumi.get(self, "ip_address_type")
 
     @_builtins.property

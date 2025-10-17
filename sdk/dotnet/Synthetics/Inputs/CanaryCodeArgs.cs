@@ -12,6 +12,14 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
 
     public sealed class CanaryCodeArgs : global::Pulumi.ResourceArgs
     {
+        [Input("blueprintTypes")]
+        private InputList<string>? _blueprintTypes;
+        public InputList<string> BlueprintTypes
+        {
+            get => _blueprintTypes ?? (_blueprintTypes = new InputList<string>());
+            set => _blueprintTypes = value;
+        }
+
         [Input("dependencies")]
         private InputList<Inputs.CanaryDependencyArgs>? _dependencies;
 
@@ -27,8 +35,8 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         /// <summary>
         /// The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
         /// </summary>
-        [Input("handler", required: true)]
-        public Input<string> Handler { get; set; } = null!;
+        [Input("handler")]
+        public Input<string>? Handler { get; set; }
 
         /// <summary>
         /// If your canary script is located in S3, specify the bucket name here. The bucket must already exist.

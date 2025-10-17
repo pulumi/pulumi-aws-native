@@ -42,11 +42,17 @@ export class LifecycleAutomation extends pulumi.CustomResource {
      * The name of the Automation document to execute
      */
     declare public readonly automationDocument: pulumi.Output<string>;
+    /**
+     * A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
+     */
     declare public readonly automationParameters: pulumi.Output<{[key: string]: any}>;
     /**
      * A unique identifier used for generating a unique logical ID for the custom resource
      */
     declare public readonly resourceKey: pulumi.Output<string>;
+    /**
+     * Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
+     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -96,10 +102,16 @@ export interface LifecycleAutomationArgs {
      * The name of the Automation document to execute
      */
     automationDocument: pulumi.Input<string>;
+    /**
+     * A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
+     */
     automationParameters: pulumi.Input<{[key: string]: any}>;
     /**
      * A unique identifier used for generating a unique logical ID for the custom resource
      */
     resourceKey: pulumi.Input<string>;
+    /**
+     * Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

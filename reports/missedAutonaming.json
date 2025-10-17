@@ -8030,6 +8030,12 @@
       "priority": {
         "type": "integer",
         "description": "The rule priority. A listener can't have multiple rules with the same priority.\n If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update."
+      },
+      "transforms": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:elasticloadbalancingv2:ListenerRuleTransform"
+        }
       }
     }
   },
@@ -14903,7 +14909,8 @@
         "type": "object",
         "additionalProperties": {
           "$ref": "pulumi.json#/Any"
-        }
+        },
+        "description": "A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow."
       },
       "resourceKey": {
         "type": "string",
@@ -14913,7 +14920,8 @@
         "type": "object",
         "additionalProperties": {
           "type": "string"
-        }
+        },
+        "description": "Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions."
       }
     }
   },

@@ -155,7 +155,9 @@ class CanaryCode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "s3Bucket":
+        if key == "blueprintTypes":
+            suggest = "blueprint_types"
+        elif key == "s3Bucket":
             suggest = "s3_bucket"
         elif key == "s3Key":
             suggest = "s3_key"
@@ -176,25 +178,29 @@ class CanaryCode(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 handler: _builtins.str,
+                 blueprint_types: Optional[Sequence[_builtins.str]] = None,
                  dependencies: Optional[Sequence['outputs.CanaryDependency']] = None,
+                 handler: Optional[_builtins.str] = None,
                  s3_bucket: Optional[_builtins.str] = None,
                  s3_key: Optional[_builtins.str] = None,
                  s3_object_version: Optional[_builtins.str] = None,
                  script: Optional[_builtins.str] = None,
                  source_location_arn: Optional[_builtins.str] = None):
         """
-        :param _builtins.str handler: The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
         :param Sequence['CanaryDependency'] dependencies: List of Lambda layers to attach to the canary
+        :param _builtins.str handler: The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
         :param _builtins.str s3_bucket: If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
         :param _builtins.str s3_key: The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
         :param _builtins.str s3_object_version: The Amazon S3 version ID of your script.
         :param _builtins.str script: If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text. It can be up to 5 MB.
         :param _builtins.str source_location_arn: The ARN of the Lambda layer where Synthetics stores the canary script code.
         """
-        pulumi.set(__self__, "handler", handler)
+        if blueprint_types is not None:
+            pulumi.set(__self__, "blueprint_types", blueprint_types)
         if dependencies is not None:
             pulumi.set(__self__, "dependencies", dependencies)
+        if handler is not None:
+            pulumi.set(__self__, "handler", handler)
         if s3_bucket is not None:
             pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_key is not None:
@@ -207,12 +213,9 @@ class CanaryCode(dict):
             pulumi.set(__self__, "source_location_arn", source_location_arn)
 
     @_builtins.property
-    @pulumi.getter
-    def handler(self) -> _builtins.str:
-        """
-        The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
-        """
-        return pulumi.get(self, "handler")
+    @pulumi.getter(name="blueprintTypes")
+    def blueprint_types(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "blueprint_types")
 
     @_builtins.property
     @pulumi.getter
@@ -221,6 +224,14 @@ class CanaryCode(dict):
         List of Lambda layers to attach to the canary
         """
         return pulumi.get(self, "dependencies")
+
+    @_builtins.property
+    @pulumi.getter
+    def handler(self) -> Optional[_builtins.str]:
+        """
+        The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
+        """
+        return pulumi.get(self, "handler")
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")

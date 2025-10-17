@@ -46,6 +46,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         /// Information for a query string condition. Specify only when ``Field`` is ``query-string``.
         /// </summary>
         public readonly Outputs.ListenerRuleQueryStringConfig? QueryStringConfig;
+        public readonly ImmutableArray<string> RegexValues;
         /// <summary>
         /// Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.
         /// </summary>
@@ -81,6 +82,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
             Outputs.ListenerRuleQueryStringConfig? queryStringConfig,
 
+            ImmutableArray<string> regexValues,
+
             Outputs.ListenerRuleSourceIpConfig? sourceIpConfig,
 
             ImmutableArray<string> values)
@@ -91,6 +94,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
             HttpRequestMethodConfig = httpRequestMethodConfig;
             PathPatternConfig = pathPatternConfig;
             QueryStringConfig = queryStringConfig;
+            RegexValues = regexValues;
             SourceIpConfig = sourceIpConfig;
             Values = values;
         }

@@ -57,6 +57,14 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         [Input("queryStringConfig")]
         public Input<Inputs.ListenerRuleQueryStringConfigArgs>? QueryStringConfig { get; set; }
 
+        [Input("regexValues")]
+        private InputList<string>? _regexValues;
+        public InputList<string> RegexValues
+        {
+            get => _regexValues ?? (_regexValues = new InputList<string>());
+            set => _regexValues = value;
+        }
+
         /// <summary>
         /// Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.
         /// </summary>
