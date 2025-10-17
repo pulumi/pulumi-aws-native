@@ -85,16 +85,6 @@ func makeCancellationContext() *cancellationContext {
 	}
 }
 
-// Disabled rate limiter to avoid rate limiting attempt retries
-// across all attempts the retryer is being used with.
-// https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/aws/retry#StandardOptions.RateLimiter
-type noOpRateLimiter struct{}
-
-func (noOpRateLimiter) AddTokens(uint) error { return nil }
-func (noOpRateLimiter) GetToken(context.Context, uint) (func() error, error) {
-	return func() error { return nil }, nil
-}
-
 type cfnProvider struct {
 	pulumirpc.UnimplementedResourceProviderServer
 
@@ -440,7 +430,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 			if maxRetryRateTokens > 0 {
 				o.RateLimiter = ratelimit.NewTokenRateLimit(uint(maxRetryRateTokens))
 			} else {
-				o.RateLimiter = noOpRateLimiter{}
+				o.RateLimiter = ratelimit.None
 			}
 		})
 	}
