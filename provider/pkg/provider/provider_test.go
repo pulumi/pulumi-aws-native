@@ -365,7 +365,7 @@ func TestCreate(t *testing.T) {
 		}
 		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
 
-		mockCCC.EXPECT().Create(ctx, "AWS::S3::Bucket", gomock.Any()).Return(
+		mockCCC.EXPECT().Create(ctx, gomock.Any(), "AWS::S3::Bucket", gomock.Any()).Return(
 			stringPtr("bucket-id"), map[string]interface{}{"foo": "bar"}, nil,
 		)
 
@@ -397,7 +397,7 @@ func TestCreate(t *testing.T) {
 		}
 		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
 
-		mockCCC.EXPECT().Create(ctx, "AWS::S3::Bucket", gomock.Any()).Return(
+		mockCCC.EXPECT().Create(ctx, gomock.Any(), "AWS::S3::Bucket", gomock.Any()).Return(
 			nil, nil, assert.AnError,
 		)
 
@@ -412,7 +412,7 @@ func TestCreate(t *testing.T) {
 		}
 		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
 
-		mockCCC.EXPECT().Create(ctx, "AWS::S3::Bucket", gomock.Any()).Return(
+		mockCCC.EXPECT().Create(ctx, gomock.Any(), "AWS::S3::Bucket", gomock.Any()).Return(
 			stringPtr("bucket-id"), map[string]interface{}{"foo": "bar"}, assert.AnError,
 		)
 
@@ -734,7 +734,7 @@ func TestUpdate(t *testing.T) {
 			"__inputs":          resource.MakeSecret(resource.NewObjectProperty(inputs)),
 		})
 
-		mockCCC.EXPECT().Update(ctx, "AWS::S3::Bucket", "resource-id", gomock.Any()).Return(
+		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", gomock.Any()).Return(
 			map[string]interface{}{
 				// Change the bucket name and object lock status according to the inputs
 				"bucketName":        resource.NewStringProperty("new-bucket"),
@@ -766,7 +766,7 @@ func TestUpdate(t *testing.T) {
 		}
 		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
 
-		mockCCC.EXPECT().Update(ctx, "AWS::S3::Bucket", "resource-id", gomock.Any()).Return(
+		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", gomock.Any()).Return(
 			nil, assert.AnError,
 		)
 
@@ -821,7 +821,7 @@ func TestDelete(t *testing.T) {
 		}
 		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
 
-		mockCCC.EXPECT().Delete(ctx, "AWS::S3::Bucket", "resource-id").Return(nil)
+		mockCCC.EXPECT().Delete(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id").Return(nil)
 
 		_, err := provider.Delete(ctx, req)
 		assert.NoError(t, err)
@@ -833,7 +833,7 @@ func TestDelete(t *testing.T) {
 		}
 		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
 
-		mockCCC.EXPECT().Delete(ctx, "AWS::S3::Bucket", "resource-id").Return(assert.AnError)
+		mockCCC.EXPECT().Delete(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id").Return(assert.AnError)
 
 		_, err := provider.Delete(ctx, req)
 		assert.Error(t, err)

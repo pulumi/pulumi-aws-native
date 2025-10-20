@@ -14,9 +14,12 @@ import (
 	"github.com/aws/smithy-go"
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 	"github.com/mattbaird/jsonpatch"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
+
+var testURN = resource.URN("urn:pulumi:stack::project::type::name")
 
 func TestClientRead(t *testing.T) {
 	ctx := context.TODO()
@@ -132,7 +135,7 @@ func TestClientCreate(t *testing.T) {
 			return resourceState, nil
 		}
 
-		id, outputs, err := client.Create(ctx, typeName, desiredState)
+		id, outputs, err := client.Create(ctx, testURN, typeName, desiredState)
 
 		assert.NoError(t, err)
 		assert.Equal(t, &resourceID, id)
@@ -144,7 +147,7 @@ func TestClientCreate(t *testing.T) {
 			return nil, errors.New("creation failed")
 		}
 
-		id, outputs, err := client.Create(ctx, typeName, desiredState)
+		id, outputs, err := client.Create(ctx, testURN, typeName, desiredState)
 
 		assert.Equal(t, "creating resource: creation failed", err.Error())
 		assert.Nil(t, id)
@@ -163,7 +166,7 @@ func TestClientCreate(t *testing.T) {
 			return nil, errors.New("creation failed")
 		}
 
-		id, outputs, err := client.Create(ctx, typeName, desiredState)
+		id, outputs, err := client.Create(ctx, testURN, typeName, desiredState)
 
 		assert.Equal(t, "creating resource (await): creation failed", err.Error())
 		assert.Nil(t, id)
@@ -182,7 +185,7 @@ func TestClientCreate(t *testing.T) {
 			return &types.ProgressEvent{Identifier: nil}, nil
 		}
 
-		id, outputs, err := client.Create(ctx, typeName, desiredState)
+		id, outputs, err := client.Create(ctx, testURN, typeName, desiredState)
 
 		assert.Equal(t, "received nil identifier while awaiting completion", err.Error())
 		assert.Nil(t, id)
@@ -207,7 +210,7 @@ func TestClientCreate(t *testing.T) {
 			return nil, errors.New("read error")
 		}
 
-		id, outputs, err := client.Create(ctx, typeName, desiredState)
+		id, outputs, err := client.Create(ctx, testURN, typeName, desiredState)
 
 		assert.Equal(t, "creating resource (await): await failed", err.Error())
 		assert.Nil(t, id)
@@ -232,7 +235,7 @@ func TestClientCreate(t *testing.T) {
 			return nil, errors.New("read error")
 		}
 
-		id, outputs, err := client.Create(ctx, typeName, desiredState)
+		id, outputs, err := client.Create(ctx, testURN, typeName, desiredState)
 
 		assert.Equal(t, "reading resource state: read error", err.Error())
 		assert.Nil(t, id)
@@ -258,7 +261,7 @@ func TestClientCreate(t *testing.T) {
 			return resourceState, nil
 		}
 
-		id, outputs, err := client.Create(ctx, typeName, desiredState)
+		id, outputs, err := client.Create(ctx, testURN, typeName, desiredState)
 
 		assert.Equal(t, "await failed", err.Error())
 		assert.Equal(t, &resourceID, id)
@@ -277,7 +280,7 @@ func TestClientCreate(t *testing.T) {
 			return &types.ProgressEvent{Identifier: &resourceID, ErrorCode: "AlreadyExists"}, errors.New("resource with same id alteady exists")
 		}
 
-		id, outputs, err := client.Create(ctx, typeName, desiredState)
+		id, outputs, err := client.Create(ctx, testURN, typeName, desiredState)
 
 		assert.Equal(t, "resource with same id alteady exists", err.Error())
 		assert.Nil(t, id)
@@ -320,7 +323,7 @@ func TestClientCreate(t *testing.T) {
 			}
 		}
 
-		id, outputs, err := client.Create(ctx, typeName, desiredState)
+		id, outputs, err := client.Create(ctx, testURN, typeName, desiredState)
 
 		assert.NoError(t, err)
 		t.Logf("ID=%v", id)

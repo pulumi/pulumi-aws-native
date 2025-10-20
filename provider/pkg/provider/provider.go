@@ -491,7 +491,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	}
 
 	p.cfn = cloudformation.NewFromConfig(cfg)
-	p.ccc = client.NewCloudControlClient(cloudcontrol.NewFromConfig(cfg), p.roleArn)
+	p.ccc = client.NewCloudControlClient(cloudcontrol.NewFromConfig(cfg), p.roleArn, p.host)
 	p.ec2 = ec2.NewFromConfig(cfg)
 	p.ssm = ssm.NewFromConfig(cfg)
 	p.sts = sts.NewFromConfig(cfg)
@@ -902,7 +902,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		// Create the resource with Cloud API.
 		glog.V(9).Infof("%s.CreateResource %q", label, cfType)
 		var resourceState map[string]interface{}
-		id, resourceState, createErr = p.ccc.Create(ctx, cfType, payload)
+		id, resourceState, createErr = p.ccc.Create(ctx, urn, cfType, payload)
 		if createErr != nil && (id == nil || resourceState == nil) {
 			return nil, errors.Wrapf(createErr, "creating resource")
 		}
@@ -1152,7 +1152,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		}
 
 		glog.V(9).Infof("%s.UpdateResource %q id %q state %+v", label, spec.CfType, id, ops)
-		resourceState, err := p.ccc.Update(p.canceler.context, spec.CfType, id, ops)
+		resourceState, err := p.ccc.Update(p.canceler.context, urn, spec.CfType, id, ops)
 		if err != nil {
 			return nil, err
 		}
@@ -1220,7 +1220,7 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 		}
 
 		glog.V(9).Infof("%s.DeleteResource %q id %q", label, spec.CfType, id)
-		err := p.ccc.Delete(p.canceler.context, spec.CfType, id)
+		err := p.ccc.Delete(p.canceler.context, urn, spec.CfType, id)
 		if err != nil {
 			return nil, err
 		}
