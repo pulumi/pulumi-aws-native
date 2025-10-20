@@ -85,16 +85,6 @@ func makeCancellationContext() *cancellationContext {
 	}
 }
 
-// Disabled rate limiter to avoid rate limiting attempt retries
-// across all attempts the retryer is being used with.
-// https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/aws/retry#StandardOptions.RateLimiter
-type noOpRateLimiter struct{}
-
-func (noOpRateLimiter) AddTokens(uint) error { return nil }
-func (noOpRateLimiter) GetToken(context.Context, uint) (func() error, error) {
-	return func() error { return nil }, nil
-}
-
 type cfnProvider struct {
 	pulumirpc.UnimplementedResourceProviderServer
 
@@ -434,15 +424,34 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		glog.V(4).Infof("using Retry Token Rate Limit: unlimited")
 	}
 
-	cfg.Retryer = func() aws.Retryer {
-		return retry.NewStandard(func(o *retry.StandardOptions) {
-			o.MaxAttempts = maxRetries
+	cfg.Retryer = func() (r aws.Retryer) {
+		ratelimitter := func(o *retry.StandardOptions) {
+			// We don't use a token bucket by default because that will raise
+			// errors when the bucket is empty. Instead, the adaptive retryer
+			// will sleep for us when the server responds with Throttling
+			// errors. The default backoff strategy also introduces delays when
+			// retrying.
+			o.RateLimiter = ratelimit.None
 			if maxRetryRateTokens > 0 {
 				o.RateLimiter = ratelimit.NewTokenRateLimit(uint(maxRetryRateTokens))
-			} else {
-				o.RateLimiter = noOpRateLimiter{}
 			}
+		}
+
+		// Increase the maximum number of retry attempts from the default of 3.
+		// Note this must be applied after AddWithErrorCodes for some reason. r
+		retries := func(o *retry.StandardOptions) {
+			o.MaxAttempts = maxRetries
+		}
+
+		// AdaptiveMode is similar to the default Standard retryer but sleeps
+		// when it gets a Throttling response.
+		retryer := retry.NewAdaptiveMode(func(o *retry.AdaptiveModeOptions) {
+			o.StandardOptions = append(o.StandardOptions,
+				ratelimitter,
+				retries,
+			)
 		})
+		return retryer
 	}
 
 	if allowedAccountIdsJson, ok := vars["aws-native:config:allowedAccountIds"]; ok {
@@ -491,7 +500,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	}
 
 	p.cfn = cloudformation.NewFromConfig(cfg)
-	p.ccc = client.NewCloudControlClient(cloudcontrol.NewFromConfig(cfg), p.roleArn, p.host)
+	p.ccc = client.NewCloudControlClient(cloudcontrol.NewFromConfig(cfg), p.roleArn, cfg.Retryer, p.host)
 	p.ec2 = ec2.NewFromConfig(cfg)
 	p.ssm = ssm.NewFromConfig(cfg)
 	p.sts = sts.NewFromConfig(cfg)

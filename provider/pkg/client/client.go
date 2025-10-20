@@ -9,6 +9,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/aws/retry"
 	"github.com/aws/aws-sdk-go-v2/aws/transport/http"
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol"
@@ -53,14 +54,16 @@ type CloudControlClient interface {
 type clientImpl struct {
 	api     CloudControlApiClient
 	awaiter CloudControlAwaiter
+	retryer func() aws.Retryer
 	logger  Logger
 }
 
-func NewCloudControlClient(cctl *cloudcontrol.Client, roleArn *string, logger Logger) CloudControlClient {
+func NewCloudControlClient(cctl *cloudcontrol.Client, roleArn *string, retryer func() aws.Retryer, logger Logger) CloudControlClient {
 	api := NewCloudControlApiClient(cctl, roleArn)
 	return &clientImpl{
 		api:     api,
 		awaiter: NewCloudControlAwaiter(api),
+		retryer: retryer,
 		logger:  logger,
 	}
 }
@@ -73,12 +76,13 @@ func (c *clientImpl) Create(ctx context.Context, urn resource.URN, typeName stri
 	}
 	payload := string(jsonBytes)
 
-	res, err := c.api.CreateResource(ctx, typeName, payload)
-	if err != nil {
-		return nil, nil, fmt.Errorf("creating resource: %w", err)
-	}
-
-	pi, waitErr := c.awaiter.WaitForResourceOpCompletion(ctx, res)
+	pi, waitErr := c.withRetries(ctx, urn, func() (*types.ProgressEvent, error) {
+		res, err := c.api.CreateResource(ctx, typeName, payload)
+		if err != nil {
+			return nil, fmt.Errorf("creating resource: %w", err)
+		}
+		return c.awaiter.WaitForResourceOpCompletion(ctx, res)
+	})
 	if waitErr != nil {
 		if pi == nil || pi.Identifier == nil {
 			return nil, nil, fmt.Errorf("creating resource (await): %w", waitErr)
@@ -139,12 +143,14 @@ func (c *clientImpl) Read(ctx context.Context, typeName, identifier string) (res
 }
 
 func (c *clientImpl) Update(ctx context.Context, urn resource.URN, typeName, identifier string, patches []jsonpatch.JsonPatchOperation) (map[string]interface{}, error) {
-	res, err := c.api.UpdateResource(ctx, typeName, identifier, patches)
+	_, err := c.withRetries(ctx, urn, func() (*types.ProgressEvent, error) {
+		res, err := c.api.UpdateResource(ctx, typeName, identifier, patches)
+		if err != nil {
+			return nil, err
+		}
+		return c.awaiter.WaitForResourceOpCompletion(ctx, res)
+	})
 	if err != nil {
-		return nil, err
-	}
-
-	if _, err = c.awaiter.WaitForResourceOpCompletion(ctx, res); err != nil {
 		return nil, err
 	}
 
@@ -157,12 +163,13 @@ func (c *clientImpl) Update(ctx context.Context, urn resource.URN, typeName, ide
 }
 
 func (c *clientImpl) Delete(ctx context.Context, urn resource.URN, typeName, identifier string) error {
-	res, err := c.api.DeleteResource(ctx, typeName, identifier)
-	if err != nil {
-		return err
-	}
-
-	pi, err := c.awaiter.WaitForResourceOpCompletion(ctx, res)
+	pi, err := c.withRetries(ctx, urn, func() (*types.ProgressEvent, error) {
+		res, err := c.api.DeleteResource(ctx, typeName, identifier)
+		if err != nil {
+			return nil, err
+		}
+		return c.awaiter.WaitForResourceOpCompletion(ctx, res)
+	})
 
 	if err != nil && pi != nil {
 		errorCode := pi.ErrorCode
@@ -214,4 +221,143 @@ func (*clientImpl) getResourceRetryNotFoundRetrySettings() (int, *retry.Exponent
 	retryBackoff := retry.NewExponentialJitterBackoff(5 * time.Second)
 	maxAttempts := 5
 	return maxAttempts, retryBackoff
+}
+
+// progressEventToError converts a CloudControl ProgressEvent error into an AWS
+// SDK error type that the SDK's retry logic can recognize and handle
+// appropriately.
+func progressEventToError(pi *types.ProgressEvent) error {
+	if pi == nil {
+		return nil
+	}
+
+	statusMessage := ""
+	if pi.StatusMessage != nil {
+		statusMessage = *pi.StatusMessage
+	}
+
+	// Map CloudControl error codes to corresponding SDK error types. These
+	// error types match what the SDK's retry logic expects, allowing retry-able
+	// errors (throttling, transient failures) to be retried automatically.
+	switch pi.ErrorCode {
+	case types.HandlerErrorCodeThrottling:
+		return &types.ThrottlingException{
+			Message: &statusMessage,
+		}
+	case types.HandlerErrorCodeServiceInternalError:
+		return &types.ServiceInternalErrorException{
+			Message: &statusMessage,
+		}
+	case types.HandlerErrorCodeServiceLimitExceeded:
+		return &types.ServiceLimitExceededException{
+			Message: &statusMessage,
+		}
+	case types.HandlerErrorCodeNetworkFailure:
+		return &types.NetworkFailureException{
+			Message: &statusMessage,
+		}
+	case types.HandlerErrorCodeInternalFailure:
+		return &types.HandlerInternalFailureException{
+			Message: &statusMessage,
+		}
+	case types.HandlerErrorCodeGeneralServiceException:
+		return &types.GeneralServiceException{
+			Message: &statusMessage,
+		}
+	default:
+		// For other error codes (InvalidRequest, AccessDenied, etc.), return a
+		// generic error that won't be retried.
+		return fmt.Errorf("operation %s failed with %q: %s", pi.Operation, pi.ErrorCode, statusMessage)
+	}
+}
+
+// withRetries wraps a CloudControl operation with SDK-like retries. It
+// executes the operation and retries based on the configured Retryer,
+// imitating behavior users would see if they had performed the operation
+// directly through the SDK.
+//
+// This is necessary because our SDK config only handles retries when
+// communicating with Cloud Control, but all of CC's operations happen
+// asynchronously with their own (default) retry logic, meaning they are
+// limited to the default of 3 retries and Throttling errors aren't handled.
+func (c *clientImpl) withRetries(
+	ctx context.Context,
+	urn resource.URN,
+	operation func() (*types.ProgressEvent, error),
+) (pi *types.ProgressEvent, err error) {
+	retryer := c.retryer()
+	maxAttempts := retryer.MaxAttempts()
+
+	releaseInitialToken := retryer.GetInitialToken()
+	defer func() {
+		_ = releaseInitialToken(err)
+	}()
+
+	for attempt := 0; attempt < maxAttempts; attempt++ {
+		pi, err = operation()
+
+		// Nothing else to do if we succeeded, or if we weren't able to get a
+		// progress event. (At this point the SDK will have already retried
+		// this request for us.)
+		if err == nil || pi == nil {
+			return pi, err
+		}
+
+		// Re-hydrate the progress event into an error our Retryer can work with.
+		sdkErr := progressEventToError(pi)
+
+		if !retryer.IsErrorRetryable(sdkErr) {
+			return pi, err // Nothing else to do.
+		}
+
+		// Try to get a retry token (handles rate limiting)
+		releaseToken, tokenErr := retryer.GetRetryToken(ctx, sdkErr)
+		if tokenErr != nil {
+			if c.logger != nil {
+				_ = c.logger.LogStatus(ctx, diag.Warning, urn, fmt.Sprintf(
+					"Couldn't acquire retry token: %s", tokenErr,
+				))
+			}
+			return pi, err
+		}
+
+		// Check if we've exhausted retry attempts
+		if attempt >= maxAttempts-1 {
+			_ = releaseToken(sdkErr)
+			if c.logger != nil {
+				_ = c.logger.LogStatus(ctx, diag.Warning, urn, "Exhausted retry attempts")
+			}
+			return pi, err
+		}
+
+		// Calculate retry delay using the SDK's backoff strategy.
+		delay, delayErr := retryer.RetryDelay(attempt+1, sdkErr)
+		if delayErr != nil {
+			_ = releaseToken(sdkErr)
+			if c.logger != nil {
+				_ = c.logger.LogStatus(ctx, diag.Warning, urn, fmt.Sprintf(
+					"Couldn't calculate retry delay: %s", delayErr,
+				))
+			}
+			return pi, err
+		}
+
+		if c.logger != nil {
+			_ = c.logger.LogStatus(ctx, diag.Info, urn, fmt.Sprintf(
+				"Retrying after %q error (attempt %d/%d, waiting %s)", pi.ErrorCode, attempt+1, maxAttempts, delay,
+			))
+		}
+
+		// Wait to retry.
+		select {
+		case <-ctx.Done():
+			_ = releaseToken(sdkErr)
+			return nil, ctx.Err()
+		case <-time.After(delay):
+			_ = releaseToken(nil) // nil indicates retry will proceed.
+		}
+	}
+
+	// Shouldn't reach this.
+	return nil, err
 }
