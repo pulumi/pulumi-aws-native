@@ -79,13 +79,13 @@ func (c *clientImpl) Create(ctx context.Context, urn resource.URN, typeName stri
 	pi, waitErr := c.withRetries(ctx, urn, func() (*types.ProgressEvent, error) {
 		res, err := c.api.CreateResource(ctx, typeName, payload)
 		if err != nil {
-			return nil, fmt.Errorf("creating resource: %w", err)
+			return nil, err
 		}
 		return c.awaiter.WaitForResourceOpCompletion(ctx, res)
 	})
 	if waitErr != nil {
 		if pi == nil || pi.Identifier == nil {
-			return nil, nil, fmt.Errorf("creating resource (await): %w", waitErr)
+			return nil, nil, fmt.Errorf("creating resource: %w", waitErr)
 		}
 		if pi.ErrorCode == types.HandlerErrorCodeAlreadyExists {
 			// Already Exists is a special case because it's the scenario when we can't proceed to resource read
