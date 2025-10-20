@@ -170,7 +170,7 @@ func TestClientCreate(t *testing.T) {
 
 		id, outputs, err := client.Create(ctx, testURN, typeName, desiredState)
 
-		assert.Equal(t, "creating resource (await): creation failed", err.Error())
+		assert.Equal(t, "creating resource: creation failed", err.Error())
 		assert.Nil(t, id)
 		assert.Nil(t, outputs)
 	})
