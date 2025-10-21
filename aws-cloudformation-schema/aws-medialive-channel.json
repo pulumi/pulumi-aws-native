@@ -2706,6 +2706,33 @@
           "items" : {
             "$ref" : "#/definitions/CaptionLanguageMapping"
           }
+        },
+        "Scte35Type" : {
+          "type" : "string"
+        },
+        "SegmentLengthUnits" : {
+          "type" : "string"
+        },
+        "TimedMetadataId3Frame" : {
+          "type" : "string"
+        },
+        "TimedMetadataId3Period" : {
+          "type" : "integer"
+        },
+        "TimedMetadataPassthrough" : {
+          "type" : "string"
+        },
+        "NielsenId3Behavior" : {
+          "type" : "string"
+        },
+        "KlvBehavior" : {
+          "type" : "string"
+        },
+        "Id3Behavior" : {
+          "type" : "string"
+        },
+        "SegmentLength" : {
+          "type" : "integer"
         }
       }
     },
