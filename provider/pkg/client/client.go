@@ -223,52 +223,23 @@ func (*clientImpl) getResourceRetryNotFoundRetrySettings() (int, *retry.Exponent
 	return maxAttempts, retryBackoff
 }
 
-// progressEventToError converts a CloudControl ProgressEvent error into an AWS
-// SDK error type that the SDK's retry logic can recognize and handle
-// appropriately.
+// progressEventToError converts a CloudControl ProgressEvent error into a
+// generic AWS SDK error type that the SDK's retry logic can recognize and
+// handle appropriately.
 func progressEventToError(pi *types.ProgressEvent) error {
 	if pi == nil {
 		return nil
 	}
 
-	statusMessage := ""
-	if pi.StatusMessage != nil {
-		statusMessage = *pi.StatusMessage
+	err := &smithy.GenericAPIError{
+		Code: string(pi.ErrorCode),
 	}
 
-	// Map CloudControl error codes to corresponding SDK error types. These
-	// error types match what the SDK's retry logic expects, allowing retry-able
-	// errors (throttling, transient failures) to be retried automatically.
-	switch pi.ErrorCode {
-	case types.HandlerErrorCodeThrottling:
-		return &types.ThrottlingException{
-			Message: &statusMessage,
-		}
-	case types.HandlerErrorCodeServiceInternalError:
-		return &types.ServiceInternalErrorException{
-			Message: &statusMessage,
-		}
-	case types.HandlerErrorCodeServiceLimitExceeded:
-		return &types.ServiceLimitExceededException{
-			Message: &statusMessage,
-		}
-	case types.HandlerErrorCodeNetworkFailure:
-		return &types.NetworkFailureException{
-			Message: &statusMessage,
-		}
-	case types.HandlerErrorCodeInternalFailure:
-		return &types.HandlerInternalFailureException{
-			Message: &statusMessage,
-		}
-	case types.HandlerErrorCodeGeneralServiceException:
-		return &types.GeneralServiceException{
-			Message: &statusMessage,
-		}
-	default:
-		// For other error codes (InvalidRequest, AccessDenied, etc.), return a
-		// generic error that won't be retried.
-		return fmt.Errorf("operation %s failed with %q: %s", pi.Operation, pi.ErrorCode, statusMessage)
+	if pi.StatusMessage != nil {
+		err.Message = *pi.StatusMessage
 	}
+
+	return err
 }
 
 // withRetries wraps a CloudControl operation with SDK-like retries. It
