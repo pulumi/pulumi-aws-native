@@ -122,7 +122,7 @@ func (r *extensionResource) Create(ctx context.Context, urn resource.URN, inputs
 		return nil, nil, fmt.Errorf("failed to unmarshal inputs: %w", err)
 	}
 
-	id, resourceState, err := r.client.Create(ctx, typedInputs.Type, typedInputs.Properties)
+	id, resourceState, err := r.client.Create(ctx, urn, typedInputs.Type, typedInputs.Properties)
 	if err != nil {
 		return nil, nil, fmt.Errorf("failed to create resource: %w", err)
 	}
@@ -191,7 +191,7 @@ func (r *extensionResource) Update(ctx context.Context, urn resource.URN, id str
 		return nil, fmt.Errorf("failed to calculate patch: %w", err)
 	}
 
-	resourceState, err := r.client.Update(ctx, typedInputs.Type, id, jsonPatch)
+	resourceState, err := r.client.Update(ctx, urn, typedInputs.Type, id, jsonPatch)
 	if err != nil {
 		return nil, fmt.Errorf("failed to update resource: %w", err)
 	}
@@ -207,7 +207,7 @@ func (r *extensionResource) Delete(ctx context.Context, urn resource.URN, id str
 		return fmt.Errorf("failed to unmarshal inputs: %w", err)
 	}
 
-	err = r.client.Delete(ctx, typedInputs.Type, id)
+	err = r.client.Delete(ctx, urn, typedInputs.Type, id)
 	if err != nil {
 		return fmt.Errorf("failed to delete resource: %w", err)
 	}

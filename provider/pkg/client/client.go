@@ -17,8 +17,15 @@ import (
 	"github.com/golang/glog"
 	"github.com/mattbaird/jsonpatch"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
+
+// Logger provides a way to emit diagnostic messages with resource context.
+type Logger interface {
+	LogStatus(ctx context.Context, sev diag.Severity, urn resource.URN, msg string) error
+}
 
 // CloudControlApiClient providers CRUD operations around Cloud Control API, with the mechanics of API calls abstracted away.
 // For instance, it serializes and deserializes wire data and follows the protocol of long-running operations.
@@ -27,7 +34,7 @@ import (
 type CloudControlClient interface {
 	// Create creates a resource of the specified type with the desired state.
 	// It awaits the operation until completion and returns a map of output property values.
-	Create(ctx context.Context, typeName string, desiredState map[string]any) (identifier *string, resourceState map[string]any, err error)
+	Create(ctx context.Context, urn resource.URN, typeName string, desiredState map[string]any) (identifier *string, resourceState map[string]any, err error)
 
 	// Read returns the current state of the specified resource. It deserializes
 	// the response from the service into a map of untyped values.
@@ -36,27 +43,29 @@ type CloudControlClient interface {
 
 	// Update updates a resource of the specified type with the specified changeset.
 	// It awaits the operation until completion and returns a map of output property values.
-	Update(ctx context.Context, typeName, identifier string, patches []jsonpatch.JsonPatchOperation) (map[string]interface{}, error)
+	Update(ctx context.Context, urn resource.URN, typeName, identifier string, patches []jsonpatch.JsonPatchOperation) (map[string]interface{}, error)
 
 	// Delete deletes a resource of the specified type with the given identifier.
 	// It awaits the operation until completion.
-	Delete(ctx context.Context, typeName, identifier string) error
+	Delete(ctx context.Context, urn resource.URN, typeName, identifier string) error
 }
 
 type clientImpl struct {
 	api     CloudControlApiClient
 	awaiter CloudControlAwaiter
+	logger  Logger
 }
 
-func NewCloudControlClient(cctl *cloudcontrol.Client, roleArn *string) CloudControlClient {
+func NewCloudControlClient(cctl *cloudcontrol.Client, roleArn *string, logger Logger) CloudControlClient {
 	api := NewCloudControlApiClient(cctl, roleArn)
 	return &clientImpl{
 		api:     api,
 		awaiter: NewCloudControlAwaiter(api),
+		logger:  logger,
 	}
 }
 
-func (c *clientImpl) Create(ctx context.Context, typeName string, desiredState map[string]any) (identifier *string, resourceState map[string]any, err error) {
+func (c *clientImpl) Create(ctx context.Context, urn resource.URN, typeName string, desiredState map[string]any) (identifier *string, resourceState map[string]any, err error) {
 	// Serialize inputs as a desired state JSON.
 	jsonBytes, err := json.Marshal(desiredState)
 	if err != nil {
@@ -129,7 +138,7 @@ func (c *clientImpl) Read(ctx context.Context, typeName, identifier string) (res
 	return resourceState, true, nil
 }
 
-func (c *clientImpl) Update(ctx context.Context, typeName, identifier string, patches []jsonpatch.JsonPatchOperation) (map[string]interface{}, error) {
+func (c *clientImpl) Update(ctx context.Context, urn resource.URN, typeName, identifier string, patches []jsonpatch.JsonPatchOperation) (map[string]interface{}, error) {
 	res, err := c.api.UpdateResource(ctx, typeName, identifier, patches)
 	if err != nil {
 		return nil, err
@@ -147,7 +156,7 @@ func (c *clientImpl) Update(ctx context.Context, typeName, identifier string, pa
 	return resourceState, nil
 }
 
-func (c *clientImpl) Delete(ctx context.Context, typeName, identifier string) error {
+func (c *clientImpl) Delete(ctx context.Context, urn resource.URN, typeName, identifier string) error {
 	res, err := c.api.DeleteResource(ctx, typeName, identifier)
 	if err != nil {
 		return err

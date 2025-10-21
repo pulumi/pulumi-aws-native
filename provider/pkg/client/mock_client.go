@@ -14,8 +14,48 @@ import (
 	reflect "reflect"
 
 	jsonpatch "github.com/mattbaird/jsonpatch"
+	diag "github.com/pulumi/pulumi/sdk/v3/go/common/diag"
+	resource "github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	gomock "go.uber.org/mock/gomock"
 )
+
+// MockLogger is a mock of Logger interface.
+type MockLogger struct {
+	ctrl     *gomock.Controller
+	recorder *MockLoggerMockRecorder
+	isgomock struct{}
+}
+
+// MockLoggerMockRecorder is the mock recorder for MockLogger.
+type MockLoggerMockRecorder struct {
+	mock *MockLogger
+}
+
+// NewMockLogger creates a new mock instance.
+func NewMockLogger(ctrl *gomock.Controller) *MockLogger {
+	mock := &MockLogger{ctrl: ctrl}
+	mock.recorder = &MockLoggerMockRecorder{mock}
+	return mock
+}
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockLogger) EXPECT() *MockLoggerMockRecorder {
+	return m.recorder
+}
+
+// LogStatus mocks base method.
+func (m *MockLogger) LogStatus(ctx context.Context, sev diag.Severity, urn resource.URN, msg string) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "LogStatus", ctx, sev, urn, msg)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// LogStatus indicates an expected call of LogStatus.
+func (mr *MockLoggerMockRecorder) LogStatus(ctx, sev, urn, msg any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "LogStatus", reflect.TypeOf((*MockLogger)(nil).LogStatus), ctx, sev, urn, msg)
+}
 
 // MockCloudControlClient is a mock of CloudControlClient interface.
 type MockCloudControlClient struct {
@@ -42,9 +82,9 @@ func (m *MockCloudControlClient) EXPECT() *MockCloudControlClientMockRecorder {
 }
 
 // Create mocks base method.
-func (m *MockCloudControlClient) Create(ctx context.Context, typeName string, desiredState map[string]any) (*string, map[string]any, error) {
+func (m *MockCloudControlClient) Create(ctx context.Context, urn resource.URN, typeName string, desiredState map[string]any) (*string, map[string]any, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Create", ctx, typeName, desiredState)
+	ret := m.ctrl.Call(m, "Create", ctx, urn, typeName, desiredState)
 	ret0, _ := ret[0].(*string)
 	ret1, _ := ret[1].(map[string]any)
 	ret2, _ := ret[2].(error)
@@ -52,23 +92,23 @@ func (m *MockCloudControlClient) Create(ctx context.Context, typeName string, de
 }
 
 // Create indicates an expected call of Create.
-func (mr *MockCloudControlClientMockRecorder) Create(ctx, typeName, desiredState any) *gomock.Call {
+func (mr *MockCloudControlClientMockRecorder) Create(ctx, urn, typeName, desiredState any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Create", reflect.TypeOf((*MockCloudControlClient)(nil).Create), ctx, typeName, desiredState)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Create", reflect.TypeOf((*MockCloudControlClient)(nil).Create), ctx, urn, typeName, desiredState)
 }
 
 // Delete mocks base method.
-func (m *MockCloudControlClient) Delete(ctx context.Context, typeName, identifier string) error {
+func (m *MockCloudControlClient) Delete(ctx context.Context, urn resource.URN, typeName, identifier string) error {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Delete", ctx, typeName, identifier)
+	ret := m.ctrl.Call(m, "Delete", ctx, urn, typeName, identifier)
 	ret0, _ := ret[0].(error)
 	return ret0
 }
 
 // Delete indicates an expected call of Delete.
-func (mr *MockCloudControlClientMockRecorder) Delete(ctx, typeName, identifier any) *gomock.Call {
+func (mr *MockCloudControlClientMockRecorder) Delete(ctx, urn, typeName, identifier any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Delete", reflect.TypeOf((*MockCloudControlClient)(nil).Delete), ctx, typeName, identifier)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Delete", reflect.TypeOf((*MockCloudControlClient)(nil).Delete), ctx, urn, typeName, identifier)
 }
 
 // Read mocks base method.
@@ -88,16 +128,16 @@ func (mr *MockCloudControlClientMockRecorder) Read(ctx, typeName, identifier any
 }
 
 // Update mocks base method.
-func (m *MockCloudControlClient) Update(ctx context.Context, typeName, identifier string, patches []jsonpatch.JsonPatchOperation) (map[string]any, error) {
+func (m *MockCloudControlClient) Update(ctx context.Context, urn resource.URN, typeName, identifier string, patches []jsonpatch.JsonPatchOperation) (map[string]any, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Update", ctx, typeName, identifier, patches)
+	ret := m.ctrl.Call(m, "Update", ctx, urn, typeName, identifier, patches)
 	ret0, _ := ret[0].(map[string]any)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // Update indicates an expected call of Update.
-func (mr *MockCloudControlClientMockRecorder) Update(ctx, typeName, identifier, patches any) *gomock.Call {
+func (mr *MockCloudControlClientMockRecorder) Update(ctx, urn, typeName, identifier, patches any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockCloudControlClient)(nil).Update), ctx, typeName, identifier, patches)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockCloudControlClient)(nil).Update), ctx, urn, typeName, identifier, patches)
 }
