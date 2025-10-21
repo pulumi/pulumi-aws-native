@@ -3,6 +3,8 @@
 package provider_test
 
 import (
+	"fmt"
+	"math/rand"
 	"os"
 	"path/filepath"
 	"testing"
@@ -44,6 +46,21 @@ func TestAutonaming(t *testing.T) {
 
 	// Check that the queue name matches pattern: ${name}-${alphanum(6)}.fifo (.fifo is the resource's autonaming trivia suffix)
 	assert.Regexp(t, `^queue-[a-zA-Z0-9]{6}\.fifo$`, fifoQueueName)
+}
+
+func TestThrottling(t *testing.T) {
+	// Creates, destroys, and immediately re-creates an SQS to test whether we
+	// correctly retry on throttling errors.
+	t.Parallel()
+	skipIfShort(t)
+
+	// Pick a slightly random name so as to not conflict with concurrent CI runs.
+	name := fmt.Sprintf("throttling-queue-%d", rand.Intn(1000))
+	test := newAwsTest(t, filepath.Join("testdata", "throttling"))
+	test.SetConfig(t, "queueName", name)
+	_ = test.Up(t)
+	_ = test.Destroy(t)
+	_ = test.Up(t)
 }
 
 func testUpgradeFrom(t *testing.T, test *pulumitest.PulumiTest, version string) {
