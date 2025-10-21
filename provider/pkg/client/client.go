@@ -281,7 +281,7 @@ func (c *clientImpl) withRetries(
 			return pi, err // Nothing else to do.
 		}
 
-		// Try to get a retry token (handles rate limiting)
+		// Try to get a retry token.
 		releaseRetryToken, tokenErr := retryer.GetRetryToken(ctx, sdkErr)
 		if tokenErr != nil {
 			if c.logger != nil {
@@ -292,7 +292,7 @@ func (c *clientImpl) withRetries(
 			return pi, err
 		}
 
-		// Check if we've exhausted retry attempts
+		// Check if we've exhausted retry attempts.
 		if attempt >= maxAttempts {
 			_ = releaseRetryToken(sdkErr)
 			if c.logger != nil {
@@ -301,9 +301,13 @@ func (c *clientImpl) withRetries(
 			return pi, err
 		}
 
-		// Calculate retry delay using the SDK's backoff strategy.
-		delay, delayErr := retryer.RetryDelay(attempt, sdkErr)
-		if delayErr != nil {
+		// If CloudControl gave us an explicit RetryAfter then use it,
+		// otherwise calculate delay using the SDK's backoff strategy.
+		var delay time.Duration
+		var delayErr error
+		if pi.RetryAfter != nil && time.Now().Before(*pi.RetryAfter) {
+			delay = time.Until(*pi.RetryAfter)
+		} else if delay, delayErr = retryer.RetryDelay(attempt, sdkErr); delayErr != nil {
 			_ = releaseRetryToken(sdkErr)
 			if c.logger != nil {
 				_ = c.logger.LogStatus(ctx, diag.Warning, urn, fmt.Sprintf(
