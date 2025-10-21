@@ -293,7 +293,7 @@ func (c *clientImpl) withRetries(
 		_ = releaseInitialToken(err)
 	}()
 
-	for attempt := 0; attempt < maxAttempts; attempt++ {
+	for attempt := 1; attempt <= maxAttempts; attempt++ {
 		pi, err = operation()
 
 		// Nothing else to do if we succeeded, or if we weren't able to get a
@@ -311,7 +311,7 @@ func (c *clientImpl) withRetries(
 		}
 
 		// Try to get a retry token (handles rate limiting)
-		releaseToken, tokenErr := retryer.GetRetryToken(ctx, sdkErr)
+		releaseRetryToken, tokenErr := retryer.GetRetryToken(ctx, sdkErr)
 		if tokenErr != nil {
 			if c.logger != nil {
 				_ = c.logger.LogStatus(ctx, diag.Warning, urn, fmt.Sprintf(
@@ -322,8 +322,8 @@ func (c *clientImpl) withRetries(
 		}
 
 		// Check if we've exhausted retry attempts
-		if attempt >= maxAttempts-1 {
-			_ = releaseToken(sdkErr)
+		if attempt >= maxAttempts {
+			_ = releaseRetryToken(sdkErr)
 			if c.logger != nil {
 				_ = c.logger.LogStatus(ctx, diag.Warning, urn, "Exhausted retry attempts")
 			}
@@ -331,9 +331,9 @@ func (c *clientImpl) withRetries(
 		}
 
 		// Calculate retry delay using the SDK's backoff strategy.
-		delay, delayErr := retryer.RetryDelay(attempt+1, sdkErr)
+		delay, delayErr := retryer.RetryDelay(attempt, sdkErr)
 		if delayErr != nil {
-			_ = releaseToken(sdkErr)
+			_ = releaseRetryToken(sdkErr)
 			if c.logger != nil {
 				_ = c.logger.LogStatus(ctx, diag.Warning, urn, fmt.Sprintf(
 					"Couldn't calculate retry delay: %s", delayErr,
@@ -344,17 +344,17 @@ func (c *clientImpl) withRetries(
 
 		if c.logger != nil {
 			_ = c.logger.LogStatus(ctx, diag.Info, urn, fmt.Sprintf(
-				"Retrying after %q error (attempt %d/%d, waiting %s)", pi.ErrorCode, attempt+1, maxAttempts, delay,
+				"Retrying after %q error (attempt %d/%d, waiting %s)", pi.ErrorCode, attempt, maxAttempts, delay,
 			))
 		}
 
 		// Wait to retry.
 		select {
 		case <-ctx.Done():
-			_ = releaseToken(sdkErr)
+			_ = releaseRetryToken(sdkErr)
 			return nil, ctx.Err()
 		case <-time.After(delay):
-			_ = releaseToken(nil) // nil indicates retry will proceed.
+			_ = releaseRetryToken(nil) // nil indicates retry will proceed.
 		}
 	}
 

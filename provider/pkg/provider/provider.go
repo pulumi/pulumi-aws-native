@@ -425,7 +425,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	}
 
 	cfg.Retryer = func() (r aws.Retryer) {
-		ratelimitter := func(o *retry.StandardOptions) {
+		rateLimiter := func(o *retry.StandardOptions) {
 			// We don't use a token bucket by default because that will raise
 			// errors when the bucket is empty. Instead, the adaptive retryer
 			// will sleep for us when the server responds with Throttling
@@ -438,7 +438,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		}
 
 		// Increase the maximum number of retry attempts from the default of 3.
-		// Note this must be applied after AddWithErrorCodes for some reason. r
+		// Note this must be applied after AddWithErrorCodes for some reason.
 		retries := func(o *retry.StandardOptions) {
 			o.MaxAttempts = maxRetries
 		}
@@ -447,7 +447,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		// when it gets a Throttling response.
 		retryer := retry.NewAdaptiveMode(func(o *retry.AdaptiveModeOptions) {
 			o.StandardOptions = append(o.StandardOptions,
-				ratelimitter,
+				rateLimiter,
 				retries,
 			)
 		})
