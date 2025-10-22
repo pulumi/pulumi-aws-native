@@ -9,6 +9,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/aws/aws-sdk-go-v2/aws"
 	awshttp "github.com/aws/aws-sdk-go-v2/aws/transport/http"
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol/types"
 	"github.com/aws/smithy-go"
@@ -114,6 +115,7 @@ func TestClientCreate(t *testing.T) {
 	client := &clientImpl{
 		api:     mockAPI,
 		awaiter: mockAPI,
+		retryer: func() aws.Retryer { return aws.NopRetryer{} },
 	}
 
 	t.Run("Resource creation success", func(t *testing.T) {
@@ -168,7 +170,7 @@ func TestClientCreate(t *testing.T) {
 
 		id, outputs, err := client.Create(ctx, testURN, typeName, desiredState)
 
-		assert.Equal(t, "creating resource (await): creation failed", err.Error())
+		assert.Equal(t, "creating resource: creation failed", err.Error())
 		assert.Nil(t, id)
 		assert.Nil(t, outputs)
 	})
@@ -329,7 +331,6 @@ func TestClientCreate(t *testing.T) {
 		t.Logf("ID=%v", id)
 		t.Logf("Outputs=%v", outputs)
 	})
-
 }
 
 // Mock API implementation

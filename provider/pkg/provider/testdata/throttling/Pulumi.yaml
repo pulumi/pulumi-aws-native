@@ -1,0 +1,10 @@
+name: throttling
+description: Provisions an SQS queue which triggers throttling errors when destroyed and immediately re-created.
+runtime: yaml
+config:
+  queueName: throttling
+resources:
+  queue:
+    type: aws-native:sqs:Queue
+    properties:
+      queueName: ${queueName}
