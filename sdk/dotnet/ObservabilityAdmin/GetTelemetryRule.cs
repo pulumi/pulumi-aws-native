@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
     [OutputType]
     public sealed class GetTelemetryRuleResult
     {
+        /// <summary>
+        /// Retrieves the details of a specific telemetry rule in your account.
+        /// </summary>
         public readonly Outputs.TelemetryRule? Rule;
         /// <summary>
         /// The arn of the telemetry rule

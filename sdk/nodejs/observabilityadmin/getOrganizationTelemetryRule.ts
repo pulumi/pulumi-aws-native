@@ -25,6 +25,9 @@ export interface GetOrganizationTelemetryRuleArgs {
 }
 
 export interface GetOrganizationTelemetryRuleResult {
+    /**
+     * The name of the organization telemetry rule.
+     */
     readonly rule?: outputs.observabilityadmin.OrganizationTelemetryRuleTelemetryRule;
     /**
      * The arn of the organization telemetry rule

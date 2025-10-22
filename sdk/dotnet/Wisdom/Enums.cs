@@ -413,6 +413,10 @@ namespace Pulumi.AwsNative.Wisdom
         public static AiPromptAiPromptType QueryReformulation { get; } = new AiPromptAiPromptType("QUERY_REFORMULATION");
         public static AiPromptAiPromptType SelfServicePreProcessing { get; } = new AiPromptAiPromptType("SELF_SERVICE_PRE_PROCESSING");
         public static AiPromptAiPromptType SelfServiceAnswerGeneration { get; } = new AiPromptAiPromptType("SELF_SERVICE_ANSWER_GENERATION");
+        public static AiPromptAiPromptType EmailResponse { get; } = new AiPromptAiPromptType("EMAIL_RESPONSE");
+        public static AiPromptAiPromptType EmailOverview { get; } = new AiPromptAiPromptType("EMAIL_OVERVIEW");
+        public static AiPromptAiPromptType EmailGenerativeAnswer { get; } = new AiPromptAiPromptType("EMAIL_GENERATIVE_ANSWER");
+        public static AiPromptAiPromptType EmailQueryReformulation { get; } = new AiPromptAiPromptType("EMAIL_QUERY_REFORMULATION");
 
         public static bool operator ==(AiPromptAiPromptType left, AiPromptAiPromptType right) => left.Equals(right);
         public static bool operator !=(AiPromptAiPromptType left, AiPromptAiPromptType right) => !left.Equals(right);

@@ -423,6 +423,37 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The mode of tiered storage.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterTieredStorageConfigMode : IEquatable<ClusterTieredStorageConfigMode>
+    {
+        private readonly string _value;
+
+        private ClusterTieredStorageConfigMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterTieredStorageConfigMode Enable { get; } = new ClusterTieredStorageConfigMode("Enable");
+        public static ClusterTieredStorageConfigMode Disable { get; } = new ClusterTieredStorageConfigMode("Disable");
+
+        public static bool operator ==(ClusterTieredStorageConfigMode left, ClusterTieredStorageConfigMode right) => left.Equals(right);
+        public static bool operator !=(ClusterTieredStorageConfigMode left, ClusterTieredStorageConfigMode right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterTieredStorageConfigMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterTieredStorageConfigMode other && Equals(other);
+        public bool Equals(ClusterTieredStorageConfigMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
     /// </summary>
     [EnumType]

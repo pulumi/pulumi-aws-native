@@ -54,6 +54,10 @@ export interface GetDbInstanceResult {
      */
     readonly preferredMaintenanceWindow?: string;
     /**
+     * Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
+     */
+    readonly publiclyAccessible?: boolean;
+    /**
      * An arbitrary set of tags (key-value pairs) for this DB instance.
      */
     readonly tags?: outputs.Tag[];

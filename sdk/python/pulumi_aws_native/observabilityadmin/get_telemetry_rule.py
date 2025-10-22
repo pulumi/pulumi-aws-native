@@ -40,6 +40,9 @@ class GetTelemetryRuleResult:
     @_builtins.property
     @pulumi.getter
     def rule(self) -> Optional['outputs.TelemetryRule']:
+        """
+        Retrieves the details of a specific telemetry rule in your account.
+        """
         return pulumi.get(self, "rule")
 
     @_builtins.property

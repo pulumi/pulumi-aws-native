@@ -35,7 +35,7 @@ type Permission struct {
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
 	// The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
 	FunctionUrlAuthType PermissionFunctionUrlAuthTypePtrOutput `pulumi:"functionUrlAuthType"`
-	// Restricts the `lambda:InvokeFunction` action to calls coming from a function URL. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
+	// Restricts the `lambda:InvokeFunction` action to function URL calls. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
 	InvokedViaFunctionUrl pulumi.BoolPtrOutput `pulumi:"invokedViaFunctionUrl"`
 	// The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
 	Principal pulumi.StringOutput `pulumi:"principal"`
@@ -123,7 +123,7 @@ type permissionArgs struct {
 	FunctionName string `pulumi:"functionName"`
 	// The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
 	FunctionUrlAuthType *PermissionFunctionUrlAuthType `pulumi:"functionUrlAuthType"`
-	// Restricts the `lambda:InvokeFunction` action to calls coming from a function URL. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
+	// Restricts the `lambda:InvokeFunction` action to function URL calls. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
 	InvokedViaFunctionUrl *bool `pulumi:"invokedViaFunctionUrl"`
 	// The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
 	Principal string `pulumi:"principal"`
@@ -152,7 +152,7 @@ type PermissionArgs struct {
 	FunctionName pulumi.StringInput
 	// The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
 	FunctionUrlAuthType PermissionFunctionUrlAuthTypePtrInput
-	// Restricts the `lambda:InvokeFunction` action to calls coming from a function URL. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
+	// Restricts the `lambda:InvokeFunction` action to function URL calls. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
 	InvokedViaFunctionUrl pulumi.BoolPtrInput
 	// The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
 	Principal pulumi.StringInput
@@ -233,7 +233,7 @@ func (o PermissionOutput) FunctionUrlAuthType() PermissionFunctionUrlAuthTypePtr
 	return o.ApplyT(func(v *Permission) PermissionFunctionUrlAuthTypePtrOutput { return v.FunctionUrlAuthType }).(PermissionFunctionUrlAuthTypePtrOutput)
 }
 
-// Restricts the `lambda:InvokeFunction` action to calls coming from a function URL. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
+// Restricts the `lambda:InvokeFunction` action to function URL calls. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
 func (o PermissionOutput) InvokedViaFunctionUrl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.BoolPtrOutput { return v.InvokedViaFunctionUrl }).(pulumi.BoolPtrOutput)
 }

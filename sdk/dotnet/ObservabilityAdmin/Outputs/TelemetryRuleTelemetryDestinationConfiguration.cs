@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
     [OutputType]
     public sealed class TelemetryRuleTelemetryDestinationConfiguration
     {
+        /// <summary>
+        /// The pattern used to generate the destination path or name, supporting macros like &lt;resourceId&gt; and &lt;accountId&gt;.
+        /// </summary>
         public readonly string? DestinationPattern;
+        /// <summary>
+        /// The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
+        /// </summary>
         public readonly Pulumi.AwsNative.ObservabilityAdmin.TelemetryRuleDestinationType? DestinationType;
+        /// <summary>
+        /// The number of days to retain the telemetry data in the destination.
+        /// </summary>
         public readonly int? RetentionInDays;
+        /// <summary>
+        /// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
+        /// </summary>
         public readonly Outputs.TelemetryRuleVpcFlowLogParameters? VpcFlowLogParameters;
 
         [OutputConstructor]

@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
 type OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy string
 
 const (
@@ -175,6 +176,7 @@ func (in *organizationCentralizationRuleLogsEncryptionConfigurationEncryptionCon
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategyPtrOutput)
 }
 
+// Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
 type OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy string
 
 const (
@@ -340,6 +342,7 @@ func (in *organizationCentralizationRuleLogsEncryptionConfigurationEncryptionStr
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategyPtrOutput)
 }
 
+// A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
 type OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy string
 
 const (

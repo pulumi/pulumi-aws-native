@@ -21,6 +21,7 @@ __all__ = [
     'PipelineEncryptionAtRestOptions',
     'PipelineLogPublishingOptions',
     'PipelineLogPublishingOptionsCloudWatchLogDestinationProperties',
+    'PipelineResourcePolicy',
     'PipelineVpcEndpoint',
     'PipelineVpcOptions',
     'PipelineVpcOptionsVpcAttachmentOptionsProperties',
@@ -191,6 +192,18 @@ class PipelineLogPublishingOptionsCloudWatchLogDestinationProperties(dict):
     @pulumi.getter(name="logGroup")
     def log_group(self) -> _builtins.str:
         return pulumi.get(self, "log_group")
+
+
+@pulumi.output_type
+class PipelineResourcePolicy(dict):
+    def __init__(__self__, *,
+                 policy: Any):
+        pulumi.set(__self__, "policy", policy)
+
+    @_builtins.property
+    @pulumi.getter
+    def policy(self) -> Any:
+        return pulumi.get(self, "policy")
 
 
 @pulumi.output_type

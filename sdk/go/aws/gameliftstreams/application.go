@@ -34,7 +34,7 @@ type Application struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A human-readable label for the application. You can update this value later.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// The path and file name of the executable file that launches the content for streaming. Enter a path value that is relative to the location set in `ApplicationSourceUri` .
+	// The relative path and file name of the executable file that Amazon GameLift Streams will stream. Specify a path relative to the location set in `ApplicationSourceUri` . The file must be contained within the application's root folder. For Windows applications, the file must be a valid Windows executable or batch file with a filename ending in .exe, .cmd, or .bat. For Linux applications, the file must be a valid Linux binary executable or a script that contains an initial interpreter line starting with a shebang (' `#!` ').
 	ExecutablePath pulumi.StringOutput `pulumi:"executablePath"`
 	// A set of configuration settings to run the application on a stream group. This configures the operating system, and can include compatibility layers and other drivers.
 	RuntimeEnvironment ApplicationRuntimeEnvironmentOutput `pulumi:"runtimeEnvironment"`
@@ -112,7 +112,7 @@ type applicationArgs struct {
 	ApplicationSourceUri string `pulumi:"applicationSourceUri"`
 	// A human-readable label for the application. You can update this value later.
 	Description string `pulumi:"description"`
-	// The path and file name of the executable file that launches the content for streaming. Enter a path value that is relative to the location set in `ApplicationSourceUri` .
+	// The relative path and file name of the executable file that Amazon GameLift Streams will stream. Specify a path relative to the location set in `ApplicationSourceUri` . The file must be contained within the application's root folder. For Windows applications, the file must be a valid Windows executable or batch file with a filename ending in .exe, .cmd, or .bat. For Linux applications, the file must be a valid Linux binary executable or a script that contains an initial interpreter line starting with a shebang (' `#!` ').
 	ExecutablePath string `pulumi:"executablePath"`
 	// A set of configuration settings to run the application on a stream group. This configures the operating system, and can include compatibility layers and other drivers.
 	RuntimeEnvironment ApplicationRuntimeEnvironment `pulumi:"runtimeEnvironment"`
@@ -134,7 +134,7 @@ type ApplicationArgs struct {
 	ApplicationSourceUri pulumi.StringInput
 	// A human-readable label for the application. You can update this value later.
 	Description pulumi.StringInput
-	// The path and file name of the executable file that launches the content for streaming. Enter a path value that is relative to the location set in `ApplicationSourceUri` .
+	// The relative path and file name of the executable file that Amazon GameLift Streams will stream. Specify a path relative to the location set in `ApplicationSourceUri` . The file must be contained within the application's root folder. For Windows applications, the file must be a valid Windows executable or batch file with a filename ending in .exe, .cmd, or .bat. For Linux applications, the file must be a valid Linux binary executable or a script that contains an initial interpreter line starting with a shebang (' `#!` ').
 	ExecutablePath pulumi.StringInput
 	// A set of configuration settings to run the application on a stream group. This configures the operating system, and can include compatibility layers and other drivers.
 	RuntimeEnvironment ApplicationRuntimeEnvironmentInput
@@ -215,7 +215,7 @@ func (o ApplicationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The path and file name of the executable file that launches the content for streaming. Enter a path value that is relative to the location set in `ApplicationSourceUri` .
+// The relative path and file name of the executable file that Amazon GameLift Streams will stream. Specify a path relative to the location set in `ApplicationSourceUri` . The file must be contained within the application's root folder. For Windows applications, the file must be a valid Windows executable or batch file with a filename ending in .exe, .cmd, or .bat. For Linux applications, the file must be a valid Linux binary executable or a script that contains an initial interpreter line starting with a shebang (' `#!` ').
 func (o ApplicationOutput) ExecutablePath() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ExecutablePath }).(pulumi.StringOutput)
 }

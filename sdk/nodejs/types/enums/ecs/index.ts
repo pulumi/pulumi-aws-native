@@ -283,6 +283,7 @@ export const ServiceLaunchType = {
 
 /**
  * The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+ *   If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
  */
 export type ServiceLaunchType = (typeof ServiceLaunchType)[keyof typeof ServiceLaunchType];
 

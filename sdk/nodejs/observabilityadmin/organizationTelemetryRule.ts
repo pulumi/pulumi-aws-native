@@ -37,6 +37,9 @@ export class OrganizationTelemetryRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationTelemetryRule.__pulumiType;
     }
 
+    /**
+     * The name of the organization telemetry rule.
+     */
     declare public readonly rule: pulumi.Output<outputs.observabilityadmin.OrganizationTelemetryRuleTelemetryRule>;
     /**
      * The arn of the organization telemetry rule
@@ -86,6 +89,9 @@ export class OrganizationTelemetryRule extends pulumi.CustomResource {
  * The set of arguments for constructing a OrganizationTelemetryRule resource.
  */
 export interface OrganizationTelemetryRuleArgs {
+    /**
+     * The name of the organization telemetry rule.
+     */
     rule: pulumi.Input<inputs.observabilityadmin.OrganizationTelemetryRuleTelemetryRuleArgs>;
     /**
      * The name of the organization telemetry rule

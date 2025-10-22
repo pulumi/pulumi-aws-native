@@ -292,7 +292,9 @@ type HealthCheckConfigProperties struct {
 	EnableSni *bool `pulumi:"enableSni"`
 	// The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
 	//
-	// If you don't specify a value for `FailureThreshold` , the default value is three health checks.
+	// `FailureThreshold` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
+	//
+	// Otherwise, if you don't specify a value for `FailureThreshold` , the default value is three health checks.
 	FailureThreshold *int `pulumi:"failureThreshold"`
 	// Amazon Route 53 behavior depends on whether you specify a value for `IPAddress` .
 	//
@@ -356,6 +358,8 @@ type HealthCheckConfigProperties struct {
 	IpAddress *string `pulumi:"ipAddress"`
 	// Specify whether you want Amazon Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint, and to display CloudWatch latency graphs on the *Health Checks* page in the Route 53 console.
 	//
+	// `MeasureLatency` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
+	//
 	// > You can't change the value of `MeasureLatency` after you create a health check.
 	MeasureLatency *bool `pulumi:"measureLatency"`
 	// The port on the endpoint that you want Amazon Route 53 to perform health checks on.
@@ -369,6 +373,8 @@ type HealthCheckConfigProperties struct {
 	// If you update a health check to remove a region that has been performing health checks, Route 53 will briefly continue to perform checks from that region to ensure that some health checkers are always checking the endpoint (for example, if you replace three regions with four different regions).
 	Regions []string `pulumi:"regions"`
 	// The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health check request. Each Route 53 health checker makes requests at this interval.
+	//
+	// `RequestInterval` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
 	//
 	// > You can't change the value of `RequestInterval` after you create a health check.
 	//
@@ -434,7 +440,9 @@ type HealthCheckConfigPropertiesArgs struct {
 	EnableSni pulumi.BoolPtrInput `pulumi:"enableSni"`
 	// The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
 	//
-	// If you don't specify a value for `FailureThreshold` , the default value is three health checks.
+	// `FailureThreshold` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
+	//
+	// Otherwise, if you don't specify a value for `FailureThreshold` , the default value is three health checks.
 	FailureThreshold pulumi.IntPtrInput `pulumi:"failureThreshold"`
 	// Amazon Route 53 behavior depends on whether you specify a value for `IPAddress` .
 	//
@@ -498,6 +506,8 @@ type HealthCheckConfigPropertiesArgs struct {
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// Specify whether you want Amazon Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint, and to display CloudWatch latency graphs on the *Health Checks* page in the Route 53 console.
 	//
+	// `MeasureLatency` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
+	//
 	// > You can't change the value of `MeasureLatency` after you create a health check.
 	MeasureLatency pulumi.BoolPtrInput `pulumi:"measureLatency"`
 	// The port on the endpoint that you want Amazon Route 53 to perform health checks on.
@@ -511,6 +521,8 @@ type HealthCheckConfigPropertiesArgs struct {
 	// If you update a health check to remove a region that has been performing health checks, Route 53 will briefly continue to perform checks from that region to ensure that some health checkers are always checking the endpoint (for example, if you replace three regions with four different regions).
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
 	// The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health check request. Each Route 53 health checker makes requests at this interval.
+	//
+	// `RequestInterval` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
 	//
 	// > You can't change the value of `RequestInterval` after you create a health check.
 	//
@@ -599,7 +611,9 @@ func (o HealthCheckConfigPropertiesOutput) EnableSni() pulumi.BoolPtrOutput {
 
 // The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
 //
-// If you don't specify a value for `FailureThreshold` , the default value is three health checks.
+// `FailureThreshold` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
+//
+// Otherwise, if you don't specify a value for `FailureThreshold` , the default value is three health checks.
 func (o HealthCheckConfigPropertiesOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HealthCheckConfigProperties) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
 }
@@ -683,6 +697,8 @@ func (o HealthCheckConfigPropertiesOutput) IpAddress() pulumi.StringPtrOutput {
 
 // Specify whether you want Amazon Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint, and to display CloudWatch latency graphs on the *Health Checks* page in the Route 53 console.
 //
+// `MeasureLatency` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
+//
 // > You can't change the value of `MeasureLatency` after you create a health check.
 func (o HealthCheckConfigPropertiesOutput) MeasureLatency() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HealthCheckConfigProperties) *bool { return v.MeasureLatency }).(pulumi.BoolPtrOutput)
@@ -705,6 +721,8 @@ func (o HealthCheckConfigPropertiesOutput) Regions() pulumi.StringArrayOutput {
 }
 
 // The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health check request. Each Route 53 health checker makes requests at this interval.
+//
+// `RequestInterval` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
 //
 // > You can't change the value of `RequestInterval` after you create a health check.
 //
@@ -818,7 +836,9 @@ func (o HealthCheckConfigPropertiesPtrOutput) EnableSni() pulumi.BoolPtrOutput {
 
 // The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
 //
-// If you don't specify a value for `FailureThreshold` , the default value is three health checks.
+// `FailureThreshold` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
+//
+// Otherwise, if you don't specify a value for `FailureThreshold` , the default value is three health checks.
 func (o HealthCheckConfigPropertiesPtrOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HealthCheckConfigProperties) *int {
 		if v == nil {
@@ -930,6 +950,8 @@ func (o HealthCheckConfigPropertiesPtrOutput) IpAddress() pulumi.StringPtrOutput
 
 // Specify whether you want Amazon Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint, and to display CloudWatch latency graphs on the *Health Checks* page in the Route 53 console.
 //
+// `MeasureLatency` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
+//
 // > You can't change the value of `MeasureLatency` after you create a health check.
 func (o HealthCheckConfigPropertiesPtrOutput) MeasureLatency() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HealthCheckConfigProperties) *bool {
@@ -967,6 +989,8 @@ func (o HealthCheckConfigPropertiesPtrOutput) Regions() pulumi.StringArrayOutput
 }
 
 // The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health check request. Each Route 53 health checker makes requests at this interval.
+//
+// `RequestInterval` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
 //
 // > You can't change the value of `RequestInterval` after you create a health check.
 //

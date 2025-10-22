@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("automaticFail")]
         public Input<bool>? AutomaticFail { get; set; }
 
+        [Input("automaticFailConfiguration")]
+        public Input<Inputs.EvaluationFormAutomaticFailConfigurationArgs>? AutomaticFailConfiguration { get; set; }
+
         /// <summary>
         /// The identifier of the answer option. An identifier must be unique within the question.
         ///  *Length Constraints*: Minimum length of 1. Maximum length of 40.

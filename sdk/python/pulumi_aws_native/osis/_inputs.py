@@ -24,6 +24,8 @@ __all__ = [
     'PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgsDict',
     'PipelineLogPublishingOptionsArgs',
     'PipelineLogPublishingOptionsArgsDict',
+    'PipelineResourcePolicyArgs',
+    'PipelineResourcePolicyArgsDict',
     'PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs',
     'PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgsDict',
     'PipelineVpcOptionsArgs',
@@ -184,6 +186,28 @@ class PipelineLogPublishingOptionsArgs:
     @is_logging_enabled.setter
     def is_logging_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "is_logging_enabled", value)
+
+
+if not MYPY:
+    class PipelineResourcePolicyArgsDict(TypedDict):
+        policy: Any
+elif False:
+    PipelineResourcePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineResourcePolicyArgs:
+    def __init__(__self__, *,
+                 policy: Any):
+        pulumi.set(__self__, "policy", policy)
+
+    @_builtins.property
+    @pulumi.getter
+    def policy(self) -> Any:
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Any):
+        pulumi.set(self, "policy", value)
 
 
 if not MYPY:

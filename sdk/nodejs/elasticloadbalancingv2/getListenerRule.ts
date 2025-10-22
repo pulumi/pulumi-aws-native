@@ -49,6 +49,7 @@ export interface GetListenerRuleResult {
      * The Amazon Resource Name (ARN) of the rule.
      */
     readonly ruleArn?: string;
+    readonly transforms?: outputs.elasticloadbalancingv2.ListenerRuleTransform[];
 }
 /**
  * Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.

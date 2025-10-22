@@ -96,6 +96,12 @@ namespace Pulumi.AwsNative.Neptune
         public Output<string?> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
+        /// </summary>
+        [Output("publiclyAccessible")]
+        public Output<bool?> PubliclyAccessible { get; private set; } = null!;
+
+        /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this DB instance.
         /// </summary>
         [Output("tags")]
@@ -221,6 +227,12 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
+
+        /// <summary>
+        /// Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
+        /// </summary>
+        [Input("publiclyAccessible")]
+        public Input<bool>? PubliclyAccessible { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

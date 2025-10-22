@@ -29,6 +29,7 @@ class OrganizationCentralizationRuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OrganizationCentralizationRule resource.
+        :param pulumi.Input[_builtins.str] rule_name: The name of the organization centralization rule.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "rule", rule)
@@ -49,6 +50,9 @@ class OrganizationCentralizationRuleArgs:
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the organization centralization rule.
+        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -83,6 +87,7 @@ class OrganizationCentralizationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] rule_name: The name of the organization centralization rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -165,11 +170,17 @@ class OrganizationCentralizationRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the organization centralization rule.
+        """
         return pulumi.get(self, "rule_arn")
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name of the organization centralization rule.
+        """
         return pulumi.get(self, "rule_name")
 
     @_builtins.property

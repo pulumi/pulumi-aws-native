@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
         /// List of screenshots used as base reference for visual testing
         /// </summary>
         public readonly ImmutableArray<Outputs.CanaryBaseScreenshot> BaseScreenshots;
+        /// <summary>
+        /// The browser type associated with this visual reference configuration. Valid values are `CHROME` and `FIREFOX` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Synthetics.CanaryBrowserType? BrowserType;
 
         [OutputConstructor]

@@ -51,6 +51,64 @@ export const ContactFlowType = {
  */
 export type ContactFlowType = (typeof ContactFlowType)[keyof typeof ContactFlowType];
 
+export const EvaluationFormItemEnablementConditionOperator = {
+    Or: "OR",
+    And: "AND",
+} as const;
+
+/**
+ * The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.
+ */
+export type EvaluationFormItemEnablementConditionOperator = (typeof EvaluationFormItemEnablementConditionOperator)[keyof typeof EvaluationFormItemEnablementConditionOperator];
+
+export const EvaluationFormItemEnablementConfigurationAction = {
+    Disable: "DISABLE",
+    Enable: "ENABLE",
+} as const;
+
+/**
+ * Defines the enablement status to be applied when the specified condition is met.
+ */
+export type EvaluationFormItemEnablementConfigurationAction = (typeof EvaluationFormItemEnablementConfigurationAction)[keyof typeof EvaluationFormItemEnablementConfigurationAction];
+
+export const EvaluationFormItemEnablementConfigurationDefaultAction = {
+    Disable: "DISABLE",
+    Enable: "ENABLE",
+} as const;
+
+/**
+ * Specifies the default enablement status to be applied when the condition is not satisfied.
+ */
+export type EvaluationFormItemEnablementConfigurationDefaultAction = (typeof EvaluationFormItemEnablementConfigurationDefaultAction)[keyof typeof EvaluationFormItemEnablementConfigurationDefaultAction];
+
+export const EvaluationFormItemEnablementExpressionComparator = {
+    In: "IN",
+    NotIn: "NOT_IN",
+} as const;
+
+/**
+ * Specifies the comparison method to determine if the source value matches any of the specified values.
+ */
+export type EvaluationFormItemEnablementExpressionComparator = (typeof EvaluationFormItemEnablementExpressionComparator)[keyof typeof EvaluationFormItemEnablementExpressionComparator];
+
+export const EvaluationFormItemEnablementSourceType = {
+    QuestionRefId: "QUESTION_REF_ID",
+} as const;
+
+/**
+ * The type of the source entity.
+ */
+export type EvaluationFormItemEnablementSourceType = (typeof EvaluationFormItemEnablementSourceType)[keyof typeof EvaluationFormItemEnablementSourceType];
+
+export const EvaluationFormItemEnablementSourceValueType = {
+    OptionRefId: "OPTION_REF_ID",
+} as const;
+
+/**
+ * Type of the source entity value.
+ */
+export type EvaluationFormItemEnablementSourceValueType = (typeof EvaluationFormItemEnablementSourceValueType)[keyof typeof EvaluationFormItemEnablementSourceValueType];
+
 export const EvaluationFormNumericQuestionPropertyValueAutomationLabel = {
     OverallCustomerSentimentScore: "OVERALL_CUSTOMER_SENTIMENT_SCORE",
     OverallAgentSentimentScore: "OVERALL_AGENT_SENTIMENT_SCORE",
@@ -69,6 +127,16 @@ export const EvaluationFormNumericQuestionPropertyValueAutomationLabel = {
  * The property label of the automation.
  */
 export type EvaluationFormNumericQuestionPropertyValueAutomationLabel = (typeof EvaluationFormNumericQuestionPropertyValueAutomationLabel)[keyof typeof EvaluationFormNumericQuestionPropertyValueAutomationLabel];
+
+export const EvaluationFormQuestionAutomationAnswerSourceSourceType = {
+    ContactLensData: "CONTACT_LENS_DATA",
+    GenAi: "GEN_AI",
+} as const;
+
+/**
+ * The type of the answer sourcr
+ */
+export type EvaluationFormQuestionAutomationAnswerSourceSourceType = (typeof EvaluationFormQuestionAutomationAnswerSourceSourceType)[keyof typeof EvaluationFormQuestionAutomationAnswerSourceSourceType];
 
 export const EvaluationFormQuestionQuestionType = {
     Numeric: "NUMERIC",

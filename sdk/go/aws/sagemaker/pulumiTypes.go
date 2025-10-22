@@ -3134,6 +3134,165 @@ type ClusterTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Configuration for tiered storage in the SageMaker HyperPod cluster.
+type ClusterTieredStorageConfig struct {
+	// The percentage of instance memory to allocate for tiered storage.
+	InstanceMemoryAllocationPercentage *int `pulumi:"instanceMemoryAllocationPercentage"`
+	// The mode of tiered storage.
+	Mode ClusterTieredStorageConfigMode `pulumi:"mode"`
+}
+
+// ClusterTieredStorageConfigInput is an input type that accepts ClusterTieredStorageConfigArgs and ClusterTieredStorageConfigOutput values.
+// You can construct a concrete instance of `ClusterTieredStorageConfigInput` via:
+//
+//	ClusterTieredStorageConfigArgs{...}
+type ClusterTieredStorageConfigInput interface {
+	pulumi.Input
+
+	ToClusterTieredStorageConfigOutput() ClusterTieredStorageConfigOutput
+	ToClusterTieredStorageConfigOutputWithContext(context.Context) ClusterTieredStorageConfigOutput
+}
+
+// Configuration for tiered storage in the SageMaker HyperPod cluster.
+type ClusterTieredStorageConfigArgs struct {
+	// The percentage of instance memory to allocate for tiered storage.
+	InstanceMemoryAllocationPercentage pulumi.IntPtrInput `pulumi:"instanceMemoryAllocationPercentage"`
+	// The mode of tiered storage.
+	Mode ClusterTieredStorageConfigModeInput `pulumi:"mode"`
+}
+
+func (ClusterTieredStorageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterTieredStorageConfig)(nil)).Elem()
+}
+
+func (i ClusterTieredStorageConfigArgs) ToClusterTieredStorageConfigOutput() ClusterTieredStorageConfigOutput {
+	return i.ToClusterTieredStorageConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterTieredStorageConfigArgs) ToClusterTieredStorageConfigOutputWithContext(ctx context.Context) ClusterTieredStorageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterTieredStorageConfigOutput)
+}
+
+func (i ClusterTieredStorageConfigArgs) ToClusterTieredStorageConfigPtrOutput() ClusterTieredStorageConfigPtrOutput {
+	return i.ToClusterTieredStorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterTieredStorageConfigArgs) ToClusterTieredStorageConfigPtrOutputWithContext(ctx context.Context) ClusterTieredStorageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterTieredStorageConfigOutput).ToClusterTieredStorageConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterTieredStorageConfigPtrInput is an input type that accepts ClusterTieredStorageConfigArgs, ClusterTieredStorageConfigPtr and ClusterTieredStorageConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterTieredStorageConfigPtrInput` via:
+//
+//	        ClusterTieredStorageConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterTieredStorageConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterTieredStorageConfigPtrOutput() ClusterTieredStorageConfigPtrOutput
+	ToClusterTieredStorageConfigPtrOutputWithContext(context.Context) ClusterTieredStorageConfigPtrOutput
+}
+
+type clusterTieredStorageConfigPtrType ClusterTieredStorageConfigArgs
+
+func ClusterTieredStorageConfigPtr(v *ClusterTieredStorageConfigArgs) ClusterTieredStorageConfigPtrInput {
+	return (*clusterTieredStorageConfigPtrType)(v)
+}
+
+func (*clusterTieredStorageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterTieredStorageConfig)(nil)).Elem()
+}
+
+func (i *clusterTieredStorageConfigPtrType) ToClusterTieredStorageConfigPtrOutput() ClusterTieredStorageConfigPtrOutput {
+	return i.ToClusterTieredStorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterTieredStorageConfigPtrType) ToClusterTieredStorageConfigPtrOutputWithContext(ctx context.Context) ClusterTieredStorageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterTieredStorageConfigPtrOutput)
+}
+
+// Configuration for tiered storage in the SageMaker HyperPod cluster.
+type ClusterTieredStorageConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterTieredStorageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterTieredStorageConfig)(nil)).Elem()
+}
+
+func (o ClusterTieredStorageConfigOutput) ToClusterTieredStorageConfigOutput() ClusterTieredStorageConfigOutput {
+	return o
+}
+
+func (o ClusterTieredStorageConfigOutput) ToClusterTieredStorageConfigOutputWithContext(ctx context.Context) ClusterTieredStorageConfigOutput {
+	return o
+}
+
+func (o ClusterTieredStorageConfigOutput) ToClusterTieredStorageConfigPtrOutput() ClusterTieredStorageConfigPtrOutput {
+	return o.ToClusterTieredStorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterTieredStorageConfigOutput) ToClusterTieredStorageConfigPtrOutputWithContext(ctx context.Context) ClusterTieredStorageConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterTieredStorageConfig) *ClusterTieredStorageConfig {
+		return &v
+	}).(ClusterTieredStorageConfigPtrOutput)
+}
+
+// The percentage of instance memory to allocate for tiered storage.
+func (o ClusterTieredStorageConfigOutput) InstanceMemoryAllocationPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterTieredStorageConfig) *int { return v.InstanceMemoryAllocationPercentage }).(pulumi.IntPtrOutput)
+}
+
+// The mode of tiered storage.
+func (o ClusterTieredStorageConfigOutput) Mode() ClusterTieredStorageConfigModeOutput {
+	return o.ApplyT(func(v ClusterTieredStorageConfig) ClusterTieredStorageConfigMode { return v.Mode }).(ClusterTieredStorageConfigModeOutput)
+}
+
+type ClusterTieredStorageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterTieredStorageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterTieredStorageConfig)(nil)).Elem()
+}
+
+func (o ClusterTieredStorageConfigPtrOutput) ToClusterTieredStorageConfigPtrOutput() ClusterTieredStorageConfigPtrOutput {
+	return o
+}
+
+func (o ClusterTieredStorageConfigPtrOutput) ToClusterTieredStorageConfigPtrOutputWithContext(ctx context.Context) ClusterTieredStorageConfigPtrOutput {
+	return o
+}
+
+func (o ClusterTieredStorageConfigPtrOutput) Elem() ClusterTieredStorageConfigOutput {
+	return o.ApplyT(func(v *ClusterTieredStorageConfig) ClusterTieredStorageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterTieredStorageConfig
+		return ret
+	}).(ClusterTieredStorageConfigOutput)
+}
+
+// The percentage of instance memory to allocate for tiered storage.
+func (o ClusterTieredStorageConfigPtrOutput) InstanceMemoryAllocationPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterTieredStorageConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceMemoryAllocationPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// The mode of tiered storage.
+func (o ClusterTieredStorageConfigPtrOutput) Mode() ClusterTieredStorageConfigModePtrOutput {
+	return o.ApplyT(func(v *ClusterTieredStorageConfig) *ClusterTieredStorageConfigMode {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(ClusterTieredStorageConfigModePtrOutput)
+}
+
 // Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
 type ClusterVpcConfig struct {
 	// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
@@ -9648,7 +9807,8 @@ type DomainSettings struct {
 	DockerSettings *DomainDockerSettings `pulumi:"dockerSettings"`
 	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
 	ExecutionRoleIdentityConfig *DomainSettingsExecutionRoleIdentityConfig `pulumi:"executionRoleIdentityConfig"`
-	IpAddressType               *DomainIpAddressType                       `pulumi:"ipAddressType"`
+	// The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
+	IpAddressType *DomainIpAddressType `pulumi:"ipAddressType"`
 	// A collection of settings that configure the `RStudioServerPro` Domain-level app.
 	RStudioServerProDomainSettings *DomainRStudioServerProDomainSettings `pulumi:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
@@ -9674,7 +9834,8 @@ type DomainSettingsArgs struct {
 	DockerSettings DomainDockerSettingsPtrInput `pulumi:"dockerSettings"`
 	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
 	ExecutionRoleIdentityConfig DomainSettingsExecutionRoleIdentityConfigPtrInput `pulumi:"executionRoleIdentityConfig"`
-	IpAddressType               DomainIpAddressTypePtrInput                       `pulumi:"ipAddressType"`
+	// The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
+	IpAddressType DomainIpAddressTypePtrInput `pulumi:"ipAddressType"`
 	// A collection of settings that configure the `RStudioServerPro` Domain-level app.
 	RStudioServerProDomainSettings DomainRStudioServerProDomainSettingsPtrInput `pulumi:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
@@ -9773,6 +9934,7 @@ func (o DomainSettingsOutput) ExecutionRoleIdentityConfig() DomainSettingsExecut
 	}).(DomainSettingsExecutionRoleIdentityConfigPtrOutput)
 }
 
+// The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
 func (o DomainSettingsOutput) IpAddressType() DomainIpAddressTypePtrOutput {
 	return o.ApplyT(func(v DomainSettings) *DomainIpAddressType { return v.IpAddressType }).(DomainIpAddressTypePtrOutput)
 }
@@ -9836,6 +9998,7 @@ func (o DomainSettingsPtrOutput) ExecutionRoleIdentityConfig() DomainSettingsExe
 	}).(DomainSettingsExecutionRoleIdentityConfigPtrOutput)
 }
 
+// The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
 func (o DomainSettingsPtrOutput) IpAddressType() DomainIpAddressTypePtrOutput {
 	return o.ApplyT(func(v *DomainSettings) *DomainIpAddressType {
 		if v == nil {
@@ -47835,6 +47998,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRollingUpdatePolicyPtrInput)(nil)).Elem(), ClusterRollingUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScheduledUpdateConfigInput)(nil)).Elem(), ClusterScheduledUpdateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScheduledUpdateConfigPtrInput)(nil)).Elem(), ClusterScheduledUpdateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTieredStorageConfigInput)(nil)).Elem(), ClusterTieredStorageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTieredStorageConfigPtrInput)(nil)).Elem(), ClusterTieredStorageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigPtrInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputArgs{})
@@ -48403,6 +48568,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterRollingUpdatePolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterScheduledUpdateConfigOutput{})
 	pulumi.RegisterOutputType(ClusterScheduledUpdateConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterTieredStorageConfigOutput{})
+	pulumi.RegisterOutputType(ClusterTieredStorageConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputOutput{})

@@ -92,6 +92,10 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         public readonly string? PreferredMaintenanceWindow;
         /// <summary>
+        /// Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
+        /// </summary>
+        public readonly bool? PubliclyAccessible;
+        /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this DB instance.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -110,6 +114,8 @@ namespace Pulumi.AwsNative.Neptune
 
             string? preferredMaintenanceWindow,
 
+            bool? publiclyAccessible,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
@@ -118,6 +124,7 @@ namespace Pulumi.AwsNative.Neptune
             Endpoint = endpoint;
             Port = port;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
+            PubliclyAccessible = publiclyAccessible;
             Tags = tags;
         }
     }

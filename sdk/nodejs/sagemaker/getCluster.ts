@@ -63,6 +63,7 @@ export interface GetClusterResult {
      * Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
      */
     readonly tags?: outputs.Tag[];
+    readonly tieredStorageConfig?: outputs.sagemaker.ClusterTieredStorageConfig;
 }
 /**
  * Resource Type definition for AWS::SageMaker::Cluster

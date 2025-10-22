@@ -125,6 +125,9 @@ class GroupingConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The 12 digit AWS Account ID for the account.
+        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property

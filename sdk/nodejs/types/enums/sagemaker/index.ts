@@ -249,6 +249,16 @@ export const ClusterStatus = {
  */
 export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
 
+export const ClusterTieredStorageConfigMode = {
+    Enable: "Enable",
+    Disable: "Disable",
+} as const;
+
+/**
+ * The mode of tiered storage.
+ */
+export type ClusterTieredStorageConfigMode = (typeof ClusterTieredStorageConfigMode)[keyof typeof ClusterTieredStorageConfigMode];
+
 export const DataQualityJobDefinitionBatchTransformInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",
     ShardedByS3Key: "ShardedByS3Key",

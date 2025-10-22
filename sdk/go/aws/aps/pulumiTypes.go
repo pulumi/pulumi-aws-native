@@ -13,6 +13,649 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AnomalyDetectorConfiguration struct {
+	RandomCutForest AnomalyDetectorRandomCutForestConfiguration `pulumi:"randomCutForest"`
+}
+
+// AnomalyDetectorConfigurationInput is an input type that accepts AnomalyDetectorConfigurationArgs and AnomalyDetectorConfigurationOutput values.
+// You can construct a concrete instance of `AnomalyDetectorConfigurationInput` via:
+//
+//	AnomalyDetectorConfigurationArgs{...}
+type AnomalyDetectorConfigurationInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorConfigurationOutput() AnomalyDetectorConfigurationOutput
+	ToAnomalyDetectorConfigurationOutputWithContext(context.Context) AnomalyDetectorConfigurationOutput
+}
+
+type AnomalyDetectorConfigurationArgs struct {
+	RandomCutForest AnomalyDetectorRandomCutForestConfigurationInput `pulumi:"randomCutForest"`
+}
+
+func (AnomalyDetectorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorConfiguration)(nil)).Elem()
+}
+
+func (i AnomalyDetectorConfigurationArgs) ToAnomalyDetectorConfigurationOutput() AnomalyDetectorConfigurationOutput {
+	return i.ToAnomalyDetectorConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorConfigurationArgs) ToAnomalyDetectorConfigurationOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigurationOutput)
+}
+
+type AnomalyDetectorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorConfiguration)(nil)).Elem()
+}
+
+func (o AnomalyDetectorConfigurationOutput) ToAnomalyDetectorConfigurationOutput() AnomalyDetectorConfigurationOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationOutput) ToAnomalyDetectorConfigurationOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationOutput) RandomCutForest() AnomalyDetectorRandomCutForestConfigurationOutput {
+	return o.ApplyT(func(v AnomalyDetectorConfiguration) AnomalyDetectorRandomCutForestConfiguration {
+		return v.RandomCutForest
+	}).(AnomalyDetectorRandomCutForestConfigurationOutput)
+}
+
+type AnomalyDetectorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorConfiguration)(nil)).Elem()
+}
+
+func (o AnomalyDetectorConfigurationPtrOutput) ToAnomalyDetectorConfigurationPtrOutput() AnomalyDetectorConfigurationPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationPtrOutput) ToAnomalyDetectorConfigurationPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationPtrOutput) Elem() AnomalyDetectorConfigurationOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfiguration) AnomalyDetectorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyDetectorConfiguration
+		return ret
+	}).(AnomalyDetectorConfigurationOutput)
+}
+
+func (o AnomalyDetectorConfigurationPtrOutput) RandomCutForest() AnomalyDetectorRandomCutForestConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfiguration) *AnomalyDetectorRandomCutForestConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.RandomCutForest
+	}).(AnomalyDetectorRandomCutForestConfigurationPtrOutput)
+}
+
+type AnomalyDetectorIgnoreNearExpected struct {
+	Amount *float64 `pulumi:"amount"`
+	Ratio  *float64 `pulumi:"ratio"`
+}
+
+// AnomalyDetectorIgnoreNearExpectedInput is an input type that accepts AnomalyDetectorIgnoreNearExpectedArgs and AnomalyDetectorIgnoreNearExpectedOutput values.
+// You can construct a concrete instance of `AnomalyDetectorIgnoreNearExpectedInput` via:
+//
+//	AnomalyDetectorIgnoreNearExpectedArgs{...}
+type AnomalyDetectorIgnoreNearExpectedInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorIgnoreNearExpectedOutput() AnomalyDetectorIgnoreNearExpectedOutput
+	ToAnomalyDetectorIgnoreNearExpectedOutputWithContext(context.Context) AnomalyDetectorIgnoreNearExpectedOutput
+}
+
+type AnomalyDetectorIgnoreNearExpectedArgs struct {
+	Amount pulumi.Float64PtrInput `pulumi:"amount"`
+	Ratio  pulumi.Float64PtrInput `pulumi:"ratio"`
+}
+
+func (AnomalyDetectorIgnoreNearExpectedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorIgnoreNearExpected)(nil)).Elem()
+}
+
+func (i AnomalyDetectorIgnoreNearExpectedArgs) ToAnomalyDetectorIgnoreNearExpectedOutput() AnomalyDetectorIgnoreNearExpectedOutput {
+	return i.ToAnomalyDetectorIgnoreNearExpectedOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorIgnoreNearExpectedArgs) ToAnomalyDetectorIgnoreNearExpectedOutputWithContext(ctx context.Context) AnomalyDetectorIgnoreNearExpectedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorIgnoreNearExpectedOutput)
+}
+
+func (i AnomalyDetectorIgnoreNearExpectedArgs) ToAnomalyDetectorIgnoreNearExpectedPtrOutput() AnomalyDetectorIgnoreNearExpectedPtrOutput {
+	return i.ToAnomalyDetectorIgnoreNearExpectedPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorIgnoreNearExpectedArgs) ToAnomalyDetectorIgnoreNearExpectedPtrOutputWithContext(ctx context.Context) AnomalyDetectorIgnoreNearExpectedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorIgnoreNearExpectedOutput).ToAnomalyDetectorIgnoreNearExpectedPtrOutputWithContext(ctx)
+}
+
+// AnomalyDetectorIgnoreNearExpectedPtrInput is an input type that accepts AnomalyDetectorIgnoreNearExpectedArgs, AnomalyDetectorIgnoreNearExpectedPtr and AnomalyDetectorIgnoreNearExpectedPtrOutput values.
+// You can construct a concrete instance of `AnomalyDetectorIgnoreNearExpectedPtrInput` via:
+//
+//	        AnomalyDetectorIgnoreNearExpectedArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalyDetectorIgnoreNearExpectedPtrInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorIgnoreNearExpectedPtrOutput() AnomalyDetectorIgnoreNearExpectedPtrOutput
+	ToAnomalyDetectorIgnoreNearExpectedPtrOutputWithContext(context.Context) AnomalyDetectorIgnoreNearExpectedPtrOutput
+}
+
+type anomalyDetectorIgnoreNearExpectedPtrType AnomalyDetectorIgnoreNearExpectedArgs
+
+func AnomalyDetectorIgnoreNearExpectedPtr(v *AnomalyDetectorIgnoreNearExpectedArgs) AnomalyDetectorIgnoreNearExpectedPtrInput {
+	return (*anomalyDetectorIgnoreNearExpectedPtrType)(v)
+}
+
+func (*anomalyDetectorIgnoreNearExpectedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorIgnoreNearExpected)(nil)).Elem()
+}
+
+func (i *anomalyDetectorIgnoreNearExpectedPtrType) ToAnomalyDetectorIgnoreNearExpectedPtrOutput() AnomalyDetectorIgnoreNearExpectedPtrOutput {
+	return i.ToAnomalyDetectorIgnoreNearExpectedPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalyDetectorIgnoreNearExpectedPtrType) ToAnomalyDetectorIgnoreNearExpectedPtrOutputWithContext(ctx context.Context) AnomalyDetectorIgnoreNearExpectedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorIgnoreNearExpectedPtrOutput)
+}
+
+type AnomalyDetectorIgnoreNearExpectedOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorIgnoreNearExpectedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorIgnoreNearExpected)(nil)).Elem()
+}
+
+func (o AnomalyDetectorIgnoreNearExpectedOutput) ToAnomalyDetectorIgnoreNearExpectedOutput() AnomalyDetectorIgnoreNearExpectedOutput {
+	return o
+}
+
+func (o AnomalyDetectorIgnoreNearExpectedOutput) ToAnomalyDetectorIgnoreNearExpectedOutputWithContext(ctx context.Context) AnomalyDetectorIgnoreNearExpectedOutput {
+	return o
+}
+
+func (o AnomalyDetectorIgnoreNearExpectedOutput) ToAnomalyDetectorIgnoreNearExpectedPtrOutput() AnomalyDetectorIgnoreNearExpectedPtrOutput {
+	return o.ToAnomalyDetectorIgnoreNearExpectedPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyDetectorIgnoreNearExpectedOutput) ToAnomalyDetectorIgnoreNearExpectedPtrOutputWithContext(ctx context.Context) AnomalyDetectorIgnoreNearExpectedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorIgnoreNearExpected) *AnomalyDetectorIgnoreNearExpected {
+		return &v
+	}).(AnomalyDetectorIgnoreNearExpectedPtrOutput)
+}
+
+func (o AnomalyDetectorIgnoreNearExpectedOutput) Amount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorIgnoreNearExpected) *float64 { return v.Amount }).(pulumi.Float64PtrOutput)
+}
+
+func (o AnomalyDetectorIgnoreNearExpectedOutput) Ratio() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorIgnoreNearExpected) *float64 { return v.Ratio }).(pulumi.Float64PtrOutput)
+}
+
+type AnomalyDetectorIgnoreNearExpectedPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorIgnoreNearExpectedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorIgnoreNearExpected)(nil)).Elem()
+}
+
+func (o AnomalyDetectorIgnoreNearExpectedPtrOutput) ToAnomalyDetectorIgnoreNearExpectedPtrOutput() AnomalyDetectorIgnoreNearExpectedPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorIgnoreNearExpectedPtrOutput) ToAnomalyDetectorIgnoreNearExpectedPtrOutputWithContext(ctx context.Context) AnomalyDetectorIgnoreNearExpectedPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorIgnoreNearExpectedPtrOutput) Elem() AnomalyDetectorIgnoreNearExpectedOutput {
+	return o.ApplyT(func(v *AnomalyDetectorIgnoreNearExpected) AnomalyDetectorIgnoreNearExpected {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyDetectorIgnoreNearExpected
+		return ret
+	}).(AnomalyDetectorIgnoreNearExpectedOutput)
+}
+
+func (o AnomalyDetectorIgnoreNearExpectedPtrOutput) Amount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorIgnoreNearExpected) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Amount
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o AnomalyDetectorIgnoreNearExpectedPtrOutput) Ratio() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorIgnoreNearExpected) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Ratio
+	}).(pulumi.Float64PtrOutput)
+}
+
+// A key-value pair to provide meta-data and multi-dimensional data analysis for filtering and aggregation.
+type AnomalyDetectorLabel struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// AnomalyDetectorLabelInput is an input type that accepts AnomalyDetectorLabelArgs and AnomalyDetectorLabelOutput values.
+// You can construct a concrete instance of `AnomalyDetectorLabelInput` via:
+//
+//	AnomalyDetectorLabelArgs{...}
+type AnomalyDetectorLabelInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorLabelOutput() AnomalyDetectorLabelOutput
+	ToAnomalyDetectorLabelOutputWithContext(context.Context) AnomalyDetectorLabelOutput
+}
+
+// A key-value pair to provide meta-data and multi-dimensional data analysis for filtering and aggregation.
+type AnomalyDetectorLabelArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AnomalyDetectorLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorLabel)(nil)).Elem()
+}
+
+func (i AnomalyDetectorLabelArgs) ToAnomalyDetectorLabelOutput() AnomalyDetectorLabelOutput {
+	return i.ToAnomalyDetectorLabelOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorLabelArgs) ToAnomalyDetectorLabelOutputWithContext(ctx context.Context) AnomalyDetectorLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorLabelOutput)
+}
+
+// AnomalyDetectorLabelArrayInput is an input type that accepts AnomalyDetectorLabelArray and AnomalyDetectorLabelArrayOutput values.
+// You can construct a concrete instance of `AnomalyDetectorLabelArrayInput` via:
+//
+//	AnomalyDetectorLabelArray{ AnomalyDetectorLabelArgs{...} }
+type AnomalyDetectorLabelArrayInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorLabelArrayOutput() AnomalyDetectorLabelArrayOutput
+	ToAnomalyDetectorLabelArrayOutputWithContext(context.Context) AnomalyDetectorLabelArrayOutput
+}
+
+type AnomalyDetectorLabelArray []AnomalyDetectorLabelInput
+
+func (AnomalyDetectorLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnomalyDetectorLabel)(nil)).Elem()
+}
+
+func (i AnomalyDetectorLabelArray) ToAnomalyDetectorLabelArrayOutput() AnomalyDetectorLabelArrayOutput {
+	return i.ToAnomalyDetectorLabelArrayOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorLabelArray) ToAnomalyDetectorLabelArrayOutputWithContext(ctx context.Context) AnomalyDetectorLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorLabelArrayOutput)
+}
+
+// A key-value pair to provide meta-data and multi-dimensional data analysis for filtering and aggregation.
+type AnomalyDetectorLabelOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorLabel)(nil)).Elem()
+}
+
+func (o AnomalyDetectorLabelOutput) ToAnomalyDetectorLabelOutput() AnomalyDetectorLabelOutput {
+	return o
+}
+
+func (o AnomalyDetectorLabelOutput) ToAnomalyDetectorLabelOutputWithContext(ctx context.Context) AnomalyDetectorLabelOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o AnomalyDetectorLabelOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalyDetectorLabel) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o AnomalyDetectorLabelOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalyDetectorLabel) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AnomalyDetectorLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnomalyDetectorLabel)(nil)).Elem()
+}
+
+func (o AnomalyDetectorLabelArrayOutput) ToAnomalyDetectorLabelArrayOutput() AnomalyDetectorLabelArrayOutput {
+	return o
+}
+
+func (o AnomalyDetectorLabelArrayOutput) ToAnomalyDetectorLabelArrayOutputWithContext(ctx context.Context) AnomalyDetectorLabelArrayOutput {
+	return o
+}
+
+func (o AnomalyDetectorLabelArrayOutput) Index(i pulumi.IntInput) AnomalyDetectorLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnomalyDetectorLabel {
+		return vs[0].([]AnomalyDetectorLabel)[vs[1].(int)]
+	}).(AnomalyDetectorLabelOutput)
+}
+
+type AnomalyDetectorMissingDataAction struct {
+	MarkAsAnomaly *bool `pulumi:"markAsAnomaly"`
+	Skip          *bool `pulumi:"skip"`
+}
+
+// AnomalyDetectorMissingDataActionInput is an input type that accepts AnomalyDetectorMissingDataActionArgs and AnomalyDetectorMissingDataActionOutput values.
+// You can construct a concrete instance of `AnomalyDetectorMissingDataActionInput` via:
+//
+//	AnomalyDetectorMissingDataActionArgs{...}
+type AnomalyDetectorMissingDataActionInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorMissingDataActionOutput() AnomalyDetectorMissingDataActionOutput
+	ToAnomalyDetectorMissingDataActionOutputWithContext(context.Context) AnomalyDetectorMissingDataActionOutput
+}
+
+type AnomalyDetectorMissingDataActionArgs struct {
+	MarkAsAnomaly pulumi.BoolPtrInput `pulumi:"markAsAnomaly"`
+	Skip          pulumi.BoolPtrInput `pulumi:"skip"`
+}
+
+func (AnomalyDetectorMissingDataActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorMissingDataAction)(nil)).Elem()
+}
+
+func (i AnomalyDetectorMissingDataActionArgs) ToAnomalyDetectorMissingDataActionOutput() AnomalyDetectorMissingDataActionOutput {
+	return i.ToAnomalyDetectorMissingDataActionOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorMissingDataActionArgs) ToAnomalyDetectorMissingDataActionOutputWithContext(ctx context.Context) AnomalyDetectorMissingDataActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMissingDataActionOutput)
+}
+
+func (i AnomalyDetectorMissingDataActionArgs) ToAnomalyDetectorMissingDataActionPtrOutput() AnomalyDetectorMissingDataActionPtrOutput {
+	return i.ToAnomalyDetectorMissingDataActionPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorMissingDataActionArgs) ToAnomalyDetectorMissingDataActionPtrOutputWithContext(ctx context.Context) AnomalyDetectorMissingDataActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMissingDataActionOutput).ToAnomalyDetectorMissingDataActionPtrOutputWithContext(ctx)
+}
+
+// AnomalyDetectorMissingDataActionPtrInput is an input type that accepts AnomalyDetectorMissingDataActionArgs, AnomalyDetectorMissingDataActionPtr and AnomalyDetectorMissingDataActionPtrOutput values.
+// You can construct a concrete instance of `AnomalyDetectorMissingDataActionPtrInput` via:
+//
+//	        AnomalyDetectorMissingDataActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalyDetectorMissingDataActionPtrInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorMissingDataActionPtrOutput() AnomalyDetectorMissingDataActionPtrOutput
+	ToAnomalyDetectorMissingDataActionPtrOutputWithContext(context.Context) AnomalyDetectorMissingDataActionPtrOutput
+}
+
+type anomalyDetectorMissingDataActionPtrType AnomalyDetectorMissingDataActionArgs
+
+func AnomalyDetectorMissingDataActionPtr(v *AnomalyDetectorMissingDataActionArgs) AnomalyDetectorMissingDataActionPtrInput {
+	return (*anomalyDetectorMissingDataActionPtrType)(v)
+}
+
+func (*anomalyDetectorMissingDataActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorMissingDataAction)(nil)).Elem()
+}
+
+func (i *anomalyDetectorMissingDataActionPtrType) ToAnomalyDetectorMissingDataActionPtrOutput() AnomalyDetectorMissingDataActionPtrOutput {
+	return i.ToAnomalyDetectorMissingDataActionPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalyDetectorMissingDataActionPtrType) ToAnomalyDetectorMissingDataActionPtrOutputWithContext(ctx context.Context) AnomalyDetectorMissingDataActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMissingDataActionPtrOutput)
+}
+
+type AnomalyDetectorMissingDataActionOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorMissingDataActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorMissingDataAction)(nil)).Elem()
+}
+
+func (o AnomalyDetectorMissingDataActionOutput) ToAnomalyDetectorMissingDataActionOutput() AnomalyDetectorMissingDataActionOutput {
+	return o
+}
+
+func (o AnomalyDetectorMissingDataActionOutput) ToAnomalyDetectorMissingDataActionOutputWithContext(ctx context.Context) AnomalyDetectorMissingDataActionOutput {
+	return o
+}
+
+func (o AnomalyDetectorMissingDataActionOutput) ToAnomalyDetectorMissingDataActionPtrOutput() AnomalyDetectorMissingDataActionPtrOutput {
+	return o.ToAnomalyDetectorMissingDataActionPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyDetectorMissingDataActionOutput) ToAnomalyDetectorMissingDataActionPtrOutputWithContext(ctx context.Context) AnomalyDetectorMissingDataActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorMissingDataAction) *AnomalyDetectorMissingDataAction {
+		return &v
+	}).(AnomalyDetectorMissingDataActionPtrOutput)
+}
+
+func (o AnomalyDetectorMissingDataActionOutput) MarkAsAnomaly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorMissingDataAction) *bool { return v.MarkAsAnomaly }).(pulumi.BoolPtrOutput)
+}
+
+func (o AnomalyDetectorMissingDataActionOutput) Skip() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorMissingDataAction) *bool { return v.Skip }).(pulumi.BoolPtrOutput)
+}
+
+type AnomalyDetectorMissingDataActionPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorMissingDataActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorMissingDataAction)(nil)).Elem()
+}
+
+func (o AnomalyDetectorMissingDataActionPtrOutput) ToAnomalyDetectorMissingDataActionPtrOutput() AnomalyDetectorMissingDataActionPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorMissingDataActionPtrOutput) ToAnomalyDetectorMissingDataActionPtrOutputWithContext(ctx context.Context) AnomalyDetectorMissingDataActionPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorMissingDataActionPtrOutput) Elem() AnomalyDetectorMissingDataActionOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMissingDataAction) AnomalyDetectorMissingDataAction {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyDetectorMissingDataAction
+		return ret
+	}).(AnomalyDetectorMissingDataActionOutput)
+}
+
+func (o AnomalyDetectorMissingDataActionPtrOutput) MarkAsAnomaly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMissingDataAction) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MarkAsAnomaly
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o AnomalyDetectorMissingDataActionPtrOutput) Skip() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMissingDataAction) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Skip
+	}).(pulumi.BoolPtrOutput)
+}
+
+type AnomalyDetectorRandomCutForestConfiguration struct {
+	IgnoreNearExpectedFromAbove *AnomalyDetectorIgnoreNearExpected `pulumi:"ignoreNearExpectedFromAbove"`
+	IgnoreNearExpectedFromBelow *AnomalyDetectorIgnoreNearExpected `pulumi:"ignoreNearExpectedFromBelow"`
+	Query                       string                             `pulumi:"query"`
+	SampleSize                  *int                               `pulumi:"sampleSize"`
+	ShingleSize                 *int                               `pulumi:"shingleSize"`
+}
+
+// AnomalyDetectorRandomCutForestConfigurationInput is an input type that accepts AnomalyDetectorRandomCutForestConfigurationArgs and AnomalyDetectorRandomCutForestConfigurationOutput values.
+// You can construct a concrete instance of `AnomalyDetectorRandomCutForestConfigurationInput` via:
+//
+//	AnomalyDetectorRandomCutForestConfigurationArgs{...}
+type AnomalyDetectorRandomCutForestConfigurationInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorRandomCutForestConfigurationOutput() AnomalyDetectorRandomCutForestConfigurationOutput
+	ToAnomalyDetectorRandomCutForestConfigurationOutputWithContext(context.Context) AnomalyDetectorRandomCutForestConfigurationOutput
+}
+
+type AnomalyDetectorRandomCutForestConfigurationArgs struct {
+	IgnoreNearExpectedFromAbove AnomalyDetectorIgnoreNearExpectedPtrInput `pulumi:"ignoreNearExpectedFromAbove"`
+	IgnoreNearExpectedFromBelow AnomalyDetectorIgnoreNearExpectedPtrInput `pulumi:"ignoreNearExpectedFromBelow"`
+	Query                       pulumi.StringInput                        `pulumi:"query"`
+	SampleSize                  pulumi.IntPtrInput                        `pulumi:"sampleSize"`
+	ShingleSize                 pulumi.IntPtrInput                        `pulumi:"shingleSize"`
+}
+
+func (AnomalyDetectorRandomCutForestConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorRandomCutForestConfiguration)(nil)).Elem()
+}
+
+func (i AnomalyDetectorRandomCutForestConfigurationArgs) ToAnomalyDetectorRandomCutForestConfigurationOutput() AnomalyDetectorRandomCutForestConfigurationOutput {
+	return i.ToAnomalyDetectorRandomCutForestConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorRandomCutForestConfigurationArgs) ToAnomalyDetectorRandomCutForestConfigurationOutputWithContext(ctx context.Context) AnomalyDetectorRandomCutForestConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorRandomCutForestConfigurationOutput)
+}
+
+type AnomalyDetectorRandomCutForestConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorRandomCutForestConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorRandomCutForestConfiguration)(nil)).Elem()
+}
+
+func (o AnomalyDetectorRandomCutForestConfigurationOutput) ToAnomalyDetectorRandomCutForestConfigurationOutput() AnomalyDetectorRandomCutForestConfigurationOutput {
+	return o
+}
+
+func (o AnomalyDetectorRandomCutForestConfigurationOutput) ToAnomalyDetectorRandomCutForestConfigurationOutputWithContext(ctx context.Context) AnomalyDetectorRandomCutForestConfigurationOutput {
+	return o
+}
+
+func (o AnomalyDetectorRandomCutForestConfigurationOutput) IgnoreNearExpectedFromAbove() AnomalyDetectorIgnoreNearExpectedPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorRandomCutForestConfiguration) *AnomalyDetectorIgnoreNearExpected {
+		return v.IgnoreNearExpectedFromAbove
+	}).(AnomalyDetectorIgnoreNearExpectedPtrOutput)
+}
+
+func (o AnomalyDetectorRandomCutForestConfigurationOutput) IgnoreNearExpectedFromBelow() AnomalyDetectorIgnoreNearExpectedPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorRandomCutForestConfiguration) *AnomalyDetectorIgnoreNearExpected {
+		return v.IgnoreNearExpectedFromBelow
+	}).(AnomalyDetectorIgnoreNearExpectedPtrOutput)
+}
+
+func (o AnomalyDetectorRandomCutForestConfigurationOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalyDetectorRandomCutForestConfiguration) string { return v.Query }).(pulumi.StringOutput)
+}
+
+func (o AnomalyDetectorRandomCutForestConfigurationOutput) SampleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorRandomCutForestConfiguration) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
+}
+
+func (o AnomalyDetectorRandomCutForestConfigurationOutput) ShingleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorRandomCutForestConfiguration) *int { return v.ShingleSize }).(pulumi.IntPtrOutput)
+}
+
+type AnomalyDetectorRandomCutForestConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorRandomCutForestConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorRandomCutForestConfiguration)(nil)).Elem()
+}
+
+func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) ToAnomalyDetectorRandomCutForestConfigurationPtrOutput() AnomalyDetectorRandomCutForestConfigurationPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) ToAnomalyDetectorRandomCutForestConfigurationPtrOutputWithContext(ctx context.Context) AnomalyDetectorRandomCutForestConfigurationPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) Elem() AnomalyDetectorRandomCutForestConfigurationOutput {
+	return o.ApplyT(func(v *AnomalyDetectorRandomCutForestConfiguration) AnomalyDetectorRandomCutForestConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyDetectorRandomCutForestConfiguration
+		return ret
+	}).(AnomalyDetectorRandomCutForestConfigurationOutput)
+}
+
+func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) IgnoreNearExpectedFromAbove() AnomalyDetectorIgnoreNearExpectedPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorRandomCutForestConfiguration) *AnomalyDetectorIgnoreNearExpected {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreNearExpectedFromAbove
+	}).(AnomalyDetectorIgnoreNearExpectedPtrOutput)
+}
+
+func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) IgnoreNearExpectedFromBelow() AnomalyDetectorIgnoreNearExpectedPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorRandomCutForestConfiguration) *AnomalyDetectorIgnoreNearExpected {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreNearExpectedFromBelow
+	}).(AnomalyDetectorIgnoreNearExpectedPtrOutput)
+}
+
+func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorRandomCutForestConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) SampleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorRandomCutForestConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SampleSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) ShingleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorRandomCutForestConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ShingleSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// A key-value pair to associate a tag level security for the resource.
+type AnomalyDetectorTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type RuleGroupsNamespaceTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2353,6 +2996,14 @@ type WorkspaceTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorConfigurationInput)(nil)).Elem(), AnomalyDetectorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorIgnoreNearExpectedInput)(nil)).Elem(), AnomalyDetectorIgnoreNearExpectedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorIgnoreNearExpectedPtrInput)(nil)).Elem(), AnomalyDetectorIgnoreNearExpectedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorLabelInput)(nil)).Elem(), AnomalyDetectorLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorLabelArrayInput)(nil)).Elem(), AnomalyDetectorLabelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMissingDataActionInput)(nil)).Elem(), AnomalyDetectorMissingDataActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMissingDataActionPtrInput)(nil)).Elem(), AnomalyDetectorMissingDataActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorRandomCutForestConfigurationInput)(nil)).Elem(), AnomalyDetectorRandomCutForestConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperCloudWatchLogDestinationInput)(nil)).Elem(), ScraperCloudWatchLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperCloudWatchLogDestinationPtrInput)(nil)).Elem(), ScraperCloudWatchLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperComponentInput)(nil)).Elem(), ScraperComponentArgs{})
@@ -2387,6 +3038,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingFilterInput)(nil)).Elem(), WorkspaceLoggingFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceQueryLoggingConfigurationInput)(nil)).Elem(), WorkspaceQueryLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceQueryLoggingConfigurationPtrInput)(nil)).Elem(), WorkspaceQueryLoggingConfigurationArgs{})
+	pulumi.RegisterOutputType(AnomalyDetectorConfigurationOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorIgnoreNearExpectedOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorIgnoreNearExpectedPtrOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorLabelOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorLabelArrayOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorMissingDataActionOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorMissingDataActionPtrOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorRandomCutForestConfigurationOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorRandomCutForestConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperCloudWatchLogDestinationOutput{})
 	pulumi.RegisterOutputType(ScraperCloudWatchLogDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperComponentOutput{})

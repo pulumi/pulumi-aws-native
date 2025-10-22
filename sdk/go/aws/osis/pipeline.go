@@ -35,6 +35,9 @@ type Pipeline struct {
 	PipelineConfigurationBody pulumi.StringOutput `pulumi:"pipelineConfigurationBody"`
 	// Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	PipelineName pulumi.StringOutput `pulumi:"pipelineName"`
+	// The Pipeline Role (ARN) for the pipeline.
+	PipelineRoleArn pulumi.StringPtrOutput          `pulumi:"pipelineRoleArn"`
+	ResourcePolicy  PipelineResourcePolicyPtrOutput `pulumi:"resourcePolicy"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The VPC endpoint service name for the pipeline.
@@ -112,6 +115,9 @@ type pipelineArgs struct {
 	PipelineConfigurationBody string `pulumi:"pipelineConfigurationBody"`
 	// Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	PipelineName *string `pulumi:"pipelineName"`
+	// The Pipeline Role (ARN) for the pipeline.
+	PipelineRoleArn *string                 `pulumi:"pipelineRoleArn"`
+	ResourcePolicy  *PipelineResourcePolicy `pulumi:"resourcePolicy"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
@@ -134,6 +140,9 @@ type PipelineArgs struct {
 	PipelineConfigurationBody pulumi.StringInput
 	// Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	PipelineName pulumi.StringPtrInput
+	// The Pipeline Role (ARN) for the pipeline.
+	PipelineRoleArn pulumi.StringPtrInput
+	ResourcePolicy  PipelineResourcePolicyPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 	// Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
@@ -220,6 +229,15 @@ func (o PipelineOutput) PipelineConfigurationBody() pulumi.StringOutput {
 // Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 func (o PipelineOutput) PipelineName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.PipelineName }).(pulumi.StringOutput)
+}
+
+// The Pipeline Role (ARN) for the pipeline.
+func (o PipelineOutput) PipelineRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.PipelineRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o PipelineOutput) ResourcePolicy() PipelineResourcePolicyPtrOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineResourcePolicyPtrOutput { return v.ResourcePolicy }).(PipelineResourcePolicyPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

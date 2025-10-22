@@ -42,7 +42,8 @@ type NatGateway struct {
 	// The ID of the subnet in which the NAT gateway is located.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// The tags for the NAT gateway.
-	Tags  aws.TagArrayOutput     `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ID of the VPC in which the NAT gateway is located.
 	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
@@ -113,8 +114,9 @@ type natGatewayArgs struct {
 	// The ID of the subnet in which the NAT gateway is located.
 	SubnetId *string `pulumi:"subnetId"`
 	// The tags for the NAT gateway.
-	Tags  []aws.Tag `pulumi:"tags"`
-	VpcId *string   `pulumi:"vpcId"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ID of the VPC in which the NAT gateway is located.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a NatGateway resource.
@@ -138,7 +140,8 @@ type NatGatewayArgs struct {
 	// The ID of the subnet in which the NAT gateway is located.
 	SubnetId pulumi.StringPtrInput
 	// The tags for the NAT gateway.
-	Tags  aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// The ID of the VPC in which the NAT gateway is located.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -237,6 +240,7 @@ func (o NatGatewayOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *NatGateway) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ID of the VPC in which the NAT gateway is located.
 func (o NatGatewayOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }

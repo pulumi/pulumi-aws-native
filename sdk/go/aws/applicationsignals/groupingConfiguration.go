@@ -16,6 +16,7 @@ import (
 type GroupingConfiguration struct {
 	pulumi.CustomResourceState
 
+	// The 12 digit AWS Account ID for the account.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// An array of grouping attribute definitions that specify how services should be grouped based on various attributes and source keys.
 	GroupingAttributeDefinitions GroupingConfigurationGroupingAttributeDefinitionArrayOutput `pulumi:"groupingAttributeDefinitions"`
@@ -113,6 +114,7 @@ func (o GroupingConfigurationOutput) ToGroupingConfigurationOutputWithContext(ct
 	return o
 }
 
+// The 12 digit AWS Account ID for the account.
 func (o GroupingConfigurationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupingConfiguration) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }

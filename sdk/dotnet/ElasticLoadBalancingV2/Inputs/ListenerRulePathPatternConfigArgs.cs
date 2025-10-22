@@ -15,6 +15,14 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
     /// </summary>
     public sealed class ListenerRulePathPatternConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("regexValues")]
+        private InputList<string>? _regexValues;
+        public InputList<string> RegexValues
+        {
+            get => _regexValues ?? (_regexValues = new InputList<string>());
+            set => _regexValues = value;
+        }
+
         [Input("values")]
         private InputList<string>? _values;
 

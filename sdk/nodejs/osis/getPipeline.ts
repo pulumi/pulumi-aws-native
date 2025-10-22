@@ -58,6 +58,11 @@ export interface GetPipelineResult {
      */
     readonly pipelineConfigurationBody?: string;
     /**
+     * The Pipeline Role (ARN) for the pipeline.
+     */
+    readonly pipelineRoleArn?: string;
+    readonly resourcePolicy?: outputs.osis.PipelineResourcePolicy;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];

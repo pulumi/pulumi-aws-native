@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.DomainSettingsExecutionRoleIdentityConfig? ExecutionRoleIdentityConfig;
+        /// <summary>
+        /// The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
+        /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.DomainIpAddressType? IpAddressType;
         /// <summary>
         /// A collection of settings that configure the `RStudioServerPro` Domain-level app.

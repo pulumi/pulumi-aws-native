@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
             set => _baseScreenshots = value;
         }
 
+        /// <summary>
+        /// The browser type associated with this visual reference configuration. Valid values are `CHROME` and `FIREFOX` .
+        /// </summary>
         [Input("browserType")]
         public Input<Pulumi.AwsNative.Synthetics.CanaryBrowserType>? BrowserType { get; set; }
 

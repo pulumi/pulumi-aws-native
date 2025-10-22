@@ -23,10 +23,12 @@ func LookupGroupingConfiguration(ctx *pulumi.Context, args *LookupGroupingConfig
 }
 
 type LookupGroupingConfigurationArgs struct {
+	// The 12 digit AWS Account ID for the account.
 	AccountId string `pulumi:"accountId"`
 }
 
 type LookupGroupingConfigurationResult struct {
+	// The 12 digit AWS Account ID for the account.
 	AccountId *string `pulumi:"accountId"`
 	// An array of grouping attribute definitions that specify how services should be grouped based on various attributes and source keys.
 	GroupingAttributeDefinitions []GroupingConfigurationGroupingAttributeDefinition `pulumi:"groupingAttributeDefinitions"`
@@ -44,6 +46,7 @@ func LookupGroupingConfigurationOutput(ctx *pulumi.Context, args LookupGroupingC
 }
 
 type LookupGroupingConfigurationOutputArgs struct {
+	// The 12 digit AWS Account ID for the account.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupGroupingConfigurationResultOutput) ToLookupGroupingConfigurationRe
 	return o
 }
 
+// The 12 digit AWS Account ID for the account.
 func (o LookupGroupingConfigurationResultOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGroupingConfigurationResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }

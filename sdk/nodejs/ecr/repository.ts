@@ -92,7 +92,8 @@ export class Repository extends pulumi.CustomResource {
      */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.ecr.RepositoryEncryptionConfiguration | undefined>;
     /**
-     * The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+     * The ``imageScanningConfiguration`` parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see ``PutRegistryScanningConfiguration``.
+     *   The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
      */
     declare public readonly imageScanningConfiguration: pulumi.Output<outputs.ecr.RepositoryImageScanningConfiguration | undefined>;
     /**
@@ -100,7 +101,7 @@ export class Repository extends pulumi.CustomResource {
      */
     declare public readonly imageTagMutability: pulumi.Output<enums.ecr.RepositoryImageTagMutability | undefined>;
     /**
-     * The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+     * A list of filters that specify which image tags are excluded from the repository's image tag mutability setting.
      */
     declare public readonly imageTagMutabilityExclusionFilters: pulumi.Output<outputs.ecr.RepositoryImageTagMutabilityExclusionFilter[] | undefined>;
     /**
@@ -183,7 +184,8 @@ export interface RepositoryArgs {
      */
     encryptionConfiguration?: pulumi.Input<inputs.ecr.RepositoryEncryptionConfigurationArgs>;
     /**
-     * The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+     * The ``imageScanningConfiguration`` parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see ``PutRegistryScanningConfiguration``.
+     *   The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
      */
     imageScanningConfiguration?: pulumi.Input<inputs.ecr.RepositoryImageScanningConfigurationArgs>;
     /**
@@ -191,7 +193,7 @@ export interface RepositoryArgs {
      */
     imageTagMutability?: pulumi.Input<enums.ecr.RepositoryImageTagMutability>;
     /**
-     * The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+     * A list of filters that specify which image tags are excluded from the repository's image tag mutability setting.
      */
     imageTagMutabilityExclusionFilters?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryImageTagMutabilityExclusionFilterArgs>[]>;
     /**

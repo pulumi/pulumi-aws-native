@@ -24,12 +24,14 @@ func LookupOrganizationCentralizationRule(ctx *pulumi.Context, args *LookupOrgan
 }
 
 type LookupOrganizationCentralizationRuleArgs struct {
+	// The Amazon Resource Name (ARN) of the organization centralization rule.
 	RuleArn string `pulumi:"ruleArn"`
 }
 
 type LookupOrganizationCentralizationRuleResult struct {
-	Rule    *OrganizationCentralizationRuleCentralizationRule `pulumi:"rule"`
-	RuleArn *string                                           `pulumi:"ruleArn"`
+	Rule *OrganizationCentralizationRuleCentralizationRule `pulumi:"rule"`
+	// The Amazon Resource Name (ARN) of the organization centralization rule.
+	RuleArn *string `pulumi:"ruleArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -44,6 +46,7 @@ func LookupOrganizationCentralizationRuleOutput(ctx *pulumi.Context, args Lookup
 }
 
 type LookupOrganizationCentralizationRuleOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the organization centralization rule.
 	RuleArn pulumi.StringInput `pulumi:"ruleArn"`
 }
 
@@ -71,6 +74,7 @@ func (o LookupOrganizationCentralizationRuleResultOutput) Rule() OrganizationCen
 	}).(OrganizationCentralizationRuleCentralizationRulePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the organization centralization rule.
 func (o LookupOrganizationCentralizationRuleResultOutput) RuleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOrganizationCentralizationRuleResult) *string { return v.RuleArn }).(pulumi.StringPtrOutput)
 }

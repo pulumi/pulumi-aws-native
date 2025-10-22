@@ -94,6 +94,10 @@ export class DbInstance extends pulumi.CustomResource {
      */
     declare public readonly preferredMaintenanceWindow: pulumi.Output<string | undefined>;
     /**
+     * Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
+     */
+    declare public readonly publiclyAccessible: pulumi.Output<boolean | undefined>;
+    /**
      * An arbitrary set of tags (key-value pairs) for this DB instance.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -122,6 +126,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["dbSnapshotIdentifier"] = args?.dbSnapshotIdentifier;
             resourceInputs["dbSubnetGroupName"] = args?.dbSubnetGroupName;
             resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
@@ -138,6 +143,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;
+            resourceInputs["publiclyAccessible"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -199,6 +205,10 @@ export interface DbInstanceArgs {
      * Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
+    /**
+     * Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
+     */
+    publiclyAccessible?: pulumi.Input<boolean>;
     /**
      * An arbitrary set of tags (key-value pairs) for this DB instance.
      */

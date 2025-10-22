@@ -72,7 +72,8 @@ namespace Pulumi.AwsNative.Ecr
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+        /// The ``imageScanningConfiguration`` parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see ``PutRegistryScanningConfiguration``.
+        ///   The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
         /// </summary>
         public readonly Outputs.RepositoryImageScanningConfiguration? ImageScanningConfiguration;
         /// <summary>
@@ -80,7 +81,7 @@ namespace Pulumi.AwsNative.Ecr
         /// </summary>
         public readonly Pulumi.AwsNative.Ecr.RepositoryImageTagMutability? ImageTagMutability;
         /// <summary>
-        /// The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+        /// A list of filters that specify which image tags are excluded from the repository's image tag mutability setting.
         /// </summary>
         public readonly ImmutableArray<Outputs.RepositoryImageTagMutabilityExclusionFilter> ImageTagMutabilityExclusionFilters;
         /// <summary>

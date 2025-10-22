@@ -40,6 +40,9 @@ class GetOrganizationTelemetryRuleResult:
     @_builtins.property
     @pulumi.getter
     def rule(self) -> Optional['outputs.OrganizationTelemetryRuleTelemetryRule']:
+        """
+        The name of the organization telemetry rule.
+        """
         return pulumi.get(self, "rule")
 
     @_builtins.property

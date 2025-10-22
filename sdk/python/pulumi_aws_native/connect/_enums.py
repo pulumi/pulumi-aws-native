@@ -11,7 +11,14 @@ __all__ = [
     'AgentStatusType',
     'ContactFlowState',
     'ContactFlowType',
+    'EvaluationFormItemEnablementConditionOperator',
+    'EvaluationFormItemEnablementConfigurationAction',
+    'EvaluationFormItemEnablementConfigurationDefaultAction',
+    'EvaluationFormItemEnablementExpressionComparator',
+    'EvaluationFormItemEnablementSourceType',
+    'EvaluationFormItemEnablementSourceValueType',
     'EvaluationFormNumericQuestionPropertyValueAutomationLabel',
+    'EvaluationFormQuestionAutomationAnswerSourceSourceType',
     'EvaluationFormQuestionQuestionType',
     'EvaluationFormScoringStrategyMode',
     'EvaluationFormScoringStrategyStatus',
@@ -89,6 +96,58 @@ class ContactFlowType(_builtins.str, Enum):
     CAMPAIGN = "CAMPAIGN"
 
 
+@pulumi.type_token("aws-native:connect:EvaluationFormItemEnablementConditionOperator")
+class EvaluationFormItemEnablementConditionOperator(_builtins.str, Enum):
+    """
+    The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.
+    """
+    OR_ = "OR"
+    AND_ = "AND"
+
+
+@pulumi.type_token("aws-native:connect:EvaluationFormItemEnablementConfigurationAction")
+class EvaluationFormItemEnablementConfigurationAction(_builtins.str, Enum):
+    """
+    Defines the enablement status to be applied when the specified condition is met.
+    """
+    DISABLE = "DISABLE"
+    ENABLE = "ENABLE"
+
+
+@pulumi.type_token("aws-native:connect:EvaluationFormItemEnablementConfigurationDefaultAction")
+class EvaluationFormItemEnablementConfigurationDefaultAction(_builtins.str, Enum):
+    """
+    Specifies the default enablement status to be applied when the condition is not satisfied.
+    """
+    DISABLE = "DISABLE"
+    ENABLE = "ENABLE"
+
+
+@pulumi.type_token("aws-native:connect:EvaluationFormItemEnablementExpressionComparator")
+class EvaluationFormItemEnablementExpressionComparator(_builtins.str, Enum):
+    """
+    Specifies the comparison method to determine if the source value matches any of the specified values.
+    """
+    IN_ = "IN"
+    NOT_IN = "NOT_IN"
+
+
+@pulumi.type_token("aws-native:connect:EvaluationFormItemEnablementSourceType")
+class EvaluationFormItemEnablementSourceType(_builtins.str, Enum):
+    """
+    The type of the source entity.
+    """
+    QUESTION_REF_ID = "QUESTION_REF_ID"
+
+
+@pulumi.type_token("aws-native:connect:EvaluationFormItemEnablementSourceValueType")
+class EvaluationFormItemEnablementSourceValueType(_builtins.str, Enum):
+    """
+    Type of the source entity value.
+    """
+    OPTION_REF_ID = "OPTION_REF_ID"
+
+
 @pulumi.type_token("aws-native:connect:EvaluationFormNumericQuestionPropertyValueAutomationLabel")
 class EvaluationFormNumericQuestionPropertyValueAutomationLabel(_builtins.str, Enum):
     """
@@ -105,6 +164,15 @@ class EvaluationFormNumericQuestionPropertyValueAutomationLabel(_builtins.str, E
     LONGEST_HOLD_DURATION = "LONGEST_HOLD_DURATION"
     NUMBER_OF_HOLDS = "NUMBER_OF_HOLDS"
     AGENT_INTERACTION_AND_HOLD_DURATION = "AGENT_INTERACTION_AND_HOLD_DURATION"
+
+
+@pulumi.type_token("aws-native:connect:EvaluationFormQuestionAutomationAnswerSourceSourceType")
+class EvaluationFormQuestionAutomationAnswerSourceSourceType(_builtins.str, Enum):
+    """
+    The type of the answer sourcr
+    """
+    CONTACT_LENS_DATA = "CONTACT_LENS_DATA"
+    GEN_AI = "GEN_AI"
 
 
 @pulumi.type_token("aws-native:connect:EvaluationFormQuestionQuestionType")

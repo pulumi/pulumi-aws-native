@@ -60,6 +60,8 @@ __all__ = [
     'ClusterRollingUpdatePolicyArgsDict',
     'ClusterScheduledUpdateConfigArgs',
     'ClusterScheduledUpdateConfigArgsDict',
+    'ClusterTieredStorageConfigArgs',
+    'ClusterTieredStorageConfigArgsDict',
     'ClusterVpcConfigArgs',
     'ClusterVpcConfigArgsDict',
     'DataQualityJobDefinitionBatchTransformInputArgs',
@@ -2020,6 +2022,61 @@ class ClusterScheduledUpdateConfigArgs:
     @deployment_config.setter
     def deployment_config(self, value: Optional[pulumi.Input['ClusterDeploymentConfigArgs']]):
         pulumi.set(self, "deployment_config", value)
+
+
+if not MYPY:
+    class ClusterTieredStorageConfigArgsDict(TypedDict):
+        """
+        Configuration for tiered storage in the SageMaker HyperPod cluster.
+        """
+        mode: pulumi.Input['ClusterTieredStorageConfigMode']
+        """
+        The mode of tiered storage.
+        """
+        instance_memory_allocation_percentage: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The percentage of instance memory to allocate for tiered storage.
+        """
+elif False:
+    ClusterTieredStorageConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterTieredStorageConfigArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input['ClusterTieredStorageConfigMode'],
+                 instance_memory_allocation_percentage: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Configuration for tiered storage in the SageMaker HyperPod cluster.
+        :param pulumi.Input['ClusterTieredStorageConfigMode'] mode: The mode of tiered storage.
+        :param pulumi.Input[_builtins.int] instance_memory_allocation_percentage: The percentage of instance memory to allocate for tiered storage.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if instance_memory_allocation_percentage is not None:
+            pulumi.set(__self__, "instance_memory_allocation_percentage", instance_memory_allocation_percentage)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input['ClusterTieredStorageConfigMode']:
+        """
+        The mode of tiered storage.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input['ClusterTieredStorageConfigMode']):
+        pulumi.set(self, "mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceMemoryAllocationPercentage")
+    def instance_memory_allocation_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The percentage of instance memory to allocate for tiered storage.
+        """
+        return pulumi.get(self, "instance_memory_allocation_percentage")
+
+    @instance_memory_allocation_percentage.setter
+    def instance_memory_allocation_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "instance_memory_allocation_percentage", value)
 
 
 if not MYPY:
@@ -4959,6 +5016,9 @@ if not MYPY:
         The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
         """
         ip_address_type: NotRequired[pulumi.Input['DomainIpAddressType']]
+        """
+        The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
+        """
         r_studio_server_pro_domain_settings: NotRequired[pulumi.Input['DomainRStudioServerProDomainSettingsArgsDict']]
         """
         A collection of settings that configure the `RStudioServerPro` Domain-level app.
@@ -4987,6 +5047,7 @@ class DomainSettingsArgs:
         A collection of Domain settings.
         :param pulumi.Input['DomainDockerSettingsArgs'] docker_settings: A collection of settings that configure the domain's Docker interaction.
         :param pulumi.Input['DomainSettingsExecutionRoleIdentityConfig'] execution_role_identity_config: The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
+        :param pulumi.Input['DomainIpAddressType'] ip_address_type: The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
         :param pulumi.Input['DomainRStudioServerProDomainSettingsArgs'] r_studio_server_pro_domain_settings: A collection of settings that configure the `RStudioServerPro` Domain-level app.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         :param pulumi.Input['DomainUnifiedStudioSettingsArgs'] unified_studio_settings: The settings that apply to an SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
@@ -5031,6 +5092,9 @@ class DomainSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input['DomainIpAddressType']]:
+        """
+        The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
+        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter

@@ -31,13 +31,13 @@ namespace Pulumi.AwsNative.S3
         /// The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
         /// </summary>
         [Output("iamRoleArn")]
-        public Output<string?> IamRoleArn { get; private set; } = null!;
+        public Output<string> IamRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// Descriptor for where the location actually points
         /// </summary>
         [Output("locationScope")]
-        public Output<string?> LocationScope { get; private set; } = null!;
+        public Output<string> LocationScope { get; private set; } = null!;
 
         /// <summary>
         /// The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.S3
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AccessGrantsLocation(string name, AccessGrantsLocationArgs? args = null, CustomResourceOptions? options = null)
+        public AccessGrantsLocation(string name, AccessGrantsLocationArgs args, CustomResourceOptions? options = null)
             : base("aws-native:s3:AccessGrantsLocation", name, args ?? new AccessGrantsLocationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -97,14 +97,14 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
         /// </summary>
-        [Input("iamRoleArn")]
-        public Input<string>? IamRoleArn { get; set; }
+        [Input("iamRoleArn", required: true)]
+        public Input<string> IamRoleArn { get; set; } = null!;
 
         /// <summary>
         /// Descriptor for where the location actually points
         /// </summary>
-        [Input("locationScope")]
-        public Input<string>? LocationScope { get; set; }
+        [Input("locationScope", required: true)]
+        public Input<string> LocationScope { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;

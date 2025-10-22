@@ -83,6 +83,7 @@ export class Cluster extends pulumi.CustomResource {
      * Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tieredStorageConfig: pulumi.Output<outputs.sagemaker.ClusterTieredStorageConfig | undefined>;
     /**
      * Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
      */
@@ -108,6 +109,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["orchestrator"] = args?.orchestrator;
             resourceInputs["restrictedInstanceGroups"] = args?.restrictedInstanceGroups;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["tieredStorageConfig"] = args?.tieredStorageConfig;
             resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["clusterArn"] = undefined /*out*/;
             resourceInputs["clusterStatus"] = undefined /*out*/;
@@ -127,6 +129,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["orchestrator"] = undefined /*out*/;
             resourceInputs["restrictedInstanceGroups"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tieredStorageConfig"] = undefined /*out*/;
             resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -170,6 +173,7 @@ export interface ClusterArgs {
      * Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tieredStorageConfig?: pulumi.Input<inputs.sagemaker.ClusterTieredStorageConfigArgs>;
     /**
      * Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
      */

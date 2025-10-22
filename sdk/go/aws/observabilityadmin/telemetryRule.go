@@ -17,6 +17,7 @@ import (
 type TelemetryRule struct {
 	pulumi.CustomResourceState
 
+	// Retrieves the details of a specific telemetry rule in your account.
 	Rule TelemetryRuleTypeOutput `pulumi:"rule"`
 	// The arn of the telemetry rule
 	RuleArn pulumi.StringOutput `pulumi:"ruleArn"`
@@ -73,6 +74,7 @@ func (TelemetryRuleState) ElementType() reflect.Type {
 }
 
 type telemetryRuleArgs struct {
+	// Retrieves the details of a specific telemetry rule in your account.
 	Rule TelemetryRuleType `pulumi:"rule"`
 	// The name of the telemetry rule
 	RuleName *string `pulumi:"ruleName"`
@@ -82,6 +84,7 @@ type telemetryRuleArgs struct {
 
 // The set of arguments for constructing a TelemetryRule resource.
 type TelemetryRuleArgs struct {
+	// Retrieves the details of a specific telemetry rule in your account.
 	Rule TelemetryRuleTypeInput
 	// The name of the telemetry rule
 	RuleName pulumi.StringPtrInput
@@ -126,6 +129,7 @@ func (o TelemetryRuleOutput) ToTelemetryRuleOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Retrieves the details of a specific telemetry rule in your account.
 func (o TelemetryRuleOutput) Rule() TelemetryRuleTypeOutput {
 	return o.ApplyT(func(v *TelemetryRule) TelemetryRuleTypeOutput { return v.Rule }).(TelemetryRuleTypeOutput)
 }
