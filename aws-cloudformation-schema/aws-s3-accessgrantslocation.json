@@ -46,7 +46,7 @@
       }
     }
   },
-  "required" : [ ],
+  "required" : [ "IamRoleArn", "LocationScope" ],
   "readOnlyProperties" : [ "/properties/AccessGrantsLocationArn", "/properties/AccessGrantsLocationId" ],
   "primaryIdentifier" : [ "/properties/AccessGrantsLocationId" ],
   "createOnlyProperties" : [ "/properties/Tags" ],

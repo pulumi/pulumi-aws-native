@@ -164,6 +164,10 @@
     "description": "US ISOB East (Ohio)"
   },
   {
+    "name": "us-isob-west-1",
+    "description": "US ISOB West"
+  },
+  {
     "name": "eu-isoe-west-1",
     "description": "EU ISOE West"
   },
