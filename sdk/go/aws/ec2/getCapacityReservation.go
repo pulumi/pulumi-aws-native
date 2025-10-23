@@ -36,7 +36,7 @@ type LookupCapacityReservationResult struct {
 	// The ID of the Capacity Reservation Fleet to which the Capacity Reservation belongs. Only valid for Capacity Reservations that were created by a Capacity Reservation Fleet.
 	CapacityReservationFleetId *string                   `pulumi:"capacityReservationFleetId"`
 	CommitmentInfo             *CommitmentInfoProperties `pulumi:"commitmentInfo"`
-	// The date and time at which the Capacity Reservation was created.
+	// The date and time the Capacity Reservation was created.
 	CreateDate *string `pulumi:"createDate"`
 	// The delivery method for a future-dated Capacity Reservation. `incremental` indicates that the requested capacity is delivered in addition to any running instances and reserved capacity that you have in your account at the requested date and time.
 	DeliveryPreference *string `pulumi:"deliveryPreference"`
@@ -74,7 +74,7 @@ type LookupCapacityReservationResult struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// The type of Capacity Reservation.
 	ReservationType *string `pulumi:"reservationType"`
-	// The date and time at which the Capacity Reservation was started.
+	// The date and time the Capacity Reservation was started.
 	StartDate *string `pulumi:"startDate"`
 	// The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:
 	//
@@ -151,7 +151,7 @@ func (o LookupCapacityReservationResultOutput) CommitmentInfo() CommitmentInfoPr
 	return o.ApplyT(func(v LookupCapacityReservationResult) *CommitmentInfoProperties { return v.CommitmentInfo }).(CommitmentInfoPropertiesPtrOutput)
 }
 
-// The date and time at which the Capacity Reservation was created.
+// The date and time the Capacity Reservation was created.
 func (o LookupCapacityReservationResultOutput) CreateDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.CreateDate }).(pulumi.StringPtrOutput)
 }
@@ -216,7 +216,7 @@ func (o LookupCapacityReservationResultOutput) ReservationType() pulumi.StringPt
 	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.ReservationType }).(pulumi.StringPtrOutput)
 }
 
-// The date and time at which the Capacity Reservation was started.
+// The date and time the Capacity Reservation was started.
 func (o LookupCapacityReservationResultOutput) StartDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.StartDate }).(pulumi.StringPtrOutput)
 }

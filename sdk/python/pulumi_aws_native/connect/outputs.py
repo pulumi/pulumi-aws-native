@@ -19,14 +19,23 @@ from ._enums import *
 __all__ = [
     'AttributeConfigurationProperties',
     'ConstraintsProperties',
+    'EmailAddressAliasConfiguration',
     'EvaluationFormAutoEvaluationConfiguration',
+    'EvaluationFormAutomaticFailConfiguration',
     'EvaluationFormBaseItem',
     'EvaluationFormItem',
+    'EvaluationFormItemEnablementCondition',
+    'EvaluationFormItemEnablementConditionOperand',
+    'EvaluationFormItemEnablementConfiguration',
+    'EvaluationFormItemEnablementExpression',
+    'EvaluationFormItemEnablementSource',
+    'EvaluationFormItemEnablementSourceValue',
     'EvaluationFormNumericQuestionAutomation',
     'EvaluationFormNumericQuestionOption',
     'EvaluationFormNumericQuestionProperties',
     'EvaluationFormNumericQuestionPropertyValueAutomation',
     'EvaluationFormQuestion',
+    'EvaluationFormQuestionAutomationAnswerSource',
     'EvaluationFormQuestionTypeProperties',
     'EvaluationFormScoringStrategy',
     'EvaluationFormSection',
@@ -35,6 +44,8 @@ __all__ = [
     'EvaluationFormSingleSelectQuestionOption',
     'EvaluationFormSingleSelectQuestionProperties',
     'EvaluationFormSingleSelectQuestionRuleCategoryAutomation',
+    'EvaluationFormTextQuestionAutomation',
+    'EvaluationFormTextQuestionProperties',
     'HoursOfOperationConfig',
     'HoursOfOperationOverride',
     'HoursOfOperationOverrideConfig',
@@ -214,6 +225,45 @@ class ConstraintsProperties(dict):
 
 
 @pulumi.output_type
+class EmailAddressAliasConfiguration(dict):
+    """
+    Configuration for an email address alias
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddressArn":
+            suggest = "email_address_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EmailAddressAliasConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EmailAddressAliasConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EmailAddressAliasConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_address_arn: _builtins.str):
+        """
+        Configuration for an email address alias
+        :param _builtins.str email_address_arn: The identifier of the email address alias
+        """
+        pulumi.set(__self__, "email_address_arn", email_address_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="emailAddressArn")
+    def email_address_arn(self) -> _builtins.str:
+        """
+        The identifier of the email address alias
+        """
+        return pulumi.get(self, "email_address_arn")
+
+
+@pulumi.output_type
 class EvaluationFormAutoEvaluationConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
@@ -224,6 +274,42 @@ class EvaluationFormAutoEvaluationConfiguration(dict):
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class EvaluationFormAutomaticFailConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetSection":
+            suggest = "target_section"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormAutomaticFailConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormAutomaticFailConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormAutomaticFailConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_section: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str target_section: The target section refId to control failure propagation boundary.
+        """
+        if target_section is not None:
+            pulumi.set(__self__, "target_section", target_section)
+
+    @_builtins.property
+    @pulumi.getter(name="targetSection")
+    def target_section(self) -> Optional[_builtins.str]:
+        """
+        The target section refId to control failure propagation boundary.
+        """
+        return pulumi.get(self, "target_section")
 
 
 @pulumi.output_type
@@ -284,6 +370,244 @@ class EvaluationFormItem(dict):
 
 
 @pulumi.output_type
+class EvaluationFormItemEnablementCondition(dict):
+    def __init__(__self__, *,
+                 operands: Sequence['outputs.EvaluationFormItemEnablementConditionOperand'],
+                 operator: Optional['EvaluationFormItemEnablementConditionOperator'] = None):
+        """
+        :param Sequence['EvaluationFormItemEnablementConditionOperand'] operands: The list of operands that compose the condition. Each operand represents a specific criteria to be evaluated.
+        :param 'EvaluationFormItemEnablementConditionOperator' operator: The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.
+        """
+        pulumi.set(__self__, "operands", operands)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @_builtins.property
+    @pulumi.getter
+    def operands(self) -> Sequence['outputs.EvaluationFormItemEnablementConditionOperand']:
+        """
+        The list of operands that compose the condition. Each operand represents a specific criteria to be evaluated.
+        """
+        return pulumi.get(self, "operands")
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> Optional['EvaluationFormItemEnablementConditionOperator']:
+        """
+        The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.
+        """
+        return pulumi.get(self, "operator")
+
+
+@pulumi.output_type
+class EvaluationFormItemEnablementConditionOperand(dict):
+    def __init__(__self__, *,
+                 expression: Optional['outputs.EvaluationFormItemEnablementExpression'] = None):
+        """
+        :param 'EvaluationFormItemEnablementExpression' expression: A direct comparison expression that evaluates a form item's value against specified criteria.
+        """
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> Optional['outputs.EvaluationFormItemEnablementExpression']:
+        """
+        A direct comparison expression that evaluates a form item's value against specified criteria.
+        """
+        return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
+class EvaluationFormItemEnablementConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormItemEnablementConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormItemEnablementConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormItemEnablementConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: 'EvaluationFormItemEnablementConfigurationAction',
+                 condition: 'outputs.EvaluationFormItemEnablementCondition',
+                 default_action: Optional['EvaluationFormItemEnablementConfigurationDefaultAction'] = None):
+        """
+        :param 'EvaluationFormItemEnablementConfigurationAction' action: Defines the enablement status to be applied when the specified condition is met.
+        :param 'EvaluationFormItemEnablementCondition' condition: Specifies the logical condition that determines when to apply the enablement rules.
+        :param 'EvaluationFormItemEnablementConfigurationDefaultAction' default_action: Specifies the default enablement status to be applied when the condition is not satisfied.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "condition", condition)
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> 'EvaluationFormItemEnablementConfigurationAction':
+        """
+        Defines the enablement status to be applied when the specified condition is met.
+        """
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter
+    def condition(self) -> 'outputs.EvaluationFormItemEnablementCondition':
+        """
+        Specifies the logical condition that determines when to apply the enablement rules.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional['EvaluationFormItemEnablementConfigurationDefaultAction']:
+        """
+        Specifies the default enablement status to be applied when the condition is not satisfied.
+        """
+        return pulumi.get(self, "default_action")
+
+
+@pulumi.output_type
+class EvaluationFormItemEnablementExpression(dict):
+    def __init__(__self__, *,
+                 comparator: 'EvaluationFormItemEnablementExpressionComparator',
+                 source: 'outputs.EvaluationFormItemEnablementSource',
+                 values: Sequence['outputs.EvaluationFormItemEnablementSourceValue']):
+        """
+        :param 'EvaluationFormItemEnablementExpressionComparator' comparator: Specifies the comparison method to determine if the source value matches any of the specified values.
+        :param 'EvaluationFormItemEnablementSource' source: Identifies the form item whose value will be evaluated in the expression.
+        :param Sequence['EvaluationFormItemEnablementSourceValue'] values: The list of possible values to compare against the source form item's value.
+        """
+        pulumi.set(__self__, "comparator", comparator)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparator(self) -> 'EvaluationFormItemEnablementExpressionComparator':
+        """
+        Specifies the comparison method to determine if the source value matches any of the specified values.
+        """
+        return pulumi.get(self, "comparator")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> 'outputs.EvaluationFormItemEnablementSource':
+        """
+        Identifies the form item whose value will be evaluated in the expression.
+        """
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence['outputs.EvaluationFormItemEnablementSourceValue']:
+        """
+        The list of possible values to compare against the source form item's value.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class EvaluationFormItemEnablementSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "refId":
+            suggest = "ref_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormItemEnablementSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormItemEnablementSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormItemEnablementSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'EvaluationFormItemEnablementSourceType',
+                 ref_id: Optional[_builtins.str] = None):
+        """
+        :param 'EvaluationFormItemEnablementSourceType' type: The type of the source entity.
+        """
+        pulumi.set(__self__, "type", type)
+        if ref_id is not None:
+            pulumi.set(__self__, "ref_id", ref_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'EvaluationFormItemEnablementSourceType':
+        """
+        The type of the source entity.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="refId")
+    def ref_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "ref_id")
+
+
+@pulumi.output_type
+class EvaluationFormItemEnablementSourceValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "refId":
+            suggest = "ref_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormItemEnablementSourceValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormItemEnablementSourceValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormItemEnablementSourceValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ref_id: Optional[_builtins.str] = None,
+                 type: Optional['EvaluationFormItemEnablementSourceValueType'] = None):
+        """
+        :param _builtins.str ref_id: The reference id of the source entity value.
+        :param 'EvaluationFormItemEnablementSourceValueType' type: Type of the source entity value.
+        """
+        if ref_id is not None:
+            pulumi.set(__self__, "ref_id", ref_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="refId")
+    def ref_id(self) -> Optional[_builtins.str]:
+        """
+        The reference id of the source entity value.
+        """
+        return pulumi.get(self, "ref_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional['EvaluationFormItemEnablementSourceValueType']:
+        """
+        Type of the source entity value.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class EvaluationFormNumericQuestionAutomation(dict):
     """
     Information about the automation configuration in numeric questions.
@@ -291,7 +615,9 @@ class EvaluationFormNumericQuestionAutomation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "propertyValue":
+        if key == "answerSource":
+            suggest = "answer_source"
+        elif key == "propertyValue":
             suggest = "property_value"
 
         if suggest:
@@ -306,13 +632,21 @@ class EvaluationFormNumericQuestionAutomation(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 answer_source: Optional['outputs.EvaluationFormQuestionAutomationAnswerSource'] = None,
                  property_value: Optional['outputs.EvaluationFormNumericQuestionPropertyValueAutomation'] = None):
         """
         Information about the automation configuration in numeric questions.
         :param 'EvaluationFormNumericQuestionPropertyValueAutomation' property_value: The property value of the automation.
         """
+        if answer_source is not None:
+            pulumi.set(__self__, "answer_source", answer_source)
         if property_value is not None:
             pulumi.set(__self__, "property_value", property_value)
+
+    @_builtins.property
+    @pulumi.getter(name="answerSource")
+    def answer_source(self) -> Optional['outputs.EvaluationFormQuestionAutomationAnswerSource']:
+        return pulumi.get(self, "answer_source")
 
     @_builtins.property
     @pulumi.getter(name="propertyValue")
@@ -337,6 +671,8 @@ class EvaluationFormNumericQuestionOption(dict):
             suggest = "min_value"
         elif key == "automaticFail":
             suggest = "automatic_fail"
+        elif key == "automaticFailConfiguration":
+            suggest = "automatic_fail_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EvaluationFormNumericQuestionOption. Access the value via the '{suggest}' property getter instead.")
@@ -353,6 +689,7 @@ class EvaluationFormNumericQuestionOption(dict):
                  max_value: _builtins.int,
                  min_value: _builtins.int,
                  automatic_fail: Optional[_builtins.bool] = None,
+                 automatic_fail_configuration: Optional['outputs.EvaluationFormAutomaticFailConfiguration'] = None,
                  score: Optional[_builtins.int] = None):
         """
         Information about the option range used for scoring in numeric questions.
@@ -367,6 +704,8 @@ class EvaluationFormNumericQuestionOption(dict):
         pulumi.set(__self__, "min_value", min_value)
         if automatic_fail is not None:
             pulumi.set(__self__, "automatic_fail", automatic_fail)
+        if automatic_fail_configuration is not None:
+            pulumi.set(__self__, "automatic_fail_configuration", automatic_fail_configuration)
         if score is not None:
             pulumi.set(__self__, "score", score)
 
@@ -393,6 +732,11 @@ class EvaluationFormNumericQuestionOption(dict):
         The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
         """
         return pulumi.get(self, "automatic_fail")
+
+    @_builtins.property
+    @pulumi.getter(name="automaticFailConfiguration")
+    def automatic_fail_configuration(self) -> Optional['outputs.EvaluationFormAutomaticFailConfiguration']:
+        return pulumi.get(self, "automatic_fail_configuration")
 
     @_builtins.property
     @pulumi.getter
@@ -535,6 +879,7 @@ class EvaluationFormQuestion(dict):
                  question_type: 'EvaluationFormQuestionQuestionType',
                  ref_id: _builtins.str,
                  title: _builtins.str,
+                 enablement: Optional['outputs.EvaluationFormItemEnablementConfiguration'] = None,
                  instructions: Optional[_builtins.str] = None,
                  not_applicable_enabled: Optional[_builtins.bool] = None,
                  question_type_properties: Optional['outputs.EvaluationFormQuestionTypeProperties'] = None,
@@ -558,6 +903,8 @@ class EvaluationFormQuestion(dict):
         pulumi.set(__self__, "question_type", question_type)
         pulumi.set(__self__, "ref_id", ref_id)
         pulumi.set(__self__, "title", title)
+        if enablement is not None:
+            pulumi.set(__self__, "enablement", enablement)
         if instructions is not None:
             pulumi.set(__self__, "instructions", instructions)
         if not_applicable_enabled is not None:
@@ -596,6 +943,11 @@ class EvaluationFormQuestion(dict):
 
     @_builtins.property
     @pulumi.getter
+    def enablement(self) -> Optional['outputs.EvaluationFormItemEnablementConfiguration']:
+        return pulumi.get(self, "enablement")
+
+    @_builtins.property
+    @pulumi.getter
     def instructions(self) -> Optional[_builtins.str]:
         """
         The instructions of the section.
@@ -631,6 +983,41 @@ class EvaluationFormQuestion(dict):
 
 
 @pulumi.output_type
+class EvaluationFormQuestionAutomationAnswerSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceType":
+            suggest = "source_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormQuestionAutomationAnswerSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormQuestionAutomationAnswerSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormQuestionAutomationAnswerSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_type: 'EvaluationFormQuestionAutomationAnswerSourceSourceType'):
+        """
+        :param 'EvaluationFormQuestionAutomationAnswerSourceSourceType' source_type: The type of the answer sourcr
+        """
+        pulumi.set(__self__, "source_type", source_type)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> 'EvaluationFormQuestionAutomationAnswerSourceSourceType':
+        """
+        The type of the answer sourcr
+        """
+        return pulumi.get(self, "source_type")
+
+
+@pulumi.output_type
 class EvaluationFormQuestionTypeProperties(dict):
     """
     Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
@@ -654,7 +1041,8 @@ class EvaluationFormQuestionTypeProperties(dict):
 
     def __init__(__self__, *,
                  numeric: Optional['outputs.EvaluationFormNumericQuestionProperties'] = None,
-                 single_select: Optional['outputs.EvaluationFormSingleSelectQuestionProperties'] = None):
+                 single_select: Optional['outputs.EvaluationFormSingleSelectQuestionProperties'] = None,
+                 text: Optional['outputs.EvaluationFormTextQuestionProperties'] = None):
         """
         Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
         :param 'EvaluationFormNumericQuestionProperties' numeric: The properties of the numeric question.
@@ -664,6 +1052,8 @@ class EvaluationFormQuestionTypeProperties(dict):
             pulumi.set(__self__, "numeric", numeric)
         if single_select is not None:
             pulumi.set(__self__, "single_select", single_select)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
 
     @_builtins.property
     @pulumi.getter
@@ -680,6 +1070,11 @@ class EvaluationFormQuestionTypeProperties(dict):
         The properties of the numeric question.
         """
         return pulumi.get(self, "single_select")
+
+    @_builtins.property
+    @pulumi.getter
+    def text(self) -> Optional['outputs.EvaluationFormTextQuestionProperties']:
+        return pulumi.get(self, "text")
 
 
 @pulumi.output_type
@@ -823,7 +1218,9 @@ class EvaluationFormSingleSelectQuestionAutomation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultOptionRefId":
+        if key == "answerSource":
+            suggest = "answer_source"
+        elif key == "defaultOptionRefId":
             suggest = "default_option_ref_id"
 
         if suggest:
@@ -839,6 +1236,7 @@ class EvaluationFormSingleSelectQuestionAutomation(dict):
 
     def __init__(__self__, *,
                  options: Sequence['outputs.EvaluationFormSingleSelectQuestionAutomationOption'],
+                 answer_source: Optional['outputs.EvaluationFormQuestionAutomationAnswerSource'] = None,
                  default_option_ref_id: Optional[_builtins.str] = None):
         """
         Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.
@@ -849,6 +1247,8 @@ class EvaluationFormSingleSelectQuestionAutomation(dict):
                 *Length Constraints*: Minimum length of 1. Maximum length of 40.
         """
         pulumi.set(__self__, "options", options)
+        if answer_source is not None:
+            pulumi.set(__self__, "answer_source", answer_source)
         if default_option_ref_id is not None:
             pulumi.set(__self__, "default_option_ref_id", default_option_ref_id)
 
@@ -861,6 +1261,11 @@ class EvaluationFormSingleSelectQuestionAutomation(dict):
          *Maximum*: 20
         """
         return pulumi.get(self, "options")
+
+    @_builtins.property
+    @pulumi.getter(name="answerSource")
+    def answer_source(self) -> Optional['outputs.EvaluationFormQuestionAutomationAnswerSource']:
+        return pulumi.get(self, "answer_source")
 
     @_builtins.property
     @pulumi.getter(name="defaultOptionRefId")
@@ -923,6 +1328,8 @@ class EvaluationFormSingleSelectQuestionOption(dict):
             suggest = "ref_id"
         elif key == "automaticFail":
             suggest = "automatic_fail"
+        elif key == "automaticFailConfiguration":
+            suggest = "automatic_fail_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EvaluationFormSingleSelectQuestionOption. Access the value via the '{suggest}' property getter instead.")
@@ -939,6 +1346,7 @@ class EvaluationFormSingleSelectQuestionOption(dict):
                  ref_id: _builtins.str,
                  text: _builtins.str,
                  automatic_fail: Optional[_builtins.bool] = None,
+                 automatic_fail_configuration: Optional['outputs.EvaluationFormAutomaticFailConfiguration'] = None,
                  score: Optional[_builtins.int] = None):
         """
         Information about the automation configuration in single select questions.
@@ -955,6 +1363,8 @@ class EvaluationFormSingleSelectQuestionOption(dict):
         pulumi.set(__self__, "text", text)
         if automatic_fail is not None:
             pulumi.set(__self__, "automatic_fail", automatic_fail)
+        if automatic_fail_configuration is not None:
+            pulumi.set(__self__, "automatic_fail_configuration", automatic_fail_configuration)
         if score is not None:
             pulumi.set(__self__, "score", score)
 
@@ -983,6 +1393,11 @@ class EvaluationFormSingleSelectQuestionOption(dict):
         The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
         """
         return pulumi.get(self, "automatic_fail")
+
+    @_builtins.property
+    @pulumi.getter(name="automaticFailConfiguration")
+    def automatic_fail_configuration(self) -> Optional['outputs.EvaluationFormAutomaticFailConfiguration']:
+        return pulumi.get(self, "automatic_fail_configuration")
 
     @_builtins.property
     @pulumi.getter
@@ -1135,6 +1550,61 @@ class EvaluationFormSingleSelectQuestionRuleCategoryAutomation(dict):
          *Length Constraints*: Minimum length of 1. Maximum length of 40.
         """
         return pulumi.get(self, "option_ref_id")
+
+
+@pulumi.output_type
+class EvaluationFormTextQuestionAutomation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "answerSource":
+            suggest = "answer_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormTextQuestionAutomation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormTextQuestionAutomation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormTextQuestionAutomation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 answer_source: Optional['outputs.EvaluationFormQuestionAutomationAnswerSource'] = None):
+        """
+        :param 'EvaluationFormQuestionAutomationAnswerSource' answer_source: The source of automation answer of the question.
+        """
+        if answer_source is not None:
+            pulumi.set(__self__, "answer_source", answer_source)
+
+    @_builtins.property
+    @pulumi.getter(name="answerSource")
+    def answer_source(self) -> Optional['outputs.EvaluationFormQuestionAutomationAnswerSource']:
+        """
+        The source of automation answer of the question.
+        """
+        return pulumi.get(self, "answer_source")
+
+
+@pulumi.output_type
+class EvaluationFormTextQuestionProperties(dict):
+    def __init__(__self__, *,
+                 automation: Optional['outputs.EvaluationFormTextQuestionAutomation'] = None):
+        """
+        :param 'EvaluationFormTextQuestionAutomation' automation: Specifies how the question can be automatically answered.
+        """
+        if automation is not None:
+            pulumi.set(__self__, "automation", automation)
+
+    @_builtins.property
+    @pulumi.getter
+    def automation(self) -> Optional['outputs.EvaluationFormTextQuestionAutomation']:
+        """
+        Specifies how the question can be automatically answered.
+        """
+        return pulumi.get(self, "automation")
 
 
 @pulumi.output_type

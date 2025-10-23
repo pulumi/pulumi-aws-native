@@ -74,6 +74,11 @@ export class Pipeline extends pulumi.CustomResource {
      */
     declare public readonly pipelineName: pulumi.Output<string>;
     /**
+     * The Pipeline Role (ARN) for the pipeline.
+     */
+    declare public readonly pipelineRoleArn: pulumi.Output<string | undefined>;
+    declare public readonly resourcePolicy: pulumi.Output<outputs.osis.PipelineResourcePolicy | undefined>;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -117,6 +122,8 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["minUnits"] = args?.minUnits;
             resourceInputs["pipelineConfigurationBody"] = args?.pipelineConfigurationBody;
             resourceInputs["pipelineName"] = args?.pipelineName;
+            resourceInputs["pipelineRoleArn"] = args?.pipelineRoleArn;
+            resourceInputs["resourcePolicy"] = args?.resourcePolicy;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["vpcOptions"] = args?.vpcOptions;
             resourceInputs["ingestEndpointUrls"] = undefined /*out*/;
@@ -133,6 +140,8 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["pipelineArn"] = undefined /*out*/;
             resourceInputs["pipelineConfigurationBody"] = undefined /*out*/;
             resourceInputs["pipelineName"] = undefined /*out*/;
+            resourceInputs["pipelineRoleArn"] = undefined /*out*/;
+            resourceInputs["resourcePolicy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcEndpointService"] = undefined /*out*/;
             resourceInputs["vpcEndpoints"] = undefined /*out*/;
@@ -177,6 +186,11 @@ export interface PipelineArgs {
      * Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
      */
     pipelineName?: pulumi.Input<string>;
+    /**
+     * The Pipeline Role (ARN) for the pipeline.
+     */
+    pipelineRoleArn?: pulumi.Input<string>;
+    resourcePolicy?: pulumi.Input<inputs.osis.PipelineResourcePolicyArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

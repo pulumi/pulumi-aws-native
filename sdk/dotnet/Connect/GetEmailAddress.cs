@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.Connect
     public sealed class GetEmailAddressResult
     {
         /// <summary>
+        /// List of alias configurations for the email address
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EmailAddressAliasConfiguration> AliasConfigurations;
+        /// <summary>
         /// A description for the email address.
         /// </summary>
         public readonly string? Description;
@@ -86,6 +90,8 @@ namespace Pulumi.AwsNative.Connect
 
         [OutputConstructor]
         private GetEmailAddressResult(
+            ImmutableArray<Outputs.EmailAddressAliasConfiguration> aliasConfigurations,
+
             string? description,
 
             string? displayName,
@@ -96,6 +102,7 @@ namespace Pulumi.AwsNative.Connect
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            AliasConfigurations = aliasConfigurations;
             Description = description;
             DisplayName = displayName;
             EmailAddressArn = emailAddressArn;

@@ -45,6 +45,9 @@ class GetOrganizationCentralizationRuleResult:
     @_builtins.property
     @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the organization centralization rule.
+        """
         return pulumi.get(self, "rule_arn")
 
     @_builtins.property
@@ -71,6 +74,9 @@ def get_organization_centralization_rule(rule_arn: Optional[_builtins.str] = Non
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationCentralizationRuleResult:
     """
     Resource schema for AWS:ObservabilityAdmin:OrganizationCentralizationRule
+
+
+    :param _builtins.str rule_arn: The Amazon Resource Name (ARN) of the organization centralization rule.
     """
     __args__ = dict()
     __args__['ruleArn'] = rule_arn
@@ -85,6 +91,9 @@ def get_organization_centralization_rule_output(rule_arn: Optional[pulumi.Input[
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationCentralizationRuleResult]:
     """
     Resource schema for AWS:ObservabilityAdmin:OrganizationCentralizationRule
+
+
+    :param _builtins.str rule_arn: The Amazon Resource Name (ARN) of the organization centralization rule.
     """
     __args__ = dict()
     __args__['ruleArn'] = rule_arn

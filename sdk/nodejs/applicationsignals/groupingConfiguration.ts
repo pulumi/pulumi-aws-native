@@ -37,6 +37,9 @@ export class GroupingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === GroupingConfiguration.__pulumiType;
     }
 
+    /**
+     * The 12 digit AWS Account ID for the account.
+     */
     declare public /*out*/ readonly accountId: pulumi.Output<string>;
     /**
      * An array of grouping attribute definitions that specify how services should be grouped based on various attributes and source keys.

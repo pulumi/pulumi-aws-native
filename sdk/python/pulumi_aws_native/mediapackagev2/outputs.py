@@ -36,6 +36,7 @@ __all__ = [
     'OriginEndpointForceEndpointErrorConfiguration',
     'OriginEndpointHlsManifestConfiguration',
     'OriginEndpointLowLatencyHlsManifestConfiguration',
+    'OriginEndpointMssManifestConfiguration',
     'OriginEndpointPolicyCdnAuthConfiguration',
     'OriginEndpointScte',
     'OriginEndpointScteDash',
@@ -1120,6 +1121,8 @@ class OriginEndpointEncryptionMethod(dict):
         suggest = None
         if key == "cmafEncryptionMethod":
             suggest = "cmaf_encryption_method"
+        elif key == "ismEncryptionMethod":
+            suggest = "ism_encryption_method"
         elif key == "tsEncryptionMethod":
             suggest = "ts_encryption_method"
 
@@ -1136,6 +1139,7 @@ class OriginEndpointEncryptionMethod(dict):
 
     def __init__(__self__, *,
                  cmaf_encryption_method: Optional['OriginEndpointCmafEncryptionMethod'] = None,
+                 ism_encryption_method: Optional['OriginEndpointIsmEncryptionMethod'] = None,
                  ts_encryption_method: Optional['OriginEndpointTsEncryptionMethod'] = None):
         """
         <p>The encryption type.</p>
@@ -1144,6 +1148,8 @@ class OriginEndpointEncryptionMethod(dict):
         """
         if cmaf_encryption_method is not None:
             pulumi.set(__self__, "cmaf_encryption_method", cmaf_encryption_method)
+        if ism_encryption_method is not None:
+            pulumi.set(__self__, "ism_encryption_method", ism_encryption_method)
         if ts_encryption_method is not None:
             pulumi.set(__self__, "ts_encryption_method", ts_encryption_method)
 
@@ -1154,6 +1160,11 @@ class OriginEndpointEncryptionMethod(dict):
         The encryption method to use.
         """
         return pulumi.get(self, "cmaf_encryption_method")
+
+    @_builtins.property
+    @pulumi.getter(name="ismEncryptionMethod")
+    def ism_encryption_method(self) -> Optional['OriginEndpointIsmEncryptionMethod']:
+        return pulumi.get(self, "ism_encryption_method")
 
     @_builtins.property
     @pulumi.getter(name="tsEncryptionMethod")
@@ -1592,6 +1603,79 @@ class OriginEndpointLowLatencyHlsManifestConfiguration(dict):
         <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
         """
         return pulumi.get(self, "url_encode_child_manifest")
+
+
+@pulumi.output_type
+class OriginEndpointMssManifestConfiguration(dict):
+    """
+    <p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "manifestName":
+            suggest = "manifest_name"
+        elif key == "filterConfiguration":
+            suggest = "filter_configuration"
+        elif key == "manifestLayout":
+            suggest = "manifest_layout"
+        elif key == "manifestWindowSeconds":
+            suggest = "manifest_window_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginEndpointMssManifestConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginEndpointMssManifestConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginEndpointMssManifestConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 manifest_name: _builtins.str,
+                 filter_configuration: Optional['outputs.OriginEndpointFilterConfiguration'] = None,
+                 manifest_layout: Optional['OriginEndpointMssManifestLayout'] = None,
+                 manifest_window_seconds: Optional[_builtins.int] = None):
+        """
+        <p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>
+        :param _builtins.str manifest_name: <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
+        :param _builtins.int manifest_window_seconds: <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
+        """
+        pulumi.set(__self__, "manifest_name", manifest_name)
+        if filter_configuration is not None:
+            pulumi.set(__self__, "filter_configuration", filter_configuration)
+        if manifest_layout is not None:
+            pulumi.set(__self__, "manifest_layout", manifest_layout)
+        if manifest_window_seconds is not None:
+            pulumi.set(__self__, "manifest_window_seconds", manifest_window_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="manifestName")
+    def manifest_name(self) -> _builtins.str:
+        """
+        <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
+        """
+        return pulumi.get(self, "manifest_name")
+
+    @_builtins.property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> Optional['outputs.OriginEndpointFilterConfiguration']:
+        return pulumi.get(self, "filter_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="manifestLayout")
+    def manifest_layout(self) -> Optional['OriginEndpointMssManifestLayout']:
+        return pulumi.get(self, "manifest_layout")
+
+    @_builtins.property
+    @pulumi.getter(name="manifestWindowSeconds")
+    def manifest_window_seconds(self) -> Optional[_builtins.int]:
+        """
+        <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
+        """
+        return pulumi.get(self, "manifest_window_seconds")
 
 
 @pulumi.output_type

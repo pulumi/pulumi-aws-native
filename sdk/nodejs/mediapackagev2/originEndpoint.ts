@@ -93,6 +93,11 @@ export class OriginEndpoint extends pulumi.CustomResource {
      * <p>The date and time the origin endpoint was modified.</p>
      */
     declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
+    declare public /*out*/ readonly mssManifestUrls: pulumi.Output<string[]>;
+    /**
+     * <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
+     */
+    declare public readonly mssManifests: pulumi.Output<outputs.mediapackagev2.OriginEndpointMssManifestConfiguration[] | undefined>;
     /**
      * The name of the origin endpoint associated with the origin endpoint configuration.
      */
@@ -138,6 +143,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
             resourceInputs["forceEndpointErrorConfiguration"] = args?.forceEndpointErrorConfiguration;
             resourceInputs["hlsManifests"] = args?.hlsManifests;
             resourceInputs["lowLatencyHlsManifests"] = args?.lowLatencyHlsManifests;
+            resourceInputs["mssManifests"] = args?.mssManifests;
             resourceInputs["originEndpointName"] = args?.originEndpointName;
             resourceInputs["segment"] = args?.segment;
             resourceInputs["startoverWindowSeconds"] = args?.startoverWindowSeconds;
@@ -148,6 +154,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
             resourceInputs["hlsManifestUrls"] = undefined /*out*/;
             resourceInputs["lowLatencyHlsManifestUrls"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
+            resourceInputs["mssManifestUrls"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["channelGroupName"] = undefined /*out*/;
@@ -163,6 +170,8 @@ export class OriginEndpoint extends pulumi.CustomResource {
             resourceInputs["lowLatencyHlsManifestUrls"] = undefined /*out*/;
             resourceInputs["lowLatencyHlsManifests"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
+            resourceInputs["mssManifestUrls"] = undefined /*out*/;
+            resourceInputs["mssManifests"] = undefined /*out*/;
             resourceInputs["originEndpointName"] = undefined /*out*/;
             resourceInputs["segment"] = undefined /*out*/;
             resourceInputs["startoverWindowSeconds"] = undefined /*out*/;
@@ -211,6 +220,10 @@ export interface OriginEndpointArgs {
      * <p>A low-latency HLS manifest configuration.</p>
      */
     lowLatencyHlsManifests?: pulumi.Input<pulumi.Input<inputs.mediapackagev2.OriginEndpointLowLatencyHlsManifestConfigurationArgs>[]>;
+    /**
+     * <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
+     */
+    mssManifests?: pulumi.Input<pulumi.Input<inputs.mediapackagev2.OriginEndpointMssManifestConfigurationArgs>[]>;
     /**
      * The name of the origin endpoint associated with the origin endpoint configuration.
      */

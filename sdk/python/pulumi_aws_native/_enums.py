@@ -180,6 +180,10 @@ class Region(_builtins.str, Enum):
     """
     US ISOB East (Ohio)
     """
+    US_ISOB_WEST1 = "us-isob-west-1"
+    """
+    US ISOB West
+    """
     US_ISOF_EAST1 = "us-isof-east-1"
     """
     US ISOF EAST

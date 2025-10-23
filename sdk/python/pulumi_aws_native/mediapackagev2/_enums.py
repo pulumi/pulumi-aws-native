@@ -21,6 +21,8 @@ __all__ = [
     'OriginEndpointDashUtcTimingMode',
     'OriginEndpointDrmSystem',
     'OriginEndpointEndpointErrorCondition',
+    'OriginEndpointIsmEncryptionMethod',
+    'OriginEndpointMssManifestLayout',
     'OriginEndpointPresetSpeke20Audio',
     'OriginEndpointPresetSpeke20Video',
     'OriginEndpointScteFilter',
@@ -43,6 +45,7 @@ class OriginEndpointAdMarkerDash(_builtins.str, Enum):
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointAdMarkerHls")
 class OriginEndpointAdMarkerHls(_builtins.str, Enum):
     DATERANGE = "DATERANGE"
+    SCTE35_ENHANCED = "SCTE35_ENHANCED"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointCmafEncryptionMethod")
@@ -55,6 +58,7 @@ class OriginEndpointCmafEncryptionMethod(_builtins.str, Enum):
 class OriginEndpointContainerType(_builtins.str, Enum):
     TS = "TS"
     CMAF = "CMAF"
+    ISM = "ISM"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointDashCompactness")
@@ -117,6 +121,17 @@ class OriginEndpointEndpointErrorCondition(_builtins.str, Enum):
     INCOMPLETE_MANIFEST = "INCOMPLETE_MANIFEST"
     MISSING_DRM_KEY = "MISSING_DRM_KEY"
     SLATE_INPUT = "SLATE_INPUT"
+
+
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointIsmEncryptionMethod")
+class OriginEndpointIsmEncryptionMethod(_builtins.str, Enum):
+    CENC = "CENC"
+
+
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointMssManifestLayout")
+class OriginEndpointMssManifestLayout(_builtins.str, Enum):
+    FULL = "FULL"
+    COMPACT = "COMPACT"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointPresetSpeke20Audio")

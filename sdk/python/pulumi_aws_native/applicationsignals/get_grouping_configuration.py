@@ -38,6 +38,9 @@ class GetGroupingConfigurationResult:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[_builtins.str]:
+        """
+        The 12 digit AWS Account ID for the account.
+        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property
@@ -72,6 +75,9 @@ def get_grouping_configuration(account_id: Optional[_builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupingConfigurationResult:
     """
     Resource Type definition for AWS::ApplicationSignals::GroupingConfiguration
+
+
+    :param _builtins.str account_id: The 12 digit AWS Account ID for the account.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -86,6 +92,9 @@ def get_grouping_configuration_output(account_id: Optional[pulumi.Input[_builtin
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupingConfigurationResult]:
     """
     Resource Type definition for AWS::ApplicationSignals::GroupingConfiguration
+
+
+    :param _builtins.str account_id: The 12 digit AWS Account ID for the account.
     """
     __args__ = dict()
     __args__['accountId'] = account_id

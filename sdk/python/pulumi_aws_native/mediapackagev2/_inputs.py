@@ -52,6 +52,8 @@ __all__ = [
     'OriginEndpointHlsManifestConfigurationArgsDict',
     'OriginEndpointLowLatencyHlsManifestConfigurationArgs',
     'OriginEndpointLowLatencyHlsManifestConfigurationArgsDict',
+    'OriginEndpointMssManifestConfigurationArgs',
+    'OriginEndpointMssManifestConfigurationArgsDict',
     'OriginEndpointPolicyCdnAuthConfigurationArgs',
     'OriginEndpointPolicyCdnAuthConfigurationArgsDict',
     'OriginEndpointScteDashArgs',
@@ -1192,6 +1194,7 @@ if not MYPY:
         """
         The encryption method to use.
         """
+        ism_encryption_method: NotRequired[pulumi.Input['OriginEndpointIsmEncryptionMethod']]
         ts_encryption_method: NotRequired[pulumi.Input['OriginEndpointTsEncryptionMethod']]
         """
         The encryption method to use.
@@ -1203,6 +1206,7 @@ elif False:
 class OriginEndpointEncryptionMethodArgs:
     def __init__(__self__, *,
                  cmaf_encryption_method: Optional[pulumi.Input['OriginEndpointCmafEncryptionMethod']] = None,
+                 ism_encryption_method: Optional[pulumi.Input['OriginEndpointIsmEncryptionMethod']] = None,
                  ts_encryption_method: Optional[pulumi.Input['OriginEndpointTsEncryptionMethod']] = None):
         """
         <p>The encryption type.</p>
@@ -1211,6 +1215,8 @@ class OriginEndpointEncryptionMethodArgs:
         """
         if cmaf_encryption_method is not None:
             pulumi.set(__self__, "cmaf_encryption_method", cmaf_encryption_method)
+        if ism_encryption_method is not None:
+            pulumi.set(__self__, "ism_encryption_method", ism_encryption_method)
         if ts_encryption_method is not None:
             pulumi.set(__self__, "ts_encryption_method", ts_encryption_method)
 
@@ -1225,6 +1231,15 @@ class OriginEndpointEncryptionMethodArgs:
     @cmaf_encryption_method.setter
     def cmaf_encryption_method(self, value: Optional[pulumi.Input['OriginEndpointCmafEncryptionMethod']]):
         pulumi.set(self, "cmaf_encryption_method", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ismEncryptionMethod")
+    def ism_encryption_method(self) -> Optional[pulumi.Input['OriginEndpointIsmEncryptionMethod']]:
+        return pulumi.get(self, "ism_encryption_method")
+
+    @ism_encryption_method.setter
+    def ism_encryption_method(self, value: Optional[pulumi.Input['OriginEndpointIsmEncryptionMethod']]):
+        pulumi.set(self, "ism_encryption_method", value)
 
     @_builtins.property
     @pulumi.getter(name="tsEncryptionMethod")
@@ -1893,6 +1908,87 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
     @url_encode_child_manifest.setter
     def url_encode_child_manifest(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "url_encode_child_manifest", value)
+
+
+if not MYPY:
+    class OriginEndpointMssManifestConfigurationArgsDict(TypedDict):
+        """
+        <p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>
+        """
+        manifest_name: pulumi.Input[_builtins.str]
+        """
+        <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
+        """
+        filter_configuration: NotRequired[pulumi.Input['OriginEndpointFilterConfigurationArgsDict']]
+        manifest_layout: NotRequired[pulumi.Input['OriginEndpointMssManifestLayout']]
+        manifest_window_seconds: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
+        """
+elif False:
+    OriginEndpointMssManifestConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OriginEndpointMssManifestConfigurationArgs:
+    def __init__(__self__, *,
+                 manifest_name: pulumi.Input[_builtins.str],
+                 filter_configuration: Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']] = None,
+                 manifest_layout: Optional[pulumi.Input['OriginEndpointMssManifestLayout']] = None,
+                 manifest_window_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        <p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>
+        :param pulumi.Input[_builtins.str] manifest_name: <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
+        :param pulumi.Input[_builtins.int] manifest_window_seconds: <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
+        """
+        pulumi.set(__self__, "manifest_name", manifest_name)
+        if filter_configuration is not None:
+            pulumi.set(__self__, "filter_configuration", filter_configuration)
+        if manifest_layout is not None:
+            pulumi.set(__self__, "manifest_layout", manifest_layout)
+        if manifest_window_seconds is not None:
+            pulumi.set(__self__, "manifest_window_seconds", manifest_window_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="manifestName")
+    def manifest_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
+        """
+        return pulumi.get(self, "manifest_name")
+
+    @manifest_name.setter
+    def manifest_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "manifest_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']]:
+        return pulumi.get(self, "filter_configuration")
+
+    @filter_configuration.setter
+    def filter_configuration(self, value: Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']]):
+        pulumi.set(self, "filter_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="manifestLayout")
+    def manifest_layout(self) -> Optional[pulumi.Input['OriginEndpointMssManifestLayout']]:
+        return pulumi.get(self, "manifest_layout")
+
+    @manifest_layout.setter
+    def manifest_layout(self, value: Optional[pulumi.Input['OriginEndpointMssManifestLayout']]):
+        pulumi.set(self, "manifest_layout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="manifestWindowSeconds")
+    def manifest_window_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
+        """
+        return pulumi.get(self, "manifest_window_seconds")
+
+    @manifest_window_seconds.setter
+    def manifest_window_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "manifest_window_seconds", value)
 
 
 if not MYPY:

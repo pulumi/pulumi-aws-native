@@ -42,7 +42,7 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     declare public readonly availabilityZone: pulumi.Output<string | undefined>;
     /**
-     * The Availability Zone ID of the Capacity Reservation.
+     * The ID of the Availability Zone in which the capacity is reserved.
      */
     declare public readonly availabilityZoneId: pulumi.Output<string | undefined>;
     /**
@@ -64,7 +64,7 @@ export class CapacityReservation extends pulumi.CustomResource {
     declare public /*out*/ readonly capacityReservationFleetId: pulumi.Output<string>;
     declare public /*out*/ readonly commitmentInfo: pulumi.Output<outputs.ec2.CommitmentInfoProperties>;
     /**
-     * The date and time at which the Capacity Reservation was created.
+     * The date and time the Capacity Reservation was created.
      */
     declare public /*out*/ readonly createDate: pulumi.Output<string>;
     /**
@@ -148,7 +148,7 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly reservationType: pulumi.Output<string>;
     /**
-     * The date and time at which the Capacity Reservation was started.
+     * The date and time the Capacity Reservation was started.
      */
     declare public /*out*/ readonly startDate: pulumi.Output<string>;
     /**
@@ -283,7 +283,7 @@ export interface CapacityReservationArgs {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * The Availability Zone ID of the Capacity Reservation.
+     * The ID of the Availability Zone in which the capacity is reserved.
      */
     availabilityZoneId?: pulumi.Input<string>;
     /**

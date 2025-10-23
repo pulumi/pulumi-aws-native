@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetOriginEndpointResult:
-    def __init__(__self__, arn=None, container_type=None, created_at=None, dash_manifest_urls=None, dash_manifests=None, description=None, force_endpoint_error_configuration=None, hls_manifest_urls=None, hls_manifests=None, low_latency_hls_manifest_urls=None, low_latency_hls_manifests=None, modified_at=None, segment=None, startover_window_seconds=None, tags=None):
+    def __init__(__self__, arn=None, container_type=None, created_at=None, dash_manifest_urls=None, dash_manifests=None, description=None, force_endpoint_error_configuration=None, hls_manifest_urls=None, hls_manifests=None, low_latency_hls_manifest_urls=None, low_latency_hls_manifests=None, modified_at=None, mss_manifest_urls=None, mss_manifests=None, segment=None, startover_window_seconds=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -63,6 +63,12 @@ class GetOriginEndpointResult:
         if modified_at and not isinstance(modified_at, str):
             raise TypeError("Expected argument 'modified_at' to be a str")
         pulumi.set(__self__, "modified_at", modified_at)
+        if mss_manifest_urls and not isinstance(mss_manifest_urls, list):
+            raise TypeError("Expected argument 'mss_manifest_urls' to be a list")
+        pulumi.set(__self__, "mss_manifest_urls", mss_manifest_urls)
+        if mss_manifests and not isinstance(mss_manifests, list):
+            raise TypeError("Expected argument 'mss_manifests' to be a list")
+        pulumi.set(__self__, "mss_manifests", mss_manifests)
         if segment and not isinstance(segment, dict):
             raise TypeError("Expected argument 'segment' to be a dict")
         pulumi.set(__self__, "segment", segment)
@@ -170,6 +176,19 @@ class GetOriginEndpointResult:
         return pulumi.get(self, "modified_at")
 
     @_builtins.property
+    @pulumi.getter(name="mssManifestUrls")
+    def mss_manifest_urls(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "mss_manifest_urls")
+
+    @_builtins.property
+    @pulumi.getter(name="mssManifests")
+    def mss_manifests(self) -> Optional[Sequence['outputs.OriginEndpointMssManifestConfiguration']]:
+        """
+        <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
+        """
+        return pulumi.get(self, "mss_manifests")
+
+    @_builtins.property
     @pulumi.getter
     def segment(self) -> Optional['outputs.OriginEndpointSegment']:
         """
@@ -212,6 +231,8 @@ class AwaitableGetOriginEndpointResult(GetOriginEndpointResult):
             low_latency_hls_manifest_urls=self.low_latency_hls_manifest_urls,
             low_latency_hls_manifests=self.low_latency_hls_manifests,
             modified_at=self.modified_at,
+            mss_manifest_urls=self.mss_manifest_urls,
+            mss_manifests=self.mss_manifests,
             segment=self.segment,
             startover_window_seconds=self.startover_window_seconds,
             tags=self.tags)
@@ -243,6 +264,8 @@ def get_origin_endpoint(arn: Optional[_builtins.str] = None,
         low_latency_hls_manifest_urls=pulumi.get(__ret__, 'low_latency_hls_manifest_urls'),
         low_latency_hls_manifests=pulumi.get(__ret__, 'low_latency_hls_manifests'),
         modified_at=pulumi.get(__ret__, 'modified_at'),
+        mss_manifest_urls=pulumi.get(__ret__, 'mss_manifest_urls'),
+        mss_manifests=pulumi.get(__ret__, 'mss_manifests'),
         segment=pulumi.get(__ret__, 'segment'),
         startover_window_seconds=pulumi.get(__ret__, 'startover_window_seconds'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -271,6 +294,8 @@ def get_origin_endpoint_output(arn: Optional[pulumi.Input[_builtins.str]] = None
         low_latency_hls_manifest_urls=pulumi.get(__response__, 'low_latency_hls_manifest_urls'),
         low_latency_hls_manifests=pulumi.get(__response__, 'low_latency_hls_manifests'),
         modified_at=pulumi.get(__response__, 'modified_at'),
+        mss_manifest_urls=pulumi.get(__response__, 'mss_manifest_urls'),
+        mss_manifests=pulumi.get(__response__, 'mss_manifests'),
         segment=pulumi.get(__response__, 'segment'),
         startover_window_seconds=pulumi.get(__response__, 'startover_window_seconds'),
         tags=pulumi.get(__response__, 'tags')))

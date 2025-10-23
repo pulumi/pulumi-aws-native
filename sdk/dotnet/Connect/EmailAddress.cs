@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Connect
     public partial class EmailAddress : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// List of alias configurations for the email address
+        /// </summary>
+        [Output("aliasConfigurations")]
+        public Output<ImmutableArray<Outputs.EmailAddressAliasConfiguration>> AliasConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// A description for the email address.
         /// </summary>
         [Output("description")]
@@ -100,6 +106,18 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class EmailAddressArgs : global::Pulumi.ResourceArgs
     {
+        [Input("aliasConfigurations")]
+        private InputList<Inputs.EmailAddressAliasConfigurationArgs>? _aliasConfigurations;
+
+        /// <summary>
+        /// List of alias configurations for the email address
+        /// </summary>
+        public InputList<Inputs.EmailAddressAliasConfigurationArgs> AliasConfigurations
+        {
+            get => _aliasConfigurations ?? (_aliasConfigurations = new InputList<Inputs.EmailAddressAliasConfigurationArgs>());
+            set => _aliasConfigurations = value;
+        }
+
         /// <summary>
         /// A description for the email address.
         /// </summary>

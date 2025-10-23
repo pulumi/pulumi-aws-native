@@ -35,7 +35,9 @@ namespace Pulumi.AwsNative.Route53.Outputs
         /// <summary>
         /// The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
         /// 
-        /// If you don't specify a value for `FailureThreshold` , the default value is three health checks.
+        /// `FailureThreshold` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
+        /// 
+        /// Otherwise, if you don't specify a value for `FailureThreshold` , the default value is three health checks.
         /// </summary>
         public readonly int? FailureThreshold;
         /// <summary>
@@ -111,6 +113,8 @@ namespace Pulumi.AwsNative.Route53.Outputs
         /// <summary>
         /// Specify whether you want Amazon Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint, and to display CloudWatch latency graphs on the *Health Checks* page in the Route 53 console.
         /// 
+        /// `MeasureLatency` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
+        /// 
         /// &gt; You can't change the value of `MeasureLatency` after you create a health check.
         /// </summary>
         public readonly bool? MeasureLatency;
@@ -130,6 +134,8 @@ namespace Pulumi.AwsNative.Route53.Outputs
         public readonly ImmutableArray<string> Regions;
         /// <summary>
         /// The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health check request. Each Route 53 health checker makes requests at this interval.
+        /// 
+        /// `RequestInterval` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
         /// 
         /// &gt; You can't change the value of `RequestInterval` after you create a health check. 
         /// 

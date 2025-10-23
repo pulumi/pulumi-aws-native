@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
 
     public sealed class OrganizationCentralizationRuleLogsEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
+        /// </summary>
         [Input("encryptionConflictResolutionStrategy")]
         public Input<Pulumi.AwsNative.ObservabilityAdmin.OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy>? EncryptionConflictResolutionStrategy { get; set; }
 
+        /// <summary>
+        /// Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
+        /// </summary>
         [Input("encryptionStrategy", required: true)]
         public Input<Pulumi.AwsNative.ObservabilityAdmin.OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy> EncryptionStrategy { get; set; } = null!;
 
+        /// <summary>
+        /// KMS Key ARN belonging to the primary destination account and region, to encrypt newly created central log groups in the primary destination.
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 

@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
 
     public sealed class OrganizationCentralizationRuleCentralizationRuleDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The destination account (within the organization) to which the telemetry data should be centralized.
+        /// </summary>
         [Input("account")]
         public Input<string>? Account { get; set; }
 
+        /// <summary>
+        /// Log specific configuration for centralization destination log groups.
+        /// </summary>
         [Input("destinationLogsConfiguration")]
         public Input<Inputs.OrganizationCentralizationRuleDestinationLogsConfigurationArgs>? DestinationLogsConfiguration { get; set; }
 
+        /// <summary>
+        /// The primary destination region to which telemetry data should be centralized.
+        /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 

@@ -44,7 +44,10 @@ type OriginEndpoint struct {
 	// <p>A low-latency HLS manifest configuration.</p>
 	LowLatencyHlsManifests OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput `pulumi:"lowLatencyHlsManifests"`
 	// <p>The date and time the origin endpoint was modified.</p>
-	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
+	ModifiedAt      pulumi.StringOutput      `pulumi:"modifiedAt"`
+	MssManifestUrls pulumi.StringArrayOutput `pulumi:"mssManifestUrls"`
+	// <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
+	MssManifests OriginEndpointMssManifestConfigurationArrayOutput `pulumi:"mssManifests"`
 	// The name of the origin endpoint associated with the origin endpoint configuration.
 	OriginEndpointName pulumi.StringOutput `pulumi:"originEndpointName"`
 	// The segment associated with the origin endpoint.
@@ -126,6 +129,8 @@ type originEndpointArgs struct {
 	HlsManifests []OriginEndpointHlsManifestConfiguration `pulumi:"hlsManifests"`
 	// <p>A low-latency HLS manifest configuration.</p>
 	LowLatencyHlsManifests []OriginEndpointLowLatencyHlsManifestConfiguration `pulumi:"lowLatencyHlsManifests"`
+	// <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
+	MssManifests []OriginEndpointMssManifestConfiguration `pulumi:"mssManifests"`
 	// The name of the origin endpoint associated with the origin endpoint configuration.
 	OriginEndpointName *string `pulumi:"originEndpointName"`
 	// The segment associated with the origin endpoint.
@@ -154,6 +159,8 @@ type OriginEndpointArgs struct {
 	HlsManifests OriginEndpointHlsManifestConfigurationArrayInput
 	// <p>A low-latency HLS manifest configuration.</p>
 	LowLatencyHlsManifests OriginEndpointLowLatencyHlsManifestConfigurationArrayInput
+	// <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
+	MssManifests OriginEndpointMssManifestConfigurationArrayInput
 	// The name of the origin endpoint associated with the origin endpoint configuration.
 	OriginEndpointName pulumi.StringPtrInput
 	// The segment associated with the origin endpoint.
@@ -273,6 +280,15 @@ func (o OriginEndpointOutput) LowLatencyHlsManifests() OriginEndpointLowLatencyH
 // <p>The date and time the origin endpoint was modified.</p>
 func (o OriginEndpointOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointOutput) MssManifestUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringArrayOutput { return v.MssManifestUrls }).(pulumi.StringArrayOutput)
+}
+
+// <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
+func (o OriginEndpointOutput) MssManifests() OriginEndpointMssManifestConfigurationArrayOutput {
+	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointMssManifestConfigurationArrayOutput { return v.MssManifests }).(OriginEndpointMssManifestConfigurationArrayOutput)
 }
 
 // The name of the origin endpoint associated with the origin endpoint configuration.

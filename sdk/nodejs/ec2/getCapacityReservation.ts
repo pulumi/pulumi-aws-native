@@ -40,7 +40,7 @@ export interface GetCapacityReservationResult {
     readonly capacityReservationFleetId?: string;
     readonly commitmentInfo?: outputs.ec2.CommitmentInfoProperties;
     /**
-     * The date and time at which the Capacity Reservation was created.
+     * The date and time the Capacity Reservation was created.
      */
     readonly createDate?: string;
     /**
@@ -96,7 +96,7 @@ export interface GetCapacityReservationResult {
      */
     readonly reservationType?: string;
     /**
-     * The date and time at which the Capacity Reservation was started.
+     * The date and time the Capacity Reservation was started.
      */
     readonly startDate?: string;
     /**

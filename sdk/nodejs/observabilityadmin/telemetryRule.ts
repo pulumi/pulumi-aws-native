@@ -37,6 +37,9 @@ export class TelemetryRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === TelemetryRule.__pulumiType;
     }
 
+    /**
+     * Retrieves the details of a specific telemetry rule in your account.
+     */
     declare public readonly rule: pulumi.Output<outputs.observabilityadmin.TelemetryRule>;
     /**
      * The arn of the telemetry rule
@@ -86,6 +89,9 @@ export class TelemetryRule extends pulumi.CustomResource {
  * The set of arguments for constructing a TelemetryRule resource.
  */
 export interface TelemetryRuleArgs {
+    /**
+     * Retrieves the details of a specific telemetry rule in your account.
+     */
     rule: pulumi.Input<inputs.observabilityadmin.TelemetryRuleArgs>;
     /**
      * The name of the telemetry rule

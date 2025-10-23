@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
         /// </summary>
         public readonly bool? AutomaticFail;
+        public readonly Outputs.EvaluationFormAutomaticFailConfiguration? AutomaticFailConfiguration;
         /// <summary>
         /// The identifier of the answer option. An identifier must be unique within the question.
         ///  *Length Constraints*: Minimum length of 1. Maximum length of 40.
@@ -41,6 +42,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
         private EvaluationFormSingleSelectQuestionOption(
             bool? automaticFail,
 
+            Outputs.EvaluationFormAutomaticFailConfiguration? automaticFailConfiguration,
+
             string refId,
 
             int? score,
@@ -48,6 +51,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
             string text)
         {
             AutomaticFail = automaticFail;
+            AutomaticFailConfiguration = automaticFailConfiguration;
             RefId = refId;
             Score = score;
             Text = text;

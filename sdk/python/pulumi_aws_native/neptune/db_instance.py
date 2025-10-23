@@ -31,6 +31,7 @@ class DbInstanceArgs:
                  db_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
+                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DbInstance resource.
@@ -52,6 +53,7 @@ class DbInstanceArgs:
                `AWS::Neptune::DBCluster` does support restoring from snapshots.
         :param pulumi.Input[_builtins.str] db_subnet_group_name: A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new virtual private cloud (VPC).
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        :param pulumi.Input[_builtins.bool] publicly_accessible: Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this DB instance.
         """
         pulumi.set(__self__, "db_instance_class", db_instance_class)
@@ -73,6 +75,8 @@ class DbInstanceArgs:
             pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if publicly_accessible is not None:
+            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -205,6 +209,18 @@ class DbInstanceArgs:
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @_builtins.property
+    @pulumi.getter(name="publiclyAccessible")
+    def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
+        """
+        return pulumi.get(self, "publicly_accessible")
+
+    @publicly_accessible.setter
+    def publicly_accessible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "publicly_accessible", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -233,6 +249,7 @@ class DbInstance(pulumi.CustomResource):
                  db_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
+                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -258,6 +275,7 @@ class DbInstance(pulumi.CustomResource):
                `AWS::Neptune::DBCluster` does support restoring from snapshots.
         :param pulumi.Input[_builtins.str] db_subnet_group_name: A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new virtual private cloud (VPC).
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        :param pulumi.Input[_builtins.bool] publicly_accessible: Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this DB instance.
         """
         ...
@@ -294,6 +312,7 @@ class DbInstance(pulumi.CustomResource):
                  db_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
+                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -316,6 +335,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["db_snapshot_identifier"] = db_snapshot_identifier
             __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
+            __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["tags"] = tags
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["port"] = None
@@ -355,6 +375,7 @@ class DbInstance(pulumi.CustomResource):
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["port"] = None
         __props__.__dict__["preferred_maintenance_window"] = None
+        __props__.__dict__["publicly_accessible"] = None
         __props__.__dict__["tags"] = None
         return DbInstance(resource_name, opts=opts, __props__=__props__)
 
@@ -461,6 +482,14 @@ class DbInstance(pulumi.CustomResource):
         Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         """
         return pulumi.get(self, "preferred_maintenance_window")
+
+    @_builtins.property
+    @pulumi.getter(name="publiclyAccessible")
+    def publicly_accessible(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
+        """
+        return pulumi.get(self, "publicly_accessible")
 
     @_builtins.property
     @pulumi.getter

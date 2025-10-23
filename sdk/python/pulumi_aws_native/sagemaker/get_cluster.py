@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, auto_scaling=None, cluster_arn=None, cluster_role=None, cluster_status=None, creation_time=None, failure_message=None, instance_groups=None, node_provisioning_mode=None, node_recovery=None, restricted_instance_groups=None, tags=None):
+    def __init__(__self__, auto_scaling=None, cluster_arn=None, cluster_role=None, cluster_status=None, creation_time=None, failure_message=None, instance_groups=None, node_provisioning_mode=None, node_recovery=None, restricted_instance_groups=None, tags=None, tiered_storage_config=None):
         if auto_scaling and not isinstance(auto_scaling, dict):
             raise TypeError("Expected argument 'auto_scaling' to be a dict")
         pulumi.set(__self__, "auto_scaling", auto_scaling)
@@ -60,6 +60,9 @@ class GetClusterResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if tiered_storage_config and not isinstance(tiered_storage_config, dict):
+            raise TypeError("Expected argument 'tiered_storage_config' to be a dict")
+        pulumi.set(__self__, "tiered_storage_config", tiered_storage_config)
 
     @_builtins.property
     @pulumi.getter(name="autoScaling")
@@ -143,6 +146,11 @@ class GetClusterResult:
         """
         return pulumi.get(self, "tags")
 
+    @_builtins.property
+    @pulumi.getter(name="tieredStorageConfig")
+    def tiered_storage_config(self) -> Optional['outputs.ClusterTieredStorageConfig']:
+        return pulumi.get(self, "tiered_storage_config")
+
 
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
@@ -160,7 +168,8 @@ class AwaitableGetClusterResult(GetClusterResult):
             node_provisioning_mode=self.node_provisioning_mode,
             node_recovery=self.node_recovery,
             restricted_instance_groups=self.restricted_instance_groups,
-            tags=self.tags)
+            tags=self.tags,
+            tiered_storage_config=self.tiered_storage_config)
 
 
 def get_cluster(cluster_arn: Optional[_builtins.str] = None,
@@ -187,7 +196,8 @@ def get_cluster(cluster_arn: Optional[_builtins.str] = None,
         node_provisioning_mode=pulumi.get(__ret__, 'node_provisioning_mode'),
         node_recovery=pulumi.get(__ret__, 'node_recovery'),
         restricted_instance_groups=pulumi.get(__ret__, 'restricted_instance_groups'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        tiered_storage_config=pulumi.get(__ret__, 'tiered_storage_config'))
 def get_cluster_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
@@ -211,4 +221,5 @@ def get_cluster_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] = None
         node_provisioning_mode=pulumi.get(__response__, 'node_provisioning_mode'),
         node_recovery=pulumi.get(__response__, 'node_recovery'),
         restricted_instance_groups=pulumi.get(__response__, 'restricted_instance_groups'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        tiered_storage_config=pulumi.get(__response__, 'tiered_storage_config')))

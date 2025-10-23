@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Endpoint{}
 	case "aws-native:events:EventBus":
 		r = &EventBus{}
+	case "aws-native:events:EventBusPolicy":
+		r = &EventBusPolicy{}
 	case "aws-native:events:Rule":
 		r = &Rule{}
 	default:

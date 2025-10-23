@@ -68,7 +68,7 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string>;
     /**
-     * The path and file name of the executable file that launches the content for streaming. Enter a path value that is relative to the location set in `ApplicationSourceUri` .
+     * The relative path and file name of the executable file that Amazon GameLift Streams will stream. Specify a path relative to the location set in `ApplicationSourceUri` . The file must be contained within the application's root folder. For Windows applications, the file must be a valid Windows executable or batch file with a filename ending in .exe, .cmd, or .bat. For Linux applications, the file must be a valid Linux binary executable or a script that contains an initial interpreter line starting with a shebang (' `#!` ').
      */
     declare public readonly executablePath: pulumi.Output<string>;
     /**
@@ -155,7 +155,7 @@ export interface ApplicationArgs {
      */
     description: pulumi.Input<string>;
     /**
-     * The path and file name of the executable file that launches the content for streaming. Enter a path value that is relative to the location set in `ApplicationSourceUri` .
+     * The relative path and file name of the executable file that Amazon GameLift Streams will stream. Specify a path relative to the location set in `ApplicationSourceUri` . The file must be contained within the application's root folder. For Windows applications, the file must be a valid Windows executable or batch file with a filename ending in .exe, .cmd, or .bat. For Linux applications, the file must be a valid Linux binary executable or a script that contains an initial interpreter line starting with a shebang (' `#!` ').
      */
     executablePath: pulumi.Input<string>;
     /**

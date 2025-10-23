@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("automaticFail")]
         public Input<bool>? AutomaticFail { get; set; }
 
+        [Input("automaticFailConfiguration")]
+        public Input<Inputs.EvaluationFormAutomaticFailConfigurationArgs>? AutomaticFailConfiguration { get; set; }
+
         /// <summary>
         /// The maximum answer value of the range option.
         /// </summary>

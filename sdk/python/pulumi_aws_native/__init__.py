@@ -944,6 +944,7 @@ _utilities.register(
   "mod": "aps",
   "fqn": "pulumi_aws_native.aps",
   "classes": {
+   "aws-native:aps:AnomalyDetector": "AnomalyDetector",
    "aws-native:aps:ResourcePolicy": "ResourcePolicy",
    "aws-native:aps:RuleGroupsNamespace": "RuleGroupsNamespace",
    "aws-native:aps:Scraper": "Scraper",
@@ -1832,6 +1833,7 @@ _utilities.register(
    "aws-native:events:Connection": "Connection",
    "aws-native:events:Endpoint": "Endpoint",
    "aws-native:events:EventBus": "EventBus",
+   "aws-native:events:EventBusPolicy": "EventBusPolicy",
    "aws-native:events:Rule": "Rule"
   }
  },

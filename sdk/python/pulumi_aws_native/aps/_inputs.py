@@ -16,6 +16,16 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AnomalyDetectorConfigurationArgs',
+    'AnomalyDetectorConfigurationArgsDict',
+    'AnomalyDetectorIgnoreNearExpectedArgs',
+    'AnomalyDetectorIgnoreNearExpectedArgsDict',
+    'AnomalyDetectorLabelArgs',
+    'AnomalyDetectorLabelArgsDict',
+    'AnomalyDetectorMissingDataActionArgs',
+    'AnomalyDetectorMissingDataActionArgsDict',
+    'AnomalyDetectorRandomCutForestConfigurationArgs',
+    'AnomalyDetectorRandomCutForestConfigurationArgsDict',
     'ScraperCloudWatchLogDestinationArgs',
     'ScraperCloudWatchLogDestinationArgsDict',
     'ScraperComponentConfigArgs',
@@ -59,6 +69,228 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AnomalyDetectorConfigurationArgsDict(TypedDict):
+        random_cut_forest: pulumi.Input['AnomalyDetectorRandomCutForestConfigurationArgsDict']
+elif False:
+    AnomalyDetectorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnomalyDetectorConfigurationArgs:
+    def __init__(__self__, *,
+                 random_cut_forest: pulumi.Input['AnomalyDetectorRandomCutForestConfigurationArgs']):
+        pulumi.set(__self__, "random_cut_forest", random_cut_forest)
+
+    @_builtins.property
+    @pulumi.getter(name="randomCutForest")
+    def random_cut_forest(self) -> pulumi.Input['AnomalyDetectorRandomCutForestConfigurationArgs']:
+        return pulumi.get(self, "random_cut_forest")
+
+    @random_cut_forest.setter
+    def random_cut_forest(self, value: pulumi.Input['AnomalyDetectorRandomCutForestConfigurationArgs']):
+        pulumi.set(self, "random_cut_forest", value)
+
+
+if not MYPY:
+    class AnomalyDetectorIgnoreNearExpectedArgsDict(TypedDict):
+        amount: NotRequired[pulumi.Input[_builtins.float]]
+        ratio: NotRequired[pulumi.Input[_builtins.float]]
+elif False:
+    AnomalyDetectorIgnoreNearExpectedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnomalyDetectorIgnoreNearExpectedArgs:
+    def __init__(__self__, *,
+                 amount: Optional[pulumi.Input[_builtins.float]] = None,
+                 ratio: Optional[pulumi.Input[_builtins.float]] = None):
+        if amount is not None:
+            pulumi.set(__self__, "amount", amount)
+        if ratio is not None:
+            pulumi.set(__self__, "ratio", ratio)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "amount")
+
+    @amount.setter
+    def amount(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "amount", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def ratio(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "ratio")
+
+    @ratio.setter
+    def ratio(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "ratio", value)
+
+
+if not MYPY:
+    class AnomalyDetectorLabelArgsDict(TypedDict):
+        """
+        A key-value pair to provide meta-data and multi-dimensional data analysis for filtering and aggregation.
+        """
+        key: pulumi.Input[_builtins.str]
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+elif False:
+    AnomalyDetectorLabelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnomalyDetectorLabelArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        A key-value pair to provide meta-data and multi-dimensional data analysis for filtering and aggregation.
+        :param pulumi.Input[_builtins.str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[_builtins.str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class AnomalyDetectorMissingDataActionArgsDict(TypedDict):
+        mark_as_anomaly: NotRequired[pulumi.Input[_builtins.bool]]
+        skip: NotRequired[pulumi.Input[_builtins.bool]]
+elif False:
+    AnomalyDetectorMissingDataActionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnomalyDetectorMissingDataActionArgs:
+    def __init__(__self__, *,
+                 mark_as_anomaly: Optional[pulumi.Input[_builtins.bool]] = None,
+                 skip: Optional[pulumi.Input[_builtins.bool]] = None):
+        if mark_as_anomaly is not None:
+            pulumi.set(__self__, "mark_as_anomaly", mark_as_anomaly)
+        if skip is not None:
+            pulumi.set(__self__, "skip", skip)
+
+    @_builtins.property
+    @pulumi.getter(name="markAsAnomaly")
+    def mark_as_anomaly(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "mark_as_anomaly")
+
+    @mark_as_anomaly.setter
+    def mark_as_anomaly(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "mark_as_anomaly", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def skip(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "skip")
+
+    @skip.setter
+    def skip(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "skip", value)
+
+
+if not MYPY:
+    class AnomalyDetectorRandomCutForestConfigurationArgsDict(TypedDict):
+        query: pulumi.Input[_builtins.str]
+        ignore_near_expected_from_above: NotRequired[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgsDict']]
+        ignore_near_expected_from_below: NotRequired[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgsDict']]
+        sample_size: NotRequired[pulumi.Input[_builtins.int]]
+        shingle_size: NotRequired[pulumi.Input[_builtins.int]]
+elif False:
+    AnomalyDetectorRandomCutForestConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnomalyDetectorRandomCutForestConfigurationArgs:
+    def __init__(__self__, *,
+                 query: pulumi.Input[_builtins.str],
+                 ignore_near_expected_from_above: Optional[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgs']] = None,
+                 ignore_near_expected_from_below: Optional[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgs']] = None,
+                 sample_size: Optional[pulumi.Input[_builtins.int]] = None,
+                 shingle_size: Optional[pulumi.Input[_builtins.int]] = None):
+        pulumi.set(__self__, "query", query)
+        if ignore_near_expected_from_above is not None:
+            pulumi.set(__self__, "ignore_near_expected_from_above", ignore_near_expected_from_above)
+        if ignore_near_expected_from_below is not None:
+            pulumi.set(__self__, "ignore_near_expected_from_below", ignore_near_expected_from_below)
+        if sample_size is not None:
+            pulumi.set(__self__, "sample_size", sample_size)
+        if shingle_size is not None:
+            pulumi.set(__self__, "shingle_size", shingle_size)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "query", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreNearExpectedFromAbove")
+    def ignore_near_expected_from_above(self) -> Optional[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgs']]:
+        return pulumi.get(self, "ignore_near_expected_from_above")
+
+    @ignore_near_expected_from_above.setter
+    def ignore_near_expected_from_above(self, value: Optional[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgs']]):
+        pulumi.set(self, "ignore_near_expected_from_above", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreNearExpectedFromBelow")
+    def ignore_near_expected_from_below(self) -> Optional[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgs']]:
+        return pulumi.get(self, "ignore_near_expected_from_below")
+
+    @ignore_near_expected_from_below.setter
+    def ignore_near_expected_from_below(self, value: Optional[pulumi.Input['AnomalyDetectorIgnoreNearExpectedArgs']]):
+        pulumi.set(self, "ignore_near_expected_from_below", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sampleSize")
+    def sample_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "sample_size")
+
+    @sample_size.setter
+    def sample_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "sample_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shingleSize")
+    def shingle_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "shingle_size")
+
+    @shingle_size.setter
+    def shingle_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "shingle_size", value)
+
 
 if not MYPY:
     class ScraperCloudWatchLogDestinationArgsDict(TypedDict):

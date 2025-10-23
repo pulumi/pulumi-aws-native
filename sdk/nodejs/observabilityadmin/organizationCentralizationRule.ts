@@ -38,7 +38,13 @@ export class OrganizationCentralizationRule extends pulumi.CustomResource {
     }
 
     declare public readonly rule: pulumi.Output<outputs.observabilityadmin.OrganizationCentralizationRuleCentralizationRule>;
+    /**
+     * The Amazon Resource Name (ARN) of the organization centralization rule.
+     */
     declare public /*out*/ readonly ruleArn: pulumi.Output<string>;
+    /**
+     * The name of the organization centralization rule.
+     */
     declare public readonly ruleName: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -81,6 +87,9 @@ export class OrganizationCentralizationRule extends pulumi.CustomResource {
  */
 export interface OrganizationCentralizationRuleArgs {
     rule: pulumi.Input<inputs.observabilityadmin.OrganizationCentralizationRuleCentralizationRuleArgs>;
+    /**
+     * The name of the organization centralization rule.
+     */
     ruleName?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.

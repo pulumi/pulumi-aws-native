@@ -17,6 +17,8 @@ import (
 type EmailAddress struct {
 	pulumi.CustomResourceState
 
+	// List of alias configurations for the email address
+	AliasConfigurations EmailAddressAliasConfigurationArrayOutput `pulumi:"aliasConfigurations"`
 	// A description for the email address.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name for the email address.
@@ -81,6 +83,8 @@ func (EmailAddressState) ElementType() reflect.Type {
 }
 
 type emailAddressArgs struct {
+	// List of alias configurations for the email address
+	AliasConfigurations []EmailAddressAliasConfiguration `pulumi:"aliasConfigurations"`
 	// A description for the email address.
 	Description *string `pulumi:"description"`
 	// The display name for the email address.
@@ -95,6 +99,8 @@ type emailAddressArgs struct {
 
 // The set of arguments for constructing a EmailAddress resource.
 type EmailAddressArgs struct {
+	// List of alias configurations for the email address
+	AliasConfigurations EmailAddressAliasConfigurationArrayInput
 	// A description for the email address.
 	Description pulumi.StringPtrInput
 	// The display name for the email address.
@@ -142,6 +148,11 @@ func (o EmailAddressOutput) ToEmailAddressOutput() EmailAddressOutput {
 
 func (o EmailAddressOutput) ToEmailAddressOutputWithContext(ctx context.Context) EmailAddressOutput {
 	return o
+}
+
+// List of alias configurations for the email address
+func (o EmailAddressOutput) AliasConfigurations() EmailAddressAliasConfigurationArrayOutput {
+	return o.ApplyT(func(v *EmailAddress) EmailAddressAliasConfigurationArrayOutput { return v.AliasConfigurations }).(EmailAddressAliasConfigurationArrayOutput)
 }
 
 // A description for the email address.

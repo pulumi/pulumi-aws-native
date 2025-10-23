@@ -2073,6 +2073,10 @@ const (
 	AiPromptAiPromptTypeQueryReformulation          = AiPromptAiPromptType("QUERY_REFORMULATION")
 	AiPromptAiPromptTypeSelfServicePreProcessing    = AiPromptAiPromptType("SELF_SERVICE_PRE_PROCESSING")
 	AiPromptAiPromptTypeSelfServiceAnswerGeneration = AiPromptAiPromptType("SELF_SERVICE_ANSWER_GENERATION")
+	AiPromptAiPromptTypeEmailResponse               = AiPromptAiPromptType("EMAIL_RESPONSE")
+	AiPromptAiPromptTypeEmailOverview               = AiPromptAiPromptType("EMAIL_OVERVIEW")
+	AiPromptAiPromptTypeEmailGenerativeAnswer       = AiPromptAiPromptType("EMAIL_GENERATIVE_ANSWER")
+	AiPromptAiPromptTypeEmailQueryReformulation     = AiPromptAiPromptType("EMAIL_QUERY_REFORMULATION")
 )
 
 func (AiPromptAiPromptType) ElementType() reflect.Type {
@@ -2202,6 +2206,10 @@ func (o AiPromptAiPromptTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 //	AiPromptAiPromptTypeQueryReformulation
 //	AiPromptAiPromptTypeSelfServicePreProcessing
 //	AiPromptAiPromptTypeSelfServiceAnswerGeneration
+//	AiPromptAiPromptTypeEmailResponse
+//	AiPromptAiPromptTypeEmailOverview
+//	AiPromptAiPromptTypeEmailGenerativeAnswer
+//	AiPromptAiPromptTypeEmailQueryReformulation
 type AiPromptAiPromptTypeInput interface {
 	pulumi.Input
 

@@ -74,6 +74,7 @@ class ServiceArgs:
         :param pulumi.Input[_builtins.int] health_check_grace_period_seconds: The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
                 If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
         :param pulumi.Input['ServiceLaunchType'] launch_type: The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+                 If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]] load_balancers: A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
                  To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
         :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -305,6 +306,7 @@ class ServiceArgs:
     def launch_type(self) -> Optional[pulumi.Input['ServiceLaunchType']]:
         """
         The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+          If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
         """
         return pulumi.get(self, "launch_type")
 
@@ -603,6 +605,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] health_check_grace_period_seconds: The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
                 If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
         :param pulumi.Input['ServiceLaunchType'] launch_type: The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+                 If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]] load_balancers: A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
                  To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
         :param pulumi.Input[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -906,6 +909,7 @@ class Service(pulumi.CustomResource):
     def launch_type(self) -> pulumi.Output[Optional['ServiceLaunchType']]:
         """
         The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+          If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
         """
         return pulumi.get(self, "launch_type")
 

@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbInstanceResult:
-    def __init__(__self__, auto_minor_version_upgrade=None, db_instance_class=None, db_parameter_group_name=None, endpoint=None, port=None, preferred_maintenance_window=None, tags=None):
+    def __init__(__self__, auto_minor_version_upgrade=None, db_instance_class=None, db_parameter_group_name=None, endpoint=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, tags=None):
         if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
             raise TypeError("Expected argument 'auto_minor_version_upgrade' to be a bool")
         pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
@@ -43,6 +43,9 @@ class GetDbInstanceResult:
         if preferred_maintenance_window and not isinstance(preferred_maintenance_window, str):
             raise TypeError("Expected argument 'preferred_maintenance_window' to be a str")
         pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if publicly_accessible and not isinstance(publicly_accessible, bool):
+            raise TypeError("Expected argument 'publicly_accessible' to be a bool")
+        pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -100,6 +103,14 @@ class GetDbInstanceResult:
         return pulumi.get(self, "preferred_maintenance_window")
 
     @_builtins.property
+    @pulumi.getter(name="publiclyAccessible")
+    def publicly_accessible(self) -> Optional[_builtins.bool]:
+        """
+        Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
+        """
+        return pulumi.get(self, "publicly_accessible")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -120,6 +131,7 @@ class AwaitableGetDbInstanceResult(GetDbInstanceResult):
             endpoint=self.endpoint,
             port=self.port,
             preferred_maintenance_window=self.preferred_maintenance_window,
+            publicly_accessible=self.publicly_accessible,
             tags=self.tags)
 
 
@@ -143,6 +155,7 @@ def get_db_instance(db_instance_identifier: Optional[_builtins.str] = None,
         endpoint=pulumi.get(__ret__, 'endpoint'),
         port=pulumi.get(__ret__, 'port'),
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
+        publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_db_instance_output(db_instance_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbInstanceResult]:
@@ -163,4 +176,5 @@ def get_db_instance_output(db_instance_identifier: Optional[pulumi.Input[_builti
         endpoint=pulumi.get(__response__, 'endpoint'),
         port=pulumi.get(__response__, 'port'),
         preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
+        publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
         tags=pulumi.get(__response__, 'tags')))

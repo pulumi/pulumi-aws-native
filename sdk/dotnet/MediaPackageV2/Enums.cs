@@ -74,6 +74,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
         }
 
         public static OriginEndpointAdMarkerHls Daterange { get; } = new OriginEndpointAdMarkerHls("DATERANGE");
+        public static OriginEndpointAdMarkerHls Scte35Enhanced { get; } = new OriginEndpointAdMarkerHls("SCTE35_ENHANCED");
 
         public static bool operator ==(OriginEndpointAdMarkerHls left, OriginEndpointAdMarkerHls right) => left.Equals(right);
         public static bool operator !=(OriginEndpointAdMarkerHls left, OriginEndpointAdMarkerHls right) => !left.Equals(right);
@@ -130,6 +131,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
         public static OriginEndpointContainerType Ts { get; } = new OriginEndpointContainerType("TS");
         public static OriginEndpointContainerType Cmaf { get; } = new OriginEndpointContainerType("CMAF");
+        public static OriginEndpointContainerType Ism { get; } = new OriginEndpointContainerType("ISM");
 
         public static bool operator ==(OriginEndpointContainerType left, OriginEndpointContainerType right) => left.Equals(right);
         public static bool operator !=(OriginEndpointContainerType left, OriginEndpointContainerType right) => !left.Equals(right);
@@ -399,6 +401,61 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OriginEndpointEndpointErrorCondition other && Equals(other);
         public bool Equals(OriginEndpointEndpointErrorCondition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OriginEndpointIsmEncryptionMethod : IEquatable<OriginEndpointIsmEncryptionMethod>
+    {
+        private readonly string _value;
+
+        private OriginEndpointIsmEncryptionMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointIsmEncryptionMethod Cenc { get; } = new OriginEndpointIsmEncryptionMethod("CENC");
+
+        public static bool operator ==(OriginEndpointIsmEncryptionMethod left, OriginEndpointIsmEncryptionMethod right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointIsmEncryptionMethod left, OriginEndpointIsmEncryptionMethod right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointIsmEncryptionMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointIsmEncryptionMethod other && Equals(other);
+        public bool Equals(OriginEndpointIsmEncryptionMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OriginEndpointMssManifestLayout : IEquatable<OriginEndpointMssManifestLayout>
+    {
+        private readonly string _value;
+
+        private OriginEndpointMssManifestLayout(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointMssManifestLayout Full { get; } = new OriginEndpointMssManifestLayout("FULL");
+        public static OriginEndpointMssManifestLayout Compact { get; } = new OriginEndpointMssManifestLayout("COMPACT");
+
+        public static bool operator ==(OriginEndpointMssManifestLayout left, OriginEndpointMssManifestLayout right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointMssManifestLayout left, OriginEndpointMssManifestLayout right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointMssManifestLayout value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointMssManifestLayout other && Equals(other);
+        public bool Equals(OriginEndpointMssManifestLayout other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

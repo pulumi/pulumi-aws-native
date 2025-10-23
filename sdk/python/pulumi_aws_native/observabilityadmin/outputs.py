@@ -37,17 +37,27 @@ class OrganizationCentralizationRuleCentralizationRule(dict):
     def __init__(__self__, *,
                  destination: 'outputs.OrganizationCentralizationRuleCentralizationRuleDestination',
                  source: 'outputs.OrganizationCentralizationRuleCentralizationRuleSource'):
+        """
+        :param 'OrganizationCentralizationRuleCentralizationRuleDestination' destination: Configuration determining where the telemetry data should be centralized, backed up, as well as encryption configuration for the primary and backup destinations.
+        :param 'OrganizationCentralizationRuleCentralizationRuleSource' source: Configuration determining the source of the telemetry data to be centralized.
+        """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "source", source)
 
     @_builtins.property
     @pulumi.getter
     def destination(self) -> 'outputs.OrganizationCentralizationRuleCentralizationRuleDestination':
+        """
+        Configuration determining where the telemetry data should be centralized, backed up, as well as encryption configuration for the primary and backup destinations.
+        """
         return pulumi.get(self, "destination")
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> 'outputs.OrganizationCentralizationRuleCentralizationRuleSource':
+        """
+        Configuration determining the source of the telemetry data to be centralized.
+        """
         return pulumi.get(self, "source")
 
 
@@ -74,6 +84,11 @@ class OrganizationCentralizationRuleCentralizationRuleDestination(dict):
                  region: _builtins.str,
                  account: Optional[_builtins.str] = None,
                  destination_logs_configuration: Optional['outputs.OrganizationCentralizationRuleDestinationLogsConfiguration'] = None):
+        """
+        :param _builtins.str region: The primary destination region to which telemetry data should be centralized.
+        :param _builtins.str account: The destination account (within the organization) to which the telemetry data should be centralized.
+        :param 'OrganizationCentralizationRuleDestinationLogsConfiguration' destination_logs_configuration: Log specific configuration for centralization destination log groups.
+        """
         pulumi.set(__self__, "region", region)
         if account is not None:
             pulumi.set(__self__, "account", account)
@@ -83,16 +98,25 @@ class OrganizationCentralizationRuleCentralizationRuleDestination(dict):
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
+        """
+        The primary destination region to which telemetry data should be centralized.
+        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def account(self) -> Optional[_builtins.str]:
+        """
+        The destination account (within the organization) to which the telemetry data should be centralized.
+        """
         return pulumi.get(self, "account")
 
     @_builtins.property
     @pulumi.getter(name="destinationLogsConfiguration")
     def destination_logs_configuration(self) -> Optional['outputs.OrganizationCentralizationRuleDestinationLogsConfiguration']:
+        """
+        Log specific configuration for centralization destination log groups.
+        """
         return pulumi.get(self, "destination_logs_configuration")
 
 
@@ -119,6 +143,11 @@ class OrganizationCentralizationRuleCentralizationRuleSource(dict):
                  regions: Sequence[_builtins.str],
                  scope: Optional[_builtins.str] = None,
                  source_logs_configuration: Optional['outputs.OrganizationCentralizationRuleSourceLogsConfiguration'] = None):
+        """
+        :param Sequence[_builtins.str] regions: The list of source regions from which telemetry data should be centralized.
+        :param _builtins.str scope: The organizational scope from which telemetry data should be centralized, specified using organization id, accounts or organizational unit ids.
+        :param 'OrganizationCentralizationRuleSourceLogsConfiguration' source_logs_configuration: Log specific configuration for centralization source log groups.
+        """
         pulumi.set(__self__, "regions", regions)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
@@ -128,16 +157,25 @@ class OrganizationCentralizationRuleCentralizationRuleSource(dict):
     @_builtins.property
     @pulumi.getter
     def regions(self) -> Sequence[_builtins.str]:
+        """
+        The list of source regions from which telemetry data should be centralized.
+        """
         return pulumi.get(self, "regions")
 
     @_builtins.property
     @pulumi.getter
     def scope(self) -> Optional[_builtins.str]:
+        """
+        The organizational scope from which telemetry data should be centralized, specified using organization id, accounts or organizational unit ids.
+        """
         return pulumi.get(self, "scope")
 
     @_builtins.property
     @pulumi.getter(name="sourceLogsConfiguration")
     def source_logs_configuration(self) -> Optional['outputs.OrganizationCentralizationRuleSourceLogsConfiguration']:
+        """
+        Log specific configuration for centralization source log groups.
+        """
         return pulumi.get(self, "source_logs_configuration")
 
 
@@ -165,6 +203,10 @@ class OrganizationCentralizationRuleDestinationLogsConfiguration(dict):
     def __init__(__self__, *,
                  backup_configuration: Optional['outputs.OrganizationCentralizationRuleLogsBackupConfiguration'] = None,
                  logs_encryption_configuration: Optional['outputs.OrganizationCentralizationRuleLogsEncryptionConfiguration'] = None):
+        """
+        :param 'OrganizationCentralizationRuleLogsBackupConfiguration' backup_configuration: Configuration defining the backup region and an optional KMS key for the backup destination.
+        :param 'OrganizationCentralizationRuleLogsEncryptionConfiguration' logs_encryption_configuration: The encryption configuration for centralization destination log groups.
+        """
         if backup_configuration is not None:
             pulumi.set(__self__, "backup_configuration", backup_configuration)
         if logs_encryption_configuration is not None:
@@ -173,11 +215,17 @@ class OrganizationCentralizationRuleDestinationLogsConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="backupConfiguration")
     def backup_configuration(self) -> Optional['outputs.OrganizationCentralizationRuleLogsBackupConfiguration']:
+        """
+        Configuration defining the backup region and an optional KMS key for the backup destination.
+        """
         return pulumi.get(self, "backup_configuration")
 
     @_builtins.property
     @pulumi.getter(name="logsEncryptionConfiguration")
     def logs_encryption_configuration(self) -> Optional['outputs.OrganizationCentralizationRuleLogsEncryptionConfiguration']:
+        """
+        The encryption configuration for centralization destination log groups.
+        """
         return pulumi.get(self, "logs_encryption_configuration")
 
 
@@ -203,6 +251,10 @@ class OrganizationCentralizationRuleLogsBackupConfiguration(dict):
     def __init__(__self__, *,
                  region: _builtins.str,
                  kms_key_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str region: Logs specific backup destination region within the primary destination account to which log data should be centralized.
+        :param _builtins.str kms_key_arn: KMS Key ARN belonging to the primary destination account and backup region, to encrypt newly created central log groups in the backup destination.
+        """
         pulumi.set(__self__, "region", region)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
@@ -210,11 +262,17 @@ class OrganizationCentralizationRuleLogsBackupConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
+        """
+        Logs specific backup destination region within the primary destination account to which log data should be centralized.
+        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        KMS Key ARN belonging to the primary destination account and backup region, to encrypt newly created central log groups in the backup destination.
+        """
         return pulumi.get(self, "kms_key_arn")
 
 
@@ -245,6 +303,11 @@ class OrganizationCentralizationRuleLogsEncryptionConfiguration(dict):
                  encryption_strategy: 'OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy',
                  encryption_conflict_resolution_strategy: Optional['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy'] = None,
                  kms_key_arn: Optional[_builtins.str] = None):
+        """
+        :param 'OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy' encryption_strategy: Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
+        :param 'OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy' encryption_conflict_resolution_strategy: Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
+        :param _builtins.str kms_key_arn: KMS Key ARN belonging to the primary destination account and region, to encrypt newly created central log groups in the primary destination.
+        """
         pulumi.set(__self__, "encryption_strategy", encryption_strategy)
         if encryption_conflict_resolution_strategy is not None:
             pulumi.set(__self__, "encryption_conflict_resolution_strategy", encryption_conflict_resolution_strategy)
@@ -254,16 +317,25 @@ class OrganizationCentralizationRuleLogsEncryptionConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="encryptionStrategy")
     def encryption_strategy(self) -> 'OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy':
+        """
+        Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
+        """
         return pulumi.get(self, "encryption_strategy")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConflictResolutionStrategy")
     def encryption_conflict_resolution_strategy(self) -> Optional['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy']:
+        """
+        Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
+        """
         return pulumi.get(self, "encryption_conflict_resolution_strategy")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        KMS Key ARN belonging to the primary destination account and region, to encrypt newly created central log groups in the primary destination.
+        """
         return pulumi.get(self, "kms_key_arn")
 
 
@@ -291,17 +363,27 @@ class OrganizationCentralizationRuleSourceLogsConfiguration(dict):
     def __init__(__self__, *,
                  encrypted_log_group_strategy: 'OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy',
                  log_group_selection_criteria: _builtins.str):
+        """
+        :param 'OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy' encrypted_log_group_strategy: A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
+        :param _builtins.str log_group_selection_criteria: The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.
+        """
         pulumi.set(__self__, "encrypted_log_group_strategy", encrypted_log_group_strategy)
         pulumi.set(__self__, "log_group_selection_criteria", log_group_selection_criteria)
 
     @_builtins.property
     @pulumi.getter(name="encryptedLogGroupStrategy")
     def encrypted_log_group_strategy(self) -> 'OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy':
+        """
+        A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
+        """
         return pulumi.get(self, "encrypted_log_group_strategy")
 
     @_builtins.property
     @pulumi.getter(name="logGroupSelectionCriteria")
     def log_group_selection_criteria(self) -> _builtins.str:
+        """
+        The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.
+        """
         return pulumi.get(self, "log_group_selection_criteria")
 
 
@@ -340,6 +422,10 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
                  vpc_flow_log_parameters: Optional['outputs.OrganizationTelemetryRuleVpcFlowLogParameters'] = None):
         """
         The destination configuration for telemetry data
+        :param _builtins.str destination_pattern: The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
+        :param 'OrganizationTelemetryRuleDestinationType' destination_type: The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
+        :param _builtins.int retention_in_days: The number of days to retain the telemetry data in the destination.
+        :param 'OrganizationTelemetryRuleVpcFlowLogParameters' vpc_flow_log_parameters: Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
         """
         if destination_pattern is not None:
             pulumi.set(__self__, "destination_pattern", destination_pattern)
@@ -353,21 +439,33 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="destinationPattern")
     def destination_pattern(self) -> Optional[_builtins.str]:
+        """
+        The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
+        """
         return pulumi.get(self, "destination_pattern")
 
     @_builtins.property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> Optional['OrganizationTelemetryRuleDestinationType']:
+        """
+        The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
+        """
         return pulumi.get(self, "destination_type")
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[_builtins.int]:
+        """
+        The number of days to retain the telemetry data in the destination.
+        """
         return pulumi.get(self, "retention_in_days")
 
     @_builtins.property
     @pulumi.getter(name="vpcFlowLogParameters")
     def vpc_flow_log_parameters(self) -> Optional['outputs.OrganizationTelemetryRuleVpcFlowLogParameters']:
+        """
+        Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
+        """
         return pulumi.get(self, "vpc_flow_log_parameters")
 
 
@@ -407,6 +505,11 @@ class OrganizationTelemetryRuleTelemetryRule(dict):
                  selection_criteria: Optional[_builtins.str] = None):
         """
         The telemetry rule
+        :param 'OrganizationTelemetryRuleResourceType' resource_type: The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
+        :param 'OrganizationTelemetryRuleTelemetryType' telemetry_type: The type of telemetry to collect (Logs, Metrics, or Traces).
+        :param 'OrganizationTelemetryRuleTelemetryDestinationConfiguration' destination_configuration: Configuration specifying where and how the telemetry data should be delivered.
+        :param _builtins.str scope: The organizational scope to which the rule applies, specified using accounts or organizational units.
+        :param _builtins.str selection_criteria: Criteria for selecting which resources the rule applies to, such as resource tags.
         """
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "telemetry_type", telemetry_type)
@@ -420,26 +523,41 @@ class OrganizationTelemetryRuleTelemetryRule(dict):
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> 'OrganizationTelemetryRuleResourceType':
+        """
+        The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
+        """
         return pulumi.get(self, "resource_type")
 
     @_builtins.property
     @pulumi.getter(name="telemetryType")
     def telemetry_type(self) -> 'OrganizationTelemetryRuleTelemetryType':
+        """
+        The type of telemetry to collect (Logs, Metrics, or Traces).
+        """
         return pulumi.get(self, "telemetry_type")
 
     @_builtins.property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> Optional['outputs.OrganizationTelemetryRuleTelemetryDestinationConfiguration']:
+        """
+        Configuration specifying where and how the telemetry data should be delivered.
+        """
         return pulumi.get(self, "destination_configuration")
 
     @_builtins.property
     @pulumi.getter
     def scope(self) -> Optional[_builtins.str]:
+        """
+        The organizational scope to which the rule applies, specified using accounts or organizational units.
+        """
         return pulumi.get(self, "scope")
 
     @_builtins.property
     @pulumi.getter(name="selectionCriteria")
     def selection_criteria(self) -> Optional[_builtins.str]:
+        """
+        Criteria for selecting which resources the rule applies to, such as resource tags.
+        """
         return pulumi.get(self, "selection_criteria")
 
 
@@ -546,6 +664,10 @@ class TelemetryRule(dict):
                  selection_criteria: Optional[_builtins.str] = None):
         """
         The telemetry rule
+        :param 'TelemetryRuleResourceType' resource_type: The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
+        :param 'TelemetryRuleTelemetryType' telemetry_type: The type of telemetry to collect (Logs, Metrics, or Traces).
+        :param 'TelemetryRuleTelemetryDestinationConfiguration' destination_configuration: Configuration specifying where and how the telemetry data should be delivered.
+        :param _builtins.str selection_criteria: Criteria for selecting which resources the rule applies to, such as resource tags.
         """
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "telemetry_type", telemetry_type)
@@ -557,21 +679,33 @@ class TelemetryRule(dict):
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> 'TelemetryRuleResourceType':
+        """
+        The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
+        """
         return pulumi.get(self, "resource_type")
 
     @_builtins.property
     @pulumi.getter(name="telemetryType")
     def telemetry_type(self) -> 'TelemetryRuleTelemetryType':
+        """
+        The type of telemetry to collect (Logs, Metrics, or Traces).
+        """
         return pulumi.get(self, "telemetry_type")
 
     @_builtins.property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> Optional['outputs.TelemetryRuleTelemetryDestinationConfiguration']:
+        """
+        Configuration specifying where and how the telemetry data should be delivered.
+        """
         return pulumi.get(self, "destination_configuration")
 
     @_builtins.property
     @pulumi.getter(name="selectionCriteria")
     def selection_criteria(self) -> Optional[_builtins.str]:
+        """
+        Criteria for selecting which resources the rule applies to, such as resource tags.
+        """
         return pulumi.get(self, "selection_criteria")
 
 
@@ -610,6 +744,10 @@ class TelemetryRuleTelemetryDestinationConfiguration(dict):
                  vpc_flow_log_parameters: Optional['outputs.TelemetryRuleVpcFlowLogParameters'] = None):
         """
         The destination configuration for telemetry data
+        :param _builtins.str destination_pattern: The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
+        :param 'TelemetryRuleDestinationType' destination_type: The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
+        :param _builtins.int retention_in_days: The number of days to retain the telemetry data in the destination.
+        :param 'TelemetryRuleVpcFlowLogParameters' vpc_flow_log_parameters: Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
         """
         if destination_pattern is not None:
             pulumi.set(__self__, "destination_pattern", destination_pattern)
@@ -623,21 +761,33 @@ class TelemetryRuleTelemetryDestinationConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="destinationPattern")
     def destination_pattern(self) -> Optional[_builtins.str]:
+        """
+        The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
+        """
         return pulumi.get(self, "destination_pattern")
 
     @_builtins.property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> Optional['TelemetryRuleDestinationType']:
+        """
+        The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
+        """
         return pulumi.get(self, "destination_type")
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[_builtins.int]:
+        """
+        The number of days to retain the telemetry data in the destination.
+        """
         return pulumi.get(self, "retention_in_days")
 
     @_builtins.property
     @pulumi.getter(name="vpcFlowLogParameters")
     def vpc_flow_log_parameters(self) -> Optional['outputs.TelemetryRuleVpcFlowLogParameters']:
+        """
+        Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
+        """
         return pulumi.get(self, "vpc_flow_log_parameters")
 
 

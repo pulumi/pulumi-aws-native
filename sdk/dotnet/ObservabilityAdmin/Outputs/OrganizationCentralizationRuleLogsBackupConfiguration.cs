@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
     [OutputType]
     public sealed class OrganizationCentralizationRuleLogsBackupConfiguration
     {
+        /// <summary>
+        /// KMS Key ARN belonging to the primary destination account and backup region, to encrypt newly created central log groups in the backup destination.
+        /// </summary>
         public readonly string? KmsKeyArn;
+        /// <summary>
+        /// Logs specific backup destination region within the primary destination account to which log data should be centralized.
+        /// </summary>
         public readonly string Region;
 
         [OutputConstructor]

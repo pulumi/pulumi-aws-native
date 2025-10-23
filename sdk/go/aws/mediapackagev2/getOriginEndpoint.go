@@ -52,7 +52,10 @@ type LookupOriginEndpointResult struct {
 	// <p>A low-latency HLS manifest configuration.</p>
 	LowLatencyHlsManifests []OriginEndpointLowLatencyHlsManifestConfiguration `pulumi:"lowLatencyHlsManifests"`
 	// <p>The date and time the origin endpoint was modified.</p>
-	ModifiedAt *string `pulumi:"modifiedAt"`
+	ModifiedAt      *string  `pulumi:"modifiedAt"`
+	MssManifestUrls []string `pulumi:"mssManifestUrls"`
+	// <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
+	MssManifests []OriginEndpointMssManifestConfiguration `pulumi:"mssManifests"`
 	// The segment associated with the origin endpoint.
 	Segment *OriginEndpointSegment `pulumi:"segment"`
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
@@ -155,6 +158,15 @@ func (o LookupOriginEndpointResultOutput) LowLatencyHlsManifests() OriginEndpoin
 // <p>The date and time the origin endpoint was modified.</p>
 func (o LookupOriginEndpointResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupOriginEndpointResultOutput) MssManifestUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupOriginEndpointResult) []string { return v.MssManifestUrls }).(pulumi.StringArrayOutput)
+}
+
+// <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
+func (o LookupOriginEndpointResultOutput) MssManifests() OriginEndpointMssManifestConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupOriginEndpointResult) []OriginEndpointMssManifestConfiguration { return v.MssManifests }).(OriginEndpointMssManifestConfigurationArrayOutput)
 }
 
 // The segment associated with the origin endpoint.

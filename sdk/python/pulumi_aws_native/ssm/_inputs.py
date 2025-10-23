@@ -615,6 +615,8 @@ if not MYPY:
         """
         The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
 
+        Patch Manager evaluates patch release dates using Coordinated Universal Time (UTC). If the day represented by `7` is `2025-11-16` , patches released between `2025-11-16T00:00:00Z` and `2025-11-16T23:59:59Z` will be included in the approval.
+
         This parameter is marked as `Required: No` , but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
 
         Not supported for Debian Server or Ubuntu Server.
@@ -625,7 +627,9 @@ if not MYPY:
         """
         The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically.
 
-        Enter dates in the format `YYYY-MM-DD` . For example, `2024-12-31` .
+        Enter dates in the format `YYYY-MM-DD` . For example, `2025-11-16` .
+
+        Patch Manager evaluates patch release dates using Coordinated Universal Time (UTC). If you enter the date `2025-11-16` , patches released between `2025-11-16T00:00:00Z` and `2025-11-16T23:59:59Z` will be included in the approval.
 
         This parameter is marked as `Required: No` , but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
 
@@ -660,6 +664,8 @@ class PatchBaselineRuleArgs:
         Defines an approval rule for a patch baseline.
         :param pulumi.Input[_builtins.int] approve_after_days: The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
                
+               Patch Manager evaluates patch release dates using Coordinated Universal Time (UTC). If the day represented by `7` is `2025-11-16` , patches released between `2025-11-16T00:00:00Z` and `2025-11-16T23:59:59Z` will be included in the approval.
+               
                This parameter is marked as `Required: No` , but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
                
                Not supported for Debian Server or Ubuntu Server.
@@ -667,7 +673,9 @@ class PatchBaselineRuleArgs:
                > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
         :param pulumi.Input[_builtins.str] approve_until_date: The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically.
                
-               Enter dates in the format `YYYY-MM-DD` . For example, `2024-12-31` .
+               Enter dates in the format `YYYY-MM-DD` . For example, `2025-11-16` .
+               
+               Patch Manager evaluates patch release dates using Coordinated Universal Time (UTC). If you enter the date `2025-11-16` , patches released between `2025-11-16T00:00:00Z` and `2025-11-16T23:59:59Z` will be included in the approval.
                
                This parameter is marked as `Required: No` , but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
                
@@ -695,6 +703,8 @@ class PatchBaselineRuleArgs:
         """
         The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
 
+        Patch Manager evaluates patch release dates using Coordinated Universal Time (UTC). If the day represented by `7` is `2025-11-16` , patches released between `2025-11-16T00:00:00Z` and `2025-11-16T23:59:59Z` will be included in the approval.
+
         This parameter is marked as `Required: No` , but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
 
         Not supported for Debian Server or Ubuntu Server.
@@ -713,7 +723,9 @@ class PatchBaselineRuleArgs:
         """
         The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically.
 
-        Enter dates in the format `YYYY-MM-DD` . For example, `2024-12-31` .
+        Enter dates in the format `YYYY-MM-DD` . For example, `2025-11-16` .
+
+        Patch Manager evaluates patch release dates using Coordinated Universal Time (UTC). If you enter the date `2025-11-16` , patches released between `2025-11-16T00:00:00Z` and `2025-11-16T23:59:59Z` will be included in the approval.
 
         This parameter is marked as `Required: No` , but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
 

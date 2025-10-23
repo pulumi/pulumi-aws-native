@@ -70,6 +70,15 @@ namespace Pulumi.AwsNative.Osis
         public Output<string> PipelineName { get; private set; } = null!;
 
         /// <summary>
+        /// The Pipeline Role (ARN) for the pipeline.
+        /// </summary>
+        [Output("pipelineRoleArn")]
+        public Output<string?> PipelineRoleArn { get; private set; } = null!;
+
+        [Output("resourcePolicy")]
+        public Output<Outputs.PipelineResourcePolicy?> ResourcePolicy { get; private set; } = null!;
+
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
@@ -183,6 +192,15 @@ namespace Pulumi.AwsNative.Osis
         /// </summary>
         [Input("pipelineName")]
         public Input<string>? PipelineName { get; set; }
+
+        /// <summary>
+        /// The Pipeline Role (ARN) for the pipeline.
+        /// </summary>
+        [Input("pipelineRoleArn")]
+        public Input<string>? PipelineRoleArn { get; set; }
+
+        [Input("resourcePolicy")]
+        public Input<Inputs.PipelineResourcePolicyArgs>? ResourcePolicy { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

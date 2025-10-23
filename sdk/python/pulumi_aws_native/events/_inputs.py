@@ -48,6 +48,8 @@ __all__ = [
     'EndpointRoutingConfigArgsDict',
     'EndpointSecondaryArgs',
     'EndpointSecondaryArgsDict',
+    'EventBusPolicyConditionArgs',
+    'EventBusPolicyConditionArgsDict',
     'InvocationConnectivityParametersPropertiesArgs',
     'InvocationConnectivityParametersPropertiesArgsDict',
     'LogConfigPropertiesArgs',
@@ -919,6 +921,82 @@ class EndpointSecondaryArgs:
     @route.setter
     def route(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "route", value)
+
+
+if not MYPY:
+    class EventBusPolicyConditionArgsDict(TypedDict):
+        """
+        This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization.
+        """
+        key: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the value for the key. Currently, this must be the ID of the organization.
+        """
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the type of condition. Currently the only supported value is StringEquals.
+        """
+        value: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the key for the condition. Currently the only supported key is aws:PrincipalOrgID.
+        """
+elif False:
+    EventBusPolicyConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventBusPolicyConditionArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization.
+        :param pulumi.Input[_builtins.str] key: Specifies the value for the key. Currently, this must be the ID of the organization.
+        :param pulumi.Input[_builtins.str] type: Specifies the type of condition. Currently the only supported value is StringEquals.
+        :param pulumi.Input[_builtins.str] value: Specifies the key for the condition. Currently the only supported key is aws:PrincipalOrgID.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the value for the key. Currently, this must be the ID of the organization.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the type of condition. Currently the only supported value is StringEquals.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the key for the condition. Currently the only supported key is aws:PrincipalOrgID.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

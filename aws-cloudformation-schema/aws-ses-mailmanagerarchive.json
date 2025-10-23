@@ -91,7 +91,7 @@
   "primaryIdentifier" : [ "/properties/ArchiveId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ses:TagResource", "ses:ListTagsForResource", "ses:GetArchive", "ses:CreateArchive", "kms:DescribeKey", "kms:Decrypt", "kms:GenerateDataKey" ]
+      "permissions" : [ "ses:TagResource", "ses:ListTagsForResource", "ses:GetArchive", "ses:CreateArchive", "iam:CreateServiceLinkedRole", "kms:DescribeKey", "kms:Decrypt", "kms:GenerateDataKey" ]
     },
     "read" : {
       "permissions" : [ "ses:ListTagsForResource", "ses:GetArchive" ]

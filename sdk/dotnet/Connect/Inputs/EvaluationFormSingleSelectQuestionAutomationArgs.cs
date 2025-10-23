@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class EvaluationFormSingleSelectQuestionAutomationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("answerSource")]
+        public Input<Inputs.EvaluationFormQuestionAutomationAnswerSourceArgs>? AnswerSource { get; set; }
+
         /// <summary>
         /// The identifier of the default answer option, when none of the automation options match the criteria.
         ///  *Length Constraints*: Minimum length of 1. Maximum length of 40.

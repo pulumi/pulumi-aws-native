@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("cmafEncryptionMethod")]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointCmafEncryptionMethod>? CmafEncryptionMethod { get; set; }
 
+        [Input("ismEncryptionMethod")]
+        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointIsmEncryptionMethod>? IsmEncryptionMethod { get; set; }
+
         /// <summary>
         /// The encryption method to use.
         /// </summary>

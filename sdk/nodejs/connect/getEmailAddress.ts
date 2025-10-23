@@ -26,6 +26,10 @@ export interface GetEmailAddressArgs {
 
 export interface GetEmailAddressResult {
     /**
+     * List of alias configurations for the email address
+     */
+    readonly aliasConfigurations?: outputs.connect.EmailAddressAliasConfiguration[];
+    /**
      * A description for the email address.
      */
     readonly description?: string;

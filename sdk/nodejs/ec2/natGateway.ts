@@ -83,6 +83,9 @@ export class NatGateway extends pulumi.CustomResource {
      * The tags for the NAT gateway.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ID of the VPC in which the NAT gateway is located.
+     */
     declare public readonly vpcId: pulumi.Output<string | undefined>;
 
     /**
@@ -171,5 +174,8 @@ export interface NatGatewayArgs {
      * The tags for the NAT gateway.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The ID of the VPC in which the NAT gateway is located.
+     */
     vpcId?: pulumi.Input<string>;
 }

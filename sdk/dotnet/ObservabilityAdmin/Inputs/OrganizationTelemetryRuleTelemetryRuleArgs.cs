@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
     /// </summary>
     public sealed class OrganizationTelemetryRuleTelemetryRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration specifying where and how the telemetry data should be delivered.
+        /// </summary>
         [Input("destinationConfiguration")]
         public Input<Inputs.OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs>? DestinationConfiguration { get; set; }
 
+        /// <summary>
+        /// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
+        /// </summary>
         [Input("resourceType", required: true)]
         public Input<Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleResourceType> ResourceType { get; set; } = null!;
 
+        /// <summary>
+        /// The organizational scope to which the rule applies, specified using accounts or organizational units.
+        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
+        /// <summary>
+        /// Criteria for selecting which resources the rule applies to, such as resource tags.
+        /// </summary>
         [Input("selectionCriteria")]
         public Input<string>? SelectionCriteria { get; set; }
 
+        /// <summary>
+        /// The type of telemetry to collect (Logs, Metrics, or Traces).
+        /// </summary>
         [Input("telemetryType", required: true)]
         public Input<Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleTelemetryType> TelemetryType { get; set; } = null!;
 
