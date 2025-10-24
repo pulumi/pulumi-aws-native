@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
     [OutputType]
     public sealed class OrganizationCentralizationRuleSourceLogsConfiguration
     {
+        /// <summary>
+        /// A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
+        /// </summary>
         public readonly Pulumi.AwsNative.ObservabilityAdmin.OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy EncryptedLogGroupStrategy;
+        /// <summary>
+        /// The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.
+        /// </summary>
         public readonly string LogGroupSelectionCriteria;
 
         [OutputConstructor]

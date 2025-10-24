@@ -33,6 +33,7 @@ __all__ = [
     'EndpointReplicationConfig',
     'EndpointRoutingConfig',
     'EndpointSecondary',
+    'EventBusPolicyCondition',
     'InvocationConnectivityParametersProperties',
     'LogConfigProperties',
     'RuleAppSyncParameters',
@@ -751,6 +752,53 @@ class EndpointSecondary(dict):
         Defines the secondary Region.
         """
         return pulumi.get(self, "route")
+
+
+@pulumi.output_type
+class EventBusPolicyCondition(dict):
+    """
+    This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization.
+    """
+    def __init__(__self__, *,
+                 key: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization.
+        :param _builtins.str key: Specifies the value for the key. Currently, this must be the ID of the organization.
+        :param _builtins.str type: Specifies the type of condition. Currently the only supported value is StringEquals.
+        :param _builtins.str value: Specifies the key for the condition. Currently the only supported key is aws:PrincipalOrgID.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        """
+        Specifies the value for the key. Currently, this must be the ID of the organization.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Specifies the type of condition. Currently the only supported value is StringEquals.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        Specifies the key for the condition. Currently the only supported key is aws:PrincipalOrgID.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

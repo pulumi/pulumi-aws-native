@@ -407,6 +407,8 @@ if typing.TYPE_CHECKING:
     route53recoveryreadiness = __route53recoveryreadiness
     import pulumi_aws_native.route53resolver as __route53resolver
     route53resolver = __route53resolver
+    import pulumi_aws_native.rtbfabric as __rtbfabric
+    rtbfabric = __rtbfabric
     import pulumi_aws_native.rum as __rum
     rum = __rum
     import pulumi_aws_native.s3 as __s3
@@ -684,6 +686,7 @@ else:
     route53recoverycontrol = _utilities.lazy_import('pulumi_aws_native.route53recoverycontrol')
     route53recoveryreadiness = _utilities.lazy_import('pulumi_aws_native.route53recoveryreadiness')
     route53resolver = _utilities.lazy_import('pulumi_aws_native.route53resolver')
+    rtbfabric = _utilities.lazy_import('pulumi_aws_native.rtbfabric')
     rum = _utilities.lazy_import('pulumi_aws_native.rum')
     s3 = _utilities.lazy_import('pulumi_aws_native.s3')
     s3express = _utilities.lazy_import('pulumi_aws_native.s3express')
@@ -944,6 +947,7 @@ _utilities.register(
   "mod": "aps",
   "fqn": "pulumi_aws_native.aps",
   "classes": {
+   "aws-native:aps:AnomalyDetector": "AnomalyDetector",
    "aws-native:aps:ResourcePolicy": "ResourcePolicy",
    "aws-native:aps:RuleGroupsNamespace": "RuleGroupsNamespace",
    "aws-native:aps:Scraper": "Scraper",
@@ -1832,6 +1836,7 @@ _utilities.register(
    "aws-native:events:Connection": "Connection",
    "aws-native:events:Endpoint": "Endpoint",
    "aws-native:events:EventBus": "EventBus",
+   "aws-native:events:EventBusPolicy": "EventBusPolicy",
    "aws-native:events:Rule": "Rule"
   }
  },
@@ -3084,6 +3089,15 @@ _utilities.register(
    "aws-native:route53resolver:ResolverQueryLoggingConfigAssociation": "ResolverQueryLoggingConfigAssociation",
    "aws-native:route53resolver:ResolverRule": "ResolverRule",
    "aws-native:route53resolver:ResolverRuleAssociation": "ResolverRuleAssociation"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "rtbfabric",
+  "fqn": "pulumi_aws_native.rtbfabric",
+  "classes": {
+   "aws-native:rtbfabric:RequesterGateway": "RequesterGateway",
+   "aws-native:rtbfabric:ResponderGateway": "ResponderGateway"
   }
  },
  {

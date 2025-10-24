@@ -25,6 +25,7 @@ export interface GetVpcOriginArgs {
 }
 
 export interface GetVpcOriginResult {
+    readonly accountId?: string;
     /**
      * The VPC origin ARN.
      */

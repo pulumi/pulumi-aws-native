@@ -32,6 +32,7 @@ class OriginEndpointArgs:
                  force_endpoint_error_configuration: Optional[pulumi.Input['OriginEndpointForceEndpointErrorConfigurationArgs']] = None,
                  hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestConfigurationArgs']]]] = None,
                  low_latency_hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]]] = None,
+                 mss_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointMssManifestConfigurationArgs']]]] = None,
                  origin_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
                  segment: Optional[pulumi.Input['OriginEndpointSegmentArgs']] = None,
                  startover_window_seconds: Optional[pulumi.Input[_builtins.int]] = None,
@@ -46,6 +47,7 @@ class OriginEndpointArgs:
         :param pulumi.Input['OriginEndpointForceEndpointErrorConfigurationArgs'] force_endpoint_error_configuration: The failover settings for the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestConfigurationArgs']]] hls_manifests: <p>An HTTP live streaming (HLS) manifest configuration.</p>
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]] low_latency_hls_manifests: <p>A low-latency HLS manifest configuration.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointMssManifestConfigurationArgs']]] mss_manifests: <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
         :param pulumi.Input[_builtins.str] origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint configuration.
         :param pulumi.Input['OriginEndpointSegmentArgs'] segment: The segment associated with the origin endpoint.
         :param pulumi.Input[_builtins.int] startover_window_seconds: <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
@@ -64,6 +66,8 @@ class OriginEndpointArgs:
             pulumi.set(__self__, "hls_manifests", hls_manifests)
         if low_latency_hls_manifests is not None:
             pulumi.set(__self__, "low_latency_hls_manifests", low_latency_hls_manifests)
+        if mss_manifests is not None:
+            pulumi.set(__self__, "mss_manifests", mss_manifests)
         if origin_endpoint_name is not None:
             pulumi.set(__self__, "origin_endpoint_name", origin_endpoint_name)
         if segment is not None:
@@ -170,6 +174,18 @@ class OriginEndpointArgs:
         pulumi.set(self, "low_latency_hls_manifests", value)
 
     @_builtins.property
+    @pulumi.getter(name="mssManifests")
+    def mss_manifests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointMssManifestConfigurationArgs']]]]:
+        """
+        <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
+        """
+        return pulumi.get(self, "mss_manifests")
+
+    @mss_manifests.setter
+    def mss_manifests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointMssManifestConfigurationArgs']]]]):
+        pulumi.set(self, "mss_manifests", value)
+
+    @_builtins.property
     @pulumi.getter(name="originEndpointName")
     def origin_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -232,6 +248,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  force_endpoint_error_configuration: Optional[pulumi.Input[Union['OriginEndpointForceEndpointErrorConfigurationArgs', 'OriginEndpointForceEndpointErrorConfigurationArgsDict']]] = None,
                  hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointHlsManifestConfigurationArgs', 'OriginEndpointHlsManifestConfigurationArgsDict']]]]] = None,
                  low_latency_hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointLowLatencyHlsManifestConfigurationArgs', 'OriginEndpointLowLatencyHlsManifestConfigurationArgsDict']]]]] = None,
+                 mss_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointMssManifestConfigurationArgs', 'OriginEndpointMssManifestConfigurationArgsDict']]]]] = None,
                  origin_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
                  segment: Optional[pulumi.Input[Union['OriginEndpointSegmentArgs', 'OriginEndpointSegmentArgsDict']]] = None,
                  startover_window_seconds: Optional[pulumi.Input[_builtins.int]] = None,
@@ -250,6 +267,7 @@ class OriginEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Union['OriginEndpointForceEndpointErrorConfigurationArgs', 'OriginEndpointForceEndpointErrorConfigurationArgsDict']] force_endpoint_error_configuration: The failover settings for the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointHlsManifestConfigurationArgs', 'OriginEndpointHlsManifestConfigurationArgsDict']]]] hls_manifests: <p>An HTTP live streaming (HLS) manifest configuration.</p>
         :param pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointLowLatencyHlsManifestConfigurationArgs', 'OriginEndpointLowLatencyHlsManifestConfigurationArgsDict']]]] low_latency_hls_manifests: <p>A low-latency HLS manifest configuration.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointMssManifestConfigurationArgs', 'OriginEndpointMssManifestConfigurationArgsDict']]]] mss_manifests: <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
         :param pulumi.Input[_builtins.str] origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint configuration.
         :param pulumi.Input[Union['OriginEndpointSegmentArgs', 'OriginEndpointSegmentArgsDict']] segment: The segment associated with the origin endpoint.
         :param pulumi.Input[_builtins.int] startover_window_seconds: <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
@@ -287,6 +305,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  force_endpoint_error_configuration: Optional[pulumi.Input[Union['OriginEndpointForceEndpointErrorConfigurationArgs', 'OriginEndpointForceEndpointErrorConfigurationArgsDict']]] = None,
                  hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointHlsManifestConfigurationArgs', 'OriginEndpointHlsManifestConfigurationArgsDict']]]]] = None,
                  low_latency_hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointLowLatencyHlsManifestConfigurationArgs', 'OriginEndpointLowLatencyHlsManifestConfigurationArgsDict']]]]] = None,
+                 mss_manifests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointMssManifestConfigurationArgs', 'OriginEndpointMssManifestConfigurationArgsDict']]]]] = None,
                  origin_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
                  segment: Optional[pulumi.Input[Union['OriginEndpointSegmentArgs', 'OriginEndpointSegmentArgsDict']]] = None,
                  startover_window_seconds: Optional[pulumi.Input[_builtins.int]] = None,
@@ -314,6 +333,7 @@ class OriginEndpoint(pulumi.CustomResource):
             __props__.__dict__["force_endpoint_error_configuration"] = force_endpoint_error_configuration
             __props__.__dict__["hls_manifests"] = hls_manifests
             __props__.__dict__["low_latency_hls_manifests"] = low_latency_hls_manifests
+            __props__.__dict__["mss_manifests"] = mss_manifests
             __props__.__dict__["origin_endpoint_name"] = origin_endpoint_name
             __props__.__dict__["segment"] = segment
             __props__.__dict__["startover_window_seconds"] = startover_window_seconds
@@ -324,6 +344,7 @@ class OriginEndpoint(pulumi.CustomResource):
             __props__.__dict__["hls_manifest_urls"] = None
             __props__.__dict__["low_latency_hls_manifest_urls"] = None
             __props__.__dict__["modified_at"] = None
+            __props__.__dict__["mss_manifest_urls"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channelGroupName", "channelName", "originEndpointName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(OriginEndpoint, __self__).__init__(
@@ -362,6 +383,8 @@ class OriginEndpoint(pulumi.CustomResource):
         __props__.__dict__["low_latency_hls_manifest_urls"] = None
         __props__.__dict__["low_latency_hls_manifests"] = None
         __props__.__dict__["modified_at"] = None
+        __props__.__dict__["mss_manifest_urls"] = None
+        __props__.__dict__["mss_manifests"] = None
         __props__.__dict__["origin_endpoint_name"] = None
         __props__.__dict__["segment"] = None
         __props__.__dict__["startover_window_seconds"] = None
@@ -479,6 +502,19 @@ class OriginEndpoint(pulumi.CustomResource):
         <p>The date and time the origin endpoint was modified.</p>
         """
         return pulumi.get(self, "modified_at")
+
+    @_builtins.property
+    @pulumi.getter(name="mssManifestUrls")
+    def mss_manifest_urls(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        return pulumi.get(self, "mss_manifest_urls")
+
+    @_builtins.property
+    @pulumi.getter(name="mssManifests")
+    def mss_manifests(self) -> pulumi.Output[Optional[Sequence['outputs.OriginEndpointMssManifestConfiguration']]]:
+        """
+        <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
+        """
+        return pulumi.get(self, "mss_manifests")
 
     @_builtins.property
     @pulumi.getter(name="originEndpointName")

@@ -71,7 +71,13 @@ namespace Pulumi.AwsNative.SsmQuickSetup
         /// The name of the Automation document to execute
         /// </summary>
         public readonly string? AutomationDocument;
+        /// <summary>
+        /// A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
+        /// </summary>
         public readonly ImmutableDictionary<string, object>? AutomationParameters;
+        /// <summary>
+        /// Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

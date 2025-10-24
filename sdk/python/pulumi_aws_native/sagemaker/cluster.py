@@ -33,6 +33,7 @@ class ClusterArgs:
                  orchestrator: Optional[pulumi.Input['ClusterOrchestratorArgs']] = None,
                  restricted_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRestrictedInstanceGroupArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tiered_storage_config: Optional[pulumi.Input['ClusterTieredStorageConfigArgs']] = None,
                  vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Cluster resource.
@@ -63,6 +64,8 @@ class ClusterArgs:
             pulumi.set(__self__, "restricted_instance_groups", restricted_instance_groups)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tiered_storage_config is not None:
+            pulumi.set(__self__, "tiered_storage_config", tiered_storage_config)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
 
@@ -169,6 +172,15 @@ class ClusterArgs:
         pulumi.set(self, "tags", value)
 
     @_builtins.property
+    @pulumi.getter(name="tieredStorageConfig")
+    def tiered_storage_config(self) -> Optional[pulumi.Input['ClusterTieredStorageConfigArgs']]:
+        return pulumi.get(self, "tiered_storage_config")
+
+    @tiered_storage_config.setter
+    def tiered_storage_config(self, value: Optional[pulumi.Input['ClusterTieredStorageConfigArgs']]):
+        pulumi.set(self, "tiered_storage_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['ClusterVpcConfigArgs']]:
         """
@@ -196,6 +208,7 @@ class Cluster(pulumi.CustomResource):
                  orchestrator: Optional[pulumi.Input[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']]] = None,
                  restricted_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRestrictedInstanceGroupArgs', 'ClusterRestrictedInstanceGroupArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tiered_storage_config: Optional[pulumi.Input[Union['ClusterTieredStorageConfigArgs', 'ClusterTieredStorageConfigArgsDict']]] = None,
                  vpc_config: Optional[pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
@@ -245,6 +258,7 @@ class Cluster(pulumi.CustomResource):
                  orchestrator: Optional[pulumi.Input[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']]] = None,
                  restricted_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRestrictedInstanceGroupArgs', 'ClusterRestrictedInstanceGroupArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tiered_storage_config: Optional[pulumi.Input[Union['ClusterTieredStorageConfigArgs', 'ClusterTieredStorageConfigArgsDict']]] = None,
                  vpc_config: Optional[pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -264,6 +278,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["orchestrator"] = orchestrator
             __props__.__dict__["restricted_instance_groups"] = restricted_instance_groups
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tiered_storage_config"] = tiered_storage_config
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["cluster_arn"] = None
             __props__.__dict__["cluster_status"] = None
@@ -306,6 +321,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["orchestrator"] = None
         __props__.__dict__["restricted_instance_groups"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["tiered_storage_config"] = None
         __props__.__dict__["vpc_config"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
@@ -406,6 +422,11 @@ class Cluster(pulumi.CustomResource):
         Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="tieredStorageConfig")
+    def tiered_storage_config(self) -> pulumi.Output[Optional['outputs.ClusterTieredStorageConfig']]:
+        return pulumi.get(self, "tiered_storage_config")
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")

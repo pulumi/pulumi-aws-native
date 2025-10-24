@@ -14,15 +14,25 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
     {
         [Input("regions", required: true)]
         private InputList<string>? _regions;
+
+        /// <summary>
+        /// The list of source regions from which telemetry data should be centralized.
+        /// </summary>
         public InputList<string> Regions
         {
             get => _regions ?? (_regions = new InputList<string>());
             set => _regions = value;
         }
 
+        /// <summary>
+        /// The organizational scope from which telemetry data should be centralized, specified using organization id, accounts or organizational unit ids.
+        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
+        /// <summary>
+        /// Log specific configuration for centralization source log groups.
+        /// </summary>
         [Input("sourceLogsConfiguration")]
         public Input<Inputs.OrganizationCentralizationRuleSourceLogsConfigurationArgs>? SourceLogsConfiguration { get; set; }
 

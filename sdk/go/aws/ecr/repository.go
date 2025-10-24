@@ -94,11 +94,12 @@ type Repository struct {
 	EmptyOnDelete pulumi.BoolPtrOutput `pulumi:"emptyOnDelete"`
 	// The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
 	EncryptionConfiguration RepositoryEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
-	// The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+	// The ``imageScanningConfiguration`` parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see ``PutRegistryScanningConfiguration``.
+	//   The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrOutput `pulumi:"imageScanningConfiguration"`
 	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability RepositoryImageTagMutabilityPtrOutput `pulumi:"imageTagMutability"`
-	// The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+	// A list of filters that specify which image tags are excluded from the repository's image tag mutability setting.
 	ImageTagMutabilityExclusionFilters RepositoryImageTagMutabilityExclusionFilterArrayOutput `pulumi:"imageTagMutabilityExclusionFilters"`
 	// Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
 	LifecyclePolicy RepositoryLifecyclePolicyPtrOutput `pulumi:"lifecyclePolicy"`
@@ -165,11 +166,12 @@ type repositoryArgs struct {
 	EmptyOnDelete *bool `pulumi:"emptyOnDelete"`
 	// The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
 	EncryptionConfiguration *RepositoryEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+	// The ``imageScanningConfiguration`` parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see ``PutRegistryScanningConfiguration``.
+	//   The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 	ImageScanningConfiguration *RepositoryImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability *RepositoryImageTagMutability `pulumi:"imageTagMutability"`
-	// The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+	// A list of filters that specify which image tags are excluded from the repository's image tag mutability setting.
 	ImageTagMutabilityExclusionFilters []RepositoryImageTagMutabilityExclusionFilter `pulumi:"imageTagMutabilityExclusionFilters"`
 	// Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
 	LifecyclePolicy *RepositoryLifecyclePolicy `pulumi:"lifecyclePolicy"`
@@ -191,11 +193,12 @@ type RepositoryArgs struct {
 	EmptyOnDelete pulumi.BoolPtrInput
 	// The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
 	EncryptionConfiguration RepositoryEncryptionConfigurationPtrInput
-	// The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+	// The ``imageScanningConfiguration`` parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see ``PutRegistryScanningConfiguration``.
+	//   The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrInput
 	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability RepositoryImageTagMutabilityPtrInput
-	// The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+	// A list of filters that specify which image tags are excluded from the repository's image tag mutability setting.
 	ImageTagMutabilityExclusionFilters RepositoryImageTagMutabilityExclusionFilterArrayInput
 	// Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
 	LifecyclePolicy RepositoryLifecyclePolicyPtrInput
@@ -263,7 +266,9 @@ func (o RepositoryOutput) EncryptionConfiguration() RepositoryEncryptionConfigur
 	return o.ApplyT(func(v *Repository) RepositoryEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(RepositoryEncryptionConfigurationPtrOutput)
 }
 
-// The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+// The “imageScanningConfiguration“ parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see “PutRegistryScanningConfiguration“.
+//
+//	The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 func (o RepositoryOutput) ImageScanningConfiguration() RepositoryImageScanningConfigurationPtrOutput {
 	return o.ApplyT(func(v *Repository) RepositoryImageScanningConfigurationPtrOutput { return v.ImageScanningConfiguration }).(RepositoryImageScanningConfigurationPtrOutput)
 }
@@ -273,7 +278,7 @@ func (o RepositoryOutput) ImageTagMutability() RepositoryImageTagMutabilityPtrOu
 	return o.ApplyT(func(v *Repository) RepositoryImageTagMutabilityPtrOutput { return v.ImageTagMutability }).(RepositoryImageTagMutabilityPtrOutput)
 }
 
-// The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+// A list of filters that specify which image tags are excluded from the repository's image tag mutability setting.
 func (o RepositoryOutput) ImageTagMutabilityExclusionFilters() RepositoryImageTagMutabilityExclusionFilterArrayOutput {
 	return o.ApplyT(func(v *Repository) RepositoryImageTagMutabilityExclusionFilterArrayOutput {
 		return v.ImageTagMutabilityExclusionFilters

@@ -7,11 +7,20 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'CampaignAgentAction',
     'CampaignCommunicationLimitTimeUnit',
     'CampaignDayOfWeek',
     'CampaignInstanceLimitsHandling',
     'CampaignLocalTimeZoneDetectionType',
 ]
+
+
+@pulumi.type_token("aws-native:connectcampaignsv2:CampaignAgentAction")
+class CampaignAgentAction(_builtins.str, Enum):
+    """
+    Actions that can performed on a contact by an agent
+    """
+    DISCARD = "DISCARD"
 
 
 @pulumi.type_token("aws-native:connectcampaignsv2:CampaignCommunicationLimitTimeUnit")

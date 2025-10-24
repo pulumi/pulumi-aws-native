@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<string> ImageId { get; private set; } = null!;
 
         /// <summary>
+        /// The image pipeline execution settings of the image.
+        /// </summary>
+        [Output("imagePipelineExecutionSettings")]
+        public Output<Outputs.ImagePipelineExecutionSettings?> ImagePipelineExecutionSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         /// </summary>
         [Output("imageRecipeArn")]
@@ -190,6 +196,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         [Input("executionRole")]
         public Input<string>? ExecutionRole { get; set; }
+
+        /// <summary>
+        /// The image pipeline execution settings of the image.
+        /// </summary>
+        [Input("imagePipelineExecutionSettings")]
+        public Input<Inputs.ImagePipelineExecutionSettingsArgs>? ImagePipelineExecutionSettings { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.

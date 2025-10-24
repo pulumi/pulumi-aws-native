@@ -34,6 +34,10 @@ export interface GetImagePipelineResult {
      */
     readonly containerRecipeArn?: string;
     /**
+     * The deployment ID of the pipeline, used for resource create/update triggers.
+     */
+    readonly deploymentId?: string;
+    /**
      * The description of the image pipeline.
      */
     readonly description?: string;

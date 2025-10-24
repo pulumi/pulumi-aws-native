@@ -19,11 +19,13 @@ type LifecycleAutomation struct {
 	// The id from the association that is returned when creating the association
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// The name of the Automation document to execute
-	AutomationDocument   pulumi.StringOutput `pulumi:"automationDocument"`
-	AutomationParameters pulumi.MapOutput    `pulumi:"automationParameters"`
+	AutomationDocument pulumi.StringOutput `pulumi:"automationDocument"`
+	// A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
+	AutomationParameters pulumi.MapOutput `pulumi:"automationParameters"`
 	// A unique identifier used for generating a unique logical ID for the custom resource
-	ResourceKey pulumi.StringOutput    `pulumi:"resourceKey"`
-	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	ResourceKey pulumi.StringOutput `pulumi:"resourceKey"`
+	// Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewLifecycleAutomation registers a new resource with the given unique name, arguments, and options.
@@ -80,21 +82,25 @@ func (LifecycleAutomationState) ElementType() reflect.Type {
 
 type lifecycleAutomationArgs struct {
 	// The name of the Automation document to execute
-	AutomationDocument   string                 `pulumi:"automationDocument"`
+	AutomationDocument string `pulumi:"automationDocument"`
+	// A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
 	AutomationParameters map[string]interface{} `pulumi:"automationParameters"`
 	// A unique identifier used for generating a unique logical ID for the custom resource
-	ResourceKey string            `pulumi:"resourceKey"`
-	Tags        map[string]string `pulumi:"tags"`
+	ResourceKey string `pulumi:"resourceKey"`
+	// Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LifecycleAutomation resource.
 type LifecycleAutomationArgs struct {
 	// The name of the Automation document to execute
-	AutomationDocument   pulumi.StringInput
+	AutomationDocument pulumi.StringInput
+	// A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
 	AutomationParameters pulumi.MapInput
 	// A unique identifier used for generating a unique logical ID for the custom resource
 	ResourceKey pulumi.StringInput
-	Tags        pulumi.StringMapInput
+	// Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
+	Tags pulumi.StringMapInput
 }
 
 func (LifecycleAutomationArgs) ElementType() reflect.Type {
@@ -144,6 +150,7 @@ func (o LifecycleAutomationOutput) AutomationDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecycleAutomation) pulumi.StringOutput { return v.AutomationDocument }).(pulumi.StringOutput)
 }
 
+// A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
 func (o LifecycleAutomationOutput) AutomationParameters() pulumi.MapOutput {
 	return o.ApplyT(func(v *LifecycleAutomation) pulumi.MapOutput { return v.AutomationParameters }).(pulumi.MapOutput)
 }
@@ -153,6 +160,7 @@ func (o LifecycleAutomationOutput) ResourceKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecycleAutomation) pulumi.StringOutput { return v.ResourceKey }).(pulumi.StringOutput)
 }
 
+// Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
 func (o LifecycleAutomationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LifecycleAutomation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

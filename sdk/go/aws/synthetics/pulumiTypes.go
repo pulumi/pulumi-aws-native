@@ -354,10 +354,16 @@ func (o CanaryBrowserConfigArrayOutput) Index(i pulumi.IntInput) CanaryBrowserCo
 }
 
 type CanaryCode struct {
+	// `BlueprintTypes` are a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. `multi-checks` is the only supported value.
+	//
+	// When you specify `BlueprintTypes` , the `Handler` field cannot be specified since the blueprint provides a pre-defined entry point.
+	BlueprintTypes []string `pulumi:"blueprintTypes"`
 	// List of Lambda layers to attach to the canary
 	Dependencies []CanaryDependency `pulumi:"dependencies"`
 	// The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
-	Handler string `pulumi:"handler"`
+	//
+	// This field is required when you don't specify `BlueprintTypes` and is not allowed when you specify `BlueprintTypes` .
+	Handler *string `pulumi:"handler"`
 	// If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
 	S3Bucket *string `pulumi:"s3Bucket"`
 	// The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
@@ -382,10 +388,16 @@ type CanaryCodeInput interface {
 }
 
 type CanaryCodeArgs struct {
+	// `BlueprintTypes` are a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. `multi-checks` is the only supported value.
+	//
+	// When you specify `BlueprintTypes` , the `Handler` field cannot be specified since the blueprint provides a pre-defined entry point.
+	BlueprintTypes pulumi.StringArrayInput `pulumi:"blueprintTypes"`
 	// List of Lambda layers to attach to the canary
 	Dependencies CanaryDependencyArrayInput `pulumi:"dependencies"`
 	// The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
-	Handler pulumi.StringInput `pulumi:"handler"`
+	//
+	// This field is required when you don't specify `BlueprintTypes` and is not allowed when you specify `BlueprintTypes` .
+	Handler pulumi.StringPtrInput `pulumi:"handler"`
 	// If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
 	S3Bucket pulumi.StringPtrInput `pulumi:"s3Bucket"`
 	// The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
@@ -424,14 +436,23 @@ func (o CanaryCodeOutput) ToCanaryCodeOutputWithContext(ctx context.Context) Can
 	return o
 }
 
+// `BlueprintTypes` are a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. `multi-checks` is the only supported value.
+//
+// When you specify `BlueprintTypes` , the `Handler` field cannot be specified since the blueprint provides a pre-defined entry point.
+func (o CanaryCodeOutput) BlueprintTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CanaryCode) []string { return v.BlueprintTypes }).(pulumi.StringArrayOutput)
+}
+
 // List of Lambda layers to attach to the canary
 func (o CanaryCodeOutput) Dependencies() CanaryDependencyArrayOutput {
 	return o.ApplyT(func(v CanaryCode) []CanaryDependency { return v.Dependencies }).(CanaryDependencyArrayOutput)
 }
 
 // The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
-func (o CanaryCodeOutput) Handler() pulumi.StringOutput {
-	return o.ApplyT(func(v CanaryCode) string { return v.Handler }).(pulumi.StringOutput)
+//
+// This field is required when you don't specify `BlueprintTypes` and is not allowed when you specify `BlueprintTypes` .
+func (o CanaryCodeOutput) Handler() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CanaryCode) *string { return v.Handler }).(pulumi.StringPtrOutput)
 }
 
 // If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
@@ -483,6 +504,18 @@ func (o CanaryCodePtrOutput) Elem() CanaryCodeOutput {
 	}).(CanaryCodeOutput)
 }
 
+// `BlueprintTypes` are a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. `multi-checks` is the only supported value.
+//
+// When you specify `BlueprintTypes` , the `Handler` field cannot be specified since the blueprint provides a pre-defined entry point.
+func (o CanaryCodePtrOutput) BlueprintTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CanaryCode) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlueprintTypes
+	}).(pulumi.StringArrayOutput)
+}
+
 // List of Lambda layers to attach to the canary
 func (o CanaryCodePtrOutput) Dependencies() CanaryDependencyArrayOutput {
 	return o.ApplyT(func(v *CanaryCode) []CanaryDependency {
@@ -494,12 +527,14 @@ func (o CanaryCodePtrOutput) Dependencies() CanaryDependencyArrayOutput {
 }
 
 // The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
+//
+// This field is required when you don't specify `BlueprintTypes` and is not allowed when you specify `BlueprintTypes` .
 func (o CanaryCodePtrOutput) Handler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryCode) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Handler
+		return v.Handler
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1334,7 +1369,8 @@ type CanaryVisualReference struct {
 	BaseCanaryRunId string `pulumi:"baseCanaryRunId"`
 	// List of screenshots used as base reference for visual testing
 	BaseScreenshots []CanaryBaseScreenshot `pulumi:"baseScreenshots"`
-	BrowserType     *CanaryBrowserType     `pulumi:"browserType"`
+	// The browser type associated with this visual reference configuration. Valid values are `CHROME` and `FIREFOX` .
+	BrowserType *CanaryBrowserType `pulumi:"browserType"`
 }
 
 // CanaryVisualReferenceInput is an input type that accepts CanaryVisualReferenceArgs and CanaryVisualReferenceOutput values.
@@ -1353,7 +1389,8 @@ type CanaryVisualReferenceArgs struct {
 	BaseCanaryRunId pulumi.StringInput `pulumi:"baseCanaryRunId"`
 	// List of screenshots used as base reference for visual testing
 	BaseScreenshots CanaryBaseScreenshotArrayInput `pulumi:"baseScreenshots"`
-	BrowserType     CanaryBrowserTypePtrInput      `pulumi:"browserType"`
+	// The browser type associated with this visual reference configuration. Valid values are `CHROME` and `FIREFOX` .
+	BrowserType CanaryBrowserTypePtrInput `pulumi:"browserType"`
 }
 
 func (CanaryVisualReferenceArgs) ElementType() reflect.Type {
@@ -1468,6 +1505,7 @@ func (o CanaryVisualReferenceOutput) BaseScreenshots() CanaryBaseScreenshotArray
 	return o.ApplyT(func(v CanaryVisualReference) []CanaryBaseScreenshot { return v.BaseScreenshots }).(CanaryBaseScreenshotArrayOutput)
 }
 
+// The browser type associated with this visual reference configuration. Valid values are `CHROME` and `FIREFOX` .
 func (o CanaryVisualReferenceOutput) BrowserType() CanaryBrowserTypePtrOutput {
 	return o.ApplyT(func(v CanaryVisualReference) *CanaryBrowserType { return v.BrowserType }).(CanaryBrowserTypePtrOutput)
 }
@@ -1516,6 +1554,7 @@ func (o CanaryVisualReferencePtrOutput) BaseScreenshots() CanaryBaseScreenshotAr
 	}).(CanaryBaseScreenshotArrayOutput)
 }
 
+// The browser type associated with this visual reference configuration. Valid values are `CHROME` and `FIREFOX` .
 func (o CanaryVisualReferencePtrOutput) BrowserType() CanaryBrowserTypePtrOutput {
 	return o.ApplyT(func(v *CanaryVisualReference) *CanaryBrowserType {
 		if v == nil {

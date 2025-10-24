@@ -29,6 +29,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("originReadTimeout")]
         public Input<int>? OriginReadTimeout { get; set; }
 
+        [Input("ownerAccountId")]
+        public Input<string>? OwnerAccountId { get; set; }
+
         /// <summary>
         /// The VPC origin ID.
         /// </summary>

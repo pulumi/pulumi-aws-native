@@ -3420,6 +3420,165 @@ func (o ImagePipelineEcrConfigurationPtrOutput) RepositoryName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The settings for starting an image pipeline execution.
+type ImagePipelineExecutionSettings struct {
+	// The deployment ID of the pipeline, used to trigger new image pipeline executions.
+	DeploymentId *string `pulumi:"deploymentId"`
+	// Whether to trigger the image pipeline when the pipeline is updated. False by default.
+	OnUpdate *bool `pulumi:"onUpdate"`
+}
+
+// ImagePipelineExecutionSettingsInput is an input type that accepts ImagePipelineExecutionSettingsArgs and ImagePipelineExecutionSettingsOutput values.
+// You can construct a concrete instance of `ImagePipelineExecutionSettingsInput` via:
+//
+//	ImagePipelineExecutionSettingsArgs{...}
+type ImagePipelineExecutionSettingsInput interface {
+	pulumi.Input
+
+	ToImagePipelineExecutionSettingsOutput() ImagePipelineExecutionSettingsOutput
+	ToImagePipelineExecutionSettingsOutputWithContext(context.Context) ImagePipelineExecutionSettingsOutput
+}
+
+// The settings for starting an image pipeline execution.
+type ImagePipelineExecutionSettingsArgs struct {
+	// The deployment ID of the pipeline, used to trigger new image pipeline executions.
+	DeploymentId pulumi.StringPtrInput `pulumi:"deploymentId"`
+	// Whether to trigger the image pipeline when the pipeline is updated. False by default.
+	OnUpdate pulumi.BoolPtrInput `pulumi:"onUpdate"`
+}
+
+func (ImagePipelineExecutionSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineExecutionSettings)(nil)).Elem()
+}
+
+func (i ImagePipelineExecutionSettingsArgs) ToImagePipelineExecutionSettingsOutput() ImagePipelineExecutionSettingsOutput {
+	return i.ToImagePipelineExecutionSettingsOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineExecutionSettingsArgs) ToImagePipelineExecutionSettingsOutputWithContext(ctx context.Context) ImagePipelineExecutionSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineExecutionSettingsOutput)
+}
+
+func (i ImagePipelineExecutionSettingsArgs) ToImagePipelineExecutionSettingsPtrOutput() ImagePipelineExecutionSettingsPtrOutput {
+	return i.ToImagePipelineExecutionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineExecutionSettingsArgs) ToImagePipelineExecutionSettingsPtrOutputWithContext(ctx context.Context) ImagePipelineExecutionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineExecutionSettingsOutput).ToImagePipelineExecutionSettingsPtrOutputWithContext(ctx)
+}
+
+// ImagePipelineExecutionSettingsPtrInput is an input type that accepts ImagePipelineExecutionSettingsArgs, ImagePipelineExecutionSettingsPtr and ImagePipelineExecutionSettingsPtrOutput values.
+// You can construct a concrete instance of `ImagePipelineExecutionSettingsPtrInput` via:
+//
+//	        ImagePipelineExecutionSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImagePipelineExecutionSettingsPtrInput interface {
+	pulumi.Input
+
+	ToImagePipelineExecutionSettingsPtrOutput() ImagePipelineExecutionSettingsPtrOutput
+	ToImagePipelineExecutionSettingsPtrOutputWithContext(context.Context) ImagePipelineExecutionSettingsPtrOutput
+}
+
+type imagePipelineExecutionSettingsPtrType ImagePipelineExecutionSettingsArgs
+
+func ImagePipelineExecutionSettingsPtr(v *ImagePipelineExecutionSettingsArgs) ImagePipelineExecutionSettingsPtrInput {
+	return (*imagePipelineExecutionSettingsPtrType)(v)
+}
+
+func (*imagePipelineExecutionSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineExecutionSettings)(nil)).Elem()
+}
+
+func (i *imagePipelineExecutionSettingsPtrType) ToImagePipelineExecutionSettingsPtrOutput() ImagePipelineExecutionSettingsPtrOutput {
+	return i.ToImagePipelineExecutionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *imagePipelineExecutionSettingsPtrType) ToImagePipelineExecutionSettingsPtrOutputWithContext(ctx context.Context) ImagePipelineExecutionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineExecutionSettingsPtrOutput)
+}
+
+// The settings for starting an image pipeline execution.
+type ImagePipelineExecutionSettingsOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineExecutionSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineExecutionSettings)(nil)).Elem()
+}
+
+func (o ImagePipelineExecutionSettingsOutput) ToImagePipelineExecutionSettingsOutput() ImagePipelineExecutionSettingsOutput {
+	return o
+}
+
+func (o ImagePipelineExecutionSettingsOutput) ToImagePipelineExecutionSettingsOutputWithContext(ctx context.Context) ImagePipelineExecutionSettingsOutput {
+	return o
+}
+
+func (o ImagePipelineExecutionSettingsOutput) ToImagePipelineExecutionSettingsPtrOutput() ImagePipelineExecutionSettingsPtrOutput {
+	return o.ToImagePipelineExecutionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineExecutionSettingsOutput) ToImagePipelineExecutionSettingsPtrOutputWithContext(ctx context.Context) ImagePipelineExecutionSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineExecutionSettings) *ImagePipelineExecutionSettings {
+		return &v
+	}).(ImagePipelineExecutionSettingsPtrOutput)
+}
+
+// The deployment ID of the pipeline, used to trigger new image pipeline executions.
+func (o ImagePipelineExecutionSettingsOutput) DeploymentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePipelineExecutionSettings) *string { return v.DeploymentId }).(pulumi.StringPtrOutput)
+}
+
+// Whether to trigger the image pipeline when the pipeline is updated. False by default.
+func (o ImagePipelineExecutionSettingsOutput) OnUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImagePipelineExecutionSettings) *bool { return v.OnUpdate }).(pulumi.BoolPtrOutput)
+}
+
+type ImagePipelineExecutionSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineExecutionSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineExecutionSettings)(nil)).Elem()
+}
+
+func (o ImagePipelineExecutionSettingsPtrOutput) ToImagePipelineExecutionSettingsPtrOutput() ImagePipelineExecutionSettingsPtrOutput {
+	return o
+}
+
+func (o ImagePipelineExecutionSettingsPtrOutput) ToImagePipelineExecutionSettingsPtrOutputWithContext(ctx context.Context) ImagePipelineExecutionSettingsPtrOutput {
+	return o
+}
+
+func (o ImagePipelineExecutionSettingsPtrOutput) Elem() ImagePipelineExecutionSettingsOutput {
+	return o.ApplyT(func(v *ImagePipelineExecutionSettings) ImagePipelineExecutionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipelineExecutionSettings
+		return ret
+	}).(ImagePipelineExecutionSettingsOutput)
+}
+
+// The deployment ID of the pipeline, used to trigger new image pipeline executions.
+func (o ImagePipelineExecutionSettingsPtrOutput) DeploymentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineExecutionSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to trigger the image pipeline when the pipeline is updated. False by default.
+func (o ImagePipelineExecutionSettingsPtrOutput) OnUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineExecutionSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OnUpdate
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution.
 type ImagePipelineImageScanningConfiguration struct {
 	// Contains ECR settings for vulnerability scans.
@@ -7798,6 +7957,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineAutoDisablePolicyPtrInput)(nil)).Elem(), ImagePipelineAutoDisablePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineEcrConfigurationInput)(nil)).Elem(), ImagePipelineEcrConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineEcrConfigurationPtrInput)(nil)).Elem(), ImagePipelineEcrConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineExecutionSettingsInput)(nil)).Elem(), ImagePipelineExecutionSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineExecutionSettingsPtrInput)(nil)).Elem(), ImagePipelineExecutionSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
@@ -7897,6 +8058,8 @@ func init() {
 	pulumi.RegisterOutputType(ImagePipelineAutoDisablePolicyPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineEcrConfigurationOutput{})
 	pulumi.RegisterOutputType(ImagePipelineEcrConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ImagePipelineExecutionSettingsOutput{})
+	pulumi.RegisterOutputType(ImagePipelineExecutionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationOutput{})

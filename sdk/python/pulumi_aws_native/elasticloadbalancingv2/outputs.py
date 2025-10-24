@@ -37,10 +37,13 @@ __all__ = [
     'ListenerRuleQueryStringConfig',
     'ListenerRuleQueryStringKeyValue',
     'ListenerRuleRedirectConfig',
+    'ListenerRuleRewriteConfig',
+    'ListenerRuleRewriteConfigObject',
     'ListenerRuleRuleCondition',
     'ListenerRuleSourceIpConfig',
     'ListenerRuleTargetGroupStickinessConfig',
     'ListenerRuleTargetGroupTuple',
+    'ListenerRuleTransform',
     'ListenerTargetGroupStickinessConfig',
     'ListenerTargetGroupTuple',
     'LoadBalancerAttribute',
@@ -100,10 +103,11 @@ class ListenerAction(dict):
         :param 'ListenerAuthenticateCognitoConfig' authenticate_cognito_config: [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when ``Type`` is ``authenticate-cognito``.
         :param 'ListenerAuthenticateOidcConfig' authenticate_oidc_config: [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when ``Type`` is ``authenticate-oidc``.
         :param 'ListenerFixedResponseConfig' fixed_response_config: [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
-        :param 'ListenerForwardConfig' forward_config: Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+        :param 'ListenerForwardConfig' forward_config: Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+                If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
         :param _builtins.int order: The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
         :param 'ListenerRedirectConfig' redirect_config: [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
-        :param _builtins.str target_group_arn: The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+        :param _builtins.str target_group_arn: The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
         """
         pulumi.set(__self__, "type", type)
         if authenticate_cognito_config is not None:
@@ -157,7 +161,8 @@ class ListenerAction(dict):
     @pulumi.getter(name="forwardConfig")
     def forward_config(self) -> Optional['outputs.ListenerForwardConfig']:
         """
-        Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+        Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+         If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
         """
         return pulumi.get(self, "forward_config")
 
@@ -181,7 +186,7 @@ class ListenerAction(dict):
     @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+        The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
         """
         return pulumi.get(self, "target_group_arn")
 
@@ -713,7 +718,8 @@ class ListenerFixedResponseConfig(dict):
 @pulumi.output_type
 class ListenerForwardConfig(dict):
     """
-    Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+    Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+     If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -738,7 +744,8 @@ class ListenerForwardConfig(dict):
                  target_group_stickiness_config: Optional['outputs.ListenerTargetGroupStickinessConfig'] = None,
                  target_groups: Optional[Sequence['outputs.ListenerTargetGroupTuple']] = None):
         """
-        Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+        Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+         If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
         :param 'ListenerTargetGroupStickinessConfig' target_group_stickiness_config: Information about the target group stickiness for a rule.
         :param Sequence['ListenerTargetGroupTuple'] target_groups: Information about how traffic will be distributed between multiple target groups in a forward rule.
         """
@@ -1008,10 +1015,11 @@ class ListenerRuleAction(dict):
         :param 'ListenerRuleAuthenticateCognitoConfig' authenticate_cognito_config: [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when ``Type`` is ``authenticate-cognito``.
         :param 'ListenerRuleAuthenticateOidcConfig' authenticate_oidc_config: [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when ``Type`` is ``authenticate-oidc``.
         :param 'ListenerRuleFixedResponseConfig' fixed_response_config: [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
-        :param 'ListenerRuleForwardConfig' forward_config: Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+        :param 'ListenerRuleForwardConfig' forward_config: Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+                If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
         :param _builtins.int order: The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
         :param 'ListenerRuleRedirectConfig' redirect_config: [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
-        :param _builtins.str target_group_arn: The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+        :param _builtins.str target_group_arn: The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
         """
         pulumi.set(__self__, "type", type)
         if authenticate_cognito_config is not None:
@@ -1065,7 +1073,8 @@ class ListenerRuleAction(dict):
     @pulumi.getter(name="forwardConfig")
     def forward_config(self) -> Optional['outputs.ListenerRuleForwardConfig']:
         """
-        Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+        Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+         If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
         """
         return pulumi.get(self, "forward_config")
 
@@ -1089,7 +1098,7 @@ class ListenerRuleAction(dict):
     @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+        The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
         """
         return pulumi.get(self, "target_group_arn")
 
@@ -1500,7 +1509,8 @@ class ListenerRuleFixedResponseConfig(dict):
 @pulumi.output_type
 class ListenerRuleForwardConfig(dict):
     """
-    Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+    Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+     If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1525,7 +1535,8 @@ class ListenerRuleForwardConfig(dict):
                  target_group_stickiness_config: Optional['outputs.ListenerRuleTargetGroupStickinessConfig'] = None,
                  target_groups: Optional[Sequence['outputs.ListenerRuleTargetGroupTuple']] = None):
         """
-        Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+        Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+         If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
         :param 'ListenerRuleTargetGroupStickinessConfig' target_group_stickiness_config: Information about the target group stickiness for a rule.
         :param Sequence['ListenerRuleTargetGroupTuple'] target_groups: Information about how traffic will be distributed between multiple target groups in a forward rule.
         """
@@ -1556,15 +1567,40 @@ class ListenerRuleHostHeaderConfig(dict):
     """
     Information about a host header condition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regexValues":
+            suggest = "regex_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleHostHeaderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleHostHeaderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleHostHeaderConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 regex_values: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         Information about a host header condition.
         :param Sequence[_builtins.str] values: The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
                 If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
         """
+        if regex_values is not None:
+            pulumi.set(__self__, "regex_values", regex_values)
         if values is not None:
             pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="regexValues")
+    def regex_values(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "regex_values")
 
     @_builtins.property
     @pulumi.getter
@@ -1587,6 +1623,8 @@ class ListenerRuleHttpHeaderConfig(dict):
         suggest = None
         if key == "httpHeaderName":
             suggest = "http_header_name"
+        elif key == "regexValues":
+            suggest = "regex_values"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ListenerRuleHttpHeaderConfig. Access the value via the '{suggest}' property getter instead.")
@@ -1601,6 +1639,7 @@ class ListenerRuleHttpHeaderConfig(dict):
 
     def __init__(__self__, *,
                  http_header_name: Optional[_builtins.str] = None,
+                 regex_values: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         Information about an HTTP header condition.
@@ -1612,6 +1651,8 @@ class ListenerRuleHttpHeaderConfig(dict):
         """
         if http_header_name is not None:
             pulumi.set(__self__, "http_header_name", http_header_name)
+        if regex_values is not None:
+            pulumi.set(__self__, "regex_values", regex_values)
         if values is not None:
             pulumi.set(__self__, "values", values)
 
@@ -1622,6 +1663,11 @@ class ListenerRuleHttpHeaderConfig(dict):
         The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
         """
         return pulumi.get(self, "http_header_name")
+
+    @_builtins.property
+    @pulumi.getter(name="regexValues")
+    def regex_values(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "regex_values")
 
     @_builtins.property
     @pulumi.getter
@@ -1666,15 +1712,40 @@ class ListenerRulePathPatternConfig(dict):
     """
     Information about a path pattern condition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regexValues":
+            suggest = "regex_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRulePathPatternConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRulePathPatternConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRulePathPatternConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 regex_values: Optional[Sequence[_builtins.str]] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         Information about a path pattern condition.
         :param Sequence[_builtins.str] values: The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
                 If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.
         """
+        if regex_values is not None:
+            pulumi.set(__self__, "regex_values", regex_values)
         if values is not None:
             pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="regexValues")
+    def regex_values(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "regex_values")
 
     @_builtins.property
     @pulumi.getter
@@ -1866,6 +1937,37 @@ class ListenerRuleRedirectConfig(dict):
 
 
 @pulumi.output_type
+class ListenerRuleRewriteConfig(dict):
+    def __init__(__self__, *,
+                 regex: _builtins.str,
+                 replace: _builtins.str):
+        pulumi.set(__self__, "regex", regex)
+        pulumi.set(__self__, "replace", replace)
+
+    @_builtins.property
+    @pulumi.getter
+    def regex(self) -> _builtins.str:
+        return pulumi.get(self, "regex")
+
+    @_builtins.property
+    @pulumi.getter
+    def replace(self) -> _builtins.str:
+        return pulumi.get(self, "replace")
+
+
+@pulumi.output_type
+class ListenerRuleRewriteConfigObject(dict):
+    def __init__(__self__, *,
+                 rewrites: Sequence['outputs.ListenerRuleRewriteConfig']):
+        pulumi.set(__self__, "rewrites", rewrites)
+
+    @_builtins.property
+    @pulumi.getter
+    def rewrites(self) -> Sequence['outputs.ListenerRuleRewriteConfig']:
+        return pulumi.get(self, "rewrites")
+
+
+@pulumi.output_type
 class ListenerRuleRuleCondition(dict):
     """
     Specifies a condition for a listener rule.
@@ -1883,6 +1985,8 @@ class ListenerRuleRuleCondition(dict):
             suggest = "path_pattern_config"
         elif key == "queryStringConfig":
             suggest = "query_string_config"
+        elif key == "regexValues":
+            suggest = "regex_values"
         elif key == "sourceIpConfig":
             suggest = "source_ip_config"
 
@@ -1904,6 +2008,7 @@ class ListenerRuleRuleCondition(dict):
                  http_request_method_config: Optional['outputs.ListenerRuleHttpRequestMethodConfig'] = None,
                  path_pattern_config: Optional['outputs.ListenerRulePathPatternConfig'] = None,
                  query_string_config: Optional['outputs.ListenerRuleQueryStringConfig'] = None,
+                 regex_values: Optional[Sequence[_builtins.str]] = None,
                  source_ip_config: Optional['outputs.ListenerRuleSourceIpConfig'] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
@@ -1920,6 +2025,7 @@ class ListenerRuleRuleCondition(dict):
         :param 'ListenerRuleHttpRequestMethodConfig' http_request_method_config: Information for an HTTP method condition. Specify only when ``Field`` is ``http-request-method``.
         :param 'ListenerRulePathPatternConfig' path_pattern_config: Information for a path pattern condition. Specify only when ``Field`` is ``path-pattern``.
         :param 'ListenerRuleQueryStringConfig' query_string_config: Information for a query string condition. Specify only when ``Field`` is ``query-string``.
+        :param Sequence[_builtins.str] regex_values: The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when `Field` is `http-header` , `host-header` , or `path-pattern` .
         :param 'ListenerRuleSourceIpConfig' source_ip_config: Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.
         :param Sequence[_builtins.str] values: The condition value. Specify only when ``Field`` is ``host-header`` or ``path-pattern``. Alternatively, to specify multiple host names or multiple path patterns, use ``HostHeaderConfig`` or ``PathPatternConfig``.
                 If ``Field`` is ``host-header`` and you're not using ``HostHeaderConfig``, you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters.
@@ -1947,6 +2053,8 @@ class ListenerRuleRuleCondition(dict):
             pulumi.set(__self__, "path_pattern_config", path_pattern_config)
         if query_string_config is not None:
             pulumi.set(__self__, "query_string_config", query_string_config)
+        if regex_values is not None:
+            pulumi.set(__self__, "regex_values", regex_values)
         if source_ip_config is not None:
             pulumi.set(__self__, "source_ip_config", source_ip_config)
         if values is not None:
@@ -2005,6 +2113,14 @@ class ListenerRuleRuleCondition(dict):
         Information for a query string condition. Specify only when ``Field`` is ``query-string``.
         """
         return pulumi.get(self, "query_string_config")
+
+    @_builtins.property
+    @pulumi.getter(name="regexValues")
+    def regex_values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when `Field` is `http-header` , `host-header` , or `path-pattern` .
+        """
+        return pulumi.get(self, "regex_values")
 
     @_builtins.property
     @pulumi.getter(name="sourceIpConfig")
@@ -2089,7 +2205,7 @@ class ListenerRuleTargetGroupStickinessConfig(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Information about the target group stickiness for a rule.
-        :param _builtins.int duration_seconds: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
+        :param _builtins.int duration_seconds: [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         :param _builtins.bool enabled: Indicates whether target group stickiness is enabled.
         """
         if duration_seconds is not None:
@@ -2101,7 +2217,7 @@ class ListenerRuleTargetGroupStickinessConfig(dict):
     @pulumi.getter(name="durationSeconds")
     def duration_seconds(self) -> Optional[_builtins.int]:
         """
-        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
+        [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         """
         return pulumi.get(self, "duration_seconds")
 
@@ -2167,6 +2283,53 @@ class ListenerRuleTargetGroupTuple(dict):
 
 
 @pulumi.output_type
+class ListenerRuleTransform(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostHeaderRewriteConfig":
+            suggest = "host_header_rewrite_config"
+        elif key == "urlRewriteConfig":
+            suggest = "url_rewrite_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleTransform. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleTransform.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleTransform.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 host_header_rewrite_config: Optional['outputs.ListenerRuleRewriteConfigObject'] = None,
+                 url_rewrite_config: Optional['outputs.ListenerRuleRewriteConfigObject'] = None):
+        pulumi.set(__self__, "type", type)
+        if host_header_rewrite_config is not None:
+            pulumi.set(__self__, "host_header_rewrite_config", host_header_rewrite_config)
+        if url_rewrite_config is not None:
+            pulumi.set(__self__, "url_rewrite_config", url_rewrite_config)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="hostHeaderRewriteConfig")
+    def host_header_rewrite_config(self) -> Optional['outputs.ListenerRuleRewriteConfigObject']:
+        return pulumi.get(self, "host_header_rewrite_config")
+
+    @_builtins.property
+    @pulumi.getter(name="urlRewriteConfig")
+    def url_rewrite_config(self) -> Optional['outputs.ListenerRuleRewriteConfigObject']:
+        return pulumi.get(self, "url_rewrite_config")
+
+
+@pulumi.output_type
 class ListenerTargetGroupStickinessConfig(dict):
     """
     Information about the target group stickiness for a rule.
@@ -2193,7 +2356,7 @@ class ListenerTargetGroupStickinessConfig(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Information about the target group stickiness for a rule.
-        :param _builtins.int duration_seconds: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
+        :param _builtins.int duration_seconds: [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         :param _builtins.bool enabled: Indicates whether target group stickiness is enabled.
         """
         if duration_seconds is not None:
@@ -2205,7 +2368,7 @@ class ListenerTargetGroupStickinessConfig(dict):
     @pulumi.getter(name="durationSeconds")
     def duration_seconds(self) -> Optional[_builtins.int]:
         """
-        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
+        [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         """
         return pulumi.get(self, "duration_seconds")
 

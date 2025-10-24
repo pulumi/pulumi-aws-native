@@ -31,9 +31,11 @@ type LookupLifecycleAutomationResult struct {
 	// The id from the association that is returned when creating the association
 	AssociationId *string `pulumi:"associationId"`
 	// The name of the Automation document to execute
-	AutomationDocument   *string                `pulumi:"automationDocument"`
+	AutomationDocument *string `pulumi:"automationDocument"`
+	// A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
 	AutomationParameters map[string]interface{} `pulumi:"automationParameters"`
-	Tags                 map[string]string      `pulumi:"tags"`
+	// Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupLifecycleAutomationOutput(ctx *pulumi.Context, args LookupLifecycleAutomationOutputArgs, opts ...pulumi.InvokeOption) LookupLifecycleAutomationResultOutput {
@@ -78,10 +80,12 @@ func (o LookupLifecycleAutomationResultOutput) AutomationDocument() pulumi.Strin
 	return o.ApplyT(func(v LookupLifecycleAutomationResult) *string { return v.AutomationDocument }).(pulumi.StringPtrOutput)
 }
 
+// A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
 func (o LookupLifecycleAutomationResultOutput) AutomationParameters() pulumi.MapOutput {
 	return o.ApplyT(func(v LookupLifecycleAutomationResult) map[string]interface{} { return v.AutomationParameters }).(pulumi.MapOutput)
 }
 
+// Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
 func (o LookupLifecycleAutomationResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupLifecycleAutomationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

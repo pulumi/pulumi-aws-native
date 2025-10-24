@@ -55,6 +55,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("ruleArn")]
         public Output<string> RuleArn { get; private set; } = null!;
 
+        [Output("transforms")]
+        public Output<ImmutableArray<Outputs.ListenerRuleTransform>> Transforms { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ListenerRule resource with the given unique name, arguments, and options.
@@ -142,6 +145,14 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
+
+        [Input("transforms")]
+        private InputList<Inputs.ListenerRuleTransformArgs>? _transforms;
+        public InputList<Inputs.ListenerRuleTransformArgs> Transforms
+        {
+            get => _transforms ?? (_transforms = new InputList<Inputs.ListenerRuleTransformArgs>());
+            set => _transforms = value;
+        }
 
         public ListenerRuleArgs()
         {

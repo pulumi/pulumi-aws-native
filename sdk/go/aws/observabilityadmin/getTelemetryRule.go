@@ -29,6 +29,7 @@ type LookupTelemetryRuleArgs struct {
 }
 
 type LookupTelemetryRuleResult struct {
+	// Retrieves the details of a specific telemetry rule in your account.
 	Rule *TelemetryRuleType `pulumi:"rule"`
 	// The arn of the telemetry rule
 	RuleArn *string `pulumi:"ruleArn"`
@@ -68,6 +69,7 @@ func (o LookupTelemetryRuleResultOutput) ToLookupTelemetryRuleResultOutputWithCo
 	return o
 }
 
+// Retrieves the details of a specific telemetry rule in your account.
 func (o LookupTelemetryRuleResultOutput) Rule() TelemetryRuleTypePtrOutput {
 	return o.ApplyT(func(v LookupTelemetryRuleResult) *TelemetryRuleType { return v.Rule }).(TelemetryRuleTypePtrOutput)
 }

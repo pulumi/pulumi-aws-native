@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("singleSelect")]
         public Input<Inputs.EvaluationFormSingleSelectQuestionPropertiesArgs>? SingleSelect { get; set; }
 
+        [Input("text")]
+        public Input<Inputs.EvaluationFormTextQuestionPropertiesArgs>? Text { get; set; }
+
         public EvaluationFormQuestionTypePropertiesArgs()
         {
         }

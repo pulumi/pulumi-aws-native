@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class EvaluationFormSingleSelectQuestionAutomation
     {
+        public readonly Outputs.EvaluationFormQuestionAutomationAnswerSource? AnswerSource;
         /// <summary>
         /// The identifier of the default answer option, when none of the automation options match the criteria.
         ///  *Length Constraints*: Minimum length of 1. Maximum length of 40.
@@ -30,10 +31,13 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
         [OutputConstructor]
         private EvaluationFormSingleSelectQuestionAutomation(
+            Outputs.EvaluationFormQuestionAutomationAnswerSource? answerSource,
+
             string? defaultOptionRefId,
 
             ImmutableArray<Outputs.EvaluationFormSingleSelectQuestionAutomationOption> options)
         {
+            AnswerSource = answerSource;
             DefaultOptionRefId = defaultOptionRefId;
             Options = options;
         }

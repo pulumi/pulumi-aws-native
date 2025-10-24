@@ -13,8 +13,10 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._inputs import *
 
 __all__ = ['EmailAddressArgs', 'EmailAddress']
 
@@ -23,6 +25,7 @@ class EmailAddressArgs:
     def __init__(__self__, *,
                  email_address: pulumi.Input[_builtins.str],
                  instance_arn: pulumi.Input[_builtins.str],
+                 alias_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EmailAddressAliasConfigurationArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -30,12 +33,15 @@ class EmailAddressArgs:
         The set of arguments for constructing a EmailAddress resource.
         :param pulumi.Input[_builtins.str] email_address: Email address to be created for this instance
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
+        :param pulumi.Input[Sequence[pulumi.Input['EmailAddressAliasConfigurationArgs']]] alias_configurations: List of alias configurations for the email address
         :param pulumi.Input[_builtins.str] description: A description for the email address.
         :param pulumi.Input[_builtins.str] display_name: The display name for the email address.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         """
         pulumi.set(__self__, "email_address", email_address)
         pulumi.set(__self__, "instance_arn", instance_arn)
+        if alias_configurations is not None:
+            pulumi.set(__self__, "alias_configurations", alias_configurations)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -66,6 +72,18 @@ class EmailAddressArgs:
     @instance_arn.setter
     def instance_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "instance_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="aliasConfigurations")
+    def alias_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailAddressAliasConfigurationArgs']]]]:
+        """
+        List of alias configurations for the email address
+        """
+        return pulumi.get(self, "alias_configurations")
+
+    @alias_configurations.setter
+    def alias_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailAddressAliasConfigurationArgs']]]]):
+        pulumi.set(self, "alias_configurations", value)
 
     @_builtins.property
     @pulumi.getter
@@ -110,6 +128,7 @@ class EmailAddress(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alias_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmailAddressAliasConfigurationArgs', 'EmailAddressAliasConfigurationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  email_address: Optional[pulumi.Input[_builtins.str]] = None,
@@ -121,6 +140,7 @@ class EmailAddress(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EmailAddressAliasConfigurationArgs', 'EmailAddressAliasConfigurationArgsDict']]]] alias_configurations: List of alias configurations for the email address
         :param pulumi.Input[_builtins.str] description: A description for the email address.
         :param pulumi.Input[_builtins.str] display_name: The display name for the email address.
         :param pulumi.Input[_builtins.str] email_address: Email address to be created for this instance
@@ -151,6 +171,7 @@ class EmailAddress(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alias_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmailAddressAliasConfigurationArgs', 'EmailAddressAliasConfigurationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  email_address: Optional[pulumi.Input[_builtins.str]] = None,
@@ -165,6 +186,7 @@ class EmailAddress(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EmailAddressArgs.__new__(EmailAddressArgs)
 
+            __props__.__dict__["alias_configurations"] = alias_configurations
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             if email_address is None and not opts.urn:
@@ -199,6 +221,7 @@ class EmailAddress(pulumi.CustomResource):
 
         __props__ = EmailAddressArgs.__new__(EmailAddressArgs)
 
+        __props__.__dict__["alias_configurations"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["email_address"] = None
@@ -206,6 +229,14 @@ class EmailAddress(pulumi.CustomResource):
         __props__.__dict__["instance_arn"] = None
         __props__.__dict__["tags"] = None
         return EmailAddress(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="aliasConfigurations")
+    def alias_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.EmailAddressAliasConfiguration']]]:
+        """
+        List of alias configurations for the email address
+        """
+        return pulumi.get(self, "alias_configurations")
 
     @_builtins.property
     @pulumi.getter

@@ -153,6 +153,7 @@ import * as rolesanywhere from "./rolesanywhere";
 import * as route53 from "./route53";
 import * as route53recoverycontrol from "./route53recoverycontrol";
 import * as route53resolver from "./route53resolver";
+import * as rtbfabric from "./rtbfabric";
 import * as rum from "./rum";
 import * as s3 from "./s3";
 import * as s3express from "./s3express";
@@ -341,6 +342,7 @@ export {
     route53,
     route53recoverycontrol,
     route53resolver,
+    rtbfabric,
     rum,
     s3,
     s3express,
@@ -543,6 +545,10 @@ export const Region = {
      * US ISOB East (Ohio)
      */
     UsIsobEast1: "us-isob-east-1",
+    /**
+     * US ISOB West
+     */
+    UsIsobWest1: "us-isob-west-1",
     /**
      * US ISOF EAST
      */

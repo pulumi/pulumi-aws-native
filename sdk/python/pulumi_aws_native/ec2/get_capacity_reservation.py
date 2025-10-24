@@ -115,7 +115,7 @@ class GetCapacityReservationResult:
     @pulumi.getter(name="createDate")
     def create_date(self) -> Optional[_builtins.str]:
         """
-        The date and time at which the Capacity Reservation was created.
+        The date and time the Capacity Reservation was created.
         """
         return pulumi.get(self, "create_date")
 
@@ -207,7 +207,7 @@ class GetCapacityReservationResult:
     @pulumi.getter(name="startDate")
     def start_date(self) -> Optional[_builtins.str]:
         """
-        The date and time at which the Capacity Reservation was started.
+        The date and time the Capacity Reservation was started.
         """
         return pulumi.get(self, "start_date")
 

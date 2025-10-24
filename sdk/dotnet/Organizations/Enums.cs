@@ -39,6 +39,40 @@ namespace Pulumi.AwsNative.Organizations
     }
 
     /// <summary>
+    /// The state of the account in the organization.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccountState : IEquatable<AccountState>
+    {
+        private readonly string _value;
+
+        private AccountState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccountState PendingActivation { get; } = new AccountState("PENDING_ACTIVATION");
+        public static AccountState Active { get; } = new AccountState("ACTIVE");
+        public static AccountState Suspended { get; } = new AccountState("SUSPENDED");
+        public static AccountState PendingClosure { get; } = new AccountState("PENDING_CLOSURE");
+        public static AccountState Closed { get; } = new AccountState("CLOSED");
+
+        public static bool operator ==(AccountState left, AccountState right) => left.Equals(right);
+        public static bool operator !=(AccountState left, AccountState right) => !left.Equals(right);
+
+        public static explicit operator string(AccountState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccountState other && Equals(other);
+        public bool Equals(AccountState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the account in the organization.
     /// </summary>
     [EnumType]

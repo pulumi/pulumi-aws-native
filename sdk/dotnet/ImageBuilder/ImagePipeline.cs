@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<string?> ContainerRecipeArn { get; private set; } = null!;
 
         /// <summary>
+        /// The deployment ID of the pipeline, used for resource create/update triggers.
+        /// </summary>
+        [Output("deploymentId")]
+        public Output<string> DeploymentId { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the image pipeline.
         /// </summary>
         [Output("description")]

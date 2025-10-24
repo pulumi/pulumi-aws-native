@@ -45,6 +45,8 @@ type LookupDbInstanceResult struct {
 	Port *string `pulumi:"port"`
 	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
+	// Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
+	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// An arbitrary set of tags (key-value pairs) for this DB instance.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -113,6 +115,11 @@ func (o LookupDbInstanceResultOutput) Port() pulumi.StringPtrOutput {
 // Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 func (o LookupDbInstanceResultOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
+}
+
+// Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
+func (o LookupDbInstanceResultOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) *bool { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
 // An arbitrary set of tags (key-value pairs) for this DB instance.

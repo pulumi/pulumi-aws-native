@@ -17,6 +17,11 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AnomalyDetectorConfiguration',
+    'AnomalyDetectorIgnoreNearExpected',
+    'AnomalyDetectorLabel',
+    'AnomalyDetectorMissingDataAction',
+    'AnomalyDetectorRandomCutForestConfiguration',
     'ScraperCloudWatchLogDestination',
     'ScraperComponent',
     'ScraperComponentConfig',
@@ -38,6 +43,194 @@ __all__ = [
     'WorkspaceLoggingFilter',
     'WorkspaceQueryLoggingConfiguration',
 ]
+
+@pulumi.output_type
+class AnomalyDetectorConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "randomCutForest":
+            suggest = "random_cut_forest"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalyDetectorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalyDetectorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalyDetectorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 random_cut_forest: 'outputs.AnomalyDetectorRandomCutForestConfiguration'):
+        pulumi.set(__self__, "random_cut_forest", random_cut_forest)
+
+    @_builtins.property
+    @pulumi.getter(name="randomCutForest")
+    def random_cut_forest(self) -> 'outputs.AnomalyDetectorRandomCutForestConfiguration':
+        return pulumi.get(self, "random_cut_forest")
+
+
+@pulumi.output_type
+class AnomalyDetectorIgnoreNearExpected(dict):
+    def __init__(__self__, *,
+                 amount: Optional[_builtins.float] = None,
+                 ratio: Optional[_builtins.float] = None):
+        if amount is not None:
+            pulumi.set(__self__, "amount", amount)
+        if ratio is not None:
+            pulumi.set(__self__, "ratio", ratio)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "amount")
+
+    @_builtins.property
+    @pulumi.getter
+    def ratio(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "ratio")
+
+
+@pulumi.output_type
+class AnomalyDetectorLabel(dict):
+    """
+    A key-value pair to provide meta-data and multi-dimensional data analysis for filtering and aggregation.
+    """
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        A key-value pair to provide meta-data and multi-dimensional data analysis for filtering and aggregation.
+        :param _builtins.str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param _builtins.str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AnomalyDetectorMissingDataAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "markAsAnomaly":
+            suggest = "mark_as_anomaly"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalyDetectorMissingDataAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalyDetectorMissingDataAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalyDetectorMissingDataAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mark_as_anomaly: Optional[_builtins.bool] = None,
+                 skip: Optional[_builtins.bool] = None):
+        if mark_as_anomaly is not None:
+            pulumi.set(__self__, "mark_as_anomaly", mark_as_anomaly)
+        if skip is not None:
+            pulumi.set(__self__, "skip", skip)
+
+    @_builtins.property
+    @pulumi.getter(name="markAsAnomaly")
+    def mark_as_anomaly(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "mark_as_anomaly")
+
+    @_builtins.property
+    @pulumi.getter
+    def skip(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip")
+
+
+@pulumi.output_type
+class AnomalyDetectorRandomCutForestConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreNearExpectedFromAbove":
+            suggest = "ignore_near_expected_from_above"
+        elif key == "ignoreNearExpectedFromBelow":
+            suggest = "ignore_near_expected_from_below"
+        elif key == "sampleSize":
+            suggest = "sample_size"
+        elif key == "shingleSize":
+            suggest = "shingle_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalyDetectorRandomCutForestConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalyDetectorRandomCutForestConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalyDetectorRandomCutForestConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 query: _builtins.str,
+                 ignore_near_expected_from_above: Optional['outputs.AnomalyDetectorIgnoreNearExpected'] = None,
+                 ignore_near_expected_from_below: Optional['outputs.AnomalyDetectorIgnoreNearExpected'] = None,
+                 sample_size: Optional[_builtins.int] = None,
+                 shingle_size: Optional[_builtins.int] = None):
+        pulumi.set(__self__, "query", query)
+        if ignore_near_expected_from_above is not None:
+            pulumi.set(__self__, "ignore_near_expected_from_above", ignore_near_expected_from_above)
+        if ignore_near_expected_from_below is not None:
+            pulumi.set(__self__, "ignore_near_expected_from_below", ignore_near_expected_from_below)
+        if sample_size is not None:
+            pulumi.set(__self__, "sample_size", sample_size)
+        if shingle_size is not None:
+            pulumi.set(__self__, "shingle_size", shingle_size)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> _builtins.str:
+        return pulumi.get(self, "query")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreNearExpectedFromAbove")
+    def ignore_near_expected_from_above(self) -> Optional['outputs.AnomalyDetectorIgnoreNearExpected']:
+        return pulumi.get(self, "ignore_near_expected_from_above")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreNearExpectedFromBelow")
+    def ignore_near_expected_from_below(self) -> Optional['outputs.AnomalyDetectorIgnoreNearExpected']:
+        return pulumi.get(self, "ignore_near_expected_from_below")
+
+    @_builtins.property
+    @pulumi.getter(name="sampleSize")
+    def sample_size(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "sample_size")
+
+    @_builtins.property
+    @pulumi.getter(name="shingleSize")
+    def shingle_size(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "shingle_size")
+
 
 @pulumi.output_type
 class ScraperCloudWatchLogDestination(dict):

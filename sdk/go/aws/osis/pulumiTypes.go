@@ -590,6 +590,139 @@ func (o PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
+type PipelineResourcePolicy struct {
+	Policy interface{} `pulumi:"policy"`
+}
+
+// PipelineResourcePolicyInput is an input type that accepts PipelineResourcePolicyArgs and PipelineResourcePolicyOutput values.
+// You can construct a concrete instance of `PipelineResourcePolicyInput` via:
+//
+//	PipelineResourcePolicyArgs{...}
+type PipelineResourcePolicyInput interface {
+	pulumi.Input
+
+	ToPipelineResourcePolicyOutput() PipelineResourcePolicyOutput
+	ToPipelineResourcePolicyOutputWithContext(context.Context) PipelineResourcePolicyOutput
+}
+
+type PipelineResourcePolicyArgs struct {
+	Policy pulumi.Input `pulumi:"policy"`
+}
+
+func (PipelineResourcePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineResourcePolicy)(nil)).Elem()
+}
+
+func (i PipelineResourcePolicyArgs) ToPipelineResourcePolicyOutput() PipelineResourcePolicyOutput {
+	return i.ToPipelineResourcePolicyOutputWithContext(context.Background())
+}
+
+func (i PipelineResourcePolicyArgs) ToPipelineResourcePolicyOutputWithContext(ctx context.Context) PipelineResourcePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineResourcePolicyOutput)
+}
+
+func (i PipelineResourcePolicyArgs) ToPipelineResourcePolicyPtrOutput() PipelineResourcePolicyPtrOutput {
+	return i.ToPipelineResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineResourcePolicyArgs) ToPipelineResourcePolicyPtrOutputWithContext(ctx context.Context) PipelineResourcePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineResourcePolicyOutput).ToPipelineResourcePolicyPtrOutputWithContext(ctx)
+}
+
+// PipelineResourcePolicyPtrInput is an input type that accepts PipelineResourcePolicyArgs, PipelineResourcePolicyPtr and PipelineResourcePolicyPtrOutput values.
+// You can construct a concrete instance of `PipelineResourcePolicyPtrInput` via:
+//
+//	        PipelineResourcePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineResourcePolicyPtrInput interface {
+	pulumi.Input
+
+	ToPipelineResourcePolicyPtrOutput() PipelineResourcePolicyPtrOutput
+	ToPipelineResourcePolicyPtrOutputWithContext(context.Context) PipelineResourcePolicyPtrOutput
+}
+
+type pipelineResourcePolicyPtrType PipelineResourcePolicyArgs
+
+func PipelineResourcePolicyPtr(v *PipelineResourcePolicyArgs) PipelineResourcePolicyPtrInput {
+	return (*pipelineResourcePolicyPtrType)(v)
+}
+
+func (*pipelineResourcePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineResourcePolicy)(nil)).Elem()
+}
+
+func (i *pipelineResourcePolicyPtrType) ToPipelineResourcePolicyPtrOutput() PipelineResourcePolicyPtrOutput {
+	return i.ToPipelineResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineResourcePolicyPtrType) ToPipelineResourcePolicyPtrOutputWithContext(ctx context.Context) PipelineResourcePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineResourcePolicyPtrOutput)
+}
+
+type PipelineResourcePolicyOutput struct{ *pulumi.OutputState }
+
+func (PipelineResourcePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineResourcePolicy)(nil)).Elem()
+}
+
+func (o PipelineResourcePolicyOutput) ToPipelineResourcePolicyOutput() PipelineResourcePolicyOutput {
+	return o
+}
+
+func (o PipelineResourcePolicyOutput) ToPipelineResourcePolicyOutputWithContext(ctx context.Context) PipelineResourcePolicyOutput {
+	return o
+}
+
+func (o PipelineResourcePolicyOutput) ToPipelineResourcePolicyPtrOutput() PipelineResourcePolicyPtrOutput {
+	return o.ToPipelineResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineResourcePolicyOutput) ToPipelineResourcePolicyPtrOutputWithContext(ctx context.Context) PipelineResourcePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineResourcePolicy) *PipelineResourcePolicy {
+		return &v
+	}).(PipelineResourcePolicyPtrOutput)
+}
+
+func (o PipelineResourcePolicyOutput) Policy() pulumi.AnyOutput {
+	return o.ApplyT(func(v PipelineResourcePolicy) interface{} { return v.Policy }).(pulumi.AnyOutput)
+}
+
+type PipelineResourcePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineResourcePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineResourcePolicy)(nil)).Elem()
+}
+
+func (o PipelineResourcePolicyPtrOutput) ToPipelineResourcePolicyPtrOutput() PipelineResourcePolicyPtrOutput {
+	return o
+}
+
+func (o PipelineResourcePolicyPtrOutput) ToPipelineResourcePolicyPtrOutputWithContext(ctx context.Context) PipelineResourcePolicyPtrOutput {
+	return o
+}
+
+func (o PipelineResourcePolicyPtrOutput) Elem() PipelineResourcePolicyOutput {
+	return o.ApplyT(func(v *PipelineResourcePolicy) PipelineResourcePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineResourcePolicy
+		return ret
+	}).(PipelineResourcePolicyOutput)
+}
+
+func (o PipelineResourcePolicyPtrOutput) Policy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PipelineResourcePolicy) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Policy
+	}).(pulumi.AnyOutput)
+}
+
 // A key-value pair to associate with a resource.
 type PipelineTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1025,6 +1158,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineLogPublishingOptionsPtrInput)(nil)).Elem(), PipelineLogPublishingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesInput)(nil)).Elem(), PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrInput)(nil)).Elem(), PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineResourcePolicyInput)(nil)).Elem(), PipelineResourcePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineResourcePolicyPtrInput)(nil)).Elem(), PipelineResourcePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVpcOptionsInput)(nil)).Elem(), PipelineVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVpcOptionsPtrInput)(nil)).Elem(), PipelineVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVpcOptionsVpcAttachmentOptionsPropertiesInput)(nil)).Elem(), PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs{})
@@ -1037,6 +1172,8 @@ func init() {
 	pulumi.RegisterOutputType(PipelineLogPublishingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesOutput{})
 	pulumi.RegisterOutputType(PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PipelineResourcePolicyOutput{})
+	pulumi.RegisterOutputType(PipelineResourcePolicyPtrOutput{})
 	pulumi.RegisterOutputType(PipelineVpcEndpointOutput{})
 	pulumi.RegisterOutputType(PipelineVpcEndpointArrayOutput{})
 	pulumi.RegisterOutputType(PipelineVpcOptionsOutput{})

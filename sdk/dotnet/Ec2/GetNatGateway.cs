@@ -72,6 +72,9 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetNatGatewayResult
     {
+        /// <summary>
+        /// The ID of the network interface.
+        /// </summary>
         public readonly string? EniId;
         /// <summary>
         /// The ID of the NAT gateway.

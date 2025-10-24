@@ -36,7 +36,7 @@ class ApplicationArgs:
                
                > The Amazon S3 bucket and the Amazon GameLift Streams application must be in the same AWS Region.
         :param pulumi.Input[_builtins.str] description: A human-readable label for the application. You can update this value later.
-        :param pulumi.Input[_builtins.str] executable_path: The path and file name of the executable file that launches the content for streaming. Enter a path value that is relative to the location set in `ApplicationSourceUri` .
+        :param pulumi.Input[_builtins.str] executable_path: The relative path and file name of the executable file that Amazon GameLift Streams will stream. Specify a path relative to the location set in `ApplicationSourceUri` . The file must be contained within the application's root folder. For Windows applications, the file must be a valid Windows executable or batch file with a filename ending in .exe, .cmd, or .bat. For Linux applications, the file must be a valid Linux binary executable or a script that contains an initial interpreter line starting with a shebang (' `#!` ').
         :param pulumi.Input['ApplicationRuntimeEnvironmentArgs'] runtime_environment: A set of configuration settings to run the application on a stream group. This configures the operating system, and can include compatibility layers and other drivers.
         :param pulumi.Input[_builtins.str] application_log_output_uri: An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Required if you specify one or more `ApplicationLogPaths` .
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_log_paths: Locations of log files that your content generates during a stream session. Enter path values that are relative to the `ApplicationSourceUri` location. You can specify up to 10 log paths. Amazon GameLift Streams uploads designated log files to the Amazon S3 bucket that you specify in `ApplicationLogOutputUri` at the end of a stream session. To retrieve stored log files, call [GetStreamSession](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html) and get the `LogFileLocationUri` .
@@ -85,7 +85,7 @@ class ApplicationArgs:
     @pulumi.getter(name="executablePath")
     def executable_path(self) -> pulumi.Input[_builtins.str]:
         """
-        The path and file name of the executable file that launches the content for streaming. Enter a path value that is relative to the location set in `ApplicationSourceUri` .
+        The relative path and file name of the executable file that Amazon GameLift Streams will stream. Specify a path relative to the location set in `ApplicationSourceUri` . The file must be contained within the application's root folder. For Windows applications, the file must be a valid Windows executable or batch file with a filename ending in .exe, .cmd, or .bat. For Linux applications, the file must be a valid Linux binary executable or a script that contains an initial interpreter line starting with a shebang (' `#!` ').
         """
         return pulumi.get(self, "executable_path")
 
@@ -169,7 +169,7 @@ class Application(pulumi.CustomResource):
                
                > The Amazon S3 bucket and the Amazon GameLift Streams application must be in the same AWS Region.
         :param pulumi.Input[_builtins.str] description: A human-readable label for the application. You can update this value later.
-        :param pulumi.Input[_builtins.str] executable_path: The path and file name of the executable file that launches the content for streaming. Enter a path value that is relative to the location set in `ApplicationSourceUri` .
+        :param pulumi.Input[_builtins.str] executable_path: The relative path and file name of the executable file that Amazon GameLift Streams will stream. Specify a path relative to the location set in `ApplicationSourceUri` . The file must be contained within the application's root folder. For Windows applications, the file must be a valid Windows executable or batch file with a filename ending in .exe, .cmd, or .bat. For Linux applications, the file must be a valid Linux binary executable or a script that contains an initial interpreter line starting with a shebang (' `#!` ').
         :param pulumi.Input[Union['ApplicationRuntimeEnvironmentArgs', 'ApplicationRuntimeEnvironmentArgsDict']] runtime_environment: A set of configuration settings to run the application on a stream group. This configures the operating system, and can include compatibility layers and other drivers.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of labels to assign to the new application resource. Tags are developer-defined key-value pairs. Tagging AWS resources is useful for resource management, access management and cost allocation. See [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* .
         """
@@ -323,7 +323,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="executablePath")
     def executable_path(self) -> pulumi.Output[_builtins.str]:
         """
-        The path and file name of the executable file that launches the content for streaming. Enter a path value that is relative to the location set in `ApplicationSourceUri` .
+        The relative path and file name of the executable file that Amazon GameLift Streams will stream. Specify a path relative to the location set in `ApplicationSourceUri` . The file must be contained within the application's root folder. For Windows applications, the file must be a valid Windows executable or batch file with a filename ending in .exe, .cmd, or .bat. For Linux applications, the file must be a valid Linux binary executable or a script that contains an initial interpreter line starting with a shebang (' `#!` ').
         """
         return pulumi.get(self, "executable_path")
 

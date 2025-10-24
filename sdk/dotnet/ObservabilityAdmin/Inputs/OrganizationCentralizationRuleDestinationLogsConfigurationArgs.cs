@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
 
     public sealed class OrganizationCentralizationRuleDestinationLogsConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration defining the backup region and an optional KMS key for the backup destination.
+        /// </summary>
         [Input("backupConfiguration")]
         public Input<Inputs.OrganizationCentralizationRuleLogsBackupConfigurationArgs>? BackupConfiguration { get; set; }
 
+        /// <summary>
+        /// The encryption configuration for centralization destination log groups.
+        /// </summary>
         [Input("logsEncryptionConfiguration")]
         public Input<Inputs.OrganizationCentralizationRuleLogsEncryptionConfigurationArgs>? LogsEncryptionConfiguration { get; set; }
 

@@ -30,6 +30,11 @@ export type EventBus = import("./eventBus").EventBus;
 export const EventBus: typeof import("./eventBus").EventBus = null as any;
 utilities.lazyLoad(exports, ["EventBus"], () => require("./eventBus"));
 
+export { EventBusPolicyArgs } from "./eventBusPolicy";
+export type EventBusPolicy = import("./eventBusPolicy").EventBusPolicy;
+export const EventBusPolicy: typeof import("./eventBusPolicy").EventBusPolicy = null as any;
+utilities.lazyLoad(exports, ["EventBusPolicy"], () => require("./eventBusPolicy"));
+
 export { GetApiDestinationArgs, GetApiDestinationResult, GetApiDestinationOutputArgs } from "./getApiDestination";
 export const getApiDestination: typeof import("./getApiDestination").getApiDestination = null as any;
 export const getApiDestinationOutput: typeof import("./getApiDestination").getApiDestinationOutput = null as any;
@@ -54,6 +59,11 @@ export { GetEventBusArgs, GetEventBusResult, GetEventBusOutputArgs } from "./get
 export const getEventBus: typeof import("./getEventBus").getEventBus = null as any;
 export const getEventBusOutput: typeof import("./getEventBus").getEventBusOutput = null as any;
 utilities.lazyLoad(exports, ["getEventBus","getEventBusOutput"], () => require("./getEventBus"));
+
+export { GetEventBusPolicyArgs, GetEventBusPolicyResult, GetEventBusPolicyOutputArgs } from "./getEventBusPolicy";
+export const getEventBusPolicy: typeof import("./getEventBusPolicy").getEventBusPolicy = null as any;
+export const getEventBusPolicyOutput: typeof import("./getEventBusPolicy").getEventBusPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getEventBusPolicy","getEventBusPolicyOutput"], () => require("./getEventBusPolicy"));
 
 export { GetRuleArgs, GetRuleResult, GetRuleOutputArgs } from "./getRule";
 export const getRule: typeof import("./getRule").getRule = null as any;
@@ -83,6 +93,8 @@ const _module = {
                 return new Endpoint(name, <any>undefined, { urn })
             case "aws-native:events:EventBus":
                 return new EventBus(name, <any>undefined, { urn })
+            case "aws-native:events:EventBusPolicy":
+                return new EventBusPolicy(name, <any>undefined, { urn })
             case "aws-native:events:Rule":
                 return new Rule(name, <any>undefined, { urn })
             default:

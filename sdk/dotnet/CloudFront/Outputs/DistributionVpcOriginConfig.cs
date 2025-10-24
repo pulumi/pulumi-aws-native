@@ -26,6 +26,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         ///  For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         public readonly int? OriginReadTimeout;
+        public readonly string? OwnerAccountId;
         /// <summary>
         /// The VPC origin ID.
         /// </summary>
@@ -37,10 +38,13 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             int? originReadTimeout,
 
+            string? ownerAccountId,
+
             string vpcOriginId)
         {
             OriginKeepaliveTimeout = originKeepaliveTimeout;
             OriginReadTimeout = originReadTimeout;
+            OwnerAccountId = ownerAccountId;
             VpcOriginId = vpcOriginId;
         }
     }

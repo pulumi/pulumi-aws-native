@@ -39,7 +39,8 @@ type Cluster struct {
 	Orchestrator             ClusterOrchestratorPtrOutput              `pulumi:"orchestrator"`
 	RestrictedInstanceGroups ClusterRestrictedInstanceGroupArrayOutput `pulumi:"restrictedInstanceGroups"`
 	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags                aws.TagArrayOutput                  `pulumi:"tags"`
+	TieredStorageConfig ClusterTieredStorageConfigPtrOutput `pulumi:"tieredStorageConfig"`
 	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
 	VpcConfig ClusterVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
@@ -115,7 +116,8 @@ type clusterArgs struct {
 	Orchestrator             *ClusterOrchestrator             `pulumi:"orchestrator"`
 	RestrictedInstanceGroups []ClusterRestrictedInstanceGroup `pulumi:"restrictedInstanceGroups"`
 	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags                []aws.Tag                   `pulumi:"tags"`
+	TieredStorageConfig *ClusterTieredStorageConfig `pulumi:"tieredStorageConfig"`
 	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
 	VpcConfig *ClusterVpcConfig `pulumi:"vpcConfig"`
 }
@@ -137,7 +139,8 @@ type ClusterArgs struct {
 	Orchestrator             ClusterOrchestratorPtrInput
 	RestrictedInstanceGroups ClusterRestrictedInstanceGroupArrayInput
 	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
-	Tags aws.TagArrayInput
+	Tags                aws.TagArrayInput
+	TieredStorageConfig ClusterTieredStorageConfigPtrInput
 	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
 	VpcConfig ClusterVpcConfigPtrInput
 }
@@ -240,6 +243,10 @@ func (o ClusterOutput) RestrictedInstanceGroups() ClusterRestrictedInstanceGroup
 // Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
 func (o ClusterOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Cluster) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o ClusterOutput) TieredStorageConfig() ClusterTieredStorageConfigPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterTieredStorageConfigPtrOutput { return v.TieredStorageConfig }).(ClusterTieredStorageConfigPtrOutput)
 }
 
 // Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .

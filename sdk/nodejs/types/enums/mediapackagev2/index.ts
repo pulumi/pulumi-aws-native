@@ -18,6 +18,7 @@ export type OriginEndpointAdMarkerDash = (typeof OriginEndpointAdMarkerDash)[key
 
 export const OriginEndpointAdMarkerHls = {
     Daterange: "DATERANGE",
+    Scte35Enhanced: "SCTE35_ENHANCED",
 } as const;
 
 export type OriginEndpointAdMarkerHls = (typeof OriginEndpointAdMarkerHls)[keyof typeof OriginEndpointAdMarkerHls];
@@ -32,6 +33,7 @@ export type OriginEndpointCmafEncryptionMethod = (typeof OriginEndpointCmafEncry
 export const OriginEndpointContainerType = {
     Ts: "TS",
     Cmaf: "CMAF",
+    Ism: "ISM",
 } as const;
 
 export type OriginEndpointContainerType = (typeof OriginEndpointContainerType)[keyof typeof OriginEndpointContainerType];
@@ -106,6 +108,19 @@ export const OriginEndpointEndpointErrorCondition = {
 } as const;
 
 export type OriginEndpointEndpointErrorCondition = (typeof OriginEndpointEndpointErrorCondition)[keyof typeof OriginEndpointEndpointErrorCondition];
+
+export const OriginEndpointIsmEncryptionMethod = {
+    Cenc: "CENC",
+} as const;
+
+export type OriginEndpointIsmEncryptionMethod = (typeof OriginEndpointIsmEncryptionMethod)[keyof typeof OriginEndpointIsmEncryptionMethod];
+
+export const OriginEndpointMssManifestLayout = {
+    Full: "FULL",
+    Compact: "COMPACT",
+} as const;
+
+export type OriginEndpointMssManifestLayout = (typeof OriginEndpointMssManifestLayout)[keyof typeof OriginEndpointMssManifestLayout];
 
 export const OriginEndpointPresetSpeke20Audio = {
     PresetAudio1: "PRESET_AUDIO_1",

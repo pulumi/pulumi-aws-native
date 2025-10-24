@@ -32,6 +32,7 @@ __all__ = [
     'CampaignLocalTimeZoneConfig',
     'CampaignOpenHours',
     'CampaignPredictiveConfig',
+    'CampaignPreviewConfig',
     'CampaignProgressiveConfig',
     'CampaignRestrictedPeriod',
     'CampaignRestrictedPeriods',
@@ -45,6 +46,7 @@ __all__ = [
     'CampaignTelephonyOutboundMode',
     'CampaignTimeRange',
     'CampaignTimeWindow',
+    'CampaignTimeoutConfig',
 ]
 
 @pulumi.output_type
@@ -747,6 +749,60 @@ class CampaignPredictiveConfig(dict):
 
 
 @pulumi.output_type
+class CampaignPreviewConfig(dict):
+    """
+    Preview config
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bandwidthAllocation":
+            suggest = "bandwidth_allocation"
+        elif key == "timeoutConfig":
+            suggest = "timeout_config"
+        elif key == "agentActions":
+            suggest = "agent_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignPreviewConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignPreviewConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignPreviewConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bandwidth_allocation: _builtins.float,
+                 timeout_config: 'outputs.CampaignTimeoutConfig',
+                 agent_actions: Optional[Sequence['CampaignAgentAction']] = None):
+        """
+        Preview config
+        """
+        pulumi.set(__self__, "bandwidth_allocation", bandwidth_allocation)
+        pulumi.set(__self__, "timeout_config", timeout_config)
+        if agent_actions is not None:
+            pulumi.set(__self__, "agent_actions", agent_actions)
+
+    @_builtins.property
+    @pulumi.getter(name="bandwidthAllocation")
+    def bandwidth_allocation(self) -> _builtins.float:
+        return pulumi.get(self, "bandwidth_allocation")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutConfig")
+    def timeout_config(self) -> 'outputs.CampaignTimeoutConfig':
+        return pulumi.get(self, "timeout_config")
+
+    @_builtins.property
+    @pulumi.getter(name="agentActions")
+    def agent_actions(self) -> Optional[Sequence['CampaignAgentAction']]:
+        return pulumi.get(self, "agent_actions")
+
+
+@pulumi.output_type
 class CampaignProgressiveConfig(dict):
     """
     Progressive config
@@ -1314,6 +1370,8 @@ class CampaignTelephonyOutboundMode(dict):
             suggest = "agentless_config"
         elif key == "predictiveConfig":
             suggest = "predictive_config"
+        elif key == "previewConfig":
+            suggest = "preview_config"
         elif key == "progressiveConfig":
             suggest = "progressive_config"
 
@@ -1331,6 +1389,7 @@ class CampaignTelephonyOutboundMode(dict):
     def __init__(__self__, *,
                  agentless_config: Optional['outputs.CampaignAgentlessConfig'] = None,
                  predictive_config: Optional['outputs.CampaignPredictiveConfig'] = None,
+                 preview_config: Optional['outputs.CampaignPreviewConfig'] = None,
                  progressive_config: Optional['outputs.CampaignProgressiveConfig'] = None):
         """
         Telephony Outbound Mode
@@ -1342,6 +1401,8 @@ class CampaignTelephonyOutboundMode(dict):
             pulumi.set(__self__, "agentless_config", agentless_config)
         if predictive_config is not None:
             pulumi.set(__self__, "predictive_config", predictive_config)
+        if preview_config is not None:
+            pulumi.set(__self__, "preview_config", preview_config)
         if progressive_config is not None:
             pulumi.set(__self__, "progressive_config", progressive_config)
 
@@ -1360,6 +1421,11 @@ class CampaignTelephonyOutboundMode(dict):
         Contains predictive outbound mode configuration.
         """
         return pulumi.get(self, "predictive_config")
+
+    @_builtins.property
+    @pulumi.getter(name="previewConfig")
+    def preview_config(self) -> Optional['outputs.CampaignPreviewConfig']:
+        return pulumi.get(self, "preview_config")
 
     @_builtins.property
     @pulumi.getter(name="progressiveConfig")
@@ -1465,5 +1531,41 @@ class CampaignTimeWindow(dict):
         The restricted periods configuration.
         """
         return pulumi.get(self, "restricted_periods")
+
+
+@pulumi.output_type
+class CampaignTimeoutConfig(dict):
+    """
+    Timeout Config for preview contacts
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationInSeconds":
+            suggest = "duration_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignTimeoutConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignTimeoutConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignTimeoutConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration_in_seconds: Optional[_builtins.int] = None):
+        """
+        Timeout Config for preview contacts
+        """
+        if duration_in_seconds is not None:
+            pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="durationInSeconds")
+    def duration_in_seconds(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "duration_in_seconds")
 
 

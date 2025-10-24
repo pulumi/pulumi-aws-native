@@ -73,6 +73,11 @@ export interface GetOriginEndpointResult {
      * <p>The date and time the origin endpoint was modified.</p>
      */
     readonly modifiedAt?: string;
+    readonly mssManifestUrls?: string[];
+    /**
+     * <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
+     */
+    readonly mssManifests?: outputs.mediapackagev2.OriginEndpointMssManifestConfiguration[];
     /**
      * The segment associated with the origin endpoint.
      */

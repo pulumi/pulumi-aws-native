@@ -111,6 +111,11 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// &lt;p&gt;The date and time the origin endpoint was modified.&lt;/p&gt;
         /// </summary>
         public readonly string? ModifiedAt;
+        public readonly ImmutableArray<string> MssManifestUrls;
+        /// <summary>
+        /// &lt;p&gt;The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.&lt;/p&gt;
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OriginEndpointMssManifestConfiguration> MssManifests;
         /// <summary>
         /// The segment associated with the origin endpoint.
         /// </summary>
@@ -150,6 +155,10 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
             string? modifiedAt,
 
+            ImmutableArray<string> mssManifestUrls,
+
+            ImmutableArray<Outputs.OriginEndpointMssManifestConfiguration> mssManifests,
+
             Outputs.OriginEndpointSegment? segment,
 
             int? startoverWindowSeconds,
@@ -168,6 +177,8 @@ namespace Pulumi.AwsNative.MediaPackageV2
             LowLatencyHlsManifestUrls = lowLatencyHlsManifestUrls;
             LowLatencyHlsManifests = lowLatencyHlsManifests;
             ModifiedAt = modifiedAt;
+            MssManifestUrls = mssManifestUrls;
+            MssManifests = mssManifests;
             Segment = segment;
             StartoverWindowSeconds = startoverWindowSeconds;
             Tags = tags;

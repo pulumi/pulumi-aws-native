@@ -12,6 +12,19 @@ export const AccountJoinedMethod = {
  */
 export type AccountJoinedMethod = (typeof AccountJoinedMethod)[keyof typeof AccountJoinedMethod];
 
+export const AccountState = {
+    PendingActivation: "PENDING_ACTIVATION",
+    Active: "ACTIVE",
+    Suspended: "SUSPENDED",
+    PendingClosure: "PENDING_CLOSURE",
+    Closed: "CLOSED",
+} as const;
+
+/**
+ * The state of the account in the organization.
+ */
+export type AccountState = (typeof AccountState)[keyof typeof AccountState];
+
 export const AccountStatus = {
     Active: "ACTIVE",
     Suspended: "SUSPENDED",

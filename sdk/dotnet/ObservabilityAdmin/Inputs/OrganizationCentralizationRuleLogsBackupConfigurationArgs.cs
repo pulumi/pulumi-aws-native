@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
 
     public sealed class OrganizationCentralizationRuleLogsBackupConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// KMS Key ARN belonging to the primary destination account and backup region, to encrypt newly created central log groups in the backup destination.
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
+        /// <summary>
+        /// Logs specific backup destination region within the primary destination account to which log data should be centralized.
+        /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 

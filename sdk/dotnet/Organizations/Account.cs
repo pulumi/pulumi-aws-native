@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.Organizations
         public Output<string?> RoleName { get; private set; } = null!;
 
         /// <summary>
+        /// The state of the account in the organization.
+        /// </summary>
+        [Output("state")]
+        public Output<Pulumi.AwsNative.Organizations.AccountState> State { get; private set; } = null!;
+
+        /// <summary>
         /// The status of the account in the organization.
         /// </summary>
         [Output("status")]

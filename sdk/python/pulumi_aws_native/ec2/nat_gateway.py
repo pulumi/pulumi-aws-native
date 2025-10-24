@@ -44,6 +44,7 @@ class NatGatewayArgs:
                 ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in which the NAT gateway is located.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the NAT gateway.
+        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC in which the NAT gateway is located.
         """
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
@@ -179,6 +180,9 @@ class NatGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the VPC in which the NAT gateway is located.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -222,6 +226,7 @@ class NatGateway(pulumi.CustomResource):
                 ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in which the NAT gateway is located.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the NAT gateway.
+        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC in which the NAT gateway is located.
         """
         ...
     @overload
@@ -338,6 +343,9 @@ class NatGateway(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="eniId")
     def eni_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of the network interface.
+        """
         return pulumi.get(self, "eni_id")
 
     @_builtins.property
@@ -409,5 +417,8 @@ class NatGateway(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ID of the VPC in which the NAT gateway is located.
+        """
         return pulumi.get(self, "vpc_id")
 

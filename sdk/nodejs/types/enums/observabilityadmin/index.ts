@@ -7,6 +7,9 @@ export const OrganizationCentralizationRuleLogsEncryptionConfigurationEncryption
     Skip: "SKIP",
 } as const;
 
+/**
+ * Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
+ */
 export type OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy = (typeof OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy)[keyof typeof OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy];
 
 export const OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy = {
@@ -14,6 +17,9 @@ export const OrganizationCentralizationRuleLogsEncryptionConfigurationEncryption
     AwsOwned: "AWS_OWNED",
 } as const;
 
+/**
+ * Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
+ */
 export type OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy = (typeof OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy)[keyof typeof OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy];
 
 export const OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy = {
@@ -21,6 +27,9 @@ export const OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGr
     Skip: "SKIP",
 } as const;
 
+/**
+ * A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
+ */
 export type OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy = (typeof OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy)[keyof typeof OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy];
 
 export const OrganizationTelemetryRuleDestinationType = {

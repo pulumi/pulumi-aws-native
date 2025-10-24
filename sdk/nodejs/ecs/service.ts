@@ -114,6 +114,7 @@ export class Service extends pulumi.CustomResource {
     declare public readonly healthCheckGracePeriodSeconds: pulumi.Output<number | undefined>;
     /**
      * The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+     *   If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
      */
     declare public readonly launchType: pulumi.Output<enums.ecs.ServiceLaunchType | undefined>;
     /**
@@ -344,6 +345,7 @@ export interface ServiceArgs {
     healthCheckGracePeriodSeconds?: pulumi.Input<number>;
     /**
      * The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+     *   If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
      */
     launchType?: pulumi.Input<enums.ecs.ServiceLaunchType>;
     /**

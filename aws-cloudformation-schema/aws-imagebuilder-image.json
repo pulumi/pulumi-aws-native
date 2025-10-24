@@ -12,6 +12,7 @@
   "description" : "Resource schema for AWS::ImageBuilder::Image",
   "createOnlyProperties" : [ "/properties/ImageRecipeArn", "/properties/ContainerRecipeArn", "/properties/InfrastructureConfigurationArn", "/properties/Workflows", "/properties/DistributionConfigurationArn", "/properties/ImageTestsConfiguration", "/properties/ImageScanningConfiguration", "/properties/EnhancedImageMetadataEnabled" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
+  "conditionalCreateOnlyProperties" : [ "/properties/ImagePipelineExecutionSettings" ],
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder",
   "oneOf" : [ {
     "required" : [ "ContainerRecipeArn", "InfrastructureConfigurationArn" ]
@@ -47,6 +48,7 @@
       "permissions" : [ "imagebuilder:GetImage", "imagebuilder:DeleteImage", "imagebuilder:UntagResource", "imagebuilder:CancelImageCreation" ]
     }
   },
+  "writeOnlyProperties" : [ "/properties/ImagePipelineExecutionSettings" ],
   "additionalProperties" : false,
   "definitions" : {
     "ImageLoggingConfiguration" : {
@@ -226,6 +228,33 @@
       "type" : "array",
       "items" : {
         "$ref" : "#/definitions/WorkflowConfiguration"
+      }
+    },
+    "ImagePipelineExecutionSettings" : {
+      "description" : "The image pipeline execution settings of the image.",
+      "$ref" : "#/definitions/ImagePipelineExecutionSettings",
+      "dependencies" : {
+        "ImagePipelineExecutionSettings" : {
+          "oneOf" : [ {
+            "required" : [ "ImageRecipeArn" ]
+          }, {
+            "required" : [ "ContainerRecipeArn" ]
+          }, {
+            "required" : [ "InfrastructureConfigurationArn" ]
+          }, {
+            "required" : [ "Workflows" ]
+          }, {
+            "required" : [ "DistributionConfigurationArn" ]
+          }, {
+            "required" : [ "ImageTestsConfiguration" ]
+          }, {
+            "required" : [ "ImageScanningConfiguration" ]
+          }, {
+            "required" : [ "EnhancedImageMetadataEnabled" ]
+          }, {
+            "required" : [ "ImportDiskImageSettings" ]
+          } ]
+        }
       }
     },
     "ImageUri" : {

@@ -45,6 +45,9 @@ type LookupPipelineResult struct {
 	PipelineArn *string `pulumi:"pipelineArn"`
 	// The Data Prepper pipeline configuration.
 	PipelineConfigurationBody *string `pulumi:"pipelineConfigurationBody"`
+	// The Pipeline Role (ARN) for the pipeline.
+	PipelineRoleArn *string                 `pulumi:"pipelineRoleArn"`
+	ResourcePolicy  *PipelineResourcePolicy `pulumi:"resourcePolicy"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The VPC endpoint service name for the pipeline.
@@ -123,6 +126,15 @@ func (o LookupPipelineResultOutput) PipelineArn() pulumi.StringPtrOutput {
 // The Data Prepper pipeline configuration.
 func (o LookupPipelineResultOutput) PipelineConfigurationBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipelineResult) *string { return v.PipelineConfigurationBody }).(pulumi.StringPtrOutput)
+}
+
+// The Pipeline Role (ARN) for the pipeline.
+func (o LookupPipelineResultOutput) PipelineRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPipelineResult) *string { return v.PipelineRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPipelineResultOutput) ResourcePolicy() PipelineResourcePolicyPtrOutput {
+	return o.ApplyT(func(v LookupPipelineResult) *PipelineResourcePolicy { return v.ResourcePolicy }).(PipelineResourcePolicyPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

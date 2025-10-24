@@ -11,7 +11,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 {
 
     /// <summary>
-    /// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+    /// Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+    ///  If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
     /// </summary>
     [OutputType]
     public sealed class ListenerForwardConfig

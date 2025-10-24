@@ -48,7 +48,8 @@ type LookupClusterResult struct {
 	NodeRecovery             *ClusterNodeRecovery             `pulumi:"nodeRecovery"`
 	RestrictedInstanceGroups []ClusterRestrictedInstanceGroup `pulumi:"restrictedInstanceGroups"`
 	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags                []aws.Tag                   `pulumi:"tags"`
+	TieredStorageConfig *ClusterTieredStorageConfig `pulumi:"tieredStorageConfig"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -134,6 +135,10 @@ func (o LookupClusterResultOutput) RestrictedInstanceGroups() ClusterRestrictedI
 // Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
 func (o LookupClusterResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o LookupClusterResultOutput) TieredStorageConfig() ClusterTieredStorageConfigPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterTieredStorageConfig { return v.TieredStorageConfig }).(ClusterTieredStorageConfigPtrOutput)
 }
 
 func init() {

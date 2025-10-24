@@ -50,7 +50,7 @@ class CapacityReservationArgs:
                
                For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
-        :param pulumi.Input[_builtins.str] availability_zone_id: The Availability Zone ID of the Capacity Reservation.
+        :param pulumi.Input[_builtins.str] availability_zone_id: The ID of the Availability Zone in which the capacity is reserved.
         :param pulumi.Input[_builtins.bool] ebs_optimized: Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
         :param pulumi.Input[_builtins.str] end_date: The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
                
@@ -175,7 +175,7 @@ class CapacityReservationArgs:
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Availability Zone ID of the Capacity Reservation.
+        The ID of the Availability Zone in which the capacity is reserved.
         """
         return pulumi.get(self, "availability_zone_id")
 
@@ -357,7 +357,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
-        :param pulumi.Input[_builtins.str] availability_zone_id: The Availability Zone ID of the Capacity Reservation.
+        :param pulumi.Input[_builtins.str] availability_zone_id: The ID of the Availability Zone in which the capacity is reserved.
         :param pulumi.Input[_builtins.bool] ebs_optimized: Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
         :param pulumi.Input[_builtins.str] end_date: The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
                
@@ -553,7 +553,7 @@ class CapacityReservation(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Availability Zone ID of the Capacity Reservation.
+        The ID of the Availability Zone in which the capacity is reserved.
         """
         return pulumi.get(self, "availability_zone_id")
 
@@ -603,7 +603,7 @@ class CapacityReservation(pulumi.CustomResource):
     @pulumi.getter(name="createDate")
     def create_date(self) -> pulumi.Output[_builtins.str]:
         """
-        The date and time at which the Capacity Reservation was created.
+        The date and time the Capacity Reservation was created.
         """
         return pulumi.get(self, "create_date")
 
@@ -743,7 +743,7 @@ class CapacityReservation(pulumi.CustomResource):
     @pulumi.getter(name="startDate")
     def start_date(self) -> pulumi.Output[_builtins.str]:
         """
-        The date and time at which the Capacity Reservation was started.
+        The date and time the Capacity Reservation was started.
         """
         return pulumi.get(self, "start_date")
 

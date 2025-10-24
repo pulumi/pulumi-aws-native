@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'AccountJoinedMethod',
+    'AccountState',
     'AccountStatus',
     'OrganizationFeatureSet',
     'PolicyType',
@@ -21,6 +22,18 @@ class AccountJoinedMethod(_builtins.str, Enum):
     """
     INVITED = "INVITED"
     CREATED = "CREATED"
+
+
+@pulumi.type_token("aws-native:organizations:AccountState")
+class AccountState(_builtins.str, Enum):
+    """
+    The state of the account in the organization.
+    """
+    PENDING_ACTIVATION = "PENDING_ACTIVATION"
+    ACTIVE = "ACTIVE"
+    SUSPENDED = "SUSPENDED"
+    PENDING_CLOSURE = "PENDING_CLOSURE"
+    CLOSED = "CLOSED"
 
 
 @pulumi.type_token("aws-native:organizations:AccountStatus")

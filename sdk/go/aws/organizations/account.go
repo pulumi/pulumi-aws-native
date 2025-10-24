@@ -33,6 +33,8 @@ type Account struct {
 	ParentIds pulumi.StringArrayOutput `pulumi:"parentIds"`
 	// The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified.
 	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
+	// The state of the account in the organization.
+	State AccountStateEnumOutput `pulumi:"state"`
 	// The status of the account in the organization.
 	Status AccountStatusOutput `pulumi:"status"`
 	// A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
@@ -183,6 +185,11 @@ func (o AccountOutput) ParentIds() pulumi.StringArrayOutput {
 // The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified.
 func (o AccountOutput) RoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.RoleName }).(pulumi.StringPtrOutput)
+}
+
+// The state of the account in the organization.
+func (o AccountOutput) State() AccountStateEnumOutput {
+	return o.ApplyT(func(v *Account) AccountStateEnumOutput { return v.State }).(AccountStateEnumOutput)
 }
 
 // The status of the account in the organization.

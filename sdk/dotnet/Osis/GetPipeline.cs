@@ -96,6 +96,11 @@ namespace Pulumi.AwsNative.Osis
         /// </summary>
         public readonly string? PipelineConfigurationBody;
         /// <summary>
+        /// The Pipeline Role (ARN) for the pipeline.
+        /// </summary>
+        public readonly string? PipelineRoleArn;
+        public readonly Outputs.PipelineResourcePolicy? ResourcePolicy;
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -126,6 +131,10 @@ namespace Pulumi.AwsNative.Osis
 
             string? pipelineConfigurationBody,
 
+            string? pipelineRoleArn,
+
+            Outputs.PipelineResourcePolicy? resourcePolicy,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? vpcEndpointService,
@@ -140,6 +149,8 @@ namespace Pulumi.AwsNative.Osis
             MinUnits = minUnits;
             PipelineArn = pipelineArn;
             PipelineConfigurationBody = pipelineConfigurationBody;
+            PipelineRoleArn = pipelineRoleArn;
+            ResourcePolicy = resourcePolicy;
             Tags = tags;
             VpcEndpointService = vpcEndpointService;
             VpcEndpoints = vpcEndpoints;

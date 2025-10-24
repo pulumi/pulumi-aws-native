@@ -25,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetVpcOriginResult:
-    def __init__(__self__, arn=None, created_time=None, id=None, last_modified_time=None, status=None, tags=None, vpc_origin_endpoint_config=None):
+    def __init__(__self__, account_id=None, arn=None, created_time=None, id=None, last_modified_time=None, status=None, tags=None, vpc_origin_endpoint_config=None):
+        if account_id and not isinstance(account_id, str):
+            raise TypeError("Expected argument 'account_id' to be a str")
+        pulumi.set(__self__, "account_id", account_id)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +50,11 @@ class GetVpcOriginResult:
         if vpc_origin_endpoint_config and not isinstance(vpc_origin_endpoint_config, dict):
             raise TypeError("Expected argument 'vpc_origin_endpoint_config' to be a dict")
         pulumi.set(__self__, "vpc_origin_endpoint_config", vpc_origin_endpoint_config)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter
@@ -111,6 +119,7 @@ class AwaitableGetVpcOriginResult(GetVpcOriginResult):
         if False:
             yield self
         return GetVpcOriginResult(
+            account_id=self.account_id,
             arn=self.arn,
             created_time=self.created_time,
             id=self.id,
@@ -134,6 +143,7 @@ def get_vpc_origin(id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudfront:getVpcOrigin', __args__, opts=opts, typ=GetVpcOriginResult).value
 
     return AwaitableGetVpcOriginResult(
+        account_id=pulumi.get(__ret__, 'account_id'),
         arn=pulumi.get(__ret__, 'arn'),
         created_time=pulumi.get(__ret__, 'created_time'),
         id=pulumi.get(__ret__, 'id'),
@@ -154,6 +164,7 @@ def get_vpc_origin_output(id: Optional[pulumi.Input[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getVpcOrigin', __args__, opts=opts, typ=GetVpcOriginResult)
     return __ret__.apply(lambda __response__: GetVpcOriginResult(
+        account_id=pulumi.get(__response__, 'account_id'),
         arn=pulumi.get(__response__, 'arn'),
         created_time=pulumi.get(__response__, 'created_time'),
         id=pulumi.get(__response__, 'id'),

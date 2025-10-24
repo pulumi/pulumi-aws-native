@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("connectivityType")]
         public Output<string?> ConnectivityType { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the network interface.
+        /// </summary>
         [Output("eniId")]
         public Output<string> EniId { get; private set; } = null!;
 
@@ -83,6 +86,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC in which the NAT gateway is located.
+        /// </summary>
         [Output("vpcId")]
         public Output<string?> VpcId { get; private set; } = null!;
 
@@ -213,6 +219,9 @@ namespace Pulumi.AwsNative.Ec2
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ID of the VPC in which the NAT gateway is located.
+        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

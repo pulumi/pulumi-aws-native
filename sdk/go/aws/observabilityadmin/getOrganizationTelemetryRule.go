@@ -29,6 +29,7 @@ type LookupOrganizationTelemetryRuleArgs struct {
 }
 
 type LookupOrganizationTelemetryRuleResult struct {
+	// The name of the organization telemetry rule.
 	Rule *OrganizationTelemetryRuleTelemetryRule `pulumi:"rule"`
 	// The arn of the organization telemetry rule
 	RuleArn *string `pulumi:"ruleArn"`
@@ -68,6 +69,7 @@ func (o LookupOrganizationTelemetryRuleResultOutput) ToLookupOrganizationTelemet
 	return o
 }
 
+// The name of the organization telemetry rule.
 func (o LookupOrganizationTelemetryRuleResultOutput) Rule() OrganizationTelemetryRuleTelemetryRulePtrOutput {
 	return o.ApplyT(func(v LookupOrganizationTelemetryRuleResult) *OrganizationTelemetryRuleTelemetryRule { return v.Rule }).(OrganizationTelemetryRuleTelemetryRulePtrOutput)
 }

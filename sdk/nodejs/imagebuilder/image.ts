@@ -62,6 +62,10 @@ export class Image extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly imageId: pulumi.Output<string>;
     /**
+     * The image pipeline execution settings of the image.
+     */
+    declare public readonly imagePipelineExecutionSettings: pulumi.Output<outputs.imagebuilder.ImagePipelineExecutionSettings | undefined>;
+    /**
      * The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
      */
     declare public readonly imageRecipeArn: pulumi.Output<string | undefined>;
@@ -117,6 +121,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["distributionConfigurationArn"] = args?.distributionConfigurationArn;
             resourceInputs["enhancedImageMetadataEnabled"] = args?.enhancedImageMetadataEnabled;
             resourceInputs["executionRole"] = args?.executionRole;
+            resourceInputs["imagePipelineExecutionSettings"] = args?.imagePipelineExecutionSettings;
             resourceInputs["imageRecipeArn"] = args?.imageRecipeArn;
             resourceInputs["imageScanningConfiguration"] = args?.imageScanningConfiguration;
             resourceInputs["imageTestsConfiguration"] = args?.imageTestsConfiguration;
@@ -136,6 +141,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["enhancedImageMetadataEnabled"] = undefined /*out*/;
             resourceInputs["executionRole"] = undefined /*out*/;
             resourceInputs["imageId"] = undefined /*out*/;
+            resourceInputs["imagePipelineExecutionSettings"] = undefined /*out*/;
             resourceInputs["imageRecipeArn"] = undefined /*out*/;
             resourceInputs["imageScanningConfiguration"] = undefined /*out*/;
             resourceInputs["imageTestsConfiguration"] = undefined /*out*/;
@@ -174,6 +180,10 @@ export interface ImageArgs {
      * The execution role name/ARN for the image build, if provided
      */
     executionRole?: pulumi.Input<string>;
+    /**
+     * The image pipeline execution settings of the image.
+     */
+    imagePipelineExecutionSettings?: pulumi.Input<inputs.imagebuilder.ImagePipelineExecutionSettingsArgs>;
     /**
      * The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
      */

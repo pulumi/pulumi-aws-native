@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
     [AwsNativeResourceType("aws-native:observabilityadmin:OrganizationTelemetryRule")]
     public partial class OrganizationTelemetryRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the organization telemetry rule.
+        /// </summary>
         [Output("rule")]
         public Output<Outputs.OrganizationTelemetryRuleTelemetryRule> Rule { get; private set; } = null!;
 
@@ -85,6 +88,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
 
     public sealed class OrganizationTelemetryRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the organization telemetry rule.
+        /// </summary>
         [Input("rule", required: true)]
         public Input<Inputs.OrganizationTelemetryRuleTelemetryRuleArgs> Rule { get; set; } = null!;
 

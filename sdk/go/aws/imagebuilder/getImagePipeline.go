@@ -32,6 +32,8 @@ type LookupImagePipelineResult struct {
 	Arn *string `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
 	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
+	// The deployment ID of the pipeline, used for resource create/update triggers.
+	DeploymentId *string `pulumi:"deploymentId"`
 	// The description of the image pipeline.
 	Description *string `pulumi:"description"`
 	// The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.
@@ -100,6 +102,11 @@ func (o LookupImagePipelineResultOutput) Arn() pulumi.StringPtrOutput {
 // The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
 func (o LookupImagePipelineResultOutput) ContainerRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.ContainerRecipeArn }).(pulumi.StringPtrOutput)
+}
+
+// The deployment ID of the pipeline, used for resource create/update triggers.
+func (o LookupImagePipelineResultOutput) DeploymentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.DeploymentId }).(pulumi.StringPtrOutput)
 }
 
 // The description of the image pipeline.

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ApplicationSignals
     [AwsNativeResourceType("aws-native:applicationsignals:GroupingConfiguration")]
     public partial class GroupingConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The 12 digit AWS Account ID for the account.
+        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 

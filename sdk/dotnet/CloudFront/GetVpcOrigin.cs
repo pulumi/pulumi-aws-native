@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetVpcOriginResult
     {
+        public readonly string? AccountId;
         /// <summary>
         /// The VPC origin ARN.
         /// </summary>
@@ -94,6 +95,8 @@ namespace Pulumi.AwsNative.CloudFront
 
         [OutputConstructor]
         private GetVpcOriginResult(
+            string? accountId,
+
             string? arn,
 
             string? createdTime,
@@ -108,6 +111,7 @@ namespace Pulumi.AwsNative.CloudFront
 
             Outputs.VpcOriginEndpointConfig? vpcOriginEndpointConfig)
         {
+            AccountId = accountId;
             Arn = arn;
             CreatedTime = createdTime;
             Id = id;

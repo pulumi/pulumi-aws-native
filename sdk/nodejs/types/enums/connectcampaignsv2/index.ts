@@ -2,6 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CampaignAgentAction = {
+    Discard: "DISCARD",
+} as const;
+
+/**
+ * Actions that can performed on a contact by an agent
+ */
+export type CampaignAgentAction = (typeof CampaignAgentAction)[keyof typeof CampaignAgentAction];
+
 export const CampaignCommunicationLimitTimeUnit = {
     Day: "DAY",
 } as const;

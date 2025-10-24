@@ -18,9 +18,15 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         [Output("rule")]
         public Output<Outputs.OrganizationCentralizationRuleCentralizationRule> Rule { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the organization centralization rule.
+        /// </summary>
         [Output("ruleArn")]
         public Output<string> RuleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the organization centralization rule.
+        /// </summary>
         [Output("ruleName")]
         public Output<string> RuleName { get; private set; } = null!;
 
@@ -82,6 +88,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         [Input("rule", required: true)]
         public Input<Inputs.OrganizationCentralizationRuleCentralizationRuleArgs> Rule { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the organization centralization rule.
+        /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 

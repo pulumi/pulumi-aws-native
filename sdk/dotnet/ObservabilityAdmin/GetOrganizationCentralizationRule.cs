@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
 
     public sealed class GetOrganizationCentralizationRuleArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the organization centralization rule.
+        /// </summary>
         [Input("ruleArn", required: true)]
         public string RuleArn { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
 
     public sealed class GetOrganizationCentralizationRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the organization centralization rule.
+        /// </summary>
         [Input("ruleArn", required: true)]
         public Input<string> RuleArn { get; set; } = null!;
 
@@ -58,6 +64,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
     public sealed class GetOrganizationCentralizationRuleResult
     {
         public readonly Outputs.OrganizationCentralizationRuleCentralizationRule? Rule;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the organization centralization rule.
+        /// </summary>
         public readonly string? RuleArn;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

@@ -99,6 +99,15 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
 
+        [Output("mssManifestUrls")]
+        public Output<ImmutableArray<string>> MssManifestUrls { get; private set; } = null!;
+
+        /// <summary>
+        /// &lt;p&gt;The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.&lt;/p&gt;
+        /// </summary>
+        [Output("mssManifests")]
+        public Output<ImmutableArray<Outputs.OriginEndpointMssManifestConfiguration>> MssManifests { get; private set; } = null!;
+
         /// <summary>
         /// The name of the origin endpoint associated with the origin endpoint configuration.
         /// </summary>
@@ -238,6 +247,18 @@ namespace Pulumi.AwsNative.MediaPackageV2
         {
             get => _lowLatencyHlsManifests ?? (_lowLatencyHlsManifests = new InputList<Inputs.OriginEndpointLowLatencyHlsManifestConfigurationArgs>());
             set => _lowLatencyHlsManifests = value;
+        }
+
+        [Input("mssManifests")]
+        private InputList<Inputs.OriginEndpointMssManifestConfigurationArgs>? _mssManifests;
+
+        /// <summary>
+        /// &lt;p&gt;The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.&lt;/p&gt;
+        /// </summary>
+        public InputList<Inputs.OriginEndpointMssManifestConfigurationArgs> MssManifests
+        {
+            get => _mssManifests ?? (_mssManifests = new InputList<Inputs.OriginEndpointMssManifestConfigurationArgs>());
+            set => _mssManifests = value;
         }
 
         /// <summary>

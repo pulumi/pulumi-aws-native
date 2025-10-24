@@ -21,8 +21,8 @@ __all__ = ['AccessGrantsLocationArgs', 'AccessGrantsLocation']
 @pulumi.input_type
 class AccessGrantsLocationArgs:
     def __init__(__self__, *,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 iam_role_arn: pulumi.Input[_builtins.str],
+                 location_scope: pulumi.Input[_builtins.str],
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AccessGrantsLocation resource.
@@ -30,35 +30,33 @@ class AccessGrantsLocationArgs:
         :param pulumi.Input[_builtins.str] location_scope: Descriptor for where the location actually points
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
         """
-        if iam_role_arn is not None:
-            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
-        if location_scope is not None:
-            pulumi.set(__self__, "location_scope", location_scope)
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        pulumi.set(__self__, "location_scope", location_scope)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
         The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
         """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
-    def iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_role_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="locationScope")
-    def location_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location_scope(self) -> pulumi.Input[_builtins.str]:
         """
         Descriptor for where the location actually points
         """
         return pulumi.get(self, "location_scope")
 
     @location_scope.setter
-    def location_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location_scope(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "location_scope", value)
 
     @_builtins.property
@@ -97,7 +95,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AccessGrantsLocationArgs] = None,
+                 args: AccessGrantsLocationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::S3::AccessGrantsLocation resource is an Amazon S3 resource type hosted in an access grants instance which can be the target of S3 access grants.
@@ -129,7 +127,11 @@ class AccessGrantsLocation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccessGrantsLocationArgs.__new__(AccessGrantsLocationArgs)
 
+            if iam_role_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'iam_role_arn'")
             __props__.__dict__["iam_role_arn"] = iam_role_arn
+            if location_scope is None and not opts.urn:
+                raise TypeError("Missing required property 'location_scope'")
             __props__.__dict__["location_scope"] = location_scope
             __props__.__dict__["tags"] = tags
             __props__.__dict__["access_grants_location_arn"] = None
@@ -183,7 +185,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def iam_role_arn(self) -> pulumi.Output[_builtins.str]:
         """
         The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
         """
@@ -191,7 +193,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="locationScope")
-    def location_scope(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def location_scope(self) -> pulumi.Output[_builtins.str]:
         """
         Descriptor for where the location actually points
         """

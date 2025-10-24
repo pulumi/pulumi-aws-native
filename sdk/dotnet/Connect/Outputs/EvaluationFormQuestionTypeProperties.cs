@@ -24,15 +24,19 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// The properties of the numeric question.
         /// </summary>
         public readonly Outputs.EvaluationFormSingleSelectQuestionProperties? SingleSelect;
+        public readonly Outputs.EvaluationFormTextQuestionProperties? Text;
 
         [OutputConstructor]
         private EvaluationFormQuestionTypeProperties(
             Outputs.EvaluationFormNumericQuestionProperties? numeric,
 
-            Outputs.EvaluationFormSingleSelectQuestionProperties? singleSelect)
+            Outputs.EvaluationFormSingleSelectQuestionProperties? singleSelect,
+
+            Outputs.EvaluationFormTextQuestionProperties? text)
         {
             Numeric = numeric;
             SingleSelect = singleSelect;
+            Text = text;
         }
     }
 }

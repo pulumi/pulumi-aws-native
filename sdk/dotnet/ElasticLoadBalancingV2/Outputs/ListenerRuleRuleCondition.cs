@@ -47,6 +47,10 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         /// </summary>
         public readonly Outputs.ListenerRuleQueryStringConfig? QueryStringConfig;
         /// <summary>
+        /// The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when `Field` is `http-header` , `host-header` , or `path-pattern` .
+        /// </summary>
+        public readonly ImmutableArray<string> RegexValues;
+        /// <summary>
         /// Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.
         /// </summary>
         public readonly Outputs.ListenerRuleSourceIpConfig? SourceIpConfig;
@@ -81,6 +85,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
             Outputs.ListenerRuleQueryStringConfig? queryStringConfig,
 
+            ImmutableArray<string> regexValues,
+
             Outputs.ListenerRuleSourceIpConfig? sourceIpConfig,
 
             ImmutableArray<string> values)
@@ -91,6 +97,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
             HttpRequestMethodConfig = httpRequestMethodConfig;
             PathPatternConfig = pathPatternConfig;
             QueryStringConfig = queryStringConfig;
+            RegexValues = regexValues;
             SourceIpConfig = sourceIpConfig;
             Values = values;
         }

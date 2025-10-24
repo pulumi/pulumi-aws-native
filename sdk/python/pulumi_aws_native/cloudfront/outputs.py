@@ -4347,6 +4347,8 @@ class DistributionVpcOriginConfig(dict):
             suggest = "origin_keepalive_timeout"
         elif key == "originReadTimeout":
             suggest = "origin_read_timeout"
+        elif key == "ownerAccountId":
+            suggest = "owner_account_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DistributionVpcOriginConfig. Access the value via the '{suggest}' property getter instead.")
@@ -4362,7 +4364,8 @@ class DistributionVpcOriginConfig(dict):
     def __init__(__self__, *,
                  vpc_origin_id: _builtins.str,
                  origin_keepalive_timeout: Optional[_builtins.int] = None,
-                 origin_read_timeout: Optional[_builtins.int] = None):
+                 origin_read_timeout: Optional[_builtins.int] = None,
+                 owner_account_id: Optional[_builtins.str] = None):
         """
         An Amazon CloudFront VPC origin configuration.
         :param _builtins.str vpc_origin_id: The VPC origin ID.
@@ -4376,6 +4379,8 @@ class DistributionVpcOriginConfig(dict):
             pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
         if origin_read_timeout is not None:
             pulumi.set(__self__, "origin_read_timeout", origin_read_timeout)
+        if owner_account_id is not None:
+            pulumi.set(__self__, "owner_account_id", owner_account_id)
 
     @_builtins.property
     @pulumi.getter(name="vpcOriginId")
@@ -4402,6 +4407,11 @@ class DistributionVpcOriginConfig(dict):
          For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "origin_read_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerAccountId")
+    def owner_account_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_account_id")
 
 
 @pulumi.output_type

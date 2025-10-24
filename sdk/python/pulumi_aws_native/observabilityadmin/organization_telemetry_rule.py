@@ -29,6 +29,7 @@ class OrganizationTelemetryRuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OrganizationTelemetryRule resource.
+        :param pulumi.Input['OrganizationTelemetryRuleTelemetryRuleArgs'] rule: The name of the organization telemetry rule.
         :param pulumi.Input[_builtins.str] rule_name: The name of the organization telemetry rule
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource
         """
@@ -41,6 +42,9 @@ class OrganizationTelemetryRuleArgs:
     @_builtins.property
     @pulumi.getter
     def rule(self) -> pulumi.Input['OrganizationTelemetryRuleTelemetryRuleArgs']:
+        """
+        The name of the organization telemetry rule.
+        """
         return pulumi.get(self, "rule")
 
     @rule.setter
@@ -87,6 +91,7 @@ class OrganizationTelemetryRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['OrganizationTelemetryRuleTelemetryRuleArgs', 'OrganizationTelemetryRuleTelemetryRuleArgsDict']] rule: The name of the organization telemetry rule.
         :param pulumi.Input[_builtins.str] rule_name: The name of the organization telemetry rule
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource
         """
@@ -165,6 +170,9 @@ class OrganizationTelemetryRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def rule(self) -> pulumi.Output['outputs.OrganizationTelemetryRuleTelemetryRule']:
+        """
+        The name of the organization telemetry rule.
+        """
         return pulumi.get(self, "rule")
 
     @_builtins.property

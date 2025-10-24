@@ -2356,6 +2356,7 @@ func (o OriginEndpointEncryptionContractConfigurationPtrOutput) PresetSpeke20Vid
 type OriginEndpointEncryptionMethod struct {
 	// The encryption method to use.
 	CmafEncryptionMethod *OriginEndpointCmafEncryptionMethod `pulumi:"cmafEncryptionMethod"`
+	IsmEncryptionMethod  *OriginEndpointIsmEncryptionMethod  `pulumi:"ismEncryptionMethod"`
 	// The encryption method to use.
 	TsEncryptionMethod *OriginEndpointTsEncryptionMethod `pulumi:"tsEncryptionMethod"`
 }
@@ -2375,6 +2376,7 @@ type OriginEndpointEncryptionMethodInput interface {
 type OriginEndpointEncryptionMethodArgs struct {
 	// The encryption method to use.
 	CmafEncryptionMethod OriginEndpointCmafEncryptionMethodPtrInput `pulumi:"cmafEncryptionMethod"`
+	IsmEncryptionMethod  OriginEndpointIsmEncryptionMethodPtrInput  `pulumi:"ismEncryptionMethod"`
 	// The encryption method to use.
 	TsEncryptionMethod OriginEndpointTsEncryptionMethodPtrInput `pulumi:"tsEncryptionMethod"`
 }
@@ -2464,6 +2466,12 @@ func (o OriginEndpointEncryptionMethodOutput) CmafEncryptionMethod() OriginEndpo
 	}).(OriginEndpointCmafEncryptionMethodPtrOutput)
 }
 
+func (o OriginEndpointEncryptionMethodOutput) IsmEncryptionMethod() OriginEndpointIsmEncryptionMethodPtrOutput {
+	return o.ApplyT(func(v OriginEndpointEncryptionMethod) *OriginEndpointIsmEncryptionMethod {
+		return v.IsmEncryptionMethod
+	}).(OriginEndpointIsmEncryptionMethodPtrOutput)
+}
+
 // The encryption method to use.
 func (o OriginEndpointEncryptionMethodOutput) TsEncryptionMethod() OriginEndpointTsEncryptionMethodPtrOutput {
 	return o.ApplyT(func(v OriginEndpointEncryptionMethod) *OriginEndpointTsEncryptionMethod { return v.TsEncryptionMethod }).(OriginEndpointTsEncryptionMethodPtrOutput)
@@ -2501,6 +2509,15 @@ func (o OriginEndpointEncryptionMethodPtrOutput) CmafEncryptionMethod() OriginEn
 		}
 		return v.CmafEncryptionMethod
 	}).(OriginEndpointCmafEncryptionMethodPtrOutput)
+}
+
+func (o OriginEndpointEncryptionMethodPtrOutput) IsmEncryptionMethod() OriginEndpointIsmEncryptionMethodPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointEncryptionMethod) *OriginEndpointIsmEncryptionMethod {
+		if v == nil {
+			return nil
+		}
+		return v.IsmEncryptionMethod
+	}).(OriginEndpointIsmEncryptionMethodPtrOutput)
 }
 
 // The encryption method to use.
@@ -3217,6 +3234,131 @@ func (o OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput) Index(i pul
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OriginEndpointLowLatencyHlsManifestConfiguration {
 		return vs[0].([]OriginEndpointLowLatencyHlsManifestConfiguration)[vs[1].(int)]
 	}).(OriginEndpointLowLatencyHlsManifestConfigurationOutput)
+}
+
+// <p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>
+type OriginEndpointMssManifestConfiguration struct {
+	FilterConfiguration *OriginEndpointFilterConfiguration `pulumi:"filterConfiguration"`
+	ManifestLayout      *OriginEndpointMssManifestLayout   `pulumi:"manifestLayout"`
+	// <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
+	ManifestName string `pulumi:"manifestName"`
+	// <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
+	ManifestWindowSeconds *int `pulumi:"manifestWindowSeconds"`
+}
+
+// OriginEndpointMssManifestConfigurationInput is an input type that accepts OriginEndpointMssManifestConfigurationArgs and OriginEndpointMssManifestConfigurationOutput values.
+// You can construct a concrete instance of `OriginEndpointMssManifestConfigurationInput` via:
+//
+//	OriginEndpointMssManifestConfigurationArgs{...}
+type OriginEndpointMssManifestConfigurationInput interface {
+	pulumi.Input
+
+	ToOriginEndpointMssManifestConfigurationOutput() OriginEndpointMssManifestConfigurationOutput
+	ToOriginEndpointMssManifestConfigurationOutputWithContext(context.Context) OriginEndpointMssManifestConfigurationOutput
+}
+
+// <p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>
+type OriginEndpointMssManifestConfigurationArgs struct {
+	FilterConfiguration OriginEndpointFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
+	ManifestLayout      OriginEndpointMssManifestLayoutPtrInput   `pulumi:"manifestLayout"`
+	// <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
+	ManifestName pulumi.StringInput `pulumi:"manifestName"`
+	// <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
+	ManifestWindowSeconds pulumi.IntPtrInput `pulumi:"manifestWindowSeconds"`
+}
+
+func (OriginEndpointMssManifestConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointMssManifestConfiguration)(nil)).Elem()
+}
+
+func (i OriginEndpointMssManifestConfigurationArgs) ToOriginEndpointMssManifestConfigurationOutput() OriginEndpointMssManifestConfigurationOutput {
+	return i.ToOriginEndpointMssManifestConfigurationOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointMssManifestConfigurationArgs) ToOriginEndpointMssManifestConfigurationOutputWithContext(ctx context.Context) OriginEndpointMssManifestConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointMssManifestConfigurationOutput)
+}
+
+// OriginEndpointMssManifestConfigurationArrayInput is an input type that accepts OriginEndpointMssManifestConfigurationArray and OriginEndpointMssManifestConfigurationArrayOutput values.
+// You can construct a concrete instance of `OriginEndpointMssManifestConfigurationArrayInput` via:
+//
+//	OriginEndpointMssManifestConfigurationArray{ OriginEndpointMssManifestConfigurationArgs{...} }
+type OriginEndpointMssManifestConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToOriginEndpointMssManifestConfigurationArrayOutput() OriginEndpointMssManifestConfigurationArrayOutput
+	ToOriginEndpointMssManifestConfigurationArrayOutputWithContext(context.Context) OriginEndpointMssManifestConfigurationArrayOutput
+}
+
+type OriginEndpointMssManifestConfigurationArray []OriginEndpointMssManifestConfigurationInput
+
+func (OriginEndpointMssManifestConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OriginEndpointMssManifestConfiguration)(nil)).Elem()
+}
+
+func (i OriginEndpointMssManifestConfigurationArray) ToOriginEndpointMssManifestConfigurationArrayOutput() OriginEndpointMssManifestConfigurationArrayOutput {
+	return i.ToOriginEndpointMssManifestConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointMssManifestConfigurationArray) ToOriginEndpointMssManifestConfigurationArrayOutputWithContext(ctx context.Context) OriginEndpointMssManifestConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointMssManifestConfigurationArrayOutput)
+}
+
+// <p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>
+type OriginEndpointMssManifestConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointMssManifestConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointMssManifestConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointMssManifestConfigurationOutput) ToOriginEndpointMssManifestConfigurationOutput() OriginEndpointMssManifestConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointMssManifestConfigurationOutput) ToOriginEndpointMssManifestConfigurationOutputWithContext(ctx context.Context) OriginEndpointMssManifestConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointMssManifestConfigurationOutput) FilterConfiguration() OriginEndpointFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v OriginEndpointMssManifestConfiguration) *OriginEndpointFilterConfiguration {
+		return v.FilterConfiguration
+	}).(OriginEndpointFilterConfigurationPtrOutput)
+}
+
+func (o OriginEndpointMssManifestConfigurationOutput) ManifestLayout() OriginEndpointMssManifestLayoutPtrOutput {
+	return o.ApplyT(func(v OriginEndpointMssManifestConfiguration) *OriginEndpointMssManifestLayout {
+		return v.ManifestLayout
+	}).(OriginEndpointMssManifestLayoutPtrOutput)
+}
+
+// <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
+func (o OriginEndpointMssManifestConfigurationOutput) ManifestName() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginEndpointMssManifestConfiguration) string { return v.ManifestName }).(pulumi.StringOutput)
+}
+
+// <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
+func (o OriginEndpointMssManifestConfigurationOutput) ManifestWindowSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OriginEndpointMssManifestConfiguration) *int { return v.ManifestWindowSeconds }).(pulumi.IntPtrOutput)
+}
+
+type OriginEndpointMssManifestConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointMssManifestConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OriginEndpointMssManifestConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointMssManifestConfigurationArrayOutput) ToOriginEndpointMssManifestConfigurationArrayOutput() OriginEndpointMssManifestConfigurationArrayOutput {
+	return o
+}
+
+func (o OriginEndpointMssManifestConfigurationArrayOutput) ToOriginEndpointMssManifestConfigurationArrayOutputWithContext(ctx context.Context) OriginEndpointMssManifestConfigurationArrayOutput {
+	return o
+}
+
+func (o OriginEndpointMssManifestConfigurationArrayOutput) Index(i pulumi.IntInput) OriginEndpointMssManifestConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OriginEndpointMssManifestConfiguration {
+		return vs[0].([]OriginEndpointMssManifestConfiguration)[vs[1].(int)]
+	}).(OriginEndpointMssManifestConfigurationOutput)
 }
 
 type OriginEndpointPolicyCdnAuthConfiguration struct {
@@ -4490,6 +4632,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointHlsManifestConfigurationArrayInput)(nil)).Elem(), OriginEndpointHlsManifestConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointLowLatencyHlsManifestConfigurationInput)(nil)).Elem(), OriginEndpointLowLatencyHlsManifestConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointLowLatencyHlsManifestConfigurationArrayInput)(nil)).Elem(), OriginEndpointLowLatencyHlsManifestConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointMssManifestConfigurationInput)(nil)).Elem(), OriginEndpointMssManifestConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointMssManifestConfigurationArrayInput)(nil)).Elem(), OriginEndpointMssManifestConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointPolicyCdnAuthConfigurationInput)(nil)).Elem(), OriginEndpointPolicyCdnAuthConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointPolicyCdnAuthConfigurationPtrInput)(nil)).Elem(), OriginEndpointPolicyCdnAuthConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteInput)(nil)).Elem(), OriginEndpointScteArgs{})
@@ -4542,6 +4686,8 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointHlsManifestConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(OriginEndpointLowLatencyHlsManifestConfigurationOutput{})
 	pulumi.RegisterOutputType(OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(OriginEndpointMssManifestConfigurationOutput{})
+	pulumi.RegisterOutputType(OriginEndpointMssManifestConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(OriginEndpointPolicyCdnAuthConfigurationOutput{})
 	pulumi.RegisterOutputType(OriginEndpointPolicyCdnAuthConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteOutput{})

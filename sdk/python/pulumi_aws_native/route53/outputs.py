@@ -204,7 +204,9 @@ class HealthCheckConfigProperties(dict):
                The SSL/TLS certificate on your endpoint includes a domain name in the `Common Name` field and possibly several more in the `Subject Alternative Names` field. One of the domain names in the certificate should match the value that you specify for `FullyQualifiedDomainName` . If the endpoint responds to the `client_hello` message with a certificate that does not include the domain name that you specified in `FullyQualifiedDomainName` , a health checker will retry the handshake. In the second attempt, the health checker will omit `FullyQualifiedDomainName` from the `client_hello` message.
         :param _builtins.int failure_threshold: The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
                
-               If you don't specify a value for `FailureThreshold` , the default value is three health checks.
+               `FailureThreshold` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
+               
+               Otherwise, if you don't specify a value for `FailureThreshold` , the default value is three health checks.
         :param _builtins.str fully_qualified_domain_name: Amazon Route 53 behavior depends on whether you specify a value for `IPAddress` .
                
                *If you specify a value for* `IPAddress` :
@@ -262,6 +264,8 @@ class HealthCheckConfigProperties(dict):
                When the value of `Type` is `CALCULATED` or `CLOUDWATCH_METRIC` , omit `IPAddress` .
         :param _builtins.bool measure_latency: Specify whether you want Amazon Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint, and to display CloudWatch latency graphs on the *Health Checks* page in the Route 53 console.
                
+               `MeasureLatency` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
+               
                > You can't change the value of `MeasureLatency` after you create a health check.
         :param _builtins.int port: The port on the endpoint that you want Amazon Route 53 to perform health checks on.
                
@@ -272,6 +276,8 @@ class HealthCheckConfigProperties(dict):
                
                If you update a health check to remove a region that has been performing health checks, Route 53 will briefly continue to perform checks from that region to ensure that some health checkers are always checking the endpoint (for example, if you replace three regions with four different regions).
         :param _builtins.int request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health check request. Each Route 53 health checker makes requests at this interval.
+               
+               `RequestInterval` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
                
                > You can't change the value of `RequestInterval` after you create a health check. 
                
@@ -382,7 +388,9 @@ class HealthCheckConfigProperties(dict):
         """
         The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
 
-        If you don't specify a value for `FailureThreshold` , the default value is three health checks.
+        `FailureThreshold` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
+
+        Otherwise, if you don't specify a value for `FailureThreshold` , the default value is three health checks.
         """
         return pulumi.get(self, "failure_threshold")
 
@@ -482,6 +490,8 @@ class HealthCheckConfigProperties(dict):
         """
         Specify whether you want Amazon Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint, and to display CloudWatch latency graphs on the *Health Checks* page in the Route 53 console.
 
+        `MeasureLatency` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
+
         > You can't change the value of `MeasureLatency` after you create a health check.
         """
         return pulumi.get(self, "measure_latency")
@@ -513,6 +523,8 @@ class HealthCheckConfigProperties(dict):
     def request_interval(self) -> Optional[_builtins.int]:
         """
         The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health check request. Each Route 53 health checker makes requests at this interval.
+
+        `RequestInterval` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
 
         > You can't change the value of `RequestInterval` after you create a health check. 
 

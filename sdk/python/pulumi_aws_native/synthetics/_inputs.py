@@ -158,13 +158,21 @@ class CanaryBrowserConfigArgs:
 
 if not MYPY:
     class CanaryCodeArgsDict(TypedDict):
-        handler: pulumi.Input[_builtins.str]
+        blueprint_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
-        The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
+        `BlueprintTypes` are a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. `multi-checks` is the only supported value.
+
+        When you specify `BlueprintTypes` , the `Handler` field cannot be specified since the blueprint provides a pre-defined entry point.
         """
         dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['CanaryDependencyArgsDict']]]]
         """
         List of Lambda layers to attach to the canary
+        """
+        handler: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
+
+        This field is required when you don't specify `BlueprintTypes` and is not allowed when you specify `BlueprintTypes` .
         """
         s3_bucket: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -192,25 +200,34 @@ elif False:
 @pulumi.input_type
 class CanaryCodeArgs:
     def __init__(__self__, *,
-                 handler: pulumi.Input[_builtins.str],
+                 blueprint_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryDependencyArgs']]]] = None,
+                 handler: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_key: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
                  script: Optional[pulumi.Input[_builtins.str]] = None,
                  source_location_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] handler: The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blueprint_types: `BlueprintTypes` are a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. `multi-checks` is the only supported value.
+               
+               When you specify `BlueprintTypes` , the `Handler` field cannot be specified since the blueprint provides a pre-defined entry point.
         :param pulumi.Input[Sequence[pulumi.Input['CanaryDependencyArgs']]] dependencies: List of Lambda layers to attach to the canary
+        :param pulumi.Input[_builtins.str] handler: The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
+               
+               This field is required when you don't specify `BlueprintTypes` and is not allowed when you specify `BlueprintTypes` .
         :param pulumi.Input[_builtins.str] s3_bucket: If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
         :param pulumi.Input[_builtins.str] s3_key: The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
         :param pulumi.Input[_builtins.str] s3_object_version: The Amazon S3 version ID of your script.
         :param pulumi.Input[_builtins.str] script: If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text. It can be up to 5 MB.
         :param pulumi.Input[_builtins.str] source_location_arn: The ARN of the Lambda layer where Synthetics stores the canary script code.
         """
-        pulumi.set(__self__, "handler", handler)
+        if blueprint_types is not None:
+            pulumi.set(__self__, "blueprint_types", blueprint_types)
         if dependencies is not None:
             pulumi.set(__self__, "dependencies", dependencies)
+        if handler is not None:
+            pulumi.set(__self__, "handler", handler)
         if s3_bucket is not None:
             pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_key is not None:
@@ -223,16 +240,18 @@ class CanaryCodeArgs:
             pulumi.set(__self__, "source_location_arn", source_location_arn)
 
     @_builtins.property
-    @pulumi.getter
-    def handler(self) -> pulumi.Input[_builtins.str]:
+    @pulumi.getter(name="blueprintTypes")
+    def blueprint_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
-        """
-        return pulumi.get(self, "handler")
+        `BlueprintTypes` are a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. `multi-checks` is the only supported value.
 
-    @handler.setter
-    def handler(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "handler", value)
+        When you specify `BlueprintTypes` , the `Handler` field cannot be specified since the blueprint provides a pre-defined entry point.
+        """
+        return pulumi.get(self, "blueprint_types")
+
+    @blueprint_types.setter
+    def blueprint_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "blueprint_types", value)
 
     @_builtins.property
     @pulumi.getter
@@ -245,6 +264,20 @@ class CanaryCodeArgs:
     @dependencies.setter
     def dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryDependencyArgs']]]]):
         pulumi.set(self, "dependencies", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def handler(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
+
+        This field is required when you don't specify `BlueprintTypes` and is not allowed when you specify `BlueprintTypes` .
+        """
+        return pulumi.get(self, "handler")
+
+    @handler.setter
+    def handler(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "handler", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
@@ -659,6 +692,9 @@ if not MYPY:
         List of screenshots used as base reference for visual testing
         """
         browser_type: NotRequired[pulumi.Input['CanaryBrowserType']]
+        """
+        The browser type associated with this visual reference configuration. Valid values are `CHROME` and `FIREFOX` .
+        """
 elif False:
     CanaryVisualReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -671,6 +707,7 @@ class CanaryVisualReferenceArgs:
         """
         :param pulumi.Input[_builtins.str] base_canary_run_id: Canary run id to be used as base reference for visual testing
         :param pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]] base_screenshots: List of screenshots used as base reference for visual testing
+        :param pulumi.Input['CanaryBrowserType'] browser_type: The browser type associated with this visual reference configuration. Valid values are `CHROME` and `FIREFOX` .
         """
         pulumi.set(__self__, "base_canary_run_id", base_canary_run_id)
         if base_screenshots is not None:
@@ -705,6 +742,9 @@ class CanaryVisualReferenceArgs:
     @_builtins.property
     @pulumi.getter(name="browserType")
     def browser_type(self) -> Optional[pulumi.Input['CanaryBrowserType']]:
+        """
+        The browser type associated with this visual reference configuration. Valid values are `CHROME` and `FIREFOX` .
+        """
         return pulumi.get(self, "browser_type")
 
     @browser_type.setter

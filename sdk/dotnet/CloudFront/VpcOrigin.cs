@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:VpcOrigin")]
     public partial class VpcOrigin : global::Pulumi.CustomResource
     {
+        [Output("accountId")]
+        public Output<string> AccountId { get; private set; } = null!;
+
         /// <summary>
         /// The VPC origin ARN.
         /// </summary>

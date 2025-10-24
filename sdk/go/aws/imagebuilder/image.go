@@ -27,6 +27,8 @@ type Image struct {
 	ExecutionRole pulumi.StringPtrOutput `pulumi:"executionRole"`
 	// The AMI ID of the EC2 AMI in current region.
 	ImageId pulumi.StringOutput `pulumi:"imageId"`
+	// The image pipeline execution settings of the image.
+	ImagePipelineExecutionSettings ImagePipelineExecutionSettingsPtrOutput `pulumi:"imagePipelineExecutionSettings"`
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
 	// Contains settings for vulnerability scans.
@@ -108,6 +110,8 @@ type imageArgs struct {
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
 	// The execution role name/ARN for the image build, if provided
 	ExecutionRole *string `pulumi:"executionRole"`
+	// The image pipeline execution settings of the image.
+	ImagePipelineExecutionSettings *ImagePipelineExecutionSettings `pulumi:"imagePipelineExecutionSettings"`
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
 	// Contains settings for vulnerability scans.
@@ -134,6 +138,8 @@ type ImageArgs struct {
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
 	// The execution role name/ARN for the image build, if provided
 	ExecutionRole pulumi.StringPtrInput
+	// The image pipeline execution settings of the image.
+	ImagePipelineExecutionSettings ImagePipelineExecutionSettingsPtrInput
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn pulumi.StringPtrInput
 	// Contains settings for vulnerability scans.
@@ -215,6 +221,11 @@ func (o ImageOutput) ExecutionRole() pulumi.StringPtrOutput {
 // The AMI ID of the EC2 AMI in current region.
 func (o ImageOutput) ImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ImageId }).(pulumi.StringOutput)
+}
+
+// The image pipeline execution settings of the image.
+func (o ImageOutput) ImagePipelineExecutionSettings() ImagePipelineExecutionSettingsPtrOutput {
+	return o.ApplyT(func(v *Image) ImagePipelineExecutionSettingsPtrOutput { return v.ImagePipelineExecutionSettings }).(ImagePipelineExecutionSettingsPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.

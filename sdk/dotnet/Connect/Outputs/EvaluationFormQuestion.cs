@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class EvaluationFormQuestion
     {
+        public readonly Outputs.EvaluationFormItemEnablementConfiguration? Enablement;
         /// <summary>
         /// The instructions of the section.
         ///  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
@@ -53,6 +54,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
         [OutputConstructor]
         private EvaluationFormQuestion(
+            Outputs.EvaluationFormItemEnablementConfiguration? enablement,
+
             string? instructions,
 
             bool? notApplicableEnabled,
@@ -67,6 +70,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             double? weight)
         {
+            Enablement = enablement;
             Instructions = instructions;
             NotApplicableEnabled = notApplicableEnabled;
             QuestionType = questionType;

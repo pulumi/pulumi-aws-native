@@ -39,6 +39,7 @@ __all__ = [
     'ClusterRestrictedInstanceGroup',
     'ClusterRollingUpdatePolicy',
     'ClusterScheduledUpdateConfig',
+    'ClusterTieredStorageConfig',
     'ClusterVpcConfig',
     'DataQualityJobDefinitionBatchTransformInput',
     'DataQualityJobDefinitionClusterConfig',
@@ -1555,6 +1556,57 @@ class ClusterScheduledUpdateConfig(dict):
     @pulumi.getter(name="deploymentConfig")
     def deployment_config(self) -> Optional['outputs.ClusterDeploymentConfig']:
         return pulumi.get(self, "deployment_config")
+
+
+@pulumi.output_type
+class ClusterTieredStorageConfig(dict):
+    """
+    Configuration for tiered storage in the SageMaker HyperPod cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceMemoryAllocationPercentage":
+            suggest = "instance_memory_allocation_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterTieredStorageConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterTieredStorageConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterTieredStorageConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: 'ClusterTieredStorageConfigMode',
+                 instance_memory_allocation_percentage: Optional[_builtins.int] = None):
+        """
+        Configuration for tiered storage in the SageMaker HyperPod cluster.
+        :param 'ClusterTieredStorageConfigMode' mode: The mode of tiered storage.
+        :param _builtins.int instance_memory_allocation_percentage: The percentage of instance memory to allocate for tiered storage.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if instance_memory_allocation_percentage is not None:
+            pulumi.set(__self__, "instance_memory_allocation_percentage", instance_memory_allocation_percentage)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> 'ClusterTieredStorageConfigMode':
+        """
+        The mode of tiered storage.
+        """
+        return pulumi.get(self, "mode")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceMemoryAllocationPercentage")
+    def instance_memory_allocation_percentage(self) -> Optional[_builtins.int]:
+        """
+        The percentage of instance memory to allocate for tiered storage.
+        """
+        return pulumi.get(self, "instance_memory_allocation_percentage")
 
 
 @pulumi.output_type
@@ -4180,6 +4232,7 @@ class DomainSettings(dict):
         A collection of Domain settings.
         :param 'DomainDockerSettings' docker_settings: A collection of settings that configure the domain's Docker interaction.
         :param 'DomainSettingsExecutionRoleIdentityConfig' execution_role_identity_config: The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
+        :param 'DomainIpAddressType' ip_address_type: The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
         :param 'DomainRStudioServerProDomainSettings' r_studio_server_pro_domain_settings: A collection of settings that configure the `RStudioServerPro` Domain-level app.
         :param Sequence[_builtins.str] security_group_ids: The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         :param 'DomainUnifiedStudioSettings' unified_studio_settings: The settings that apply to an SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
@@ -4216,6 +4269,9 @@ class DomainSettings(dict):
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional['DomainIpAddressType']:
+        """
+        The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
+        """
         return pulumi.get(self, "ip_address_type")
 
     @_builtins.property

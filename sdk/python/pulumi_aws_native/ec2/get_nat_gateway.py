@@ -47,6 +47,9 @@ class GetNatGatewayResult:
     @_builtins.property
     @pulumi.getter(name="eniId")
     def eni_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the network interface.
+        """
         return pulumi.get(self, "eni_id")
 
     @_builtins.property

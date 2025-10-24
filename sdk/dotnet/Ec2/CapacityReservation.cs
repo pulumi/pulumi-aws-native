@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// The Availability Zone ID of the Capacity Reservation.
+        /// The ID of the Availability Zone in which the capacity is reserved.
         /// </summary>
         [Output("availabilityZoneId")]
         public Output<string?> AvailabilityZoneId { get; private set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<Outputs.CommitmentInfoProperties> CommitmentInfo { get; private set; } = null!;
 
         /// <summary>
-        /// The date and time at which the Capacity Reservation was created.
+        /// The date and time the Capacity Reservation was created.
         /// </summary>
         [Output("createDate")]
         public Output<string> CreateDate { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> ReservationType { get; private set; } = null!;
 
         /// <summary>
-        /// The date and time at which the Capacity Reservation was started.
+        /// The date and time the Capacity Reservation was started.
         /// </summary>
         [Output("startDate")]
         public Output<string> StartDate { get; private set; } = null!;
@@ -287,7 +287,7 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The Availability Zone ID of the Capacity Reservation.
+        /// The ID of the Availability Zone in which the capacity is reserved.
         /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }

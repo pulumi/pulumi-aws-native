@@ -32,7 +32,8 @@ type ListenerRule struct {
 	//  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// The Amazon Resource Name (ARN) of the rule.
-	RuleArn pulumi.StringOutput `pulumi:"ruleArn"`
+	RuleArn    pulumi.StringOutput              `pulumi:"ruleArn"`
+	Transforms ListenerRuleTransformArrayOutput `pulumi:"transforms"`
 }
 
 // NewListenerRule registers a new resource with the given unique name, arguments, and options.
@@ -98,7 +99,8 @@ type listenerRuleArgs struct {
 	ListenerArn *string `pulumi:"listenerArn"`
 	// The rule priority. A listener can't have multiple rules with the same priority.
 	//  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
-	Priority int `pulumi:"priority"`
+	Priority   int                     `pulumi:"priority"`
+	Transforms []ListenerRuleTransform `pulumi:"transforms"`
 }
 
 // The set of arguments for constructing a ListenerRule resource.
@@ -113,7 +115,8 @@ type ListenerRuleArgs struct {
 	ListenerArn pulumi.StringPtrInput
 	// The rule priority. A listener can't have multiple rules with the same priority.
 	//  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
-	Priority pulumi.IntInput
+	Priority   pulumi.IntInput
+	Transforms ListenerRuleTransformArrayInput
 }
 
 func (ListenerRuleArgs) ElementType() reflect.Type {
@@ -187,6 +190,10 @@ func (o ListenerRuleOutput) Priority() pulumi.IntOutput {
 // The Amazon Resource Name (ARN) of the rule.
 func (o ListenerRuleOutput) RuleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.RuleArn }).(pulumi.StringOutput)
+}
+
+func (o ListenerRuleOutput) Transforms() ListenerRuleTransformArrayOutput {
+	return o.ApplyT(func(v *ListenerRule) ListenerRuleTransformArrayOutput { return v.Transforms }).(ListenerRuleTransformArrayOutput)
 }
 
 func init() {

@@ -17,9 +17,11 @@ import (
 type OrganizationCentralizationRule struct {
 	pulumi.CustomResourceState
 
-	Rule     OrganizationCentralizationRuleCentralizationRuleOutput `pulumi:"rule"`
-	RuleArn  pulumi.StringOutput                                    `pulumi:"ruleArn"`
-	RuleName pulumi.StringOutput                                    `pulumi:"ruleName"`
+	Rule OrganizationCentralizationRuleCentralizationRuleOutput `pulumi:"rule"`
+	// The Amazon Resource Name (ARN) of the organization centralization rule.
+	RuleArn pulumi.StringOutput `pulumi:"ruleArn"`
+	// The name of the organization centralization rule.
+	RuleName pulumi.StringOutput `pulumi:"ruleName"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -71,15 +73,17 @@ func (OrganizationCentralizationRuleState) ElementType() reflect.Type {
 }
 
 type organizationCentralizationRuleArgs struct {
-	Rule     OrganizationCentralizationRuleCentralizationRule `pulumi:"rule"`
-	RuleName *string                                          `pulumi:"ruleName"`
+	Rule OrganizationCentralizationRuleCentralizationRule `pulumi:"rule"`
+	// The name of the organization centralization rule.
+	RuleName *string `pulumi:"ruleName"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a OrganizationCentralizationRule resource.
 type OrganizationCentralizationRuleArgs struct {
-	Rule     OrganizationCentralizationRuleCentralizationRuleInput
+	Rule OrganizationCentralizationRuleCentralizationRuleInput
+	// The name of the organization centralization rule.
 	RuleName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -128,10 +132,12 @@ func (o OrganizationCentralizationRuleOutput) Rule() OrganizationCentralizationR
 	}).(OrganizationCentralizationRuleCentralizationRuleOutput)
 }
 
+// The Amazon Resource Name (ARN) of the organization centralization rule.
 func (o OrganizationCentralizationRuleOutput) RuleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRule) pulumi.StringOutput { return v.RuleArn }).(pulumi.StringOutput)
 }
 
+// The name of the organization centralization rule.
 func (o OrganizationCentralizationRuleOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRule) pulumi.StringOutput { return v.RuleName }).(pulumi.StringOutput)
 }

@@ -33,6 +33,7 @@ type LookupNatGatewayArgs struct {
 }
 
 type LookupNatGatewayResult struct {
+	// The ID of the network interface.
 	EniId *string `pulumi:"eniId"`
 	// The ID of the NAT gateway.
 	NatGatewayId *string `pulumi:"natGatewayId"`
@@ -80,6 +81,7 @@ func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutputWithContext(
 	return o
 }
 
+// The ID of the network interface.
 func (o LookupNatGatewayResultOutput) EniId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.EniId }).(pulumi.StringPtrOutput)
 }

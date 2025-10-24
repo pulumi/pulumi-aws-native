@@ -24,7 +24,8 @@ type NatGateway struct {
 	AllocationId pulumi.StringPtrOutput `pulumi:"allocationId"`
 	// Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
 	ConnectivityType pulumi.StringPtrOutput `pulumi:"connectivityType"`
-	EniId            pulumi.StringOutput    `pulumi:"eniId"`
+	// The ID of the network interface.
+	EniId pulumi.StringOutput `pulumi:"eniId"`
 	// The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
 	MaxDrainDurationSeconds pulumi.IntPtrOutput `pulumi:"maxDrainDurationSeconds"`
 	// The ID of the NAT gateway.
@@ -42,7 +43,8 @@ type NatGateway struct {
 	// The ID of the subnet in which the NAT gateway is located.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// The tags for the NAT gateway.
-	Tags  aws.TagArrayOutput     `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ID of the VPC in which the NAT gateway is located.
 	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
@@ -113,8 +115,9 @@ type natGatewayArgs struct {
 	// The ID of the subnet in which the NAT gateway is located.
 	SubnetId *string `pulumi:"subnetId"`
 	// The tags for the NAT gateway.
-	Tags  []aws.Tag `pulumi:"tags"`
-	VpcId *string   `pulumi:"vpcId"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ID of the VPC in which the NAT gateway is located.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a NatGateway resource.
@@ -138,7 +141,8 @@ type NatGatewayArgs struct {
 	// The ID of the subnet in which the NAT gateway is located.
 	SubnetId pulumi.StringPtrInput
 	// The tags for the NAT gateway.
-	Tags  aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// The ID of the VPC in which the NAT gateway is located.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -189,6 +193,7 @@ func (o NatGatewayOutput) ConnectivityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.ConnectivityType }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the network interface.
 func (o NatGatewayOutput) EniId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.EniId }).(pulumi.StringOutput)
 }
@@ -237,6 +242,7 @@ func (o NatGatewayOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *NatGateway) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ID of the VPC in which the NAT gateway is located.
 func (o NatGatewayOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }

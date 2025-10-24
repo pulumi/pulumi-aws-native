@@ -2207,6 +2207,172 @@ func (o CampaignPredictiveConfigPtrOutput) BandwidthAllocation() pulumi.Float64P
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Preview config
+type CampaignPreviewConfig struct {
+	AgentActions        []CampaignAgentAction `pulumi:"agentActions"`
+	BandwidthAllocation float64               `pulumi:"bandwidthAllocation"`
+	TimeoutConfig       CampaignTimeoutConfig `pulumi:"timeoutConfig"`
+}
+
+// CampaignPreviewConfigInput is an input type that accepts CampaignPreviewConfigArgs and CampaignPreviewConfigOutput values.
+// You can construct a concrete instance of `CampaignPreviewConfigInput` via:
+//
+//	CampaignPreviewConfigArgs{...}
+type CampaignPreviewConfigInput interface {
+	pulumi.Input
+
+	ToCampaignPreviewConfigOutput() CampaignPreviewConfigOutput
+	ToCampaignPreviewConfigOutputWithContext(context.Context) CampaignPreviewConfigOutput
+}
+
+// Preview config
+type CampaignPreviewConfigArgs struct {
+	AgentActions        CampaignAgentActionArrayInput `pulumi:"agentActions"`
+	BandwidthAllocation pulumi.Float64Input           `pulumi:"bandwidthAllocation"`
+	TimeoutConfig       CampaignTimeoutConfigInput    `pulumi:"timeoutConfig"`
+}
+
+func (CampaignPreviewConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignPreviewConfig)(nil)).Elem()
+}
+
+func (i CampaignPreviewConfigArgs) ToCampaignPreviewConfigOutput() CampaignPreviewConfigOutput {
+	return i.ToCampaignPreviewConfigOutputWithContext(context.Background())
+}
+
+func (i CampaignPreviewConfigArgs) ToCampaignPreviewConfigOutputWithContext(ctx context.Context) CampaignPreviewConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignPreviewConfigOutput)
+}
+
+func (i CampaignPreviewConfigArgs) ToCampaignPreviewConfigPtrOutput() CampaignPreviewConfigPtrOutput {
+	return i.ToCampaignPreviewConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignPreviewConfigArgs) ToCampaignPreviewConfigPtrOutputWithContext(ctx context.Context) CampaignPreviewConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignPreviewConfigOutput).ToCampaignPreviewConfigPtrOutputWithContext(ctx)
+}
+
+// CampaignPreviewConfigPtrInput is an input type that accepts CampaignPreviewConfigArgs, CampaignPreviewConfigPtr and CampaignPreviewConfigPtrOutput values.
+// You can construct a concrete instance of `CampaignPreviewConfigPtrInput` via:
+//
+//	        CampaignPreviewConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignPreviewConfigPtrInput interface {
+	pulumi.Input
+
+	ToCampaignPreviewConfigPtrOutput() CampaignPreviewConfigPtrOutput
+	ToCampaignPreviewConfigPtrOutputWithContext(context.Context) CampaignPreviewConfigPtrOutput
+}
+
+type campaignPreviewConfigPtrType CampaignPreviewConfigArgs
+
+func CampaignPreviewConfigPtr(v *CampaignPreviewConfigArgs) CampaignPreviewConfigPtrInput {
+	return (*campaignPreviewConfigPtrType)(v)
+}
+
+func (*campaignPreviewConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignPreviewConfig)(nil)).Elem()
+}
+
+func (i *campaignPreviewConfigPtrType) ToCampaignPreviewConfigPtrOutput() CampaignPreviewConfigPtrOutput {
+	return i.ToCampaignPreviewConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignPreviewConfigPtrType) ToCampaignPreviewConfigPtrOutputWithContext(ctx context.Context) CampaignPreviewConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignPreviewConfigPtrOutput)
+}
+
+// Preview config
+type CampaignPreviewConfigOutput struct{ *pulumi.OutputState }
+
+func (CampaignPreviewConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignPreviewConfig)(nil)).Elem()
+}
+
+func (o CampaignPreviewConfigOutput) ToCampaignPreviewConfigOutput() CampaignPreviewConfigOutput {
+	return o
+}
+
+func (o CampaignPreviewConfigOutput) ToCampaignPreviewConfigOutputWithContext(ctx context.Context) CampaignPreviewConfigOutput {
+	return o
+}
+
+func (o CampaignPreviewConfigOutput) ToCampaignPreviewConfigPtrOutput() CampaignPreviewConfigPtrOutput {
+	return o.ToCampaignPreviewConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignPreviewConfigOutput) ToCampaignPreviewConfigPtrOutputWithContext(ctx context.Context) CampaignPreviewConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignPreviewConfig) *CampaignPreviewConfig {
+		return &v
+	}).(CampaignPreviewConfigPtrOutput)
+}
+
+func (o CampaignPreviewConfigOutput) AgentActions() CampaignAgentActionArrayOutput {
+	return o.ApplyT(func(v CampaignPreviewConfig) []CampaignAgentAction { return v.AgentActions }).(CampaignAgentActionArrayOutput)
+}
+
+func (o CampaignPreviewConfigOutput) BandwidthAllocation() pulumi.Float64Output {
+	return o.ApplyT(func(v CampaignPreviewConfig) float64 { return v.BandwidthAllocation }).(pulumi.Float64Output)
+}
+
+func (o CampaignPreviewConfigOutput) TimeoutConfig() CampaignTimeoutConfigOutput {
+	return o.ApplyT(func(v CampaignPreviewConfig) CampaignTimeoutConfig { return v.TimeoutConfig }).(CampaignTimeoutConfigOutput)
+}
+
+type CampaignPreviewConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignPreviewConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignPreviewConfig)(nil)).Elem()
+}
+
+func (o CampaignPreviewConfigPtrOutput) ToCampaignPreviewConfigPtrOutput() CampaignPreviewConfigPtrOutput {
+	return o
+}
+
+func (o CampaignPreviewConfigPtrOutput) ToCampaignPreviewConfigPtrOutputWithContext(ctx context.Context) CampaignPreviewConfigPtrOutput {
+	return o
+}
+
+func (o CampaignPreviewConfigPtrOutput) Elem() CampaignPreviewConfigOutput {
+	return o.ApplyT(func(v *CampaignPreviewConfig) CampaignPreviewConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignPreviewConfig
+		return ret
+	}).(CampaignPreviewConfigOutput)
+}
+
+func (o CampaignPreviewConfigPtrOutput) AgentActions() CampaignAgentActionArrayOutput {
+	return o.ApplyT(func(v *CampaignPreviewConfig) []CampaignAgentAction {
+		if v == nil {
+			return nil
+		}
+		return v.AgentActions
+	}).(CampaignAgentActionArrayOutput)
+}
+
+func (o CampaignPreviewConfigPtrOutput) BandwidthAllocation() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CampaignPreviewConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.BandwidthAllocation
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o CampaignPreviewConfigPtrOutput) TimeoutConfig() CampaignTimeoutConfigPtrOutput {
+	return o.ApplyT(func(v *CampaignPreviewConfig) *CampaignTimeoutConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeoutConfig
+	}).(CampaignTimeoutConfigPtrOutput)
+}
+
 // Progressive config
 type CampaignProgressiveConfig struct {
 	// Bandwidth allocation for the progressive outbound mode.
@@ -3805,6 +3971,7 @@ type CampaignTelephonyOutboundMode struct {
 	AgentlessConfig *CampaignAgentlessConfig `pulumi:"agentlessConfig"`
 	// Contains predictive outbound mode configuration.
 	PredictiveConfig *CampaignPredictiveConfig `pulumi:"predictiveConfig"`
+	PreviewConfig    *CampaignPreviewConfig    `pulumi:"previewConfig"`
 	// Contains progressive telephony outbound mode configuration.
 	ProgressiveConfig *CampaignProgressiveConfig `pulumi:"progressiveConfig"`
 }
@@ -3826,6 +3993,7 @@ type CampaignTelephonyOutboundModeArgs struct {
 	AgentlessConfig CampaignAgentlessConfigPtrInput `pulumi:"agentlessConfig"`
 	// Contains predictive outbound mode configuration.
 	PredictiveConfig CampaignPredictiveConfigPtrInput `pulumi:"predictiveConfig"`
+	PreviewConfig    CampaignPreviewConfigPtrInput    `pulumi:"previewConfig"`
 	// Contains progressive telephony outbound mode configuration.
 	ProgressiveConfig CampaignProgressiveConfigPtrInput `pulumi:"progressiveConfig"`
 }
@@ -3918,6 +4086,10 @@ func (o CampaignTelephonyOutboundModeOutput) PredictiveConfig() CampaignPredicti
 	return o.ApplyT(func(v CampaignTelephonyOutboundMode) *CampaignPredictiveConfig { return v.PredictiveConfig }).(CampaignPredictiveConfigPtrOutput)
 }
 
+func (o CampaignTelephonyOutboundModeOutput) PreviewConfig() CampaignPreviewConfigPtrOutput {
+	return o.ApplyT(func(v CampaignTelephonyOutboundMode) *CampaignPreviewConfig { return v.PreviewConfig }).(CampaignPreviewConfigPtrOutput)
+}
+
 // Contains progressive telephony outbound mode configuration.
 func (o CampaignTelephonyOutboundModeOutput) ProgressiveConfig() CampaignProgressiveConfigPtrOutput {
 	return o.ApplyT(func(v CampaignTelephonyOutboundMode) *CampaignProgressiveConfig { return v.ProgressiveConfig }).(CampaignProgressiveConfigPtrOutput)
@@ -3965,6 +4137,15 @@ func (o CampaignTelephonyOutboundModePtrOutput) PredictiveConfig() CampaignPredi
 		}
 		return v.PredictiveConfig
 	}).(CampaignPredictiveConfigPtrOutput)
+}
+
+func (o CampaignTelephonyOutboundModePtrOutput) PreviewConfig() CampaignPreviewConfigPtrOutput {
+	return o.ApplyT(func(v *CampaignTelephonyOutboundMode) *CampaignPreviewConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PreviewConfig
+	}).(CampaignPreviewConfigPtrOutput)
 }
 
 // Contains progressive telephony outbound mode configuration.
@@ -4239,6 +4420,142 @@ func (o CampaignTimeWindowPtrOutput) RestrictedPeriods() CampaignRestrictedPerio
 	}).(CampaignRestrictedPeriodsPtrOutput)
 }
 
+// Timeout Config for preview contacts
+type CampaignTimeoutConfig struct {
+	DurationInSeconds *int `pulumi:"durationInSeconds"`
+}
+
+// CampaignTimeoutConfigInput is an input type that accepts CampaignTimeoutConfigArgs and CampaignTimeoutConfigOutput values.
+// You can construct a concrete instance of `CampaignTimeoutConfigInput` via:
+//
+//	CampaignTimeoutConfigArgs{...}
+type CampaignTimeoutConfigInput interface {
+	pulumi.Input
+
+	ToCampaignTimeoutConfigOutput() CampaignTimeoutConfigOutput
+	ToCampaignTimeoutConfigOutputWithContext(context.Context) CampaignTimeoutConfigOutput
+}
+
+// Timeout Config for preview contacts
+type CampaignTimeoutConfigArgs struct {
+	DurationInSeconds pulumi.IntPtrInput `pulumi:"durationInSeconds"`
+}
+
+func (CampaignTimeoutConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignTimeoutConfig)(nil)).Elem()
+}
+
+func (i CampaignTimeoutConfigArgs) ToCampaignTimeoutConfigOutput() CampaignTimeoutConfigOutput {
+	return i.ToCampaignTimeoutConfigOutputWithContext(context.Background())
+}
+
+func (i CampaignTimeoutConfigArgs) ToCampaignTimeoutConfigOutputWithContext(ctx context.Context) CampaignTimeoutConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignTimeoutConfigOutput)
+}
+
+func (i CampaignTimeoutConfigArgs) ToCampaignTimeoutConfigPtrOutput() CampaignTimeoutConfigPtrOutput {
+	return i.ToCampaignTimeoutConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignTimeoutConfigArgs) ToCampaignTimeoutConfigPtrOutputWithContext(ctx context.Context) CampaignTimeoutConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignTimeoutConfigOutput).ToCampaignTimeoutConfigPtrOutputWithContext(ctx)
+}
+
+// CampaignTimeoutConfigPtrInput is an input type that accepts CampaignTimeoutConfigArgs, CampaignTimeoutConfigPtr and CampaignTimeoutConfigPtrOutput values.
+// You can construct a concrete instance of `CampaignTimeoutConfigPtrInput` via:
+//
+//	        CampaignTimeoutConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignTimeoutConfigPtrInput interface {
+	pulumi.Input
+
+	ToCampaignTimeoutConfigPtrOutput() CampaignTimeoutConfigPtrOutput
+	ToCampaignTimeoutConfigPtrOutputWithContext(context.Context) CampaignTimeoutConfigPtrOutput
+}
+
+type campaignTimeoutConfigPtrType CampaignTimeoutConfigArgs
+
+func CampaignTimeoutConfigPtr(v *CampaignTimeoutConfigArgs) CampaignTimeoutConfigPtrInput {
+	return (*campaignTimeoutConfigPtrType)(v)
+}
+
+func (*campaignTimeoutConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignTimeoutConfig)(nil)).Elem()
+}
+
+func (i *campaignTimeoutConfigPtrType) ToCampaignTimeoutConfigPtrOutput() CampaignTimeoutConfigPtrOutput {
+	return i.ToCampaignTimeoutConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignTimeoutConfigPtrType) ToCampaignTimeoutConfigPtrOutputWithContext(ctx context.Context) CampaignTimeoutConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignTimeoutConfigPtrOutput)
+}
+
+// Timeout Config for preview contacts
+type CampaignTimeoutConfigOutput struct{ *pulumi.OutputState }
+
+func (CampaignTimeoutConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignTimeoutConfig)(nil)).Elem()
+}
+
+func (o CampaignTimeoutConfigOutput) ToCampaignTimeoutConfigOutput() CampaignTimeoutConfigOutput {
+	return o
+}
+
+func (o CampaignTimeoutConfigOutput) ToCampaignTimeoutConfigOutputWithContext(ctx context.Context) CampaignTimeoutConfigOutput {
+	return o
+}
+
+func (o CampaignTimeoutConfigOutput) ToCampaignTimeoutConfigPtrOutput() CampaignTimeoutConfigPtrOutput {
+	return o.ToCampaignTimeoutConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignTimeoutConfigOutput) ToCampaignTimeoutConfigPtrOutputWithContext(ctx context.Context) CampaignTimeoutConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignTimeoutConfig) *CampaignTimeoutConfig {
+		return &v
+	}).(CampaignTimeoutConfigPtrOutput)
+}
+
+func (o CampaignTimeoutConfigOutput) DurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CampaignTimeoutConfig) *int { return v.DurationInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type CampaignTimeoutConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignTimeoutConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignTimeoutConfig)(nil)).Elem()
+}
+
+func (o CampaignTimeoutConfigPtrOutput) ToCampaignTimeoutConfigPtrOutput() CampaignTimeoutConfigPtrOutput {
+	return o
+}
+
+func (o CampaignTimeoutConfigPtrOutput) ToCampaignTimeoutConfigPtrOutputWithContext(ctx context.Context) CampaignTimeoutConfigPtrOutput {
+	return o
+}
+
+func (o CampaignTimeoutConfigPtrOutput) Elem() CampaignTimeoutConfigOutput {
+	return o.ApplyT(func(v *CampaignTimeoutConfig) CampaignTimeoutConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignTimeoutConfig
+		return ret
+	}).(CampaignTimeoutConfigOutput)
+}
+
+func (o CampaignTimeoutConfigPtrOutput) DurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CampaignTimeoutConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DurationInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignAgentlessConfigInput)(nil)).Elem(), CampaignAgentlessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignAgentlessConfigPtrInput)(nil)).Elem(), CampaignAgentlessConfigArgs{})
@@ -4269,6 +4586,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignOpenHoursPtrInput)(nil)).Elem(), CampaignOpenHoursArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignPredictiveConfigInput)(nil)).Elem(), CampaignPredictiveConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignPredictiveConfigPtrInput)(nil)).Elem(), CampaignPredictiveConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignPreviewConfigInput)(nil)).Elem(), CampaignPreviewConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignPreviewConfigPtrInput)(nil)).Elem(), CampaignPreviewConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignProgressiveConfigInput)(nil)).Elem(), CampaignProgressiveConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignProgressiveConfigPtrInput)(nil)).Elem(), CampaignProgressiveConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignRestrictedPeriodInput)(nil)).Elem(), CampaignRestrictedPeriodArgs{})
@@ -4295,6 +4614,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTimeRangeArrayInput)(nil)).Elem(), CampaignTimeRangeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTimeWindowInput)(nil)).Elem(), CampaignTimeWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTimeWindowPtrInput)(nil)).Elem(), CampaignTimeWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTimeoutConfigInput)(nil)).Elem(), CampaignTimeoutConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTimeoutConfigPtrInput)(nil)).Elem(), CampaignTimeoutConfigArgs{})
 	pulumi.RegisterOutputType(CampaignAgentlessConfigOutput{})
 	pulumi.RegisterOutputType(CampaignAgentlessConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignAnswerMachineDetectionConfigOutput{})
@@ -4325,6 +4646,8 @@ func init() {
 	pulumi.RegisterOutputType(CampaignOpenHoursPtrOutput{})
 	pulumi.RegisterOutputType(CampaignPredictiveConfigOutput{})
 	pulumi.RegisterOutputType(CampaignPredictiveConfigPtrOutput{})
+	pulumi.RegisterOutputType(CampaignPreviewConfigOutput{})
+	pulumi.RegisterOutputType(CampaignPreviewConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignProgressiveConfigOutput{})
 	pulumi.RegisterOutputType(CampaignProgressiveConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignRestrictedPeriodOutput{})
@@ -4351,4 +4674,6 @@ func init() {
 	pulumi.RegisterOutputType(CampaignTimeRangeArrayOutput{})
 	pulumi.RegisterOutputType(CampaignTimeWindowOutput{})
 	pulumi.RegisterOutputType(CampaignTimeWindowPtrOutput{})
+	pulumi.RegisterOutputType(CampaignTimeoutConfigOutput{})
+	pulumi.RegisterOutputType(CampaignTimeoutConfigPtrOutput{})
 }

@@ -115,6 +115,7 @@ class VpcOrigin(pulumi.CustomResource):
             if vpc_origin_endpoint_config is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_origin_endpoint_config'")
             __props__.__dict__["vpc_origin_endpoint_config"] = vpc_origin_endpoint_config
+            __props__.__dict__["account_id"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_time"] = None
@@ -142,6 +143,7 @@ class VpcOrigin(pulumi.CustomResource):
 
         __props__ = VpcOriginArgs.__new__(VpcOriginArgs)
 
+        __props__.__dict__["account_id"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_time"] = None
@@ -150,6 +152,11 @@ class VpcOrigin(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_origin_endpoint_config"] = None
         return VpcOrigin(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter

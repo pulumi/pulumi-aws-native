@@ -39,6 +39,7 @@ __all__ = [
     'ImageLoggingConfiguration',
     'ImagePipelineAutoDisablePolicy',
     'ImagePipelineEcrConfiguration',
+    'ImagePipelineExecutionSettings',
     'ImagePipelineImageScanningConfiguration',
     'ImagePipelineImageTestsConfiguration',
     'ImagePipelinePipelineLoggingConfiguration',
@@ -1539,6 +1540,60 @@ class ImagePipelineEcrConfiguration(dict):
         The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don't provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
         """
         return pulumi.get(self, "repository_name")
+
+
+@pulumi.output_type
+class ImagePipelineExecutionSettings(dict):
+    """
+    The settings for starting an image pipeline execution.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentId":
+            suggest = "deployment_id"
+        elif key == "onUpdate":
+            suggest = "on_update"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImagePipelineExecutionSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImagePipelineExecutionSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImagePipelineExecutionSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_id: Optional[_builtins.str] = None,
+                 on_update: Optional[_builtins.bool] = None):
+        """
+        The settings for starting an image pipeline execution.
+        :param _builtins.str deployment_id: The deployment ID of the pipeline, used to trigger new image pipeline executions.
+        :param _builtins.bool on_update: Whether to trigger the image pipeline when the pipeline is updated. False by default.
+        """
+        if deployment_id is not None:
+            pulumi.set(__self__, "deployment_id", deployment_id)
+        if on_update is not None:
+            pulumi.set(__self__, "on_update", on_update)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> Optional[_builtins.str]:
+        """
+        The deployment ID of the pipeline, used to trigger new image pipeline executions.
+        """
+        return pulumi.get(self, "deployment_id")
+
+    @_builtins.property
+    @pulumi.getter(name="onUpdate")
+    def on_update(self) -> Optional[_builtins.bool]:
+        """
+        Whether to trigger the image pipeline when the pipeline is updated. False by default.
+        """
+        return pulumi.get(self, "on_update")
 
 
 @pulumi.output_type

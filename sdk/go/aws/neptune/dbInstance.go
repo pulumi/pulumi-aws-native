@@ -49,6 +49,8 @@ type DbInstance struct {
 	Port pulumi.StringOutput `pulumi:"port"`
 	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
+	// Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
+	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// An arbitrary set of tags (key-value pairs) for this DB instance.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -132,6 +134,8 @@ type dbInstanceArgs struct {
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
+	// Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
+	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// An arbitrary set of tags (key-value pairs) for this DB instance.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -166,6 +170,8 @@ type DbInstanceArgs struct {
 	DbSubnetGroupName pulumi.StringPtrInput
 	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	PreferredMaintenanceWindow pulumi.StringPtrInput
+	// Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
+	PubliclyAccessible pulumi.BoolPtrInput
 	// An arbitrary set of tags (key-value pairs) for this DB instance.
 	Tags aws.TagArrayInput
 }
@@ -273,6 +279,11 @@ func (o DbInstanceOutput) Port() pulumi.StringOutput {
 // Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 func (o DbInstanceOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
+}
+
+// Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
+func (o DbInstanceOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
 // An arbitrary set of tags (key-value pairs) for this DB instance.

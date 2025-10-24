@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
     public sealed class ListenerRuleTargetGroupStickinessConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
+        /// [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         /// </summary>
         [Input("durationSeconds")]
         public Input<int>? DurationSeconds { get; set; }

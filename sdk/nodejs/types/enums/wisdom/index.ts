@@ -147,6 +147,10 @@ export const AiPromptAiPromptType = {
     QueryReformulation: "QUERY_REFORMULATION",
     SelfServicePreProcessing: "SELF_SERVICE_PRE_PROCESSING",
     SelfServiceAnswerGeneration: "SELF_SERVICE_ANSWER_GENERATION",
+    EmailResponse: "EMAIL_RESPONSE",
+    EmailOverview: "EMAIL_OVERVIEW",
+    EmailGenerativeAnswer: "EMAIL_GENERATIVE_ANSWER",
+    EmailQueryReformulation: "EMAIL_QUERY_REFORMULATION",
 } as const;
 
 export type AiPromptAiPromptType = (typeof AiPromptAiPromptType)[keyof typeof AiPromptAiPromptType];

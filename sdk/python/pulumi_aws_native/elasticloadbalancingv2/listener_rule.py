@@ -24,7 +24,8 @@ class ListenerRuleArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]],
                  conditions: pulumi.Input[Sequence[pulumi.Input['ListenerRuleRuleConditionArgs']]],
                  priority: pulumi.Input[_builtins.int],
-                 listener_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 listener_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]]] = None):
         """
         The set of arguments for constructing a ListenerRule resource.
         :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]] actions: The actions.
@@ -40,6 +41,8 @@ class ListenerRuleArgs:
         pulumi.set(__self__, "priority", priority)
         if listener_arn is not None:
             pulumi.set(__self__, "listener_arn", listener_arn)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
 
     @_builtins.property
     @pulumi.getter
@@ -92,6 +95,15 @@ class ListenerRuleArgs:
     def listener_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "listener_arn", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]]]:
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]]]):
+        pulumi.set(self, "transforms", value)
+
 
 @pulumi.type_token("aws-native:elasticloadbalancingv2:ListenerRule")
 class ListenerRule(pulumi.CustomResource):
@@ -103,6 +115,7 @@ class ListenerRule(pulumi.CustomResource):
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleRuleConditionArgs', 'ListenerRuleRuleConditionArgsDict']]]]] = None,
                  listener_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict']]]]] = None,
                  __props__=None):
         """
         Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
@@ -147,6 +160,7 @@ class ListenerRule(pulumi.CustomResource):
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleRuleConditionArgs', 'ListenerRuleRuleConditionArgsDict']]]]] = None,
                  listener_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -166,6 +180,7 @@ class ListenerRule(pulumi.CustomResource):
             if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
             __props__.__dict__["priority"] = priority
+            __props__.__dict__["transforms"] = transforms
             __props__.__dict__["is_default"] = None
             __props__.__dict__["rule_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["listenerArn"])
@@ -198,6 +213,7 @@ class ListenerRule(pulumi.CustomResource):
         __props__.__dict__["listener_arn"] = None
         __props__.__dict__["priority"] = None
         __props__.__dict__["rule_arn"] = None
+        __props__.__dict__["transforms"] = None
         return ListenerRule(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -250,4 +266,9 @@ class ListenerRule(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the rule.
         """
         return pulumi.get(self, "rule_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> pulumi.Output[Optional[Sequence['outputs.ListenerRuleTransform']]]:
+        return pulumi.get(self, "transforms")
 

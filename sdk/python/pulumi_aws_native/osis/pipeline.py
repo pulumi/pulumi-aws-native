@@ -31,6 +31,8 @@ class PipelineArgs:
                  encryption_at_rest_options: Optional[pulumi.Input['PipelineEncryptionAtRestOptionsArgs']] = None,
                  log_publishing_options: Optional[pulumi.Input['PipelineLogPublishingOptionsArgs']] = None,
                  pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 pipeline_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_policy: Optional[pulumi.Input['PipelineResourcePolicyArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_options: Optional[pulumi.Input['PipelineVpcOptionsArgs']] = None):
         """
@@ -42,6 +44,7 @@ class PipelineArgs:
         :param pulumi.Input['PipelineEncryptionAtRestOptionsArgs'] encryption_at_rest_options: Options to control how OpenSearch encrypts buffer data.
         :param pulumi.Input['PipelineLogPublishingOptionsArgs'] log_publishing_options: Key-value pairs that represent log publishing settings.
         :param pulumi.Input[_builtins.str] pipeline_name: Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+        :param pulumi.Input[_builtins.str] pipeline_role_arn: The Pipeline Role (ARN) for the pipeline.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['PipelineVpcOptionsArgs'] vpc_options: Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
         """
@@ -56,6 +59,10 @@ class PipelineArgs:
             pulumi.set(__self__, "log_publishing_options", log_publishing_options)
         if pipeline_name is not None:
             pulumi.set(__self__, "pipeline_name", pipeline_name)
+        if pipeline_role_arn is not None:
+            pulumi.set(__self__, "pipeline_role_arn", pipeline_role_arn)
+        if resource_policy is not None:
+            pulumi.set(__self__, "resource_policy", resource_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vpc_options is not None:
@@ -146,6 +153,27 @@ class PipelineArgs:
         pulumi.set(self, "pipeline_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="pipelineRoleArn")
+    def pipeline_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Pipeline Role (ARN) for the pipeline.
+        """
+        return pulumi.get(self, "pipeline_role_arn")
+
+    @pipeline_role_arn.setter
+    def pipeline_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pipeline_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourcePolicy")
+    def resource_policy(self) -> Optional[pulumi.Input['PipelineResourcePolicyArgs']]:
+        return pulumi.get(self, "resource_policy")
+
+    @resource_policy.setter
+    def resource_policy(self, value: Optional[pulumi.Input['PipelineResourcePolicyArgs']]):
+        pulumi.set(self, "resource_policy", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -183,6 +211,8 @@ class Pipeline(pulumi.CustomResource):
                  min_units: Optional[pulumi.Input[_builtins.int]] = None,
                  pipeline_configuration_body: Optional[pulumi.Input[_builtins.str]] = None,
                  pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 pipeline_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_policy: Optional[pulumi.Input[Union['PipelineResourcePolicyArgs', 'PipelineResourcePolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_options: Optional[pulumi.Input[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict']]] = None,
                  __props__=None):
@@ -198,6 +228,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] min_units: The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         :param pulumi.Input[_builtins.str] pipeline_configuration_body: The Data Prepper pipeline configuration.
         :param pulumi.Input[_builtins.str] pipeline_name: Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+        :param pulumi.Input[_builtins.str] pipeline_role_arn: The Pipeline Role (ARN) for the pipeline.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict']] vpc_options: Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
         """
@@ -232,6 +263,8 @@ class Pipeline(pulumi.CustomResource):
                  min_units: Optional[pulumi.Input[_builtins.int]] = None,
                  pipeline_configuration_body: Optional[pulumi.Input[_builtins.str]] = None,
                  pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 pipeline_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_policy: Optional[pulumi.Input[Union['PipelineResourcePolicyArgs', 'PipelineResourcePolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_options: Optional[pulumi.Input[Union['PipelineVpcOptionsArgs', 'PipelineVpcOptionsArgsDict']]] = None,
                  __props__=None):
@@ -256,6 +289,8 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError("Missing required property 'pipeline_configuration_body'")
             __props__.__dict__["pipeline_configuration_body"] = pipeline_configuration_body
             __props__.__dict__["pipeline_name"] = pipeline_name
+            __props__.__dict__["pipeline_role_arn"] = pipeline_role_arn
+            __props__.__dict__["resource_policy"] = resource_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_options"] = vpc_options
             __props__.__dict__["ingest_endpoint_urls"] = None
@@ -295,6 +330,8 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["pipeline_arn"] = None
         __props__.__dict__["pipeline_configuration_body"] = None
         __props__.__dict__["pipeline_name"] = None
+        __props__.__dict__["pipeline_role_arn"] = None
+        __props__.__dict__["resource_policy"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_endpoint_service"] = None
         __props__.__dict__["vpc_endpoints"] = None
@@ -372,6 +409,19 @@ class Pipeline(pulumi.CustomResource):
         Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
         """
         return pulumi.get(self, "pipeline_name")
+
+    @_builtins.property
+    @pulumi.getter(name="pipelineRoleArn")
+    def pipeline_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Pipeline Role (ARN) for the pipeline.
+        """
+        return pulumi.get(self, "pipeline_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="resourcePolicy")
+    def resource_policy(self) -> pulumi.Output[Optional['outputs.PipelineResourcePolicy']]:
+        return pulumi.get(self, "resource_policy")
 
     @_builtins.property
     @pulumi.getter

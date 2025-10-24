@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class EvaluationFormQuestionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("enablement")]
+        public Input<Inputs.EvaluationFormItemEnablementConfigurationArgs>? Enablement { get; set; }
+
         /// <summary>
         /// The instructions of the section.
         ///  *Length Constraints*: Minimum length of 0. Maximum length of 1024.

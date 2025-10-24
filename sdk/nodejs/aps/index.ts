@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AnomalyDetectorArgs } from "./anomalyDetector";
+export type AnomalyDetector = import("./anomalyDetector").AnomalyDetector;
+export const AnomalyDetector: typeof import("./anomalyDetector").AnomalyDetector = null as any;
+utilities.lazyLoad(exports, ["AnomalyDetector"], () => require("./anomalyDetector"));
+
+export { GetAnomalyDetectorArgs, GetAnomalyDetectorResult, GetAnomalyDetectorOutputArgs } from "./getAnomalyDetector";
+export const getAnomalyDetector: typeof import("./getAnomalyDetector").getAnomalyDetector = null as any;
+export const getAnomalyDetectorOutput: typeof import("./getAnomalyDetector").getAnomalyDetectorOutput = null as any;
+utilities.lazyLoad(exports, ["getAnomalyDetector","getAnomalyDetectorOutput"], () => require("./getAnomalyDetector"));
+
 export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
 export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
 export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
@@ -53,6 +63,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:aps:AnomalyDetector":
+                return new AnomalyDetector(name, <any>undefined, { urn })
             case "aws-native:aps:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws-native:aps:RuleGroupsNamespace":

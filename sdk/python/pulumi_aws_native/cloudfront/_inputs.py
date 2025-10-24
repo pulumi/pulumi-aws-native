@@ -5545,6 +5545,7 @@ if not MYPY:
         Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
          For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         """
+        owner_account_id: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
     DistributionVpcOriginConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5553,7 +5554,8 @@ class DistributionVpcOriginConfigArgs:
     def __init__(__self__, *,
                  vpc_origin_id: pulumi.Input[_builtins.str],
                  origin_keepalive_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 origin_read_timeout: Optional[pulumi.Input[_builtins.int]] = None):
+                 origin_read_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 owner_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An Amazon CloudFront VPC origin configuration.
         :param pulumi.Input[_builtins.str] vpc_origin_id: The VPC origin ID.
@@ -5567,6 +5569,8 @@ class DistributionVpcOriginConfigArgs:
             pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
         if origin_read_timeout is not None:
             pulumi.set(__self__, "origin_read_timeout", origin_read_timeout)
+        if owner_account_id is not None:
+            pulumi.set(__self__, "owner_account_id", owner_account_id)
 
     @_builtins.property
     @pulumi.getter(name="vpcOriginId")
@@ -5605,6 +5609,15 @@ class DistributionVpcOriginConfigArgs:
     @origin_read_timeout.setter
     def origin_read_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "origin_read_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerAccountId")
+    def owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "owner_account_id")
+
+    @owner_account_id.setter
+    def owner_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "owner_account_id", value)
 
 
 if not MYPY:

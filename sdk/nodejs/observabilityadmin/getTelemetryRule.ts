@@ -25,6 +25,9 @@ export interface GetTelemetryRuleArgs {
 }
 
 export interface GetTelemetryRuleResult {
+    /**
+     * Retrieves the details of a specific telemetry rule in your account.
+     */
     readonly rule?: outputs.observabilityadmin.TelemetryRule;
     /**
      * The arn of the telemetry rule

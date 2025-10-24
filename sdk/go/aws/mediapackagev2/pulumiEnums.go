@@ -343,7 +343,8 @@ func (in *originEndpointAdMarkerDashPtr) ToOriginEndpointAdMarkerDashPtrOutputWi
 type OriginEndpointAdMarkerHls string
 
 const (
-	OriginEndpointAdMarkerHlsDaterange = OriginEndpointAdMarkerHls("DATERANGE")
+	OriginEndpointAdMarkerHlsDaterange      = OriginEndpointAdMarkerHls("DATERANGE")
+	OriginEndpointAdMarkerHlsScte35Enhanced = OriginEndpointAdMarkerHls("SCTE35_ENHANCED")
 )
 
 func (OriginEndpointAdMarkerHls) ElementType() reflect.Type {
@@ -469,6 +470,7 @@ func (o OriginEndpointAdMarkerHlsPtrOutput) ToStringPtrOutputWithContext(ctx con
 // A concrete instance of `OriginEndpointAdMarkerHlsInput` can be one of the following:
 //
 //	OriginEndpointAdMarkerHlsDaterange
+//	OriginEndpointAdMarkerHlsScte35Enhanced
 type OriginEndpointAdMarkerHlsInput interface {
 	pulumi.Input
 
@@ -673,6 +675,7 @@ type OriginEndpointContainerType string
 const (
 	OriginEndpointContainerTypeTs   = OriginEndpointContainerType("TS")
 	OriginEndpointContainerTypeCmaf = OriginEndpointContainerType("CMAF")
+	OriginEndpointContainerTypeIsm  = OriginEndpointContainerType("ISM")
 )
 
 func (OriginEndpointContainerType) ElementType() reflect.Type {
@@ -799,6 +802,7 @@ func (o OriginEndpointContainerTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 //
 //	OriginEndpointContainerTypeTs
 //	OriginEndpointContainerTypeCmaf
+//	OriginEndpointContainerTypeIsm
 type OriginEndpointContainerTypeInput interface {
 	pulumi.Input
 
@@ -2514,6 +2518,334 @@ func (o OriginEndpointEndpointErrorConditionArrayOutput) Index(i pulumi.IntInput
 	}).(OriginEndpointEndpointErrorConditionOutput)
 }
 
+type OriginEndpointIsmEncryptionMethod string
+
+const (
+	OriginEndpointIsmEncryptionMethodCenc = OriginEndpointIsmEncryptionMethod("CENC")
+)
+
+func (OriginEndpointIsmEncryptionMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointIsmEncryptionMethod)(nil)).Elem()
+}
+
+func (e OriginEndpointIsmEncryptionMethod) ToOriginEndpointIsmEncryptionMethodOutput() OriginEndpointIsmEncryptionMethodOutput {
+	return pulumi.ToOutput(e).(OriginEndpointIsmEncryptionMethodOutput)
+}
+
+func (e OriginEndpointIsmEncryptionMethod) ToOriginEndpointIsmEncryptionMethodOutputWithContext(ctx context.Context) OriginEndpointIsmEncryptionMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointIsmEncryptionMethodOutput)
+}
+
+func (e OriginEndpointIsmEncryptionMethod) ToOriginEndpointIsmEncryptionMethodPtrOutput() OriginEndpointIsmEncryptionMethodPtrOutput {
+	return e.ToOriginEndpointIsmEncryptionMethodPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointIsmEncryptionMethod) ToOriginEndpointIsmEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointIsmEncryptionMethodPtrOutput {
+	return OriginEndpointIsmEncryptionMethod(e).ToOriginEndpointIsmEncryptionMethodOutputWithContext(ctx).ToOriginEndpointIsmEncryptionMethodPtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointIsmEncryptionMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointIsmEncryptionMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointIsmEncryptionMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointIsmEncryptionMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointIsmEncryptionMethodOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointIsmEncryptionMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointIsmEncryptionMethod)(nil)).Elem()
+}
+
+func (o OriginEndpointIsmEncryptionMethodOutput) ToOriginEndpointIsmEncryptionMethodOutput() OriginEndpointIsmEncryptionMethodOutput {
+	return o
+}
+
+func (o OriginEndpointIsmEncryptionMethodOutput) ToOriginEndpointIsmEncryptionMethodOutputWithContext(ctx context.Context) OriginEndpointIsmEncryptionMethodOutput {
+	return o
+}
+
+func (o OriginEndpointIsmEncryptionMethodOutput) ToOriginEndpointIsmEncryptionMethodPtrOutput() OriginEndpointIsmEncryptionMethodPtrOutput {
+	return o.ToOriginEndpointIsmEncryptionMethodPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointIsmEncryptionMethodOutput) ToOriginEndpointIsmEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointIsmEncryptionMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointIsmEncryptionMethod) *OriginEndpointIsmEncryptionMethod {
+		return &v
+	}).(OriginEndpointIsmEncryptionMethodPtrOutput)
+}
+
+func (o OriginEndpointIsmEncryptionMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointIsmEncryptionMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointIsmEncryptionMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointIsmEncryptionMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointIsmEncryptionMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointIsmEncryptionMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointIsmEncryptionMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointIsmEncryptionMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointIsmEncryptionMethod)(nil)).Elem()
+}
+
+func (o OriginEndpointIsmEncryptionMethodPtrOutput) ToOriginEndpointIsmEncryptionMethodPtrOutput() OriginEndpointIsmEncryptionMethodPtrOutput {
+	return o
+}
+
+func (o OriginEndpointIsmEncryptionMethodPtrOutput) ToOriginEndpointIsmEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointIsmEncryptionMethodPtrOutput {
+	return o
+}
+
+func (o OriginEndpointIsmEncryptionMethodPtrOutput) Elem() OriginEndpointIsmEncryptionMethodOutput {
+	return o.ApplyT(func(v *OriginEndpointIsmEncryptionMethod) OriginEndpointIsmEncryptionMethod {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointIsmEncryptionMethod
+		return ret
+	}).(OriginEndpointIsmEncryptionMethodOutput)
+}
+
+func (o OriginEndpointIsmEncryptionMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointIsmEncryptionMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointIsmEncryptionMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointIsmEncryptionMethodInput is an input type that accepts values of the OriginEndpointIsmEncryptionMethod enum
+// A concrete instance of `OriginEndpointIsmEncryptionMethodInput` can be one of the following:
+//
+//	OriginEndpointIsmEncryptionMethodCenc
+type OriginEndpointIsmEncryptionMethodInput interface {
+	pulumi.Input
+
+	ToOriginEndpointIsmEncryptionMethodOutput() OriginEndpointIsmEncryptionMethodOutput
+	ToOriginEndpointIsmEncryptionMethodOutputWithContext(context.Context) OriginEndpointIsmEncryptionMethodOutput
+}
+
+var originEndpointIsmEncryptionMethodPtrType = reflect.TypeOf((**OriginEndpointIsmEncryptionMethod)(nil)).Elem()
+
+type OriginEndpointIsmEncryptionMethodPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointIsmEncryptionMethodPtrOutput() OriginEndpointIsmEncryptionMethodPtrOutput
+	ToOriginEndpointIsmEncryptionMethodPtrOutputWithContext(context.Context) OriginEndpointIsmEncryptionMethodPtrOutput
+}
+
+type originEndpointIsmEncryptionMethodPtr string
+
+func OriginEndpointIsmEncryptionMethodPtr(v string) OriginEndpointIsmEncryptionMethodPtrInput {
+	return (*originEndpointIsmEncryptionMethodPtr)(&v)
+}
+
+func (*originEndpointIsmEncryptionMethodPtr) ElementType() reflect.Type {
+	return originEndpointIsmEncryptionMethodPtrType
+}
+
+func (in *originEndpointIsmEncryptionMethodPtr) ToOriginEndpointIsmEncryptionMethodPtrOutput() OriginEndpointIsmEncryptionMethodPtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointIsmEncryptionMethodPtrOutput)
+}
+
+func (in *originEndpointIsmEncryptionMethodPtr) ToOriginEndpointIsmEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointIsmEncryptionMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointIsmEncryptionMethodPtrOutput)
+}
+
+type OriginEndpointMssManifestLayout string
+
+const (
+	OriginEndpointMssManifestLayoutFull    = OriginEndpointMssManifestLayout("FULL")
+	OriginEndpointMssManifestLayoutCompact = OriginEndpointMssManifestLayout("COMPACT")
+)
+
+func (OriginEndpointMssManifestLayout) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointMssManifestLayout)(nil)).Elem()
+}
+
+func (e OriginEndpointMssManifestLayout) ToOriginEndpointMssManifestLayoutOutput() OriginEndpointMssManifestLayoutOutput {
+	return pulumi.ToOutput(e).(OriginEndpointMssManifestLayoutOutput)
+}
+
+func (e OriginEndpointMssManifestLayout) ToOriginEndpointMssManifestLayoutOutputWithContext(ctx context.Context) OriginEndpointMssManifestLayoutOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointMssManifestLayoutOutput)
+}
+
+func (e OriginEndpointMssManifestLayout) ToOriginEndpointMssManifestLayoutPtrOutput() OriginEndpointMssManifestLayoutPtrOutput {
+	return e.ToOriginEndpointMssManifestLayoutPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointMssManifestLayout) ToOriginEndpointMssManifestLayoutPtrOutputWithContext(ctx context.Context) OriginEndpointMssManifestLayoutPtrOutput {
+	return OriginEndpointMssManifestLayout(e).ToOriginEndpointMssManifestLayoutOutputWithContext(ctx).ToOriginEndpointMssManifestLayoutPtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointMssManifestLayout) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointMssManifestLayout) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointMssManifestLayout) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointMssManifestLayout) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointMssManifestLayoutOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointMssManifestLayoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointMssManifestLayout)(nil)).Elem()
+}
+
+func (o OriginEndpointMssManifestLayoutOutput) ToOriginEndpointMssManifestLayoutOutput() OriginEndpointMssManifestLayoutOutput {
+	return o
+}
+
+func (o OriginEndpointMssManifestLayoutOutput) ToOriginEndpointMssManifestLayoutOutputWithContext(ctx context.Context) OriginEndpointMssManifestLayoutOutput {
+	return o
+}
+
+func (o OriginEndpointMssManifestLayoutOutput) ToOriginEndpointMssManifestLayoutPtrOutput() OriginEndpointMssManifestLayoutPtrOutput {
+	return o.ToOriginEndpointMssManifestLayoutPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointMssManifestLayoutOutput) ToOriginEndpointMssManifestLayoutPtrOutputWithContext(ctx context.Context) OriginEndpointMssManifestLayoutPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointMssManifestLayout) *OriginEndpointMssManifestLayout {
+		return &v
+	}).(OriginEndpointMssManifestLayoutPtrOutput)
+}
+
+func (o OriginEndpointMssManifestLayoutOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointMssManifestLayoutOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointMssManifestLayout) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointMssManifestLayoutOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointMssManifestLayoutOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointMssManifestLayout) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointMssManifestLayoutPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointMssManifestLayoutPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointMssManifestLayout)(nil)).Elem()
+}
+
+func (o OriginEndpointMssManifestLayoutPtrOutput) ToOriginEndpointMssManifestLayoutPtrOutput() OriginEndpointMssManifestLayoutPtrOutput {
+	return o
+}
+
+func (o OriginEndpointMssManifestLayoutPtrOutput) ToOriginEndpointMssManifestLayoutPtrOutputWithContext(ctx context.Context) OriginEndpointMssManifestLayoutPtrOutput {
+	return o
+}
+
+func (o OriginEndpointMssManifestLayoutPtrOutput) Elem() OriginEndpointMssManifestLayoutOutput {
+	return o.ApplyT(func(v *OriginEndpointMssManifestLayout) OriginEndpointMssManifestLayout {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointMssManifestLayout
+		return ret
+	}).(OriginEndpointMssManifestLayoutOutput)
+}
+
+func (o OriginEndpointMssManifestLayoutPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointMssManifestLayoutPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointMssManifestLayout) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointMssManifestLayoutInput is an input type that accepts values of the OriginEndpointMssManifestLayout enum
+// A concrete instance of `OriginEndpointMssManifestLayoutInput` can be one of the following:
+//
+//	OriginEndpointMssManifestLayoutFull
+//	OriginEndpointMssManifestLayoutCompact
+type OriginEndpointMssManifestLayoutInput interface {
+	pulumi.Input
+
+	ToOriginEndpointMssManifestLayoutOutput() OriginEndpointMssManifestLayoutOutput
+	ToOriginEndpointMssManifestLayoutOutputWithContext(context.Context) OriginEndpointMssManifestLayoutOutput
+}
+
+var originEndpointMssManifestLayoutPtrType = reflect.TypeOf((**OriginEndpointMssManifestLayout)(nil)).Elem()
+
+type OriginEndpointMssManifestLayoutPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointMssManifestLayoutPtrOutput() OriginEndpointMssManifestLayoutPtrOutput
+	ToOriginEndpointMssManifestLayoutPtrOutputWithContext(context.Context) OriginEndpointMssManifestLayoutPtrOutput
+}
+
+type originEndpointMssManifestLayoutPtr string
+
+func OriginEndpointMssManifestLayoutPtr(v string) OriginEndpointMssManifestLayoutPtrInput {
+	return (*originEndpointMssManifestLayoutPtr)(&v)
+}
+
+func (*originEndpointMssManifestLayoutPtr) ElementType() reflect.Type {
+	return originEndpointMssManifestLayoutPtrType
+}
+
+func (in *originEndpointMssManifestLayoutPtr) ToOriginEndpointMssManifestLayoutPtrOutput() OriginEndpointMssManifestLayoutPtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointMssManifestLayoutPtrOutput)
+}
+
+func (in *originEndpointMssManifestLayoutPtr) ToOriginEndpointMssManifestLayoutPtrOutputWithContext(ctx context.Context) OriginEndpointMssManifestLayoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointMssManifestLayoutPtrOutput)
+}
+
 type OriginEndpointPresetSpeke20Audio string
 
 const (
@@ -3288,6 +3620,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEndpointErrorConditionInput)(nil)).Elem(), OriginEndpointEndpointErrorCondition("STALE_MANIFEST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEndpointErrorConditionPtrInput)(nil)).Elem(), OriginEndpointEndpointErrorCondition("STALE_MANIFEST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointEndpointErrorConditionArrayInput)(nil)).Elem(), OriginEndpointEndpointErrorConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointIsmEncryptionMethodInput)(nil)).Elem(), OriginEndpointIsmEncryptionMethod("CENC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointIsmEncryptionMethodPtrInput)(nil)).Elem(), OriginEndpointIsmEncryptionMethod("CENC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointMssManifestLayoutInput)(nil)).Elem(), OriginEndpointMssManifestLayout("FULL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointMssManifestLayoutPtrInput)(nil)).Elem(), OriginEndpointMssManifestLayout("FULL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointPresetSpeke20AudioInput)(nil)).Elem(), OriginEndpointPresetSpeke20Audio("PRESET_AUDIO_1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointPresetSpeke20AudioPtrInput)(nil)).Elem(), OriginEndpointPresetSpeke20Audio("PRESET_AUDIO_1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointPresetSpeke20VideoInput)(nil)).Elem(), OriginEndpointPresetSpeke20Video("PRESET_VIDEO_1"))
@@ -3329,6 +3665,10 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointEndpointErrorConditionOutput{})
 	pulumi.RegisterOutputType(OriginEndpointEndpointErrorConditionPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointEndpointErrorConditionArrayOutput{})
+	pulumi.RegisterOutputType(OriginEndpointIsmEncryptionMethodOutput{})
+	pulumi.RegisterOutputType(OriginEndpointIsmEncryptionMethodPtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointMssManifestLayoutOutput{})
+	pulumi.RegisterOutputType(OriginEndpointMssManifestLayoutPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointPresetSpeke20AudioOutput{})
 	pulumi.RegisterOutputType(OriginEndpointPresetSpeke20AudioPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointPresetSpeke20VideoOutput{})

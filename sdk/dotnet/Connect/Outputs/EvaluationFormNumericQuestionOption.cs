@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
         /// </summary>
         public readonly bool? AutomaticFail;
+        public readonly Outputs.EvaluationFormAutomaticFailConfiguration? AutomaticFailConfiguration;
         /// <summary>
         /// The maximum answer value of the range option.
         /// </summary>
@@ -39,6 +40,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
         private EvaluationFormNumericQuestionOption(
             bool? automaticFail,
 
+            Outputs.EvaluationFormAutomaticFailConfiguration? automaticFailConfiguration,
+
             int maxValue,
 
             int minValue,
@@ -46,6 +49,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
             int? score)
         {
             AutomaticFail = automaticFail;
+            AutomaticFailConfiguration = automaticFailConfiguration;
             MaxValue = maxValue;
             MinValue = minValue;
             Score = score;

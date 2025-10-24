@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
     [OutputType]
     public sealed class OrganizationCentralizationRuleCentralizationRuleSource
     {
+        /// <summary>
+        /// The list of source regions from which telemetry data should be centralized.
+        /// </summary>
         public readonly ImmutableArray<string> Regions;
+        /// <summary>
+        /// The organizational scope from which telemetry data should be centralized, specified using organization id, accounts or organizational unit ids.
+        /// </summary>
         public readonly string? Scope;
+        /// <summary>
+        /// Log specific configuration for centralization source log groups.
+        /// </summary>
         public readonly Outputs.OrganizationCentralizationRuleSourceLogsConfiguration? SourceLogsConfiguration;
 
         [OutputConstructor]

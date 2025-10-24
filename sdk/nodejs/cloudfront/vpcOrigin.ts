@@ -37,6 +37,7 @@ export class VpcOrigin extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcOrigin.__pulumiType;
     }
 
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
     /**
      * The VPC origin ARN.
      */
@@ -82,12 +83,14 @@ export class VpcOrigin extends pulumi.CustomResource {
             }
             resourceInputs["tags"] = args?.tags;
             resourceInputs["vpcOriginEndpointConfig"] = args?.vpcOriginEndpointConfig;
+            resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
+            resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;

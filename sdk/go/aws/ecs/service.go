@@ -73,6 +73,7 @@ type Service struct {
 	//  If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
 	HealthCheckGracePeriodSeconds pulumi.IntPtrOutput `pulumi:"healthCheckGracePeriodSeconds"`
 	// The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
 	LaunchType ServiceLaunchTypePtrOutput `pulumi:"launchType"`
 	// A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
@@ -216,6 +217,7 @@ type serviceArgs struct {
 	//  If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
 	HealthCheckGracePeriodSeconds *int `pulumi:"healthCheckGracePeriodSeconds"`
 	// The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
 	LaunchType *ServiceLaunchType `pulumi:"launchType"`
 	// A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
@@ -309,6 +311,7 @@ type ServiceArgs struct {
 	//  If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
 	HealthCheckGracePeriodSeconds pulumi.IntPtrInput
 	// The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
 	LaunchType ServiceLaunchTypePtrInput
 	// A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
@@ -472,6 +475,8 @@ func (o ServiceOutput) HealthCheckGracePeriodSeconds() pulumi.IntPtrOutput {
 }
 
 // The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+//
+//	If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
 func (o ServiceOutput) LaunchType() ServiceLaunchTypePtrOutput {
 	return o.ApplyT(func(v *Service) ServiceLaunchTypePtrOutput { return v.LaunchType }).(ServiceLaunchTypePtrOutput)
 }

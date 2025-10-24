@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAccountResult:
-    def __init__(__self__, account_id=None, account_name=None, arn=None, email=None, joined_method=None, joined_timestamp=None, parent_ids=None, status=None, tags=None):
+    def __init__(__self__, account_id=None, account_name=None, arn=None, email=None, joined_method=None, joined_timestamp=None, parent_ids=None, state=None, status=None, tags=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -47,6 +47,9 @@ class GetAccountResult:
         if parent_ids and not isinstance(parent_ids, list):
             raise TypeError("Expected argument 'parent_ids' to be a list")
         pulumi.set(__self__, "parent_ids", parent_ids)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -112,6 +115,14 @@ class GetAccountResult:
 
     @_builtins.property
     @pulumi.getter
+    def state(self) -> Optional['AccountState']:
+        """
+        The state of the account in the organization.
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
     def status(self) -> Optional['AccountStatus']:
         """
         The status of the account in the organization.
@@ -140,6 +151,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             joined_method=self.joined_method,
             joined_timestamp=self.joined_timestamp,
             parent_ids=self.parent_ids,
+            state=self.state,
             status=self.status,
             tags=self.tags)
 
@@ -165,6 +177,7 @@ def get_account(account_id: Optional[_builtins.str] = None,
         joined_method=pulumi.get(__ret__, 'joined_method'),
         joined_timestamp=pulumi.get(__ret__, 'joined_timestamp'),
         parent_ids=pulumi.get(__ret__, 'parent_ids'),
+        state=pulumi.get(__ret__, 'state'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_account_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -187,5 +200,6 @@ def get_account_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
         joined_method=pulumi.get(__response__, 'joined_method'),
         joined_timestamp=pulumi.get(__response__, 'joined_timestamp'),
         parent_ids=pulumi.get(__response__, 'parent_ids'),
+        state=pulumi.get(__response__, 'state'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

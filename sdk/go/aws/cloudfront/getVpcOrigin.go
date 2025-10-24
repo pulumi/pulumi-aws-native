@@ -29,6 +29,7 @@ type LookupVpcOriginArgs struct {
 }
 
 type LookupVpcOriginResult struct {
+	AccountId *string `pulumi:"accountId"`
 	// The VPC origin ARN.
 	Arn *string `pulumi:"arn"`
 	// The VPC origin created time.
@@ -75,6 +76,10 @@ func (o LookupVpcOriginResultOutput) ToLookupVpcOriginResultOutput() LookupVpcOr
 
 func (o LookupVpcOriginResultOutput) ToLookupVpcOriginResultOutputWithContext(ctx context.Context) LookupVpcOriginResultOutput {
 	return o
+}
+
+func (o LookupVpcOriginResultOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcOriginResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // The VPC origin ARN.

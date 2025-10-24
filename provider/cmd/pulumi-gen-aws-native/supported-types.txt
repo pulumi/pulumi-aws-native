@@ -3,6 +3,7 @@ AWS::ACMPCA::CertificateAuthority
 AWS::ACMPCA::CertificateAuthorityActivation
 AWS::ACMPCA::Permission
 AWS::AIOps::InvestigationGroup
+AWS::APS::AnomalyDetector
 AWS::APS::ResourcePolicy
 AWS::APS::RuleGroupsNamespace
 AWS::APS::Scraper
@@ -518,6 +519,7 @@ AWS::Events::Archive
 AWS::Events::Connection
 AWS::Events::Endpoint
 AWS::Events::EventBus
+AWS::Events::EventBusPolicy
 AWS::Events::Rule
 AWS::Evidently::Experiment
 AWS::Evidently::Feature
@@ -948,6 +950,8 @@ AWS::RDS::EventSubscription
 AWS::RDS::GlobalCluster
 AWS::RDS::Integration
 AWS::RDS::OptionGroup
+AWS::RTBFabric::RequesterGateway
+AWS::RTBFabric::ResponderGateway
 AWS::RUM::AppMonitor
 AWS::Rbin::Rule
 AWS::Redshift::Cluster

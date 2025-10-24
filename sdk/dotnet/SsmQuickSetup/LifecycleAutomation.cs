@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.SsmQuickSetup
         [Output("automationDocument")]
         public Output<string> AutomationDocument { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
+        /// </summary>
         [Output("automationParameters")]
         public Output<ImmutableDictionary<string, object>> AutomationParameters { get; private set; } = null!;
 
@@ -36,6 +39,9 @@ namespace Pulumi.AwsNative.SsmQuickSetup
         [Output("resourceKey")]
         public Output<string> ResourceKey { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -96,6 +102,10 @@ namespace Pulumi.AwsNative.SsmQuickSetup
 
         [Input("automationParameters", required: true)]
         private InputMap<object>? _automationParameters;
+
+        /// <summary>
+        /// A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
+        /// </summary>
         public InputMap<object> AutomationParameters
         {
             get => _automationParameters ?? (_automationParameters = new InputMap<object>());
@@ -110,6 +120,10 @@ namespace Pulumi.AwsNative.SsmQuickSetup
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

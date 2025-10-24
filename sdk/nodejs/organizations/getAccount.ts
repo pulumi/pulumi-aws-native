@@ -54,6 +54,10 @@ export interface GetAccountResult {
      */
     readonly parentIds?: string[];
     /**
+     * The state of the account in the organization.
+     */
+    readonly state?: enums.organizations.AccountState;
+    /**
      * The status of the account in the organization.
      */
     readonly status?: enums.organizations.AccountStatus;

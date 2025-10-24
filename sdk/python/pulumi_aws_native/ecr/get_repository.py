@@ -64,7 +64,8 @@ class GetRepositoryResult:
     @pulumi.getter(name="imageScanningConfiguration")
     def image_scanning_configuration(self) -> Optional['outputs.RepositoryImageScanningConfiguration']:
         """
-        The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+        The ``imageScanningConfiguration`` parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see ``PutRegistryScanningConfiguration``.
+          The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
         """
         return pulumi.get(self, "image_scanning_configuration")
 
@@ -80,7 +81,7 @@ class GetRepositoryResult:
     @pulumi.getter(name="imageTagMutabilityExclusionFilters")
     def image_tag_mutability_exclusion_filters(self) -> Optional[Sequence['outputs.RepositoryImageTagMutabilityExclusionFilter']]:
         """
-        The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+        A list of filters that specify which image tags are excluded from the repository's image tag mutability setting.
         """
         return pulumi.get(self, "image_tag_mutability_exclusion_filters")
 

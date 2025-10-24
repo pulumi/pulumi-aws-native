@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.ObservabilityAdmin
 {
+    /// <summary>
+    /// Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
+    /// </summary>
     [EnumType]
     public readonly struct OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy : IEquatable<OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy>
     {
@@ -35,6 +38,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
+    /// </summary>
     [EnumType]
     public readonly struct OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy : IEquatable<OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy>
     {
@@ -63,6 +69,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
+    /// </summary>
     [EnumType]
     public readonly struct OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy : IEquatable<OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy>
     {

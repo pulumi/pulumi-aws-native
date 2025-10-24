@@ -15,6 +15,7 @@ __all__ = [
     'ClusterNodeProvisioningMode',
     'ClusterNodeRecovery',
     'ClusterStatus',
+    'ClusterTieredStorageConfigMode',
     'DataQualityJobDefinitionBatchTransformInputS3DataDistributionType',
     'DataQualityJobDefinitionBatchTransformInputS3InputMode',
     'DataQualityJobDefinitionEndpointInputS3DataDistributionType',
@@ -374,6 +375,15 @@ class ClusterStatus(_builtins.str, Enum):
     ROLLING_BACK = "RollingBack"
     SYSTEM_UPDATING = "SystemUpdating"
     UPDATING = "Updating"
+
+
+@pulumi.type_token("aws-native:sagemaker:ClusterTieredStorageConfigMode")
+class ClusterTieredStorageConfigMode(_builtins.str, Enum):
+    """
+    The mode of tiered storage.
+    """
+    ENABLE = "Enable"
+    DISABLE = "Disable"
 
 
 @pulumi.type_token("aws-native:sagemaker:DataQualityJobDefinitionBatchTransformInputS3DataDistributionType")

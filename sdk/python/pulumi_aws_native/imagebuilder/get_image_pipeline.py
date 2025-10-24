@@ -25,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetImagePipelineResult:
-    def __init__(__self__, arn=None, container_recipe_arn=None, description=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, execution_role=None, image_recipe_arn=None, image_scanning_configuration=None, image_tests_configuration=None, infrastructure_configuration_arn=None, logging_configuration=None, schedule=None, status=None, tags=None, workflows=None):
+    def __init__(__self__, arn=None, container_recipe_arn=None, deployment_id=None, description=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, execution_role=None, image_recipe_arn=None, image_scanning_configuration=None, image_tests_configuration=None, infrastructure_configuration_arn=None, logging_configuration=None, schedule=None, status=None, tags=None, workflows=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if container_recipe_arn and not isinstance(container_recipe_arn, str):
             raise TypeError("Expected argument 'container_recipe_arn' to be a str")
         pulumi.set(__self__, "container_recipe_arn", container_recipe_arn)
+        if deployment_id and not isinstance(deployment_id, str):
+            raise TypeError("Expected argument 'deployment_id' to be a str")
+        pulumi.set(__self__, "deployment_id", deployment_id)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -87,6 +90,14 @@ class GetImagePipelineResult:
         The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
         """
         return pulumi.get(self, "container_recipe_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> Optional[_builtins.str]:
+        """
+        The deployment ID of the pipeline, used for resource create/update triggers.
+        """
+        return pulumi.get(self, "deployment_id")
 
     @_builtins.property
     @pulumi.getter
@@ -201,6 +212,7 @@ class AwaitableGetImagePipelineResult(GetImagePipelineResult):
         return GetImagePipelineResult(
             arn=self.arn,
             container_recipe_arn=self.container_recipe_arn,
+            deployment_id=self.deployment_id,
             description=self.description,
             distribution_configuration_arn=self.distribution_configuration_arn,
             enhanced_image_metadata_enabled=self.enhanced_image_metadata_enabled,
@@ -232,6 +244,7 @@ def get_image_pipeline(arn: Optional[_builtins.str] = None,
     return AwaitableGetImagePipelineResult(
         arn=pulumi.get(__ret__, 'arn'),
         container_recipe_arn=pulumi.get(__ret__, 'container_recipe_arn'),
+        deployment_id=pulumi.get(__ret__, 'deployment_id'),
         description=pulumi.get(__ret__, 'description'),
         distribution_configuration_arn=pulumi.get(__ret__, 'distribution_configuration_arn'),
         enhanced_image_metadata_enabled=pulumi.get(__ret__, 'enhanced_image_metadata_enabled'),
@@ -260,6 +273,7 @@ def get_image_pipeline_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetImagePipelineResult(
         arn=pulumi.get(__response__, 'arn'),
         container_recipe_arn=pulumi.get(__response__, 'container_recipe_arn'),
+        deployment_id=pulumi.get(__response__, 'deployment_id'),
         description=pulumi.get(__response__, 'description'),
         distribution_configuration_arn=pulumi.get(__response__, 'distribution_configuration_arn'),
         enhanced_image_metadata_enabled=pulumi.get(__response__, 'enhanced_image_metadata_enabled'),

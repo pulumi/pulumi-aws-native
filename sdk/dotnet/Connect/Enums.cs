@@ -141,6 +141,190 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormItemEnablementConditionOperator : IEquatable<EvaluationFormItemEnablementConditionOperator>
+    {
+        private readonly string _value;
+
+        private EvaluationFormItemEnablementConditionOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormItemEnablementConditionOperator Or { get; } = new EvaluationFormItemEnablementConditionOperator("OR");
+        public static EvaluationFormItemEnablementConditionOperator And { get; } = new EvaluationFormItemEnablementConditionOperator("AND");
+
+        public static bool operator ==(EvaluationFormItemEnablementConditionOperator left, EvaluationFormItemEnablementConditionOperator right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormItemEnablementConditionOperator left, EvaluationFormItemEnablementConditionOperator right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormItemEnablementConditionOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormItemEnablementConditionOperator other && Equals(other);
+        public bool Equals(EvaluationFormItemEnablementConditionOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines the enablement status to be applied when the specified condition is met.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormItemEnablementConfigurationAction : IEquatable<EvaluationFormItemEnablementConfigurationAction>
+    {
+        private readonly string _value;
+
+        private EvaluationFormItemEnablementConfigurationAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormItemEnablementConfigurationAction Disable { get; } = new EvaluationFormItemEnablementConfigurationAction("DISABLE");
+        public static EvaluationFormItemEnablementConfigurationAction Enable { get; } = new EvaluationFormItemEnablementConfigurationAction("ENABLE");
+
+        public static bool operator ==(EvaluationFormItemEnablementConfigurationAction left, EvaluationFormItemEnablementConfigurationAction right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormItemEnablementConfigurationAction left, EvaluationFormItemEnablementConfigurationAction right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormItemEnablementConfigurationAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormItemEnablementConfigurationAction other && Equals(other);
+        public bool Equals(EvaluationFormItemEnablementConfigurationAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the default enablement status to be applied when the condition is not satisfied.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormItemEnablementConfigurationDefaultAction : IEquatable<EvaluationFormItemEnablementConfigurationDefaultAction>
+    {
+        private readonly string _value;
+
+        private EvaluationFormItemEnablementConfigurationDefaultAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormItemEnablementConfigurationDefaultAction Disable { get; } = new EvaluationFormItemEnablementConfigurationDefaultAction("DISABLE");
+        public static EvaluationFormItemEnablementConfigurationDefaultAction Enable { get; } = new EvaluationFormItemEnablementConfigurationDefaultAction("ENABLE");
+
+        public static bool operator ==(EvaluationFormItemEnablementConfigurationDefaultAction left, EvaluationFormItemEnablementConfigurationDefaultAction right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormItemEnablementConfigurationDefaultAction left, EvaluationFormItemEnablementConfigurationDefaultAction right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormItemEnablementConfigurationDefaultAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormItemEnablementConfigurationDefaultAction other && Equals(other);
+        public bool Equals(EvaluationFormItemEnablementConfigurationDefaultAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the comparison method to determine if the source value matches any of the specified values.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormItemEnablementExpressionComparator : IEquatable<EvaluationFormItemEnablementExpressionComparator>
+    {
+        private readonly string _value;
+
+        private EvaluationFormItemEnablementExpressionComparator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormItemEnablementExpressionComparator In { get; } = new EvaluationFormItemEnablementExpressionComparator("IN");
+        public static EvaluationFormItemEnablementExpressionComparator NotIn { get; } = new EvaluationFormItemEnablementExpressionComparator("NOT_IN");
+
+        public static bool operator ==(EvaluationFormItemEnablementExpressionComparator left, EvaluationFormItemEnablementExpressionComparator right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormItemEnablementExpressionComparator left, EvaluationFormItemEnablementExpressionComparator right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormItemEnablementExpressionComparator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormItemEnablementExpressionComparator other && Equals(other);
+        public bool Equals(EvaluationFormItemEnablementExpressionComparator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the source entity.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormItemEnablementSourceType : IEquatable<EvaluationFormItemEnablementSourceType>
+    {
+        private readonly string _value;
+
+        private EvaluationFormItemEnablementSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormItemEnablementSourceType QuestionRefId { get; } = new EvaluationFormItemEnablementSourceType("QUESTION_REF_ID");
+
+        public static bool operator ==(EvaluationFormItemEnablementSourceType left, EvaluationFormItemEnablementSourceType right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormItemEnablementSourceType left, EvaluationFormItemEnablementSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormItemEnablementSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormItemEnablementSourceType other && Equals(other);
+        public bool Equals(EvaluationFormItemEnablementSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the source entity value.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormItemEnablementSourceValueType : IEquatable<EvaluationFormItemEnablementSourceValueType>
+    {
+        private readonly string _value;
+
+        private EvaluationFormItemEnablementSourceValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormItemEnablementSourceValueType OptionRefId { get; } = new EvaluationFormItemEnablementSourceValueType("OPTION_REF_ID");
+
+        public static bool operator ==(EvaluationFormItemEnablementSourceValueType left, EvaluationFormItemEnablementSourceValueType right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormItemEnablementSourceValueType left, EvaluationFormItemEnablementSourceValueType right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormItemEnablementSourceValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormItemEnablementSourceValueType other && Equals(other);
+        public bool Equals(EvaluationFormItemEnablementSourceValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The property label of the automation.
     /// </summary>
     [EnumType]
@@ -173,6 +357,37 @@ namespace Pulumi.AwsNative.Connect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EvaluationFormNumericQuestionPropertyValueAutomationLabel other && Equals(other);
         public bool Equals(EvaluationFormNumericQuestionPropertyValueAutomationLabel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the answer sourcr
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormQuestionAutomationAnswerSourceSourceType : IEquatable<EvaluationFormQuestionAutomationAnswerSourceSourceType>
+    {
+        private readonly string _value;
+
+        private EvaluationFormQuestionAutomationAnswerSourceSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormQuestionAutomationAnswerSourceSourceType ContactLensData { get; } = new EvaluationFormQuestionAutomationAnswerSourceSourceType("CONTACT_LENS_DATA");
+        public static EvaluationFormQuestionAutomationAnswerSourceSourceType GenAi { get; } = new EvaluationFormQuestionAutomationAnswerSourceSourceType("GEN_AI");
+
+        public static bool operator ==(EvaluationFormQuestionAutomationAnswerSourceSourceType left, EvaluationFormQuestionAutomationAnswerSourceSourceType right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormQuestionAutomationAnswerSourceSourceType left, EvaluationFormQuestionAutomationAnswerSourceSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormQuestionAutomationAnswerSourceSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormQuestionAutomationAnswerSourceSourceType other && Equals(other);
+        public bool Equals(EvaluationFormQuestionAutomationAnswerSourceSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

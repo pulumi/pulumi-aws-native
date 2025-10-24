@@ -21,13 +21,14 @@ type ListenerAction struct {
 	AuthenticateOidcConfig *ListenerAuthenticateOidcConfig `pulumi:"authenticateOidcConfig"`
 	// [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
 	FixedResponseConfig *ListenerFixedResponseConfig `pulumi:"fixedResponseConfig"`
-	// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+	// Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+	//  If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
 	ForwardConfig *ListenerForwardConfig `pulumi:"forwardConfig"`
 	// The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
 	Order *int `pulumi:"order"`
 	// [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
 	RedirectConfig *ListenerRedirectConfig `pulumi:"redirectConfig"`
-	// The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+	// The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 	// The type of action.
 	Type string `pulumi:"type"`
@@ -52,13 +53,14 @@ type ListenerActionArgs struct {
 	AuthenticateOidcConfig ListenerAuthenticateOidcConfigPtrInput `pulumi:"authenticateOidcConfig"`
 	// [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
 	FixedResponseConfig ListenerFixedResponseConfigPtrInput `pulumi:"fixedResponseConfig"`
-	// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+	// Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+	//  If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
 	ForwardConfig ListenerForwardConfigPtrInput `pulumi:"forwardConfig"`
 	// The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
 	Order pulumi.IntPtrInput `pulumi:"order"`
 	// [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
 	RedirectConfig ListenerRedirectConfigPtrInput `pulumi:"redirectConfig"`
-	// The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+	// The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
 	// The type of action.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -131,7 +133,9 @@ func (o ListenerActionOutput) FixedResponseConfig() ListenerFixedResponseConfigP
 	return o.ApplyT(func(v ListenerAction) *ListenerFixedResponseConfig { return v.FixedResponseConfig }).(ListenerFixedResponseConfigPtrOutput)
 }
 
-// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when “Type“ is “forward“. If you specify both “ForwardConfig“ and “TargetGroupArn“, you can specify only one target group using “ForwardConfig“ and it must be the same target group specified in “TargetGroupArn“.
+// Information for creating an action that distributes requests among multiple target groups. Specify only when “Type“ is “forward“.
+//
+//	If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
 func (o ListenerActionOutput) ForwardConfig() ListenerForwardConfigPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *ListenerForwardConfig { return v.ForwardConfig }).(ListenerForwardConfigPtrOutput)
 }
@@ -146,7 +150,7 @@ func (o ListenerActionOutput) RedirectConfig() ListenerRedirectConfigPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *ListenerRedirectConfig { return v.RedirectConfig }).(ListenerRedirectConfigPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the target group. Specify only when “Type“ is “forward“ and you want to route to a single target group. To route to one or more target groups, use “ForwardConfig“ instead.
+// The Amazon Resource Name (ARN) of the target group. Specify only when “Type“ is “forward“ and you want to route to a single target group. To route to multiple target groups, you must use “ForwardConfig“ instead.
 func (o ListenerActionOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -1297,7 +1301,9 @@ func (o ListenerFixedResponseConfigPtrOutput) StatusCode() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when “Type“ is “forward“. If you specify both “ForwardConfig“ and “TargetGroupArn“, you can specify only one target group using “ForwardConfig“ and it must be the same target group specified in “TargetGroupArn“.
+// Information for creating an action that distributes requests among multiple target groups. Specify only when “Type“ is “forward“.
+//
+//	If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
 type ListenerForwardConfig struct {
 	// Information about the target group stickiness for a rule.
 	TargetGroupStickinessConfig *ListenerTargetGroupStickinessConfig `pulumi:"targetGroupStickinessConfig"`
@@ -1316,7 +1322,9 @@ type ListenerForwardConfigInput interface {
 	ToListenerForwardConfigOutputWithContext(context.Context) ListenerForwardConfigOutput
 }
 
-// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when “Type“ is “forward“. If you specify both “ForwardConfig“ and “TargetGroupArn“, you can specify only one target group using “ForwardConfig“ and it must be the same target group specified in “TargetGroupArn“.
+// Information for creating an action that distributes requests among multiple target groups. Specify only when “Type“ is “forward“.
+//
+//	If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
 type ListenerForwardConfigArgs struct {
 	// Information about the target group stickiness for a rule.
 	TargetGroupStickinessConfig ListenerTargetGroupStickinessConfigPtrInput `pulumi:"targetGroupStickinessConfig"`
@@ -1377,7 +1385,9 @@ func (i *listenerForwardConfigPtrType) ToListenerForwardConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerForwardConfigPtrOutput)
 }
 
-// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when “Type“ is “forward“. If you specify both “ForwardConfig“ and “TargetGroupArn“, you can specify only one target group using “ForwardConfig“ and it must be the same target group specified in “TargetGroupArn“.
+// Information for creating an action that distributes requests among multiple target groups. Specify only when “Type“ is “forward“.
+//
+//	If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
 type ListenerForwardConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerForwardConfigOutput) ElementType() reflect.Type {
@@ -1928,13 +1938,14 @@ type ListenerRuleAction struct {
 	AuthenticateOidcConfig *ListenerRuleAuthenticateOidcConfig `pulumi:"authenticateOidcConfig"`
 	// [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
 	FixedResponseConfig *ListenerRuleFixedResponseConfig `pulumi:"fixedResponseConfig"`
-	// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+	// Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+	//  If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
 	ForwardConfig *ListenerRuleForwardConfig `pulumi:"forwardConfig"`
 	// The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
 	Order *int `pulumi:"order"`
 	// [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
 	RedirectConfig *ListenerRuleRedirectConfig `pulumi:"redirectConfig"`
-	// The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+	// The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 	// The type of action.
 	Type string `pulumi:"type"`
@@ -1959,13 +1970,14 @@ type ListenerRuleActionArgs struct {
 	AuthenticateOidcConfig ListenerRuleAuthenticateOidcConfigPtrInput `pulumi:"authenticateOidcConfig"`
 	// [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
 	FixedResponseConfig ListenerRuleFixedResponseConfigPtrInput `pulumi:"fixedResponseConfig"`
-	// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+	// Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+	//  If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
 	ForwardConfig ListenerRuleForwardConfigPtrInput `pulumi:"forwardConfig"`
 	// The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
 	Order pulumi.IntPtrInput `pulumi:"order"`
 	// [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
 	RedirectConfig ListenerRuleRedirectConfigPtrInput `pulumi:"redirectConfig"`
-	// The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+	// The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
 	// The type of action.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -2038,7 +2050,9 @@ func (o ListenerRuleActionOutput) FixedResponseConfig() ListenerRuleFixedRespons
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleFixedResponseConfig { return v.FixedResponseConfig }).(ListenerRuleFixedResponseConfigPtrOutput)
 }
 
-// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when “Type“ is “forward“. If you specify both “ForwardConfig“ and “TargetGroupArn“, you can specify only one target group using “ForwardConfig“ and it must be the same target group specified in “TargetGroupArn“.
+// Information for creating an action that distributes requests among multiple target groups. Specify only when “Type“ is “forward“.
+//
+//	If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
 func (o ListenerRuleActionOutput) ForwardConfig() ListenerRuleForwardConfigPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleForwardConfig { return v.ForwardConfig }).(ListenerRuleForwardConfigPtrOutput)
 }
@@ -2053,7 +2067,7 @@ func (o ListenerRuleActionOutput) RedirectConfig() ListenerRuleRedirectConfigPtr
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleRedirectConfig { return v.RedirectConfig }).(ListenerRuleRedirectConfigPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the target group. Specify only when “Type“ is “forward“ and you want to route to a single target group. To route to one or more target groups, use “ForwardConfig“ instead.
+// The Amazon Resource Name (ARN) of the target group. Specify only when “Type“ is “forward“ and you want to route to a single target group. To route to multiple target groups, you must use “ForwardConfig“ instead.
 func (o ListenerRuleActionOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -2929,7 +2943,9 @@ func (o ListenerRuleFixedResponseConfigPtrOutput) StatusCode() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when “Type“ is “forward“. If you specify both “ForwardConfig“ and “TargetGroupArn“, you can specify only one target group using “ForwardConfig“ and it must be the same target group specified in “TargetGroupArn“.
+// Information for creating an action that distributes requests among multiple target groups. Specify only when “Type“ is “forward“.
+//
+//	If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
 type ListenerRuleForwardConfig struct {
 	// Information about the target group stickiness for a rule.
 	TargetGroupStickinessConfig *ListenerRuleTargetGroupStickinessConfig `pulumi:"targetGroupStickinessConfig"`
@@ -2948,7 +2964,9 @@ type ListenerRuleForwardConfigInput interface {
 	ToListenerRuleForwardConfigOutputWithContext(context.Context) ListenerRuleForwardConfigOutput
 }
 
-// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when “Type“ is “forward“. If you specify both “ForwardConfig“ and “TargetGroupArn“, you can specify only one target group using “ForwardConfig“ and it must be the same target group specified in “TargetGroupArn“.
+// Information for creating an action that distributes requests among multiple target groups. Specify only when “Type“ is “forward“.
+//
+//	If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
 type ListenerRuleForwardConfigArgs struct {
 	// Information about the target group stickiness for a rule.
 	TargetGroupStickinessConfig ListenerRuleTargetGroupStickinessConfigPtrInput `pulumi:"targetGroupStickinessConfig"`
@@ -3009,7 +3027,9 @@ func (i *listenerRuleForwardConfigPtrType) ToListenerRuleForwardConfigPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleForwardConfigPtrOutput)
 }
 
-// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when “Type“ is “forward“. If you specify both “ForwardConfig“ and “TargetGroupArn“, you can specify only one target group using “ForwardConfig“ and it must be the same target group specified in “TargetGroupArn“.
+// Information for creating an action that distributes requests among multiple target groups. Specify only when “Type“ is “forward“.
+//
+//	If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
 type ListenerRuleForwardConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleForwardConfigOutput) ElementType() reflect.Type {
@@ -3092,6 +3112,7 @@ func (o ListenerRuleForwardConfigPtrOutput) TargetGroups() ListenerRuleTargetGro
 
 // Information about a host header condition.
 type ListenerRuleHostHeaderConfig struct {
+	RegexValues []string `pulumi:"regexValues"`
 	// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
 	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
 	Values []string `pulumi:"values"`
@@ -3110,6 +3131,7 @@ type ListenerRuleHostHeaderConfigInput interface {
 
 // Information about a host header condition.
 type ListenerRuleHostHeaderConfigArgs struct {
+	RegexValues pulumi.StringArrayInput `pulumi:"regexValues"`
 	// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
 	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -3193,6 +3215,10 @@ func (o ListenerRuleHostHeaderConfigOutput) ToListenerRuleHostHeaderConfigPtrOut
 	}).(ListenerRuleHostHeaderConfigPtrOutput)
 }
 
+func (o ListenerRuleHostHeaderConfigOutput) RegexValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListenerRuleHostHeaderConfig) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
+}
+
 // The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
 //
 //	If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
@@ -3224,6 +3250,15 @@ func (o ListenerRuleHostHeaderConfigPtrOutput) Elem() ListenerRuleHostHeaderConf
 	}).(ListenerRuleHostHeaderConfigOutput)
 }
 
+func (o ListenerRuleHostHeaderConfigPtrOutput) RegexValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ListenerRuleHostHeaderConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RegexValues
+	}).(pulumi.StringArrayOutput)
+}
+
 // The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
 //
 //	If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
@@ -3241,7 +3276,8 @@ func (o ListenerRuleHostHeaderConfigPtrOutput) Values() pulumi.StringArrayOutput
 //	There is a set of standard HTTP header fields. You can also define custom HTTP header fields.
 type ListenerRuleHttpHeaderConfig struct {
 	// The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
-	HttpHeaderName *string `pulumi:"httpHeaderName"`
+	HttpHeaderName *string  `pulumi:"httpHeaderName"`
+	RegexValues    []string `pulumi:"regexValues"`
 	// The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 	//  If the same header appears multiple times in the request, we search them in order until a match is found.
 	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
@@ -3264,7 +3300,8 @@ type ListenerRuleHttpHeaderConfigInput interface {
 //	There is a set of standard HTTP header fields. You can also define custom HTTP header fields.
 type ListenerRuleHttpHeaderConfigArgs struct {
 	// The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
-	HttpHeaderName pulumi.StringPtrInput `pulumi:"httpHeaderName"`
+	HttpHeaderName pulumi.StringPtrInput   `pulumi:"httpHeaderName"`
+	RegexValues    pulumi.StringArrayInput `pulumi:"regexValues"`
 	// The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 	//  If the same header appears multiple times in the request, we search them in order until a match is found.
 	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
@@ -3356,6 +3393,10 @@ func (o ListenerRuleHttpHeaderConfigOutput) HttpHeaderName() pulumi.StringPtrOut
 	return o.ApplyT(func(v ListenerRuleHttpHeaderConfig) *string { return v.HttpHeaderName }).(pulumi.StringPtrOutput)
 }
 
+func (o ListenerRuleHttpHeaderConfigOutput) RegexValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListenerRuleHttpHeaderConfig) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
+}
+
 // The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 //
 //	If the same header appears multiple times in the request, we search them in order until a match is found.
@@ -3396,6 +3437,15 @@ func (o ListenerRuleHttpHeaderConfigPtrOutput) HttpHeaderName() pulumi.StringPtr
 		}
 		return v.HttpHeaderName
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ListenerRuleHttpHeaderConfigPtrOutput) RegexValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ListenerRuleHttpHeaderConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RegexValues
+	}).(pulumi.StringArrayOutput)
 }
 
 // The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
@@ -3565,6 +3615,7 @@ func (o ListenerRuleHttpRequestMethodConfigPtrOutput) Values() pulumi.StringArra
 
 // Information about a path pattern condition.
 type ListenerRulePathPatternConfig struct {
+	RegexValues []string `pulumi:"regexValues"`
 	// The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 	//  If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.
 	Values []string `pulumi:"values"`
@@ -3583,6 +3634,7 @@ type ListenerRulePathPatternConfigInput interface {
 
 // Information about a path pattern condition.
 type ListenerRulePathPatternConfigArgs struct {
+	RegexValues pulumi.StringArrayInput `pulumi:"regexValues"`
 	// The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 	//  If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -3666,6 +3718,10 @@ func (o ListenerRulePathPatternConfigOutput) ToListenerRulePathPatternConfigPtrO
 	}).(ListenerRulePathPatternConfigPtrOutput)
 }
 
+func (o ListenerRulePathPatternConfigOutput) RegexValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListenerRulePathPatternConfig) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
+}
+
 // The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 //
 //	If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.
@@ -3695,6 +3751,15 @@ func (o ListenerRulePathPatternConfigPtrOutput) Elem() ListenerRulePathPatternCo
 		var ret ListenerRulePathPatternConfig
 		return ret
 	}).(ListenerRulePathPatternConfigOutput)
+}
+
+func (o ListenerRulePathPatternConfigPtrOutput) RegexValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ListenerRulePathPatternConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RegexValues
+	}).(pulumi.StringArrayOutput)
 }
 
 // The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
@@ -4235,6 +4300,239 @@ func (o ListenerRuleRedirectConfigPtrOutput) StatusCode() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type ListenerRuleRewriteConfig struct {
+	Regex   string `pulumi:"regex"`
+	Replace string `pulumi:"replace"`
+}
+
+// ListenerRuleRewriteConfigInput is an input type that accepts ListenerRuleRewriteConfigArgs and ListenerRuleRewriteConfigOutput values.
+// You can construct a concrete instance of `ListenerRuleRewriteConfigInput` via:
+//
+//	ListenerRuleRewriteConfigArgs{...}
+type ListenerRuleRewriteConfigInput interface {
+	pulumi.Input
+
+	ToListenerRuleRewriteConfigOutput() ListenerRuleRewriteConfigOutput
+	ToListenerRuleRewriteConfigOutputWithContext(context.Context) ListenerRuleRewriteConfigOutput
+}
+
+type ListenerRuleRewriteConfigArgs struct {
+	Regex   pulumi.StringInput `pulumi:"regex"`
+	Replace pulumi.StringInput `pulumi:"replace"`
+}
+
+func (ListenerRuleRewriteConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleRewriteConfig)(nil)).Elem()
+}
+
+func (i ListenerRuleRewriteConfigArgs) ToListenerRuleRewriteConfigOutput() ListenerRuleRewriteConfigOutput {
+	return i.ToListenerRuleRewriteConfigOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleRewriteConfigArgs) ToListenerRuleRewriteConfigOutputWithContext(ctx context.Context) ListenerRuleRewriteConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleRewriteConfigOutput)
+}
+
+// ListenerRuleRewriteConfigArrayInput is an input type that accepts ListenerRuleRewriteConfigArray and ListenerRuleRewriteConfigArrayOutput values.
+// You can construct a concrete instance of `ListenerRuleRewriteConfigArrayInput` via:
+//
+//	ListenerRuleRewriteConfigArray{ ListenerRuleRewriteConfigArgs{...} }
+type ListenerRuleRewriteConfigArrayInput interface {
+	pulumi.Input
+
+	ToListenerRuleRewriteConfigArrayOutput() ListenerRuleRewriteConfigArrayOutput
+	ToListenerRuleRewriteConfigArrayOutputWithContext(context.Context) ListenerRuleRewriteConfigArrayOutput
+}
+
+type ListenerRuleRewriteConfigArray []ListenerRuleRewriteConfigInput
+
+func (ListenerRuleRewriteConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerRuleRewriteConfig)(nil)).Elem()
+}
+
+func (i ListenerRuleRewriteConfigArray) ToListenerRuleRewriteConfigArrayOutput() ListenerRuleRewriteConfigArrayOutput {
+	return i.ToListenerRuleRewriteConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleRewriteConfigArray) ToListenerRuleRewriteConfigArrayOutputWithContext(ctx context.Context) ListenerRuleRewriteConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleRewriteConfigArrayOutput)
+}
+
+type ListenerRuleRewriteConfigOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleRewriteConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleRewriteConfig)(nil)).Elem()
+}
+
+func (o ListenerRuleRewriteConfigOutput) ToListenerRuleRewriteConfigOutput() ListenerRuleRewriteConfigOutput {
+	return o
+}
+
+func (o ListenerRuleRewriteConfigOutput) ToListenerRuleRewriteConfigOutputWithContext(ctx context.Context) ListenerRuleRewriteConfigOutput {
+	return o
+}
+
+func (o ListenerRuleRewriteConfigOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerRuleRewriteConfig) string { return v.Regex }).(pulumi.StringOutput)
+}
+
+func (o ListenerRuleRewriteConfigOutput) Replace() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerRuleRewriteConfig) string { return v.Replace }).(pulumi.StringOutput)
+}
+
+type ListenerRuleRewriteConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleRewriteConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerRuleRewriteConfig)(nil)).Elem()
+}
+
+func (o ListenerRuleRewriteConfigArrayOutput) ToListenerRuleRewriteConfigArrayOutput() ListenerRuleRewriteConfigArrayOutput {
+	return o
+}
+
+func (o ListenerRuleRewriteConfigArrayOutput) ToListenerRuleRewriteConfigArrayOutputWithContext(ctx context.Context) ListenerRuleRewriteConfigArrayOutput {
+	return o
+}
+
+func (o ListenerRuleRewriteConfigArrayOutput) Index(i pulumi.IntInput) ListenerRuleRewriteConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerRuleRewriteConfig {
+		return vs[0].([]ListenerRuleRewriteConfig)[vs[1].(int)]
+	}).(ListenerRuleRewriteConfigOutput)
+}
+
+type ListenerRuleRewriteConfigObject struct {
+	Rewrites []ListenerRuleRewriteConfig `pulumi:"rewrites"`
+}
+
+// ListenerRuleRewriteConfigObjectInput is an input type that accepts ListenerRuleRewriteConfigObjectArgs and ListenerRuleRewriteConfigObjectOutput values.
+// You can construct a concrete instance of `ListenerRuleRewriteConfigObjectInput` via:
+//
+//	ListenerRuleRewriteConfigObjectArgs{...}
+type ListenerRuleRewriteConfigObjectInput interface {
+	pulumi.Input
+
+	ToListenerRuleRewriteConfigObjectOutput() ListenerRuleRewriteConfigObjectOutput
+	ToListenerRuleRewriteConfigObjectOutputWithContext(context.Context) ListenerRuleRewriteConfigObjectOutput
+}
+
+type ListenerRuleRewriteConfigObjectArgs struct {
+	Rewrites ListenerRuleRewriteConfigArrayInput `pulumi:"rewrites"`
+}
+
+func (ListenerRuleRewriteConfigObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleRewriteConfigObject)(nil)).Elem()
+}
+
+func (i ListenerRuleRewriteConfigObjectArgs) ToListenerRuleRewriteConfigObjectOutput() ListenerRuleRewriteConfigObjectOutput {
+	return i.ToListenerRuleRewriteConfigObjectOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleRewriteConfigObjectArgs) ToListenerRuleRewriteConfigObjectOutputWithContext(ctx context.Context) ListenerRuleRewriteConfigObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleRewriteConfigObjectOutput)
+}
+
+func (i ListenerRuleRewriteConfigObjectArgs) ToListenerRuleRewriteConfigObjectPtrOutput() ListenerRuleRewriteConfigObjectPtrOutput {
+	return i.ToListenerRuleRewriteConfigObjectPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleRewriteConfigObjectArgs) ToListenerRuleRewriteConfigObjectPtrOutputWithContext(ctx context.Context) ListenerRuleRewriteConfigObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleRewriteConfigObjectOutput).ToListenerRuleRewriteConfigObjectPtrOutputWithContext(ctx)
+}
+
+// ListenerRuleRewriteConfigObjectPtrInput is an input type that accepts ListenerRuleRewriteConfigObjectArgs, ListenerRuleRewriteConfigObjectPtr and ListenerRuleRewriteConfigObjectPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleRewriteConfigObjectPtrInput` via:
+//
+//	        ListenerRuleRewriteConfigObjectArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerRuleRewriteConfigObjectPtrInput interface {
+	pulumi.Input
+
+	ToListenerRuleRewriteConfigObjectPtrOutput() ListenerRuleRewriteConfigObjectPtrOutput
+	ToListenerRuleRewriteConfigObjectPtrOutputWithContext(context.Context) ListenerRuleRewriteConfigObjectPtrOutput
+}
+
+type listenerRuleRewriteConfigObjectPtrType ListenerRuleRewriteConfigObjectArgs
+
+func ListenerRuleRewriteConfigObjectPtr(v *ListenerRuleRewriteConfigObjectArgs) ListenerRuleRewriteConfigObjectPtrInput {
+	return (*listenerRuleRewriteConfigObjectPtrType)(v)
+}
+
+func (*listenerRuleRewriteConfigObjectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleRewriteConfigObject)(nil)).Elem()
+}
+
+func (i *listenerRuleRewriteConfigObjectPtrType) ToListenerRuleRewriteConfigObjectPtrOutput() ListenerRuleRewriteConfigObjectPtrOutput {
+	return i.ToListenerRuleRewriteConfigObjectPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerRuleRewriteConfigObjectPtrType) ToListenerRuleRewriteConfigObjectPtrOutputWithContext(ctx context.Context) ListenerRuleRewriteConfigObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleRewriteConfigObjectPtrOutput)
+}
+
+type ListenerRuleRewriteConfigObjectOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleRewriteConfigObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleRewriteConfigObject)(nil)).Elem()
+}
+
+func (o ListenerRuleRewriteConfigObjectOutput) ToListenerRuleRewriteConfigObjectOutput() ListenerRuleRewriteConfigObjectOutput {
+	return o
+}
+
+func (o ListenerRuleRewriteConfigObjectOutput) ToListenerRuleRewriteConfigObjectOutputWithContext(ctx context.Context) ListenerRuleRewriteConfigObjectOutput {
+	return o
+}
+
+func (o ListenerRuleRewriteConfigObjectOutput) ToListenerRuleRewriteConfigObjectPtrOutput() ListenerRuleRewriteConfigObjectPtrOutput {
+	return o.ToListenerRuleRewriteConfigObjectPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerRuleRewriteConfigObjectOutput) ToListenerRuleRewriteConfigObjectPtrOutputWithContext(ctx context.Context) ListenerRuleRewriteConfigObjectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleRewriteConfigObject) *ListenerRuleRewriteConfigObject {
+		return &v
+	}).(ListenerRuleRewriteConfigObjectPtrOutput)
+}
+
+func (o ListenerRuleRewriteConfigObjectOutput) Rewrites() ListenerRuleRewriteConfigArrayOutput {
+	return o.ApplyT(func(v ListenerRuleRewriteConfigObject) []ListenerRuleRewriteConfig { return v.Rewrites }).(ListenerRuleRewriteConfigArrayOutput)
+}
+
+type ListenerRuleRewriteConfigObjectPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleRewriteConfigObjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleRewriteConfigObject)(nil)).Elem()
+}
+
+func (o ListenerRuleRewriteConfigObjectPtrOutput) ToListenerRuleRewriteConfigObjectPtrOutput() ListenerRuleRewriteConfigObjectPtrOutput {
+	return o
+}
+
+func (o ListenerRuleRewriteConfigObjectPtrOutput) ToListenerRuleRewriteConfigObjectPtrOutputWithContext(ctx context.Context) ListenerRuleRewriteConfigObjectPtrOutput {
+	return o
+}
+
+func (o ListenerRuleRewriteConfigObjectPtrOutput) Elem() ListenerRuleRewriteConfigObjectOutput {
+	return o.ApplyT(func(v *ListenerRuleRewriteConfigObject) ListenerRuleRewriteConfigObject {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleRewriteConfigObject
+		return ret
+	}).(ListenerRuleRewriteConfigObjectOutput)
+}
+
+func (o ListenerRuleRewriteConfigObjectPtrOutput) Rewrites() ListenerRuleRewriteConfigArrayOutput {
+	return o.ApplyT(func(v *ListenerRuleRewriteConfigObject) []ListenerRuleRewriteConfig {
+		if v == nil {
+			return nil
+		}
+		return v.Rewrites
+	}).(ListenerRuleRewriteConfigArrayOutput)
+}
+
 // Specifies a condition for a listener rule.
 type ListenerRuleRuleCondition struct {
 	// The field in the HTTP request. The following are the possible values:
@@ -4255,6 +4553,8 @@ type ListenerRuleRuleCondition struct {
 	PathPatternConfig *ListenerRulePathPatternConfig `pulumi:"pathPatternConfig"`
 	// Information for a query string condition. Specify only when ``Field`` is ``query-string``.
 	QueryStringConfig *ListenerRuleQueryStringConfig `pulumi:"queryStringConfig"`
+	// The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when `Field` is `http-header` , `host-header` , or `path-pattern` .
+	RegexValues []string `pulumi:"regexValues"`
 	// Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.
 	SourceIpConfig *ListenerRuleSourceIpConfig `pulumi:"sourceIpConfig"`
 	// The condition value. Specify only when ``Field`` is ``host-header`` or ``path-pattern``. Alternatively, to specify multiple host names or multiple path patterns, use ``HostHeaderConfig`` or ``PathPatternConfig``.
@@ -4304,6 +4604,8 @@ type ListenerRuleRuleConditionArgs struct {
 	PathPatternConfig ListenerRulePathPatternConfigPtrInput `pulumi:"pathPatternConfig"`
 	// Information for a query string condition. Specify only when ``Field`` is ``query-string``.
 	QueryStringConfig ListenerRuleQueryStringConfigPtrInput `pulumi:"queryStringConfig"`
+	// The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when `Field` is `http-header` , `host-header` , or `path-pattern` .
+	RegexValues pulumi.StringArrayInput `pulumi:"regexValues"`
 	// Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.
 	SourceIpConfig ListenerRuleSourceIpConfigPtrInput `pulumi:"sourceIpConfig"`
 	// The condition value. Specify only when ``Field`` is ``host-header`` or ``path-pattern``. Alternatively, to specify multiple host names or multiple path patterns, use ``HostHeaderConfig`` or ``PathPatternConfig``.
@@ -4410,6 +4712,11 @@ func (o ListenerRuleRuleConditionOutput) PathPatternConfig() ListenerRulePathPat
 // Information for a query string condition. Specify only when “Field“ is “query-string“.
 func (o ListenerRuleRuleConditionOutput) QueryStringConfig() ListenerRuleQueryStringConfigPtrOutput {
 	return o.ApplyT(func(v ListenerRuleRuleCondition) *ListenerRuleQueryStringConfig { return v.QueryStringConfig }).(ListenerRuleQueryStringConfigPtrOutput)
+}
+
+// The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when `Field` is `http-header` , `host-header` , or `path-pattern` .
+func (o ListenerRuleRuleConditionOutput) RegexValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListenerRuleRuleCondition) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
 }
 
 // Information for a source IP condition. Specify only when “Field“ is “source-ip“.
@@ -4609,7 +4916,7 @@ func (o ListenerRuleSourceIpConfigPtrOutput) Values() pulumi.StringArrayOutput {
 
 // Information about the target group stickiness for a rule.
 type ListenerRuleTargetGroupStickinessConfig struct {
-	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
+	// [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 	DurationSeconds *int `pulumi:"durationSeconds"`
 	// Indicates whether target group stickiness is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -4628,7 +4935,7 @@ type ListenerRuleTargetGroupStickinessConfigInput interface {
 
 // Information about the target group stickiness for a rule.
 type ListenerRuleTargetGroupStickinessConfigArgs struct {
-	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
+	// [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
 	// Indicates whether target group stickiness is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -4712,7 +5019,7 @@ func (o ListenerRuleTargetGroupStickinessConfigOutput) ToListenerRuleTargetGroup
 	}).(ListenerRuleTargetGroupStickinessConfigPtrOutput)
 }
 
-// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
+// [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 func (o ListenerRuleTargetGroupStickinessConfigOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerRuleTargetGroupStickinessConfig) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -4746,7 +5053,7 @@ func (o ListenerRuleTargetGroupStickinessConfigPtrOutput) Elem() ListenerRuleTar
 	}).(ListenerRuleTargetGroupStickinessConfigOutput)
 }
 
-// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
+// [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 func (o ListenerRuleTargetGroupStickinessConfigPtrOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleTargetGroupStickinessConfig) *int {
 		if v == nil {
@@ -4875,9 +5182,115 @@ func (o ListenerRuleTargetGroupTupleArrayOutput) Index(i pulumi.IntInput) Listen
 	}).(ListenerRuleTargetGroupTupleOutput)
 }
 
+type ListenerRuleTransform struct {
+	HostHeaderRewriteConfig *ListenerRuleRewriteConfigObject `pulumi:"hostHeaderRewriteConfig"`
+	Type                    string                           `pulumi:"type"`
+	UrlRewriteConfig        *ListenerRuleRewriteConfigObject `pulumi:"urlRewriteConfig"`
+}
+
+// ListenerRuleTransformInput is an input type that accepts ListenerRuleTransformArgs and ListenerRuleTransformOutput values.
+// You can construct a concrete instance of `ListenerRuleTransformInput` via:
+//
+//	ListenerRuleTransformArgs{...}
+type ListenerRuleTransformInput interface {
+	pulumi.Input
+
+	ToListenerRuleTransformOutput() ListenerRuleTransformOutput
+	ToListenerRuleTransformOutputWithContext(context.Context) ListenerRuleTransformOutput
+}
+
+type ListenerRuleTransformArgs struct {
+	HostHeaderRewriteConfig ListenerRuleRewriteConfigObjectPtrInput `pulumi:"hostHeaderRewriteConfig"`
+	Type                    pulumi.StringInput                      `pulumi:"type"`
+	UrlRewriteConfig        ListenerRuleRewriteConfigObjectPtrInput `pulumi:"urlRewriteConfig"`
+}
+
+func (ListenerRuleTransformArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleTransform)(nil)).Elem()
+}
+
+func (i ListenerRuleTransformArgs) ToListenerRuleTransformOutput() ListenerRuleTransformOutput {
+	return i.ToListenerRuleTransformOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleTransformArgs) ToListenerRuleTransformOutputWithContext(ctx context.Context) ListenerRuleTransformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTransformOutput)
+}
+
+// ListenerRuleTransformArrayInput is an input type that accepts ListenerRuleTransformArray and ListenerRuleTransformArrayOutput values.
+// You can construct a concrete instance of `ListenerRuleTransformArrayInput` via:
+//
+//	ListenerRuleTransformArray{ ListenerRuleTransformArgs{...} }
+type ListenerRuleTransformArrayInput interface {
+	pulumi.Input
+
+	ToListenerRuleTransformArrayOutput() ListenerRuleTransformArrayOutput
+	ToListenerRuleTransformArrayOutputWithContext(context.Context) ListenerRuleTransformArrayOutput
+}
+
+type ListenerRuleTransformArray []ListenerRuleTransformInput
+
+func (ListenerRuleTransformArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerRuleTransform)(nil)).Elem()
+}
+
+func (i ListenerRuleTransformArray) ToListenerRuleTransformArrayOutput() ListenerRuleTransformArrayOutput {
+	return i.ToListenerRuleTransformArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleTransformArray) ToListenerRuleTransformArrayOutputWithContext(ctx context.Context) ListenerRuleTransformArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTransformArrayOutput)
+}
+
+type ListenerRuleTransformOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleTransformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleTransform)(nil)).Elem()
+}
+
+func (o ListenerRuleTransformOutput) ToListenerRuleTransformOutput() ListenerRuleTransformOutput {
+	return o
+}
+
+func (o ListenerRuleTransformOutput) ToListenerRuleTransformOutputWithContext(ctx context.Context) ListenerRuleTransformOutput {
+	return o
+}
+
+func (o ListenerRuleTransformOutput) HostHeaderRewriteConfig() ListenerRuleRewriteConfigObjectPtrOutput {
+	return o.ApplyT(func(v ListenerRuleTransform) *ListenerRuleRewriteConfigObject { return v.HostHeaderRewriteConfig }).(ListenerRuleRewriteConfigObjectPtrOutput)
+}
+
+func (o ListenerRuleTransformOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerRuleTransform) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o ListenerRuleTransformOutput) UrlRewriteConfig() ListenerRuleRewriteConfigObjectPtrOutput {
+	return o.ApplyT(func(v ListenerRuleTransform) *ListenerRuleRewriteConfigObject { return v.UrlRewriteConfig }).(ListenerRuleRewriteConfigObjectPtrOutput)
+}
+
+type ListenerRuleTransformArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleTransformArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerRuleTransform)(nil)).Elem()
+}
+
+func (o ListenerRuleTransformArrayOutput) ToListenerRuleTransformArrayOutput() ListenerRuleTransformArrayOutput {
+	return o
+}
+
+func (o ListenerRuleTransformArrayOutput) ToListenerRuleTransformArrayOutputWithContext(ctx context.Context) ListenerRuleTransformArrayOutput {
+	return o
+}
+
+func (o ListenerRuleTransformArrayOutput) Index(i pulumi.IntInput) ListenerRuleTransformOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerRuleTransform {
+		return vs[0].([]ListenerRuleTransform)[vs[1].(int)]
+	}).(ListenerRuleTransformOutput)
+}
+
 // Information about the target group stickiness for a rule.
 type ListenerTargetGroupStickinessConfig struct {
-	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
+	// [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 	DurationSeconds *int `pulumi:"durationSeconds"`
 	// Indicates whether target group stickiness is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -4896,7 +5309,7 @@ type ListenerTargetGroupStickinessConfigInput interface {
 
 // Information about the target group stickiness for a rule.
 type ListenerTargetGroupStickinessConfigArgs struct {
-	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
+	// [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
 	// Indicates whether target group stickiness is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -4980,7 +5393,7 @@ func (o ListenerTargetGroupStickinessConfigOutput) ToListenerTargetGroupStickine
 	}).(ListenerTargetGroupStickinessConfigPtrOutput)
 }
 
-// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
+// [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 func (o ListenerTargetGroupStickinessConfigOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerTargetGroupStickinessConfig) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -5014,7 +5427,7 @@ func (o ListenerTargetGroupStickinessConfigPtrOutput) Elem() ListenerTargetGroup
 	}).(ListenerTargetGroupStickinessConfigOutput)
 }
 
-// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
+// [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 func (o ListenerTargetGroupStickinessConfigPtrOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ListenerTargetGroupStickinessConfig) *int {
 		if v == nil {
@@ -6259,6 +6672,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleQueryStringKeyValueArrayInput)(nil)).Elem(), ListenerRuleQueryStringKeyValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleRedirectConfigInput)(nil)).Elem(), ListenerRuleRedirectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleRedirectConfigPtrInput)(nil)).Elem(), ListenerRuleRedirectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleRewriteConfigInput)(nil)).Elem(), ListenerRuleRewriteConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleRewriteConfigArrayInput)(nil)).Elem(), ListenerRuleRewriteConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleRewriteConfigObjectInput)(nil)).Elem(), ListenerRuleRewriteConfigObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleRewriteConfigObjectPtrInput)(nil)).Elem(), ListenerRuleRewriteConfigObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleRuleConditionInput)(nil)).Elem(), ListenerRuleRuleConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleRuleConditionArrayInput)(nil)).Elem(), ListenerRuleRuleConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleSourceIpConfigInput)(nil)).Elem(), ListenerRuleSourceIpConfigArgs{})
@@ -6267,6 +6684,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleTargetGroupStickinessConfigPtrInput)(nil)).Elem(), ListenerRuleTargetGroupStickinessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleTargetGroupTupleInput)(nil)).Elem(), ListenerRuleTargetGroupTupleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleTargetGroupTupleArrayInput)(nil)).Elem(), ListenerRuleTargetGroupTupleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleTransformInput)(nil)).Elem(), ListenerRuleTransformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleTransformArrayInput)(nil)).Elem(), ListenerRuleTransformArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerTargetGroupStickinessConfigInput)(nil)).Elem(), ListenerTargetGroupStickinessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerTargetGroupStickinessConfigPtrInput)(nil)).Elem(), ListenerTargetGroupStickinessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerTargetGroupTupleInput)(nil)).Elem(), ListenerTargetGroupTupleArgs{})
@@ -6327,6 +6746,10 @@ func init() {
 	pulumi.RegisterOutputType(ListenerRuleQueryStringKeyValueArrayOutput{})
 	pulumi.RegisterOutputType(ListenerRuleRedirectConfigOutput{})
 	pulumi.RegisterOutputType(ListenerRuleRedirectConfigPtrOutput{})
+	pulumi.RegisterOutputType(ListenerRuleRewriteConfigOutput{})
+	pulumi.RegisterOutputType(ListenerRuleRewriteConfigArrayOutput{})
+	pulumi.RegisterOutputType(ListenerRuleRewriteConfigObjectOutput{})
+	pulumi.RegisterOutputType(ListenerRuleRewriteConfigObjectPtrOutput{})
 	pulumi.RegisterOutputType(ListenerRuleRuleConditionOutput{})
 	pulumi.RegisterOutputType(ListenerRuleRuleConditionArrayOutput{})
 	pulumi.RegisterOutputType(ListenerRuleSourceIpConfigOutput{})
@@ -6335,6 +6758,8 @@ func init() {
 	pulumi.RegisterOutputType(ListenerRuleTargetGroupStickinessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ListenerRuleTargetGroupTupleOutput{})
 	pulumi.RegisterOutputType(ListenerRuleTargetGroupTupleArrayOutput{})
+	pulumi.RegisterOutputType(ListenerRuleTransformOutput{})
+	pulumi.RegisterOutputType(ListenerRuleTransformArrayOutput{})
 	pulumi.RegisterOutputType(ListenerTargetGroupStickinessConfigOutput{})
 	pulumi.RegisterOutputType(ListenerTargetGroupStickinessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ListenerTargetGroupTupleOutput{})

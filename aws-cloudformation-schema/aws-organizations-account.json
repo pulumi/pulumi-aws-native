@@ -68,6 +68,11 @@
       "description" : "The status of the account in the organization.",
       "type" : "string",
       "enum" : [ "ACTIVE", "SUSPENDED", "PENDING_CLOSURE" ]
+    },
+    "State" : {
+      "description" : "The state of the account in the organization.",
+      "type" : "string",
+      "enum" : [ "PENDING_ACTIVATION", "ACTIVE", "SUSPENDED", "PENDING_CLOSURE", "CLOSED" ]
     }
   },
   "definitions" : {
@@ -104,7 +109,7 @@
   },
   "additionalProperties" : false,
   "required" : [ "AccountName", "Email" ],
-  "readOnlyProperties" : [ "/properties/AccountId", "/properties/Status", "/properties/JoinedTimestamp", "/properties/JoinedMethod", "/properties/Arn" ],
+  "readOnlyProperties" : [ "/properties/AccountId", "/properties/Status", "/properties/State", "/properties/JoinedTimestamp", "/properties/JoinedMethod", "/properties/Arn" ],
   "writeOnlyProperties" : [ "/properties/RoleName" ],
   "primaryIdentifier" : [ "/properties/AccountId" ],
   "handlers" : {

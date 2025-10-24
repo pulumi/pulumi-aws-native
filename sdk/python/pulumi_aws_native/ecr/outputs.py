@@ -565,7 +565,7 @@ class RepositoryImageScanningConfiguration(dict):
 @pulumi.output_type
 class RepositoryImageTagMutabilityExclusionFilter(dict):
     """
-    Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
+    A filter that specifies which image tags should be excluded from the repository's image tag mutability setting.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -590,7 +590,7 @@ class RepositoryImageTagMutabilityExclusionFilter(dict):
                  image_tag_mutability_exclusion_filter_type: 'RepositoryImageTagMutabilityExclusionFilterType',
                  image_tag_mutability_exclusion_filter_value: _builtins.str):
         """
-        Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
+        A filter that specifies which image tags should be excluded from the repository's image tag mutability setting.
         """
         pulumi.set(__self__, "image_tag_mutability_exclusion_filter_type", image_tag_mutability_exclusion_filter_type)
         pulumi.set(__self__, "image_tag_mutability_exclusion_filter_value", image_tag_mutability_exclusion_filter_value)

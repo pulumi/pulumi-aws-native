@@ -26,6 +26,7 @@ class ImageArgs:
                  distribution_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  execution_role: Optional[pulumi.Input[_builtins.str]] = None,
+                 image_pipeline_execution_settings: Optional[pulumi.Input['ImagePipelineExecutionSettingsArgs']] = None,
                  image_recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  image_scanning_configuration: Optional[pulumi.Input['ImageScanningConfigurationArgs']] = None,
                  image_tests_configuration: Optional[pulumi.Input['ImageTestsConfigurationArgs']] = None,
@@ -39,6 +40,7 @@ class ImageArgs:
         :param pulumi.Input[_builtins.str] distribution_configuration_arn: The Amazon Resource Name (ARN) of the distribution configuration.
         :param pulumi.Input[_builtins.bool] enhanced_image_metadata_enabled: Collects additional information about the image being created, including the operating system (OS) version and package list.
         :param pulumi.Input[_builtins.str] execution_role: The execution role name/ARN for the image build, if provided
+        :param pulumi.Input['ImagePipelineExecutionSettingsArgs'] image_pipeline_execution_settings: The image pipeline execution settings of the image.
         :param pulumi.Input[_builtins.str] image_recipe_arn: The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         :param pulumi.Input['ImageScanningConfigurationArgs'] image_scanning_configuration: Contains settings for vulnerability scans.
         :param pulumi.Input['ImageTestsConfigurationArgs'] image_tests_configuration: The image tests configuration used when creating this image.
@@ -55,6 +57,8 @@ class ImageArgs:
             pulumi.set(__self__, "enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
         if execution_role is not None:
             pulumi.set(__self__, "execution_role", execution_role)
+        if image_pipeline_execution_settings is not None:
+            pulumi.set(__self__, "image_pipeline_execution_settings", image_pipeline_execution_settings)
         if image_recipe_arn is not None:
             pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
         if image_scanning_configuration is not None:
@@ -117,6 +121,18 @@ class ImageArgs:
     @execution_role.setter
     def execution_role(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "execution_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="imagePipelineExecutionSettings")
+    def image_pipeline_execution_settings(self) -> Optional[pulumi.Input['ImagePipelineExecutionSettingsArgs']]:
+        """
+        The image pipeline execution settings of the image.
+        """
+        return pulumi.get(self, "image_pipeline_execution_settings")
+
+    @image_pipeline_execution_settings.setter
+    def image_pipeline_execution_settings(self, value: Optional[pulumi.Input['ImagePipelineExecutionSettingsArgs']]):
+        pulumi.set(self, "image_pipeline_execution_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="imageRecipeArn")
@@ -213,6 +229,7 @@ class Image(pulumi.CustomResource):
                  distribution_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  execution_role: Optional[pulumi.Input[_builtins.str]] = None,
+                 image_pipeline_execution_settings: Optional[pulumi.Input[Union['ImagePipelineExecutionSettingsArgs', 'ImagePipelineExecutionSettingsArgsDict']]] = None,
                  image_recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  image_scanning_configuration: Optional[pulumi.Input[Union['ImageScanningConfigurationArgs', 'ImageScanningConfigurationArgsDict']]] = None,
                  image_tests_configuration: Optional[pulumi.Input[Union['ImageTestsConfigurationArgs', 'ImageTestsConfigurationArgsDict']]] = None,
@@ -230,6 +247,7 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] distribution_configuration_arn: The Amazon Resource Name (ARN) of the distribution configuration.
         :param pulumi.Input[_builtins.bool] enhanced_image_metadata_enabled: Collects additional information about the image being created, including the operating system (OS) version and package list.
         :param pulumi.Input[_builtins.str] execution_role: The execution role name/ARN for the image build, if provided
+        :param pulumi.Input[Union['ImagePipelineExecutionSettingsArgs', 'ImagePipelineExecutionSettingsArgsDict']] image_pipeline_execution_settings: The image pipeline execution settings of the image.
         :param pulumi.Input[_builtins.str] image_recipe_arn: The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         :param pulumi.Input[Union['ImageScanningConfigurationArgs', 'ImageScanningConfigurationArgsDict']] image_scanning_configuration: Contains settings for vulnerability scans.
         :param pulumi.Input[Union['ImageTestsConfigurationArgs', 'ImageTestsConfigurationArgsDict']] image_tests_configuration: The image tests configuration used when creating this image.
@@ -266,6 +284,7 @@ class Image(pulumi.CustomResource):
                  distribution_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  execution_role: Optional[pulumi.Input[_builtins.str]] = None,
+                 image_pipeline_execution_settings: Optional[pulumi.Input[Union['ImagePipelineExecutionSettingsArgs', 'ImagePipelineExecutionSettingsArgsDict']]] = None,
                  image_recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  image_scanning_configuration: Optional[pulumi.Input[Union['ImageScanningConfigurationArgs', 'ImageScanningConfigurationArgsDict']]] = None,
                  image_tests_configuration: Optional[pulumi.Input[Union['ImageTestsConfigurationArgs', 'ImageTestsConfigurationArgsDict']]] = None,
@@ -286,6 +305,7 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["distribution_configuration_arn"] = distribution_configuration_arn
             __props__.__dict__["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
             __props__.__dict__["execution_role"] = execution_role
+            __props__.__dict__["image_pipeline_execution_settings"] = image_pipeline_execution_settings
             __props__.__dict__["image_recipe_arn"] = image_recipe_arn
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
             __props__.__dict__["image_tests_configuration"] = image_tests_configuration
@@ -328,6 +348,7 @@ class Image(pulumi.CustomResource):
         __props__.__dict__["enhanced_image_metadata_enabled"] = None
         __props__.__dict__["execution_role"] = None
         __props__.__dict__["image_id"] = None
+        __props__.__dict__["image_pipeline_execution_settings"] = None
         __props__.__dict__["image_recipe_arn"] = None
         __props__.__dict__["image_scanning_configuration"] = None
         __props__.__dict__["image_tests_configuration"] = None
@@ -387,6 +408,14 @@ class Image(pulumi.CustomResource):
         The AMI ID of the EC2 AMI in current region.
         """
         return pulumi.get(self, "image_id")
+
+    @_builtins.property
+    @pulumi.getter(name="imagePipelineExecutionSettings")
+    def image_pipeline_execution_settings(self) -> pulumi.Output[Optional['outputs.ImagePipelineExecutionSettings']]:
+        """
+        The image pipeline execution settings of the image.
+        """
+        return pulumi.get(self, "image_pipeline_execution_settings")
 
     @_builtins.property
     @pulumi.getter(name="imageRecipeArn")

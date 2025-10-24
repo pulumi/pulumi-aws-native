@@ -299,6 +299,7 @@ class ServiceEbsTagSpecificationPropagateTags(_builtins.str, Enum):
 class ServiceLaunchType(_builtins.str, Enum):
     """
     The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+      If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
     """
     EC2 = "EC2"
     FARGATE = "FARGATE"

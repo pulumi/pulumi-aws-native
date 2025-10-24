@@ -8,7 +8,7 @@
     },
     "AdMarkerHls" : {
       "type" : "string",
-      "enum" : [ "DATERANGE" ]
+      "enum" : [ "DATERANGE", "SCTE35_ENHANCED" ]
     },
     "CmafEncryptionMethod" : {
       "type" : "string",
@@ -16,7 +16,7 @@
     },
     "ContainerType" : {
       "type" : "string",
-      "enum" : [ "TS", "CMAF" ]
+      "enum" : [ "TS", "CMAF", "ISM" ]
     },
     "DashBaseUrl" : {
       "type" : "object",
@@ -276,6 +276,9 @@
         },
         "CmafEncryptionMethod" : {
           "$ref" : "#/definitions/CmafEncryptionMethod"
+        },
+        "IsmEncryptionMethod" : {
+          "$ref" : "#/definitions/IsmEncryptionMethod"
         }
       },
       "additionalProperties" : false
@@ -511,6 +514,39 @@
       "required" : [ "ManifestName" ],
       "additionalProperties" : false
     },
+    "MssManifestConfiguration" : {
+      "type" : "object",
+      "description" : "<p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>",
+      "properties" : {
+        "ManifestName" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 1,
+          "pattern" : "^[a-zA-Z0-9-]+$",
+          "description" : "<p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>"
+        },
+        "FilterConfiguration" : {
+          "$ref" : "#/definitions/FilterConfiguration"
+        },
+        "ManifestWindowSeconds" : {
+          "type" : "integer",
+          "description" : "<p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>"
+        },
+        "ManifestLayout" : {
+          "$ref" : "#/definitions/MssManifestLayout"
+        }
+      },
+      "required" : [ "ManifestName" ],
+      "additionalProperties" : false
+    },
+    "IsmEncryptionMethod" : {
+      "type" : "string",
+      "enum" : [ "CENC" ]
+    },
+    "MssManifestLayout" : {
+      "type" : "string",
+      "enum" : [ "FULL", "COMPACT" ]
+    },
     "PresetSpeke20Audio" : {
       "type" : "string",
       "enum" : [ "PRESET_AUDIO_1", "PRESET_AUDIO_2", "PRESET_AUDIO_3", "SHARED", "UNENCRYPTED" ]
@@ -729,6 +765,13 @@
       "description" : "<p>The date and time the origin endpoint was modified.</p>",
       "format" : "date-time"
     },
+    "MssManifests" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/MssManifestConfiguration"
+      },
+      "description" : "<p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>"
+    },
     "OriginEndpointName" : {
       "type" : "string",
       "maxLength" : 256,
@@ -745,6 +788,12 @@
       "description" : "<p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>"
     },
     "DashManifestUrls" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "MssManifestUrls" : {
       "type" : "array",
       "items" : {
         "type" : "string"
@@ -771,7 +820,7 @@
     }
   },
   "required" : [ "ChannelGroupName", "ChannelName", "OriginEndpointName", "ContainerType" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/DashManifestUrls", "/properties/HlsManifestUrls", "/properties/LowLatencyHlsManifestUrls", "/properties/ModifiedAt", "/properties/LowLatencyHlsManifests/*/Url", "/properties/HlsManifests/*/Url" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/DashManifestUrls", "/properties/MssManifestUrls", "/properties/HlsManifestUrls", "/properties/LowLatencyHlsManifestUrls", "/properties/ModifiedAt", "/properties/LowLatencyHlsManifests/*/Url", "/properties/HlsManifests/*/Url" ],
   "createOnlyProperties" : [ "/properties/ChannelGroupName", "/properties/ChannelName", "/properties/OriginEndpointName" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {

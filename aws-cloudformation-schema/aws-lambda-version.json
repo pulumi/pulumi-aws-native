@@ -16,6 +16,9 @@
       "permissions" : [ "lambda:PublishVersion", "lambda:GetFunctionConfiguration", "lambda:PutProvisionedConcurrencyConfig", "lambda:GetProvisionedConcurrencyConfig", "lambda:PutRuntimeManagementConfig", "lambda:GetRuntimeManagementConfig" ],
       "timeoutInMinutes" : 180
     },
+    "update" : {
+      "permissions" : [ "lambda:GetFunctionConfiguration" ]
+    },
     "list" : {
       "permissions" : [ "lambda:ListVersionsByFunction" ],
       "handlerSchema" : {

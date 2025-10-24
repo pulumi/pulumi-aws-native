@@ -17,6 +17,7 @@ import (
 type VpcOrigin struct {
 	pulumi.CustomResourceState
 
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The VPC origin ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The VPC origin ID.
@@ -125,6 +126,10 @@ func (o VpcOriginOutput) ToVpcOriginOutput() VpcOriginOutput {
 
 func (o VpcOriginOutput) ToVpcOriginOutputWithContext(ctx context.Context) VpcOriginOutput {
 	return o
+}
+
+func (o VpcOriginOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcOrigin) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // The VPC origin ARN.

@@ -48,6 +48,9 @@ export class NatGateway extends pulumi.CustomResource {
      * Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
      */
     declare public readonly connectivityType: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the network interface.
+     */
     declare public /*out*/ readonly eniId: pulumi.Output<string>;
     /**
      * The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
@@ -83,6 +86,9 @@ export class NatGateway extends pulumi.CustomResource {
      * The tags for the NAT gateway.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ID of the VPC in which the NAT gateway is located.
+     */
     declare public readonly vpcId: pulumi.Output<string | undefined>;
 
     /**
@@ -171,5 +177,8 @@ export interface NatGatewayArgs {
      * The tags for the NAT gateway.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The ID of the VPC in which the NAT gateway is located.
+     */
     vpcId?: pulumi.Input<string>;
 }

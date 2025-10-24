@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.Ec2
         public readonly string? CapacityReservationFleetId;
         public readonly Outputs.CommitmentInfoProperties? CommitmentInfo;
         /// <summary>
-        /// The date and time at which the Capacity Reservation was created.
+        /// The date and time the Capacity Reservation was created.
         /// </summary>
         public readonly string? CreateDate;
         /// <summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? ReservationType;
         /// <summary>
-        /// The date and time at which the Capacity Reservation was started.
+        /// The date and time the Capacity Reservation was started.
         /// </summary>
         public readonly string? StartDate;
         /// <summary>

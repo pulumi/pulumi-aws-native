@@ -2221,6 +2221,184 @@ func (o EndpointSecondaryPtrOutput) Route() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization.
+type EventBusPolicyCondition struct {
+	// Specifies the value for the key. Currently, this must be the ID of the organization.
+	Key *string `pulumi:"key"`
+	// Specifies the type of condition. Currently the only supported value is StringEquals.
+	Type *string `pulumi:"type"`
+	// Specifies the key for the condition. Currently the only supported key is aws:PrincipalOrgID.
+	Value *string `pulumi:"value"`
+}
+
+// EventBusPolicyConditionInput is an input type that accepts EventBusPolicyConditionArgs and EventBusPolicyConditionOutput values.
+// You can construct a concrete instance of `EventBusPolicyConditionInput` via:
+//
+//	EventBusPolicyConditionArgs{...}
+type EventBusPolicyConditionInput interface {
+	pulumi.Input
+
+	ToEventBusPolicyConditionOutput() EventBusPolicyConditionOutput
+	ToEventBusPolicyConditionOutputWithContext(context.Context) EventBusPolicyConditionOutput
+}
+
+// This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization.
+type EventBusPolicyConditionArgs struct {
+	// Specifies the value for the key. Currently, this must be the ID of the organization.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Specifies the type of condition. Currently the only supported value is StringEquals.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Specifies the key for the condition. Currently the only supported key is aws:PrincipalOrgID.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EventBusPolicyConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBusPolicyCondition)(nil)).Elem()
+}
+
+func (i EventBusPolicyConditionArgs) ToEventBusPolicyConditionOutput() EventBusPolicyConditionOutput {
+	return i.ToEventBusPolicyConditionOutputWithContext(context.Background())
+}
+
+func (i EventBusPolicyConditionArgs) ToEventBusPolicyConditionOutputWithContext(ctx context.Context) EventBusPolicyConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventBusPolicyConditionOutput)
+}
+
+func (i EventBusPolicyConditionArgs) ToEventBusPolicyConditionPtrOutput() EventBusPolicyConditionPtrOutput {
+	return i.ToEventBusPolicyConditionPtrOutputWithContext(context.Background())
+}
+
+func (i EventBusPolicyConditionArgs) ToEventBusPolicyConditionPtrOutputWithContext(ctx context.Context) EventBusPolicyConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventBusPolicyConditionOutput).ToEventBusPolicyConditionPtrOutputWithContext(ctx)
+}
+
+// EventBusPolicyConditionPtrInput is an input type that accepts EventBusPolicyConditionArgs, EventBusPolicyConditionPtr and EventBusPolicyConditionPtrOutput values.
+// You can construct a concrete instance of `EventBusPolicyConditionPtrInput` via:
+//
+//	        EventBusPolicyConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventBusPolicyConditionPtrInput interface {
+	pulumi.Input
+
+	ToEventBusPolicyConditionPtrOutput() EventBusPolicyConditionPtrOutput
+	ToEventBusPolicyConditionPtrOutputWithContext(context.Context) EventBusPolicyConditionPtrOutput
+}
+
+type eventBusPolicyConditionPtrType EventBusPolicyConditionArgs
+
+func EventBusPolicyConditionPtr(v *EventBusPolicyConditionArgs) EventBusPolicyConditionPtrInput {
+	return (*eventBusPolicyConditionPtrType)(v)
+}
+
+func (*eventBusPolicyConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventBusPolicyCondition)(nil)).Elem()
+}
+
+func (i *eventBusPolicyConditionPtrType) ToEventBusPolicyConditionPtrOutput() EventBusPolicyConditionPtrOutput {
+	return i.ToEventBusPolicyConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *eventBusPolicyConditionPtrType) ToEventBusPolicyConditionPtrOutputWithContext(ctx context.Context) EventBusPolicyConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventBusPolicyConditionPtrOutput)
+}
+
+// This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization.
+type EventBusPolicyConditionOutput struct{ *pulumi.OutputState }
+
+func (EventBusPolicyConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBusPolicyCondition)(nil)).Elem()
+}
+
+func (o EventBusPolicyConditionOutput) ToEventBusPolicyConditionOutput() EventBusPolicyConditionOutput {
+	return o
+}
+
+func (o EventBusPolicyConditionOutput) ToEventBusPolicyConditionOutputWithContext(ctx context.Context) EventBusPolicyConditionOutput {
+	return o
+}
+
+func (o EventBusPolicyConditionOutput) ToEventBusPolicyConditionPtrOutput() EventBusPolicyConditionPtrOutput {
+	return o.ToEventBusPolicyConditionPtrOutputWithContext(context.Background())
+}
+
+func (o EventBusPolicyConditionOutput) ToEventBusPolicyConditionPtrOutputWithContext(ctx context.Context) EventBusPolicyConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventBusPolicyCondition) *EventBusPolicyCondition {
+		return &v
+	}).(EventBusPolicyConditionPtrOutput)
+}
+
+// Specifies the value for the key. Currently, this must be the ID of the organization.
+func (o EventBusPolicyConditionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventBusPolicyCondition) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of condition. Currently the only supported value is StringEquals.
+func (o EventBusPolicyConditionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventBusPolicyCondition) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the key for the condition. Currently the only supported key is aws:PrincipalOrgID.
+func (o EventBusPolicyConditionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventBusPolicyCondition) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EventBusPolicyConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (EventBusPolicyConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventBusPolicyCondition)(nil)).Elem()
+}
+
+func (o EventBusPolicyConditionPtrOutput) ToEventBusPolicyConditionPtrOutput() EventBusPolicyConditionPtrOutput {
+	return o
+}
+
+func (o EventBusPolicyConditionPtrOutput) ToEventBusPolicyConditionPtrOutputWithContext(ctx context.Context) EventBusPolicyConditionPtrOutput {
+	return o
+}
+
+func (o EventBusPolicyConditionPtrOutput) Elem() EventBusPolicyConditionOutput {
+	return o.ApplyT(func(v *EventBusPolicyCondition) EventBusPolicyCondition {
+		if v != nil {
+			return *v
+		}
+		var ret EventBusPolicyCondition
+		return ret
+	}).(EventBusPolicyConditionOutput)
+}
+
+// Specifies the value for the key. Currently, this must be the ID of the organization.
+func (o EventBusPolicyConditionPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventBusPolicyCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of condition. Currently the only supported value is StringEquals.
+func (o EventBusPolicyConditionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventBusPolicyCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the key for the condition. Currently the only supported key is aws:PrincipalOrgID.
+func (o EventBusPolicyConditionPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventBusPolicyCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventBusTag struct {
 	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
 	Key string `pulumi:"key"`
@@ -6402,6 +6580,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointReplicationConfigPtrInput)(nil)).Elem(), EndpointReplicationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRoutingConfigInput)(nil)).Elem(), EndpointRoutingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointSecondaryInput)(nil)).Elem(), EndpointSecondaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyConditionInput)(nil)).Elem(), EventBusPolicyConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyConditionPtrInput)(nil)).Elem(), EventBusPolicyConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InvocationConnectivityParametersPropertiesInput)(nil)).Elem(), InvocationConnectivityParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InvocationConnectivityParametersPropertiesPtrInput)(nil)).Elem(), InvocationConnectivityParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogConfigPropertiesInput)(nil)).Elem(), LogConfigPropertiesArgs{})
@@ -6484,6 +6664,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointRoutingConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointSecondaryOutput{})
 	pulumi.RegisterOutputType(EndpointSecondaryPtrOutput{})
+	pulumi.RegisterOutputType(EventBusPolicyConditionOutput{})
+	pulumi.RegisterOutputType(EventBusPolicyConditionPtrOutput{})
 	pulumi.RegisterOutputType(InvocationConnectivityParametersPropertiesOutput{})
 	pulumi.RegisterOutputType(InvocationConnectivityParametersPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LogConfigPropertiesOutput{})

@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPipelineResult:
-    def __init__(__self__, buffer_options=None, encryption_at_rest_options=None, ingest_endpoint_urls=None, log_publishing_options=None, max_units=None, min_units=None, pipeline_arn=None, pipeline_configuration_body=None, tags=None, vpc_endpoint_service=None, vpc_endpoints=None):
+    def __init__(__self__, buffer_options=None, encryption_at_rest_options=None, ingest_endpoint_urls=None, log_publishing_options=None, max_units=None, min_units=None, pipeline_arn=None, pipeline_configuration_body=None, pipeline_role_arn=None, resource_policy=None, tags=None, vpc_endpoint_service=None, vpc_endpoints=None):
         if buffer_options and not isinstance(buffer_options, dict):
             raise TypeError("Expected argument 'buffer_options' to be a dict")
         pulumi.set(__self__, "buffer_options", buffer_options)
@@ -51,6 +51,12 @@ class GetPipelineResult:
         if pipeline_configuration_body and not isinstance(pipeline_configuration_body, str):
             raise TypeError("Expected argument 'pipeline_configuration_body' to be a str")
         pulumi.set(__self__, "pipeline_configuration_body", pipeline_configuration_body)
+        if pipeline_role_arn and not isinstance(pipeline_role_arn, str):
+            raise TypeError("Expected argument 'pipeline_role_arn' to be a str")
+        pulumi.set(__self__, "pipeline_role_arn", pipeline_role_arn)
+        if resource_policy and not isinstance(resource_policy, dict):
+            raise TypeError("Expected argument 'resource_policy' to be a dict")
+        pulumi.set(__self__, "resource_policy", resource_policy)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -126,6 +132,19 @@ class GetPipelineResult:
         return pulumi.get(self, "pipeline_configuration_body")
 
     @_builtins.property
+    @pulumi.getter(name="pipelineRoleArn")
+    def pipeline_role_arn(self) -> Optional[_builtins.str]:
+        """
+        The Pipeline Role (ARN) for the pipeline.
+        """
+        return pulumi.get(self, "pipeline_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="resourcePolicy")
+    def resource_policy(self) -> Optional['outputs.PipelineResourcePolicy']:
+        return pulumi.get(self, "resource_policy")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -164,6 +183,8 @@ class AwaitableGetPipelineResult(GetPipelineResult):
             min_units=self.min_units,
             pipeline_arn=self.pipeline_arn,
             pipeline_configuration_body=self.pipeline_configuration_body,
+            pipeline_role_arn=self.pipeline_role_arn,
+            resource_policy=self.resource_policy,
             tags=self.tags,
             vpc_endpoint_service=self.vpc_endpoint_service,
             vpc_endpoints=self.vpc_endpoints)
@@ -191,6 +212,8 @@ def get_pipeline(pipeline_arn: Optional[_builtins.str] = None,
         min_units=pulumi.get(__ret__, 'min_units'),
         pipeline_arn=pulumi.get(__ret__, 'pipeline_arn'),
         pipeline_configuration_body=pulumi.get(__ret__, 'pipeline_configuration_body'),
+        pipeline_role_arn=pulumi.get(__ret__, 'pipeline_role_arn'),
+        resource_policy=pulumi.get(__ret__, 'resource_policy'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_endpoint_service=pulumi.get(__ret__, 'vpc_endpoint_service'),
         vpc_endpoints=pulumi.get(__ret__, 'vpc_endpoints'))
@@ -215,6 +238,8 @@ def get_pipeline_output(pipeline_arn: Optional[pulumi.Input[_builtins.str]] = No
         min_units=pulumi.get(__response__, 'min_units'),
         pipeline_arn=pulumi.get(__response__, 'pipeline_arn'),
         pipeline_configuration_body=pulumi.get(__response__, 'pipeline_configuration_body'),
+        pipeline_role_arn=pulumi.get(__response__, 'pipeline_role_arn'),
+        resource_policy=pulumi.get(__response__, 'resource_policy'),
         tags=pulumi.get(__response__, 'tags'),
         vpc_endpoint_service=pulumi.get(__response__, 'vpc_endpoint_service'),
         vpc_endpoints=pulumi.get(__response__, 'vpc_endpoints')))

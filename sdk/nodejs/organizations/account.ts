@@ -70,6 +70,10 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly roleName: pulumi.Output<string | undefined>;
     /**
+     * The state of the account in the organization.
+     */
+    declare public /*out*/ readonly state: pulumi.Output<enums.organizations.AccountState>;
+    /**
      * The status of the account in the organization.
      */
     declare public /*out*/ readonly status: pulumi.Output<enums.organizations.AccountStatus>;
@@ -101,6 +105,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["joinedMethod"] = undefined /*out*/;
             resourceInputs["joinedTimestamp"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;
@@ -111,6 +116,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["joinedTimestamp"] = undefined /*out*/;
             resourceInputs["parentIds"] = undefined /*out*/;
             resourceInputs["roleName"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }

@@ -46,6 +46,8 @@ __all__ = [
     'CampaignOpenHoursArgsDict',
     'CampaignPredictiveConfigArgs',
     'CampaignPredictiveConfigArgsDict',
+    'CampaignPreviewConfigArgs',
+    'CampaignPreviewConfigArgsDict',
     'CampaignProgressiveConfigArgs',
     'CampaignProgressiveConfigArgsDict',
     'CampaignRestrictedPeriodsArgs',
@@ -72,6 +74,8 @@ __all__ = [
     'CampaignTimeRangeArgsDict',
     'CampaignTimeWindowArgs',
     'CampaignTimeWindowArgsDict',
+    'CampaignTimeoutConfigArgs',
+    'CampaignTimeoutConfigArgsDict',
 ]
 
 MYPY = False
@@ -853,6 +857,59 @@ class CampaignPredictiveConfigArgs:
 
 
 if not MYPY:
+    class CampaignPreviewConfigArgsDict(TypedDict):
+        """
+        Preview config
+        """
+        bandwidth_allocation: pulumi.Input[_builtins.float]
+        timeout_config: pulumi.Input['CampaignTimeoutConfigArgsDict']
+        agent_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignAgentAction']]]]
+elif False:
+    CampaignPreviewConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CampaignPreviewConfigArgs:
+    def __init__(__self__, *,
+                 bandwidth_allocation: pulumi.Input[_builtins.float],
+                 timeout_config: pulumi.Input['CampaignTimeoutConfigArgs'],
+                 agent_actions: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignAgentAction']]]] = None):
+        """
+        Preview config
+        """
+        pulumi.set(__self__, "bandwidth_allocation", bandwidth_allocation)
+        pulumi.set(__self__, "timeout_config", timeout_config)
+        if agent_actions is not None:
+            pulumi.set(__self__, "agent_actions", agent_actions)
+
+    @_builtins.property
+    @pulumi.getter(name="bandwidthAllocation")
+    def bandwidth_allocation(self) -> pulumi.Input[_builtins.float]:
+        return pulumi.get(self, "bandwidth_allocation")
+
+    @bandwidth_allocation.setter
+    def bandwidth_allocation(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "bandwidth_allocation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutConfig")
+    def timeout_config(self) -> pulumi.Input['CampaignTimeoutConfigArgs']:
+        return pulumi.get(self, "timeout_config")
+
+    @timeout_config.setter
+    def timeout_config(self, value: pulumi.Input['CampaignTimeoutConfigArgs']):
+        pulumi.set(self, "timeout_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="agentActions")
+    def agent_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CampaignAgentAction']]]]:
+        return pulumi.get(self, "agent_actions")
+
+    @agent_actions.setter
+    def agent_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignAgentAction']]]]):
+        pulumi.set(self, "agent_actions", value)
+
+
+if not MYPY:
     class CampaignProgressiveConfigArgsDict(TypedDict):
         """
         Progressive config
@@ -1459,6 +1516,7 @@ if not MYPY:
         """
         Contains predictive outbound mode configuration.
         """
+        preview_config: NotRequired[pulumi.Input['CampaignPreviewConfigArgsDict']]
         progressive_config: NotRequired[pulumi.Input['CampaignProgressiveConfigArgsDict']]
         """
         Contains progressive telephony outbound mode configuration.
@@ -1471,6 +1529,7 @@ class CampaignTelephonyOutboundModeArgs:
     def __init__(__self__, *,
                  agentless_config: Optional[pulumi.Input['CampaignAgentlessConfigArgs']] = None,
                  predictive_config: Optional[pulumi.Input['CampaignPredictiveConfigArgs']] = None,
+                 preview_config: Optional[pulumi.Input['CampaignPreviewConfigArgs']] = None,
                  progressive_config: Optional[pulumi.Input['CampaignProgressiveConfigArgs']] = None):
         """
         Telephony Outbound Mode
@@ -1482,6 +1541,8 @@ class CampaignTelephonyOutboundModeArgs:
             pulumi.set(__self__, "agentless_config", agentless_config)
         if predictive_config is not None:
             pulumi.set(__self__, "predictive_config", predictive_config)
+        if preview_config is not None:
+            pulumi.set(__self__, "preview_config", preview_config)
         if progressive_config is not None:
             pulumi.set(__self__, "progressive_config", progressive_config)
 
@@ -1508,6 +1569,15 @@ class CampaignTelephonyOutboundModeArgs:
     @predictive_config.setter
     def predictive_config(self, value: Optional[pulumi.Input['CampaignPredictiveConfigArgs']]):
         pulumi.set(self, "predictive_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="previewConfig")
+    def preview_config(self) -> Optional[pulumi.Input['CampaignPreviewConfigArgs']]:
+        return pulumi.get(self, "preview_config")
+
+    @preview_config.setter
+    def preview_config(self, value: Optional[pulumi.Input['CampaignPreviewConfigArgs']]):
+        pulumi.set(self, "preview_config", value)
 
     @_builtins.property
     @pulumi.getter(name="progressiveConfig")
@@ -1615,5 +1685,34 @@ class CampaignTimeWindowArgs:
     @restricted_periods.setter
     def restricted_periods(self, value: Optional[pulumi.Input['CampaignRestrictedPeriodsArgs']]):
         pulumi.set(self, "restricted_periods", value)
+
+
+if not MYPY:
+    class CampaignTimeoutConfigArgsDict(TypedDict):
+        """
+        Timeout Config for preview contacts
+        """
+        duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+elif False:
+    CampaignTimeoutConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CampaignTimeoutConfigArgs:
+    def __init__(__self__, *,
+                 duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Timeout Config for preview contacts
+        """
+        if duration_in_seconds is not None:
+            pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="durationInSeconds")
+    def duration_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "duration_in_seconds")
+
+    @duration_in_seconds.setter
+    def duration_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "duration_in_seconds", value)
 
 

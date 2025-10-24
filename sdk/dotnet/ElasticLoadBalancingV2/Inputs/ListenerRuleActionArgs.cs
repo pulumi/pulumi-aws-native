@@ -34,7 +34,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public Input<Inputs.ListenerRuleFixedResponseConfigArgs>? FixedResponseConfig { get; set; }
 
         /// <summary>
-        /// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+        /// Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+        ///  If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
         /// </summary>
         [Input("forwardConfig")]
         public Input<Inputs.ListenerRuleForwardConfigArgs>? ForwardConfig { get; set; }
@@ -52,7 +53,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public Input<Inputs.ListenerRuleRedirectConfigArgs>? RedirectConfig { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+        /// The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
         /// </summary>
         [Input("targetGroupArn")]
         public Input<string>? TargetGroupArn { get; set; }

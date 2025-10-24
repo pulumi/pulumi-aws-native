@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly string? ContainerRecipeArn;
         /// <summary>
+        /// The deployment ID of the pipeline, used for resource create/update triggers.
+        /// </summary>
+        public readonly string? DeploymentId;
+        /// <summary>
         /// The description of the image pipeline.
         /// </summary>
         public readonly string? Description;
@@ -130,6 +134,8 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             string? containerRecipeArn,
 
+            string? deploymentId,
+
             string? description,
 
             string? distributionConfigurationArn,
@@ -158,6 +164,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         {
             Arn = arn;
             ContainerRecipeArn = containerRecipeArn;
+            DeploymentId = deploymentId;
             Description = description;
             DistributionConfigurationArn = distributionConfigurationArn;
             EnhancedImageMetadataEnabled = enhancedImageMetadataEnabled;

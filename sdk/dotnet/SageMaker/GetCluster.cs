@@ -101,6 +101,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly Outputs.ClusterTieredStorageConfig? TieredStorageConfig;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -124,7 +125,9 @@ namespace Pulumi.AwsNative.SageMaker
 
             ImmutableArray<Outputs.ClusterRestrictedInstanceGroup> restrictedInstanceGroups,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            Outputs.ClusterTieredStorageConfig? tieredStorageConfig)
         {
             AutoScaling = autoScaling;
             ClusterArn = clusterArn;
@@ -137,6 +140,7 @@ namespace Pulumi.AwsNative.SageMaker
             NodeRecovery = nodeRecovery;
             RestrictedInstanceGroups = restrictedInstanceGroups;
             Tags = tags;
+            TieredStorageConfig = tieredStorageConfig;
         }
     }
 }

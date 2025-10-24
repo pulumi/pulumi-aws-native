@@ -43,6 +43,8 @@ type LookupAccountResult struct {
 	JoinedTimestamp *string `pulumi:"joinedTimestamp"`
 	// List of parent nodes for the member account. Currently only one parent at a time is supported. Default is root.
 	ParentIds []string `pulumi:"parentIds"`
+	// The state of the account in the organization.
+	State *AccountStateEnum `pulumi:"state"`
 	// The status of the account in the organization.
 	Status *AccountStatus `pulumi:"status"`
 	// A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
@@ -114,6 +116,11 @@ func (o LookupAccountResultOutput) JoinedTimestamp() pulumi.StringPtrOutput {
 // List of parent nodes for the member account. Currently only one parent at a time is supported. Default is root.
 func (o LookupAccountResultOutput) ParentIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAccountResult) []string { return v.ParentIds }).(pulumi.StringArrayOutput)
+}
+
+// The state of the account in the organization.
+func (o LookupAccountResultOutput) State() AccountStateEnumPtrOutput {
+	return o.ApplyT(func(v LookupAccountResult) *AccountStateEnum { return v.State }).(AccountStateEnumPtrOutput)
 }
 
 // The status of the account in the organization.

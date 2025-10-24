@@ -374,6 +374,7 @@ class ImagePipeline(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workflows"] = workflows
             __props__.__dict__["arn"] = None
+            __props__.__dict__["deployment_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ImagePipeline, __self__).__init__(
@@ -400,6 +401,7 @@ class ImagePipeline(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["container_recipe_arn"] = None
+        __props__.__dict__["deployment_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["distribution_configuration_arn"] = None
         __props__.__dict__["enhanced_image_metadata_enabled"] = None
@@ -431,6 +433,14 @@ class ImagePipeline(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
         """
         return pulumi.get(self, "container_recipe_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The deployment ID of the pipeline, used for resource create/update triggers.
+        """
+        return pulumi.get(self, "deployment_id")
 
     @_builtins.property
     @pulumi.getter

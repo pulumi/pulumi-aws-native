@@ -87,6 +87,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        [Output("tieredStorageConfig")]
+        public Output<Outputs.ClusterTieredStorageConfig?> TieredStorageConfig { get; private set; } = null!;
+
         /// <summary>
         /// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
         /// </summary>
@@ -218,6 +221,9 @@ namespace Pulumi.AwsNative.SageMaker
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        [Input("tieredStorageConfig")]
+        public Input<Inputs.ClusterTieredStorageConfigArgs>? TieredStorageConfig { get; set; }
 
         /// <summary>
         /// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .

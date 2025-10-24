@@ -1637,6 +1637,172 @@ func (o ClusterStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
+// The mode of tiered storage.
+type ClusterTieredStorageConfigMode string
+
+const (
+	ClusterTieredStorageConfigModeEnable  = ClusterTieredStorageConfigMode("Enable")
+	ClusterTieredStorageConfigModeDisable = ClusterTieredStorageConfigMode("Disable")
+)
+
+func (ClusterTieredStorageConfigMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterTieredStorageConfigMode)(nil)).Elem()
+}
+
+func (e ClusterTieredStorageConfigMode) ToClusterTieredStorageConfigModeOutput() ClusterTieredStorageConfigModeOutput {
+	return pulumi.ToOutput(e).(ClusterTieredStorageConfigModeOutput)
+}
+
+func (e ClusterTieredStorageConfigMode) ToClusterTieredStorageConfigModeOutputWithContext(ctx context.Context) ClusterTieredStorageConfigModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterTieredStorageConfigModeOutput)
+}
+
+func (e ClusterTieredStorageConfigMode) ToClusterTieredStorageConfigModePtrOutput() ClusterTieredStorageConfigModePtrOutput {
+	return e.ToClusterTieredStorageConfigModePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterTieredStorageConfigMode) ToClusterTieredStorageConfigModePtrOutputWithContext(ctx context.Context) ClusterTieredStorageConfigModePtrOutput {
+	return ClusterTieredStorageConfigMode(e).ToClusterTieredStorageConfigModeOutputWithContext(ctx).ToClusterTieredStorageConfigModePtrOutputWithContext(ctx)
+}
+
+func (e ClusterTieredStorageConfigMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterTieredStorageConfigMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterTieredStorageConfigMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterTieredStorageConfigMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterTieredStorageConfigModeOutput struct{ *pulumi.OutputState }
+
+func (ClusterTieredStorageConfigModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterTieredStorageConfigMode)(nil)).Elem()
+}
+
+func (o ClusterTieredStorageConfigModeOutput) ToClusterTieredStorageConfigModeOutput() ClusterTieredStorageConfigModeOutput {
+	return o
+}
+
+func (o ClusterTieredStorageConfigModeOutput) ToClusterTieredStorageConfigModeOutputWithContext(ctx context.Context) ClusterTieredStorageConfigModeOutput {
+	return o
+}
+
+func (o ClusterTieredStorageConfigModeOutput) ToClusterTieredStorageConfigModePtrOutput() ClusterTieredStorageConfigModePtrOutput {
+	return o.ToClusterTieredStorageConfigModePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterTieredStorageConfigModeOutput) ToClusterTieredStorageConfigModePtrOutputWithContext(ctx context.Context) ClusterTieredStorageConfigModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterTieredStorageConfigMode) *ClusterTieredStorageConfigMode {
+		return &v
+	}).(ClusterTieredStorageConfigModePtrOutput)
+}
+
+func (o ClusterTieredStorageConfigModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterTieredStorageConfigModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterTieredStorageConfigMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterTieredStorageConfigModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterTieredStorageConfigModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterTieredStorageConfigMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterTieredStorageConfigModePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterTieredStorageConfigModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterTieredStorageConfigMode)(nil)).Elem()
+}
+
+func (o ClusterTieredStorageConfigModePtrOutput) ToClusterTieredStorageConfigModePtrOutput() ClusterTieredStorageConfigModePtrOutput {
+	return o
+}
+
+func (o ClusterTieredStorageConfigModePtrOutput) ToClusterTieredStorageConfigModePtrOutputWithContext(ctx context.Context) ClusterTieredStorageConfigModePtrOutput {
+	return o
+}
+
+func (o ClusterTieredStorageConfigModePtrOutput) Elem() ClusterTieredStorageConfigModeOutput {
+	return o.ApplyT(func(v *ClusterTieredStorageConfigMode) ClusterTieredStorageConfigMode {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterTieredStorageConfigMode
+		return ret
+	}).(ClusterTieredStorageConfigModeOutput)
+}
+
+func (o ClusterTieredStorageConfigModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterTieredStorageConfigModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterTieredStorageConfigMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterTieredStorageConfigModeInput is an input type that accepts values of the ClusterTieredStorageConfigMode enum
+// A concrete instance of `ClusterTieredStorageConfigModeInput` can be one of the following:
+//
+//	ClusterTieredStorageConfigModeEnable
+//	ClusterTieredStorageConfigModeDisable
+type ClusterTieredStorageConfigModeInput interface {
+	pulumi.Input
+
+	ToClusterTieredStorageConfigModeOutput() ClusterTieredStorageConfigModeOutput
+	ToClusterTieredStorageConfigModeOutputWithContext(context.Context) ClusterTieredStorageConfigModeOutput
+}
+
+var clusterTieredStorageConfigModePtrType = reflect.TypeOf((**ClusterTieredStorageConfigMode)(nil)).Elem()
+
+type ClusterTieredStorageConfigModePtrInput interface {
+	pulumi.Input
+
+	ToClusterTieredStorageConfigModePtrOutput() ClusterTieredStorageConfigModePtrOutput
+	ToClusterTieredStorageConfigModePtrOutputWithContext(context.Context) ClusterTieredStorageConfigModePtrOutput
+}
+
+type clusterTieredStorageConfigModePtr string
+
+func ClusterTieredStorageConfigModePtr(v string) ClusterTieredStorageConfigModePtrInput {
+	return (*clusterTieredStorageConfigModePtr)(&v)
+}
+
+func (*clusterTieredStorageConfigModePtr) ElementType() reflect.Type {
+	return clusterTieredStorageConfigModePtrType
+}
+
+func (in *clusterTieredStorageConfigModePtr) ToClusterTieredStorageConfigModePtrOutput() ClusterTieredStorageConfigModePtrOutput {
+	return pulumi.ToOutput(in).(ClusterTieredStorageConfigModePtrOutput)
+}
+
+func (in *clusterTieredStorageConfigModePtr) ToClusterTieredStorageConfigModePtrOutputWithContext(ctx context.Context) ClusterTieredStorageConfigModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterTieredStorageConfigModePtrOutput)
+}
+
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 type DataQualityJobDefinitionBatchTransformInputS3DataDistributionType string
 
@@ -22796,6 +22962,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeProvisioningModePtrInput)(nil)).Elem(), ClusterNodeProvisioningMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeRecoveryInput)(nil)).Elem(), ClusterNodeRecovery("Automatic"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeRecoveryPtrInput)(nil)).Elem(), ClusterNodeRecovery("Automatic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTieredStorageConfigModeInput)(nil)).Elem(), ClusterTieredStorageConfigMode("Enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTieredStorageConfigModePtrInput)(nil)).Elem(), ClusterTieredStorageConfigMode("Enable"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3InputModeInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputS3InputMode("Pipe"))
@@ -23041,6 +23209,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterNodeRecoveryPtrOutput{})
 	pulumi.RegisterOutputType(ClusterStatusOutput{})
 	pulumi.RegisterOutputType(ClusterStatusPtrOutput{})
+	pulumi.RegisterOutputType(ClusterTieredStorageConfigModeOutput{})
+	pulumi.RegisterOutputType(ClusterTieredStorageConfigModePtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputS3InputModeOutput{})

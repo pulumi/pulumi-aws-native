@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
     [AwsNativeResourceType("aws-native:observabilityadmin:TelemetryRule")]
     public partial class TelemetryRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Retrieves the details of a specific telemetry rule in your account.
+        /// </summary>
         [Output("rule")]
         public Output<Outputs.TelemetryRule> Rule { get; private set; } = null!;
 
@@ -85,6 +88,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
 
     public sealed class TelemetryRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Retrieves the details of a specific telemetry rule in your account.
+        /// </summary>
         [Input("rule", required: true)]
         public Input<Inputs.TelemetryRuleArgs> Rule { get; set; } = null!;
 

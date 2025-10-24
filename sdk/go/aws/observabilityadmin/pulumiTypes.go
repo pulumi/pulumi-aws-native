@@ -14,8 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type OrganizationCentralizationRuleCentralizationRule struct {
+	// Configuration determining where the telemetry data should be centralized, backed up, as well as encryption configuration for the primary and backup destinations.
 	Destination OrganizationCentralizationRuleCentralizationRuleDestination `pulumi:"destination"`
-	Source      OrganizationCentralizationRuleCentralizationRuleSource      `pulumi:"source"`
+	// Configuration determining the source of the telemetry data to be centralized.
+	Source OrganizationCentralizationRuleCentralizationRuleSource `pulumi:"source"`
 }
 
 // OrganizationCentralizationRuleCentralizationRuleInput is an input type that accepts OrganizationCentralizationRuleCentralizationRuleArgs and OrganizationCentralizationRuleCentralizationRuleOutput values.
@@ -30,8 +32,10 @@ type OrganizationCentralizationRuleCentralizationRuleInput interface {
 }
 
 type OrganizationCentralizationRuleCentralizationRuleArgs struct {
+	// Configuration determining where the telemetry data should be centralized, backed up, as well as encryption configuration for the primary and backup destinations.
 	Destination OrganizationCentralizationRuleCentralizationRuleDestinationInput `pulumi:"destination"`
-	Source      OrganizationCentralizationRuleCentralizationRuleSourceInput      `pulumi:"source"`
+	// Configuration determining the source of the telemetry data to be centralized.
+	Source OrganizationCentralizationRuleCentralizationRuleSourceInput `pulumi:"source"`
 }
 
 func (OrganizationCentralizationRuleCentralizationRuleArgs) ElementType() reflect.Type {
@@ -60,12 +64,14 @@ func (o OrganizationCentralizationRuleCentralizationRuleOutput) ToOrganizationCe
 	return o
 }
 
+// Configuration determining where the telemetry data should be centralized, backed up, as well as encryption configuration for the primary and backup destinations.
 func (o OrganizationCentralizationRuleCentralizationRuleOutput) Destination() OrganizationCentralizationRuleCentralizationRuleDestinationOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleCentralizationRule) OrganizationCentralizationRuleCentralizationRuleDestination {
 		return v.Destination
 	}).(OrganizationCentralizationRuleCentralizationRuleDestinationOutput)
 }
 
+// Configuration determining the source of the telemetry data to be centralized.
 func (o OrganizationCentralizationRuleCentralizationRuleOutput) Source() OrganizationCentralizationRuleCentralizationRuleSourceOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleCentralizationRule) OrganizationCentralizationRuleCentralizationRuleSource {
 		return v.Source
@@ -96,6 +102,7 @@ func (o OrganizationCentralizationRuleCentralizationRulePtrOutput) Elem() Organi
 	}).(OrganizationCentralizationRuleCentralizationRuleOutput)
 }
 
+// Configuration determining where the telemetry data should be centralized, backed up, as well as encryption configuration for the primary and backup destinations.
 func (o OrganizationCentralizationRuleCentralizationRulePtrOutput) Destination() OrganizationCentralizationRuleCentralizationRuleDestinationPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleCentralizationRule) *OrganizationCentralizationRuleCentralizationRuleDestination {
 		if v == nil {
@@ -105,6 +112,7 @@ func (o OrganizationCentralizationRuleCentralizationRulePtrOutput) Destination()
 	}).(OrganizationCentralizationRuleCentralizationRuleDestinationPtrOutput)
 }
 
+// Configuration determining the source of the telemetry data to be centralized.
 func (o OrganizationCentralizationRuleCentralizationRulePtrOutput) Source() OrganizationCentralizationRuleCentralizationRuleSourcePtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleCentralizationRule) *OrganizationCentralizationRuleCentralizationRuleSource {
 		if v == nil {
@@ -115,9 +123,12 @@ func (o OrganizationCentralizationRuleCentralizationRulePtrOutput) Source() Orga
 }
 
 type OrganizationCentralizationRuleCentralizationRuleDestination struct {
-	Account                      *string                                                     `pulumi:"account"`
+	// The destination account (within the organization) to which the telemetry data should be centralized.
+	Account *string `pulumi:"account"`
+	// Log specific configuration for centralization destination log groups.
 	DestinationLogsConfiguration *OrganizationCentralizationRuleDestinationLogsConfiguration `pulumi:"destinationLogsConfiguration"`
-	Region                       string                                                      `pulumi:"region"`
+	// The primary destination region to which telemetry data should be centralized.
+	Region string `pulumi:"region"`
 }
 
 // OrganizationCentralizationRuleCentralizationRuleDestinationInput is an input type that accepts OrganizationCentralizationRuleCentralizationRuleDestinationArgs and OrganizationCentralizationRuleCentralizationRuleDestinationOutput values.
@@ -132,9 +143,12 @@ type OrganizationCentralizationRuleCentralizationRuleDestinationInput interface 
 }
 
 type OrganizationCentralizationRuleCentralizationRuleDestinationArgs struct {
-	Account                      pulumi.StringPtrInput                                              `pulumi:"account"`
+	// The destination account (within the organization) to which the telemetry data should be centralized.
+	Account pulumi.StringPtrInput `pulumi:"account"`
+	// Log specific configuration for centralization destination log groups.
 	DestinationLogsConfiguration OrganizationCentralizationRuleDestinationLogsConfigurationPtrInput `pulumi:"destinationLogsConfiguration"`
-	Region                       pulumi.StringInput                                                 `pulumi:"region"`
+	// The primary destination region to which telemetry data should be centralized.
+	Region pulumi.StringInput `pulumi:"region"`
 }
 
 func (OrganizationCentralizationRuleCentralizationRuleDestinationArgs) ElementType() reflect.Type {
@@ -163,16 +177,19 @@ func (o OrganizationCentralizationRuleCentralizationRuleDestinationOutput) ToOrg
 	return o
 }
 
+// The destination account (within the organization) to which the telemetry data should be centralized.
 func (o OrganizationCentralizationRuleCentralizationRuleDestinationOutput) Account() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleCentralizationRuleDestination) *string { return v.Account }).(pulumi.StringPtrOutput)
 }
 
+// Log specific configuration for centralization destination log groups.
 func (o OrganizationCentralizationRuleCentralizationRuleDestinationOutput) DestinationLogsConfiguration() OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleCentralizationRuleDestination) *OrganizationCentralizationRuleDestinationLogsConfiguration {
 		return v.DestinationLogsConfiguration
 	}).(OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput)
 }
 
+// The primary destination region to which telemetry data should be centralized.
 func (o OrganizationCentralizationRuleCentralizationRuleDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleCentralizationRuleDestination) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -201,6 +218,7 @@ func (o OrganizationCentralizationRuleCentralizationRuleDestinationPtrOutput) El
 	}).(OrganizationCentralizationRuleCentralizationRuleDestinationOutput)
 }
 
+// The destination account (within the organization) to which the telemetry data should be centralized.
 func (o OrganizationCentralizationRuleCentralizationRuleDestinationPtrOutput) Account() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleCentralizationRuleDestination) *string {
 		if v == nil {
@@ -210,6 +228,7 @@ func (o OrganizationCentralizationRuleCentralizationRuleDestinationPtrOutput) Ac
 	}).(pulumi.StringPtrOutput)
 }
 
+// Log specific configuration for centralization destination log groups.
 func (o OrganizationCentralizationRuleCentralizationRuleDestinationPtrOutput) DestinationLogsConfiguration() OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleCentralizationRuleDestination) *OrganizationCentralizationRuleDestinationLogsConfiguration {
 		if v == nil {
@@ -219,6 +238,7 @@ func (o OrganizationCentralizationRuleCentralizationRuleDestinationPtrOutput) De
 	}).(OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput)
 }
 
+// The primary destination region to which telemetry data should be centralized.
 func (o OrganizationCentralizationRuleCentralizationRuleDestinationPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleCentralizationRuleDestination) *string {
 		if v == nil {
@@ -229,8 +249,11 @@ func (o OrganizationCentralizationRuleCentralizationRuleDestinationPtrOutput) Re
 }
 
 type OrganizationCentralizationRuleCentralizationRuleSource struct {
-	Regions                 []string                                               `pulumi:"regions"`
-	Scope                   *string                                                `pulumi:"scope"`
+	// The list of source regions from which telemetry data should be centralized.
+	Regions []string `pulumi:"regions"`
+	// The organizational scope from which telemetry data should be centralized, specified using organization id, accounts or organizational unit ids.
+	Scope *string `pulumi:"scope"`
+	// Log specific configuration for centralization source log groups.
 	SourceLogsConfiguration *OrganizationCentralizationRuleSourceLogsConfiguration `pulumi:"sourceLogsConfiguration"`
 }
 
@@ -246,8 +269,11 @@ type OrganizationCentralizationRuleCentralizationRuleSourceInput interface {
 }
 
 type OrganizationCentralizationRuleCentralizationRuleSourceArgs struct {
-	Regions                 pulumi.StringArrayInput                                       `pulumi:"regions"`
-	Scope                   pulumi.StringPtrInput                                         `pulumi:"scope"`
+	// The list of source regions from which telemetry data should be centralized.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+	// The organizational scope from which telemetry data should be centralized, specified using organization id, accounts or organizational unit ids.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// Log specific configuration for centralization source log groups.
 	SourceLogsConfiguration OrganizationCentralizationRuleSourceLogsConfigurationPtrInput `pulumi:"sourceLogsConfiguration"`
 }
 
@@ -277,14 +303,17 @@ func (o OrganizationCentralizationRuleCentralizationRuleSourceOutput) ToOrganiza
 	return o
 }
 
+// The list of source regions from which telemetry data should be centralized.
 func (o OrganizationCentralizationRuleCentralizationRuleSourceOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleCentralizationRuleSource) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
+// The organizational scope from which telemetry data should be centralized, specified using organization id, accounts or organizational unit ids.
 func (o OrganizationCentralizationRuleCentralizationRuleSourceOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleCentralizationRuleSource) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
+// Log specific configuration for centralization source log groups.
 func (o OrganizationCentralizationRuleCentralizationRuleSourceOutput) SourceLogsConfiguration() OrganizationCentralizationRuleSourceLogsConfigurationPtrOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleCentralizationRuleSource) *OrganizationCentralizationRuleSourceLogsConfiguration {
 		return v.SourceLogsConfiguration
@@ -315,6 +344,7 @@ func (o OrganizationCentralizationRuleCentralizationRuleSourcePtrOutput) Elem() 
 	}).(OrganizationCentralizationRuleCentralizationRuleSourceOutput)
 }
 
+// The list of source regions from which telemetry data should be centralized.
 func (o OrganizationCentralizationRuleCentralizationRuleSourcePtrOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleCentralizationRuleSource) []string {
 		if v == nil {
@@ -324,6 +354,7 @@ func (o OrganizationCentralizationRuleCentralizationRuleSourcePtrOutput) Regions
 	}).(pulumi.StringArrayOutput)
 }
 
+// The organizational scope from which telemetry data should be centralized, specified using organization id, accounts or organizational unit ids.
 func (o OrganizationCentralizationRuleCentralizationRuleSourcePtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleCentralizationRuleSource) *string {
 		if v == nil {
@@ -333,6 +364,7 @@ func (o OrganizationCentralizationRuleCentralizationRuleSourcePtrOutput) Scope()
 	}).(pulumi.StringPtrOutput)
 }
 
+// Log specific configuration for centralization source log groups.
 func (o OrganizationCentralizationRuleCentralizationRuleSourcePtrOutput) SourceLogsConfiguration() OrganizationCentralizationRuleSourceLogsConfigurationPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleCentralizationRuleSource) *OrganizationCentralizationRuleSourceLogsConfiguration {
 		if v == nil {
@@ -343,7 +375,9 @@ func (o OrganizationCentralizationRuleCentralizationRuleSourcePtrOutput) SourceL
 }
 
 type OrganizationCentralizationRuleDestinationLogsConfiguration struct {
-	BackupConfiguration         *OrganizationCentralizationRuleLogsBackupConfiguration     `pulumi:"backupConfiguration"`
+	// Configuration defining the backup region and an optional KMS key for the backup destination.
+	BackupConfiguration *OrganizationCentralizationRuleLogsBackupConfiguration `pulumi:"backupConfiguration"`
+	// The encryption configuration for centralization destination log groups.
 	LogsEncryptionConfiguration *OrganizationCentralizationRuleLogsEncryptionConfiguration `pulumi:"logsEncryptionConfiguration"`
 }
 
@@ -359,7 +393,9 @@ type OrganizationCentralizationRuleDestinationLogsConfigurationInput interface {
 }
 
 type OrganizationCentralizationRuleDestinationLogsConfigurationArgs struct {
-	BackupConfiguration         OrganizationCentralizationRuleLogsBackupConfigurationPtrInput     `pulumi:"backupConfiguration"`
+	// Configuration defining the backup region and an optional KMS key for the backup destination.
+	BackupConfiguration OrganizationCentralizationRuleLogsBackupConfigurationPtrInput `pulumi:"backupConfiguration"`
+	// The encryption configuration for centralization destination log groups.
 	LogsEncryptionConfiguration OrganizationCentralizationRuleLogsEncryptionConfigurationPtrInput `pulumi:"logsEncryptionConfiguration"`
 }
 
@@ -440,12 +476,14 @@ func (o OrganizationCentralizationRuleDestinationLogsConfigurationOutput) ToOrga
 	}).(OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput)
 }
 
+// Configuration defining the backup region and an optional KMS key for the backup destination.
 func (o OrganizationCentralizationRuleDestinationLogsConfigurationOutput) BackupConfiguration() OrganizationCentralizationRuleLogsBackupConfigurationPtrOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleDestinationLogsConfiguration) *OrganizationCentralizationRuleLogsBackupConfiguration {
 		return v.BackupConfiguration
 	}).(OrganizationCentralizationRuleLogsBackupConfigurationPtrOutput)
 }
 
+// The encryption configuration for centralization destination log groups.
 func (o OrganizationCentralizationRuleDestinationLogsConfigurationOutput) LogsEncryptionConfiguration() OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleDestinationLogsConfiguration) *OrganizationCentralizationRuleLogsEncryptionConfiguration {
 		return v.LogsEncryptionConfiguration
@@ -476,6 +514,7 @@ func (o OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput) Ele
 	}).(OrganizationCentralizationRuleDestinationLogsConfigurationOutput)
 }
 
+// Configuration defining the backup region and an optional KMS key for the backup destination.
 func (o OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput) BackupConfiguration() OrganizationCentralizationRuleLogsBackupConfigurationPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleDestinationLogsConfiguration) *OrganizationCentralizationRuleLogsBackupConfiguration {
 		if v == nil {
@@ -485,6 +524,7 @@ func (o OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput) Bac
 	}).(OrganizationCentralizationRuleLogsBackupConfigurationPtrOutput)
 }
 
+// The encryption configuration for centralization destination log groups.
 func (o OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput) LogsEncryptionConfiguration() OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleDestinationLogsConfiguration) *OrganizationCentralizationRuleLogsEncryptionConfiguration {
 		if v == nil {
@@ -495,8 +535,10 @@ func (o OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput) Log
 }
 
 type OrganizationCentralizationRuleLogsBackupConfiguration struct {
+	// KMS Key ARN belonging to the primary destination account and backup region, to encrypt newly created central log groups in the backup destination.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	Region    string  `pulumi:"region"`
+	// Logs specific backup destination region within the primary destination account to which log data should be centralized.
+	Region string `pulumi:"region"`
 }
 
 // OrganizationCentralizationRuleLogsBackupConfigurationInput is an input type that accepts OrganizationCentralizationRuleLogsBackupConfigurationArgs and OrganizationCentralizationRuleLogsBackupConfigurationOutput values.
@@ -511,8 +553,10 @@ type OrganizationCentralizationRuleLogsBackupConfigurationInput interface {
 }
 
 type OrganizationCentralizationRuleLogsBackupConfigurationArgs struct {
+	// KMS Key ARN belonging to the primary destination account and backup region, to encrypt newly created central log groups in the backup destination.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	Region    pulumi.StringInput    `pulumi:"region"`
+	// Logs specific backup destination region within the primary destination account to which log data should be centralized.
+	Region pulumi.StringInput `pulumi:"region"`
 }
 
 func (OrganizationCentralizationRuleLogsBackupConfigurationArgs) ElementType() reflect.Type {
@@ -592,10 +636,12 @@ func (o OrganizationCentralizationRuleLogsBackupConfigurationOutput) ToOrganizat
 	}).(OrganizationCentralizationRuleLogsBackupConfigurationPtrOutput)
 }
 
+// KMS Key ARN belonging to the primary destination account and backup region, to encrypt newly created central log groups in the backup destination.
 func (o OrganizationCentralizationRuleLogsBackupConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleLogsBackupConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// Logs specific backup destination region within the primary destination account to which log data should be centralized.
 func (o OrganizationCentralizationRuleLogsBackupConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleLogsBackupConfiguration) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -624,6 +670,7 @@ func (o OrganizationCentralizationRuleLogsBackupConfigurationPtrOutput) Elem() O
 	}).(OrganizationCentralizationRuleLogsBackupConfigurationOutput)
 }
 
+// KMS Key ARN belonging to the primary destination account and backup region, to encrypt newly created central log groups in the backup destination.
 func (o OrganizationCentralizationRuleLogsBackupConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleLogsBackupConfiguration) *string {
 		if v == nil {
@@ -633,6 +680,7 @@ func (o OrganizationCentralizationRuleLogsBackupConfigurationPtrOutput) KmsKeyAr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Logs specific backup destination region within the primary destination account to which log data should be centralized.
 func (o OrganizationCentralizationRuleLogsBackupConfigurationPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleLogsBackupConfiguration) *string {
 		if v == nil {
@@ -643,9 +691,12 @@ func (o OrganizationCentralizationRuleLogsBackupConfigurationPtrOutput) Region()
 }
 
 type OrganizationCentralizationRuleLogsEncryptionConfiguration struct {
+	// Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
 	EncryptionConflictResolutionStrategy *OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy `pulumi:"encryptionConflictResolutionStrategy"`
-	EncryptionStrategy                   OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy                    `pulumi:"encryptionStrategy"`
-	KmsKeyArn                            *string                                                                                        `pulumi:"kmsKeyArn"`
+	// Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
+	EncryptionStrategy OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy `pulumi:"encryptionStrategy"`
+	// KMS Key ARN belonging to the primary destination account and region, to encrypt newly created central log groups in the primary destination.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
 // OrganizationCentralizationRuleLogsEncryptionConfigurationInput is an input type that accepts OrganizationCentralizationRuleLogsEncryptionConfigurationArgs and OrganizationCentralizationRuleLogsEncryptionConfigurationOutput values.
@@ -660,9 +711,12 @@ type OrganizationCentralizationRuleLogsEncryptionConfigurationInput interface {
 }
 
 type OrganizationCentralizationRuleLogsEncryptionConfigurationArgs struct {
+	// Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
 	EncryptionConflictResolutionStrategy OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategyPtrInput `pulumi:"encryptionConflictResolutionStrategy"`
-	EncryptionStrategy                   OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategyInput                      `pulumi:"encryptionStrategy"`
-	KmsKeyArn                            pulumi.StringPtrInput                                                                                 `pulumi:"kmsKeyArn"`
+	// Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
+	EncryptionStrategy OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategyInput `pulumi:"encryptionStrategy"`
+	// KMS Key ARN belonging to the primary destination account and region, to encrypt newly created central log groups in the primary destination.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
 func (OrganizationCentralizationRuleLogsEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -742,18 +796,21 @@ func (o OrganizationCentralizationRuleLogsEncryptionConfigurationOutput) ToOrgan
 	}).(OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput)
 }
 
+// Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
 func (o OrganizationCentralizationRuleLogsEncryptionConfigurationOutput) EncryptionConflictResolutionStrategy() OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategyPtrOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleLogsEncryptionConfiguration) *OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy {
 		return v.EncryptionConflictResolutionStrategy
 	}).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategyPtrOutput)
 }
 
+// Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
 func (o OrganizationCentralizationRuleLogsEncryptionConfigurationOutput) EncryptionStrategy() OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategyOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleLogsEncryptionConfiguration) OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy {
 		return v.EncryptionStrategy
 	}).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategyOutput)
 }
 
+// KMS Key ARN belonging to the primary destination account and region, to encrypt newly created central log groups in the primary destination.
 func (o OrganizationCentralizationRuleLogsEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleLogsEncryptionConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -782,6 +839,7 @@ func (o OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput) Elem
 	}).(OrganizationCentralizationRuleLogsEncryptionConfigurationOutput)
 }
 
+// Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
 func (o OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput) EncryptionConflictResolutionStrategy() OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategyPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleLogsEncryptionConfiguration) *OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy {
 		if v == nil {
@@ -791,6 +849,7 @@ func (o OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput) Encr
 	}).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategyPtrOutput)
 }
 
+// Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
 func (o OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput) EncryptionStrategy() OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategyPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleLogsEncryptionConfiguration) *OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy {
 		if v == nil {
@@ -800,6 +859,7 @@ func (o OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput) Encr
 	}).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategyPtrOutput)
 }
 
+// KMS Key ARN belonging to the primary destination account and region, to encrypt newly created central log groups in the primary destination.
 func (o OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleLogsEncryptionConfiguration) *string {
 		if v == nil {
@@ -810,8 +870,10 @@ func (o OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput) KmsK
 }
 
 type OrganizationCentralizationRuleSourceLogsConfiguration struct {
+	// A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
 	EncryptedLogGroupStrategy OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy `pulumi:"encryptedLogGroupStrategy"`
-	LogGroupSelectionCriteria string                                                                         `pulumi:"logGroupSelectionCriteria"`
+	// The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.
+	LogGroupSelectionCriteria string `pulumi:"logGroupSelectionCriteria"`
 }
 
 // OrganizationCentralizationRuleSourceLogsConfigurationInput is an input type that accepts OrganizationCentralizationRuleSourceLogsConfigurationArgs and OrganizationCentralizationRuleSourceLogsConfigurationOutput values.
@@ -826,8 +888,10 @@ type OrganizationCentralizationRuleSourceLogsConfigurationInput interface {
 }
 
 type OrganizationCentralizationRuleSourceLogsConfigurationArgs struct {
+	// A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
 	EncryptedLogGroupStrategy OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategyInput `pulumi:"encryptedLogGroupStrategy"`
-	LogGroupSelectionCriteria pulumi.StringInput                                                                  `pulumi:"logGroupSelectionCriteria"`
+	// The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.
+	LogGroupSelectionCriteria pulumi.StringInput `pulumi:"logGroupSelectionCriteria"`
 }
 
 func (OrganizationCentralizationRuleSourceLogsConfigurationArgs) ElementType() reflect.Type {
@@ -907,12 +971,14 @@ func (o OrganizationCentralizationRuleSourceLogsConfigurationOutput) ToOrganizat
 	}).(OrganizationCentralizationRuleSourceLogsConfigurationPtrOutput)
 }
 
+// A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
 func (o OrganizationCentralizationRuleSourceLogsConfigurationOutput) EncryptedLogGroupStrategy() OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategyOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleSourceLogsConfiguration) OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy {
 		return v.EncryptedLogGroupStrategy
 	}).(OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategyOutput)
 }
 
+// The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.
 func (o OrganizationCentralizationRuleSourceLogsConfigurationOutput) LogGroupSelectionCriteria() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleSourceLogsConfiguration) string {
 		return v.LogGroupSelectionCriteria
@@ -943,6 +1009,7 @@ func (o OrganizationCentralizationRuleSourceLogsConfigurationPtrOutput) Elem() O
 	}).(OrganizationCentralizationRuleSourceLogsConfigurationOutput)
 }
 
+// A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
 func (o OrganizationCentralizationRuleSourceLogsConfigurationPtrOutput) EncryptedLogGroupStrategy() OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategyPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleSourceLogsConfiguration) *OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy {
 		if v == nil {
@@ -952,6 +1019,7 @@ func (o OrganizationCentralizationRuleSourceLogsConfigurationPtrOutput) Encrypte
 	}).(OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategyPtrOutput)
 }
 
+// The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.
 func (o OrganizationCentralizationRuleSourceLogsConfigurationPtrOutput) LogGroupSelectionCriteria() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleSourceLogsConfiguration) *string {
 		if v == nil {
@@ -979,9 +1047,13 @@ type OrganizationTelemetryRuleTag struct {
 
 // The destination configuration for telemetry data
 type OrganizationTelemetryRuleTelemetryDestinationConfiguration struct {
-	DestinationPattern   *string                                        `pulumi:"destinationPattern"`
-	DestinationType      *OrganizationTelemetryRuleDestinationType      `pulumi:"destinationType"`
-	RetentionInDays      *int                                           `pulumi:"retentionInDays"`
+	// The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
+	DestinationPattern *string `pulumi:"destinationPattern"`
+	// The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
+	DestinationType *OrganizationTelemetryRuleDestinationType `pulumi:"destinationType"`
+	// The number of days to retain the telemetry data in the destination.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
 	VpcFlowLogParameters *OrganizationTelemetryRuleVpcFlowLogParameters `pulumi:"vpcFlowLogParameters"`
 }
 
@@ -998,9 +1070,13 @@ type OrganizationTelemetryRuleTelemetryDestinationConfigurationInput interface {
 
 // The destination configuration for telemetry data
 type OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs struct {
-	DestinationPattern   pulumi.StringPtrInput                                 `pulumi:"destinationPattern"`
-	DestinationType      OrganizationTelemetryRuleDestinationTypePtrInput      `pulumi:"destinationType"`
-	RetentionInDays      pulumi.IntPtrInput                                    `pulumi:"retentionInDays"`
+	// The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
+	DestinationPattern pulumi.StringPtrInput `pulumi:"destinationPattern"`
+	// The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
+	DestinationType OrganizationTelemetryRuleDestinationTypePtrInput `pulumi:"destinationType"`
+	// The number of days to retain the telemetry data in the destination.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
+	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
 	VpcFlowLogParameters OrganizationTelemetryRuleVpcFlowLogParametersPtrInput `pulumi:"vpcFlowLogParameters"`
 }
 
@@ -1082,22 +1158,26 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) ToOrga
 	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput)
 }
 
+// The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) DestinationPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfiguration) *string {
 		return v.DestinationPattern
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) DestinationType() OrganizationTelemetryRuleDestinationTypePtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleDestinationType {
 		return v.DestinationType
 	}).(OrganizationTelemetryRuleDestinationTypePtrOutput)
 }
 
+// The number of days to retain the telemetry data in the destination.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfiguration) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
+// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) VpcFlowLogParameters() OrganizationTelemetryRuleVpcFlowLogParametersPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleVpcFlowLogParameters {
 		return v.VpcFlowLogParameters
@@ -1128,6 +1208,7 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) Ele
 	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput)
 }
 
+// The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) DestinationPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfiguration) *string {
 		if v == nil {
@@ -1137,6 +1218,7 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) Des
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) DestinationType() OrganizationTelemetryRuleDestinationTypePtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleDestinationType {
 		if v == nil {
@@ -1146,6 +1228,7 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) Des
 	}).(OrganizationTelemetryRuleDestinationTypePtrOutput)
 }
 
+// The number of days to retain the telemetry data in the destination.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfiguration) *int {
 		if v == nil {
@@ -1155,6 +1238,7 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) Ret
 	}).(pulumi.IntPtrOutput)
 }
 
+// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) VpcFlowLogParameters() OrganizationTelemetryRuleVpcFlowLogParametersPtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleVpcFlowLogParameters {
 		if v == nil {
@@ -1166,11 +1250,16 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) Vpc
 
 // The telemetry rule
 type OrganizationTelemetryRuleTelemetryRule struct {
+	// Configuration specifying where and how the telemetry data should be delivered.
 	DestinationConfiguration *OrganizationTelemetryRuleTelemetryDestinationConfiguration `pulumi:"destinationConfiguration"`
-	ResourceType             OrganizationTelemetryRuleResourceType                       `pulumi:"resourceType"`
-	Scope                    *string                                                     `pulumi:"scope"`
-	SelectionCriteria        *string                                                     `pulumi:"selectionCriteria"`
-	TelemetryType            OrganizationTelemetryRuleTelemetryType                      `pulumi:"telemetryType"`
+	// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
+	ResourceType OrganizationTelemetryRuleResourceType `pulumi:"resourceType"`
+	// The organizational scope to which the rule applies, specified using accounts or organizational units.
+	Scope *string `pulumi:"scope"`
+	// Criteria for selecting which resources the rule applies to, such as resource tags.
+	SelectionCriteria *string `pulumi:"selectionCriteria"`
+	// The type of telemetry to collect (Logs, Metrics, or Traces).
+	TelemetryType OrganizationTelemetryRuleTelemetryType `pulumi:"telemetryType"`
 }
 
 // OrganizationTelemetryRuleTelemetryRuleInput is an input type that accepts OrganizationTelemetryRuleTelemetryRuleArgs and OrganizationTelemetryRuleTelemetryRuleOutput values.
@@ -1186,11 +1275,16 @@ type OrganizationTelemetryRuleTelemetryRuleInput interface {
 
 // The telemetry rule
 type OrganizationTelemetryRuleTelemetryRuleArgs struct {
+	// Configuration specifying where and how the telemetry data should be delivered.
 	DestinationConfiguration OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrInput `pulumi:"destinationConfiguration"`
-	ResourceType             OrganizationTelemetryRuleResourceTypeInput                         `pulumi:"resourceType"`
-	Scope                    pulumi.StringPtrInput                                              `pulumi:"scope"`
-	SelectionCriteria        pulumi.StringPtrInput                                              `pulumi:"selectionCriteria"`
-	TelemetryType            OrganizationTelemetryRuleTelemetryTypeInput                        `pulumi:"telemetryType"`
+	// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
+	ResourceType OrganizationTelemetryRuleResourceTypeInput `pulumi:"resourceType"`
+	// The organizational scope to which the rule applies, specified using accounts or organizational units.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// Criteria for selecting which resources the rule applies to, such as resource tags.
+	SelectionCriteria pulumi.StringPtrInput `pulumi:"selectionCriteria"`
+	// The type of telemetry to collect (Logs, Metrics, or Traces).
+	TelemetryType OrganizationTelemetryRuleTelemetryTypeInput `pulumi:"telemetryType"`
 }
 
 func (OrganizationTelemetryRuleTelemetryRuleArgs) ElementType() reflect.Type {
@@ -1220,26 +1314,31 @@ func (o OrganizationTelemetryRuleTelemetryRuleOutput) ToOrganizationTelemetryRul
 	return o
 }
 
+// Configuration specifying where and how the telemetry data should be delivered.
 func (o OrganizationTelemetryRuleTelemetryRuleOutput) DestinationConfiguration() OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryRule) *OrganizationTelemetryRuleTelemetryDestinationConfiguration {
 		return v.DestinationConfiguration
 	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput)
 }
 
+// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
 func (o OrganizationTelemetryRuleTelemetryRuleOutput) ResourceType() OrganizationTelemetryRuleResourceTypeOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryRule) OrganizationTelemetryRuleResourceType {
 		return v.ResourceType
 	}).(OrganizationTelemetryRuleResourceTypeOutput)
 }
 
+// The organizational scope to which the rule applies, specified using accounts or organizational units.
 func (o OrganizationTelemetryRuleTelemetryRuleOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryRule) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
+// Criteria for selecting which resources the rule applies to, such as resource tags.
 func (o OrganizationTelemetryRuleTelemetryRuleOutput) SelectionCriteria() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryRule) *string { return v.SelectionCriteria }).(pulumi.StringPtrOutput)
 }
 
+// The type of telemetry to collect (Logs, Metrics, or Traces).
 func (o OrganizationTelemetryRuleTelemetryRuleOutput) TelemetryType() OrganizationTelemetryRuleTelemetryTypeOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryRule) OrganizationTelemetryRuleTelemetryType {
 		return v.TelemetryType
@@ -1270,6 +1369,7 @@ func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) Elem() OrganizationTele
 	}).(OrganizationTelemetryRuleTelemetryRuleOutput)
 }
 
+// Configuration specifying where and how the telemetry data should be delivered.
 func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) DestinationConfiguration() OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryRule) *OrganizationTelemetryRuleTelemetryDestinationConfiguration {
 		if v == nil {
@@ -1279,6 +1379,7 @@ func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) DestinationConfiguratio
 	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput)
 }
 
+// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
 func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) ResourceType() OrganizationTelemetryRuleResourceTypePtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryRule) *OrganizationTelemetryRuleResourceType {
 		if v == nil {
@@ -1288,6 +1389,7 @@ func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) ResourceType() Organiza
 	}).(OrganizationTelemetryRuleResourceTypePtrOutput)
 }
 
+// The organizational scope to which the rule applies, specified using accounts or organizational units.
 func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryRule) *string {
 		if v == nil {
@@ -1297,6 +1399,7 @@ func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) Scope() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Criteria for selecting which resources the rule applies to, such as resource tags.
 func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) SelectionCriteria() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryRule) *string {
 		if v == nil {
@@ -1306,6 +1409,7 @@ func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) SelectionCriteria() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of telemetry to collect (Logs, Metrics, or Traces).
 func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) TelemetryType() OrganizationTelemetryRuleTelemetryTypePtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryRule) *OrganizationTelemetryRuleTelemetryType {
 		if v == nil {
@@ -1495,10 +1599,14 @@ func (o OrganizationTelemetryRuleVpcFlowLogParametersPtrOutput) TrafficType() pu
 
 // The telemetry rule
 type TelemetryRuleType struct {
+	// Configuration specifying where and how the telemetry data should be delivered.
 	DestinationConfiguration *TelemetryRuleTelemetryDestinationConfiguration `pulumi:"destinationConfiguration"`
-	ResourceType             TelemetryRuleResourceType                       `pulumi:"resourceType"`
-	SelectionCriteria        *string                                         `pulumi:"selectionCriteria"`
-	TelemetryType            TelemetryRuleTelemetryType                      `pulumi:"telemetryType"`
+	// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
+	ResourceType TelemetryRuleResourceType `pulumi:"resourceType"`
+	// Criteria for selecting which resources the rule applies to, such as resource tags.
+	SelectionCriteria *string `pulumi:"selectionCriteria"`
+	// The type of telemetry to collect (Logs, Metrics, or Traces).
+	TelemetryType TelemetryRuleTelemetryType `pulumi:"telemetryType"`
 }
 
 // TelemetryRuleTypeInput is an input type that accepts TelemetryRuleTypeArgs and TelemetryRuleTypeOutput values.
@@ -1514,10 +1622,14 @@ type TelemetryRuleTypeInput interface {
 
 // The telemetry rule
 type TelemetryRuleTypeArgs struct {
+	// Configuration specifying where and how the telemetry data should be delivered.
 	DestinationConfiguration TelemetryRuleTelemetryDestinationConfigurationPtrInput `pulumi:"destinationConfiguration"`
-	ResourceType             TelemetryRuleResourceTypeInput                         `pulumi:"resourceType"`
-	SelectionCriteria        pulumi.StringPtrInput                                  `pulumi:"selectionCriteria"`
-	TelemetryType            TelemetryRuleTelemetryTypeInput                        `pulumi:"telemetryType"`
+	// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
+	ResourceType TelemetryRuleResourceTypeInput `pulumi:"resourceType"`
+	// Criteria for selecting which resources the rule applies to, such as resource tags.
+	SelectionCriteria pulumi.StringPtrInput `pulumi:"selectionCriteria"`
+	// The type of telemetry to collect (Logs, Metrics, or Traces).
+	TelemetryType TelemetryRuleTelemetryTypeInput `pulumi:"telemetryType"`
 }
 
 func (TelemetryRuleTypeArgs) ElementType() reflect.Type {
@@ -1547,20 +1659,24 @@ func (o TelemetryRuleTypeOutput) ToTelemetryRuleTypeOutputWithContext(ctx contex
 	return o
 }
 
+// Configuration specifying where and how the telemetry data should be delivered.
 func (o TelemetryRuleTypeOutput) DestinationConfiguration() TelemetryRuleTelemetryDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleType) *TelemetryRuleTelemetryDestinationConfiguration {
 		return v.DestinationConfiguration
 	}).(TelemetryRuleTelemetryDestinationConfigurationPtrOutput)
 }
 
+// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
 func (o TelemetryRuleTypeOutput) ResourceType() TelemetryRuleResourceTypeOutput {
 	return o.ApplyT(func(v TelemetryRuleType) TelemetryRuleResourceType { return v.ResourceType }).(TelemetryRuleResourceTypeOutput)
 }
 
+// Criteria for selecting which resources the rule applies to, such as resource tags.
 func (o TelemetryRuleTypeOutput) SelectionCriteria() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleType) *string { return v.SelectionCriteria }).(pulumi.StringPtrOutput)
 }
 
+// The type of telemetry to collect (Logs, Metrics, or Traces).
 func (o TelemetryRuleTypeOutput) TelemetryType() TelemetryRuleTelemetryTypeOutput {
 	return o.ApplyT(func(v TelemetryRuleType) TelemetryRuleTelemetryType { return v.TelemetryType }).(TelemetryRuleTelemetryTypeOutput)
 }
@@ -1589,6 +1705,7 @@ func (o TelemetryRuleTypePtrOutput) Elem() TelemetryRuleTypeOutput {
 	}).(TelemetryRuleTypeOutput)
 }
 
+// Configuration specifying where and how the telemetry data should be delivered.
 func (o TelemetryRuleTypePtrOutput) DestinationConfiguration() TelemetryRuleTelemetryDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleType) *TelemetryRuleTelemetryDestinationConfiguration {
 		if v == nil {
@@ -1598,6 +1715,7 @@ func (o TelemetryRuleTypePtrOutput) DestinationConfiguration() TelemetryRuleTele
 	}).(TelemetryRuleTelemetryDestinationConfigurationPtrOutput)
 }
 
+// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
 func (o TelemetryRuleTypePtrOutput) ResourceType() TelemetryRuleResourceTypePtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleType) *TelemetryRuleResourceType {
 		if v == nil {
@@ -1607,6 +1725,7 @@ func (o TelemetryRuleTypePtrOutput) ResourceType() TelemetryRuleResourceTypePtrO
 	}).(TelemetryRuleResourceTypePtrOutput)
 }
 
+// Criteria for selecting which resources the rule applies to, such as resource tags.
 func (o TelemetryRuleTypePtrOutput) SelectionCriteria() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleType) *string {
 		if v == nil {
@@ -1616,6 +1735,7 @@ func (o TelemetryRuleTypePtrOutput) SelectionCriteria() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of telemetry to collect (Logs, Metrics, or Traces).
 func (o TelemetryRuleTypePtrOutput) TelemetryType() TelemetryRuleTelemetryTypePtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleType) *TelemetryRuleTelemetryType {
 		if v == nil {
@@ -1635,9 +1755,13 @@ type TelemetryRuleTag struct {
 
 // The destination configuration for telemetry data
 type TelemetryRuleTelemetryDestinationConfiguration struct {
-	DestinationPattern   *string                            `pulumi:"destinationPattern"`
-	DestinationType      *TelemetryRuleDestinationType      `pulumi:"destinationType"`
-	RetentionInDays      *int                               `pulumi:"retentionInDays"`
+	// The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
+	DestinationPattern *string `pulumi:"destinationPattern"`
+	// The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
+	DestinationType *TelemetryRuleDestinationType `pulumi:"destinationType"`
+	// The number of days to retain the telemetry data in the destination.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
 	VpcFlowLogParameters *TelemetryRuleVpcFlowLogParameters `pulumi:"vpcFlowLogParameters"`
 }
 
@@ -1654,9 +1778,13 @@ type TelemetryRuleTelemetryDestinationConfigurationInput interface {
 
 // The destination configuration for telemetry data
 type TelemetryRuleTelemetryDestinationConfigurationArgs struct {
-	DestinationPattern   pulumi.StringPtrInput                     `pulumi:"destinationPattern"`
-	DestinationType      TelemetryRuleDestinationTypePtrInput      `pulumi:"destinationType"`
-	RetentionInDays      pulumi.IntPtrInput                        `pulumi:"retentionInDays"`
+	// The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
+	DestinationPattern pulumi.StringPtrInput `pulumi:"destinationPattern"`
+	// The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
+	DestinationType TelemetryRuleDestinationTypePtrInput `pulumi:"destinationType"`
+	// The number of days to retain the telemetry data in the destination.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
+	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
 	VpcFlowLogParameters TelemetryRuleVpcFlowLogParametersPtrInput `pulumi:"vpcFlowLogParameters"`
 }
 
@@ -1738,20 +1866,24 @@ func (o TelemetryRuleTelemetryDestinationConfigurationOutput) ToTelemetryRuleTel
 	}).(TelemetryRuleTelemetryDestinationConfigurationPtrOutput)
 }
 
+// The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
 func (o TelemetryRuleTelemetryDestinationConfigurationOutput) DestinationPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleTelemetryDestinationConfiguration) *string { return v.DestinationPattern }).(pulumi.StringPtrOutput)
 }
 
+// The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
 func (o TelemetryRuleTelemetryDestinationConfigurationOutput) DestinationType() TelemetryRuleDestinationTypePtrOutput {
 	return o.ApplyT(func(v TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleDestinationType {
 		return v.DestinationType
 	}).(TelemetryRuleDestinationTypePtrOutput)
 }
 
+// The number of days to retain the telemetry data in the destination.
 func (o TelemetryRuleTelemetryDestinationConfigurationOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleTelemetryDestinationConfiguration) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
+// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
 func (o TelemetryRuleTelemetryDestinationConfigurationOutput) VpcFlowLogParameters() TelemetryRuleVpcFlowLogParametersPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleVpcFlowLogParameters {
 		return v.VpcFlowLogParameters
@@ -1782,6 +1914,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) Elem() Telemetr
 	}).(TelemetryRuleTelemetryDestinationConfigurationOutput)
 }
 
+// The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
 func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) DestinationPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleTelemetryDestinationConfiguration) *string {
 		if v == nil {
@@ -1791,6 +1924,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) DestinationPatt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
 func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) DestinationType() TelemetryRuleDestinationTypePtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleDestinationType {
 		if v == nil {
@@ -1800,6 +1934,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) DestinationType
 	}).(TelemetryRuleDestinationTypePtrOutput)
 }
 
+// The number of days to retain the telemetry data in the destination.
 func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleTelemetryDestinationConfiguration) *int {
 		if v == nil {
@@ -1809,6 +1944,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) RetentionInDays
 	}).(pulumi.IntPtrOutput)
 }
 
+// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
 func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) VpcFlowLogParameters() TelemetryRuleVpcFlowLogParametersPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleVpcFlowLogParameters {
 		if v == nil {

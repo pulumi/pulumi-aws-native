@@ -17,6 +17,7 @@ import (
 type OrganizationTelemetryRule struct {
 	pulumi.CustomResourceState
 
+	// The name of the organization telemetry rule.
 	Rule OrganizationTelemetryRuleTelemetryRuleOutput `pulumi:"rule"`
 	// The arn of the organization telemetry rule
 	RuleArn pulumi.StringOutput `pulumi:"ruleArn"`
@@ -73,6 +74,7 @@ func (OrganizationTelemetryRuleState) ElementType() reflect.Type {
 }
 
 type organizationTelemetryRuleArgs struct {
+	// The name of the organization telemetry rule.
 	Rule OrganizationTelemetryRuleTelemetryRule `pulumi:"rule"`
 	// The name of the organization telemetry rule
 	RuleName *string `pulumi:"ruleName"`
@@ -82,6 +84,7 @@ type organizationTelemetryRuleArgs struct {
 
 // The set of arguments for constructing a OrganizationTelemetryRule resource.
 type OrganizationTelemetryRuleArgs struct {
+	// The name of the organization telemetry rule.
 	Rule OrganizationTelemetryRuleTelemetryRuleInput
 	// The name of the organization telemetry rule
 	RuleName pulumi.StringPtrInput
@@ -126,6 +129,7 @@ func (o OrganizationTelemetryRuleOutput) ToOrganizationTelemetryRuleOutputWithCo
 	return o
 }
 
+// The name of the organization telemetry rule.
 func (o OrganizationTelemetryRuleOutput) Rule() OrganizationTelemetryRuleTelemetryRuleOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRule) OrganizationTelemetryRuleTelemetryRuleOutput { return v.Rule }).(OrganizationTelemetryRuleTelemetryRuleOutput)
 }

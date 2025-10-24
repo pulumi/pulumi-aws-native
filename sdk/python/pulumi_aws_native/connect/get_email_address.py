@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 
 __all__ = [
@@ -24,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetEmailAddressResult:
-    def __init__(__self__, description=None, display_name=None, email_address_arn=None, instance_arn=None, tags=None):
+    def __init__(__self__, alias_configurations=None, description=None, display_name=None, email_address_arn=None, instance_arn=None, tags=None):
+        if alias_configurations and not isinstance(alias_configurations, list):
+            raise TypeError("Expected argument 'alias_configurations' to be a list")
+        pulumi.set(__self__, "alias_configurations", alias_configurations)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -40,6 +44,14 @@ class GetEmailAddressResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="aliasConfigurations")
+    def alias_configurations(self) -> Optional[Sequence['outputs.EmailAddressAliasConfiguration']]:
+        """
+        List of alias configurations for the email address
+        """
+        return pulumi.get(self, "alias_configurations")
 
     @_builtins.property
     @pulumi.getter
@@ -88,6 +100,7 @@ class AwaitableGetEmailAddressResult(GetEmailAddressResult):
         if False:
             yield self
         return GetEmailAddressResult(
+            alias_configurations=self.alias_configurations,
             description=self.description,
             display_name=self.display_name,
             email_address_arn=self.email_address_arn,
@@ -109,6 +122,7 @@ def get_email_address(email_address_arn: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getEmailAddress', __args__, opts=opts, typ=GetEmailAddressResult).value
 
     return AwaitableGetEmailAddressResult(
+        alias_configurations=pulumi.get(__ret__, 'alias_configurations'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         email_address_arn=pulumi.get(__ret__, 'email_address_arn'),
@@ -127,6 +141,7 @@ def get_email_address_output(email_address_arn: Optional[pulumi.Input[_builtins.
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getEmailAddress', __args__, opts=opts, typ=GetEmailAddressResult)
     return __ret__.apply(lambda __response__: GetEmailAddressResult(
+        alias_configurations=pulumi.get(__response__, 'alias_configurations'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         email_address_arn=pulumi.get(__response__, 'email_address_arn'),

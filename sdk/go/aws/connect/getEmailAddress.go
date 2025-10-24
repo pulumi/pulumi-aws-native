@@ -29,6 +29,8 @@ type LookupEmailAddressArgs struct {
 }
 
 type LookupEmailAddressResult struct {
+	// List of alias configurations for the email address
+	AliasConfigurations []EmailAddressAliasConfiguration `pulumi:"aliasConfigurations"`
 	// A description for the email address.
 	Description *string `pulumi:"description"`
 	// The display name for the email address.
@@ -71,6 +73,11 @@ func (o LookupEmailAddressResultOutput) ToLookupEmailAddressResultOutput() Looku
 
 func (o LookupEmailAddressResultOutput) ToLookupEmailAddressResultOutputWithContext(ctx context.Context) LookupEmailAddressResultOutput {
 	return o
+}
+
+// List of alias configurations for the email address
+func (o LookupEmailAddressResultOutput) AliasConfigurations() EmailAddressAliasConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupEmailAddressResult) []EmailAddressAliasConfiguration { return v.AliasConfigurations }).(EmailAddressAliasConfigurationArrayOutput)
 }
 
 // A description for the email address.

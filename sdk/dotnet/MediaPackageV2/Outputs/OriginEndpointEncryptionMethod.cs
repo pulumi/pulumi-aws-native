@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// The encryption method to use.
         /// </summary>
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointCmafEncryptionMethod? CmafEncryptionMethod;
+        public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointIsmEncryptionMethod? IsmEncryptionMethod;
         /// <summary>
         /// The encryption method to use.
         /// </summary>
@@ -29,9 +30,12 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         private OriginEndpointEncryptionMethod(
             Pulumi.AwsNative.MediaPackageV2.OriginEndpointCmafEncryptionMethod? cmafEncryptionMethod,
 
+            Pulumi.AwsNative.MediaPackageV2.OriginEndpointIsmEncryptionMethod? ismEncryptionMethod,
+
             Pulumi.AwsNative.MediaPackageV2.OriginEndpointTsEncryptionMethod? tsEncryptionMethod)
         {
             CmafEncryptionMethod = cmafEncryptionMethod;
+            IsmEncryptionMethod = ismEncryptionMethod;
             TsEncryptionMethod = tsEncryptionMethod;
         }
     }

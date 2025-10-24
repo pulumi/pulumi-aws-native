@@ -46,6 +46,10 @@ export class ImagePipeline extends pulumi.CustomResource {
      */
     declare public readonly containerRecipeArn: pulumi.Output<string | undefined>;
     /**
+     * The deployment ID of the pipeline, used for resource create/update triggers.
+     */
+    declare public /*out*/ readonly deploymentId: pulumi.Output<string>;
+    /**
      * The description of the image pipeline.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -129,9 +133,11 @@ export class ImagePipeline extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["workflows"] = args?.workflows;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["deploymentId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["containerRecipeArn"] = undefined /*out*/;
+            resourceInputs["deploymentId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["distributionConfigurationArn"] = undefined /*out*/;
             resourceInputs["enhancedImageMetadataEnabled"] = undefined /*out*/;

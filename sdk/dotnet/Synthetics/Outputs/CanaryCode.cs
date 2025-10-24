@@ -14,13 +14,21 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
     public sealed class CanaryCode
     {
         /// <summary>
+        /// `BlueprintTypes` are a list of templates that enable simplified canary creation. You can create canaries for common monitoring scenarios by providing only a JSON configuration file instead of writing custom scripts. `multi-checks` is the only supported value.
+        /// 
+        /// When you specify `BlueprintTypes` , the `Handler` field cannot be specified since the blueprint provides a pre-defined entry point.
+        /// </summary>
+        public readonly ImmutableArray<string> BlueprintTypes;
+        /// <summary>
         /// List of Lambda layers to attach to the canary
         /// </summary>
         public readonly ImmutableArray<Outputs.CanaryDependency> Dependencies;
         /// <summary>
         /// The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
+        /// 
+        /// This field is required when you don't specify `BlueprintTypes` and is not allowed when you specify `BlueprintTypes` .
         /// </summary>
-        public readonly string Handler;
+        public readonly string? Handler;
         /// <summary>
         /// If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
         /// </summary>
@@ -44,9 +52,11 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
 
         [OutputConstructor]
         private CanaryCode(
+            ImmutableArray<string> blueprintTypes,
+
             ImmutableArray<Outputs.CanaryDependency> dependencies,
 
-            string handler,
+            string? handler,
 
             string? s3Bucket,
 
@@ -58,6 +68,7 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
 
             string? sourceLocationArn)
         {
+            BlueprintTypes = blueprintTypes;
             Dependencies = dependencies;
             Handler = handler;
             S3Bucket = s3Bucket;

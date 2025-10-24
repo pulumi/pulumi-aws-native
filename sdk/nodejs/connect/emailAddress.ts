@@ -38,6 +38,10 @@ export class EmailAddress extends pulumi.CustomResource {
     }
 
     /**
+     * List of alias configurations for the email address
+     */
+    declare public readonly aliasConfigurations: pulumi.Output<outputs.connect.EmailAddressAliasConfiguration[] | undefined>;
+    /**
      * A description for the email address.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -79,6 +83,7 @@ export class EmailAddress extends pulumi.CustomResource {
             if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
+            resourceInputs["aliasConfigurations"] = args?.aliasConfigurations;
             resourceInputs["description"] = args?.description;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["emailAddress"] = args?.emailAddress;
@@ -86,6 +91,7 @@ export class EmailAddress extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["emailAddressArn"] = undefined /*out*/;
         } else {
+            resourceInputs["aliasConfigurations"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["emailAddress"] = undefined /*out*/;
@@ -104,6 +110,10 @@ export class EmailAddress extends pulumi.CustomResource {
  * The set of arguments for constructing a EmailAddress resource.
  */
 export interface EmailAddressArgs {
+    /**
+     * List of alias configurations for the email address
+     */
+    aliasConfigurations?: pulumi.Input<pulumi.Input<inputs.connect.EmailAddressAliasConfigurationArgs>[]>;
     /**
      * A description for the email address.
      */

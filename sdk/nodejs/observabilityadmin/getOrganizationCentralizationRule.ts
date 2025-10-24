@@ -18,11 +18,17 @@ export function getOrganizationCentralizationRule(args: GetOrganizationCentraliz
 }
 
 export interface GetOrganizationCentralizationRuleArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the organization centralization rule.
+     */
     ruleArn: string;
 }
 
 export interface GetOrganizationCentralizationRuleResult {
     readonly rule?: outputs.observabilityadmin.OrganizationCentralizationRuleCentralizationRule;
+    /**
+     * The Amazon Resource Name (ARN) of the organization centralization rule.
+     */
     readonly ruleArn?: string;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -40,5 +46,8 @@ export function getOrganizationCentralizationRuleOutput(args: GetOrganizationCen
 }
 
 export interface GetOrganizationCentralizationRuleOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the organization centralization rule.
+     */
     ruleArn: pulumi.Input<string>;
 }

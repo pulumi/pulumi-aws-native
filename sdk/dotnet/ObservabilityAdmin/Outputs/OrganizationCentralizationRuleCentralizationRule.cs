@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
     [OutputType]
     public sealed class OrganizationCentralizationRuleCentralizationRule
     {
+        /// <summary>
+        /// Configuration determining where the telemetry data should be centralized, backed up, as well as encryption configuration for the primary and backup destinations.
+        /// </summary>
         public readonly Outputs.OrganizationCentralizationRuleCentralizationRuleDestination Destination;
+        /// <summary>
+        /// Configuration determining the source of the telemetry data to be centralized.
+        /// </summary>
         public readonly Outputs.OrganizationCentralizationRuleCentralizationRuleSource Source;
 
         [OutputConstructor]

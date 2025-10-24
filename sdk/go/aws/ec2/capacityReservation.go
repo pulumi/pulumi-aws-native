@@ -18,7 +18,7 @@ type CapacityReservation struct {
 
 	// The Availability Zone in which to create the Capacity Reservation.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
-	// The Availability Zone ID of the Capacity Reservation.
+	// The ID of the Availability Zone in which the capacity is reserved.
 	AvailabilityZoneId pulumi.StringPtrOutput `pulumi:"availabilityZoneId"`
 	// Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
 	AvailableInstanceCount pulumi.IntOutput `pulumi:"availableInstanceCount"`
@@ -30,7 +30,7 @@ type CapacityReservation struct {
 	// The ID of the Capacity Reservation Fleet to which the Capacity Reservation belongs. Only valid for Capacity Reservations that were created by a Capacity Reservation Fleet.
 	CapacityReservationFleetId pulumi.StringOutput            `pulumi:"capacityReservationFleetId"`
 	CommitmentInfo             CommitmentInfoPropertiesOutput `pulumi:"commitmentInfo"`
-	// The date and time at which the Capacity Reservation was created.
+	// The date and time the Capacity Reservation was created.
 	CreateDate pulumi.StringOutput `pulumi:"createDate"`
 	// The delivery method for a future-dated Capacity Reservation. `incremental` indicates that the requested capacity is delivered in addition to any running instances and reserved capacity that you have in your account at the requested date and time.
 	DeliveryPreference pulumi.StringOutput `pulumi:"deliveryPreference"`
@@ -86,7 +86,7 @@ type CapacityReservation struct {
 	PlacementGroupArn pulumi.StringPtrOutput `pulumi:"placementGroupArn"`
 	// The type of Capacity Reservation.
 	ReservationType pulumi.StringOutput `pulumi:"reservationType"`
-	// The date and time at which the Capacity Reservation was started.
+	// The date and time the Capacity Reservation was started.
 	StartDate pulumi.StringOutput `pulumi:"startDate"`
 	// The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:
 	//
@@ -181,7 +181,7 @@ func (CapacityReservationState) ElementType() reflect.Type {
 type capacityReservationArgs struct {
 	// The Availability Zone in which to create the Capacity Reservation.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The Availability Zone ID of the Capacity Reservation.
+	// The ID of the Availability Zone in which the capacity is reserved.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
 	EbsOptimized *bool `pulumi:"ebsOptimized"`
@@ -248,7 +248,7 @@ type capacityReservationArgs struct {
 type CapacityReservationArgs struct {
 	// The Availability Zone in which to create the Capacity Reservation.
 	AvailabilityZone pulumi.StringPtrInput
-	// The Availability Zone ID of the Capacity Reservation.
+	// The ID of the Availability Zone in which the capacity is reserved.
 	AvailabilityZoneId pulumi.StringPtrInput
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
 	EbsOptimized pulumi.BoolPtrInput
@@ -353,7 +353,7 @@ func (o CapacityReservationOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// The Availability Zone ID of the Capacity Reservation.
+// The ID of the Availability Zone in which the capacity is reserved.
 func (o CapacityReservationOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
 }
@@ -388,7 +388,7 @@ func (o CapacityReservationOutput) CommitmentInfo() CommitmentInfoPropertiesOutp
 	return o.ApplyT(func(v *CapacityReservation) CommitmentInfoPropertiesOutput { return v.CommitmentInfo }).(CommitmentInfoPropertiesOutput)
 }
 
-// The date and time at which the Capacity Reservation was created.
+// The date and time the Capacity Reservation was created.
 func (o CapacityReservationOutput) CreateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.CreateDate }).(pulumi.StringOutput)
 }
@@ -486,7 +486,7 @@ func (o CapacityReservationOutput) ReservationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.ReservationType }).(pulumi.StringOutput)
 }
 
-// The date and time at which the Capacity Reservation was started.
+// The date and time the Capacity Reservation was started.
 func (o CapacityReservationOutput) StartDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.StartDate }).(pulumi.StringOutput)
 }

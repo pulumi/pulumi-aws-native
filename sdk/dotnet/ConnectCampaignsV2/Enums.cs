@@ -8,6 +8,36 @@ using Pulumi;
 namespace Pulumi.AwsNative.ConnectCampaignsV2
 {
     /// <summary>
+    /// Actions that can performed on a contact by an agent
+    /// </summary>
+    [EnumType]
+    public readonly struct CampaignAgentAction : IEquatable<CampaignAgentAction>
+    {
+        private readonly string _value;
+
+        private CampaignAgentAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CampaignAgentAction Discard { get; } = new CampaignAgentAction("DISCARD");
+
+        public static bool operator ==(CampaignAgentAction left, CampaignAgentAction right) => left.Equals(right);
+        public static bool operator !=(CampaignAgentAction left, CampaignAgentAction right) => !left.Equals(right);
+
+        public static explicit operator string(CampaignAgentAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CampaignAgentAction other && Equals(other);
+        public bool Equals(CampaignAgentAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The communication limit time unit
     /// </summary>
     [EnumType]

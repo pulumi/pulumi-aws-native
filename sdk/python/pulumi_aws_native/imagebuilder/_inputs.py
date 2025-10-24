@@ -56,6 +56,8 @@ __all__ = [
     'ImagePipelineAutoDisablePolicyArgsDict',
     'ImagePipelineEcrConfigurationArgs',
     'ImagePipelineEcrConfigurationArgsDict',
+    'ImagePipelineExecutionSettingsArgs',
+    'ImagePipelineExecutionSettingsArgsDict',
     'ImagePipelineImageScanningConfigurationArgs',
     'ImagePipelineImageScanningConfigurationArgsDict',
     'ImagePipelineImageTestsConfigurationArgs',
@@ -1691,6 +1693,62 @@ class ImagePipelineEcrConfigurationArgs:
     @repository_name.setter
     def repository_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "repository_name", value)
+
+
+if not MYPY:
+    class ImagePipelineExecutionSettingsArgsDict(TypedDict):
+        """
+        The settings for starting an image pipeline execution.
+        """
+        deployment_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The deployment ID of the pipeline, used to trigger new image pipeline executions.
+        """
+        on_update: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether to trigger the image pipeline when the pipeline is updated. False by default.
+        """
+elif False:
+    ImagePipelineExecutionSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ImagePipelineExecutionSettingsArgs:
+    def __init__(__self__, *,
+                 deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 on_update: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        The settings for starting an image pipeline execution.
+        :param pulumi.Input[_builtins.str] deployment_id: The deployment ID of the pipeline, used to trigger new image pipeline executions.
+        :param pulumi.Input[_builtins.bool] on_update: Whether to trigger the image pipeline when the pipeline is updated. False by default.
+        """
+        if deployment_id is not None:
+            pulumi.set(__self__, "deployment_id", deployment_id)
+        if on_update is not None:
+            pulumi.set(__self__, "on_update", on_update)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The deployment ID of the pipeline, used to trigger new image pipeline executions.
+        """
+        return pulumi.get(self, "deployment_id")
+
+    @deployment_id.setter
+    def deployment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "deployment_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="onUpdate")
+    def on_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to trigger the image pipeline when the pipeline is updated. False by default.
+        """
+        return pulumi.get(self, "on_update")
+
+    @on_update.setter
+    def on_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "on_update", value)
 
 
 if not MYPY:

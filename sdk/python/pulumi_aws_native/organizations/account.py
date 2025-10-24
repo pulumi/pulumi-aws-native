@@ -178,6 +178,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["joined_method"] = None
             __props__.__dict__["joined_timestamp"] = None
+            __props__.__dict__["state"] = None
             __props__.__dict__["status"] = None
         super(Account, __self__).__init__(
             'aws-native:organizations:Account',
@@ -209,6 +210,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["joined_timestamp"] = None
         __props__.__dict__["parent_ids"] = None
         __props__.__dict__["role_name"] = None
+        __props__.__dict__["state"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
@@ -276,6 +278,14 @@ class Account(pulumi.CustomResource):
         The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified.
         """
         return pulumi.get(self, "role_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Output['AccountState']:
+        """
+        The state of the account in the organization.
+        """
+        return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter

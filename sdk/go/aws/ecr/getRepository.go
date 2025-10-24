@@ -33,11 +33,12 @@ type LookupRepositoryArgs struct {
 type LookupRepositoryResult struct {
 	// Returns the Amazon Resource Name (ARN) for the specified `AWS::ECR::Repository` resource. For example, `arn:aws:ecr: *eu-west-1* : *123456789012* :repository/ *test-repository*` .
 	Arn *string `pulumi:"arn"`
-	// The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+	// The ``imageScanningConfiguration`` parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see ``PutRegistryScanningConfiguration``.
+	//   The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 	ImageScanningConfiguration *RepositoryImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability *RepositoryImageTagMutability `pulumi:"imageTagMutability"`
-	// The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+	// A list of filters that specify which image tags are excluded from the repository's image tag mutability setting.
 	ImageTagMutabilityExclusionFilters []RepositoryImageTagMutabilityExclusionFilter `pulumi:"imageTagMutabilityExclusionFilters"`
 	// Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
 	LifecyclePolicy *RepositoryLifecyclePolicy `pulumi:"lifecyclePolicy"`
@@ -90,7 +91,9 @@ func (o LookupRepositoryResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+// The “imageScanningConfiguration“ parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see “PutRegistryScanningConfiguration“.
+//
+//	The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 func (o LookupRepositoryResultOutput) ImageScanningConfiguration() RepositoryImageScanningConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) *RepositoryImageScanningConfiguration {
 		return v.ImageScanningConfiguration
@@ -102,7 +105,7 @@ func (o LookupRepositoryResultOutput) ImageTagMutability() RepositoryImageTagMut
 	return o.ApplyT(func(v LookupRepositoryResult) *RepositoryImageTagMutability { return v.ImageTagMutability }).(RepositoryImageTagMutabilityPtrOutput)
 }
 
-// The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+// A list of filters that specify which image tags are excluded from the repository's image tag mutability setting.
 func (o LookupRepositoryResultOutput) ImageTagMutabilityExclusionFilters() RepositoryImageTagMutabilityExclusionFilterArrayOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) []RepositoryImageTagMutabilityExclusionFilter {
 		return v.ImageTagMutabilityExclusionFilters

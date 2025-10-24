@@ -18,10 +18,16 @@ export function getGroupingConfiguration(args: GetGroupingConfigurationArgs, opt
 }
 
 export interface GetGroupingConfigurationArgs {
+    /**
+     * The 12 digit AWS Account ID for the account.
+     */
     accountId: string;
 }
 
 export interface GetGroupingConfigurationResult {
+    /**
+     * The 12 digit AWS Account ID for the account.
+     */
     readonly accountId?: string;
     /**
      * An array of grouping attribute definitions that specify how services should be grouped based on various attributes and source keys.
@@ -43,5 +49,8 @@ export function getGroupingConfigurationOutput(args: GetGroupingConfigurationOut
 }
 
 export interface GetGroupingConfigurationOutputArgs {
+    /**
+     * The 12 digit AWS Account ID for the account.
+     */
     accountId: pulumi.Input<string>;
 }

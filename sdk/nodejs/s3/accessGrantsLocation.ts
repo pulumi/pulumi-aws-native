@@ -48,11 +48,11 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
      */
-    declare public readonly iamRoleArn: pulumi.Output<string | undefined>;
+    declare public readonly iamRoleArn: pulumi.Output<string>;
     /**
      * Descriptor for where the location actually points
      */
-    declare public readonly locationScope: pulumi.Output<string | undefined>;
+    declare public readonly locationScope: pulumi.Output<string>;
     /**
      * The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
      */
@@ -65,10 +65,16 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AccessGrantsLocationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AccessGrantsLocationArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.iamRoleArn === undefined && !opts.urn) {
+                throw new Error("Missing required property 'iamRoleArn'");
+            }
+            if (args?.locationScope === undefined && !opts.urn) {
+                throw new Error("Missing required property 'locationScope'");
+            }
             resourceInputs["iamRoleArn"] = args?.iamRoleArn;
             resourceInputs["locationScope"] = args?.locationScope;
             resourceInputs["tags"] = args?.tags;
@@ -95,11 +101,11 @@ export interface AccessGrantsLocationArgs {
     /**
      * The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
      */
-    iamRoleArn?: pulumi.Input<string>;
+    iamRoleArn: pulumi.Input<string>;
     /**
      * Descriptor for where the location actually points
      */
-    locationScope?: pulumi.Input<string>;
+    locationScope: pulumi.Input<string>;
     /**
      * The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
      */

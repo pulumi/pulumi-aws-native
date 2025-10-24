@@ -42,7 +42,8 @@ type LookupListenerRuleResult struct {
 	//  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
 	Priority *int `pulumi:"priority"`
 	// The Amazon Resource Name (ARN) of the rule.
-	RuleArn *string `pulumi:"ruleArn"`
+	RuleArn    *string                 `pulumi:"ruleArn"`
+	Transforms []ListenerRuleTransform `pulumi:"transforms"`
 }
 
 func LookupListenerRuleOutput(ctx *pulumi.Context, args LookupListenerRuleOutputArgs, opts ...pulumi.InvokeOption) LookupListenerRuleResultOutput {
@@ -106,6 +107,10 @@ func (o LookupListenerRuleResultOutput) Priority() pulumi.IntPtrOutput {
 // The Amazon Resource Name (ARN) of the rule.
 func (o LookupListenerRuleResultOutput) RuleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) *string { return v.RuleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupListenerRuleResultOutput) Transforms() ListenerRuleTransformArrayOutput {
+	return o.ApplyT(func(v LookupListenerRuleResult) []ListenerRuleTransform { return v.Transforms }).(ListenerRuleTransformArrayOutput)
 }
 
 func init() {

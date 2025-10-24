@@ -101,6 +101,100 @@ func (o AccountJoinedMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
+// The state of the account in the organization.
+type AccountStateEnum string
+
+const (
+	AccountStateEnumPendingActivation = AccountStateEnum("PENDING_ACTIVATION")
+	AccountStateEnumActive            = AccountStateEnum("ACTIVE")
+	AccountStateEnumSuspended         = AccountStateEnum("SUSPENDED")
+	AccountStateEnumPendingClosure    = AccountStateEnum("PENDING_CLOSURE")
+	AccountStateEnumClosed            = AccountStateEnum("CLOSED")
+)
+
+type AccountStateEnumOutput struct{ *pulumi.OutputState }
+
+func (AccountStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountStateEnum)(nil)).Elem()
+}
+
+func (o AccountStateEnumOutput) ToAccountStateEnumOutput() AccountStateEnumOutput {
+	return o
+}
+
+func (o AccountStateEnumOutput) ToAccountStateEnumOutputWithContext(ctx context.Context) AccountStateEnumOutput {
+	return o
+}
+
+func (o AccountStateEnumOutput) ToAccountStateEnumPtrOutput() AccountStateEnumPtrOutput {
+	return o.ToAccountStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o AccountStateEnumOutput) ToAccountStateEnumPtrOutputWithContext(ctx context.Context) AccountStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountStateEnum) *AccountStateEnum {
+		return &v
+	}).(AccountStateEnumPtrOutput)
+}
+
+func (o AccountStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccountStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccountStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccountStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccountStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccountStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountStateEnum)(nil)).Elem()
+}
+
+func (o AccountStateEnumPtrOutput) ToAccountStateEnumPtrOutput() AccountStateEnumPtrOutput {
+	return o
+}
+
+func (o AccountStateEnumPtrOutput) ToAccountStateEnumPtrOutputWithContext(ctx context.Context) AccountStateEnumPtrOutput {
+	return o
+}
+
+func (o AccountStateEnumPtrOutput) Elem() AccountStateEnumOutput {
+	return o.ApplyT(func(v *AccountStateEnum) AccountStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret AccountStateEnum
+		return ret
+	}).(AccountStateEnumOutput)
+}
+
+func (o AccountStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccountStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccountStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The status of the account in the organization.
 type AccountStatus string
 
@@ -544,6 +638,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypePtrInput)(nil)).Elem(), PolicyType("SERVICE_CONTROL_POLICY"))
 	pulumi.RegisterOutputType(AccountJoinedMethodOutput{})
 	pulumi.RegisterOutputType(AccountJoinedMethodPtrOutput{})
+	pulumi.RegisterOutputType(AccountStateEnumOutput{})
+	pulumi.RegisterOutputType(AccountStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(AccountStatusOutput{})
 	pulumi.RegisterOutputType(AccountStatusPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationFeatureSetOutput{})
