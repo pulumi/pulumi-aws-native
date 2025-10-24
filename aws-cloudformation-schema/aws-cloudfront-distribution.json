@@ -988,6 +988,10 @@
           "type" : "integer",
           "description" : "Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.\n For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*."
         },
+        "OwnerAccountId" : {
+          "type" : "string",
+          "description" : ""
+        },
         "VpcOriginId" : {
           "type" : "string",
           "description" : "The VPC origin ID."
@@ -1002,7 +1006,7 @@
   "description" : "A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.",
   "handlers" : {
     "create" : {
-      "permissions" : [ "cloudfront:CreateConnectionGroup", "cloudfront:CreateDistribution", "cloudfront:CreateDistributionWithTags", "cloudfront:GetConnectionGroup", "cloudfront:GetDistribution", "cloudfront:GetDistributionConfig", "cloudfront:TagResource" ],
+      "permissions" : [ "cloudfront:CreateConnectionGroup", "cloudfront:CreateDistribution", "cloudfront:CreateDistributionWithTags", "cloudfront:GetConnectionGroup", "cloudfront:GetDistribution", "cloudfront:GetDistributionConfig", "cloudfront:GetVpcOrigin", "cloudfront:TagResource" ],
       "timeoutInMinutes" : 60
     },
     "delete" : {
@@ -1015,7 +1019,7 @@
       "permissions" : [ "cloudfront:GetDistribution", "cloudfront:GetDistributionConfig" ]
     },
     "update" : {
-      "permissions" : [ "cloudfront:CreateConnectionGroup", "cloudfront:GetConnectionGroup", "cloudfront:GetDistribution", "cloudfront:GetDistributionConfig", "cloudfront:UpdateDistribution", "cloudfront:UpdateDistributionWithStagingConfig", "cloudfront:ListTagsForResource", "cloudfront:TagResource", "cloudfront:UntagResource" ],
+      "permissions" : [ "cloudfront:CreateConnectionGroup", "cloudfront:GetConnectionGroup", "cloudfront:GetDistribution", "cloudfront:GetDistributionConfig", "cloudfront:GetVpcOrigin", "cloudfront:UpdateDistribution", "cloudfront:UpdateDistributionWithStagingConfig", "cloudfront:ListTagsForResource", "cloudfront:TagResource", "cloudfront:UntagResource" ],
       "timeoutInMinutes" : 60
     }
   },

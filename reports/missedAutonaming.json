@@ -1256,6 +1256,45 @@
       }
     }
   },
+  "aws-native:aps:AnomalyDetector": {
+    "cfTypeName": "AWS::APS::AnomalyDetector",
+    "properties": {
+      "alias": {
+        "type": "string",
+        "description": "The AnomalyDetector alias."
+      },
+      "configuration": {
+        "$ref": "#/types/aws-native:aps:AnomalyDetectorConfiguration",
+        "description": "Determines the anomaly detector's algorithm and its configuration."
+      },
+      "evaluationIntervalInSeconds": {
+        "type": "integer",
+        "description": "The AnomalyDetector period of detection and metric generation."
+      },
+      "labels": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:aps:AnomalyDetectorLabel"
+        },
+        "description": "An array of key-value pairs to provide meta-data."
+      },
+      "missingDataAction": {
+        "$ref": "#/types/aws-native:aps:AnomalyDetectorMissingDataAction",
+        "description": "The action to perform when running the expression returns no data."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
+      },
+      "workspace": {
+        "type": "string",
+        "description": "Required to identify a specific APS Workspace associated with this Anomaly Detector."
+      }
+    }
+  },
   "aws-native:aps:ResourcePolicy": {
     "cfTypeName": "AWS::APS::ResourcePolicy",
     "properties": {
@@ -2569,6 +2608,13 @@
   "aws-native:connect:EmailAddress": {
     "cfTypeName": "AWS::Connect::EmailAddress",
     "properties": {
+      "aliasConfigurations": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:connect:EmailAddressAliasConfiguration"
+        },
+        "description": "List of alias configurations for the email address"
+      },
       "description": {
         "type": "string",
         "description": "A description for the email address."
@@ -4117,7 +4163,7 @@
       },
       "availabilityZoneId": {
         "type": "string",
-        "description": "The Availability Zone ID of the Capacity Reservation."
+        "description": "The ID of the Availability Zone in which the capacity is reserved."
       },
       "ebsOptimized": {
         "type": "boolean",
@@ -5293,7 +5339,8 @@
         "description": "The tags for the NAT gateway."
       },
       "vpcId": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of the VPC in which the NAT gateway is located."
       }
     }
   },
@@ -8030,6 +8077,12 @@
       "priority": {
         "type": "integer",
         "description": "The rule priority. A listener can't have multiple rules with the same priority.\n If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update."
+      },
+      "transforms": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:elasticloadbalancingv2:ListenerRuleTransform"
+        }
       }
     }
   },
@@ -8129,6 +8182,34 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags used to organize, track, or control access for this resource."
+      }
+    }
+  },
+  "aws-native:events:EventBusPolicy": {
+    "cfTypeName": "AWS::Events::EventBusPolicy",
+    "properties": {
+      "action": {
+        "type": "string",
+        "description": "The action that you are enabling the other account to perform."
+      },
+      "condition": {
+        "$ref": "#/types/aws-native:events:EventBusPolicyCondition"
+      },
+      "eventBusName": {
+        "type": "string",
+        "description": "The name of the event bus associated with the rule. If you omit this, the default event bus is used."
+      },
+      "principal": {
+        "type": "string",
+        "description": "The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify \"*\" to permit any account to put events to your default event bus."
+      },
+      "statement": {
+        "$ref": "pulumi.json#/Any",
+        "description": "A JSON string that describes the permission policy statement. You can include a Policy parameter in the request instead of using the StatementId, Action, Principal, or Condition parameters.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBusPolicy` for more information about the expected schema for this property."
+      },
+      "statementId": {
+        "type": "string",
+        "description": "An identifier string for the external account that you are granting permissions to"
       }
     }
   },
@@ -8453,7 +8534,7 @@
       },
       "executablePath": {
         "type": "string",
-        "description": "The path and file name of the executable file that launches the content for streaming. Enter a path value that is relative to the location set in `ApplicationSourceUri` ."
+        "description": "The relative path and file name of the executable file that Amazon GameLift Streams will stream. Specify a path relative to the location set in `ApplicationSourceUri` . The file must be contained within the application's root folder. For Windows applications, the file must be a valid Windows executable or batch file with a filename ending in .exe, .cmd, or .bat. For Linux applications, the file must be a valid Linux binary executable or a script that contains an initial interpreter line starting with a shebang (' `#!` ')."
       },
       "runtimeEnvironment": {
         "$ref": "#/types/aws-native:gameliftstreams:ApplicationRuntimeEnvironment",
@@ -8875,6 +8956,10 @@
       "executionRole": {
         "type": "string",
         "description": "The execution role name/ARN for the image build, if provided"
+      },
+      "imagePipelineExecutionSettings": {
+        "$ref": "#/types/aws-native:imagebuilder:ImagePipelineExecutionSettings",
+        "description": "The image pipeline execution settings of the image."
       },
       "imageRecipeArn": {
         "type": "string",
@@ -9893,7 +9978,7 @@
       },
       "invokedViaFunctionUrl": {
         "type": "boolean",
-        "description": "Restricts the `lambda:InvokeFunction` action to calls coming from a function URL. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) ."
+        "description": "Restricts the `lambda:InvokeFunction` action to function URL calls. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) ."
       },
       "principal": {
         "type": "string",
@@ -10738,6 +10823,10 @@
       "preferredMaintenanceWindow": {
         "type": "string",
         "description": "Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC)."
+      },
+      "publiclyAccessible": {
+        "type": "boolean",
+        "description": "Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster"
       },
       "tags": {
         "type": "array",
@@ -12438,7 +12527,7 @@
       },
       "publiclyAccessible": {
         "type": "boolean",
-        "description": "Specifies whether the DB cluster is publicly accessible.\n When the DB cluster is publicly accessible and you connect from outside of the DB cluster's virtual private cloud (VPC), its Domain Name System (DNS) endpoint resolves to the public IP address. When you connect from within the same VPC as the DB cluster, the endpoint resolves to the private IP address. Access to the DB cluster is ultimately controlled by the security group it uses. That public access isn't permitted if the security group assigned to the DB cluster doesn't permit it.\n When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address.\n Valid for Cluster Type: Multi-AZ DB clusters only\n Default: The default behavior varies depending on whether ``DBSubnetGroupName`` is specified.\n If ``DBSubnetGroupName`` isn't specified, and ``PubliclyAccessible`` isn't specified, the following applies:\n  +  If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB cluster is private.\n  +  If the default VPC in the target Region has an internet gateway attached to it, the DB cluster is public.\n  \n If ``DBSubnetGroupName`` is specified, and ``PubliclyAccessible`` isn't specified, the following applies:\n  +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB cluster is private.\n  +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB cluster is public."
+        "description": "Specifies whether the DB cluster is publicly accessible.\n Valid for Cluster Type: Multi-AZ DB clusters only\n When the DB cluster is publicly accessible and you connect from outside of the DB cluster's virtual private cloud (VPC), its domain name system (DNS) endpoint resolves to the public IP address. When you connect from within the same VPC as the DB cluster, the endpoint resolves to the private IP address. Access to the DB cluster is controlled by its security group settings.\n When the DB cluster isn't publicly accessible, it is an internal DB cluster with a DNS name that resolves to a private IP address.\n The default behavior when ``PubliclyAccessible`` is not specified depends on whether a ``DBSubnetGroup`` is specified.\n If ``DBSubnetGroup`` isn't specified, ``PubliclyAccessible`` defaults to ``true``.\n If ``DBSubnetGroup`` is specified, ``PubliclyAccessible`` defaults to ``false`` unless the value of ``DBSubnetGroup`` is ``default``, in which case ``PubliclyAccessible`` defaults to ``true``.\n If ``PubliclyAccessible`` is true and the VPC that the ``DBSubnetGroup`` is in doesn't have an internet gateway attached to it, Amazon RDS returns an error."
       },
       "replicationSourceIdentifier": {
         "type": "string",
@@ -13444,6 +13533,79 @@
       "resourceId": {
         "type": "string",
         "description": "ResourceId"
+      }
+    }
+  },
+  "aws-native:rtbfabric:RequesterGateway": {
+    "cfTypeName": "AWS::RTBFabric::RequesterGateway",
+    "properties": {
+      "description": {
+        "type": "string"
+      },
+      "securityGroupIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "subnetIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      },
+      "vpcId": {
+        "type": "string"
+      }
+    }
+  },
+  "aws-native:rtbfabric:ResponderGateway": {
+    "cfTypeName": "AWS::RTBFabric::ResponderGateway",
+    "properties": {
+      "description": {
+        "type": "string"
+      },
+      "domainName": {
+        "type": "string"
+      },
+      "managedEndpointConfiguration": {
+        "$ref": "#/types/aws-native:rtbfabric:ResponderGatewayManagedEndpointConfiguration"
+      },
+      "port": {
+        "type": "integer"
+      },
+      "protocol": {
+        "$ref": "#/types/aws-native:rtbfabric:ResponderGatewayProtocol"
+      },
+      "securityGroupIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "subnetIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      },
+      "trustStoreConfiguration": {
+        "$ref": "#/types/aws-native:rtbfabric:ResponderGatewayTrustStoreConfiguration"
+      },
+      "vpcId": {
+        "type": "string"
       }
     }
   },
@@ -14903,7 +15065,8 @@
         "type": "object",
         "additionalProperties": {
           "$ref": "pulumi.json#/Any"
-        }
+        },
+        "description": "A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow."
       },
       "resourceKey": {
         "type": "string",
@@ -14913,7 +15076,8 @@
         "type": "object",
         "additionalProperties": {
           "type": "string"
-        }
+        },
+        "description": "Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions."
       }
     }
   },
