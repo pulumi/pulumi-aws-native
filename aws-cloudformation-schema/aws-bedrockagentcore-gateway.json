@@ -208,7 +208,7 @@
       "permissions" : [ "bedrock-agentcore:GetGateway", "bedrock-agentcore:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "bedrock-agentcore:GetGateway", "bedrock-agentcore:ListTagsForResource", "bedrock-agentcore:TagResource", "bedrock-agentcore:UntagResource", "bedrock-agentcore:UpdateGateway", "iam:PassRole", "kms:Decrypt", "kms:DescribeKey", "kms:GenerateDataKey" ]
+      "permissions" : [ "bedrock-agentcore:GetGateway", "bedrock-agentcore:ListTagsForResource", "bedrock-agentcore:TagResource", "bedrock-agentcore:UntagResource", "bedrock-agentcore:UpdateGateway", "iam:PassRole", "kms:Decrypt", "kms:DescribeKey", "kms:GenerateDataKey", "kms:ListGrants" ]
     },
     "delete" : {
       "permissions" : [ "bedrock-agentcore:DeleteGateway", "bedrock-agentcore:DeleteWorkloadIdentity", "bedrock-agentcore:GetGateway" ]

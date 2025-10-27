@@ -4154,6 +4154,34 @@
       }
     }
   },
+  "aws-native:ec2:CapacityManagerDataExport": {
+    "cfTypeName": "AWS::EC2::CapacityManagerDataExport",
+    "properties": {
+      "outputFormat": {
+        "$ref": "#/types/aws-native:ec2:CapacityManagerDataExportOutputFormat",
+        "description": "The format of the exported capacity manager data. Choose 'csv' for comma-separated values or 'parquet' for optimized columnar storage format."
+      },
+      "s3BucketName": {
+        "type": "string",
+        "description": "The name of the Amazon S3 bucket where the capacity manager data export will be stored. The bucket must exist and be accessible by EC2 Capacity Manager service."
+      },
+      "s3BucketPrefix": {
+        "type": "string",
+        "description": "The prefix for the S3 bucket location where exported files will be placed. If not specified, files will be placed in the root of the bucket."
+      },
+      "schedule": {
+        "$ref": "#/types/aws-native:ec2:CapacityManagerDataExportSchedule",
+        "description": "The schedule for the capacity manager data export. Currently supports hourly exports that provide periodic snapshots of capacity manager data."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to the capacity manager data export."
+      }
+    }
+  },
   "aws-native:ec2:CapacityReservation": {
     "cfTypeName": "AWS::EC2::CapacityReservation",
     "properties": {
@@ -13533,6 +13561,32 @@
       "resourceId": {
         "type": "string",
         "description": "ResourceId"
+      }
+    }
+  },
+  "aws-native:rtbfabric:Link": {
+    "cfTypeName": "AWS::RTBFabric::Link",
+    "properties": {
+      "gatewayId": {
+        "type": "string"
+      },
+      "httpResponderAllowed": {
+        "type": "boolean"
+      },
+      "linkAttributes": {
+        "$ref": "#/types/aws-native:rtbfabric:LinkAttributes"
+      },
+      "linkLogSettings": {
+        "$ref": "#/types/aws-native:rtbfabric:LinkLogSettings"
+      },
+      "peerGatewayId": {
+        "type": "string"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
       }
     }
   },

@@ -360,6 +360,7 @@ AWS::DirectoryService::SimpleAD
 AWS::DocDBElastic::Cluster
 AWS::DynamoDB::GlobalTable
 AWS::DynamoDB::Table
+AWS::EC2::CapacityManagerDataExport
 AWS::EC2::CapacityReservation
 AWS::EC2::CapacityReservationFleet
 AWS::EC2::CarrierGateway
@@ -950,6 +951,7 @@ AWS::RDS::EventSubscription
 AWS::RDS::GlobalCluster
 AWS::RDS::Integration
 AWS::RDS::OptionGroup
+AWS::RTBFabric::Link
 AWS::RTBFabric::RequesterGateway
 AWS::RTBFabric::ResponderGateway
 AWS::RUM::AppMonitor
