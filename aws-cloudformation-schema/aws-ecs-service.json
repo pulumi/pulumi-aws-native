@@ -654,7 +654,8 @@
       "type" : "object",
       "properties" : {
         "CanaryConfiguration" : {
-          "description" : ""
+          "description" : "",
+          "$ref" : "#/definitions/CanaryConfiguration"
         },
         "BakeTimeInMinutes" : {
           "maximum" : 1440,
@@ -691,7 +692,8 @@
           "type" : "integer"
         },
         "LinearConfiguration" : {
-          "description" : ""
+          "description" : "",
+          "$ref" : "#/definitions/LinearConfiguration"
         }
       }
     },

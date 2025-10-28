@@ -194,7 +194,7 @@
     },
     "GeneratedRulesType" : {
       "type" : "string",
-      "enum" : [ "ALLOWLIST", "DENYLIST" ]
+      "enum" : [ "ALLOWLIST", "DENYLIST", "ALERTLIST", "REJECTLIST" ]
     },
     "StatefulRule" : {
       "type" : "object",
