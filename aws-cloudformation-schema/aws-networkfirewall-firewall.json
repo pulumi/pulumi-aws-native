@@ -122,6 +122,12 @@
       "maxLength" : 128,
       "pattern" : "^tgw-[0-9a-z]+$"
     },
+    "TransitGatewayAttachmentId" : {
+      "type" : "string",
+      "pattern" : "^tgw-attach-[0-9a-z]+$",
+      "minLength" : 1,
+      "maxLength" : 128
+    },
     "Description" : {
       "type" : "string",
       "maxLength" : 512,
@@ -160,7 +166,7 @@
     "permissions" : [ "network-firewall:TagResource", "network-firewall:UntagResource", "network-firewall:ListTagsForResource" ]
   },
   "required" : [ "FirewallName", "FirewallPolicyArn" ],
-  "readOnlyProperties" : [ "/properties/FirewallArn", "/properties/FirewallId", "/properties/EndpointIds" ],
+  "readOnlyProperties" : [ "/properties/FirewallArn", "/properties/FirewallId", "/properties/TransitGatewayAttachmentId", "/properties/EndpointIds" ],
   "primaryIdentifier" : [ "/properties/FirewallArn" ],
   "createOnlyProperties" : [ "/properties/VpcId", "/properties/FirewallName" ],
   "handlers" : {

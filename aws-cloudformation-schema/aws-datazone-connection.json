@@ -71,7 +71,7 @@
         "AccessRole" : {
           "type" : "string",
           "maxLength" : 2048,
-          "pattern" : "^arn:aws[^:]*:iam::\\d{12}:(role|role/service-role)/[\\w+=,.@-]*$"
+          "pattern" : "^arn:aws[^:]*:iam::\\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)*/[a-zA-Z0-9+=,.@_-]+$"
         },
         "AwsAccountId" : {
           "type" : "string",
@@ -192,6 +192,16 @@
           }
         },
         "required" : [ "SparkGlueProperties" ],
+        "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "title" : "S3Properties",
+        "properties" : {
+          "S3Properties" : {
+            "$ref" : "#/definitions/S3PropertiesInput"
+          }
+        },
+        "required" : [ "S3Properties" ],
         "additionalProperties" : false
       } ]
     },
@@ -560,7 +570,7 @@
         "InstanceProfileArn" : {
           "type" : "string",
           "maxLength" : 2048,
-          "pattern" : "^arn:aws[^:]*:iam::\\d{12}:(role|role/service-role)/[\\w+=,.@-]*$"
+          "pattern" : "^arn:aws[^:]*:iam::\\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)*/[a-zA-Z0-9+=,.@_-]+$"
         },
         "JavaVirtualEnv" : {
           "type" : "string",
@@ -580,7 +590,7 @@
         "RuntimeRole" : {
           "type" : "string",
           "maxLength" : 2048,
-          "pattern" : "^arn:aws[^:]*:iam::\\d{12}:(role|role/service-role)/[\\w+=,.@-]*$"
+          "pattern" : "^arn:aws[^:]*:iam::\\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)*/[a-zA-Z0-9+=,.@_-]+$"
         },
         "TrustedCertificatesS3Uri" : {
           "type" : "string",
@@ -678,6 +688,28 @@
       },
       "required" : [ "Password", "Username" ],
       "additionalProperties" : false
+    },
+    "S3PropertiesInput" : {
+      "type" : "object",
+      "description" : "S3 Properties Input",
+      "properties" : {
+        "S3Uri" : {
+          "type" : "string",
+          "description" : "The Amazon S3 URI that's part of the Amazon S3 properties of a connection.",
+          "maxLength" : 2048,
+          "minLength" : 0,
+          "pattern" : "s3://.+"
+        },
+        "S3AccessGrantLocationId" : {
+          "type" : "string",
+          "description" : "The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.",
+          "maxLength" : 64,
+          "minLength" : 0,
+          "pattern" : "[a-zA-Z0-9\\-]+"
+        }
+      },
+      "required" : [ "S3Uri" ],
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -722,6 +754,10 @@
       "type" : "string",
       "description" : "The identifier of the environment in which the connection is created."
     },
+    "ProjectIdentifier" : {
+      "type" : "string",
+      "description" : "The identifier of the project in which the connection should be created. If "
+    },
     "EnvironmentUserRole" : {
       "type" : "string",
       "description" : "The role of the user in the environment."
@@ -744,10 +780,10 @@
       "$ref" : "#/definitions/ConnectionType"
     }
   },
-  "required" : [ "DomainIdentifier", "EnvironmentIdentifier", "Name" ],
+  "required" : [ "DomainIdentifier", "Name" ],
   "readOnlyProperties" : [ "/properties/ConnectionId", "/properties/DomainId", "/properties/DomainUnitId", "/properties/EnvironmentId", "/properties/EnvironmentUserRole", "/properties/ProjectId", "/properties/Type" ],
-  "writeOnlyProperties" : [ "/properties/AwsLocation", "/properties/DomainIdentifier", "/properties/EnvironmentIdentifier", "/properties/Props" ],
-  "createOnlyProperties" : [ "/properties/DomainIdentifier", "/properties/EnvironmentIdentifier", "/properties/Name" ],
+  "writeOnlyProperties" : [ "/properties/AwsLocation", "/properties/DomainIdentifier", "/properties/EnvironmentIdentifier", "/properties/ProjectIdentifier", "/properties/Props" ],
+  "createOnlyProperties" : [ "/properties/DomainIdentifier", "/properties/EnvironmentIdentifier", "/properties/ProjectIdentifier", "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/DomainId", "/properties/ConnectionId" ],
   "tagging" : {
     "taggable" : false,
@@ -757,7 +793,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "datazone:CreateConnection", "datazone:GetConnection", "datazone:DeleteConnection" ]
+      "permissions" : [ "datazone:CreateConnection", "datazone:GetConnection", "datazone:DeleteConnection", "datazone:ListEnvironments" ]
     },
     "read" : {
       "permissions" : [ "datazone:GetConnection" ]

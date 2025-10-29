@@ -99,16 +99,16 @@
       "type" : "string",
       "enum" : [ "TCP" ]
     },
-    "ResourceConfigurationType" : {
-      "type" : "string",
-      "enum" : [ "GROUP", "CHILD", "SINGLE", "ARN" ]
-    },
     "PortRanges" : {
       "insertionOrder" : false,
       "type" : "array",
       "items" : {
         "$ref" : "#/definitions/PortRange"
       }
+    },
+    "ResourceConfigurationType" : {
+      "type" : "string",
+      "enum" : [ "GROUP", "CHILD", "SINGLE", "ARN" ]
     },
     "ResourceConfigurationDefinition" : {
       "oneOf" : [ {

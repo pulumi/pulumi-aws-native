@@ -814,6 +814,16 @@
         }
       }
     },
+    "ResourceRetentionPolicy" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SkipDeregisterOnUpdate" : {
+          "type" : "boolean",
+          "default" : false
+        }
+      }
+    },
     "EvaluateOnExit" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -1206,6 +1216,9 @@
     "RetryStrategy" : {
       "$ref" : "#/definitions/RetryStrategy"
     },
+    "ResourceRetentionPolicy" : {
+      "$ref" : "#/definitions/ResourceRetentionPolicy"
+    },
     "Timeout" : {
       "$ref" : "#/definitions/JobTimeout"
     },
@@ -1241,6 +1254,7 @@
   "required" : [ "Type" ],
   "createOnlyProperties" : [ "/properties/JobDefinitionName" ],
   "readOnlyProperties" : [ "/properties/JobDefinitionArn" ],
+  "writeOnlyProperties" : [ "/properties/ResourceRetentionPolicy", "/properties/ResourceRetentionPolicy/SkipDeregisterOnUpdate" ],
   "primaryIdentifier" : [ "/properties/JobDefinitionName" ],
   "handlers" : {
     "create" : {

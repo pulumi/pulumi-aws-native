@@ -352,16 +352,16 @@
   "primaryIdentifier" : [ "/properties/GatewayIdentifier", "/properties/TargetId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "bedrock-agentcore:CreateGatewayTarget", "bedrock-agentcore:GetGatewayTarget", "bedrock-agentcore:GetResourceOauth2Token", "bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:SynchronizeGatewayTargets", "kms:Decrypt", "kms:GenerateDataKey", "s3:GetObject", "secretsmanager:GetSecretValue" ]
+      "permissions" : [ "bedrock-agentcore:CreateGatewayTarget", "bedrock-agentcore:GetGatewayTarget", "bedrock-agentcore:GetResourceOauth2Token", "bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:SynchronizeGatewayTargets", "kms:Decrypt", "kms:GenerateDataKey", "kms:ListGrants", "s3:GetObject", "secretsmanager:GetSecretValue" ]
     },
     "read" : {
       "permissions" : [ "bedrock-agentcore:GetGatewayTarget" ]
     },
     "update" : {
-      "permissions" : [ "bedrock-agentcore:GetGatewayTarget", "bedrock-agentcore:GetResourceOauth2Token", "bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:SynchronizeGatewayTargets", "bedrock-agentcore:UpdateGatewayTarget", "kms:Decrypt", "kms:GenerateDataKey", "s3:GetObject", "secretsmanager:GetSecretValue" ]
+      "permissions" : [ "bedrock-agentcore:GetGatewayTarget", "bedrock-agentcore:GetResourceOauth2Token", "bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:SynchronizeGatewayTargets", "bedrock-agentcore:UpdateGatewayTarget", "kms:Decrypt", "kms:GenerateDataKey", "kms:ListGrants", "s3:GetObject", "secretsmanager:GetSecretValue" ]
     },
     "delete" : {
-      "permissions" : [ "bedrock-agentcore:DeleteGatewayTarget", "bedrock-agentcore:GetGatewayTarget", "kms:Decrypt", "kms:GenerateDataKey" ]
+      "permissions" : [ "bedrock-agentcore:DeleteGatewayTarget", "bedrock-agentcore:GetGatewayTarget", "kms:Decrypt", "kms:GenerateDataKey", "kms:ListGrants" ]
     },
     "list" : {
       "permissions" : [ "bedrock-agentcore:ListGatewayTargets" ]
