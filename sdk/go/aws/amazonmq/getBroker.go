@@ -24,7 +24,6 @@ func LookupBroker(ctx *pulumi.Context, args *LookupBrokerArgs, opts ...pulumi.In
 }
 
 type LookupBrokerArgs struct {
-	// Required. The unique ID that Amazon MQ generates for the configuration.
 	Id string `pulumi:"id"`
 }
 
@@ -37,7 +36,9 @@ type LookupBrokerResult struct {
 	//
 	// `arn:aws:mq:us-east-2:123456789012:broker:MyBroker:b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9`
 	Arn *string `pulumi:"arn"`
-	// Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
+	// Enables automatic upgrades to new patch versions for brokers as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window or after a manual broker reboot. Set to `true` by default, if no value is specified.
+	//
+	// > Must be set to `true` for ActiveMQ brokers version 5.18 and above and for RabbitMQ brokers version 3.13 and above.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// The ID of the current actual configuration.
 	ConfigurationId *string `pulumi:"configurationId"`
@@ -48,10 +49,9 @@ type LookupBrokerResult struct {
 	DataReplicationMode *string `pulumi:"dataReplicationMode"`
 	// The version in use. This may have more precision than the specified EngineVersion.
 	EngineVersionCurrent *string `pulumi:"engineVersionCurrent"`
-	// The broker's instance type.
+	// Required. The broker's instance type.
 	HostInstanceType *string `pulumi:"hostInstanceType"`
-	// Required. The unique ID that Amazon MQ generates for the configuration.
-	Id *string `pulumi:"id"`
+	Id               *string `pulumi:"id"`
 	// The IP addresses of each broker instance as a list of strings. Does not apply to RabbitMQ brokers.
 	//
 	// `['198.51.100.2', '203.0.113.9']`
@@ -60,7 +60,7 @@ type LookupBrokerResult struct {
 	LdapServerMetadata *BrokerLdapServerMetadata `pulumi:"ldapServerMetadata"`
 	// Enables Amazon CloudWatch logging for brokers.
 	Logs *BrokerLogList `pulumi:"logs"`
-	// The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.
+	// The parameters that determine the WeeklyStartTime.
 	MaintenanceWindowStartTime *BrokerMaintenanceWindow `pulumi:"maintenanceWindowStartTime"`
 	// The MQTT endpoints of each broker instance as a list of strings.
 	//
@@ -76,7 +76,7 @@ type LookupBrokerResult struct {
 	//
 	// `stomp+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61614`
 	StompEndpoints []string `pulumi:"stompEndpoints"`
-	// An array of key-value pairs. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Billing and Cost Management User Guide* .
+	// Create tags when creating the broker.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The WSS endpoints of each broker instance as a list of strings.
 	//
@@ -94,7 +94,6 @@ func LookupBrokerOutput(ctx *pulumi.Context, args LookupBrokerOutputArgs, opts .
 }
 
 type LookupBrokerOutputArgs struct {
-	// Required. The unique ID that Amazon MQ generates for the configuration.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -130,7 +129,9 @@ func (o LookupBrokerResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBrokerResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
+// Enables automatic upgrades to new patch versions for brokers as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window or after a manual broker reboot. Set to `true` by default, if no value is specified.
+//
+// > Must be set to `true` for ActiveMQ brokers version 5.18 and above and for RabbitMQ brokers version 3.13 and above.
 func (o LookupBrokerResultOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupBrokerResult) *bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
 }
@@ -159,12 +160,11 @@ func (o LookupBrokerResultOutput) EngineVersionCurrent() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupBrokerResult) *string { return v.EngineVersionCurrent }).(pulumi.StringPtrOutput)
 }
 
-// The broker's instance type.
+// Required. The broker's instance type.
 func (o LookupBrokerResultOutput) HostInstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBrokerResult) *string { return v.HostInstanceType }).(pulumi.StringPtrOutput)
 }
 
-// Required. The unique ID that Amazon MQ generates for the configuration.
 func (o LookupBrokerResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBrokerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -186,7 +186,7 @@ func (o LookupBrokerResultOutput) Logs() BrokerLogListPtrOutput {
 	return o.ApplyT(func(v LookupBrokerResult) *BrokerLogList { return v.Logs }).(BrokerLogListPtrOutput)
 }
 
-// The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.
+// The parameters that determine the WeeklyStartTime.
 func (o LookupBrokerResultOutput) MaintenanceWindowStartTime() BrokerMaintenanceWindowPtrOutput {
 	return o.ApplyT(func(v LookupBrokerResult) *BrokerMaintenanceWindow { return v.MaintenanceWindowStartTime }).(BrokerMaintenanceWindowPtrOutput)
 }
@@ -217,7 +217,7 @@ func (o LookupBrokerResultOutput) StompEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []string { return v.StompEndpoints }).(pulumi.StringArrayOutput)
 }
 
-// An array of key-value pairs. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Billing and Cost Management User Guide* .
+// Create tags when creating the broker.
 func (o LookupBrokerResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

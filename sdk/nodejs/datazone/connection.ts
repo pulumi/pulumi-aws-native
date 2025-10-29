@@ -68,7 +68,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The identifier of the environment in which the connection is created.
      */
-    declare public readonly environmentIdentifier: pulumi.Output<string>;
+    declare public readonly environmentIdentifier: pulumi.Output<string | undefined>;
     /**
      * The role of the user in the environment.
      */
@@ -82,9 +82,13 @@ export class Connection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly projectId: pulumi.Output<string>;
     /**
+     * The identifier of the project in which the connection should be created. If 
+     */
+    declare public readonly projectIdentifier: pulumi.Output<string | undefined>;
+    /**
      * Connection props.
      */
-    declare public readonly props: pulumi.Output<outputs.datazone.ConnectionPropertiesInput0Properties | outputs.datazone.ConnectionPropertiesInput1Properties | outputs.datazone.ConnectionPropertiesInput2Properties | outputs.datazone.ConnectionPropertiesInput3Properties | outputs.datazone.ConnectionPropertiesInput4Properties | outputs.datazone.ConnectionPropertiesInput5Properties | outputs.datazone.ConnectionPropertiesInput6Properties | undefined>;
+    declare public readonly props: pulumi.Output<outputs.datazone.ConnectionPropertiesInput0Properties | outputs.datazone.ConnectionPropertiesInput1Properties | outputs.datazone.ConnectionPropertiesInput2Properties | outputs.datazone.ConnectionPropertiesInput3Properties | outputs.datazone.ConnectionPropertiesInput4Properties | outputs.datazone.ConnectionPropertiesInput5Properties | outputs.datazone.ConnectionPropertiesInput6Properties | outputs.datazone.ConnectionPropertiesInput7Properties | undefined>;
     /**
      * The type of the connection.
      */
@@ -104,14 +108,12 @@ export class Connection extends pulumi.CustomResource {
             if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if (args?.environmentIdentifier === undefined && !opts.urn) {
-                throw new Error("Missing required property 'environmentIdentifier'");
-            }
             resourceInputs["awsLocation"] = args?.awsLocation;
             resourceInputs["description"] = args?.description;
             resourceInputs["domainIdentifier"] = args?.domainIdentifier;
             resourceInputs["environmentIdentifier"] = args?.environmentIdentifier;
             resourceInputs["name"] = args?.name;
+            resourceInputs["projectIdentifier"] = args?.projectIdentifier;
             resourceInputs["props"] = args?.props;
             resourceInputs["connectionId"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
@@ -132,11 +134,12 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["environmentUserRole"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["projectId"] = undefined /*out*/;
+            resourceInputs["projectIdentifier"] = undefined /*out*/;
             resourceInputs["props"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "environmentIdentifier", "name"] };
+        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "environmentIdentifier", "name", "projectIdentifier"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Connection.__pulumiType, name, resourceInputs, opts);
     }
@@ -161,13 +164,17 @@ export interface ConnectionArgs {
     /**
      * The identifier of the environment in which the connection is created.
      */
-    environmentIdentifier: pulumi.Input<string>;
+    environmentIdentifier?: pulumi.Input<string>;
     /**
      * The name of the connection.
      */
     name?: pulumi.Input<string>;
     /**
+     * The identifier of the project in which the connection should be created. If 
+     */
+    projectIdentifier?: pulumi.Input<string>;
+    /**
      * Connection props.
      */
-    props?: pulumi.Input<inputs.datazone.ConnectionPropertiesInput0PropertiesArgs | inputs.datazone.ConnectionPropertiesInput1PropertiesArgs | inputs.datazone.ConnectionPropertiesInput2PropertiesArgs | inputs.datazone.ConnectionPropertiesInput3PropertiesArgs | inputs.datazone.ConnectionPropertiesInput4PropertiesArgs | inputs.datazone.ConnectionPropertiesInput5PropertiesArgs | inputs.datazone.ConnectionPropertiesInput6PropertiesArgs>;
+    props?: pulumi.Input<inputs.datazone.ConnectionPropertiesInput0PropertiesArgs | inputs.datazone.ConnectionPropertiesInput1PropertiesArgs | inputs.datazone.ConnectionPropertiesInput2PropertiesArgs | inputs.datazone.ConnectionPropertiesInput3PropertiesArgs | inputs.datazone.ConnectionPropertiesInput4PropertiesArgs | inputs.datazone.ConnectionPropertiesInput5PropertiesArgs | inputs.datazone.ConnectionPropertiesInput6PropertiesArgs | inputs.datazone.ConnectionPropertiesInput7PropertiesArgs>;
 }

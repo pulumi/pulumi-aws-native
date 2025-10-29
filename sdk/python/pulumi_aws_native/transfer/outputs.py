@@ -18,6 +18,8 @@ from ._enums import *
 
 __all__ = [
     'As2ConfigProperties',
+    'ConnectorEgressConfig',
+    'ConnectorVpcLatticeEgressConfig',
     'CustomDirectoriesProperties',
     'ServerEndpointDetails',
     'ServerIdentityProviderDetails',
@@ -206,6 +208,84 @@ class As2ConfigProperties(dict):
         Signing algorithm for this AS2 connector configuration.
         """
         return pulumi.get(self, "signing_algorithm")
+
+
+@pulumi.output_type
+class ConnectorEgressConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcLattice":
+            suggest = "vpc_lattice"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorEgressConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorEgressConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorEgressConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vpc_lattice: 'outputs.ConnectorVpcLatticeEgressConfig'):
+        pulumi.set(__self__, "vpc_lattice", vpc_lattice)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcLattice")
+    def vpc_lattice(self) -> 'outputs.ConnectorVpcLatticeEgressConfig':
+        return pulumi.get(self, "vpc_lattice")
+
+
+@pulumi.output_type
+class ConnectorVpcLatticeEgressConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationArn":
+            suggest = "resource_configuration_arn"
+        elif key == "portNumber":
+            suggest = "port_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorVpcLatticeEgressConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorVpcLatticeEgressConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorVpcLatticeEgressConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_arn: _builtins.str,
+                 port_number: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str resource_configuration_arn: ARN of the VPC Lattice resource configuration
+        :param _builtins.int port_number: Port to connect to on the target VPC Lattice resource
+        """
+        pulumi.set(__self__, "resource_configuration_arn", resource_configuration_arn)
+        if port_number is not None:
+            pulumi.set(__self__, "port_number", port_number)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationArn")
+    def resource_configuration_arn(self) -> _builtins.str:
+        """
+        ARN of the VPC Lattice resource configuration
+        """
+        return pulumi.get(self, "resource_configuration_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="portNumber")
+    def port_number(self) -> Optional[_builtins.int]:
+        """
+        Port to connect to on the target VPC Lattice resource
+        """
+        return pulumi.get(self, "port_number")
 
 
 @pulumi.output_type

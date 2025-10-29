@@ -36,7 +36,7 @@ if not MYPY:
     class BrokerConfigurationIdArgsDict(TypedDict):
         id: pulumi.Input[_builtins.str]
         """
-        The unique ID that Amazon MQ generates for the configuration.
+        Required. The unique ID that Amazon MQ generates for the configuration.
         """
         revision: pulumi.Input[_builtins.int]
         """
@@ -51,7 +51,7 @@ class BrokerConfigurationIdArgs:
                  id: pulumi.Input[_builtins.str],
                  revision: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] id: The unique ID that Amazon MQ generates for the configuration.
+        :param pulumi.Input[_builtins.str] id: Required. The unique ID that Amazon MQ generates for the configuration.
         :param pulumi.Input[_builtins.int] revision: The revision number of the configuration.
         """
         pulumi.set(__self__, "id", id)
@@ -61,7 +61,7 @@ class BrokerConfigurationIdArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[_builtins.str]:
         """
-        The unique ID that Amazon MQ generates for the configuration.
+        Required. The unique ID that Amazon MQ generates for the configuration.
         """
         return pulumi.get(self, "id")
 
@@ -145,49 +145,16 @@ class BrokerEncryptionOptionsArgs:
 if not MYPY:
     class BrokerLdapServerMetadataArgsDict(TypedDict):
         hosts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies the location of the LDAP server such as AWS Directory Service for Microsoft Active Directory . Optional failover server.
-        """
         role_base: pulumi.Input[_builtins.str]
-        """
-        The distinguished name of the node in the directory information tree (DIT) to search for roles or groups. For example, `ou=group` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-        """
         role_search_matching: pulumi.Input[_builtins.str]
-        """
-        The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the `{0}` placeholder in the search filter. The client's username is substituted into the `{1}` placeholder. For example, if you set this option to `(member=uid={1})` for the user janedoe, the search filter becomes `(member=uid=janedoe)` after string substitution. It matches all role entries that have a member attribute equal to `uid=janedoe` under the subtree selected by the `RoleBases` .
-        """
         service_account_username: pulumi.Input[_builtins.str]
-        """
-        Service account username. A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-        """
         user_base: pulumi.Input[_builtins.str]
-        """
-        Select a particular subtree of the directory information tree (DIT) to search for user entries. The subtree is specified by a DN, which specifies the base node of the subtree. For example, by setting this option to `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` , the search for user entries is restricted to the subtree beneath `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-        """
         user_search_matching: pulumi.Input[_builtins.str]
-        """
-        The LDAP search filter used to find users within the `userBase` . The client's username is substituted into the `{0}` placeholder in the search filter. For example, if this option is set to `(uid={0})` and the received username is `janedoe` , the search filter becomes `(uid=janedoe)` after string substitution. It will result in matching an entry like `uid=janedoe` , `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-        """
         role_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The group name attribute in a role entry whose value is the name of that role. For example, you can specify `cn` for a group entry's common name. If authentication succeeds, then the user is assigned the the value of the `cn` attribute for each role entry that they are a member of.
-        """
         role_search_subtree: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The directory search scope for the role. If set to true, scope is to search the entire subtree.
-        """
         service_account_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Service account password. A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `dc=corp` , `dc=example` , `dc=com` .
-        """
         user_role_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the LDAP attribute in the user's directory entry for the user's group membership. In some cases, user roles may be identified by the value of an attribute in the user's directory entry. The `UserRoleName` option allows you to provide the name of this attribute.
-        """
         user_search_subtree: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The directory search scope for the user. If set to true, scope is to search the entire subtree.
-        """
 elif False:
     BrokerLdapServerMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -205,19 +172,6 @@ class BrokerLdapServerMetadataArgs:
                  service_account_password: Optional[pulumi.Input[_builtins.str]] = None,
                  user_role_name: Optional[pulumi.Input[_builtins.str]] = None,
                  user_search_subtree: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hosts: Specifies the location of the LDAP server such as AWS Directory Service for Microsoft Active Directory . Optional failover server.
-        :param pulumi.Input[_builtins.str] role_base: The distinguished name of the node in the directory information tree (DIT) to search for roles or groups. For example, `ou=group` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-        :param pulumi.Input[_builtins.str] role_search_matching: The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the `{0}` placeholder in the search filter. The client's username is substituted into the `{1}` placeholder. For example, if you set this option to `(member=uid={1})` for the user janedoe, the search filter becomes `(member=uid=janedoe)` after string substitution. It matches all role entries that have a member attribute equal to `uid=janedoe` under the subtree selected by the `RoleBases` .
-        :param pulumi.Input[_builtins.str] service_account_username: Service account username. A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-        :param pulumi.Input[_builtins.str] user_base: Select a particular subtree of the directory information tree (DIT) to search for user entries. The subtree is specified by a DN, which specifies the base node of the subtree. For example, by setting this option to `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` , the search for user entries is restricted to the subtree beneath `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-        :param pulumi.Input[_builtins.str] user_search_matching: The LDAP search filter used to find users within the `userBase` . The client's username is substituted into the `{0}` placeholder in the search filter. For example, if this option is set to `(uid={0})` and the received username is `janedoe` , the search filter becomes `(uid=janedoe)` after string substitution. It will result in matching an entry like `uid=janedoe` , `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-        :param pulumi.Input[_builtins.str] role_name: The group name attribute in a role entry whose value is the name of that role. For example, you can specify `cn` for a group entry's common name. If authentication succeeds, then the user is assigned the the value of the `cn` attribute for each role entry that they are a member of.
-        :param pulumi.Input[_builtins.bool] role_search_subtree: The directory search scope for the role. If set to true, scope is to search the entire subtree.
-        :param pulumi.Input[_builtins.str] service_account_password: Service account password. A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `dc=corp` , `dc=example` , `dc=com` .
-        :param pulumi.Input[_builtins.str] user_role_name: The name of the LDAP attribute in the user's directory entry for the user's group membership. In some cases, user roles may be identified by the value of an attribute in the user's directory entry. The `UserRoleName` option allows you to provide the name of this attribute.
-        :param pulumi.Input[_builtins.bool] user_search_subtree: The directory search scope for the user. If set to true, scope is to search the entire subtree.
-        """
         pulumi.set(__self__, "hosts", hosts)
         pulumi.set(__self__, "role_base", role_base)
         pulumi.set(__self__, "role_search_matching", role_search_matching)
@@ -238,9 +192,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter
     def hosts(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Specifies the location of the LDAP server such as AWS Directory Service for Microsoft Active Directory . Optional failover server.
-        """
         return pulumi.get(self, "hosts")
 
     @hosts.setter
@@ -250,9 +201,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="roleBase")
     def role_base(self) -> pulumi.Input[_builtins.str]:
-        """
-        The distinguished name of the node in the directory information tree (DIT) to search for roles or groups. For example, `ou=group` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-        """
         return pulumi.get(self, "role_base")
 
     @role_base.setter
@@ -262,9 +210,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="roleSearchMatching")
     def role_search_matching(self) -> pulumi.Input[_builtins.str]:
-        """
-        The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the `{0}` placeholder in the search filter. The client's username is substituted into the `{1}` placeholder. For example, if you set this option to `(member=uid={1})` for the user janedoe, the search filter becomes `(member=uid=janedoe)` after string substitution. It matches all role entries that have a member attribute equal to `uid=janedoe` under the subtree selected by the `RoleBases` .
-        """
         return pulumi.get(self, "role_search_matching")
 
     @role_search_matching.setter
@@ -274,9 +219,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="serviceAccountUsername")
     def service_account_username(self) -> pulumi.Input[_builtins.str]:
-        """
-        Service account username. A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-        """
         return pulumi.get(self, "service_account_username")
 
     @service_account_username.setter
@@ -286,9 +228,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="userBase")
     def user_base(self) -> pulumi.Input[_builtins.str]:
-        """
-        Select a particular subtree of the directory information tree (DIT) to search for user entries. The subtree is specified by a DN, which specifies the base node of the subtree. For example, by setting this option to `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` , the search for user entries is restricted to the subtree beneath `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-        """
         return pulumi.get(self, "user_base")
 
     @user_base.setter
@@ -298,9 +237,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="userSearchMatching")
     def user_search_matching(self) -> pulumi.Input[_builtins.str]:
-        """
-        The LDAP search filter used to find users within the `userBase` . The client's username is substituted into the `{0}` placeholder in the search filter. For example, if this option is set to `(uid={0})` and the received username is `janedoe` , the search filter becomes `(uid=janedoe)` after string substitution. It will result in matching an entry like `uid=janedoe` , `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-        """
         return pulumi.get(self, "user_search_matching")
 
     @user_search_matching.setter
@@ -310,9 +246,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The group name attribute in a role entry whose value is the name of that role. For example, you can specify `cn` for a group entry's common name. If authentication succeeds, then the user is assigned the the value of the `cn` attribute for each role entry that they are a member of.
-        """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
@@ -322,9 +255,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="roleSearchSubtree")
     def role_search_subtree(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        The directory search scope for the role. If set to true, scope is to search the entire subtree.
-        """
         return pulumi.get(self, "role_search_subtree")
 
     @role_search_subtree.setter
@@ -334,9 +264,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="serviceAccountPassword")
     def service_account_password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Service account password. A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `dc=corp` , `dc=example` , `dc=com` .
-        """
         return pulumi.get(self, "service_account_password")
 
     @service_account_password.setter
@@ -346,9 +273,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="userRoleName")
     def user_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the LDAP attribute in the user's directory entry for the user's group membership. In some cases, user roles may be identified by the value of an attribute in the user's directory entry. The `UserRoleName` option allows you to provide the name of this attribute.
-        """
         return pulumi.get(self, "user_role_name")
 
     @user_role_name.setter
@@ -358,9 +282,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="userSearchSubtree")
     def user_search_subtree(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        The directory search scope for the user. If set to true, scope is to search the entire subtree.
-        """
         return pulumi.get(self, "user_search_subtree")
 
     @user_search_subtree.setter
@@ -496,17 +417,20 @@ if not MYPY:
     class BrokerUserArgsDict(TypedDict):
         password: pulumi.Input[_builtins.str]
         """
-        The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
+        Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
         """
         username: pulumi.Input[_builtins.str]
         """
-        The username of the broker user. For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using guest as a valid usename. This value must be 2-100 characters long.
+        The username of the broker user. The following restrictions apply to broker usernames:
+
+        - For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+        - For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using `guest` as a valid usename. This value must be 2-100 characters long.
 
         > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other AWS services, including CloudWatch Logs . Broker usernames are not intended to be used for private or sensitive data.
         """
         console_access: NotRequired[pulumi.Input[_builtins.bool]]
         """
-        Enables access to the ActiveMQ web console for the ActiveMQ user. Does not apply to RabbitMQ brokers.
+        Enables access to the ActiveMQ Web Console for the ActiveMQ user. Does not apply to RabbitMQ brokers.
         """
         groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
@@ -528,11 +452,14 @@ class BrokerUserArgs:
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  replication_user: Optional[pulumi.Input[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] password: The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
-        :param pulumi.Input[_builtins.str] username: The username of the broker user. For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using guest as a valid usename. This value must be 2-100 characters long.
+        :param pulumi.Input[_builtins.str] password: Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
+        :param pulumi.Input[_builtins.str] username: The username of the broker user. The following restrictions apply to broker usernames:
+               
+               - For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+               - For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using `guest` as a valid usename. This value must be 2-100 characters long.
                
                > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other AWS services, including CloudWatch Logs . Broker usernames are not intended to be used for private or sensitive data.
-        :param pulumi.Input[_builtins.bool] console_access: Enables access to the ActiveMQ web console for the ActiveMQ user. Does not apply to RabbitMQ brokers.
+        :param pulumi.Input[_builtins.bool] console_access: Enables access to the ActiveMQ Web Console for the ActiveMQ user. Does not apply to RabbitMQ brokers.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long. Does not apply to RabbitMQ brokers.
         :param pulumi.Input[_builtins.bool] replication_user: Defines if this user is intended for CRDR replication purposes.
         """
@@ -549,7 +476,7 @@ class BrokerUserArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[_builtins.str]:
         """
-        The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
+        Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
         """
         return pulumi.get(self, "password")
 
@@ -561,7 +488,10 @@ class BrokerUserArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[_builtins.str]:
         """
-        The username of the broker user. For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using guest as a valid usename. This value must be 2-100 characters long.
+        The username of the broker user. The following restrictions apply to broker usernames:
+
+        - For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+        - For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using `guest` as a valid usename. This value must be 2-100 characters long.
 
         > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other AWS services, including CloudWatch Logs . Broker usernames are not intended to be used for private or sensitive data.
         """
@@ -575,7 +505,7 @@ class BrokerUserArgs:
     @pulumi.getter(name="consoleAccess")
     def console_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Enables access to the ActiveMQ web console for the ActiveMQ user. Does not apply to RabbitMQ brokers.
+        Enables access to the ActiveMQ Web Console for the ActiveMQ user. Does not apply to RabbitMQ brokers.
         """
         return pulumi.get(self, "console_access")
 

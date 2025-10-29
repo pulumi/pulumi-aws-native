@@ -62,6 +62,7 @@ __all__ = [
     'JobDefinitionNodeRangeProperty',
     'JobDefinitionRepositoryCredentials',
     'JobDefinitionResourceRequirement',
+    'JobDefinitionResourceRetentionPolicy',
     'JobDefinitionRetryStrategy',
     'JobDefinitionRuntimePlatform',
     'JobDefinitionSecret',
@@ -4287,6 +4288,36 @@ class JobDefinitionResourceRequirement(dict):
         - **value = 16** - `MEMORY` = 32768, 40960, 49152, 57344, 65536, 73728, 81920, 90112, 98304, 106496, 114688, or 122880
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JobDefinitionResourceRetentionPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "skipDeregisterOnUpdate":
+            suggest = "skip_deregister_on_update"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionResourceRetentionPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionResourceRetentionPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionResourceRetentionPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 skip_deregister_on_update: Optional[_builtins.bool] = None):
+        if skip_deregister_on_update is not None:
+            pulumi.set(__self__, "skip_deregister_on_update", skip_deregister_on_update)
+
+    @_builtins.property
+    @pulumi.getter(name="skipDeregisterOnUpdate")
+    def skip_deregister_on_update(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_deregister_on_update")
 
 
 @pulumi.output_type

@@ -25,6 +25,10 @@ type Connector struct {
 	As2Config As2ConfigPropertiesPtrOutput `pulumi:"as2Config"`
 	// A unique identifier for the connector.
 	ConnectorId pulumi.StringOutput `pulumi:"connectorId"`
+	// Egress configuration for the connector.
+	EgressConfig ConnectorEgressConfigPtrOutput `pulumi:"egressConfig"`
+	// Specifies the egress type for the connector.
+	EgressType ConnectorEgressTypePtrOutput `pulumi:"egressType"`
 	// Specifies the logging role for the connector.
 	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
 	// Security policy for SFTP Connector
@@ -33,10 +37,11 @@ type Connector struct {
 	ServiceManagedEgressIpAddresses pulumi.StringArrayOutput `pulumi:"serviceManagedEgressIpAddresses"`
 	// Configuration for an SFTP connector.
 	SftpConfig SftpConfigPropertiesPtrOutput `pulumi:"sftpConfig"`
+	Status     ConnectorStatusOutput         `pulumi:"status"`
 	// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// URL for Connector
-	Url pulumi.StringOutput `pulumi:"url"`
+	Url pulumi.StringPtrOutput `pulumi:"url"`
 }
 
 // NewConnector registers a new resource with the given unique name, arguments, and options.
@@ -48,9 +53,6 @@ func NewConnector(ctx *pulumi.Context,
 
 	if args.AccessRole == nil {
 		return nil, errors.New("invalid value for required argument 'AccessRole'")
-	}
-	if args.Url == nil {
-		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connector
@@ -89,6 +91,10 @@ type connectorArgs struct {
 	AccessRole string `pulumi:"accessRole"`
 	// Configuration for an AS2 connector.
 	As2Config *As2ConfigProperties `pulumi:"as2Config"`
+	// Egress configuration for the connector.
+	EgressConfig *ConnectorEgressConfig `pulumi:"egressConfig"`
+	// Specifies the egress type for the connector.
+	EgressType *ConnectorEgressType `pulumi:"egressType"`
 	// Specifies the logging role for the connector.
 	LoggingRole *string `pulumi:"loggingRole"`
 	// Security policy for SFTP Connector
@@ -98,7 +104,7 @@ type connectorArgs struct {
 	// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
 	Tags []aws.Tag `pulumi:"tags"`
 	// URL for Connector
-	Url string `pulumi:"url"`
+	Url *string `pulumi:"url"`
 }
 
 // The set of arguments for constructing a Connector resource.
@@ -107,6 +113,10 @@ type ConnectorArgs struct {
 	AccessRole pulumi.StringInput
 	// Configuration for an AS2 connector.
 	As2Config As2ConfigPropertiesPtrInput
+	// Egress configuration for the connector.
+	EgressConfig ConnectorEgressConfigPtrInput
+	// Specifies the egress type for the connector.
+	EgressType ConnectorEgressTypePtrInput
 	// Specifies the logging role for the connector.
 	LoggingRole pulumi.StringPtrInput
 	// Security policy for SFTP Connector
@@ -116,7 +126,7 @@ type ConnectorArgs struct {
 	// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
 	Tags aws.TagArrayInput
 	// URL for Connector
-	Url pulumi.StringInput
+	Url pulumi.StringPtrInput
 }
 
 func (ConnectorArgs) ElementType() reflect.Type {
@@ -176,6 +186,16 @@ func (o ConnectorOutput) ConnectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ConnectorId }).(pulumi.StringOutput)
 }
 
+// Egress configuration for the connector.
+func (o ConnectorOutput) EgressConfig() ConnectorEgressConfigPtrOutput {
+	return o.ApplyT(func(v *Connector) ConnectorEgressConfigPtrOutput { return v.EgressConfig }).(ConnectorEgressConfigPtrOutput)
+}
+
+// Specifies the egress type for the connector.
+func (o ConnectorOutput) EgressType() ConnectorEgressTypePtrOutput {
+	return o.ApplyT(func(v *Connector) ConnectorEgressTypePtrOutput { return v.EgressType }).(ConnectorEgressTypePtrOutput)
+}
+
 // Specifies the logging role for the connector.
 func (o ConnectorOutput) LoggingRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.LoggingRole }).(pulumi.StringPtrOutput)
@@ -196,14 +216,18 @@ func (o ConnectorOutput) SftpConfig() SftpConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v *Connector) SftpConfigPropertiesPtrOutput { return v.SftpConfig }).(SftpConfigPropertiesPtrOutput)
 }
 
+func (o ConnectorOutput) Status() ConnectorStatusOutput {
+	return o.ApplyT(func(v *Connector) ConnectorStatusOutput { return v.Status }).(ConnectorStatusOutput)
+}
+
 // Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
 func (o ConnectorOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Connector) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // URL for Connector
-func (o ConnectorOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+func (o ConnectorOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 func init() {

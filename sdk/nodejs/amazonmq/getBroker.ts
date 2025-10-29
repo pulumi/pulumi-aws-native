@@ -18,9 +18,6 @@ export function getBroker(args: GetBrokerArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetBrokerArgs {
-    /**
-     * Required. The unique ID that Amazon MQ generates for the configuration.
-     */
     id: string;
 }
 
@@ -38,7 +35,9 @@ export interface GetBrokerResult {
      */
     readonly arn?: string;
     /**
-     * Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
+     * Enables automatic upgrades to new patch versions for brokers as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window or after a manual broker reboot. Set to `true` by default, if no value is specified.
+     *
+     * > Must be set to `true` for ActiveMQ brokers version 5.18 and above and for RabbitMQ brokers version 3.13 and above.
      */
     readonly autoMinorVersionUpgrade?: boolean;
     /**
@@ -59,12 +58,9 @@ export interface GetBrokerResult {
      */
     readonly engineVersionCurrent?: string;
     /**
-     * The broker's instance type.
+     * Required. The broker's instance type.
      */
     readonly hostInstanceType?: string;
-    /**
-     * Required. The unique ID that Amazon MQ generates for the configuration.
-     */
     readonly id?: string;
     /**
      * The IP addresses of each broker instance as a list of strings. Does not apply to RabbitMQ brokers.
@@ -81,7 +77,7 @@ export interface GetBrokerResult {
      */
     readonly logs?: outputs.amazonmq.BrokerLogList;
     /**
-     * The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.
+     * The parameters that determine the WeeklyStartTime.
      */
     readonly maintenanceWindowStartTime?: outputs.amazonmq.BrokerMaintenanceWindow;
     /**
@@ -107,7 +103,7 @@ export interface GetBrokerResult {
      */
     readonly stompEndpoints?: string[];
     /**
-     * An array of key-value pairs. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Billing and Cost Management User Guide* .
+     * Create tags when creating the broker.
      */
     readonly tags?: outputs.Tag[];
     /**
@@ -128,8 +124,5 @@ export function getBrokerOutput(args: GetBrokerOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetBrokerOutputArgs {
-    /**
-     * Required. The unique ID that Amazon MQ generates for the configuration.
-     */
     id: pulumi.Input<string>;
 }

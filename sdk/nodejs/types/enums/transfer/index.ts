@@ -134,6 +134,21 @@ export const ConnectorAs2ConfigPropertiesSigningAlgorithm = {
  */
 export type ConnectorAs2ConfigPropertiesSigningAlgorithm = (typeof ConnectorAs2ConfigPropertiesSigningAlgorithm)[keyof typeof ConnectorAs2ConfigPropertiesSigningAlgorithm];
 
+export const ConnectorEgressType = {
+    ServiceManaged: "SERVICE_MANAGED",
+    VpcLattice: "VPC_LATTICE",
+} as const;
+
+export type ConnectorEgressType = (typeof ConnectorEgressType)[keyof typeof ConnectorEgressType];
+
+export const ConnectorStatus = {
+    Active: "ACTIVE",
+    Pending: "PENDING",
+    Errored: "ERRORED",
+} as const;
+
+export type ConnectorStatus = (typeof ConnectorStatus)[keyof typeof ConnectorStatus];
+
 export const ProfileType = {
     Local: "LOCAL",
     Partner: "PARTNER",

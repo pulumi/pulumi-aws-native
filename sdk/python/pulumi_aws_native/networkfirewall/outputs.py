@@ -111,6 +111,8 @@ class FirewallPolicy(dict):
             suggest = "stateless_default_actions"
         elif key == "statelessFragmentDefaultActions":
             suggest = "stateless_fragment_default_actions"
+        elif key == "enableTlsSessionHolding":
+            suggest = "enable_tls_session_holding"
         elif key == "policyVariables":
             suggest = "policy_variables"
         elif key == "statefulDefaultActions":
@@ -140,6 +142,7 @@ class FirewallPolicy(dict):
     def __init__(__self__, *,
                  stateless_default_actions: Sequence[_builtins.str],
                  stateless_fragment_default_actions: Sequence[_builtins.str],
+                 enable_tls_session_holding: Optional[_builtins.bool] = None,
                  policy_variables: Optional['outputs.FirewallPolicyPolicyVariablesProperties'] = None,
                  stateful_default_actions: Optional[Sequence[_builtins.str]] = None,
                  stateful_engine_options: Optional['outputs.FirewallPolicyStatefulEngineOptions'] = None,
@@ -177,6 +180,8 @@ class FirewallPolicy(dict):
         """
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
+        if enable_tls_session_holding is not None:
+            pulumi.set(__self__, "enable_tls_session_holding", enable_tls_session_holding)
         if policy_variables is not None:
             pulumi.set(__self__, "policy_variables", policy_variables)
         if stateful_default_actions is not None:
@@ -215,6 +220,11 @@ class FirewallPolicy(dict):
         For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", "customActionName"]` . For information about compatibility, see the custom action descriptions.
         """
         return pulumi.get(self, "stateless_fragment_default_actions")
+
+    @_builtins.property
+    @pulumi.getter(name="enableTlsSessionHolding")
+    def enable_tls_session_holding(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enable_tls_session_holding")
 
     @_builtins.property
     @pulumi.getter(name="policyVariables")

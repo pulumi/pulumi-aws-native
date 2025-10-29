@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     /// </summary>
     public sealed class ServiceConnectConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accessLogConfiguration")]
+        public Input<Inputs.ServiceConnectAccessLogConfigurationArgs>? AccessLogConfiguration { get; set; }
+
         /// <summary>
         /// Specifies whether to use Service Connect with this service.
         /// </summary>

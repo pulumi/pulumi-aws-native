@@ -2,6 +2,47 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const LinkDirection = {
+    Request: "REQUEST",
+    Response: "RESPONSE",
+} as const;
+
+export type LinkDirection = (typeof LinkDirection)[keyof typeof LinkDirection];
+
+export const LinkResponderErrorMaskingForHttpCodeAction = {
+    NoBid: "NO_BID",
+    Passthrough: "PASSTHROUGH",
+} as const;
+
+export type LinkResponderErrorMaskingForHttpCodeAction = (typeof LinkResponderErrorMaskingForHttpCodeAction)[keyof typeof LinkResponderErrorMaskingForHttpCodeAction];
+
+export const LinkResponderErrorMaskingLoggingType = {
+    None: "NONE",
+    Metric: "METRIC",
+    Response: "RESPONSE",
+} as const;
+
+export type LinkResponderErrorMaskingLoggingType = (typeof LinkResponderErrorMaskingLoggingType)[keyof typeof LinkResponderErrorMaskingLoggingType];
+
+export const LinkStatus = {
+    PendingCreation: "PENDING_CREATION",
+    PendingRequest: "PENDING_REQUEST",
+    Requested: "REQUESTED",
+    Accepted: "ACCEPTED",
+    Active: "ACTIVE",
+    Declined: "DECLINED",
+    Failed: "FAILED",
+    PendingDeletion: "PENDING_DELETION",
+    Deleted: "DELETED",
+    PendingUpdate: "PENDING_UPDATE",
+    PendingIsolation: "PENDING_ISOLATION",
+    Isolated: "ISOLATED",
+    PendingRestoration: "PENDING_RESTORATION",
+    UnknownToSdkVersion: "UNKNOWN_TO_SDK_VERSION",
+} as const;
+
+export type LinkStatus = (typeof LinkStatus)[keyof typeof LinkStatus];
+
 export const RequesterGatewayStatus = {
     PendingCreation: "PENDING_CREATION",
     Active: "ACTIVE",

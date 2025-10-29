@@ -2,6 +2,25 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CapacityManagerDataExportOutputFormat = {
+    Csv: "csv",
+    Parquet: "parquet",
+} as const;
+
+/**
+ * The format of the exported capacity manager data. Choose 'csv' for comma-separated values or 'parquet' for optimized columnar storage format.
+ */
+export type CapacityManagerDataExportOutputFormat = (typeof CapacityManagerDataExportOutputFormat)[keyof typeof CapacityManagerDataExportOutputFormat];
+
+export const CapacityManagerDataExportSchedule = {
+    Hourly: "hourly",
+} as const;
+
+/**
+ * The schedule for the capacity manager data export. Currently supports hourly exports that provide periodic snapshots of capacity manager data.
+ */
+export type CapacityManagerDataExportSchedule = (typeof CapacityManagerDataExportSchedule)[keyof typeof CapacityManagerDataExportSchedule];
+
 export const CapacityReservationFleetInstanceMatchCriteria = {
     Open: "open",
 } as const;

@@ -123,6 +123,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly string? TransitGatewayAttachmentId;
         /// <summary>
         /// The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
         /// </summary>
@@ -156,6 +157,8 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
+            string? transitGatewayAttachmentId,
+
             string? transitGatewayId)
         {
             AvailabilityZoneChangeProtection = availabilityZoneChangeProtection;
@@ -171,6 +174,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
             SubnetChangeProtection = subnetChangeProtection;
             SubnetMappings = subnetMappings;
             Tags = tags;
+            TransitGatewayAttachmentId = transitGatewayAttachmentId;
             TransitGatewayId = transitGatewayId;
         }
     }

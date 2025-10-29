@@ -31,13 +31,15 @@ type Connection struct {
 	// The ID of the environment in which the connection is created.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
 	// The identifier of the environment in which the connection is created.
-	EnvironmentIdentifier pulumi.StringOutput `pulumi:"environmentIdentifier"`
+	EnvironmentIdentifier pulumi.StringPtrOutput `pulumi:"environmentIdentifier"`
 	// The role of the user in the environment.
 	EnvironmentUserRole pulumi.StringOutput `pulumi:"environmentUserRole"`
 	// The name of the connection.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the project in which the connection is created.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
+	// The identifier of the project in which the connection should be created. If
+	ProjectIdentifier pulumi.StringPtrOutput `pulumi:"projectIdentifier"`
 	// Connection props.
 	Props pulumi.AnyOutput `pulumi:"props"`
 	// The type of the connection.
@@ -54,13 +56,11 @@ func NewConnection(ctx *pulumi.Context,
 	if args.DomainIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'DomainIdentifier'")
 	}
-	if args.EnvironmentIdentifier == nil {
-		return nil, errors.New("invalid value for required argument 'EnvironmentIdentifier'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"domainIdentifier",
 		"environmentIdentifier",
 		"name",
+		"projectIdentifier",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -103,9 +103,11 @@ type connectionArgs struct {
 	// The identifier of the domain in which the connection is created.
 	DomainIdentifier string `pulumi:"domainIdentifier"`
 	// The identifier of the environment in which the connection is created.
-	EnvironmentIdentifier string `pulumi:"environmentIdentifier"`
+	EnvironmentIdentifier *string `pulumi:"environmentIdentifier"`
 	// The name of the connection.
 	Name *string `pulumi:"name"`
+	// The identifier of the project in which the connection should be created. If
+	ProjectIdentifier *string `pulumi:"projectIdentifier"`
 	// Connection props.
 	Props interface{} `pulumi:"props"`
 }
@@ -119,9 +121,11 @@ type ConnectionArgs struct {
 	// The identifier of the domain in which the connection is created.
 	DomainIdentifier pulumi.StringInput
 	// The identifier of the environment in which the connection is created.
-	EnvironmentIdentifier pulumi.StringInput
+	EnvironmentIdentifier pulumi.StringPtrInput
 	// The name of the connection.
 	Name pulumi.StringPtrInput
+	// The identifier of the project in which the connection should be created. If
+	ProjectIdentifier pulumi.StringPtrInput
 	// Connection props.
 	Props pulumi.Input
 }
@@ -199,8 +203,8 @@ func (o ConnectionOutput) EnvironmentId() pulumi.StringOutput {
 }
 
 // The identifier of the environment in which the connection is created.
-func (o ConnectionOutput) EnvironmentIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.EnvironmentIdentifier }).(pulumi.StringOutput)
+func (o ConnectionOutput) EnvironmentIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.EnvironmentIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The role of the user in the environment.
@@ -216,6 +220,11 @@ func (o ConnectionOutput) Name() pulumi.StringOutput {
 // The ID of the project in which the connection is created.
 func (o ConnectionOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+// The identifier of the project in which the connection should be created. If
+func (o ConnectionOutput) ProjectIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.ProjectIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Connection props.

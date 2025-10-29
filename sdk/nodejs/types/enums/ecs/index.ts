@@ -192,6 +192,20 @@ export const ServiceAwsVpcConfigurationAssignPublicIp = {
  */
 export type ServiceAwsVpcConfigurationAssignPublicIp = (typeof ServiceAwsVpcConfigurationAssignPublicIp)[keyof typeof ServiceAwsVpcConfigurationAssignPublicIp];
 
+export const ServiceConnectAccessLogConfigurationFormat = {
+    Text: "TEXT",
+    Json: "JSON",
+} as const;
+
+export type ServiceConnectAccessLogConfigurationFormat = (typeof ServiceConnectAccessLogConfigurationFormat)[keyof typeof ServiceConnectAccessLogConfigurationFormat];
+
+export const ServiceConnectAccessLogConfigurationIncludeQueryParameters = {
+    Disabled: "DISABLED",
+    Enabled: "ENABLED",
+} as const;
+
+export type ServiceConnectAccessLogConfigurationIncludeQueryParameters = (typeof ServiceConnectAccessLogConfigurationIncludeQueryParameters)[keyof typeof ServiceConnectAccessLogConfigurationIncludeQueryParameters];
+
 export const ServiceDeploymentConfigurationStrategy = {
     Rolling: "ROLLING",
     BlueGreen: "BLUE_GREEN",

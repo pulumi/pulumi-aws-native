@@ -2711,6 +2711,146 @@ func (o DistributionConfigurationTargetContainerRepositoryPtrOutput) Service() D
 	}).(DistributionConfigurationTargetContainerRepositoryServicePtrOutput)
 }
 
+// The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+type ImageDeletionSettings struct {
+	// The execution role to use for deleting the image, as well as underlying resources.
+	ExecutionRole string `pulumi:"executionRole"`
+}
+
+// ImageDeletionSettingsInput is an input type that accepts ImageDeletionSettingsArgs and ImageDeletionSettingsOutput values.
+// You can construct a concrete instance of `ImageDeletionSettingsInput` via:
+//
+//	ImageDeletionSettingsArgs{...}
+type ImageDeletionSettingsInput interface {
+	pulumi.Input
+
+	ToImageDeletionSettingsOutput() ImageDeletionSettingsOutput
+	ToImageDeletionSettingsOutputWithContext(context.Context) ImageDeletionSettingsOutput
+}
+
+// The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+type ImageDeletionSettingsArgs struct {
+	// The execution role to use for deleting the image, as well as underlying resources.
+	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
+}
+
+func (ImageDeletionSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageDeletionSettings)(nil)).Elem()
+}
+
+func (i ImageDeletionSettingsArgs) ToImageDeletionSettingsOutput() ImageDeletionSettingsOutput {
+	return i.ToImageDeletionSettingsOutputWithContext(context.Background())
+}
+
+func (i ImageDeletionSettingsArgs) ToImageDeletionSettingsOutputWithContext(ctx context.Context) ImageDeletionSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageDeletionSettingsOutput)
+}
+
+func (i ImageDeletionSettingsArgs) ToImageDeletionSettingsPtrOutput() ImageDeletionSettingsPtrOutput {
+	return i.ToImageDeletionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ImageDeletionSettingsArgs) ToImageDeletionSettingsPtrOutputWithContext(ctx context.Context) ImageDeletionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageDeletionSettingsOutput).ToImageDeletionSettingsPtrOutputWithContext(ctx)
+}
+
+// ImageDeletionSettingsPtrInput is an input type that accepts ImageDeletionSettingsArgs, ImageDeletionSettingsPtr and ImageDeletionSettingsPtrOutput values.
+// You can construct a concrete instance of `ImageDeletionSettingsPtrInput` via:
+//
+//	        ImageDeletionSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImageDeletionSettingsPtrInput interface {
+	pulumi.Input
+
+	ToImageDeletionSettingsPtrOutput() ImageDeletionSettingsPtrOutput
+	ToImageDeletionSettingsPtrOutputWithContext(context.Context) ImageDeletionSettingsPtrOutput
+}
+
+type imageDeletionSettingsPtrType ImageDeletionSettingsArgs
+
+func ImageDeletionSettingsPtr(v *ImageDeletionSettingsArgs) ImageDeletionSettingsPtrInput {
+	return (*imageDeletionSettingsPtrType)(v)
+}
+
+func (*imageDeletionSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageDeletionSettings)(nil)).Elem()
+}
+
+func (i *imageDeletionSettingsPtrType) ToImageDeletionSettingsPtrOutput() ImageDeletionSettingsPtrOutput {
+	return i.ToImageDeletionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *imageDeletionSettingsPtrType) ToImageDeletionSettingsPtrOutputWithContext(ctx context.Context) ImageDeletionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageDeletionSettingsPtrOutput)
+}
+
+// The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+type ImageDeletionSettingsOutput struct{ *pulumi.OutputState }
+
+func (ImageDeletionSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageDeletionSettings)(nil)).Elem()
+}
+
+func (o ImageDeletionSettingsOutput) ToImageDeletionSettingsOutput() ImageDeletionSettingsOutput {
+	return o
+}
+
+func (o ImageDeletionSettingsOutput) ToImageDeletionSettingsOutputWithContext(ctx context.Context) ImageDeletionSettingsOutput {
+	return o
+}
+
+func (o ImageDeletionSettingsOutput) ToImageDeletionSettingsPtrOutput() ImageDeletionSettingsPtrOutput {
+	return o.ToImageDeletionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ImageDeletionSettingsOutput) ToImageDeletionSettingsPtrOutputWithContext(ctx context.Context) ImageDeletionSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageDeletionSettings) *ImageDeletionSettings {
+		return &v
+	}).(ImageDeletionSettingsPtrOutput)
+}
+
+// The execution role to use for deleting the image, as well as underlying resources.
+func (o ImageDeletionSettingsOutput) ExecutionRole() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageDeletionSettings) string { return v.ExecutionRole }).(pulumi.StringOutput)
+}
+
+type ImageDeletionSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageDeletionSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageDeletionSettings)(nil)).Elem()
+}
+
+func (o ImageDeletionSettingsPtrOutput) ToImageDeletionSettingsPtrOutput() ImageDeletionSettingsPtrOutput {
+	return o
+}
+
+func (o ImageDeletionSettingsPtrOutput) ToImageDeletionSettingsPtrOutputWithContext(ctx context.Context) ImageDeletionSettingsPtrOutput {
+	return o
+}
+
+func (o ImageDeletionSettingsPtrOutput) Elem() ImageDeletionSettingsOutput {
+	return o.ApplyT(func(v *ImageDeletionSettings) ImageDeletionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ImageDeletionSettings
+		return ret
+	}).(ImageDeletionSettingsOutput)
+}
+
+// The execution role to use for deleting the image, as well as underlying resources.
+func (o ImageDeletionSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageDeletionSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExecutionRole
+	}).(pulumi.StringPtrOutput)
+}
+
 // Settings for Image Builder to configure the ECR repository and output container images that are scanned.
 type ImageEcrConfiguration struct {
 	// Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
@@ -7949,6 +8089,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationSsmParameterConfigurationArrayInput)(nil)).Elem(), DistributionConfigurationSsmParameterConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationTargetContainerRepositoryInput)(nil)).Elem(), DistributionConfigurationTargetContainerRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationTargetContainerRepositoryPtrInput)(nil)).Elem(), DistributionConfigurationTargetContainerRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageDeletionSettingsInput)(nil)).Elem(), ImageDeletionSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageDeletionSettingsPtrInput)(nil)).Elem(), ImageDeletionSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageEcrConfigurationInput)(nil)).Elem(), ImageEcrConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageEcrConfigurationPtrInput)(nil)).Elem(), ImageEcrConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageLoggingConfigurationInput)(nil)).Elem(), ImageLoggingConfigurationArgs{})
@@ -8048,6 +8190,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionConfigurationSsmParameterConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationTargetContainerRepositoryOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationTargetContainerRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(ImageDeletionSettingsOutput{})
+	pulumi.RegisterOutputType(ImageDeletionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ImageEcrConfigurationOutput{})
 	pulumi.RegisterOutputType(ImageEcrConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImageLatestVersionOutput{})

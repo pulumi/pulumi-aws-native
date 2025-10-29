@@ -1598,6 +1598,7 @@ _utilities.register(
   "mod": "ec2",
   "fqn": "pulumi_aws_native.ec2",
   "classes": {
+   "aws-native:ec2:CapacityManagerDataExport": "CapacityManagerDataExport",
    "aws-native:ec2:CapacityReservation": "CapacityReservation",
    "aws-native:ec2:CapacityReservationFleet": "CapacityReservationFleet",
    "aws-native:ec2:CarrierGateway": "CarrierGateway",
@@ -3096,6 +3097,7 @@ _utilities.register(
   "mod": "rtbfabric",
   "fqn": "pulumi_aws_native.rtbfabric",
   "classes": {
+   "aws-native:rtbfabric:Link": "Link",
    "aws-native:rtbfabric:RequesterGateway": "RequesterGateway",
    "aws-native:rtbfabric:ResponderGateway": "ResponderGateway"
   }

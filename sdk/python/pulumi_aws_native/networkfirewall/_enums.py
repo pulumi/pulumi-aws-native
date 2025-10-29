@@ -82,6 +82,8 @@ class LoggingConfigurationLogDestinationConfigLogType(_builtins.str, Enum):
 class RuleGroupGeneratedRulesType(_builtins.str, Enum):
     ALLOWLIST = "ALLOWLIST"
     DENYLIST = "DENYLIST"
+    ALERTLIST = "ALERTLIST"
+    REJECTLIST = "REJECTLIST"
 
 
 @pulumi.type_token("aws-native:networkfirewall:RuleGroupHeaderDirection")

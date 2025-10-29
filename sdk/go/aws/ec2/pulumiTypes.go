@@ -71,6 +71,14 @@ func (o BlockPublicAccessStatesPropertiesPtrOutput) InternetGatewayBlockMode() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair to associate with a resource.
+type CapacityManagerDataExportTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 type CapacityReservationCapacityAllocation struct {
 	// The usage type. `used` indicates that the instance capacity is in use by instances that are running in the Capacity Reservation.
 	AllocationType *string `pulumi:"allocationType"`
@@ -12984,7 +12992,7 @@ type LaunchTemplateEbs struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
 	//  The following are the supported values for each volume type:
-	//   +  ``gp3``: 3,000 - 16,000 IOPS
+	//   +  ``gp3``: 3,000 - 80,000 IOPS
 	//   +  ``io1``: 100 - 64,000 IOPS
 	//   +  ``io2``: 100 - 256,000 IOPS
 	//
@@ -12995,8 +13003,8 @@ type LaunchTemplateEbs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The ID of the snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// The throughput to provision for a ``gp3`` volume, with a maximum of 1,000 MiB/s.
-	//  Valid Range: Minimum value of 125. Maximum value of 1000.
+	// The throughput to provision for a ``gp3`` volume, with a maximum of 2,000 MiB/s.
+	//  Valid Range: Minimum value of 125. Maximum value of 2,000.
 	Throughput *int `pulumi:"throughput"`
 	// Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization*. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
 	//  This parameter is supported only for volumes created from snapshots. Omit this parameter if:
@@ -13008,7 +13016,8 @@ type LaunchTemplateEbs struct {
 	//  Valid range: 100 - 300 MiB/s
 	VolumeInitializationRate *int `pulumi:"volumeInitializationRate"`
 	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
-	//   +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
+	//   +  ``gp2``: 1 - 16,384 GiB
+	//   +  ``gp3``: 1 - 65,536 GiB
 	//   +  ``io1``: 4 - 16,384 GiB
 	//   +  ``io2``: 4 - 65,536 GiB
 	//   +  ``st1`` and ``sc1``: 125 - 16,384 GiB
@@ -13039,7 +13048,7 @@ type LaunchTemplateEbsArgs struct {
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
 	//  The following are the supported values for each volume type:
-	//   +  ``gp3``: 3,000 - 16,000 IOPS
+	//   +  ``gp3``: 3,000 - 80,000 IOPS
 	//   +  ``io1``: 100 - 64,000 IOPS
 	//   +  ``io2``: 100 - 256,000 IOPS
 	//
@@ -13050,8 +13059,8 @@ type LaunchTemplateEbsArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The ID of the snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// The throughput to provision for a ``gp3`` volume, with a maximum of 1,000 MiB/s.
-	//  Valid Range: Minimum value of 125. Maximum value of 1000.
+	// The throughput to provision for a ``gp3`` volume, with a maximum of 2,000 MiB/s.
+	//  Valid Range: Minimum value of 125. Maximum value of 2,000.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization*. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
 	//  This parameter is supported only for volumes created from snapshots. Omit this parameter if:
@@ -13063,7 +13072,8 @@ type LaunchTemplateEbsArgs struct {
 	//  Valid range: 100 - 300 MiB/s
 	VolumeInitializationRate pulumi.IntPtrInput `pulumi:"volumeInitializationRate"`
 	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
-	//   +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
+	//   +  ``gp2``: 1 - 16,384 GiB
+	//   +  ``gp3``: 1 - 65,536 GiB
 	//   +  ``io1``: 4 - 16,384 GiB
 	//   +  ``io2``: 4 - 65,536 GiB
 	//   +  ``st1`` and ``sc1``: 125 - 16,384 GiB
@@ -13166,7 +13176,7 @@ func (o LaunchTemplateEbsOutput) Encrypted() pulumi.BoolPtrOutput {
 // The number of I/O operations per second (IOPS). For “gp3“, “io1“, and “io2“ volumes, this represents the number of IOPS that are provisioned for the volume. For “gp2“ volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
 //
 //	The following are the supported values for each volume type:
-//	 +  ``gp3``: 3,000 - 16,000 IOPS
+//	 +  ``gp3``: 3,000 - 80,000 IOPS
 //	 +  ``io1``: 100 - 64,000 IOPS
 //	 +  ``io2``: 100 - 256,000 IOPS
 //
@@ -13186,9 +13196,9 @@ func (o LaunchTemplateEbsOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// The throughput to provision for a “gp3“ volume, with a maximum of 1,000 MiB/s.
+// The throughput to provision for a “gp3“ volume, with a maximum of 2,000 MiB/s.
 //
-//	Valid Range: Minimum value of 125. Maximum value of 1000.
+//	Valid Range: Minimum value of 125. Maximum value of 2,000.
 func (o LaunchTemplateEbsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -13207,7 +13217,8 @@ func (o LaunchTemplateEbsOutput) VolumeInitializationRate() pulumi.IntPtrOutput 
 }
 
 // The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
-//   - “gp2“ and “gp3“: 1 - 16,384 GiB
+//   - “gp2“: 1 - 16,384 GiB
+//   - “gp3“: 1 - 65,536 GiB
 //   - “io1“: 4 - 16,384 GiB
 //   - “io2“: 4 - 65,536 GiB
 //   - “st1“ and “sc1“: 125 - 16,384 GiB
@@ -13268,7 +13279,7 @@ func (o LaunchTemplateEbsPtrOutput) Encrypted() pulumi.BoolPtrOutput {
 // The number of I/O operations per second (IOPS). For “gp3“, “io1“, and “io2“ volumes, this represents the number of IOPS that are provisioned for the volume. For “gp2“ volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
 //
 //	The following are the supported values for each volume type:
-//	 +  ``gp3``: 3,000 - 16,000 IOPS
+//	 +  ``gp3``: 3,000 - 80,000 IOPS
 //	 +  ``io1``: 100 - 64,000 IOPS
 //	 +  ``io2``: 100 - 256,000 IOPS
 //
@@ -13303,9 +13314,9 @@ func (o LaunchTemplateEbsPtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The throughput to provision for a “gp3“ volume, with a maximum of 1,000 MiB/s.
+// The throughput to provision for a “gp3“ volume, with a maximum of 2,000 MiB/s.
 //
-//	Valid Range: Minimum value of 125. Maximum value of 1000.
+//	Valid Range: Minimum value of 125. Maximum value of 2,000.
 func (o LaunchTemplateEbsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *int {
 		if v == nil {
@@ -13334,7 +13345,8 @@ func (o LaunchTemplateEbsPtrOutput) VolumeInitializationRate() pulumi.IntPtrOutp
 }
 
 // The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
-//   - “gp2“ and “gp3“: 1 - 16,384 GiB
+//   - “gp2“: 1 - 16,384 GiB
+//   - “gp3“: 1 - 65,536 GiB
 //   - “io1“: 4 - 16,384 GiB
 //   - “io2“: 4 - 65,536 GiB
 //   - “st1“ and “sc1“: 125 - 16,384 GiB

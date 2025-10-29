@@ -277,3 +277,4 @@ class RuntimeNetworkMode(_builtins.str, Enum):
 class RuntimeProtocolConfiguration(_builtins.str, Enum):
     MCP = "MCP"
     HTTP = "HTTP"
+    A2A = "A2A"

@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFirewallResult:
-    def __init__(__self__, availability_zone_change_protection=None, availability_zone_mappings=None, delete_protection=None, description=None, enabled_analysis_types=None, endpoint_ids=None, firewall_arn=None, firewall_id=None, firewall_policy_arn=None, firewall_policy_change_protection=None, subnet_change_protection=None, subnet_mappings=None, tags=None, transit_gateway_id=None):
+    def __init__(__self__, availability_zone_change_protection=None, availability_zone_mappings=None, delete_protection=None, description=None, enabled_analysis_types=None, endpoint_ids=None, firewall_arn=None, firewall_id=None, firewall_policy_arn=None, firewall_policy_change_protection=None, subnet_change_protection=None, subnet_mappings=None, tags=None, transit_gateway_attachment_id=None, transit_gateway_id=None):
         if availability_zone_change_protection and not isinstance(availability_zone_change_protection, bool):
             raise TypeError("Expected argument 'availability_zone_change_protection' to be a bool")
         pulumi.set(__self__, "availability_zone_change_protection", availability_zone_change_protection)
@@ -66,6 +66,9 @@ class GetFirewallResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if transit_gateway_attachment_id and not isinstance(transit_gateway_attachment_id, str):
+            raise TypeError("Expected argument 'transit_gateway_attachment_id' to be a str")
+        pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         if transit_gateway_id and not isinstance(transit_gateway_id, str):
             raise TypeError("Expected argument 'transit_gateway_id' to be a str")
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
@@ -183,6 +186,11 @@ class GetFirewallResult:
         return pulumi.get(self, "tags")
 
     @_builtins.property
+    @pulumi.getter(name="transitGatewayAttachmentId")
+    def transit_gateway_attachment_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "transit_gateway_attachment_id")
+
+    @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[_builtins.str]:
         """
@@ -210,6 +218,7 @@ class AwaitableGetFirewallResult(GetFirewallResult):
             subnet_change_protection=self.subnet_change_protection,
             subnet_mappings=self.subnet_mappings,
             tags=self.tags,
+            transit_gateway_attachment_id=self.transit_gateway_attachment_id,
             transit_gateway_id=self.transit_gateway_id)
 
 
@@ -240,6 +249,7 @@ def get_firewall(firewall_arn: Optional[_builtins.str] = None,
         subnet_change_protection=pulumi.get(__ret__, 'subnet_change_protection'),
         subnet_mappings=pulumi.get(__ret__, 'subnet_mappings'),
         tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
 def get_firewall_output(firewall_arn: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallResult]:
@@ -267,4 +277,5 @@ def get_firewall_output(firewall_arn: Optional[pulumi.Input[_builtins.str]] = No
         subnet_change_protection=pulumi.get(__response__, 'subnet_change_protection'),
         subnet_mappings=pulumi.get(__response__, 'subnet_mappings'),
         tags=pulumi.get(__response__, 'tags'),
+        transit_gateway_attachment_id=pulumi.get(__response__, 'transit_gateway_attachment_id'),
         transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id')))

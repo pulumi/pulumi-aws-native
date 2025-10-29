@@ -106,6 +106,8 @@ __all__ = [
     'JobDefinitionRepositoryCredentialsArgsDict',
     'JobDefinitionResourceRequirementArgs',
     'JobDefinitionResourceRequirementArgsDict',
+    'JobDefinitionResourceRetentionPolicyArgs',
+    'JobDefinitionResourceRetentionPolicyArgsDict',
     'JobDefinitionRetryStrategyArgs',
     'JobDefinitionRetryStrategyArgsDict',
     'JobDefinitionRuntimePlatformArgs',
@@ -5680,6 +5682,29 @@ class JobDefinitionResourceRequirementArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class JobDefinitionResourceRetentionPolicyArgsDict(TypedDict):
+        skip_deregister_on_update: NotRequired[pulumi.Input[_builtins.bool]]
+elif False:
+    JobDefinitionResourceRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobDefinitionResourceRetentionPolicyArgs:
+    def __init__(__self__, *,
+                 skip_deregister_on_update: Optional[pulumi.Input[_builtins.bool]] = None):
+        if skip_deregister_on_update is not None:
+            pulumi.set(__self__, "skip_deregister_on_update", skip_deregister_on_update)
+
+    @_builtins.property
+    @pulumi.getter(name="skipDeregisterOnUpdate")
+    def skip_deregister_on_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "skip_deregister_on_update")
+
+    @skip_deregister_on_update.setter
+    def skip_deregister_on_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "skip_deregister_on_update", value)
 
 
 if not MYPY:

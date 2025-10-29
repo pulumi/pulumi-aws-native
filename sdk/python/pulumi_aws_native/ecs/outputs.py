@@ -43,7 +43,9 @@ __all__ = [
     'ClusterSettings',
     'ServiceAdvancedConfiguration',
     'ServiceAwsVpcConfiguration',
+    'ServiceCanaryConfiguration',
     'ServiceCapacityProviderStrategyItem',
+    'ServiceConnectAccessLogConfiguration',
     'ServiceConnectClientAlias',
     'ServiceConnectConfiguration',
     'ServiceConnectService',
@@ -59,6 +61,7 @@ __all__ = [
     'ServiceDeploymentLifecycleHook',
     'ServiceEbsTagSpecification',
     'ServiceForceNewDeployment',
+    'ServiceLinearConfiguration',
     'ServiceLoadBalancer',
     'ServiceLogConfiguration',
     'ServiceManagedEbsVolumeConfiguration',
@@ -1859,6 +1862,46 @@ class ServiceAwsVpcConfiguration(dict):
 
 
 @pulumi.output_type
+class ServiceCanaryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "canaryBakeTimeInMinutes":
+            suggest = "canary_bake_time_in_minutes"
+        elif key == "canaryPercent":
+            suggest = "canary_percent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceCanaryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceCanaryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceCanaryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 canary_bake_time_in_minutes: Optional[_builtins.int] = None,
+                 canary_percent: Optional[_builtins.float] = None):
+        if canary_bake_time_in_minutes is not None:
+            pulumi.set(__self__, "canary_bake_time_in_minutes", canary_bake_time_in_minutes)
+        if canary_percent is not None:
+            pulumi.set(__self__, "canary_percent", canary_percent)
+
+    @_builtins.property
+    @pulumi.getter(name="canaryBakeTimeInMinutes")
+    def canary_bake_time_in_minutes(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "canary_bake_time_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="canaryPercent")
+    def canary_percent(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "canary_percent")
+
+
+@pulumi.output_type
 class ServiceCapacityProviderStrategyItem(dict):
     """
     The details of a capacity provider strategy. A capacity provider strategy can be set when using the ``RunTask`` or ``CreateService`` APIs or as the default capacity provider strategy for a cluster with the ``CreateCluster`` API.
@@ -1969,6 +2012,43 @@ class ServiceCapacityProviderStrategyItem(dict):
 
 
 @pulumi.output_type
+class ServiceConnectAccessLogConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeQueryParameters":
+            suggest = "include_query_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceConnectAccessLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceConnectAccessLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceConnectAccessLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 format: 'ServiceConnectAccessLogConfigurationFormat',
+                 include_query_parameters: Optional['ServiceConnectAccessLogConfigurationIncludeQueryParameters'] = None):
+        pulumi.set(__self__, "format", format)
+        if include_query_parameters is not None:
+            pulumi.set(__self__, "include_query_parameters", include_query_parameters)
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> 'ServiceConnectAccessLogConfigurationFormat':
+        return pulumi.get(self, "format")
+
+    @_builtins.property
+    @pulumi.getter(name="includeQueryParameters")
+    def include_query_parameters(self) -> Optional['ServiceConnectAccessLogConfigurationIncludeQueryParameters']:
+        return pulumi.get(self, "include_query_parameters")
+
+
+@pulumi.output_type
 class ServiceConnectClientAlias(dict):
     """
     Each alias ("endpoint") is a fully-qualified name and port number that other tasks ("clients") can use to connect to this service.
@@ -2052,7 +2132,9 @@ class ServiceConnectConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "logConfiguration":
+        if key == "accessLogConfiguration":
+            suggest = "access_log_configuration"
+        elif key == "logConfiguration":
             suggest = "log_configuration"
 
         if suggest:
@@ -2068,6 +2150,7 @@ class ServiceConnectConfiguration(dict):
 
     def __init__(__self__, *,
                  enabled: _builtins.bool,
+                 access_log_configuration: Optional['outputs.ServiceConnectAccessLogConfiguration'] = None,
                  log_configuration: Optional['outputs.ServiceLogConfiguration'] = None,
                  namespace: Optional[_builtins.str] = None,
                  services: Optional[Sequence['outputs.ServiceConnectService']] = None):
@@ -2090,6 +2173,8 @@ class ServiceConnectConfiguration(dict):
                 An object selects a port from the task definition, assigns a name for the CMAPlong service, and a list of aliases (endpoints) and ports for client applications to refer to this service.
         """
         pulumi.set(__self__, "enabled", enabled)
+        if access_log_configuration is not None:
+            pulumi.set(__self__, "access_log_configuration", access_log_configuration)
         if log_configuration is not None:
             pulumi.set(__self__, "log_configuration", log_configuration)
         if namespace is not None:
@@ -2104,6 +2189,11 @@ class ServiceConnectConfiguration(dict):
         Specifies whether to use Service Connect with this service.
         """
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="accessLogConfiguration")
+    def access_log_configuration(self) -> Optional['outputs.ServiceConnectAccessLogConfiguration']:
+        return pulumi.get(self, "access_log_configuration")
 
     @_builtins.property
     @pulumi.getter(name="logConfiguration")
@@ -2561,10 +2651,10 @@ class ServiceDeploymentConfiguration(dict):
     def __init__(__self__, *,
                  alarms: Optional['outputs.ServiceDeploymentAlarms'] = None,
                  bake_time_in_minutes: Optional[_builtins.int] = None,
-                 canary_configuration: Optional[Any] = None,
+                 canary_configuration: Optional['outputs.ServiceCanaryConfiguration'] = None,
                  deployment_circuit_breaker: Optional['outputs.ServiceDeploymentCircuitBreaker'] = None,
                  lifecycle_hooks: Optional[Sequence['outputs.ServiceDeploymentLifecycleHook']] = None,
-                 linear_configuration: Optional[Any] = None,
+                 linear_configuration: Optional['outputs.ServiceLinearConfiguration'] = None,
                  maximum_percent: Optional[_builtins.int] = None,
                  minimum_healthy_percent: Optional[_builtins.int] = None,
                  strategy: Optional['ServiceDeploymentConfigurationStrategy'] = None):
@@ -2645,7 +2735,7 @@ class ServiceDeploymentConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="canaryConfiguration")
-    def canary_configuration(self) -> Optional[Any]:
+    def canary_configuration(self) -> Optional['outputs.ServiceCanaryConfiguration']:
         return pulumi.get(self, "canary_configuration")
 
     @_builtins.property
@@ -2667,7 +2757,7 @@ class ServiceDeploymentConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="linearConfiguration")
-    def linear_configuration(self) -> Optional[Any]:
+    def linear_configuration(self) -> Optional['outputs.ServiceLinearConfiguration']:
         return pulumi.get(self, "linear_configuration")
 
     @_builtins.property
@@ -3060,6 +3150,46 @@ class ServiceForceNewDeployment(dict):
         When you change the``ForceNewDeploymentNonce`` value in your template, it signals ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
         """
         return pulumi.get(self, "force_new_deployment_nonce")
+
+
+@pulumi.output_type
+class ServiceLinearConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stepBakeTimeInMinutes":
+            suggest = "step_bake_time_in_minutes"
+        elif key == "stepPercent":
+            suggest = "step_percent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLinearConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLinearConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLinearConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 step_bake_time_in_minutes: Optional[_builtins.int] = None,
+                 step_percent: Optional[_builtins.float] = None):
+        if step_bake_time_in_minutes is not None:
+            pulumi.set(__self__, "step_bake_time_in_minutes", step_bake_time_in_minutes)
+        if step_percent is not None:
+            pulumi.set(__self__, "step_percent", step_percent)
+
+    @_builtins.property
+    @pulumi.getter(name="stepBakeTimeInMinutes")
+    def step_bake_time_in_minutes(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "step_bake_time_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="stepPercent")
+    def step_percent(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "step_percent")
 
 
 @pulumi.output_type

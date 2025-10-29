@@ -40,6 +40,18 @@ namespace Pulumi.AwsNative.Transfer
         public Output<string> ConnectorId { get; private set; } = null!;
 
         /// <summary>
+        /// Egress configuration for the connector.
+        /// </summary>
+        [Output("egressConfig")]
+        public Output<Outputs.ConnectorEgressConfig?> EgressConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the egress type for the connector.
+        /// </summary>
+        [Output("egressType")]
+        public Output<Pulumi.AwsNative.Transfer.ConnectorEgressType?> EgressType { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the logging role for the connector.
         /// </summary>
         [Output("loggingRole")]
@@ -63,6 +75,9 @@ namespace Pulumi.AwsNative.Transfer
         [Output("sftpConfig")]
         public Output<Outputs.SftpConfigProperties?> SftpConfig { get; private set; } = null!;
 
+        [Output("status")]
+        public Output<Pulumi.AwsNative.Transfer.ConnectorStatus> Status { get; private set; } = null!;
+
         /// <summary>
         /// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         /// </summary>
@@ -73,7 +88,7 @@ namespace Pulumi.AwsNative.Transfer
         /// URL for Connector
         /// </summary>
         [Output("url")]
-        public Output<string> Url { get; private set; } = null!;
+        public Output<string?> Url { get; private set; } = null!;
 
 
         /// <summary>
@@ -133,6 +148,18 @@ namespace Pulumi.AwsNative.Transfer
         public Input<Inputs.As2ConfigPropertiesArgs>? As2Config { get; set; }
 
         /// <summary>
+        /// Egress configuration for the connector.
+        /// </summary>
+        [Input("egressConfig")]
+        public Input<Inputs.ConnectorEgressConfigArgs>? EgressConfig { get; set; }
+
+        /// <summary>
+        /// Specifies the egress type for the connector.
+        /// </summary>
+        [Input("egressType")]
+        public Input<Pulumi.AwsNative.Transfer.ConnectorEgressType>? EgressType { get; set; }
+
+        /// <summary>
         /// Specifies the logging role for the connector.
         /// </summary>
         [Input("loggingRole")]
@@ -165,8 +192,8 @@ namespace Pulumi.AwsNative.Transfer
         /// <summary>
         /// URL for Connector
         /// </summary>
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         public ConnectorArgs()
         {

@@ -42,6 +42,14 @@ export interface GetConnectorResult {
      */
     readonly connectorId?: string;
     /**
+     * Egress configuration for the connector.
+     */
+    readonly egressConfig?: outputs.transfer.ConnectorEgressConfig;
+    /**
+     * Specifies the egress type for the connector.
+     */
+    readonly egressType?: enums.transfer.ConnectorEgressType;
+    /**
      * Specifies the logging role for the connector.
      */
     readonly loggingRole?: string;
@@ -57,6 +65,7 @@ export interface GetConnectorResult {
      * Configuration for an SFTP connector.
      */
     readonly sftpConfig?: outputs.transfer.SftpConfigProperties;
+    readonly status?: enums.transfer.ConnectorStatus;
     /**
      * Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
      */

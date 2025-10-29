@@ -101,6 +101,7 @@ export class Firewall extends pulumi.CustomResource {
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public /*out*/ readonly transitGatewayAttachmentId: pulumi.Output<string>;
     /**
      * The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
      */
@@ -140,6 +141,7 @@ export class Firewall extends pulumi.CustomResource {
             resourceInputs["endpointIds"] = undefined /*out*/;
             resourceInputs["firewallArn"] = undefined /*out*/;
             resourceInputs["firewallId"] = undefined /*out*/;
+            resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityZoneChangeProtection"] = undefined /*out*/;
             resourceInputs["availabilityZoneMappings"] = undefined /*out*/;
@@ -155,6 +157,7 @@ export class Firewall extends pulumi.CustomResource {
             resourceInputs["subnetChangeProtection"] = undefined /*out*/;
             resourceInputs["subnetMappings"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
             resourceInputs["transitGatewayId"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }

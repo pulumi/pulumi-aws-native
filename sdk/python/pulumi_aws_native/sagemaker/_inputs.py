@@ -22442,9 +22442,13 @@ class UserProfileRStudioServerProAppSettingsArgs:
 
 if not MYPY:
     class UserProfileResourceSpecArgsDict(TypedDict):
-        instance_type: NotRequired[pulumi.Input['UserProfileResourceSpecInstanceType']]
+        instance_type: NotRequired[pulumi.Input['UserProfileAppInstanceType']]
         """
         The instance type that the image version runs on.
+
+        > *JupyterServer apps* only support the `system` value.
+        > 
+        > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -22464,12 +22468,16 @@ elif False:
 @pulumi.input_type
 class UserProfileResourceSpecArgs:
     def __init__(__self__, *,
-                 instance_type: Optional[pulumi.Input['UserProfileResourceSpecInstanceType']] = None,
+                 instance_type: Optional[pulumi.Input['UserProfileAppInstanceType']] = None,
                  lifecycle_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  sage_maker_image_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  sage_maker_image_version_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input['UserProfileResourceSpecInstanceType'] instance_type: The instance type that the image version runs on.
+        :param pulumi.Input['UserProfileAppInstanceType'] instance_type: The instance type that the image version runs on.
+               
+               > *JupyterServer apps* only support the `system` value.
+               > 
+               > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
         :param pulumi.Input[_builtins.str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
         :param pulumi.Input[_builtins.str] sage_maker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param pulumi.Input[_builtins.str] sage_maker_image_version_arn: The ARN of the image version created on the instance.
@@ -22485,14 +22493,18 @@ class UserProfileResourceSpecArgs:
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[pulumi.Input['UserProfileResourceSpecInstanceType']]:
+    def instance_type(self) -> Optional[pulumi.Input['UserProfileAppInstanceType']]:
         """
         The instance type that the image version runs on.
+
+        > *JupyterServer apps* only support the `system` value.
+        > 
+        > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
         """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
-    def instance_type(self, value: Optional[pulumi.Input['UserProfileResourceSpecInstanceType']]):
+    def instance_type(self, value: Optional[pulumi.Input['UserProfileAppInstanceType']]):
         pulumi.set(self, "instance_type", value)
 
     @_builtins.property

@@ -202,6 +202,8 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
         public static RuleGroupGeneratedRulesType Allowlist { get; } = new RuleGroupGeneratedRulesType("ALLOWLIST");
         public static RuleGroupGeneratedRulesType Denylist { get; } = new RuleGroupGeneratedRulesType("DENYLIST");
+        public static RuleGroupGeneratedRulesType Alertlist { get; } = new RuleGroupGeneratedRulesType("ALERTLIST");
+        public static RuleGroupGeneratedRulesType Rejectlist { get; } = new RuleGroupGeneratedRulesType("REJECTLIST");
 
         public static bool operator ==(RuleGroupGeneratedRulesType left, RuleGroupGeneratedRulesType right) => left.Equals(right);
         public static bool operator !=(RuleGroupGeneratedRulesType left, RuleGroupGeneratedRulesType right) => !left.Equals(right);

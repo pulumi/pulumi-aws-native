@@ -54,6 +54,14 @@ export class Connector extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly connectorId: pulumi.Output<string>;
     /**
+     * Egress configuration for the connector.
+     */
+    declare public readonly egressConfig: pulumi.Output<outputs.transfer.ConnectorEgressConfig | undefined>;
+    /**
+     * Specifies the egress type for the connector.
+     */
+    declare public readonly egressType: pulumi.Output<enums.transfer.ConnectorEgressType | undefined>;
+    /**
      * Specifies the logging role for the connector.
      */
     declare public readonly loggingRole: pulumi.Output<string | undefined>;
@@ -69,6 +77,7 @@ export class Connector extends pulumi.CustomResource {
      * Configuration for an SFTP connector.
      */
     declare public readonly sftpConfig: pulumi.Output<outputs.transfer.SftpConfigProperties | undefined>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.transfer.ConnectorStatus>;
     /**
      * Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
      */
@@ -76,7 +85,7 @@ export class Connector extends pulumi.CustomResource {
     /**
      * URL for Connector
      */
-    declare public readonly url: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string | undefined>;
 
     /**
      * Create a Connector resource with the given unique name, arguments, and options.
@@ -92,11 +101,10 @@ export class Connector extends pulumi.CustomResource {
             if (args?.accessRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessRole'");
             }
-            if (args?.url === undefined && !opts.urn) {
-                throw new Error("Missing required property 'url'");
-            }
             resourceInputs["accessRole"] = args?.accessRole;
             resourceInputs["as2Config"] = args?.as2Config;
+            resourceInputs["egressConfig"] = args?.egressConfig;
+            resourceInputs["egressType"] = args?.egressType;
             resourceInputs["loggingRole"] = args?.loggingRole;
             resourceInputs["securityPolicyName"] = args?.securityPolicyName;
             resourceInputs["sftpConfig"] = args?.sftpConfig;
@@ -105,15 +113,19 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["connectorId"] = undefined /*out*/;
             resourceInputs["serviceManagedEgressIpAddresses"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["accessRole"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["as2Config"] = undefined /*out*/;
             resourceInputs["connectorId"] = undefined /*out*/;
+            resourceInputs["egressConfig"] = undefined /*out*/;
+            resourceInputs["egressType"] = undefined /*out*/;
             resourceInputs["loggingRole"] = undefined /*out*/;
             resourceInputs["securityPolicyName"] = undefined /*out*/;
             resourceInputs["serviceManagedEgressIpAddresses"] = undefined /*out*/;
             resourceInputs["sftpConfig"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }
@@ -135,6 +147,14 @@ export interface ConnectorArgs {
      */
     as2Config?: pulumi.Input<inputs.transfer.As2ConfigPropertiesArgs>;
     /**
+     * Egress configuration for the connector.
+     */
+    egressConfig?: pulumi.Input<inputs.transfer.ConnectorEgressConfigArgs>;
+    /**
+     * Specifies the egress type for the connector.
+     */
+    egressType?: pulumi.Input<enums.transfer.ConnectorEgressType>;
+    /**
      * Specifies the logging role for the connector.
      */
     loggingRole?: pulumi.Input<string>;
@@ -153,5 +173,5 @@ export interface ConnectorArgs {
     /**
      * URL for Connector
      */
-    url: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
 }

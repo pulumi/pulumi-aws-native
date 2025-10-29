@@ -34,6 +34,7 @@ __all__ = [
     'DistributionConfigurationLaunchTemplateConfiguration',
     'DistributionConfigurationSsmParameterConfiguration',
     'DistributionConfigurationTargetContainerRepository',
+    'ImageDeletionSettings',
     'ImageEcrConfiguration',
     'ImageLatestVersion',
     'ImageLoggingConfiguration',
@@ -1294,6 +1295,45 @@ class DistributionConfigurationTargetContainerRepository(dict):
         The service of target container repository.
         """
         return pulumi.get(self, "service")
+
+
+@pulumi.output_type
+class ImageDeletionSettings(dict):
+    """
+    The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executionRole":
+            suggest = "execution_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageDeletionSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageDeletionSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageDeletionSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 execution_role: _builtins.str):
+        """
+        The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+        :param _builtins.str execution_role: The execution role to use for deleting the image, as well as underlying resources.
+        """
+        pulumi.set(__self__, "execution_role", execution_role)
+
+    @_builtins.property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> _builtins.str:
+        """
+        The execution role to use for deleting the image, as well as underlying resources.
+        """
+        return pulumi.get(self, "execution_role")
 
 
 @pulumi.output_type

@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         public Input<int>? BakeTimeInMinutes { get; set; }
 
         [Input("canaryConfiguration")]
-        public Input<object>? CanaryConfiguration { get; set; }
+        public Input<Inputs.ServiceCanaryConfigurationArgs>? CanaryConfiguration { get; set; }
 
         /// <summary>
         /// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         }
 
         [Input("linearConfiguration")]
-        public Input<object>? LinearConfiguration { get; set; }
+        public Input<Inputs.ServiceLinearConfigurationArgs>? LinearConfiguration { get; set; }
 
         /// <summary>
         /// If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.

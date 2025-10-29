@@ -3385,6 +3385,139 @@ func (o ConnectionPropertiesInput6PropertiesPtrOutput) SparkGlueProperties() Con
 	}).(ConnectionSparkGluePropertiesInputPtrOutput)
 }
 
+type ConnectionPropertiesInput7Properties struct {
+	S3Properties ConnectionS3PropertiesInput `pulumi:"s3Properties"`
+}
+
+// ConnectionPropertiesInput7PropertiesInput is an input type that accepts ConnectionPropertiesInput7PropertiesArgs and ConnectionPropertiesInput7PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput7PropertiesInput` via:
+//
+//	ConnectionPropertiesInput7PropertiesArgs{...}
+type ConnectionPropertiesInput7PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput7PropertiesOutput() ConnectionPropertiesInput7PropertiesOutput
+	ToConnectionPropertiesInput7PropertiesOutputWithContext(context.Context) ConnectionPropertiesInput7PropertiesOutput
+}
+
+type ConnectionPropertiesInput7PropertiesArgs struct {
+	S3Properties ConnectionS3PropertiesInputInput `pulumi:"s3Properties"`
+}
+
+func (ConnectionPropertiesInput7PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput7Properties)(nil)).Elem()
+}
+
+func (i ConnectionPropertiesInput7PropertiesArgs) ToConnectionPropertiesInput7PropertiesOutput() ConnectionPropertiesInput7PropertiesOutput {
+	return i.ToConnectionPropertiesInput7PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput7PropertiesArgs) ToConnectionPropertiesInput7PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput7PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput7PropertiesOutput)
+}
+
+func (i ConnectionPropertiesInput7PropertiesArgs) ToConnectionPropertiesInput7PropertiesPtrOutput() ConnectionPropertiesInput7PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput7PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput7PropertiesArgs) ToConnectionPropertiesInput7PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput7PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput7PropertiesOutput).ToConnectionPropertiesInput7PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionPropertiesInput7PropertiesPtrInput is an input type that accepts ConnectionPropertiesInput7PropertiesArgs, ConnectionPropertiesInput7PropertiesPtr and ConnectionPropertiesInput7PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput7PropertiesPtrInput` via:
+//
+//	        ConnectionPropertiesInput7PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionPropertiesInput7PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput7PropertiesPtrOutput() ConnectionPropertiesInput7PropertiesPtrOutput
+	ToConnectionPropertiesInput7PropertiesPtrOutputWithContext(context.Context) ConnectionPropertiesInput7PropertiesPtrOutput
+}
+
+type connectionPropertiesInput7PropertiesPtrType ConnectionPropertiesInput7PropertiesArgs
+
+func ConnectionPropertiesInput7PropertiesPtr(v *ConnectionPropertiesInput7PropertiesArgs) ConnectionPropertiesInput7PropertiesPtrInput {
+	return (*connectionPropertiesInput7PropertiesPtrType)(v)
+}
+
+func (*connectionPropertiesInput7PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput7Properties)(nil)).Elem()
+}
+
+func (i *connectionPropertiesInput7PropertiesPtrType) ToConnectionPropertiesInput7PropertiesPtrOutput() ConnectionPropertiesInput7PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput7PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPropertiesInput7PropertiesPtrType) ToConnectionPropertiesInput7PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput7PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput7PropertiesPtrOutput)
+}
+
+type ConnectionPropertiesInput7PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput7PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput7Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput7PropertiesOutput) ToConnectionPropertiesInput7PropertiesOutput() ConnectionPropertiesInput7PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput7PropertiesOutput) ToConnectionPropertiesInput7PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput7PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput7PropertiesOutput) ToConnectionPropertiesInput7PropertiesPtrOutput() ConnectionPropertiesInput7PropertiesPtrOutput {
+	return o.ToConnectionPropertiesInput7PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPropertiesInput7PropertiesOutput) ToConnectionPropertiesInput7PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput7PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPropertiesInput7Properties) *ConnectionPropertiesInput7Properties {
+		return &v
+	}).(ConnectionPropertiesInput7PropertiesPtrOutput)
+}
+
+func (o ConnectionPropertiesInput7PropertiesOutput) S3Properties() ConnectionS3PropertiesInputOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInput7Properties) ConnectionS3PropertiesInput { return v.S3Properties }).(ConnectionS3PropertiesInputOutput)
+}
+
+type ConnectionPropertiesInput7PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput7PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput7Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput7PropertiesPtrOutput) ToConnectionPropertiesInput7PropertiesPtrOutput() ConnectionPropertiesInput7PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput7PropertiesPtrOutput) ToConnectionPropertiesInput7PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput7PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput7PropertiesPtrOutput) Elem() ConnectionPropertiesInput7PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput7Properties) ConnectionPropertiesInput7Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionPropertiesInput7Properties
+		return ret
+	}).(ConnectionPropertiesInput7PropertiesOutput)
+}
+
+func (o ConnectionPropertiesInput7PropertiesPtrOutput) S3Properties() ConnectionS3PropertiesInputPtrOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput7Properties) *ConnectionS3PropertiesInput {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Properties
+	}).(ConnectionS3PropertiesInputPtrOutput)
+}
+
 type ConnectionRedshiftCredentials0Properties struct {
 	SecretArn string `pulumi:"secretArn"`
 }
@@ -4280,6 +4413,165 @@ func (o ConnectionRedshiftStorageProperties1PropertiesPtrOutput) WorkgroupName()
 			return nil
 		}
 		return &v.WorkgroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 Properties Input
+type ConnectionS3PropertiesInput struct {
+	// The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
+	S3AccessGrantLocationId *string `pulumi:"s3AccessGrantLocationId"`
+	// The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// ConnectionS3PropertiesInputInput is an input type that accepts ConnectionS3PropertiesInputArgs and ConnectionS3PropertiesInputOutput values.
+// You can construct a concrete instance of `ConnectionS3PropertiesInputInput` via:
+//
+//	ConnectionS3PropertiesInputArgs{...}
+type ConnectionS3PropertiesInputInput interface {
+	pulumi.Input
+
+	ToConnectionS3PropertiesInputOutput() ConnectionS3PropertiesInputOutput
+	ToConnectionS3PropertiesInputOutputWithContext(context.Context) ConnectionS3PropertiesInputOutput
+}
+
+// S3 Properties Input
+type ConnectionS3PropertiesInputArgs struct {
+	// The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
+	S3AccessGrantLocationId pulumi.StringPtrInput `pulumi:"s3AccessGrantLocationId"`
+	// The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (ConnectionS3PropertiesInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionS3PropertiesInput)(nil)).Elem()
+}
+
+func (i ConnectionS3PropertiesInputArgs) ToConnectionS3PropertiesInputOutput() ConnectionS3PropertiesInputOutput {
+	return i.ToConnectionS3PropertiesInputOutputWithContext(context.Background())
+}
+
+func (i ConnectionS3PropertiesInputArgs) ToConnectionS3PropertiesInputOutputWithContext(ctx context.Context) ConnectionS3PropertiesInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionS3PropertiesInputOutput)
+}
+
+func (i ConnectionS3PropertiesInputArgs) ToConnectionS3PropertiesInputPtrOutput() ConnectionS3PropertiesInputPtrOutput {
+	return i.ToConnectionS3PropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionS3PropertiesInputArgs) ToConnectionS3PropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionS3PropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionS3PropertiesInputOutput).ToConnectionS3PropertiesInputPtrOutputWithContext(ctx)
+}
+
+// ConnectionS3PropertiesInputPtrInput is an input type that accepts ConnectionS3PropertiesInputArgs, ConnectionS3PropertiesInputPtr and ConnectionS3PropertiesInputPtrOutput values.
+// You can construct a concrete instance of `ConnectionS3PropertiesInputPtrInput` via:
+//
+//	        ConnectionS3PropertiesInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionS3PropertiesInputPtrInput interface {
+	pulumi.Input
+
+	ToConnectionS3PropertiesInputPtrOutput() ConnectionS3PropertiesInputPtrOutput
+	ToConnectionS3PropertiesInputPtrOutputWithContext(context.Context) ConnectionS3PropertiesInputPtrOutput
+}
+
+type connectionS3PropertiesInputPtrType ConnectionS3PropertiesInputArgs
+
+func ConnectionS3PropertiesInputPtr(v *ConnectionS3PropertiesInputArgs) ConnectionS3PropertiesInputPtrInput {
+	return (*connectionS3PropertiesInputPtrType)(v)
+}
+
+func (*connectionS3PropertiesInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionS3PropertiesInput)(nil)).Elem()
+}
+
+func (i *connectionS3PropertiesInputPtrType) ToConnectionS3PropertiesInputPtrOutput() ConnectionS3PropertiesInputPtrOutput {
+	return i.ToConnectionS3PropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionS3PropertiesInputPtrType) ToConnectionS3PropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionS3PropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionS3PropertiesInputPtrOutput)
+}
+
+// S3 Properties Input
+type ConnectionS3PropertiesInputOutput struct{ *pulumi.OutputState }
+
+func (ConnectionS3PropertiesInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionS3PropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionS3PropertiesInputOutput) ToConnectionS3PropertiesInputOutput() ConnectionS3PropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionS3PropertiesInputOutput) ToConnectionS3PropertiesInputOutputWithContext(ctx context.Context) ConnectionS3PropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionS3PropertiesInputOutput) ToConnectionS3PropertiesInputPtrOutput() ConnectionS3PropertiesInputPtrOutput {
+	return o.ToConnectionS3PropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionS3PropertiesInputOutput) ToConnectionS3PropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionS3PropertiesInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionS3PropertiesInput) *ConnectionS3PropertiesInput {
+		return &v
+	}).(ConnectionS3PropertiesInputPtrOutput)
+}
+
+// The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
+func (o ConnectionS3PropertiesInputOutput) S3AccessGrantLocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionS3PropertiesInput) *string { return v.S3AccessGrantLocationId }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
+func (o ConnectionS3PropertiesInputOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionS3PropertiesInput) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type ConnectionS3PropertiesInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionS3PropertiesInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionS3PropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionS3PropertiesInputPtrOutput) ToConnectionS3PropertiesInputPtrOutput() ConnectionS3PropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionS3PropertiesInputPtrOutput) ToConnectionS3PropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionS3PropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionS3PropertiesInputPtrOutput) Elem() ConnectionS3PropertiesInputOutput {
+	return o.ApplyT(func(v *ConnectionS3PropertiesInput) ConnectionS3PropertiesInput {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionS3PropertiesInput
+		return ret
+	}).(ConnectionS3PropertiesInputOutput)
+}
+
+// The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
+func (o ConnectionS3PropertiesInputPtrOutput) S3AccessGrantLocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionS3PropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3AccessGrantLocationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
+func (o ConnectionS3PropertiesInputPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionS3PropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -14802,6 +15094,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput5PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput5PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput6PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput6PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput6PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput6PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput7PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput7PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput7PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput7PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftCredentials0PropertiesInput)(nil)).Elem(), ConnectionRedshiftCredentials0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftCredentials0PropertiesPtrInput)(nil)).Elem(), ConnectionRedshiftCredentials0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftCredentials1PropertiesInput)(nil)).Elem(), ConnectionRedshiftCredentials1PropertiesArgs{})
@@ -14814,6 +15108,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftStorageProperties0PropertiesPtrInput)(nil)).Elem(), ConnectionRedshiftStorageProperties0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftStorageProperties1PropertiesInput)(nil)).Elem(), ConnectionRedshiftStorageProperties1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRedshiftStorageProperties1PropertiesPtrInput)(nil)).Elem(), ConnectionRedshiftStorageProperties1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionS3PropertiesInputInput)(nil)).Elem(), ConnectionS3PropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionS3PropertiesInputPtrInput)(nil)).Elem(), ConnectionS3PropertiesInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionSparkEmrPropertiesInputInput)(nil)).Elem(), ConnectionSparkEmrPropertiesInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionSparkEmrPropertiesInputPtrInput)(nil)).Elem(), ConnectionSparkEmrPropertiesInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionSparkGlueArgsInput)(nil)).Elem(), ConnectionSparkGlueArgsArgs{})
@@ -15004,6 +15300,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionPropertiesInput5PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesInput6PropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesInput6PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput7PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput7PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionRedshiftCredentials0PropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectionRedshiftCredentials0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionRedshiftCredentials1PropertiesOutput{})
@@ -15016,6 +15314,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionRedshiftStorageProperties0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionRedshiftStorageProperties1PropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectionRedshiftStorageProperties1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionS3PropertiesInputOutput{})
+	pulumi.RegisterOutputType(ConnectionS3PropertiesInputPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionSparkEmrPropertiesInputOutput{})
 	pulumi.RegisterOutputType(ConnectionSparkEmrPropertiesInputPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionSparkGlueArgsOutput{})

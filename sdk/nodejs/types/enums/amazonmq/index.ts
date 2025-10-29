@@ -29,11 +29,7 @@ export const BrokerDeploymentMode = {
 } as const;
 
 /**
- * The deployment mode of the broker. Available values:
- *
- * - `SINGLE_INSTANCE`
- * - `ACTIVE_STANDBY_MULTI_AZ`
- * - `CLUSTER_MULTI_AZ`
+ * Required. The broker's deployment mode.
  */
 export type BrokerDeploymentMode = (typeof BrokerDeploymentMode)[keyof typeof BrokerDeploymentMode];
 
@@ -44,11 +40,7 @@ export const BrokerDeploymentMode0 = {
 } as const;
 
 /**
- * The deployment mode of the broker. Available values:
- *
- * - `SINGLE_INSTANCE`
- * - `ACTIVE_STANDBY_MULTI_AZ`
- * - `CLUSTER_MULTI_AZ`
+ * Required. The broker's deployment mode.
  */
 export type BrokerDeploymentMode0 = (typeof BrokerDeploymentMode0)[keyof typeof BrokerDeploymentMode0];
 
@@ -58,7 +50,7 @@ export const BrokerEngineType = {
 } as const;
 
 /**
- * The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
+ * Required. The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
  */
 export type BrokerEngineType = (typeof BrokerEngineType)[keyof typeof BrokerEngineType];
 
@@ -68,7 +60,7 @@ export const BrokerEngineType0 = {
 } as const;
 
 /**
- * The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
+ * Required. The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
  */
 export type BrokerEngineType0 = (typeof BrokerEngineType0)[keyof typeof BrokerEngineType0];
 

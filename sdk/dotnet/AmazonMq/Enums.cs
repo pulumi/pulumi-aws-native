@@ -70,11 +70,7 @@ namespace Pulumi.AwsNative.AmazonMq
     }
 
     /// <summary>
-    /// The deployment mode of the broker. Available values:
-    /// 
-    /// - `SINGLE_INSTANCE`
-    /// - `ACTIVE_STANDBY_MULTI_AZ`
-    /// - `CLUSTER_MULTI_AZ`
+    /// Required. The broker's deployment mode.
     /// </summary>
     [EnumType]
     public readonly struct BrokerDeploymentMode : IEquatable<BrokerDeploymentMode>
@@ -106,11 +102,7 @@ namespace Pulumi.AwsNative.AmazonMq
     }
 
     /// <summary>
-    /// The deployment mode of the broker. Available values:
-    /// 
-    /// - `SINGLE_INSTANCE`
-    /// - `ACTIVE_STANDBY_MULTI_AZ`
-    /// - `CLUSTER_MULTI_AZ`
+    /// Required. The broker's deployment mode.
     /// </summary>
     [EnumType]
     public readonly struct BrokerDeploymentMode0 : IEquatable<BrokerDeploymentMode0>
@@ -142,7 +134,7 @@ namespace Pulumi.AwsNative.AmazonMq
     }
 
     /// <summary>
-    /// The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
+    /// Required. The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
     /// </summary>
     [EnumType]
     public readonly struct BrokerEngineType : IEquatable<BrokerEngineType>
@@ -173,7 +165,7 @@ namespace Pulumi.AwsNative.AmazonMq
     }
 
     /// <summary>
-    /// The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
+    /// Required. The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
     /// </summary>
     [EnumType]
     public readonly struct BrokerEngineType0 : IEquatable<BrokerEngineType0>

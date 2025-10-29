@@ -19,6 +19,8 @@ type Image struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
 	ContainerRecipeArn pulumi.StringPtrOutput `pulumi:"containerRecipeArn"`
+	// The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+	DeletionSettings ImageDeletionSettingsPtrOutput `pulumi:"deletionSettings"`
 	// The Amazon Resource Name (ARN) of the distribution configuration.
 	DistributionConfigurationArn pulumi.StringPtrOutput `pulumi:"distributionConfigurationArn"`
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
@@ -104,6 +106,8 @@ func (ImageState) ElementType() reflect.Type {
 type imageArgs struct {
 	// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
 	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
+	// The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+	DeletionSettings *ImageDeletionSettings `pulumi:"deletionSettings"`
 	// The Amazon Resource Name (ARN) of the distribution configuration.
 	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
@@ -132,6 +136,8 @@ type imageArgs struct {
 type ImageArgs struct {
 	// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
 	ContainerRecipeArn pulumi.StringPtrInput
+	// The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+	DeletionSettings ImageDeletionSettingsPtrInput
 	// The Amazon Resource Name (ARN) of the distribution configuration.
 	DistributionConfigurationArn pulumi.StringPtrInput
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
@@ -201,6 +207,11 @@ func (o ImageOutput) Arn() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
 func (o ImageOutput) ContainerRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ContainerRecipeArn }).(pulumi.StringPtrOutput)
+}
+
+// The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+func (o ImageOutput) DeletionSettings() ImageDeletionSettingsPtrOutput {
+	return o.ApplyT(func(v *Image) ImageDeletionSettingsPtrOutput { return v.DeletionSettings }).(ImageDeletionSettingsPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the distribution configuration.

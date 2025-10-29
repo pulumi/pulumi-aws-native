@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<string?> ContainerRecipeArn { get; private set; } = null!;
 
         /// <summary>
+        /// The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+        /// </summary>
+        [Output("deletionSettings")]
+        public Output<Outputs.ImageDeletionSettings?> DeletionSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the distribution configuration.
         /// </summary>
         [Output("distributionConfigurationArn")]
@@ -178,6 +184,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         [Input("containerRecipeArn")]
         public Input<string>? ContainerRecipeArn { get; set; }
+
+        /// <summary>
+        /// The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+        /// </summary>
+        [Input("deletionSettings")]
+        public Input<Inputs.ImageDeletionSettingsArgs>? DeletionSettings { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the distribution configuration.

@@ -52,7 +52,8 @@ type Firewall struct {
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags                       aws.TagArrayOutput  `pulumi:"tags"`
+	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
 	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
 	// The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
@@ -294,6 +295,10 @@ func (o FirewallOutput) SubnetMappings() FirewallSubnetMappingArrayOutput {
 // For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o FirewallOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Firewall) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o FirewallOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }
 
 // The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.

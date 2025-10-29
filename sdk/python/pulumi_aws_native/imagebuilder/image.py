@@ -23,6 +23,7 @@ __all__ = ['ImageArgs', 'Image']
 class ImageArgs:
     def __init__(__self__, *,
                  container_recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 deletion_settings: Optional[pulumi.Input['ImageDeletionSettingsArgs']] = None,
                  distribution_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  execution_role: Optional[pulumi.Input[_builtins.str]] = None,
@@ -37,6 +38,7 @@ class ImageArgs:
         """
         The set of arguments for constructing a Image resource.
         :param pulumi.Input[_builtins.str] container_recipe_arn: The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
+        :param pulumi.Input['ImageDeletionSettingsArgs'] deletion_settings: The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
         :param pulumi.Input[_builtins.str] distribution_configuration_arn: The Amazon Resource Name (ARN) of the distribution configuration.
         :param pulumi.Input[_builtins.bool] enhanced_image_metadata_enabled: Collects additional information about the image being created, including the operating system (OS) version and package list.
         :param pulumi.Input[_builtins.str] execution_role: The execution role name/ARN for the image build, if provided
@@ -51,6 +53,8 @@ class ImageArgs:
         """
         if container_recipe_arn is not None:
             pulumi.set(__self__, "container_recipe_arn", container_recipe_arn)
+        if deletion_settings is not None:
+            pulumi.set(__self__, "deletion_settings", deletion_settings)
         if distribution_configuration_arn is not None:
             pulumi.set(__self__, "distribution_configuration_arn", distribution_configuration_arn)
         if enhanced_image_metadata_enabled is not None:
@@ -85,6 +89,18 @@ class ImageArgs:
     @container_recipe_arn.setter
     def container_recipe_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "container_recipe_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionSettings")
+    def deletion_settings(self) -> Optional[pulumi.Input['ImageDeletionSettingsArgs']]:
+        """
+        The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+        """
+        return pulumi.get(self, "deletion_settings")
+
+    @deletion_settings.setter
+    def deletion_settings(self, value: Optional[pulumi.Input['ImageDeletionSettingsArgs']]):
+        pulumi.set(self, "deletion_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="distributionConfigurationArn")
@@ -226,6 +242,7 @@ class Image(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 deletion_settings: Optional[pulumi.Input[Union['ImageDeletionSettingsArgs', 'ImageDeletionSettingsArgsDict']]] = None,
                  distribution_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  execution_role: Optional[pulumi.Input[_builtins.str]] = None,
@@ -244,6 +261,7 @@ class Image(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_recipe_arn: The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
+        :param pulumi.Input[Union['ImageDeletionSettingsArgs', 'ImageDeletionSettingsArgsDict']] deletion_settings: The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
         :param pulumi.Input[_builtins.str] distribution_configuration_arn: The Amazon Resource Name (ARN) of the distribution configuration.
         :param pulumi.Input[_builtins.bool] enhanced_image_metadata_enabled: Collects additional information about the image being created, including the operating system (OS) version and package list.
         :param pulumi.Input[_builtins.str] execution_role: The execution role name/ARN for the image build, if provided
@@ -281,6 +299,7 @@ class Image(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 deletion_settings: Optional[pulumi.Input[Union['ImageDeletionSettingsArgs', 'ImageDeletionSettingsArgsDict']]] = None,
                  distribution_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  execution_role: Optional[pulumi.Input[_builtins.str]] = None,
@@ -302,6 +321,7 @@ class Image(pulumi.CustomResource):
             __props__ = ImageArgs.__new__(ImageArgs)
 
             __props__.__dict__["container_recipe_arn"] = container_recipe_arn
+            __props__.__dict__["deletion_settings"] = deletion_settings
             __props__.__dict__["distribution_configuration_arn"] = distribution_configuration_arn
             __props__.__dict__["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
             __props__.__dict__["execution_role"] = execution_role
@@ -344,6 +364,7 @@ class Image(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["container_recipe_arn"] = None
+        __props__.__dict__["deletion_settings"] = None
         __props__.__dict__["distribution_configuration_arn"] = None
         __props__.__dict__["enhanced_image_metadata_enabled"] = None
         __props__.__dict__["execution_role"] = None
@@ -376,6 +397,14 @@ class Image(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
         """
         return pulumi.get(self, "container_recipe_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionSettings")
+    def deletion_settings(self) -> pulumi.Output[Optional['outputs.ImageDeletionSettings']]:
+        """
+        The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+        """
+        return pulumi.get(self, "deletion_settings")
 
     @_builtins.property
     @pulumi.getter(name="distributionConfigurationArn")

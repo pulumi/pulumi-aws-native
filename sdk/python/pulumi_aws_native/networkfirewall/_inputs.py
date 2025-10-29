@@ -671,6 +671,7 @@ if not MYPY:
 
         For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", "customActionName"]` . For information about compatibility, see the custom action descriptions.
         """
+        enable_tls_session_holding: NotRequired[pulumi.Input[_builtins.bool]]
         policy_variables: NotRequired[pulumi.Input['FirewallPolicyPolicyVariablesPropertiesArgsDict']]
         """
         Contains variables that you can use to override default Suricata settings in your firewall policy.
@@ -716,6 +717,7 @@ class FirewallPolicyArgs:
     def __init__(__self__, *,
                  stateless_default_actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  stateless_fragment_default_actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 enable_tls_session_holding: Optional[pulumi.Input[_builtins.bool]] = None,
                  policy_variables: Optional[pulumi.Input['FirewallPolicyPolicyVariablesPropertiesArgs']] = None,
                  stateful_default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  stateful_engine_options: Optional[pulumi.Input['FirewallPolicyStatefulEngineOptionsArgs']] = None,
@@ -753,6 +755,8 @@ class FirewallPolicyArgs:
         """
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
+        if enable_tls_session_holding is not None:
+            pulumi.set(__self__, "enable_tls_session_holding", enable_tls_session_holding)
         if policy_variables is not None:
             pulumi.set(__self__, "policy_variables", policy_variables)
         if stateful_default_actions is not None:
@@ -799,6 +803,15 @@ class FirewallPolicyArgs:
     @stateless_fragment_default_actions.setter
     def stateless_fragment_default_actions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "stateless_fragment_default_actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableTlsSessionHolding")
+    def enable_tls_session_holding(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "enable_tls_session_holding")
+
+    @enable_tls_session_holding.setter
+    def enable_tls_session_holding(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_tls_session_holding", value)
 
     @_builtins.property
     @pulumi.getter(name="policyVariables")

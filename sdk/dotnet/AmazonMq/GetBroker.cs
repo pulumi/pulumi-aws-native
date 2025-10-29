@@ -33,9 +33,6 @@ namespace Pulumi.AwsNative.AmazonMq
 
     public sealed class GetBrokerArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Required. The unique ID that Amazon MQ generates for the configuration.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -47,9 +44,6 @@ namespace Pulumi.AwsNative.AmazonMq
 
     public sealed class GetBrokerInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Required. The unique ID that Amazon MQ generates for the configuration.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -76,7 +70,9 @@ namespace Pulumi.AwsNative.AmazonMq
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
+        /// Enables automatic upgrades to new patch versions for brokers as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window or after a manual broker reboot. Set to `true` by default, if no value is specified.
+        /// 
+        /// &gt; Must be set to `true` for ActiveMQ brokers version 5.18 and above and for RabbitMQ brokers version 3.13 and above.
         /// </summary>
         public readonly bool? AutoMinorVersionUpgrade;
         /// <summary>
@@ -97,12 +93,9 @@ namespace Pulumi.AwsNative.AmazonMq
         /// </summary>
         public readonly string? EngineVersionCurrent;
         /// <summary>
-        /// The broker's instance type.
+        /// Required. The broker's instance type.
         /// </summary>
         public readonly string? HostInstanceType;
-        /// <summary>
-        /// Required. The unique ID that Amazon MQ generates for the configuration.
-        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// The IP addresses of each broker instance as a list of strings. Does not apply to RabbitMQ brokers.
@@ -119,7 +112,7 @@ namespace Pulumi.AwsNative.AmazonMq
         /// </summary>
         public readonly Outputs.BrokerLogList? Logs;
         /// <summary>
-        /// The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.
+        /// The parameters that determine the WeeklyStartTime.
         /// </summary>
         public readonly Outputs.BrokerMaintenanceWindow? MaintenanceWindowStartTime;
         /// <summary>
@@ -145,7 +138,7 @@ namespace Pulumi.AwsNative.AmazonMq
         /// </summary>
         public readonly ImmutableArray<string> StompEndpoints;
         /// <summary>
-        /// An array of key-value pairs. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Billing and Cost Management User Guide* .
+        /// Create tags when creating the broker.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

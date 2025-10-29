@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type BrokerConfigurationId struct {
-	// The unique ID that Amazon MQ generates for the configuration.
+	// Required. The unique ID that Amazon MQ generates for the configuration.
 	Id string `pulumi:"id"`
 	// The revision number of the configuration.
 	Revision int `pulumi:"revision"`
@@ -32,7 +32,7 @@ type BrokerConfigurationIdInput interface {
 }
 
 type BrokerConfigurationIdArgs struct {
-	// The unique ID that Amazon MQ generates for the configuration.
+	// Required. The unique ID that Amazon MQ generates for the configuration.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The revision number of the configuration.
 	Revision pulumi.IntInput `pulumi:"revision"`
@@ -115,7 +115,7 @@ func (o BrokerConfigurationIdOutput) ToBrokerConfigurationIdPtrOutputWithContext
 	}).(BrokerConfigurationIdPtrOutput)
 }
 
-// The unique ID that Amazon MQ generates for the configuration.
+// Required. The unique ID that Amazon MQ generates for the configuration.
 func (o BrokerConfigurationIdOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerConfigurationId) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -149,7 +149,7 @@ func (o BrokerConfigurationIdPtrOutput) Elem() BrokerConfigurationIdOutput {
 	}).(BrokerConfigurationIdOutput)
 }
 
-// The unique ID that Amazon MQ generates for the configuration.
+// Required. The unique ID that Amazon MQ generates for the configuration.
 func (o BrokerConfigurationIdPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrokerConfigurationId) *string {
 		if v == nil {
@@ -338,28 +338,17 @@ func (o BrokerEncryptionOptionsPtrOutput) UseAwsOwnedKey() pulumi.BoolPtrOutput 
 }
 
 type BrokerLdapServerMetadata struct {
-	// Specifies the location of the LDAP server such as AWS Directory Service for Microsoft Active Directory . Optional failover server.
-	Hosts []string `pulumi:"hosts"`
-	// The distinguished name of the node in the directory information tree (DIT) to search for roles or groups. For example, `ou=group` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-	RoleBase string `pulumi:"roleBase"`
-	// The group name attribute in a role entry whose value is the name of that role. For example, you can specify `cn` for a group entry's common name. If authentication succeeds, then the user is assigned the the value of the `cn` attribute for each role entry that they are a member of.
-	RoleName *string `pulumi:"roleName"`
-	// The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the `{0}` placeholder in the search filter. The client's username is substituted into the `{1}` placeholder. For example, if you set this option to `(member=uid={1})` for the user janedoe, the search filter becomes `(member=uid=janedoe)` after string substitution. It matches all role entries that have a member attribute equal to `uid=janedoe` under the subtree selected by the `RoleBases` .
-	RoleSearchMatching string `pulumi:"roleSearchMatching"`
-	// The directory search scope for the role. If set to true, scope is to search the entire subtree.
-	RoleSearchSubtree *bool `pulumi:"roleSearchSubtree"`
-	// Service account password. A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `dc=corp` , `dc=example` , `dc=com` .
-	ServiceAccountPassword *string `pulumi:"serviceAccountPassword"`
-	// Service account username. A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-	ServiceAccountUsername string `pulumi:"serviceAccountUsername"`
-	// Select a particular subtree of the directory information tree (DIT) to search for user entries. The subtree is specified by a DN, which specifies the base node of the subtree. For example, by setting this option to `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` , the search for user entries is restricted to the subtree beneath `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-	UserBase string `pulumi:"userBase"`
-	// The name of the LDAP attribute in the user's directory entry for the user's group membership. In some cases, user roles may be identified by the value of an attribute in the user's directory entry. The `UserRoleName` option allows you to provide the name of this attribute.
-	UserRoleName *string `pulumi:"userRoleName"`
-	// The LDAP search filter used to find users within the `userBase` . The client's username is substituted into the `{0}` placeholder in the search filter. For example, if this option is set to `(uid={0})` and the received username is `janedoe` , the search filter becomes `(uid=janedoe)` after string substitution. It will result in matching an entry like `uid=janedoe` , `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-	UserSearchMatching string `pulumi:"userSearchMatching"`
-	// The directory search scope for the user. If set to true, scope is to search the entire subtree.
-	UserSearchSubtree *bool `pulumi:"userSearchSubtree"`
+	Hosts                  []string `pulumi:"hosts"`
+	RoleBase               string   `pulumi:"roleBase"`
+	RoleName               *string  `pulumi:"roleName"`
+	RoleSearchMatching     string   `pulumi:"roleSearchMatching"`
+	RoleSearchSubtree      *bool    `pulumi:"roleSearchSubtree"`
+	ServiceAccountPassword *string  `pulumi:"serviceAccountPassword"`
+	ServiceAccountUsername string   `pulumi:"serviceAccountUsername"`
+	UserBase               string   `pulumi:"userBase"`
+	UserRoleName           *string  `pulumi:"userRoleName"`
+	UserSearchMatching     string   `pulumi:"userSearchMatching"`
+	UserSearchSubtree      *bool    `pulumi:"userSearchSubtree"`
 }
 
 // BrokerLdapServerMetadataInput is an input type that accepts BrokerLdapServerMetadataArgs and BrokerLdapServerMetadataOutput values.
@@ -374,28 +363,17 @@ type BrokerLdapServerMetadataInput interface {
 }
 
 type BrokerLdapServerMetadataArgs struct {
-	// Specifies the location of the LDAP server such as AWS Directory Service for Microsoft Active Directory . Optional failover server.
-	Hosts pulumi.StringArrayInput `pulumi:"hosts"`
-	// The distinguished name of the node in the directory information tree (DIT) to search for roles or groups. For example, `ou=group` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-	RoleBase pulumi.StringInput `pulumi:"roleBase"`
-	// The group name attribute in a role entry whose value is the name of that role. For example, you can specify `cn` for a group entry's common name. If authentication succeeds, then the user is assigned the the value of the `cn` attribute for each role entry that they are a member of.
-	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
-	// The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the `{0}` placeholder in the search filter. The client's username is substituted into the `{1}` placeholder. For example, if you set this option to `(member=uid={1})` for the user janedoe, the search filter becomes `(member=uid=janedoe)` after string substitution. It matches all role entries that have a member attribute equal to `uid=janedoe` under the subtree selected by the `RoleBases` .
-	RoleSearchMatching pulumi.StringInput `pulumi:"roleSearchMatching"`
-	// The directory search scope for the role. If set to true, scope is to search the entire subtree.
-	RoleSearchSubtree pulumi.BoolPtrInput `pulumi:"roleSearchSubtree"`
-	// Service account password. A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `dc=corp` , `dc=example` , `dc=com` .
-	ServiceAccountPassword pulumi.StringPtrInput `pulumi:"serviceAccountPassword"`
-	// Service account username. A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-	ServiceAccountUsername pulumi.StringInput `pulumi:"serviceAccountUsername"`
-	// Select a particular subtree of the directory information tree (DIT) to search for user entries. The subtree is specified by a DN, which specifies the base node of the subtree. For example, by setting this option to `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` , the search for user entries is restricted to the subtree beneath `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-	UserBase pulumi.StringInput `pulumi:"userBase"`
-	// The name of the LDAP attribute in the user's directory entry for the user's group membership. In some cases, user roles may be identified by the value of an attribute in the user's directory entry. The `UserRoleName` option allows you to provide the name of this attribute.
-	UserRoleName pulumi.StringPtrInput `pulumi:"userRoleName"`
-	// The LDAP search filter used to find users within the `userBase` . The client's username is substituted into the `{0}` placeholder in the search filter. For example, if this option is set to `(uid={0})` and the received username is `janedoe` , the search filter becomes `(uid=janedoe)` after string substitution. It will result in matching an entry like `uid=janedoe` , `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
-	UserSearchMatching pulumi.StringInput `pulumi:"userSearchMatching"`
-	// The directory search scope for the user. If set to true, scope is to search the entire subtree.
-	UserSearchSubtree pulumi.BoolPtrInput `pulumi:"userSearchSubtree"`
+	Hosts                  pulumi.StringArrayInput `pulumi:"hosts"`
+	RoleBase               pulumi.StringInput      `pulumi:"roleBase"`
+	RoleName               pulumi.StringPtrInput   `pulumi:"roleName"`
+	RoleSearchMatching     pulumi.StringInput      `pulumi:"roleSearchMatching"`
+	RoleSearchSubtree      pulumi.BoolPtrInput     `pulumi:"roleSearchSubtree"`
+	ServiceAccountPassword pulumi.StringPtrInput   `pulumi:"serviceAccountPassword"`
+	ServiceAccountUsername pulumi.StringInput      `pulumi:"serviceAccountUsername"`
+	UserBase               pulumi.StringInput      `pulumi:"userBase"`
+	UserRoleName           pulumi.StringPtrInput   `pulumi:"userRoleName"`
+	UserSearchMatching     pulumi.StringInput      `pulumi:"userSearchMatching"`
+	UserSearchSubtree      pulumi.BoolPtrInput     `pulumi:"userSearchSubtree"`
 }
 
 func (BrokerLdapServerMetadataArgs) ElementType() reflect.Type {
@@ -475,57 +453,46 @@ func (o BrokerLdapServerMetadataOutput) ToBrokerLdapServerMetadataPtrOutputWithC
 	}).(BrokerLdapServerMetadataPtrOutput)
 }
 
-// Specifies the location of the LDAP server such as AWS Directory Service for Microsoft Active Directory . Optional failover server.
 func (o BrokerLdapServerMetadataOutput) Hosts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BrokerLdapServerMetadata) []string { return v.Hosts }).(pulumi.StringArrayOutput)
 }
 
-// The distinguished name of the node in the directory information tree (DIT) to search for roles or groups. For example, `ou=group` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
 func (o BrokerLdapServerMetadataOutput) RoleBase() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerLdapServerMetadata) string { return v.RoleBase }).(pulumi.StringOutput)
 }
 
-// The group name attribute in a role entry whose value is the name of that role. For example, you can specify `cn` for a group entry's common name. If authentication succeeds, then the user is assigned the the value of the `cn` attribute for each role entry that they are a member of.
 func (o BrokerLdapServerMetadataOutput) RoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BrokerLdapServerMetadata) *string { return v.RoleName }).(pulumi.StringPtrOutput)
 }
 
-// The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the `{0}` placeholder in the search filter. The client's username is substituted into the `{1}` placeholder. For example, if you set this option to `(member=uid={1})` for the user janedoe, the search filter becomes `(member=uid=janedoe)` after string substitution. It matches all role entries that have a member attribute equal to `uid=janedoe` under the subtree selected by the `RoleBases` .
 func (o BrokerLdapServerMetadataOutput) RoleSearchMatching() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerLdapServerMetadata) string { return v.RoleSearchMatching }).(pulumi.StringOutput)
 }
 
-// The directory search scope for the role. If set to true, scope is to search the entire subtree.
 func (o BrokerLdapServerMetadataOutput) RoleSearchSubtree() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BrokerLdapServerMetadata) *bool { return v.RoleSearchSubtree }).(pulumi.BoolPtrOutput)
 }
 
-// Service account password. A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `dc=corp` , `dc=example` , `dc=com` .
 func (o BrokerLdapServerMetadataOutput) ServiceAccountPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BrokerLdapServerMetadata) *string { return v.ServiceAccountPassword }).(pulumi.StringPtrOutput)
 }
 
-// Service account username. A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
 func (o BrokerLdapServerMetadataOutput) ServiceAccountUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerLdapServerMetadata) string { return v.ServiceAccountUsername }).(pulumi.StringOutput)
 }
 
-// Select a particular subtree of the directory information tree (DIT) to search for user entries. The subtree is specified by a DN, which specifies the base node of the subtree. For example, by setting this option to `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` , the search for user entries is restricted to the subtree beneath `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
 func (o BrokerLdapServerMetadataOutput) UserBase() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerLdapServerMetadata) string { return v.UserBase }).(pulumi.StringOutput)
 }
 
-// The name of the LDAP attribute in the user's directory entry for the user's group membership. In some cases, user roles may be identified by the value of an attribute in the user's directory entry. The `UserRoleName` option allows you to provide the name of this attribute.
 func (o BrokerLdapServerMetadataOutput) UserRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BrokerLdapServerMetadata) *string { return v.UserRoleName }).(pulumi.StringPtrOutput)
 }
 
-// The LDAP search filter used to find users within the `userBase` . The client's username is substituted into the `{0}` placeholder in the search filter. For example, if this option is set to `(uid={0})` and the received username is `janedoe` , the search filter becomes `(uid=janedoe)` after string substitution. It will result in matching an entry like `uid=janedoe` , `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
 func (o BrokerLdapServerMetadataOutput) UserSearchMatching() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerLdapServerMetadata) string { return v.UserSearchMatching }).(pulumi.StringOutput)
 }
 
-// The directory search scope for the user. If set to true, scope is to search the entire subtree.
 func (o BrokerLdapServerMetadataOutput) UserSearchSubtree() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BrokerLdapServerMetadata) *bool { return v.UserSearchSubtree }).(pulumi.BoolPtrOutput)
 }
@@ -554,7 +521,6 @@ func (o BrokerLdapServerMetadataPtrOutput) Elem() BrokerLdapServerMetadataOutput
 	}).(BrokerLdapServerMetadataOutput)
 }
 
-// Specifies the location of the LDAP server such as AWS Directory Service for Microsoft Active Directory . Optional failover server.
 func (o BrokerLdapServerMetadataPtrOutput) Hosts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BrokerLdapServerMetadata) []string {
 		if v == nil {
@@ -564,7 +530,6 @@ func (o BrokerLdapServerMetadataPtrOutput) Hosts() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The distinguished name of the node in the directory information tree (DIT) to search for roles or groups. For example, `ou=group` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
 func (o BrokerLdapServerMetadataPtrOutput) RoleBase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
 		if v == nil {
@@ -574,7 +539,6 @@ func (o BrokerLdapServerMetadataPtrOutput) RoleBase() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group name attribute in a role entry whose value is the name of that role. For example, you can specify `cn` for a group entry's common name. If authentication succeeds, then the user is assigned the the value of the `cn` attribute for each role entry that they are a member of.
 func (o BrokerLdapServerMetadataPtrOutput) RoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
 		if v == nil {
@@ -584,7 +548,6 @@ func (o BrokerLdapServerMetadataPtrOutput) RoleName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the `{0}` placeholder in the search filter. The client's username is substituted into the `{1}` placeholder. For example, if you set this option to `(member=uid={1})` for the user janedoe, the search filter becomes `(member=uid=janedoe)` after string substitution. It matches all role entries that have a member attribute equal to `uid=janedoe` under the subtree selected by the `RoleBases` .
 func (o BrokerLdapServerMetadataPtrOutput) RoleSearchMatching() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
 		if v == nil {
@@ -594,7 +557,6 @@ func (o BrokerLdapServerMetadataPtrOutput) RoleSearchMatching() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The directory search scope for the role. If set to true, scope is to search the entire subtree.
 func (o BrokerLdapServerMetadataPtrOutput) RoleSearchSubtree() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BrokerLdapServerMetadata) *bool {
 		if v == nil {
@@ -604,7 +566,6 @@ func (o BrokerLdapServerMetadataPtrOutput) RoleSearchSubtree() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Service account password. A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `dc=corp` , `dc=example` , `dc=com` .
 func (o BrokerLdapServerMetadataPtrOutput) ServiceAccountPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
 		if v == nil {
@@ -614,7 +575,6 @@ func (o BrokerLdapServerMetadataPtrOutput) ServiceAccountPassword() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service account username. A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
 func (o BrokerLdapServerMetadataPtrOutput) ServiceAccountUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
 		if v == nil {
@@ -624,7 +584,6 @@ func (o BrokerLdapServerMetadataPtrOutput) ServiceAccountUsername() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Select a particular subtree of the directory information tree (DIT) to search for user entries. The subtree is specified by a DN, which specifies the base node of the subtree. For example, by setting this option to `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` , the search for user entries is restricted to the subtree beneath `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
 func (o BrokerLdapServerMetadataPtrOutput) UserBase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
 		if v == nil {
@@ -634,7 +593,6 @@ func (o BrokerLdapServerMetadataPtrOutput) UserBase() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the LDAP attribute in the user's directory entry for the user's group membership. In some cases, user roles may be identified by the value of an attribute in the user's directory entry. The `UserRoleName` option allows you to provide the name of this attribute.
 func (o BrokerLdapServerMetadataPtrOutput) UserRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
 		if v == nil {
@@ -644,7 +602,6 @@ func (o BrokerLdapServerMetadataPtrOutput) UserRoleName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The LDAP search filter used to find users within the `userBase` . The client's username is substituted into the `{0}` placeholder in the search filter. For example, if this option is set to `(uid={0})` and the received username is `janedoe` , the search filter becomes `(uid=janedoe)` after string substitution. It will result in matching an entry like `uid=janedoe` , `ou=Users` , `ou=corp` , `dc=corp` , `dc=example` , `dc=com` .
 func (o BrokerLdapServerMetadataPtrOutput) UserSearchMatching() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrokerLdapServerMetadata) *string {
 		if v == nil {
@@ -654,7 +611,6 @@ func (o BrokerLdapServerMetadataPtrOutput) UserSearchMatching() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The directory search scope for the user. If set to true, scope is to search the entire subtree.
 func (o BrokerLdapServerMetadataPtrOutput) UserSearchSubtree() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BrokerLdapServerMetadata) *bool {
 		if v == nil {
@@ -1000,22 +956,23 @@ func (o BrokerMaintenanceWindowPtrOutput) TimeZone() pulumi.StringPtrOutput {
 }
 
 type BrokerTagsEntry struct {
-	// The key in a key-value pair.
-	Key string `pulumi:"key"`
-	// The value in a key-value pair.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
 type BrokerUser struct {
-	// Enables access to the ActiveMQ web console for the ActiveMQ user. Does not apply to RabbitMQ brokers.
+	// Enables access to the ActiveMQ Web Console for the ActiveMQ user. Does not apply to RabbitMQ brokers.
 	ConsoleAccess *bool `pulumi:"consoleAccess"`
 	// The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long. Does not apply to RabbitMQ brokers.
 	Groups []string `pulumi:"groups"`
-	// The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
+	// Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
 	Password string `pulumi:"password"`
 	// Defines if this user is intended for CRDR replication purposes.
 	ReplicationUser *bool `pulumi:"replicationUser"`
-	// The username of the broker user. For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using guest as a valid usename. This value must be 2-100 characters long.
+	// The username of the broker user. The following restrictions apply to broker usernames:
+	//
+	// - For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+	// - For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using `guest` as a valid usename. This value must be 2-100 characters long.
 	//
 	// > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other AWS services, including CloudWatch Logs . Broker usernames are not intended to be used for private or sensitive data.
 	Username string `pulumi:"username"`
@@ -1033,15 +990,18 @@ type BrokerUserInput interface {
 }
 
 type BrokerUserArgs struct {
-	// Enables access to the ActiveMQ web console for the ActiveMQ user. Does not apply to RabbitMQ brokers.
+	// Enables access to the ActiveMQ Web Console for the ActiveMQ user. Does not apply to RabbitMQ brokers.
 	ConsoleAccess pulumi.BoolPtrInput `pulumi:"consoleAccess"`
 	// The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long. Does not apply to RabbitMQ brokers.
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
-	// The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
+	// Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
 	Password pulumi.StringInput `pulumi:"password"`
 	// Defines if this user is intended for CRDR replication purposes.
 	ReplicationUser pulumi.BoolPtrInput `pulumi:"replicationUser"`
-	// The username of the broker user. For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using guest as a valid usename. This value must be 2-100 characters long.
+	// The username of the broker user. The following restrictions apply to broker usernames:
+	//
+	// - For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+	// - For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using `guest` as a valid usename. This value must be 2-100 characters long.
 	//
 	// > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other AWS services, including CloudWatch Logs . Broker usernames are not intended to be used for private or sensitive data.
 	Username pulumi.StringInput `pulumi:"username"`
@@ -1098,7 +1058,7 @@ func (o BrokerUserOutput) ToBrokerUserOutputWithContext(ctx context.Context) Bro
 	return o
 }
 
-// Enables access to the ActiveMQ web console for the ActiveMQ user. Does not apply to RabbitMQ brokers.
+// Enables access to the ActiveMQ Web Console for the ActiveMQ user. Does not apply to RabbitMQ brokers.
 func (o BrokerUserOutput) ConsoleAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BrokerUser) *bool { return v.ConsoleAccess }).(pulumi.BoolPtrOutput)
 }
@@ -1108,7 +1068,7 @@ func (o BrokerUserOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BrokerUser) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
+// Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
 func (o BrokerUserOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerUser) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -1118,7 +1078,10 @@ func (o BrokerUserOutput) ReplicationUser() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BrokerUser) *bool { return v.ReplicationUser }).(pulumi.BoolPtrOutput)
 }
 
-// The username of the broker user. For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using guest as a valid usename. This value must be 2-100 characters long.
+// The username of the broker user. The following restrictions apply to broker usernames:
+//
+// - For Amazon MQ for ActiveMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+// - For Amazon MQ for RabbitMQ brokers, this value can contain only alphanumeric characters, dashes, periods, underscores (- . _). This value must not contain a tilde (~) character. Amazon MQ prohibts using `guest` as a valid usename. This value must be 2-100 characters long.
 //
 // > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other AWS services, including CloudWatch Logs . Broker usernames are not intended to be used for private or sensitive data.
 func (o BrokerUserOutput) Username() pulumi.StringOutput {
@@ -1146,9 +1109,7 @@ func (o BrokerUserArrayOutput) Index(i pulumi.IntInput) BrokerUserOutput {
 }
 
 type ConfigurationTagsEntry struct {
-	// The key in a key-value pair.
-	Key string `pulumi:"key"`
-	// The value in a key-value pair.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 

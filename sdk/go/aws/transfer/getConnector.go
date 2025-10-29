@@ -37,6 +37,10 @@ type LookupConnectorResult struct {
 	As2Config *As2ConfigProperties `pulumi:"as2Config"`
 	// A unique identifier for the connector.
 	ConnectorId *string `pulumi:"connectorId"`
+	// Egress configuration for the connector.
+	EgressConfig *ConnectorEgressConfig `pulumi:"egressConfig"`
+	// Specifies the egress type for the connector.
+	EgressType *ConnectorEgressType `pulumi:"egressType"`
 	// Specifies the logging role for the connector.
 	LoggingRole *string `pulumi:"loggingRole"`
 	// Security policy for SFTP Connector
@@ -45,6 +49,7 @@ type LookupConnectorResult struct {
 	ServiceManagedEgressIpAddresses []string `pulumi:"serviceManagedEgressIpAddresses"`
 	// Configuration for an SFTP connector.
 	SftpConfig *SftpConfigProperties `pulumi:"sftpConfig"`
+	Status     *ConnectorStatus      `pulumi:"status"`
 	// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
 	Tags []aws.Tag `pulumi:"tags"`
 	// URL for Connector
@@ -103,6 +108,16 @@ func (o LookupConnectorResultOutput) ConnectorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.ConnectorId }).(pulumi.StringPtrOutput)
 }
 
+// Egress configuration for the connector.
+func (o LookupConnectorResultOutput) EgressConfig() ConnectorEgressConfigPtrOutput {
+	return o.ApplyT(func(v LookupConnectorResult) *ConnectorEgressConfig { return v.EgressConfig }).(ConnectorEgressConfigPtrOutput)
+}
+
+// Specifies the egress type for the connector.
+func (o LookupConnectorResultOutput) EgressType() ConnectorEgressTypePtrOutput {
+	return o.ApplyT(func(v LookupConnectorResult) *ConnectorEgressType { return v.EgressType }).(ConnectorEgressTypePtrOutput)
+}
+
 // Specifies the logging role for the connector.
 func (o LookupConnectorResultOutput) LoggingRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.LoggingRole }).(pulumi.StringPtrOutput)
@@ -121,6 +136,10 @@ func (o LookupConnectorResultOutput) ServiceManagedEgressIpAddresses() pulumi.St
 // Configuration for an SFTP connector.
 func (o LookupConnectorResultOutput) SftpConfig() SftpConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *SftpConfigProperties { return v.SftpConfig }).(SftpConfigPropertiesPtrOutput)
+}
+
+func (o LookupConnectorResultOutput) Status() ConnectorStatusPtrOutput {
+	return o.ApplyT(func(v LookupConnectorResult) *ConnectorStatus { return v.Status }).(ConnectorStatusPtrOutput)
 }
 
 // Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.

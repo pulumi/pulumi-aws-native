@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetLinkArgs, GetLinkResult, GetLinkOutputArgs } from "./getLink";
+export const getLink: typeof import("./getLink").getLink = null as any;
+export const getLinkOutput: typeof import("./getLink").getLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getLink","getLinkOutput"], () => require("./getLink"));
+
 export { GetRequesterGatewayArgs, GetRequesterGatewayResult, GetRequesterGatewayOutputArgs } from "./getRequesterGateway";
 export const getRequesterGateway: typeof import("./getRequesterGateway").getRequesterGateway = null as any;
 export const getRequesterGatewayOutput: typeof import("./getRequesterGateway").getRequesterGatewayOutput = null as any;
@@ -14,6 +19,11 @@ export { GetResponderGatewayArgs, GetResponderGatewayResult, GetResponderGateway
 export const getResponderGateway: typeof import("./getResponderGateway").getResponderGateway = null as any;
 export const getResponderGatewayOutput: typeof import("./getResponderGateway").getResponderGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getResponderGateway","getResponderGatewayOutput"], () => require("./getResponderGateway"));
+
+export { LinkArgs } from "./link";
+export type Link = import("./link").Link;
+export const Link: typeof import("./link").Link = null as any;
+utilities.lazyLoad(exports, ["Link"], () => require("./link"));
 
 export { RequesterGatewayArgs } from "./requesterGateway";
 export type RequesterGateway = import("./requesterGateway").RequesterGateway;
@@ -33,6 +43,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:rtbfabric:Link":
+                return new Link(name, <any>undefined, { urn })
             case "aws-native:rtbfabric:RequesterGateway":
                 return new RequesterGateway(name, <any>undefined, { urn })
             case "aws-native:rtbfabric:ResponderGateway":

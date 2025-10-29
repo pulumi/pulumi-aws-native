@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallPolicy
     {
+        public readonly bool? EnableTlsSessionHolding;
         /// <summary>
         /// Contains variables that you can use to override default Suricata settings in your firewall policy.
         /// </summary>
@@ -69,6 +70,8 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private FirewallPolicy(
+            bool? enableTlsSessionHolding,
+
             Outputs.FirewallPolicyPolicyVariablesProperties? policyVariables,
 
             ImmutableArray<string> statefulDefaultActions,
@@ -87,6 +90,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
             string? tlsInspectionConfigurationArn)
         {
+            EnableTlsSessionHolding = enableTlsSessionHolding;
             PolicyVariables = policyVariables;
             StatefulDefaultActions = statefulDefaultActions;
             StatefulEngineOptions = statefulEngineOptions;

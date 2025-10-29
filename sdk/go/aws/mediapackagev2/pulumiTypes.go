@@ -2356,7 +2356,8 @@ func (o OriginEndpointEncryptionContractConfigurationPtrOutput) PresetSpeke20Vid
 type OriginEndpointEncryptionMethod struct {
 	// The encryption method to use.
 	CmafEncryptionMethod *OriginEndpointCmafEncryptionMethod `pulumi:"cmafEncryptionMethod"`
-	IsmEncryptionMethod  *OriginEndpointIsmEncryptionMethod  `pulumi:"ismEncryptionMethod"`
+	// The encryption method used for Microsoft Smooth Streaming (MSS) content. This specifies how the MSS segments are encrypted to protect the content during delivery to client players.
+	IsmEncryptionMethod *OriginEndpointIsmEncryptionMethod `pulumi:"ismEncryptionMethod"`
 	// The encryption method to use.
 	TsEncryptionMethod *OriginEndpointTsEncryptionMethod `pulumi:"tsEncryptionMethod"`
 }
@@ -2376,7 +2377,8 @@ type OriginEndpointEncryptionMethodInput interface {
 type OriginEndpointEncryptionMethodArgs struct {
 	// The encryption method to use.
 	CmafEncryptionMethod OriginEndpointCmafEncryptionMethodPtrInput `pulumi:"cmafEncryptionMethod"`
-	IsmEncryptionMethod  OriginEndpointIsmEncryptionMethodPtrInput  `pulumi:"ismEncryptionMethod"`
+	// The encryption method used for Microsoft Smooth Streaming (MSS) content. This specifies how the MSS segments are encrypted to protect the content during delivery to client players.
+	IsmEncryptionMethod OriginEndpointIsmEncryptionMethodPtrInput `pulumi:"ismEncryptionMethod"`
 	// The encryption method to use.
 	TsEncryptionMethod OriginEndpointTsEncryptionMethodPtrInput `pulumi:"tsEncryptionMethod"`
 }
@@ -2466,6 +2468,7 @@ func (o OriginEndpointEncryptionMethodOutput) CmafEncryptionMethod() OriginEndpo
 	}).(OriginEndpointCmafEncryptionMethodPtrOutput)
 }
 
+// The encryption method used for Microsoft Smooth Streaming (MSS) content. This specifies how the MSS segments are encrypted to protect the content during delivery to client players.
 func (o OriginEndpointEncryptionMethodOutput) IsmEncryptionMethod() OriginEndpointIsmEncryptionMethodPtrOutput {
 	return o.ApplyT(func(v OriginEndpointEncryptionMethod) *OriginEndpointIsmEncryptionMethod {
 		return v.IsmEncryptionMethod
@@ -2511,6 +2514,7 @@ func (o OriginEndpointEncryptionMethodPtrOutput) CmafEncryptionMethod() OriginEn
 	}).(OriginEndpointCmafEncryptionMethodPtrOutput)
 }
 
+// The encryption method used for Microsoft Smooth Streaming (MSS) content. This specifies how the MSS segments are encrypted to protect the content during delivery to client players.
 func (o OriginEndpointEncryptionMethodPtrOutput) IsmEncryptionMethod() OriginEndpointIsmEncryptionMethodPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointEncryptionMethod) *OriginEndpointIsmEncryptionMethod {
 		if v == nil {

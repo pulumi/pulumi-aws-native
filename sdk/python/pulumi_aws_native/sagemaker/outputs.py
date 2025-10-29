@@ -19230,12 +19230,16 @@ class UserProfileResourceSpec(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 instance_type: Optional['UserProfileResourceSpecInstanceType'] = None,
+                 instance_type: Optional['UserProfileAppInstanceType'] = None,
                  lifecycle_config_arn: Optional[_builtins.str] = None,
                  sage_maker_image_arn: Optional[_builtins.str] = None,
                  sage_maker_image_version_arn: Optional[_builtins.str] = None):
         """
-        :param 'UserProfileResourceSpecInstanceType' instance_type: The instance type that the image version runs on.
+        :param 'UserProfileAppInstanceType' instance_type: The instance type that the image version runs on.
+               
+               > *JupyterServer apps* only support the `system` value.
+               > 
+               > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
         :param _builtins.str lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
         :param _builtins.str sage_maker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param _builtins.str sage_maker_image_version_arn: The ARN of the image version created on the instance.
@@ -19251,9 +19255,13 @@ class UserProfileResourceSpec(dict):
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional['UserProfileResourceSpecInstanceType']:
+    def instance_type(self) -> Optional['UserProfileAppInstanceType']:
         """
         The instance type that the image version runs on.
+
+        > *JupyterServer apps* only support the `system` value.
+        > 
+        > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
         """
         return pulumi.get(self, "instance_type")
 

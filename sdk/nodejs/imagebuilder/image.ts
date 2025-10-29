@@ -46,6 +46,10 @@ export class Image extends pulumi.CustomResource {
      */
     declare public readonly containerRecipeArn: pulumi.Output<string | undefined>;
     /**
+     * The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+     */
+    declare public readonly deletionSettings: pulumi.Output<outputs.imagebuilder.ImageDeletionSettings | undefined>;
+    /**
      * The Amazon Resource Name (ARN) of the distribution configuration.
      */
     declare public readonly distributionConfigurationArn: pulumi.Output<string | undefined>;
@@ -118,6 +122,7 @@ export class Image extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["containerRecipeArn"] = args?.containerRecipeArn;
+            resourceInputs["deletionSettings"] = args?.deletionSettings;
             resourceInputs["distributionConfigurationArn"] = args?.distributionConfigurationArn;
             resourceInputs["enhancedImageMetadataEnabled"] = args?.enhancedImageMetadataEnabled;
             resourceInputs["executionRole"] = args?.executionRole;
@@ -137,6 +142,7 @@ export class Image extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["containerRecipeArn"] = undefined /*out*/;
+            resourceInputs["deletionSettings"] = undefined /*out*/;
             resourceInputs["distributionConfigurationArn"] = undefined /*out*/;
             resourceInputs["enhancedImageMetadataEnabled"] = undefined /*out*/;
             resourceInputs["executionRole"] = undefined /*out*/;
@@ -168,6 +174,10 @@ export interface ImageArgs {
      * The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
      */
     containerRecipeArn?: pulumi.Input<string>;
+    /**
+     * The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+     */
+    deletionSettings?: pulumi.Input<inputs.imagebuilder.ImageDeletionSettingsArgs>;
     /**
      * The Amazon Resource Name (ARN) of the distribution configuration.
      */

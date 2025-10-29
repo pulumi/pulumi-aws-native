@@ -1059,8 +1059,10 @@ func (in *loggingConfigurationLogDestinationConfigLogTypePtr) ToLoggingConfigura
 type RuleGroupGeneratedRulesType string
 
 const (
-	RuleGroupGeneratedRulesTypeAllowlist = RuleGroupGeneratedRulesType("ALLOWLIST")
-	RuleGroupGeneratedRulesTypeDenylist  = RuleGroupGeneratedRulesType("DENYLIST")
+	RuleGroupGeneratedRulesTypeAllowlist  = RuleGroupGeneratedRulesType("ALLOWLIST")
+	RuleGroupGeneratedRulesTypeDenylist   = RuleGroupGeneratedRulesType("DENYLIST")
+	RuleGroupGeneratedRulesTypeAlertlist  = RuleGroupGeneratedRulesType("ALERTLIST")
+	RuleGroupGeneratedRulesTypeRejectlist = RuleGroupGeneratedRulesType("REJECTLIST")
 )
 
 func (RuleGroupGeneratedRulesType) ElementType() reflect.Type {
@@ -1187,6 +1189,8 @@ func (o RuleGroupGeneratedRulesTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 //
 //	RuleGroupGeneratedRulesTypeAllowlist
 //	RuleGroupGeneratedRulesTypeDenylist
+//	RuleGroupGeneratedRulesTypeAlertlist
+//	RuleGroupGeneratedRulesTypeRejectlist
 type RuleGroupGeneratedRulesTypeInput interface {
 	pulumi.Input
 

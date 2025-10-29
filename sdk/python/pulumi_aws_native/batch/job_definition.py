@@ -31,6 +31,7 @@ class JobDefinitionArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  propagate_tags: Optional[pulumi.Input[_builtins.bool]] = None,
+                 resource_retention_policy: Optional[pulumi.Input['JobDefinitionResourceRetentionPolicyArgs']] = None,
                  retry_strategy: Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']] = None,
                  scheduling_priority: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -78,6 +79,8 @@ class JobDefinitionArgs:
             pulumi.set(__self__, "platform_capabilities", platform_capabilities)
         if propagate_tags is not None:
             pulumi.set(__self__, "propagate_tags", propagate_tags)
+        if resource_retention_policy is not None:
+            pulumi.set(__self__, "resource_retention_policy", resource_retention_policy)
         if retry_strategy is not None:
             pulumi.set(__self__, "retry_strategy", retry_strategy)
         if scheduling_priority is not None:
@@ -215,6 +218,15 @@ class JobDefinitionArgs:
         pulumi.set(self, "propagate_tags", value)
 
     @_builtins.property
+    @pulumi.getter(name="resourceRetentionPolicy")
+    def resource_retention_policy(self) -> Optional[pulumi.Input['JobDefinitionResourceRetentionPolicyArgs']]:
+        return pulumi.get(self, "resource_retention_policy")
+
+    @resource_retention_policy.setter
+    def resource_retention_policy(self, value: Optional[pulumi.Input['JobDefinitionResourceRetentionPolicyArgs']]):
+        pulumi.set(self, "resource_retention_policy", value)
+
+    @_builtins.property
     @pulumi.getter(name="retryStrategy")
     def retry_strategy(self) -> Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']]:
         """
@@ -278,6 +290,7 @@ class JobDefinition(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  propagate_tags: Optional[pulumi.Input[_builtins.bool]] = None,
+                 resource_retention_policy: Optional[pulumi.Input[Union['JobDefinitionResourceRetentionPolicyArgs', 'JobDefinitionResourceRetentionPolicyArgsDict']]] = None,
                  retry_strategy: Optional[pulumi.Input[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']]] = None,
                  scheduling_priority: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -344,6 +357,7 @@ class JobDefinition(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  propagate_tags: Optional[pulumi.Input[_builtins.bool]] = None,
+                 resource_retention_policy: Optional[pulumi.Input[Union['JobDefinitionResourceRetentionPolicyArgs', 'JobDefinitionResourceRetentionPolicyArgsDict']]] = None,
                  retry_strategy: Optional[pulumi.Input[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']]] = None,
                  scheduling_priority: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -367,6 +381,7 @@ class JobDefinition(pulumi.CustomResource):
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["platform_capabilities"] = platform_capabilities
             __props__.__dict__["propagate_tags"] = propagate_tags
+            __props__.__dict__["resource_retention_policy"] = resource_retention_policy
             __props__.__dict__["retry_strategy"] = retry_strategy
             __props__.__dict__["scheduling_priority"] = scheduling_priority
             __props__.__dict__["tags"] = tags
@@ -409,6 +424,7 @@ class JobDefinition(pulumi.CustomResource):
         __props__.__dict__["parameters"] = None
         __props__.__dict__["platform_capabilities"] = None
         __props__.__dict__["propagate_tags"] = None
+        __props__.__dict__["resource_retention_policy"] = None
         __props__.__dict__["retry_strategy"] = None
         __props__.__dict__["scheduling_priority"] = None
         __props__.__dict__["tags"] = None
@@ -497,6 +513,11 @@ class JobDefinition(pulumi.CustomResource):
         Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
         """
         return pulumi.get(self, "propagate_tags")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceRetentionPolicy")
+    def resource_retention_policy(self) -> pulumi.Output[Optional['outputs.JobDefinitionResourceRetentionPolicy']]:
+        return pulumi.get(self, "resource_retention_policy")
 
     @_builtins.property
     @pulumi.getter(name="retryStrategy")

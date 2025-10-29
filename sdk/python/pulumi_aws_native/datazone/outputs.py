@@ -38,12 +38,14 @@ __all__ = [
     'ConnectionPropertiesInput4Properties',
     'ConnectionPropertiesInput5Properties',
     'ConnectionPropertiesInput6Properties',
+    'ConnectionPropertiesInput7Properties',
     'ConnectionRedshiftCredentials0Properties',
     'ConnectionRedshiftCredentials1Properties',
     'ConnectionRedshiftLineageSyncConfigurationInput',
     'ConnectionRedshiftPropertiesInput',
     'ConnectionRedshiftStorageProperties0Properties',
     'ConnectionRedshiftStorageProperties1Properties',
+    'ConnectionS3PropertiesInput',
     'ConnectionSparkEmrPropertiesInput',
     'ConnectionSparkGlueArgs',
     'ConnectionSparkGluePropertiesInput',
@@ -1156,6 +1158,35 @@ class ConnectionPropertiesInput6Properties(dict):
 
 
 @pulumi.output_type
+class ConnectionPropertiesInput7Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Properties":
+            suggest = "s3_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesInput7Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPropertiesInput7Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPropertiesInput7Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_properties: 'outputs.ConnectionS3PropertiesInput'):
+        pulumi.set(__self__, "s3_properties", s3_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Properties")
+    def s3_properties(self) -> 'outputs.ConnectionS3PropertiesInput':
+        return pulumi.get(self, "s3_properties")
+
+
+@pulumi.output_type
 class ConnectionRedshiftCredentials0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1374,6 +1405,59 @@ class ConnectionRedshiftStorageProperties1Properties(dict):
     @pulumi.getter(name="workgroupName")
     def workgroup_name(self) -> _builtins.str:
         return pulumi.get(self, "workgroup_name")
+
+
+@pulumi.output_type
+class ConnectionS3PropertiesInput(dict):
+    """
+    S3 Properties Input
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "s3AccessGrantLocationId":
+            suggest = "s3_access_grant_location_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionS3PropertiesInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionS3PropertiesInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionS3PropertiesInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_uri: _builtins.str,
+                 s3_access_grant_location_id: Optional[_builtins.str] = None):
+        """
+        S3 Properties Input
+        :param _builtins.str s3_uri: The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
+        :param _builtins.str s3_access_grant_location_id: The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if s3_access_grant_location_id is not None:
+            pulumi.set(__self__, "s3_access_grant_location_id", s3_access_grant_location_id)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        """
+        The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="s3AccessGrantLocationId")
+    def s3_access_grant_location_id(self) -> Optional[_builtins.str]:
+        """
+        The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
+        """
+        return pulumi.get(self, "s3_access_grant_location_id")
 
 
 @pulumi.output_type

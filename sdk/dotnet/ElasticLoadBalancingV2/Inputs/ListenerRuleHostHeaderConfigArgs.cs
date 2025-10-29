@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
+        /// The host names. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
         ///  If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
         /// </summary>
         public InputList<string> Values

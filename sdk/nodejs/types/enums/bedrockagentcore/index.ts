@@ -267,6 +267,7 @@ export type RuntimeNetworkMode = (typeof RuntimeNetworkMode)[keyof typeof Runtim
 export const RuntimeProtocolConfiguration = {
     Mcp: "MCP",
     Http: "HTTP",
+    A2a: "A2A",
 } as const;
 
 export type RuntimeProtocolConfiguration = (typeof RuntimeProtocolConfiguration)[keyof typeof RuntimeProtocolConfiguration];

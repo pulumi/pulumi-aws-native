@@ -1195,6 +1195,9 @@ if not MYPY:
         The encryption method to use.
         """
         ism_encryption_method: NotRequired[pulumi.Input['OriginEndpointIsmEncryptionMethod']]
+        """
+        The encryption method used for Microsoft Smooth Streaming (MSS) content. This specifies how the MSS segments are encrypted to protect the content during delivery to client players.
+        """
         ts_encryption_method: NotRequired[pulumi.Input['OriginEndpointTsEncryptionMethod']]
         """
         The encryption method to use.
@@ -1211,6 +1214,7 @@ class OriginEndpointEncryptionMethodArgs:
         """
         <p>The encryption type.</p>
         :param pulumi.Input['OriginEndpointCmafEncryptionMethod'] cmaf_encryption_method: The encryption method to use.
+        :param pulumi.Input['OriginEndpointIsmEncryptionMethod'] ism_encryption_method: The encryption method used for Microsoft Smooth Streaming (MSS) content. This specifies how the MSS segments are encrypted to protect the content during delivery to client players.
         :param pulumi.Input['OriginEndpointTsEncryptionMethod'] ts_encryption_method: The encryption method to use.
         """
         if cmaf_encryption_method is not None:
@@ -1235,6 +1239,9 @@ class OriginEndpointEncryptionMethodArgs:
     @_builtins.property
     @pulumi.getter(name="ismEncryptionMethod")
     def ism_encryption_method(self) -> Optional[pulumi.Input['OriginEndpointIsmEncryptionMethod']]:
+        """
+        The encryption method used for Microsoft Smooth Streaming (MSS) content. This specifies how the MSS segments are encrypted to protect the content during delivery to client players.
+        """
         return pulumi.get(self, "ism_encryption_method")
 
     @ism_encryption_method.setter

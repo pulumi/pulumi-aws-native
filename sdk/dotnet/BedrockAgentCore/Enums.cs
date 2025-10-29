@@ -806,6 +806,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         public static RuntimeProtocolConfiguration Mcp { get; } = new RuntimeProtocolConfiguration("MCP");
         public static RuntimeProtocolConfiguration Http { get; } = new RuntimeProtocolConfiguration("HTTP");
+        public static RuntimeProtocolConfiguration A2a { get; } = new RuntimeProtocolConfiguration("A2A");
 
         public static bool operator ==(RuntimeProtocolConfiguration left, RuntimeProtocolConfiguration right) => left.Equals(right);
         public static bool operator !=(RuntimeProtocolConfiguration left, RuntimeProtocolConfiguration right) => !left.Equals(right);

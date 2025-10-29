@@ -4979,6 +4979,154 @@ func (o ServiceAwsVpcConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
+type ServiceCanaryConfiguration struct {
+	CanaryBakeTimeInMinutes *int     `pulumi:"canaryBakeTimeInMinutes"`
+	CanaryPercent           *float64 `pulumi:"canaryPercent"`
+}
+
+// ServiceCanaryConfigurationInput is an input type that accepts ServiceCanaryConfigurationArgs and ServiceCanaryConfigurationOutput values.
+// You can construct a concrete instance of `ServiceCanaryConfigurationInput` via:
+//
+//	ServiceCanaryConfigurationArgs{...}
+type ServiceCanaryConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceCanaryConfigurationOutput() ServiceCanaryConfigurationOutput
+	ToServiceCanaryConfigurationOutputWithContext(context.Context) ServiceCanaryConfigurationOutput
+}
+
+type ServiceCanaryConfigurationArgs struct {
+	CanaryBakeTimeInMinutes pulumi.IntPtrInput     `pulumi:"canaryBakeTimeInMinutes"`
+	CanaryPercent           pulumi.Float64PtrInput `pulumi:"canaryPercent"`
+}
+
+func (ServiceCanaryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCanaryConfiguration)(nil)).Elem()
+}
+
+func (i ServiceCanaryConfigurationArgs) ToServiceCanaryConfigurationOutput() ServiceCanaryConfigurationOutput {
+	return i.ToServiceCanaryConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceCanaryConfigurationArgs) ToServiceCanaryConfigurationOutputWithContext(ctx context.Context) ServiceCanaryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCanaryConfigurationOutput)
+}
+
+func (i ServiceCanaryConfigurationArgs) ToServiceCanaryConfigurationPtrOutput() ServiceCanaryConfigurationPtrOutput {
+	return i.ToServiceCanaryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceCanaryConfigurationArgs) ToServiceCanaryConfigurationPtrOutputWithContext(ctx context.Context) ServiceCanaryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCanaryConfigurationOutput).ToServiceCanaryConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceCanaryConfigurationPtrInput is an input type that accepts ServiceCanaryConfigurationArgs, ServiceCanaryConfigurationPtr and ServiceCanaryConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceCanaryConfigurationPtrInput` via:
+//
+//	        ServiceCanaryConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceCanaryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceCanaryConfigurationPtrOutput() ServiceCanaryConfigurationPtrOutput
+	ToServiceCanaryConfigurationPtrOutputWithContext(context.Context) ServiceCanaryConfigurationPtrOutput
+}
+
+type serviceCanaryConfigurationPtrType ServiceCanaryConfigurationArgs
+
+func ServiceCanaryConfigurationPtr(v *ServiceCanaryConfigurationArgs) ServiceCanaryConfigurationPtrInput {
+	return (*serviceCanaryConfigurationPtrType)(v)
+}
+
+func (*serviceCanaryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceCanaryConfiguration)(nil)).Elem()
+}
+
+func (i *serviceCanaryConfigurationPtrType) ToServiceCanaryConfigurationPtrOutput() ServiceCanaryConfigurationPtrOutput {
+	return i.ToServiceCanaryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceCanaryConfigurationPtrType) ToServiceCanaryConfigurationPtrOutputWithContext(ctx context.Context) ServiceCanaryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCanaryConfigurationPtrOutput)
+}
+
+type ServiceCanaryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceCanaryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCanaryConfiguration)(nil)).Elem()
+}
+
+func (o ServiceCanaryConfigurationOutput) ToServiceCanaryConfigurationOutput() ServiceCanaryConfigurationOutput {
+	return o
+}
+
+func (o ServiceCanaryConfigurationOutput) ToServiceCanaryConfigurationOutputWithContext(ctx context.Context) ServiceCanaryConfigurationOutput {
+	return o
+}
+
+func (o ServiceCanaryConfigurationOutput) ToServiceCanaryConfigurationPtrOutput() ServiceCanaryConfigurationPtrOutput {
+	return o.ToServiceCanaryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceCanaryConfigurationOutput) ToServiceCanaryConfigurationPtrOutputWithContext(ctx context.Context) ServiceCanaryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceCanaryConfiguration) *ServiceCanaryConfiguration {
+		return &v
+	}).(ServiceCanaryConfigurationPtrOutput)
+}
+
+func (o ServiceCanaryConfigurationOutput) CanaryBakeTimeInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceCanaryConfiguration) *int { return v.CanaryBakeTimeInMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceCanaryConfigurationOutput) CanaryPercent() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ServiceCanaryConfiguration) *float64 { return v.CanaryPercent }).(pulumi.Float64PtrOutput)
+}
+
+type ServiceCanaryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceCanaryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceCanaryConfiguration)(nil)).Elem()
+}
+
+func (o ServiceCanaryConfigurationPtrOutput) ToServiceCanaryConfigurationPtrOutput() ServiceCanaryConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceCanaryConfigurationPtrOutput) ToServiceCanaryConfigurationPtrOutputWithContext(ctx context.Context) ServiceCanaryConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceCanaryConfigurationPtrOutput) Elem() ServiceCanaryConfigurationOutput {
+	return o.ApplyT(func(v *ServiceCanaryConfiguration) ServiceCanaryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceCanaryConfiguration
+		return ret
+	}).(ServiceCanaryConfigurationOutput)
+}
+
+func (o ServiceCanaryConfigurationPtrOutput) CanaryBakeTimeInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceCanaryConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CanaryBakeTimeInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceCanaryConfigurationPtrOutput) CanaryPercent() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ServiceCanaryConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CanaryPercent
+	}).(pulumi.Float64PtrOutput)
+}
+
 // The details of a capacity provider strategy. A capacity provider strategy can be set when using the “RunTask“ or “CreateService“ APIs or as the default capacity provider strategy for a cluster with the “CreateCluster“ API.
 //
 //	Only capacity providers that are already associated with a cluster and have an ``ACTIVE`` or ``UPDATING`` status can be used in a capacity provider strategy. The ``PutClusterCapacityProviders`` API is used to associate a capacity provider with a cluster.
@@ -5171,6 +5319,158 @@ func (o ServiceCapacityProviderStrategyItemArrayOutput) Index(i pulumi.IntInput)
 	}).(ServiceCapacityProviderStrategyItemOutput)
 }
 
+type ServiceConnectAccessLogConfiguration struct {
+	Format                 ServiceConnectAccessLogConfigurationFormat                  `pulumi:"format"`
+	IncludeQueryParameters *ServiceConnectAccessLogConfigurationIncludeQueryParameters `pulumi:"includeQueryParameters"`
+}
+
+// ServiceConnectAccessLogConfigurationInput is an input type that accepts ServiceConnectAccessLogConfigurationArgs and ServiceConnectAccessLogConfigurationOutput values.
+// You can construct a concrete instance of `ServiceConnectAccessLogConfigurationInput` via:
+//
+//	ServiceConnectAccessLogConfigurationArgs{...}
+type ServiceConnectAccessLogConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceConnectAccessLogConfigurationOutput() ServiceConnectAccessLogConfigurationOutput
+	ToServiceConnectAccessLogConfigurationOutputWithContext(context.Context) ServiceConnectAccessLogConfigurationOutput
+}
+
+type ServiceConnectAccessLogConfigurationArgs struct {
+	Format                 ServiceConnectAccessLogConfigurationFormatInput                    `pulumi:"format"`
+	IncludeQueryParameters ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrInput `pulumi:"includeQueryParameters"`
+}
+
+func (ServiceConnectAccessLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectAccessLogConfiguration)(nil)).Elem()
+}
+
+func (i ServiceConnectAccessLogConfigurationArgs) ToServiceConnectAccessLogConfigurationOutput() ServiceConnectAccessLogConfigurationOutput {
+	return i.ToServiceConnectAccessLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectAccessLogConfigurationArgs) ToServiceConnectAccessLogConfigurationOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectAccessLogConfigurationOutput)
+}
+
+func (i ServiceConnectAccessLogConfigurationArgs) ToServiceConnectAccessLogConfigurationPtrOutput() ServiceConnectAccessLogConfigurationPtrOutput {
+	return i.ToServiceConnectAccessLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectAccessLogConfigurationArgs) ToServiceConnectAccessLogConfigurationPtrOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectAccessLogConfigurationOutput).ToServiceConnectAccessLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceConnectAccessLogConfigurationPtrInput is an input type that accepts ServiceConnectAccessLogConfigurationArgs, ServiceConnectAccessLogConfigurationPtr and ServiceConnectAccessLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceConnectAccessLogConfigurationPtrInput` via:
+//
+//	        ServiceConnectAccessLogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceConnectAccessLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceConnectAccessLogConfigurationPtrOutput() ServiceConnectAccessLogConfigurationPtrOutput
+	ToServiceConnectAccessLogConfigurationPtrOutputWithContext(context.Context) ServiceConnectAccessLogConfigurationPtrOutput
+}
+
+type serviceConnectAccessLogConfigurationPtrType ServiceConnectAccessLogConfigurationArgs
+
+func ServiceConnectAccessLogConfigurationPtr(v *ServiceConnectAccessLogConfigurationArgs) ServiceConnectAccessLogConfigurationPtrInput {
+	return (*serviceConnectAccessLogConfigurationPtrType)(v)
+}
+
+func (*serviceConnectAccessLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConnectAccessLogConfiguration)(nil)).Elem()
+}
+
+func (i *serviceConnectAccessLogConfigurationPtrType) ToServiceConnectAccessLogConfigurationPtrOutput() ServiceConnectAccessLogConfigurationPtrOutput {
+	return i.ToServiceConnectAccessLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceConnectAccessLogConfigurationPtrType) ToServiceConnectAccessLogConfigurationPtrOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectAccessLogConfigurationPtrOutput)
+}
+
+type ServiceConnectAccessLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectAccessLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectAccessLogConfiguration)(nil)).Elem()
+}
+
+func (o ServiceConnectAccessLogConfigurationOutput) ToServiceConnectAccessLogConfigurationOutput() ServiceConnectAccessLogConfigurationOutput {
+	return o
+}
+
+func (o ServiceConnectAccessLogConfigurationOutput) ToServiceConnectAccessLogConfigurationOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationOutput {
+	return o
+}
+
+func (o ServiceConnectAccessLogConfigurationOutput) ToServiceConnectAccessLogConfigurationPtrOutput() ServiceConnectAccessLogConfigurationPtrOutput {
+	return o.ToServiceConnectAccessLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceConnectAccessLogConfigurationOutput) ToServiceConnectAccessLogConfigurationPtrOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceConnectAccessLogConfiguration) *ServiceConnectAccessLogConfiguration {
+		return &v
+	}).(ServiceConnectAccessLogConfigurationPtrOutput)
+}
+
+func (o ServiceConnectAccessLogConfigurationOutput) Format() ServiceConnectAccessLogConfigurationFormatOutput {
+	return o.ApplyT(func(v ServiceConnectAccessLogConfiguration) ServiceConnectAccessLogConfigurationFormat {
+		return v.Format
+	}).(ServiceConnectAccessLogConfigurationFormatOutput)
+}
+
+func (o ServiceConnectAccessLogConfigurationOutput) IncludeQueryParameters() ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput {
+	return o.ApplyT(func(v ServiceConnectAccessLogConfiguration) *ServiceConnectAccessLogConfigurationIncludeQueryParameters {
+		return v.IncludeQueryParameters
+	}).(ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput)
+}
+
+type ServiceConnectAccessLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectAccessLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConnectAccessLogConfiguration)(nil)).Elem()
+}
+
+func (o ServiceConnectAccessLogConfigurationPtrOutput) ToServiceConnectAccessLogConfigurationPtrOutput() ServiceConnectAccessLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceConnectAccessLogConfigurationPtrOutput) ToServiceConnectAccessLogConfigurationPtrOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceConnectAccessLogConfigurationPtrOutput) Elem() ServiceConnectAccessLogConfigurationOutput {
+	return o.ApplyT(func(v *ServiceConnectAccessLogConfiguration) ServiceConnectAccessLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceConnectAccessLogConfiguration
+		return ret
+	}).(ServiceConnectAccessLogConfigurationOutput)
+}
+
+func (o ServiceConnectAccessLogConfigurationPtrOutput) Format() ServiceConnectAccessLogConfigurationFormatPtrOutput {
+	return o.ApplyT(func(v *ServiceConnectAccessLogConfiguration) *ServiceConnectAccessLogConfigurationFormat {
+		if v == nil {
+			return nil
+		}
+		return &v.Format
+	}).(ServiceConnectAccessLogConfigurationFormatPtrOutput)
+}
+
+func (o ServiceConnectAccessLogConfigurationPtrOutput) IncludeQueryParameters() ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput {
+	return o.ApplyT(func(v *ServiceConnectAccessLogConfiguration) *ServiceConnectAccessLogConfigurationIncludeQueryParameters {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeQueryParameters
+	}).(ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput)
+}
+
 // Each alias ("endpoint") is a fully-qualified name and port number that other tasks ("clients") can use to connect to this service.
 //
 //	Each name and port mapping must be unique within the namespace.
@@ -5313,6 +5613,7 @@ func (o ServiceConnectClientAliasArrayOutput) Index(i pulumi.IntInput) ServiceCo
 //
 //	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceConnectConfiguration struct {
+	AccessLogConfiguration *ServiceConnectAccessLogConfiguration `pulumi:"accessLogConfiguration"`
 	// Specifies whether to use Service Connect with this service.
 	Enabled bool `pulumi:"enabled"`
 	// The log configuration for the container. This parameter maps to ``LogConfig`` in the docker container create command and the ``--log-driver`` option to docker run.
@@ -5348,6 +5649,7 @@ type ServiceConnectConfigurationInput interface {
 //
 //	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceConnectConfigurationArgs struct {
+	AccessLogConfiguration ServiceConnectAccessLogConfigurationPtrInput `pulumi:"accessLogConfiguration"`
 	// Specifies whether to use Service Connect with this service.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The log configuration for the container. This parameter maps to ``LogConfig`` in the docker container create command and the ``--log-driver`` option to docker run.
@@ -5448,6 +5750,12 @@ func (o ServiceConnectConfigurationOutput) ToServiceConnectConfigurationPtrOutpu
 	}).(ServiceConnectConfigurationPtrOutput)
 }
 
+func (o ServiceConnectConfigurationOutput) AccessLogConfiguration() ServiceConnectAccessLogConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceConnectConfiguration) *ServiceConnectAccessLogConfiguration {
+		return v.AccessLogConfiguration
+	}).(ServiceConnectAccessLogConfigurationPtrOutput)
+}
+
 // Specifies whether to use Service Connect with this service.
 func (o ServiceConnectConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceConnectConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -5502,6 +5810,15 @@ func (o ServiceConnectConfigurationPtrOutput) Elem() ServiceConnectConfiguration
 		var ret ServiceConnectConfiguration
 		return ret
 	}).(ServiceConnectConfigurationOutput)
+}
+
+func (o ServiceConnectConfigurationPtrOutput) AccessLogConfiguration() ServiceConnectAccessLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *ServiceConnectConfiguration) *ServiceConnectAccessLogConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AccessLogConfiguration
+	}).(ServiceConnectAccessLogConfigurationPtrOutput)
 }
 
 // Specifies whether to use Service Connect with this service.
@@ -6838,14 +7155,14 @@ type ServiceDeploymentConfiguration struct {
 	//   +  For rolling deployments, the value is set to 3 hours (180 minutes).
 	//   +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
 	//   +  For all other cases, the value is set to 36 hours (2160 minutes).
-	BakeTimeInMinutes   *int        `pulumi:"bakeTimeInMinutes"`
-	CanaryConfiguration interface{} `pulumi:"canaryConfiguration"`
+	BakeTimeInMinutes   *int                        `pulumi:"bakeTimeInMinutes"`
+	CanaryConfiguration *ServiceCanaryConfiguration `pulumi:"canaryConfiguration"`
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
 	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreaker"`
 	// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
 	LifecycleHooks      []ServiceDeploymentLifecycleHook `pulumi:"lifecycleHooks"`
-	LinearConfiguration interface{}                      `pulumi:"linearConfiguration"`
+	LinearConfiguration *ServiceLinearConfiguration      `pulumi:"linearConfiguration"`
 	// If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
 	//  The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting replacement tasks first and then stopping the unhealthy tasks, as long as cluster resources for starting replacement tasks are available. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 	//  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and tasks in the service use the EC2 launch type, the *maximum percent* value is set to the default value. The *maximum percent* value is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
@@ -6895,14 +7212,14 @@ type ServiceDeploymentConfigurationArgs struct {
 	//   +  For rolling deployments, the value is set to 3 hours (180 minutes).
 	//   +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
 	//   +  For all other cases, the value is set to 36 hours (2160 minutes).
-	BakeTimeInMinutes   pulumi.IntPtrInput `pulumi:"bakeTimeInMinutes"`
-	CanaryConfiguration pulumi.Input       `pulumi:"canaryConfiguration"`
+	BakeTimeInMinutes   pulumi.IntPtrInput                 `pulumi:"bakeTimeInMinutes"`
+	CanaryConfiguration ServiceCanaryConfigurationPtrInput `pulumi:"canaryConfiguration"`
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
 	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput `pulumi:"deploymentCircuitBreaker"`
 	// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
 	LifecycleHooks      ServiceDeploymentLifecycleHookArrayInput `pulumi:"lifecycleHooks"`
-	LinearConfiguration pulumi.Input                             `pulumi:"linearConfiguration"`
+	LinearConfiguration ServiceLinearConfigurationPtrInput       `pulumi:"linearConfiguration"`
 	// If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
 	//  The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting replacement tasks first and then stopping the unhealthy tasks, as long as cluster resources for starting replacement tasks are available. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 	//  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and tasks in the service use the EC2 launch type, the *maximum percent* value is set to the default value. The *maximum percent* value is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
@@ -7025,8 +7342,8 @@ func (o ServiceDeploymentConfigurationOutput) BakeTimeInMinutes() pulumi.IntPtrO
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *int { return v.BakeTimeInMinutes }).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceDeploymentConfigurationOutput) CanaryConfiguration() pulumi.AnyOutput {
-	return o.ApplyT(func(v ServiceDeploymentConfiguration) interface{} { return v.CanaryConfiguration }).(pulumi.AnyOutput)
+func (o ServiceDeploymentConfigurationOutput) CanaryConfiguration() ServiceCanaryConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceCanaryConfiguration { return v.CanaryConfiguration }).(ServiceCanaryConfigurationPtrOutput)
 }
 
 // The deployment circuit breaker can only be used for services using the rolling update (“ECS“) deployment type.
@@ -7043,8 +7360,8 @@ func (o ServiceDeploymentConfigurationOutput) LifecycleHooks() ServiceDeployment
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) []ServiceDeploymentLifecycleHook { return v.LifecycleHooks }).(ServiceDeploymentLifecycleHookArrayOutput)
 }
 
-func (o ServiceDeploymentConfigurationOutput) LinearConfiguration() pulumi.AnyOutput {
-	return o.ApplyT(func(v ServiceDeploymentConfiguration) interface{} { return v.LinearConfiguration }).(pulumi.AnyOutput)
+func (o ServiceDeploymentConfigurationOutput) LinearConfiguration() ServiceLinearConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceLinearConfiguration { return v.LinearConfiguration }).(ServiceLinearConfigurationPtrOutput)
 }
 
 // If a service is using the rolling update (“ECS“) deployment type, the “maximumPercent“ parameter represents an upper limit on the number of your service's tasks that are allowed in the “RUNNING“ or “PENDING“ state during a deployment, as a percentage of the “desiredCount“ (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the “REPLICA“ service scheduler and has a “desiredCount“ of four tasks and a “maximumPercent“ value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default “maximumPercent“ value for a service using the “REPLICA“ service scheduler is 200%.
@@ -7134,13 +7451,13 @@ func (o ServiceDeploymentConfigurationPtrOutput) BakeTimeInMinutes() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceDeploymentConfigurationPtrOutput) CanaryConfiguration() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ServiceDeploymentConfiguration) interface{} {
+func (o ServiceDeploymentConfigurationPtrOutput) CanaryConfiguration() ServiceCanaryConfigurationPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *ServiceCanaryConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.CanaryConfiguration
-	}).(pulumi.AnyOutput)
+	}).(ServiceCanaryConfigurationPtrOutput)
 }
 
 // The deployment circuit breaker can only be used for services using the rolling update (“ECS“) deployment type.
@@ -7165,13 +7482,13 @@ func (o ServiceDeploymentConfigurationPtrOutput) LifecycleHooks() ServiceDeploym
 	}).(ServiceDeploymentLifecycleHookArrayOutput)
 }
 
-func (o ServiceDeploymentConfigurationPtrOutput) LinearConfiguration() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ServiceDeploymentConfiguration) interface{} {
+func (o ServiceDeploymentConfigurationPtrOutput) LinearConfiguration() ServiceLinearConfigurationPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *ServiceLinearConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.LinearConfiguration
-	}).(pulumi.AnyOutput)
+	}).(ServiceLinearConfigurationPtrOutput)
 }
 
 // If a service is using the rolling update (“ECS“) deployment type, the “maximumPercent“ parameter represents an upper limit on the number of your service's tasks that are allowed in the “RUNNING“ or “PENDING“ state during a deployment, as a percentage of the “desiredCount“ (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the “REPLICA“ service scheduler and has a “desiredCount“ of four tasks and a “maximumPercent“ value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default “maximumPercent“ value for a service using the “REPLICA“ service scheduler is 200%.
@@ -8004,6 +8321,154 @@ func (o ServiceForceNewDeploymentPtrOutput) ForceNewDeploymentNonce() pulumi.Str
 		}
 		return v.ForceNewDeploymentNonce
 	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceLinearConfiguration struct {
+	StepBakeTimeInMinutes *int     `pulumi:"stepBakeTimeInMinutes"`
+	StepPercent           *float64 `pulumi:"stepPercent"`
+}
+
+// ServiceLinearConfigurationInput is an input type that accepts ServiceLinearConfigurationArgs and ServiceLinearConfigurationOutput values.
+// You can construct a concrete instance of `ServiceLinearConfigurationInput` via:
+//
+//	ServiceLinearConfigurationArgs{...}
+type ServiceLinearConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceLinearConfigurationOutput() ServiceLinearConfigurationOutput
+	ToServiceLinearConfigurationOutputWithContext(context.Context) ServiceLinearConfigurationOutput
+}
+
+type ServiceLinearConfigurationArgs struct {
+	StepBakeTimeInMinutes pulumi.IntPtrInput     `pulumi:"stepBakeTimeInMinutes"`
+	StepPercent           pulumi.Float64PtrInput `pulumi:"stepPercent"`
+}
+
+func (ServiceLinearConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLinearConfiguration)(nil)).Elem()
+}
+
+func (i ServiceLinearConfigurationArgs) ToServiceLinearConfigurationOutput() ServiceLinearConfigurationOutput {
+	return i.ToServiceLinearConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceLinearConfigurationArgs) ToServiceLinearConfigurationOutputWithContext(ctx context.Context) ServiceLinearConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLinearConfigurationOutput)
+}
+
+func (i ServiceLinearConfigurationArgs) ToServiceLinearConfigurationPtrOutput() ServiceLinearConfigurationPtrOutput {
+	return i.ToServiceLinearConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLinearConfigurationArgs) ToServiceLinearConfigurationPtrOutputWithContext(ctx context.Context) ServiceLinearConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLinearConfigurationOutput).ToServiceLinearConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceLinearConfigurationPtrInput is an input type that accepts ServiceLinearConfigurationArgs, ServiceLinearConfigurationPtr and ServiceLinearConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceLinearConfigurationPtrInput` via:
+//
+//	        ServiceLinearConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLinearConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceLinearConfigurationPtrOutput() ServiceLinearConfigurationPtrOutput
+	ToServiceLinearConfigurationPtrOutputWithContext(context.Context) ServiceLinearConfigurationPtrOutput
+}
+
+type serviceLinearConfigurationPtrType ServiceLinearConfigurationArgs
+
+func ServiceLinearConfigurationPtr(v *ServiceLinearConfigurationArgs) ServiceLinearConfigurationPtrInput {
+	return (*serviceLinearConfigurationPtrType)(v)
+}
+
+func (*serviceLinearConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLinearConfiguration)(nil)).Elem()
+}
+
+func (i *serviceLinearConfigurationPtrType) ToServiceLinearConfigurationPtrOutput() ServiceLinearConfigurationPtrOutput {
+	return i.ToServiceLinearConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLinearConfigurationPtrType) ToServiceLinearConfigurationPtrOutputWithContext(ctx context.Context) ServiceLinearConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLinearConfigurationPtrOutput)
+}
+
+type ServiceLinearConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceLinearConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLinearConfiguration)(nil)).Elem()
+}
+
+func (o ServiceLinearConfigurationOutput) ToServiceLinearConfigurationOutput() ServiceLinearConfigurationOutput {
+	return o
+}
+
+func (o ServiceLinearConfigurationOutput) ToServiceLinearConfigurationOutputWithContext(ctx context.Context) ServiceLinearConfigurationOutput {
+	return o
+}
+
+func (o ServiceLinearConfigurationOutput) ToServiceLinearConfigurationPtrOutput() ServiceLinearConfigurationPtrOutput {
+	return o.ToServiceLinearConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLinearConfigurationOutput) ToServiceLinearConfigurationPtrOutputWithContext(ctx context.Context) ServiceLinearConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLinearConfiguration) *ServiceLinearConfiguration {
+		return &v
+	}).(ServiceLinearConfigurationPtrOutput)
+}
+
+func (o ServiceLinearConfigurationOutput) StepBakeTimeInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceLinearConfiguration) *int { return v.StepBakeTimeInMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceLinearConfigurationOutput) StepPercent() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ServiceLinearConfiguration) *float64 { return v.StepPercent }).(pulumi.Float64PtrOutput)
+}
+
+type ServiceLinearConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLinearConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLinearConfiguration)(nil)).Elem()
+}
+
+func (o ServiceLinearConfigurationPtrOutput) ToServiceLinearConfigurationPtrOutput() ServiceLinearConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceLinearConfigurationPtrOutput) ToServiceLinearConfigurationPtrOutputWithContext(ctx context.Context) ServiceLinearConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceLinearConfigurationPtrOutput) Elem() ServiceLinearConfigurationOutput {
+	return o.ApplyT(func(v *ServiceLinearConfiguration) ServiceLinearConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLinearConfiguration
+		return ret
+	}).(ServiceLinearConfigurationOutput)
+}
+
+func (o ServiceLinearConfigurationPtrOutput) StepBakeTimeInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceLinearConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StepBakeTimeInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceLinearConfigurationPtrOutput) StepPercent() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ServiceLinearConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.StepPercent
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The “LoadBalancer“ property specifies details on a load balancer that is used with a service.
@@ -17136,8 +17601,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAdvancedConfigurationPtrInput)(nil)).Elem(), ServiceAdvancedConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationInput)(nil)).Elem(), ServiceAwsVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationPtrInput)(nil)).Elem(), ServiceAwsVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCanaryConfigurationInput)(nil)).Elem(), ServiceCanaryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCanaryConfigurationPtrInput)(nil)).Elem(), ServiceCanaryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCapacityProviderStrategyItemInput)(nil)).Elem(), ServiceCapacityProviderStrategyItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCapacityProviderStrategyItemArrayInput)(nil)).Elem(), ServiceCapacityProviderStrategyItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectAccessLogConfigurationInput)(nil)).Elem(), ServiceConnectAccessLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectAccessLogConfigurationPtrInput)(nil)).Elem(), ServiceConnectAccessLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectClientAliasInput)(nil)).Elem(), ServiceConnectClientAliasArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectClientAliasArrayInput)(nil)).Elem(), ServiceConnectClientAliasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectConfigurationInput)(nil)).Elem(), ServiceConnectConfigurationArgs{})
@@ -17168,6 +17637,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEbsTagSpecificationArrayInput)(nil)).Elem(), ServiceEbsTagSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceForceNewDeploymentInput)(nil)).Elem(), ServiceForceNewDeploymentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceForceNewDeploymentPtrInput)(nil)).Elem(), ServiceForceNewDeploymentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLinearConfigurationInput)(nil)).Elem(), ServiceLinearConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLinearConfigurationPtrInput)(nil)).Elem(), ServiceLinearConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadBalancerInput)(nil)).Elem(), ServiceLoadBalancerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadBalancerArrayInput)(nil)).Elem(), ServiceLoadBalancerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLogConfigurationInput)(nil)).Elem(), ServiceLogConfigurationArgs{})
@@ -17322,8 +17793,12 @@ func init() {
 	pulumi.RegisterOutputType(ServiceAdvancedConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceCanaryConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceCanaryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCapacityProviderStrategyItemOutput{})
 	pulumi.RegisterOutputType(ServiceCapacityProviderStrategyItemArrayOutput{})
+	pulumi.RegisterOutputType(ServiceConnectAccessLogConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceConnectAccessLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceConnectClientAliasOutput{})
 	pulumi.RegisterOutputType(ServiceConnectClientAliasArrayOutput{})
 	pulumi.RegisterOutputType(ServiceConnectConfigurationOutput{})
@@ -17354,6 +17829,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceEbsTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(ServiceForceNewDeploymentOutput{})
 	pulumi.RegisterOutputType(ServiceForceNewDeploymentPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLinearConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceLinearConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLoadBalancerOutput{})
 	pulumi.RegisterOutputType(ServiceLoadBalancerArrayOutput{})
 	pulumi.RegisterOutputType(ServiceLogConfigurationOutput{})

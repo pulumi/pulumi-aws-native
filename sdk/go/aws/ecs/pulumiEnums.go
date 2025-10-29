@@ -3154,6 +3154,336 @@ func (in *serviceAwsVpcConfigurationAssignPublicIpPtr) ToServiceAwsVpcConfigurat
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
 
+type ServiceConnectAccessLogConfigurationFormat string
+
+const (
+	ServiceConnectAccessLogConfigurationFormatText = ServiceConnectAccessLogConfigurationFormat("TEXT")
+	ServiceConnectAccessLogConfigurationFormatJson = ServiceConnectAccessLogConfigurationFormat("JSON")
+)
+
+func (ServiceConnectAccessLogConfigurationFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectAccessLogConfigurationFormat)(nil)).Elem()
+}
+
+func (e ServiceConnectAccessLogConfigurationFormat) ToServiceConnectAccessLogConfigurationFormatOutput() ServiceConnectAccessLogConfigurationFormatOutput {
+	return pulumi.ToOutput(e).(ServiceConnectAccessLogConfigurationFormatOutput)
+}
+
+func (e ServiceConnectAccessLogConfigurationFormat) ToServiceConnectAccessLogConfigurationFormatOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceConnectAccessLogConfigurationFormatOutput)
+}
+
+func (e ServiceConnectAccessLogConfigurationFormat) ToServiceConnectAccessLogConfigurationFormatPtrOutput() ServiceConnectAccessLogConfigurationFormatPtrOutput {
+	return e.ToServiceConnectAccessLogConfigurationFormatPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceConnectAccessLogConfigurationFormat) ToServiceConnectAccessLogConfigurationFormatPtrOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationFormatPtrOutput {
+	return ServiceConnectAccessLogConfigurationFormat(e).ToServiceConnectAccessLogConfigurationFormatOutputWithContext(ctx).ToServiceConnectAccessLogConfigurationFormatPtrOutputWithContext(ctx)
+}
+
+func (e ServiceConnectAccessLogConfigurationFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceConnectAccessLogConfigurationFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceConnectAccessLogConfigurationFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceConnectAccessLogConfigurationFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceConnectAccessLogConfigurationFormatOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectAccessLogConfigurationFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectAccessLogConfigurationFormat)(nil)).Elem()
+}
+
+func (o ServiceConnectAccessLogConfigurationFormatOutput) ToServiceConnectAccessLogConfigurationFormatOutput() ServiceConnectAccessLogConfigurationFormatOutput {
+	return o
+}
+
+func (o ServiceConnectAccessLogConfigurationFormatOutput) ToServiceConnectAccessLogConfigurationFormatOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationFormatOutput {
+	return o
+}
+
+func (o ServiceConnectAccessLogConfigurationFormatOutput) ToServiceConnectAccessLogConfigurationFormatPtrOutput() ServiceConnectAccessLogConfigurationFormatPtrOutput {
+	return o.ToServiceConnectAccessLogConfigurationFormatPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceConnectAccessLogConfigurationFormatOutput) ToServiceConnectAccessLogConfigurationFormatPtrOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceConnectAccessLogConfigurationFormat) *ServiceConnectAccessLogConfigurationFormat {
+		return &v
+	}).(ServiceConnectAccessLogConfigurationFormatPtrOutput)
+}
+
+func (o ServiceConnectAccessLogConfigurationFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceConnectAccessLogConfigurationFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceConnectAccessLogConfigurationFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceConnectAccessLogConfigurationFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceConnectAccessLogConfigurationFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceConnectAccessLogConfigurationFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceConnectAccessLogConfigurationFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectAccessLogConfigurationFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConnectAccessLogConfigurationFormat)(nil)).Elem()
+}
+
+func (o ServiceConnectAccessLogConfigurationFormatPtrOutput) ToServiceConnectAccessLogConfigurationFormatPtrOutput() ServiceConnectAccessLogConfigurationFormatPtrOutput {
+	return o
+}
+
+func (o ServiceConnectAccessLogConfigurationFormatPtrOutput) ToServiceConnectAccessLogConfigurationFormatPtrOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationFormatPtrOutput {
+	return o
+}
+
+func (o ServiceConnectAccessLogConfigurationFormatPtrOutput) Elem() ServiceConnectAccessLogConfigurationFormatOutput {
+	return o.ApplyT(func(v *ServiceConnectAccessLogConfigurationFormat) ServiceConnectAccessLogConfigurationFormat {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceConnectAccessLogConfigurationFormat
+		return ret
+	}).(ServiceConnectAccessLogConfigurationFormatOutput)
+}
+
+func (o ServiceConnectAccessLogConfigurationFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceConnectAccessLogConfigurationFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceConnectAccessLogConfigurationFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceConnectAccessLogConfigurationFormatInput is an input type that accepts values of the ServiceConnectAccessLogConfigurationFormat enum
+// A concrete instance of `ServiceConnectAccessLogConfigurationFormatInput` can be one of the following:
+//
+//	ServiceConnectAccessLogConfigurationFormatText
+//	ServiceConnectAccessLogConfigurationFormatJson
+type ServiceConnectAccessLogConfigurationFormatInput interface {
+	pulumi.Input
+
+	ToServiceConnectAccessLogConfigurationFormatOutput() ServiceConnectAccessLogConfigurationFormatOutput
+	ToServiceConnectAccessLogConfigurationFormatOutputWithContext(context.Context) ServiceConnectAccessLogConfigurationFormatOutput
+}
+
+var serviceConnectAccessLogConfigurationFormatPtrType = reflect.TypeOf((**ServiceConnectAccessLogConfigurationFormat)(nil)).Elem()
+
+type ServiceConnectAccessLogConfigurationFormatPtrInput interface {
+	pulumi.Input
+
+	ToServiceConnectAccessLogConfigurationFormatPtrOutput() ServiceConnectAccessLogConfigurationFormatPtrOutput
+	ToServiceConnectAccessLogConfigurationFormatPtrOutputWithContext(context.Context) ServiceConnectAccessLogConfigurationFormatPtrOutput
+}
+
+type serviceConnectAccessLogConfigurationFormatPtr string
+
+func ServiceConnectAccessLogConfigurationFormatPtr(v string) ServiceConnectAccessLogConfigurationFormatPtrInput {
+	return (*serviceConnectAccessLogConfigurationFormatPtr)(&v)
+}
+
+func (*serviceConnectAccessLogConfigurationFormatPtr) ElementType() reflect.Type {
+	return serviceConnectAccessLogConfigurationFormatPtrType
+}
+
+func (in *serviceConnectAccessLogConfigurationFormatPtr) ToServiceConnectAccessLogConfigurationFormatPtrOutput() ServiceConnectAccessLogConfigurationFormatPtrOutput {
+	return pulumi.ToOutput(in).(ServiceConnectAccessLogConfigurationFormatPtrOutput)
+}
+
+func (in *serviceConnectAccessLogConfigurationFormatPtr) ToServiceConnectAccessLogConfigurationFormatPtrOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceConnectAccessLogConfigurationFormatPtrOutput)
+}
+
+type ServiceConnectAccessLogConfigurationIncludeQueryParameters string
+
+const (
+	ServiceConnectAccessLogConfigurationIncludeQueryParametersDisabled = ServiceConnectAccessLogConfigurationIncludeQueryParameters("DISABLED")
+	ServiceConnectAccessLogConfigurationIncludeQueryParametersEnabled  = ServiceConnectAccessLogConfigurationIncludeQueryParameters("ENABLED")
+)
+
+func (ServiceConnectAccessLogConfigurationIncludeQueryParameters) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectAccessLogConfigurationIncludeQueryParameters)(nil)).Elem()
+}
+
+func (e ServiceConnectAccessLogConfigurationIncludeQueryParameters) ToServiceConnectAccessLogConfigurationIncludeQueryParametersOutput() ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput {
+	return pulumi.ToOutput(e).(ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput)
+}
+
+func (e ServiceConnectAccessLogConfigurationIncludeQueryParameters) ToServiceConnectAccessLogConfigurationIncludeQueryParametersOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput)
+}
+
+func (e ServiceConnectAccessLogConfigurationIncludeQueryParameters) ToServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput() ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput {
+	return e.ToServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceConnectAccessLogConfigurationIncludeQueryParameters) ToServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput {
+	return ServiceConnectAccessLogConfigurationIncludeQueryParameters(e).ToServiceConnectAccessLogConfigurationIncludeQueryParametersOutputWithContext(ctx).ToServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutputWithContext(ctx)
+}
+
+func (e ServiceConnectAccessLogConfigurationIncludeQueryParameters) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceConnectAccessLogConfigurationIncludeQueryParameters) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceConnectAccessLogConfigurationIncludeQueryParameters) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceConnectAccessLogConfigurationIncludeQueryParameters) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectAccessLogConfigurationIncludeQueryParameters)(nil)).Elem()
+}
+
+func (o ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput) ToServiceConnectAccessLogConfigurationIncludeQueryParametersOutput() ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput {
+	return o
+}
+
+func (o ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput) ToServiceConnectAccessLogConfigurationIncludeQueryParametersOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput {
+	return o
+}
+
+func (o ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput) ToServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput() ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput {
+	return o.ToServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput) ToServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceConnectAccessLogConfigurationIncludeQueryParameters) *ServiceConnectAccessLogConfigurationIncludeQueryParameters {
+		return &v
+	}).(ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput)
+}
+
+func (o ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceConnectAccessLogConfigurationIncludeQueryParameters) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceConnectAccessLogConfigurationIncludeQueryParameters) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConnectAccessLogConfigurationIncludeQueryParameters)(nil)).Elem()
+}
+
+func (o ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput) ToServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput() ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput {
+	return o
+}
+
+func (o ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput) ToServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput {
+	return o
+}
+
+func (o ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput) Elem() ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput {
+	return o.ApplyT(func(v *ServiceConnectAccessLogConfigurationIncludeQueryParameters) ServiceConnectAccessLogConfigurationIncludeQueryParameters {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceConnectAccessLogConfigurationIncludeQueryParameters
+		return ret
+	}).(ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput)
+}
+
+func (o ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceConnectAccessLogConfigurationIncludeQueryParameters) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceConnectAccessLogConfigurationIncludeQueryParametersInput is an input type that accepts values of the ServiceConnectAccessLogConfigurationIncludeQueryParameters enum
+// A concrete instance of `ServiceConnectAccessLogConfigurationIncludeQueryParametersInput` can be one of the following:
+//
+//	ServiceConnectAccessLogConfigurationIncludeQueryParametersDisabled
+//	ServiceConnectAccessLogConfigurationIncludeQueryParametersEnabled
+type ServiceConnectAccessLogConfigurationIncludeQueryParametersInput interface {
+	pulumi.Input
+
+	ToServiceConnectAccessLogConfigurationIncludeQueryParametersOutput() ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput
+	ToServiceConnectAccessLogConfigurationIncludeQueryParametersOutputWithContext(context.Context) ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput
+}
+
+var serviceConnectAccessLogConfigurationIncludeQueryParametersPtrType = reflect.TypeOf((**ServiceConnectAccessLogConfigurationIncludeQueryParameters)(nil)).Elem()
+
+type ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrInput interface {
+	pulumi.Input
+
+	ToServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput() ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput
+	ToServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutputWithContext(context.Context) ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput
+}
+
+type serviceConnectAccessLogConfigurationIncludeQueryParametersPtr string
+
+func ServiceConnectAccessLogConfigurationIncludeQueryParametersPtr(v string) ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrInput {
+	return (*serviceConnectAccessLogConfigurationIncludeQueryParametersPtr)(&v)
+}
+
+func (*serviceConnectAccessLogConfigurationIncludeQueryParametersPtr) ElementType() reflect.Type {
+	return serviceConnectAccessLogConfigurationIncludeQueryParametersPtrType
+}
+
+func (in *serviceConnectAccessLogConfigurationIncludeQueryParametersPtr) ToServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput() ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput {
+	return pulumi.ToOutput(in).(ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput)
+}
+
+func (in *serviceConnectAccessLogConfigurationIncludeQueryParametersPtr) ToServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutputWithContext(ctx context.Context) ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput)
+}
+
 // The deployment strategy for the service. Choose from these valid values:
 //   - “ROLLING“ - When you create a service which uses the rolling update (“ROLLING“) deployment strategy, the Amazon ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration.
 //   - “BLUE_GREEN“ - A blue/green deployment strategy (“BLUE_GREEN“) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With Amazon ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
@@ -5967,6 +6297,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAvailabilityZoneRebalancingPtrInput)(nil)).Elem(), ServiceAvailabilityZoneRebalancing("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationAssignPublicIpInput)(nil)).Elem(), ServiceAwsVpcConfigurationAssignPublicIp("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationAssignPublicIpPtrInput)(nil)).Elem(), ServiceAwsVpcConfigurationAssignPublicIp("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectAccessLogConfigurationFormatInput)(nil)).Elem(), ServiceConnectAccessLogConfigurationFormat("TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectAccessLogConfigurationFormatPtrInput)(nil)).Elem(), ServiceConnectAccessLogConfigurationFormat("TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectAccessLogConfigurationIncludeQueryParametersInput)(nil)).Elem(), ServiceConnectAccessLogConfigurationIncludeQueryParameters("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrInput)(nil)).Elem(), ServiceConnectAccessLogConfigurationIncludeQueryParameters("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationStrategyInput)(nil)).Elem(), ServiceDeploymentConfigurationStrategy("ROLLING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationStrategyPtrInput)(nil)).Elem(), ServiceDeploymentConfigurationStrategy("ROLLING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerTypeInput)(nil)).Elem(), ServiceDeploymentControllerType("CODE_DEPLOY"))
@@ -6040,6 +6374,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceAvailabilityZoneRebalancingPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationAssignPublicIpOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput{})
+	pulumi.RegisterOutputType(ServiceConnectAccessLogConfigurationFormatOutput{})
+	pulumi.RegisterOutputType(ServiceConnectAccessLogConfigurationFormatPtrOutput{})
+	pulumi.RegisterOutputType(ServiceConnectAccessLogConfigurationIncludeQueryParametersOutput{})
+	pulumi.RegisterOutputType(ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationStrategyOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationStrategyPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerTypeOutput{})

@@ -139,6 +139,22 @@
       "maxLength" : 128,
       "pattern" : "[a-zA-Z0-9_\\+=\\.\\-@]+"
     },
+    "ComputationRule" : {
+      "description" : "The display settings of the Custom Line Item.",
+      "type" : "string",
+      "enum" : [ "CONSOLIDATED" ]
+    },
+    "PresentationDetails" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Service" : {
+          "type" : "string",
+          "pattern" : "^[a-zA-Z0-9]+$"
+        }
+      },
+      "required" : [ "Service" ]
+    },
     "Description" : {
       "type" : "string",
       "maxLength" : 255
@@ -205,7 +221,7 @@
   },
   "required" : [ "Name", "BillingGroupArn" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationTime", "/properties/LastModifiedTime", "/properties/AssociationSize", "/properties/CurrencyCode", "/properties/ProductCode" ],
-  "createOnlyProperties" : [ "/properties/BillingGroupArn", "/properties/AccountId", "/properties/BillingPeriodRange/InclusiveStartBillingPeriod", "/properties/BillingPeriodRange/ExclusiveEndBillingPeriod", "/properties/CustomLineItemChargeDetails/Type" ],
+  "createOnlyProperties" : [ "/properties/BillingGroupArn", "/properties/AccountId", "/properties/ComputationRule", "/properties/PresentationDetails", "/properties/BillingPeriodRange/InclusiveStartBillingPeriod", "/properties/BillingPeriodRange/ExclusiveEndBillingPeriod", "/properties/CustomLineItemChargeDetails/Type" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {

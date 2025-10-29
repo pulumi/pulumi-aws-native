@@ -7,8 +7,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_link import *
 from .get_requester_gateway import *
 from .get_responder_gateway import *
+from .link import *
 from .requester_gateway import *
 from .responder_gateway import *
 from ._inputs import *

@@ -8,6 +8,131 @@ using Pulumi;
 namespace Pulumi.AwsNative.RtbFabric
 {
     [EnumType]
+    public readonly struct LinkDirection : IEquatable<LinkDirection>
+    {
+        private readonly string _value;
+
+        private LinkDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LinkDirection Request { get; } = new LinkDirection("REQUEST");
+        public static LinkDirection Response { get; } = new LinkDirection("RESPONSE");
+
+        public static bool operator ==(LinkDirection left, LinkDirection right) => left.Equals(right);
+        public static bool operator !=(LinkDirection left, LinkDirection right) => !left.Equals(right);
+
+        public static explicit operator string(LinkDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LinkDirection other && Equals(other);
+        public bool Equals(LinkDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct LinkResponderErrorMaskingForHttpCodeAction : IEquatable<LinkResponderErrorMaskingForHttpCodeAction>
+    {
+        private readonly string _value;
+
+        private LinkResponderErrorMaskingForHttpCodeAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LinkResponderErrorMaskingForHttpCodeAction NoBid { get; } = new LinkResponderErrorMaskingForHttpCodeAction("NO_BID");
+        public static LinkResponderErrorMaskingForHttpCodeAction Passthrough { get; } = new LinkResponderErrorMaskingForHttpCodeAction("PASSTHROUGH");
+
+        public static bool operator ==(LinkResponderErrorMaskingForHttpCodeAction left, LinkResponderErrorMaskingForHttpCodeAction right) => left.Equals(right);
+        public static bool operator !=(LinkResponderErrorMaskingForHttpCodeAction left, LinkResponderErrorMaskingForHttpCodeAction right) => !left.Equals(right);
+
+        public static explicit operator string(LinkResponderErrorMaskingForHttpCodeAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LinkResponderErrorMaskingForHttpCodeAction other && Equals(other);
+        public bool Equals(LinkResponderErrorMaskingForHttpCodeAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct LinkResponderErrorMaskingLoggingType : IEquatable<LinkResponderErrorMaskingLoggingType>
+    {
+        private readonly string _value;
+
+        private LinkResponderErrorMaskingLoggingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LinkResponderErrorMaskingLoggingType None { get; } = new LinkResponderErrorMaskingLoggingType("NONE");
+        public static LinkResponderErrorMaskingLoggingType Metric { get; } = new LinkResponderErrorMaskingLoggingType("METRIC");
+        public static LinkResponderErrorMaskingLoggingType Response { get; } = new LinkResponderErrorMaskingLoggingType("RESPONSE");
+
+        public static bool operator ==(LinkResponderErrorMaskingLoggingType left, LinkResponderErrorMaskingLoggingType right) => left.Equals(right);
+        public static bool operator !=(LinkResponderErrorMaskingLoggingType left, LinkResponderErrorMaskingLoggingType right) => !left.Equals(right);
+
+        public static explicit operator string(LinkResponderErrorMaskingLoggingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LinkResponderErrorMaskingLoggingType other && Equals(other);
+        public bool Equals(LinkResponderErrorMaskingLoggingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct LinkStatus : IEquatable<LinkStatus>
+    {
+        private readonly string _value;
+
+        private LinkStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LinkStatus PendingCreation { get; } = new LinkStatus("PENDING_CREATION");
+        public static LinkStatus PendingRequest { get; } = new LinkStatus("PENDING_REQUEST");
+        public static LinkStatus Requested { get; } = new LinkStatus("REQUESTED");
+        public static LinkStatus Accepted { get; } = new LinkStatus("ACCEPTED");
+        public static LinkStatus Active { get; } = new LinkStatus("ACTIVE");
+        public static LinkStatus Declined { get; } = new LinkStatus("DECLINED");
+        public static LinkStatus Failed { get; } = new LinkStatus("FAILED");
+        public static LinkStatus PendingDeletion { get; } = new LinkStatus("PENDING_DELETION");
+        public static LinkStatus Deleted { get; } = new LinkStatus("DELETED");
+        public static LinkStatus PendingUpdate { get; } = new LinkStatus("PENDING_UPDATE");
+        public static LinkStatus PendingIsolation { get; } = new LinkStatus("PENDING_ISOLATION");
+        public static LinkStatus Isolated { get; } = new LinkStatus("ISOLATED");
+        public static LinkStatus PendingRestoration { get; } = new LinkStatus("PENDING_RESTORATION");
+        public static LinkStatus UnknownToSdkVersion { get; } = new LinkStatus("UNKNOWN_TO_SDK_VERSION");
+
+        public static bool operator ==(LinkStatus left, LinkStatus right) => left.Equals(right);
+        public static bool operator !=(LinkStatus left, LinkStatus right) => !left.Equals(right);
+
+        public static explicit operator string(LinkStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LinkStatus other && Equals(other);
+        public bool Equals(LinkStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct RequesterGatewayStatus : IEquatable<RequesterGatewayStatus>
     {
         private readonly string _value;

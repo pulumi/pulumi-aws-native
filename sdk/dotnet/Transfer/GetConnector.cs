@@ -80,6 +80,14 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         public readonly string? ConnectorId;
         /// <summary>
+        /// Egress configuration for the connector.
+        /// </summary>
+        public readonly Outputs.ConnectorEgressConfig? EgressConfig;
+        /// <summary>
+        /// Specifies the egress type for the connector.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Transfer.ConnectorEgressType? EgressType;
+        /// <summary>
         /// Specifies the logging role for the connector.
         /// </summary>
         public readonly string? LoggingRole;
@@ -95,6 +103,7 @@ namespace Pulumi.AwsNative.Transfer
         /// Configuration for an SFTP connector.
         /// </summary>
         public readonly Outputs.SftpConfigProperties? SftpConfig;
+        public readonly Pulumi.AwsNative.Transfer.ConnectorStatus? Status;
         /// <summary>
         /// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         /// </summary>
@@ -114,6 +123,10 @@ namespace Pulumi.AwsNative.Transfer
 
             string? connectorId,
 
+            Outputs.ConnectorEgressConfig? egressConfig,
+
+            Pulumi.AwsNative.Transfer.ConnectorEgressType? egressType,
+
             string? loggingRole,
 
             string? securityPolicyName,
@@ -121,6 +134,8 @@ namespace Pulumi.AwsNative.Transfer
             ImmutableArray<string> serviceManagedEgressIpAddresses,
 
             Outputs.SftpConfigProperties? sftpConfig,
+
+            Pulumi.AwsNative.Transfer.ConnectorStatus? status,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
@@ -130,10 +145,13 @@ namespace Pulumi.AwsNative.Transfer
             Arn = arn;
             As2Config = as2Config;
             ConnectorId = connectorId;
+            EgressConfig = egressConfig;
+            EgressType = egressType;
             LoggingRole = loggingRole;
             SecurityPolicyName = securityPolicyName;
             ServiceManagedEgressIpAddresses = serviceManagedEgressIpAddresses;
             SftpConfig = sftpConfig;
+            Status = status;
             Tags = tags;
             Url = url;
         }

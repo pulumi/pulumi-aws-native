@@ -1875,6 +1875,262 @@ func (in *connectorAs2ConfigPropertiesSigningAlgorithmPtr) ToConnectorAs2ConfigP
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput)
 }
 
+type ConnectorEgressType string
+
+const (
+	ConnectorEgressTypeServiceManaged = ConnectorEgressType("SERVICE_MANAGED")
+	ConnectorEgressTypeVpcLattice     = ConnectorEgressType("VPC_LATTICE")
+)
+
+func (ConnectorEgressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorEgressType)(nil)).Elem()
+}
+
+func (e ConnectorEgressType) ToConnectorEgressTypeOutput() ConnectorEgressTypeOutput {
+	return pulumi.ToOutput(e).(ConnectorEgressTypeOutput)
+}
+
+func (e ConnectorEgressType) ToConnectorEgressTypeOutputWithContext(ctx context.Context) ConnectorEgressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectorEgressTypeOutput)
+}
+
+func (e ConnectorEgressType) ToConnectorEgressTypePtrOutput() ConnectorEgressTypePtrOutput {
+	return e.ToConnectorEgressTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorEgressType) ToConnectorEgressTypePtrOutputWithContext(ctx context.Context) ConnectorEgressTypePtrOutput {
+	return ConnectorEgressType(e).ToConnectorEgressTypeOutputWithContext(ctx).ToConnectorEgressTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectorEgressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorEgressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorEgressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorEgressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectorEgressTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectorEgressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorEgressType)(nil)).Elem()
+}
+
+func (o ConnectorEgressTypeOutput) ToConnectorEgressTypeOutput() ConnectorEgressTypeOutput {
+	return o
+}
+
+func (o ConnectorEgressTypeOutput) ToConnectorEgressTypeOutputWithContext(ctx context.Context) ConnectorEgressTypeOutput {
+	return o
+}
+
+func (o ConnectorEgressTypeOutput) ToConnectorEgressTypePtrOutput() ConnectorEgressTypePtrOutput {
+	return o.ToConnectorEgressTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorEgressTypeOutput) ToConnectorEgressTypePtrOutputWithContext(ctx context.Context) ConnectorEgressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorEgressType) *ConnectorEgressType {
+		return &v
+	}).(ConnectorEgressTypePtrOutput)
+}
+
+func (o ConnectorEgressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectorEgressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorEgressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectorEgressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorEgressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorEgressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorEgressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorEgressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorEgressType)(nil)).Elem()
+}
+
+func (o ConnectorEgressTypePtrOutput) ToConnectorEgressTypePtrOutput() ConnectorEgressTypePtrOutput {
+	return o
+}
+
+func (o ConnectorEgressTypePtrOutput) ToConnectorEgressTypePtrOutputWithContext(ctx context.Context) ConnectorEgressTypePtrOutput {
+	return o
+}
+
+func (o ConnectorEgressTypePtrOutput) Elem() ConnectorEgressTypeOutput {
+	return o.ApplyT(func(v *ConnectorEgressType) ConnectorEgressType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorEgressType
+		return ret
+	}).(ConnectorEgressTypeOutput)
+}
+
+func (o ConnectorEgressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorEgressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorEgressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectorEgressTypeInput is an input type that accepts values of the ConnectorEgressType enum
+// A concrete instance of `ConnectorEgressTypeInput` can be one of the following:
+//
+//	ConnectorEgressTypeServiceManaged
+//	ConnectorEgressTypeVpcLattice
+type ConnectorEgressTypeInput interface {
+	pulumi.Input
+
+	ToConnectorEgressTypeOutput() ConnectorEgressTypeOutput
+	ToConnectorEgressTypeOutputWithContext(context.Context) ConnectorEgressTypeOutput
+}
+
+var connectorEgressTypePtrType = reflect.TypeOf((**ConnectorEgressType)(nil)).Elem()
+
+type ConnectorEgressTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectorEgressTypePtrOutput() ConnectorEgressTypePtrOutput
+	ToConnectorEgressTypePtrOutputWithContext(context.Context) ConnectorEgressTypePtrOutput
+}
+
+type connectorEgressTypePtr string
+
+func ConnectorEgressTypePtr(v string) ConnectorEgressTypePtrInput {
+	return (*connectorEgressTypePtr)(&v)
+}
+
+func (*connectorEgressTypePtr) ElementType() reflect.Type {
+	return connectorEgressTypePtrType
+}
+
+func (in *connectorEgressTypePtr) ToConnectorEgressTypePtrOutput() ConnectorEgressTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectorEgressTypePtrOutput)
+}
+
+func (in *connectorEgressTypePtr) ToConnectorEgressTypePtrOutputWithContext(ctx context.Context) ConnectorEgressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectorEgressTypePtrOutput)
+}
+
+type ConnectorStatus string
+
+const (
+	ConnectorStatusActive  = ConnectorStatus("ACTIVE")
+	ConnectorStatusPending = ConnectorStatus("PENDING")
+	ConnectorStatusErrored = ConnectorStatus("ERRORED")
+)
+
+type ConnectorStatusOutput struct{ *pulumi.OutputState }
+
+func (ConnectorStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorStatus)(nil)).Elem()
+}
+
+func (o ConnectorStatusOutput) ToConnectorStatusOutput() ConnectorStatusOutput {
+	return o
+}
+
+func (o ConnectorStatusOutput) ToConnectorStatusOutputWithContext(ctx context.Context) ConnectorStatusOutput {
+	return o
+}
+
+func (o ConnectorStatusOutput) ToConnectorStatusPtrOutput() ConnectorStatusPtrOutput {
+	return o.ToConnectorStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorStatusOutput) ToConnectorStatusPtrOutputWithContext(ctx context.Context) ConnectorStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorStatus) *ConnectorStatus {
+		return &v
+	}).(ConnectorStatusPtrOutput)
+}
+
+func (o ConnectorStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectorStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectorStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorStatus)(nil)).Elem()
+}
+
+func (o ConnectorStatusPtrOutput) ToConnectorStatusPtrOutput() ConnectorStatusPtrOutput {
+	return o
+}
+
+func (o ConnectorStatusPtrOutput) ToConnectorStatusPtrOutputWithContext(ctx context.Context) ConnectorStatusPtrOutput {
+	return o
+}
+
+func (o ConnectorStatusPtrOutput) Elem() ConnectorStatusOutput {
+	return o.ApplyT(func(v *ConnectorStatus) ConnectorStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorStatus
+		return ret
+	}).(ConnectorStatusOutput)
+}
+
+func (o ConnectorStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Enum specifying whether the profile is local or associated with a trading partner.
 type ProfileType string
 
@@ -5073,6 +5329,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigPropertiesPreserveContentTypePtrInput)(nil)).Elem(), ConnectorAs2ConfigPropertiesPreserveContentType("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigPropertiesSigningAlgorithmInput)(nil)).Elem(), ConnectorAs2ConfigPropertiesSigningAlgorithm("SHA256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigPropertiesSigningAlgorithmPtrInput)(nil)).Elem(), ConnectorAs2ConfigPropertiesSigningAlgorithm("SHA256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEgressTypeInput)(nil)).Elem(), ConnectorEgressType("SERVICE_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEgressTypePtrInput)(nil)).Elem(), ConnectorEgressType("SERVICE_MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTypeInput)(nil)).Elem(), ProfileType("LOCAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTypePtrInput)(nil)).Elem(), ProfileType("LOCAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAs2TransportInput)(nil)).Elem(), ServerAs2Transport("HTTP"))
@@ -5135,6 +5393,10 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorAs2ConfigPropertiesPreserveContentTypePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorAs2ConfigPropertiesSigningAlgorithmOutput{})
 	pulumi.RegisterOutputType(ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorEgressTypeOutput{})
+	pulumi.RegisterOutputType(ConnectorEgressTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectorStatusOutput{})
+	pulumi.RegisterOutputType(ConnectorStatusPtrOutput{})
 	pulumi.RegisterOutputType(ProfileTypeOutput{})
 	pulumi.RegisterOutputType(ProfileTypePtrOutput{})
 	pulumi.RegisterOutputType(ServerAs2TransportOutput{})

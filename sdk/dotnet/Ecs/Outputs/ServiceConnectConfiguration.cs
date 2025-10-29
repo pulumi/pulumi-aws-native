@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class ServiceConnectConfiguration
     {
+        public readonly Outputs.ServiceConnectAccessLogConfiguration? AccessLogConfiguration;
         /// <summary>
         /// Specifies whether to use Service Connect with this service.
         /// </summary>
@@ -46,6 +47,8 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
         [OutputConstructor]
         private ServiceConnectConfiguration(
+            Outputs.ServiceConnectAccessLogConfiguration? accessLogConfiguration,
+
             bool enabled,
 
             Outputs.ServiceLogConfiguration? logConfiguration,
@@ -54,6 +57,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
             ImmutableArray<Outputs.ServiceConnectService> services)
         {
+            AccessLogConfiguration = accessLogConfiguration;
             Enabled = enabled;
             LogConfiguration = logConfiguration;
             Namespace = @namespace;

@@ -41,11 +41,7 @@ class BrokerDataReplicationMode0(_builtins.str, Enum):
 @pulumi.type_token("aws-native:amazonmq:BrokerDeploymentMode")
 class BrokerDeploymentMode(_builtins.str, Enum):
     """
-    The deployment mode of the broker. Available values:
-
-    - `SINGLE_INSTANCE`
-    - `ACTIVE_STANDBY_MULTI_AZ`
-    - `CLUSTER_MULTI_AZ`
+    Required. The broker's deployment mode.
     """
     SINGLE_INSTANCE = "SINGLE_INSTANCE"
     ACTIVE_STANDBY_MULTI_AZ = "ACTIVE_STANDBY_MULTI_AZ"
@@ -55,11 +51,7 @@ class BrokerDeploymentMode(_builtins.str, Enum):
 @pulumi.type_token("aws-native:amazonmq:BrokerDeploymentMode0")
 class BrokerDeploymentMode0(_builtins.str, Enum):
     """
-    The deployment mode of the broker. Available values:
-
-    - `SINGLE_INSTANCE`
-    - `ACTIVE_STANDBY_MULTI_AZ`
-    - `CLUSTER_MULTI_AZ`
+    Required. The broker's deployment mode.
     """
     SINGLE_INSTANCE = "SINGLE_INSTANCE"
     ACTIVE_STANDBY_MULTI_AZ = "ACTIVE_STANDBY_MULTI_AZ"
@@ -69,7 +61,7 @@ class BrokerDeploymentMode0(_builtins.str, Enum):
 @pulumi.type_token("aws-native:amazonmq:BrokerEngineType")
 class BrokerEngineType(_builtins.str, Enum):
     """
-    The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
+    Required. The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
     """
     ACTIVEMQ = "ACTIVEMQ"
     RABBITMQ = "RABBITMQ"
@@ -78,7 +70,7 @@ class BrokerEngineType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:amazonmq:BrokerEngineType0")
 class BrokerEngineType0(_builtins.str, Enum):
     """
-    The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
+    Required. The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
     """
     ACTIVEMQ = "ACTIVEMQ"
     RABBITMQ = "RABBITMQ"

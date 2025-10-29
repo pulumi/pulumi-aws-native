@@ -62,7 +62,8 @@ type LookupFirewallResult struct {
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags                       []aws.Tag `pulumi:"tags"`
+	TransitGatewayAttachmentId *string   `pulumi:"transitGatewayAttachmentId"`
 	// The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 }
@@ -170,6 +171,10 @@ func (o LookupFirewallResultOutput) SubnetMappings() FirewallSubnetMappingArrayO
 // For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupFirewallResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupFirewallResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o LookupFirewallResultOutput) TransitGatewayAttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFirewallResult) *string { return v.TransitGatewayAttachmentId }).(pulumi.StringPtrOutput)
 }
 
 // The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.

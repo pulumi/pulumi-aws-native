@@ -19,6 +19,8 @@ __all__ = [
     'ConnectorAs2ConfigPropertiesMdnSigningAlgorithm',
     'ConnectorAs2ConfigPropertiesPreserveContentType',
     'ConnectorAs2ConfigPropertiesSigningAlgorithm',
+    'ConnectorEgressType',
+    'ConnectorStatus',
     'ProfileType',
     'ServerAs2Transport',
     'ServerDirectoryListingOptimization',
@@ -159,6 +161,19 @@ class ConnectorAs2ConfigPropertiesSigningAlgorithm(_builtins.str, Enum):
     SHA512 = "SHA512"
     SHA1 = "SHA1"
     NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:transfer:ConnectorEgressType")
+class ConnectorEgressType(_builtins.str, Enum):
+    SERVICE_MANAGED = "SERVICE_MANAGED"
+    VPC_LATTICE = "VPC_LATTICE"
+
+
+@pulumi.type_token("aws-native:transfer:ConnectorStatus")
+class ConnectorStatus(_builtins.str, Enum):
+    ACTIVE = "ACTIVE"
+    PENDING = "PENDING"
+    ERRORED = "ERRORED"
 
 
 @pulumi.type_token("aws-native:transfer:ProfileType")

@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.DataZone
         /// The identifier of the environment in which the connection is created.
         /// </summary>
         [Output("environmentIdentifier")]
-        public Output<string> EnvironmentIdentifier { get; private set; } = null!;
+        public Output<string?> EnvironmentIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The role of the user in the environment.
@@ -80,6 +80,12 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// The identifier of the project in which the connection should be created. If 
+        /// </summary>
+        [Output("projectIdentifier")]
+        public Output<string?> ProjectIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// Connection props.
@@ -121,6 +127,7 @@ namespace Pulumi.AwsNative.DataZone
                     "domainIdentifier",
                     "environmentIdentifier",
                     "name",
+                    "projectIdentifier",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -165,14 +172,20 @@ namespace Pulumi.AwsNative.DataZone
         /// <summary>
         /// The identifier of the environment in which the connection is created.
         /// </summary>
-        [Input("environmentIdentifier", required: true)]
-        public Input<string> EnvironmentIdentifier { get; set; } = null!;
+        [Input("environmentIdentifier")]
+        public Input<string>? EnvironmentIdentifier { get; set; }
 
         /// <summary>
         /// The name of the connection.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The identifier of the project in which the connection should be created. If 
+        /// </summary>
+        [Input("projectIdentifier")]
+        public Input<string>? ProjectIdentifier { get; set; }
 
         /// <summary>
         /// Connection props.

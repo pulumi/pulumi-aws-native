@@ -9266,6 +9266,139 @@ func (o JobDefinitionResourceRequirementArrayOutput) Index(i pulumi.IntInput) Jo
 	}).(JobDefinitionResourceRequirementOutput)
 }
 
+type JobDefinitionResourceRetentionPolicy struct {
+	SkipDeregisterOnUpdate *bool `pulumi:"skipDeregisterOnUpdate"`
+}
+
+// JobDefinitionResourceRetentionPolicyInput is an input type that accepts JobDefinitionResourceRetentionPolicyArgs and JobDefinitionResourceRetentionPolicyOutput values.
+// You can construct a concrete instance of `JobDefinitionResourceRetentionPolicyInput` via:
+//
+//	JobDefinitionResourceRetentionPolicyArgs{...}
+type JobDefinitionResourceRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToJobDefinitionResourceRetentionPolicyOutput() JobDefinitionResourceRetentionPolicyOutput
+	ToJobDefinitionResourceRetentionPolicyOutputWithContext(context.Context) JobDefinitionResourceRetentionPolicyOutput
+}
+
+type JobDefinitionResourceRetentionPolicyArgs struct {
+	SkipDeregisterOnUpdate pulumi.BoolPtrInput `pulumi:"skipDeregisterOnUpdate"`
+}
+
+func (JobDefinitionResourceRetentionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionResourceRetentionPolicy)(nil)).Elem()
+}
+
+func (i JobDefinitionResourceRetentionPolicyArgs) ToJobDefinitionResourceRetentionPolicyOutput() JobDefinitionResourceRetentionPolicyOutput {
+	return i.ToJobDefinitionResourceRetentionPolicyOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionResourceRetentionPolicyArgs) ToJobDefinitionResourceRetentionPolicyOutputWithContext(ctx context.Context) JobDefinitionResourceRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionResourceRetentionPolicyOutput)
+}
+
+func (i JobDefinitionResourceRetentionPolicyArgs) ToJobDefinitionResourceRetentionPolicyPtrOutput() JobDefinitionResourceRetentionPolicyPtrOutput {
+	return i.ToJobDefinitionResourceRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionResourceRetentionPolicyArgs) ToJobDefinitionResourceRetentionPolicyPtrOutputWithContext(ctx context.Context) JobDefinitionResourceRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionResourceRetentionPolicyOutput).ToJobDefinitionResourceRetentionPolicyPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionResourceRetentionPolicyPtrInput is an input type that accepts JobDefinitionResourceRetentionPolicyArgs, JobDefinitionResourceRetentionPolicyPtr and JobDefinitionResourceRetentionPolicyPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionResourceRetentionPolicyPtrInput` via:
+//
+//	        JobDefinitionResourceRetentionPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionResourceRetentionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionResourceRetentionPolicyPtrOutput() JobDefinitionResourceRetentionPolicyPtrOutput
+	ToJobDefinitionResourceRetentionPolicyPtrOutputWithContext(context.Context) JobDefinitionResourceRetentionPolicyPtrOutput
+}
+
+type jobDefinitionResourceRetentionPolicyPtrType JobDefinitionResourceRetentionPolicyArgs
+
+func JobDefinitionResourceRetentionPolicyPtr(v *JobDefinitionResourceRetentionPolicyArgs) JobDefinitionResourceRetentionPolicyPtrInput {
+	return (*jobDefinitionResourceRetentionPolicyPtrType)(v)
+}
+
+func (*jobDefinitionResourceRetentionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionResourceRetentionPolicy)(nil)).Elem()
+}
+
+func (i *jobDefinitionResourceRetentionPolicyPtrType) ToJobDefinitionResourceRetentionPolicyPtrOutput() JobDefinitionResourceRetentionPolicyPtrOutput {
+	return i.ToJobDefinitionResourceRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionResourceRetentionPolicyPtrType) ToJobDefinitionResourceRetentionPolicyPtrOutputWithContext(ctx context.Context) JobDefinitionResourceRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionResourceRetentionPolicyPtrOutput)
+}
+
+type JobDefinitionResourceRetentionPolicyOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionResourceRetentionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionResourceRetentionPolicy)(nil)).Elem()
+}
+
+func (o JobDefinitionResourceRetentionPolicyOutput) ToJobDefinitionResourceRetentionPolicyOutput() JobDefinitionResourceRetentionPolicyOutput {
+	return o
+}
+
+func (o JobDefinitionResourceRetentionPolicyOutput) ToJobDefinitionResourceRetentionPolicyOutputWithContext(ctx context.Context) JobDefinitionResourceRetentionPolicyOutput {
+	return o
+}
+
+func (o JobDefinitionResourceRetentionPolicyOutput) ToJobDefinitionResourceRetentionPolicyPtrOutput() JobDefinitionResourceRetentionPolicyPtrOutput {
+	return o.ToJobDefinitionResourceRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionResourceRetentionPolicyOutput) ToJobDefinitionResourceRetentionPolicyPtrOutputWithContext(ctx context.Context) JobDefinitionResourceRetentionPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionResourceRetentionPolicy) *JobDefinitionResourceRetentionPolicy {
+		return &v
+	}).(JobDefinitionResourceRetentionPolicyPtrOutput)
+}
+
+func (o JobDefinitionResourceRetentionPolicyOutput) SkipDeregisterOnUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionResourceRetentionPolicy) *bool { return v.SkipDeregisterOnUpdate }).(pulumi.BoolPtrOutput)
+}
+
+type JobDefinitionResourceRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionResourceRetentionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionResourceRetentionPolicy)(nil)).Elem()
+}
+
+func (o JobDefinitionResourceRetentionPolicyPtrOutput) ToJobDefinitionResourceRetentionPolicyPtrOutput() JobDefinitionResourceRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o JobDefinitionResourceRetentionPolicyPtrOutput) ToJobDefinitionResourceRetentionPolicyPtrOutputWithContext(ctx context.Context) JobDefinitionResourceRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o JobDefinitionResourceRetentionPolicyPtrOutput) Elem() JobDefinitionResourceRetentionPolicyOutput {
+	return o.ApplyT(func(v *JobDefinitionResourceRetentionPolicy) JobDefinitionResourceRetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionResourceRetentionPolicy
+		return ret
+	}).(JobDefinitionResourceRetentionPolicyOutput)
+}
+
+func (o JobDefinitionResourceRetentionPolicyPtrOutput) SkipDeregisterOnUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionResourceRetentionPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SkipDeregisterOnUpdate
+	}).(pulumi.BoolPtrOutput)
+}
+
 type JobDefinitionRetryStrategy struct {
 	// The number of times to move a job to the `RUNNABLE` status. You can specify between 1 and 10 attempts. If the value of `attempts` is greater than one, the job is retried on failure the same number of attempts as the value.
 	Attempts *int `pulumi:"attempts"`
@@ -11567,6 +11700,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRepositoryCredentialsPtrInput)(nil)).Elem(), JobDefinitionRepositoryCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionResourceRequirementInput)(nil)).Elem(), JobDefinitionResourceRequirementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionResourceRequirementArrayInput)(nil)).Elem(), JobDefinitionResourceRequirementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionResourceRetentionPolicyInput)(nil)).Elem(), JobDefinitionResourceRetentionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionResourceRetentionPolicyPtrInput)(nil)).Elem(), JobDefinitionResourceRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRetryStrategyInput)(nil)).Elem(), JobDefinitionRetryStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRetryStrategyPtrInput)(nil)).Elem(), JobDefinitionRetryStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRuntimePlatformInput)(nil)).Elem(), JobDefinitionRuntimePlatformArgs{})
@@ -11687,6 +11822,8 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionRepositoryCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionResourceRequirementOutput{})
 	pulumi.RegisterOutputType(JobDefinitionResourceRequirementArrayOutput{})
+	pulumi.RegisterOutputType(JobDefinitionResourceRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(JobDefinitionResourceRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRuntimePlatformOutput{})

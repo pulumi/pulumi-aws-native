@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AmazonMq.Inputs
     public sealed class BrokerConfigurationIdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique ID that Amazon MQ generates for the configuration.
+        /// Required. The unique ID that Amazon MQ generates for the configuration.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

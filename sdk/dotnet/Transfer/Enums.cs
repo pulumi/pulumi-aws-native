@@ -391,6 +391,63 @@ namespace Pulumi.AwsNative.Transfer
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ConnectorEgressType : IEquatable<ConnectorEgressType>
+    {
+        private readonly string _value;
+
+        private ConnectorEgressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorEgressType ServiceManaged { get; } = new ConnectorEgressType("SERVICE_MANAGED");
+        public static ConnectorEgressType VpcLattice { get; } = new ConnectorEgressType("VPC_LATTICE");
+
+        public static bool operator ==(ConnectorEgressType left, ConnectorEgressType right) => left.Equals(right);
+        public static bool operator !=(ConnectorEgressType left, ConnectorEgressType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorEgressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorEgressType other && Equals(other);
+        public bool Equals(ConnectorEgressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ConnectorStatus : IEquatable<ConnectorStatus>
+    {
+        private readonly string _value;
+
+        private ConnectorStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorStatus Active { get; } = new ConnectorStatus("ACTIVE");
+        public static ConnectorStatus Pending { get; } = new ConnectorStatus("PENDING");
+        public static ConnectorStatus Errored { get; } = new ConnectorStatus("ERRORED");
+
+        public static bool operator ==(ConnectorStatus left, ConnectorStatus right) => left.Equals(right);
+        public static bool operator !=(ConnectorStatus left, ConnectorStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorStatus other && Equals(other);
+        public bool Equals(ConnectorStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Enum specifying whether the profile is local or associated with a trading partner.
     /// </summary>

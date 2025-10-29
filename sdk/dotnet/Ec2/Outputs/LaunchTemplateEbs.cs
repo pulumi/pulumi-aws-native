@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// <summary>
         /// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
         ///  The following are the supported values for each volume type:
-        ///   +  ``gp3``: 3,000 - 16,000 IOPS
+        ///   +  ``gp3``: 3,000 - 80,000 IOPS
         ///   +  ``io1``: 100 - 64,000 IOPS
         ///   +  ``io2``: 100 - 256,000 IOPS
         ///   
@@ -45,8 +45,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? SnapshotId;
         /// <summary>
-        /// The throughput to provision for a ``gp3`` volume, with a maximum of 1,000 MiB/s.
-        ///  Valid Range: Minimum value of 125. Maximum value of 1000.
+        /// The throughput to provision for a ``gp3`` volume, with a maximum of 2,000 MiB/s.
+        ///  Valid Range: Minimum value of 125. Maximum value of 2,000.
         /// </summary>
         public readonly int? Throughput;
         /// <summary>
@@ -62,7 +62,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly int? VolumeInitializationRate;
         /// <summary>
         /// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
-        ///   +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
+        ///   +  ``gp2``: 1 - 16,384 GiB
+        ///   +  ``gp3``: 1 - 65,536 GiB
         ///   +  ``io1``: 4 - 16,384 GiB
         ///   +  ``io2``: 4 - 65,536 GiB
         ///   +  ``st1`` and ``sc1``: 125 - 16,384 GiB

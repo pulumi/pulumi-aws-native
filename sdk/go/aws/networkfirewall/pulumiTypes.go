@@ -111,6 +111,7 @@ func (o FirewallAvailabilityZoneMappingArrayOutput) Index(i pulumi.IntInput) Fir
 }
 
 type FirewallPolicyType struct {
+	EnableTlsSessionHolding *bool `pulumi:"enableTlsSessionHolding"`
 	// Contains variables that you can use to override default Suricata settings in your firewall policy.
 	PolicyVariables *FirewallPolicyPolicyVariablesProperties `pulumi:"policyVariables"`
 	// The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional, and is only valid when using the strict rule order.
@@ -160,6 +161,7 @@ type FirewallPolicyTypeInput interface {
 }
 
 type FirewallPolicyTypeArgs struct {
+	EnableTlsSessionHolding pulumi.BoolPtrInput `pulumi:"enableTlsSessionHolding"`
 	// Contains variables that you can use to override default Suricata settings in your firewall policy.
 	PolicyVariables FirewallPolicyPolicyVariablesPropertiesPtrInput `pulumi:"policyVariables"`
 	// The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional, and is only valid when using the strict rule order.
@@ -221,6 +223,10 @@ func (o FirewallPolicyTypeOutput) ToFirewallPolicyTypeOutput() FirewallPolicyTyp
 
 func (o FirewallPolicyTypeOutput) ToFirewallPolicyTypeOutputWithContext(ctx context.Context) FirewallPolicyTypeOutput {
 	return o
+}
+
+func (o FirewallPolicyTypeOutput) EnableTlsSessionHolding() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyType) *bool { return v.EnableTlsSessionHolding }).(pulumi.BoolPtrOutput)
 }
 
 // Contains variables that you can use to override default Suricata settings in your firewall policy.
@@ -311,6 +317,15 @@ func (o FirewallPolicyTypePtrOutput) Elem() FirewallPolicyTypeOutput {
 		var ret FirewallPolicyType
 		return ret
 	}).(FirewallPolicyTypeOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) EnableTlsSessionHolding() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableTlsSessionHolding
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Contains variables that you can use to override default Suricata settings in your firewall policy.

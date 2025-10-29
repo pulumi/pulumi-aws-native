@@ -15,8 +15,12 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     {
         /// <summary>
         /// The instance type that the image version runs on.
+        /// 
+        /// &gt; *JupyterServer apps* only support the `system` value.
+        /// &gt; 
+        /// &gt; For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
         /// </summary>
-        public readonly Pulumi.AwsNative.SageMaker.UserProfileResourceSpecInstanceType? InstanceType;
+        public readonly Pulumi.AwsNative.SageMaker.UserProfileAppInstanceType? InstanceType;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
         /// </summary>
@@ -32,7 +36,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private UserProfileResourceSpec(
-            Pulumi.AwsNative.SageMaker.UserProfileResourceSpecInstanceType? instanceType,
+            Pulumi.AwsNative.SageMaker.UserProfileAppInstanceType? instanceType,
 
             string? lifecycleConfigArn,
 

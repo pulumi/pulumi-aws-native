@@ -10,6 +10,336 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The format of the exported capacity manager data. Choose 'csv' for comma-separated values or 'parquet' for optimized columnar storage format.
+type CapacityManagerDataExportOutputFormat string
+
+const (
+	CapacityManagerDataExportOutputFormatCsv     = CapacityManagerDataExportOutputFormat("csv")
+	CapacityManagerDataExportOutputFormatParquet = CapacityManagerDataExportOutputFormat("parquet")
+)
+
+func (CapacityManagerDataExportOutputFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityManagerDataExportOutputFormat)(nil)).Elem()
+}
+
+func (e CapacityManagerDataExportOutputFormat) ToCapacityManagerDataExportOutputFormatOutput() CapacityManagerDataExportOutputFormatOutput {
+	return pulumi.ToOutput(e).(CapacityManagerDataExportOutputFormatOutput)
+}
+
+func (e CapacityManagerDataExportOutputFormat) ToCapacityManagerDataExportOutputFormatOutputWithContext(ctx context.Context) CapacityManagerDataExportOutputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityManagerDataExportOutputFormatOutput)
+}
+
+func (e CapacityManagerDataExportOutputFormat) ToCapacityManagerDataExportOutputFormatPtrOutput() CapacityManagerDataExportOutputFormatPtrOutput {
+	return e.ToCapacityManagerDataExportOutputFormatPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityManagerDataExportOutputFormat) ToCapacityManagerDataExportOutputFormatPtrOutputWithContext(ctx context.Context) CapacityManagerDataExportOutputFormatPtrOutput {
+	return CapacityManagerDataExportOutputFormat(e).ToCapacityManagerDataExportOutputFormatOutputWithContext(ctx).ToCapacityManagerDataExportOutputFormatPtrOutputWithContext(ctx)
+}
+
+func (e CapacityManagerDataExportOutputFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityManagerDataExportOutputFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityManagerDataExportOutputFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityManagerDataExportOutputFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityManagerDataExportOutputFormatOutput struct{ *pulumi.OutputState }
+
+func (CapacityManagerDataExportOutputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityManagerDataExportOutputFormat)(nil)).Elem()
+}
+
+func (o CapacityManagerDataExportOutputFormatOutput) ToCapacityManagerDataExportOutputFormatOutput() CapacityManagerDataExportOutputFormatOutput {
+	return o
+}
+
+func (o CapacityManagerDataExportOutputFormatOutput) ToCapacityManagerDataExportOutputFormatOutputWithContext(ctx context.Context) CapacityManagerDataExportOutputFormatOutput {
+	return o
+}
+
+func (o CapacityManagerDataExportOutputFormatOutput) ToCapacityManagerDataExportOutputFormatPtrOutput() CapacityManagerDataExportOutputFormatPtrOutput {
+	return o.ToCapacityManagerDataExportOutputFormatPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityManagerDataExportOutputFormatOutput) ToCapacityManagerDataExportOutputFormatPtrOutputWithContext(ctx context.Context) CapacityManagerDataExportOutputFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityManagerDataExportOutputFormat) *CapacityManagerDataExportOutputFormat {
+		return &v
+	}).(CapacityManagerDataExportOutputFormatPtrOutput)
+}
+
+func (o CapacityManagerDataExportOutputFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityManagerDataExportOutputFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityManagerDataExportOutputFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityManagerDataExportOutputFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityManagerDataExportOutputFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityManagerDataExportOutputFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityManagerDataExportOutputFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityManagerDataExportOutputFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityManagerDataExportOutputFormat)(nil)).Elem()
+}
+
+func (o CapacityManagerDataExportOutputFormatPtrOutput) ToCapacityManagerDataExportOutputFormatPtrOutput() CapacityManagerDataExportOutputFormatPtrOutput {
+	return o
+}
+
+func (o CapacityManagerDataExportOutputFormatPtrOutput) ToCapacityManagerDataExportOutputFormatPtrOutputWithContext(ctx context.Context) CapacityManagerDataExportOutputFormatPtrOutput {
+	return o
+}
+
+func (o CapacityManagerDataExportOutputFormatPtrOutput) Elem() CapacityManagerDataExportOutputFormatOutput {
+	return o.ApplyT(func(v *CapacityManagerDataExportOutputFormat) CapacityManagerDataExportOutputFormat {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityManagerDataExportOutputFormat
+		return ret
+	}).(CapacityManagerDataExportOutputFormatOutput)
+}
+
+func (o CapacityManagerDataExportOutputFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityManagerDataExportOutputFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityManagerDataExportOutputFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityManagerDataExportOutputFormatInput is an input type that accepts values of the CapacityManagerDataExportOutputFormat enum
+// A concrete instance of `CapacityManagerDataExportOutputFormatInput` can be one of the following:
+//
+//	CapacityManagerDataExportOutputFormatCsv
+//	CapacityManagerDataExportOutputFormatParquet
+type CapacityManagerDataExportOutputFormatInput interface {
+	pulumi.Input
+
+	ToCapacityManagerDataExportOutputFormatOutput() CapacityManagerDataExportOutputFormatOutput
+	ToCapacityManagerDataExportOutputFormatOutputWithContext(context.Context) CapacityManagerDataExportOutputFormatOutput
+}
+
+var capacityManagerDataExportOutputFormatPtrType = reflect.TypeOf((**CapacityManagerDataExportOutputFormat)(nil)).Elem()
+
+type CapacityManagerDataExportOutputFormatPtrInput interface {
+	pulumi.Input
+
+	ToCapacityManagerDataExportOutputFormatPtrOutput() CapacityManagerDataExportOutputFormatPtrOutput
+	ToCapacityManagerDataExportOutputFormatPtrOutputWithContext(context.Context) CapacityManagerDataExportOutputFormatPtrOutput
+}
+
+type capacityManagerDataExportOutputFormatPtr string
+
+func CapacityManagerDataExportOutputFormatPtr(v string) CapacityManagerDataExportOutputFormatPtrInput {
+	return (*capacityManagerDataExportOutputFormatPtr)(&v)
+}
+
+func (*capacityManagerDataExportOutputFormatPtr) ElementType() reflect.Type {
+	return capacityManagerDataExportOutputFormatPtrType
+}
+
+func (in *capacityManagerDataExportOutputFormatPtr) ToCapacityManagerDataExportOutputFormatPtrOutput() CapacityManagerDataExportOutputFormatPtrOutput {
+	return pulumi.ToOutput(in).(CapacityManagerDataExportOutputFormatPtrOutput)
+}
+
+func (in *capacityManagerDataExportOutputFormatPtr) ToCapacityManagerDataExportOutputFormatPtrOutputWithContext(ctx context.Context) CapacityManagerDataExportOutputFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityManagerDataExportOutputFormatPtrOutput)
+}
+
+// The schedule for the capacity manager data export. Currently supports hourly exports that provide periodic snapshots of capacity manager data.
+type CapacityManagerDataExportSchedule string
+
+const (
+	CapacityManagerDataExportScheduleHourly = CapacityManagerDataExportSchedule("hourly")
+)
+
+func (CapacityManagerDataExportSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityManagerDataExportSchedule)(nil)).Elem()
+}
+
+func (e CapacityManagerDataExportSchedule) ToCapacityManagerDataExportScheduleOutput() CapacityManagerDataExportScheduleOutput {
+	return pulumi.ToOutput(e).(CapacityManagerDataExportScheduleOutput)
+}
+
+func (e CapacityManagerDataExportSchedule) ToCapacityManagerDataExportScheduleOutputWithContext(ctx context.Context) CapacityManagerDataExportScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityManagerDataExportScheduleOutput)
+}
+
+func (e CapacityManagerDataExportSchedule) ToCapacityManagerDataExportSchedulePtrOutput() CapacityManagerDataExportSchedulePtrOutput {
+	return e.ToCapacityManagerDataExportSchedulePtrOutputWithContext(context.Background())
+}
+
+func (e CapacityManagerDataExportSchedule) ToCapacityManagerDataExportSchedulePtrOutputWithContext(ctx context.Context) CapacityManagerDataExportSchedulePtrOutput {
+	return CapacityManagerDataExportSchedule(e).ToCapacityManagerDataExportScheduleOutputWithContext(ctx).ToCapacityManagerDataExportSchedulePtrOutputWithContext(ctx)
+}
+
+func (e CapacityManagerDataExportSchedule) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityManagerDataExportSchedule) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityManagerDataExportSchedule) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityManagerDataExportSchedule) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityManagerDataExportScheduleOutput struct{ *pulumi.OutputState }
+
+func (CapacityManagerDataExportScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityManagerDataExportSchedule)(nil)).Elem()
+}
+
+func (o CapacityManagerDataExportScheduleOutput) ToCapacityManagerDataExportScheduleOutput() CapacityManagerDataExportScheduleOutput {
+	return o
+}
+
+func (o CapacityManagerDataExportScheduleOutput) ToCapacityManagerDataExportScheduleOutputWithContext(ctx context.Context) CapacityManagerDataExportScheduleOutput {
+	return o
+}
+
+func (o CapacityManagerDataExportScheduleOutput) ToCapacityManagerDataExportSchedulePtrOutput() CapacityManagerDataExportSchedulePtrOutput {
+	return o.ToCapacityManagerDataExportSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o CapacityManagerDataExportScheduleOutput) ToCapacityManagerDataExportSchedulePtrOutputWithContext(ctx context.Context) CapacityManagerDataExportSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityManagerDataExportSchedule) *CapacityManagerDataExportSchedule {
+		return &v
+	}).(CapacityManagerDataExportSchedulePtrOutput)
+}
+
+func (o CapacityManagerDataExportScheduleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityManagerDataExportScheduleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityManagerDataExportSchedule) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityManagerDataExportScheduleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityManagerDataExportScheduleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityManagerDataExportSchedule) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityManagerDataExportSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityManagerDataExportSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityManagerDataExportSchedule)(nil)).Elem()
+}
+
+func (o CapacityManagerDataExportSchedulePtrOutput) ToCapacityManagerDataExportSchedulePtrOutput() CapacityManagerDataExportSchedulePtrOutput {
+	return o
+}
+
+func (o CapacityManagerDataExportSchedulePtrOutput) ToCapacityManagerDataExportSchedulePtrOutputWithContext(ctx context.Context) CapacityManagerDataExportSchedulePtrOutput {
+	return o
+}
+
+func (o CapacityManagerDataExportSchedulePtrOutput) Elem() CapacityManagerDataExportScheduleOutput {
+	return o.ApplyT(func(v *CapacityManagerDataExportSchedule) CapacityManagerDataExportSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityManagerDataExportSchedule
+		return ret
+	}).(CapacityManagerDataExportScheduleOutput)
+}
+
+func (o CapacityManagerDataExportSchedulePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityManagerDataExportSchedulePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityManagerDataExportSchedule) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityManagerDataExportScheduleInput is an input type that accepts values of the CapacityManagerDataExportSchedule enum
+// A concrete instance of `CapacityManagerDataExportScheduleInput` can be one of the following:
+//
+//	CapacityManagerDataExportScheduleHourly
+type CapacityManagerDataExportScheduleInput interface {
+	pulumi.Input
+
+	ToCapacityManagerDataExportScheduleOutput() CapacityManagerDataExportScheduleOutput
+	ToCapacityManagerDataExportScheduleOutputWithContext(context.Context) CapacityManagerDataExportScheduleOutput
+}
+
+var capacityManagerDataExportSchedulePtrType = reflect.TypeOf((**CapacityManagerDataExportSchedule)(nil)).Elem()
+
+type CapacityManagerDataExportSchedulePtrInput interface {
+	pulumi.Input
+
+	ToCapacityManagerDataExportSchedulePtrOutput() CapacityManagerDataExportSchedulePtrOutput
+	ToCapacityManagerDataExportSchedulePtrOutputWithContext(context.Context) CapacityManagerDataExportSchedulePtrOutput
+}
+
+type capacityManagerDataExportSchedulePtr string
+
+func CapacityManagerDataExportSchedulePtr(v string) CapacityManagerDataExportSchedulePtrInput {
+	return (*capacityManagerDataExportSchedulePtr)(&v)
+}
+
+func (*capacityManagerDataExportSchedulePtr) ElementType() reflect.Type {
+	return capacityManagerDataExportSchedulePtrType
+}
+
+func (in *capacityManagerDataExportSchedulePtr) ToCapacityManagerDataExportSchedulePtrOutput() CapacityManagerDataExportSchedulePtrOutput {
+	return pulumi.ToOutput(in).(CapacityManagerDataExportSchedulePtrOutput)
+}
+
+func (in *capacityManagerDataExportSchedulePtr) ToCapacityManagerDataExportSchedulePtrOutputWithContext(ctx context.Context) CapacityManagerDataExportSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityManagerDataExportSchedulePtrOutput)
+}
+
 // Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
 //
 // Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
@@ -14869,6 +15199,10 @@ func (in *vpnConnectionVpnTunnelOptionsSpecificationStartupActionPtr) ToVpnConne
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityManagerDataExportOutputFormatInput)(nil)).Elem(), CapacityManagerDataExportOutputFormat("csv"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityManagerDataExportOutputFormatPtrInput)(nil)).Elem(), CapacityManagerDataExportOutputFormat("csv"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityManagerDataExportScheduleInput)(nil)).Elem(), CapacityManagerDataExportSchedule("hourly"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityManagerDataExportSchedulePtrInput)(nil)).Elem(), CapacityManagerDataExportSchedule("hourly"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationFleetInstanceMatchCriteriaInput)(nil)).Elem(), CapacityReservationFleetInstanceMatchCriteria("open"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationFleetInstanceMatchCriteriaPtrInput)(nil)).Elem(), CapacityReservationFleetInstanceMatchCriteria("open"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationFleetTenancyInput)(nil)).Elem(), CapacityReservationFleetTenancy("default"))
@@ -15042,6 +15376,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction("clear"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationStartupActionInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationStartupAction("add"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationStartupAction("add"))
+	pulumi.RegisterOutputType(CapacityManagerDataExportOutputFormatOutput{})
+	pulumi.RegisterOutputType(CapacityManagerDataExportOutputFormatPtrOutput{})
+	pulumi.RegisterOutputType(CapacityManagerDataExportScheduleOutput{})
+	pulumi.RegisterOutputType(CapacityManagerDataExportSchedulePtrOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetInstanceMatchCriteriaOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetInstanceMatchCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetTenancyOutput{})

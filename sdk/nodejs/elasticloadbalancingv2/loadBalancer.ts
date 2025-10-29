@@ -46,7 +46,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
-     * Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is `false` .
+     * Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is ``false``.
      */
     declare public readonly enableCapacityReservationProvisionStabilize: pulumi.Output<boolean | undefined>;
     /**
@@ -194,7 +194,7 @@ export class LoadBalancer extends pulumi.CustomResource {
  */
 export interface LoadBalancerArgs {
     /**
-     * Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is `false` .
+     * Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is ``false``.
      */
     enableCapacityReservationProvisionStabilize?: pulumi.Input<boolean>;
     /**

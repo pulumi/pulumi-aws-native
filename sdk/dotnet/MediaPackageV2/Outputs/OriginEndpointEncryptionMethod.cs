@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// The encryption method to use.
         /// </summary>
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointCmafEncryptionMethod? CmafEncryptionMethod;
+        /// <summary>
+        /// The encryption method used for Microsoft Smooth Streaming (MSS) content. This specifies how the MSS segments are encrypted to protect the content during delivery to client players.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointIsmEncryptionMethod? IsmEncryptionMethod;
         /// <summary>
         /// The encryption method to use.

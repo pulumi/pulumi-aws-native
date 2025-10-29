@@ -1144,6 +1144,7 @@ class OriginEndpointEncryptionMethod(dict):
         """
         <p>The encryption type.</p>
         :param 'OriginEndpointCmafEncryptionMethod' cmaf_encryption_method: The encryption method to use.
+        :param 'OriginEndpointIsmEncryptionMethod' ism_encryption_method: The encryption method used for Microsoft Smooth Streaming (MSS) content. This specifies how the MSS segments are encrypted to protect the content during delivery to client players.
         :param 'OriginEndpointTsEncryptionMethod' ts_encryption_method: The encryption method to use.
         """
         if cmaf_encryption_method is not None:
@@ -1164,6 +1165,9 @@ class OriginEndpointEncryptionMethod(dict):
     @_builtins.property
     @pulumi.getter(name="ismEncryptionMethod")
     def ism_encryption_method(self) -> Optional['OriginEndpointIsmEncryptionMethod']:
+        """
+        The encryption method used for Microsoft Smooth Streaming (MSS) content. This specifies how the MSS segments are encrypted to protect the content during delivery to client players.
+        """
         return pulumi.get(self, "ism_encryption_method")
 
     @_builtins.property

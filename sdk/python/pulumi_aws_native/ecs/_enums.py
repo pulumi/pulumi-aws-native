@@ -25,6 +25,8 @@ __all__ = [
     'ClusterCapacityProviderAssociationsCapacityProvider0',
     'ServiceAvailabilityZoneRebalancing',
     'ServiceAwsVpcConfigurationAssignPublicIp',
+    'ServiceConnectAccessLogConfigurationFormat',
+    'ServiceConnectAccessLogConfigurationIncludeQueryParameters',
     'ServiceDeploymentConfigurationStrategy',
     'ServiceDeploymentControllerType',
     'ServiceDeploymentLifecycleHookLifecycleStagesItem',
@@ -212,6 +214,18 @@ class ServiceAwsVpcConfigurationAssignPublicIp(_builtins.str, Enum):
       +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``. 
       +  When the service ``deploymentController`` is ``ECS``, the value must be ``DISABLED``.
     """
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
+
+
+@pulumi.type_token("aws-native:ecs:ServiceConnectAccessLogConfigurationFormat")
+class ServiceConnectAccessLogConfigurationFormat(_builtins.str, Enum):
+    TEXT = "TEXT"
+    JSON = "JSON"
+
+
+@pulumi.type_token("aws-native:ecs:ServiceConnectAccessLogConfigurationIncludeQueryParameters")
+class ServiceConnectAccessLogConfigurationIncludeQueryParameters(_builtins.str, Enum):
     DISABLED = "DISABLED"
     ENABLED = "ENABLED"
 

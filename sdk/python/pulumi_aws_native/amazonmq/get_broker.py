@@ -112,7 +112,9 @@ class GetBrokerResult:
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> Optional[_builtins.bool]:
         """
-        Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
+        Enables automatic upgrades to new patch versions for brokers as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window or after a manual broker reboot. Set to `true` by default, if no value is specified.
+
+        > Must be set to `true` for ActiveMQ brokers version 5.18 and above and for RabbitMQ brokers version 3.13 and above.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
@@ -157,16 +159,13 @@ class GetBrokerResult:
     @pulumi.getter(name="hostInstanceType")
     def host_instance_type(self) -> Optional[_builtins.str]:
         """
-        The broker's instance type.
+        Required. The broker's instance type.
         """
         return pulumi.get(self, "host_instance_type")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        Required. The unique ID that Amazon MQ generates for the configuration.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -199,7 +198,7 @@ class GetBrokerResult:
     @pulumi.getter(name="maintenanceWindowStartTime")
     def maintenance_window_start_time(self) -> Optional['outputs.BrokerMaintenanceWindow']:
         """
-        The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.
+        The parameters that determine the WeeklyStartTime.
         """
         return pulumi.get(self, "maintenance_window_start_time")
 
@@ -245,7 +244,7 @@ class GetBrokerResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        An array of key-value pairs. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Billing and Cost Management User Guide* .
+        Create tags when creating the broker.
         """
         return pulumi.get(self, "tags")
 
@@ -292,9 +291,6 @@ def get_broker(id: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrokerResult:
     """
     Resource type definition for AWS::AmazonMQ::Broker
-
-
-    :param _builtins.str id: Required. The unique ID that Amazon MQ generates for the configuration.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -326,9 +322,6 @@ def get_broker_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerResult]:
     """
     Resource type definition for AWS::AmazonMQ::Broker
-
-
-    :param _builtins.str id: Required. The unique ID that Amazon MQ generates for the configuration.
     """
     __args__ = dict()
     __args__['id'] = id

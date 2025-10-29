@@ -7,10 +7,51 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'LinkDirection',
+    'LinkResponderErrorMaskingForHttpCodeAction',
+    'LinkResponderErrorMaskingLoggingType',
+    'LinkStatus',
     'RequesterGatewayStatus',
     'ResponderGatewayProtocol',
     'ResponderGatewayStatus',
 ]
+
+
+@pulumi.type_token("aws-native:rtbfabric:LinkDirection")
+class LinkDirection(_builtins.str, Enum):
+    REQUEST = "REQUEST"
+    RESPONSE = "RESPONSE"
+
+
+@pulumi.type_token("aws-native:rtbfabric:LinkResponderErrorMaskingForHttpCodeAction")
+class LinkResponderErrorMaskingForHttpCodeAction(_builtins.str, Enum):
+    NO_BID = "NO_BID"
+    PASSTHROUGH = "PASSTHROUGH"
+
+
+@pulumi.type_token("aws-native:rtbfabric:LinkResponderErrorMaskingLoggingType")
+class LinkResponderErrorMaskingLoggingType(_builtins.str, Enum):
+    NONE = "NONE"
+    METRIC = "METRIC"
+    RESPONSE = "RESPONSE"
+
+
+@pulumi.type_token("aws-native:rtbfabric:LinkStatus")
+class LinkStatus(_builtins.str, Enum):
+    PENDING_CREATION = "PENDING_CREATION"
+    PENDING_REQUEST = "PENDING_REQUEST"
+    REQUESTED = "REQUESTED"
+    ACCEPTED = "ACCEPTED"
+    ACTIVE = "ACTIVE"
+    DECLINED = "DECLINED"
+    FAILED = "FAILED"
+    PENDING_DELETION = "PENDING_DELETION"
+    DELETED = "DELETED"
+    PENDING_UPDATE = "PENDING_UPDATE"
+    PENDING_ISOLATION = "PENDING_ISOLATION"
+    ISOLATED = "ISOLATED"
+    PENDING_RESTORATION = "PENDING_RESTORATION"
+    UNKNOWN_TO_SDK_VERSION = "UNKNOWN_TO_SDK_VERSION"
 
 
 @pulumi.type_token("aws-native:rtbfabric:RequesterGatewayStatus")

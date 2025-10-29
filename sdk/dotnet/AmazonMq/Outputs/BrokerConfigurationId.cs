@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AmazonMq.Outputs
     public sealed class BrokerConfigurationId
     {
         /// <summary>
-        /// The unique ID that Amazon MQ generates for the configuration.
+        /// Required. The unique ID that Amazon MQ generates for the configuration.
         /// </summary>
         public readonly string Id;
         /// <summary>

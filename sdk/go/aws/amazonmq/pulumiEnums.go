@@ -184,11 +184,7 @@ const (
 	BrokerDataReplicationMode0Crdr = BrokerDataReplicationMode0("CRDR")
 )
 
-// The deployment mode of the broker. Available values:
-//
-// - `SINGLE_INSTANCE`
-// - `ACTIVE_STANDBY_MULTI_AZ`
-// - `CLUSTER_MULTI_AZ`
+// Required. The broker's deployment mode.
 type BrokerDeploymentMode string
 
 const (
@@ -356,11 +352,7 @@ func (in *brokerDeploymentModePtr) ToBrokerDeploymentModePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(BrokerDeploymentModePtrOutput)
 }
 
-// The deployment mode of the broker. Available values:
-//
-// - `SINGLE_INSTANCE`
-// - `ACTIVE_STANDBY_MULTI_AZ`
-// - `CLUSTER_MULTI_AZ`
+// Required. The broker's deployment mode.
 type BrokerDeploymentMode0 string
 
 const (
@@ -369,7 +361,7 @@ const (
 	BrokerDeploymentMode0ClusterMultiAz       = BrokerDeploymentMode0("CLUSTER_MULTI_AZ")
 )
 
-// The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
+// Required. The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
 type BrokerEngineType string
 
 const (
@@ -535,7 +527,7 @@ func (in *brokerEngineTypePtr) ToBrokerEngineTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(BrokerEngineTypePtrOutput)
 }
 
-// The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
+// Required. The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
 type BrokerEngineType0 string
 
 const (

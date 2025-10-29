@@ -58,6 +58,8 @@ __all__ = [
     'ConnectionPropertiesInput5PropertiesArgsDict',
     'ConnectionPropertiesInput6PropertiesArgs',
     'ConnectionPropertiesInput6PropertiesArgsDict',
+    'ConnectionPropertiesInput7PropertiesArgs',
+    'ConnectionPropertiesInput7PropertiesArgsDict',
     'ConnectionRedshiftCredentials0PropertiesArgs',
     'ConnectionRedshiftCredentials0PropertiesArgsDict',
     'ConnectionRedshiftCredentials1PropertiesArgs',
@@ -70,6 +72,8 @@ __all__ = [
     'ConnectionRedshiftStorageProperties0PropertiesArgsDict',
     'ConnectionRedshiftStorageProperties1PropertiesArgs',
     'ConnectionRedshiftStorageProperties1PropertiesArgsDict',
+    'ConnectionS3PropertiesInputArgs',
+    'ConnectionS3PropertiesInputArgsDict',
     'ConnectionSparkEmrPropertiesInputArgs',
     'ConnectionSparkEmrPropertiesInputArgsDict',
     'ConnectionSparkGlueArgsArgs',
@@ -1244,6 +1248,28 @@ class ConnectionPropertiesInput6PropertiesArgs:
 
 
 if not MYPY:
+    class ConnectionPropertiesInput7PropertiesArgsDict(TypedDict):
+        s3_properties: pulumi.Input['ConnectionS3PropertiesInputArgsDict']
+elif False:
+    ConnectionPropertiesInput7PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionPropertiesInput7PropertiesArgs:
+    def __init__(__self__, *,
+                 s3_properties: pulumi.Input['ConnectionS3PropertiesInputArgs']):
+        pulumi.set(__self__, "s3_properties", s3_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Properties")
+    def s3_properties(self) -> pulumi.Input['ConnectionS3PropertiesInputArgs']:
+        return pulumi.get(self, "s3_properties")
+
+    @s3_properties.setter
+    def s3_properties(self, value: pulumi.Input['ConnectionS3PropertiesInputArgs']):
+        pulumi.set(self, "s3_properties", value)
+
+
+if not MYPY:
     class ConnectionRedshiftCredentials0PropertiesArgsDict(TypedDict):
         secret_arn: pulumi.Input[_builtins.str]
 elif False:
@@ -1465,6 +1491,61 @@ class ConnectionRedshiftStorageProperties1PropertiesArgs:
     @workgroup_name.setter
     def workgroup_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workgroup_name", value)
+
+
+if not MYPY:
+    class ConnectionS3PropertiesInputArgsDict(TypedDict):
+        """
+        S3 Properties Input
+        """
+        s3_uri: pulumi.Input[_builtins.str]
+        """
+        The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
+        """
+        s3_access_grant_location_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
+        """
+elif False:
+    ConnectionS3PropertiesInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionS3PropertiesInputArgs:
+    def __init__(__self__, *,
+                 s3_uri: pulumi.Input[_builtins.str],
+                 s3_access_grant_location_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        S3 Properties Input
+        :param pulumi.Input[_builtins.str] s3_uri: The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
+        :param pulumi.Input[_builtins.str] s3_access_grant_location_id: The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if s3_access_grant_location_id is not None:
+            pulumi.set(__self__, "s3_access_grant_location_id", s3_access_grant_location_id)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3AccessGrantLocationId")
+    def s3_access_grant_location_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
+        """
+        return pulumi.get(self, "s3_access_grant_location_id")
+
+    @s3_access_grant_location_id.setter
+    def s3_access_grant_location_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "s3_access_grant_location_id", value)
 
 
 if not MYPY:

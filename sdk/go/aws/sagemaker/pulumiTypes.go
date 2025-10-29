@@ -46769,7 +46769,11 @@ func (o UserProfileRStudioServerProAppSettingsPtrOutput) UserGroup() UserProfile
 
 type UserProfileResourceSpec struct {
 	// The instance type that the image version runs on.
-	InstanceType *UserProfileResourceSpecInstanceType `pulumi:"instanceType"`
+	//
+	// > *JupyterServer apps* only support the `system` value.
+	// >
+	// > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
+	InstanceType *UserProfileAppInstanceType `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
@@ -46791,7 +46795,11 @@ type UserProfileResourceSpecInput interface {
 
 type UserProfileResourceSpecArgs struct {
 	// The instance type that the image version runs on.
-	InstanceType UserProfileResourceSpecInstanceTypePtrInput `pulumi:"instanceType"`
+	//
+	// > *JupyterServer apps* only support the `system` value.
+	// >
+	// > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
+	InstanceType UserProfileAppInstanceTypePtrInput `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
@@ -46878,8 +46886,12 @@ func (o UserProfileResourceSpecOutput) ToUserProfileResourceSpecPtrOutputWithCon
 }
 
 // The instance type that the image version runs on.
-func (o UserProfileResourceSpecOutput) InstanceType() UserProfileResourceSpecInstanceTypePtrOutput {
-	return o.ApplyT(func(v UserProfileResourceSpec) *UserProfileResourceSpecInstanceType { return v.InstanceType }).(UserProfileResourceSpecInstanceTypePtrOutput)
+//
+// > *JupyterServer apps* only support the `system` value.
+// >
+// > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
+func (o UserProfileResourceSpecOutput) InstanceType() UserProfileAppInstanceTypePtrOutput {
+	return o.ApplyT(func(v UserProfileResourceSpec) *UserProfileAppInstanceType { return v.InstanceType }).(UserProfileAppInstanceTypePtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
@@ -46922,13 +46934,17 @@ func (o UserProfileResourceSpecPtrOutput) Elem() UserProfileResourceSpecOutput {
 }
 
 // The instance type that the image version runs on.
-func (o UserProfileResourceSpecPtrOutput) InstanceType() UserProfileResourceSpecInstanceTypePtrOutput {
-	return o.ApplyT(func(v *UserProfileResourceSpec) *UserProfileResourceSpecInstanceType {
+//
+// > *JupyterServer apps* only support the `system` value.
+// >
+// > For *KernelGateway apps* , the `system` value is translated to `ml.t3.medium` . KernelGateway apps also support all other values for available instance types.
+func (o UserProfileResourceSpecPtrOutput) InstanceType() UserProfileAppInstanceTypePtrOutput {
+	return o.ApplyT(func(v *UserProfileResourceSpec) *UserProfileAppInstanceType {
 		if v == nil {
 			return nil
 		}
 		return v.InstanceType
-	}).(UserProfileResourceSpecInstanceTypePtrOutput)
+	}).(UserProfileAppInstanceTypePtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.

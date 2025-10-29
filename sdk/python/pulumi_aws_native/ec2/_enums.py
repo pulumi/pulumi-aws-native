@@ -7,6 +7,8 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'CapacityManagerDataExportOutputFormat',
+    'CapacityManagerDataExportSchedule',
     'CapacityReservationFleetInstanceMatchCriteria',
     'CapacityReservationFleetTenancy',
     'Ec2FleetCapacityRebalanceReplacementStrategy',
@@ -94,6 +96,23 @@ __all__ = [
     'VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction',
     'VpnConnectionVpnTunnelOptionsSpecificationStartupAction',
 ]
+
+
+@pulumi.type_token("aws-native:ec2:CapacityManagerDataExportOutputFormat")
+class CapacityManagerDataExportOutputFormat(_builtins.str, Enum):
+    """
+    The format of the exported capacity manager data. Choose 'csv' for comma-separated values or 'parquet' for optimized columnar storage format.
+    """
+    CSV = "csv"
+    PARQUET = "parquet"
+
+
+@pulumi.type_token("aws-native:ec2:CapacityManagerDataExportSchedule")
+class CapacityManagerDataExportSchedule(_builtins.str, Enum):
+    """
+    The schedule for the capacity manager data export. Currently supports hourly exports that provide periodic snapshots of capacity manager data.
+    """
+    HOURLY = "hourly"
 
 
 @pulumi.type_token("aws-native:ec2:CapacityReservationFleetInstanceMatchCriteria")

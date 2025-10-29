@@ -7,6 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .capacity_manager_data_export import *
 from .capacity_reservation import *
 from .capacity_reservation_fleet import *
 from .carrier_gateway import *
@@ -19,6 +20,7 @@ from .eip_association import *
 from .enclave_certificate_iam_role_association import *
 from .flow_log import *
 from .gateway_route_table_association import *
+from .get_capacity_manager_data_export import *
 from .get_capacity_reservation import *
 from .get_capacity_reservation_fleet import *
 from .get_carrier_gateway import *

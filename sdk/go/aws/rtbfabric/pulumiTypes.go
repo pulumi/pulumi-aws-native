@@ -13,6 +13,775 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type LinkAttributes struct {
+	CustomerProvidedId    *string                                `pulumi:"customerProvidedId"`
+	ResponderErrorMasking []LinkResponderErrorMaskingForHttpCode `pulumi:"responderErrorMasking"`
+}
+
+// LinkAttributesInput is an input type that accepts LinkAttributesArgs and LinkAttributesOutput values.
+// You can construct a concrete instance of `LinkAttributesInput` via:
+//
+//	LinkAttributesArgs{...}
+type LinkAttributesInput interface {
+	pulumi.Input
+
+	ToLinkAttributesOutput() LinkAttributesOutput
+	ToLinkAttributesOutputWithContext(context.Context) LinkAttributesOutput
+}
+
+type LinkAttributesArgs struct {
+	CustomerProvidedId    pulumi.StringPtrInput                          `pulumi:"customerProvidedId"`
+	ResponderErrorMasking LinkResponderErrorMaskingForHttpCodeArrayInput `pulumi:"responderErrorMasking"`
+}
+
+func (LinkAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkAttributes)(nil)).Elem()
+}
+
+func (i LinkAttributesArgs) ToLinkAttributesOutput() LinkAttributesOutput {
+	return i.ToLinkAttributesOutputWithContext(context.Background())
+}
+
+func (i LinkAttributesArgs) ToLinkAttributesOutputWithContext(ctx context.Context) LinkAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkAttributesOutput)
+}
+
+func (i LinkAttributesArgs) ToLinkAttributesPtrOutput() LinkAttributesPtrOutput {
+	return i.ToLinkAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i LinkAttributesArgs) ToLinkAttributesPtrOutputWithContext(ctx context.Context) LinkAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkAttributesOutput).ToLinkAttributesPtrOutputWithContext(ctx)
+}
+
+// LinkAttributesPtrInput is an input type that accepts LinkAttributesArgs, LinkAttributesPtr and LinkAttributesPtrOutput values.
+// You can construct a concrete instance of `LinkAttributesPtrInput` via:
+//
+//	        LinkAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type LinkAttributesPtrInput interface {
+	pulumi.Input
+
+	ToLinkAttributesPtrOutput() LinkAttributesPtrOutput
+	ToLinkAttributesPtrOutputWithContext(context.Context) LinkAttributesPtrOutput
+}
+
+type linkAttributesPtrType LinkAttributesArgs
+
+func LinkAttributesPtr(v *LinkAttributesArgs) LinkAttributesPtrInput {
+	return (*linkAttributesPtrType)(v)
+}
+
+func (*linkAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkAttributes)(nil)).Elem()
+}
+
+func (i *linkAttributesPtrType) ToLinkAttributesPtrOutput() LinkAttributesPtrOutput {
+	return i.ToLinkAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *linkAttributesPtrType) ToLinkAttributesPtrOutputWithContext(ctx context.Context) LinkAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkAttributesPtrOutput)
+}
+
+type LinkAttributesOutput struct{ *pulumi.OutputState }
+
+func (LinkAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkAttributes)(nil)).Elem()
+}
+
+func (o LinkAttributesOutput) ToLinkAttributesOutput() LinkAttributesOutput {
+	return o
+}
+
+func (o LinkAttributesOutput) ToLinkAttributesOutputWithContext(ctx context.Context) LinkAttributesOutput {
+	return o
+}
+
+func (o LinkAttributesOutput) ToLinkAttributesPtrOutput() LinkAttributesPtrOutput {
+	return o.ToLinkAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o LinkAttributesOutput) ToLinkAttributesPtrOutputWithContext(ctx context.Context) LinkAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkAttributes) *LinkAttributes {
+		return &v
+	}).(LinkAttributesPtrOutput)
+}
+
+func (o LinkAttributesOutput) CustomerProvidedId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkAttributes) *string { return v.CustomerProvidedId }).(pulumi.StringPtrOutput)
+}
+
+func (o LinkAttributesOutput) ResponderErrorMasking() LinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return o.ApplyT(func(v LinkAttributes) []LinkResponderErrorMaskingForHttpCode { return v.ResponderErrorMasking }).(LinkResponderErrorMaskingForHttpCodeArrayOutput)
+}
+
+type LinkAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkAttributes)(nil)).Elem()
+}
+
+func (o LinkAttributesPtrOutput) ToLinkAttributesPtrOutput() LinkAttributesPtrOutput {
+	return o
+}
+
+func (o LinkAttributesPtrOutput) ToLinkAttributesPtrOutputWithContext(ctx context.Context) LinkAttributesPtrOutput {
+	return o
+}
+
+func (o LinkAttributesPtrOutput) Elem() LinkAttributesOutput {
+	return o.ApplyT(func(v *LinkAttributes) LinkAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret LinkAttributes
+		return ret
+	}).(LinkAttributesOutput)
+}
+
+func (o LinkAttributesPtrOutput) CustomerProvidedId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerProvidedId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LinkAttributesPtrOutput) ResponderErrorMasking() LinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return o.ApplyT(func(v *LinkAttributes) []LinkResponderErrorMaskingForHttpCode {
+		if v == nil {
+			return nil
+		}
+		return v.ResponderErrorMasking
+	}).(LinkResponderErrorMaskingForHttpCodeArrayOutput)
+}
+
+type LinkLogSettings struct {
+	ApplicationLogs LinkLogSettingsApplicationLogsProperties `pulumi:"applicationLogs"`
+}
+
+// LinkLogSettingsInput is an input type that accepts LinkLogSettingsArgs and LinkLogSettingsOutput values.
+// You can construct a concrete instance of `LinkLogSettingsInput` via:
+//
+//	LinkLogSettingsArgs{...}
+type LinkLogSettingsInput interface {
+	pulumi.Input
+
+	ToLinkLogSettingsOutput() LinkLogSettingsOutput
+	ToLinkLogSettingsOutputWithContext(context.Context) LinkLogSettingsOutput
+}
+
+type LinkLogSettingsArgs struct {
+	ApplicationLogs LinkLogSettingsApplicationLogsPropertiesInput `pulumi:"applicationLogs"`
+}
+
+func (LinkLogSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkLogSettings)(nil)).Elem()
+}
+
+func (i LinkLogSettingsArgs) ToLinkLogSettingsOutput() LinkLogSettingsOutput {
+	return i.ToLinkLogSettingsOutputWithContext(context.Background())
+}
+
+func (i LinkLogSettingsArgs) ToLinkLogSettingsOutputWithContext(ctx context.Context) LinkLogSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkLogSettingsOutput)
+}
+
+type LinkLogSettingsOutput struct{ *pulumi.OutputState }
+
+func (LinkLogSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkLogSettings)(nil)).Elem()
+}
+
+func (o LinkLogSettingsOutput) ToLinkLogSettingsOutput() LinkLogSettingsOutput {
+	return o
+}
+
+func (o LinkLogSettingsOutput) ToLinkLogSettingsOutputWithContext(ctx context.Context) LinkLogSettingsOutput {
+	return o
+}
+
+func (o LinkLogSettingsOutput) ApplicationLogs() LinkLogSettingsApplicationLogsPropertiesOutput {
+	return o.ApplyT(func(v LinkLogSettings) LinkLogSettingsApplicationLogsProperties { return v.ApplicationLogs }).(LinkLogSettingsApplicationLogsPropertiesOutput)
+}
+
+type LinkLogSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkLogSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkLogSettings)(nil)).Elem()
+}
+
+func (o LinkLogSettingsPtrOutput) ToLinkLogSettingsPtrOutput() LinkLogSettingsPtrOutput {
+	return o
+}
+
+func (o LinkLogSettingsPtrOutput) ToLinkLogSettingsPtrOutputWithContext(ctx context.Context) LinkLogSettingsPtrOutput {
+	return o
+}
+
+func (o LinkLogSettingsPtrOutput) Elem() LinkLogSettingsOutput {
+	return o.ApplyT(func(v *LinkLogSettings) LinkLogSettings {
+		if v != nil {
+			return *v
+		}
+		var ret LinkLogSettings
+		return ret
+	}).(LinkLogSettingsOutput)
+}
+
+func (o LinkLogSettingsPtrOutput) ApplicationLogs() LinkLogSettingsApplicationLogsPropertiesPtrOutput {
+	return o.ApplyT(func(v *LinkLogSettings) *LinkLogSettingsApplicationLogsProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationLogs
+	}).(LinkLogSettingsApplicationLogsPropertiesPtrOutput)
+}
+
+type LinkLogSettingsApplicationLogsProperties struct {
+	LinkApplicationLogSampling LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties `pulumi:"linkApplicationLogSampling"`
+}
+
+// LinkLogSettingsApplicationLogsPropertiesInput is an input type that accepts LinkLogSettingsApplicationLogsPropertiesArgs and LinkLogSettingsApplicationLogsPropertiesOutput values.
+// You can construct a concrete instance of `LinkLogSettingsApplicationLogsPropertiesInput` via:
+//
+//	LinkLogSettingsApplicationLogsPropertiesArgs{...}
+type LinkLogSettingsApplicationLogsPropertiesInput interface {
+	pulumi.Input
+
+	ToLinkLogSettingsApplicationLogsPropertiesOutput() LinkLogSettingsApplicationLogsPropertiesOutput
+	ToLinkLogSettingsApplicationLogsPropertiesOutputWithContext(context.Context) LinkLogSettingsApplicationLogsPropertiesOutput
+}
+
+type LinkLogSettingsApplicationLogsPropertiesArgs struct {
+	LinkApplicationLogSampling LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput `pulumi:"linkApplicationLogSampling"`
+}
+
+func (LinkLogSettingsApplicationLogsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkLogSettingsApplicationLogsProperties)(nil)).Elem()
+}
+
+func (i LinkLogSettingsApplicationLogsPropertiesArgs) ToLinkLogSettingsApplicationLogsPropertiesOutput() LinkLogSettingsApplicationLogsPropertiesOutput {
+	return i.ToLinkLogSettingsApplicationLogsPropertiesOutputWithContext(context.Background())
+}
+
+func (i LinkLogSettingsApplicationLogsPropertiesArgs) ToLinkLogSettingsApplicationLogsPropertiesOutputWithContext(ctx context.Context) LinkLogSettingsApplicationLogsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkLogSettingsApplicationLogsPropertiesOutput)
+}
+
+type LinkLogSettingsApplicationLogsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (LinkLogSettingsApplicationLogsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkLogSettingsApplicationLogsProperties)(nil)).Elem()
+}
+
+func (o LinkLogSettingsApplicationLogsPropertiesOutput) ToLinkLogSettingsApplicationLogsPropertiesOutput() LinkLogSettingsApplicationLogsPropertiesOutput {
+	return o
+}
+
+func (o LinkLogSettingsApplicationLogsPropertiesOutput) ToLinkLogSettingsApplicationLogsPropertiesOutputWithContext(ctx context.Context) LinkLogSettingsApplicationLogsPropertiesOutput {
+	return o
+}
+
+func (o LinkLogSettingsApplicationLogsPropertiesOutput) LinkApplicationLogSampling() LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return o.ApplyT(func(v LinkLogSettingsApplicationLogsProperties) LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties {
+		return v.LinkApplicationLogSampling
+	}).(LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput)
+}
+
+type LinkLogSettingsApplicationLogsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkLogSettingsApplicationLogsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkLogSettingsApplicationLogsProperties)(nil)).Elem()
+}
+
+func (o LinkLogSettingsApplicationLogsPropertiesPtrOutput) ToLinkLogSettingsApplicationLogsPropertiesPtrOutput() LinkLogSettingsApplicationLogsPropertiesPtrOutput {
+	return o
+}
+
+func (o LinkLogSettingsApplicationLogsPropertiesPtrOutput) ToLinkLogSettingsApplicationLogsPropertiesPtrOutputWithContext(ctx context.Context) LinkLogSettingsApplicationLogsPropertiesPtrOutput {
+	return o
+}
+
+func (o LinkLogSettingsApplicationLogsPropertiesPtrOutput) Elem() LinkLogSettingsApplicationLogsPropertiesOutput {
+	return o.ApplyT(func(v *LinkLogSettingsApplicationLogsProperties) LinkLogSettingsApplicationLogsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret LinkLogSettingsApplicationLogsProperties
+		return ret
+	}).(LinkLogSettingsApplicationLogsPropertiesOutput)
+}
+
+func (o LinkLogSettingsApplicationLogsPropertiesPtrOutput) LinkApplicationLogSampling() LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput {
+	return o.ApplyT(func(v *LinkLogSettingsApplicationLogsProperties) *LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkApplicationLogSampling
+	}).(LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput)
+}
+
+type LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties struct {
+	ErrorLog  float64 `pulumi:"errorLog"`
+	FilterLog float64 `pulumi:"filterLog"`
+}
+
+// LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput is an input type that accepts LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs and LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput values.
+// You can construct a concrete instance of `LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput` via:
+//
+//	LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs{...}
+type LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput interface {
+	pulumi.Input
+
+	ToLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput() LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput
+	ToLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutputWithContext(context.Context) LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput
+}
+
+type LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs struct {
+	ErrorLog  pulumi.Float64Input `pulumi:"errorLog"`
+	FilterLog pulumi.Float64Input `pulumi:"filterLog"`
+}
+
+func (LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties)(nil)).Elem()
+}
+
+func (i LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs) ToLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput() LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return i.ToLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutputWithContext(context.Background())
+}
+
+func (i LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs) ToLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutputWithContext(ctx context.Context) LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput)
+}
+
+type LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput struct{ *pulumi.OutputState }
+
+func (LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties)(nil)).Elem()
+}
+
+func (o LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput) ToLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput() LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return o
+}
+
+func (o LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput) ToLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutputWithContext(ctx context.Context) LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return o
+}
+
+func (o LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput) ErrorLog() pulumi.Float64Output {
+	return o.ApplyT(func(v LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties) float64 {
+		return v.ErrorLog
+	}).(pulumi.Float64Output)
+}
+
+func (o LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput) FilterLog() pulumi.Float64Output {
+	return o.ApplyT(func(v LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties) float64 {
+		return v.FilterLog
+	}).(pulumi.Float64Output)
+}
+
+type LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties)(nil)).Elem()
+}
+
+func (o LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) ToLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput() LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput {
+	return o
+}
+
+func (o LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) ToLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutputWithContext(ctx context.Context) LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput {
+	return o
+}
+
+func (o LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) Elem() LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return o.ApplyT(func(v *LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties) LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties {
+		if v != nil {
+			return *v
+		}
+		var ret LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties
+		return ret
+	}).(LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput)
+}
+
+func (o LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) ErrorLog() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.ErrorLog
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) FilterLog() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.FilterLog
+	}).(pulumi.Float64PtrOutput)
+}
+
+type LinkModuleConfiguration struct {
+	DependsOn        []string              `pulumi:"dependsOn"`
+	ModuleParameters *LinkModuleParameters `pulumi:"moduleParameters"`
+	Name             string                `pulumi:"name"`
+	Version          *string               `pulumi:"version"`
+}
+
+// LinkModuleConfigurationInput is an input type that accepts LinkModuleConfigurationArgs and LinkModuleConfigurationOutput values.
+// You can construct a concrete instance of `LinkModuleConfigurationInput` via:
+//
+//	LinkModuleConfigurationArgs{...}
+type LinkModuleConfigurationInput interface {
+	pulumi.Input
+
+	ToLinkModuleConfigurationOutput() LinkModuleConfigurationOutput
+	ToLinkModuleConfigurationOutputWithContext(context.Context) LinkModuleConfigurationOutput
+}
+
+type LinkModuleConfigurationArgs struct {
+	DependsOn        pulumi.StringArrayInput      `pulumi:"dependsOn"`
+	ModuleParameters LinkModuleParametersPtrInput `pulumi:"moduleParameters"`
+	Name             pulumi.StringInput           `pulumi:"name"`
+	Version          pulumi.StringPtrInput        `pulumi:"version"`
+}
+
+func (LinkModuleConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkModuleConfiguration)(nil)).Elem()
+}
+
+func (i LinkModuleConfigurationArgs) ToLinkModuleConfigurationOutput() LinkModuleConfigurationOutput {
+	return i.ToLinkModuleConfigurationOutputWithContext(context.Background())
+}
+
+func (i LinkModuleConfigurationArgs) ToLinkModuleConfigurationOutputWithContext(ctx context.Context) LinkModuleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkModuleConfigurationOutput)
+}
+
+// LinkModuleConfigurationArrayInput is an input type that accepts LinkModuleConfigurationArray and LinkModuleConfigurationArrayOutput values.
+// You can construct a concrete instance of `LinkModuleConfigurationArrayInput` via:
+//
+//	LinkModuleConfigurationArray{ LinkModuleConfigurationArgs{...} }
+type LinkModuleConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToLinkModuleConfigurationArrayOutput() LinkModuleConfigurationArrayOutput
+	ToLinkModuleConfigurationArrayOutputWithContext(context.Context) LinkModuleConfigurationArrayOutput
+}
+
+type LinkModuleConfigurationArray []LinkModuleConfigurationInput
+
+func (LinkModuleConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkModuleConfiguration)(nil)).Elem()
+}
+
+func (i LinkModuleConfigurationArray) ToLinkModuleConfigurationArrayOutput() LinkModuleConfigurationArrayOutput {
+	return i.ToLinkModuleConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i LinkModuleConfigurationArray) ToLinkModuleConfigurationArrayOutputWithContext(ctx context.Context) LinkModuleConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkModuleConfigurationArrayOutput)
+}
+
+type LinkModuleConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LinkModuleConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkModuleConfiguration)(nil)).Elem()
+}
+
+func (o LinkModuleConfigurationOutput) ToLinkModuleConfigurationOutput() LinkModuleConfigurationOutput {
+	return o
+}
+
+func (o LinkModuleConfigurationOutput) ToLinkModuleConfigurationOutputWithContext(ctx context.Context) LinkModuleConfigurationOutput {
+	return o
+}
+
+func (o LinkModuleConfigurationOutput) DependsOn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LinkModuleConfiguration) []string { return v.DependsOn }).(pulumi.StringArrayOutput)
+}
+
+func (o LinkModuleConfigurationOutput) ModuleParameters() LinkModuleParametersPtrOutput {
+	return o.ApplyT(func(v LinkModuleConfiguration) *LinkModuleParameters { return v.ModuleParameters }).(LinkModuleParametersPtrOutput)
+}
+
+func (o LinkModuleConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkModuleConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LinkModuleConfigurationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkModuleConfiguration) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type LinkModuleConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkModuleConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkModuleConfiguration)(nil)).Elem()
+}
+
+func (o LinkModuleConfigurationArrayOutput) ToLinkModuleConfigurationArrayOutput() LinkModuleConfigurationArrayOutput {
+	return o
+}
+
+func (o LinkModuleConfigurationArrayOutput) ToLinkModuleConfigurationArrayOutputWithContext(ctx context.Context) LinkModuleConfigurationArrayOutput {
+	return o
+}
+
+func (o LinkModuleConfigurationArrayOutput) Index(i pulumi.IntInput) LinkModuleConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkModuleConfiguration {
+		return vs[0].([]LinkModuleConfiguration)[vs[1].(int)]
+	}).(LinkModuleConfigurationOutput)
+}
+
+type LinkModuleParameters struct {
+}
+
+// LinkModuleParametersInput is an input type that accepts LinkModuleParametersArgs and LinkModuleParametersOutput values.
+// You can construct a concrete instance of `LinkModuleParametersInput` via:
+//
+//	LinkModuleParametersArgs{...}
+type LinkModuleParametersInput interface {
+	pulumi.Input
+
+	ToLinkModuleParametersOutput() LinkModuleParametersOutput
+	ToLinkModuleParametersOutputWithContext(context.Context) LinkModuleParametersOutput
+}
+
+type LinkModuleParametersArgs struct {
+}
+
+func (LinkModuleParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkModuleParameters)(nil)).Elem()
+}
+
+func (i LinkModuleParametersArgs) ToLinkModuleParametersOutput() LinkModuleParametersOutput {
+	return i.ToLinkModuleParametersOutputWithContext(context.Background())
+}
+
+func (i LinkModuleParametersArgs) ToLinkModuleParametersOutputWithContext(ctx context.Context) LinkModuleParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkModuleParametersOutput)
+}
+
+func (i LinkModuleParametersArgs) ToLinkModuleParametersPtrOutput() LinkModuleParametersPtrOutput {
+	return i.ToLinkModuleParametersPtrOutputWithContext(context.Background())
+}
+
+func (i LinkModuleParametersArgs) ToLinkModuleParametersPtrOutputWithContext(ctx context.Context) LinkModuleParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkModuleParametersOutput).ToLinkModuleParametersPtrOutputWithContext(ctx)
+}
+
+// LinkModuleParametersPtrInput is an input type that accepts LinkModuleParametersArgs, LinkModuleParametersPtr and LinkModuleParametersPtrOutput values.
+// You can construct a concrete instance of `LinkModuleParametersPtrInput` via:
+//
+//	        LinkModuleParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type LinkModuleParametersPtrInput interface {
+	pulumi.Input
+
+	ToLinkModuleParametersPtrOutput() LinkModuleParametersPtrOutput
+	ToLinkModuleParametersPtrOutputWithContext(context.Context) LinkModuleParametersPtrOutput
+}
+
+type linkModuleParametersPtrType LinkModuleParametersArgs
+
+func LinkModuleParametersPtr(v *LinkModuleParametersArgs) LinkModuleParametersPtrInput {
+	return (*linkModuleParametersPtrType)(v)
+}
+
+func (*linkModuleParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkModuleParameters)(nil)).Elem()
+}
+
+func (i *linkModuleParametersPtrType) ToLinkModuleParametersPtrOutput() LinkModuleParametersPtrOutput {
+	return i.ToLinkModuleParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *linkModuleParametersPtrType) ToLinkModuleParametersPtrOutputWithContext(ctx context.Context) LinkModuleParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkModuleParametersPtrOutput)
+}
+
+type LinkModuleParametersOutput struct{ *pulumi.OutputState }
+
+func (LinkModuleParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkModuleParameters)(nil)).Elem()
+}
+
+func (o LinkModuleParametersOutput) ToLinkModuleParametersOutput() LinkModuleParametersOutput {
+	return o
+}
+
+func (o LinkModuleParametersOutput) ToLinkModuleParametersOutputWithContext(ctx context.Context) LinkModuleParametersOutput {
+	return o
+}
+
+func (o LinkModuleParametersOutput) ToLinkModuleParametersPtrOutput() LinkModuleParametersPtrOutput {
+	return o.ToLinkModuleParametersPtrOutputWithContext(context.Background())
+}
+
+func (o LinkModuleParametersOutput) ToLinkModuleParametersPtrOutputWithContext(ctx context.Context) LinkModuleParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkModuleParameters) *LinkModuleParameters {
+		return &v
+	}).(LinkModuleParametersPtrOutput)
+}
+
+type LinkModuleParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkModuleParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkModuleParameters)(nil)).Elem()
+}
+
+func (o LinkModuleParametersPtrOutput) ToLinkModuleParametersPtrOutput() LinkModuleParametersPtrOutput {
+	return o
+}
+
+func (o LinkModuleParametersPtrOutput) ToLinkModuleParametersPtrOutputWithContext(ctx context.Context) LinkModuleParametersPtrOutput {
+	return o
+}
+
+func (o LinkModuleParametersPtrOutput) Elem() LinkModuleParametersOutput {
+	return o.ApplyT(func(v *LinkModuleParameters) LinkModuleParameters {
+		if v != nil {
+			return *v
+		}
+		var ret LinkModuleParameters
+		return ret
+	}).(LinkModuleParametersOutput)
+}
+
+type LinkResponderErrorMaskingForHttpCode struct {
+	Action                    LinkResponderErrorMaskingForHttpCodeAction `pulumi:"action"`
+	HttpCode                  string                                     `pulumi:"httpCode"`
+	LoggingTypes              []LinkResponderErrorMaskingLoggingType     `pulumi:"loggingTypes"`
+	ResponseLoggingPercentage *float64                                   `pulumi:"responseLoggingPercentage"`
+}
+
+// LinkResponderErrorMaskingForHttpCodeInput is an input type that accepts LinkResponderErrorMaskingForHttpCodeArgs and LinkResponderErrorMaskingForHttpCodeOutput values.
+// You can construct a concrete instance of `LinkResponderErrorMaskingForHttpCodeInput` via:
+//
+//	LinkResponderErrorMaskingForHttpCodeArgs{...}
+type LinkResponderErrorMaskingForHttpCodeInput interface {
+	pulumi.Input
+
+	ToLinkResponderErrorMaskingForHttpCodeOutput() LinkResponderErrorMaskingForHttpCodeOutput
+	ToLinkResponderErrorMaskingForHttpCodeOutputWithContext(context.Context) LinkResponderErrorMaskingForHttpCodeOutput
+}
+
+type LinkResponderErrorMaskingForHttpCodeArgs struct {
+	Action                    LinkResponderErrorMaskingForHttpCodeActionInput `pulumi:"action"`
+	HttpCode                  pulumi.StringInput                              `pulumi:"httpCode"`
+	LoggingTypes              LinkResponderErrorMaskingLoggingTypeArrayInput  `pulumi:"loggingTypes"`
+	ResponseLoggingPercentage pulumi.Float64PtrInput                          `pulumi:"responseLoggingPercentage"`
+}
+
+func (LinkResponderErrorMaskingForHttpCodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkResponderErrorMaskingForHttpCode)(nil)).Elem()
+}
+
+func (i LinkResponderErrorMaskingForHttpCodeArgs) ToLinkResponderErrorMaskingForHttpCodeOutput() LinkResponderErrorMaskingForHttpCodeOutput {
+	return i.ToLinkResponderErrorMaskingForHttpCodeOutputWithContext(context.Background())
+}
+
+func (i LinkResponderErrorMaskingForHttpCodeArgs) ToLinkResponderErrorMaskingForHttpCodeOutputWithContext(ctx context.Context) LinkResponderErrorMaskingForHttpCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkResponderErrorMaskingForHttpCodeOutput)
+}
+
+// LinkResponderErrorMaskingForHttpCodeArrayInput is an input type that accepts LinkResponderErrorMaskingForHttpCodeArray and LinkResponderErrorMaskingForHttpCodeArrayOutput values.
+// You can construct a concrete instance of `LinkResponderErrorMaskingForHttpCodeArrayInput` via:
+//
+//	LinkResponderErrorMaskingForHttpCodeArray{ LinkResponderErrorMaskingForHttpCodeArgs{...} }
+type LinkResponderErrorMaskingForHttpCodeArrayInput interface {
+	pulumi.Input
+
+	ToLinkResponderErrorMaskingForHttpCodeArrayOutput() LinkResponderErrorMaskingForHttpCodeArrayOutput
+	ToLinkResponderErrorMaskingForHttpCodeArrayOutputWithContext(context.Context) LinkResponderErrorMaskingForHttpCodeArrayOutput
+}
+
+type LinkResponderErrorMaskingForHttpCodeArray []LinkResponderErrorMaskingForHttpCodeInput
+
+func (LinkResponderErrorMaskingForHttpCodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkResponderErrorMaskingForHttpCode)(nil)).Elem()
+}
+
+func (i LinkResponderErrorMaskingForHttpCodeArray) ToLinkResponderErrorMaskingForHttpCodeArrayOutput() LinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return i.ToLinkResponderErrorMaskingForHttpCodeArrayOutputWithContext(context.Background())
+}
+
+func (i LinkResponderErrorMaskingForHttpCodeArray) ToLinkResponderErrorMaskingForHttpCodeArrayOutputWithContext(ctx context.Context) LinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkResponderErrorMaskingForHttpCodeArrayOutput)
+}
+
+type LinkResponderErrorMaskingForHttpCodeOutput struct{ *pulumi.OutputState }
+
+func (LinkResponderErrorMaskingForHttpCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkResponderErrorMaskingForHttpCode)(nil)).Elem()
+}
+
+func (o LinkResponderErrorMaskingForHttpCodeOutput) ToLinkResponderErrorMaskingForHttpCodeOutput() LinkResponderErrorMaskingForHttpCodeOutput {
+	return o
+}
+
+func (o LinkResponderErrorMaskingForHttpCodeOutput) ToLinkResponderErrorMaskingForHttpCodeOutputWithContext(ctx context.Context) LinkResponderErrorMaskingForHttpCodeOutput {
+	return o
+}
+
+func (o LinkResponderErrorMaskingForHttpCodeOutput) Action() LinkResponderErrorMaskingForHttpCodeActionOutput {
+	return o.ApplyT(func(v LinkResponderErrorMaskingForHttpCode) LinkResponderErrorMaskingForHttpCodeAction {
+		return v.Action
+	}).(LinkResponderErrorMaskingForHttpCodeActionOutput)
+}
+
+func (o LinkResponderErrorMaskingForHttpCodeOutput) HttpCode() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkResponderErrorMaskingForHttpCode) string { return v.HttpCode }).(pulumi.StringOutput)
+}
+
+func (o LinkResponderErrorMaskingForHttpCodeOutput) LoggingTypes() LinkResponderErrorMaskingLoggingTypeArrayOutput {
+	return o.ApplyT(func(v LinkResponderErrorMaskingForHttpCode) []LinkResponderErrorMaskingLoggingType {
+		return v.LoggingTypes
+	}).(LinkResponderErrorMaskingLoggingTypeArrayOutput)
+}
+
+func (o LinkResponderErrorMaskingForHttpCodeOutput) ResponseLoggingPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LinkResponderErrorMaskingForHttpCode) *float64 { return v.ResponseLoggingPercentage }).(pulumi.Float64PtrOutput)
+}
+
+type LinkResponderErrorMaskingForHttpCodeArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkResponderErrorMaskingForHttpCodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkResponderErrorMaskingForHttpCode)(nil)).Elem()
+}
+
+func (o LinkResponderErrorMaskingForHttpCodeArrayOutput) ToLinkResponderErrorMaskingForHttpCodeArrayOutput() LinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return o
+}
+
+func (o LinkResponderErrorMaskingForHttpCodeArrayOutput) ToLinkResponderErrorMaskingForHttpCodeArrayOutputWithContext(ctx context.Context) LinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return o
+}
+
+func (o LinkResponderErrorMaskingForHttpCodeArrayOutput) Index(i pulumi.IntInput) LinkResponderErrorMaskingForHttpCodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkResponderErrorMaskingForHttpCode {
+		return vs[0].([]LinkResponderErrorMaskingForHttpCode)[vs[1].(int)]
+	}).(LinkResponderErrorMaskingForHttpCodeOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LinkTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type RequesterGatewayTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -281,10 +1050,35 @@ func (o ResponderGatewayTrustStoreConfigurationPtrOutput) CertificateAuthorityCe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkAttributesInput)(nil)).Elem(), LinkAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkAttributesPtrInput)(nil)).Elem(), LinkAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkLogSettingsInput)(nil)).Elem(), LinkLogSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkLogSettingsApplicationLogsPropertiesInput)(nil)).Elem(), LinkLogSettingsApplicationLogsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput)(nil)).Elem(), LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkModuleConfigurationInput)(nil)).Elem(), LinkModuleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkModuleConfigurationArrayInput)(nil)).Elem(), LinkModuleConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkModuleParametersInput)(nil)).Elem(), LinkModuleParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkModuleParametersPtrInput)(nil)).Elem(), LinkModuleParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkResponderErrorMaskingForHttpCodeInput)(nil)).Elem(), LinkResponderErrorMaskingForHttpCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkResponderErrorMaskingForHttpCodeArrayInput)(nil)).Elem(), LinkResponderErrorMaskingForHttpCodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayManagedEndpointConfigurationInput)(nil)).Elem(), ResponderGatewayManagedEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayManagedEndpointConfigurationPtrInput)(nil)).Elem(), ResponderGatewayManagedEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayTrustStoreConfigurationInput)(nil)).Elem(), ResponderGatewayTrustStoreConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayTrustStoreConfigurationPtrInput)(nil)).Elem(), ResponderGatewayTrustStoreConfigurationArgs{})
+	pulumi.RegisterOutputType(LinkAttributesOutput{})
+	pulumi.RegisterOutputType(LinkAttributesPtrOutput{})
+	pulumi.RegisterOutputType(LinkLogSettingsOutput{})
+	pulumi.RegisterOutputType(LinkLogSettingsPtrOutput{})
+	pulumi.RegisterOutputType(LinkLogSettingsApplicationLogsPropertiesOutput{})
+	pulumi.RegisterOutputType(LinkLogSettingsApplicationLogsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput{})
+	pulumi.RegisterOutputType(LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(LinkModuleConfigurationOutput{})
+	pulumi.RegisterOutputType(LinkModuleConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(LinkModuleParametersOutput{})
+	pulumi.RegisterOutputType(LinkModuleParametersPtrOutput{})
+	pulumi.RegisterOutputType(LinkResponderErrorMaskingForHttpCodeOutput{})
+	pulumi.RegisterOutputType(LinkResponderErrorMaskingForHttpCodeArrayOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayManagedEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayManagedEndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayTrustStoreConfigurationOutput{})

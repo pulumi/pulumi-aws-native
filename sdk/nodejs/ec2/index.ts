@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CapacityManagerDataExportArgs } from "./capacityManagerDataExport";
+export type CapacityManagerDataExport = import("./capacityManagerDataExport").CapacityManagerDataExport;
+export const CapacityManagerDataExport: typeof import("./capacityManagerDataExport").CapacityManagerDataExport = null as any;
+utilities.lazyLoad(exports, ["CapacityManagerDataExport"], () => require("./capacityManagerDataExport"));
+
 export { CapacityReservationArgs } from "./capacityReservation";
 export type CapacityReservation = import("./capacityReservation").CapacityReservation;
 export const CapacityReservation: typeof import("./capacityReservation").CapacityReservation = null as any;
@@ -64,6 +69,11 @@ export { GatewayRouteTableAssociationArgs } from "./gatewayRouteTableAssociation
 export type GatewayRouteTableAssociation = import("./gatewayRouteTableAssociation").GatewayRouteTableAssociation;
 export const GatewayRouteTableAssociation: typeof import("./gatewayRouteTableAssociation").GatewayRouteTableAssociation = null as any;
 utilities.lazyLoad(exports, ["GatewayRouteTableAssociation"], () => require("./gatewayRouteTableAssociation"));
+
+export { GetCapacityManagerDataExportArgs, GetCapacityManagerDataExportResult, GetCapacityManagerDataExportOutputArgs } from "./getCapacityManagerDataExport";
+export const getCapacityManagerDataExport: typeof import("./getCapacityManagerDataExport").getCapacityManagerDataExport = null as any;
+export const getCapacityManagerDataExportOutput: typeof import("./getCapacityManagerDataExport").getCapacityManagerDataExportOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityManagerDataExport","getCapacityManagerDataExportOutput"], () => require("./getCapacityManagerDataExport"));
 
 export { GetCapacityReservationArgs, GetCapacityReservationResult, GetCapacityReservationOutputArgs } from "./getCapacityReservation";
 export const getCapacityReservation: typeof import("./getCapacityReservation").getCapacityReservation = null as any;
@@ -948,6 +958,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:ec2:CapacityManagerDataExport":
+                return new CapacityManagerDataExport(name, <any>undefined, { urn })
             case "aws-native:ec2:CapacityReservation":
                 return new CapacityReservation(name, <any>undefined, { urn })
             case "aws-native:ec2:CapacityReservationFleet":

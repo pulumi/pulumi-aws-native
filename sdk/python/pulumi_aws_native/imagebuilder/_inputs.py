@@ -48,6 +48,8 @@ __all__ = [
     'DistributionConfigurationSsmParameterConfigurationArgsDict',
     'DistributionConfigurationTargetContainerRepositoryArgs',
     'DistributionConfigurationTargetContainerRepositoryArgsDict',
+    'ImageDeletionSettingsArgs',
+    'ImageDeletionSettingsArgsDict',
     'ImageEcrConfigurationArgs',
     'ImageEcrConfigurationArgsDict',
     'ImageLoggingConfigurationArgs',
@@ -1510,6 +1512,41 @@ class DistributionConfigurationTargetContainerRepositoryArgs:
     @service.setter
     def service(self, value: Optional[pulumi.Input['DistributionConfigurationTargetContainerRepositoryService']]):
         pulumi.set(self, "service", value)
+
+
+if not MYPY:
+    class ImageDeletionSettingsArgsDict(TypedDict):
+        """
+        The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+        """
+        execution_role: pulumi.Input[_builtins.str]
+        """
+        The execution role to use for deleting the image, as well as underlying resources.
+        """
+elif False:
+    ImageDeletionSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ImageDeletionSettingsArgs:
+    def __init__(__self__, *,
+                 execution_role: pulumi.Input[_builtins.str]):
+        """
+        The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+        :param pulumi.Input[_builtins.str] execution_role: The execution role to use for deleting the image, as well as underlying resources.
+        """
+        pulumi.set(__self__, "execution_role", execution_role)
+
+    @_builtins.property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> pulumi.Input[_builtins.str]:
+        """
+        The execution role to use for deleting the image, as well as underlying resources.
+        """
+        return pulumi.get(self, "execution_role")
+
+    @execution_role.setter
+    def execution_role(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "execution_role", value)
 
 
 if not MYPY:

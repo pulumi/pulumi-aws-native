@@ -206,17 +206,16 @@ export class Broker extends pulumi.CustomResource {
      */
     declare public readonly authenticationStrategy: pulumi.Output<string | undefined>;
     /**
-     * Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
+     * Enables automatic upgrades to new patch versions for brokers as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window or after a manual broker reboot. Set to `true` by default, if no value is specified.
+     *
+     * > Must be set to `true` for ActiveMQ brokers version 5.18 and above and for RabbitMQ brokers version 3.13 and above.
      */
     declare public readonly autoMinorVersionUpgrade: pulumi.Output<boolean | undefined>;
-    /**
-     * Required. The unique ID that Amazon MQ generates for the configuration.
-     */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
-     * The name of the broker. This value must be unique in your AWS account , 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.
+     * Required. The broker's name. This value must be unique in your AWS account , 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.
      *
-     * > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker names. Broker names are accessible to other AWS services, including C CloudWatch Logs . Broker names are not intended to be used for private or sensitive data.
+     * > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker names. Broker names are accessible to other AWS services, including CloudWatch Logs . Broker names are not intended to be used for private or sensitive data.
      */
     declare public readonly brokerName: pulumi.Output<string>;
     /**
@@ -244,19 +243,15 @@ export class Broker extends pulumi.CustomResource {
      */
     declare public readonly dataReplicationPrimaryBrokerArn: pulumi.Output<string | undefined>;
     /**
-     * The deployment mode of the broker. Available values:
-     *
-     * - `SINGLE_INSTANCE`
-     * - `ACTIVE_STANDBY_MULTI_AZ`
-     * - `CLUSTER_MULTI_AZ`
+     * Required. The broker's deployment mode.
      */
     declare public readonly deploymentMode: pulumi.Output<enums.amazonmq.BrokerDeploymentMode | string>;
     /**
-     * Encryption options for the broker. Does not apply to RabbitMQ brokers.
+     * Encryption options for the broker.
      */
     declare public readonly encryptionOptions: pulumi.Output<outputs.amazonmq.BrokerEncryptionOptions | undefined>;
     /**
-     * The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
+     * Required. The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
      */
     declare public readonly engineType: pulumi.Output<enums.amazonmq.BrokerEngineType | string>;
     /**
@@ -268,7 +263,7 @@ export class Broker extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly engineVersionCurrent: pulumi.Output<string>;
     /**
-     * The broker's instance type.
+     * Required. The broker's instance type.
      */
     declare public readonly hostInstanceType: pulumi.Output<string>;
     /**
@@ -286,7 +281,7 @@ export class Broker extends pulumi.CustomResource {
      */
     declare public readonly logs: pulumi.Output<outputs.amazonmq.BrokerLogList | undefined>;
     /**
-     * The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.
+     * The parameters that determine the WeeklyStartTime.
      */
     declare public readonly maintenanceWindowStartTime: pulumi.Output<outputs.amazonmq.BrokerMaintenanceWindow | undefined>;
     /**
@@ -302,7 +297,7 @@ export class Broker extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly openWireEndpoints: pulumi.Output<string[]>;
     /**
-     * Enables connections from applications outside of the VPC that hosts the broker's subnets.
+     * Enables connections from applications outside of the VPC that hosts the broker's subnets. Set to `false` by default, if no value is provided.
      */
     declare public readonly publiclyAccessible: pulumi.Output<boolean>;
     /**
@@ -320,13 +315,13 @@ export class Broker extends pulumi.CustomResource {
      */
     declare public readonly storageType: pulumi.Output<enums.amazonmq.BrokerStorageType | string | undefined>;
     /**
-     * The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
+     * The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ deployment has no subnet requirements when deployed with public accessibility. Deployment without public accessibility requires at least one subnet.
      *
-     * > If you specify subnets in a shared VPC for a RabbitMQ broker, the associated VPC to which the specified subnets belong must be owned by your AWS account . Amazon MQ will not be able to create VPC enpoints in VPCs that are not owned by your AWS account .
+     * > If you specify subnets in a [shared VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html) for a RabbitMQ broker, the associated VPC to which the specified subnets belong must be owned by your AWS account . Amazon MQ will not be able to create VPC endpoints in VPCs that are not owned by your AWS account .
      */
     declare public readonly subnetIds: pulumi.Output<string[] | undefined>;
     /**
-     * An array of key-value pairs. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Billing and Cost Management User Guide* .
+     * Create tags when creating the broker.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -448,13 +443,15 @@ export interface BrokerArgs {
      */
     authenticationStrategy?: pulumi.Input<string>;
     /**
-     * Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
+     * Enables automatic upgrades to new patch versions for brokers as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window or after a manual broker reboot. Set to `true` by default, if no value is specified.
+     *
+     * > Must be set to `true` for ActiveMQ brokers version 5.18 and above and for RabbitMQ brokers version 3.13 and above.
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
-     * The name of the broker. This value must be unique in your AWS account , 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.
+     * Required. The broker's name. This value must be unique in your AWS account , 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.
      *
-     * > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker names. Broker names are accessible to other AWS services, including C CloudWatch Logs . Broker names are not intended to be used for private or sensitive data.
+     * > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker names. Broker names are accessible to other AWS services, including CloudWatch Logs . Broker names are not intended to be used for private or sensitive data.
      */
     brokerName?: pulumi.Input<string>;
     /**
@@ -473,19 +470,15 @@ export interface BrokerArgs {
      */
     dataReplicationPrimaryBrokerArn?: pulumi.Input<string>;
     /**
-     * The deployment mode of the broker. Available values:
-     *
-     * - `SINGLE_INSTANCE`
-     * - `ACTIVE_STANDBY_MULTI_AZ`
-     * - `CLUSTER_MULTI_AZ`
+     * Required. The broker's deployment mode.
      */
     deploymentMode: pulumi.Input<enums.amazonmq.BrokerDeploymentMode | string>;
     /**
-     * Encryption options for the broker. Does not apply to RabbitMQ brokers.
+     * Encryption options for the broker.
      */
     encryptionOptions?: pulumi.Input<inputs.amazonmq.BrokerEncryptionOptionsArgs>;
     /**
-     * The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
+     * Required. The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
      */
     engineType: pulumi.Input<enums.amazonmq.BrokerEngineType | string>;
     /**
@@ -493,7 +486,7 @@ export interface BrokerArgs {
      */
     engineVersion?: pulumi.Input<string>;
     /**
-     * The broker's instance type.
+     * Required. The broker's instance type.
      */
     hostInstanceType: pulumi.Input<string>;
     /**
@@ -505,11 +498,11 @@ export interface BrokerArgs {
      */
     logs?: pulumi.Input<inputs.amazonmq.BrokerLogListArgs>;
     /**
-     * The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.
+     * The parameters that determine the WeeklyStartTime.
      */
     maintenanceWindowStartTime?: pulumi.Input<inputs.amazonmq.BrokerMaintenanceWindowArgs>;
     /**
-     * Enables connections from applications outside of the VPC that hosts the broker's subnets.
+     * Enables connections from applications outside of the VPC that hosts the broker's subnets. Set to `false` by default, if no value is provided.
      */
     publiclyAccessible: pulumi.Input<boolean>;
     /**
@@ -521,13 +514,13 @@ export interface BrokerArgs {
      */
     storageType?: pulumi.Input<enums.amazonmq.BrokerStorageType | string>;
     /**
-     * The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
+     * The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ deployment has no subnet requirements when deployed with public accessibility. Deployment without public accessibility requires at least one subnet.
      *
-     * > If you specify subnets in a shared VPC for a RabbitMQ broker, the associated VPC to which the specified subnets belong must be owned by your AWS account . Amazon MQ will not be able to create VPC enpoints in VPCs that are not owned by your AWS account .
+     * > If you specify subnets in a [shared VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html) for a RabbitMQ broker, the associated VPC to which the specified subnets belong must be owned by your AWS account . Amazon MQ will not be able to create VPC endpoints in VPCs that are not owned by your AWS account .
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An array of key-value pairs. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Billing and Cost Management User Guide* .
+     * Create tags when creating the broker.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

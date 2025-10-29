@@ -363,6 +363,7 @@ class Firewall(pulumi.CustomResource):
             __props__.__dict__["endpoint_ids"] = None
             __props__.__dict__["firewall_arn"] = None
             __props__.__dict__["firewall_id"] = None
+            __props__.__dict__["transit_gateway_attachment_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["firewallName", "vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Firewall, __self__).__init__(
@@ -401,6 +402,7 @@ class Firewall(pulumi.CustomResource):
         __props__.__dict__["subnet_change_protection"] = None
         __props__.__dict__["subnet_mappings"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["transit_gateway_attachment_id"] = None
         __props__.__dict__["transit_gateway_id"] = None
         __props__.__dict__["vpc_id"] = None
         return Firewall(resource_name, opts=opts, __props__=__props__)
@@ -524,6 +526,11 @@ class Firewall(pulumi.CustomResource):
         For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayAttachmentId")
+    def transit_gateway_attachment_id(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "transit_gateway_attachment_id")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")

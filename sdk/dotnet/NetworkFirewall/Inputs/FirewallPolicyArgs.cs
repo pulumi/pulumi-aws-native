@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
     public sealed class FirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("enableTlsSessionHolding")]
+        public Input<bool>? EnableTlsSessionHolding { get; set; }
+
         /// <summary>
         /// Contains variables that you can use to override default Suricata settings in your firewall policy.
         /// </summary>

@@ -107,6 +107,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        [Output("transitGatewayAttachmentId")]
+        public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
+
         /// <summary>
         /// The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
         /// </summary>

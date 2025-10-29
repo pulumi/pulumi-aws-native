@@ -3693,6 +3693,7 @@ type RuntimeProtocolConfiguration string
 const (
 	RuntimeProtocolConfigurationMcp  = RuntimeProtocolConfiguration("MCP")
 	RuntimeProtocolConfigurationHttp = RuntimeProtocolConfiguration("HTTP")
+	RuntimeProtocolConfigurationA2a  = RuntimeProtocolConfiguration("A2A")
 )
 
 func (RuntimeProtocolConfiguration) ElementType() reflect.Type {
@@ -3819,6 +3820,7 @@ func (o RuntimeProtocolConfigurationPtrOutput) ToStringPtrOutputWithContext(ctx 
 //
 //	RuntimeProtocolConfigurationMcp
 //	RuntimeProtocolConfigurationHttp
+//	RuntimeProtocolConfigurationA2a
 type RuntimeProtocolConfigurationInput interface {
 	pulumi.Input
 

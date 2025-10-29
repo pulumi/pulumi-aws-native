@@ -62,6 +62,8 @@ export type LoggingConfigurationLogDestinationConfigLogType = (typeof LoggingCon
 export const RuleGroupGeneratedRulesType = {
     Allowlist: "ALLOWLIST",
     Denylist: "DENYLIST",
+    Alertlist: "ALERTLIST",
+    Rejectlist: "REJECTLIST",
 } as const;
 
 export type RuleGroupGeneratedRulesType = (typeof RuleGroupGeneratedRulesType)[keyof typeof RuleGroupGeneratedRulesType];

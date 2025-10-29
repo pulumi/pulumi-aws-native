@@ -18,6 +18,10 @@ from ._enums import *
 __all__ = [
     'As2ConfigPropertiesArgs',
     'As2ConfigPropertiesArgsDict',
+    'ConnectorEgressConfigArgs',
+    'ConnectorEgressConfigArgsDict',
+    'ConnectorVpcLatticeEgressConfigArgs',
+    'ConnectorVpcLatticeEgressConfigArgsDict',
     'CustomDirectoriesPropertiesArgs',
     'CustomDirectoriesPropertiesArgsDict',
     'ServerEndpointDetailsArgs',
@@ -284,6 +288,79 @@ class As2ConfigPropertiesArgs:
     @signing_algorithm.setter
     def signing_algorithm(self, value: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']]):
         pulumi.set(self, "signing_algorithm", value)
+
+
+if not MYPY:
+    class ConnectorEgressConfigArgsDict(TypedDict):
+        vpc_lattice: pulumi.Input['ConnectorVpcLatticeEgressConfigArgsDict']
+elif False:
+    ConnectorEgressConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectorEgressConfigArgs:
+    def __init__(__self__, *,
+                 vpc_lattice: pulumi.Input['ConnectorVpcLatticeEgressConfigArgs']):
+        pulumi.set(__self__, "vpc_lattice", vpc_lattice)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcLattice")
+    def vpc_lattice(self) -> pulumi.Input['ConnectorVpcLatticeEgressConfigArgs']:
+        return pulumi.get(self, "vpc_lattice")
+
+    @vpc_lattice.setter
+    def vpc_lattice(self, value: pulumi.Input['ConnectorVpcLatticeEgressConfigArgs']):
+        pulumi.set(self, "vpc_lattice", value)
+
+
+if not MYPY:
+    class ConnectorVpcLatticeEgressConfigArgsDict(TypedDict):
+        resource_configuration_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the VPC Lattice resource configuration
+        """
+        port_number: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Port to connect to on the target VPC Lattice resource
+        """
+elif False:
+    ConnectorVpcLatticeEgressConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectorVpcLatticeEgressConfigArgs:
+    def __init__(__self__, *,
+                 resource_configuration_arn: pulumi.Input[_builtins.str],
+                 port_number: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] resource_configuration_arn: ARN of the VPC Lattice resource configuration
+        :param pulumi.Input[_builtins.int] port_number: Port to connect to on the target VPC Lattice resource
+        """
+        pulumi.set(__self__, "resource_configuration_arn", resource_configuration_arn)
+        if port_number is not None:
+            pulumi.set(__self__, "port_number", port_number)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationArn")
+    def resource_configuration_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the VPC Lattice resource configuration
+        """
+        return pulumi.get(self, "resource_configuration_arn")
+
+    @resource_configuration_arn.setter
+    def resource_configuration_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_configuration_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="portNumber")
+    def port_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Port to connect to on the target VPC Lattice resource
+        """
+        return pulumi.get(self, "port_number")
+
+    @port_number.setter
+    def port_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "port_number", value)
 
 
 if not MYPY:

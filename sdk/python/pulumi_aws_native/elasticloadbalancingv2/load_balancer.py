@@ -39,7 +39,7 @@ class LoadBalancerArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
-        :param pulumi.Input[_builtins.bool] enable_capacity_reservation_provision_stabilize: Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is `false` .
+        :param pulumi.Input[_builtins.bool] enable_capacity_reservation_provision_stabilize: Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is ``false``.
         :param pulumi.Input[_builtins.str] enable_prefix_for_ipv6_source_nat: [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
         :param pulumi.Input[_builtins.str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
                 You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.
@@ -104,7 +104,7 @@ class LoadBalancerArgs:
     @pulumi.getter(name="enableCapacityReservationProvisionStabilize")
     def enable_capacity_reservation_provision_stabilize(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is `false` .
+        Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is ``false``.
         """
         return pulumi.get(self, "enable_capacity_reservation_provision_stabilize")
 
@@ -312,7 +312,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] enable_capacity_reservation_provision_stabilize: Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is `false` .
+        :param pulumi.Input[_builtins.bool] enable_capacity_reservation_provision_stabilize: Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is ``false``.
         :param pulumi.Input[_builtins.str] enable_prefix_for_ipv6_source_nat: [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
         :param pulumi.Input[_builtins.str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
                 You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.
@@ -475,7 +475,7 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter(name="enableCapacityReservationProvisionStabilize")
     def enable_capacity_reservation_provision_stabilize(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is `false` .
+        Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is ``false``.
         """
         return pulumi.get(self, "enable_capacity_reservation_provision_stabilize")
 

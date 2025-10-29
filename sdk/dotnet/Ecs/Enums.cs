@@ -575,6 +575,62 @@ namespace Pulumi.AwsNative.Ecs
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ServiceConnectAccessLogConfigurationFormat : IEquatable<ServiceConnectAccessLogConfigurationFormat>
+    {
+        private readonly string _value;
+
+        private ServiceConnectAccessLogConfigurationFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceConnectAccessLogConfigurationFormat Text { get; } = new ServiceConnectAccessLogConfigurationFormat("TEXT");
+        public static ServiceConnectAccessLogConfigurationFormat Json { get; } = new ServiceConnectAccessLogConfigurationFormat("JSON");
+
+        public static bool operator ==(ServiceConnectAccessLogConfigurationFormat left, ServiceConnectAccessLogConfigurationFormat right) => left.Equals(right);
+        public static bool operator !=(ServiceConnectAccessLogConfigurationFormat left, ServiceConnectAccessLogConfigurationFormat right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceConnectAccessLogConfigurationFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceConnectAccessLogConfigurationFormat other && Equals(other);
+        public bool Equals(ServiceConnectAccessLogConfigurationFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ServiceConnectAccessLogConfigurationIncludeQueryParameters : IEquatable<ServiceConnectAccessLogConfigurationIncludeQueryParameters>
+    {
+        private readonly string _value;
+
+        private ServiceConnectAccessLogConfigurationIncludeQueryParameters(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceConnectAccessLogConfigurationIncludeQueryParameters Disabled { get; } = new ServiceConnectAccessLogConfigurationIncludeQueryParameters("DISABLED");
+        public static ServiceConnectAccessLogConfigurationIncludeQueryParameters Enabled { get; } = new ServiceConnectAccessLogConfigurationIncludeQueryParameters("ENABLED");
+
+        public static bool operator ==(ServiceConnectAccessLogConfigurationIncludeQueryParameters left, ServiceConnectAccessLogConfigurationIncludeQueryParameters right) => left.Equals(right);
+        public static bool operator !=(ServiceConnectAccessLogConfigurationIncludeQueryParameters left, ServiceConnectAccessLogConfigurationIncludeQueryParameters right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceConnectAccessLogConfigurationIncludeQueryParameters value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceConnectAccessLogConfigurationIncludeQueryParameters other && Equals(other);
+        public bool Equals(ServiceConnectAccessLogConfigurationIncludeQueryParameters other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The deployment strategy for the service. Choose from these valid values:
     ///   +  ``ROLLING`` - When you create a service which uses the rolling update (``ROLLING``) deployment strategy, the Amazon ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration.

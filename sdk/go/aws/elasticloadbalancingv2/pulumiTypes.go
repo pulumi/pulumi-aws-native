@@ -3113,7 +3113,7 @@ func (o ListenerRuleForwardConfigPtrOutput) TargetGroups() ListenerRuleTargetGro
 // Information about a host header condition.
 type ListenerRuleHostHeaderConfig struct {
 	RegexValues []string `pulumi:"regexValues"`
-	// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
+	// The host names. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
 	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
 	Values []string `pulumi:"values"`
 }
@@ -3132,7 +3132,7 @@ type ListenerRuleHostHeaderConfigInput interface {
 // Information about a host header condition.
 type ListenerRuleHostHeaderConfigArgs struct {
 	RegexValues pulumi.StringArrayInput `pulumi:"regexValues"`
-	// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
+	// The host names. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
 	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
@@ -3219,7 +3219,7 @@ func (o ListenerRuleHostHeaderConfigOutput) RegexValues() pulumi.StringArrayOutp
 	return o.ApplyT(func(v ListenerRuleHostHeaderConfig) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
 }
 
-// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
+// The host names. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
 //
 //	If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
 func (o ListenerRuleHostHeaderConfigOutput) Values() pulumi.StringArrayOutput {
@@ -3259,7 +3259,7 @@ func (o ListenerRuleHostHeaderConfigPtrOutput) RegexValues() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
+// The host names. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
 //
 //	If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
 func (o ListenerRuleHostHeaderConfigPtrOutput) Values() pulumi.StringArrayOutput {
@@ -3278,7 +3278,7 @@ type ListenerRuleHttpHeaderConfig struct {
 	// The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
 	HttpHeaderName *string  `pulumi:"httpHeaderName"`
 	RegexValues    []string `pulumi:"regexValues"`
-	// The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+	// The strings to compare against the value of the HTTP header. The maximum length of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 	//  If the same header appears multiple times in the request, we search them in order until a match is found.
 	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
 	Values []string `pulumi:"values"`
@@ -3302,7 +3302,7 @@ type ListenerRuleHttpHeaderConfigArgs struct {
 	// The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
 	HttpHeaderName pulumi.StringPtrInput   `pulumi:"httpHeaderName"`
 	RegexValues    pulumi.StringArrayInput `pulumi:"regexValues"`
-	// The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+	// The strings to compare against the value of the HTTP header. The maximum length of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 	//  If the same header appears multiple times in the request, we search them in order until a match is found.
 	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -3397,7 +3397,7 @@ func (o ListenerRuleHttpHeaderConfigOutput) RegexValues() pulumi.StringArrayOutp
 	return o.ApplyT(func(v ListenerRuleHttpHeaderConfig) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
 }
 
-// The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+// The strings to compare against the value of the HTTP header. The maximum length of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 //
 //	If the same header appears multiple times in the request, we search them in order until a match is found.
 //	If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
@@ -3448,7 +3448,7 @@ func (o ListenerRuleHttpHeaderConfigPtrOutput) RegexValues() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+// The strings to compare against the value of the HTTP header. The maximum length of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 //
 //	If the same header appears multiple times in the request, we search them in order until a match is found.
 //	If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
@@ -3465,7 +3465,7 @@ func (o ListenerRuleHttpHeaderConfigPtrOutput) Values() pulumi.StringArrayOutput
 //
 //	HTTP defines a set of request methods, also referred to as HTTP verbs. For more information, see the [HTTP Method Registry](https://docs.aws.amazon.com/https://www.iana.org/assignments/http-methods/http-methods.xhtml). You can also define custom HTTP methods.
 type ListenerRuleHttpRequestMethodConfig struct {
-	// The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
+	// The name of the request method. The maximum length is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
 	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
 	Values []string `pulumi:"values"`
 }
@@ -3485,7 +3485,7 @@ type ListenerRuleHttpRequestMethodConfigInput interface {
 //
 //	HTTP defines a set of request methods, also referred to as HTTP verbs. For more information, see the [HTTP Method Registry](https://docs.aws.amazon.com/https://www.iana.org/assignments/http-methods/http-methods.xhtml). You can also define custom HTTP methods.
 type ListenerRuleHttpRequestMethodConfigArgs struct {
-	// The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
+	// The name of the request method. The maximum length is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
 	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
@@ -3570,7 +3570,7 @@ func (o ListenerRuleHttpRequestMethodConfigOutput) ToListenerRuleHttpRequestMeth
 	}).(ListenerRuleHttpRequestMethodConfigPtrOutput)
 }
 
-// The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
+// The name of the request method. The maximum length is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
 //
 //	If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
 func (o ListenerRuleHttpRequestMethodConfigOutput) Values() pulumi.StringArrayOutput {
@@ -3601,7 +3601,7 @@ func (o ListenerRuleHttpRequestMethodConfigPtrOutput) Elem() ListenerRuleHttpReq
 	}).(ListenerRuleHttpRequestMethodConfigOutput)
 }
 
-// The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
+// The name of the request method. The maximum length is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
 //
 //	If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
 func (o ListenerRuleHttpRequestMethodConfigPtrOutput) Values() pulumi.StringArrayOutput {
@@ -3778,7 +3778,7 @@ func (o ListenerRulePathPatternConfigPtrOutput) Values() pulumi.StringArrayOutpu
 //
 //	The query string component of a URI starts after the first '?' character and is terminated by either a '#' character or the end of the URI. A typical query string contains key/value pairs separated by '&' characters. The allowed characters are specified by RFC 3986. Any character can be percentage encoded.
 type ListenerRuleQueryStringConfig struct {
-	// The key/value pairs or values to find in the query string. The maximum size of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in ``Values`` using a '\' character.
+	// The key/value pairs or values to find in the query string. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in ``Values`` using a '\' character.
 	//  If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
 	Values []ListenerRuleQueryStringKeyValue `pulumi:"values"`
 }
@@ -3798,7 +3798,7 @@ type ListenerRuleQueryStringConfigInput interface {
 //
 //	The query string component of a URI starts after the first '?' character and is terminated by either a '#' character or the end of the URI. A typical query string contains key/value pairs separated by '&' characters. The allowed characters are specified by RFC 3986. Any character can be percentage encoded.
 type ListenerRuleQueryStringConfigArgs struct {
-	// The key/value pairs or values to find in the query string. The maximum size of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in ``Values`` using a '\' character.
+	// The key/value pairs or values to find in the query string. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in ``Values`` using a '\' character.
 	//  If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
 	Values ListenerRuleQueryStringKeyValueArrayInput `pulumi:"values"`
 }
@@ -3883,7 +3883,7 @@ func (o ListenerRuleQueryStringConfigOutput) ToListenerRuleQueryStringConfigPtrO
 	}).(ListenerRuleQueryStringConfigPtrOutput)
 }
 
-// The key/value pairs or values to find in the query string. The maximum size of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in “Values“ using a '\' character.
+// The key/value pairs or values to find in the query string. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in “Values“ using a '\' character.
 //
 //	If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
 func (o ListenerRuleQueryStringConfigOutput) Values() ListenerRuleQueryStringKeyValueArrayOutput {
@@ -3914,7 +3914,7 @@ func (o ListenerRuleQueryStringConfigPtrOutput) Elem() ListenerRuleQueryStringCo
 	}).(ListenerRuleQueryStringConfigOutput)
 }
 
-// The key/value pairs or values to find in the query string. The maximum size of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in “Values“ using a '\' character.
+// The key/value pairs or values to find in the query string. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in “Values“ using a '\' character.
 //
 //	If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
 func (o ListenerRuleQueryStringConfigPtrOutput) Values() ListenerRuleQueryStringKeyValueArrayOutput {

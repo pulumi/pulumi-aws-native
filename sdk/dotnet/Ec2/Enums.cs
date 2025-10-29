@@ -8,6 +8,67 @@ using Pulumi;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
+    /// The format of the exported capacity manager data. Choose 'csv' for comma-separated values or 'parquet' for optimized columnar storage format.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityManagerDataExportOutputFormat : IEquatable<CapacityManagerDataExportOutputFormat>
+    {
+        private readonly string _value;
+
+        private CapacityManagerDataExportOutputFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityManagerDataExportOutputFormat Csv { get; } = new CapacityManagerDataExportOutputFormat("csv");
+        public static CapacityManagerDataExportOutputFormat Parquet { get; } = new CapacityManagerDataExportOutputFormat("parquet");
+
+        public static bool operator ==(CapacityManagerDataExportOutputFormat left, CapacityManagerDataExportOutputFormat right) => left.Equals(right);
+        public static bool operator !=(CapacityManagerDataExportOutputFormat left, CapacityManagerDataExportOutputFormat right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityManagerDataExportOutputFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityManagerDataExportOutputFormat other && Equals(other);
+        public bool Equals(CapacityManagerDataExportOutputFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The schedule for the capacity manager data export. Currently supports hourly exports that provide periodic snapshots of capacity manager data.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityManagerDataExportSchedule : IEquatable<CapacityManagerDataExportSchedule>
+    {
+        private readonly string _value;
+
+        private CapacityManagerDataExportSchedule(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityManagerDataExportSchedule Hourly { get; } = new CapacityManagerDataExportSchedule("hourly");
+
+        public static bool operator ==(CapacityManagerDataExportSchedule left, CapacityManagerDataExportSchedule right) => left.Equals(right);
+        public static bool operator !=(CapacityManagerDataExportSchedule left, CapacityManagerDataExportSchedule right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityManagerDataExportSchedule value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityManagerDataExportSchedule other && Equals(other);
+        public bool Equals(CapacityManagerDataExportSchedule other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
     /// 
     /// Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.

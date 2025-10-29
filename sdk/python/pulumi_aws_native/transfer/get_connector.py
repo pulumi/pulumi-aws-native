@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectorResult:
-    def __init__(__self__, access_role=None, arn=None, as2_config=None, connector_id=None, logging_role=None, security_policy_name=None, service_managed_egress_ip_addresses=None, sftp_config=None, tags=None, url=None):
+    def __init__(__self__, access_role=None, arn=None, as2_config=None, connector_id=None, egress_config=None, egress_type=None, logging_role=None, security_policy_name=None, service_managed_egress_ip_addresses=None, sftp_config=None, status=None, tags=None, url=None):
         if access_role and not isinstance(access_role, str):
             raise TypeError("Expected argument 'access_role' to be a str")
         pulumi.set(__self__, "access_role", access_role)
@@ -39,6 +39,12 @@ class GetConnectorResult:
         if connector_id and not isinstance(connector_id, str):
             raise TypeError("Expected argument 'connector_id' to be a str")
         pulumi.set(__self__, "connector_id", connector_id)
+        if egress_config and not isinstance(egress_config, dict):
+            raise TypeError("Expected argument 'egress_config' to be a dict")
+        pulumi.set(__self__, "egress_config", egress_config)
+        if egress_type and not isinstance(egress_type, str):
+            raise TypeError("Expected argument 'egress_type' to be a str")
+        pulumi.set(__self__, "egress_type", egress_type)
         if logging_role and not isinstance(logging_role, str):
             raise TypeError("Expected argument 'logging_role' to be a str")
         pulumi.set(__self__, "logging_role", logging_role)
@@ -51,6 +57,9 @@ class GetConnectorResult:
         if sftp_config and not isinstance(sftp_config, dict):
             raise TypeError("Expected argument 'sftp_config' to be a dict")
         pulumi.set(__self__, "sftp_config", sftp_config)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -91,6 +100,22 @@ class GetConnectorResult:
         return pulumi.get(self, "connector_id")
 
     @_builtins.property
+    @pulumi.getter(name="egressConfig")
+    def egress_config(self) -> Optional['outputs.ConnectorEgressConfig']:
+        """
+        Egress configuration for the connector.
+        """
+        return pulumi.get(self, "egress_config")
+
+    @_builtins.property
+    @pulumi.getter(name="egressType")
+    def egress_type(self) -> Optional['ConnectorEgressType']:
+        """
+        Specifies the egress type for the connector.
+        """
+        return pulumi.get(self, "egress_type")
+
+    @_builtins.property
     @pulumi.getter(name="loggingRole")
     def logging_role(self) -> Optional[_builtins.str]:
         """
@@ -124,6 +149,11 @@ class GetConnectorResult:
 
     @_builtins.property
     @pulumi.getter
+    def status(self) -> Optional['ConnectorStatus']:
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
@@ -149,10 +179,13 @@ class AwaitableGetConnectorResult(GetConnectorResult):
             arn=self.arn,
             as2_config=self.as2_config,
             connector_id=self.connector_id,
+            egress_config=self.egress_config,
+            egress_type=self.egress_type,
             logging_role=self.logging_role,
             security_policy_name=self.security_policy_name,
             service_managed_egress_ip_addresses=self.service_managed_egress_ip_addresses,
             sftp_config=self.sftp_config,
+            status=self.status,
             tags=self.tags,
             url=self.url)
 
@@ -175,10 +208,13 @@ def get_connector(connector_id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         as2_config=pulumi.get(__ret__, 'as2_config'),
         connector_id=pulumi.get(__ret__, 'connector_id'),
+        egress_config=pulumi.get(__ret__, 'egress_config'),
+        egress_type=pulumi.get(__ret__, 'egress_type'),
         logging_role=pulumi.get(__ret__, 'logging_role'),
         security_policy_name=pulumi.get(__ret__, 'security_policy_name'),
         service_managed_egress_ip_addresses=pulumi.get(__ret__, 'service_managed_egress_ip_addresses'),
         sftp_config=pulumi.get(__ret__, 'sftp_config'),
+        status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
 def get_connector_output(connector_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -198,9 +234,12 @@ def get_connector_output(connector_id: Optional[pulumi.Input[_builtins.str]] = N
         arn=pulumi.get(__response__, 'arn'),
         as2_config=pulumi.get(__response__, 'as2_config'),
         connector_id=pulumi.get(__response__, 'connector_id'),
+        egress_config=pulumi.get(__response__, 'egress_config'),
+        egress_type=pulumi.get(__response__, 'egress_type'),
         logging_role=pulumi.get(__response__, 'logging_role'),
         security_policy_name=pulumi.get(__response__, 'security_policy_name'),
         service_managed_egress_ip_addresses=pulumi.get(__response__, 'service_managed_egress_ip_addresses'),
         sftp_config=pulumi.get(__response__, 'sftp_config'),
+        status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
         url=pulumi.get(__response__, 'url')))
