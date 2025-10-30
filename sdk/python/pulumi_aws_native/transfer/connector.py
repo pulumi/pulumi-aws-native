@@ -380,6 +380,9 @@ class Connector(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output['ConnectorStatus']:
+        """
+        Current status of the connector. PENDING indicates creation/update in progress, ACTIVE means ready for operations, and ERRORED indicates a failure requiring attention.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property

@@ -25,6 +25,7 @@ class ConnectionArgs:
                  domain_identifier: pulumi.Input[_builtins.str],
                  aws_location: Optional[pulumi.Input['ConnectionAwsLocationArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_trusted_identity_propagation: Optional[pulumi.Input[_builtins.bool]] = None,
                  environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
@@ -34,6 +35,7 @@ class ConnectionArgs:
         :param pulumi.Input[_builtins.str] domain_identifier: The identifier of the domain in which the connection is created.
         :param pulumi.Input['ConnectionAwsLocationArgs'] aws_location: The location where the connection is created.
         :param pulumi.Input[_builtins.str] description: The description of the connection.
+        :param pulumi.Input[_builtins.bool] enable_trusted_identity_propagation: Specifies whether the trusted identity propagation is enabled
         :param pulumi.Input[_builtins.str] environment_identifier: The identifier of the environment in which the connection is created.
         :param pulumi.Input[_builtins.str] name: The name of the connection.
         :param pulumi.Input[_builtins.str] project_identifier: The identifier of the project in which the connection should be created. If 
@@ -44,6 +46,8 @@ class ConnectionArgs:
             pulumi.set(__self__, "aws_location", aws_location)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enable_trusted_identity_propagation is not None:
+            pulumi.set(__self__, "enable_trusted_identity_propagation", enable_trusted_identity_propagation)
         if environment_identifier is not None:
             pulumi.set(__self__, "environment_identifier", environment_identifier)
         if name is not None:
@@ -88,6 +92,18 @@ class ConnectionArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableTrustedIdentityPropagation")
+    def enable_trusted_identity_propagation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether the trusted identity propagation is enabled
+        """
+        return pulumi.get(self, "enable_trusted_identity_propagation")
+
+    @enable_trusted_identity_propagation.setter
+    def enable_trusted_identity_propagation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_trusted_identity_propagation", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentIdentifier")
@@ -147,6 +163,7 @@ class Connection(pulumi.CustomResource):
                  aws_location: Optional[pulumi.Input[Union['ConnectionAwsLocationArgs', 'ConnectionAwsLocationArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_trusted_identity_propagation: Optional[pulumi.Input[_builtins.bool]] = None,
                  environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
@@ -160,6 +177,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[Union['ConnectionAwsLocationArgs', 'ConnectionAwsLocationArgsDict']] aws_location: The location where the connection is created.
         :param pulumi.Input[_builtins.str] description: The description of the connection.
         :param pulumi.Input[_builtins.str] domain_identifier: The identifier of the domain in which the connection is created.
+        :param pulumi.Input[_builtins.bool] enable_trusted_identity_propagation: Specifies whether the trusted identity propagation is enabled
         :param pulumi.Input[_builtins.str] environment_identifier: The identifier of the environment in which the connection is created.
         :param pulumi.Input[_builtins.str] name: The name of the connection.
         :param pulumi.Input[_builtins.str] project_identifier: The identifier of the project in which the connection should be created. If 
@@ -192,6 +210,7 @@ class Connection(pulumi.CustomResource):
                  aws_location: Optional[pulumi.Input[Union['ConnectionAwsLocationArgs', 'ConnectionAwsLocationArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_trusted_identity_propagation: Optional[pulumi.Input[_builtins.bool]] = None,
                  environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
@@ -210,6 +229,7 @@ class Connection(pulumi.CustomResource):
             if domain_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_identifier'")
             __props__.__dict__["domain_identifier"] = domain_identifier
+            __props__.__dict__["enable_trusted_identity_propagation"] = enable_trusted_identity_propagation
             __props__.__dict__["environment_identifier"] = environment_identifier
             __props__.__dict__["name"] = name
             __props__.__dict__["project_identifier"] = project_identifier
@@ -221,7 +241,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["environment_user_role"] = None
             __props__.__dict__["project_id"] = None
             __props__.__dict__["type"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "environmentIdentifier", "name", "projectIdentifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "enableTrustedIdentityPropagation", "environmentIdentifier", "name", "projectIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Connection, __self__).__init__(
             'aws-native:datazone:Connection',
@@ -251,6 +271,7 @@ class Connection(pulumi.CustomResource):
         __props__.__dict__["domain_id"] = None
         __props__.__dict__["domain_identifier"] = None
         __props__.__dict__["domain_unit_id"] = None
+        __props__.__dict__["enable_trusted_identity_propagation"] = None
         __props__.__dict__["environment_id"] = None
         __props__.__dict__["environment_identifier"] = None
         __props__.__dict__["environment_user_role"] = None
@@ -308,6 +329,14 @@ class Connection(pulumi.CustomResource):
         The ID of the domain unit in which the connection is created.
         """
         return pulumi.get(self, "domain_unit_id")
+
+    @_builtins.property
+    @pulumi.getter(name="enableTrustedIdentityPropagation")
+    def enable_trusted_identity_propagation(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Specifies whether the trusted identity propagation is enabled
+        """
+        return pulumi.get(self, "enable_trusted_identity_propagation")
 
     @_builtins.property
     @pulumi.getter(name="environmentId")

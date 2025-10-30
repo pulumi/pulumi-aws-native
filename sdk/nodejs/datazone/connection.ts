@@ -62,6 +62,10 @@ export class Connection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly domainUnitId: pulumi.Output<string>;
     /**
+     * Specifies whether the trusted identity propagation is enabled
+     */
+    declare public readonly enableTrustedIdentityPropagation: pulumi.Output<boolean | undefined>;
+    /**
      * The ID of the environment in which the connection is created.
      */
     declare public /*out*/ readonly environmentId: pulumi.Output<string>;
@@ -111,6 +115,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["awsLocation"] = args?.awsLocation;
             resourceInputs["description"] = args?.description;
             resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["enableTrustedIdentityPropagation"] = args?.enableTrustedIdentityPropagation;
             resourceInputs["environmentIdentifier"] = args?.environmentIdentifier;
             resourceInputs["name"] = args?.name;
             resourceInputs["projectIdentifier"] = args?.projectIdentifier;
@@ -129,6 +134,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["domainIdentifier"] = undefined /*out*/;
             resourceInputs["domainUnitId"] = undefined /*out*/;
+            resourceInputs["enableTrustedIdentityPropagation"] = undefined /*out*/;
             resourceInputs["environmentId"] = undefined /*out*/;
             resourceInputs["environmentIdentifier"] = undefined /*out*/;
             resourceInputs["environmentUserRole"] = undefined /*out*/;
@@ -139,7 +145,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "environmentIdentifier", "name", "projectIdentifier"] };
+        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "enableTrustedIdentityPropagation", "environmentIdentifier", "name", "projectIdentifier"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Connection.__pulumiType, name, resourceInputs, opts);
     }
@@ -161,6 +167,10 @@ export interface ConnectionArgs {
      * The identifier of the domain in which the connection is created.
      */
     domainIdentifier: pulumi.Input<string>;
+    /**
+     * Specifies whether the trusted identity propagation is enabled
+     */
+    enableTrustedIdentityPropagation?: pulumi.Input<boolean>;
     /**
      * The identifier of the environment in which the connection is created.
      */

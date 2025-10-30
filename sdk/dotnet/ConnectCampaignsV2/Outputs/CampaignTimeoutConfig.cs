@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignTimeoutConfig
     {
+        /// <summary>
+        /// Duration in seconds for the countdown timer.
+        /// </summary>
         public readonly int? DurationInSeconds;
 
         [OutputConstructor]

@@ -293,6 +293,9 @@ class As2ConfigPropertiesArgs:
 if not MYPY:
     class ConnectorEgressConfigArgsDict(TypedDict):
         vpc_lattice: pulumi.Input['ConnectorVpcLatticeEgressConfigArgsDict']
+        """
+        VPC_LATTICE configuration for routing connector traffic through customer VPCs. Enables private connectivity to SFTP servers without requiring public internet access or complex network configurations.
+        """
 elif False:
     ConnectorEgressConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -300,11 +303,17 @@ elif False:
 class ConnectorEgressConfigArgs:
     def __init__(__self__, *,
                  vpc_lattice: pulumi.Input['ConnectorVpcLatticeEgressConfigArgs']):
+        """
+        :param pulumi.Input['ConnectorVpcLatticeEgressConfigArgs'] vpc_lattice: VPC_LATTICE configuration for routing connector traffic through customer VPCs. Enables private connectivity to SFTP servers without requiring public internet access or complex network configurations.
+        """
         pulumi.set(__self__, "vpc_lattice", vpc_lattice)
 
     @_builtins.property
     @pulumi.getter(name="vpcLattice")
     def vpc_lattice(self) -> pulumi.Input['ConnectorVpcLatticeEgressConfigArgs']:
+        """
+        VPC_LATTICE configuration for routing connector traffic through customer VPCs. Enables private connectivity to SFTP servers without requiring public internet access or complex network configurations.
+        """
         return pulumi.get(self, "vpc_lattice")
 
     @vpc_lattice.setter

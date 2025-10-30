@@ -14,7 +14,10 @@ import (
 type AnomalyMonitorMonitorDimension string
 
 const (
-	AnomalyMonitorMonitorDimensionService = AnomalyMonitorMonitorDimension("SERVICE")
+	AnomalyMonitorMonitorDimensionService       = AnomalyMonitorMonitorDimension("SERVICE")
+	AnomalyMonitorMonitorDimensionLinkedAccount = AnomalyMonitorMonitorDimension("LINKED_ACCOUNT")
+	AnomalyMonitorMonitorDimensionTag           = AnomalyMonitorMonitorDimension("TAG")
+	AnomalyMonitorMonitorDimensionCostCategory  = AnomalyMonitorMonitorDimension("COST_CATEGORY")
 )
 
 func (AnomalyMonitorMonitorDimension) ElementType() reflect.Type {
@@ -140,6 +143,9 @@ func (o AnomalyMonitorMonitorDimensionPtrOutput) ToStringPtrOutputWithContext(ct
 // A concrete instance of `AnomalyMonitorMonitorDimensionInput` can be one of the following:
 //
 //	AnomalyMonitorMonitorDimensionService
+//	AnomalyMonitorMonitorDimensionLinkedAccount
+//	AnomalyMonitorMonitorDimensionTag
+//	AnomalyMonitorMonitorDimensionCostCategory
 type AnomalyMonitorMonitorDimensionInput interface {
 	pulumi.Input
 

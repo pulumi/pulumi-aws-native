@@ -132,7 +132,7 @@ class BucketDefaultRetentionMode(_builtins.str, Enum):
 @pulumi.type_token("aws-native:s3:BucketDeleteMarkerReplicationStatus")
 class BucketDeleteMarkerReplicationStatus(_builtins.str, Enum):
     """
-    Indicates whether to replicate delete markers. Disabled by default.
+    Indicates whether to replicate delete markers.
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"

@@ -780,6 +780,9 @@ class CampaignPreviewConfig(dict):
                  agent_actions: Optional[Sequence['CampaignAgentAction']] = None):
         """
         Preview config
+        :param _builtins.float bandwidth_allocation: Bandwidth allocation for the preview outbound mode.
+        :param 'CampaignTimeoutConfig' timeout_config: Countdown timer configuration for preview outbound mode.
+        :param Sequence['CampaignAgentAction'] agent_actions: Agent actions for the preview outbound mode.
         """
         pulumi.set(__self__, "bandwidth_allocation", bandwidth_allocation)
         pulumi.set(__self__, "timeout_config", timeout_config)
@@ -789,16 +792,25 @@ class CampaignPreviewConfig(dict):
     @_builtins.property
     @pulumi.getter(name="bandwidthAllocation")
     def bandwidth_allocation(self) -> _builtins.float:
+        """
+        Bandwidth allocation for the preview outbound mode.
+        """
         return pulumi.get(self, "bandwidth_allocation")
 
     @_builtins.property
     @pulumi.getter(name="timeoutConfig")
     def timeout_config(self) -> 'outputs.CampaignTimeoutConfig':
+        """
+        Countdown timer configuration for preview outbound mode.
+        """
         return pulumi.get(self, "timeout_config")
 
     @_builtins.property
     @pulumi.getter(name="agentActions")
     def agent_actions(self) -> Optional[Sequence['CampaignAgentAction']]:
+        """
+        Agent actions for the preview outbound mode.
+        """
         return pulumi.get(self, "agent_actions")
 
 
@@ -1559,6 +1571,7 @@ class CampaignTimeoutConfig(dict):
                  duration_in_seconds: Optional[_builtins.int] = None):
         """
         Timeout Config for preview contacts
+        :param _builtins.int duration_in_seconds: Duration in seconds for the countdown timer.
         """
         if duration_in_seconds is not None:
             pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
@@ -1566,6 +1579,9 @@ class CampaignTimeoutConfig(dict):
     @_builtins.property
     @pulumi.getter(name="durationInSeconds")
     def duration_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Duration in seconds for the countdown timer.
+        """
         return pulumi.get(self, "duration_in_seconds")
 
 

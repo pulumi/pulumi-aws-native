@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.DataZone
         public Output<string> DomainUnitId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether the trusted identity propagation is enabled
+        /// </summary>
+        [Output("enableTrustedIdentityPropagation")]
+        public Output<bool?> EnableTrustedIdentityPropagation { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the environment in which the connection is created.
         /// </summary>
         [Output("environmentId")]
@@ -125,6 +131,7 @@ namespace Pulumi.AwsNative.DataZone
                 ReplaceOnChanges =
                 {
                     "domainIdentifier",
+                    "enableTrustedIdentityPropagation",
                     "environmentIdentifier",
                     "name",
                     "projectIdentifier",
@@ -168,6 +175,12 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         [Input("domainIdentifier", required: true)]
         public Input<string> DomainIdentifier { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the trusted identity propagation is enabled
+        /// </summary>
+        [Input("enableTrustedIdentityPropagation")]
+        public Input<bool>? EnableTrustedIdentityPropagation { get; set; }
 
         /// <summary>
         /// The identifier of the environment in which the connection is created.

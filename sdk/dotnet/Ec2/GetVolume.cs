@@ -123,20 +123,20 @@ namespace Pulumi.AwsNative.Ec2
         ///  Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
         /// </summary>
         public readonly string? AvailabilityZone;
+        public readonly string? AvailabilityZoneId;
         /// <summary>
         /// Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
         ///  Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
         /// </summary>
         public readonly bool? Encrypted;
         /// <summary>
-        /// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
-        ///  The following are the supported values for each volume type:
-        ///   +  ``gp3``: 3,000 - 16,000 IOPS
-        ///   +  ``io1``: 100 - 64,000 IOPS
-        ///   +  ``io2``: 100 - 256,000 IOPS
+        /// The number of I/O operations per second (IOPS) to provision for the volume. Required for ``io1`` and ``io2`` volumes. Optional for ``gp3`` volumes. Omit for all other volume types. 
+        ///  Valid ranges:
+        ///   +  gp3: ``3,000``(*default*)``- 80,000`` IOPS
+        ///   +  io1: ``100 - 64,000`` IOPS
+        ///   +  io2: ``100 - 256,000`` IOPS
         ///   
-        ///  For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
-        ///  This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
+        ///   [Instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html) can support up to 256,000 IOPS. Other instances can support up to 32,000 IOPS.
         /// </summary>
         public readonly int? Iops;
         /// <summary>
@@ -159,19 +159,21 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? OutpostArn;
         /// <summary>
-        /// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
-        ///  The following are the supported volumes sizes for each volume type:
-        ///   +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
-        ///   +  ``io1``: 4 - 16,384 GiB
-        ///   +  ``io2``: 4 - 65,536 GiB
-        ///   +  ``st1`` and ``sc1``: 125 - 16,384 GiB
-        ///   +  ``standard``: 1 - 1024 GiB
+        /// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size, and you can specify a volume size that is equal to or larger than the snapshot size.
+        ///  Valid sizes:
+        ///   +  gp2: ``1 - 16,384`` GiB
+        ///   +  gp3: ``1 - 65,536`` GiB
+        ///   +  io1: ``4 - 16,384`` GiB
+        ///   +  io2: ``4 - 65,536`` GiB
+        ///   +  st1 and sc1: ``125 - 16,384`` GiB
+        ///   +  standard: ``1 - 1024`` GiB
         /// </summary>
         public readonly int? Size;
         /// <summary>
         /// The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
         /// </summary>
         public readonly string? SnapshotId;
+        public readonly string? SourceVolumeId;
         /// <summary>
         /// The tags to apply to the volume during creation.
         /// </summary>
@@ -216,6 +218,8 @@ namespace Pulumi.AwsNative.Ec2
 
             string? availabilityZone,
 
+            string? availabilityZoneId,
+
             bool? encrypted,
 
             int? iops,
@@ -230,6 +234,8 @@ namespace Pulumi.AwsNative.Ec2
 
             string? snapshotId,
 
+            string? sourceVolumeId,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             int? throughput,
@@ -242,6 +248,7 @@ namespace Pulumi.AwsNative.Ec2
         {
             AutoEnableIo = autoEnableIo;
             AvailabilityZone = availabilityZone;
+            AvailabilityZoneId = availabilityZoneId;
             Encrypted = encrypted;
             Iops = iops;
             KmsKeyId = kmsKeyId;
@@ -249,6 +256,7 @@ namespace Pulumi.AwsNative.Ec2
             OutpostArn = outpostArn;
             Size = size;
             SnapshotId = snapshotId;
+            SourceVolumeId = sourceVolumeId;
             Tags = tags;
             Throughput = throughput;
             VolumeId = volumeId;

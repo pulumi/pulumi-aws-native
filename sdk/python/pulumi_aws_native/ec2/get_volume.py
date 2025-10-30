@@ -24,13 +24,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetVolumeResult:
-    def __init__(__self__, auto_enable_io=None, availability_zone=None, encrypted=None, iops=None, kms_key_id=None, multi_attach_enabled=None, outpost_arn=None, size=None, snapshot_id=None, tags=None, throughput=None, volume_id=None, volume_initialization_rate=None, volume_type=None):
+    def __init__(__self__, auto_enable_io=None, availability_zone=None, availability_zone_id=None, encrypted=None, iops=None, kms_key_id=None, multi_attach_enabled=None, outpost_arn=None, size=None, snapshot_id=None, source_volume_id=None, tags=None, throughput=None, volume_id=None, volume_initialization_rate=None, volume_type=None):
         if auto_enable_io and not isinstance(auto_enable_io, bool):
             raise TypeError("Expected argument 'auto_enable_io' to be a bool")
         pulumi.set(__self__, "auto_enable_io", auto_enable_io)
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
         pulumi.set(__self__, "availability_zone", availability_zone)
+        if availability_zone_id and not isinstance(availability_zone_id, str):
+            raise TypeError("Expected argument 'availability_zone_id' to be a str")
+        pulumi.set(__self__, "availability_zone_id", availability_zone_id)
         if encrypted and not isinstance(encrypted, bool):
             raise TypeError("Expected argument 'encrypted' to be a bool")
         pulumi.set(__self__, "encrypted", encrypted)
@@ -52,6 +55,9 @@ class GetVolumeResult:
         if snapshot_id and not isinstance(snapshot_id, str):
             raise TypeError("Expected argument 'snapshot_id' to be a str")
         pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if source_volume_id and not isinstance(source_volume_id, str):
+            raise TypeError("Expected argument 'source_volume_id' to be a str")
+        pulumi.set(__self__, "source_volume_id", source_volume_id)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -86,6 +92,11 @@ class GetVolumeResult:
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "availability_zone_id")
+
+    @_builtins.property
     @pulumi.getter
     def encrypted(self) -> Optional[_builtins.bool]:
         """
@@ -98,14 +109,13 @@ class GetVolumeResult:
     @pulumi.getter
     def iops(self) -> Optional[_builtins.int]:
         """
-        The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
-         The following are the supported values for each volume type:
-          +  ``gp3``: 3,000 - 16,000 IOPS
-          +  ``io1``: 100 - 64,000 IOPS
-          +  ``io2``: 100 - 256,000 IOPS
+        The number of I/O operations per second (IOPS) to provision for the volume. Required for ``io1`` and ``io2`` volumes. Optional for ``gp3`` volumes. Omit for all other volume types. 
+         Valid ranges:
+          +  gp3: ``3,000``(*default*)``- 80,000`` IOPS
+          +  io1: ``100 - 64,000`` IOPS
+          +  io2: ``100 - 256,000`` IOPS
           
-         For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
-         This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
+          [Instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html) can support up to 256,000 IOPS. Other instances can support up to 32,000 IOPS.
         """
         return pulumi.get(self, "iops")
 
@@ -144,13 +154,14 @@ class GetVolumeResult:
     @pulumi.getter
     def size(self) -> Optional[_builtins.int]:
         """
-        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
-         The following are the supported volumes sizes for each volume type:
-          +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
-          +  ``io1``: 4 - 16,384 GiB
-          +  ``io2``: 4 - 65,536 GiB
-          +  ``st1`` and ``sc1``: 125 - 16,384 GiB
-          +  ``standard``: 1 - 1024 GiB
+        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size, and you can specify a volume size that is equal to or larger than the snapshot size.
+         Valid sizes:
+          +  gp2: ``1 - 16,384`` GiB
+          +  gp3: ``1 - 65,536`` GiB
+          +  io1: ``4 - 16,384`` GiB
+          +  io2: ``4 - 65,536`` GiB
+          +  st1 and sc1: ``125 - 16,384`` GiB
+          +  standard: ``1 - 1024`` GiB
         """
         return pulumi.get(self, "size")
 
@@ -161,6 +172,11 @@ class GetVolumeResult:
         The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
         """
         return pulumi.get(self, "snapshot_id")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceVolumeId")
+    def source_volume_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "source_volume_id")
 
     @_builtins.property
     @pulumi.getter
@@ -228,6 +244,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         return GetVolumeResult(
             auto_enable_io=self.auto_enable_io,
             availability_zone=self.availability_zone,
+            availability_zone_id=self.availability_zone_id,
             encrypted=self.encrypted,
             iops=self.iops,
             kms_key_id=self.kms_key_id,
@@ -235,6 +252,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             outpost_arn=self.outpost_arn,
             size=self.size,
             snapshot_id=self.snapshot_id,
+            source_volume_id=self.source_volume_id,
             tags=self.tags,
             throughput=self.throughput,
             volume_id=self.volume_id,
@@ -275,6 +293,7 @@ def get_volume(volume_id: Optional[_builtins.str] = None,
     return AwaitableGetVolumeResult(
         auto_enable_io=pulumi.get(__ret__, 'auto_enable_io'),
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        availability_zone_id=pulumi.get(__ret__, 'availability_zone_id'),
         encrypted=pulumi.get(__ret__, 'encrypted'),
         iops=pulumi.get(__ret__, 'iops'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
@@ -282,6 +301,7 @@ def get_volume(volume_id: Optional[_builtins.str] = None,
         outpost_arn=pulumi.get(__ret__, 'outpost_arn'),
         size=pulumi.get(__ret__, 'size'),
         snapshot_id=pulumi.get(__ret__, 'snapshot_id'),
+        source_volume_id=pulumi.get(__ret__, 'source_volume_id'),
         tags=pulumi.get(__ret__, 'tags'),
         throughput=pulumi.get(__ret__, 'throughput'),
         volume_id=pulumi.get(__ret__, 'volume_id'),
@@ -319,6 +339,7 @@ def get_volume_output(volume_id: Optional[pulumi.Input[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetVolumeResult(
         auto_enable_io=pulumi.get(__response__, 'auto_enable_io'),
         availability_zone=pulumi.get(__response__, 'availability_zone'),
+        availability_zone_id=pulumi.get(__response__, 'availability_zone_id'),
         encrypted=pulumi.get(__response__, 'encrypted'),
         iops=pulumi.get(__response__, 'iops'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
@@ -326,6 +347,7 @@ def get_volume_output(volume_id: Optional[pulumi.Input[_builtins.str]] = None,
         outpost_arn=pulumi.get(__response__, 'outpost_arn'),
         size=pulumi.get(__response__, 'size'),
         snapshot_id=pulumi.get(__response__, 'snapshot_id'),
+        source_volume_id=pulumi.get(__response__, 'source_volume_id'),
         tags=pulumi.get(__response__, 'tags'),
         throughput=pulumi.get(__response__, 'throughput'),
         volume_id=pulumi.get(__response__, 'volume_id'),

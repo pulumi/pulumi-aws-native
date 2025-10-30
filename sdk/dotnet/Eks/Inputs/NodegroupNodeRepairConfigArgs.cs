@@ -21,6 +21,42 @@ namespace Pulumi.AwsNative.Eks.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Specify the maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set MaxParallelNodesRepairedPercentage at the same time.
+        /// </summary>
+        [Input("maxParallelNodesRepairedCount")]
+        public Input<int>? MaxParallelNodesRepairedCount { get; set; }
+
+        /// <summary>
+        /// Specify the maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set MaxParallelNodesRepairedCount at the same time.
+        /// </summary>
+        [Input("maxParallelNodesRepairedPercentage")]
+        public Input<int>? MaxParallelNodesRepairedPercentage { get; set; }
+
+        /// <summary>
+        /// Specify a count threshold of unhealthy nodes, above which node auto repair actions will stop. When using this, you cannot also set MaxUnhealthyNodeThresholdPercentage at the same time.
+        /// </summary>
+        [Input("maxUnhealthyNodeThresholdCount")]
+        public Input<int>? MaxUnhealthyNodeThresholdCount { get; set; }
+
+        /// <summary>
+        /// Specify a percentage threshold of unhealthy nodes, above which node auto repair actions will stop. When using this, you cannot also set MaxUnhealthyNodeThresholdCount at the same time.
+        /// </summary>
+        [Input("maxUnhealthyNodeThresholdPercentage")]
+        public Input<int>? MaxUnhealthyNodeThresholdPercentage { get; set; }
+
+        [Input("nodeRepairConfigOverrides")]
+        private InputList<Inputs.NodegroupNodeRepairConfigOverridesArgs>? _nodeRepairConfigOverrides;
+
+        /// <summary>
+        /// Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. If you use this, you must specify all the values.
+        /// </summary>
+        public InputList<Inputs.NodegroupNodeRepairConfigOverridesArgs> NodeRepairConfigOverrides
+        {
+            get => _nodeRepairConfigOverrides ?? (_nodeRepairConfigOverrides = new InputList<Inputs.NodegroupNodeRepairConfigOverridesArgs>());
+            set => _nodeRepairConfigOverrides = value;
+        }
+
         public NodegroupNodeRepairConfigArgs()
         {
         }

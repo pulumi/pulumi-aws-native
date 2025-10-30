@@ -266,7 +266,7 @@ namespace Pulumi.AwsNative.S3
     }
 
     /// <summary>
-    /// Indicates whether to replicate delete markers. Disabled by default.
+    /// Indicates whether to replicate delete markers.
     /// </summary>
     [EnumType]
     public readonly struct BucketDeleteMarkerReplicationStatus : IEquatable<BucketDeleteMarkerReplicationStatus>

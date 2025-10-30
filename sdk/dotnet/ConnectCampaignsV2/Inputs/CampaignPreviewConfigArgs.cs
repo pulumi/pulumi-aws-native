@@ -17,15 +17,25 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     {
         [Input("agentActions")]
         private InputList<Pulumi.AwsNative.ConnectCampaignsV2.CampaignAgentAction>? _agentActions;
+
+        /// <summary>
+        /// Agent actions for the preview outbound mode.
+        /// </summary>
         public InputList<Pulumi.AwsNative.ConnectCampaignsV2.CampaignAgentAction> AgentActions
         {
             get => _agentActions ?? (_agentActions = new InputList<Pulumi.AwsNative.ConnectCampaignsV2.CampaignAgentAction>());
             set => _agentActions = value;
         }
 
+        /// <summary>
+        /// Bandwidth allocation for the preview outbound mode.
+        /// </summary>
         [Input("bandwidthAllocation", required: true)]
         public Input<double> BandwidthAllocation { get; set; } = null!;
 
+        /// <summary>
+        /// Countdown timer configuration for preview outbound mode.
+        /// </summary>
         [Input("timeoutConfig", required: true)]
         public Input<Inputs.CampaignTimeoutConfigArgs> TimeoutConfig { get; set; } = null!;
 
