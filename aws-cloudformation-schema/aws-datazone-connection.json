@@ -745,6 +745,10 @@
       "minLength" : 1,
       "pattern" : "^[a-z0-9_\\-]+$"
     },
+    "EnableTrustedIdentityPropagation" : {
+      "type" : "boolean",
+      "description" : "Specifies whether the trusted identity propagation is enabled"
+    },
     "EnvironmentId" : {
       "type" : "string",
       "description" : "The ID of the environment in which the connection is created.",
@@ -782,8 +786,8 @@
   },
   "required" : [ "DomainIdentifier", "Name" ],
   "readOnlyProperties" : [ "/properties/ConnectionId", "/properties/DomainId", "/properties/DomainUnitId", "/properties/EnvironmentId", "/properties/EnvironmentUserRole", "/properties/ProjectId", "/properties/Type" ],
-  "writeOnlyProperties" : [ "/properties/AwsLocation", "/properties/DomainIdentifier", "/properties/EnvironmentIdentifier", "/properties/ProjectIdentifier", "/properties/Props" ],
-  "createOnlyProperties" : [ "/properties/DomainIdentifier", "/properties/EnvironmentIdentifier", "/properties/ProjectIdentifier", "/properties/Name" ],
+  "writeOnlyProperties" : [ "/properties/AwsLocation", "/properties/DomainIdentifier", "/properties/EnableTrustedIdentityPropagation", "/properties/EnvironmentIdentifier", "/properties/ProjectIdentifier", "/properties/Props" ],
+  "createOnlyProperties" : [ "/properties/DomainIdentifier", "/properties/EnableTrustedIdentityPropagation", "/properties/EnvironmentIdentifier", "/properties/ProjectIdentifier", "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/DomainId", "/properties/ConnectionId" ],
   "tagging" : {
     "taggable" : false,

@@ -57,7 +57,7 @@ export const AssignmentTargetType = {
 } as const;
 
 /**
- * The type of resource to be provsioned to, only aws account now
+ * The type of resource to be provisioned to, only aws account now
  */
 export type AssignmentTargetType = (typeof AssignmentTargetType)[keyof typeof AssignmentTargetType];
 

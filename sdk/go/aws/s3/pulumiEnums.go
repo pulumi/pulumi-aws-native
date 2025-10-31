@@ -1331,7 +1331,7 @@ func (in *bucketDefaultRetentionModePtr) ToBucketDefaultRetentionModePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(BucketDefaultRetentionModePtrOutput)
 }
 
-// Indicates whether to replicate delete markers. Disabled by default.
+// Indicates whether to replicate delete markers.
 type BucketDeleteMarkerReplicationStatus string
 
 const (

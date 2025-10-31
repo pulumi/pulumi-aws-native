@@ -24,6 +24,8 @@ __all__ = ['AutomatedReasoningPolicyArgs', 'AutomatedReasoningPolicy']
 class AutomatedReasoningPolicyArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
+                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_definition: Optional[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -36,6 +38,10 @@ class AutomatedReasoningPolicyArgs:
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if force_delete is not None:
+            pulumi.set(__self__, "force_delete", force_delete)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if policy_definition is not None:
@@ -54,6 +60,24 @@ class AutomatedReasoningPolicyArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forceDelete")
+    def force_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "force_delete")
+
+    @force_delete.setter
+    def force_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "force_delete", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -99,6 +123,8 @@ class AutomatedReasoningPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
+                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_definition: Optional[pulumi.Input[Union['AutomatedReasoningPolicyPolicyDefinitionArgs', 'AutomatedReasoningPolicyPolicyDefinitionArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -138,6 +164,8 @@ class AutomatedReasoningPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
+                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  policy_definition: Optional[pulumi.Input[Union['AutomatedReasoningPolicyPolicyDefinitionArgs', 'AutomatedReasoningPolicyPolicyDefinitionArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -151,15 +179,20 @@ class AutomatedReasoningPolicy(pulumi.CustomResource):
             __props__ = AutomatedReasoningPolicyArgs.__new__(AutomatedReasoningPolicyArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["force_delete"] = force_delete
+            __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
             __props__.__dict__["policy_definition"] = policy_definition
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
             __props__.__dict__["definition_hash"] = None
+            __props__.__dict__["kms_key_arn"] = None
             __props__.__dict__["policy_arn"] = None
             __props__.__dict__["policy_id"] = None
             __props__.__dict__["updated_at"] = None
             __props__.__dict__["version"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["forceDelete", "kmsKeyId"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AutomatedReasoningPolicy, __self__).__init__(
             'aws-native:bedrock:AutomatedReasoningPolicy',
             resource_name,
@@ -185,6 +218,9 @@ class AutomatedReasoningPolicy(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["definition_hash"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["force_delete"] = None
+        __props__.__dict__["kms_key_arn"] = None
+        __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["policy_arn"] = None
         __props__.__dict__["policy_definition"] = None
@@ -217,6 +253,21 @@ class AutomatedReasoningPolicy(pulumi.CustomResource):
         The description of the policy.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="forceDelete")
+    def force_delete(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        return pulumi.get(self, "force_delete")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Sso
         public Output<string> InstanceArn { get; private set; } = null!;
 
         /// <summary>
-        /// The permission set that the assignemt will be assigned
+        /// The permission set that the assignment will be assigned
         /// </summary>
         [Output("permissionSetArn")]
         public Output<string> PermissionSetArn { get; private set; } = null!;
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Sso
         public Output<string> TargetId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of resource to be provsioned to, only aws account now
+        /// The type of resource to be provisioned to, only aws account now
         /// </summary>
         [Output("targetType")]
         public Output<Pulumi.AwsNative.Sso.AssignmentTargetType> TargetType { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.Sso
         public Input<string> InstanceArn { get; set; } = null!;
 
         /// <summary>
-        /// The permission set that the assignemt will be assigned
+        /// The permission set that the assignment will be assigned
         /// </summary>
         [Input("permissionSetArn", required: true)]
         public Input<string> PermissionSetArn { get; set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.Sso
         public Input<string> TargetId { get; set; } = null!;
 
         /// <summary>
-        /// The type of resource to be provsioned to, only aws account now
+        /// The type of resource to be provisioned to, only aws account now
         /// </summary>
         [Input("targetType", required: true)]
         public Input<Pulumi.AwsNative.Sso.AssignmentTargetType> TargetType { get; set; } = null!;

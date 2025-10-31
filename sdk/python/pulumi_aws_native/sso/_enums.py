@@ -65,7 +65,7 @@ class AssignmentPrincipalType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:sso:AssignmentTargetType")
 class AssignmentTargetType(_builtins.str, Enum):
     """
-    The type of resource to be provsioned to, only aws account now
+    The type of resource to be provisioned to, only aws account now
     """
     AWS_ACCOUNT = "AWS_ACCOUNT"
 

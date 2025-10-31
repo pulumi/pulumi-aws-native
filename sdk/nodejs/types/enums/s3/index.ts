@@ -98,7 +98,7 @@ export const BucketDeleteMarkerReplicationStatus = {
 } as const;
 
 /**
- * Indicates whether to replicate delete markers. Disabled by default.
+ * Indicates whether to replicate delete markers.
  */
 export type BucketDeleteMarkerReplicationStatus = (typeof BucketDeleteMarkerReplicationStatus)[keyof typeof BucketDeleteMarkerReplicationStatus];
 

@@ -840,7 +840,7 @@ func (in *assignmentPrincipalTypePtr) ToAssignmentPrincipalTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(AssignmentPrincipalTypePtrOutput)
 }
 
-// The type of resource to be provsioned to, only aws account now
+// The type of resource to be provisioned to, only aws account now
 type AssignmentTargetType string
 
 const (

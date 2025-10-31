@@ -37,7 +37,8 @@ type Connector struct {
 	ServiceManagedEgressIpAddresses pulumi.StringArrayOutput `pulumi:"serviceManagedEgressIpAddresses"`
 	// Configuration for an SFTP connector.
 	SftpConfig SftpConfigPropertiesPtrOutput `pulumi:"sftpConfig"`
-	Status     ConnectorStatusOutput         `pulumi:"status"`
+	// Current status of the connector. PENDING indicates creation/update in progress, ACTIVE means ready for operations, and ERRORED indicates a failure requiring attention.
+	Status ConnectorStatusOutput `pulumi:"status"`
 	// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// URL for Connector
@@ -216,6 +217,7 @@ func (o ConnectorOutput) SftpConfig() SftpConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v *Connector) SftpConfigPropertiesPtrOutput { return v.SftpConfig }).(SftpConfigPropertiesPtrOutput)
 }
 
+// Current status of the connector. PENDING indicates creation/update in progress, ACTIVE means ready for operations, and ERRORED indicates a failure requiring attention.
 func (o ConnectorOutput) Status() ConnectorStatusOutput {
 	return o.ApplyT(func(v *Connector) ConnectorStatusOutput { return v.Status }).(ConnectorStatusOutput)
 }

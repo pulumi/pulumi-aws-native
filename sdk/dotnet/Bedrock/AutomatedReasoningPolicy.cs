@@ -33,6 +33,15 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("forceDelete")]
+        public Output<bool?> ForceDelete { get; private set; } = null!;
+
+        [Output("kmsKeyArn")]
+        public Output<string> KmsKeyArn { get; private set; } = null!;
+
+        [Output("kmsKeyId")]
+        public Output<string?> KmsKeyId { get; private set; } = null!;
+
         /// <summary>
         /// The name of the policy.
         /// </summary>
@@ -98,6 +107,11 @@ namespace Pulumi.AwsNative.Bedrock
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "forceDelete",
+                    "kmsKeyId",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -125,6 +139,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("forceDelete")]
+        public Input<bool>? ForceDelete { get; set; }
+
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
         /// The name of the policy.

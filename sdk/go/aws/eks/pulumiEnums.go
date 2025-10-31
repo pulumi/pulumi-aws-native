@@ -1180,6 +1180,174 @@ func (in *identityProviderConfigTypePtr) ToIdentityProviderConfigTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(IdentityProviderConfigTypePtrOutput)
 }
 
+// Specify the repair action to take for nodes when all of the specified conditions are met.
+type NodegroupNodeRepairConfigOverridesRepairAction string
+
+const (
+	NodegroupNodeRepairConfigOverridesRepairActionReplace  = NodegroupNodeRepairConfigOverridesRepairAction("Replace")
+	NodegroupNodeRepairConfigOverridesRepairActionReboot   = NodegroupNodeRepairConfigOverridesRepairAction("Reboot")
+	NodegroupNodeRepairConfigOverridesRepairActionNoAction = NodegroupNodeRepairConfigOverridesRepairAction("NoAction")
+)
+
+func (NodegroupNodeRepairConfigOverridesRepairAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupNodeRepairConfigOverridesRepairAction)(nil)).Elem()
+}
+
+func (e NodegroupNodeRepairConfigOverridesRepairAction) ToNodegroupNodeRepairConfigOverridesRepairActionOutput() NodegroupNodeRepairConfigOverridesRepairActionOutput {
+	return pulumi.ToOutput(e).(NodegroupNodeRepairConfigOverridesRepairActionOutput)
+}
+
+func (e NodegroupNodeRepairConfigOverridesRepairAction) ToNodegroupNodeRepairConfigOverridesRepairActionOutputWithContext(ctx context.Context) NodegroupNodeRepairConfigOverridesRepairActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NodegroupNodeRepairConfigOverridesRepairActionOutput)
+}
+
+func (e NodegroupNodeRepairConfigOverridesRepairAction) ToNodegroupNodeRepairConfigOverridesRepairActionPtrOutput() NodegroupNodeRepairConfigOverridesRepairActionPtrOutput {
+	return e.ToNodegroupNodeRepairConfigOverridesRepairActionPtrOutputWithContext(context.Background())
+}
+
+func (e NodegroupNodeRepairConfigOverridesRepairAction) ToNodegroupNodeRepairConfigOverridesRepairActionPtrOutputWithContext(ctx context.Context) NodegroupNodeRepairConfigOverridesRepairActionPtrOutput {
+	return NodegroupNodeRepairConfigOverridesRepairAction(e).ToNodegroupNodeRepairConfigOverridesRepairActionOutputWithContext(ctx).ToNodegroupNodeRepairConfigOverridesRepairActionPtrOutputWithContext(ctx)
+}
+
+func (e NodegroupNodeRepairConfigOverridesRepairAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NodegroupNodeRepairConfigOverridesRepairAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NodegroupNodeRepairConfigOverridesRepairAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NodegroupNodeRepairConfigOverridesRepairAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NodegroupNodeRepairConfigOverridesRepairActionOutput struct{ *pulumi.OutputState }
+
+func (NodegroupNodeRepairConfigOverridesRepairActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupNodeRepairConfigOverridesRepairAction)(nil)).Elem()
+}
+
+func (o NodegroupNodeRepairConfigOverridesRepairActionOutput) ToNodegroupNodeRepairConfigOverridesRepairActionOutput() NodegroupNodeRepairConfigOverridesRepairActionOutput {
+	return o
+}
+
+func (o NodegroupNodeRepairConfigOverridesRepairActionOutput) ToNodegroupNodeRepairConfigOverridesRepairActionOutputWithContext(ctx context.Context) NodegroupNodeRepairConfigOverridesRepairActionOutput {
+	return o
+}
+
+func (o NodegroupNodeRepairConfigOverridesRepairActionOutput) ToNodegroupNodeRepairConfigOverridesRepairActionPtrOutput() NodegroupNodeRepairConfigOverridesRepairActionPtrOutput {
+	return o.ToNodegroupNodeRepairConfigOverridesRepairActionPtrOutputWithContext(context.Background())
+}
+
+func (o NodegroupNodeRepairConfigOverridesRepairActionOutput) ToNodegroupNodeRepairConfigOverridesRepairActionPtrOutputWithContext(ctx context.Context) NodegroupNodeRepairConfigOverridesRepairActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodegroupNodeRepairConfigOverridesRepairAction) *NodegroupNodeRepairConfigOverridesRepairAction {
+		return &v
+	}).(NodegroupNodeRepairConfigOverridesRepairActionPtrOutput)
+}
+
+func (o NodegroupNodeRepairConfigOverridesRepairActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NodegroupNodeRepairConfigOverridesRepairActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NodegroupNodeRepairConfigOverridesRepairAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NodegroupNodeRepairConfigOverridesRepairActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NodegroupNodeRepairConfigOverridesRepairActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NodegroupNodeRepairConfigOverridesRepairAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NodegroupNodeRepairConfigOverridesRepairActionPtrOutput struct{ *pulumi.OutputState }
+
+func (NodegroupNodeRepairConfigOverridesRepairActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodegroupNodeRepairConfigOverridesRepairAction)(nil)).Elem()
+}
+
+func (o NodegroupNodeRepairConfigOverridesRepairActionPtrOutput) ToNodegroupNodeRepairConfigOverridesRepairActionPtrOutput() NodegroupNodeRepairConfigOverridesRepairActionPtrOutput {
+	return o
+}
+
+func (o NodegroupNodeRepairConfigOverridesRepairActionPtrOutput) ToNodegroupNodeRepairConfigOverridesRepairActionPtrOutputWithContext(ctx context.Context) NodegroupNodeRepairConfigOverridesRepairActionPtrOutput {
+	return o
+}
+
+func (o NodegroupNodeRepairConfigOverridesRepairActionPtrOutput) Elem() NodegroupNodeRepairConfigOverridesRepairActionOutput {
+	return o.ApplyT(func(v *NodegroupNodeRepairConfigOverridesRepairAction) NodegroupNodeRepairConfigOverridesRepairAction {
+		if v != nil {
+			return *v
+		}
+		var ret NodegroupNodeRepairConfigOverridesRepairAction
+		return ret
+	}).(NodegroupNodeRepairConfigOverridesRepairActionOutput)
+}
+
+func (o NodegroupNodeRepairConfigOverridesRepairActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NodegroupNodeRepairConfigOverridesRepairActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NodegroupNodeRepairConfigOverridesRepairAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NodegroupNodeRepairConfigOverridesRepairActionInput is an input type that accepts values of the NodegroupNodeRepairConfigOverridesRepairAction enum
+// A concrete instance of `NodegroupNodeRepairConfigOverridesRepairActionInput` can be one of the following:
+//
+//	NodegroupNodeRepairConfigOverridesRepairActionReplace
+//	NodegroupNodeRepairConfigOverridesRepairActionReboot
+//	NodegroupNodeRepairConfigOverridesRepairActionNoAction
+type NodegroupNodeRepairConfigOverridesRepairActionInput interface {
+	pulumi.Input
+
+	ToNodegroupNodeRepairConfigOverridesRepairActionOutput() NodegroupNodeRepairConfigOverridesRepairActionOutput
+	ToNodegroupNodeRepairConfigOverridesRepairActionOutputWithContext(context.Context) NodegroupNodeRepairConfigOverridesRepairActionOutput
+}
+
+var nodegroupNodeRepairConfigOverridesRepairActionPtrType = reflect.TypeOf((**NodegroupNodeRepairConfigOverridesRepairAction)(nil)).Elem()
+
+type NodegroupNodeRepairConfigOverridesRepairActionPtrInput interface {
+	pulumi.Input
+
+	ToNodegroupNodeRepairConfigOverridesRepairActionPtrOutput() NodegroupNodeRepairConfigOverridesRepairActionPtrOutput
+	ToNodegroupNodeRepairConfigOverridesRepairActionPtrOutputWithContext(context.Context) NodegroupNodeRepairConfigOverridesRepairActionPtrOutput
+}
+
+type nodegroupNodeRepairConfigOverridesRepairActionPtr string
+
+func NodegroupNodeRepairConfigOverridesRepairActionPtr(v string) NodegroupNodeRepairConfigOverridesRepairActionPtrInput {
+	return (*nodegroupNodeRepairConfigOverridesRepairActionPtr)(&v)
+}
+
+func (*nodegroupNodeRepairConfigOverridesRepairActionPtr) ElementType() reflect.Type {
+	return nodegroupNodeRepairConfigOverridesRepairActionPtrType
+}
+
+func (in *nodegroupNodeRepairConfigOverridesRepairActionPtr) ToNodegroupNodeRepairConfigOverridesRepairActionPtrOutput() NodegroupNodeRepairConfigOverridesRepairActionPtrOutput {
+	return pulumi.ToOutput(in).(NodegroupNodeRepairConfigOverridesRepairActionPtrOutput)
+}
+
+func (in *nodegroupNodeRepairConfigOverridesRepairActionPtr) ToNodegroupNodeRepairConfigOverridesRepairActionPtrOutputWithContext(ctx context.Context) NodegroupNodeRepairConfigOverridesRepairActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NodegroupNodeRepairConfigOverridesRepairActionPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessEntryAccessScopeTypeInput)(nil)).Elem(), AccessEntryAccessScopeType("namespace"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessEntryAccessScopeTypePtrInput)(nil)).Elem(), AccessEntryAccessScopeType("namespace"))
@@ -1195,6 +1363,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradePolicySupportTypePtrInput)(nil)).Elem(), ClusterUpgradePolicySupportType("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigTypeInput)(nil)).Elem(), IdentityProviderConfigType("oidc"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigTypePtrInput)(nil)).Elem(), IdentityProviderConfigType("oidc"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupNodeRepairConfigOverridesRepairActionInput)(nil)).Elem(), NodegroupNodeRepairConfigOverridesRepairAction("Replace"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupNodeRepairConfigOverridesRepairActionPtrInput)(nil)).Elem(), NodegroupNodeRepairConfigOverridesRepairAction("Replace"))
 	pulumi.RegisterOutputType(AccessEntryAccessScopeTypeOutput{})
 	pulumi.RegisterOutputType(AccessEntryAccessScopeTypePtrOutput{})
 	pulumi.RegisterOutputType(AddonResolveConflictsOutput{})
@@ -1209,4 +1379,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterUpgradePolicySupportTypePtrOutput{})
 	pulumi.RegisterOutputType(IdentityProviderConfigTypeOutput{})
 	pulumi.RegisterOutputType(IdentityProviderConfigTypePtrOutput{})
+	pulumi.RegisterOutputType(NodegroupNodeRepairConfigOverridesRepairActionOutput{})
+	pulumi.RegisterOutputType(NodegroupNodeRepairConfigOverridesRepairActionPtrOutput{})
 }

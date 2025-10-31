@@ -65,6 +65,9 @@ export interface GetConnectorResult {
      * Configuration for an SFTP connector.
      */
     readonly sftpConfig?: outputs.transfer.SftpConfigProperties;
+    /**
+     * Current status of the connector. PENDING indicates creation/update in progress, ACTIVE means ready for operations, and ERRORED indicates a failure requiring attention.
+     */
     readonly status?: enums.transfer.ConnectorStatus;
     /**
      * Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.

@@ -75,6 +75,9 @@ namespace Pulumi.AwsNative.Transfer
         [Output("sftpConfig")]
         public Output<Outputs.SftpConfigProperties?> SftpConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Current status of the connector. PENDING indicates creation/update in progress, ACTIVE means ready for operations, and ERRORED indicates a failure requiring attention.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Transfer.ConnectorStatus> Status { get; private set; } = null!;
 

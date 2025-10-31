@@ -28,6 +28,8 @@ type Connection struct {
 	DomainIdentifier pulumi.StringOutput `pulumi:"domainIdentifier"`
 	// The ID of the domain unit in which the connection is created.
 	DomainUnitId pulumi.StringOutput `pulumi:"domainUnitId"`
+	// Specifies whether the trusted identity propagation is enabled
+	EnableTrustedIdentityPropagation pulumi.BoolPtrOutput `pulumi:"enableTrustedIdentityPropagation"`
 	// The ID of the environment in which the connection is created.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
 	// The identifier of the environment in which the connection is created.
@@ -58,6 +60,7 @@ func NewConnection(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"domainIdentifier",
+		"enableTrustedIdentityPropagation",
 		"environmentIdentifier",
 		"name",
 		"projectIdentifier",
@@ -102,6 +105,8 @@ type connectionArgs struct {
 	Description *string `pulumi:"description"`
 	// The identifier of the domain in which the connection is created.
 	DomainIdentifier string `pulumi:"domainIdentifier"`
+	// Specifies whether the trusted identity propagation is enabled
+	EnableTrustedIdentityPropagation *bool `pulumi:"enableTrustedIdentityPropagation"`
 	// The identifier of the environment in which the connection is created.
 	EnvironmentIdentifier *string `pulumi:"environmentIdentifier"`
 	// The name of the connection.
@@ -120,6 +125,8 @@ type ConnectionArgs struct {
 	Description pulumi.StringPtrInput
 	// The identifier of the domain in which the connection is created.
 	DomainIdentifier pulumi.StringInput
+	// Specifies whether the trusted identity propagation is enabled
+	EnableTrustedIdentityPropagation pulumi.BoolPtrInput
 	// The identifier of the environment in which the connection is created.
 	EnvironmentIdentifier pulumi.StringPtrInput
 	// The name of the connection.
@@ -195,6 +202,11 @@ func (o ConnectionOutput) DomainIdentifier() pulumi.StringOutput {
 // The ID of the domain unit in which the connection is created.
 func (o ConnectionOutput) DomainUnitId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.DomainUnitId }).(pulumi.StringOutput)
+}
+
+// Specifies whether the trusted identity propagation is enabled
+func (o ConnectionOutput) EnableTrustedIdentityPropagation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.BoolPtrOutput { return v.EnableTrustedIdentityPropagation }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of the environment in which the connection is created.

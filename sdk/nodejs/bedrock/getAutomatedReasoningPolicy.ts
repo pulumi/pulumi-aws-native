@@ -37,6 +37,7 @@ export interface GetAutomatedReasoningPolicyResult {
      * The description of the policy.
      */
     readonly description?: string;
+    readonly kmsKeyArn?: string;
     /**
      * The name of the policy.
      */

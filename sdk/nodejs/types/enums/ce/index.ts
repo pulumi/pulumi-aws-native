@@ -4,6 +4,9 @@
 
 export const AnomalyMonitorMonitorDimension = {
     Service: "SERVICE",
+    LinkedAccount: "LINKED_ACCOUNT",
+    Tag: "TAG",
+    CostCategory: "COST_CATEGORY",
 } as const;
 
 /**

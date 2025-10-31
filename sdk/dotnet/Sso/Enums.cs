@@ -163,7 +163,7 @@ namespace Pulumi.AwsNative.Sso
     }
 
     /// <summary>
-    /// The type of resource to be provsioned to, only aws account now
+    /// The type of resource to be provisioned to, only aws account now
     /// </summary>
     [EnumType]
     public readonly struct AssignmentTargetType : IEquatable<AssignmentTargetType>

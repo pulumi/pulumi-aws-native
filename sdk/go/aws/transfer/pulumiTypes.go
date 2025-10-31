@@ -347,6 +347,7 @@ type CertificateTag struct {
 }
 
 type ConnectorEgressConfig struct {
+	// VPC_LATTICE configuration for routing connector traffic through customer VPCs. Enables private connectivity to SFTP servers without requiring public internet access or complex network configurations.
 	VpcLattice ConnectorVpcLatticeEgressConfig `pulumi:"vpcLattice"`
 }
 
@@ -362,6 +363,7 @@ type ConnectorEgressConfigInput interface {
 }
 
 type ConnectorEgressConfigArgs struct {
+	// VPC_LATTICE configuration for routing connector traffic through customer VPCs. Enables private connectivity to SFTP servers without requiring public internet access or complex network configurations.
 	VpcLattice ConnectorVpcLatticeEgressConfigInput `pulumi:"vpcLattice"`
 }
 
@@ -442,6 +444,7 @@ func (o ConnectorEgressConfigOutput) ToConnectorEgressConfigPtrOutputWithContext
 	}).(ConnectorEgressConfigPtrOutput)
 }
 
+// VPC_LATTICE configuration for routing connector traffic through customer VPCs. Enables private connectivity to SFTP servers without requiring public internet access or complex network configurations.
 func (o ConnectorEgressConfigOutput) VpcLattice() ConnectorVpcLatticeEgressConfigOutput {
 	return o.ApplyT(func(v ConnectorEgressConfig) ConnectorVpcLatticeEgressConfig { return v.VpcLattice }).(ConnectorVpcLatticeEgressConfigOutput)
 }
@@ -470,6 +473,7 @@ func (o ConnectorEgressConfigPtrOutput) Elem() ConnectorEgressConfigOutput {
 	}).(ConnectorEgressConfigOutput)
 }
 
+// VPC_LATTICE configuration for routing connector traffic through customer VPCs. Enables private connectivity to SFTP servers without requiring public internet access or complex network configurations.
 func (o ConnectorEgressConfigPtrOutput) VpcLattice() ConnectorVpcLatticeEgressConfigPtrOutput {
 	return o.ApplyT(func(v *ConnectorEgressConfig) *ConnectorVpcLatticeEgressConfig {
 		if v == nil {

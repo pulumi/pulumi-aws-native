@@ -264,6 +264,7 @@ import * as s3express from "./s3express";
 import * as s3objectlambda from "./s3objectlambda";
 import * as s3outposts from "./s3outposts";
 import * as s3tables from "./s3tables";
+import * as s3vectors from "./s3vectors";
 import * as sagemaker from "./sagemaker";
 import * as scheduler from "./scheduler";
 import * as secretsmanager from "./secretsmanager";
@@ -502,6 +503,7 @@ export {
     s3objectlambda,
     s3outposts,
     s3tables,
+    s3vectors,
     sagemaker,
     scheduler,
     secretsmanager,

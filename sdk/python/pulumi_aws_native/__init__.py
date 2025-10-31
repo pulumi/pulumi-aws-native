@@ -421,6 +421,8 @@ if typing.TYPE_CHECKING:
     s3outposts = __s3outposts
     import pulumi_aws_native.s3tables as __s3tables
     s3tables = __s3tables
+    import pulumi_aws_native.s3vectors as __s3vectors
+    s3vectors = __s3vectors
     import pulumi_aws_native.sagemaker as __sagemaker
     sagemaker = __sagemaker
     import pulumi_aws_native.scheduler as __scheduler
@@ -693,6 +695,7 @@ else:
     s3objectlambda = _utilities.lazy_import('pulumi_aws_native.s3objectlambda')
     s3outposts = _utilities.lazy_import('pulumi_aws_native.s3outposts')
     s3tables = _utilities.lazy_import('pulumi_aws_native.s3tables')
+    s3vectors = _utilities.lazy_import('pulumi_aws_native.s3vectors')
     sagemaker = _utilities.lazy_import('pulumi_aws_native.sagemaker')
     scheduler = _utilities.lazy_import('pulumi_aws_native.scheduler')
     secretsmanager = _utilities.lazy_import('pulumi_aws_native.secretsmanager')
@@ -3167,6 +3170,16 @@ _utilities.register(
    "aws-native:s3tables:TableBucket": "TableBucket",
    "aws-native:s3tables:TableBucketPolicy": "TableBucketPolicy",
    "aws-native:s3tables:TablePolicy": "TablePolicy"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "s3vectors",
+  "fqn": "pulumi_aws_native.s3vectors",
+  "classes": {
+   "aws-native:s3vectors:Index": "Index",
+   "aws-native:s3vectors:VectorBucket": "VectorBucket",
+   "aws-native:s3vectors:VectorBucketPolicy": "VectorBucketPolicy"
   }
  },
  {

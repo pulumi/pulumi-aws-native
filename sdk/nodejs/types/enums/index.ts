@@ -159,6 +159,7 @@ import * as s3 from "./s3";
 import * as s3express from "./s3express";
 import * as s3outposts from "./s3outposts";
 import * as s3tables from "./s3tables";
+import * as s3vectors from "./s3vectors";
 import * as sagemaker from "./sagemaker";
 import * as scheduler from "./scheduler";
 import * as securityhub from "./securityhub";
@@ -348,6 +349,7 @@ export {
     s3express,
     s3outposts,
     s3tables,
+    s3vectors,
     sagemaker,
     scheduler,
     securityhub,

@@ -231,11 +231,17 @@ class ConnectorEgressConfig(dict):
 
     def __init__(__self__, *,
                  vpc_lattice: 'outputs.ConnectorVpcLatticeEgressConfig'):
+        """
+        :param 'ConnectorVpcLatticeEgressConfig' vpc_lattice: VPC_LATTICE configuration for routing connector traffic through customer VPCs. Enables private connectivity to SFTP servers without requiring public internet access or complex network configurations.
+        """
         pulumi.set(__self__, "vpc_lattice", vpc_lattice)
 
     @_builtins.property
     @pulumi.getter(name="vpcLattice")
     def vpc_lattice(self) -> 'outputs.ConnectorVpcLatticeEgressConfig':
+        """
+        VPC_LATTICE configuration for routing connector traffic through customer VPCs. Enables private connectivity to SFTP servers without requiring public internet access or complex network configurations.
+        """
         return pulumi.get(self, "vpc_lattice")
 
 

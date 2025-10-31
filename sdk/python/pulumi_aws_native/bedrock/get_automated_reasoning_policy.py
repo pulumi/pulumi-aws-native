@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAutomatedReasoningPolicyResult:
-    def __init__(__self__, created_at=None, definition_hash=None, description=None, name=None, policy_arn=None, policy_definition=None, policy_id=None, tags=None, updated_at=None, version=None):
+    def __init__(__self__, created_at=None, definition_hash=None, description=None, kms_key_arn=None, name=None, policy_arn=None, policy_definition=None, policy_id=None, tags=None, updated_at=None, version=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -35,6 +35,9 @@ class GetAutomatedReasoningPolicyResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if kms_key_arn and not isinstance(kms_key_arn, str):
+            raise TypeError("Expected argument 'kms_key_arn' to be a str")
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -80,6 +83,11 @@ class GetAutomatedReasoningPolicyResult:
         The description of the policy.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter
@@ -147,6 +155,7 @@ class AwaitableGetAutomatedReasoningPolicyResult(GetAutomatedReasoningPolicyResu
             created_at=self.created_at,
             definition_hash=self.definition_hash,
             description=self.description,
+            kms_key_arn=self.kms_key_arn,
             name=self.name,
             policy_arn=self.policy_arn,
             policy_definition=self.policy_definition,
@@ -173,6 +182,7 @@ def get_automated_reasoning_policy(policy_arn: Optional[_builtins.str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         definition_hash=pulumi.get(__ret__, 'definition_hash'),
         description=pulumi.get(__ret__, 'description'),
+        kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         name=pulumi.get(__ret__, 'name'),
         policy_arn=pulumi.get(__ret__, 'policy_arn'),
         policy_definition=pulumi.get(__ret__, 'policy_definition'),
@@ -196,6 +206,7 @@ def get_automated_reasoning_policy_output(policy_arn: Optional[pulumi.Input[_bui
         created_at=pulumi.get(__response__, 'created_at'),
         definition_hash=pulumi.get(__response__, 'definition_hash'),
         description=pulumi.get(__response__, 'description'),
+        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
         name=pulumi.get(__response__, 'name'),
         policy_arn=pulumi.get(__response__, 'policy_arn'),
         policy_definition=pulumi.get(__response__, 'policy_definition'),

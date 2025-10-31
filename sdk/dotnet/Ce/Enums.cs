@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Ce
         }
 
         public static AnomalyMonitorMonitorDimension Service { get; } = new AnomalyMonitorMonitorDimension("SERVICE");
+        public static AnomalyMonitorMonitorDimension LinkedAccount { get; } = new AnomalyMonitorMonitorDimension("LINKED_ACCOUNT");
+        public static AnomalyMonitorMonitorDimension Tag { get; } = new AnomalyMonitorMonitorDimension("TAG");
+        public static AnomalyMonitorMonitorDimension CostCategory { get; } = new AnomalyMonitorMonitorDimension("COST_CATEGORY");
 
         public static bool operator ==(AnomalyMonitorMonitorDimension left, AnomalyMonitorMonitorDimension right) => left.Equals(right);
         public static bool operator !=(AnomalyMonitorMonitorDimension left, AnomalyMonitorMonitorDimension right) => !left.Equals(right);
