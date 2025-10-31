@@ -69,7 +69,7 @@
     "MonitorDimension" : {
       "description" : "The dimensions to evaluate",
       "type" : "string",
-      "enum" : [ "SERVICE" ]
+      "enum" : [ "SERVICE", "LINKED_ACCOUNT", "TAG", "COST_CATEGORY" ]
     },
     "MonitorSpecification" : {
       "type" : "string"
