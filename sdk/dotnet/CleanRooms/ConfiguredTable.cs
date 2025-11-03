@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.CleanRooms
     public partial class ConfiguredTable : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+        /// The columns within the underlying AWS Glue table that can be used within collaborations.
         /// </summary>
         [Output("allowedColumns")]
         public Output<ImmutableArray<string>> AllowedColumns { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.CleanRooms
         private InputList<string>? _allowedColumns;
 
         /// <summary>
-        /// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+        /// The columns within the underlying AWS Glue table that can be used within collaborations.
         /// </summary>
         public InputList<string> AllowedColumns
         {

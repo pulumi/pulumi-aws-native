@@ -24,18 +24,48 @@ export interface GetResponderGatewayArgs {
 export interface GetResponderGatewayResult {
     readonly arn?: string;
     readonly createdTimestamp?: string;
+    /**
+     * An optional description for the responder gateway.
+     */
     readonly description?: string;
+    /**
+     * The domain name for the responder gateway.
+     */
     readonly domainName?: string;
     readonly gatewayId?: string;
+    /**
+     * The configuration for the managed endpoint.
+     */
     readonly managedEndpointConfiguration?: outputs.rtbfabric.ResponderGatewayManagedEndpointConfiguration;
+    /**
+     * The networking port to use.
+     */
     readonly port?: number;
+    /**
+     * The networking protocol to use.
+     */
     readonly protocol?: enums.rtbfabric.ResponderGatewayProtocol;
     readonly responderGatewayStatus?: enums.rtbfabric.ResponderGatewayStatus;
+    /**
+     * The unique identifiers of the security groups.
+     */
     readonly securityGroupIds?: string[];
+    /**
+     * The unique identifiers of the subnets.
+     */
     readonly subnetIds?: string[];
+    /**
+     * A map of the key-value pairs of the tag or tags to assign to the resource.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The configuration of the trust store.
+     */
     readonly trustStoreConfiguration?: outputs.rtbfabric.ResponderGatewayTrustStoreConfiguration;
     readonly updatedTimestamp?: string;
+    /**
+     * The unique identifier of the Virtual Private Cloud (VPC).
+     */
     readonly vpcId?: string;
 }
 /**

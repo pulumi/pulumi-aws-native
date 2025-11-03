@@ -14,6 +14,9 @@ export const LinkResponderErrorMaskingForHttpCodeAction = {
     Passthrough: "PASSTHROUGH",
 } as const;
 
+/**
+ * The action for the error..
+ */
 export type LinkResponderErrorMaskingForHttpCodeAction = (typeof LinkResponderErrorMaskingForHttpCodeAction)[keyof typeof LinkResponderErrorMaskingForHttpCodeAction];
 
 export const LinkResponderErrorMaskingLoggingType = {

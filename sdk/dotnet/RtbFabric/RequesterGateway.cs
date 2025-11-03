@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.RtbFabric
         [Output("createdTimestamp")]
         public Output<string> CreatedTimestamp { get; private set; } = null!;
 
+        /// <summary>
+        /// An optional description for the requester gateway.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -36,12 +39,21 @@ namespace Pulumi.AwsNative.RtbFabric
         [Output("requesterGatewayStatus")]
         public Output<Pulumi.AwsNative.RtbFabric.RequesterGatewayStatus> RequesterGatewayStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifiers of the security groups.
+        /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifiers of the subnets.
+        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of the key-value pairs of the tag or tags to assign to the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -51,6 +63,9 @@ namespace Pulumi.AwsNative.RtbFabric
         [Output("updatedTimestamp")]
         public Output<string> UpdatedTimestamp { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the Virtual Private Cloud (VPC).
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -99,11 +114,18 @@ namespace Pulumi.AwsNative.RtbFabric
 
     public sealed class RequesterGatewayArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An optional description for the requester gateway.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// The unique identifiers of the security groups.
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -112,6 +134,10 @@ namespace Pulumi.AwsNative.RtbFabric
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// The unique identifiers of the subnets.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -120,12 +146,19 @@ namespace Pulumi.AwsNative.RtbFabric
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A map of the key-value pairs of the tag or tags to assign to the resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The unique identifier of the Virtual Private Cloud (VPC).
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

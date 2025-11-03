@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RtbFabric.Outputs
 {
 
+    /// <summary>
+    /// Describes the configuration of a link application log.
+    /// </summary>
     [OutputType]
     public sealed class LinkLogSettingsApplicationLogsProperties
     {

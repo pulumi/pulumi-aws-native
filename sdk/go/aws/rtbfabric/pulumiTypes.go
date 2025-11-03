@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type LinkAttributes struct {
-	CustomerProvidedId    *string                                `pulumi:"customerProvidedId"`
+	// The customer-provided unique identifier of the link.
+	CustomerProvidedId *string `pulumi:"customerProvidedId"`
+	// Describes the masking for HTTP error codes.
 	ResponderErrorMasking []LinkResponderErrorMaskingForHttpCode `pulumi:"responderErrorMasking"`
 }
 
@@ -30,7 +32,9 @@ type LinkAttributesInput interface {
 }
 
 type LinkAttributesArgs struct {
-	CustomerProvidedId    pulumi.StringPtrInput                          `pulumi:"customerProvidedId"`
+	// The customer-provided unique identifier of the link.
+	CustomerProvidedId pulumi.StringPtrInput `pulumi:"customerProvidedId"`
+	// Describes the masking for HTTP error codes.
 	ResponderErrorMasking LinkResponderErrorMaskingForHttpCodeArrayInput `pulumi:"responderErrorMasking"`
 }
 
@@ -111,10 +115,12 @@ func (o LinkAttributesOutput) ToLinkAttributesPtrOutputWithContext(ctx context.C
 	}).(LinkAttributesPtrOutput)
 }
 
+// The customer-provided unique identifier of the link.
 func (o LinkAttributesOutput) CustomerProvidedId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinkAttributes) *string { return v.CustomerProvidedId }).(pulumi.StringPtrOutput)
 }
 
+// Describes the masking for HTTP error codes.
 func (o LinkAttributesOutput) ResponderErrorMasking() LinkResponderErrorMaskingForHttpCodeArrayOutput {
 	return o.ApplyT(func(v LinkAttributes) []LinkResponderErrorMaskingForHttpCode { return v.ResponderErrorMasking }).(LinkResponderErrorMaskingForHttpCodeArrayOutput)
 }
@@ -143,6 +149,7 @@ func (o LinkAttributesPtrOutput) Elem() LinkAttributesOutput {
 	}).(LinkAttributesOutput)
 }
 
+// The customer-provided unique identifier of the link.
 func (o LinkAttributesPtrOutput) CustomerProvidedId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkAttributes) *string {
 		if v == nil {
@@ -152,6 +159,7 @@ func (o LinkAttributesPtrOutput) CustomerProvidedId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes the masking for HTTP error codes.
 func (o LinkAttributesPtrOutput) ResponderErrorMasking() LinkResponderErrorMaskingForHttpCodeArrayOutput {
 	return o.ApplyT(func(v *LinkAttributes) []LinkResponderErrorMaskingForHttpCode {
 		if v == nil {
@@ -162,6 +170,7 @@ func (o LinkAttributesPtrOutput) ResponderErrorMasking() LinkResponderErrorMaski
 }
 
 type LinkLogSettings struct {
+	// Describes the configuration of a link application log.
 	ApplicationLogs LinkLogSettingsApplicationLogsProperties `pulumi:"applicationLogs"`
 }
 
@@ -177,6 +186,7 @@ type LinkLogSettingsInput interface {
 }
 
 type LinkLogSettingsArgs struct {
+	// Describes the configuration of a link application log.
 	ApplicationLogs LinkLogSettingsApplicationLogsPropertiesInput `pulumi:"applicationLogs"`
 }
 
@@ -206,6 +216,7 @@ func (o LinkLogSettingsOutput) ToLinkLogSettingsOutputWithContext(ctx context.Co
 	return o
 }
 
+// Describes the configuration of a link application log.
 func (o LinkLogSettingsOutput) ApplicationLogs() LinkLogSettingsApplicationLogsPropertiesOutput {
 	return o.ApplyT(func(v LinkLogSettings) LinkLogSettingsApplicationLogsProperties { return v.ApplicationLogs }).(LinkLogSettingsApplicationLogsPropertiesOutput)
 }
@@ -234,6 +245,7 @@ func (o LinkLogSettingsPtrOutput) Elem() LinkLogSettingsOutput {
 	}).(LinkLogSettingsOutput)
 }
 
+// Describes the configuration of a link application log.
 func (o LinkLogSettingsPtrOutput) ApplicationLogs() LinkLogSettingsApplicationLogsPropertiesPtrOutput {
 	return o.ApplyT(func(v *LinkLogSettings) *LinkLogSettingsApplicationLogsProperties {
 		if v == nil {
@@ -243,6 +255,7 @@ func (o LinkLogSettingsPtrOutput) ApplicationLogs() LinkLogSettingsApplicationLo
 	}).(LinkLogSettingsApplicationLogsPropertiesPtrOutput)
 }
 
+// Describes the configuration of a link application log.
 type LinkLogSettingsApplicationLogsProperties struct {
 	LinkApplicationLogSampling LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties `pulumi:"linkApplicationLogSampling"`
 }
@@ -258,6 +271,7 @@ type LinkLogSettingsApplicationLogsPropertiesInput interface {
 	ToLinkLogSettingsApplicationLogsPropertiesOutputWithContext(context.Context) LinkLogSettingsApplicationLogsPropertiesOutput
 }
 
+// Describes the configuration of a link application log.
 type LinkLogSettingsApplicationLogsPropertiesArgs struct {
 	LinkApplicationLogSampling LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput `pulumi:"linkApplicationLogSampling"`
 }
@@ -274,6 +288,7 @@ func (i LinkLogSettingsApplicationLogsPropertiesArgs) ToLinkLogSettingsApplicati
 	return pulumi.ToOutputWithContext(ctx, i).(LinkLogSettingsApplicationLogsPropertiesOutput)
 }
 
+// Describes the configuration of a link application log.
 type LinkLogSettingsApplicationLogsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (LinkLogSettingsApplicationLogsPropertiesOutput) ElementType() reflect.Type {
@@ -659,10 +674,14 @@ func (o LinkModuleParametersPtrOutput) Elem() LinkModuleParametersOutput {
 }
 
 type LinkResponderErrorMaskingForHttpCode struct {
-	Action                    LinkResponderErrorMaskingForHttpCodeAction `pulumi:"action"`
-	HttpCode                  string                                     `pulumi:"httpCode"`
-	LoggingTypes              []LinkResponderErrorMaskingLoggingType     `pulumi:"loggingTypes"`
-	ResponseLoggingPercentage *float64                                   `pulumi:"responseLoggingPercentage"`
+	// The action for the error..
+	Action LinkResponderErrorMaskingForHttpCodeAction `pulumi:"action"`
+	// The HTTP error code.
+	HttpCode string `pulumi:"httpCode"`
+	// The error log type.
+	LoggingTypes []LinkResponderErrorMaskingLoggingType `pulumi:"loggingTypes"`
+	// The percentage of response logging.
+	ResponseLoggingPercentage *float64 `pulumi:"responseLoggingPercentage"`
 }
 
 // LinkResponderErrorMaskingForHttpCodeInput is an input type that accepts LinkResponderErrorMaskingForHttpCodeArgs and LinkResponderErrorMaskingForHttpCodeOutput values.
@@ -677,10 +696,14 @@ type LinkResponderErrorMaskingForHttpCodeInput interface {
 }
 
 type LinkResponderErrorMaskingForHttpCodeArgs struct {
-	Action                    LinkResponderErrorMaskingForHttpCodeActionInput `pulumi:"action"`
-	HttpCode                  pulumi.StringInput                              `pulumi:"httpCode"`
-	LoggingTypes              LinkResponderErrorMaskingLoggingTypeArrayInput  `pulumi:"loggingTypes"`
-	ResponseLoggingPercentage pulumi.Float64PtrInput                          `pulumi:"responseLoggingPercentage"`
+	// The action for the error..
+	Action LinkResponderErrorMaskingForHttpCodeActionInput `pulumi:"action"`
+	// The HTTP error code.
+	HttpCode pulumi.StringInput `pulumi:"httpCode"`
+	// The error log type.
+	LoggingTypes LinkResponderErrorMaskingLoggingTypeArrayInput `pulumi:"loggingTypes"`
+	// The percentage of response logging.
+	ResponseLoggingPercentage pulumi.Float64PtrInput `pulumi:"responseLoggingPercentage"`
 }
 
 func (LinkResponderErrorMaskingForHttpCodeArgs) ElementType() reflect.Type {
@@ -734,22 +757,26 @@ func (o LinkResponderErrorMaskingForHttpCodeOutput) ToLinkResponderErrorMaskingF
 	return o
 }
 
+// The action for the error..
 func (o LinkResponderErrorMaskingForHttpCodeOutput) Action() LinkResponderErrorMaskingForHttpCodeActionOutput {
 	return o.ApplyT(func(v LinkResponderErrorMaskingForHttpCode) LinkResponderErrorMaskingForHttpCodeAction {
 		return v.Action
 	}).(LinkResponderErrorMaskingForHttpCodeActionOutput)
 }
 
+// The HTTP error code.
 func (o LinkResponderErrorMaskingForHttpCodeOutput) HttpCode() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkResponderErrorMaskingForHttpCode) string { return v.HttpCode }).(pulumi.StringOutput)
 }
 
+// The error log type.
 func (o LinkResponderErrorMaskingForHttpCodeOutput) LoggingTypes() LinkResponderErrorMaskingLoggingTypeArrayOutput {
 	return o.ApplyT(func(v LinkResponderErrorMaskingForHttpCode) []LinkResponderErrorMaskingLoggingType {
 		return v.LoggingTypes
 	}).(LinkResponderErrorMaskingLoggingTypeArrayOutput)
 }
 
+// The percentage of response logging.
 func (o LinkResponderErrorMaskingForHttpCodeOutput) ResponseLoggingPercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LinkResponderErrorMaskingForHttpCode) *float64 { return v.ResponseLoggingPercentage }).(pulumi.Float64PtrOutput)
 }
@@ -917,6 +944,7 @@ type ResponderGatewayTag struct {
 }
 
 type ResponderGatewayTrustStoreConfiguration struct {
+	// The certificate authority certificate.
 	CertificateAuthorityCertificates []string `pulumi:"certificateAuthorityCertificates"`
 }
 
@@ -932,6 +960,7 @@ type ResponderGatewayTrustStoreConfigurationInput interface {
 }
 
 type ResponderGatewayTrustStoreConfigurationArgs struct {
+	// The certificate authority certificate.
 	CertificateAuthorityCertificates pulumi.StringArrayInput `pulumi:"certificateAuthorityCertificates"`
 }
 
@@ -1012,6 +1041,7 @@ func (o ResponderGatewayTrustStoreConfigurationOutput) ToResponderGatewayTrustSt
 	}).(ResponderGatewayTrustStoreConfigurationPtrOutput)
 }
 
+// The certificate authority certificate.
 func (o ResponderGatewayTrustStoreConfigurationOutput) CertificateAuthorityCertificates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResponderGatewayTrustStoreConfiguration) []string { return v.CertificateAuthorityCertificates }).(pulumi.StringArrayOutput)
 }
@@ -1040,6 +1070,7 @@ func (o ResponderGatewayTrustStoreConfigurationPtrOutput) Elem() ResponderGatewa
 	}).(ResponderGatewayTrustStoreConfigurationOutput)
 }
 
+// The certificate authority certificate.
 func (o ResponderGatewayTrustStoreConfigurationPtrOutput) CertificateAuthorityCertificates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResponderGatewayTrustStoreConfiguration) []string {
 		if v == nil {

@@ -14,6 +14,7 @@ __all__ = [
     'ClusterLoggingTypeConfigType',
     'ClusterUpgradePolicySupportType',
     'IdentityProviderConfigType',
+    'NodegroupNodeRepairConfigOverridesRepairAction',
 ]
 
 
@@ -82,3 +83,13 @@ class IdentityProviderConfigType(_builtins.str, Enum):
     The type of the identity provider configuration.
     """
     OIDC = "oidc"
+
+
+@pulumi.type_token("aws-native:eks:NodegroupNodeRepairConfigOverridesRepairAction")
+class NodegroupNodeRepairConfigOverridesRepairAction(_builtins.str, Enum):
+    """
+    Specify the repair action to take for nodes when all of the specified conditions are met.
+    """
+    REPLACE = "Replace"
+    REBOOT = "Reboot"
+    NO_ACTION = "NoAction"

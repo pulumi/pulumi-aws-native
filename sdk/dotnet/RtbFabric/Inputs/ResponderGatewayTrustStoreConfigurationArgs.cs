@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.RtbFabric.Inputs
     {
         [Input("certificateAuthorityCertificates", required: true)]
         private InputList<string>? _certificateAuthorityCertificates;
+
+        /// <summary>
+        /// The certificate authority certificate.
+        /// </summary>
         public InputList<string> CertificateAuthorityCertificates
         {
             get => _certificateAuthorityCertificates ?? (_certificateAuthorityCertificates = new InputList<string>());

@@ -59,13 +59,31 @@ namespace Pulumi.AwsNative.RtbFabric
     {
         public readonly string? Arn;
         public readonly string? CreatedTimestamp;
+        /// <summary>
+        /// The unique identifier of the gateway.
+        /// </summary>
         public readonly string? GatewayId;
+        /// <summary>
+        /// Attributes of the link.
+        /// </summary>
         public readonly Outputs.LinkAttributes? LinkAttributes;
         public readonly Pulumi.AwsNative.RtbFabric.LinkDirection? LinkDirection;
+        /// <summary>
+        /// The unique identifier of the link.
+        /// </summary>
         public readonly string? LinkId;
+        /// <summary>
+        /// Settings for the application logs.
+        /// </summary>
         public readonly Outputs.LinkLogSettings? LinkLogSettings;
         public readonly Pulumi.AwsNative.RtbFabric.LinkStatus? LinkStatus;
+        /// <summary>
+        /// The unique identifier of the peer gateway.
+        /// </summary>
         public readonly string? PeerGatewayId;
+        /// <summary>
+        /// A map of the key-value pairs of the tag or tags to assign to the resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly string? UpdatedTimestamp;
 

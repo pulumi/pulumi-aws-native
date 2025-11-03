@@ -39,15 +39,36 @@ export class Link extends pulumi.CustomResource {
 
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
+    /**
+     * The unique identifier of the gateway.
+     */
     declare public readonly gatewayId: pulumi.Output<string>;
+    /**
+     * Boolean to specify if an HTTP responder is allowed.
+     */
     declare public readonly httpResponderAllowed: pulumi.Output<boolean | undefined>;
+    /**
+     * Attributes of the link.
+     */
     declare public readonly linkAttributes: pulumi.Output<outputs.rtbfabric.LinkAttributes | undefined>;
     declare public /*out*/ readonly linkDirection: pulumi.Output<enums.rtbfabric.LinkDirection>;
+    /**
+     * The unique identifier of the link.
+     */
     declare public /*out*/ readonly linkId: pulumi.Output<string>;
+    /**
+     * Settings for the application logs.
+     */
     declare public readonly linkLogSettings: pulumi.Output<outputs.rtbfabric.LinkLogSettings>;
     declare public /*out*/ readonly linkStatus: pulumi.Output<enums.rtbfabric.LinkStatus>;
     declare public readonly moduleConfigurationList: pulumi.Output<outputs.rtbfabric.LinkModuleConfiguration[] | undefined>;
+    /**
+     * The unique identifier of the peer gateway.
+     */
     declare public readonly peerGatewayId: pulumi.Output<string>;
+    /**
+     * A map of the key-value pairs of the tag or tags to assign to the resource.
+     */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     declare public /*out*/ readonly updatedTimestamp: pulumi.Output<string>;
 
@@ -108,11 +129,29 @@ export class Link extends pulumi.CustomResource {
  * The set of arguments for constructing a Link resource.
  */
 export interface LinkArgs {
+    /**
+     * The unique identifier of the gateway.
+     */
     gatewayId: pulumi.Input<string>;
+    /**
+     * Boolean to specify if an HTTP responder is allowed.
+     */
     httpResponderAllowed?: pulumi.Input<boolean>;
+    /**
+     * Attributes of the link.
+     */
     linkAttributes?: pulumi.Input<inputs.rtbfabric.LinkAttributesArgs>;
+    /**
+     * Settings for the application logs.
+     */
     linkLogSettings: pulumi.Input<inputs.rtbfabric.LinkLogSettingsArgs>;
     moduleConfigurationList?: pulumi.Input<pulumi.Input<inputs.rtbfabric.LinkModuleConfigurationArgs>[]>;
+    /**
+     * The unique identifier of the peer gateway.
+     */
     peerGatewayId: pulumi.Input<string>;
+    /**
+     * A map of the key-value pairs of the tag or tags to assign to the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

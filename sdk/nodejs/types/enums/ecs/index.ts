@@ -197,6 +197,9 @@ export const ServiceConnectAccessLogConfigurationFormat = {
     Json: "JSON",
 } as const;
 
+/**
+ * The format for Service Connect access log output. Choose TEXT for human-readable logs or JSON for structured data that integrates well with log analysis tools.
+ */
 export type ServiceConnectAccessLogConfigurationFormat = (typeof ServiceConnectAccessLogConfigurationFormat)[keyof typeof ServiceConnectAccessLogConfigurationFormat];
 
 export const ServiceConnectAccessLogConfigurationIncludeQueryParameters = {
@@ -204,6 +207,11 @@ export const ServiceConnectAccessLogConfigurationIncludeQueryParameters = {
     Enabled: "ENABLED",
 } as const;
 
+/**
+ * Specifies whether to include query parameters in Service Connect access logs.
+ *
+ * When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
+ */
 export type ServiceConnectAccessLogConfigurationIncludeQueryParameters = (typeof ServiceConnectAccessLogConfigurationIncludeQueryParameters)[keyof typeof ServiceConnectAccessLogConfigurationIncludeQueryParameters];
 
 export const ServiceDeploymentConfigurationStrategy = {

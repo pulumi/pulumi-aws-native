@@ -28,7 +28,7 @@ export interface GetConfiguredTableArgs {
 
 export interface GetConfiguredTableResult {
     /**
-     * The columns within the underlying AWS Glue table that can be utilized within collaborations.
+     * The columns within the underlying AWS Glue table that can be used within collaborations.
      */
     readonly allowedColumns?: string[];
     /**

@@ -36,6 +36,16 @@ class ResponderGatewayArgs:
                  trust_store_configuration: Optional[pulumi.Input['ResponderGatewayTrustStoreConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ResponderGateway resource.
+        :param pulumi.Input[_builtins.int] port: The networking port to use.
+        :param pulumi.Input['ResponderGatewayProtocol'] protocol: The networking protocol to use.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The unique identifiers of the security groups.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The unique identifiers of the subnets.
+        :param pulumi.Input[_builtins.str] vpc_id: The unique identifier of the Virtual Private Cloud (VPC).
+        :param pulumi.Input[_builtins.str] description: An optional description for the responder gateway.
+        :param pulumi.Input[_builtins.str] domain_name: The domain name for the responder gateway.
+        :param pulumi.Input['ResponderGatewayManagedEndpointConfigurationArgs'] managed_endpoint_configuration: The configuration for the managed endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A map of the key-value pairs of the tag or tags to assign to the resource.
+        :param pulumi.Input['ResponderGatewayTrustStoreConfigurationArgs'] trust_store_configuration: The configuration of the trust store.
         """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
@@ -56,6 +66,9 @@ class ResponderGatewayArgs:
     @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Input[_builtins.int]:
+        """
+        The networking port to use.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -65,6 +78,9 @@ class ResponderGatewayArgs:
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> pulumi.Input['ResponderGatewayProtocol']:
+        """
+        The networking protocol to use.
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -74,6 +90,9 @@ class ResponderGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The unique identifiers of the security groups.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -83,6 +102,9 @@ class ResponderGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The unique identifiers of the subnets.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -92,6 +114,9 @@ class ResponderGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique identifier of the Virtual Private Cloud (VPC).
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -101,6 +126,9 @@ class ResponderGatewayArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        An optional description for the responder gateway.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -110,6 +138,9 @@ class ResponderGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The domain name for the responder gateway.
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -119,6 +150,9 @@ class ResponderGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="managedEndpointConfiguration")
     def managed_endpoint_configuration(self) -> Optional[pulumi.Input['ResponderGatewayManagedEndpointConfigurationArgs']]:
+        """
+        The configuration for the managed endpoint.
+        """
         return pulumi.get(self, "managed_endpoint_configuration")
 
     @managed_endpoint_configuration.setter
@@ -128,6 +162,9 @@ class ResponderGatewayArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A map of the key-value pairs of the tag or tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -137,6 +174,9 @@ class ResponderGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="trustStoreConfiguration")
     def trust_store_configuration(self) -> Optional[pulumi.Input['ResponderGatewayTrustStoreConfigurationArgs']]:
+        """
+        The configuration of the trust store.
+        """
         return pulumi.get(self, "trust_store_configuration")
 
     @trust_store_configuration.setter
@@ -166,6 +206,16 @@ class ResponderGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] description: An optional description for the responder gateway.
+        :param pulumi.Input[_builtins.str] domain_name: The domain name for the responder gateway.
+        :param pulumi.Input[Union['ResponderGatewayManagedEndpointConfigurationArgs', 'ResponderGatewayManagedEndpointConfigurationArgsDict']] managed_endpoint_configuration: The configuration for the managed endpoint.
+        :param pulumi.Input[_builtins.int] port: The networking port to use.
+        :param pulumi.Input['ResponderGatewayProtocol'] protocol: The networking protocol to use.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The unique identifiers of the security groups.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The unique identifiers of the subnets.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A map of the key-value pairs of the tag or tags to assign to the resource.
+        :param pulumi.Input[Union['ResponderGatewayTrustStoreConfigurationArgs', 'ResponderGatewayTrustStoreConfigurationArgsDict']] trust_store_configuration: The configuration of the trust store.
+        :param pulumi.Input[_builtins.str] vpc_id: The unique identifier of the Virtual Private Cloud (VPC).
         """
         ...
     @overload
@@ -287,11 +337,17 @@ class ResponderGateway(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        An optional description for the responder gateway.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The domain name for the responder gateway.
+        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
@@ -302,16 +358,25 @@ class ResponderGateway(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="managedEndpointConfiguration")
     def managed_endpoint_configuration(self) -> pulumi.Output[Optional['outputs.ResponderGatewayManagedEndpointConfiguration']]:
+        """
+        The configuration for the managed endpoint.
+        """
         return pulumi.get(self, "managed_endpoint_configuration")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Output[_builtins.int]:
+        """
+        The networking port to use.
+        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> pulumi.Output['ResponderGatewayProtocol']:
+        """
+        The networking protocol to use.
+        """
         return pulumi.get(self, "protocol")
 
     @_builtins.property
@@ -322,21 +387,33 @@ class ResponderGateway(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        The unique identifiers of the security groups.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        The unique identifiers of the subnets.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A map of the key-value pairs of the tag or tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="trustStoreConfiguration")
     def trust_store_configuration(self) -> pulumi.Output[Optional['outputs.ResponderGatewayTrustStoreConfiguration']]:
+        """
+        The configuration of the trust store.
+        """
         return pulumi.get(self, "trust_store_configuration")
 
     @_builtins.property
@@ -347,5 +424,8 @@ class ResponderGateway(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The unique identifier of the Virtual Private Cloud (VPC).
+        """
         return pulumi.get(self, "vpc_id")
 

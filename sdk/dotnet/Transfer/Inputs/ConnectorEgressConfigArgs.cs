@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Transfer.Inputs
 
     public sealed class ConnectorEgressConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// VPC_LATTICE configuration for routing connector traffic through customer VPCs. Enables private connectivity to SFTP servers without requiring public internet access or complex network configurations.
+        /// </summary>
         [Input("vpcLattice", required: true)]
         public Input<Inputs.ConnectorVpcLatticeEgressConfigArgs> VpcLattice { get; set; } = null!;
 

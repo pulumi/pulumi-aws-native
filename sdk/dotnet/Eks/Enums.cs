@@ -227,4 +227,36 @@ namespace Pulumi.AwsNative.Eks
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Specify the repair action to take for nodes when all of the specified conditions are met.
+    /// </summary>
+    [EnumType]
+    public readonly struct NodegroupNodeRepairConfigOverridesRepairAction : IEquatable<NodegroupNodeRepairConfigOverridesRepairAction>
+    {
+        private readonly string _value;
+
+        private NodegroupNodeRepairConfigOverridesRepairAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NodegroupNodeRepairConfigOverridesRepairAction Replace { get; } = new NodegroupNodeRepairConfigOverridesRepairAction("Replace");
+        public static NodegroupNodeRepairConfigOverridesRepairAction Reboot { get; } = new NodegroupNodeRepairConfigOverridesRepairAction("Reboot");
+        public static NodegroupNodeRepairConfigOverridesRepairAction NoAction { get; } = new NodegroupNodeRepairConfigOverridesRepairAction("NoAction");
+
+        public static bool operator ==(NodegroupNodeRepairConfigOverridesRepairAction left, NodegroupNodeRepairConfigOverridesRepairAction right) => left.Equals(right);
+        public static bool operator !=(NodegroupNodeRepairConfigOverridesRepairAction left, NodegroupNodeRepairConfigOverridesRepairAction right) => !left.Equals(right);
+
+        public static explicit operator string(NodegroupNodeRepairConfigOverridesRepairAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NodegroupNodeRepairConfigOverridesRepairAction other && Equals(other);
+        public bool Equals(NodegroupNodeRepairConfigOverridesRepairAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

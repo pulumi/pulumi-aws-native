@@ -39,18 +39,48 @@ export class ResponderGateway extends pulumi.CustomResource {
 
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
+    /**
+     * An optional description for the responder gateway.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * The domain name for the responder gateway.
+     */
     declare public readonly domainName: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly gatewayId: pulumi.Output<string>;
+    /**
+     * The configuration for the managed endpoint.
+     */
     declare public readonly managedEndpointConfiguration: pulumi.Output<outputs.rtbfabric.ResponderGatewayManagedEndpointConfiguration | undefined>;
+    /**
+     * The networking port to use.
+     */
     declare public readonly port: pulumi.Output<number>;
+    /**
+     * The networking protocol to use.
+     */
     declare public readonly protocol: pulumi.Output<enums.rtbfabric.ResponderGatewayProtocol>;
     declare public /*out*/ readonly responderGatewayStatus: pulumi.Output<enums.rtbfabric.ResponderGatewayStatus>;
+    /**
+     * The unique identifiers of the security groups.
+     */
     declare public readonly securityGroupIds: pulumi.Output<string[]>;
+    /**
+     * The unique identifiers of the subnets.
+     */
     declare public readonly subnetIds: pulumi.Output<string[]>;
+    /**
+     * A map of the key-value pairs of the tag or tags to assign to the resource.
+     */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The configuration of the trust store.
+     */
     declare public readonly trustStoreConfiguration: pulumi.Output<outputs.rtbfabric.ResponderGatewayTrustStoreConfiguration | undefined>;
     declare public /*out*/ readonly updatedTimestamp: pulumi.Output<string>;
+    /**
+     * The unique identifier of the Virtual Private Cloud (VPC).
+     */
     declare public readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -120,14 +150,44 @@ export class ResponderGateway extends pulumi.CustomResource {
  * The set of arguments for constructing a ResponderGateway resource.
  */
 export interface ResponderGatewayArgs {
+    /**
+     * An optional description for the responder gateway.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The domain name for the responder gateway.
+     */
     domainName?: pulumi.Input<string>;
+    /**
+     * The configuration for the managed endpoint.
+     */
     managedEndpointConfiguration?: pulumi.Input<inputs.rtbfabric.ResponderGatewayManagedEndpointConfigurationArgs>;
+    /**
+     * The networking port to use.
+     */
     port: pulumi.Input<number>;
+    /**
+     * The networking protocol to use.
+     */
     protocol: pulumi.Input<enums.rtbfabric.ResponderGatewayProtocol>;
+    /**
+     * The unique identifiers of the security groups.
+     */
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The unique identifiers of the subnets.
+     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map of the key-value pairs of the tag or tags to assign to the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The configuration of the trust store.
+     */
     trustStoreConfiguration?: pulumi.Input<inputs.rtbfabric.ResponderGatewayTrustStoreConfigurationArgs>;
+    /**
+     * The unique identifier of the Virtual Private Cloud (VPC).
+     */
     vpcId: pulumi.Input<string>;
 }

@@ -38,7 +38,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
     }
 
     /**
-     * The columns within the underlying AWS Glue table that can be utilized within collaborations.
+     * The columns within the underlying AWS Glue table that can be used within collaborations.
      */
     declare public readonly allowedColumns: pulumi.Output<string[]>;
     /**
@@ -140,7 +140,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
  */
 export interface ConfiguredTableArgs {
     /**
-     * The columns within the underlying AWS Glue table that can be utilized within collaborations.
+     * The columns within the underlying AWS Glue table that can be used within collaborations.
      */
     allowedColumns: pulumi.Input<pulumi.Input<string>[]>;
     /**

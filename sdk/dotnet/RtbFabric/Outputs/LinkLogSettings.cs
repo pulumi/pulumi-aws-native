@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.RtbFabric.Outputs
     [OutputType]
     public sealed class LinkLogSettings
     {
+        /// <summary>
+        /// Describes the configuration of a link application log.
+        /// </summary>
         public readonly Outputs.LinkLogSettingsApplicationLogsProperties ApplicationLogs;
 
         [OutputConstructor]

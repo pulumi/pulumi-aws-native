@@ -62,7 +62,7 @@ class GetConfiguredTableResult:
     @pulumi.getter(name="allowedColumns")
     def allowed_columns(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The columns within the underlying AWS Glue table that can be utilized within collaborations.
+        The columns within the underlying AWS Glue table that can be used within collaborations.
         """
         return pulumi.get(self, "allowed_columns")
 

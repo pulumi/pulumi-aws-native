@@ -74,11 +74,17 @@ class GetLinkResult:
     @_builtins.property
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> Optional[_builtins.str]:
+        """
+        The unique identifier of the gateway.
+        """
         return pulumi.get(self, "gateway_id")
 
     @_builtins.property
     @pulumi.getter(name="linkAttributes")
     def link_attributes(self) -> Optional['outputs.LinkAttributes']:
+        """
+        Attributes of the link.
+        """
         return pulumi.get(self, "link_attributes")
 
     @_builtins.property
@@ -89,11 +95,17 @@ class GetLinkResult:
     @_builtins.property
     @pulumi.getter(name="linkId")
     def link_id(self) -> Optional[_builtins.str]:
+        """
+        The unique identifier of the link.
+        """
         return pulumi.get(self, "link_id")
 
     @_builtins.property
     @pulumi.getter(name="linkLogSettings")
     def link_log_settings(self) -> Optional['outputs.LinkLogSettings']:
+        """
+        Settings for the application logs.
+        """
         return pulumi.get(self, "link_log_settings")
 
     @_builtins.property
@@ -104,11 +116,17 @@ class GetLinkResult:
     @_builtins.property
     @pulumi.getter(name="peerGatewayId")
     def peer_gateway_id(self) -> Optional[_builtins.str]:
+        """
+        The unique identifier of the peer gateway.
+        """
         return pulumi.get(self, "peer_gateway_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A map of the key-value pairs of the tag or tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @_builtins.property

@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     public sealed class BucketDeleteMarkerReplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether to replicate delete markers. Disabled by default.
+        /// Indicates whether to replicate delete markers.
         /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.S3.BucketDeleteMarkerReplicationStatus>? Status { get; set; }

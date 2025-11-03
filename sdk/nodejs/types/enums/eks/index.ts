@@ -75,3 +75,14 @@ export const IdentityProviderConfigType = {
  * The type of the identity provider configuration.
  */
 export type IdentityProviderConfigType = (typeof IdentityProviderConfigType)[keyof typeof IdentityProviderConfigType];
+
+export const NodegroupNodeRepairConfigOverridesRepairAction = {
+    Replace: "Replace",
+    Reboot: "Reboot",
+    NoAction: "NoAction",
+} as const;
+
+/**
+ * Specify the repair action to take for nodes when all of the specified conditions are met.
+ */
+export type NodegroupNodeRepairConfigOverridesRepairAction = (typeof NodegroupNodeRepairConfigOverridesRepairAction)[keyof typeof NodegroupNodeRepairConfigOverridesRepairAction];

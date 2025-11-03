@@ -17,19 +17,26 @@ import (
 type Link struct {
 	pulumi.CustomResourceState
 
-	Arn                     pulumi.StringOutput                `pulumi:"arn"`
-	CreatedTimestamp        pulumi.StringOutput                `pulumi:"createdTimestamp"`
-	GatewayId               pulumi.StringOutput                `pulumi:"gatewayId"`
-	HttpResponderAllowed    pulumi.BoolPtrOutput               `pulumi:"httpResponderAllowed"`
-	LinkAttributes          LinkAttributesPtrOutput            `pulumi:"linkAttributes"`
-	LinkDirection           LinkDirectionOutput                `pulumi:"linkDirection"`
-	LinkId                  pulumi.StringOutput                `pulumi:"linkId"`
+	Arn              pulumi.StringOutput `pulumi:"arn"`
+	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
+	// The unique identifier of the gateway.
+	GatewayId pulumi.StringOutput `pulumi:"gatewayId"`
+	// Boolean to specify if an HTTP responder is allowed.
+	HttpResponderAllowed pulumi.BoolPtrOutput `pulumi:"httpResponderAllowed"`
+	// Attributes of the link.
+	LinkAttributes LinkAttributesPtrOutput `pulumi:"linkAttributes"`
+	LinkDirection  LinkDirectionOutput     `pulumi:"linkDirection"`
+	// The unique identifier of the link.
+	LinkId pulumi.StringOutput `pulumi:"linkId"`
+	// Settings for the application logs.
 	LinkLogSettings         LinkLogSettingsOutput              `pulumi:"linkLogSettings"`
 	LinkStatus              LinkStatusOutput                   `pulumi:"linkStatus"`
 	ModuleConfigurationList LinkModuleConfigurationArrayOutput `pulumi:"moduleConfigurationList"`
-	PeerGatewayId           pulumi.StringOutput                `pulumi:"peerGatewayId"`
-	Tags                    aws.TagArrayOutput                 `pulumi:"tags"`
-	UpdatedTimestamp        pulumi.StringOutput                `pulumi:"updatedTimestamp"`
+	// The unique identifier of the peer gateway.
+	PeerGatewayId pulumi.StringOutput `pulumi:"peerGatewayId"`
+	// A map of the key-value pairs of the tag or tags to assign to the resource.
+	Tags             aws.TagArrayOutput  `pulumi:"tags"`
+	UpdatedTimestamp pulumi.StringOutput `pulumi:"updatedTimestamp"`
 }
 
 // NewLink registers a new resource with the given unique name, arguments, and options.
@@ -81,24 +88,36 @@ func (LinkState) ElementType() reflect.Type {
 }
 
 type linkArgs struct {
-	GatewayId               string                    `pulumi:"gatewayId"`
-	HttpResponderAllowed    *bool                     `pulumi:"httpResponderAllowed"`
-	LinkAttributes          *LinkAttributes           `pulumi:"linkAttributes"`
+	// The unique identifier of the gateway.
+	GatewayId string `pulumi:"gatewayId"`
+	// Boolean to specify if an HTTP responder is allowed.
+	HttpResponderAllowed *bool `pulumi:"httpResponderAllowed"`
+	// Attributes of the link.
+	LinkAttributes *LinkAttributes `pulumi:"linkAttributes"`
+	// Settings for the application logs.
 	LinkLogSettings         LinkLogSettings           `pulumi:"linkLogSettings"`
 	ModuleConfigurationList []LinkModuleConfiguration `pulumi:"moduleConfigurationList"`
-	PeerGatewayId           string                    `pulumi:"peerGatewayId"`
-	Tags                    []aws.Tag                 `pulumi:"tags"`
+	// The unique identifier of the peer gateway.
+	PeerGatewayId string `pulumi:"peerGatewayId"`
+	// A map of the key-value pairs of the tag or tags to assign to the resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Link resource.
 type LinkArgs struct {
-	GatewayId               pulumi.StringInput
-	HttpResponderAllowed    pulumi.BoolPtrInput
-	LinkAttributes          LinkAttributesPtrInput
+	// The unique identifier of the gateway.
+	GatewayId pulumi.StringInput
+	// Boolean to specify if an HTTP responder is allowed.
+	HttpResponderAllowed pulumi.BoolPtrInput
+	// Attributes of the link.
+	LinkAttributes LinkAttributesPtrInput
+	// Settings for the application logs.
 	LinkLogSettings         LinkLogSettingsInput
 	ModuleConfigurationList LinkModuleConfigurationArrayInput
-	PeerGatewayId           pulumi.StringInput
-	Tags                    aws.TagArrayInput
+	// The unique identifier of the peer gateway.
+	PeerGatewayId pulumi.StringInput
+	// A map of the key-value pairs of the tag or tags to assign to the resource.
+	Tags aws.TagArrayInput
 }
 
 func (LinkArgs) ElementType() reflect.Type {
@@ -146,14 +165,17 @@ func (o LinkOutput) CreatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the gateway.
 func (o LinkOutput) GatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.GatewayId }).(pulumi.StringOutput)
 }
 
+// Boolean to specify if an HTTP responder is allowed.
 func (o LinkOutput) HttpResponderAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Link) pulumi.BoolPtrOutput { return v.HttpResponderAllowed }).(pulumi.BoolPtrOutput)
 }
 
+// Attributes of the link.
 func (o LinkOutput) LinkAttributes() LinkAttributesPtrOutput {
 	return o.ApplyT(func(v *Link) LinkAttributesPtrOutput { return v.LinkAttributes }).(LinkAttributesPtrOutput)
 }
@@ -162,10 +184,12 @@ func (o LinkOutput) LinkDirection() LinkDirectionOutput {
 	return o.ApplyT(func(v *Link) LinkDirectionOutput { return v.LinkDirection }).(LinkDirectionOutput)
 }
 
+// The unique identifier of the link.
 func (o LinkOutput) LinkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.LinkId }).(pulumi.StringOutput)
 }
 
+// Settings for the application logs.
 func (o LinkOutput) LinkLogSettings() LinkLogSettingsOutput {
 	return o.ApplyT(func(v *Link) LinkLogSettingsOutput { return v.LinkLogSettings }).(LinkLogSettingsOutput)
 }
@@ -178,10 +202,12 @@ func (o LinkOutput) ModuleConfigurationList() LinkModuleConfigurationArrayOutput
 	return o.ApplyT(func(v *Link) LinkModuleConfigurationArrayOutput { return v.ModuleConfigurationList }).(LinkModuleConfigurationArrayOutput)
 }
 
+// The unique identifier of the peer gateway.
 func (o LinkOutput) PeerGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.PeerGatewayId }).(pulumi.StringOutput)
 }
 
+// A map of the key-value pairs of the tag or tags to assign to the resource.
 func (o LinkOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Link) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

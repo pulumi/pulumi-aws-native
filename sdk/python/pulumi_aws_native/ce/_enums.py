@@ -22,6 +22,9 @@ class AnomalyMonitorMonitorDimension(_builtins.str, Enum):
     The dimensions to evaluate
     """
     SERVICE = "SERVICE"
+    LINKED_ACCOUNT = "LINKED_ACCOUNT"
+    TAG = "TAG"
+    COST_CATEGORY = "COST_CATEGORY"
 
 
 @pulumi.type_token("aws-native:ce:AnomalyMonitorMonitorType")

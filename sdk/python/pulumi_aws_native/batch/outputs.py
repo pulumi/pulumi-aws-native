@@ -4311,12 +4311,18 @@ class JobDefinitionResourceRetentionPolicy(dict):
 
     def __init__(__self__, *,
                  skip_deregister_on_update: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool skip_deregister_on_update: Specifies whether the previous revision of the job definition is retained in an active status after UPDATE events for the resource. The default value is `false` . When the property is set to `false` , the previous revision of the job definition is de-registered after a new revision is created. When the property is set to `true` , the previous revision of the job definition is not de-registered.
+        """
         if skip_deregister_on_update is not None:
             pulumi.set(__self__, "skip_deregister_on_update", skip_deregister_on_update)
 
     @_builtins.property
     @pulumi.getter(name="skipDeregisterOnUpdate")
     def skip_deregister_on_update(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether the previous revision of the job definition is retained in an active status after UPDATE events for the resource. The default value is `false` . When the property is set to `false` , the previous revision of the job definition is de-registered after a new revision is created. When the property is set to `true` , the previous revision of the job definition is not de-registered.
+        """
         return pulumi.get(self, "skip_deregister_on_update")
 
 

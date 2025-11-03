@@ -84,6 +84,9 @@ class GetRequesterGatewayResult:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
+        """
+        An optional description for the requester gateway.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -104,16 +107,25 @@ class GetRequesterGatewayResult:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The unique identifiers of the security groups.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The unique identifiers of the subnets.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A map of the key-value pairs of the tag or tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -129,6 +141,9 @@ class GetRequesterGatewayResult:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[_builtins.str]:
+        """
+        The unique identifier of the Virtual Private Cloud (VPC).
+        """
         return pulumi.get(self, "vpc_id")
 
 

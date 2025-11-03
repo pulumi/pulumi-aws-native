@@ -24,13 +24,31 @@ export interface GetLinkArgs {
 export interface GetLinkResult {
     readonly arn?: string;
     readonly createdTimestamp?: string;
+    /**
+     * The unique identifier of the gateway.
+     */
     readonly gatewayId?: string;
+    /**
+     * Attributes of the link.
+     */
     readonly linkAttributes?: outputs.rtbfabric.LinkAttributes;
     readonly linkDirection?: enums.rtbfabric.LinkDirection;
+    /**
+     * The unique identifier of the link.
+     */
     readonly linkId?: string;
+    /**
+     * Settings for the application logs.
+     */
     readonly linkLogSettings?: outputs.rtbfabric.LinkLogSettings;
     readonly linkStatus?: enums.rtbfabric.LinkStatus;
+    /**
+     * The unique identifier of the peer gateway.
+     */
     readonly peerGatewayId?: string;
+    /**
+     * A map of the key-value pairs of the tag or tags to assign to the resource.
+     */
     readonly tags?: outputs.Tag[];
     readonly updatedTimestamp?: string;
 }

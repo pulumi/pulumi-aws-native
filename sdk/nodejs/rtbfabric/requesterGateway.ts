@@ -40,15 +40,30 @@ export class RequesterGateway extends pulumi.CustomResource {
     declare public /*out*/ readonly activeLinksCount: pulumi.Output<number>;
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
+    /**
+     * An optional description for the requester gateway.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly domainName: pulumi.Output<string>;
     declare public /*out*/ readonly gatewayId: pulumi.Output<string>;
     declare public /*out*/ readonly requesterGatewayStatus: pulumi.Output<enums.rtbfabric.RequesterGatewayStatus>;
+    /**
+     * The unique identifiers of the security groups.
+     */
     declare public readonly securityGroupIds: pulumi.Output<string[]>;
+    /**
+     * The unique identifiers of the subnets.
+     */
     declare public readonly subnetIds: pulumi.Output<string[]>;
+    /**
+     * A map of the key-value pairs of the tag or tags to assign to the resource.
+     */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     declare public /*out*/ readonly totalLinksCount: pulumi.Output<number>;
     declare public /*out*/ readonly updatedTimestamp: pulumi.Output<string>;
+    /**
+     * The unique identifier of the Virtual Private Cloud (VPC).
+     */
     declare public readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -108,9 +123,24 @@ export class RequesterGateway extends pulumi.CustomResource {
  * The set of arguments for constructing a RequesterGateway resource.
  */
 export interface RequesterGatewayArgs {
+    /**
+     * An optional description for the requester gateway.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The unique identifiers of the security groups.
+     */
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The unique identifiers of the subnets.
+     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map of the key-value pairs of the tag or tags to assign to the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The unique identifier of the Virtual Private Cloud (VPC).
+     */
     vpcId: pulumi.Input<string>;
 }

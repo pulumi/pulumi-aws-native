@@ -2209,9 +2209,12 @@ func (o CampaignPredictiveConfigPtrOutput) BandwidthAllocation() pulumi.Float64P
 
 // Preview config
 type CampaignPreviewConfig struct {
-	AgentActions        []CampaignAgentAction `pulumi:"agentActions"`
-	BandwidthAllocation float64               `pulumi:"bandwidthAllocation"`
-	TimeoutConfig       CampaignTimeoutConfig `pulumi:"timeoutConfig"`
+	// Agent actions for the preview outbound mode.
+	AgentActions []CampaignAgentAction `pulumi:"agentActions"`
+	// Bandwidth allocation for the preview outbound mode.
+	BandwidthAllocation float64 `pulumi:"bandwidthAllocation"`
+	// Countdown timer configuration for preview outbound mode.
+	TimeoutConfig CampaignTimeoutConfig `pulumi:"timeoutConfig"`
 }
 
 // CampaignPreviewConfigInput is an input type that accepts CampaignPreviewConfigArgs and CampaignPreviewConfigOutput values.
@@ -2227,9 +2230,12 @@ type CampaignPreviewConfigInput interface {
 
 // Preview config
 type CampaignPreviewConfigArgs struct {
-	AgentActions        CampaignAgentActionArrayInput `pulumi:"agentActions"`
-	BandwidthAllocation pulumi.Float64Input           `pulumi:"bandwidthAllocation"`
-	TimeoutConfig       CampaignTimeoutConfigInput    `pulumi:"timeoutConfig"`
+	// Agent actions for the preview outbound mode.
+	AgentActions CampaignAgentActionArrayInput `pulumi:"agentActions"`
+	// Bandwidth allocation for the preview outbound mode.
+	BandwidthAllocation pulumi.Float64Input `pulumi:"bandwidthAllocation"`
+	// Countdown timer configuration for preview outbound mode.
+	TimeoutConfig CampaignTimeoutConfigInput `pulumi:"timeoutConfig"`
 }
 
 func (CampaignPreviewConfigArgs) ElementType() reflect.Type {
@@ -2310,14 +2316,17 @@ func (o CampaignPreviewConfigOutput) ToCampaignPreviewConfigPtrOutputWithContext
 	}).(CampaignPreviewConfigPtrOutput)
 }
 
+// Agent actions for the preview outbound mode.
 func (o CampaignPreviewConfigOutput) AgentActions() CampaignAgentActionArrayOutput {
 	return o.ApplyT(func(v CampaignPreviewConfig) []CampaignAgentAction { return v.AgentActions }).(CampaignAgentActionArrayOutput)
 }
 
+// Bandwidth allocation for the preview outbound mode.
 func (o CampaignPreviewConfigOutput) BandwidthAllocation() pulumi.Float64Output {
 	return o.ApplyT(func(v CampaignPreviewConfig) float64 { return v.BandwidthAllocation }).(pulumi.Float64Output)
 }
 
+// Countdown timer configuration for preview outbound mode.
 func (o CampaignPreviewConfigOutput) TimeoutConfig() CampaignTimeoutConfigOutput {
 	return o.ApplyT(func(v CampaignPreviewConfig) CampaignTimeoutConfig { return v.TimeoutConfig }).(CampaignTimeoutConfigOutput)
 }
@@ -2346,6 +2355,7 @@ func (o CampaignPreviewConfigPtrOutput) Elem() CampaignPreviewConfigOutput {
 	}).(CampaignPreviewConfigOutput)
 }
 
+// Agent actions for the preview outbound mode.
 func (o CampaignPreviewConfigPtrOutput) AgentActions() CampaignAgentActionArrayOutput {
 	return o.ApplyT(func(v *CampaignPreviewConfig) []CampaignAgentAction {
 		if v == nil {
@@ -2355,6 +2365,7 @@ func (o CampaignPreviewConfigPtrOutput) AgentActions() CampaignAgentActionArrayO
 	}).(CampaignAgentActionArrayOutput)
 }
 
+// Bandwidth allocation for the preview outbound mode.
 func (o CampaignPreviewConfigPtrOutput) BandwidthAllocation() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CampaignPreviewConfig) *float64 {
 		if v == nil {
@@ -2364,6 +2375,7 @@ func (o CampaignPreviewConfigPtrOutput) BandwidthAllocation() pulumi.Float64PtrO
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Countdown timer configuration for preview outbound mode.
 func (o CampaignPreviewConfigPtrOutput) TimeoutConfig() CampaignTimeoutConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignPreviewConfig) *CampaignTimeoutConfig {
 		if v == nil {
@@ -4422,6 +4434,7 @@ func (o CampaignTimeWindowPtrOutput) RestrictedPeriods() CampaignRestrictedPerio
 
 // Timeout Config for preview contacts
 type CampaignTimeoutConfig struct {
+	// Duration in seconds for the countdown timer.
 	DurationInSeconds *int `pulumi:"durationInSeconds"`
 }
 
@@ -4438,6 +4451,7 @@ type CampaignTimeoutConfigInput interface {
 
 // Timeout Config for preview contacts
 type CampaignTimeoutConfigArgs struct {
+	// Duration in seconds for the countdown timer.
 	DurationInSeconds pulumi.IntPtrInput `pulumi:"durationInSeconds"`
 }
 
@@ -4519,6 +4533,7 @@ func (o CampaignTimeoutConfigOutput) ToCampaignTimeoutConfigPtrOutputWithContext
 	}).(CampaignTimeoutConfigPtrOutput)
 }
 
+// Duration in seconds for the countdown timer.
 func (o CampaignTimeoutConfigOutput) DurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CampaignTimeoutConfig) *int { return v.DurationInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -4547,6 +4562,7 @@ func (o CampaignTimeoutConfigPtrOutput) Elem() CampaignTimeoutConfigOutput {
 	}).(CampaignTimeoutConfigOutput)
 }
 
+// Duration in seconds for the countdown timer.
 func (o CampaignTimeoutConfigPtrOutput) DurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CampaignTimeoutConfig) *int {
 		if v == nil {

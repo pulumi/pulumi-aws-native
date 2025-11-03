@@ -575,6 +575,9 @@ namespace Pulumi.AwsNative.Ecs
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The format for Service Connect access log output. Choose TEXT for human-readable logs or JSON for structured data that integrates well with log analysis tools.
+    /// </summary>
     [EnumType]
     public readonly struct ServiceConnectAccessLogConfigurationFormat : IEquatable<ServiceConnectAccessLogConfigurationFormat>
     {
@@ -603,6 +606,11 @@ namespace Pulumi.AwsNative.Ecs
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies whether to include query parameters in Service Connect access logs.
+    /// 
+    /// When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
+    /// </summary>
     [EnumType]
     public readonly struct ServiceConnectAccessLogConfigurationIncludeQueryParameters : IEquatable<ServiceConnectAccessLogConfigurationIncludeQueryParameters>
     {

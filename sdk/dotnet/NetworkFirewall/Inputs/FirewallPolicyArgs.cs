@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
     public sealed class FirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// When true, prevents TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. Requires an associated TLS Inspection configuration.
+        /// </summary>
         [Input("enableTlsSessionHolding")]
         public Input<bool>? EnableTlsSessionHolding { get; set; }
 

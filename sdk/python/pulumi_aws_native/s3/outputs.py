@@ -765,7 +765,7 @@ class BucketDeleteMarkerReplication(dict):
         Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
          For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
           If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
-        :param 'BucketDeleteMarkerReplicationStatus' status: Indicates whether to replicate delete markers. Disabled by default.
+        :param 'BucketDeleteMarkerReplicationStatus' status: Indicates whether to replicate delete markers.
         """
         if status is not None:
             pulumi.set(__self__, "status", status)
@@ -774,7 +774,7 @@ class BucketDeleteMarkerReplication(dict):
     @pulumi.getter
     def status(self) -> Optional['BucketDeleteMarkerReplicationStatus']:
         """
-        Indicates whether to replicate delete markers. Disabled by default.
+        Indicates whether to replicate delete markers.
         """
         return pulumi.get(self, "status")
 
@@ -4074,13 +4074,19 @@ class BucketTransition(dict):
 class BucketVersioningConfiguration(dict):
     """
     Describes the versioning state of an Amazon S3 bucket. For more information, see [PUT Bucket versioning](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html) in the *Amazon S3 API Reference*.
-      When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
+     Keep the following timing in mind when enabling, suspending, or transitioning between versioning states:
+      +  *Enabling versioning* - Changes may take up to 15 minutes to propagate across all AWS regions for full consistency.
+      +  *Suspending versioning* - Takes effect immediately with no propagation delay.
+      +  *Transitioning between states* - Any change from Suspended to Enabled has a 15-minute delay.
     """
     def __init__(__self__, *,
                  status: 'BucketVersioningConfigurationStatus'):
         """
         Describes the versioning state of an Amazon S3 bucket. For more information, see [PUT Bucket versioning](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html) in the *Amazon S3 API Reference*.
-          When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
+         Keep the following timing in mind when enabling, suspending, or transitioning between versioning states:
+          +  *Enabling versioning* - Changes may take up to 15 minutes to propagate across all AWS regions for full consistency.
+          +  *Suspending versioning* - Takes effect immediately with no propagation delay.
+          +  *Transitioning between states* - Any change from Suspended to Enabled has a 15-minute delay.
         :param 'BucketVersioningConfigurationStatus' status: The versioning state of the bucket.
         """
         pulumi.set(__self__, "status", status)

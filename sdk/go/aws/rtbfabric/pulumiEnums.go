@@ -100,6 +100,7 @@ func (o LinkDirectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
+// The action for the error..
 type LinkResponderErrorMaskingForHttpCodeAction string
 
 const (

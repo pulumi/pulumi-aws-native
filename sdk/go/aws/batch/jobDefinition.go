@@ -37,7 +37,8 @@ type JobDefinition struct {
 	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
 	PlatformCapabilities pulumi.StringArrayOutput `pulumi:"platformCapabilities"`
 	// Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
-	PropagateTags           pulumi.BoolPtrOutput                          `pulumi:"propagateTags"`
+	PropagateTags pulumi.BoolPtrOutput `pulumi:"propagateTags"`
+	// Specifies the resource retention policy settings for the job definition.
 	ResourceRetentionPolicy JobDefinitionResourceRetentionPolicyPtrOutput `pulumi:"resourceRetentionPolicy"`
 	// The retry strategy to use for failed jobs that are submitted with this job definition.
 	RetryStrategy JobDefinitionRetryStrategyPtrOutput `pulumi:"retryStrategy"`
@@ -122,7 +123,8 @@ type jobDefinitionArgs struct {
 	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
 	PlatformCapabilities []string `pulumi:"platformCapabilities"`
 	// Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
-	PropagateTags           *bool                                 `pulumi:"propagateTags"`
+	PropagateTags *bool `pulumi:"propagateTags"`
+	// Specifies the resource retention policy settings for the job definition.
 	ResourceRetentionPolicy *JobDefinitionResourceRetentionPolicy `pulumi:"resourceRetentionPolicy"`
 	// The retry strategy to use for failed jobs that are submitted with this job definition.
 	RetryStrategy *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
@@ -162,7 +164,8 @@ type JobDefinitionArgs struct {
 	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
 	PlatformCapabilities pulumi.StringArrayInput
 	// Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
-	PropagateTags           pulumi.BoolPtrInput
+	PropagateTags pulumi.BoolPtrInput
+	// Specifies the resource retention policy settings for the job definition.
 	ResourceRetentionPolicy JobDefinitionResourceRetentionPolicyPtrInput
 	// The retry strategy to use for failed jobs that are submitted with this job definition.
 	RetryStrategy JobDefinitionRetryStrategyPtrInput
@@ -272,6 +275,7 @@ func (o JobDefinitionOutput) PropagateTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.BoolPtrOutput { return v.PropagateTags }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the resource retention policy settings for the job definition.
 func (o JobDefinitionOutput) ResourceRetentionPolicy() JobDefinitionResourceRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionResourceRetentionPolicyPtrOutput { return v.ResourceRetentionPolicy }).(JobDefinitionResourceRetentionPolicyPtrOutput)
 }

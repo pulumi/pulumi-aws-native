@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.RtbFabric.Outputs
     [OutputType]
     public sealed class ResponderGatewayTrustStoreConfiguration
     {
+        /// <summary>
+        /// The certificate authority certificate.
+        /// </summary>
         public readonly ImmutableArray<string> CertificateAuthorityCertificates;
 
         [OutputConstructor]

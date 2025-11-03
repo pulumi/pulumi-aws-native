@@ -52,7 +52,8 @@ type Firewall struct {
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags                       aws.TagArrayOutput  `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The unique identifier of the transit gateway attachment associated with this firewall. This field is only present for transit gateway-attached firewalls.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
 	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
@@ -297,6 +298,7 @@ func (o FirewallOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Firewall) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The unique identifier of the transit gateway attachment associated with this firewall. This field is only present for transit gateway-attached firewalls.
 func (o FirewallOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }

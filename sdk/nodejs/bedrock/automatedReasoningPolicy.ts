@@ -49,6 +49,9 @@ export class AutomatedReasoningPolicy extends pulumi.CustomResource {
      * The description of the policy.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly forceDelete: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly kmsKeyArn: pulumi.Output<string>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The name of the policy.
      */
@@ -90,11 +93,14 @@ export class AutomatedReasoningPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["description"] = args?.description;
+            resourceInputs["forceDelete"] = args?.forceDelete;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["name"] = args?.name;
             resourceInputs["policyDefinition"] = args?.policyDefinition;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["definitionHash"] = undefined /*out*/;
+            resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["policyArn"] = undefined /*out*/;
             resourceInputs["policyId"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
@@ -103,6 +109,9 @@ export class AutomatedReasoningPolicy extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["definitionHash"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["forceDelete"] = undefined /*out*/;
+            resourceInputs["kmsKeyArn"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyArn"] = undefined /*out*/;
             resourceInputs["policyDefinition"] = undefined /*out*/;
@@ -112,6 +121,8 @@ export class AutomatedReasoningPolicy extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["forceDelete", "kmsKeyId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AutomatedReasoningPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -124,6 +135,8 @@ export interface AutomatedReasoningPolicyArgs {
      * The description of the policy.
      */
     description?: pulumi.Input<string>;
+    forceDelete?: pulumi.Input<boolean>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * The name of the policy.
      */

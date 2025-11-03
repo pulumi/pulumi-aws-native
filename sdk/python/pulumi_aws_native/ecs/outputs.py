@@ -1885,6 +1885,10 @@ class ServiceCanaryConfiguration(dict):
     def __init__(__self__, *,
                  canary_bake_time_in_minutes: Optional[_builtins.int] = None,
                  canary_percent: Optional[_builtins.float] = None):
+        """
+        :param _builtins.int canary_bake_time_in_minutes: The amount of time in minutes to wait during the canary phase before shifting the remaining production traffic to the new service revision. Valid values are 0 to 1440 minutes (24 hours). The default value is 10.
+        :param _builtins.float canary_percent: The percentage of production traffic to shift to the new service revision during the canary phase. Valid values are multiples of 0.1 from 0.1 to 100.0. The default value is 5.0.
+        """
         if canary_bake_time_in_minutes is not None:
             pulumi.set(__self__, "canary_bake_time_in_minutes", canary_bake_time_in_minutes)
         if canary_percent is not None:
@@ -1893,11 +1897,17 @@ class ServiceCanaryConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="canaryBakeTimeInMinutes")
     def canary_bake_time_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        The amount of time in minutes to wait during the canary phase before shifting the remaining production traffic to the new service revision. Valid values are 0 to 1440 minutes (24 hours). The default value is 10.
+        """
         return pulumi.get(self, "canary_bake_time_in_minutes")
 
     @_builtins.property
     @pulumi.getter(name="canaryPercent")
     def canary_percent(self) -> Optional[_builtins.float]:
+        """
+        The percentage of production traffic to shift to the new service revision during the canary phase. Valid values are multiples of 0.1 from 0.1 to 100.0. The default value is 5.0.
+        """
         return pulumi.get(self, "canary_percent")
 
 
@@ -2033,6 +2043,12 @@ class ServiceConnectAccessLogConfiguration(dict):
     def __init__(__self__, *,
                  format: 'ServiceConnectAccessLogConfigurationFormat',
                  include_query_parameters: Optional['ServiceConnectAccessLogConfigurationIncludeQueryParameters'] = None):
+        """
+        :param 'ServiceConnectAccessLogConfigurationFormat' format: The format for Service Connect access log output. Choose TEXT for human-readable logs or JSON for structured data that integrates well with log analysis tools.
+        :param 'ServiceConnectAccessLogConfigurationIncludeQueryParameters' include_query_parameters: Specifies whether to include query parameters in Service Connect access logs.
+               
+               When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
+        """
         pulumi.set(__self__, "format", format)
         if include_query_parameters is not None:
             pulumi.set(__self__, "include_query_parameters", include_query_parameters)
@@ -2040,11 +2056,19 @@ class ServiceConnectAccessLogConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def format(self) -> 'ServiceConnectAccessLogConfigurationFormat':
+        """
+        The format for Service Connect access log output. Choose TEXT for human-readable logs or JSON for structured data that integrates well with log analysis tools.
+        """
         return pulumi.get(self, "format")
 
     @_builtins.property
     @pulumi.getter(name="includeQueryParameters")
     def include_query_parameters(self) -> Optional['ServiceConnectAccessLogConfigurationIncludeQueryParameters']:
+        """
+        Specifies whether to include query parameters in Service Connect access logs.
+
+        When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
+        """
         return pulumi.get(self, "include_query_parameters")
 
 
@@ -2158,6 +2182,9 @@ class ServiceConnectConfiguration(dict):
         The Service Connect configuration of your Amazon ECS service. The configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace.
          Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param _builtins.bool enabled: Specifies whether to use Service Connect with this service.
+        :param 'ServiceConnectAccessLogConfiguration' access_log_configuration: The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
+               
+               > To enable access logs, you must also specify a `logConfiguration` in the `serviceConnectConfiguration` .
         :param 'ServiceLogConfiguration' log_configuration: The log configuration for the container. This parameter maps to ``LogConfig`` in the docker container create command and the ``--log-driver`` option to docker run.
                 By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition.
                 Understand the following when specifying a log configuration for your containers.
@@ -2193,6 +2220,11 @@ class ServiceConnectConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="accessLogConfiguration")
     def access_log_configuration(self) -> Optional['outputs.ServiceConnectAccessLogConfiguration']:
+        """
+        The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
+
+        > To enable access logs, you must also specify a `logConfiguration` in the `serviceConnectConfiguration` .
+        """
         return pulumi.get(self, "access_log_configuration")
 
     @_builtins.property
@@ -2666,9 +2698,11 @@ class ServiceDeploymentConfiguration(dict):
                  +  For rolling deployments, the value is set to 3 hours (180 minutes).
                  +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
                  +  For all other cases, the value is set to 36 hours (2160 minutes).
+        :param 'ServiceCanaryConfiguration' canary_configuration: Configuration for canary deployment strategy. Only valid when the deployment strategy is `CANARY` . This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
         :param 'ServiceDeploymentCircuitBreaker' deployment_circuit_breaker: The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
                  The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
         :param Sequence['ServiceDeploymentLifecycleHook'] lifecycle_hooks: An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
+        :param 'ServiceLinearConfiguration' linear_configuration: Configuration for linear deployment strategy. Only valid when the deployment strategy is `LINEAR` . This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
         :param _builtins.int maximum_percent: If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
                 The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting replacement tasks first and then stopping the unhealthy tasks, as long as cluster resources for starting replacement tasks are available. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
                 If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and tasks in the service use the EC2 launch type, the *maximum percent* value is set to the default value. The *maximum percent* value is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
@@ -2736,6 +2770,9 @@ class ServiceDeploymentConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="canaryConfiguration")
     def canary_configuration(self) -> Optional['outputs.ServiceCanaryConfiguration']:
+        """
+        Configuration for canary deployment strategy. Only valid when the deployment strategy is `CANARY` . This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
+        """
         return pulumi.get(self, "canary_configuration")
 
     @_builtins.property
@@ -2758,6 +2795,9 @@ class ServiceDeploymentConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="linearConfiguration")
     def linear_configuration(self) -> Optional['outputs.ServiceLinearConfiguration']:
+        """
+        Configuration for linear deployment strategy. Only valid when the deployment strategy is `LINEAR` . This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
+        """
         return pulumi.get(self, "linear_configuration")
 
     @_builtins.property
@@ -3176,6 +3216,10 @@ class ServiceLinearConfiguration(dict):
     def __init__(__self__, *,
                  step_bake_time_in_minutes: Optional[_builtins.int] = None,
                  step_percent: Optional[_builtins.float] = None):
+        """
+        :param _builtins.int step_bake_time_in_minutes: The amount of time in minutes to wait between each traffic shifting step during a linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value is 6. This bake time is not applied after reaching 100 percent traffic.
+        :param _builtins.float step_percent: The percentage of production traffic to shift in each step during a linear deployment. Valid values are multiples of 0.1 from 3.0 to 100.0. The default value is 10.0.
+        """
         if step_bake_time_in_minutes is not None:
             pulumi.set(__self__, "step_bake_time_in_minutes", step_bake_time_in_minutes)
         if step_percent is not None:
@@ -3184,11 +3228,17 @@ class ServiceLinearConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="stepBakeTimeInMinutes")
     def step_bake_time_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        The amount of time in minutes to wait between each traffic shifting step during a linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value is 6. This bake time is not applied after reaching 100 percent traffic.
+        """
         return pulumi.get(self, "step_bake_time_in_minutes")
 
     @_builtins.property
     @pulumi.getter(name="stepPercent")
     def step_percent(self) -> Optional[_builtins.float]:
+        """
+        The percentage of production traffic to shift in each step during a linear deployment. Valid values are multiples of 0.1 from 3.0 to 100.0. The default value is 10.0.
+        """
         return pulumi.get(self, "step_percent")
 
 
@@ -7185,10 +7235,10 @@ class TaskSetCapacityProviderStrategyItem(dict):
                Base value characteristics:
                
                - Only one capacity provider in a strategy can have a base defined
-               - Default value is `0` if not specified
-               - Valid range: 0 to 100,000
+               - The default value is `0` if not specified
+               - The valid range is 0 to 100,000
                - Base requirements are satisfied first before weight distribution
-        :param _builtins.str capacity_provider: The short name of the capacity provider.
+        :param _builtins.str capacity_provider: The short name of the capacity provider. This can be either an AWS managed capacity provider ( `FARGATE` or `FARGATE_SPOT` ) or the name of a custom capacity provider that you created.
         :param _builtins.int weight: The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` value, if defined, is satisfied.
                
                If no `weight` value is specified, the default value of `0` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of `0` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of `0` , any `RunTask` or `CreateService` actions using the capacity provider strategy will fail.
@@ -7196,8 +7246,8 @@ class TaskSetCapacityProviderStrategyItem(dict):
                Weight value characteristics:
                
                - Weight is considered after the base value is satisfied
-               - Default value is `0` if not specified
-               - Valid range: 0 to 1,000
+               - The default value is `0` if not specified
+               - The valid range is 0 to 1,000
                - At least one capacity provider must have a weight greater than zero
                - Capacity providers with weight of `0` cannot place tasks
                
@@ -7228,8 +7278,8 @@ class TaskSetCapacityProviderStrategyItem(dict):
         Base value characteristics:
 
         - Only one capacity provider in a strategy can have a base defined
-        - Default value is `0` if not specified
-        - Valid range: 0 to 100,000
+        - The default value is `0` if not specified
+        - The valid range is 0 to 100,000
         - Base requirements are satisfied first before weight distribution
         """
         return pulumi.get(self, "base")
@@ -7238,7 +7288,7 @@ class TaskSetCapacityProviderStrategyItem(dict):
     @pulumi.getter(name="capacityProvider")
     def capacity_provider(self) -> Optional[_builtins.str]:
         """
-        The short name of the capacity provider.
+        The short name of the capacity provider. This can be either an AWS managed capacity provider ( `FARGATE` or `FARGATE_SPOT` ) or the name of a custom capacity provider that you created.
         """
         return pulumi.get(self, "capacity_provider")
 
@@ -7253,8 +7303,8 @@ class TaskSetCapacityProviderStrategyItem(dict):
         Weight value characteristics:
 
         - Weight is considered after the base value is satisfied
-        - Default value is `0` if not specified
-        - Valid range: 0 to 1,000
+        - The default value is `0` if not specified
+        - The valid range is 0 to 1,000
         - At least one capacity provider must have a weight greater than zero
         - Capacity providers with weight of `0` cannot place tasks
 

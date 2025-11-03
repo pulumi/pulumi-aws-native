@@ -12,20 +12,33 @@ namespace Pulumi.AwsNative.RtbFabric.Inputs
 
     public sealed class LinkResponderErrorMaskingForHttpCodeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action for the error..
+        /// </summary>
         [Input("action", required: true)]
         public Input<Pulumi.AwsNative.RtbFabric.LinkResponderErrorMaskingForHttpCodeAction> Action { get; set; } = null!;
 
+        /// <summary>
+        /// The HTTP error code.
+        /// </summary>
         [Input("httpCode", required: true)]
         public Input<string> HttpCode { get; set; } = null!;
 
         [Input("loggingTypes", required: true)]
         private InputList<Pulumi.AwsNative.RtbFabric.LinkResponderErrorMaskingLoggingType>? _loggingTypes;
+
+        /// <summary>
+        /// The error log type.
+        /// </summary>
         public InputList<Pulumi.AwsNative.RtbFabric.LinkResponderErrorMaskingLoggingType> LoggingTypes
         {
             get => _loggingTypes ?? (_loggingTypes = new InputList<Pulumi.AwsNative.RtbFabric.LinkResponderErrorMaskingLoggingType>());
             set => _loggingTypes = value;
         }
 
+        /// <summary>
+        /// The percentage of response logging.
+        /// </summary>
         [Input("responseLoggingPercentage")]
         public Input<double>? ResponseLoggingPercentage { get; set; }
 

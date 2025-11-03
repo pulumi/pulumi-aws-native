@@ -25,15 +25,30 @@ export interface GetRequesterGatewayResult {
     readonly activeLinksCount?: number;
     readonly arn?: string;
     readonly createdTimestamp?: string;
+    /**
+     * An optional description for the requester gateway.
+     */
     readonly description?: string;
     readonly domainName?: string;
     readonly gatewayId?: string;
     readonly requesterGatewayStatus?: enums.rtbfabric.RequesterGatewayStatus;
+    /**
+     * The unique identifiers of the security groups.
+     */
     readonly securityGroupIds?: string[];
+    /**
+     * The unique identifiers of the subnets.
+     */
     readonly subnetIds?: string[];
+    /**
+     * A map of the key-value pairs of the tag or tags to assign to the resource.
+     */
     readonly tags?: outputs.Tag[];
     readonly totalLinksCount?: number;
     readonly updatedTimestamp?: string;
+    /**
+     * The unique identifier of the Virtual Private Cloud (VPC).
+     */
     readonly vpcId?: string;
 }
 /**

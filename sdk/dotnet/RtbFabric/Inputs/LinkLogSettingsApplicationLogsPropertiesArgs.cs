@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RtbFabric.Inputs
 {
 
+    /// <summary>
+    /// Describes the configuration of a link application log.
+    /// </summary>
     public sealed class LinkLogSettingsApplicationLogsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("linkApplicationLogSampling", required: true)]

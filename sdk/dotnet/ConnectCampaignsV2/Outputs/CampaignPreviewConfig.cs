@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignPreviewConfig
     {
+        /// <summary>
+        /// Agent actions for the preview outbound mode.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.ConnectCampaignsV2.CampaignAgentAction> AgentActions;
+        /// <summary>
+        /// Bandwidth allocation for the preview outbound mode.
+        /// </summary>
         public readonly double BandwidthAllocation;
+        /// <summary>
+        /// Countdown timer configuration for preview outbound mode.
+        /// </summary>
         public readonly Outputs.CampaignTimeoutConfig TimeoutConfig;
 
         [OutputConstructor]

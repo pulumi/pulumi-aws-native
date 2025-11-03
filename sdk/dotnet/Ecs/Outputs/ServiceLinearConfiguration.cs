@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class ServiceLinearConfiguration
     {
+        /// <summary>
+        /// The amount of time in minutes to wait between each traffic shifting step during a linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value is 6. This bake time is not applied after reaching 100 percent traffic.
+        /// </summary>
         public readonly int? StepBakeTimeInMinutes;
+        /// <summary>
+        /// The percentage of production traffic to shift in each step during a linear deployment. Valid values are multiples of 0.1 from 3.0 to 100.0. The default value is 10.0.
+        /// </summary>
         public readonly double? StepPercent;
 
         [OutputConstructor]

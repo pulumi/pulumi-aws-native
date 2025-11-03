@@ -530,6 +530,9 @@ class Firewall(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The unique identifier of the transit gateway attachment associated with this firewall. This field is only present for transit gateway-attached firewalls.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @_builtins.property

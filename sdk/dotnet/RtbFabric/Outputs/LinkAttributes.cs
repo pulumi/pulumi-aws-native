@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.RtbFabric.Outputs
     [OutputType]
     public sealed class LinkAttributes
     {
+        /// <summary>
+        /// The customer-provided unique identifier of the link.
+        /// </summary>
         public readonly string? CustomerProvidedId;
+        /// <summary>
+        /// Describes the masking for HTTP error codes.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LinkResponderErrorMaskingForHttpCode> ResponderErrorMasking;
 
         [OutputConstructor]

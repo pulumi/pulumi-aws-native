@@ -55,6 +55,7 @@ class JobDefinitionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] platform_capabilities: The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
         :param pulumi.Input[_builtins.bool] propagate_tags: Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+        :param pulumi.Input['JobDefinitionResourceRetentionPolicyArgs'] resource_retention_policy: Specifies the resource retention policy settings for the job definition.
         :param pulumi.Input['JobDefinitionRetryStrategyArgs'] retry_strategy: The retry strategy to use for failed jobs that are submitted with this job definition.
         :param pulumi.Input[_builtins.int] scheduling_priority: The scheduling priority of the job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A key-value pair to associate with a resource.
@@ -220,6 +221,9 @@ class JobDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="resourceRetentionPolicy")
     def resource_retention_policy(self) -> Optional[pulumi.Input['JobDefinitionResourceRetentionPolicyArgs']]:
+        """
+        Specifies the resource retention policy settings for the job definition.
+        """
         return pulumi.get(self, "resource_retention_policy")
 
     @resource_retention_policy.setter
@@ -313,6 +317,7 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] platform_capabilities: The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
         :param pulumi.Input[_builtins.bool] propagate_tags: Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+        :param pulumi.Input[Union['JobDefinitionResourceRetentionPolicyArgs', 'JobDefinitionResourceRetentionPolicyArgsDict']] resource_retention_policy: Specifies the resource retention policy settings for the job definition.
         :param pulumi.Input[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']] retry_strategy: The retry strategy to use for failed jobs that are submitted with this job definition.
         :param pulumi.Input[_builtins.int] scheduling_priority: The scheduling priority of the job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A key-value pair to associate with a resource.
@@ -517,6 +522,9 @@ class JobDefinition(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="resourceRetentionPolicy")
     def resource_retention_policy(self) -> pulumi.Output[Optional['outputs.JobDefinitionResourceRetentionPolicy']]:
+        """
+        Specifies the resource retention policy settings for the job definition.
+        """
         return pulumi.get(self, "resource_retention_policy")
 
     @_builtins.property

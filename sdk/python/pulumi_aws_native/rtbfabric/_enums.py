@@ -25,6 +25,9 @@ class LinkDirection(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:rtbfabric:LinkResponderErrorMaskingForHttpCodeAction")
 class LinkResponderErrorMaskingForHttpCodeAction(_builtins.str, Enum):
+    """
+    The action for the error..
+    """
     NO_BID = "NO_BID"
     PASSTHROUGH = "PASSTHROUGH"
 

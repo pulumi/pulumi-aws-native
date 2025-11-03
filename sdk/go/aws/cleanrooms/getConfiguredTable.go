@@ -31,7 +31,7 @@ type LookupConfiguredTableArgs struct {
 }
 
 type LookupConfiguredTableResult struct {
-	// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+	// The columns within the underlying AWS Glue table that can be used within collaborations.
 	AllowedColumns []string `pulumi:"allowedColumns"`
 	// The analysis method for the configured table.
 	//
@@ -97,7 +97,7 @@ func (o LookupConfiguredTableResultOutput) ToLookupConfiguredTableResultOutputWi
 	return o
 }
 
-// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+// The columns within the underlying AWS Glue table that can be used within collaborations.
 func (o LookupConfiguredTableResultOutput) AllowedColumns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupConfiguredTableResult) []string { return v.AllowedColumns }).(pulumi.StringArrayOutput)
 }

@@ -4980,8 +4980,10 @@ func (o ServiceAwsVpcConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput 
 }
 
 type ServiceCanaryConfiguration struct {
-	CanaryBakeTimeInMinutes *int     `pulumi:"canaryBakeTimeInMinutes"`
-	CanaryPercent           *float64 `pulumi:"canaryPercent"`
+	// The amount of time in minutes to wait during the canary phase before shifting the remaining production traffic to the new service revision. Valid values are 0 to 1440 minutes (24 hours). The default value is 10.
+	CanaryBakeTimeInMinutes *int `pulumi:"canaryBakeTimeInMinutes"`
+	// The percentage of production traffic to shift to the new service revision during the canary phase. Valid values are multiples of 0.1 from 0.1 to 100.0. The default value is 5.0.
+	CanaryPercent *float64 `pulumi:"canaryPercent"`
 }
 
 // ServiceCanaryConfigurationInput is an input type that accepts ServiceCanaryConfigurationArgs and ServiceCanaryConfigurationOutput values.
@@ -4996,8 +4998,10 @@ type ServiceCanaryConfigurationInput interface {
 }
 
 type ServiceCanaryConfigurationArgs struct {
-	CanaryBakeTimeInMinutes pulumi.IntPtrInput     `pulumi:"canaryBakeTimeInMinutes"`
-	CanaryPercent           pulumi.Float64PtrInput `pulumi:"canaryPercent"`
+	// The amount of time in minutes to wait during the canary phase before shifting the remaining production traffic to the new service revision. Valid values are 0 to 1440 minutes (24 hours). The default value is 10.
+	CanaryBakeTimeInMinutes pulumi.IntPtrInput `pulumi:"canaryBakeTimeInMinutes"`
+	// The percentage of production traffic to shift to the new service revision during the canary phase. Valid values are multiples of 0.1 from 0.1 to 100.0. The default value is 5.0.
+	CanaryPercent pulumi.Float64PtrInput `pulumi:"canaryPercent"`
 }
 
 func (ServiceCanaryConfigurationArgs) ElementType() reflect.Type {
@@ -5077,10 +5081,12 @@ func (o ServiceCanaryConfigurationOutput) ToServiceCanaryConfigurationPtrOutputW
 	}).(ServiceCanaryConfigurationPtrOutput)
 }
 
+// The amount of time in minutes to wait during the canary phase before shifting the remaining production traffic to the new service revision. Valid values are 0 to 1440 minutes (24 hours). The default value is 10.
 func (o ServiceCanaryConfigurationOutput) CanaryBakeTimeInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceCanaryConfiguration) *int { return v.CanaryBakeTimeInMinutes }).(pulumi.IntPtrOutput)
 }
 
+// The percentage of production traffic to shift to the new service revision during the canary phase. Valid values are multiples of 0.1 from 0.1 to 100.0. The default value is 5.0.
 func (o ServiceCanaryConfigurationOutput) CanaryPercent() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ServiceCanaryConfiguration) *float64 { return v.CanaryPercent }).(pulumi.Float64PtrOutput)
 }
@@ -5109,6 +5115,7 @@ func (o ServiceCanaryConfigurationPtrOutput) Elem() ServiceCanaryConfigurationOu
 	}).(ServiceCanaryConfigurationOutput)
 }
 
+// The amount of time in minutes to wait during the canary phase before shifting the remaining production traffic to the new service revision. Valid values are 0 to 1440 minutes (24 hours). The default value is 10.
 func (o ServiceCanaryConfigurationPtrOutput) CanaryBakeTimeInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceCanaryConfiguration) *int {
 		if v == nil {
@@ -5118,6 +5125,7 @@ func (o ServiceCanaryConfigurationPtrOutput) CanaryBakeTimeInMinutes() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// The percentage of production traffic to shift to the new service revision during the canary phase. Valid values are multiples of 0.1 from 0.1 to 100.0. The default value is 5.0.
 func (o ServiceCanaryConfigurationPtrOutput) CanaryPercent() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ServiceCanaryConfiguration) *float64 {
 		if v == nil {
@@ -5320,7 +5328,11 @@ func (o ServiceCapacityProviderStrategyItemArrayOutput) Index(i pulumi.IntInput)
 }
 
 type ServiceConnectAccessLogConfiguration struct {
-	Format                 ServiceConnectAccessLogConfigurationFormat                  `pulumi:"format"`
+	// The format for Service Connect access log output. Choose TEXT for human-readable logs or JSON for structured data that integrates well with log analysis tools.
+	Format ServiceConnectAccessLogConfigurationFormat `pulumi:"format"`
+	// Specifies whether to include query parameters in Service Connect access logs.
+	//
+	// When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
 	IncludeQueryParameters *ServiceConnectAccessLogConfigurationIncludeQueryParameters `pulumi:"includeQueryParameters"`
 }
 
@@ -5336,7 +5348,11 @@ type ServiceConnectAccessLogConfigurationInput interface {
 }
 
 type ServiceConnectAccessLogConfigurationArgs struct {
-	Format                 ServiceConnectAccessLogConfigurationFormatInput                    `pulumi:"format"`
+	// The format for Service Connect access log output. Choose TEXT for human-readable logs or JSON for structured data that integrates well with log analysis tools.
+	Format ServiceConnectAccessLogConfigurationFormatInput `pulumi:"format"`
+	// Specifies whether to include query parameters in Service Connect access logs.
+	//
+	// When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
 	IncludeQueryParameters ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrInput `pulumi:"includeQueryParameters"`
 }
 
@@ -5417,12 +5433,16 @@ func (o ServiceConnectAccessLogConfigurationOutput) ToServiceConnectAccessLogCon
 	}).(ServiceConnectAccessLogConfigurationPtrOutput)
 }
 
+// The format for Service Connect access log output. Choose TEXT for human-readable logs or JSON for structured data that integrates well with log analysis tools.
 func (o ServiceConnectAccessLogConfigurationOutput) Format() ServiceConnectAccessLogConfigurationFormatOutput {
 	return o.ApplyT(func(v ServiceConnectAccessLogConfiguration) ServiceConnectAccessLogConfigurationFormat {
 		return v.Format
 	}).(ServiceConnectAccessLogConfigurationFormatOutput)
 }
 
+// Specifies whether to include query parameters in Service Connect access logs.
+//
+// When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
 func (o ServiceConnectAccessLogConfigurationOutput) IncludeQueryParameters() ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput {
 	return o.ApplyT(func(v ServiceConnectAccessLogConfiguration) *ServiceConnectAccessLogConfigurationIncludeQueryParameters {
 		return v.IncludeQueryParameters
@@ -5453,6 +5473,7 @@ func (o ServiceConnectAccessLogConfigurationPtrOutput) Elem() ServiceConnectAcce
 	}).(ServiceConnectAccessLogConfigurationOutput)
 }
 
+// The format for Service Connect access log output. Choose TEXT for human-readable logs or JSON for structured data that integrates well with log analysis tools.
 func (o ServiceConnectAccessLogConfigurationPtrOutput) Format() ServiceConnectAccessLogConfigurationFormatPtrOutput {
 	return o.ApplyT(func(v *ServiceConnectAccessLogConfiguration) *ServiceConnectAccessLogConfigurationFormat {
 		if v == nil {
@@ -5462,6 +5483,9 @@ func (o ServiceConnectAccessLogConfigurationPtrOutput) Format() ServiceConnectAc
 	}).(ServiceConnectAccessLogConfigurationFormatPtrOutput)
 }
 
+// Specifies whether to include query parameters in Service Connect access logs.
+//
+// When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
 func (o ServiceConnectAccessLogConfigurationPtrOutput) IncludeQueryParameters() ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput {
 	return o.ApplyT(func(v *ServiceConnectAccessLogConfiguration) *ServiceConnectAccessLogConfigurationIncludeQueryParameters {
 		if v == nil {
@@ -5613,6 +5637,9 @@ func (o ServiceConnectClientAliasArrayOutput) Index(i pulumi.IntInput) ServiceCo
 //
 //	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceConnectConfiguration struct {
+	// The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
+	//
+	// > To enable access logs, you must also specify a `logConfiguration` in the `serviceConnectConfiguration` .
 	AccessLogConfiguration *ServiceConnectAccessLogConfiguration `pulumi:"accessLogConfiguration"`
 	// Specifies whether to use Service Connect with this service.
 	Enabled bool `pulumi:"enabled"`
@@ -5649,6 +5676,9 @@ type ServiceConnectConfigurationInput interface {
 //
 //	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceConnectConfigurationArgs struct {
+	// The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
+	//
+	// > To enable access logs, you must also specify a `logConfiguration` in the `serviceConnectConfiguration` .
 	AccessLogConfiguration ServiceConnectAccessLogConfigurationPtrInput `pulumi:"accessLogConfiguration"`
 	// Specifies whether to use Service Connect with this service.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -5750,6 +5780,9 @@ func (o ServiceConnectConfigurationOutput) ToServiceConnectConfigurationPtrOutpu
 	}).(ServiceConnectConfigurationPtrOutput)
 }
 
+// The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
+//
+// > To enable access logs, you must also specify a `logConfiguration` in the `serviceConnectConfiguration` .
 func (o ServiceConnectConfigurationOutput) AccessLogConfiguration() ServiceConnectAccessLogConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceConnectConfiguration) *ServiceConnectAccessLogConfiguration {
 		return v.AccessLogConfiguration
@@ -5812,6 +5845,9 @@ func (o ServiceConnectConfigurationPtrOutput) Elem() ServiceConnectConfiguration
 	}).(ServiceConnectConfigurationOutput)
 }
 
+// The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
+//
+// > To enable access logs, you must also specify a `logConfiguration` in the `serviceConnectConfiguration` .
 func (o ServiceConnectConfigurationPtrOutput) AccessLogConfiguration() ServiceConnectAccessLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceConnectConfiguration) *ServiceConnectAccessLogConfiguration {
 		if v == nil {
@@ -7155,14 +7191,16 @@ type ServiceDeploymentConfiguration struct {
 	//   +  For rolling deployments, the value is set to 3 hours (180 minutes).
 	//   +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
 	//   +  For all other cases, the value is set to 36 hours (2160 minutes).
-	BakeTimeInMinutes   *int                        `pulumi:"bakeTimeInMinutes"`
+	BakeTimeInMinutes *int `pulumi:"bakeTimeInMinutes"`
+	// Configuration for canary deployment strategy. Only valid when the deployment strategy is `CANARY` . This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
 	CanaryConfiguration *ServiceCanaryConfiguration `pulumi:"canaryConfiguration"`
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
 	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreaker"`
 	// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
-	LifecycleHooks      []ServiceDeploymentLifecycleHook `pulumi:"lifecycleHooks"`
-	LinearConfiguration *ServiceLinearConfiguration      `pulumi:"linearConfiguration"`
+	LifecycleHooks []ServiceDeploymentLifecycleHook `pulumi:"lifecycleHooks"`
+	// Configuration for linear deployment strategy. Only valid when the deployment strategy is `LINEAR` . This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
+	LinearConfiguration *ServiceLinearConfiguration `pulumi:"linearConfiguration"`
 	// If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
 	//  The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting replacement tasks first and then stopping the unhealthy tasks, as long as cluster resources for starting replacement tasks are available. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 	//  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and tasks in the service use the EC2 launch type, the *maximum percent* value is set to the default value. The *maximum percent* value is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
@@ -7212,14 +7250,16 @@ type ServiceDeploymentConfigurationArgs struct {
 	//   +  For rolling deployments, the value is set to 3 hours (180 minutes).
 	//   +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
 	//   +  For all other cases, the value is set to 36 hours (2160 minutes).
-	BakeTimeInMinutes   pulumi.IntPtrInput                 `pulumi:"bakeTimeInMinutes"`
+	BakeTimeInMinutes pulumi.IntPtrInput `pulumi:"bakeTimeInMinutes"`
+	// Configuration for canary deployment strategy. Only valid when the deployment strategy is `CANARY` . This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
 	CanaryConfiguration ServiceCanaryConfigurationPtrInput `pulumi:"canaryConfiguration"`
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
 	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput `pulumi:"deploymentCircuitBreaker"`
 	// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
-	LifecycleHooks      ServiceDeploymentLifecycleHookArrayInput `pulumi:"lifecycleHooks"`
-	LinearConfiguration ServiceLinearConfigurationPtrInput       `pulumi:"linearConfiguration"`
+	LifecycleHooks ServiceDeploymentLifecycleHookArrayInput `pulumi:"lifecycleHooks"`
+	// Configuration for linear deployment strategy. Only valid when the deployment strategy is `LINEAR` . This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
+	LinearConfiguration ServiceLinearConfigurationPtrInput `pulumi:"linearConfiguration"`
 	// If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
 	//  The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting replacement tasks first and then stopping the unhealthy tasks, as long as cluster resources for starting replacement tasks are available. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 	//  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and tasks in the service use the EC2 launch type, the *maximum percent* value is set to the default value. The *maximum percent* value is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
@@ -7342,6 +7382,7 @@ func (o ServiceDeploymentConfigurationOutput) BakeTimeInMinutes() pulumi.IntPtrO
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *int { return v.BakeTimeInMinutes }).(pulumi.IntPtrOutput)
 }
 
+// Configuration for canary deployment strategy. Only valid when the deployment strategy is `CANARY` . This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
 func (o ServiceDeploymentConfigurationOutput) CanaryConfiguration() ServiceCanaryConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceCanaryConfiguration { return v.CanaryConfiguration }).(ServiceCanaryConfigurationPtrOutput)
 }
@@ -7360,6 +7401,7 @@ func (o ServiceDeploymentConfigurationOutput) LifecycleHooks() ServiceDeployment
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) []ServiceDeploymentLifecycleHook { return v.LifecycleHooks }).(ServiceDeploymentLifecycleHookArrayOutput)
 }
 
+// Configuration for linear deployment strategy. Only valid when the deployment strategy is `LINEAR` . This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
 func (o ServiceDeploymentConfigurationOutput) LinearConfiguration() ServiceLinearConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceLinearConfiguration { return v.LinearConfiguration }).(ServiceLinearConfigurationPtrOutput)
 }
@@ -7451,6 +7493,7 @@ func (o ServiceDeploymentConfigurationPtrOutput) BakeTimeInMinutes() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// Configuration for canary deployment strategy. Only valid when the deployment strategy is `CANARY` . This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
 func (o ServiceDeploymentConfigurationPtrOutput) CanaryConfiguration() ServiceCanaryConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *ServiceCanaryConfiguration {
 		if v == nil {
@@ -7482,6 +7525,7 @@ func (o ServiceDeploymentConfigurationPtrOutput) LifecycleHooks() ServiceDeploym
 	}).(ServiceDeploymentLifecycleHookArrayOutput)
 }
 
+// Configuration for linear deployment strategy. Only valid when the deployment strategy is `LINEAR` . This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
 func (o ServiceDeploymentConfigurationPtrOutput) LinearConfiguration() ServiceLinearConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *ServiceLinearConfiguration {
 		if v == nil {
@@ -8324,8 +8368,10 @@ func (o ServiceForceNewDeploymentPtrOutput) ForceNewDeploymentNonce() pulumi.Str
 }
 
 type ServiceLinearConfiguration struct {
-	StepBakeTimeInMinutes *int     `pulumi:"stepBakeTimeInMinutes"`
-	StepPercent           *float64 `pulumi:"stepPercent"`
+	// The amount of time in minutes to wait between each traffic shifting step during a linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value is 6. This bake time is not applied after reaching 100 percent traffic.
+	StepBakeTimeInMinutes *int `pulumi:"stepBakeTimeInMinutes"`
+	// The percentage of production traffic to shift in each step during a linear deployment. Valid values are multiples of 0.1 from 3.0 to 100.0. The default value is 10.0.
+	StepPercent *float64 `pulumi:"stepPercent"`
 }
 
 // ServiceLinearConfigurationInput is an input type that accepts ServiceLinearConfigurationArgs and ServiceLinearConfigurationOutput values.
@@ -8340,8 +8386,10 @@ type ServiceLinearConfigurationInput interface {
 }
 
 type ServiceLinearConfigurationArgs struct {
-	StepBakeTimeInMinutes pulumi.IntPtrInput     `pulumi:"stepBakeTimeInMinutes"`
-	StepPercent           pulumi.Float64PtrInput `pulumi:"stepPercent"`
+	// The amount of time in minutes to wait between each traffic shifting step during a linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value is 6. This bake time is not applied after reaching 100 percent traffic.
+	StepBakeTimeInMinutes pulumi.IntPtrInput `pulumi:"stepBakeTimeInMinutes"`
+	// The percentage of production traffic to shift in each step during a linear deployment. Valid values are multiples of 0.1 from 3.0 to 100.0. The default value is 10.0.
+	StepPercent pulumi.Float64PtrInput `pulumi:"stepPercent"`
 }
 
 func (ServiceLinearConfigurationArgs) ElementType() reflect.Type {
@@ -8421,10 +8469,12 @@ func (o ServiceLinearConfigurationOutput) ToServiceLinearConfigurationPtrOutputW
 	}).(ServiceLinearConfigurationPtrOutput)
 }
 
+// The amount of time in minutes to wait between each traffic shifting step during a linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value is 6. This bake time is not applied after reaching 100 percent traffic.
 func (o ServiceLinearConfigurationOutput) StepBakeTimeInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceLinearConfiguration) *int { return v.StepBakeTimeInMinutes }).(pulumi.IntPtrOutput)
 }
 
+// The percentage of production traffic to shift in each step during a linear deployment. Valid values are multiples of 0.1 from 3.0 to 100.0. The default value is 10.0.
 func (o ServiceLinearConfigurationOutput) StepPercent() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ServiceLinearConfiguration) *float64 { return v.StepPercent }).(pulumi.Float64PtrOutput)
 }
@@ -8453,6 +8503,7 @@ func (o ServiceLinearConfigurationPtrOutput) Elem() ServiceLinearConfigurationOu
 	}).(ServiceLinearConfigurationOutput)
 }
 
+// The amount of time in minutes to wait between each traffic shifting step during a linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value is 6. This bake time is not applied after reaching 100 percent traffic.
 func (o ServiceLinearConfigurationPtrOutput) StepBakeTimeInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceLinearConfiguration) *int {
 		if v == nil {
@@ -8462,6 +8513,7 @@ func (o ServiceLinearConfigurationPtrOutput) StepBakeTimeInMinutes() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// The percentage of production traffic to shift in each step during a linear deployment. Valid values are multiples of 0.1 from 3.0 to 100.0. The default value is 10.0.
 func (o ServiceLinearConfigurationPtrOutput) StepPercent() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ServiceLinearConfiguration) *float64 {
 		if v == nil {
@@ -16802,11 +16854,11 @@ type TaskSetCapacityProviderStrategyItem struct {
 	// Base value characteristics:
 	//
 	// - Only one capacity provider in a strategy can have a base defined
-	// - Default value is `0` if not specified
-	// - Valid range: 0 to 100,000
+	// - The default value is `0` if not specified
+	// - The valid range is 0 to 100,000
 	// - Base requirements are satisfied first before weight distribution
 	Base *int `pulumi:"base"`
-	// The short name of the capacity provider.
+	// The short name of the capacity provider. This can be either an AWS managed capacity provider ( `FARGATE` or `FARGATE_SPOT` ) or the name of a custom capacity provider that you created.
 	CapacityProvider *string `pulumi:"capacityProvider"`
 	// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` value, if defined, is satisfied.
 	//
@@ -16815,8 +16867,8 @@ type TaskSetCapacityProviderStrategyItem struct {
 	// Weight value characteristics:
 	//
 	// - Weight is considered after the base value is satisfied
-	// - Default value is `0` if not specified
-	// - Valid range: 0 to 1,000
+	// - The default value is `0` if not specified
+	// - The valid range is 0 to 1,000
 	// - At least one capacity provider must have a weight greater than zero
 	// - Capacity providers with weight of `0` cannot place tasks
 	//
@@ -16850,11 +16902,11 @@ type TaskSetCapacityProviderStrategyItemArgs struct {
 	// Base value characteristics:
 	//
 	// - Only one capacity provider in a strategy can have a base defined
-	// - Default value is `0` if not specified
-	// - Valid range: 0 to 100,000
+	// - The default value is `0` if not specified
+	// - The valid range is 0 to 100,000
 	// - Base requirements are satisfied first before weight distribution
 	Base pulumi.IntPtrInput `pulumi:"base"`
-	// The short name of the capacity provider.
+	// The short name of the capacity provider. This can be either an AWS managed capacity provider ( `FARGATE` or `FARGATE_SPOT` ) or the name of a custom capacity provider that you created.
 	CapacityProvider pulumi.StringPtrInput `pulumi:"capacityProvider"`
 	// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` value, if defined, is satisfied.
 	//
@@ -16863,8 +16915,8 @@ type TaskSetCapacityProviderStrategyItemArgs struct {
 	// Weight value characteristics:
 	//
 	// - Weight is considered after the base value is satisfied
-	// - Default value is `0` if not specified
-	// - Valid range: 0 to 1,000
+	// - The default value is `0` if not specified
+	// - The valid range is 0 to 1,000
 	// - At least one capacity provider must have a weight greater than zero
 	// - Capacity providers with weight of `0` cannot place tasks
 	//
@@ -16937,14 +16989,14 @@ func (o TaskSetCapacityProviderStrategyItemOutput) ToTaskSetCapacityProviderStra
 // Base value characteristics:
 //
 // - Only one capacity provider in a strategy can have a base defined
-// - Default value is `0` if not specified
-// - Valid range: 0 to 100,000
+// - The default value is `0` if not specified
+// - The valid range is 0 to 100,000
 // - Base requirements are satisfied first before weight distribution
 func (o TaskSetCapacityProviderStrategyItemOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskSetCapacityProviderStrategyItem) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
-// The short name of the capacity provider.
+// The short name of the capacity provider. This can be either an AWS managed capacity provider ( `FARGATE` or `FARGATE_SPOT` ) or the name of a custom capacity provider that you created.
 func (o TaskSetCapacityProviderStrategyItemOutput) CapacityProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskSetCapacityProviderStrategyItem) *string { return v.CapacityProvider }).(pulumi.StringPtrOutput)
 }
@@ -16956,8 +17008,8 @@ func (o TaskSetCapacityProviderStrategyItemOutput) CapacityProvider() pulumi.Str
 // Weight value characteristics:
 //
 // - Weight is considered after the base value is satisfied
-// - Default value is `0` if not specified
-// - Valid range: 0 to 1,000
+// - The default value is `0` if not specified
+// - The valid range is 0 to 1,000
 // - At least one capacity provider must have a weight greater than zero
 // - Capacity providers with weight of `0` cannot place tasks
 //

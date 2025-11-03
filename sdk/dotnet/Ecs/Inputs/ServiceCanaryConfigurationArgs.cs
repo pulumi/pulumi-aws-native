@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
     public sealed class ServiceCanaryConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The amount of time in minutes to wait during the canary phase before shifting the remaining production traffic to the new service revision. Valid values are 0 to 1440 minutes (24 hours). The default value is 10.
+        /// </summary>
         [Input("canaryBakeTimeInMinutes")]
         public Input<int>? CanaryBakeTimeInMinutes { get; set; }
 
+        /// <summary>
+        /// The percentage of production traffic to shift to the new service revision during the canary phase. Valid values are multiples of 0.1 from 0.1 to 100.0. The default value is 5.0.
+        /// </summary>
         [Input("canaryPercent")]
         public Input<double>? CanaryPercent { get; set; }
 

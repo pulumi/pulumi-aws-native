@@ -41,7 +41,13 @@ MYPY = False
 if not MYPY:
     class LinkAttributesArgsDict(TypedDict):
         customer_provided_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The customer-provided unique identifier of the link.
+        """
         responder_error_masking: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingForHttpCodeArgsDict']]]]
+        """
+        Describes the masking for HTTP error codes.
+        """
 elif False:
     LinkAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -50,6 +56,10 @@ class LinkAttributesArgs:
     def __init__(__self__, *,
                  customer_provided_id: Optional[pulumi.Input[_builtins.str]] = None,
                  responder_error_masking: Optional[pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingForHttpCodeArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] customer_provided_id: The customer-provided unique identifier of the link.
+        :param pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingForHttpCodeArgs']]] responder_error_masking: Describes the masking for HTTP error codes.
+        """
         if customer_provided_id is not None:
             pulumi.set(__self__, "customer_provided_id", customer_provided_id)
         if responder_error_masking is not None:
@@ -58,6 +68,9 @@ class LinkAttributesArgs:
     @_builtins.property
     @pulumi.getter(name="customerProvidedId")
     def customer_provided_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The customer-provided unique identifier of the link.
+        """
         return pulumi.get(self, "customer_provided_id")
 
     @customer_provided_id.setter
@@ -67,6 +80,9 @@ class LinkAttributesArgs:
     @_builtins.property
     @pulumi.getter(name="responderErrorMasking")
     def responder_error_masking(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingForHttpCodeArgs']]]]:
+        """
+        Describes the masking for HTTP error codes.
+        """
         return pulumi.get(self, "responder_error_masking")
 
     @responder_error_masking.setter
@@ -110,6 +126,9 @@ class LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperti
 
 if not MYPY:
     class LinkLogSettingsApplicationLogsPropertiesArgsDict(TypedDict):
+        """
+        Describes the configuration of a link application log.
+        """
         link_application_log_sampling: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict']
 elif False:
     LinkLogSettingsApplicationLogsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -118,6 +137,9 @@ elif False:
 class LinkLogSettingsApplicationLogsPropertiesArgs:
     def __init__(__self__, *,
                  link_application_log_sampling: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs']):
+        """
+        Describes the configuration of a link application log.
+        """
         pulumi.set(__self__, "link_application_log_sampling", link_application_log_sampling)
 
     @_builtins.property
@@ -133,6 +155,9 @@ class LinkLogSettingsApplicationLogsPropertiesArgs:
 if not MYPY:
     class LinkLogSettingsArgsDict(TypedDict):
         application_logs: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgsDict']
+        """
+        Describes the configuration of a link application log.
+        """
 elif False:
     LinkLogSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -140,11 +165,17 @@ elif False:
 class LinkLogSettingsArgs:
     def __init__(__self__, *,
                  application_logs: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgs']):
+        """
+        :param pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgs'] application_logs: Describes the configuration of a link application log.
+        """
         pulumi.set(__self__, "application_logs", application_logs)
 
     @_builtins.property
     @pulumi.getter(name="applicationLogs")
     def application_logs(self) -> pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgs']:
+        """
+        Describes the configuration of a link application log.
+        """
         return pulumi.get(self, "application_logs")
 
     @application_logs.setter
@@ -228,9 +259,21 @@ class LinkModuleParametersArgs:
 if not MYPY:
     class LinkResponderErrorMaskingForHttpCodeArgsDict(TypedDict):
         action: pulumi.Input['LinkResponderErrorMaskingForHttpCodeAction']
+        """
+        The action for the error..
+        """
         http_code: pulumi.Input[_builtins.str]
+        """
+        The HTTP error code.
+        """
         logging_types: pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingLoggingType']]]
+        """
+        The error log type.
+        """
         response_logging_percentage: NotRequired[pulumi.Input[_builtins.float]]
+        """
+        The percentage of response logging.
+        """
 elif False:
     LinkResponderErrorMaskingForHttpCodeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -241,6 +284,12 @@ class LinkResponderErrorMaskingForHttpCodeArgs:
                  http_code: pulumi.Input[_builtins.str],
                  logging_types: pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingLoggingType']]],
                  response_logging_percentage: Optional[pulumi.Input[_builtins.float]] = None):
+        """
+        :param pulumi.Input['LinkResponderErrorMaskingForHttpCodeAction'] action: The action for the error..
+        :param pulumi.Input[_builtins.str] http_code: The HTTP error code.
+        :param pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingLoggingType']]] logging_types: The error log type.
+        :param pulumi.Input[_builtins.float] response_logging_percentage: The percentage of response logging.
+        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "http_code", http_code)
         pulumi.set(__self__, "logging_types", logging_types)
@@ -250,6 +299,9 @@ class LinkResponderErrorMaskingForHttpCodeArgs:
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Input['LinkResponderErrorMaskingForHttpCodeAction']:
+        """
+        The action for the error..
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -259,6 +311,9 @@ class LinkResponderErrorMaskingForHttpCodeArgs:
     @_builtins.property
     @pulumi.getter(name="httpCode")
     def http_code(self) -> pulumi.Input[_builtins.str]:
+        """
+        The HTTP error code.
+        """
         return pulumi.get(self, "http_code")
 
     @http_code.setter
@@ -268,6 +323,9 @@ class LinkResponderErrorMaskingForHttpCodeArgs:
     @_builtins.property
     @pulumi.getter(name="loggingTypes")
     def logging_types(self) -> pulumi.Input[Sequence[pulumi.Input['LinkResponderErrorMaskingLoggingType']]]:
+        """
+        The error log type.
+        """
         return pulumi.get(self, "logging_types")
 
     @logging_types.setter
@@ -277,6 +335,9 @@ class LinkResponderErrorMaskingForHttpCodeArgs:
     @_builtins.property
     @pulumi.getter(name="responseLoggingPercentage")
     def response_logging_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The percentage of response logging.
+        """
         return pulumi.get(self, "response_logging_percentage")
 
     @response_logging_percentage.setter
@@ -299,6 +360,9 @@ class ResponderGatewayManagedEndpointConfigurationArgs:
 if not MYPY:
     class ResponderGatewayTrustStoreConfigurationArgsDict(TypedDict):
         certificate_authority_certificates: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        The certificate authority certificate.
+        """
 elif False:
     ResponderGatewayTrustStoreConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -306,11 +370,17 @@ elif False:
 class ResponderGatewayTrustStoreConfigurationArgs:
     def __init__(__self__, *,
                  certificate_authority_certificates: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_authority_certificates: The certificate authority certificate.
+        """
         pulumi.set(__self__, "certificate_authority_certificates", certificate_authority_certificates)
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityCertificates")
     def certificate_authority_certificates(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The certificate authority certificate.
+        """
         return pulumi.get(self, "certificate_authority_certificates")
 
     @certificate_authority_certificates.setter

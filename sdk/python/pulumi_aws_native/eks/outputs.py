@@ -46,6 +46,7 @@ __all__ = [
     'NamespaceConfigProperties',
     'NodegroupLaunchTemplateSpecification',
     'NodegroupNodeRepairConfig',
+    'NodegroupNodeRepairConfigOverrides',
     'NodegroupRemoteAccess',
     'NodegroupScalingConfig',
     'NodegroupTaint',
@@ -1317,14 +1318,59 @@ class NodegroupNodeRepairConfig(dict):
     """
     The node auto repair configuration for node group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxParallelNodesRepairedCount":
+            suggest = "max_parallel_nodes_repaired_count"
+        elif key == "maxParallelNodesRepairedPercentage":
+            suggest = "max_parallel_nodes_repaired_percentage"
+        elif key == "maxUnhealthyNodeThresholdCount":
+            suggest = "max_unhealthy_node_threshold_count"
+        elif key == "maxUnhealthyNodeThresholdPercentage":
+            suggest = "max_unhealthy_node_threshold_percentage"
+        elif key == "nodeRepairConfigOverrides":
+            suggest = "node_repair_config_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodegroupNodeRepairConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodegroupNodeRepairConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodegroupNodeRepairConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 enabled: Optional[_builtins.bool] = None):
+                 enabled: Optional[_builtins.bool] = None,
+                 max_parallel_nodes_repaired_count: Optional[_builtins.int] = None,
+                 max_parallel_nodes_repaired_percentage: Optional[_builtins.int] = None,
+                 max_unhealthy_node_threshold_count: Optional[_builtins.int] = None,
+                 max_unhealthy_node_threshold_percentage: Optional[_builtins.int] = None,
+                 node_repair_config_overrides: Optional[Sequence['outputs.NodegroupNodeRepairConfigOverrides']] = None):
         """
         The node auto repair configuration for node group.
         :param _builtins.bool enabled: Set this value to true to enable node auto repair for the node group.
+        :param _builtins.int max_parallel_nodes_repaired_count: Specify the maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set MaxParallelNodesRepairedPercentage at the same time.
+        :param _builtins.int max_parallel_nodes_repaired_percentage: Specify the maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set MaxParallelNodesRepairedCount at the same time.
+        :param _builtins.int max_unhealthy_node_threshold_count: Specify a count threshold of unhealthy nodes, above which node auto repair actions will stop. When using this, you cannot also set MaxUnhealthyNodeThresholdPercentage at the same time.
+        :param _builtins.int max_unhealthy_node_threshold_percentage: Specify a percentage threshold of unhealthy nodes, above which node auto repair actions will stop. When using this, you cannot also set MaxUnhealthyNodeThresholdCount at the same time.
+        :param Sequence['NodegroupNodeRepairConfigOverrides'] node_repair_config_overrides: Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. If you use this, you must specify all the values.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if max_parallel_nodes_repaired_count is not None:
+            pulumi.set(__self__, "max_parallel_nodes_repaired_count", max_parallel_nodes_repaired_count)
+        if max_parallel_nodes_repaired_percentage is not None:
+            pulumi.set(__self__, "max_parallel_nodes_repaired_percentage", max_parallel_nodes_repaired_percentage)
+        if max_unhealthy_node_threshold_count is not None:
+            pulumi.set(__self__, "max_unhealthy_node_threshold_count", max_unhealthy_node_threshold_count)
+        if max_unhealthy_node_threshold_percentage is not None:
+            pulumi.set(__self__, "max_unhealthy_node_threshold_percentage", max_unhealthy_node_threshold_percentage)
+        if node_repair_config_overrides is not None:
+            pulumi.set(__self__, "node_repair_config_overrides", node_repair_config_overrides)
 
     @_builtins.property
     @pulumi.getter
@@ -1333,6 +1379,128 @@ class NodegroupNodeRepairConfig(dict):
         Set this value to true to enable node auto repair for the node group.
         """
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="maxParallelNodesRepairedCount")
+    def max_parallel_nodes_repaired_count(self) -> Optional[_builtins.int]:
+        """
+        Specify the maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set MaxParallelNodesRepairedPercentage at the same time.
+        """
+        return pulumi.get(self, "max_parallel_nodes_repaired_count")
+
+    @_builtins.property
+    @pulumi.getter(name="maxParallelNodesRepairedPercentage")
+    def max_parallel_nodes_repaired_percentage(self) -> Optional[_builtins.int]:
+        """
+        Specify the maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set MaxParallelNodesRepairedCount at the same time.
+        """
+        return pulumi.get(self, "max_parallel_nodes_repaired_percentage")
+
+    @_builtins.property
+    @pulumi.getter(name="maxUnhealthyNodeThresholdCount")
+    def max_unhealthy_node_threshold_count(self) -> Optional[_builtins.int]:
+        """
+        Specify a count threshold of unhealthy nodes, above which node auto repair actions will stop. When using this, you cannot also set MaxUnhealthyNodeThresholdPercentage at the same time.
+        """
+        return pulumi.get(self, "max_unhealthy_node_threshold_count")
+
+    @_builtins.property
+    @pulumi.getter(name="maxUnhealthyNodeThresholdPercentage")
+    def max_unhealthy_node_threshold_percentage(self) -> Optional[_builtins.int]:
+        """
+        Specify a percentage threshold of unhealthy nodes, above which node auto repair actions will stop. When using this, you cannot also set MaxUnhealthyNodeThresholdCount at the same time.
+        """
+        return pulumi.get(self, "max_unhealthy_node_threshold_percentage")
+
+    @_builtins.property
+    @pulumi.getter(name="nodeRepairConfigOverrides")
+    def node_repair_config_overrides(self) -> Optional[Sequence['outputs.NodegroupNodeRepairConfigOverrides']]:
+        """
+        Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. If you use this, you must specify all the values.
+        """
+        return pulumi.get(self, "node_repair_config_overrides")
+
+
+@pulumi.output_type
+class NodegroupNodeRepairConfigOverrides(dict):
+    """
+    Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. If you use this, you must specify all the values.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minRepairWaitTimeMins":
+            suggest = "min_repair_wait_time_mins"
+        elif key == "nodeMonitoringCondition":
+            suggest = "node_monitoring_condition"
+        elif key == "nodeUnhealthyReason":
+            suggest = "node_unhealthy_reason"
+        elif key == "repairAction":
+            suggest = "repair_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodegroupNodeRepairConfigOverrides. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodegroupNodeRepairConfigOverrides.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodegroupNodeRepairConfigOverrides.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 min_repair_wait_time_mins: Optional[_builtins.int] = None,
+                 node_monitoring_condition: Optional[_builtins.str] = None,
+                 node_unhealthy_reason: Optional[_builtins.str] = None,
+                 repair_action: Optional['NodegroupNodeRepairConfigOverridesRepairAction'] = None):
+        """
+        Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. If you use this, you must specify all the values.
+        :param _builtins.int min_repair_wait_time_mins: Specify the minimum time in minutes to wait before attempting to repair a node with this specific NodeMonitoringCondition and NodeUnhealthyReason.
+        :param _builtins.str node_monitoring_condition: Specify an unhealthy condition reported by the node monitoring agent that this override would apply to.
+        :param _builtins.str node_unhealthy_reason: Specify a reason reported by the node monitoring agent that this override would apply to.
+        :param 'NodegroupNodeRepairConfigOverridesRepairAction' repair_action: Specify the repair action to take for nodes when all of the specified conditions are met.
+        """
+        if min_repair_wait_time_mins is not None:
+            pulumi.set(__self__, "min_repair_wait_time_mins", min_repair_wait_time_mins)
+        if node_monitoring_condition is not None:
+            pulumi.set(__self__, "node_monitoring_condition", node_monitoring_condition)
+        if node_unhealthy_reason is not None:
+            pulumi.set(__self__, "node_unhealthy_reason", node_unhealthy_reason)
+        if repair_action is not None:
+            pulumi.set(__self__, "repair_action", repair_action)
+
+    @_builtins.property
+    @pulumi.getter(name="minRepairWaitTimeMins")
+    def min_repair_wait_time_mins(self) -> Optional[_builtins.int]:
+        """
+        Specify the minimum time in minutes to wait before attempting to repair a node with this specific NodeMonitoringCondition and NodeUnhealthyReason.
+        """
+        return pulumi.get(self, "min_repair_wait_time_mins")
+
+    @_builtins.property
+    @pulumi.getter(name="nodeMonitoringCondition")
+    def node_monitoring_condition(self) -> Optional[_builtins.str]:
+        """
+        Specify an unhealthy condition reported by the node monitoring agent that this override would apply to.
+        """
+        return pulumi.get(self, "node_monitoring_condition")
+
+    @_builtins.property
+    @pulumi.getter(name="nodeUnhealthyReason")
+    def node_unhealthy_reason(self) -> Optional[_builtins.str]:
+        """
+        Specify a reason reported by the node monitoring agent that this override would apply to.
+        """
+        return pulumi.get(self, "node_unhealthy_reason")
+
+    @_builtins.property
+    @pulumi.getter(name="repairAction")
+    def repair_action(self) -> Optional['NodegroupNodeRepairConfigOverridesRepairAction']:
+        """
+        Specify the repair action to take for nodes when all of the specified conditions are met.
+        """
+        return pulumi.get(self, "repair_action")
 
 
 @pulumi.output_type

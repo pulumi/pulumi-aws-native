@@ -28,19 +28,24 @@ type LookupRequesterGatewayArgs struct {
 }
 
 type LookupRequesterGatewayResult struct {
-	ActiveLinksCount       *int                    `pulumi:"activeLinksCount"`
-	Arn                    *string                 `pulumi:"arn"`
-	CreatedTimestamp       *string                 `pulumi:"createdTimestamp"`
+	ActiveLinksCount *int    `pulumi:"activeLinksCount"`
+	Arn              *string `pulumi:"arn"`
+	CreatedTimestamp *string `pulumi:"createdTimestamp"`
+	// An optional description for the requester gateway.
 	Description            *string                 `pulumi:"description"`
 	DomainName             *string                 `pulumi:"domainName"`
 	GatewayId              *string                 `pulumi:"gatewayId"`
 	RequesterGatewayStatus *RequesterGatewayStatus `pulumi:"requesterGatewayStatus"`
-	SecurityGroupIds       []string                `pulumi:"securityGroupIds"`
-	SubnetIds              []string                `pulumi:"subnetIds"`
-	Tags                   []aws.Tag               `pulumi:"tags"`
-	TotalLinksCount        *int                    `pulumi:"totalLinksCount"`
-	UpdatedTimestamp       *string                 `pulumi:"updatedTimestamp"`
-	VpcId                  *string                 `pulumi:"vpcId"`
+	// The unique identifiers of the security groups.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The unique identifiers of the subnets.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// A map of the key-value pairs of the tag or tags to assign to the resource.
+	Tags             []aws.Tag `pulumi:"tags"`
+	TotalLinksCount  *int      `pulumi:"totalLinksCount"`
+	UpdatedTimestamp *string   `pulumi:"updatedTimestamp"`
+	// The unique identifier of the Virtual Private Cloud (VPC).
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupRequesterGatewayOutput(ctx *pulumi.Context, args LookupRequesterGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupRequesterGatewayResultOutput {
@@ -86,6 +91,7 @@ func (o LookupRequesterGatewayResultOutput) CreatedTimestamp() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupRequesterGatewayResult) *string { return v.CreatedTimestamp }).(pulumi.StringPtrOutput)
 }
 
+// An optional description for the requester gateway.
 func (o LookupRequesterGatewayResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRequesterGatewayResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -102,14 +108,17 @@ func (o LookupRequesterGatewayResultOutput) RequesterGatewayStatus() RequesterGa
 	return o.ApplyT(func(v LookupRequesterGatewayResult) *RequesterGatewayStatus { return v.RequesterGatewayStatus }).(RequesterGatewayStatusPtrOutput)
 }
 
+// The unique identifiers of the security groups.
 func (o LookupRequesterGatewayResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupRequesterGatewayResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The unique identifiers of the subnets.
 func (o LookupRequesterGatewayResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupRequesterGatewayResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// A map of the key-value pairs of the tag or tags to assign to the resource.
 func (o LookupRequesterGatewayResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRequesterGatewayResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
@@ -122,6 +131,7 @@ func (o LookupRequesterGatewayResultOutput) UpdatedTimestamp() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupRequesterGatewayResult) *string { return v.UpdatedTimestamp }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the Virtual Private Cloud (VPC).
 func (o LookupRequesterGatewayResultOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRequesterGatewayResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }

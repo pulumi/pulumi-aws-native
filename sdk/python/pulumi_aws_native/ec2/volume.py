@@ -21,8 +21,9 @@ __all__ = ['VolumeArgs', 'Volume']
 @pulumi.input_type
 class VolumeArgs:
     def __init__(__self__, *,
-                 availability_zone: pulumi.Input[_builtins.str],
                  auto_enable_io: Optional[pulumi.Input[_builtins.bool]] = None,
+                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
                  encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
                  iops: Optional[pulumi.Input[_builtins.int]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -30,25 +31,25 @@ class VolumeArgs:
                  outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  size: Optional[pulumi.Input[_builtins.int]] = None,
                  snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_volume_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  throughput: Optional[pulumi.Input[_builtins.int]] = None,
                  volume_initialization_rate: Optional[pulumi.Input[_builtins.int]] = None,
                  volume_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Volume resource.
+        :param pulumi.Input[_builtins.bool] auto_enable_io: Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
         :param pulumi.Input[_builtins.str] availability_zone: The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
                 Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
-        :param pulumi.Input[_builtins.bool] auto_enable_io: Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
         :param pulumi.Input[_builtins.bool] encrypted: Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
                 Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
-        :param pulumi.Input[_builtins.int] iops: The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
-                The following are the supported values for each volume type:
-                 +  ``gp3``: 3,000 - 16,000 IOPS
-                 +  ``io1``: 100 - 64,000 IOPS
-                 +  ``io2``: 100 - 256,000 IOPS
+        :param pulumi.Input[_builtins.int] iops: The number of I/O operations per second (IOPS) to provision for the volume. Required for ``io1`` and ``io2`` volumes. Optional for ``gp3`` volumes. Omit for all other volume types. 
+                Valid ranges:
+                 +  gp3: ``3,000``(*default*)``- 80,000`` IOPS
+                 +  io1: ``100 - 64,000`` IOPS
+                 +  io2: ``100 - 256,000`` IOPS
                  
-                For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
-                This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
+                 [Instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html) can support up to 256,000 IOPS. Other instances can support up to 32,000 IOPS.
         :param pulumi.Input[_builtins.str] kms_key_id: The identifier of the kms-key-long to use for Amazon EBS encryption. If ``KmsKeyId`` is specified, the encrypted state must be ``true``.
                 If you omit this property and your account is enabled for encryption by default, or *Encrypted* is set to ``true``, then the volume is encrypted using the default key specified for your account. If your account does not have a default key, then the volume is encrypted using the aws-managed-key.
                 Alternatively, if you want to specify a different key, you can specify one of the following:
@@ -59,13 +60,14 @@ class VolumeArgs:
         :param pulumi.Input[_builtins.bool] multi_attach_enabled: Indicates whether Amazon EBS Multi-Attach is enabled.
                 CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
         :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
-        :param pulumi.Input[_builtins.int] size: The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
-                The following are the supported volumes sizes for each volume type:
-                 +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
-                 +  ``io1``: 4 - 16,384 GiB
-                 +  ``io2``: 4 - 65,536 GiB
-                 +  ``st1`` and ``sc1``: 125 - 16,384 GiB
-                 +  ``standard``: 1 - 1024 GiB
+        :param pulumi.Input[_builtins.int] size: The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size, and you can specify a volume size that is equal to or larger than the snapshot size.
+                Valid sizes:
+                 +  gp2: ``1 - 16,384`` GiB
+                 +  gp3: ``1 - 65,536`` GiB
+                 +  io1: ``4 - 16,384`` GiB
+                 +  io2: ``4 - 65,536`` GiB
+                 +  st1 and sc1: ``125 - 16,384`` GiB
+                 +  standard: ``1 - 1024`` GiB
         :param pulumi.Input[_builtins.str] snapshot_id: The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to apply to the volume during creation.
         :param pulumi.Input[_builtins.int] throughput: The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
@@ -89,9 +91,12 @@ class VolumeArgs:
                 For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html).
                 Default: ``gp2``
         """
-        pulumi.set(__self__, "availability_zone", availability_zone)
         if auto_enable_io is not None:
             pulumi.set(__self__, "auto_enable_io", auto_enable_io)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if availability_zone_id is not None:
+            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
         if encrypted is not None:
             pulumi.set(__self__, "encrypted", encrypted)
         if iops is not None:
@@ -106,6 +111,8 @@ class VolumeArgs:
             pulumi.set(__self__, "size", size)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if source_volume_id is not None:
+            pulumi.set(__self__, "source_volume_id", source_volume_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if throughput is not None:
@@ -114,19 +121,6 @@ class VolumeArgs:
             pulumi.set(__self__, "volume_initialization_rate", volume_initialization_rate)
         if volume_type is not None:
             pulumi.set(__self__, "volume_type", volume_type)
-
-    @_builtins.property
-    @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
-         Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
-        """
-        return pulumi.get(self, "availability_zone")
-
-    @availability_zone.setter
-    def availability_zone(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="autoEnableIo")
@@ -139,6 +133,28 @@ class VolumeArgs:
     @auto_enable_io.setter
     def auto_enable_io(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "auto_enable_io", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+         Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "availability_zone_id")
+
+    @availability_zone_id.setter
+    def availability_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "availability_zone_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -157,14 +173,13 @@ class VolumeArgs:
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
-         The following are the supported values for each volume type:
-          +  ``gp3``: 3,000 - 16,000 IOPS
-          +  ``io1``: 100 - 64,000 IOPS
-          +  ``io2``: 100 - 256,000 IOPS
+        The number of I/O operations per second (IOPS) to provision for the volume. Required for ``io1`` and ``io2`` volumes. Optional for ``gp3`` volumes. Omit for all other volume types. 
+         Valid ranges:
+          +  gp3: ``3,000``(*default*)``- 80,000`` IOPS
+          +  io1: ``100 - 64,000`` IOPS
+          +  io2: ``100 - 256,000`` IOPS
           
-         For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
-         This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
+          [Instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html) can support up to 256,000 IOPS. Other instances can support up to 32,000 IOPS.
         """
         return pulumi.get(self, "iops")
 
@@ -219,13 +234,14 @@ class VolumeArgs:
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
-         The following are the supported volumes sizes for each volume type:
-          +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
-          +  ``io1``: 4 - 16,384 GiB
-          +  ``io2``: 4 - 65,536 GiB
-          +  ``st1`` and ``sc1``: 125 - 16,384 GiB
-          +  ``standard``: 1 - 1024 GiB
+        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size, and you can specify a volume size that is equal to or larger than the snapshot size.
+         Valid sizes:
+          +  gp2: ``1 - 16,384`` GiB
+          +  gp3: ``1 - 65,536`` GiB
+          +  io1: ``4 - 16,384`` GiB
+          +  io2: ``4 - 65,536`` GiB
+          +  st1 and sc1: ``125 - 16,384`` GiB
+          +  standard: ``1 - 1024`` GiB
         """
         return pulumi.get(self, "size")
 
@@ -244,6 +260,15 @@ class VolumeArgs:
     @snapshot_id.setter
     def snapshot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "snapshot_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceVolumeId")
+    def source_volume_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "source_volume_id")
+
+    @source_volume_id.setter
+    def source_volume_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_volume_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -319,6 +344,7 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_enable_io: Optional[pulumi.Input[_builtins.bool]] = None,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
                  encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
                  iops: Optional[pulumi.Input[_builtins.int]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -326,6 +352,7 @@ class Volume(pulumi.CustomResource):
                  outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  size: Optional[pulumi.Input[_builtins.int]] = None,
                  snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_volume_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  throughput: Optional[pulumi.Input[_builtins.int]] = None,
                  volume_initialization_rate: Optional[pulumi.Input[_builtins.int]] = None,
@@ -358,14 +385,13 @@ class Volume(pulumi.CustomResource):
                 Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
         :param pulumi.Input[_builtins.bool] encrypted: Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
                 Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
-        :param pulumi.Input[_builtins.int] iops: The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
-                The following are the supported values for each volume type:
-                 +  ``gp3``: 3,000 - 16,000 IOPS
-                 +  ``io1``: 100 - 64,000 IOPS
-                 +  ``io2``: 100 - 256,000 IOPS
+        :param pulumi.Input[_builtins.int] iops: The number of I/O operations per second (IOPS) to provision for the volume. Required for ``io1`` and ``io2`` volumes. Optional for ``gp3`` volumes. Omit for all other volume types. 
+                Valid ranges:
+                 +  gp3: ``3,000``(*default*)``- 80,000`` IOPS
+                 +  io1: ``100 - 64,000`` IOPS
+                 +  io2: ``100 - 256,000`` IOPS
                  
-                For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
-                This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
+                 [Instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html) can support up to 256,000 IOPS. Other instances can support up to 32,000 IOPS.
         :param pulumi.Input[_builtins.str] kms_key_id: The identifier of the kms-key-long to use for Amazon EBS encryption. If ``KmsKeyId`` is specified, the encrypted state must be ``true``.
                 If you omit this property and your account is enabled for encryption by default, or *Encrypted* is set to ``true``, then the volume is encrypted using the default key specified for your account. If your account does not have a default key, then the volume is encrypted using the aws-managed-key.
                 Alternatively, if you want to specify a different key, you can specify one of the following:
@@ -376,13 +402,14 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] multi_attach_enabled: Indicates whether Amazon EBS Multi-Attach is enabled.
                 CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
         :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
-        :param pulumi.Input[_builtins.int] size: The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
-                The following are the supported volumes sizes for each volume type:
-                 +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
-                 +  ``io1``: 4 - 16,384 GiB
-                 +  ``io2``: 4 - 65,536 GiB
-                 +  ``st1`` and ``sc1``: 125 - 16,384 GiB
-                 +  ``standard``: 1 - 1024 GiB
+        :param pulumi.Input[_builtins.int] size: The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size, and you can specify a volume size that is equal to or larger than the snapshot size.
+                Valid sizes:
+                 +  gp2: ``1 - 16,384`` GiB
+                 +  gp3: ``1 - 65,536`` GiB
+                 +  io1: ``4 - 16,384`` GiB
+                 +  io2: ``4 - 65,536`` GiB
+                 +  st1 and sc1: ``125 - 16,384`` GiB
+                 +  standard: ``1 - 1024`` GiB
         :param pulumi.Input[_builtins.str] snapshot_id: The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to apply to the volume during creation.
         :param pulumi.Input[_builtins.int] throughput: The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
@@ -410,7 +437,7 @@ class Volume(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VolumeArgs,
+                 args: Optional[VolumeArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies an Amazon Elastic Block Store (Amazon EBS) volume.
@@ -449,6 +476,7 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_enable_io: Optional[pulumi.Input[_builtins.bool]] = None,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
                  encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
                  iops: Optional[pulumi.Input[_builtins.int]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -456,6 +484,7 @@ class Volume(pulumi.CustomResource):
                  outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  size: Optional[pulumi.Input[_builtins.int]] = None,
                  snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_volume_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  throughput: Optional[pulumi.Input[_builtins.int]] = None,
                  volume_initialization_rate: Optional[pulumi.Input[_builtins.int]] = None,
@@ -470,9 +499,8 @@ class Volume(pulumi.CustomResource):
             __props__ = VolumeArgs.__new__(VolumeArgs)
 
             __props__.__dict__["auto_enable_io"] = auto_enable_io
-            if availability_zone is None and not opts.urn:
-                raise TypeError("Missing required property 'availability_zone'")
             __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["availability_zone_id"] = availability_zone_id
             __props__.__dict__["encrypted"] = encrypted
             __props__.__dict__["iops"] = iops
             __props__.__dict__["kms_key_id"] = kms_key_id
@@ -480,6 +508,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["outpost_arn"] = outpost_arn
             __props__.__dict__["size"] = size
             __props__.__dict__["snapshot_id"] = snapshot_id
+            __props__.__dict__["source_volume_id"] = source_volume_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["throughput"] = throughput
             __props__.__dict__["volume_initialization_rate"] = volume_initialization_rate
@@ -509,6 +538,7 @@ class Volume(pulumi.CustomResource):
 
         __props__.__dict__["auto_enable_io"] = None
         __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["availability_zone_id"] = None
         __props__.__dict__["encrypted"] = None
         __props__.__dict__["iops"] = None
         __props__.__dict__["kms_key_id"] = None
@@ -516,6 +546,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["outpost_arn"] = None
         __props__.__dict__["size"] = None
         __props__.__dict__["snapshot_id"] = None
+        __props__.__dict__["source_volume_id"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["throughput"] = None
         __props__.__dict__["volume_id"] = None
@@ -533,12 +564,17 @@ class Volume(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Output[_builtins.str]:
+    def availability_zone(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
          Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
         """
         return pulumi.get(self, "availability_zone")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "availability_zone_id")
 
     @_builtins.property
     @pulumi.getter
@@ -553,14 +589,13 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def iops(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
-         The following are the supported values for each volume type:
-          +  ``gp3``: 3,000 - 16,000 IOPS
-          +  ``io1``: 100 - 64,000 IOPS
-          +  ``io2``: 100 - 256,000 IOPS
+        The number of I/O operations per second (IOPS) to provision for the volume. Required for ``io1`` and ``io2`` volumes. Optional for ``gp3`` volumes. Omit for all other volume types. 
+         Valid ranges:
+          +  gp3: ``3,000``(*default*)``- 80,000`` IOPS
+          +  io1: ``100 - 64,000`` IOPS
+          +  io2: ``100 - 256,000`` IOPS
           
-         For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
-         This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
+          [Instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html) can support up to 256,000 IOPS. Other instances can support up to 32,000 IOPS.
         """
         return pulumi.get(self, "iops")
 
@@ -599,13 +634,14 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def size(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
-         The following are the supported volumes sizes for each volume type:
-          +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
-          +  ``io1``: 4 - 16,384 GiB
-          +  ``io2``: 4 - 65,536 GiB
-          +  ``st1`` and ``sc1``: 125 - 16,384 GiB
-          +  ``standard``: 1 - 1024 GiB
+        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size, and you can specify a volume size that is equal to or larger than the snapshot size.
+         Valid sizes:
+          +  gp2: ``1 - 16,384`` GiB
+          +  gp3: ``1 - 65,536`` GiB
+          +  io1: ``4 - 16,384`` GiB
+          +  io2: ``4 - 65,536`` GiB
+          +  st1 and sc1: ``125 - 16,384`` GiB
+          +  standard: ``1 - 1024`` GiB
         """
         return pulumi.get(self, "size")
 
@@ -616,6 +652,11 @@ class Volume(pulumi.CustomResource):
         The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
         """
         return pulumi.get(self, "snapshot_id")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceVolumeId")
+    def source_volume_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "source_volume_id")
 
     @_builtins.property
     @pulumi.getter

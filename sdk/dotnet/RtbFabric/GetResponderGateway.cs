@@ -59,18 +59,48 @@ namespace Pulumi.AwsNative.RtbFabric
     {
         public readonly string? Arn;
         public readonly string? CreatedTimestamp;
+        /// <summary>
+        /// An optional description for the responder gateway.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The domain name for the responder gateway.
+        /// </summary>
         public readonly string? DomainName;
         public readonly string? GatewayId;
+        /// <summary>
+        /// The configuration for the managed endpoint.
+        /// </summary>
         public readonly Outputs.ResponderGatewayManagedEndpointConfiguration? ManagedEndpointConfiguration;
+        /// <summary>
+        /// The networking port to use.
+        /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// The networking protocol to use.
+        /// </summary>
         public readonly Pulumi.AwsNative.RtbFabric.ResponderGatewayProtocol? Protocol;
         public readonly Pulumi.AwsNative.RtbFabric.ResponderGatewayStatus? ResponderGatewayStatus;
+        /// <summary>
+        /// The unique identifiers of the security groups.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// The unique identifiers of the subnets.
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// A map of the key-value pairs of the tag or tags to assign to the resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The configuration of the trust store.
+        /// </summary>
         public readonly Outputs.ResponderGatewayTrustStoreConfiguration? TrustStoreConfiguration;
         public readonly string? UpdatedTimestamp;
+        /// <summary>
+        /// The unique identifier of the Virtual Private Cloud (VPC).
+        /// </summary>
         public readonly string? VpcId;
 
         [OutputConstructor]

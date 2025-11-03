@@ -672,6 +672,9 @@ if not MYPY:
         For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", "customActionName"]` . For information about compatibility, see the custom action descriptions.
         """
         enable_tls_session_holding: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        When true, prevents TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. Requires an associated TLS Inspection configuration.
+        """
         policy_variables: NotRequired[pulumi.Input['FirewallPolicyPolicyVariablesPropertiesArgsDict']]
         """
         Contains variables that you can use to override default Suricata settings in your firewall policy.
@@ -736,6 +739,7 @@ class FirewallPolicyArgs:
                You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
                
                For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", "customActionName"]` . For information about compatibility, see the custom action descriptions.
+        :param pulumi.Input[_builtins.bool] enable_tls_session_holding: When true, prevents TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. Requires an associated TLS Inspection configuration.
         :param pulumi.Input['FirewallPolicyPolicyVariablesPropertiesArgs'] policy_variables: Contains variables that you can use to override default Suricata settings in your firewall policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] stateful_default_actions: The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional, and is only valid when using the strict rule order.
                
@@ -807,6 +811,9 @@ class FirewallPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="enableTlsSessionHolding")
     def enable_tls_session_holding(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When true, prevents TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. Requires an associated TLS Inspection configuration.
+        """
         return pulumi.get(self, "enable_tls_session_holding")
 
     @enable_tls_session_holding.setter

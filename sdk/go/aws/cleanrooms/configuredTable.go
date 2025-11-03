@@ -17,7 +17,7 @@ import (
 type ConfiguredTable struct {
 	pulumi.CustomResourceState
 
-	// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+	// The columns within the underlying AWS Glue table that can be used within collaborations.
 	AllowedColumns pulumi.StringArrayOutput `pulumi:"allowedColumns"`
 	// The analysis method for the configured table.
 	//
@@ -98,7 +98,7 @@ func (ConfiguredTableState) ElementType() reflect.Type {
 }
 
 type configuredTableArgs struct {
-	// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+	// The columns within the underlying AWS Glue table that can be used within collaborations.
 	AllowedColumns []string `pulumi:"allowedColumns"`
 	// The analysis method for the configured table.
 	//
@@ -124,7 +124,7 @@ type configuredTableArgs struct {
 
 // The set of arguments for constructing a ConfiguredTable resource.
 type ConfiguredTableArgs struct {
-	// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+	// The columns within the underlying AWS Glue table that can be used within collaborations.
 	AllowedColumns pulumi.StringArrayInput
 	// The analysis method for the configured table.
 	//
@@ -185,7 +185,7 @@ func (o ConfiguredTableOutput) ToConfiguredTableOutputWithContext(ctx context.Co
 	return o
 }
 
-// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+// The columns within the underlying AWS Glue table that can be used within collaborations.
 func (o ConfiguredTableOutput) AllowedColumns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringArrayOutput { return v.AllowedColumns }).(pulumi.StringArrayOutput)
 }

@@ -17,21 +17,31 @@ import (
 type ResponderGateway struct {
 	pulumi.CustomResourceState
 
-	Arn                          pulumi.StringOutput                                   `pulumi:"arn"`
-	CreatedTimestamp             pulumi.StringOutput                                   `pulumi:"createdTimestamp"`
-	Description                  pulumi.StringPtrOutput                                `pulumi:"description"`
-	DomainName                   pulumi.StringPtrOutput                                `pulumi:"domainName"`
-	GatewayId                    pulumi.StringOutput                                   `pulumi:"gatewayId"`
+	Arn              pulumi.StringOutput `pulumi:"arn"`
+	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
+	// An optional description for the responder gateway.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The domain name for the responder gateway.
+	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
+	GatewayId  pulumi.StringOutput    `pulumi:"gatewayId"`
+	// The configuration for the managed endpoint.
 	ManagedEndpointConfiguration ResponderGatewayManagedEndpointConfigurationPtrOutput `pulumi:"managedEndpointConfiguration"`
-	Port                         pulumi.IntOutput                                      `pulumi:"port"`
-	Protocol                     ResponderGatewayProtocolOutput                        `pulumi:"protocol"`
-	ResponderGatewayStatus       ResponderGatewayStatusOutput                          `pulumi:"responderGatewayStatus"`
-	SecurityGroupIds             pulumi.StringArrayOutput                              `pulumi:"securityGroupIds"`
-	SubnetIds                    pulumi.StringArrayOutput                              `pulumi:"subnetIds"`
-	Tags                         aws.TagArrayOutput                                    `pulumi:"tags"`
-	TrustStoreConfiguration      ResponderGatewayTrustStoreConfigurationPtrOutput      `pulumi:"trustStoreConfiguration"`
-	UpdatedTimestamp             pulumi.StringOutput                                   `pulumi:"updatedTimestamp"`
-	VpcId                        pulumi.StringOutput                                   `pulumi:"vpcId"`
+	// The networking port to use.
+	Port pulumi.IntOutput `pulumi:"port"`
+	// The networking protocol to use.
+	Protocol               ResponderGatewayProtocolOutput `pulumi:"protocol"`
+	ResponderGatewayStatus ResponderGatewayStatusOutput   `pulumi:"responderGatewayStatus"`
+	// The unique identifiers of the security groups.
+	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+	// The unique identifiers of the subnets.
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// A map of the key-value pairs of the tag or tags to assign to the resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The configuration of the trust store.
+	TrustStoreConfiguration ResponderGatewayTrustStoreConfigurationPtrOutput `pulumi:"trustStoreConfiguration"`
+	UpdatedTimestamp        pulumi.StringOutput                              `pulumi:"updatedTimestamp"`
+	// The unique identifier of the Virtual Private Cloud (VPC).
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewResponderGateway registers a new resource with the given unique name, arguments, and options.
@@ -89,30 +99,50 @@ func (ResponderGatewayState) ElementType() reflect.Type {
 }
 
 type responderGatewayArgs struct {
-	Description                  *string                                       `pulumi:"description"`
-	DomainName                   *string                                       `pulumi:"domainName"`
+	// An optional description for the responder gateway.
+	Description *string `pulumi:"description"`
+	// The domain name for the responder gateway.
+	DomainName *string `pulumi:"domainName"`
+	// The configuration for the managed endpoint.
 	ManagedEndpointConfiguration *ResponderGatewayManagedEndpointConfiguration `pulumi:"managedEndpointConfiguration"`
-	Port                         int                                           `pulumi:"port"`
-	Protocol                     ResponderGatewayProtocol                      `pulumi:"protocol"`
-	SecurityGroupIds             []string                                      `pulumi:"securityGroupIds"`
-	SubnetIds                    []string                                      `pulumi:"subnetIds"`
-	Tags                         []aws.Tag                                     `pulumi:"tags"`
-	TrustStoreConfiguration      *ResponderGatewayTrustStoreConfiguration      `pulumi:"trustStoreConfiguration"`
-	VpcId                        string                                        `pulumi:"vpcId"`
+	// The networking port to use.
+	Port int `pulumi:"port"`
+	// The networking protocol to use.
+	Protocol ResponderGatewayProtocol `pulumi:"protocol"`
+	// The unique identifiers of the security groups.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The unique identifiers of the subnets.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// A map of the key-value pairs of the tag or tags to assign to the resource.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The configuration of the trust store.
+	TrustStoreConfiguration *ResponderGatewayTrustStoreConfiguration `pulumi:"trustStoreConfiguration"`
+	// The unique identifier of the Virtual Private Cloud (VPC).
+	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a ResponderGateway resource.
 type ResponderGatewayArgs struct {
-	Description                  pulumi.StringPtrInput
-	DomainName                   pulumi.StringPtrInput
+	// An optional description for the responder gateway.
+	Description pulumi.StringPtrInput
+	// The domain name for the responder gateway.
+	DomainName pulumi.StringPtrInput
+	// The configuration for the managed endpoint.
 	ManagedEndpointConfiguration ResponderGatewayManagedEndpointConfigurationPtrInput
-	Port                         pulumi.IntInput
-	Protocol                     ResponderGatewayProtocolInput
-	SecurityGroupIds             pulumi.StringArrayInput
-	SubnetIds                    pulumi.StringArrayInput
-	Tags                         aws.TagArrayInput
-	TrustStoreConfiguration      ResponderGatewayTrustStoreConfigurationPtrInput
-	VpcId                        pulumi.StringInput
+	// The networking port to use.
+	Port pulumi.IntInput
+	// The networking protocol to use.
+	Protocol ResponderGatewayProtocolInput
+	// The unique identifiers of the security groups.
+	SecurityGroupIds pulumi.StringArrayInput
+	// The unique identifiers of the subnets.
+	SubnetIds pulumi.StringArrayInput
+	// A map of the key-value pairs of the tag or tags to assign to the resource.
+	Tags aws.TagArrayInput
+	// The configuration of the trust store.
+	TrustStoreConfiguration ResponderGatewayTrustStoreConfigurationPtrInput
+	// The unique identifier of the Virtual Private Cloud (VPC).
+	VpcId pulumi.StringInput
 }
 
 func (ResponderGatewayArgs) ElementType() reflect.Type {
@@ -160,10 +190,12 @@ func (o ResponderGatewayOutput) CreatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponderGateway) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
 }
 
+// An optional description for the responder gateway.
 func (o ResponderGatewayOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponderGateway) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The domain name for the responder gateway.
 func (o ResponderGatewayOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponderGateway) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
@@ -172,16 +204,19 @@ func (o ResponderGatewayOutput) GatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponderGateway) pulumi.StringOutput { return v.GatewayId }).(pulumi.StringOutput)
 }
 
+// The configuration for the managed endpoint.
 func (o ResponderGatewayOutput) ManagedEndpointConfiguration() ResponderGatewayManagedEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v *ResponderGateway) ResponderGatewayManagedEndpointConfigurationPtrOutput {
 		return v.ManagedEndpointConfiguration
 	}).(ResponderGatewayManagedEndpointConfigurationPtrOutput)
 }
 
+// The networking port to use.
 func (o ResponderGatewayOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *ResponderGateway) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
+// The networking protocol to use.
 func (o ResponderGatewayOutput) Protocol() ResponderGatewayProtocolOutput {
 	return o.ApplyT(func(v *ResponderGateway) ResponderGatewayProtocolOutput { return v.Protocol }).(ResponderGatewayProtocolOutput)
 }
@@ -190,18 +225,22 @@ func (o ResponderGatewayOutput) ResponderGatewayStatus() ResponderGatewayStatusO
 	return o.ApplyT(func(v *ResponderGateway) ResponderGatewayStatusOutput { return v.ResponderGatewayStatus }).(ResponderGatewayStatusOutput)
 }
 
+// The unique identifiers of the security groups.
 func (o ResponderGatewayOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResponderGateway) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The unique identifiers of the subnets.
 func (o ResponderGatewayOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResponderGateway) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// A map of the key-value pairs of the tag or tags to assign to the resource.
 func (o ResponderGatewayOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ResponderGateway) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The configuration of the trust store.
 func (o ResponderGatewayOutput) TrustStoreConfiguration() ResponderGatewayTrustStoreConfigurationPtrOutput {
 	return o.ApplyT(func(v *ResponderGateway) ResponderGatewayTrustStoreConfigurationPtrOutput {
 		return v.TrustStoreConfiguration
@@ -212,6 +251,7 @@ func (o ResponderGatewayOutput) UpdatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponderGateway) pulumi.StringOutput { return v.UpdatedTimestamp }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the Virtual Private Cloud (VPC).
 func (o ResponderGatewayOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponderGateway) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

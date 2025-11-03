@@ -18,15 +18,15 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         /// Base value characteristics:
         /// 
         /// - Only one capacity provider in a strategy can have a base defined
-        /// - Default value is `0` if not specified
-        /// - Valid range: 0 to 100,000
+        /// - The default value is `0` if not specified
+        /// - The valid range is 0 to 100,000
         /// - Base requirements are satisfied first before weight distribution
         /// </summary>
         [Input("base")]
         public Input<int>? Base { get; set; }
 
         /// <summary>
-        /// The short name of the capacity provider.
+        /// The short name of the capacity provider. This can be either an AWS managed capacity provider ( `FARGATE` or `FARGATE_SPOT` ) or the name of a custom capacity provider that you created.
         /// </summary>
         [Input("capacityProvider")]
         public Input<string>? CapacityProvider { get; set; }
@@ -39,8 +39,8 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         /// Weight value characteristics:
         /// 
         /// - Weight is considered after the base value is satisfied
-        /// - Default value is `0` if not specified
-        /// - Valid range: 0 to 1,000
+        /// - The default value is `0` if not specified
+        /// - The valid range is 0 to 1,000
         /// - At least one capacity provider must have a weight greater than zero
         /// - Capacity providers with weight of `0` cannot place tasks
         /// 

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.RtbFabric.Inputs
 
     public sealed class LinkLogSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes the configuration of a link application log.
+        /// </summary>
         [Input("applicationLogs", required: true)]
         public Input<Inputs.LinkLogSettingsApplicationLogsPropertiesArgs> ApplicationLogs { get; set; } = null!;
 

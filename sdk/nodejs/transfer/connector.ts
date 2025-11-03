@@ -77,6 +77,9 @@ export class Connector extends pulumi.CustomResource {
      * Configuration for an SFTP connector.
      */
     declare public readonly sftpConfig: pulumi.Output<outputs.transfer.SftpConfigProperties | undefined>;
+    /**
+     * Current status of the connector. PENDING indicates creation/update in progress, ACTIVE means ready for operations, and ERRORED indicates a failure requiring attention.
+     */
     declare public /*out*/ readonly status: pulumi.Output<enums.transfer.ConnectorStatus>;
     /**
      * Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.

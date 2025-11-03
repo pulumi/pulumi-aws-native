@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.RtbFabric
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The action for the error..
+    /// </summary>
     [EnumType]
     public readonly struct LinkResponderErrorMaskingForHttpCodeAction : IEquatable<LinkResponderErrorMaskingForHttpCodeAction>
     {

@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.RtbFabric.Inputs
 
     public sealed class LinkAttributesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The customer-provided unique identifier of the link.
+        /// </summary>
         [Input("customerProvidedId")]
         public Input<string>? CustomerProvidedId { get; set; }
 
         [Input("responderErrorMasking")]
         private InputList<Inputs.LinkResponderErrorMaskingForHttpCodeArgs>? _responderErrorMasking;
+
+        /// <summary>
+        /// Describes the masking for HTTP error codes.
+        /// </summary>
         public InputList<Inputs.LinkResponderErrorMaskingForHttpCodeArgs> ResponderErrorMasking
         {
             get => _responderErrorMasking ?? (_responderErrorMasking = new InputList<Inputs.LinkResponderErrorMaskingForHttpCodeArgs>());

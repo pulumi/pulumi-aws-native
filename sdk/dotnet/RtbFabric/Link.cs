@@ -21,21 +21,36 @@ namespace Pulumi.AwsNative.RtbFabric
         [Output("createdTimestamp")]
         public Output<string> CreatedTimestamp { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the gateway.
+        /// </summary>
         [Output("gatewayId")]
         public Output<string> GatewayId { get; private set; } = null!;
 
+        /// <summary>
+        /// Boolean to specify if an HTTP responder is allowed.
+        /// </summary>
         [Output("httpResponderAllowed")]
         public Output<bool?> HttpResponderAllowed { get; private set; } = null!;
 
+        /// <summary>
+        /// Attributes of the link.
+        /// </summary>
         [Output("linkAttributes")]
         public Output<Outputs.LinkAttributes?> LinkAttributes { get; private set; } = null!;
 
         [Output("linkDirection")]
         public Output<Pulumi.AwsNative.RtbFabric.LinkDirection> LinkDirection { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the link.
+        /// </summary>
         [Output("linkId")]
         public Output<string> LinkId { get; private set; } = null!;
 
+        /// <summary>
+        /// Settings for the application logs.
+        /// </summary>
         [Output("linkLogSettings")]
         public Output<Outputs.LinkLogSettings> LinkLogSettings { get; private set; } = null!;
 
@@ -45,9 +60,15 @@ namespace Pulumi.AwsNative.RtbFabric
         [Output("moduleConfigurationList")]
         public Output<ImmutableArray<Outputs.LinkModuleConfiguration>> ModuleConfigurationList { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the peer gateway.
+        /// </summary>
         [Output("peerGatewayId")]
         public Output<string> PeerGatewayId { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of the key-value pairs of the tag or tags to assign to the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -99,15 +120,27 @@ namespace Pulumi.AwsNative.RtbFabric
 
     public sealed class LinkArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unique identifier of the gateway.
+        /// </summary>
         [Input("gatewayId", required: true)]
         public Input<string> GatewayId { get; set; } = null!;
 
+        /// <summary>
+        /// Boolean to specify if an HTTP responder is allowed.
+        /// </summary>
         [Input("httpResponderAllowed")]
         public Input<bool>? HttpResponderAllowed { get; set; }
 
+        /// <summary>
+        /// Attributes of the link.
+        /// </summary>
         [Input("linkAttributes")]
         public Input<Inputs.LinkAttributesArgs>? LinkAttributes { get; set; }
 
+        /// <summary>
+        /// Settings for the application logs.
+        /// </summary>
         [Input("linkLogSettings", required: true)]
         public Input<Inputs.LinkLogSettingsArgs> LinkLogSettings { get; set; } = null!;
 
@@ -119,11 +152,18 @@ namespace Pulumi.AwsNative.RtbFabric
             set => _moduleConfigurationList = value;
         }
 
+        /// <summary>
+        /// The unique identifier of the peer gateway.
+        /// </summary>
         [Input("peerGatewayId", required: true)]
         public Input<string> PeerGatewayId { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A map of the key-value pairs of the tag or tags to assign to the resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

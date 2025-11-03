@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignTimeoutConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Duration in seconds for the countdown timer.
+        /// </summary>
         [Input("durationInSeconds")]
         public Input<int>? DurationInSeconds { get; set; }
 

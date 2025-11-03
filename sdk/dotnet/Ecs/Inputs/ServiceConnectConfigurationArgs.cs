@@ -16,6 +16,11 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     /// </summary>
     public sealed class ServiceConnectConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
+        /// 
+        /// &gt; To enable access logs, you must also specify a `logConfiguration` in the `serviceConnectConfiguration` .
+        /// </summary>
         [Input("accessLogConfiguration")]
         public Input<Inputs.ServiceConnectAccessLogConfigurationArgs>? AccessLogConfiguration { get; set; }
 

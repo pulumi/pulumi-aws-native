@@ -111,6 +111,7 @@ func (o FirewallAvailabilityZoneMappingArrayOutput) Index(i pulumi.IntInput) Fir
 }
 
 type FirewallPolicyType struct {
+	// When true, prevents TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. Requires an associated TLS Inspection configuration.
 	EnableTlsSessionHolding *bool `pulumi:"enableTlsSessionHolding"`
 	// Contains variables that you can use to override default Suricata settings in your firewall policy.
 	PolicyVariables *FirewallPolicyPolicyVariablesProperties `pulumi:"policyVariables"`
@@ -161,6 +162,7 @@ type FirewallPolicyTypeInput interface {
 }
 
 type FirewallPolicyTypeArgs struct {
+	// When true, prevents TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. Requires an associated TLS Inspection configuration.
 	EnableTlsSessionHolding pulumi.BoolPtrInput `pulumi:"enableTlsSessionHolding"`
 	// Contains variables that you can use to override default Suricata settings in your firewall policy.
 	PolicyVariables FirewallPolicyPolicyVariablesPropertiesPtrInput `pulumi:"policyVariables"`
@@ -225,6 +227,7 @@ func (o FirewallPolicyTypeOutput) ToFirewallPolicyTypeOutputWithContext(ctx cont
 	return o
 }
 
+// When true, prevents TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. Requires an associated TLS Inspection configuration.
 func (o FirewallPolicyTypeOutput) EnableTlsSessionHolding() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyType) *bool { return v.EnableTlsSessionHolding }).(pulumi.BoolPtrOutput)
 }
@@ -319,6 +322,7 @@ func (o FirewallPolicyTypePtrOutput) Elem() FirewallPolicyTypeOutput {
 	}).(FirewallPolicyTypeOutput)
 }
 
+// When true, prevents TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. Requires an associated TLS Inspection configuration.
 func (o FirewallPolicyTypePtrOutput) EnableTlsSessionHolding() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicyType) *bool {
 		if v == nil {

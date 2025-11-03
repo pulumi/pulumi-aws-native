@@ -77,6 +77,9 @@ namespace Pulumi.AwsNative.Batch
         [Output("propagateTags")]
         public Output<bool?> PropagateTags { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the resource retention policy settings for the job definition.
+        /// </summary>
         [Output("resourceRetentionPolicy")]
         public Output<Outputs.JobDefinitionResourceRetentionPolicy?> ResourceRetentionPolicy { get; private set; } = null!;
 
@@ -232,6 +235,9 @@ namespace Pulumi.AwsNative.Batch
         [Input("propagateTags")]
         public Input<bool>? PropagateTags { get; set; }
 
+        /// <summary>
+        /// Specifies the resource retention policy settings for the job definition.
+        /// </summary>
         [Input("resourceRetentionPolicy")]
         public Input<Inputs.JobDefinitionResourceRetentionPolicyArgs>? ResourceRetentionPolicy { get; set; }
 

@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.CleanRooms
     public sealed class GetConfiguredTableResult
     {
         /// <summary>
-        /// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+        /// The columns within the underlying AWS Glue table that can be used within collaborations.
         /// </summary>
         public readonly ImmutableArray<string> AllowedColumns;
         /// <summary>

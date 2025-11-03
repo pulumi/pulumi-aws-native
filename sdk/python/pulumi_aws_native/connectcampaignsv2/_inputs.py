@@ -862,8 +862,17 @@ if not MYPY:
         Preview config
         """
         bandwidth_allocation: pulumi.Input[_builtins.float]
+        """
+        Bandwidth allocation for the preview outbound mode.
+        """
         timeout_config: pulumi.Input['CampaignTimeoutConfigArgsDict']
+        """
+        Countdown timer configuration for preview outbound mode.
+        """
         agent_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignAgentAction']]]]
+        """
+        Agent actions for the preview outbound mode.
+        """
 elif False:
     CampaignPreviewConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -875,6 +884,9 @@ class CampaignPreviewConfigArgs:
                  agent_actions: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignAgentAction']]]] = None):
         """
         Preview config
+        :param pulumi.Input[_builtins.float] bandwidth_allocation: Bandwidth allocation for the preview outbound mode.
+        :param pulumi.Input['CampaignTimeoutConfigArgs'] timeout_config: Countdown timer configuration for preview outbound mode.
+        :param pulumi.Input[Sequence[pulumi.Input['CampaignAgentAction']]] agent_actions: Agent actions for the preview outbound mode.
         """
         pulumi.set(__self__, "bandwidth_allocation", bandwidth_allocation)
         pulumi.set(__self__, "timeout_config", timeout_config)
@@ -884,6 +896,9 @@ class CampaignPreviewConfigArgs:
     @_builtins.property
     @pulumi.getter(name="bandwidthAllocation")
     def bandwidth_allocation(self) -> pulumi.Input[_builtins.float]:
+        """
+        Bandwidth allocation for the preview outbound mode.
+        """
         return pulumi.get(self, "bandwidth_allocation")
 
     @bandwidth_allocation.setter
@@ -893,6 +908,9 @@ class CampaignPreviewConfigArgs:
     @_builtins.property
     @pulumi.getter(name="timeoutConfig")
     def timeout_config(self) -> pulumi.Input['CampaignTimeoutConfigArgs']:
+        """
+        Countdown timer configuration for preview outbound mode.
+        """
         return pulumi.get(self, "timeout_config")
 
     @timeout_config.setter
@@ -902,6 +920,9 @@ class CampaignPreviewConfigArgs:
     @_builtins.property
     @pulumi.getter(name="agentActions")
     def agent_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CampaignAgentAction']]]]:
+        """
+        Agent actions for the preview outbound mode.
+        """
         return pulumi.get(self, "agent_actions")
 
     @agent_actions.setter
@@ -1693,6 +1714,9 @@ if not MYPY:
         Timeout Config for preview contacts
         """
         duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Duration in seconds for the countdown timer.
+        """
 elif False:
     CampaignTimeoutConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1702,6 +1726,7 @@ class CampaignTimeoutConfigArgs:
                  duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Timeout Config for preview contacts
+        :param pulumi.Input[_builtins.int] duration_in_seconds: Duration in seconds for the countdown timer.
         """
         if duration_in_seconds is not None:
             pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
@@ -1709,6 +1734,9 @@ class CampaignTimeoutConfigArgs:
     @_builtins.property
     @pulumi.getter(name="durationInSeconds")
     def duration_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Duration in seconds for the countdown timer.
+        """
         return pulumi.get(self, "duration_in_seconds")
 
     @duration_in_seconds.setter

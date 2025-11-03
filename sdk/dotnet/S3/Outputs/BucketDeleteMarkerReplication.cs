@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.S3.Outputs
     public sealed class BucketDeleteMarkerReplication
     {
         /// <summary>
-        /// Indicates whether to replicate delete markers. Disabled by default.
+        /// Indicates whether to replicate delete markers.
         /// </summary>
         public readonly Pulumi.AwsNative.S3.BucketDeleteMarkerReplicationStatus? Status;
 

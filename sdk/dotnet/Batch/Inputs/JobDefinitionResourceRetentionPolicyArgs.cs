@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionResourceRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether the previous revision of the job definition is retained in an active status after UPDATE events for the resource. The default value is `false` . When the property is set to `false` , the previous revision of the job definition is de-registered after a new revision is created. When the property is set to `true` , the previous revision of the job definition is not de-registered.
+        /// </summary>
         [Input("skipDeregisterOnUpdate")]
         public Input<bool>? SkipDeregisterOnUpdate { get; set; }
 

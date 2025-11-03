@@ -28,21 +28,31 @@ type LookupResponderGatewayArgs struct {
 }
 
 type LookupResponderGatewayResult struct {
-	Arn                          *string                                       `pulumi:"arn"`
-	CreatedTimestamp             *string                                       `pulumi:"createdTimestamp"`
-	Description                  *string                                       `pulumi:"description"`
-	DomainName                   *string                                       `pulumi:"domainName"`
-	GatewayId                    *string                                       `pulumi:"gatewayId"`
+	Arn              *string `pulumi:"arn"`
+	CreatedTimestamp *string `pulumi:"createdTimestamp"`
+	// An optional description for the responder gateway.
+	Description *string `pulumi:"description"`
+	// The domain name for the responder gateway.
+	DomainName *string `pulumi:"domainName"`
+	GatewayId  *string `pulumi:"gatewayId"`
+	// The configuration for the managed endpoint.
 	ManagedEndpointConfiguration *ResponderGatewayManagedEndpointConfiguration `pulumi:"managedEndpointConfiguration"`
-	Port                         *int                                          `pulumi:"port"`
-	Protocol                     *ResponderGatewayProtocol                     `pulumi:"protocol"`
-	ResponderGatewayStatus       *ResponderGatewayStatus                       `pulumi:"responderGatewayStatus"`
-	SecurityGroupIds             []string                                      `pulumi:"securityGroupIds"`
-	SubnetIds                    []string                                      `pulumi:"subnetIds"`
-	Tags                         []aws.Tag                                     `pulumi:"tags"`
-	TrustStoreConfiguration      *ResponderGatewayTrustStoreConfiguration      `pulumi:"trustStoreConfiguration"`
-	UpdatedTimestamp             *string                                       `pulumi:"updatedTimestamp"`
-	VpcId                        *string                                       `pulumi:"vpcId"`
+	// The networking port to use.
+	Port *int `pulumi:"port"`
+	// The networking protocol to use.
+	Protocol               *ResponderGatewayProtocol `pulumi:"protocol"`
+	ResponderGatewayStatus *ResponderGatewayStatus   `pulumi:"responderGatewayStatus"`
+	// The unique identifiers of the security groups.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The unique identifiers of the subnets.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// A map of the key-value pairs of the tag or tags to assign to the resource.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The configuration of the trust store.
+	TrustStoreConfiguration *ResponderGatewayTrustStoreConfiguration `pulumi:"trustStoreConfiguration"`
+	UpdatedTimestamp        *string                                  `pulumi:"updatedTimestamp"`
+	// The unique identifier of the Virtual Private Cloud (VPC).
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupResponderGatewayOutput(ctx *pulumi.Context, args LookupResponderGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupResponderGatewayResultOutput {
@@ -84,10 +94,12 @@ func (o LookupResponderGatewayResultOutput) CreatedTimestamp() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupResponderGatewayResult) *string { return v.CreatedTimestamp }).(pulumi.StringPtrOutput)
 }
 
+// An optional description for the responder gateway.
 func (o LookupResponderGatewayResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResponderGatewayResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The domain name for the responder gateway.
 func (o LookupResponderGatewayResultOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResponderGatewayResult) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
@@ -96,16 +108,19 @@ func (o LookupResponderGatewayResultOutput) GatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResponderGatewayResult) *string { return v.GatewayId }).(pulumi.StringPtrOutput)
 }
 
+// The configuration for the managed endpoint.
 func (o LookupResponderGatewayResultOutput) ManagedEndpointConfiguration() ResponderGatewayManagedEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupResponderGatewayResult) *ResponderGatewayManagedEndpointConfiguration {
 		return v.ManagedEndpointConfiguration
 	}).(ResponderGatewayManagedEndpointConfigurationPtrOutput)
 }
 
+// The networking port to use.
 func (o LookupResponderGatewayResultOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupResponderGatewayResult) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// The networking protocol to use.
 func (o LookupResponderGatewayResultOutput) Protocol() ResponderGatewayProtocolPtrOutput {
 	return o.ApplyT(func(v LookupResponderGatewayResult) *ResponderGatewayProtocol { return v.Protocol }).(ResponderGatewayProtocolPtrOutput)
 }
@@ -114,18 +129,22 @@ func (o LookupResponderGatewayResultOutput) ResponderGatewayStatus() ResponderGa
 	return o.ApplyT(func(v LookupResponderGatewayResult) *ResponderGatewayStatus { return v.ResponderGatewayStatus }).(ResponderGatewayStatusPtrOutput)
 }
 
+// The unique identifiers of the security groups.
 func (o LookupResponderGatewayResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResponderGatewayResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The unique identifiers of the subnets.
 func (o LookupResponderGatewayResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResponderGatewayResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// A map of the key-value pairs of the tag or tags to assign to the resource.
 func (o LookupResponderGatewayResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupResponderGatewayResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The configuration of the trust store.
 func (o LookupResponderGatewayResultOutput) TrustStoreConfiguration() ResponderGatewayTrustStoreConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupResponderGatewayResult) *ResponderGatewayTrustStoreConfiguration {
 		return v.TrustStoreConfiguration
@@ -136,6 +155,7 @@ func (o LookupResponderGatewayResultOutput) UpdatedTimestamp() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupResponderGatewayResult) *string { return v.UpdatedTimestamp }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the Virtual Private Cloud (VPC).
 func (o LookupResponderGatewayResultOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResponderGatewayResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }

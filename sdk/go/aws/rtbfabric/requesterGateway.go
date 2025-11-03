@@ -17,19 +17,24 @@ import (
 type RequesterGateway struct {
 	pulumi.CustomResourceState
 
-	ActiveLinksCount       pulumi.IntOutput             `pulumi:"activeLinksCount"`
-	Arn                    pulumi.StringOutput          `pulumi:"arn"`
-	CreatedTimestamp       pulumi.StringOutput          `pulumi:"createdTimestamp"`
+	ActiveLinksCount pulumi.IntOutput    `pulumi:"activeLinksCount"`
+	Arn              pulumi.StringOutput `pulumi:"arn"`
+	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
+	// An optional description for the requester gateway.
 	Description            pulumi.StringPtrOutput       `pulumi:"description"`
 	DomainName             pulumi.StringOutput          `pulumi:"domainName"`
 	GatewayId              pulumi.StringOutput          `pulumi:"gatewayId"`
 	RequesterGatewayStatus RequesterGatewayStatusOutput `pulumi:"requesterGatewayStatus"`
-	SecurityGroupIds       pulumi.StringArrayOutput     `pulumi:"securityGroupIds"`
-	SubnetIds              pulumi.StringArrayOutput     `pulumi:"subnetIds"`
-	Tags                   aws.TagArrayOutput           `pulumi:"tags"`
-	TotalLinksCount        pulumi.IntOutput             `pulumi:"totalLinksCount"`
-	UpdatedTimestamp       pulumi.StringOutput          `pulumi:"updatedTimestamp"`
-	VpcId                  pulumi.StringOutput          `pulumi:"vpcId"`
+	// The unique identifiers of the security groups.
+	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+	// The unique identifiers of the subnets.
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// A map of the key-value pairs of the tag or tags to assign to the resource.
+	Tags             aws.TagArrayOutput  `pulumi:"tags"`
+	TotalLinksCount  pulumi.IntOutput    `pulumi:"totalLinksCount"`
+	UpdatedTimestamp pulumi.StringOutput `pulumi:"updatedTimestamp"`
+	// The unique identifier of the Virtual Private Cloud (VPC).
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewRequesterGateway registers a new resource with the given unique name, arguments, and options.
@@ -81,20 +86,30 @@ func (RequesterGatewayState) ElementType() reflect.Type {
 }
 
 type requesterGatewayArgs struct {
-	Description      *string   `pulumi:"description"`
-	SecurityGroupIds []string  `pulumi:"securityGroupIds"`
-	SubnetIds        []string  `pulumi:"subnetIds"`
-	Tags             []aws.Tag `pulumi:"tags"`
-	VpcId            string    `pulumi:"vpcId"`
+	// An optional description for the requester gateway.
+	Description *string `pulumi:"description"`
+	// The unique identifiers of the security groups.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The unique identifiers of the subnets.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// A map of the key-value pairs of the tag or tags to assign to the resource.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The unique identifier of the Virtual Private Cloud (VPC).
+	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a RequesterGateway resource.
 type RequesterGatewayArgs struct {
-	Description      pulumi.StringPtrInput
+	// An optional description for the requester gateway.
+	Description pulumi.StringPtrInput
+	// The unique identifiers of the security groups.
 	SecurityGroupIds pulumi.StringArrayInput
-	SubnetIds        pulumi.StringArrayInput
-	Tags             aws.TagArrayInput
-	VpcId            pulumi.StringInput
+	// The unique identifiers of the subnets.
+	SubnetIds pulumi.StringArrayInput
+	// A map of the key-value pairs of the tag or tags to assign to the resource.
+	Tags aws.TagArrayInput
+	// The unique identifier of the Virtual Private Cloud (VPC).
+	VpcId pulumi.StringInput
 }
 
 func (RequesterGatewayArgs) ElementType() reflect.Type {
@@ -146,6 +161,7 @@ func (o RequesterGatewayOutput) CreatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequesterGateway) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
 }
 
+// An optional description for the requester gateway.
 func (o RequesterGatewayOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RequesterGateway) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -162,14 +178,17 @@ func (o RequesterGatewayOutput) RequesterGatewayStatus() RequesterGatewayStatusO
 	return o.ApplyT(func(v *RequesterGateway) RequesterGatewayStatusOutput { return v.RequesterGatewayStatus }).(RequesterGatewayStatusOutput)
 }
 
+// The unique identifiers of the security groups.
 func (o RequesterGatewayOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RequesterGateway) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The unique identifiers of the subnets.
 func (o RequesterGatewayOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RequesterGateway) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// A map of the key-value pairs of the tag or tags to assign to the resource.
 func (o RequesterGatewayOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *RequesterGateway) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
@@ -182,6 +201,7 @@ func (o RequesterGatewayOutput) UpdatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequesterGateway) pulumi.StringOutput { return v.UpdatedTimestamp }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the Virtual Private Cloud (VPC).
 func (o RequesterGatewayOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequesterGateway) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

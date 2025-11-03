@@ -18,7 +18,7 @@ type Assignment struct {
 
 	// The sso instance that the permission set is owned.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// The permission set that the assignemt will be assigned
+	// The permission set that the assignment will be assigned
 	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
 	// The assignee's identifier, user id/group id
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
@@ -26,7 +26,7 @@ type Assignment struct {
 	PrincipalType AssignmentPrincipalTypeOutput `pulumi:"principalType"`
 	// The account id to be provisioned.
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
-	// The type of resource to be provsioned to, only aws account now
+	// The type of resource to be provisioned to, only aws account now
 	TargetType AssignmentTargetTypeOutput `pulumi:"targetType"`
 }
 
@@ -99,7 +99,7 @@ func (AssignmentState) ElementType() reflect.Type {
 type assignmentArgs struct {
 	// The sso instance that the permission set is owned.
 	InstanceArn string `pulumi:"instanceArn"`
-	// The permission set that the assignemt will be assigned
+	// The permission set that the assignment will be assigned
 	PermissionSetArn string `pulumi:"permissionSetArn"`
 	// The assignee's identifier, user id/group id
 	PrincipalId string `pulumi:"principalId"`
@@ -107,7 +107,7 @@ type assignmentArgs struct {
 	PrincipalType AssignmentPrincipalType `pulumi:"principalType"`
 	// The account id to be provisioned.
 	TargetId string `pulumi:"targetId"`
-	// The type of resource to be provsioned to, only aws account now
+	// The type of resource to be provisioned to, only aws account now
 	TargetType AssignmentTargetType `pulumi:"targetType"`
 }
 
@@ -115,7 +115,7 @@ type assignmentArgs struct {
 type AssignmentArgs struct {
 	// The sso instance that the permission set is owned.
 	InstanceArn pulumi.StringInput
-	// The permission set that the assignemt will be assigned
+	// The permission set that the assignment will be assigned
 	PermissionSetArn pulumi.StringInput
 	// The assignee's identifier, user id/group id
 	PrincipalId pulumi.StringInput
@@ -123,7 +123,7 @@ type AssignmentArgs struct {
 	PrincipalType AssignmentPrincipalTypeInput
 	// The account id to be provisioned.
 	TargetId pulumi.StringInput
-	// The type of resource to be provsioned to, only aws account now
+	// The type of resource to be provisioned to, only aws account now
 	TargetType AssignmentTargetTypeInput
 }
 
@@ -169,7 +169,7 @@ func (o AssignmentOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// The permission set that the assignemt will be assigned
+// The permission set that the assignment will be assigned
 func (o AssignmentOutput) PermissionSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.PermissionSetArn }).(pulumi.StringOutput)
 }
@@ -189,7 +189,7 @@ func (o AssignmentOutput) TargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.TargetId }).(pulumi.StringOutput)
 }
 
-// The type of resource to be provsioned to, only aws account now
+// The type of resource to be provisioned to, only aws account now
 func (o AssignmentOutput) TargetType() AssignmentTargetTypeOutput {
 	return o.ApplyT(func(v *Assignment) AssignmentTargetTypeOutput { return v.TargetType }).(AssignmentTargetTypeOutput)
 }

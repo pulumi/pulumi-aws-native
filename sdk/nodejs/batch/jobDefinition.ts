@@ -79,6 +79,9 @@ export class JobDefinition extends pulumi.CustomResource {
      * Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
      */
     declare public readonly propagateTags: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies the resource retention policy settings for the job definition.
+     */
     declare public readonly resourceRetentionPolicy: pulumi.Output<outputs.batch.JobDefinitionResourceRetentionPolicy | undefined>;
     /**
      * The retry strategy to use for failed jobs that are submitted with this job definition.
@@ -203,6 +206,9 @@ export interface JobDefinitionArgs {
      * Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
      */
     propagateTags?: pulumi.Input<boolean>;
+    /**
+     * Specifies the resource retention policy settings for the job definition.
+     */
     resourceRetentionPolicy?: pulumi.Input<inputs.batch.JobDefinitionResourceRetentionPolicyArgs>;
     /**
      * The retry strategy to use for failed jobs that are submitted with this job definition.

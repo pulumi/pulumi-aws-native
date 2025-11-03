@@ -29,6 +29,11 @@ class RequesterGatewayArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RequesterGateway resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The unique identifiers of the security groups.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The unique identifiers of the subnets.
+        :param pulumi.Input[_builtins.str] vpc_id: The unique identifier of the Virtual Private Cloud (VPC).
+        :param pulumi.Input[_builtins.str] description: An optional description for the requester gateway.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A map of the key-value pairs of the tag or tags to assign to the resource.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -41,6 +46,9 @@ class RequesterGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The unique identifiers of the security groups.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -50,6 +58,9 @@ class RequesterGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The unique identifiers of the subnets.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -59,6 +70,9 @@ class RequesterGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique identifier of the Virtual Private Cloud (VPC).
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -68,6 +82,9 @@ class RequesterGatewayArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        An optional description for the requester gateway.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -77,6 +94,9 @@ class RequesterGatewayArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A map of the key-value pairs of the tag or tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -101,6 +121,11 @@ class RequesterGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] description: An optional description for the requester gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The unique identifiers of the security groups.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The unique identifiers of the subnets.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A map of the key-value pairs of the tag or tags to assign to the resource.
+        :param pulumi.Input[_builtins.str] vpc_id: The unique identifier of the Virtual Private Cloud (VPC).
         """
         ...
     @overload
@@ -214,6 +239,9 @@ class RequesterGateway(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        An optional description for the requester gateway.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -234,16 +262,25 @@ class RequesterGateway(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        The unique identifiers of the security groups.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        The unique identifiers of the subnets.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A map of the key-value pairs of the tag or tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -259,5 +296,8 @@ class RequesterGateway(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The unique identifier of the Virtual Private Cloud (VPC).
+        """
         return pulumi.get(self, "vpc_id")
 

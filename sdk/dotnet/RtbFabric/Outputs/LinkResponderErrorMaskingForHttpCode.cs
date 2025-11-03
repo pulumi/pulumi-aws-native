@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.RtbFabric.Outputs
     [OutputType]
     public sealed class LinkResponderErrorMaskingForHttpCode
     {
+        /// <summary>
+        /// The action for the error..
+        /// </summary>
         public readonly Pulumi.AwsNative.RtbFabric.LinkResponderErrorMaskingForHttpCodeAction Action;
+        /// <summary>
+        /// The HTTP error code.
+        /// </summary>
         public readonly string HttpCode;
+        /// <summary>
+        /// The error log type.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.RtbFabric.LinkResponderErrorMaskingLoggingType> LoggingTypes;
+        /// <summary>
+        /// The percentage of response logging.
+        /// </summary>
         public readonly double? ResponseLoggingPercentage;
 
         [OutputConstructor]

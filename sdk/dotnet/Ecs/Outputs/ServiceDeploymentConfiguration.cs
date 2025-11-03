@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         ///   +  For all other cases, the value is set to 36 hours (2160 minutes).
         /// </summary>
         public readonly int? BakeTimeInMinutes;
+        /// <summary>
+        /// Configuration for canary deployment strategy. Only valid when the deployment strategy is `CANARY` . This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
+        /// </summary>
         public readonly Outputs.ServiceCanaryConfiguration? CanaryConfiguration;
         /// <summary>
         /// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceDeploymentLifecycleHook> LifecycleHooks;
+        /// <summary>
+        /// Configuration for linear deployment strategy. Only valid when the deployment strategy is `LINEAR` . This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
+        /// </summary>
         public readonly Outputs.ServiceLinearConfiguration? LinearConfiguration;
         /// <summary>
         /// If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.

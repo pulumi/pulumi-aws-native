@@ -101,6 +101,9 @@ export class Firewall extends pulumi.CustomResource {
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The unique identifier of the transit gateway attachment associated with this firewall. This field is only present for transit gateway-attached firewalls.
+     */
     declare public /*out*/ readonly transitGatewayAttachmentId: pulumi.Output<string>;
     /**
      * The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.

@@ -103,6 +103,9 @@ namespace Pulumi.AwsNative.Transfer
         /// Configuration for an SFTP connector.
         /// </summary>
         public readonly Outputs.SftpConfigProperties? SftpConfig;
+        /// <summary>
+        /// Current status of the connector. PENDING indicates creation/update in progress, ACTIVE means ready for operations, and ERRORED indicates a failure requiring attention.
+        /// </summary>
         public readonly Pulumi.AwsNative.Transfer.ConnectorStatus? Status;
         /// <summary>
         /// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.

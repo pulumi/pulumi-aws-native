@@ -9267,6 +9267,7 @@ func (o JobDefinitionResourceRequirementArrayOutput) Index(i pulumi.IntInput) Jo
 }
 
 type JobDefinitionResourceRetentionPolicy struct {
+	// Specifies whether the previous revision of the job definition is retained in an active status after UPDATE events for the resource. The default value is `false` . When the property is set to `false` , the previous revision of the job definition is de-registered after a new revision is created. When the property is set to `true` , the previous revision of the job definition is not de-registered.
 	SkipDeregisterOnUpdate *bool `pulumi:"skipDeregisterOnUpdate"`
 }
 
@@ -9282,6 +9283,7 @@ type JobDefinitionResourceRetentionPolicyInput interface {
 }
 
 type JobDefinitionResourceRetentionPolicyArgs struct {
+	// Specifies whether the previous revision of the job definition is retained in an active status after UPDATE events for the resource. The default value is `false` . When the property is set to `false` , the previous revision of the job definition is de-registered after a new revision is created. When the property is set to `true` , the previous revision of the job definition is not de-registered.
 	SkipDeregisterOnUpdate pulumi.BoolPtrInput `pulumi:"skipDeregisterOnUpdate"`
 }
 
@@ -9362,6 +9364,7 @@ func (o JobDefinitionResourceRetentionPolicyOutput) ToJobDefinitionResourceReten
 	}).(JobDefinitionResourceRetentionPolicyPtrOutput)
 }
 
+// Specifies whether the previous revision of the job definition is retained in an active status after UPDATE events for the resource. The default value is `false` . When the property is set to `false` , the previous revision of the job definition is de-registered after a new revision is created. When the property is set to `true` , the previous revision of the job definition is not de-registered.
 func (o JobDefinitionResourceRetentionPolicyOutput) SkipDeregisterOnUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionResourceRetentionPolicy) *bool { return v.SkipDeregisterOnUpdate }).(pulumi.BoolPtrOutput)
 }
@@ -9390,6 +9393,7 @@ func (o JobDefinitionResourceRetentionPolicyPtrOutput) Elem() JobDefinitionResou
 	}).(JobDefinitionResourceRetentionPolicyOutput)
 }
 
+// Specifies whether the previous revision of the job definition is retained in an active status after UPDATE events for the resource. The default value is `false` . When the property is set to `false` , the previous revision of the job definition is de-registered after a new revision is created. When the property is set to `true` , the previous revision of the job definition is not de-registered.
 func (o JobDefinitionResourceRetentionPolicyPtrOutput) SkipDeregisterOnUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionResourceRetentionPolicy) *bool {
 		if v == nil {

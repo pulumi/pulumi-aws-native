@@ -1827,7 +1827,7 @@ func (o BucketDefaultRetentionPtrOutput) Years() pulumi.IntPtrOutput {
 //	For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html).
 //	 If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
 type BucketDeleteMarkerReplication struct {
-	// Indicates whether to replicate delete markers. Disabled by default.
+	// Indicates whether to replicate delete markers.
 	Status *BucketDeleteMarkerReplicationStatus `pulumi:"status"`
 }
 
@@ -1847,7 +1847,7 @@ type BucketDeleteMarkerReplicationInput interface {
 //	For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html).
 //	 If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
 type BucketDeleteMarkerReplicationArgs struct {
-	// Indicates whether to replicate delete markers. Disabled by default.
+	// Indicates whether to replicate delete markers.
 	Status BucketDeleteMarkerReplicationStatusPtrInput `pulumi:"status"`
 }
 
@@ -1932,7 +1932,7 @@ func (o BucketDeleteMarkerReplicationOutput) ToBucketDeleteMarkerReplicationPtrO
 	}).(BucketDeleteMarkerReplicationPtrOutput)
 }
 
-// Indicates whether to replicate delete markers. Disabled by default.
+// Indicates whether to replicate delete markers.
 func (o BucketDeleteMarkerReplicationOutput) Status() BucketDeleteMarkerReplicationStatusPtrOutput {
 	return o.ApplyT(func(v BucketDeleteMarkerReplication) *BucketDeleteMarkerReplicationStatus { return v.Status }).(BucketDeleteMarkerReplicationStatusPtrOutput)
 }
@@ -1961,7 +1961,7 @@ func (o BucketDeleteMarkerReplicationPtrOutput) Elem() BucketDeleteMarkerReplica
 	}).(BucketDeleteMarkerReplicationOutput)
 }
 
-// Indicates whether to replicate delete markers. Disabled by default.
+// Indicates whether to replicate delete markers.
 func (o BucketDeleteMarkerReplicationPtrOutput) Status() BucketDeleteMarkerReplicationStatusPtrOutput {
 	return o.ApplyT(func(v *BucketDeleteMarkerReplication) *BucketDeleteMarkerReplicationStatus {
 		if v == nil {
@@ -10590,7 +10590,10 @@ func (o BucketTransitionArrayOutput) Index(i pulumi.IntInput) BucketTransitionOu
 
 // Describes the versioning state of an Amazon S3 bucket. For more information, see [PUT Bucket versioning](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html) in the *Amazon S3 API Reference*.
 //
-//	When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
+//	Keep the following timing in mind when enabling, suspending, or transitioning between versioning states:
+//	 +  *Enabling versioning* - Changes may take up to 15 minutes to propagate across all AWS regions for full consistency.
+//	 +  *Suspending versioning* - Takes effect immediately with no propagation delay.
+//	 +  *Transitioning between states* - Any change from Suspended to Enabled has a 15-minute delay.
 type BucketVersioningConfiguration struct {
 	// The versioning state of the bucket.
 	Status BucketVersioningConfigurationStatus `pulumi:"status"`
@@ -10609,7 +10612,10 @@ type BucketVersioningConfigurationInput interface {
 
 // Describes the versioning state of an Amazon S3 bucket. For more information, see [PUT Bucket versioning](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html) in the *Amazon S3 API Reference*.
 //
-//	When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
+//	Keep the following timing in mind when enabling, suspending, or transitioning between versioning states:
+//	 +  *Enabling versioning* - Changes may take up to 15 minutes to propagate across all AWS regions for full consistency.
+//	 +  *Suspending versioning* - Takes effect immediately with no propagation delay.
+//	 +  *Transitioning between states* - Any change from Suspended to Enabled has a 15-minute delay.
 type BucketVersioningConfigurationArgs struct {
 	// The versioning state of the bucket.
 	Status BucketVersioningConfigurationStatusInput `pulumi:"status"`
@@ -10670,7 +10676,10 @@ func (i *bucketVersioningConfigurationPtrType) ToBucketVersioningConfigurationPt
 
 // Describes the versioning state of an Amazon S3 bucket. For more information, see [PUT Bucket versioning](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html) in the *Amazon S3 API Reference*.
 //
-//	When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
+//	Keep the following timing in mind when enabling, suspending, or transitioning between versioning states:
+//	 +  *Enabling versioning* - Changes may take up to 15 minutes to propagate across all AWS regions for full consistency.
+//	 +  *Suspending versioning* - Takes effect immediately with no propagation delay.
+//	 +  *Transitioning between states* - Any change from Suspended to Enabled has a 15-minute delay.
 type BucketVersioningConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketVersioningConfigurationOutput) ElementType() reflect.Type {

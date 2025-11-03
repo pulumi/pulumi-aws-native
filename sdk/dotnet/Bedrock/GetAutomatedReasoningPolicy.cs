@@ -75,6 +75,7 @@ namespace Pulumi.AwsNative.Bedrock
         /// The description of the policy.
         /// </summary>
         public readonly string? Description;
+        public readonly string? KmsKeyArn;
         /// <summary>
         /// The name of the policy.
         /// </summary>
@@ -112,6 +113,8 @@ namespace Pulumi.AwsNative.Bedrock
 
             string? description,
 
+            string? kmsKeyArn,
+
             string? name,
 
             string? policyArn,
@@ -129,6 +132,7 @@ namespace Pulumi.AwsNative.Bedrock
             CreatedAt = createdAt;
             DefinitionHash = definitionHash;
             Description = description;
+            KmsKeyArn = kmsKeyArn;
             Name = name;
             PolicyArn = policyArn;
             PolicyDefinition = policyDefinition;

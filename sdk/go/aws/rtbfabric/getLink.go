@@ -28,17 +28,23 @@ type LookupLinkArgs struct {
 }
 
 type LookupLinkResult struct {
-	Arn              *string          `pulumi:"arn"`
-	CreatedTimestamp *string          `pulumi:"createdTimestamp"`
-	GatewayId        *string          `pulumi:"gatewayId"`
-	LinkAttributes   *LinkAttributes  `pulumi:"linkAttributes"`
-	LinkDirection    *LinkDirection   `pulumi:"linkDirection"`
-	LinkId           *string          `pulumi:"linkId"`
-	LinkLogSettings  *LinkLogSettings `pulumi:"linkLogSettings"`
-	LinkStatus       *LinkStatus      `pulumi:"linkStatus"`
-	PeerGatewayId    *string          `pulumi:"peerGatewayId"`
-	Tags             []aws.Tag        `pulumi:"tags"`
-	UpdatedTimestamp *string          `pulumi:"updatedTimestamp"`
+	Arn              *string `pulumi:"arn"`
+	CreatedTimestamp *string `pulumi:"createdTimestamp"`
+	// The unique identifier of the gateway.
+	GatewayId *string `pulumi:"gatewayId"`
+	// Attributes of the link.
+	LinkAttributes *LinkAttributes `pulumi:"linkAttributes"`
+	LinkDirection  *LinkDirection  `pulumi:"linkDirection"`
+	// The unique identifier of the link.
+	LinkId *string `pulumi:"linkId"`
+	// Settings for the application logs.
+	LinkLogSettings *LinkLogSettings `pulumi:"linkLogSettings"`
+	LinkStatus      *LinkStatus      `pulumi:"linkStatus"`
+	// The unique identifier of the peer gateway.
+	PeerGatewayId *string `pulumi:"peerGatewayId"`
+	// A map of the key-value pairs of the tag or tags to assign to the resource.
+	Tags             []aws.Tag `pulumi:"tags"`
+	UpdatedTimestamp *string   `pulumi:"updatedTimestamp"`
 }
 
 func LookupLinkOutput(ctx *pulumi.Context, args LookupLinkOutputArgs, opts ...pulumi.InvokeOption) LookupLinkResultOutput {
@@ -80,10 +86,12 @@ func (o LookupLinkResultOutput) CreatedTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLinkResult) *string { return v.CreatedTimestamp }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the gateway.
 func (o LookupLinkResultOutput) GatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLinkResult) *string { return v.GatewayId }).(pulumi.StringPtrOutput)
 }
 
+// Attributes of the link.
 func (o LookupLinkResultOutput) LinkAttributes() LinkAttributesPtrOutput {
 	return o.ApplyT(func(v LookupLinkResult) *LinkAttributes { return v.LinkAttributes }).(LinkAttributesPtrOutput)
 }
@@ -92,10 +100,12 @@ func (o LookupLinkResultOutput) LinkDirection() LinkDirectionPtrOutput {
 	return o.ApplyT(func(v LookupLinkResult) *LinkDirection { return v.LinkDirection }).(LinkDirectionPtrOutput)
 }
 
+// The unique identifier of the link.
 func (o LookupLinkResultOutput) LinkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLinkResult) *string { return v.LinkId }).(pulumi.StringPtrOutput)
 }
 
+// Settings for the application logs.
 func (o LookupLinkResultOutput) LinkLogSettings() LinkLogSettingsPtrOutput {
 	return o.ApplyT(func(v LookupLinkResult) *LinkLogSettings { return v.LinkLogSettings }).(LinkLogSettingsPtrOutput)
 }
@@ -104,10 +114,12 @@ func (o LookupLinkResultOutput) LinkStatus() LinkStatusPtrOutput {
 	return o.ApplyT(func(v LookupLinkResult) *LinkStatus { return v.LinkStatus }).(LinkStatusPtrOutput)
 }
 
+// The unique identifier of the peer gateway.
 func (o LookupLinkResultOutput) PeerGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLinkResult) *string { return v.PeerGatewayId }).(pulumi.StringPtrOutput)
 }
 
+// A map of the key-value pairs of the tag or tags to assign to the resource.
 func (o LookupLinkResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupLinkResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

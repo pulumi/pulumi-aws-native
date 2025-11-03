@@ -52,6 +52,10 @@ class LinkAttributes(dict):
     def __init__(__self__, *,
                  customer_provided_id: Optional[_builtins.str] = None,
                  responder_error_masking: Optional[Sequence['outputs.LinkResponderErrorMaskingForHttpCode']] = None):
+        """
+        :param _builtins.str customer_provided_id: The customer-provided unique identifier of the link.
+        :param Sequence['LinkResponderErrorMaskingForHttpCode'] responder_error_masking: Describes the masking for HTTP error codes.
+        """
         if customer_provided_id is not None:
             pulumi.set(__self__, "customer_provided_id", customer_provided_id)
         if responder_error_masking is not None:
@@ -60,11 +64,17 @@ class LinkAttributes(dict):
     @_builtins.property
     @pulumi.getter(name="customerProvidedId")
     def customer_provided_id(self) -> Optional[_builtins.str]:
+        """
+        The customer-provided unique identifier of the link.
+        """
         return pulumi.get(self, "customer_provided_id")
 
     @_builtins.property
     @pulumi.getter(name="responderErrorMasking")
     def responder_error_masking(self) -> Optional[Sequence['outputs.LinkResponderErrorMaskingForHttpCode']]:
+        """
+        Describes the masking for HTTP error codes.
+        """
         return pulumi.get(self, "responder_error_masking")
 
 
@@ -89,16 +99,25 @@ class LinkLogSettings(dict):
 
     def __init__(__self__, *,
                  application_logs: 'outputs.LinkLogSettingsApplicationLogsProperties'):
+        """
+        :param 'LinkLogSettingsApplicationLogsProperties' application_logs: Describes the configuration of a link application log.
+        """
         pulumi.set(__self__, "application_logs", application_logs)
 
     @_builtins.property
     @pulumi.getter(name="applicationLogs")
     def application_logs(self) -> 'outputs.LinkLogSettingsApplicationLogsProperties':
+        """
+        Describes the configuration of a link application log.
+        """
         return pulumi.get(self, "application_logs")
 
 
 @pulumi.output_type
 class LinkLogSettingsApplicationLogsProperties(dict):
+    """
+    Describes the configuration of a link application log.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -118,6 +137,9 @@ class LinkLogSettingsApplicationLogsProperties(dict):
 
     def __init__(__self__, *,
                  link_application_log_sampling: 'outputs.LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties'):
+        """
+        Describes the configuration of a link application log.
+        """
         pulumi.set(__self__, "link_application_log_sampling", link_application_log_sampling)
 
     @_builtins.property
@@ -253,6 +275,12 @@ class LinkResponderErrorMaskingForHttpCode(dict):
                  http_code: _builtins.str,
                  logging_types: Sequence['LinkResponderErrorMaskingLoggingType'],
                  response_logging_percentage: Optional[_builtins.float] = None):
+        """
+        :param 'LinkResponderErrorMaskingForHttpCodeAction' action: The action for the error..
+        :param _builtins.str http_code: The HTTP error code.
+        :param Sequence['LinkResponderErrorMaskingLoggingType'] logging_types: The error log type.
+        :param _builtins.float response_logging_percentage: The percentage of response logging.
+        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "http_code", http_code)
         pulumi.set(__self__, "logging_types", logging_types)
@@ -262,21 +290,33 @@ class LinkResponderErrorMaskingForHttpCode(dict):
     @_builtins.property
     @pulumi.getter
     def action(self) -> 'LinkResponderErrorMaskingForHttpCodeAction':
+        """
+        The action for the error..
+        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter(name="httpCode")
     def http_code(self) -> _builtins.str:
+        """
+        The HTTP error code.
+        """
         return pulumi.get(self, "http_code")
 
     @_builtins.property
     @pulumi.getter(name="loggingTypes")
     def logging_types(self) -> Sequence['LinkResponderErrorMaskingLoggingType']:
+        """
+        The error log type.
+        """
         return pulumi.get(self, "logging_types")
 
     @_builtins.property
     @pulumi.getter(name="responseLoggingPercentage")
     def response_logging_percentage(self) -> Optional[_builtins.float]:
+        """
+        The percentage of response logging.
+        """
         return pulumi.get(self, "response_logging_percentage")
 
 
@@ -307,11 +347,17 @@ class ResponderGatewayTrustStoreConfiguration(dict):
 
     def __init__(__self__, *,
                  certificate_authority_certificates: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] certificate_authority_certificates: The certificate authority certificate.
+        """
         pulumi.set(__self__, "certificate_authority_certificates", certificate_authority_certificates)
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityCertificates")
     def certificate_authority_certificates(self) -> Sequence[_builtins.str]:
+        """
+        The certificate authority certificate.
+        """
         return pulumi.get(self, "certificate_authority_certificates")
 
 

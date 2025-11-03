@@ -35,6 +35,7 @@ type LookupAutomatedReasoningPolicyResult struct {
 	DefinitionHash *string `pulumi:"definitionHash"`
 	// The description of the policy.
 	Description *string `pulumi:"description"`
+	KmsKeyArn   *string `pulumi:"kmsKeyArn"`
 	// The name of the policy.
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the policy.
@@ -96,6 +97,10 @@ func (o LookupAutomatedReasoningPolicyResultOutput) DefinitionHash() pulumi.Stri
 // The description of the policy.
 func (o LookupAutomatedReasoningPolicyResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomatedReasoningPolicyResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAutomatedReasoningPolicyResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAutomatedReasoningPolicyResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the policy.

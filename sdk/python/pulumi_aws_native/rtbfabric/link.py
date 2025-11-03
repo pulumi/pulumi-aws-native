@@ -33,6 +33,12 @@ class LinkArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Link resource.
+        :param pulumi.Input[_builtins.str] gateway_id: The unique identifier of the gateway.
+        :param pulumi.Input['LinkLogSettingsArgs'] link_log_settings: Settings for the application logs.
+        :param pulumi.Input[_builtins.str] peer_gateway_id: The unique identifier of the peer gateway.
+        :param pulumi.Input[_builtins.bool] http_responder_allowed: Boolean to specify if an HTTP responder is allowed.
+        :param pulumi.Input['LinkAttributesArgs'] link_attributes: Attributes of the link.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A map of the key-value pairs of the tag or tags to assign to the resource.
         """
         pulumi.set(__self__, "gateway_id", gateway_id)
         pulumi.set(__self__, "link_log_settings", link_log_settings)
@@ -49,6 +55,9 @@ class LinkArgs:
     @_builtins.property
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique identifier of the gateway.
+        """
         return pulumi.get(self, "gateway_id")
 
     @gateway_id.setter
@@ -58,6 +67,9 @@ class LinkArgs:
     @_builtins.property
     @pulumi.getter(name="linkLogSettings")
     def link_log_settings(self) -> pulumi.Input['LinkLogSettingsArgs']:
+        """
+        Settings for the application logs.
+        """
         return pulumi.get(self, "link_log_settings")
 
     @link_log_settings.setter
@@ -67,6 +79,9 @@ class LinkArgs:
     @_builtins.property
     @pulumi.getter(name="peerGatewayId")
     def peer_gateway_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique identifier of the peer gateway.
+        """
         return pulumi.get(self, "peer_gateway_id")
 
     @peer_gateway_id.setter
@@ -76,6 +91,9 @@ class LinkArgs:
     @_builtins.property
     @pulumi.getter(name="httpResponderAllowed")
     def http_responder_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean to specify if an HTTP responder is allowed.
+        """
         return pulumi.get(self, "http_responder_allowed")
 
     @http_responder_allowed.setter
@@ -85,6 +103,9 @@ class LinkArgs:
     @_builtins.property
     @pulumi.getter(name="linkAttributes")
     def link_attributes(self) -> Optional[pulumi.Input['LinkAttributesArgs']]:
+        """
+        Attributes of the link.
+        """
         return pulumi.get(self, "link_attributes")
 
     @link_attributes.setter
@@ -103,6 +124,9 @@ class LinkArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A map of the key-value pairs of the tag or tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -129,6 +153,12 @@ class Link(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] gateway_id: The unique identifier of the gateway.
+        :param pulumi.Input[_builtins.bool] http_responder_allowed: Boolean to specify if an HTTP responder is allowed.
+        :param pulumi.Input[Union['LinkAttributesArgs', 'LinkAttributesArgsDict']] link_attributes: Attributes of the link.
+        :param pulumi.Input[Union['LinkLogSettingsArgs', 'LinkLogSettingsArgsDict']] link_log_settings: Settings for the application logs.
+        :param pulumi.Input[_builtins.str] peer_gateway_id: The unique identifier of the peer gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A map of the key-value pairs of the tag or tags to assign to the resource.
         """
         ...
     @overload
@@ -239,16 +269,25 @@ class Link(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The unique identifier of the gateway.
+        """
         return pulumi.get(self, "gateway_id")
 
     @_builtins.property
     @pulumi.getter(name="httpResponderAllowed")
     def http_responder_allowed(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Boolean to specify if an HTTP responder is allowed.
+        """
         return pulumi.get(self, "http_responder_allowed")
 
     @_builtins.property
     @pulumi.getter(name="linkAttributes")
     def link_attributes(self) -> pulumi.Output[Optional['outputs.LinkAttributes']]:
+        """
+        Attributes of the link.
+        """
         return pulumi.get(self, "link_attributes")
 
     @_builtins.property
@@ -259,11 +298,17 @@ class Link(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="linkId")
     def link_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The unique identifier of the link.
+        """
         return pulumi.get(self, "link_id")
 
     @_builtins.property
     @pulumi.getter(name="linkLogSettings")
     def link_log_settings(self) -> pulumi.Output['outputs.LinkLogSettings']:
+        """
+        Settings for the application logs.
+        """
         return pulumi.get(self, "link_log_settings")
 
     @_builtins.property
@@ -279,11 +324,17 @@ class Link(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="peerGatewayId")
     def peer_gateway_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The unique identifier of the peer gateway.
+        """
         return pulumi.get(self, "peer_gateway_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A map of the key-value pairs of the tag or tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @_builtins.property

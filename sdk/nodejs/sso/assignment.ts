@@ -42,7 +42,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     declare public readonly instanceArn: pulumi.Output<string>;
     /**
-     * The permission set that the assignemt will be assigned
+     * The permission set that the assignment will be assigned
      */
     declare public readonly permissionSetArn: pulumi.Output<string>;
     /**
@@ -58,7 +58,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     declare public readonly targetId: pulumi.Output<string>;
     /**
-     * The type of resource to be provsioned to, only aws account now
+     * The type of resource to be provisioned to, only aws account now
      */
     declare public readonly targetType: pulumi.Output<enums.sso.AssignmentTargetType>;
 
@@ -121,7 +121,7 @@ export interface AssignmentArgs {
      */
     instanceArn: pulumi.Input<string>;
     /**
-     * The permission set that the assignemt will be assigned
+     * The permission set that the assignment will be assigned
      */
     permissionSetArn: pulumi.Input<string>;
     /**
@@ -137,7 +137,7 @@ export interface AssignmentArgs {
      */
     targetId: pulumi.Input<string>;
     /**
-     * The type of resource to be provsioned to, only aws account now
+     * The type of resource to be provisioned to, only aws account now
      */
     targetType: pulumi.Input<enums.sso.AssignmentTargetType>;
 }
