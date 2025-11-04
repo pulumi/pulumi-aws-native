@@ -8689,6 +8689,30 @@
       }
     }
   },
+  "aws-native:glue:IntegrationResourceProperty": {
+    "cfTypeName": "AWS::Glue::IntegrationResourceProperty",
+    "properties": {
+      "resourceArn": {
+        "type": "string",
+        "description": "The connection ARN of the source, or the database ARN of the target."
+      },
+      "sourceProcessingProperties": {
+        "$ref": "#/types/aws-native:glue:SourceProcessingPropertiesProperties",
+        "description": "The resource properties associated with the integration source."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
+      },
+      "targetProcessingProperties": {
+        "$ref": "#/types/aws-native:glue:TargetProcessingPropertiesProperties",
+        "description": "The resource properties associated with the integration target."
+      }
+    }
+  },
   "aws-native:glue:SchemaVersion": {
     "cfTypeName": "AWS::Glue::SchemaVersion",
     "properties": {
@@ -11926,7 +11950,7 @@
       },
       "quickSightConfiguration": {
         "$ref": "#/types/aws-native:qbusiness:ApplicationQuickSightConfiguration",
-        "description": "The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider."
+        "description": "The Amazon Quick Suite configuration for an Amazon Q Business application that uses Quick Suite as the identity provider."
       },
       "roleArn": {
         "type": "string",
@@ -13930,13 +13954,16 @@
     "cfTypeName": "AWS::S3Vectors::VectorBucketPolicy",
     "properties": {
       "policy": {
-        "$ref": "#/types/aws-native:s3vectors:VectorBucketPolicyPolicy"
+        "$ref": "#/types/aws-native:s3vectors:VectorBucketPolicyPolicy",
+        "description": "A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM ."
       },
       "vectorBucketArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies."
       },
       "vectorBucketName": {
-        "type": "string"
+        "type": "string",
+        "description": "The name of the S3 vector bucket to which the policy applies."
       }
     }
   },

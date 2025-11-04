@@ -204,7 +204,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "enum" : [ "a10g", "a100", "h100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "t4g", "vu9p", "v100" ]
+            "enum" : [ "a10g", "a100", "h100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "t4g", "vu9p", "v100", "l40s" ]
           }
         },
         "AcceleratorTotalMemoryMiB" : {
