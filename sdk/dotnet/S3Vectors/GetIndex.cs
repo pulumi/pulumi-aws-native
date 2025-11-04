@@ -33,6 +33,11 @@ namespace Pulumi.AwsNative.S3Vectors
 
     public sealed class GetIndexArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified index.
+        /// 
+        /// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
+        /// </summary>
         [Input("indexArn", required: true)]
         public string IndexArn { get; set; } = null!;
 
@@ -44,6 +49,11 @@ namespace Pulumi.AwsNative.S3Vectors
 
     public sealed class GetIndexInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified index.
+        /// 
+        /// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
+        /// </summary>
         [Input("indexArn", required: true)]
         public Input<string> IndexArn { get; set; } = null!;
 
@@ -57,7 +67,17 @@ namespace Pulumi.AwsNative.S3Vectors
     [OutputType]
     public sealed class GetIndexResult
     {
+        /// <summary>
+        /// Returns the date and time when the vector index was created.
+        /// 
+        /// Example: `2024-12-21T10:30:00Z`
+        /// </summary>
         public readonly string? CreationTime;
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified index.
+        /// 
+        /// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
+        /// </summary>
         public readonly string? IndexArn;
 
         [OutputConstructor]

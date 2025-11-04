@@ -17,6 +17,8 @@ import (
 type WebAcl struct {
 	pulumi.CustomResourceState
 
+	// Collection of application attributes.
+	ApplicationConfig WebAclApplicationConfigPtrOutput `pulumi:"applicationConfig"`
 	// The Amazon Resource Name (ARN) of the web ACL.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies custom configurations for the associations between the web ACL and protected resources.
@@ -131,6 +133,8 @@ func (WebAclState) ElementType() reflect.Type {
 }
 
 type webAclArgs struct {
+	// Collection of application attributes.
+	ApplicationConfig *WebAclApplicationConfig `pulumi:"applicationConfig"`
 	// Specifies custom configurations for the associations between the web ACL and protected resources.
 	//
 	// Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).
@@ -179,6 +183,8 @@ type webAclArgs struct {
 
 // The set of arguments for constructing a WebAcl resource.
 type WebAclArgs struct {
+	// Collection of application attributes.
+	ApplicationConfig WebAclApplicationConfigPtrInput
 	// Specifies custom configurations for the associations between the web ACL and protected resources.
 	//
 	// Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).
@@ -260,6 +266,11 @@ func (o WebAclOutput) ToWebAclOutput() WebAclOutput {
 
 func (o WebAclOutput) ToWebAclOutputWithContext(ctx context.Context) WebAclOutput {
 	return o
+}
+
+// Collection of application attributes.
+func (o WebAclOutput) ApplicationConfig() WebAclApplicationConfigPtrOutput {
+	return o.ApplyT(func(v *WebAcl) WebAclApplicationConfigPtrOutput { return v.ApplicationConfig }).(WebAclApplicationConfigPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the web ACL.

@@ -37,8 +37,17 @@ export class VectorBucketPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === VectorBucketPolicy.__pulumiType;
     }
 
+    /**
+     * A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
+     */
     declare public readonly policy: pulumi.Output<outputs.s3vectors.VectorBucketPolicyPolicy>;
+    /**
+     * The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
+     */
     declare public readonly vectorBucketArn: pulumi.Output<string | undefined>;
+    /**
+     * The name of the S3 vector bucket to which the policy applies.
+     */
     declare public readonly vectorBucketName: pulumi.Output<string | undefined>;
 
     /**
@@ -74,7 +83,16 @@ export class VectorBucketPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a VectorBucketPolicy resource.
  */
 export interface VectorBucketPolicyArgs {
+    /**
+     * A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
+     */
     policy: pulumi.Input<inputs.s3vectors.VectorBucketPolicyPolicyArgs>;
+    /**
+     * The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
+     */
     vectorBucketArn?: pulumi.Input<string>;
+    /**
+     * The name of the S3 vector bucket to which the policy applies.
+     */
     vectorBucketName?: pulumi.Input<string>;
 }

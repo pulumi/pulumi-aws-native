@@ -15,11 +15,26 @@ export function getIndex(args: GetIndexArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetIndexArgs {
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified index.
+     *
+     * Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
+     */
     indexArn: string;
 }
 
 export interface GetIndexResult {
+    /**
+     * Returns the date and time when the vector index was created.
+     *
+     * Example: `2024-12-21T10:30:00Z`
+     */
     readonly creationTime?: string;
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified index.
+     *
+     * Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
+     */
     readonly indexArn?: string;
 }
 /**
@@ -33,5 +48,10 @@ export function getIndexOutput(args: GetIndexOutputArgs, opts?: pulumi.InvokeOut
 }
 
 export interface GetIndexOutputArgs {
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified index.
+     *
+     * Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
+     */
     indexArn: pulumi.Input<string>;
 }

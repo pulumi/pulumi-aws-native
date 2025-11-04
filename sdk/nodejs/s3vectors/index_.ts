@@ -37,14 +37,54 @@ export class Index extends pulumi.CustomResource {
         return obj['__pulumiType'] === Index.__pulumiType;
     }
 
+    /**
+     * Returns the date and time when the vector index was created.
+     *
+     * Example: `2024-12-21T10:30:00Z`
+     */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
+    /**
+     * The data type of the vectors to be inserted into the vector index. Currently, only `float32` is supported, which represents 32-bit floating-point numbers.
+     */
     declare public readonly dataType: pulumi.Output<enums.s3vectors.IndexDataType>;
+    /**
+     * The dimensions of the vectors to be inserted into the vector index. This value must be between 1 and 4096, inclusive. All vectors stored in the index must have the same number of dimensions.
+     *
+     * The dimension value affects the storage requirements and search performance. Higher dimensions require more storage space and may impact search latency.
+     */
     declare public readonly dimension: pulumi.Output<number>;
+    /**
+     * The distance metric to be used for similarity search. Valid values are:
+     *
+     * - `cosine` - Measures the cosine of the angle between two vectors.
+     * - `euclidean` - Measures the straight-line distance between two points in multi-dimensional space. Lower values indicate greater similarity.
+     */
     declare public readonly distanceMetric: pulumi.Output<enums.s3vectors.IndexDistanceMetric>;
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified index.
+     *
+     * Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
+     */
     declare public /*out*/ readonly indexArn: pulumi.Output<string>;
+    /**
+     * The name of the vector index to create. The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.
+     *
+     * If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the index name.
+     *
+     * > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+     */
     declare public readonly indexName: pulumi.Output<string | undefined>;
+    /**
+     * The metadata configuration for the vector index.
+     */
     declare public readonly metadataConfiguration: pulumi.Output<outputs.s3vectors.IndexMetadataConfiguration | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
+     */
     declare public readonly vectorBucketArn: pulumi.Output<string | undefined>;
+    /**
+     * The name of the vector bucket that contains the vector index.
+     */
     declare public readonly vectorBucketName: pulumi.Output<string | undefined>;
 
     /**
@@ -98,11 +138,41 @@ export class Index extends pulumi.CustomResource {
  * The set of arguments for constructing a Index resource.
  */
 export interface IndexArgs {
+    /**
+     * The data type of the vectors to be inserted into the vector index. Currently, only `float32` is supported, which represents 32-bit floating-point numbers.
+     */
     dataType: pulumi.Input<enums.s3vectors.IndexDataType>;
+    /**
+     * The dimensions of the vectors to be inserted into the vector index. This value must be between 1 and 4096, inclusive. All vectors stored in the index must have the same number of dimensions.
+     *
+     * The dimension value affects the storage requirements and search performance. Higher dimensions require more storage space and may impact search latency.
+     */
     dimension: pulumi.Input<number>;
+    /**
+     * The distance metric to be used for similarity search. Valid values are:
+     *
+     * - `cosine` - Measures the cosine of the angle between two vectors.
+     * - `euclidean` - Measures the straight-line distance between two points in multi-dimensional space. Lower values indicate greater similarity.
+     */
     distanceMetric: pulumi.Input<enums.s3vectors.IndexDistanceMetric>;
+    /**
+     * The name of the vector index to create. The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.
+     *
+     * If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the index name.
+     *
+     * > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+     */
     indexName?: pulumi.Input<string>;
+    /**
+     * The metadata configuration for the vector index.
+     */
     metadataConfiguration?: pulumi.Input<inputs.s3vectors.IndexMetadataConfigurationArgs>;
+    /**
+     * The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
+     */
     vectorBucketArn?: pulumi.Input<string>;
+    /**
+     * The name of the vector bucket that contains the vector index.
+     */
     vectorBucketName?: pulumi.Input<string>;
 }

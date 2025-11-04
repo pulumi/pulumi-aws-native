@@ -97,16 +97,12 @@ namespace Pulumi.AwsNative.AppStream
         /// - stream.graphics-design.xlarge
         /// - stream.graphics-design.2xlarge
         /// - stream.graphics-design.4xlarge
-        /// - stream.graphics-desktop.2xlarge
         /// - stream.graphics.g4dn.xlarge
         /// - stream.graphics.g4dn.2xlarge
         /// - stream.graphics.g4dn.4xlarge
         /// - stream.graphics.g4dn.8xlarge
         /// - stream.graphics.g4dn.12xlarge
         /// - stream.graphics.g4dn.16xlarge
-        /// - stream.graphics-pro.4xlarge
-        /// - stream.graphics-pro.8xlarge
-        /// - stream.graphics-pro.16xlarge
         /// - stream.graphics.g5.xlarge
         /// - stream.graphics.g5.2xlarge
         /// - stream.graphics.g5.4xlarge
@@ -289,16 +285,12 @@ namespace Pulumi.AwsNative.AppStream
         /// - stream.graphics-design.xlarge
         /// - stream.graphics-design.2xlarge
         /// - stream.graphics-design.4xlarge
-        /// - stream.graphics-desktop.2xlarge
         /// - stream.graphics.g4dn.xlarge
         /// - stream.graphics.g4dn.2xlarge
         /// - stream.graphics.g4dn.4xlarge
         /// - stream.graphics.g4dn.8xlarge
         /// - stream.graphics.g4dn.12xlarge
         /// - stream.graphics.g4dn.16xlarge
-        /// - stream.graphics-pro.4xlarge
-        /// - stream.graphics-pro.8xlarge
-        /// - stream.graphics-pro.16xlarge
         /// - stream.graphics.g5.xlarge
         /// - stream.graphics.g5.2xlarge
         /// - stream.graphics.g5.4xlarge

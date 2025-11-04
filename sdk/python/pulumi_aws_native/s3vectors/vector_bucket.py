@@ -26,6 +26,12 @@ class VectorBucketArgs:
                  vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VectorBucket resource.
+        :param pulumi.Input['VectorBucketEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the vector bucket.
+        :param pulumi.Input[_builtins.str] vector_bucket_name: A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.
+               
+               The bucket name must be between 3 and 63 characters long and must not contain uppercase characters or underscores.
+               
+               > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
         """
         if encryption_configuration is not None:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
@@ -35,6 +41,9 @@ class VectorBucketArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['VectorBucketEncryptionConfigurationArgs']]:
+        """
+        The encryption configuration for the vector bucket.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -44,6 +53,13 @@ class VectorBucketArgs:
     @_builtins.property
     @pulumi.getter(name="vectorBucketName")
     def vector_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.
+
+        The bucket name must be between 3 and 63 characters long and must not contain uppercase characters or underscores.
+
+        > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+        """
         return pulumi.get(self, "vector_bucket_name")
 
     @vector_bucket_name.setter
@@ -65,6 +81,12 @@ class VectorBucket(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['VectorBucketEncryptionConfigurationArgs', 'VectorBucketEncryptionConfigurationArgsDict']] encryption_configuration: The encryption configuration for the vector bucket.
+        :param pulumi.Input[_builtins.str] vector_bucket_name: A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.
+               
+               The bucket name must be between 3 and 63 characters long and must not contain uppercase characters or underscores.
+               
+               > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
         """
         ...
     @overload
@@ -138,20 +160,40 @@ class VectorBucket(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[_builtins.str]:
+        """
+        Returns the date and time when the vector bucket was created.
+
+        Example: `2024-12-21T10:30:00Z`
+        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output[Optional['outputs.VectorBucketEncryptionConfiguration']]:
+        """
+        The encryption configuration for the vector bucket.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @_builtins.property
     @pulumi.getter(name="vectorBucketArn")
     def vector_bucket_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+
+        Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
+        """
         return pulumi.get(self, "vector_bucket_arn")
 
     @_builtins.property
     @pulumi.getter(name="vectorBucketName")
     def vector_bucket_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.
+
+        The bucket name must be between 3 and 63 characters long and must not contain uppercase characters or underscores.
+
+        > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+        """
         return pulumi.get(self, "vector_bucket_name")
 

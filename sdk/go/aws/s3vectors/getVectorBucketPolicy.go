@@ -23,10 +23,12 @@ func LookupVectorBucketPolicy(ctx *pulumi.Context, args *LookupVectorBucketPolic
 }
 
 type LookupVectorBucketPolicyArgs struct {
+	// The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
 	VectorBucketArn string `pulumi:"vectorBucketArn"`
 }
 
 type LookupVectorBucketPolicyResult struct {
+	// A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
 	Policy *VectorBucketPolicyPolicy `pulumi:"policy"`
 }
 
@@ -40,6 +42,7 @@ func LookupVectorBucketPolicyOutput(ctx *pulumi.Context, args LookupVectorBucket
 }
 
 type LookupVectorBucketPolicyOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
 	VectorBucketArn pulumi.StringInput `pulumi:"vectorBucketArn"`
 }
 
@@ -61,6 +64,7 @@ func (o LookupVectorBucketPolicyResultOutput) ToLookupVectorBucketPolicyResultOu
 	return o
 }
 
+// A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
 func (o LookupVectorBucketPolicyResultOutput) Policy() VectorBucketPolicyPolicyPtrOutput {
 	return o.ApplyT(func(v LookupVectorBucketPolicyResult) *VectorBucketPolicyPolicy { return v.Policy }).(VectorBucketPolicyPolicyPtrOutput)
 }

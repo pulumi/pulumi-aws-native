@@ -33,6 +33,11 @@ namespace Pulumi.AwsNative.S3Vectors
 
     public sealed class GetVectorBucketArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+        /// 
+        /// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
+        /// </summary>
         [Input("vectorBucketArn", required: true)]
         public string VectorBucketArn { get; set; } = null!;
 
@@ -44,6 +49,11 @@ namespace Pulumi.AwsNative.S3Vectors
 
     public sealed class GetVectorBucketInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+        /// 
+        /// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
+        /// </summary>
         [Input("vectorBucketArn", required: true)]
         public Input<string> VectorBucketArn { get; set; } = null!;
 
@@ -57,7 +67,17 @@ namespace Pulumi.AwsNative.S3Vectors
     [OutputType]
     public sealed class GetVectorBucketResult
     {
+        /// <summary>
+        /// Returns the date and time when the vector bucket was created.
+        /// 
+        /// Example: `2024-12-21T10:30:00Z`
+        /// </summary>
         public readonly string? CreationTime;
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+        /// 
+        /// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
+        /// </summary>
         public readonly string? VectorBucketArn;
 
         [OutputConstructor]

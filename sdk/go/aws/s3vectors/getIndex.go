@@ -23,12 +23,21 @@ func LookupIndex(ctx *pulumi.Context, args *LookupIndexArgs, opts ...pulumi.Invo
 }
 
 type LookupIndexArgs struct {
+	// Returns the Amazon Resource Name (ARN) of the specified index.
+	//
+	// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
 	IndexArn string `pulumi:"indexArn"`
 }
 
 type LookupIndexResult struct {
+	// Returns the date and time when the vector index was created.
+	//
+	// Example: `2024-12-21T10:30:00Z`
 	CreationTime *string `pulumi:"creationTime"`
-	IndexArn     *string `pulumi:"indexArn"`
+	// Returns the Amazon Resource Name (ARN) of the specified index.
+	//
+	// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
+	IndexArn *string `pulumi:"indexArn"`
 }
 
 func LookupIndexOutput(ctx *pulumi.Context, args LookupIndexOutputArgs, opts ...pulumi.InvokeOption) LookupIndexResultOutput {
@@ -41,6 +50,9 @@ func LookupIndexOutput(ctx *pulumi.Context, args LookupIndexOutputArgs, opts ...
 }
 
 type LookupIndexOutputArgs struct {
+	// Returns the Amazon Resource Name (ARN) of the specified index.
+	//
+	// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
 	IndexArn pulumi.StringInput `pulumi:"indexArn"`
 }
 
@@ -62,10 +74,16 @@ func (o LookupIndexResultOutput) ToLookupIndexResultOutputWithContext(ctx contex
 	return o
 }
 
+// Returns the date and time when the vector index was created.
+//
+// Example: `2024-12-21T10:30:00Z`
 func (o LookupIndexResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// Returns the Amazon Resource Name (ARN) of the specified index.
+//
+// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
 func (o LookupIndexResultOutput) IndexArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *string { return v.IndexArn }).(pulumi.StringPtrOutput)
 }

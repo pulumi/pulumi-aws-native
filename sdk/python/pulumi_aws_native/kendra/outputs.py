@@ -309,7 +309,7 @@ class DataSourceConfiguration(dict):
         :param 'DataSourceSharePointConfiguration' share_point_configuration: Provides the configuration information to connect to Microsoft SharePoint as your data source.
         :param 'DataSourceTemplateConfiguration' template_configuration: Provides a template for the configuration information to connect to your data source.
         :param 'DataSourceWebCrawlerConfiguration' web_crawler_configuration: Provides the configuration information required for Amazon Kendra Web Crawler.
-        :param 'DataSourceWorkDocsConfiguration' work_docs_configuration: Provides the configuration information to connect to Amazon WorkDocs as your data source.
+        :param 'DataSourceWorkDocsConfiguration' work_docs_configuration: Provides the configuration information to connect to WorkDocs as your data source.
         """
         if confluence_configuration is not None:
             pulumi.set(__self__, "confluence_configuration", confluence_configuration)
@@ -426,7 +426,7 @@ class DataSourceConfiguration(dict):
     @pulumi.getter(name="workDocsConfiguration")
     def work_docs_configuration(self) -> Optional['outputs.DataSourceWorkDocsConfiguration']:
         """
-        Provides the configuration information to connect to Amazon WorkDocs as your data source.
+        Provides the configuration information to connect to WorkDocs as your data source.
         """
         return pulumi.get(self, "work_docs_configuration")
 
@@ -3875,16 +3875,16 @@ class DataSourceWorkDocsConfiguration(dict):
                  inclusion_patterns: Optional[Sequence[_builtins.str]] = None,
                  use_change_log: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str organization_id: The identifier of the directory corresponding to your Amazon WorkDocs site repository.
+        :param _builtins.str organization_id: The identifier of the directory corresponding to your WorkDocs site repository.
                
-               You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your Amazon WorkDocs site directory has an ID, which is the organization ID. You can also set up a new Amazon WorkDocs directory in the AWS Directory Service console and enable a Amazon WorkDocs site for the directory in the Amazon WorkDocs console.
+               You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the AWS Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
         :param _builtins.bool crawl_comments: `TRUE` to include comments on documents in your index. Including comments in your index means each comment is a document that can be searched on.
                
                The default is set to `FALSE` .
-        :param Sequence[_builtins.str] exclusion_patterns: A list of regular expression patterns to exclude certain files in your Amazon WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
-        :param Sequence['DataSourceToIndexFieldMapping'] field_mappings: A list of `DataSourceToIndexFieldMapping` objects that map Amazon WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Amazon WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Amazon WorkDocs data source field names must exist in your Amazon WorkDocs custom metadata.
-        :param Sequence[_builtins.str] inclusion_patterns: A list of regular expression patterns to include certain files in your Amazon WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
-        :param _builtins.bool use_change_log: `TRUE` to use the Amazon WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in Amazon WorkDocs.
+        :param Sequence[_builtins.str] exclusion_patterns: A list of regular expression patterns to exclude certain files in your WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+        :param Sequence['DataSourceToIndexFieldMapping'] field_mappings: A list of `DataSourceToIndexFieldMapping` objects that map WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The WorkDocs data source field names must exist in your WorkDocs custom metadata.
+        :param Sequence[_builtins.str] inclusion_patterns: A list of regular expression patterns to include certain files in your WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+        :param _builtins.bool use_change_log: `TRUE` to use the WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in WorkDocs.
         """
         pulumi.set(__self__, "organization_id", organization_id)
         if crawl_comments is not None:
@@ -3902,9 +3902,9 @@ class DataSourceWorkDocsConfiguration(dict):
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> _builtins.str:
         """
-        The identifier of the directory corresponding to your Amazon WorkDocs site repository.
+        The identifier of the directory corresponding to your WorkDocs site repository.
 
-        You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your Amazon WorkDocs site directory has an ID, which is the organization ID. You can also set up a new Amazon WorkDocs directory in the AWS Directory Service console and enable a Amazon WorkDocs site for the directory in the Amazon WorkDocs console.
+        You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the AWS Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
         """
         return pulumi.get(self, "organization_id")
 
@@ -3922,7 +3922,7 @@ class DataSourceWorkDocsConfiguration(dict):
     @pulumi.getter(name="exclusionPatterns")
     def exclusion_patterns(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of regular expression patterns to exclude certain files in your Amazon WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+        A list of regular expression patterns to exclude certain files in your WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
         """
         return pulumi.get(self, "exclusion_patterns")
 
@@ -3930,7 +3930,7 @@ class DataSourceWorkDocsConfiguration(dict):
     @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[Sequence['outputs.DataSourceToIndexFieldMapping']]:
         """
-        A list of `DataSourceToIndexFieldMapping` objects that map Amazon WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Amazon WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Amazon WorkDocs data source field names must exist in your Amazon WorkDocs custom metadata.
+        A list of `DataSourceToIndexFieldMapping` objects that map WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The WorkDocs data source field names must exist in your WorkDocs custom metadata.
         """
         return pulumi.get(self, "field_mappings")
 
@@ -3938,7 +3938,7 @@ class DataSourceWorkDocsConfiguration(dict):
     @pulumi.getter(name="inclusionPatterns")
     def inclusion_patterns(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of regular expression patterns to include certain files in your Amazon WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+        A list of regular expression patterns to include certain files in your WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
         """
         return pulumi.get(self, "inclusion_patterns")
 
@@ -3946,7 +3946,7 @@ class DataSourceWorkDocsConfiguration(dict):
     @pulumi.getter(name="useChangeLog")
     def use_change_log(self) -> Optional[_builtins.bool]:
         """
-        `TRUE` to use the Amazon WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in Amazon WorkDocs.
+        `TRUE` to use the WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in WorkDocs.
         """
         return pulumi.get(self, "use_change_log")
 

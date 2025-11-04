@@ -96,6 +96,10 @@ namespace Pulumi.AwsNative.WaFv2
     public sealed class GetWebAclResult
     {
         /// <summary>
+        /// Collection of application attributes.
+        /// </summary>
+        public readonly Outputs.WebAclApplicationConfig? ApplicationConfig;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the web ACL.
         /// </summary>
         public readonly string? Arn;
@@ -180,6 +184,8 @@ namespace Pulumi.AwsNative.WaFv2
 
         [OutputConstructor]
         private GetWebAclResult(
+            Outputs.WebAclApplicationConfig? applicationConfig,
+
             string? arn,
 
             Outputs.WebAclAssociationConfig? associationConfig,
@@ -212,6 +218,7 @@ namespace Pulumi.AwsNative.WaFv2
 
             Outputs.WebAclVisibilityConfig? visibilityConfig)
         {
+            ApplicationConfig = applicationConfig;
             Arn = arn;
             AssociationConfig = associationConfig;
             Capacity = capacity;

@@ -66,6 +66,10 @@ __all__ = [
     'SchemaVersionSchemaArgsDict',
     'SchemaVersionArgs',
     'SchemaVersionArgsDict',
+    'SourceProcessingPropertiesPropertiesArgs',
+    'SourceProcessingPropertiesPropertiesArgsDict',
+    'TargetProcessingPropertiesPropertiesArgs',
+    'TargetProcessingPropertiesPropertiesArgsDict',
     'TriggerActionArgs',
     'TriggerActionArgsDict',
     'TriggerConditionArgs',
@@ -1978,6 +1982,136 @@ class SchemaVersionArgs:
     @version_number.setter
     def version_number(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "version_number", value)
+
+
+if not MYPY:
+    class SourceProcessingPropertiesPropertiesArgsDict(TypedDict):
+        """
+        The resource properties associated with the integration source.
+        """
+        role_arn: pulumi.Input[_builtins.str]
+        """
+        The IAM role to access the Glue connection.
+        """
+elif False:
+    SourceProcessingPropertiesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SourceProcessingPropertiesPropertiesArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[_builtins.str]):
+        """
+        The resource properties associated with the integration source.
+        :param pulumi.Input[_builtins.str] role_arn: The IAM role to access the Glue connection.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The IAM role to access the Glue connection.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_arn", value)
+
+
+if not MYPY:
+    class TargetProcessingPropertiesPropertiesArgsDict(TypedDict):
+        """
+        The resource properties associated with the integration target.
+        """
+        role_arn: pulumi.Input[_builtins.str]
+        """
+        The IAM role to access the Glue database.
+        """
+        connection_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Glue network connection to configure the Glue job running in the customer VPC.
+        """
+        event_bus_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ARN of an Eventbridge event bus to receive the integration status notification.
+        """
+        kms_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ARN of the KMS key used for encryption.
+        """
+elif False:
+    TargetProcessingPropertiesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TargetProcessingPropertiesPropertiesArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[_builtins.str],
+                 connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_bus_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The resource properties associated with the integration target.
+        :param pulumi.Input[_builtins.str] role_arn: The IAM role to access the Glue database.
+        :param pulumi.Input[_builtins.str] connection_name: The Glue network connection to configure the Glue job running in the customer VPC.
+        :param pulumi.Input[_builtins.str] event_bus_arn: The ARN of an Eventbridge event bus to receive the integration status notification.
+        :param pulumi.Input[_builtins.str] kms_arn: The ARN of the KMS key used for encryption.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if event_bus_arn is not None:
+            pulumi.set(__self__, "event_bus_arn", event_bus_arn)
+        if kms_arn is not None:
+            pulumi.set(__self__, "kms_arn", kms_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The IAM role to access the Glue database.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Glue network connection to configure the Glue job running in the customer VPC.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="eventBusArn")
+    def event_bus_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of an Eventbridge event bus to receive the integration status notification.
+        """
+        return pulumi.get(self, "event_bus_arn")
+
+    @event_bus_arn.setter
+    def event_bus_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "event_bus_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsArn")
+    def kms_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the KMS key used for encryption.
+        """
+        return pulumi.get(self, "kms_arn")
+
+    @kms_arn.setter
+    def kms_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_arn", value)
 
 
 if not MYPY:

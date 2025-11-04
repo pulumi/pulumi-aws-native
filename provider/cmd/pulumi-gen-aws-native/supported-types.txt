@@ -151,6 +151,7 @@ AWS::BedrockAgentCore::GatewayTarget
 AWS::BedrockAgentCore::Memory
 AWS::BedrockAgentCore::Runtime
 AWS::BedrockAgentCore::RuntimeEndpoint
+AWS::BedrockAgentCore::WorkloadIdentity
 AWS::Billing::BillingView
 AWS::Budgets::BudgetsAction
 AWS::CE::AnomalyMonitor
@@ -232,6 +233,7 @@ AWS::Cognito::IdentityPoolPrincipalTag
 AWS::Cognito::IdentityPoolRoleAttachment
 AWS::Cognito::LogDeliveryConfiguration
 AWS::Cognito::ManagedLoginBranding
+AWS::Cognito::Terms
 AWS::Cognito::UserPool
 AWS::Cognito::UserPoolClient
 AWS::Cognito::UserPoolDomain
@@ -565,6 +567,7 @@ AWS::GlobalAccelerator::EndpointGroup
 AWS::GlobalAccelerator::Listener
 AWS::Glue::Crawler
 AWS::Glue::Database
+AWS::Glue::IntegrationResourceProperty
 AWS::Glue::Job
 AWS::Glue::Registry
 AWS::Glue::Schema

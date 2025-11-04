@@ -40,6 +40,18 @@ export const ManagedLoginBrandingExtensionType = {
 
 export type ManagedLoginBrandingExtensionType = (typeof ManagedLoginBrandingExtensionType)[keyof typeof ManagedLoginBrandingExtensionType];
 
+export const TermsEnforcementType = {
+    None: "NONE",
+} as const;
+
+export type TermsEnforcementType = (typeof TermsEnforcementType)[keyof typeof TermsEnforcementType];
+
+export const TermsSourceType = {
+    Link: "LINK",
+} as const;
+
+export type TermsSourceType = (typeof TermsSourceType)[keyof typeof TermsSourceType];
+
 export const UserPoolClientRefreshTokenRotationFeature = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

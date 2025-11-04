@@ -726,7 +726,7 @@ func (o ApplicationQAppsConfigurationPtrOutput) QAppsControlMode() ApplicationQA
 }
 
 type ApplicationQuickSightConfiguration struct {
-	// The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
+	// The Amazon Quick Suite namespace that is used as the identity provider. For more information about Quick Suite namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
 	ClientNamespace string `pulumi:"clientNamespace"`
 }
 
@@ -742,7 +742,7 @@ type ApplicationQuickSightConfigurationInput interface {
 }
 
 type ApplicationQuickSightConfigurationArgs struct {
-	// The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
+	// The Amazon Quick Suite namespace that is used as the identity provider. For more information about Quick Suite namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
 	ClientNamespace pulumi.StringInput `pulumi:"clientNamespace"`
 }
 
@@ -823,7 +823,7 @@ func (o ApplicationQuickSightConfigurationOutput) ToApplicationQuickSightConfigu
 	}).(ApplicationQuickSightConfigurationPtrOutput)
 }
 
-// The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
+// The Amazon Quick Suite namespace that is used as the identity provider. For more information about Quick Suite namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
 func (o ApplicationQuickSightConfigurationOutput) ClientNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationQuickSightConfiguration) string { return v.ClientNamespace }).(pulumi.StringOutput)
 }
@@ -852,7 +852,7 @@ func (o ApplicationQuickSightConfigurationPtrOutput) Elem() ApplicationQuickSigh
 	}).(ApplicationQuickSightConfigurationOutput)
 }
 
-// The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
+// The Amazon Quick Suite namespace that is used as the identity provider. For more information about Quick Suite namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
 func (o ApplicationQuickSightConfigurationPtrOutput) ClientNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationQuickSightConfiguration) *string {
 		if v == nil {

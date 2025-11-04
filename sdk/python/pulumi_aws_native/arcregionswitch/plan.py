@@ -376,9 +376,6 @@ class Plan(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="healthChecksForPlan")
     def health_checks_for_plan(self) -> pulumi.Output[Mapping[str, Sequence['outputs.PlanHealthCheckState']]]:
-        """
-        Represents a Region switch plan. A plan defines the steps required to shift traffic from one AWS Region to another.
-        """
         return pulumi.get(self, "health_checks_for_plan")
 
     @_builtins.property

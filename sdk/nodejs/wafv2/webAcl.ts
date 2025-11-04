@@ -38,6 +38,10 @@ export class WebAcl extends pulumi.CustomResource {
     }
 
     /**
+     * Collection of application attributes.
+     */
+    declare public readonly applicationConfig: pulumi.Output<outputs.wafv2.WebAclApplicationConfig | undefined>;
+    /**
      * The Amazon Resource Name (ARN) of the web ACL.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
@@ -152,6 +156,7 @@ export class WebAcl extends pulumi.CustomResource {
             if (args?.visibilityConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
+            resourceInputs["applicationConfig"] = args?.applicationConfig;
             resourceInputs["associationConfig"] = args?.associationConfig;
             resourceInputs["captchaConfig"] = args?.captchaConfig;
             resourceInputs["challengeConfig"] = args?.challengeConfig;
@@ -171,6 +176,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["capacity"] = undefined /*out*/;
             resourceInputs["labelNamespace"] = undefined /*out*/;
         } else {
+            resourceInputs["applicationConfig"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationConfig"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -201,6 +207,10 @@ export class WebAcl extends pulumi.CustomResource {
  * The set of arguments for constructing a WebAcl resource.
  */
 export interface WebAclArgs {
+    /**
+     * Collection of application attributes.
+     */
+    applicationConfig?: pulumi.Input<inputs.wafv2.WebAclApplicationConfigArgs>;
     /**
      * Specifies custom configurations for the associations between the web ACL and protected resources.
      *

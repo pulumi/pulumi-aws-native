@@ -60,6 +60,11 @@ export const getRuntimeEndpoint: typeof import("./getRuntimeEndpoint").getRuntim
 export const getRuntimeEndpointOutput: typeof import("./getRuntimeEndpoint").getRuntimeEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getRuntimeEndpoint","getRuntimeEndpointOutput"], () => require("./getRuntimeEndpoint"));
 
+export { GetWorkloadIdentityArgs, GetWorkloadIdentityResult, GetWorkloadIdentityOutputArgs } from "./getWorkloadIdentity";
+export const getWorkloadIdentity: typeof import("./getWorkloadIdentity").getWorkloadIdentity = null as any;
+export const getWorkloadIdentityOutput: typeof import("./getWorkloadIdentity").getWorkloadIdentityOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkloadIdentity","getWorkloadIdentityOutput"], () => require("./getWorkloadIdentity"));
+
 export { MemoryArgs } from "./memory";
 export type Memory = import("./memory").Memory;
 export const Memory: typeof import("./memory").Memory = null as any;
@@ -74,6 +79,11 @@ export { RuntimeEndpointArgs } from "./runtimeEndpoint";
 export type RuntimeEndpoint = import("./runtimeEndpoint").RuntimeEndpoint;
 export const RuntimeEndpoint: typeof import("./runtimeEndpoint").RuntimeEndpoint = null as any;
 utilities.lazyLoad(exports, ["RuntimeEndpoint"], () => require("./runtimeEndpoint"));
+
+export { WorkloadIdentityArgs } from "./workloadIdentity";
+export type WorkloadIdentity = import("./workloadIdentity").WorkloadIdentity;
+export const WorkloadIdentity: typeof import("./workloadIdentity").WorkloadIdentity = null as any;
+utilities.lazyLoad(exports, ["WorkloadIdentity"], () => require("./workloadIdentity"));
 
 
 // Export enums:
@@ -97,6 +107,8 @@ const _module = {
                 return new Runtime(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:RuntimeEndpoint":
                 return new RuntimeEndpoint(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:WorkloadIdentity":
+                return new WorkloadIdentity(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

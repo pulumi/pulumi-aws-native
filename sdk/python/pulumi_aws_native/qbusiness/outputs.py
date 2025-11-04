@@ -287,7 +287,7 @@ class ApplicationQuickSightConfiguration(dict):
     def __init__(__self__, *,
                  client_namespace: _builtins.str):
         """
-        :param _builtins.str client_namespace: The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
+        :param _builtins.str client_namespace: The Amazon Quick Suite namespace that is used as the identity provider. For more information about Quick Suite namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
         """
         pulumi.set(__self__, "client_namespace", client_namespace)
 
@@ -295,7 +295,7 @@ class ApplicationQuickSightConfiguration(dict):
     @pulumi.getter(name="clientNamespace")
     def client_namespace(self) -> _builtins.str:
         """
-        The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
+        The Amazon Quick Suite namespace that is used as the identity provider. For more information about Quick Suite namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
         """
         return pulumi.get(self, "client_namespace")
 

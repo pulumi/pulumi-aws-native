@@ -100,7 +100,7 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly qAppsConfiguration: pulumi.Output<outputs.qbusiness.ApplicationQAppsConfiguration | undefined>;
     /**
-     * The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider.
+     * The Amazon Quick Suite configuration for an Amazon Q Business application that uses Quick Suite as the identity provider.
      */
     declare public readonly quickSightConfiguration: pulumi.Output<outputs.qbusiness.ApplicationQuickSightConfiguration | undefined>;
     /**
@@ -234,7 +234,7 @@ export interface ApplicationArgs {
      */
     qAppsConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationQAppsConfigurationArgs>;
     /**
-     * The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider.
+     * The Amazon Quick Suite configuration for an Amazon Q Business application that uses Quick Suite as the identity provider.
      */
     quickSightConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationQuickSightConfigurationArgs>;
     /**

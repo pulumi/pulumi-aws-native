@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<Inputs.DataSourceWebCrawlerConfigurationArgs>? WebCrawlerConfiguration { get; set; }
 
         /// <summary>
-        /// Provides the configuration information to connect to Amazon WorkDocs as your data source.
+        /// Provides the configuration information to connect to WorkDocs as your data source.
         /// </summary>
         [Input("workDocsConfiguration")]
         public Input<Inputs.DataSourceWorkDocsConfigurationArgs>? WorkDocsConfiguration { get; set; }

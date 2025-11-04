@@ -529,7 +529,7 @@ type DataSourceConfiguration struct {
 	TemplateConfiguration *DataSourceTemplateConfiguration `pulumi:"templateConfiguration"`
 	// Provides the configuration information required for Amazon Kendra Web Crawler.
 	WebCrawlerConfiguration *DataSourceWebCrawlerConfiguration `pulumi:"webCrawlerConfiguration"`
-	// Provides the configuration information to connect to Amazon WorkDocs as your data source.
+	// Provides the configuration information to connect to WorkDocs as your data source.
 	WorkDocsConfiguration *DataSourceWorkDocsConfiguration `pulumi:"workDocsConfiguration"`
 }
 
@@ -573,7 +573,7 @@ type DataSourceConfigurationArgs struct {
 	TemplateConfiguration DataSourceTemplateConfigurationPtrInput `pulumi:"templateConfiguration"`
 	// Provides the configuration information required for Amazon Kendra Web Crawler.
 	WebCrawlerConfiguration DataSourceWebCrawlerConfigurationPtrInput `pulumi:"webCrawlerConfiguration"`
-	// Provides the configuration information to connect to Amazon WorkDocs as your data source.
+	// Provides the configuration information to connect to WorkDocs as your data source.
 	WorkDocsConfiguration DataSourceWorkDocsConfigurationPtrInput `pulumi:"workDocsConfiguration"`
 }
 
@@ -712,7 +712,7 @@ func (o DataSourceConfigurationOutput) WebCrawlerConfiguration() DataSourceWebCr
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceWebCrawlerConfiguration { return v.WebCrawlerConfiguration }).(DataSourceWebCrawlerConfigurationPtrOutput)
 }
 
-// Provides the configuration information to connect to Amazon WorkDocs as your data source.
+// Provides the configuration information to connect to WorkDocs as your data source.
 func (o DataSourceConfigurationOutput) WorkDocsConfiguration() DataSourceWorkDocsConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceWorkDocsConfiguration { return v.WorkDocsConfiguration }).(DataSourceWorkDocsConfigurationPtrOutput)
 }
@@ -849,7 +849,7 @@ func (o DataSourceConfigurationPtrOutput) WebCrawlerConfiguration() DataSourceWe
 	}).(DataSourceWebCrawlerConfigurationPtrOutput)
 }
 
-// Provides the configuration information to connect to Amazon WorkDocs as your data source.
+// Provides the configuration information to connect to WorkDocs as your data source.
 func (o DataSourceConfigurationPtrOutput) WorkDocsConfiguration() DataSourceWorkDocsConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceWorkDocsConfiguration {
 		if v == nil {
@@ -9496,17 +9496,17 @@ type DataSourceWorkDocsConfiguration struct {
 	//
 	// The default is set to `FALSE` .
 	CrawlComments *bool `pulumi:"crawlComments"`
-	// A list of regular expression patterns to exclude certain files in your Amazon WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+	// A list of regular expression patterns to exclude certain files in your WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
 	ExclusionPatterns []string `pulumi:"exclusionPatterns"`
-	// A list of `DataSourceToIndexFieldMapping` objects that map Amazon WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Amazon WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Amazon WorkDocs data source field names must exist in your Amazon WorkDocs custom metadata.
+	// A list of `DataSourceToIndexFieldMapping` objects that map WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The WorkDocs data source field names must exist in your WorkDocs custom metadata.
 	FieldMappings []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
-	// A list of regular expression patterns to include certain files in your Amazon WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+	// A list of regular expression patterns to include certain files in your WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
 	InclusionPatterns []string `pulumi:"inclusionPatterns"`
-	// The identifier of the directory corresponding to your Amazon WorkDocs site repository.
+	// The identifier of the directory corresponding to your WorkDocs site repository.
 	//
-	// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your Amazon WorkDocs site directory has an ID, which is the organization ID. You can also set up a new Amazon WorkDocs directory in the AWS Directory Service console and enable a Amazon WorkDocs site for the directory in the Amazon WorkDocs console.
+	// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the AWS Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
 	OrganizationId string `pulumi:"organizationId"`
-	// `TRUE` to use the Amazon WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in Amazon WorkDocs.
+	// `TRUE` to use the WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in WorkDocs.
 	UseChangeLog *bool `pulumi:"useChangeLog"`
 }
 
@@ -9526,17 +9526,17 @@ type DataSourceWorkDocsConfigurationArgs struct {
 	//
 	// The default is set to `FALSE` .
 	CrawlComments pulumi.BoolPtrInput `pulumi:"crawlComments"`
-	// A list of regular expression patterns to exclude certain files in your Amazon WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+	// A list of regular expression patterns to exclude certain files in your WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
 	ExclusionPatterns pulumi.StringArrayInput `pulumi:"exclusionPatterns"`
-	// A list of `DataSourceToIndexFieldMapping` objects that map Amazon WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Amazon WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Amazon WorkDocs data source field names must exist in your Amazon WorkDocs custom metadata.
+	// A list of `DataSourceToIndexFieldMapping` objects that map WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The WorkDocs data source field names must exist in your WorkDocs custom metadata.
 	FieldMappings DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
-	// A list of regular expression patterns to include certain files in your Amazon WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+	// A list of regular expression patterns to include certain files in your WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
 	InclusionPatterns pulumi.StringArrayInput `pulumi:"inclusionPatterns"`
-	// The identifier of the directory corresponding to your Amazon WorkDocs site repository.
+	// The identifier of the directory corresponding to your WorkDocs site repository.
 	//
-	// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your Amazon WorkDocs site directory has an ID, which is the organization ID. You can also set up a new Amazon WorkDocs directory in the AWS Directory Service console and enable a Amazon WorkDocs site for the directory in the Amazon WorkDocs console.
+	// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the AWS Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
 	OrganizationId pulumi.StringInput `pulumi:"organizationId"`
-	// `TRUE` to use the Amazon WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in Amazon WorkDocs.
+	// `TRUE` to use the WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in WorkDocs.
 	UseChangeLog pulumi.BoolPtrInput `pulumi:"useChangeLog"`
 }
 
@@ -9624,29 +9624,29 @@ func (o DataSourceWorkDocsConfigurationOutput) CrawlComments() pulumi.BoolPtrOut
 	return o.ApplyT(func(v DataSourceWorkDocsConfiguration) *bool { return v.CrawlComments }).(pulumi.BoolPtrOutput)
 }
 
-// A list of regular expression patterns to exclude certain files in your Amazon WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+// A list of regular expression patterns to exclude certain files in your WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
 func (o DataSourceWorkDocsConfigurationOutput) ExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceWorkDocsConfiguration) []string { return v.ExclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
-// A list of `DataSourceToIndexFieldMapping` objects that map Amazon WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Amazon WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Amazon WorkDocs data source field names must exist in your Amazon WorkDocs custom metadata.
+// A list of `DataSourceToIndexFieldMapping` objects that map WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The WorkDocs data source field names must exist in your WorkDocs custom metadata.
 func (o DataSourceWorkDocsConfigurationOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v DataSourceWorkDocsConfiguration) []DataSourceToIndexFieldMapping { return v.FieldMappings }).(DataSourceToIndexFieldMappingArrayOutput)
 }
 
-// A list of regular expression patterns to include certain files in your Amazon WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+// A list of regular expression patterns to include certain files in your WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
 func (o DataSourceWorkDocsConfigurationOutput) InclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceWorkDocsConfiguration) []string { return v.InclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
-// The identifier of the directory corresponding to your Amazon WorkDocs site repository.
+// The identifier of the directory corresponding to your WorkDocs site repository.
 //
-// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your Amazon WorkDocs site directory has an ID, which is the organization ID. You can also set up a new Amazon WorkDocs directory in the AWS Directory Service console and enable a Amazon WorkDocs site for the directory in the Amazon WorkDocs console.
+// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the AWS Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
 func (o DataSourceWorkDocsConfigurationOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceWorkDocsConfiguration) string { return v.OrganizationId }).(pulumi.StringOutput)
 }
 
-// `TRUE` to use the Amazon WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in Amazon WorkDocs.
+// `TRUE` to use the WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in WorkDocs.
 func (o DataSourceWorkDocsConfigurationOutput) UseChangeLog() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceWorkDocsConfiguration) *bool { return v.UseChangeLog }).(pulumi.BoolPtrOutput)
 }
@@ -9687,7 +9687,7 @@ func (o DataSourceWorkDocsConfigurationPtrOutput) CrawlComments() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A list of regular expression patterns to exclude certain files in your Amazon WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+// A list of regular expression patterns to exclude certain files in your WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
 func (o DataSourceWorkDocsConfigurationPtrOutput) ExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceWorkDocsConfiguration) []string {
 		if v == nil {
@@ -9697,7 +9697,7 @@ func (o DataSourceWorkDocsConfigurationPtrOutput) ExclusionPatterns() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of `DataSourceToIndexFieldMapping` objects that map Amazon WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Amazon WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Amazon WorkDocs data source field names must exist in your Amazon WorkDocs custom metadata.
+// A list of `DataSourceToIndexFieldMapping` objects that map WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The WorkDocs data source field names must exist in your WorkDocs custom metadata.
 func (o DataSourceWorkDocsConfigurationPtrOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v *DataSourceWorkDocsConfiguration) []DataSourceToIndexFieldMapping {
 		if v == nil {
@@ -9707,7 +9707,7 @@ func (o DataSourceWorkDocsConfigurationPtrOutput) FieldMappings() DataSourceToIn
 	}).(DataSourceToIndexFieldMappingArrayOutput)
 }
 
-// A list of regular expression patterns to include certain files in your Amazon WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+// A list of regular expression patterns to include certain files in your WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
 func (o DataSourceWorkDocsConfigurationPtrOutput) InclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceWorkDocsConfiguration) []string {
 		if v == nil {
@@ -9717,9 +9717,9 @@ func (o DataSourceWorkDocsConfigurationPtrOutput) InclusionPatterns() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// The identifier of the directory corresponding to your Amazon WorkDocs site repository.
+// The identifier of the directory corresponding to your WorkDocs site repository.
 //
-// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your Amazon WorkDocs site directory has an ID, which is the organization ID. You can also set up a new Amazon WorkDocs directory in the AWS Directory Service console and enable a Amazon WorkDocs site for the directory in the Amazon WorkDocs console.
+// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the AWS Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
 func (o DataSourceWorkDocsConfigurationPtrOutput) OrganizationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceWorkDocsConfiguration) *string {
 		if v == nil {
@@ -9729,7 +9729,7 @@ func (o DataSourceWorkDocsConfigurationPtrOutput) OrganizationId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// `TRUE` to use the Amazon WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in Amazon WorkDocs.
+// `TRUE` to use the WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in WorkDocs.
 func (o DataSourceWorkDocsConfigurationPtrOutput) UseChangeLog() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceWorkDocsConfiguration) *bool {
 		if v == nil {

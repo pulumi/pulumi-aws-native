@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Runtime{}
 	case "aws-native:bedrockagentcore:RuntimeEndpoint":
 		r = &RuntimeEndpoint{}
+	case "aws-native:bedrockagentcore:WorkloadIdentity":
+		r = &WorkloadIdentity{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

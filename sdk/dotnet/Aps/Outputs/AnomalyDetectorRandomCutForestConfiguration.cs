@@ -13,10 +13,29 @@ namespace Pulumi.AwsNative.Aps.Outputs
     [OutputType]
     public sealed class AnomalyDetectorRandomCutForestConfiguration
     {
+        /// <summary>
+        /// Configuration for ignoring values that are near expected values from above during anomaly detection.
+        /// </summary>
         public readonly Outputs.AnomalyDetectorIgnoreNearExpected? IgnoreNearExpectedFromAbove;
+        /// <summary>
+        /// Configuration for ignoring values that are near expected values from below during anomaly detection.
+        /// </summary>
         public readonly Outputs.AnomalyDetectorIgnoreNearExpected? IgnoreNearExpectedFromBelow;
+        /// <summary>
+        /// The Prometheus query used to retrieve the time-series data for anomaly detection.
+        /// 
+        /// &gt; Random Cut Forest queries must be wrapped by a supported PromQL aggregation operator. For more information, see [Aggregation operators](https://docs.aws.amazon.com/https://prometheus.io/docs/prometheus/latest/querying/operators/#aggregation-operators) on the *Prometheus docs* website.
+        /// &gt; 
+        /// &gt; *Supported PromQL aggregation operators* : `avg` , `count` , `group` , `max` , `min` , `quantile` , `stddev` , `stdvar` , and `sum` .
+        /// </summary>
         public readonly string Query;
+        /// <summary>
+        /// The number of data points sampled from the input stream for the Random Cut Forest algorithm. The default number is 256 consecutive data points.
+        /// </summary>
         public readonly int? SampleSize;
+        /// <summary>
+        /// The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm. The default number is 8 consecutive data points.
+        /// </summary>
         public readonly int? ShingleSize;
 
         [OutputConstructor]

@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.S3Vectors
 
     public sealed class GetVectorBucketPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
+        /// </summary>
         [Input("vectorBucketArn", required: true)]
         public string VectorBucketArn { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.S3Vectors
 
     public sealed class GetVectorBucketPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
+        /// </summary>
         [Input("vectorBucketArn", required: true)]
         public Input<string> VectorBucketArn { get; set; } = null!;
 
@@ -57,6 +63,9 @@ namespace Pulumi.AwsNative.S3Vectors
     [OutputType]
     public sealed class GetVectorBucketPolicyResult
     {
+        /// <summary>
+        /// A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
+        /// </summary>
         public readonly Outputs.VectorBucketPolicyPolicy? Policy;
 
         [OutputConstructor]

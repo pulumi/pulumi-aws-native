@@ -23,11 +23,20 @@ func LookupVectorBucket(ctx *pulumi.Context, args *LookupVectorBucketArgs, opts 
 }
 
 type LookupVectorBucketArgs struct {
+	// Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+	//
+	// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
 	VectorBucketArn string `pulumi:"vectorBucketArn"`
 }
 
 type LookupVectorBucketResult struct {
-	CreationTime    *string `pulumi:"creationTime"`
+	// Returns the date and time when the vector bucket was created.
+	//
+	// Example: `2024-12-21T10:30:00Z`
+	CreationTime *string `pulumi:"creationTime"`
+	// Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+	//
+	// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
 	VectorBucketArn *string `pulumi:"vectorBucketArn"`
 }
 
@@ -41,6 +50,9 @@ func LookupVectorBucketOutput(ctx *pulumi.Context, args LookupVectorBucketOutput
 }
 
 type LookupVectorBucketOutputArgs struct {
+	// Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+	//
+	// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
 	VectorBucketArn pulumi.StringInput `pulumi:"vectorBucketArn"`
 }
 
@@ -62,10 +74,16 @@ func (o LookupVectorBucketResultOutput) ToLookupVectorBucketResultOutputWithCont
 	return o
 }
 
+// Returns the date and time when the vector bucket was created.
+//
+// Example: `2024-12-21T10:30:00Z`
 func (o LookupVectorBucketResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVectorBucketResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+//
+// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
 func (o LookupVectorBucketResultOutput) VectorBucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVectorBucketResult) *string { return v.VectorBucketArn }).(pulumi.StringPtrOutput)
 }

@@ -579,6 +579,7 @@ const (
 	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemT4g           = CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("t4g")
 	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemVu9p          = CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("vu9p")
 	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemV100          = CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("v100")
+	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemL40s          = CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("l40s")
 )
 
 func (CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem) ElementType() reflect.Type {
@@ -715,6 +716,7 @@ func (o CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemPtrOutput
 //	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemT4g
 //	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemVu9p
 //	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemV100
+//	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemL40s
 type CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemInput interface {
 	pulumi.Input
 

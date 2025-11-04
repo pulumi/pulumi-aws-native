@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateLayout> Layouts;
         /// <summary>
-        /// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
+        /// The name of the sheet. This name is displayed on the sheet's tab in the Quick Suite console.
         /// </summary>
         public readonly string? Name;
         /// <summary>

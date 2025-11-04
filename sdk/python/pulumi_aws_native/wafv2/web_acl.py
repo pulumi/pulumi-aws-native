@@ -27,6 +27,7 @@ class WebAclArgs:
                  default_action: pulumi.Input['WebAclDefaultActionArgs'],
                  scope: pulumi.Input['WebAclScope'],
                  visibility_config: pulumi.Input['WebAclVisibilityConfigArgs'],
+                 application_config: Optional[pulumi.Input['WebAclApplicationConfigArgs']] = None,
                  association_config: Optional[pulumi.Input['WebAclAssociationConfigArgs']] = None,
                  captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
                  challenge_config: Optional[pulumi.Input['WebAclChallengeConfigArgs']] = None,
@@ -47,6 +48,7 @@ class WebAclArgs:
                
                For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
         :param pulumi.Input['WebAclVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection.
+        :param pulumi.Input['WebAclApplicationConfigArgs'] application_config: Collection of application attributes.
         :param pulumi.Input['WebAclAssociationConfigArgs'] association_config: Specifies custom configurations for the associations between the web ACL and protected resources.
                
                Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).
@@ -74,6 +76,8 @@ class WebAclArgs:
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "visibility_config", visibility_config)
+        if application_config is not None:
+            pulumi.set(__self__, "application_config", application_config)
         if association_config is not None:
             pulumi.set(__self__, "association_config", association_config)
         if captcha_config is not None:
@@ -136,6 +140,18 @@ class WebAclArgs:
     @visibility_config.setter
     def visibility_config(self, value: pulumi.Input['WebAclVisibilityConfigArgs']):
         pulumi.set(self, "visibility_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationConfig")
+    def application_config(self) -> Optional[pulumi.Input['WebAclApplicationConfigArgs']]:
+        """
+        Collection of application attributes.
+        """
+        return pulumi.get(self, "application_config")
+
+    @application_config.setter
+    def application_config(self, value: Optional[pulumi.Input['WebAclApplicationConfigArgs']]):
+        pulumi.set(self, "application_config", value)
 
     @_builtins.property
     @pulumi.getter(name="associationConfig")
@@ -288,6 +304,7 @@ class WebAcl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 application_config: Optional[pulumi.Input[Union['WebAclApplicationConfigArgs', 'WebAclApplicationConfigArgsDict']]] = None,
                  association_config: Optional[pulumi.Input[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict']]] = None,
                  captcha_config: Optional[pulumi.Input[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
                  challenge_config: Optional[pulumi.Input[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
@@ -308,6 +325,7 @@ class WebAcl(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['WebAclApplicationConfigArgs', 'WebAclApplicationConfigArgsDict']] application_config: Collection of application attributes.
         :param pulumi.Input[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict']] association_config: Specifies custom configurations for the associations between the web ACL and protected resources.
                
                Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).
@@ -363,6 +381,7 @@ class WebAcl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 application_config: Optional[pulumi.Input[Union['WebAclApplicationConfigArgs', 'WebAclApplicationConfigArgsDict']]] = None,
                  association_config: Optional[pulumi.Input[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict']]] = None,
                  captcha_config: Optional[pulumi.Input[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
                  challenge_config: Optional[pulumi.Input[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
@@ -386,6 +405,7 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebAclArgs.__new__(WebAclArgs)
 
+            __props__.__dict__["application_config"] = application_config
             __props__.__dict__["association_config"] = association_config
             __props__.__dict__["captcha_config"] = captcha_config
             __props__.__dict__["challenge_config"] = challenge_config
@@ -434,6 +454,7 @@ class WebAcl(pulumi.CustomResource):
 
         __props__ = WebAclArgs.__new__(WebAclArgs)
 
+        __props__.__dict__["application_config"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["association_config"] = None
         __props__.__dict__["aws_id"] = None
@@ -453,6 +474,14 @@ class WebAcl(pulumi.CustomResource):
         __props__.__dict__["token_domains"] = None
         __props__.__dict__["visibility_config"] = None
         return WebAcl(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationConfig")
+    def application_config(self) -> pulumi.Output[Optional['outputs.WebAclApplicationConfig']]:
+        """
+        Collection of application attributes.
+        """
+        return pulumi.get(self, "application_config")
 
     @_builtins.property
     @pulumi.getter

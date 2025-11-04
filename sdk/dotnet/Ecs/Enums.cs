@@ -128,6 +128,7 @@ namespace Pulumi.AwsNative.Ecs
         public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem T4g { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("t4g");
         public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem Vu9p { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("vu9p");
         public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem V100 { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("v100");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem L40s { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("l40s");
 
         public static bool operator ==(CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem left, CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem right) => left.Equals(right);
         public static bool operator !=(CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem left, CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem right) => !left.Equals(right);

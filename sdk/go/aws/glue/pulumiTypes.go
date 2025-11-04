@@ -2650,6 +2650,14 @@ func (o DatabasePrincipalPrivilegesArrayOutput) Index(i pulumi.IntInput) Databas
 	}).(DatabasePrincipalPrivilegesOutput)
 }
 
+// A key-value pair to associate with a resource.
+type IntegrationResourcePropertyTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
 type JobCommand struct {
 	// The name of the job command
 	Name *string `pulumi:"name"`
@@ -3607,6 +3615,343 @@ func (o SchemaVersionSchemaOutput) SchemaArn() pulumi.StringPtrOutput {
 // Name of the schema. This parameter requires RegistryName to be provided.
 func (o SchemaVersionSchemaOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaVersionSchema) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+// The resource properties associated with the integration source.
+type SourceProcessingPropertiesProperties struct {
+	// The IAM role to access the Glue connection.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// SourceProcessingPropertiesPropertiesInput is an input type that accepts SourceProcessingPropertiesPropertiesArgs and SourceProcessingPropertiesPropertiesOutput values.
+// You can construct a concrete instance of `SourceProcessingPropertiesPropertiesInput` via:
+//
+//	SourceProcessingPropertiesPropertiesArgs{...}
+type SourceProcessingPropertiesPropertiesInput interface {
+	pulumi.Input
+
+	ToSourceProcessingPropertiesPropertiesOutput() SourceProcessingPropertiesPropertiesOutput
+	ToSourceProcessingPropertiesPropertiesOutputWithContext(context.Context) SourceProcessingPropertiesPropertiesOutput
+}
+
+// The resource properties associated with the integration source.
+type SourceProcessingPropertiesPropertiesArgs struct {
+	// The IAM role to access the Glue connection.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (SourceProcessingPropertiesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceProcessingPropertiesProperties)(nil)).Elem()
+}
+
+func (i SourceProcessingPropertiesPropertiesArgs) ToSourceProcessingPropertiesPropertiesOutput() SourceProcessingPropertiesPropertiesOutput {
+	return i.ToSourceProcessingPropertiesPropertiesOutputWithContext(context.Background())
+}
+
+func (i SourceProcessingPropertiesPropertiesArgs) ToSourceProcessingPropertiesPropertiesOutputWithContext(ctx context.Context) SourceProcessingPropertiesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceProcessingPropertiesPropertiesOutput)
+}
+
+func (i SourceProcessingPropertiesPropertiesArgs) ToSourceProcessingPropertiesPropertiesPtrOutput() SourceProcessingPropertiesPropertiesPtrOutput {
+	return i.ToSourceProcessingPropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SourceProcessingPropertiesPropertiesArgs) ToSourceProcessingPropertiesPropertiesPtrOutputWithContext(ctx context.Context) SourceProcessingPropertiesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceProcessingPropertiesPropertiesOutput).ToSourceProcessingPropertiesPropertiesPtrOutputWithContext(ctx)
+}
+
+// SourceProcessingPropertiesPropertiesPtrInput is an input type that accepts SourceProcessingPropertiesPropertiesArgs, SourceProcessingPropertiesPropertiesPtr and SourceProcessingPropertiesPropertiesPtrOutput values.
+// You can construct a concrete instance of `SourceProcessingPropertiesPropertiesPtrInput` via:
+//
+//	        SourceProcessingPropertiesPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SourceProcessingPropertiesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSourceProcessingPropertiesPropertiesPtrOutput() SourceProcessingPropertiesPropertiesPtrOutput
+	ToSourceProcessingPropertiesPropertiesPtrOutputWithContext(context.Context) SourceProcessingPropertiesPropertiesPtrOutput
+}
+
+type sourceProcessingPropertiesPropertiesPtrType SourceProcessingPropertiesPropertiesArgs
+
+func SourceProcessingPropertiesPropertiesPtr(v *SourceProcessingPropertiesPropertiesArgs) SourceProcessingPropertiesPropertiesPtrInput {
+	return (*sourceProcessingPropertiesPropertiesPtrType)(v)
+}
+
+func (*sourceProcessingPropertiesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceProcessingPropertiesProperties)(nil)).Elem()
+}
+
+func (i *sourceProcessingPropertiesPropertiesPtrType) ToSourceProcessingPropertiesPropertiesPtrOutput() SourceProcessingPropertiesPropertiesPtrOutput {
+	return i.ToSourceProcessingPropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *sourceProcessingPropertiesPropertiesPtrType) ToSourceProcessingPropertiesPropertiesPtrOutputWithContext(ctx context.Context) SourceProcessingPropertiesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceProcessingPropertiesPropertiesPtrOutput)
+}
+
+// The resource properties associated with the integration source.
+type SourceProcessingPropertiesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SourceProcessingPropertiesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceProcessingPropertiesProperties)(nil)).Elem()
+}
+
+func (o SourceProcessingPropertiesPropertiesOutput) ToSourceProcessingPropertiesPropertiesOutput() SourceProcessingPropertiesPropertiesOutput {
+	return o
+}
+
+func (o SourceProcessingPropertiesPropertiesOutput) ToSourceProcessingPropertiesPropertiesOutputWithContext(ctx context.Context) SourceProcessingPropertiesPropertiesOutput {
+	return o
+}
+
+func (o SourceProcessingPropertiesPropertiesOutput) ToSourceProcessingPropertiesPropertiesPtrOutput() SourceProcessingPropertiesPropertiesPtrOutput {
+	return o.ToSourceProcessingPropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SourceProcessingPropertiesPropertiesOutput) ToSourceProcessingPropertiesPropertiesPtrOutputWithContext(ctx context.Context) SourceProcessingPropertiesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceProcessingPropertiesProperties) *SourceProcessingPropertiesProperties {
+		return &v
+	}).(SourceProcessingPropertiesPropertiesPtrOutput)
+}
+
+// The IAM role to access the Glue connection.
+func (o SourceProcessingPropertiesPropertiesOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceProcessingPropertiesProperties) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type SourceProcessingPropertiesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceProcessingPropertiesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceProcessingPropertiesProperties)(nil)).Elem()
+}
+
+func (o SourceProcessingPropertiesPropertiesPtrOutput) ToSourceProcessingPropertiesPropertiesPtrOutput() SourceProcessingPropertiesPropertiesPtrOutput {
+	return o
+}
+
+func (o SourceProcessingPropertiesPropertiesPtrOutput) ToSourceProcessingPropertiesPropertiesPtrOutputWithContext(ctx context.Context) SourceProcessingPropertiesPropertiesPtrOutput {
+	return o
+}
+
+func (o SourceProcessingPropertiesPropertiesPtrOutput) Elem() SourceProcessingPropertiesPropertiesOutput {
+	return o.ApplyT(func(v *SourceProcessingPropertiesProperties) SourceProcessingPropertiesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SourceProcessingPropertiesProperties
+		return ret
+	}).(SourceProcessingPropertiesPropertiesOutput)
+}
+
+// The IAM role to access the Glue connection.
+func (o SourceProcessingPropertiesPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceProcessingPropertiesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource properties associated with the integration target.
+type TargetProcessingPropertiesProperties struct {
+	// The Glue network connection to configure the Glue job running in the customer VPC.
+	ConnectionName *string `pulumi:"connectionName"`
+	// The ARN of an Eventbridge event bus to receive the integration status notification.
+	EventBusArn *string `pulumi:"eventBusArn"`
+	// The ARN of the KMS key used for encryption.
+	KmsArn *string `pulumi:"kmsArn"`
+	// The IAM role to access the Glue database.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// TargetProcessingPropertiesPropertiesInput is an input type that accepts TargetProcessingPropertiesPropertiesArgs and TargetProcessingPropertiesPropertiesOutput values.
+// You can construct a concrete instance of `TargetProcessingPropertiesPropertiesInput` via:
+//
+//	TargetProcessingPropertiesPropertiesArgs{...}
+type TargetProcessingPropertiesPropertiesInput interface {
+	pulumi.Input
+
+	ToTargetProcessingPropertiesPropertiesOutput() TargetProcessingPropertiesPropertiesOutput
+	ToTargetProcessingPropertiesPropertiesOutputWithContext(context.Context) TargetProcessingPropertiesPropertiesOutput
+}
+
+// The resource properties associated with the integration target.
+type TargetProcessingPropertiesPropertiesArgs struct {
+	// The Glue network connection to configure the Glue job running in the customer VPC.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// The ARN of an Eventbridge event bus to receive the integration status notification.
+	EventBusArn pulumi.StringPtrInput `pulumi:"eventBusArn"`
+	// The ARN of the KMS key used for encryption.
+	KmsArn pulumi.StringPtrInput `pulumi:"kmsArn"`
+	// The IAM role to access the Glue database.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (TargetProcessingPropertiesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetProcessingPropertiesProperties)(nil)).Elem()
+}
+
+func (i TargetProcessingPropertiesPropertiesArgs) ToTargetProcessingPropertiesPropertiesOutput() TargetProcessingPropertiesPropertiesOutput {
+	return i.ToTargetProcessingPropertiesPropertiesOutputWithContext(context.Background())
+}
+
+func (i TargetProcessingPropertiesPropertiesArgs) ToTargetProcessingPropertiesPropertiesOutputWithContext(ctx context.Context) TargetProcessingPropertiesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetProcessingPropertiesPropertiesOutput)
+}
+
+func (i TargetProcessingPropertiesPropertiesArgs) ToTargetProcessingPropertiesPropertiesPtrOutput() TargetProcessingPropertiesPropertiesPtrOutput {
+	return i.ToTargetProcessingPropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TargetProcessingPropertiesPropertiesArgs) ToTargetProcessingPropertiesPropertiesPtrOutputWithContext(ctx context.Context) TargetProcessingPropertiesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetProcessingPropertiesPropertiesOutput).ToTargetProcessingPropertiesPropertiesPtrOutputWithContext(ctx)
+}
+
+// TargetProcessingPropertiesPropertiesPtrInput is an input type that accepts TargetProcessingPropertiesPropertiesArgs, TargetProcessingPropertiesPropertiesPtr and TargetProcessingPropertiesPropertiesPtrOutput values.
+// You can construct a concrete instance of `TargetProcessingPropertiesPropertiesPtrInput` via:
+//
+//	        TargetProcessingPropertiesPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TargetProcessingPropertiesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTargetProcessingPropertiesPropertiesPtrOutput() TargetProcessingPropertiesPropertiesPtrOutput
+	ToTargetProcessingPropertiesPropertiesPtrOutputWithContext(context.Context) TargetProcessingPropertiesPropertiesPtrOutput
+}
+
+type targetProcessingPropertiesPropertiesPtrType TargetProcessingPropertiesPropertiesArgs
+
+func TargetProcessingPropertiesPropertiesPtr(v *TargetProcessingPropertiesPropertiesArgs) TargetProcessingPropertiesPropertiesPtrInput {
+	return (*targetProcessingPropertiesPropertiesPtrType)(v)
+}
+
+func (*targetProcessingPropertiesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetProcessingPropertiesProperties)(nil)).Elem()
+}
+
+func (i *targetProcessingPropertiesPropertiesPtrType) ToTargetProcessingPropertiesPropertiesPtrOutput() TargetProcessingPropertiesPropertiesPtrOutput {
+	return i.ToTargetProcessingPropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *targetProcessingPropertiesPropertiesPtrType) ToTargetProcessingPropertiesPropertiesPtrOutputWithContext(ctx context.Context) TargetProcessingPropertiesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetProcessingPropertiesPropertiesPtrOutput)
+}
+
+// The resource properties associated with the integration target.
+type TargetProcessingPropertiesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TargetProcessingPropertiesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetProcessingPropertiesProperties)(nil)).Elem()
+}
+
+func (o TargetProcessingPropertiesPropertiesOutput) ToTargetProcessingPropertiesPropertiesOutput() TargetProcessingPropertiesPropertiesOutput {
+	return o
+}
+
+func (o TargetProcessingPropertiesPropertiesOutput) ToTargetProcessingPropertiesPropertiesOutputWithContext(ctx context.Context) TargetProcessingPropertiesPropertiesOutput {
+	return o
+}
+
+func (o TargetProcessingPropertiesPropertiesOutput) ToTargetProcessingPropertiesPropertiesPtrOutput() TargetProcessingPropertiesPropertiesPtrOutput {
+	return o.ToTargetProcessingPropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TargetProcessingPropertiesPropertiesOutput) ToTargetProcessingPropertiesPropertiesPtrOutputWithContext(ctx context.Context) TargetProcessingPropertiesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetProcessingPropertiesProperties) *TargetProcessingPropertiesProperties {
+		return &v
+	}).(TargetProcessingPropertiesPropertiesPtrOutput)
+}
+
+// The Glue network connection to configure the Glue job running in the customer VPC.
+func (o TargetProcessingPropertiesPropertiesOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetProcessingPropertiesProperties) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of an Eventbridge event bus to receive the integration status notification.
+func (o TargetProcessingPropertiesPropertiesOutput) EventBusArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetProcessingPropertiesProperties) *string { return v.EventBusArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the KMS key used for encryption.
+func (o TargetProcessingPropertiesPropertiesOutput) KmsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetProcessingPropertiesProperties) *string { return v.KmsArn }).(pulumi.StringPtrOutput)
+}
+
+// The IAM role to access the Glue database.
+func (o TargetProcessingPropertiesPropertiesOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetProcessingPropertiesProperties) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type TargetProcessingPropertiesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TargetProcessingPropertiesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetProcessingPropertiesProperties)(nil)).Elem()
+}
+
+func (o TargetProcessingPropertiesPropertiesPtrOutput) ToTargetProcessingPropertiesPropertiesPtrOutput() TargetProcessingPropertiesPropertiesPtrOutput {
+	return o
+}
+
+func (o TargetProcessingPropertiesPropertiesPtrOutput) ToTargetProcessingPropertiesPropertiesPtrOutputWithContext(ctx context.Context) TargetProcessingPropertiesPropertiesPtrOutput {
+	return o
+}
+
+func (o TargetProcessingPropertiesPropertiesPtrOutput) Elem() TargetProcessingPropertiesPropertiesOutput {
+	return o.ApplyT(func(v *TargetProcessingPropertiesProperties) TargetProcessingPropertiesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TargetProcessingPropertiesProperties
+		return ret
+	}).(TargetProcessingPropertiesPropertiesOutput)
+}
+
+// The Glue network connection to configure the Glue job running in the customer VPC.
+func (o TargetProcessingPropertiesPropertiesPtrOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetProcessingPropertiesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of an Eventbridge event bus to receive the integration status notification.
+func (o TargetProcessingPropertiesPropertiesPtrOutput) EventBusArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetProcessingPropertiesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventBusArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the KMS key used for encryption.
+func (o TargetProcessingPropertiesPropertiesPtrOutput) KmsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetProcessingPropertiesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IAM role to access the Glue database.
+func (o TargetProcessingPropertiesPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetProcessingPropertiesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The actions initiated by this trigger.
@@ -4666,6 +5011,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaVersionTypeInput)(nil)).Elem(), SchemaVersionTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaVersionTypePtrInput)(nil)).Elem(), SchemaVersionTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaVersionSchemaInput)(nil)).Elem(), SchemaVersionSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceProcessingPropertiesPropertiesInput)(nil)).Elem(), SourceProcessingPropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceProcessingPropertiesPropertiesPtrInput)(nil)).Elem(), SourceProcessingPropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetProcessingPropertiesPropertiesInput)(nil)).Elem(), TargetProcessingPropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetProcessingPropertiesPropertiesPtrInput)(nil)).Elem(), TargetProcessingPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerActionInput)(nil)).Elem(), TriggerActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerActionArrayInput)(nil)).Elem(), TriggerActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerConditionInput)(nil)).Elem(), TriggerConditionArgs{})
@@ -4729,6 +5078,10 @@ func init() {
 	pulumi.RegisterOutputType(SchemaVersionTypeOutput{})
 	pulumi.RegisterOutputType(SchemaVersionTypePtrOutput{})
 	pulumi.RegisterOutputType(SchemaVersionSchemaOutput{})
+	pulumi.RegisterOutputType(SourceProcessingPropertiesPropertiesOutput{})
+	pulumi.RegisterOutputType(SourceProcessingPropertiesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TargetProcessingPropertiesPropertiesOutput{})
+	pulumi.RegisterOutputType(TargetProcessingPropertiesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TriggerActionOutput{})
 	pulumi.RegisterOutputType(TriggerActionArrayOutput{})
 	pulumi.RegisterOutputType(TriggerConditionOutput{})

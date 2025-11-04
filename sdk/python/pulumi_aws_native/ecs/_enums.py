@@ -93,6 +93,7 @@ class CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem(_builtins.
     T4G = "t4g"
     VU9P = "vu9p"
     V100 = "v100"
+    L40S = "l40s"
 
 
 @pulumi.type_token("aws-native:ecs:CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem")

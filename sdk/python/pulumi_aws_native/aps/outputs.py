@@ -65,11 +65,17 @@ class AnomalyDetectorConfiguration(dict):
 
     def __init__(__self__, *,
                  random_cut_forest: 'outputs.AnomalyDetectorRandomCutForestConfiguration'):
+        """
+        :param 'AnomalyDetectorRandomCutForestConfiguration' random_cut_forest: The Random Cut Forest algorithm configuration for anomaly detection.
+        """
         pulumi.set(__self__, "random_cut_forest", random_cut_forest)
 
     @_builtins.property
     @pulumi.getter(name="randomCutForest")
     def random_cut_forest(self) -> 'outputs.AnomalyDetectorRandomCutForestConfiguration':
+        """
+        The Random Cut Forest algorithm configuration for anomaly detection.
+        """
         return pulumi.get(self, "random_cut_forest")
 
 
@@ -196,6 +202,17 @@ class AnomalyDetectorRandomCutForestConfiguration(dict):
                  ignore_near_expected_from_below: Optional['outputs.AnomalyDetectorIgnoreNearExpected'] = None,
                  sample_size: Optional[_builtins.int] = None,
                  shingle_size: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str query: The Prometheus query used to retrieve the time-series data for anomaly detection.
+               
+               > Random Cut Forest queries must be wrapped by a supported PromQL aggregation operator. For more information, see [Aggregation operators](https://docs.aws.amazon.com/https://prometheus.io/docs/prometheus/latest/querying/operators/#aggregation-operators) on the *Prometheus docs* website.
+               > 
+               > *Supported PromQL aggregation operators* : `avg` , `count` , `group` , `max` , `min` , `quantile` , `stddev` , `stdvar` , and `sum` .
+        :param 'AnomalyDetectorIgnoreNearExpected' ignore_near_expected_from_above: Configuration for ignoring values that are near expected values from above during anomaly detection.
+        :param 'AnomalyDetectorIgnoreNearExpected' ignore_near_expected_from_below: Configuration for ignoring values that are near expected values from below during anomaly detection.
+        :param _builtins.int sample_size: The number of data points sampled from the input stream for the Random Cut Forest algorithm. The default number is 256 consecutive data points.
+        :param _builtins.int shingle_size: The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm. The default number is 8 consecutive data points.
+        """
         pulumi.set(__self__, "query", query)
         if ignore_near_expected_from_above is not None:
             pulumi.set(__self__, "ignore_near_expected_from_above", ignore_near_expected_from_above)
@@ -209,26 +226,45 @@ class AnomalyDetectorRandomCutForestConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def query(self) -> _builtins.str:
+        """
+        The Prometheus query used to retrieve the time-series data for anomaly detection.
+
+        > Random Cut Forest queries must be wrapped by a supported PromQL aggregation operator. For more information, see [Aggregation operators](https://docs.aws.amazon.com/https://prometheus.io/docs/prometheus/latest/querying/operators/#aggregation-operators) on the *Prometheus docs* website.
+        > 
+        > *Supported PromQL aggregation operators* : `avg` , `count` , `group` , `max` , `min` , `quantile` , `stddev` , `stdvar` , and `sum` .
+        """
         return pulumi.get(self, "query")
 
     @_builtins.property
     @pulumi.getter(name="ignoreNearExpectedFromAbove")
     def ignore_near_expected_from_above(self) -> Optional['outputs.AnomalyDetectorIgnoreNearExpected']:
+        """
+        Configuration for ignoring values that are near expected values from above during anomaly detection.
+        """
         return pulumi.get(self, "ignore_near_expected_from_above")
 
     @_builtins.property
     @pulumi.getter(name="ignoreNearExpectedFromBelow")
     def ignore_near_expected_from_below(self) -> Optional['outputs.AnomalyDetectorIgnoreNearExpected']:
+        """
+        Configuration for ignoring values that are near expected values from below during anomaly detection.
+        """
         return pulumi.get(self, "ignore_near_expected_from_below")
 
     @_builtins.property
     @pulumi.getter(name="sampleSize")
     def sample_size(self) -> Optional[_builtins.int]:
+        """
+        The number of data points sampled from the input stream for the Random Cut Forest algorithm. The default number is 256 consecutive data points.
+        """
         return pulumi.get(self, "sample_size")
 
     @_builtins.property
     @pulumi.getter(name="shingleSize")
     def shingle_size(self) -> Optional[_builtins.int]:
+        """
+        The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm. The default number is 8 consecutive data points.
+        """
         return pulumi.get(self, "shingle_size")
 
 

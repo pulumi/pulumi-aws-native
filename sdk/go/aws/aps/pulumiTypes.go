@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AnomalyDetectorConfiguration struct {
+	// The Random Cut Forest algorithm configuration for anomaly detection.
 	RandomCutForest AnomalyDetectorRandomCutForestConfiguration `pulumi:"randomCutForest"`
 }
 
@@ -29,6 +30,7 @@ type AnomalyDetectorConfigurationInput interface {
 }
 
 type AnomalyDetectorConfigurationArgs struct {
+	// The Random Cut Forest algorithm configuration for anomaly detection.
 	RandomCutForest AnomalyDetectorRandomCutForestConfigurationInput `pulumi:"randomCutForest"`
 }
 
@@ -58,6 +60,7 @@ func (o AnomalyDetectorConfigurationOutput) ToAnomalyDetectorConfigurationOutput
 	return o
 }
 
+// The Random Cut Forest algorithm configuration for anomaly detection.
 func (o AnomalyDetectorConfigurationOutput) RandomCutForest() AnomalyDetectorRandomCutForestConfigurationOutput {
 	return o.ApplyT(func(v AnomalyDetectorConfiguration) AnomalyDetectorRandomCutForestConfiguration {
 		return v.RandomCutForest
@@ -88,6 +91,7 @@ func (o AnomalyDetectorConfigurationPtrOutput) Elem() AnomalyDetectorConfigurati
 	}).(AnomalyDetectorConfigurationOutput)
 }
 
+// The Random Cut Forest algorithm configuration for anomaly detection.
 func (o AnomalyDetectorConfigurationPtrOutput) RandomCutForest() AnomalyDetectorRandomCutForestConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorConfiguration) *AnomalyDetectorRandomCutForestConfiguration {
 		if v == nil {
@@ -503,11 +507,20 @@ func (o AnomalyDetectorMissingDataActionPtrOutput) Skip() pulumi.BoolPtrOutput {
 }
 
 type AnomalyDetectorRandomCutForestConfiguration struct {
+	// Configuration for ignoring values that are near expected values from above during anomaly detection.
 	IgnoreNearExpectedFromAbove *AnomalyDetectorIgnoreNearExpected `pulumi:"ignoreNearExpectedFromAbove"`
+	// Configuration for ignoring values that are near expected values from below during anomaly detection.
 	IgnoreNearExpectedFromBelow *AnomalyDetectorIgnoreNearExpected `pulumi:"ignoreNearExpectedFromBelow"`
-	Query                       string                             `pulumi:"query"`
-	SampleSize                  *int                               `pulumi:"sampleSize"`
-	ShingleSize                 *int                               `pulumi:"shingleSize"`
+	// The Prometheus query used to retrieve the time-series data for anomaly detection.
+	//
+	// > Random Cut Forest queries must be wrapped by a supported PromQL aggregation operator. For more information, see [Aggregation operators](https://docs.aws.amazon.com/https://prometheus.io/docs/prometheus/latest/querying/operators/#aggregation-operators) on the *Prometheus docs* website.
+	// >
+	// > *Supported PromQL aggregation operators* : `avg` , `count` , `group` , `max` , `min` , `quantile` , `stddev` , `stdvar` , and `sum` .
+	Query string `pulumi:"query"`
+	// The number of data points sampled from the input stream for the Random Cut Forest algorithm. The default number is 256 consecutive data points.
+	SampleSize *int `pulumi:"sampleSize"`
+	// The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm. The default number is 8 consecutive data points.
+	ShingleSize *int `pulumi:"shingleSize"`
 }
 
 // AnomalyDetectorRandomCutForestConfigurationInput is an input type that accepts AnomalyDetectorRandomCutForestConfigurationArgs and AnomalyDetectorRandomCutForestConfigurationOutput values.
@@ -522,11 +535,20 @@ type AnomalyDetectorRandomCutForestConfigurationInput interface {
 }
 
 type AnomalyDetectorRandomCutForestConfigurationArgs struct {
+	// Configuration for ignoring values that are near expected values from above during anomaly detection.
 	IgnoreNearExpectedFromAbove AnomalyDetectorIgnoreNearExpectedPtrInput `pulumi:"ignoreNearExpectedFromAbove"`
+	// Configuration for ignoring values that are near expected values from below during anomaly detection.
 	IgnoreNearExpectedFromBelow AnomalyDetectorIgnoreNearExpectedPtrInput `pulumi:"ignoreNearExpectedFromBelow"`
-	Query                       pulumi.StringInput                        `pulumi:"query"`
-	SampleSize                  pulumi.IntPtrInput                        `pulumi:"sampleSize"`
-	ShingleSize                 pulumi.IntPtrInput                        `pulumi:"shingleSize"`
+	// The Prometheus query used to retrieve the time-series data for anomaly detection.
+	//
+	// > Random Cut Forest queries must be wrapped by a supported PromQL aggregation operator. For more information, see [Aggregation operators](https://docs.aws.amazon.com/https://prometheus.io/docs/prometheus/latest/querying/operators/#aggregation-operators) on the *Prometheus docs* website.
+	// >
+	// > *Supported PromQL aggregation operators* : `avg` , `count` , `group` , `max` , `min` , `quantile` , `stddev` , `stdvar` , and `sum` .
+	Query pulumi.StringInput `pulumi:"query"`
+	// The number of data points sampled from the input stream for the Random Cut Forest algorithm. The default number is 256 consecutive data points.
+	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
+	// The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm. The default number is 8 consecutive data points.
+	ShingleSize pulumi.IntPtrInput `pulumi:"shingleSize"`
 }
 
 func (AnomalyDetectorRandomCutForestConfigurationArgs) ElementType() reflect.Type {
@@ -555,26 +577,35 @@ func (o AnomalyDetectorRandomCutForestConfigurationOutput) ToAnomalyDetectorRand
 	return o
 }
 
+// Configuration for ignoring values that are near expected values from above during anomaly detection.
 func (o AnomalyDetectorRandomCutForestConfigurationOutput) IgnoreNearExpectedFromAbove() AnomalyDetectorIgnoreNearExpectedPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorRandomCutForestConfiguration) *AnomalyDetectorIgnoreNearExpected {
 		return v.IgnoreNearExpectedFromAbove
 	}).(AnomalyDetectorIgnoreNearExpectedPtrOutput)
 }
 
+// Configuration for ignoring values that are near expected values from below during anomaly detection.
 func (o AnomalyDetectorRandomCutForestConfigurationOutput) IgnoreNearExpectedFromBelow() AnomalyDetectorIgnoreNearExpectedPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorRandomCutForestConfiguration) *AnomalyDetectorIgnoreNearExpected {
 		return v.IgnoreNearExpectedFromBelow
 	}).(AnomalyDetectorIgnoreNearExpectedPtrOutput)
 }
 
+// The Prometheus query used to retrieve the time-series data for anomaly detection.
+//
+// > Random Cut Forest queries must be wrapped by a supported PromQL aggregation operator. For more information, see [Aggregation operators](https://docs.aws.amazon.com/https://prometheus.io/docs/prometheus/latest/querying/operators/#aggregation-operators) on the *Prometheus docs* website.
+// >
+// > *Supported PromQL aggregation operators* : `avg` , `count` , `group` , `max` , `min` , `quantile` , `stddev` , `stdvar` , and `sum` .
 func (o AnomalyDetectorRandomCutForestConfigurationOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRandomCutForestConfiguration) string { return v.Query }).(pulumi.StringOutput)
 }
 
+// The number of data points sampled from the input stream for the Random Cut Forest algorithm. The default number is 256 consecutive data points.
 func (o AnomalyDetectorRandomCutForestConfigurationOutput) SampleSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorRandomCutForestConfiguration) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
 }
 
+// The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm. The default number is 8 consecutive data points.
 func (o AnomalyDetectorRandomCutForestConfigurationOutput) ShingleSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorRandomCutForestConfiguration) *int { return v.ShingleSize }).(pulumi.IntPtrOutput)
 }
@@ -603,6 +634,7 @@ func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) Elem() AnomalyDete
 	}).(AnomalyDetectorRandomCutForestConfigurationOutput)
 }
 
+// Configuration for ignoring values that are near expected values from above during anomaly detection.
 func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) IgnoreNearExpectedFromAbove() AnomalyDetectorIgnoreNearExpectedPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRandomCutForestConfiguration) *AnomalyDetectorIgnoreNearExpected {
 		if v == nil {
@@ -612,6 +644,7 @@ func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) IgnoreNearExpected
 	}).(AnomalyDetectorIgnoreNearExpectedPtrOutput)
 }
 
+// Configuration for ignoring values that are near expected values from below during anomaly detection.
 func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) IgnoreNearExpectedFromBelow() AnomalyDetectorIgnoreNearExpectedPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRandomCutForestConfiguration) *AnomalyDetectorIgnoreNearExpected {
 		if v == nil {
@@ -621,6 +654,11 @@ func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) IgnoreNearExpected
 	}).(AnomalyDetectorIgnoreNearExpectedPtrOutput)
 }
 
+// The Prometheus query used to retrieve the time-series data for anomaly detection.
+//
+// > Random Cut Forest queries must be wrapped by a supported PromQL aggregation operator. For more information, see [Aggregation operators](https://docs.aws.amazon.com/https://prometheus.io/docs/prometheus/latest/querying/operators/#aggregation-operators) on the *Prometheus docs* website.
+// >
+// > *Supported PromQL aggregation operators* : `avg` , `count` , `group` , `max` , `min` , `quantile` , `stddev` , `stdvar` , and `sum` .
 func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRandomCutForestConfiguration) *string {
 		if v == nil {
@@ -630,6 +668,7 @@ func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) Query() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of data points sampled from the input stream for the Random Cut Forest algorithm. The default number is 256 consecutive data points.
 func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) SampleSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRandomCutForestConfiguration) *int {
 		if v == nil {
@@ -639,6 +678,7 @@ func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) SampleSize() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm. The default number is 8 consecutive data points.
 func (o AnomalyDetectorRandomCutForestConfigurationPtrOutput) ShingleSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRandomCutForestConfiguration) *int {
 		if v == nil {

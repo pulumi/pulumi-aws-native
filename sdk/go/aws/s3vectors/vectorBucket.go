@@ -15,10 +15,22 @@ import (
 type VectorBucket struct {
 	pulumi.CustomResourceState
 
-	CreationTime            pulumi.StringOutput                          `pulumi:"creationTime"`
+	// Returns the date and time when the vector bucket was created.
+	//
+	// Example: `2024-12-21T10:30:00Z`
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The encryption configuration for the vector bucket.
 	EncryptionConfiguration VectorBucketEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
-	VectorBucketArn         pulumi.StringOutput                          `pulumi:"vectorBucketArn"`
-	VectorBucketName        pulumi.StringPtrOutput                       `pulumi:"vectorBucketName"`
+	// Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+	//
+	// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
+	VectorBucketArn pulumi.StringOutput `pulumi:"vectorBucketArn"`
+	// A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.
+	//
+	// The bucket name must be between 3 and 63 characters long and must not contain uppercase characters or underscores.
+	//
+	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+	VectorBucketName pulumi.StringPtrOutput `pulumi:"vectorBucketName"`
 }
 
 // NewVectorBucket registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +78,26 @@ func (VectorBucketState) ElementType() reflect.Type {
 }
 
 type vectorBucketArgs struct {
+	// The encryption configuration for the vector bucket.
 	EncryptionConfiguration *VectorBucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	VectorBucketName        *string                              `pulumi:"vectorBucketName"`
+	// A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.
+	//
+	// The bucket name must be between 3 and 63 characters long and must not contain uppercase characters or underscores.
+	//
+	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+	VectorBucketName *string `pulumi:"vectorBucketName"`
 }
 
 // The set of arguments for constructing a VectorBucket resource.
 type VectorBucketArgs struct {
+	// The encryption configuration for the vector bucket.
 	EncryptionConfiguration VectorBucketEncryptionConfigurationPtrInput
-	VectorBucketName        pulumi.StringPtrInput
+	// A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.
+	//
+	// The bucket name must be between 3 and 63 characters long and must not contain uppercase characters or underscores.
+	//
+	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+	VectorBucketName pulumi.StringPtrInput
 }
 
 func (VectorBucketArgs) ElementType() reflect.Type {
@@ -113,18 +137,30 @@ func (o VectorBucketOutput) ToVectorBucketOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Returns the date and time when the vector bucket was created.
+//
+// Example: `2024-12-21T10:30:00Z`
 func (o VectorBucketOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorBucket) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// The encryption configuration for the vector bucket.
 func (o VectorBucketOutput) EncryptionConfiguration() VectorBucketEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *VectorBucket) VectorBucketEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(VectorBucketEncryptionConfigurationPtrOutput)
 }
 
+// Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+//
+// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
 func (o VectorBucketOutput) VectorBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorBucket) pulumi.StringOutput { return v.VectorBucketArn }).(pulumi.StringOutput)
 }
 
+// A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.
+//
+// The bucket name must be between 3 and 63 characters long and must not contain uppercase characters or underscores.
+//
+// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
 func (o VectorBucketOutput) VectorBucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VectorBucket) pulumi.StringPtrOutput { return v.VectorBucketName }).(pulumi.StringPtrOutput)
 }

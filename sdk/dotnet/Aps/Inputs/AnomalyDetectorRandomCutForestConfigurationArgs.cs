@@ -12,18 +12,37 @@ namespace Pulumi.AwsNative.Aps.Inputs
 
     public sealed class AnomalyDetectorRandomCutForestConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration for ignoring values that are near expected values from above during anomaly detection.
+        /// </summary>
         [Input("ignoreNearExpectedFromAbove")]
         public Input<Inputs.AnomalyDetectorIgnoreNearExpectedArgs>? IgnoreNearExpectedFromAbove { get; set; }
 
+        /// <summary>
+        /// Configuration for ignoring values that are near expected values from below during anomaly detection.
+        /// </summary>
         [Input("ignoreNearExpectedFromBelow")]
         public Input<Inputs.AnomalyDetectorIgnoreNearExpectedArgs>? IgnoreNearExpectedFromBelow { get; set; }
 
+        /// <summary>
+        /// The Prometheus query used to retrieve the time-series data for anomaly detection.
+        /// 
+        /// &gt; Random Cut Forest queries must be wrapped by a supported PromQL aggregation operator. For more information, see [Aggregation operators](https://docs.aws.amazon.com/https://prometheus.io/docs/prometheus/latest/querying/operators/#aggregation-operators) on the *Prometheus docs* website.
+        /// &gt; 
+        /// &gt; *Supported PromQL aggregation operators* : `avg` , `count` , `group` , `max` , `min` , `quantile` , `stddev` , `stdvar` , and `sum` .
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
+        /// <summary>
+        /// The number of data points sampled from the input stream for the Random Cut Forest algorithm. The default number is 256 consecutive data points.
+        /// </summary>
         [Input("sampleSize")]
         public Input<int>? SampleSize { get; set; }
 
+        /// <summary>
+        /// The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm. The default number is 8 consecutive data points.
+        /// </summary>
         [Input("shingleSize")]
         public Input<int>? ShingleSize { get; set; }
 

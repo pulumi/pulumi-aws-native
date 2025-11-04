@@ -15,30 +15,70 @@ namespace Pulumi.AwsNative.S3Vectors
     [AwsNativeResourceType("aws-native:s3vectors:Index")]
     public partial class Index : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the date and time when the vector index was created.
+        /// 
+        /// Example: `2024-12-21T10:30:00Z`
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The data type of the vectors to be inserted into the vector index. Currently, only `float32` is supported, which represents 32-bit floating-point numbers.
+        /// </summary>
         [Output("dataType")]
         public Output<Pulumi.AwsNative.S3Vectors.IndexDataType> DataType { get; private set; } = null!;
 
+        /// <summary>
+        /// The dimensions of the vectors to be inserted into the vector index. This value must be between 1 and 4096, inclusive. All vectors stored in the index must have the same number of dimensions.
+        /// 
+        /// The dimension value affects the storage requirements and search performance. Higher dimensions require more storage space and may impact search latency.
+        /// </summary>
         [Output("dimension")]
         public Output<int> Dimension { get; private set; } = null!;
 
+        /// <summary>
+        /// The distance metric to be used for similarity search. Valid values are:
+        /// 
+        /// - `cosine` - Measures the cosine of the angle between two vectors.
+        /// - `euclidean` - Measures the straight-line distance between two points in multi-dimensional space. Lower values indicate greater similarity.
+        /// </summary>
         [Output("distanceMetric")]
         public Output<Pulumi.AwsNative.S3Vectors.IndexDistanceMetric> DistanceMetric { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified index.
+        /// 
+        /// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
+        /// </summary>
         [Output("indexArn")]
         public Output<string> IndexArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the vector index to create. The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.
+        /// 
+        /// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the index name.
+        /// 
+        /// &gt; If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+        /// </summary>
         [Output("indexName")]
         public Output<string?> IndexName { get; private set; } = null!;
 
+        /// <summary>
+        /// The metadata configuration for the vector index.
+        /// </summary>
         [Output("metadataConfiguration")]
         public Output<Outputs.IndexMetadataConfiguration?> MetadataConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
+        /// </summary>
         [Output("vectorBucketArn")]
         public Output<string?> VectorBucketArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the vector bucket that contains the vector index.
+        /// </summary>
         [Output("vectorBucketName")]
         public Output<string?> VectorBucketName { get; private set; } = null!;
 
@@ -97,24 +137,54 @@ namespace Pulumi.AwsNative.S3Vectors
 
     public sealed class IndexArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The data type of the vectors to be inserted into the vector index. Currently, only `float32` is supported, which represents 32-bit floating-point numbers.
+        /// </summary>
         [Input("dataType", required: true)]
         public Input<Pulumi.AwsNative.S3Vectors.IndexDataType> DataType { get; set; } = null!;
 
+        /// <summary>
+        /// The dimensions of the vectors to be inserted into the vector index. This value must be between 1 and 4096, inclusive. All vectors stored in the index must have the same number of dimensions.
+        /// 
+        /// The dimension value affects the storage requirements and search performance. Higher dimensions require more storage space and may impact search latency.
+        /// </summary>
         [Input("dimension", required: true)]
         public Input<int> Dimension { get; set; } = null!;
 
+        /// <summary>
+        /// The distance metric to be used for similarity search. Valid values are:
+        /// 
+        /// - `cosine` - Measures the cosine of the angle between two vectors.
+        /// - `euclidean` - Measures the straight-line distance between two points in multi-dimensional space. Lower values indicate greater similarity.
+        /// </summary>
         [Input("distanceMetric", required: true)]
         public Input<Pulumi.AwsNative.S3Vectors.IndexDistanceMetric> DistanceMetric { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the vector index to create. The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.
+        /// 
+        /// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the index name.
+        /// 
+        /// &gt; If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+        /// </summary>
         [Input("indexName")]
         public Input<string>? IndexName { get; set; }
 
+        /// <summary>
+        /// The metadata configuration for the vector index.
+        /// </summary>
         [Input("metadataConfiguration")]
         public Input<Inputs.IndexMetadataConfigurationArgs>? MetadataConfiguration { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
+        /// </summary>
         [Input("vectorBucketArn")]
         public Input<string>? VectorBucketArn { get; set; }
 
+        /// <summary>
+        /// The name of the vector bucket that contains the vector index.
+        /// </summary>
         [Input("vectorBucketName")]
         public Input<string>? VectorBucketName { get; set; }
 

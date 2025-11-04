@@ -87,6 +87,8 @@ __all__ = [
     'RuleGroupXssMatchStatement',
     'WebAclAllowAction',
     'WebAclAndStatement',
+    'WebAclApplicationAttribute',
+    'WebAclApplicationConfig',
     'WebAclAsnMatchStatement',
     'WebAclAssociationConfig',
     'WebAclAwsManagedRulesAcfpRuleSet',
@@ -4516,6 +4518,49 @@ class WebAclAndStatement(dict):
         The statements to combine with AND logic. You can use any statements that can be nested.
         """
         return pulumi.get(self, "statements")
+
+
+@pulumi.output_type
+class WebAclApplicationAttribute(dict):
+    """
+    Application details defined during the &webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        Application details defined during the &webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class WebAclApplicationConfig(dict):
+    """
+    Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+    """
+    def __init__(__self__, *,
+                 attributes: Sequence['outputs.WebAclApplicationAttribute']):
+        """
+        Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+        """
+        pulumi.set(__self__, "attributes", attributes)
+
+    @_builtins.property
+    @pulumi.getter
+    def attributes(self) -> Sequence['outputs.WebAclApplicationAttribute']:
+        return pulumi.get(self, "attributes")
 
 
 @pulumi.output_type

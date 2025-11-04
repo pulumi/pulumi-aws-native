@@ -539,6 +539,332 @@ func (in *managedLoginBrandingExtensionTypePtr) ToManagedLoginBrandingExtensionT
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedLoginBrandingExtensionTypePtrOutput)
 }
 
+type TermsEnforcementType string
+
+const (
+	TermsEnforcementTypeNone = TermsEnforcementType("NONE")
+)
+
+func (TermsEnforcementType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TermsEnforcementType)(nil)).Elem()
+}
+
+func (e TermsEnforcementType) ToTermsEnforcementTypeOutput() TermsEnforcementTypeOutput {
+	return pulumi.ToOutput(e).(TermsEnforcementTypeOutput)
+}
+
+func (e TermsEnforcementType) ToTermsEnforcementTypeOutputWithContext(ctx context.Context) TermsEnforcementTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TermsEnforcementTypeOutput)
+}
+
+func (e TermsEnforcementType) ToTermsEnforcementTypePtrOutput() TermsEnforcementTypePtrOutput {
+	return e.ToTermsEnforcementTypePtrOutputWithContext(context.Background())
+}
+
+func (e TermsEnforcementType) ToTermsEnforcementTypePtrOutputWithContext(ctx context.Context) TermsEnforcementTypePtrOutput {
+	return TermsEnforcementType(e).ToTermsEnforcementTypeOutputWithContext(ctx).ToTermsEnforcementTypePtrOutputWithContext(ctx)
+}
+
+func (e TermsEnforcementType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TermsEnforcementType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TermsEnforcementType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TermsEnforcementType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TermsEnforcementTypeOutput struct{ *pulumi.OutputState }
+
+func (TermsEnforcementTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TermsEnforcementType)(nil)).Elem()
+}
+
+func (o TermsEnforcementTypeOutput) ToTermsEnforcementTypeOutput() TermsEnforcementTypeOutput {
+	return o
+}
+
+func (o TermsEnforcementTypeOutput) ToTermsEnforcementTypeOutputWithContext(ctx context.Context) TermsEnforcementTypeOutput {
+	return o
+}
+
+func (o TermsEnforcementTypeOutput) ToTermsEnforcementTypePtrOutput() TermsEnforcementTypePtrOutput {
+	return o.ToTermsEnforcementTypePtrOutputWithContext(context.Background())
+}
+
+func (o TermsEnforcementTypeOutput) ToTermsEnforcementTypePtrOutputWithContext(ctx context.Context) TermsEnforcementTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TermsEnforcementType) *TermsEnforcementType {
+		return &v
+	}).(TermsEnforcementTypePtrOutput)
+}
+
+func (o TermsEnforcementTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TermsEnforcementTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TermsEnforcementType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TermsEnforcementTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TermsEnforcementTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TermsEnforcementType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TermsEnforcementTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TermsEnforcementTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TermsEnforcementType)(nil)).Elem()
+}
+
+func (o TermsEnforcementTypePtrOutput) ToTermsEnforcementTypePtrOutput() TermsEnforcementTypePtrOutput {
+	return o
+}
+
+func (o TermsEnforcementTypePtrOutput) ToTermsEnforcementTypePtrOutputWithContext(ctx context.Context) TermsEnforcementTypePtrOutput {
+	return o
+}
+
+func (o TermsEnforcementTypePtrOutput) Elem() TermsEnforcementTypeOutput {
+	return o.ApplyT(func(v *TermsEnforcementType) TermsEnforcementType {
+		if v != nil {
+			return *v
+		}
+		var ret TermsEnforcementType
+		return ret
+	}).(TermsEnforcementTypeOutput)
+}
+
+func (o TermsEnforcementTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TermsEnforcementTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TermsEnforcementType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TermsEnforcementTypeInput is an input type that accepts values of the TermsEnforcementType enum
+// A concrete instance of `TermsEnforcementTypeInput` can be one of the following:
+//
+//	TermsEnforcementTypeNone
+type TermsEnforcementTypeInput interface {
+	pulumi.Input
+
+	ToTermsEnforcementTypeOutput() TermsEnforcementTypeOutput
+	ToTermsEnforcementTypeOutputWithContext(context.Context) TermsEnforcementTypeOutput
+}
+
+var termsEnforcementTypePtrType = reflect.TypeOf((**TermsEnforcementType)(nil)).Elem()
+
+type TermsEnforcementTypePtrInput interface {
+	pulumi.Input
+
+	ToTermsEnforcementTypePtrOutput() TermsEnforcementTypePtrOutput
+	ToTermsEnforcementTypePtrOutputWithContext(context.Context) TermsEnforcementTypePtrOutput
+}
+
+type termsEnforcementTypePtr string
+
+func TermsEnforcementTypePtr(v string) TermsEnforcementTypePtrInput {
+	return (*termsEnforcementTypePtr)(&v)
+}
+
+func (*termsEnforcementTypePtr) ElementType() reflect.Type {
+	return termsEnforcementTypePtrType
+}
+
+func (in *termsEnforcementTypePtr) ToTermsEnforcementTypePtrOutput() TermsEnforcementTypePtrOutput {
+	return pulumi.ToOutput(in).(TermsEnforcementTypePtrOutput)
+}
+
+func (in *termsEnforcementTypePtr) ToTermsEnforcementTypePtrOutputWithContext(ctx context.Context) TermsEnforcementTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TermsEnforcementTypePtrOutput)
+}
+
+type TermsSourceType string
+
+const (
+	TermsSourceTypeLink = TermsSourceType("LINK")
+)
+
+func (TermsSourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TermsSourceType)(nil)).Elem()
+}
+
+func (e TermsSourceType) ToTermsSourceTypeOutput() TermsSourceTypeOutput {
+	return pulumi.ToOutput(e).(TermsSourceTypeOutput)
+}
+
+func (e TermsSourceType) ToTermsSourceTypeOutputWithContext(ctx context.Context) TermsSourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TermsSourceTypeOutput)
+}
+
+func (e TermsSourceType) ToTermsSourceTypePtrOutput() TermsSourceTypePtrOutput {
+	return e.ToTermsSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e TermsSourceType) ToTermsSourceTypePtrOutputWithContext(ctx context.Context) TermsSourceTypePtrOutput {
+	return TermsSourceType(e).ToTermsSourceTypeOutputWithContext(ctx).ToTermsSourceTypePtrOutputWithContext(ctx)
+}
+
+func (e TermsSourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TermsSourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TermsSourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TermsSourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TermsSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (TermsSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TermsSourceType)(nil)).Elem()
+}
+
+func (o TermsSourceTypeOutput) ToTermsSourceTypeOutput() TermsSourceTypeOutput {
+	return o
+}
+
+func (o TermsSourceTypeOutput) ToTermsSourceTypeOutputWithContext(ctx context.Context) TermsSourceTypeOutput {
+	return o
+}
+
+func (o TermsSourceTypeOutput) ToTermsSourceTypePtrOutput() TermsSourceTypePtrOutput {
+	return o.ToTermsSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o TermsSourceTypeOutput) ToTermsSourceTypePtrOutputWithContext(ctx context.Context) TermsSourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TermsSourceType) *TermsSourceType {
+		return &v
+	}).(TermsSourceTypePtrOutput)
+}
+
+func (o TermsSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TermsSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TermsSourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TermsSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TermsSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TermsSourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TermsSourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TermsSourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TermsSourceType)(nil)).Elem()
+}
+
+func (o TermsSourceTypePtrOutput) ToTermsSourceTypePtrOutput() TermsSourceTypePtrOutput {
+	return o
+}
+
+func (o TermsSourceTypePtrOutput) ToTermsSourceTypePtrOutputWithContext(ctx context.Context) TermsSourceTypePtrOutput {
+	return o
+}
+
+func (o TermsSourceTypePtrOutput) Elem() TermsSourceTypeOutput {
+	return o.ApplyT(func(v *TermsSourceType) TermsSourceType {
+		if v != nil {
+			return *v
+		}
+		var ret TermsSourceType
+		return ret
+	}).(TermsSourceTypeOutput)
+}
+
+func (o TermsSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TermsSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TermsSourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TermsSourceTypeInput is an input type that accepts values of the TermsSourceType enum
+// A concrete instance of `TermsSourceTypeInput` can be one of the following:
+//
+//	TermsSourceTypeLink
+type TermsSourceTypeInput interface {
+	pulumi.Input
+
+	ToTermsSourceTypeOutput() TermsSourceTypeOutput
+	ToTermsSourceTypeOutputWithContext(context.Context) TermsSourceTypeOutput
+}
+
+var termsSourceTypePtrType = reflect.TypeOf((**TermsSourceType)(nil)).Elem()
+
+type TermsSourceTypePtrInput interface {
+	pulumi.Input
+
+	ToTermsSourceTypePtrOutput() TermsSourceTypePtrOutput
+	ToTermsSourceTypePtrOutputWithContext(context.Context) TermsSourceTypePtrOutput
+}
+
+type termsSourceTypePtr string
+
+func TermsSourceTypePtr(v string) TermsSourceTypePtrInput {
+	return (*termsSourceTypePtr)(&v)
+}
+
+func (*termsSourceTypePtr) ElementType() reflect.Type {
+	return termsSourceTypePtrType
+}
+
+func (in *termsSourceTypePtr) ToTermsSourceTypePtrOutput() TermsSourceTypePtrOutput {
+	return pulumi.ToOutput(in).(TermsSourceTypePtrOutput)
+}
+
+func (in *termsSourceTypePtr) ToTermsSourceTypePtrOutputWithContext(ctx context.Context) TermsSourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TermsSourceTypePtrOutput)
+}
+
 // The state of refresh token rotation for the current app client.
 type UserPoolClientRefreshTokenRotationFeature string
 
@@ -880,6 +1206,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedLoginBrandingColorModeTypePtrInput)(nil)).Elem(), ManagedLoginBrandingColorModeType("LIGHT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedLoginBrandingExtensionTypeInput)(nil)).Elem(), ManagedLoginBrandingExtensionType("ICO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedLoginBrandingExtensionTypePtrInput)(nil)).Elem(), ManagedLoginBrandingExtensionType("ICO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TermsEnforcementTypeInput)(nil)).Elem(), TermsEnforcementType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TermsEnforcementTypePtrInput)(nil)).Elem(), TermsEnforcementType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TermsSourceTypeInput)(nil)).Elem(), TermsSourceType("LINK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TermsSourceTypePtrInput)(nil)).Elem(), TermsSourceType("LINK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientRefreshTokenRotationFeatureInput)(nil)).Elem(), UserPoolClientRefreshTokenRotationFeature("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientRefreshTokenRotationFeaturePtrInput)(nil)).Elem(), UserPoolClientRefreshTokenRotationFeature("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolTierInput)(nil)).Elem(), UserPoolTier("LITE"))
@@ -890,6 +1220,10 @@ func init() {
 	pulumi.RegisterOutputType(ManagedLoginBrandingColorModeTypePtrOutput{})
 	pulumi.RegisterOutputType(ManagedLoginBrandingExtensionTypeOutput{})
 	pulumi.RegisterOutputType(ManagedLoginBrandingExtensionTypePtrOutput{})
+	pulumi.RegisterOutputType(TermsEnforcementTypeOutput{})
+	pulumi.RegisterOutputType(TermsEnforcementTypePtrOutput{})
+	pulumi.RegisterOutputType(TermsSourceTypeOutput{})
+	pulumi.RegisterOutputType(TermsSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolClientRefreshTokenRotationFeatureOutput{})
 	pulumi.RegisterOutputType(UserPoolClientRefreshTokenRotationFeaturePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolTierOutput{})

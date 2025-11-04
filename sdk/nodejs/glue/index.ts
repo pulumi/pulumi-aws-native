@@ -25,6 +25,11 @@ export const getDatabase: typeof import("./getDatabase").getDatabase = null as a
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
+export { GetIntegrationResourcePropertyArgs, GetIntegrationResourcePropertyResult, GetIntegrationResourcePropertyOutputArgs } from "./getIntegrationResourceProperty";
+export const getIntegrationResourceProperty: typeof import("./getIntegrationResourceProperty").getIntegrationResourceProperty = null as any;
+export const getIntegrationResourcePropertyOutput: typeof import("./getIntegrationResourceProperty").getIntegrationResourcePropertyOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegrationResourceProperty","getIntegrationResourcePropertyOutput"], () => require("./getIntegrationResourceProperty"));
+
 export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
 export const getJob: typeof import("./getJob").getJob = null as any;
 export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
@@ -54,6 +59,11 @@ export { GetUsageProfileArgs, GetUsageProfileResult, GetUsageProfileOutputArgs }
 export const getUsageProfile: typeof import("./getUsageProfile").getUsageProfile = null as any;
 export const getUsageProfileOutput: typeof import("./getUsageProfile").getUsageProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getUsageProfile","getUsageProfileOutput"], () => require("./getUsageProfile"));
+
+export { IntegrationResourcePropertyArgs } from "./integrationResourceProperty";
+export type IntegrationResourceProperty = import("./integrationResourceProperty").IntegrationResourceProperty;
+export const IntegrationResourceProperty: typeof import("./integrationResourceProperty").IntegrationResourceProperty = null as any;
+utilities.lazyLoad(exports, ["IntegrationResourceProperty"], () => require("./integrationResourceProperty"));
 
 export { JobArgs } from "./job";
 export type Job = import("./job").Job;
@@ -102,6 +112,8 @@ const _module = {
                 return new Crawler(name, <any>undefined, { urn })
             case "aws-native:glue:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "aws-native:glue:IntegrationResourceProperty":
+                return new IntegrationResourceProperty(name, <any>undefined, { urn })
             case "aws-native:glue:Job":
                 return new Job(name, <any>undefined, { urn })
             case "aws-native:glue:Registry":

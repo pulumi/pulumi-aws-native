@@ -26,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetWebAclResult:
-    def __init__(__self__, arn=None, association_config=None, capacity=None, captcha_config=None, challenge_config=None, custom_response_bodies=None, data_protection_config=None, default_action=None, description=None, id=None, label_namespace=None, on_source_d_do_s_protection_config=None, rules=None, tags=None, token_domains=None, visibility_config=None):
+    def __init__(__self__, application_config=None, arn=None, association_config=None, capacity=None, captcha_config=None, challenge_config=None, custom_response_bodies=None, data_protection_config=None, default_action=None, description=None, id=None, label_namespace=None, on_source_d_do_s_protection_config=None, rules=None, tags=None, token_domains=None, visibility_config=None):
+        if application_config and not isinstance(application_config, dict):
+            raise TypeError("Expected argument 'application_config' to be a dict")
+        pulumi.set(__self__, "application_config", application_config)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -75,6 +78,14 @@ class GetWebAclResult:
         if visibility_config and not isinstance(visibility_config, dict):
             raise TypeError("Expected argument 'visibility_config' to be a dict")
         pulumi.set(__self__, "visibility_config", visibility_config)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationConfig")
+    def application_config(self) -> Optional['outputs.WebAclApplicationConfig']:
+        """
+        Collection of application attributes.
+        """
+        return pulumi.get(self, "application_config")
 
     @_builtins.property
     @pulumi.getter
@@ -229,6 +240,7 @@ class AwaitableGetWebAclResult(GetWebAclResult):
         if False:
             yield self
         return GetWebAclResult(
+            application_config=self.application_config,
             arn=self.arn,
             association_config=self.association_config,
             capacity=self.capacity,
@@ -271,6 +283,7 @@ def get_web_acl(id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:wafv2:getWebAcl', __args__, opts=opts, typ=GetWebAclResult).value
 
     return AwaitableGetWebAclResult(
+        application_config=pulumi.get(__ret__, 'application_config'),
         arn=pulumi.get(__ret__, 'arn'),
         association_config=pulumi.get(__ret__, 'association_config'),
         capacity=pulumi.get(__ret__, 'capacity'),
@@ -310,6 +323,7 @@ def get_web_acl_output(id: Optional[pulumi.Input[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:wafv2:getWebAcl', __args__, opts=opts, typ=GetWebAclResult)
     return __ret__.apply(lambda __response__: GetWebAclResult(
+        application_config=pulumi.get(__response__, 'application_config'),
         arn=pulumi.get(__response__, 'arn'),
         association_config=pulumi.get(__response__, 'association_config'),
         capacity=pulumi.get(__response__, 'capacity'),

@@ -41,9 +41,6 @@ export interface GetPlanResult {
      * The execution role for a plan.
      */
     readonly executionRole?: string;
-    /**
-     * Represents a Region switch plan. A plan defines the steps required to shift traffic from one AWS Region to another.
-     */
     readonly healthChecksForPlan?: {[key: string]: outputs.arcregionswitch.PlanHealthCheckState[]};
     /**
      * The owner of a plan.

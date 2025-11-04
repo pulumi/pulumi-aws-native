@@ -30,6 +30,11 @@ export const getManagedLoginBranding: typeof import("./getManagedLoginBranding")
 export const getManagedLoginBrandingOutput: typeof import("./getManagedLoginBranding").getManagedLoginBrandingOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedLoginBranding","getManagedLoginBrandingOutput"], () => require("./getManagedLoginBranding"));
 
+export { GetTermsArgs, GetTermsResult, GetTermsOutputArgs } from "./getTerms";
+export const getTerms: typeof import("./getTerms").getTerms = null as any;
+export const getTermsOutput: typeof import("./getTerms").getTermsOutput = null as any;
+utilities.lazyLoad(exports, ["getTerms","getTermsOutput"], () => require("./getTerms"));
+
 export { GetUserPoolArgs, GetUserPoolResult, GetUserPoolOutputArgs } from "./getUserPool";
 export const getUserPool: typeof import("./getUserPool").getUserPool = null as any;
 export const getUserPoolOutput: typeof import("./getUserPool").getUserPoolOutput = null as any;
@@ -94,6 +99,11 @@ export { ManagedLoginBrandingArgs } from "./managedLoginBranding";
 export type ManagedLoginBranding = import("./managedLoginBranding").ManagedLoginBranding;
 export const ManagedLoginBranding: typeof import("./managedLoginBranding").ManagedLoginBranding = null as any;
 utilities.lazyLoad(exports, ["ManagedLoginBranding"], () => require("./managedLoginBranding"));
+
+export { TermsArgs } from "./terms";
+export type Terms = import("./terms").Terms;
+export const Terms: typeof import("./terms").Terms = null as any;
+utilities.lazyLoad(exports, ["Terms"], () => require("./terms"));
 
 export { UserPoolArgs } from "./userPool";
 export type UserPool = import("./userPool").UserPool;
@@ -163,6 +173,8 @@ const _module = {
                 return new LogDeliveryConfiguration(name, <any>undefined, { urn })
             case "aws-native:cognito:ManagedLoginBranding":
                 return new ManagedLoginBranding(name, <any>undefined, { urn })
+            case "aws-native:cognito:Terms":
+                return new Terms(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPool":
                 return new UserPool(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPoolClient":

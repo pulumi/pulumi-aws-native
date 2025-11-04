@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     public sealed class ApplicationQuickSightConfiguration
     {
         /// <summary>
-        /// The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
+        /// The Amazon Quick Suite namespace that is used as the identity provider. For more information about Quick Suite namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
         /// </summary>
         public readonly string ClientNamespace;
 

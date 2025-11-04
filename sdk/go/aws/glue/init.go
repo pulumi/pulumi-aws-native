@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Crawler{}
 	case "aws-native:glue:Database":
 		r = &Database{}
+	case "aws-native:glue:IntegrationResourceProperty":
+		r = &IntegrationResourceProperty{}
 	case "aws-native:glue:Job":
 		r = &Job{}
 	case "aws-native:glue:Registry":

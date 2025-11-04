@@ -39,9 +39,6 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         [Output("executionRole")]
         public Output<string> ExecutionRole { get; private set; } = null!;
 
-        /// <summary>
-        /// Represents a Region switch plan. A plan defines the steps required to shift traffic from one AWS Region to another.
-        /// </summary>
         [Output("healthChecksForPlan")]
         public Output<ImmutableDictionary<string, ImmutableArray<Outputs.PlanHealthCheckState>>> HealthChecksForPlan { get; private set; } = null!;
 

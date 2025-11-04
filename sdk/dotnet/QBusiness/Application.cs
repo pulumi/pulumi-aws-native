@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.QBusiness
         public Output<Outputs.ApplicationQAppsConfiguration?> QAppsConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider.
+        /// The Amazon Quick Suite configuration for an Amazon Q Business application that uses Quick Suite as the identity provider.
         /// </summary>
         [Output("quickSightConfiguration")]
         public Output<Outputs.ApplicationQuickSightConfiguration?> QuickSightConfiguration { get; private set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.AwsNative.QBusiness
         public Input<Inputs.ApplicationQAppsConfigurationArgs>? QAppsConfiguration { get; set; }
 
         /// <summary>
-        /// The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider.
+        /// The Amazon Quick Suite configuration for an Amazon Q Business application that uses Quick Suite as the identity provider.
         /// </summary>
         [Input("quickSightConfiguration")]
         public Input<Inputs.ApplicationQuickSightConfigurationArgs>? QuickSightConfiguration { get; set; }

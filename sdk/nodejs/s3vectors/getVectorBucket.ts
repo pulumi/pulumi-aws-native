@@ -15,11 +15,26 @@ export function getVectorBucket(args: GetVectorBucketArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetVectorBucketArgs {
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+     *
+     * Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
+     */
     vectorBucketArn: string;
 }
 
 export interface GetVectorBucketResult {
+    /**
+     * Returns the date and time when the vector bucket was created.
+     *
+     * Example: `2024-12-21T10:30:00Z`
+     */
     readonly creationTime?: string;
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+     *
+     * Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
+     */
     readonly vectorBucketArn?: string;
 }
 /**
@@ -33,5 +48,10 @@ export function getVectorBucketOutput(args: GetVectorBucketOutputArgs, opts?: pu
 }
 
 export interface GetVectorBucketOutputArgs {
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+     *
+     * Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
+     */
     vectorBucketArn: pulumi.Input<string>;
 }

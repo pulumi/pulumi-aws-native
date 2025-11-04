@@ -7534,6 +7534,11 @@ func (o RuntimeWorkloadIdentityDetailsPtrOutput) WorkloadIdentityArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkloadIdentityTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserNetworkConfigurationInput)(nil)).Elem(), BrowserCustomBrowserNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomRecordingConfigInput)(nil)).Elem(), BrowserCustomRecordingConfigArgs{})

@@ -34,11 +34,21 @@ class GetVectorBucketResult:
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[_builtins.str]:
+        """
+        Returns the date and time when the vector bucket was created.
+
+        Example: `2024-12-21T10:30:00Z`
+        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="vectorBucketArn")
     def vector_bucket_arn(self) -> Optional[_builtins.str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+
+        Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
+        """
         return pulumi.get(self, "vector_bucket_arn")
 
 
@@ -56,6 +66,11 @@ def get_vector_bucket(vector_bucket_arn: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVectorBucketResult:
     """
     Resource Type definition for AWS::S3Vectors::VectorBucket
+
+
+    :param _builtins.str vector_bucket_arn: Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+           
+           Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
     """
     __args__ = dict()
     __args__['vectorBucketArn'] = vector_bucket_arn
@@ -69,6 +84,11 @@ def get_vector_bucket_output(vector_bucket_arn: Optional[pulumi.Input[_builtins.
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVectorBucketResult]:
     """
     Resource Type definition for AWS::S3Vectors::VectorBucket
+
+
+    :param _builtins.str vector_bucket_arn: Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+           
+           Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
     """
     __args__ = dict()
     __args__['vectorBucketArn'] = vector_bucket_arn

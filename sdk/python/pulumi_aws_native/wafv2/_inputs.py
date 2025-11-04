@@ -156,6 +156,10 @@ __all__ = [
     'WebAclAllowActionArgsDict',
     'WebAclAndStatementArgs',
     'WebAclAndStatementArgsDict',
+    'WebAclApplicationAttributeArgs',
+    'WebAclApplicationAttributeArgsDict',
+    'WebAclApplicationConfigArgs',
+    'WebAclApplicationConfigArgsDict',
     'WebAclAsnMatchStatementArgs',
     'WebAclAsnMatchStatementArgsDict',
     'WebAclAssociationConfigArgs',
@@ -5745,6 +5749,74 @@ class WebAclAndStatementArgs:
     @statements.setter
     def statements(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclStatementArgs']]]):
         pulumi.set(self, "statements", value)
+
+
+if not MYPY:
+    class WebAclApplicationAttributeArgsDict(TypedDict):
+        """
+        Application details defined during the &webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+        """
+        name: pulumi.Input[_builtins.str]
+        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+elif False:
+    WebAclApplicationAttributeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclApplicationAttributeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        Application details defined during the &webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class WebAclApplicationConfigArgsDict(TypedDict):
+        """
+        Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+        """
+        attributes: pulumi.Input[Sequence[pulumi.Input['WebAclApplicationAttributeArgsDict']]]
+elif False:
+    WebAclApplicationConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclApplicationConfigArgs:
+    def __init__(__self__, *,
+                 attributes: pulumi.Input[Sequence[pulumi.Input['WebAclApplicationAttributeArgs']]]):
+        """
+        Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+        """
+        pulumi.set(__self__, "attributes", attributes)
+
+    @_builtins.property
+    @pulumi.getter
+    def attributes(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclApplicationAttributeArgs']]]:
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclApplicationAttributeArgs']]]):
+        pulumi.set(self, "attributes", value)
 
 
 if not MYPY:

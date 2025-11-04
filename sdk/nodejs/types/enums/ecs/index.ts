@@ -51,6 +51,7 @@ export const CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem = {
     T4g: "t4g",
     Vu9p: "vu9p",
     V100: "v100",
+    L40s: "l40s",
 } as const;
 
 export type CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem = (typeof CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem)[keyof typeof CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem];

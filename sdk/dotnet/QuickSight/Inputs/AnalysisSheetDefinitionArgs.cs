@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
+        /// The name of the sheet. This name is displayed on the sheet's tab in the Quick Suite console.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

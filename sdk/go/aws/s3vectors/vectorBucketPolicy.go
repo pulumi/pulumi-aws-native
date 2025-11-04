@@ -16,9 +16,12 @@ import (
 type VectorBucketPolicy struct {
 	pulumi.CustomResourceState
 
-	Policy           VectorBucketPolicyPolicyOutput `pulumi:"policy"`
-	VectorBucketArn  pulumi.StringPtrOutput         `pulumi:"vectorBucketArn"`
-	VectorBucketName pulumi.StringPtrOutput         `pulumi:"vectorBucketName"`
+	// A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
+	Policy VectorBucketPolicyPolicyOutput `pulumi:"policy"`
+	// The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
+	VectorBucketArn pulumi.StringPtrOutput `pulumi:"vectorBucketArn"`
+	// The name of the S3 vector bucket to which the policy applies.
+	VectorBucketName pulumi.StringPtrOutput `pulumi:"vectorBucketName"`
 }
 
 // NewVectorBucketPolicy registers a new resource with the given unique name, arguments, and options.
@@ -69,15 +72,21 @@ func (VectorBucketPolicyState) ElementType() reflect.Type {
 }
 
 type vectorBucketPolicyArgs struct {
-	Policy           VectorBucketPolicyPolicy `pulumi:"policy"`
-	VectorBucketArn  *string                  `pulumi:"vectorBucketArn"`
-	VectorBucketName *string                  `pulumi:"vectorBucketName"`
+	// A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
+	Policy VectorBucketPolicyPolicy `pulumi:"policy"`
+	// The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
+	VectorBucketArn *string `pulumi:"vectorBucketArn"`
+	// The name of the S3 vector bucket to which the policy applies.
+	VectorBucketName *string `pulumi:"vectorBucketName"`
 }
 
 // The set of arguments for constructing a VectorBucketPolicy resource.
 type VectorBucketPolicyArgs struct {
-	Policy           VectorBucketPolicyPolicyInput
-	VectorBucketArn  pulumi.StringPtrInput
+	// A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
+	Policy VectorBucketPolicyPolicyInput
+	// The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
+	VectorBucketArn pulumi.StringPtrInput
+	// The name of the S3 vector bucket to which the policy applies.
 	VectorBucketName pulumi.StringPtrInput
 }
 
@@ -118,14 +127,17 @@ func (o VectorBucketPolicyOutput) ToVectorBucketPolicyOutputWithContext(ctx cont
 	return o
 }
 
+// A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
 func (o VectorBucketPolicyOutput) Policy() VectorBucketPolicyPolicyOutput {
 	return o.ApplyT(func(v *VectorBucketPolicy) VectorBucketPolicyPolicyOutput { return v.Policy }).(VectorBucketPolicyPolicyOutput)
 }
 
+// The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
 func (o VectorBucketPolicyOutput) VectorBucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VectorBucketPolicy) pulumi.StringPtrOutput { return v.VectorBucketArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the S3 vector bucket to which the policy applies.
 func (o VectorBucketPolicyOutput) VectorBucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VectorBucketPolicy) pulumi.StringPtrOutput { return v.VectorBucketName }).(pulumi.StringPtrOutput)
 }

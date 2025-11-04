@@ -40,6 +40,10 @@ export interface GetWebAclArgs {
 
 export interface GetWebAclResult {
     /**
+     * Collection of application attributes.
+     */
+    readonly applicationConfig?: outputs.wafv2.WebAclApplicationConfig;
+    /**
      * The Amazon Resource Name (ARN) of the web ACL.
      */
     readonly arn?: string;

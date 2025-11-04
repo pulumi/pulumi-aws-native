@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.WaFv2
     public partial class WebAcl : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Collection of application attributes.
+        /// </summary>
+        [Output("applicationConfig")]
+        public Output<Outputs.WebAclApplicationConfig?> ApplicationConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the web ACL.
         /// </summary>
         [Output("arn")]
@@ -195,6 +201,12 @@ namespace Pulumi.AwsNative.WaFv2
 
     public sealed class WebAclArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Collection of application attributes.
+        /// </summary>
+        [Input("applicationConfig")]
+        public Input<Inputs.WebAclApplicationConfigArgs>? ApplicationConfig { get; set; }
+
         /// <summary>
         /// Specifies custom configurations for the associations between the web ACL and protected resources.
         /// 

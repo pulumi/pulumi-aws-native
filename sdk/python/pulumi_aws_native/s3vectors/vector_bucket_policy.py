@@ -26,6 +26,9 @@ class VectorBucketPolicyArgs:
                  vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VectorBucketPolicy resource.
+        :param pulumi.Input['VectorBucketPolicyPolicyArgs'] policy: A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
+        :param pulumi.Input[_builtins.str] vector_bucket_arn: The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
+        :param pulumi.Input[_builtins.str] vector_bucket_name: The name of the S3 vector bucket to which the policy applies.
         """
         pulumi.set(__self__, "policy", policy)
         if vector_bucket_arn is not None:
@@ -36,6 +39,9 @@ class VectorBucketPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input['VectorBucketPolicyPolicyArgs']:
+        """
+        A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -45,6 +51,9 @@ class VectorBucketPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="vectorBucketArn")
     def vector_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
+        """
         return pulumi.get(self, "vector_bucket_arn")
 
     @vector_bucket_arn.setter
@@ -54,6 +63,9 @@ class VectorBucketPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="vectorBucketName")
     def vector_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the S3 vector bucket to which the policy applies.
+        """
         return pulumi.get(self, "vector_bucket_name")
 
     @vector_bucket_name.setter
@@ -76,6 +88,9 @@ class VectorBucketPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['VectorBucketPolicyPolicyArgs', 'VectorBucketPolicyPolicyArgsDict']] policy: A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
+        :param pulumi.Input[_builtins.str] vector_bucket_arn: The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
+        :param pulumi.Input[_builtins.str] vector_bucket_name: The name of the S3 vector bucket to which the policy applies.
         """
         ...
     @overload
@@ -150,15 +165,24 @@ class VectorBucketPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output['outputs.VectorBucketPolicyPolicy']:
+        """
+        A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
+        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter(name="vectorBucketArn")
     def vector_bucket_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
+        """
         return pulumi.get(self, "vector_bucket_arn")
 
     @_builtins.property
     @pulumi.getter(name="vectorBucketName")
     def vector_bucket_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the S3 vector bucket to which the policy applies.
+        """
         return pulumi.get(self, "vector_bucket_name")
 

@@ -2138,7 +2138,7 @@ type DashboardSheetDefinition struct {
 	//
 	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon Quick Suite User Guide* .
 	Layouts []DashboardLayout `pulumi:"layouts"`
-	// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
+	// The name of the sheet. This name is displayed on the sheet's tab in the Quick Suite console.
 	Name *string `pulumi:"name"`
 	// The list of parameter controls that are on a sheet.
 	//
@@ -2185,7 +2185,7 @@ type DashboardSheetDefinitionArgs struct {
 	//
 	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon Quick Suite User Guide* .
 	Layouts DashboardLayoutArrayInput `pulumi:"layouts"`
-	// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
+	// The name of the sheet. This name is displayed on the sheet's tab in the Quick Suite console.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The list of parameter controls that are on a sheet.
 	//
@@ -2286,7 +2286,7 @@ func (o DashboardSheetDefinitionOutput) Layouts() DashboardLayoutArrayOutput {
 	return o.ApplyT(func(v DashboardSheetDefinition) []DashboardLayout { return v.Layouts }).(DashboardLayoutArrayOutput)
 }
 
-// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
+// The name of the sheet. This name is displayed on the sheet's tab in the Quick Suite console.
 func (o DashboardSheetDefinitionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardSheetDefinition) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

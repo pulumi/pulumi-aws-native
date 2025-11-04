@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Aps.Outputs
     [OutputType]
     public sealed class AnomalyDetectorConfiguration
     {
+        /// <summary>
+        /// The Random Cut Forest algorithm configuration for anomaly detection.
+        /// </summary>
         public readonly Outputs.AnomalyDetectorRandomCutForestConfiguration RandomCutForest;
 
         [OutputConstructor]

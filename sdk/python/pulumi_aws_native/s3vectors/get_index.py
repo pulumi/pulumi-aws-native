@@ -34,11 +34,21 @@ class GetIndexResult:
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[_builtins.str]:
+        """
+        Returns the date and time when the vector index was created.
+
+        Example: `2024-12-21T10:30:00Z`
+        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="indexArn")
     def index_arn(self) -> Optional[_builtins.str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the specified index.
+
+        Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
+        """
         return pulumi.get(self, "index_arn")
 
 
@@ -56,6 +66,11 @@ def get_index(index_arn: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIndexResult:
     """
     Resource Type definition for AWS::S3Vectors::Index
+
+
+    :param _builtins.str index_arn: Returns the Amazon Resource Name (ARN) of the specified index.
+           
+           Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
     """
     __args__ = dict()
     __args__['indexArn'] = index_arn
@@ -69,6 +84,11 @@ def get_index_output(index_arn: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIndexResult]:
     """
     Resource Type definition for AWS::S3Vectors::Index
+
+
+    :param _builtins.str index_arn: Returns the Amazon Resource Name (ARN) of the specified index.
+           
+           Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
     """
     __args__ = dict()
     __args__['indexArn'] = index_arn

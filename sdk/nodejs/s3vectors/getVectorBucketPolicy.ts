@@ -18,10 +18,16 @@ export function getVectorBucketPolicy(args: GetVectorBucketPolicyArgs, opts?: pu
 }
 
 export interface GetVectorBucketPolicyArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
+     */
     vectorBucketArn: string;
 }
 
 export interface GetVectorBucketPolicyResult {
+    /**
+     * A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
+     */
     readonly policy?: outputs.s3vectors.VectorBucketPolicyPolicy;
 }
 /**
@@ -35,5 +41,8 @@ export function getVectorBucketPolicyOutput(args: GetVectorBucketPolicyOutputArg
 }
 
 export interface GetVectorBucketPolicyOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
+     */
     vectorBucketArn: pulumi.Input<string>;
 }

@@ -23,8 +23,7 @@ type Plan struct {
 	// The description for a plan.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The execution role for a plan.
-	ExecutionRole pulumi.StringOutput `pulumi:"executionRole"`
-	// Represents a Region switch plan. A plan defines the steps required to shift traffic from one AWS Region to another.
+	ExecutionRole       pulumi.StringOutput                `pulumi:"executionRole"`
 	HealthChecksForPlan PlanHealthCheckStateArrayMapOutput `pulumi:"healthChecksForPlan"`
 	// The name for a plan.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -213,7 +212,6 @@ func (o PlanOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.ExecutionRole }).(pulumi.StringOutput)
 }
 
-// Represents a Region switch plan. A plan defines the steps required to shift traffic from one AWS Region to another.
 func (o PlanOutput) HealthChecksForPlan() PlanHealthCheckStateArrayMapOutput {
 	return o.ApplyT(func(v *Plan) PlanHealthCheckStateArrayMapOutput { return v.HealthChecksForPlan }).(PlanHealthCheckStateArrayMapOutput)
 }

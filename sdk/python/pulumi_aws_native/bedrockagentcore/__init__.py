@@ -18,8 +18,10 @@ from .get_gateway_target import *
 from .get_memory import *
 from .get_runtime import *
 from .get_runtime_endpoint import *
+from .get_workload_identity import *
 from .memory import *
 from .runtime import *
 from .runtime_endpoint import *
+from .workload_identity import *
 from ._inputs import *
 from . import outputs

@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.S3Vectors
     [AwsNativeResourceType("aws-native:s3vectors:VectorBucketPolicy")]
     public partial class VectorBucketPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
+        /// </summary>
         [Output("policy")]
         public Output<Outputs.VectorBucketPolicyPolicy> Policy { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
+        /// </summary>
         [Output("vectorBucketArn")]
         public Output<string?> VectorBucketArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the S3 vector bucket to which the policy applies.
+        /// </summary>
         [Output("vectorBucketName")]
         public Output<string?> VectorBucketName { get; private set; } = null!;
 
@@ -74,12 +83,21 @@ namespace Pulumi.AwsNative.S3Vectors
 
     public sealed class VectorBucketPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
+        /// </summary>
         [Input("policy", required: true)]
         public Input<Inputs.VectorBucketPolicyPolicyArgs> Policy { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
+        /// </summary>
         [Input("vectorBucketArn")]
         public Input<string>? VectorBucketArn { get; set; }
 
+        /// <summary>
+        /// The name of the S3 vector bucket to which the policy applies.
+        /// </summary>
         [Input("vectorBucketName")]
         public Input<string>? VectorBucketName { get; set; }
 

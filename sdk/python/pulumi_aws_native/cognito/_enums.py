@@ -10,6 +10,8 @@ __all__ = [
     'ManagedLoginBrandingCategoryType',
     'ManagedLoginBrandingColorModeType',
     'ManagedLoginBrandingExtensionType',
+    'TermsEnforcementType',
+    'TermsSourceType',
     'UserPoolClientRefreshTokenRotationFeature',
     'UserPoolTier',
 ]
@@ -48,6 +50,16 @@ class ManagedLoginBrandingExtensionType(_builtins.str, Enum):
     PNG = "PNG"
     SVG = "SVG"
     WEBP = "WEBP"
+
+
+@pulumi.type_token("aws-native:cognito:TermsEnforcementType")
+class TermsEnforcementType(_builtins.str, Enum):
+    NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:cognito:TermsSourceType")
+class TermsSourceType(_builtins.str, Enum):
+    LINK = "LINK"
 
 
 @pulumi.type_token("aws-native:cognito:UserPoolClientRefreshTokenRotationFeature")

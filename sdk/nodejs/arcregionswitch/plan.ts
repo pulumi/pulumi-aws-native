@@ -53,9 +53,6 @@ export class Plan extends pulumi.CustomResource {
      * The execution role for a plan.
      */
     declare public readonly executionRole: pulumi.Output<string>;
-    /**
-     * Represents a Region switch plan. A plan defines the steps required to shift traffic from one AWS Region to another.
-     */
     declare public /*out*/ readonly healthChecksForPlan: pulumi.Output<{[key: string]: outputs.arcregionswitch.PlanHealthCheckState[]}>;
     /**
      * The name for a plan.

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Aps.Inputs
 
     public sealed class AnomalyDetectorConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Random Cut Forest algorithm configuration for anomaly detection.
+        /// </summary>
         [Input("randomCutForest", required: true)]
         public Input<Inputs.AnomalyDetectorRandomCutForestConfigurationArgs> RandomCutForest { get; set; } = null!;
 

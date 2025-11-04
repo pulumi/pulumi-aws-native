@@ -1089,7 +1089,8 @@ _utilities.register(
    "aws-native:bedrockagentcore:GatewayTarget": "GatewayTarget",
    "aws-native:bedrockagentcore:Memory": "Memory",
    "aws-native:bedrockagentcore:Runtime": "Runtime",
-   "aws-native:bedrockagentcore:RuntimeEndpoint": "RuntimeEndpoint"
+   "aws-native:bedrockagentcore:RuntimeEndpoint": "RuntimeEndpoint",
+   "aws-native:bedrockagentcore:WorkloadIdentity": "WorkloadIdentity"
   }
  },
  {
@@ -1326,6 +1327,7 @@ _utilities.register(
    "aws-native:cognito:IdentityPoolRoleAttachment": "IdentityPoolRoleAttachment",
    "aws-native:cognito:LogDeliveryConfiguration": "LogDeliveryConfiguration",
    "aws-native:cognito:ManagedLoginBranding": "ManagedLoginBranding",
+   "aws-native:cognito:Terms": "Terms",
    "aws-native:cognito:UserPool": "UserPool",
    "aws-native:cognito:UserPoolClient": "UserPoolClient",
    "aws-native:cognito:UserPoolDomain": "UserPoolDomain",
@@ -1979,6 +1981,7 @@ _utilities.register(
   "classes": {
    "aws-native:glue:Crawler": "Crawler",
    "aws-native:glue:Database": "Database",
+   "aws-native:glue:IntegrationResourceProperty": "IntegrationResourceProperty",
    "aws-native:glue:Job": "Job",
    "aws-native:glue:Registry": "Registry",
    "aws-native:glue:Schema": "Schema",

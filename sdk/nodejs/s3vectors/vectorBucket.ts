@@ -37,9 +37,29 @@ export class VectorBucket extends pulumi.CustomResource {
         return obj['__pulumiType'] === VectorBucket.__pulumiType;
     }
 
+    /**
+     * Returns the date and time when the vector bucket was created.
+     *
+     * Example: `2024-12-21T10:30:00Z`
+     */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
+    /**
+     * The encryption configuration for the vector bucket.
+     */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.s3vectors.VectorBucketEncryptionConfiguration | undefined>;
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified vector bucket.
+     *
+     * Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket`
+     */
     declare public /*out*/ readonly vectorBucketArn: pulumi.Output<string>;
+    /**
+     * A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.
+     *
+     * The bucket name must be between 3 and 63 characters long and must not contain uppercase characters or underscores.
+     *
+     * > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+     */
     declare public readonly vectorBucketName: pulumi.Output<string | undefined>;
 
     /**
@@ -74,6 +94,16 @@ export class VectorBucket extends pulumi.CustomResource {
  * The set of arguments for constructing a VectorBucket resource.
  */
 export interface VectorBucketArgs {
+    /**
+     * The encryption configuration for the vector bucket.
+     */
     encryptionConfiguration?: pulumi.Input<inputs.s3vectors.VectorBucketEncryptionConfigurationArgs>;
+    /**
+     * A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.
+     *
+     * The bucket name must be between 3 and 63 characters long and must not contain uppercase characters or underscores.
+     *
+     * > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+     */
     vectorBucketName?: pulumi.Input<string>;
 }

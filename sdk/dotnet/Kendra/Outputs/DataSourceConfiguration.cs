@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// </summary>
         public readonly Outputs.DataSourceWebCrawlerConfiguration? WebCrawlerConfiguration;
         /// <summary>
-        /// Provides the configuration information to connect to Amazon WorkDocs as your data source.
+        /// Provides the configuration information to connect to WorkDocs as your data source.
         /// </summary>
         public readonly Outputs.DataSourceWorkDocsConfiguration? WorkDocsConfiguration;
 

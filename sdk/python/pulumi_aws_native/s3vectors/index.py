@@ -31,6 +31,22 @@ class IndexArgs:
                  vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Index resource.
+        :param pulumi.Input['IndexDataType'] data_type: The data type of the vectors to be inserted into the vector index. Currently, only `float32` is supported, which represents 32-bit floating-point numbers.
+        :param pulumi.Input[_builtins.int] dimension: The dimensions of the vectors to be inserted into the vector index. This value must be between 1 and 4096, inclusive. All vectors stored in the index must have the same number of dimensions.
+               
+               The dimension value affects the storage requirements and search performance. Higher dimensions require more storage space and may impact search latency.
+        :param pulumi.Input['IndexDistanceMetric'] distance_metric: The distance metric to be used for similarity search. Valid values are:
+               
+               - `cosine` - Measures the cosine of the angle between two vectors.
+               - `euclidean` - Measures the straight-line distance between two points in multi-dimensional space. Lower values indicate greater similarity.
+        :param pulumi.Input[_builtins.str] index_name: The name of the vector index to create. The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.
+               
+               If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the index name.
+               
+               > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+        :param pulumi.Input['IndexMetadataConfigurationArgs'] metadata_configuration: The metadata configuration for the vector index.
+        :param pulumi.Input[_builtins.str] vector_bucket_arn: The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
+        :param pulumi.Input[_builtins.str] vector_bucket_name: The name of the vector bucket that contains the vector index.
         """
         pulumi.set(__self__, "data_type", data_type)
         pulumi.set(__self__, "dimension", dimension)
@@ -47,6 +63,9 @@ class IndexArgs:
     @_builtins.property
     @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Input['IndexDataType']:
+        """
+        The data type of the vectors to be inserted into the vector index. Currently, only `float32` is supported, which represents 32-bit floating-point numbers.
+        """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
@@ -56,6 +75,11 @@ class IndexArgs:
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> pulumi.Input[_builtins.int]:
+        """
+        The dimensions of the vectors to be inserted into the vector index. This value must be between 1 and 4096, inclusive. All vectors stored in the index must have the same number of dimensions.
+
+        The dimension value affects the storage requirements and search performance. Higher dimensions require more storage space and may impact search latency.
+        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -65,6 +89,12 @@ class IndexArgs:
     @_builtins.property
     @pulumi.getter(name="distanceMetric")
     def distance_metric(self) -> pulumi.Input['IndexDistanceMetric']:
+        """
+        The distance metric to be used for similarity search. Valid values are:
+
+        - `cosine` - Measures the cosine of the angle between two vectors.
+        - `euclidean` - Measures the straight-line distance between two points in multi-dimensional space. Lower values indicate greater similarity.
+        """
         return pulumi.get(self, "distance_metric")
 
     @distance_metric.setter
@@ -74,6 +104,13 @@ class IndexArgs:
     @_builtins.property
     @pulumi.getter(name="indexName")
     def index_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the vector index to create. The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.
+
+        If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the index name.
+
+        > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+        """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
@@ -83,6 +120,9 @@ class IndexArgs:
     @_builtins.property
     @pulumi.getter(name="metadataConfiguration")
     def metadata_configuration(self) -> Optional[pulumi.Input['IndexMetadataConfigurationArgs']]:
+        """
+        The metadata configuration for the vector index.
+        """
         return pulumi.get(self, "metadata_configuration")
 
     @metadata_configuration.setter
@@ -92,6 +132,9 @@ class IndexArgs:
     @_builtins.property
     @pulumi.getter(name="vectorBucketArn")
     def vector_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
+        """
         return pulumi.get(self, "vector_bucket_arn")
 
     @vector_bucket_arn.setter
@@ -101,6 +144,9 @@ class IndexArgs:
     @_builtins.property
     @pulumi.getter(name="vectorBucketName")
     def vector_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the vector bucket that contains the vector index.
+        """
         return pulumi.get(self, "vector_bucket_name")
 
     @vector_bucket_name.setter
@@ -127,6 +173,22 @@ class Index(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['IndexDataType'] data_type: The data type of the vectors to be inserted into the vector index. Currently, only `float32` is supported, which represents 32-bit floating-point numbers.
+        :param pulumi.Input[_builtins.int] dimension: The dimensions of the vectors to be inserted into the vector index. This value must be between 1 and 4096, inclusive. All vectors stored in the index must have the same number of dimensions.
+               
+               The dimension value affects the storage requirements and search performance. Higher dimensions require more storage space and may impact search latency.
+        :param pulumi.Input['IndexDistanceMetric'] distance_metric: The distance metric to be used for similarity search. Valid values are:
+               
+               - `cosine` - Measures the cosine of the angle between two vectors.
+               - `euclidean` - Measures the straight-line distance between two points in multi-dimensional space. Lower values indicate greater similarity.
+        :param pulumi.Input[_builtins.str] index_name: The name of the vector index to create. The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.
+               
+               If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the index name.
+               
+               > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+        :param pulumi.Input[Union['IndexMetadataConfigurationArgs', 'IndexMetadataConfigurationArgsDict']] metadata_configuration: The metadata configuration for the vector index.
+        :param pulumi.Input[_builtins.str] vector_bucket_arn: The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
+        :param pulumi.Input[_builtins.str] vector_bucket_name: The name of the vector bucket that contains the vector index.
         """
         ...
     @overload
@@ -221,45 +283,85 @@ class Index(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[_builtins.str]:
+        """
+        Returns the date and time when the vector index was created.
+
+        Example: `2024-12-21T10:30:00Z`
+        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Output['IndexDataType']:
+        """
+        The data type of the vectors to be inserted into the vector index. Currently, only `float32` is supported, which represents 32-bit floating-point numbers.
+        """
         return pulumi.get(self, "data_type")
 
     @_builtins.property
     @pulumi.getter
     def dimension(self) -> pulumi.Output[_builtins.int]:
+        """
+        The dimensions of the vectors to be inserted into the vector index. This value must be between 1 and 4096, inclusive. All vectors stored in the index must have the same number of dimensions.
+
+        The dimension value affects the storage requirements and search performance. Higher dimensions require more storage space and may impact search latency.
+        """
         return pulumi.get(self, "dimension")
 
     @_builtins.property
     @pulumi.getter(name="distanceMetric")
     def distance_metric(self) -> pulumi.Output['IndexDistanceMetric']:
+        """
+        The distance metric to be used for similarity search. Valid values are:
+
+        - `cosine` - Measures the cosine of the angle between two vectors.
+        - `euclidean` - Measures the straight-line distance between two points in multi-dimensional space. Lower values indicate greater similarity.
+        """
         return pulumi.get(self, "distance_metric")
 
     @_builtins.property
     @pulumi.getter(name="indexArn")
     def index_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the specified index.
+
+        Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
+        """
         return pulumi.get(self, "index_arn")
 
     @_builtins.property
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the vector index to create. The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.
+
+        If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the index name.
+
+        > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+        """
         return pulumi.get(self, "index_name")
 
     @_builtins.property
     @pulumi.getter(name="metadataConfiguration")
     def metadata_configuration(self) -> pulumi.Output[Optional['outputs.IndexMetadataConfiguration']]:
+        """
+        The metadata configuration for the vector index.
+        """
         return pulumi.get(self, "metadata_configuration")
 
     @_builtins.property
     @pulumi.getter(name="vectorBucketArn")
     def vector_bucket_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
+        """
         return pulumi.get(self, "vector_bucket_arn")
 
     @_builtins.property
     @pulumi.getter(name="vectorBucketName")
     def vector_bucket_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the vector bucket that contains the vector index.
+        """
         return pulumi.get(self, "vector_bucket_name")
 

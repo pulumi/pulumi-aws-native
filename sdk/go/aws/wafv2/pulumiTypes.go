@@ -12438,6 +12438,245 @@ func (o WebAclAndStatementPtrOutput) Statements() WebAclStatementArrayOutput {
 	}).(WebAclStatementArrayOutput)
 }
 
+// Application details defined during the &webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+type WebAclApplicationAttribute struct {
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// WebAclApplicationAttributeInput is an input type that accepts WebAclApplicationAttributeArgs and WebAclApplicationAttributeOutput values.
+// You can construct a concrete instance of `WebAclApplicationAttributeInput` via:
+//
+//	WebAclApplicationAttributeArgs{...}
+type WebAclApplicationAttributeInput interface {
+	pulumi.Input
+
+	ToWebAclApplicationAttributeOutput() WebAclApplicationAttributeOutput
+	ToWebAclApplicationAttributeOutputWithContext(context.Context) WebAclApplicationAttributeOutput
+}
+
+// Application details defined during the &webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+type WebAclApplicationAttributeArgs struct {
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (WebAclApplicationAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclApplicationAttribute)(nil)).Elem()
+}
+
+func (i WebAclApplicationAttributeArgs) ToWebAclApplicationAttributeOutput() WebAclApplicationAttributeOutput {
+	return i.ToWebAclApplicationAttributeOutputWithContext(context.Background())
+}
+
+func (i WebAclApplicationAttributeArgs) ToWebAclApplicationAttributeOutputWithContext(ctx context.Context) WebAclApplicationAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclApplicationAttributeOutput)
+}
+
+// WebAclApplicationAttributeArrayInput is an input type that accepts WebAclApplicationAttributeArray and WebAclApplicationAttributeArrayOutput values.
+// You can construct a concrete instance of `WebAclApplicationAttributeArrayInput` via:
+//
+//	WebAclApplicationAttributeArray{ WebAclApplicationAttributeArgs{...} }
+type WebAclApplicationAttributeArrayInput interface {
+	pulumi.Input
+
+	ToWebAclApplicationAttributeArrayOutput() WebAclApplicationAttributeArrayOutput
+	ToWebAclApplicationAttributeArrayOutputWithContext(context.Context) WebAclApplicationAttributeArrayOutput
+}
+
+type WebAclApplicationAttributeArray []WebAclApplicationAttributeInput
+
+func (WebAclApplicationAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclApplicationAttribute)(nil)).Elem()
+}
+
+func (i WebAclApplicationAttributeArray) ToWebAclApplicationAttributeArrayOutput() WebAclApplicationAttributeArrayOutput {
+	return i.ToWebAclApplicationAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclApplicationAttributeArray) ToWebAclApplicationAttributeArrayOutputWithContext(ctx context.Context) WebAclApplicationAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclApplicationAttributeArrayOutput)
+}
+
+// Application details defined during the &webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+type WebAclApplicationAttributeOutput struct{ *pulumi.OutputState }
+
+func (WebAclApplicationAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclApplicationAttribute)(nil)).Elem()
+}
+
+func (o WebAclApplicationAttributeOutput) ToWebAclApplicationAttributeOutput() WebAclApplicationAttributeOutput {
+	return o
+}
+
+func (o WebAclApplicationAttributeOutput) ToWebAclApplicationAttributeOutputWithContext(ctx context.Context) WebAclApplicationAttributeOutput {
+	return o
+}
+
+func (o WebAclApplicationAttributeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclApplicationAttribute) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WebAclApplicationAttributeOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebAclApplicationAttribute) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type WebAclApplicationAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclApplicationAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclApplicationAttribute)(nil)).Elem()
+}
+
+func (o WebAclApplicationAttributeArrayOutput) ToWebAclApplicationAttributeArrayOutput() WebAclApplicationAttributeArrayOutput {
+	return o
+}
+
+func (o WebAclApplicationAttributeArrayOutput) ToWebAclApplicationAttributeArrayOutputWithContext(ctx context.Context) WebAclApplicationAttributeArrayOutput {
+	return o
+}
+
+func (o WebAclApplicationAttributeArrayOutput) Index(i pulumi.IntInput) WebAclApplicationAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclApplicationAttribute {
+		return vs[0].([]WebAclApplicationAttribute)[vs[1].(int)]
+	}).(WebAclApplicationAttributeOutput)
+}
+
+// Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+type WebAclApplicationConfig struct {
+	Attributes []WebAclApplicationAttribute `pulumi:"attributes"`
+}
+
+// WebAclApplicationConfigInput is an input type that accepts WebAclApplicationConfigArgs and WebAclApplicationConfigOutput values.
+// You can construct a concrete instance of `WebAclApplicationConfigInput` via:
+//
+//	WebAclApplicationConfigArgs{...}
+type WebAclApplicationConfigInput interface {
+	pulumi.Input
+
+	ToWebAclApplicationConfigOutput() WebAclApplicationConfigOutput
+	ToWebAclApplicationConfigOutputWithContext(context.Context) WebAclApplicationConfigOutput
+}
+
+// Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+type WebAclApplicationConfigArgs struct {
+	Attributes WebAclApplicationAttributeArrayInput `pulumi:"attributes"`
+}
+
+func (WebAclApplicationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclApplicationConfig)(nil)).Elem()
+}
+
+func (i WebAclApplicationConfigArgs) ToWebAclApplicationConfigOutput() WebAclApplicationConfigOutput {
+	return i.ToWebAclApplicationConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclApplicationConfigArgs) ToWebAclApplicationConfigOutputWithContext(ctx context.Context) WebAclApplicationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclApplicationConfigOutput)
+}
+
+func (i WebAclApplicationConfigArgs) ToWebAclApplicationConfigPtrOutput() WebAclApplicationConfigPtrOutput {
+	return i.ToWebAclApplicationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclApplicationConfigArgs) ToWebAclApplicationConfigPtrOutputWithContext(ctx context.Context) WebAclApplicationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclApplicationConfigOutput).ToWebAclApplicationConfigPtrOutputWithContext(ctx)
+}
+
+// WebAclApplicationConfigPtrInput is an input type that accepts WebAclApplicationConfigArgs, WebAclApplicationConfigPtr and WebAclApplicationConfigPtrOutput values.
+// You can construct a concrete instance of `WebAclApplicationConfigPtrInput` via:
+//
+//	        WebAclApplicationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclApplicationConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebAclApplicationConfigPtrOutput() WebAclApplicationConfigPtrOutput
+	ToWebAclApplicationConfigPtrOutputWithContext(context.Context) WebAclApplicationConfigPtrOutput
+}
+
+type webAclApplicationConfigPtrType WebAclApplicationConfigArgs
+
+func WebAclApplicationConfigPtr(v *WebAclApplicationConfigArgs) WebAclApplicationConfigPtrInput {
+	return (*webAclApplicationConfigPtrType)(v)
+}
+
+func (*webAclApplicationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclApplicationConfig)(nil)).Elem()
+}
+
+func (i *webAclApplicationConfigPtrType) ToWebAclApplicationConfigPtrOutput() WebAclApplicationConfigPtrOutput {
+	return i.ToWebAclApplicationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclApplicationConfigPtrType) ToWebAclApplicationConfigPtrOutputWithContext(ctx context.Context) WebAclApplicationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclApplicationConfigPtrOutput)
+}
+
+// Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+type WebAclApplicationConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclApplicationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclApplicationConfig)(nil)).Elem()
+}
+
+func (o WebAclApplicationConfigOutput) ToWebAclApplicationConfigOutput() WebAclApplicationConfigOutput {
+	return o
+}
+
+func (o WebAclApplicationConfigOutput) ToWebAclApplicationConfigOutputWithContext(ctx context.Context) WebAclApplicationConfigOutput {
+	return o
+}
+
+func (o WebAclApplicationConfigOutput) ToWebAclApplicationConfigPtrOutput() WebAclApplicationConfigPtrOutput {
+	return o.ToWebAclApplicationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclApplicationConfigOutput) ToWebAclApplicationConfigPtrOutputWithContext(ctx context.Context) WebAclApplicationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclApplicationConfig) *WebAclApplicationConfig {
+		return &v
+	}).(WebAclApplicationConfigPtrOutput)
+}
+
+func (o WebAclApplicationConfigOutput) Attributes() WebAclApplicationAttributeArrayOutput {
+	return o.ApplyT(func(v WebAclApplicationConfig) []WebAclApplicationAttribute { return v.Attributes }).(WebAclApplicationAttributeArrayOutput)
+}
+
+type WebAclApplicationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclApplicationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclApplicationConfig)(nil)).Elem()
+}
+
+func (o WebAclApplicationConfigPtrOutput) ToWebAclApplicationConfigPtrOutput() WebAclApplicationConfigPtrOutput {
+	return o
+}
+
+func (o WebAclApplicationConfigPtrOutput) ToWebAclApplicationConfigPtrOutputWithContext(ctx context.Context) WebAclApplicationConfigPtrOutput {
+	return o
+}
+
+func (o WebAclApplicationConfigPtrOutput) Elem() WebAclApplicationConfigOutput {
+	return o.ApplyT(func(v *WebAclApplicationConfig) WebAclApplicationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclApplicationConfig
+		return ret
+	}).(WebAclApplicationConfigOutput)
+}
+
+func (o WebAclApplicationConfigPtrOutput) Attributes() WebAclApplicationAttributeArrayOutput {
+	return o.ApplyT(func(v *WebAclApplicationConfig) []WebAclApplicationAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.Attributes
+	}).(WebAclApplicationAttributeArrayOutput)
+}
+
 type WebAclAsnMatchStatement struct {
 	// Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
 	AsnList []int `pulumi:"asnList"`
@@ -28591,6 +28830,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAllowActionPtrInput)(nil)).Elem(), WebAclAllowActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAndStatementInput)(nil)).Elem(), WebAclAndStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAndStatementPtrInput)(nil)).Elem(), WebAclAndStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclApplicationAttributeInput)(nil)).Elem(), WebAclApplicationAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclApplicationAttributeArrayInput)(nil)).Elem(), WebAclApplicationAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclApplicationConfigInput)(nil)).Elem(), WebAclApplicationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclApplicationConfigPtrInput)(nil)).Elem(), WebAclApplicationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAsnMatchStatementInput)(nil)).Elem(), WebAclAsnMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAsnMatchStatementPtrInput)(nil)).Elem(), WebAclAsnMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAssociationConfigInput)(nil)).Elem(), WebAclAssociationConfigArgs{})
@@ -28903,6 +29146,10 @@ func init() {
 	pulumi.RegisterOutputType(WebAclAllowActionPtrOutput{})
 	pulumi.RegisterOutputType(WebAclAndStatementOutput{})
 	pulumi.RegisterOutputType(WebAclAndStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebAclApplicationAttributeOutput{})
+	pulumi.RegisterOutputType(WebAclApplicationAttributeArrayOutput{})
+	pulumi.RegisterOutputType(WebAclApplicationConfigOutput{})
+	pulumi.RegisterOutputType(WebAclApplicationConfigPtrOutput{})
 	pulumi.RegisterOutputType(WebAclAsnMatchStatementOutput{})
 	pulumi.RegisterOutputType(WebAclAsnMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclAssociationConfigOutput{})

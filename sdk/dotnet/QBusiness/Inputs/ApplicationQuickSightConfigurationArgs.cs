@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QBusiness.Inputs
     public sealed class ApplicationQuickSightConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
+        /// The Amazon Quick Suite namespace that is used as the identity provider. For more information about Quick Suite namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
         /// </summary>
         [Input("clientNamespace", required: true)]
         public Input<string> ClientNamespace { get; set; } = null!;

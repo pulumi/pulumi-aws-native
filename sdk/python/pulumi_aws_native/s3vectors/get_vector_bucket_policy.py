@@ -32,6 +32,9 @@ class GetVectorBucketPolicyResult:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional['outputs.VectorBucketPolicyPolicy']:
+        """
+        A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
+        """
         return pulumi.get(self, "policy")
 
 
@@ -48,6 +51,9 @@ def get_vector_bucket_policy(vector_bucket_arn: Optional[_builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVectorBucketPolicyResult:
     """
     Resource Type definition for AWS::S3Vectors::VectorBucketPolicy
+
+
+    :param _builtins.str vector_bucket_arn: The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
     """
     __args__ = dict()
     __args__['vectorBucketArn'] = vector_bucket_arn
@@ -60,6 +66,9 @@ def get_vector_bucket_policy_output(vector_bucket_arn: Optional[pulumi.Input[_bu
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVectorBucketPolicyResult]:
     """
     Resource Type definition for AWS::S3Vectors::VectorBucketPolicy
+
+
+    :param _builtins.str vector_bucket_arn: The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
     """
     __args__ = dict()
     __args__['vectorBucketArn'] = vector_bucket_arn

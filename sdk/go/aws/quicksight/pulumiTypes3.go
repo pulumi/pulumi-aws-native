@@ -23786,7 +23786,7 @@ type TemplateSheetDefinition struct {
 	//
 	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon Quick Suite User Guide* .
 	Layouts []TemplateLayout `pulumi:"layouts"`
-	// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
+	// The name of the sheet. This name is displayed on the sheet's tab in the Quick Suite console.
 	Name *string `pulumi:"name"`
 	// The list of parameter controls that are on a sheet.
 	//
@@ -23833,7 +23833,7 @@ type TemplateSheetDefinitionArgs struct {
 	//
 	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon Quick Suite User Guide* .
 	Layouts TemplateLayoutArrayInput `pulumi:"layouts"`
-	// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
+	// The name of the sheet. This name is displayed on the sheet's tab in the Quick Suite console.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The list of parameter controls that are on a sheet.
 	//
@@ -23934,7 +23934,7 @@ func (o TemplateSheetDefinitionOutput) Layouts() TemplateLayoutArrayOutput {
 	return o.ApplyT(func(v TemplateSheetDefinition) []TemplateLayout { return v.Layouts }).(TemplateLayoutArrayOutput)
 }
 
-// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
+// The name of the sheet. This name is displayed on the sheet's tab in the Quick Suite console.
 func (o TemplateSheetDefinitionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateSheetDefinition) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
