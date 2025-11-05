@@ -10040,7 +10040,7 @@
       },
       "invokedViaFunctionUrl": {
         "type": "boolean",
-        "description": "Restricts the `lambda:InvokeFunction` action to function URL calls. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) ."
+        "description": "Restricts the `lambda:InvokeFunction` action to function URL calls. When specified, this option prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) ."
       },
       "principal": {
         "type": "string",
