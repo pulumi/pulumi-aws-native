@@ -5,7 +5,7 @@ go 1.24.7
 toolchain go1.24.9
 
 require (
-	github.com/pulumi/pulumi-aws-native/sdk v1.37.0
+	github.com/pulumi/pulumi-aws-native/sdk v1.38.0
 	github.com/pulumi/pulumi/sdk/v3 v3.203.0
 )
 
@@ -57,7 +57,6 @@ require (
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/pgavlin/fx v0.1.6 // indirect
-	github.com/pgavlin/fx/v2 v2.0.10 // indirect
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
