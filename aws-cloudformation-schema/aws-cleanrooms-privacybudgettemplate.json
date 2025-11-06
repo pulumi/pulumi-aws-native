@@ -18,6 +18,25 @@
         }
       },
       "required" : [ "Value", "Key" ]
+    },
+    "BudgetParameter" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Type" : {
+          "type" : "string",
+          "enum" : [ "CALENDAR_DAY", "CALENDAR_MONTH", "CALENDAR_WEEK", "LIFETIME" ]
+        },
+        "Budget" : {
+          "type" : "integer",
+          "minimum" : 0
+        },
+        "AutoRefresh" : {
+          "type" : "string",
+          "enum" : [ "ENABLED", "DISABLED" ]
+        }
+      },
+      "required" : [ "Type", "Budget" ]
     }
   },
   "properties" : {
@@ -55,7 +74,7 @@
     },
     "PrivacyBudgetType" : {
       "type" : "string",
-      "enum" : [ "DIFFERENTIAL_PRIVACY" ]
+      "enum" : [ "DIFFERENTIAL_PRIVACY", "ACCESS_BUDGET" ]
     },
     "Parameters" : {
       "type" : "object",
@@ -70,9 +89,21 @@
           "type" : "integer",
           "minimum" : 10,
           "maximum" : 100
+        },
+        "BudgetParameters" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "$ref" : "#/definitions/BudgetParameter"
+          },
+          "minItems" : 1,
+          "maxItems" : 2
+        },
+        "ResourceArn" : {
+          "type" : "string",
+          "maxLength" : 200
         }
-      },
-      "required" : [ "Epsilon", "UsersNoisePerQuery" ]
+      }
     },
     "MembershipArn" : {
       "type" : "string",
@@ -87,7 +118,7 @@
   },
   "required" : [ "AutoRefresh", "PrivacyBudgetType", "Parameters", "MembershipIdentifier" ],
   "readOnlyProperties" : [ "/properties/CollaborationArn", "/properties/CollaborationIdentifier", "/properties/PrivacyBudgetTemplateIdentifier", "/properties/Arn", "/properties/MembershipArn" ],
-  "createOnlyProperties" : [ "/properties/MembershipIdentifier", "/properties/PrivacyBudgetType", "/properties/AutoRefresh" ],
+  "createOnlyProperties" : [ "/properties/MembershipIdentifier", "/properties/PrivacyBudgetType", "/properties/AutoRefresh", "/properties/Parameters/ResourceArn" ],
   "primaryIdentifier" : [ "/properties/PrivacyBudgetTemplateIdentifier", "/properties/MembershipIdentifier" ],
   "replacementStrategy" : "delete_then_create",
   "tagging" : {

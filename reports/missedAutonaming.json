@@ -7419,7 +7419,7 @@
         "items": {
           "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateImageTagMutabilityExclusionFilter"
         },
-        "description": "Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting."
+        "description": "A list of filters that specify which image tags are excluded from the repository creation template's image tag mutability setting."
       },
       "lifecyclePolicy": {
         "type": "string",
@@ -7539,7 +7539,7 @@
       },
       "pidMode": {
         "type": "string",
-        "description": "The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task.\n If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.\n If ``task`` is specified, all containers within the specified task share the same process namespace.\n If no value is specified, the default is a private namespace for each container.\n If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure.\n  This parameter is not supported for Windows containers.\n   This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate."
+        "description": "The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task.\n If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.\n If ``task`` is specified, all containers within the specified task share the same process namespace.\n If no value is specified, the The default is a private namespace for each container.\n If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure.\n  This parameter is not supported for Windows containers.\n   This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate."
       },
       "placementConstraints": {
         "type": "array",
@@ -7561,7 +7561,7 @@
       },
       "runtimePlatform": {
         "$ref": "#/types/aws-native:ecs:TaskDefinitionRuntimePlatform",
-        "description": "The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type."
+        "description": "The operating system that your tasks definitions run on."
       },
       "tags": {
         "type": "array",
@@ -10040,7 +10040,7 @@
       },
       "invokedViaFunctionUrl": {
         "type": "boolean",
-        "description": "Restricts the `lambda:InvokeFunction` action to function URL calls. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) ."
+        "description": "Restricts the `lambda:InvokeFunction` action to function URL calls. When specified, this option prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) ."
       },
       "principal": {
         "type": "string",

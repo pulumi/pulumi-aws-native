@@ -1060,6 +1060,7 @@ AWS::SES::MailManagerIngressPoint
 AWS::SES::MailManagerRelay
 AWS::SES::MailManagerRuleSet
 AWS::SES::MailManagerTrafficPolicy
+AWS::SES::MultiRegionEndpoint
 AWS::SES::Template
 AWS::SES::VdmAttributes
 AWS::SMSVOICE::ConfigurationSet
@@ -1148,6 +1149,7 @@ AWS::SecurityLake::AwsLogSource
 AWS::SecurityLake::DataLake
 AWS::SecurityLake::Subscriber
 AWS::SecurityLake::SubscriberNotification
+AWS::ServiceCatalog::CloudFormationProduct
 AWS::ServiceCatalog::CloudFormationProvisionedProduct
 AWS::ServiceCatalog::LaunchNotificationConstraint
 AWS::ServiceCatalog::LaunchTemplateConstraint
