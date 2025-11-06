@@ -74,13 +74,13 @@ version = "1.22.22"
 backend = "npm:yarn"
 
 [[tools.pulumi]]
-version = "3.205.0"
+version = "3.206.0"
 backend = "aqua:pulumi/pulumi"
 
 [tools.pulumi.platforms.linux-x64]
-checksum = "sha256:210540f40df959f11e8fd5fb38e288c8b86f2a16a0511db9b812adb97160f892"
-size = 94479557
-url = "https://github.com/pulumi/pulumi/releases/download/v3.205.0/pulumi-v3.205.0-linux-x64.tar.gz"
+checksum = "sha256:e950bb0afdeac2aaf5b7edc95380cc8c93f7d43c1d6268a76a01792630cbdee0"
+size = 94509673
+url = "https://github.com/pulumi/pulumi/releases/download/v3.206.0/pulumi-v3.206.0-linux-x64.tar.gz"
 
 [[tools.python]]
 version = "3.11.8"
