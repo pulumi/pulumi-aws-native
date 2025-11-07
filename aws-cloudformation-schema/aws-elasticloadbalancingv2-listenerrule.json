@@ -137,7 +137,7 @@
           "$ref" : "#/definitions/QueryStringConfig"
         },
         "RegexValues" : {
-          "description" : "",
+          "description" : "The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when ``Field`` is ``http-header``, ``host-header``, or ``path-pattern``.",
           "$ref" : "#/definitions/ListOfStrings"
         },
         "HostHeaderConfig" : {
@@ -198,14 +198,16 @@
       }
     },
     "RewriteConfig" : {
-      "description" : "",
+      "description" : "Information about a rewrite transform. This transform matches a pattern and replaces it with the specified string.",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "Replace" : {
+          "description" : "The replacement string to use when rewriting the matched input. The maximum length of the string is 1,024 characters. You can specify capture groups in the regular expression (for example, $1 and $2).",
           "type" : "string"
         },
         "Regex" : {
+          "description" : "The regular expression to match in the input string. The maximum length of the string is 1,024 characters.",
           "type" : "string"
         }
       },
@@ -349,6 +351,7 @@
       "type" : "object",
       "properties" : {
         "Rewrites" : {
+          "description" : "",
           "$ref" : "#/definitions/RewriteConfigList"
         }
       },
@@ -415,12 +418,15 @@
       "type" : "object",
       "properties" : {
         "Type" : {
+          "description" : "",
           "type" : "string"
         },
         "UrlRewriteConfig" : {
+          "description" : "",
           "$ref" : "#/definitions/RewriteConfigObject"
         },
         "HostHeaderRewriteConfig" : {
+          "description" : "",
           "$ref" : "#/definitions/RewriteConfigObject"
         }
       },

@@ -57,5 +57,7 @@
   "primaryIdentifier" : [ "/properties/StatementName", "/properties/WorkGroup" ],
   "createOnlyProperties" : [ "/properties/StatementName", "/properties/WorkGroup" ],
   "additionalProperties" : false,
-  "taggable" : false
+  "tagging" : {
+    "taggable" : false
+  }
 }

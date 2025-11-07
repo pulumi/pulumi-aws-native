@@ -125,6 +125,12 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "MaxRecordSizeInKiB" : {
+      "description" : "Maximum size of a data record in KiB allowed to be put into Kinesis stream.",
+      "type" : "integer",
+      "minimum" : 1024,
+      "maximum" : 10240
     }
   },
   "additionalProperties" : false,
@@ -142,13 +148,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "kinesis:EnableEnhancedMonitoring", "kinesis:DescribeStreamSummary", "kinesis:CreateStream", "kinesis:IncreaseStreamRetentionPeriod", "kinesis:StartStreamEncryption", "kinesis:AddTagsToStream", "kinesis:ListTagsForStream", "kinesis:ListTagsForResource" ]
+      "permissions" : [ "kinesis:EnableEnhancedMonitoring", "kinesis:DescribeStreamSummary", "kinesis:CreateStream", "kinesis:IncreaseStreamRetentionPeriod", "kinesis:StartStreamEncryption", "kinesis:AddTagsToStream", "kinesis:ListTagsForStream", "kinesis:ListTagsForResource", "kinesis:UpdateMaxRecordSize" ]
     },
     "read" : {
       "permissions" : [ "kinesis:DescribeStreamSummary", "kinesis:ListTagsForStream", "kinesis:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "kinesis:EnableEnhancedMonitoring", "kinesis:DisableEnhancedMonitoring", "kinesis:DescribeStreamSummary", "kinesis:UpdateShardCount", "kinesis:UpdateStreamMode", "kinesis:IncreaseStreamRetentionPeriod", "kinesis:DecreaseStreamRetentionPeriod", "kinesis:StartStreamEncryption", "kinesis:StopStreamEncryption", "kinesis:AddTagsToStream", "kinesis:TagResource", "kinesis:RemoveTagsFromStream", "kinesis:UntagResource", "kinesis:ListTagsForStream", "kinesis:ListTagsForResource" ],
+      "permissions" : [ "kinesis:EnableEnhancedMonitoring", "kinesis:DisableEnhancedMonitoring", "kinesis:DescribeStreamSummary", "kinesis:UpdateShardCount", "kinesis:UpdateStreamMode", "kinesis:IncreaseStreamRetentionPeriod", "kinesis:DecreaseStreamRetentionPeriod", "kinesis:StartStreamEncryption", "kinesis:StopStreamEncryption", "kinesis:AddTagsToStream", "kinesis:TagResource", "kinesis:RemoveTagsFromStream", "kinesis:UntagResource", "kinesis:ListTagsForStream", "kinesis:ListTagsForResource", "kinesis:UpdateMaxRecordSize" ],
       "timeoutInMinutes" : 240
     },
     "delete" : {
